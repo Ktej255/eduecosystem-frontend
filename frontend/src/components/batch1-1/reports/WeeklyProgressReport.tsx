@@ -43,8 +43,8 @@ export default function WeeklyProgressReport({ onBack }: WeeklyProgressReportPro
         return (
             <div className="max-w-4xl mx-auto p-6">
                 <div className="animate-pulse space-y-4">
-                    <div className="h-8 bg-gray-200 rounded w-1/3"></div>
-                    <div className="h-48 bg-gray-200 rounded"></div>
+                    <div className="h-8 bg-muted rounded w-1/3"></div>
+                    <div className="h-48 bg-muted rounded"></div>
                 </div>
             </div>
         );
@@ -57,11 +57,11 @@ export default function WeeklyProgressReport({ onBack }: WeeklyProgressReportPro
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2">
+                    <h1 className="text-2xl font-bold text-foreground flex items-center gap-2">
                         <Calendar className="h-6 w-6 text-indigo-600" />
                         Weekly Progress Report
                     </h1>
-                    <p className="text-gray-500 dark:text-gray-400">
+                    <p className="text-muted-foreground dark:text-muted-foreground">
                         Week {report.weekNumber} • {report.dateRange.start} to {report.dateRange.end}
                     </p>
                 </div>
@@ -94,11 +94,11 @@ export default function WeeklyProgressReport({ onBack }: WeeklyProgressReportPro
 
             {/* No Data State */}
             {!hasData && (
-                <Card className="bg-gray-50 dark:bg-gray-900 border-gray-200">
+                <Card className="bg-muted border-border">
                     <CardContent className="p-8 text-center">
-                        <AlertCircle className="h-12 w-12 mx-auto mb-4 text-gray-400" />
-                        <h3 className="text-lg font-semibold text-gray-600 mb-2">No Data Yet</h3>
-                        <p className="text-gray-500">
+                        <AlertCircle className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
+                        <h3 className="text-lg font-semibold text-muted-foreground mb-2">No Data Yet</h3>
+                        <p className="text-muted-foreground">
                             Complete some Pomodoro sessions, flashcard reviews, or MCQs to see your progress!
                         </p>
                     </CardContent>
@@ -112,7 +112,7 @@ export default function WeeklyProgressReport({ onBack }: WeeklyProgressReportPro
                         <CardContent className="p-6">
                             <div className="flex items-center justify-between mb-4">
                                 <h2 className="text-xl font-bold">Week Summary</h2>
-                                <Badge className="bg-white/20 text-white border-0">
+                                <Badge className="bg-card/20 text-white border-0">
                                     {report.daysActive}/7 days active
                                 </Badge>
                             </div>
@@ -120,22 +120,22 @@ export default function WeeklyProgressReport({ onBack }: WeeklyProgressReportPro
                                 {getWeeklySummaryText(report)}
                             </p>
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                <div className="bg-white/10 rounded-xl p-4 text-center">
+                                <div className="bg-card/10 rounded-xl p-4 text-center">
                                     <Clock className="h-6 w-6 mx-auto mb-2 text-indigo-200" />
                                     <div className="text-2xl font-bold">{Math.round(report.totalStudyMinutes / 60)}h</div>
                                     <div className="text-sm text-indigo-200">Study Time</div>
                                 </div>
-                                <div className="bg-white/10 rounded-xl p-4 text-center">
+                                <div className="bg-card/10 rounded-xl p-4 text-center">
                                     <Target className="h-6 w-6 mx-auto mb-2 text-indigo-200" />
                                     <div className="text-2xl font-bold">{report.pomodorosCompleted}</div>
                                     <div className="text-sm text-indigo-200">Pomodoros</div>
                                 </div>
-                                <div className="bg-white/10 rounded-xl p-4 text-center">
+                                <div className="bg-card/10 rounded-xl p-4 text-center">
                                     <Brain className="h-6 w-6 mx-auto mb-2 text-indigo-200" />
                                     <div className="text-2xl font-bold">{report.flashcardsReviewed}</div>
                                     <div className="text-sm text-indigo-200">Flashcards</div>
                                 </div>
-                                <div className="bg-white/10 rounded-xl p-4 text-center">
+                                <div className="bg-card/10 rounded-xl p-4 text-center">
                                     <CheckCircle2 className="h-6 w-6 mx-auto mb-2 text-indigo-200" />
                                     <div className="text-2xl font-bold">{report.mcqAccuracy}%</div>
                                     <div className="text-sm text-indigo-200">MCQ Accuracy</div>
@@ -166,11 +166,11 @@ export default function WeeklyProgressReport({ onBack }: WeeklyProgressReportPro
                                     <div className="grid grid-cols-2 gap-4 pt-2">
                                         <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 text-center">
                                             <div className="text-2xl font-bold text-blue-600">{report.flashcardsReviewed}</div>
-                                            <div className="text-xs text-gray-500">Cards Reviewed</div>
+                                            <div className="text-xs text-muted-foreground">Cards Reviewed</div>
                                         </div>
                                         <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3 text-center">
                                             <div className="text-2xl font-bold text-green-600">{report.newCardsLearned}</div>
-                                            <div className="text-xs text-gray-500">New Learned</div>
+                                            <div className="text-xs text-muted-foreground">New Learned</div>
                                         </div>
                                     </div>
                                 </div>
@@ -197,11 +197,11 @@ export default function WeeklyProgressReport({ onBack }: WeeklyProgressReportPro
                                     <div className="grid grid-cols-2 gap-4 pt-2">
                                         <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3 text-center">
                                             <div className="text-2xl font-bold text-green-600">{report.mcqsCorrect}</div>
-                                            <div className="text-xs text-gray-500">Correct</div>
+                                            <div className="text-xs text-muted-foreground">Correct</div>
                                         </div>
-                                        <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 text-center">
-                                            <div className="text-2xl font-bold text-gray-600">{report.mcqsAttempted}</div>
-                                            <div className="text-xs text-gray-500">Total Attempted</div>
+                                        <div className="bg-muted rounded-lg p-3 text-center">
+                                            <div className="text-2xl font-bold text-muted-foreground">{report.mcqsAttempted}</div>
+                                            <div className="text-xs text-muted-foreground">Total Attempted</div>
                                         </div>
                                     </div>
                                 </div>
@@ -225,7 +225,7 @@ export default function WeeklyProgressReport({ onBack }: WeeklyProgressReportPro
                                             <TrendingUp className="h-8 w-8 text-green-600" />
                                             <div>
                                                 <div className="text-sm text-green-600 font-medium">Strongest Topic</div>
-                                                <div className="font-bold text-gray-800 dark:text-gray-200">{report.strongestTopic}</div>
+                                                <div className="font-bold text-foreground">{report.strongestTopic}</div>
                                             </div>
                                         </div>
                                     )}
@@ -234,7 +234,7 @@ export default function WeeklyProgressReport({ onBack }: WeeklyProgressReportPro
                                             <TrendingDown className="h-8 w-8 text-orange-600" />
                                             <div>
                                                 <div className="text-sm text-orange-600 font-medium">Needs Attention</div>
-                                                <div className="font-bold text-gray-800 dark:text-gray-200">{report.weakestTopic}</div>
+                                                <div className="font-bold text-foreground">{report.weakestTopic}</div>
                                             </div>
                                         </div>
                                     )}
@@ -258,14 +258,14 @@ export default function WeeklyProgressReport({ onBack }: WeeklyProgressReportPro
                                         <div className="bg-pink-50 dark:bg-pink-900/20 rounded-lg p-4 text-center">
                                             <Smile className="h-8 w-8 mx-auto mb-2 text-pink-600" />
                                             <div className="text-2xl font-bold text-pink-600">{report.averageMood}/5</div>
-                                            <div className="text-sm text-gray-500">Avg. Mood</div>
+                                            <div className="text-sm text-muted-foreground">Avg. Mood</div>
                                         </div>
                                     )}
                                     {report.averageEnergy && (
                                         <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-4 text-center">
                                             <Zap className="h-8 w-8 mx-auto mb-2 text-yellow-600" />
                                             <div className="text-2xl font-bold text-yellow-600">{report.averageEnergy}/10</div>
-                                            <div className="text-sm text-gray-500">Avg. Energy</div>
+                                            <div className="text-sm text-muted-foreground">Avg. Energy</div>
                                         </div>
                                     )}
                                 </div>

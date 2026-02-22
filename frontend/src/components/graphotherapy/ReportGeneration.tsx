@@ -103,14 +103,14 @@ export default function ReportGeneration() {
                         <Lock className="w-10 h-10 text-red-500" />
                     </div>
 
-                    <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white">
+                    <h1 className="text-3xl font-extrabold text-foreground">
                         Session Expired
                     </h1>
-                    <p className="text-gray-500">
+                    <p className="text-muted-foreground">
                         Your uploaded handwriting sample was cleared for security. Please re-upload to continue the analysis.
                     </p>
 
-                    <Card className="border-2 border-dashed border-gray-300 hover:border-purple-500 transition-colors p-8 cursor-pointer relative overflow-hidden">
+                    <Card className="border-2 border-dashed border-border hover:border-purple-500 transition-colors p-8 cursor-pointer relative overflow-hidden">
                         <input
                             type="file"
                             className="absolute inset-0 opacity-0 cursor-pointer"
@@ -138,10 +138,10 @@ export default function ReportGeneration() {
         return (
             <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in duration-500 text-center">
                 <div className="space-y-4">
-                    <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white">
+                    <h1 className="text-3xl font-extrabold text-foreground">
                         {error ? 'Analysis Issue Encountered' : (stage === 'generating' ? 'Analyzing Your Subconscious Map...' : 'Analysis Complete!')}
                     </h1>
-                    <p className="text-gray-500">
+                    <p className="text-muted-foreground">
                         {error
                             ? "We couldn't generate your report. Please try again or upload a clearer image."
                             : (stage === 'generating'
@@ -167,7 +167,7 @@ export default function ReportGeneration() {
                 {!error && (
                     <div className="max-w-md mx-auto space-y-2">
                         <Progress value={progress} className="h-3" />
-                        <p className="text-xs text-gray-400 text-right">{Math.round(progress)}%</p>
+                        <p className="text-xs text-muted-foreground text-right">{Math.round(progress)}%</p>
                     </div>
                 )}
 
@@ -178,11 +178,11 @@ export default function ReportGeneration() {
                         <PlayCircle className="w-20 h-20 text-white opacity-90 group-hover:scale-110 transition-transform" />
                         <div className="absolute bottom-6 left-6 text-left">
                             <h3 className="text-white font-bold text-lg">Understanding Your Results</h3>
-                            <p className="text-gray-300 text-sm">Why your t-bars matter more than you think.</p>
+                            <p className="text-muted-foreground text-sm">Why your t-bars matter more than you think.</p>
                         </div>
                     </div>
                     <CardContent className="p-6 bg-purple-50 dark:bg-purple-900/10">
-                        <p className="text-gray-600 dark:text-gray-300 italic">
+                        <p className="text-muted-foreground dark:text-muted-foreground italic">
                             "While you wait, watch this short video on how Graphotherapy has transformed over 10,000 lives."
                         </p>
                     </CardContent>
@@ -214,7 +214,7 @@ export default function ReportGeneration() {
             <div className="flex justify-between items-center border-b pb-6">
                 <div>
                     <h1 className="text-3xl font-bold">Personal Analysis Report</h1>
-                    <p className="text-gray-500">Generated for You on {new Date().toLocaleDateString()}</p>
+                    <p className="text-muted-foreground">Generated for You on {new Date().toLocaleDateString()}</p>
                 </div>
                 <Button variant="outline">Download PDF</Button>
             </div>
@@ -248,12 +248,12 @@ export default function ReportGeneration() {
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent className="pt-4 space-y-4">
-                                    <p className="text-gray-700 leading-relaxed">
+                                    <p className="text-muted-foreground leading-relaxed">
                                         {insight.analysis}
                                     </p>
 
                                     {/* Shadow Hint */}
-                                    <div className="bg-gray-900 text-gray-300 p-4 rounded-lg text-sm italic border-l-4 border-purple-500">
+                                    <div className="bg-gray-900 text-muted-foreground p-4 rounded-lg text-sm italic border-l-4 border-purple-500">
                                         <span className="text-purple-400 font-bold not-italic">Shadow Hint: </span>
                                         "{insight.shadow_hint}"
                                     </div>
@@ -274,10 +274,10 @@ export default function ReportGeneration() {
                             </CardTitle>
                         </CardHeader>
                         <CardContent className="relative z-10">
-                            <p className="text-gray-300 mb-4">
+                            <p className="text-muted-foreground mb-4">
                                 {analysis?.blind_spot?.description}
                             </p>
-                            <div className="bg-white/10 backdrop-blur-md p-3 rounded text-center text-sm text-purple-200 border border-white/10">
+                            <div className="bg-card/10 backdrop-blur-md p-3 rounded text-center text-sm text-purple-200 border border-white/10">
                                 🔒 This trait is often the key to unlocking your full potential.
                             </div>
                         </CardContent>
@@ -308,13 +308,13 @@ export default function ReportGeneration() {
                             <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto">
                                 <BookOpen className="w-8 h-8 text-yellow-600" />
                             </div>
-                            <h3 className="text-2xl font-bold text-gray-900">Level 1 Graphotherapy Book</h3>
-                            <p className="text-sm text-gray-600">
+                            <h3 className="text-2xl font-bold text-foreground">Level 1 Graphotherapy Book</h3>
+                            <p className="text-sm text-muted-foreground">
                                 The exact 21-day stroke correction guide you need to fix the issues in your report.
                             </p>
 
                             <div className="py-4">
-                                <span className="text-gray-400 line-through text-lg">₹4,999</span>
+                                <span className="text-muted-foreground line-through text-lg">₹4,999</span>
                                 <span className="text-3xl font-bold text-red-600 ml-2">₹2,499</span>
                                 <div className="text-xs text-green-600 font-bold mt-1">50% OFF - Expires in 15:00</div>
                             </div>
@@ -325,7 +325,7 @@ export default function ReportGeneration() {
                             >
                                 Continue to Your Plan
                             </Button>
-                            <p className="text-xs text-gray-400">Includes 30-day Portal Access</p>
+                            <p className="text-xs text-muted-foreground">Includes 30-day Portal Access</p>
                         </CardContent>
                     </Card>
 

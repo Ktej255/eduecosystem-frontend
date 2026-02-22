@@ -134,23 +134,23 @@ export default function StudentProfilePage() {
     const unlockedCount = achievements.filter(a => a.unlocked).length;
 
     return (
-        <div className="min-h-screen p-6 bg-gray-50 dark:bg-gray-950">
+        <div className="min-h-screen p-6 bg-muted">
             <div className="max-w-5xl mx-auto space-y-6">
                 {/* Header with Profile Picture */}
                 <Card className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 p-8 border-0 text-white relative overflow-hidden">
                     {/* Background decorations */}
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16" />
-                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl -ml-10 -mb-10" />
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-card/10 rounded-full blur-3xl -mr-16 -mt-16" />
+                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-card/5 rounded-full blur-3xl -ml-10 -mb-10" />
 
                     <div className="relative flex flex-col md:flex-row gap-8 items-start md:items-center">
                         {/* Profile Picture */}
                         <div className="relative group">
-                            <div className="w-28 h-28 rounded-full bg-white/20 p-1 backdrop-blur-sm">
-                                <div className="w-full h-full rounded-full bg-white/10 flex items-center justify-center">
+                            <div className="w-28 h-28 rounded-full bg-card/20 p-1 backdrop-blur-sm">
+                                <div className="w-full h-full rounded-full bg-card/10 flex items-center justify-center">
                                     <User className="h-14 w-14 text-white" />
                                 </div>
                             </div>
-                            <button className="absolute bottom-0 right-0 p-2 rounded-full bg-white text-purple-600 shadow-lg hover:scale-110 transition-transform">
+                            <button className="absolute bottom-0 right-0 p-2 rounded-full bg-card text-purple-600 shadow-lg hover:scale-110 transition-transform">
                                 <Camera className="h-4 w-4" />
                             </button>
                         </div>
@@ -179,13 +179,13 @@ export default function StudentProfilePage() {
                                             <Input
                                                 value={formData.full_name}
                                                 onChange={(e) => setFormData({ ...formData, full_name: e.target.value })}
-                                                className="bg-white/10 border-white/30 text-white placeholder-white/50"
+                                                className="bg-card/10 border-white/30 text-white placeholder-white/50"
                                                 placeholder="Your name"
                                             />
                                             <Textarea
                                                 value={formData.bio}
                                                 onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
-                                                className="bg-white/10 border-white/30 text-white placeholder-white/50"
+                                                className="bg-card/10 border-white/30 text-white placeholder-white/50"
                                                 placeholder="Tell us about yourself..."
                                                 rows={2}
                                             />
@@ -196,20 +196,20 @@ export default function StudentProfilePage() {
                                     {!editing ? (
                                         <Button
                                             onClick={() => setEditing(true)}
-                                            className="bg-white text-purple-600 hover:bg-blue-50"
+                                            className="bg-card text-purple-600 hover:bg-blue-50"
                                         >
                                             Edit Profile
                                         </Button>
                                     ) : (
                                         <>
-                                            <Button onClick={handleSave} className="bg-white text-green-600 hover:bg-green-50">
+                                            <Button onClick={handleSave} className="bg-card text-green-600 hover:bg-green-50">
                                                 <Save className="mr-2 h-4 w-4" />
                                                 Save
                                             </Button>
                                             <Button
                                                 onClick={() => setEditing(false)}
                                                 variant="outline"
-                                                className="border-white/50 text-white hover:bg-white/10"
+                                                className="border-white/50 text-white hover:bg-card/10"
                                             >
                                                 Cancel
                                             </Button>
@@ -233,55 +233,55 @@ export default function StudentProfilePage() {
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                     <Card className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 border-orange-200 dark:border-orange-800/50 p-4 text-center">
                         <Flame className="h-8 w-8 text-orange-500 mx-auto mb-2" />
-                        <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                        <p className="text-2xl font-bold text-foreground">
                             {stats?.overallStreak || 0}
                         </p>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm">Day Streak</p>
+                        <p className="text-muted-foreground dark:text-muted-foreground text-sm">Day Streak</p>
                     </Card>
                     <Card className="bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 border-indigo-200 dark:border-indigo-800/50 p-4 text-center">
                         <Target className="h-8 w-8 text-indigo-500 mx-auto mb-2" />
-                        <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                        <p className="text-2xl font-bold text-foreground">
                             {stats?.prelims?.totalSegmentsCompleted || 0}
                         </p>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm">Segments</p>
+                        <p className="text-muted-foreground dark:text-muted-foreground text-sm">Segments</p>
                     </Card>
                     <Card className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border-blue-200 dark:border-blue-800/50 p-4 text-center">
                         <TrendingUp className="h-8 w-8 text-blue-500 mx-auto mb-2" />
-                        <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                        <p className="text-2xl font-bold text-foreground">
                             {stats?.prelims?.avgRecall || 0}%
                         </p>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm">Avg Recall</p>
+                        <p className="text-muted-foreground dark:text-muted-foreground text-sm">Avg Recall</p>
                     </Card>
                     <Card className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 border-purple-200 dark:border-purple-800/50 p-4 text-center">
                         <Brain className="h-8 w-8 text-purple-500 mx-auto mb-2" />
-                        <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                        <p className="text-2xl font-bold text-foreground">
                             L{stats?.meditation?.currentLevel || 1}D{stats?.meditation?.currentDay || 1}
                         </p>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm">Meditation</p>
+                        <p className="text-muted-foreground dark:text-muted-foreground text-sm">Meditation</p>
                     </Card>
                     <Card className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 border-green-200 dark:border-green-800/50 p-4 text-center">
                         <Pen className="h-8 w-8 text-green-500 mx-auto mb-2" />
-                        <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                        <p className="text-2xl font-bold text-foreground">
                             L{stats?.graphotherapy?.currentLevel || 1}D{stats?.graphotherapy?.currentDay || 1}
                         </p>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm">Graphotherapy</p>
+                        <p className="text-muted-foreground dark:text-muted-foreground text-sm">Graphotherapy</p>
                     </Card>
                     <Card className="bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-yellow-900/20 dark:to-yellow-800/20 border-yellow-200 dark:border-yellow-800/50 p-4 text-center">
                         <Trophy className="h-8 w-8 text-yellow-500 mx-auto mb-2" />
-                        <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                        <p className="text-2xl font-bold text-foreground">
                             {unlockedCount}/{achievements.length}
                         </p>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm">Badges</p>
+                        <p className="text-muted-foreground dark:text-muted-foreground text-sm">Badges</p>
                     </Card>
                 </div>
 
                 {/* Achievements */}
-                <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 p-6">
+                <Card className="bg-card border-border p-6">
                     <div className="flex items-center gap-3 mb-6">
                         <div className="p-2 rounded-xl bg-yellow-100 dark:bg-yellow-900/30">
                             <Trophy className="h-5 w-5 text-yellow-500" />
                         </div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">Achievements</h3>
+                        <h3 className="text-xl font-bold text-foreground">Achievements</h3>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                         {achievements.map((achievement) => {
@@ -299,18 +299,18 @@ export default function StudentProfilePage() {
                                     key={achievement.id}
                                     className={`p-4 rounded-xl border transition-all ${achievement.unlocked
                                             ? `bg-gradient-to-br ${colorMap[achievement.color]}`
-                                            : "bg-gray-100 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700 opacity-50"
+                                            : "bg-muted/50 border-border opacity-50"
                                         }`}
                                 >
                                     <Icon
-                                        className={`h-8 w-8 mx-auto mb-2 ${achievement.unlocked ? colorMap[achievement.color].split(' ').pop() : "text-gray-400"
+                                        className={`h-8 w-8 mx-auto mb-2 ${achievement.unlocked ? colorMap[achievement.color].split(' ').pop() : "text-muted-foreground"
                                             }`}
                                     />
-                                    <p className={`text-center font-semibold ${achievement.unlocked ? "text-gray-900 dark:text-white" : "text-gray-500"
+                                    <p className={`text-center font-semibold ${achievement.unlocked ? "text-foreground" : "text-muted-foreground"
                                         }`}>
                                         {achievement.name}
                                     </p>
-                                    <p className="text-center text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                    <p className="text-center text-xs text-muted-foreground dark:text-muted-foreground mt-1">
                                         {achievement.description}
                                     </p>
                                     {achievement.unlocked && (

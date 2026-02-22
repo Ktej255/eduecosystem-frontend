@@ -33,7 +33,7 @@ export default function VerdictVisualizerPage() {
                     <Button
                         variant="ghost"
                         size="sm"
-                        className="text-white hover:bg-white/10 mb-4"
+                        className="text-white hover:bg-card/10 mb-4"
                         onClick={() => router.back()}
                     >
                         <ChevronLeft className="w-4 h-4 mr-1" /> Back to Dashboard
@@ -42,7 +42,7 @@ export default function VerdictVisualizerPage() {
                     <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-500 drop-shadow-lg">
                         The Verdict Visualizer
                     </h1>
-                    <p className="text-slate-400 text-sm mt-1 max-w-md drop-shadow-md">
+                    <p className="text-muted-foreground text-sm mt-1 max-w-md drop-shadow-md">
                         Explore the timeline of landmark Supreme Court judgments that shaped the Basic Structure of the Constitution.
                     </p>
                 </div>
@@ -64,7 +64,7 @@ export default function VerdictVisualizerPage() {
 
             {/* Instructions Hint */}
             {!selectedCase && (
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-500 text-xs animate-pulse pointer-events-none">
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground text-xs animate-pulse pointer-events-none">
                     Click on a Monolith to view the Verdict
                 </div>
             )}

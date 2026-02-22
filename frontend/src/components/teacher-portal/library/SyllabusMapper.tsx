@@ -107,15 +107,15 @@ function DraggableContent({ id, title, type }: { id: string; title: string; type
             {...listeners}
             {...attributes}
             className={cn(
-                "flex items-center gap-3 p-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-grab active:cursor-grabbing shadow-sm hover:shadow-md transition-all touch-none group",
+                "flex items-center gap-3 p-3 bg-card border border-border rounded-lg cursor-grab active:cursor-grabbing shadow-sm hover:shadow-md transition-all touch-none group",
                 isDragging ? "opacity-50" : "opacity-100"
             )}
         >
-            <GripVertical className="h-4 w-4 text-slate-300 group-hover:text-slate-500" />
+            <GripVertical className="h-4 w-4 text-slate-300 group-hover:text-muted-foreground" />
             <div className={cn("p-2 rounded-md shrink-0", type === 'video' ? 'bg-blue-100' : 'bg-red-100')}>
                 {type === 'video' ? <Video className="h-4 w-4 text-blue-600" /> : <FileText className="h-4 w-4 text-red-600" />}
             </div>
-            <span className="text-sm font-medium truncate text-slate-700 dark:text-slate-200">{title}</span>
+            <span className="text-sm font-medium truncate text-muted-foreground">{title}</span>
         </div>
     );
 }
@@ -134,7 +134,7 @@ function SyllabusBranch({ node, depth = 0, onToggle }: { node: SyllabusNode; dep
                 ref={setNodeRef}
                 className={cn(
                     "flex items-center gap-2 p-2 rounded-lg transition-colors border border-transparent",
-                    isOver ? "bg-emerald-100 dark:bg-emerald-900/30 border-emerald-400" : "hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                    isOver ? "bg-emerald-100 dark:bg-emerald-900/30 border-emerald-400" : "hover:bg-muted dark:hover:bg-slate-800/50"
                 )}
                 style={{ marginLeft: `${depth * 20}px` }}
             >
@@ -143,12 +143,12 @@ function SyllabusBranch({ node, depth = 0, onToggle }: { node: SyllabusNode; dep
                     onClick={() => hasChildren && onToggle(node.id)}
                 >
                     {hasChildren ? (
-                        node.isOpen ? <ChevronDown className="h-4 w-4 text-slate-500" /> : <ChevronRight className="h-4 w-4 text-slate-500" />
+                        node.isOpen ? <ChevronDown className="h-4 w-4 text-muted-foreground" /> : <ChevronRight className="h-4 w-4 text-muted-foreground" />
                     ) : <span className="w-4 h-4 block" />}
                 </div>
 
                 <Folder className={cn("h-4 w-4", hasChildren ? "text-amber-500" : "text-indigo-400")} />
-                <span className="text-sm font-medium text-slate-700 dark:text-slate-200 flex-1">{node.title}</span>
+                <span className="text-sm font-medium text-muted-foreground flex-1">{node.title}</span>
 
                 {node.content.length > 0 && (
                     <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-medium">
@@ -161,7 +161,7 @@ function SyllabusBranch({ node, depth = 0, onToggle }: { node: SyllabusNode; dep
             {node.isOpen && node.content.length > 0 && (
                 <div className="ml-[44px] space-y-1 mb-2">
                     {node.content.map(c => (
-                        <div key={c.id} className="flex items-center gap-2 text-xs text-slate-500 p-1 pl-2 border-l-2 border-slate-200">
+                        <div key={c.id} className="flex items-center gap-2 text-xs text-muted-foreground p-1 pl-2 border-l-2 border-border">
                             {c.type === 'video' ? <Video className="h-3 w-3" /> : <FileText className="h-3 w-3" />}
                             <span className="truncate">{c.title}</span>
                             <Check className="h-3 w-3 text-green-500 ml-auto" />
@@ -238,7 +238,7 @@ export default function SyllabusMapper() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-[600px]">
                 {/* Orphans Panel */}
                 <div className="md:col-span-4 flex flex-col gap-4">
-                    <Card className="h-full border-slate-200 dark:border-slate-800 bg-amber-50/50 dark:bg-amber-950/10">
+                    <Card className="h-full border-border bg-amber-50/50 dark:bg-amber-950/10">
                         <CardHeader className="pb-3 border-b border-amber-100 dark:border-amber-900/20">
                             <CardTitle className="text-sm font-bold uppercase tracking-wider text-amber-600 flex items-center gap-2">
                                 <HelpCircle className="h-4 w-4" />
@@ -248,7 +248,7 @@ export default function SyllabusMapper() {
                         </CardHeader>
                         <CardContent className="space-y-3 p-4 overflow-y-auto max-h-[500px]">
                             {orphans.length === 0 ? (
-                                <div className="text-center py-10 text-slate-400 text-sm">
+                                <div className="text-center py-10 text-muted-foreground text-sm">
                                     All content mapped! 🎉
                                 </div>
                             ) : (
@@ -262,14 +262,14 @@ export default function SyllabusMapper() {
 
                 {/* Syllabus Tree Panel */}
                 <div className="md:col-span-8 flex flex-col gap-4">
-                    <Card className="h-full border-slate-200 dark:border-slate-800">
-                        <CardHeader className="pb-3 border-b border-slate-100 dark:border-slate-800">
+                    <Card className="h-full border-border">
+                        <CardHeader className="pb-3 border-b border-slate-100">
                             <div className="flex justify-between items-center">
-                                <CardTitle className="text-sm font-bold uppercase tracking-wider text-slate-500 flex items-center gap-2">
+                                <CardTitle className="text-sm font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
                                     <Folder className="h-4 w-4" />
                                     Syllabus Tree
                                 </CardTitle>
-                                <div className="text-xs text-slate-400">
+                                <div className="text-xs text-muted-foreground">
                                     Drag items from left to map them
                                 </div>
                             </div>
@@ -287,12 +287,12 @@ export default function SyllabusMapper() {
 
             <DragOverlay>
                 {activeId && activeItem ? (
-                    <div className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 border-2 border-emerald-500 rounded-lg shadow-xl cursor-grabbing w-[250px] opacity-90 rotate-3 z-50">
-                        <GripVertical className="h-4 w-4 text-slate-400" />
+                    <div className="flex items-center gap-3 p-3 bg-card border-2 border-emerald-500 rounded-lg shadow-xl cursor-grabbing w-[250px] opacity-90 rotate-3 z-50">
+                        <GripVertical className="h-4 w-4 text-muted-foreground" />
                         <div className={cn("p-2 rounded-md shrink-0", activeItem.type === 'video' ? 'bg-blue-100' : 'bg-red-100')}>
                             {activeItem.type === 'video' ? <Video className="h-4 w-4 text-blue-600" /> : <FileText className="h-4 w-4 text-red-600" />}
                         </div>
-                        <span className="text-sm font-medium truncate text-slate-800">{activeItem.title}</span>
+                        <span className="text-sm font-medium truncate text-foreground">{activeItem.title}</span>
                     </div>
                 ) : null}
             </DragOverlay>

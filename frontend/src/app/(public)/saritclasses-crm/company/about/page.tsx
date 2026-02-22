@@ -40,9 +40,9 @@ const values = [
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen bg-white dark:bg-slate-950">
+        <div className="min-h-screen bg-card">
             {/* Header */}
-            <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+            <header className="fixed top-0 left-0 right-0 z-50 bg-card/80/80 backdrop-blur-md border-b border-border">
                 <nav className="collexo-container flex items-center justify-between px-6 py-4">
                     <Link href="/saritclasses-crm" className="flex items-center gap-2">
                         <div className="w-10 h-10 rounded-xl collexo-gradient flex items-center justify-center">
@@ -52,7 +52,7 @@ export default function AboutPage() {
                     </Link>
                     <Link
                         href="/saritclasses-crm"
-                        className="flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                        className="flex items-center gap-2 text-muted-foreground dark:text-muted-foreground hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                     >
                         <ArrowLeft className="w-4 h-4" />
                         Back to Home
@@ -67,7 +67,7 @@ export default function AboutPage() {
 
                 <div className="collexo-container relative z-10 px-6">
                     <div className="text-center max-w-4xl mx-auto">
-                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+                        <div className="inline-flex items-center gap-2 bg-card/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
                             <Users className="w-4 h-4 text-indigo-400" />
                             <span className="text-white/90 text-sm font-medium">About Us</span>
                         </div>
@@ -88,15 +88,15 @@ export default function AboutPage() {
             </section>
 
             {/* Stats Section */}
-            <section className="py-12 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
+            <section className="py-12 bg-card border-b border-border">
                 <div className="collexo-container">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {stats.map((stat, index) => (
                             <div key={index} className="text-center">
-                                <div className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">
+                                <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">
                                     {stat.value}
                                 </div>
-                                <div className="text-slate-600 dark:text-slate-400">{stat.label}</div>
+                                <div className="text-muted-foreground dark:text-muted-foreground">{stat.label}</div>
                             </div>
                         ))}
                     </div>
@@ -104,10 +104,10 @@ export default function AboutPage() {
             </section>
 
             {/* Values Section */}
-            <section className="collexo-section bg-slate-50 dark:bg-slate-900">
+            <section className="collexo-section bg-muted">
                 <div className="collexo-container">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                             Our <span className="collexo-gradient-text">Values</span>
                         </h2>
                     </div>
@@ -118,8 +118,8 @@ export default function AboutPage() {
                                 <div className="w-16 h-16 rounded-2xl bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center mx-auto mb-6">
                                     <value.icon className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">{value.title}</h3>
-                                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                <h3 className="text-xl font-bold text-foreground mb-4">{value.title}</h3>
+                                <p className="text-muted-foreground dark:text-muted-foreground leading-relaxed">
                                     {value.description}
                                 </p>
                             </div>
@@ -129,12 +129,12 @@ export default function AboutPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 bg-slate-900 dark:bg-slate-950">
+            <section className="py-20 bg-slate-900">
                 <div className="collexo-container text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                         Join Our Journey
                     </h2>
-                    <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
+                    <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                         Whether you are an institution looking to modernize or a talent looking to make an impact.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

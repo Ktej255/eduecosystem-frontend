@@ -32,7 +32,7 @@ export function TimeCapsule() {
     return (
         <>
             <div
-                className={`relative overflow-hidden rounded-xl border p-6 transition-all cursor-pointer group ${hasWritten ? 'bg-indigo-900 border-indigo-700' : 'bg-white border-indigo-100 hover:border-indigo-300 hover:shadow-md'}`}
+                className={`relative overflow-hidden rounded-xl border p-6 transition-all cursor-pointer group ${hasWritten ? 'bg-indigo-900 border-indigo-700' : 'bg-card border-indigo-100 hover:border-indigo-300 hover:shadow-md'}`}
                 onClick={() => setIsOpen(true)}
             >
                 <div className="flex items-center gap-4">
@@ -43,7 +43,7 @@ export function TimeCapsule() {
                         <h3 className={`font-bold text-lg ${hasWritten ? 'text-indigo-100' : 'text-indigo-900'}`}>
                             {hasWritten ? "Time Capsule Sealed" : "Future Self Letter"}
                         </h3>
-                        <p className={`text-sm ${hasWritten ? 'text-indigo-400' : 'text-gray-500'}`}>
+                        <p className={`text-sm ${hasWritten ? 'text-indigo-400' : 'text-muted-foreground'}`}>
                             {hasWritten ? "Unlocks on Day 30" : "Commit to your transformation."}
                         </p>
                     </div>
@@ -56,7 +56,7 @@ export function TimeCapsule() {
             </div>
 
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
-                <DialogContent className="sm:max-w-xl bg-slate-50">
+                <DialogContent className="sm:max-w-xl bg-muted">
                     <DialogHeader>
                         <DialogTitle className="flex items-center gap-2 text-indigo-900">
                             <Hourglass className="w-5 h-5 text-indigo-600" /> Message to the Future
@@ -78,7 +78,7 @@ export function TimeCapsule() {
                                     🔒
                                 </div>
                                 <h3 className="font-bold text-xl text-indigo-900">Capsule Secured</h3>
-                                <p className="text-gray-600">
+                                <p className="text-muted-foreground">
                                     Your commitment has been recorded. When you reach Day 30, this letter will be emailed to you as proof of how far you've come.
                                 </p>
                                 <Button variant="outline" onClick={() => setIsOpen(false)}>Close</Button>
@@ -91,11 +91,11 @@ export function TimeCapsule() {
                             >
                                 <Textarea
                                     placeholder="Dear Future Me, I am starting this journey because..."
-                                    className="min-h-[200px] bg-white border-indigo-200 focus:ring-indigo-500 text-lg p-4 font-handwriting" // Assuming a handwriting font class exists or just default
+                                    className="min-h-[200px] bg-card border-indigo-200 focus:ring-indigo-500 text-lg p-4 font-handwriting" // Assuming a handwriting font class exists or just default
                                     value={letter}
                                     onChange={(e) => setLetter(e.target.value)}
                                 />
-                                <div className="flex justify-between items-center text-sm text-gray-500">
+                                <div className="flex justify-between items-center text-sm text-muted-foreground">
                                     <span>Your words are powerful.</span>
                                 </div>
                                 <DialogFooter>

@@ -50,10 +50,10 @@ export default function SessionPlayer({ session }: { session: MeditationSession 
         <div className={`min-h-screen flex flex-col bg-gradient-to-br ${session.thumbnailGradient} text-white transition-all duration-1000`}>
             {/* Nav */}
             <div className="p-6 md:p-8 flex justify-between items-center z-10">
-                <Link href="/student/meditation" className="p-2 hover:bg-white/10 rounded-full backdrop-blur-md">
+                <Link href="/student/meditation" className="p-2 hover:bg-card/10 rounded-full backdrop-blur-md">
                     <ChevronLeft className="w-6 h-6" />
                 </Link>
-                <div className="bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-md text-xs font-bold uppercase tracking-wider">
+                <div className="bg-card/10 px-4 py-1.5 rounded-full backdrop-blur-md text-xs font-bold uppercase tracking-wider">
                     {session.category}
                 </div>
                 <div className="w-10" />
@@ -63,8 +63,8 @@ export default function SessionPlayer({ session }: { session: MeditationSession 
             <div className="flex-1 flex flex-col items-center justify-center relative p-8">
 
                 {/* Breathing Circle Animation */}
-                <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 rounded-full bg-white/10 backdrop-blur-3xl transition-transform duration-[6000ms] ease-in-out ${isPlaying ? 'scale-150 animate-pulse' : 'scale-100'}`} />
-                <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-72 md:h-72 rounded-full bg-white/20 backdrop-blur-xl transition-transform duration-[6000ms] ease-in-out delay-75 ${isPlaying ? 'scale-125' : 'scale-100'}`} />
+                <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 rounded-full bg-card/10 backdrop-blur-3xl transition-transform duration-[6000ms] ease-in-out ${isPlaying ? 'scale-150 animate-pulse' : 'scale-100'}`} />
+                <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-72 md:h-72 rounded-full bg-card/20 backdrop-blur-xl transition-transform duration-[6000ms] ease-in-out delay-75 ${isPlaying ? 'scale-125' : 'scale-100'}`} />
 
                 <div className="relative z-10 text-center space-y-4">
                     <h1 className="text-3xl md:text-5xl font-black">{session.title}</h1>
@@ -77,8 +77,8 @@ export default function SessionPlayer({ session }: { session: MeditationSession 
                 <div className="max-w-xl mx-auto space-y-8">
                     {/* Progress Bar */}
                     <div className="space-y-2">
-                        <div className="h-1.5 bg-white/20 rounded-full overflow-hidden">
-                            <div className="h-full bg-white transition-all duration-1000 ease-linear" style={{ width: `${progressPercent}%` }} />
+                        <div className="h-1.5 bg-card/20 rounded-full overflow-hidden">
+                            <div className="h-full bg-card transition-all duration-1000 ease-linear" style={{ width: `${progressPercent}%` }} />
                         </div>
                         <div className="flex justify-between text-xs font-bold opacity-60">
                             <span>{formatTime(session.duration * 60 - timeLeft)}</span>
@@ -94,7 +94,7 @@ export default function SessionPlayer({ session }: { session: MeditationSession 
 
                         <button
                             onClick={togglePlay}
-                            className="w-20 h-20 bg-white text-black rounded-full flex items-center justify-center shadow-xl hover:scale-105 transition-transform"
+                            className="w-20 h-20 bg-card text-black rounded-full flex items-center justify-center shadow-xl hover:scale-105 transition-transform"
                         >
                             {isPlaying ? <Pause className="w-8 h-8 fill-black" /> : <Play className="w-8 ml-1 h-8 fill-black" />}
                         </button>

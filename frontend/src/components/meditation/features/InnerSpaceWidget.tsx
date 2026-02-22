@@ -62,7 +62,7 @@ export default function InnerSpaceWidget() {
                         </div>
                     </div>
 
-                    <div className="md:w-64 bg-white/5 border border-white/10 rounded-xl p-3 flex items-start gap-4">
+                    <div className="md:w-64 bg-card/5 border border-white/10 rounded-xl p-3 flex items-start gap-4">
                         <div className="p-2 bg-indigo-500/10 rounded-lg text-indigo-400">
                             <TrendingUp className="w-5 h-5" />
                         </div>

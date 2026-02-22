@@ -12,7 +12,7 @@ export default function WellnessHubPage() {
             <div className="mb-8">
                 <Link
                     href="/student/batch1-1"
-                    className="inline-flex items-center text-sm text-gray-500 hover:text-indigo-600 mb-4 transition-colors"
+                    className="inline-flex items-center text-sm text-muted-foreground hover:text-indigo-600 mb-4 transition-colors"
                 >
                     <ArrowLeft className="mr-1 h-4 w-4" /> Back to Dashboard
                 </Link>
@@ -20,7 +20,7 @@ export default function WellnessHubPage() {
                     <Heart className="h-8 w-8 text-teal-600 dark:text-teal-400" />
                     Student Wellness Center
                 </h1>
-                <p className="text-gray-600 dark:text-gray-400 mt-2">
+                <p className="text-muted-foreground dark:text-muted-foreground mt-2">
                     Balance your mind and body for peak academic performance.
                 </p>
             </div>
@@ -55,7 +55,7 @@ export default function WellnessHubPage() {
                             </CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
-                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                            <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                                 Engage in mindful handwriting practice. Our velocity-sensitive ink engine mimics fluid dynamics to soothe your nervous system.
                             </p>
                             <Link href="/student/batch1-1/wellness/canvas">
@@ -66,10 +66,10 @@ export default function WellnessHubPage() {
                         </CardContent>
                     </Card>
 
-                    <Card className="opacity-75 border-dashed border-gray-300 dark:border-gray-700">
+                    <Card className="opacity-75 border-dashed border-border">
                         <CardContent className="p-6 flex flex-col items-center justify-center text-center">
-                            <h3 className="font-semibold text-gray-500 mb-2">Meditation Zone</h3>
-                            <p className="text-xs text-gray-400">Coming Soon in Phase 7b</p>
+                            <h3 className="font-semibold text-muted-foreground mb-2">Meditation Zone</h3>
+                            <p className="text-xs text-muted-foreground">Coming Soon in Phase 7b</p>
                         </CardContent>
                     </Card>
                 </div>

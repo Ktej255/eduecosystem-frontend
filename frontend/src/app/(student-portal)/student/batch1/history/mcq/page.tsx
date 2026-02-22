@@ -176,9 +176,9 @@ function MCQContent() {
 
     if (loading) {
         return (
-            <div className="flex h-screen items-center justify-center bg-gray-50 dark:bg-black">
+            <div className="flex h-screen items-center justify-center bg-muted dark:bg-black">
                 <Loader2 className="h-8 w-8 animate-spin text-amber-600" />
-                <span className="ml-2 text-slate-500 font-medium">Loading History Archives...</span>
+                <span className="ml-2 text-muted-foreground font-medium">Loading History Archives...</span>
             </div>
         );
     }

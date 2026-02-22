@@ -63,10 +63,10 @@ export default function ContentSystemDashboard() {
         <div className="p-6 max-w-7xl mx-auto space-y-8">
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                    <h1 className="text-2xl font-bold text-foreground">
                         Content Development System
                     </h1>
-                    <p className="text-gray-500 dark:text-gray-400">
+                    <p className="text-muted-foreground dark:text-muted-foreground">
                         Manage and generate study content for Batch 1.1
                     </p>
                 </div>
@@ -93,7 +93,7 @@ export default function ContentSystemDashboard() {
                             Status: {week1Status.status === 'complete' ? 'Ready' : week1Status.status === 'partial' ? 'In Progress' : 'Not Started'}
                         </div>
                         {week1Status.missing.length > 0 && (
-                            <p className="text-xs text-gray-500">Missing: {week1Status.missing.join(', ')}</p>
+                            <p className="text-xs text-muted-foreground">Missing: {week1Status.missing.join(', ')}</p>
                         )}
                     </CardContent>
                 </Card>
@@ -112,7 +112,7 @@ export default function ContentSystemDashboard() {
                             Status: {week2Status.status === 'complete' ? 'Ready' : week2Status.status === 'partial' ? 'In Progress' : 'Not Started'}
                         </div>
                         {week2Status.missing.length > 0 && (
-                            <p className="text-xs text-gray-500">Missing: {week2Status.missing.join(', ') + (week2Status.missing.length >= 3 ? '...' : '')}</p>
+                            <p className="text-xs text-muted-foreground">Missing: {week2Status.missing.join(', ') + (week2Status.missing.length >= 3 ? '...' : '')}</p>
                         )}
                     </CardContent>
                 </Card>
@@ -131,14 +131,14 @@ export default function ContentSystemDashboard() {
                             Status: {week3Status.status === 'complete' ? 'Ready' : week3Status.status === 'partial' ? 'In Progress' : 'Not Started'}
                         </div>
                         {week3Status.missing.length > 0 && (
-                            <p className="text-xs text-gray-500">Missing: {week3Status.missing.join(', ').slice(0, 50) + '...'}</p>
+                            <p className="text-xs text-muted-foreground">Missing: {week3Status.missing.join(', ').slice(0, 50) + '...'}</p>
                         )}
                     </CardContent>
                 </Card>
             </div>
 
             {/* Generators */}
-            <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mt-8">
+            <h2 className="text-xl font-semibold text-foreground mt-8">
                 Content Generators
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

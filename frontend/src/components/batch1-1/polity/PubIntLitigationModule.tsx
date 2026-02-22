@@ -15,7 +15,7 @@ interface PubIntLitigationModuleProps {
 // --- Design System: The Open Gate (Voice of the Voiceless) ---
 
 const GateContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#f0fdf4] text-slate-900">
+    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#f0fdf4] text-foreground">
         {/* Subtle Grid Texture */}
         <div className="absolute inset-0 opacity-10 pointer-events-none bg-[linear-gradient(to_right,#15803d_1px,transparent_1px),linear-gradient(to_bottom,#15803d_1px,transparent_1px)] bg-[size:24px_24px]"></div>
 
@@ -29,7 +29,7 @@ const SectionCard = ({ children, title, icon: Icon, color = "green", className =
     const styles = {
         green: "bg-green-50 border-green-200 shadow-green-900/10 text-green-900",
         red: "bg-red-50 border-red-200 shadow-red-900/10 text-red-900",
-        grey: "bg-slate-50 border-slate-200 shadow-slate-900/10 text-slate-900"
+        grey: "bg-muted border-border shadow-slate-900/10 text-foreground"
     };
 
     return (
@@ -44,7 +44,7 @@ const SectionCard = ({ children, title, icon: Icon, color = "green", className =
 };
 
 const Postcard = ({ children }: { children: React.ReactNode }) => (
-    <div className="bg-[#fff1cc] p-6 shadow-md border border-[#d4b98c] relative rotate-1 font-serif text-slate-800">
+    <div className="bg-[#fff1cc] p-6 shadow-md border border-[#d4b98c] relative rotate-1 font-serif text-foreground">
         <div className="absolute top-4 right-4 w-16 h-20 border-2 border-dashed border-red-800/30 flex items-center justify-center text-xs text-red-800/50 -rotate-2">
             STAMP
         </div>
@@ -52,7 +52,7 @@ const Postcard = ({ children }: { children: React.ReactNode }) => (
             <div className="flex-1 border-r border-[#d4b98c] pr-6">
                 {children}
             </div>
-            <div className="w-1/3 pt-12 space-y-4 font-handwriting text-slate-500 text-sm">
+            <div className="w-1/3 pt-12 space-y-4 font-handwriting text-muted-foreground text-sm">
                 <div className="h-px bg-slate-400"></div>
                 <div className="h-px bg-slate-400"></div>
                 <div className="h-px bg-slate-400"></div>
@@ -76,7 +76,7 @@ export default function PubIntLitigationModule({ onComplete, isCompleted }: PubI
                     <h1 className="text-5xl md:text-7xl font-black text-[#15803d] font-serif mb-4 relative z-10 drop-shadow-sm">
                         THE OPEN GATE
                     </h1>
-                    <p className="text-xl font-bold uppercase tracking-widest text-slate-600 bg-white/50 px-4 py-2 inline-block rounded-full border border-[#15803d]/20 backdrop-blur-sm">
+                    <p className="text-xl font-bold uppercase tracking-widest text-muted-foreground bg-card/50 px-4 py-2 inline-block rounded-full border border-[#15803d]/20 backdrop-blur-sm">
                         Public Interest Litigation (PIL)
                     </p>
                 </div>
@@ -95,7 +95,7 @@ export default function PubIntLitigationModule({ onComplete, isCompleted }: PubI
                     <SectionCard title="The Voice" icon={Megaphone} color="green">
                         <div className="space-y-4 text-lg">
                             <p className="font-bold">Legal action for enforcement of <span className="underline decoration-wavy decoration-green-500">Public Interest</span>.</p>
-                            <p className="text-sm bg-white/50 p-3 rounded italic text-slate-600 border border-green-100">
+                            <p className="text-sm bg-card/50 p-3 rounded italic text-muted-foreground border border-green-100">
                                 Goal: Justice for the poor & disadvantaged who cannot approach court themselves.
                             </p>
                             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-green-700 mt-2">
@@ -108,9 +108,9 @@ export default function PubIntLitigationModule({ onComplete, isCompleted }: PubI
                     <SectionCard title="History Scroll" icon={Scroll} color="grey">
                         <div className="space-y-4 font-mono text-sm">
                             <div className="flex gap-3">
-                                <div className="text-slate-400 font-bold w-12 text-right">1960s</div>
-                                <div className="border-l-2 border-slate-300 pl-3">
-                                    <strong className="block text-slate-800">USA (Origin)</strong>
+                                <div className="text-muted-foreground font-bold w-12 text-right">1960s</div>
+                                <div className="border-l-2 border-border pl-3">
+                                    <strong className="block text-foreground">USA (Origin)</strong>
                                     Called "Social Action Litigation".
                                 </div>
                             </div>
@@ -118,10 +118,10 @@ export default function PubIntLitigationModule({ onComplete, isCompleted }: PubI
                                 <div className="text-green-600 font-bold w-12 text-right">1980s</div>
                                 <div className="border-l-2 border-green-500 pl-3">
                                     <strong className="block text-green-800">INDIA Introduction</strong>
-                                    <span className="text-xs text-slate-500 block mb-1">Pioneers: Justice Iyer & Bhagwati</span>
-                                    <div className="bg-white p-2 rounded shadow-sm border border-slate-100 mt-1">
-                                        <strong className="text-slate-900">S.P. Gupta Case (1982)</strong>
-                                        <div className="text-xs text-slate-500">"Any member of public can maintain application for others' rights."</div>
+                                    <span className="text-xs text-muted-foreground block mb-1">Pioneers: Justice Iyer & Bhagwati</span>
+                                    <div className="bg-card p-2 rounded shadow-sm border border-slate-100 mt-1">
+                                        <strong className="text-foreground">S.P. Gupta Case (1982)</strong>
+                                        <div className="text-xs text-muted-foreground">"Any member of public can maintain application for others' rights."</div>
                                     </div>
                                 </div>
                             </div>
@@ -129,14 +129,14 @@ export default function PubIntLitigationModule({ onComplete, isCompleted }: PubI
                     </SectionCard>
 
                     {/* LOCUS STANDI ANIMATION */}
-                    <div className="md:col-span-2 bg-white rounded-xl shadow-xl overflow-hidden border border-slate-200">
-                        <div className="bg-slate-100 p-4 border-b flex justify-between items-center">
-                            <h3 className="font-bold text-slate-700 uppercase tracking-wider flex items-center gap-2">
+                    <div className="md:col-span-2 bg-card rounded-xl shadow-xl overflow-hidden border border-border">
+                        <div className="bg-muted p-4 border-b flex justify-between items-center">
+                            <h3 className="font-bold text-muted-foreground uppercase tracking-wider flex items-center gap-2">
                                 <Unlock size={18} /> Locus Standi Transformation
                             </h3>
                             <button
                                 onClick={() => setGateOpen(!gateOpen)}
-                                className={`px-4 py-1 rounded-full text-xs font-bold uppercase transition-colors ${gateOpen ? 'bg-green-100 text-green-700' : 'bg-slate-200 text-slate-600'}`}
+                                className={`px-4 py-1 rounded-full text-xs font-bold uppercase transition-colors ${gateOpen ? 'bg-green-100 text-green-700' : 'bg-slate-200 text-muted-foreground'}`}
                             >
                                 {gateOpen ? "PIL Rule Active" : "Traditional Rule"}
                             </button>
@@ -153,7 +153,7 @@ export default function PubIntLitigationModule({ onComplete, isCompleted }: PubI
                                         <span className="text-xs font-bold uppercase mt-2 bg-green-100 px-2 py-1 rounded">Anyone Can Enter</span>
                                     </div>
                                 ) : (
-                                    <div className="text-slate-400 flex flex-col items-center">
+                                    <div className="text-muted-foreground flex flex-col items-center">
                                         <Lock size={48} className="mb-2" />
                                         <span className="text-xs font-bold uppercase bg-slate-200 px-2 py-1 rounded">Aggrieved Only</span>
                                     </div>
@@ -179,7 +179,7 @@ export default function PubIntLitigationModule({ onComplete, isCompleted }: PubI
                             <div className="space-y-2">
                                 <h4 className="font-bold text-lg border-b border-[#d4b98c] pb-1 mb-2">To, The Chief Justice of India</h4>
                                 <p className="italic">"We are writing to inform you about the inhuman conditions in Tihar Jail..."</p>
-                                <p className="mt-4 font-bold text-sm bg-white/50 p-2 inline-block rounded">
+                                <p className="mt-4 font-bold text-sm bg-card/50 p-2 inline-block rounded">
                                     <span className="text-green-700">Sunil Batra vs Delhi Admin</span>: Letter treated as Petition.
                                 </p>
                             </div>
@@ -243,7 +243,7 @@ export default function PubIntLitigationModule({ onComplete, isCompleted }: PubI
                             <p className="text-xs bg-red-100 text-red-800 p-2 rounded font-bold text-center border border-red-200 mb-2">
                                 Problem: "Publicity Interest Litigation"
                             </p>
-                            <ul className="space-y-2 text-sm font-sans list-disc list-inside text-slate-700">
+                            <ul className="space-y-2 text-sm font-sans list-disc list-inside text-muted-foreground">
                                 <li>Court must verify credentials of petitioner.</li>
                                 <li>Must ensure no personal gain/motive.</li>
                                 <li><strong>Heavy Fines</strong> for frivolous PILs.</li>
@@ -261,7 +261,7 @@ export default function PubIntLitigationModule({ onComplete, isCompleted }: PubI
                     className={`
                         px-12 py-4 rounded-full font-black uppercase text-xl transition-all shadow-xl
                         ${isCompleted
-                            ? 'bg-slate-200 text-slate-400 cursor-not-allowed shadow-none'
+                            ? 'bg-slate-200 text-muted-foreground cursor-not-allowed shadow-none'
                             : 'bg-gradient-to-r from-[#15803d] to-green-700 text-white hover:scale-105 hover:shadow-2xl'
                         }
                     `}

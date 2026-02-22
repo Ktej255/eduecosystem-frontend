@@ -69,7 +69,7 @@ export function GlobalHeatmap() {
                     </span>
                     Global Presence
                 </h3>
-                <p className="text-[10px] text-gray-500">Live activity from the Eduecosystem</p>
+                <p className="text-[10px] text-muted-foreground">Live activity from the Eduecosystem</p>
             </div>
 
             <Canvas>
@@ -82,7 +82,7 @@ export function GlobalHeatmap() {
             </Canvas>
 
             <div className="absolute bottom-4 right-4 z-10 text-right pointer-events-none">
-                <p className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Active Seekers</p>
+                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Active Seekers</p>
                 <p className="text-2xl font-black text-white">14,208</p>
             </div>
         </div>

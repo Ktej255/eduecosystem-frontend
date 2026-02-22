@@ -51,7 +51,7 @@ export default function QueryInput({ onSend, isLoading }: QueryInputProps) {
                     )}
                 </Button>
             </div>
-            <p className="text-[10px] text-center text-slate-600 mt-2">
+            <p className="text-[10px] text-center text-muted-foreground mt-2">
                 "AI can make mistakes. Verify important information from the Constitution."
             </p>
         </div>

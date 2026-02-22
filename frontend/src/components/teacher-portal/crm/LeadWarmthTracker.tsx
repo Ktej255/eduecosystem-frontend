@@ -18,7 +18,7 @@ export default function LeadWarmthTracker() {
     }, []);
 
     return (
-        <Card className="h-full border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+        <Card className="h-full border-neutral-200 dark:border-neutral-800 bg-card dark:bg-neutral-900">
             <CardHeader>
                 <div className="flex items-center justify-between">
                     <CardTitle className="flex items-center gap-2">

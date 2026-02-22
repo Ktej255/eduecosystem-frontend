@@ -158,7 +158,7 @@ export default function AIAvatarTeachingAssistant({ lessonTitle, summary, keyTak
                         transition: { duration: 4, repeat: Infinity, ease: "easeInOut" }
                     } : {}}
                     onClick={() => setIsOpen(!isOpen)}
-                    className={`w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-500 ${isOpen ? 'bg-white text-black' : 'bg-neutral-900 border border-white/10 text-white'}`}
+                    className={`w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-500 ${isOpen ? 'bg-card text-black' : 'bg-neutral-900 border border-white/10 text-white'}`}
                 >
                     <div className="relative">
                         {isOpen ? <X className="w-6 h-6" /> : <MessageSquare className="w-6 h-6" />}

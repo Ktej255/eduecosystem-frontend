@@ -98,7 +98,7 @@ export default function StudentDashboardPage() {
     return (
       <div className="container mx-auto py-8 px-4">
         <div className="flex items-center justify-center min-h-[400px]">
-          <div className="text-gray-400">Loading dashboard...</div>
+          <div className="text-muted-foreground">Loading dashboard...</div>
         </div>
       </div>
     );
@@ -107,7 +107,7 @@ export default function StudentDashboardPage() {
   if (!data) {
     return (
       <div className="container mx-auto py-8 px-4">
-        <div className="text-center text-gray-400">No data available</div>
+        <div className="text-center text-muted-foreground">No data available</div>
       </div>
     );
   }
@@ -121,7 +121,7 @@ export default function StudentDashboardPage() {
       <div className="mb-8 flex justify-between items-start">
         <div>
           <h1 className="text-3xl font-bold mb-2">Welcome back! 👋</h1>
-          <p className="text-gray-400">
+          <p className="text-muted-foreground">
             Ready to continue your learning journey?
           </p>
         </div>
@@ -139,7 +139,7 @@ export default function StudentDashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{stats.courses_enrolled}</div>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-muted-foreground mt-1">
               {stats.courses_completed} completed
             </p>
           </CardContent>
@@ -154,7 +154,7 @@ export default function StudentDashboardPage() {
             <div className="text-2xl font-bold">
               {stats.total_hours_learned}
             </div>
-            <p className="text-xs text-gray-500 mt-1">Total time invested</p>
+            <p className="text-xs text-muted-foreground mt-1">Total time invested</p>
           </CardContent>
         </Card>
 
@@ -169,7 +169,7 @@ export default function StudentDashboardPage() {
             <div className="text-2xl font-bold">
               {stats.current_streak} days
             </div>
-            <p className="text-xs text-gray-500 mt-1">Keep it going! 🔥</p>
+            <p className="text-xs text-muted-foreground mt-1">Keep it going! 🔥</p>
           </CardContent>
         </Card>
 
@@ -180,7 +180,7 @@ export default function StudentDashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{stats.coins_earned}</div>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-muted-foreground mt-1">
               {stats.achievements_unlocked} achievements
             </p>
           </CardContent>
@@ -230,7 +230,7 @@ export default function StudentDashboardPage() {
             </CardHeader>
             <CardContent>
               {continue_learning.length === 0 ? (
-                <div className="text-center py-8 text-gray-500">
+                <div className="text-center py-8 text-muted-foreground">
                   <BookOpen className="w-12 h-12 mx-auto mb-3 opacity-50" />
                   <p>No courses in progress</p>
                   <Button
@@ -260,7 +260,7 @@ export default function StudentDashboardPage() {
                         }}
                       >
                         {!course.thumbnail_url && (
-                          <div className="h-full flex items-center justify-center text-gray-600 text-2xl font-bold">
+                          <div className="h-full flex items-center justify-center text-muted-foreground text-2xl font-bold">
                             {course.title[0]}
                           </div>
                         )}
@@ -272,12 +272,12 @@ export default function StudentDashboardPage() {
                           {course.title}
                         </h3>
                         {course.next_lesson_title && (
-                          <p className="text-sm text-gray-400 mb-2 truncate">
+                          <p className="text-sm text-muted-foreground mb-2 truncate">
                             Next: {course.next_lesson_title}
                           </p>
                         )}
                         <div className="space-y-1">
-                          <div className="flex justify-between text-xs text-gray-500 mb-1">
+                          <div className="flex justify-between text-xs text-muted-foreground mb-1">
                             <span>
                               {course.completed_lessons} of{" "}
                               {course.total_lessons} lessons
@@ -333,7 +333,7 @@ export default function StudentDashboardPage() {
                         }}
                       >
                         {!course.thumbnail_url && (
-                          <div className="h-full flex items-center justify-center text-gray-600 font-bold">
+                          <div className="h-full flex items-center justify-center text-muted-foreground font-bold">
                             {course.title[0]}
                           </div>
                         )}
@@ -342,7 +342,7 @@ export default function StudentDashboardPage() {
                         <h3 className="font-semibold text-sm line-clamp-1 mb-1">
                           {course.title}
                         </h3>
-                        <p className="text-xs text-gray-400 mb-2 line-clamp-1">
+                        <p className="text-xs text-muted-foreground mb-2 line-clamp-1">
                           by {course.instructor?.full_name || "Instructor"}
                         </p>
                         <div className="flex items-center justify-between text-xs">
@@ -379,11 +379,11 @@ export default function StudentDashboardPage() {
                     >
                       <div>
                         <div className="font-medium">{liveClass.title}</div>
-                        <div className="text-sm text-gray-400">
+                        <div className="text-sm text-muted-foreground">
                           by {liveClass.instructor_name}
                         </div>
                       </div>
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-muted-foreground">
                         {new Date(liveClass.scheduled_at).toLocaleString()}
                       </div>
                     </div>
@@ -473,7 +473,7 @@ export default function StudentDashboardPage() {
             </CardHeader>
             <CardContent>
               {recent_achievements.length === 0 ? (
-                <div className="text-center py-4 text-gray-500 text-sm">
+                <div className="text-center py-4 text-muted-foreground text-sm">
                   Complete lessons to earn achievements
                 </div>
               ) : (
@@ -498,7 +498,7 @@ export default function StudentDashboardPage() {
                         <div className="font-medium text-sm truncate">
                           {achievement.title}
                         </div>
-                        <div className="text-xs text-gray-500 truncate">
+                        <div className="text-xs text-muted-foreground truncate">
                           {achievement.description}
                         </div>
                       </div>
@@ -523,7 +523,7 @@ export default function StudentDashboardPage() {
             <CardContent>
               <div className="text-center py-2">
                 <div className="text-3xl font-black text-white mb-1">Rank #4</div>
-                <p className="text-xs text-gray-400 mb-4 italic">"Strength in Unity"</p>
+                <p className="text-xs text-muted-foreground mb-4 italic">"Strength in Unity"</p>
                 <Button
                   className="w-full bg-cyan-600 hover:bg-cyan-500 text-xs font-bold"
                   onClick={() => router.push('/student/wolf-packs')}

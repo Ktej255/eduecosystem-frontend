@@ -88,7 +88,7 @@ export function CourseImportDialog({
       <DialogContent className="bg-gray-900 border-gray-800 text-white sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Import Course</DialogTitle>
-          <DialogDescription className="text-gray-400">
+          <DialogDescription className="text-muted-foreground">
             Upload a course JSON file to import it into your catalog.
           </DialogDescription>
         </DialogHeader>
@@ -110,10 +110,10 @@ export function CourseImportDialog({
                 <div className="h-12 w-12 rounded-full bg-gray-800 flex items-center justify-center">
                   <Upload className="h-6 w-6 text-cyan-400" />
                 </div>
-                <span className="text-sm font-medium text-gray-300">
+                <span className="text-sm font-medium text-muted-foreground">
                   Click to upload JSON file
                 </span>
-                <span className="text-xs text-gray-500">Maximum size 10MB</span>
+                <span className="text-xs text-muted-foreground">Maximum size 10MB</span>
               </label>
             </div>
           ) : (
@@ -127,7 +127,7 @@ export function CourseImportDialog({
                     <span className="text-sm font-medium text-white truncate max-w-[200px]">
                       {file.name}
                     </span>
-                    <span className="text-xs text-gray-400">
+                    <span className="text-xs text-muted-foreground">
                       {(file.size / 1024).toFixed(1)} KB
                     </span>
                   </div>
@@ -140,7 +140,7 @@ export function CourseImportDialog({
                     setPreview(null);
                     setError(null);
                   }}
-                  className="text-gray-400 hover:text-white"
+                  className="text-muted-foreground hover:text-white"
                 >
                   Change
                 </Button>
@@ -149,19 +149,19 @@ export function CourseImportDialog({
               {preview && (
                 <div className="space-y-2 text-sm border-t border-gray-700 pt-3">
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Title:</span>
+                    <span className="text-muted-foreground">Title:</span>
                     <span className="text-white font-medium">
                       {preview.title}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Modules:</span>
+                    <span className="text-muted-foreground">Modules:</span>
                     <span className="text-white">
                       {preview.modules?.length || 0}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Category:</span>
+                    <span className="text-muted-foreground">Category:</span>
                     <span className="text-white capitalize">
                       {preview.category_slug?.replace(/_/g, " ") ||
                         "Uncategorized"}
@@ -188,7 +188,7 @@ export function CourseImportDialog({
             variant="ghost"
             onClick={() => onOpenChange(false)}
             disabled={loading}
-            className="text-gray-400 hover:text-white"
+            className="text-muted-foreground hover:text-white"
           >
             Cancel
           </Button>

@@ -31,10 +31,10 @@ export default function NationalParksMap() {
     const [selectedPark, setSelectedPark] = useState<NationalPark | null>(null);
 
     return (
-        <div className="flex flex-col h-[calc(100vh-4rem)] lg:flex-row overflow-hidden bg-slate-50 dark:bg-slate-950">
+        <div className="flex flex-col h-[calc(100vh-4rem)] lg:flex-row overflow-hidden bg-muted">
             {/* Sidebar Details Panel */}
             <div className={`
-                fixed inset-0 z-20 bg-white dark:bg-slate-900 shadow-2xl transform transition-transform duration-300
+                fixed inset-0 z-20 bg-card shadow-2xl transform transition-transform duration-300
                 lg:relative lg:translate-x-0 lg:w-96 lg:border-r lg:shadow-none
                 ${selectedPark ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
             `}>
@@ -46,7 +46,7 @@ export default function NationalParksMap() {
                                 <ArrowLeft className="h-5 w-5" />
                             </Button>
                         </Link>
-                        <h1 className="text-xl font-bold text-gray-800 dark:text-gray-100">National Parks</h1>
+                        <h1 className="text-xl font-bold text-foreground">National Parks</h1>
                         {/* Mobile Close Button */}
                         <Button
                             variant="ghost"
@@ -87,16 +87,16 @@ export default function NationalParksMap() {
                             </div>
 
                             {/* Description */}
-                            <div className="bg-white dark:bg-slate-800 p-4 rounded-xl border shadow-sm">
-                                <h3 className="text-sm font-bold text-gray-500 uppercase mb-2">Significance</h3>
-                                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <div className="bg-card p-4 rounded-xl border shadow-sm">
+                                <h3 className="text-sm font-bold text-muted-foreground uppercase mb-2">Significance</h3>
+                                <p className="text-muted-foreground dark:text-muted-foreground leading-relaxed">
                                     {selectedPark.description}
                                 </p>
                             </div>
 
                             {/* Species */}
-                            <div className="bg-white dark:bg-slate-800 p-4 rounded-xl border shadow-sm">
-                                <h3 className="text-sm font-bold text-gray-500 uppercase mb-2">Key Species</h3>
+                            <div className="bg-card p-4 rounded-xl border shadow-sm">
+                                <h3 className="text-sm font-bold text-muted-foreground uppercase mb-2">Key Species</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {selectedPark.keySpecies.map(species => (
                                         <span key={species} className="bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 px-2 py-1 rounded-md text-sm border border-green-100 dark:border-green-800">
@@ -107,7 +107,7 @@ export default function NationalParksMap() {
                             </div>
                         </div>
                     ) : (
-                        <div className="flex-1 flex flex-col items-center justify-center text-center text-gray-400 p-4">
+                        <div className="flex-1 flex flex-col items-center justify-center text-center text-muted-foreground p-4">
                             <MapPin className="h-12 w-12 mb-4 opacity-20" />
                             <p className="text-lg font-medium">Select a location on the map</p>
                             <p className="text-sm">Click on any marker to view detailed information about the National Park.</p>
@@ -117,7 +117,7 @@ export default function NationalParksMap() {
             </div>
 
             {/* Map Area */}
-            <div className="flex-1 relative bg-slate-100 dark:bg-slate-950 p-4 overflow-hidden flex items-center justify-center">
+            <div className="flex-1 relative bg-muted p-4 overflow-hidden flex items-center justify-center">
                 <div className="relative w-full max-w-2xl aspect-[3/4]">
                     <svg viewBox="0 0 100 120" className="w-full h-full drop-shadow-xl filter">
                         {/* India Map Base */}
@@ -164,7 +164,7 @@ export default function NationalParksMap() {
                         ))}
                     </svg>
 
-                    <div className="absolute bottom-4 right-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur p-2 rounded-lg border text-xs text-gray-500">
+                    <div className="absolute bottom-4 right-4 bg-card/80/80 backdrop-blur p-2 rounded-lg border text-xs text-muted-foreground">
                         * Locations are approximate
                     </div>
                 </div>

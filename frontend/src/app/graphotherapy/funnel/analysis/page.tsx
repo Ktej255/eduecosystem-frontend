@@ -4,9 +4,9 @@ import ReportGeneration from '@/components/graphotherapy/ReportGeneration';
 
 export default function AnalysisPage() {
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex flex-col">
-            <header className="h-16 bg-white dark:bg-gray-900 border-b flex items-center justify-center px-4">
-                <div className="flex items-center gap-2 text-gray-900 dark:text-white font-bold">
+        <div className="min-h-screen bg-muted flex flex-col">
+            <header className="h-16 bg-card border-b flex items-center justify-center px-4">
+                <div className="flex items-center gap-2 text-foreground font-bold">
                     GraphoTherapy AI™
                 </div>
             </header>

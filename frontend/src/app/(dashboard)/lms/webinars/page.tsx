@@ -159,7 +159,7 @@ export default function WebinarsPage() {
         const variants: Record<string, { color: string; label: string }> = {
             scheduled: { color: "border-blue-500/50 text-blue-500", label: "Scheduled" },
             live: { color: "border-green-500/50 text-green-500 animate-pulse", label: "🔴 Live" },
-            completed: { color: "border-gray-500/50 text-gray-400", label: "Completed" },
+            completed: { color: "border-gray-500/50 text-muted-foreground", label: "Completed" },
             cancelled: { color: "border-red-500/50 text-red-500", label: "Cancelled" },
         };
         const variant = variants[status] || variants.scheduled;
@@ -182,7 +182,7 @@ export default function WebinarsPage() {
                     <div>
                         <span className="font-medium text-white">{val}</span>
                         {row.description && (
-                            <p className="text-xs text-gray-500 mt-0.5 line-clamp-1">{row.description}</p>
+                            <p className="text-xs text-muted-foreground mt-0.5 line-clamp-1">{row.description}</p>
                         )}
                     </div>
                 </div>
@@ -192,7 +192,7 @@ export default function WebinarsPage() {
             key: "scheduled_at",
             label: "Scheduled For",
             render: (val: string) => (
-                <div className="flex items-center gap-2 text-gray-400">
+                <div className="flex items-center gap-2 text-muted-foreground">
                     <Calendar className="h-4 w-4" />
                     <span>{new Date(val).toLocaleString()}</span>
                 </div>
@@ -202,7 +202,7 @@ export default function WebinarsPage() {
             key: "duration_minutes",
             label: "Duration",
             render: (val: number) => (
-                <div className="flex items-center gap-2 text-gray-400">
+                <div className="flex items-center gap-2 text-muted-foreground">
                     <Clock className="h-4 w-4" />
                     <span>{val} mins</span>
                 </div>
@@ -270,7 +270,7 @@ export default function WebinarsPage() {
             <div className="min-h-screen bg-black flex items-center justify-center">
                 <div className="text-center">
                     <Loader2 className="h-12 w-12 animate-spin text-emerald-500 mx-auto mb-4" />
-                    <p className="text-gray-400">Loading webinars...</p>
+                    <p className="text-muted-foreground">Loading webinars...</p>
                 </div>
             </div>
         );
@@ -296,7 +296,7 @@ export default function WebinarsPage() {
                             <Video className="h-5 w-5 text-emerald-500" />
                             Schedule New Webinar
                         </DialogTitle>
-                        <DialogDescription className="text-gray-400">
+                        <DialogDescription className="text-muted-foreground">
                             Create a new live class or webinar session.
                         </DialogDescription>
                     </DialogHeader>
@@ -369,7 +369,7 @@ export default function WebinarsPage() {
                         <div className="space-y-2">
                             <Label htmlFor="meeting_url">
                                 Meeting Link
-                                <span className="text-xs text-gray-500 ml-2">
+                                <span className="text-xs text-muted-foreground ml-2">
                                     (Create a meeting in Google Meet and paste the link)
                                 </span>
                             </Label>
@@ -380,7 +380,7 @@ export default function WebinarsPage() {
                                 placeholder="https://meet.google.com/xxx-xxxx-xxx"
                                 className="bg-gray-800 border-gray-700"
                             />
-                            <p className="text-xs text-gray-500">
+                            <p className="text-xs text-muted-foreground">
                                 💡 Go to <a href="https://meet.google.com" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:underline">meet.google.com</a> → Start a meeting → Copy the link
                             </p>
                         </div>

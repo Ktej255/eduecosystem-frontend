@@ -50,7 +50,7 @@ export default function LearningPathsPage() {
 
   if (loading) {
     return (
-      <div className="text-center py-8 text-gray-400">
+      <div className="text-center py-8 text-muted-foreground">
         Loading learning paths...
       </div>
     );
@@ -62,7 +62,7 @@ export default function LearningPathsPage() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-white mb-2">Learning Paths</h1>
-          <p className="text-gray-400">
+          <p className="text-muted-foreground">
             Structured learning journeys to master new skills
           </p>
         </div>
@@ -107,7 +107,7 @@ export default function LearningPathsPage() {
           {/* All Paths Tab */}
           <TabsContent value="all">
             {filteredPaths.length === 0 ? (
-              <div className="text-center py-12 text-gray-400">
+              <div className="text-center py-12 text-muted-foreground">
                 No learning paths available
               </div>
             ) : (
@@ -123,7 +123,7 @@ export default function LearningPathsPage() {
           <TabsContent value="enrolled">
             {myEnrollments.length === 0 ? (
               <div className="text-center py-12">
-                <p className="text-gray-400 mb-4">
+                <p className="text-muted-foreground mb-4">
                   You haven't enrolled in any learning paths yet
                 </p>
                 <Button

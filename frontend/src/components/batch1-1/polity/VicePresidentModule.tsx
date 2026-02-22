@@ -16,7 +16,7 @@ interface VicePresidentModuleProps {
 // --- Design System: The Ex-Officio Gavel (Hand-Drawn) ---
 
 const RSContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#fdf2f2] text-slate-900">
+    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#fdf2f2] text-foreground">
         {/* Crumpled Grid Texture */}
         <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#b91c1c_1px,transparent_1px),linear-gradient(to_bottom,#b91c1c_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
         {/* Red Carpet overlay */}
@@ -32,7 +32,7 @@ const SketchyCard = ({ children, title, icon: Icon, color = "red", className = "
     const styles = {
         red: "border-red-600 bg-red-50 text-red-900 shadow-[4px_4px_0px_#b91c1c]",
         blue: "border-blue-600 bg-blue-50 text-blue-900 shadow-[4px_4px_0px_#1e3a8a]",
-        slate: "border-slate-600 bg-white text-slate-900 shadow-[4px_4px_0px_#475569]",
+        slate: "border-slate-600 bg-card text-foreground shadow-[4px_4px_0px_#475569]",
     };
 
     const c = styles[color];
@@ -103,7 +103,7 @@ export default function VicePresidentModule({ onComplete, isCompleted }: VicePre
                                 <XCircle className="text-red-600 shrink-0 mt-1" />
                                 <div>
                                     <strong>States:</strong> <span className="text-red-600 font-bold">NO.</span> MLAs do NOT vote.
-                                    <div className="text-sm text-slate-500 mt-1">(Unlike President).</div>
+                                    <div className="text-sm text-muted-foreground mt-1">(Unlike President).</div>
                                 </div>
                             </li>
                         </ul>
@@ -116,7 +116,7 @@ export default function VicePresidentModule({ onComplete, isCompleted }: VicePre
                                 <CheckCircle2 className="text-blue-600 shrink-0 mt-1" />
                                 <div>
                                     <strong>Members:</strong> <span className="text-blue-600 font-bold">ONLY</span> Elected MPs.
-                                    <div className="text-sm text-slate-500 mt-1">Nominated MPs are excluded.</div>
+                                    <div className="text-sm text-muted-foreground mt-1">Nominated MPs are excluded.</div>
                                 </div>
                             </li>
                             <li className="flex items-start gap-3">
@@ -150,7 +150,7 @@ export default function VicePresidentModule({ onComplete, isCompleted }: VicePre
                         <div className="bg-yellow-100 p-2 border border-yellow-400 rotate-1 shadow-sm">
                             <strong className="text-red-600 block text-sm">CRITICAL DIFFERENCE</strong>
                             Qualified for election as member of <span className="font-bold underline">Rajya Sabha</span>.
-                            <div className="text-xs text-slate-500">(President needs Lok Sabha).</div>
+                            <div className="text-xs text-muted-foreground">(President needs Lok Sabha).</div>
                         </div>
                     </div>
                 </SketchyCard>
@@ -167,7 +167,7 @@ export default function VicePresidentModule({ onComplete, isCompleted }: VicePre
                 <div className="grid md:grid-cols-2 gap-8">
                     {/* CHAIRMAN ROLE */}
                     <div className="bg-red-900 text-white p-6 rounded-xl relative shadow-2xl skew-x-1 border-[3px] border-white/20">
-                        <div className="absolute -right-4 -top-6 rotate-12 bg-white text-red-900 p-2 rounded-full border-4 border-red-900 shadow-lg">
+                        <div className="absolute -right-4 -top-6 rotate-12 bg-card text-red-900 p-2 rounded-full border-4 border-red-900 shadow-lg">
                             <Gavel size={32} />
                         </div>
                         <h3 className="text-2xl font-bold font-serif mb-4 border-b border-red-700 pb-2">Ex-Officio Chairman (Art 64)</h3>
@@ -182,15 +182,15 @@ export default function VicePresidentModule({ onComplete, isCompleted }: VicePre
                     </div>
 
                     {/* ACTING PRESIDENT */}
-                    <div className="bg-white border-2 border-slate-300 p-6 rounded-xl relative shadow-lg -skew-x-1">
+                    <div className="bg-card border-2 border-border p-6 rounded-xl relative shadow-lg -skew-x-1">
                         <div className="absolute -left-4 -top-6 -rotate-12 bg-slate-800 text-white p-2 rounded-full border-4 border-white shadow-lg">
                             <AlertTriangle size={32} />
                         </div>
-                        <h3 className="text-2xl font-bold font-serif mb-4 text-slate-800 border-b border-slate-200 pb-2">Acting President (Art 65)</h3>
-                        <p className="text-slate-600 font-handwriting mb-4">
+                        <h3 className="text-2xl font-bold font-serif mb-4 text-foreground border-b border-border pb-2">Acting President (Art 65)</h3>
+                        <p className="text-muted-foreground font-handwriting mb-4">
                             Acts as President when vacancy occurs (Death, Resignation, Removal).
                         </p>
-                        <div className="bg-slate-100 p-3 rounded border border-slate-300 text-sm font-handwriting">
+                        <div className="bg-muted p-3 rounded border border-border text-sm font-handwriting">
                             <strong>Max Period:</strong> 6 Months. (Election must be held). <br />
                             <span className="text-red-500 block mt-1">While Acting President, he does NOT perform duties of RS Chairman.</span>
                         </div>

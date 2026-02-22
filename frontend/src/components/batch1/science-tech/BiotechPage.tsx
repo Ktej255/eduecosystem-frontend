@@ -11,9 +11,9 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 
 export default function BiotechPage() {
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-black">
+        <div className="min-h-screen bg-muted dark:bg-black">
             {/* Header */}
-            <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+            <div className="bg-card border-b border-border sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
                     <div className="flex items-center gap-4">
                         <Link href="/student/batch1/science-tech">
@@ -26,7 +26,7 @@ export default function BiotechPage() {
                                 <Dna className="h-5 w-5" />
                                 {BIOTECH_CONTENT.title}
                             </h1>
-                            <p className="text-xs text-slate-500">{BIOTECH_CONTENT.description}</p>
+                            <p className="text-xs text-muted-foreground">{BIOTECH_CONTENT.description}</p>
                         </div>
                     </div>
                 </div>
@@ -37,11 +37,11 @@ export default function BiotechPage() {
                 <div className="md:col-span-1 space-y-4">
                     <Card className="top-24 sticky">
                         <CardHeader>
-                            <CardTitle className="text-sm uppercase tracking-wider text-slate-500">Key Topics</CardTitle>
+                            <CardTitle className="text-sm uppercase tracking-wider text-muted-foreground">Key Topics</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-2 p-4 pt-0">
                             {BIOTECH_CONTENT.sections.map(sec => (
-                                <a key={sec.id} href={`#${sec.id}`} className="block text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-rose-600 dark:hover:text-rose-400 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                                <a key={sec.id} href={`#${sec.id}`} className="block text-sm font-medium text-muted-foreground hover:text-rose-600 dark:hover:text-rose-400 p-2 rounded-lg hover:bg-muted dark:hover:bg-slate-800 transition-colors">
                                     {sec.title}
                                 </a>
                             ))}
@@ -63,13 +63,13 @@ export default function BiotechPage() {
                     {BIOTECH_CONTENT.sections.map(sec => (
                         <section key={sec.id} id={sec.id} className="scroll-mt-24">
                             <Card className="overflow-hidden border-t-4 border-t-rose-500">
-                                <CardHeader className="bg-slate-50 dark:bg-slate-900/50 pb-3">
+                                <CardHeader className="bg-muted/50 pb-3">
                                     <CardTitle className="flex items-center gap-2 text-lg">
                                         <BookOpen className="h-5 w-5 text-rose-500" />
                                         {sec.title}
                                     </CardTitle>
                                 </CardHeader>
-                                <CardContent className="p-6 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
+                                <CardContent className="p-6 prose dark:prose-invert max-w-none text-muted-foreground">
                                     <ReactMarkdown>{sec.content}</ReactMarkdown>
                                 </CardContent>
                             </Card>

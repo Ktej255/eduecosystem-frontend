@@ -114,13 +114,13 @@ export default function AdvancedRecallEngine({ topicName = "Executive Branch: Th
                         key="prompt"
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="text-center bg-white dark:bg-slate-900 p-16 rounded-[4rem] shadow-2xl border border-slate-100 dark:border-slate-800"
+                        className="text-center bg-card p-16 rounded-[4rem] shadow-2xl border border-slate-100"
                     >
                         <div className="w-20 h-20 bg-purple-100 dark:bg-purple-900/30 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-inner">
                             <Brain className="w-10 h-10 text-purple-600" />
                         </div>
                         <h2 className="text-4xl font-black mb-6 tracking-tight">Challenge Your Knowledge</h2>
-                        <p className="text-slate-500 dark:text-slate-400 max-w-lg mx-auto mb-12 font-medium leading-relaxed">
+                        <p className="text-muted-foreground dark:text-muted-foreground max-w-lg mx-auto mb-12 font-medium leading-relaxed">
                             Before we show you the content for <span className="text-purple-600 font-bold">"{topicName}"</span>, explain what you already know out loud.
                         </p>
                         <Button
@@ -144,12 +144,12 @@ export default function AdvancedRecallEngine({ topicName = "Executive Branch: Th
                             <Badge className="bg-rose-500 text-white animate-pulse border-none px-4 py-2 rounded-full font-black text-[10px] tracking-widest uppercase">
                                 Recording Live • Speaking Now
                             </Badge>
-                            <span className="text-slate-400 font-bold text-xs">Topic: {topicName}</span>
+                            <span className="text-muted-foreground font-bold text-xs">Topic: {topicName}</span>
                         </div>
 
-                        <Card className="border-none bg-white dark:bg-slate-900 rounded-[3rem] shadow-2xl overflow-hidden min-h-[300px] flex flex-col justify-center p-12 text-center border-t-8 border-rose-500">
+                        <Card className="border-none bg-card rounded-[3rem] shadow-2xl overflow-hidden min-h-[300px] flex flex-col justify-center p-12 text-center border-t-8 border-rose-500">
                             {transcript ? (
-                                <p className="text-2xl font-bold leading-relaxed text-slate-800 dark:text-slate-200 indent-8 italic">
+                                <p className="text-2xl font-bold leading-relaxed text-foreground indent-8 italic">
                                     "{transcript}"
                                 </p>
                             ) : (
@@ -157,7 +157,7 @@ export default function AdvancedRecallEngine({ topicName = "Executive Branch: Th
                                     <div className="w-16 h-16 bg-rose-50 rounded-full flex items-center justify-center mx-auto animate-bounce">
                                         <Mic className="w-8 h-8 text-rose-500" />
                                     </div>
-                                    <p className="text-slate-400 font-medium">Listening for your explanation...</p>
+                                    <p className="text-muted-foreground font-medium">Listening for your explanation...</p>
                                 </div>
                             )}
                         </Card>
@@ -174,7 +174,7 @@ export default function AdvancedRecallEngine({ topicName = "Executive Branch: Th
                             <Button
                                 size="lg"
                                 onClick={handleStopRecall}
-                                className="h-16 px-14 rounded-2xl bg-slate-900 dark:bg-white dark:text-slate-900 font-black text-lg"
+                                className="h-16 px-14 rounded-2xl bg-slate-900 dark:bg-card dark:text-foreground font-black text-lg"
                             >
                                 Analyze Recall <Sparkles className="w-5 h-5 ml-2" />
                             </Button>
@@ -190,7 +190,7 @@ export default function AdvancedRecallEngine({ topicName = "Executive Branch: Th
                         className="text-center py-20"
                     >
                         <div className="relative w-40 h-40 mx-auto mb-10">
-                            <div className="absolute inset-0 border-8 border-slate-100 dark:border-slate-800 rounded-full" />
+                            <div className="absolute inset-0 border-8 border-slate-100 rounded-full" />
                             <motion.div
                                 className="absolute inset-0 border-8 border-purple-500 rounded-full border-t-transparent"
                                 animate={{ rotate: 360 }}
@@ -201,7 +201,7 @@ export default function AdvancedRecallEngine({ topicName = "Executive Branch: Th
                             </div>
                         </div>
                         <h2 className="text-3xl font-black mb-4">Cross-Checking with Knowledge Base</h2>
-                        <p className="text-slate-500 font-medium italic">"Identifying semantic patterns and mapping missing concepts..."</p>
+                        <p className="text-muted-foreground font-medium italic">"Identifying semantic patterns and mapping missing concepts..."</p>
                     </motion.div>
                 )}
 
@@ -222,13 +222,13 @@ export default function AdvancedRecallEngine({ topicName = "Executive Branch: Th
                                         <span>Accuracy</span>
                                         <span>High</span>
                                     </div>
-                                    <Progress value={result.score} className="h-1.5 bg-white/20" color="bg-white" />
+                                    <Progress value={result.score} className="h-1.5 bg-card/20" color="bg-card" />
                                 </div>
                             </Card>
 
                             {/* Gaps List */}
-                            <Card className="lg:col-span-2 border-none bg-white dark:bg-slate-900 rounded-[3rem] shadow-xl p-12 border border-slate-100 dark:border-slate-800">
-                                <h3 className="text-2xl font-black mb-8 flex items-center gap-3 text-slate-900 dark:text-white">
+                            <Card className="lg:col-span-2 border-none bg-card rounded-[3rem] shadow-xl p-12 border border-slate-100">
+                                <h3 className="text-2xl font-black mb-8 flex items-center gap-3 text-foreground">
                                     <Target className="text-rose-500" /> Concept Mapping
                                 </h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -247,7 +247,7 @@ export default function AdvancedRecallEngine({ topicName = "Executive Branch: Th
                                         </div>
                                     ))}
                                 </div>
-                                <div className="mt-10 p-6 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800 italic text-slate-500 text-sm font-medium">
+                                <div className="mt-10 p-6 bg-muted/50 rounded-2xl border border-slate-100 italic text-muted-foreground text-sm font-medium">
                                     "{result.feedback}"
                                 </div>
                             </Card>

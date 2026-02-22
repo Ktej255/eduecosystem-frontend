@@ -8,7 +8,7 @@ import GlobalizationFlowViz from './visualizations/GlobalizationFlowViz';
 
 export default function GlobalizationPage() {
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-black p-4 md:p-8 text-slate-900 dark:text-slate-100">
+        <div className="min-h-screen bg-muted dark:bg-black p-4 md:p-8 text-foreground">
             <div className="max-w-7xl mx-auto space-y-8">
                 {/* Header */}
                 <div className="flex items-center gap-4">
@@ -22,7 +22,7 @@ export default function GlobalizationPage() {
                             <Globe className="h-6 w-6 text-indigo-600" />
                             Globalization & Indian Society
                         </h1>
-                        <p className="text-sm text-slate-500">Impact on Culture, Economy, and Social Structures.</p>
+                        <p className="text-sm text-muted-foreground">Impact on Culture, Economy, and Social Structures.</p>
                     </div>
                 </div>
 

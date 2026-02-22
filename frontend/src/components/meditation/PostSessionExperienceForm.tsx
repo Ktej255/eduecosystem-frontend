@@ -94,7 +94,7 @@ export default function PostSessionExperienceForm({
             );
         } else {
             return (
-                <div className="flex items-center gap-1 text-gray-400">
+                <div className="flex items-center gap-1 text-muted-foreground">
                     <Minus className="w-4 h-4" />
                     <span className="text-sm font-semibold">0</span>
                 </div>
@@ -127,7 +127,7 @@ export default function PostSessionExperienceForm({
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
                     How Do You Feel Now?
                 </h1>
-                <p className="text-gray-400">
+                <p className="text-muted-foreground">
                     Reflect on your experience and track your progress
                 </p>
             </motion.div>
@@ -144,7 +144,7 @@ export default function PostSessionExperienceForm({
                     <div className="flex items-center justify-between">
                         <label className="text-white font-semibold">Stress Level</label>
                         <div className="flex items-center gap-3">
-                            <span className="text-sm text-gray-400">
+                            <span className="text-sm text-muted-foreground">
                                 Before: {preSessionData.stress}
                             </span>
                             {renderImprovementIndicator(stressImprovement)}
@@ -168,7 +168,7 @@ export default function PostSessionExperienceForm({
                     <div className="flex items-center justify-between">
                         <label className="text-white font-semibold">Anxiety Level</label>
                         <div className="flex items-center gap-3">
-                            <span className="text-sm text-gray-400">
+                            <span className="text-sm text-muted-foreground">
                                 Before: {preSessionData.anxiety}
                             </span>
                             {renderImprovementIndicator(anxietyImprovement)}
@@ -192,7 +192,7 @@ export default function PostSessionExperienceForm({
                     <div className="flex items-center justify-between">
                         <label className="text-white font-semibold">Focus Ability</label>
                         <div className="flex items-center gap-3">
-                            <span className="text-sm text-gray-400">
+                            <span className="text-sm text-muted-foreground">
                                 Before: {preSessionData.focus}
                             </span>
                             {renderImprovementIndicator(focusImprovement)}
@@ -215,7 +215,7 @@ export default function PostSessionExperienceForm({
                 <div className="space-y-4">
                     <div className="flex items-center justify-between">
                         <label className="text-white font-semibold">Emotional State</label>
-                        <span className="text-sm text-gray-400">
+                        <span className="text-sm text-muted-foreground">
                             Before: {preSessionData.emotionalState}
                         </span>
                     </div>
@@ -256,14 +256,14 @@ export default function PostSessionExperienceForm({
                                 <Star
                                     className={`w-12 h-12 transition-colors ${rating <= effectivenessRating
                                             ? 'fill-yellow-400 text-yellow-400'
-                                            : 'text-gray-600 group-hover:text-gray-500'
+                                            : 'text-muted-foreground group-hover:text-muted-foreground'
                                         }`}
                                 />
                             </button>
                         ))}
                     </div>
                     {effectivenessRating > 0 && (
-                        <p className="text-center text-sm text-gray-400">
+                        <p className="text-center text-sm text-muted-foreground">
                             {effectivenessRating === 5 && "Excellent! Highly effective"}
                             {effectivenessRating === 4 && "Very effective"}
                             {effectivenessRating === 3 && "Moderately effective"}
@@ -278,14 +278,14 @@ export default function PostSessionExperienceForm({
                     <div className="flex items-center gap-2">
                         <Lightbulb className="w-5 h-5 text-yellow-400" />
                         <label className="text-white font-semibold">
-                            Session Insights <span className="text-gray-500 text-sm font-normal">(Optional)</span>
+                            Session Insights <span className="text-muted-foreground text-sm font-normal">(Optional)</span>
                         </label>
                     </div>
                     <Textarea
                         value={insights}
                         onChange={(e) => setInsights(e.target.value)}
                         placeholder="What did you notice during the session? Any realizations or observations..."
-                        className="w-full min-h-[100px] bg-neutral-800 border-neutral-700 text-white placeholder:text-gray-500 resize-none"
+                        className="w-full min-h-[100px] bg-neutral-800 border-neutral-700 text-white placeholder:text-muted-foreground resize-none"
                     />
                 </div>
 

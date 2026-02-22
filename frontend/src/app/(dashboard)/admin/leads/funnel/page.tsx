@@ -50,7 +50,7 @@ export default function FunnelLeadsPage() {
             <div className="flex justify-between items-center">
                 <div>
                     <h1 className="text-3xl font-bold">Graphotherapy Funnel Leads</h1>
-                    <p className="text-gray-500">Users who submitted the analysis funnel</p>
+                    <p className="text-muted-foreground">Users who submitted the analysis funnel</p>
                 </div>
                 <Badge variant="secondary" className="text-lg px-4 py-2">
                     {leads.length} Leads
@@ -75,25 +75,25 @@ export default function FunnelLeadsPage() {
                                 <TableRow key={lead.id}>
                                     <TableCell className="font-medium">
                                         <div className="flex items-center gap-2">
-                                            <User className="w-4 h-4 text-gray-400" />
+                                            <User className="w-4 h-4 text-muted-foreground" />
                                             {lead.name}
                                         </div>
                                     </TableCell>
                                     <TableCell>
                                         <div className="flex items-center gap-2">
-                                            <Mail className="w-4 h-4 text-gray-400" />
+                                            <Mail className="w-4 h-4 text-muted-foreground" />
                                             {lead.email}
                                         </div>
                                     </TableCell>
                                     <TableCell>
                                         <div className="flex items-center gap-2">
-                                            <Phone className="w-4 h-4 text-gray-400" />
+                                            <Phone className="w-4 h-4 text-muted-foreground" />
                                             {lead.phone || "-"}
                                         </div>
                                     </TableCell>
                                     <TableCell>
                                         <div className="flex items-center gap-2">
-                                            <MapPin className="w-4 h-4 text-gray-400" />
+                                            <MapPin className="w-4 h-4 text-muted-foreground" />
                                             {lead.address || "-"}
                                         </div>
                                     </TableCell>
@@ -103,7 +103,7 @@ export default function FunnelLeadsPage() {
                                         </Badge>
                                     </TableCell>
                                     <TableCell>
-                                        <div className="flex items-center gap-2 text-sm text-gray-500">
+                                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
                                             <Calendar className="w-4 h-4" />
                                             {new Date(lead.created_at).toLocaleDateString()}
                                         </div>
@@ -112,7 +112,7 @@ export default function FunnelLeadsPage() {
                             ))}
                             {leads.length === 0 && (
                                 <TableRow>
-                                    <TableCell colSpan={6} className="text-center py-8 text-gray-400">
+                                    <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
                                         No leads yet. Share your funnel link to get started!
                                     </TableCell>
                                 </TableRow>

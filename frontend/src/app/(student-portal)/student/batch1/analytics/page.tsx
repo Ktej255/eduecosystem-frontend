@@ -230,16 +230,16 @@ function AnalyticsContent() {
                             <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                                 📊 Test Analytics Dashboard
                             </h1>
-                            <p className="text-gray-500 text-sm">Track your progress and identify areas for improvement</p>
+                            <p className="text-muted-foreground text-sm">Track your progress and identify areas for improvement</p>
                         </div>
                     </div>
                 </div>
 
                 {!analytics || testResults.length === 0 ? (
                     <Card className="p-12 text-center">
-                        <BarChart3 className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                        <h2 className="text-xl font-semibold text-gray-700 mb-2">No Test Data Yet</h2>
-                        <p className="text-gray-500 mb-4">Complete your first test to see analytics here!</p>
+                        <BarChart3 className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+                        <h2 className="text-xl font-semibold text-muted-foreground mb-2">No Test Data Yet</h2>
+                        <p className="text-muted-foreground mb-4">Complete your first test to see analytics here!</p>
                         <Link href="/student/batch1">
                             <Button>Go to Batch 1 Tests</Button>
                         </Link>
@@ -329,7 +329,7 @@ function AnalyticsContent() {
                                                     />
                                                 </LineChart>
                                             </ResponsiveContainer>
-                                        ) : <div className="h-full w-full flex items-center justify-center bg-gray-50 rounded-lg">Loading Chart...</div>}
+                                        ) : <div className="h-full w-full flex items-center justify-center bg-muted rounded-lg">Loading Chart...</div>}
                                     </div>
                                 </CardContent>
                             </Card>
@@ -364,7 +364,7 @@ function AnalyticsContent() {
                                                     <Legend />
                                                 </PieChart>
                                             </ResponsiveContainer>
-                                        ) : <div className="h-full w-full flex items-center justify-center bg-gray-50 rounded-lg">Loading...</div>}
+                                        ) : <div className="h-full w-full flex items-center justify-center bg-muted rounded-lg">Loading...</div>}
                                     </div>
                                 </CardContent>
                             </Card>
@@ -372,7 +372,7 @@ function AnalyticsContent() {
 
                         {/* Subject Cards */}
                         <div>
-                            <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
+                            <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                                 <BookOpen className="h-5 w-5" /> Subject-wise Analysis
                             </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -390,12 +390,12 @@ function AnalyticsContent() {
                                                         </div>
                                                         <div>
                                                             <h3 className="font-semibold">{subject.name}</h3>
-                                                            <p className="text-xs text-gray-500">{subjectData?.tests || 0} tests</p>
+                                                            <p className="text-xs text-muted-foreground">{subjectData?.tests || 0} tests</p>
                                                         </div>
                                                     </div>
                                                     <div className="space-y-2">
                                                         <div className="flex justify-between text-sm">
-                                                            <span className="text-gray-500">Avg Score</span>
+                                                            <span className="text-muted-foreground">Avg Score</span>
                                                             <span className="font-bold">{subjectData?.avgScore || 0}%</span>
                                                         </div>
                                                         <Progress value={subjectData?.avgScore || 0} className="h-2" />
@@ -421,21 +421,21 @@ function AnalyticsContent() {
                                     {testResults.slice(0, 5).map((result, idx) => {
                                         const scorePercent = Math.round((result.correct_count / result.total_questions) * 100);
                                         return (
-                                            <div key={idx} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                            <div key={idx} className="flex items-center justify-between p-3 bg-muted rounded-lg">
                                                 <div className="flex items-center gap-3">
                                                     <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-white ${scorePercent >= 60 ? 'bg-green-500' : scorePercent >= 40 ? 'bg-yellow-500' : 'bg-red-500'}`}>
                                                         {scorePercent}%
                                                     </div>
                                                     <div>
                                                         <p className="font-semibold">Cycle {result.cycle_id}, Day {result.day_number}</p>
-                                                        <p className="text-xs text-gray-500">
+                                                        <p className="text-xs text-muted-foreground">
                                                             {new Date(result.timestamp).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
                                                         </p>
                                                     </div>
                                                 </div>
                                                 <div className="text-right">
                                                     <p className="font-bold">{result.correct_count}/{result.total_questions}</p>
-                                                    <p className="text-xs text-gray-500">Score: {result.score}</p>
+                                                    <p className="text-xs text-muted-foreground">Score: {result.score}</p>
                                                 </div>
                                             </div>
                                         );

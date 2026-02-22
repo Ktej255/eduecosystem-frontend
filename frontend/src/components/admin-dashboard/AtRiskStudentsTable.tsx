@@ -83,14 +83,14 @@ export function AtRiskStudentsTable() {
                     <TableBody>
                         {students.length === 0 ? (
                             <TableRow>
-                                <TableCell colSpan={4} className="text-center text-gray-500 py-8">No students currently at risk. Good job!</TableCell>
+                                <TableCell colSpan={4} className="text-center text-muted-foreground py-8">No students currently at risk. Good job!</TableCell>
                             </TableRow>
                         ) : (
                             students.map((student) => (
                                 <TableRow key={student.id} className="border-gray-800">
                                     <TableCell>
                                         <div className="font-medium">{student.name}</div>
-                                        <div className="text-xs text-gray-500">{student.email}</div>
+                                        <div className="text-xs text-muted-foreground">{student.email}</div>
                                     </TableCell>
                                     <TableCell>
                                         <div className={`font-bold ${getRiskColor(student.risk_score)}`}>

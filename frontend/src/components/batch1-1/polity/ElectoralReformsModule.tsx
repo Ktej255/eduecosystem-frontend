@@ -17,7 +17,7 @@ interface ElectoralReformsModuleProps {
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="bg-[#f0fdfa] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-teal-100">
-        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white/50 rounded-3xl p-6 shadow-inner border-2 border-slate-200">
+        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-card/50 rounded-3xl p-6 shadow-inner border-2 border-border">
             {children}
         </div>
     </div>
@@ -28,7 +28,7 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
         <div className={`p-3 rounded-full ${color} text-white shadow-lg`}>
             <Icon size={24} />
         </div>
-        <h2 className={`text-2xl font-black uppercase tracking-tight text-slate-800`}>
+        <h2 className={`text-2xl font-black uppercase tracking-tight text-foreground`}>
             {title}
         </h2>
         <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
@@ -36,12 +36,12 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
 );
 
 const ReformCard = ({ year, title, children }: { year: string, title: string, children: React.ReactNode }) => (
-    <div className="bg-white border-l-4 border-green-500 shadow-sm p-4 relative pl-6">
+    <div className="bg-card border-l-4 border-green-500 shadow-sm p-4 relative pl-6">
         <div className="absolute -left-[22px] top-4 w-10 h-10 bg-green-500 rounded-full text-white flex items-center justify-center text-xs font-black shadow z-10">
             {year}
         </div>
-        <h4 className="font-black text-lg text-slate-800 mb-2">{title}</h4>
-        <div className="text-sm font-bold text-slate-600 space-y-1">
+        <h4 className="font-black text-lg text-foreground mb-2">{title}</h4>
+        <div className="text-sm font-bold text-muted-foreground space-y-1">
             {children}
         </div>
     </div>
@@ -54,7 +54,7 @@ export default function ElectoralReformsModule({ onComplete, isCompleted, chapte
             <div className="relative bg-[#0f766e] border-4 border-teal-900 rounded-3xl p-8 md:p-12 shadow-2xl text-white overflow-hidden">
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-white text-teal-800 px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
+                        <Badge className="bg-card text-teal-800 px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
                         <span className="text-teal-200 font-bold uppercase tracking-widest text-sm">Part XV</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
@@ -80,9 +80,9 @@ export default function ElectoralReformsModule({ onComplete, isCompleted, chapte
                     { name: "Vohra (1993)", desc: "Criminal Nexus" },
                     { name: "Indrajit Gupta (1998)", desc: "State Funding" }
                 ].map((c, i) => (
-                    <div key={i} className="bg-white p-4 rounded-xl border-2 border-teal-100 shadow-sm text-center transform hover:scale-105 transition-transform">
+                    <div key={i} className="bg-card p-4 rounded-xl border-2 border-teal-100 shadow-sm text-center transform hover:scale-105 transition-transform">
                         <h4 className="font-black text-teal-800 mb-1">{c.name}</h4>
-                        <p className="text-xs font-bold text-slate-500">{c.desc}</p>
+                        <p className="text-xs font-bold text-muted-foreground">{c.desc}</p>
                     </div>
                 ))}
             </div>
@@ -90,14 +90,14 @@ export default function ElectoralReformsModule({ onComplete, isCompleted, chapte
             {/* PHASE 2: TIMELINE */}
             <SectionHeader title="Phase 2: The Timeline of Change" icon={TrendingUp} color="bg-[#1e40af]" />
 
-            <div className="space-y-8 pl-4 border-l-2 border-slate-200 ml-4 md:ml-8 relative">
+            <div className="space-y-8 pl-4 border-l-2 border-border ml-4 md:ml-8 relative">
                 <ReformCard year="1989" title="Lowering Voting Age (61st AA)">
                     <p>Reduced from <span className="text-red-500 line-through mr-1">21</span> to <span className="text-green-600 text-lg">18</span> years.</p>
                 </ReformCard>
 
                 <ReformCard year="2003" title="The Disclosure Era">
                     <p className="flex items-center gap-2"><Search size={14} /> Candidates must declare Assets & Criminal Cases.</p>
-                    <p className="text-xs text-slate-400">Association for Democratic Reforms Case.</p>
+                    <p className="text-xs text-muted-foreground">Association for Democratic Reforms Case.</p>
                     <div className="mt-2 bg-blue-50 p-2 rounded text-xs text-blue-800">
                         Also: Open Ballot for Rajya Sabha.
                     </div>
@@ -118,19 +118,19 @@ export default function ElectoralReformsModule({ onComplete, isCompleted, chapte
             {/* PHASE 3: PENDING */}
             <SectionHeader title="Phase 3: Pending Wishlist" icon={FileText} color="bg-[#b91c1c]" />
 
-            <div className="bg-slate-100 p-6 rounded-2xl border-2 border-dashed border-slate-400">
+            <div className="bg-muted p-6 rounded-2xl border-2 border-dashed border-slate-400">
                 <ul className="space-y-4">
                     <li className="flex items-center gap-3">
-                        <div className="w-6 h-6 rounded bg-slate-300 flex items-center justify-center text-slate-500"><Users size={14} /></div>
-                        <span className="font-bold text-slate-600">Simultaneous Elections (One Nation, One Election)</span>
+                        <div className="w-6 h-6 rounded bg-slate-300 flex items-center justify-center text-muted-foreground"><Users size={14} /></div>
+                        <span className="font-bold text-muted-foreground">Simultaneous Elections (One Nation, One Election)</span>
                     </li>
                     <li className="flex items-center gap-3">
-                        <div className="w-6 h-6 rounded bg-slate-300 flex items-center justify-center text-slate-500"><ShieldAlert size={14} /></div>
-                        <span className="font-bold text-slate-600">Decriminalization (Bar before conviction)</span>
+                        <div className="w-6 h-6 rounded bg-slate-300 flex items-center justify-center text-muted-foreground"><ShieldAlert size={14} /></div>
+                        <span className="font-bold text-muted-foreground">Decriminalization (Bar before conviction)</span>
                     </li>
                     <li className="flex items-center gap-3">
-                        <div className="w-6 h-6 rounded bg-slate-300 flex items-center justify-center text-slate-500"><Banknote size={14} /></div>
-                        <span className="font-bold text-slate-600">State Funding of Elections</span>
+                        <div className="w-6 h-6 rounded bg-slate-300 flex items-center justify-center text-muted-foreground"><Banknote size={14} /></div>
+                        <span className="font-bold text-muted-foreground">State Funding of Elections</span>
                     </li>
                 </ul>
             </div>

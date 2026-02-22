@@ -249,7 +249,7 @@ export default function ClimateAgreementsViz() {
                         <div>
                             <div className="flex items-center gap-2 mb-2">
                                 <span className="text-3xl font-black text-white">{selected.year}</span>
-                                <Badge className={selected.indiaStatus === 'ratified' ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' : 'bg-slate-500/20 text-slate-400 border-slate-500/30'}>
+                                <Badge className={selected.indiaStatus === 'ratified' ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' : 'bg-muted-foreground/20 text-muted-foreground border-slate-500/30'}>
                                     India: {selected.indiaStatus}
                                 </Badge>
                             </div>
@@ -258,7 +258,7 @@ export default function ClimateAgreementsViz() {
 
                             <div className="space-y-3 mb-6">
                                 {selected.keyPoints.map((point, i) => (
-                                    <div key={i} className="flex items-start gap-2 text-sm bg-white/5 p-3 rounded-xl border border-white/5">
+                                    <div key={i} className="flex items-start gap-2 text-sm bg-card/5 p-3 rounded-xl border border-white/5">
                                         <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
                                         <span className="text-slate-300 leading-relaxed">{point}</span>
                                     </div>
@@ -285,7 +285,7 @@ export default function ClimateAgreementsViz() {
                     <button
                         key={a.id}
                         onClick={() => setSelectedId(a.id)}
-                        className={`w-3 h-3 rounded-full transition-all ${selectedId === a.id ? 'bg-emerald-500 w-8' : 'bg-slate-700 hover:bg-slate-500'}`}
+                        className={`w-3 h-3 rounded-full transition-all ${selectedId === a.id ? 'bg-emerald-500 w-8' : 'bg-slate-700 hover:bg-muted-foreground'}`}
                     />
                 ))}
             </div>

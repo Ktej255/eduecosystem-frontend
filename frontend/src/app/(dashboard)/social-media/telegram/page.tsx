@@ -38,7 +38,7 @@ export default function TelegramPage() {
 
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-5xl mx-auto">
-      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground">
         <ArrowLeft className="h-4 w-4 mr-1" />
         Back
       </Link>
@@ -46,13 +46,13 @@ export default function TelegramPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
             <div className="w-10 h-10 bg-[#0088CC] rounded-lg flex items-center justify-center">
               <Send className="h-6 w-6 text-white" />
             </div>
             Telegram Social
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-muted-foreground dark:text-muted-foreground mt-1">
             Manage your Telegram channels and bot
           </p>
         </div>
@@ -75,21 +75,21 @@ export default function TelegramPage() {
           <CardContent className="p-5">
             <MessageSquare className="h-8 w-8 text-blue-500 mb-2" />
             <p className="text-2xl font-bold">{stats.groups}</p>
-            <p className="text-sm text-gray-500">Groups</p>
+            <p className="text-sm text-muted-foreground">Groups</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5">
             <Bell className="h-8 w-8 text-purple-500 mb-2" />
             <p className="text-2xl font-bold">{stats.channels}</p>
-            <p className="text-sm text-gray-500">Channels</p>
+            <p className="text-sm text-muted-foreground">Channels</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5">
             <TrendingUp className="h-8 w-8 text-green-500 mb-2" />
             <p className="text-2xl font-bold">{stats.messagesSent}</p>
-            <p className="text-sm text-gray-500">Messages Sent</p>
+            <p className="text-sm text-muted-foreground">Messages Sent</p>
           </CardContent>
         </Card>
       </div>
@@ -110,7 +110,7 @@ export default function TelegramPage() {
         </CardHeader>
         <CardContent className="space-y-3">
           {connectedChannels.map((channel, idx) => (
-            <div key={idx} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+            <div key={idx} className="flex items-center justify-between p-4 bg-muted rounded-lg">
               <div className="flex items-center gap-3">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center ${channel.type === 'channel' ? 'bg-blue-100 text-blue-600' : 'bg-purple-100 text-purple-600'
                   }`}>
@@ -118,7 +118,7 @@ export default function TelegramPage() {
                 </div>
                 <div>
                   <p className="font-medium">{channel.name}</p>
-                  <p className="text-sm text-gray-500">{channel.members.toLocaleString()} members</p>
+                  <p className="text-sm text-muted-foreground">{channel.members.toLocaleString()} members</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
@@ -141,17 +141,17 @@ export default function TelegramPage() {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <div className="flex items-center justify-between p-3 bg-muted rounded-lg">
             <div>
               <p className="font-medium">Push Notifications</p>
-              <p className="text-sm text-gray-500">Send automatic notifications for new content</p>
+              <p className="text-sm text-muted-foreground">Send automatic notifications for new content</p>
             </div>
             <Switch checked={botNotifications} onCheckedChange={setBotNotifications} />
           </div>
-          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <div className="flex items-center justify-between p-3 bg-muted rounded-lg">
             <div>
               <p className="font-medium">Bot Username</p>
-              <p className="text-sm text-gray-500">@EduEcosystemBot</p>
+              <p className="text-sm text-muted-foreground">@EduEcosystemBot</p>
             </div>
             <Button variant="outline" size="sm">
               <Settings className="h-4 w-4 mr-2" />
@@ -168,10 +168,10 @@ export default function TelegramPage() {
         </CardHeader>
         <CardContent className="space-y-3">
           {recentBroadcasts.map((broadcast) => (
-            <div key={broadcast.id} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+            <div key={broadcast.id} className="flex items-center justify-between p-4 bg-muted rounded-lg">
               <div>
                 <p className="font-medium">{broadcast.message}</p>
-                <p className="text-sm text-gray-500">{broadcast.sent} • Reached {broadcast.reach.toLocaleString()}</p>
+                <p className="text-sm text-muted-foreground">{broadcast.sent} • Reached {broadcast.reach.toLocaleString()}</p>
               </div>
             </div>
           ))}

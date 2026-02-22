@@ -83,7 +83,7 @@ export default function DailyMissionCard() {
         setLoading(false);
     };
 
-    if (loading) return <div className="h-48 animate-pulse bg-white/5 rounded-2xl border border-white/10" />;
+    if (loading) return <div className="h-48 animate-pulse bg-card/5 rounded-2xl border border-white/10" />;
 
     if (!mission) return null;
 

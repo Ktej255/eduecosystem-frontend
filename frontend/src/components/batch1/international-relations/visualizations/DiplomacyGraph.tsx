@@ -32,13 +32,13 @@ const CustomTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
         const data = payload[0].payload;
         return (
-            <div className="bg-white/90 dark:bg-black/90 p-3 rounded-lg border border-slate-200 dark:border-slate-800 shadow-xl backdrop-blur-md">
-                <p className="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+            <div className="bg-card/90 dark:bg-black/90 p-3 rounded-lg border border-border shadow-xl backdrop-blur-md">
+                <p className="font-bold text-sm text-foreground flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full" style={{ backgroundColor: data.color }} />
                     {data.country}
                 </p>
-                {data.desc && <p className="text-xs text-slate-500 mt-1">{data.desc}</p>}
-                <p className="text-[10px] font-mono mt-2 bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded w-fit">
+                {data.desc && <p className="text-xs text-muted-foreground mt-1">{data.desc}</p>}
+                <p className="text-[10px] font-mono mt-2 bg-muted px-1 py-0.5 rounded w-fit">
                     {data.type} Relationship
                 </p>
             </div>
@@ -78,7 +78,7 @@ export default function DiplomacyGraph() {
     );
 
     return (
-        <Card className="w-full h-[500px] border-slate-200 dark:border-slate-800 shadow-sm flex flex-col">
+        <Card className="w-full h-[500px] border-border shadow-sm flex flex-col">
             <CardHeader className="pb-2">
                 <div className="flex justify-between items-start">
                     <div>
@@ -90,12 +90,12 @@ export default function DiplomacyGraph() {
                             India's Strategic Relationships (Force Simulation)
                         </CardDescription>
                     </div>
-                    <div className="flex gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
+                    <div className="flex gap-1 bg-muted p-1 rounded-lg">
                         {['All', 'Strategic', 'Trade', 'Conflict'].map(f => (
                             <button
                                 key={f}
                                 onClick={() => setFilter(f as any)}
-                                className={`px-3 py-1 text-xs font-bold rounded-md transition-all ${filter === f ? 'bg-white dark:bg-slate-700 shadow text-indigo-600 dark:text-indigo-300' : 'text-slate-500 hover:text-slate-700'}`}
+                                className={`px-3 py-1 text-xs font-bold rounded-md transition-all ${filter === f ? 'bg-card shadow text-indigo-600 dark:text-indigo-300' : 'text-muted-foreground hover:text-muted-foreground'}`}
                             >
                                 {f}
                             </button>
@@ -140,7 +140,7 @@ export default function DiplomacyGraph() {
                     </ScatterChart>
                 </ResponsiveContainer>
 
-                <div className="absolute bottom-4 left-4 grid grid-cols-2 gap-2 text-[10px] text-slate-500">
+                <div className="absolute bottom-4 left-4 grid grid-cols-2 gap-2 text-[10px] text-muted-foreground">
                     <div className="flex items-center gap-1"><ShieldAlert className="w-3 h-3 text-blue-500" /> Strategic Pact</div>
                     <div className="flex items-center gap-1"><BadgeIndianRupee className="w-3 h-3 text-green-500" /> Trade Partner</div>
                     <div className="flex items-center gap-1 bg-red-50 p-1 rounded"><ExternalLink className="w-3 h-3 text-red-500" /> Conflict Zone</div>

@@ -27,7 +27,7 @@ const AdminContainer = ({ children }: { children: React.ReactNode }) => (
 
 const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any, color: string }) => (
     <div className="flex items-center gap-4 my-8">
-        <div className={`p-3 rounded-xl bg-white shadow-sm border-2 ${color}`}>
+        <div className={`p-3 rounded-xl bg-card shadow-sm border-2 ${color}`}>
             <Icon className={color.replace('border-', 'text-')} size={24} />
         </div>
         <h2 className={`text-2xl font-black uppercase tracking-tight ${color.replace('border-', 'text-')} font-['Kalam']`}>
@@ -38,7 +38,7 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
 );
 
 const ScrapbookCard = ({ title, children, color = "border-blue-700", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         {/* Crumpled Grid Texture */}
         <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 
@@ -46,7 +46,7 @@ const ScrapbookCard = ({ title, children, color = "border-blue-700", className =
             <span className="w-2 h-2 rounded-full bg-current animate-pulse"></span>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-700 relative z-10 font-medium">
+        <div className="space-y-4 text-muted-foreground relative z-10 font-medium">
             {children}
         </div>
     </div>
@@ -56,19 +56,19 @@ export default function UnionTerritoriesModule({ onComplete, isCompleted, chapte
     return (
         <AdminContainer>
             {/* HERO SECTION */}
-            <div className="relative bg-white border-4 border-slate-900 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(30,58,138,1)] overflow-hidden">
+            <div className="relative bg-card border-4 border-slate-900 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(30,58,138,1)] overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -mr-16 -mt-16 opacity-50"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-blue-700 text-white font-['Kalam'] px-4 py-1 text-lg">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-slate-900"></div>
-                        <span className="text-slate-500 font-bold uppercase tracking-widest text-sm">Direct Federal Control</span>
+                        <span className="text-muted-foreground font-bold uppercase tracking-widest text-sm">Direct Federal Control</span>
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 font-['Kalam'] leading-tight">
+                    <h1 className="text-4xl md:text-6xl font-black text-foreground mb-6 font-['Kalam'] leading-tight">
                         Union Territories <br />
                         <span className="text-blue-700">The Map & The Badge</span>
                     </h1>
-                    <p className="text-xl text-slate-600 max-w-2xl leading-relaxed italic">
+                    <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed italic">
                         "Unlike States, UTs are units that are under the direct control and administration of the Central Government."
                     </p>
                 </div>
@@ -86,13 +86,13 @@ export default function UnionTerritoriesModule({ onComplete, isCompleted, chapte
                         Every UT is administered by the <span className="text-blue-800 font-bold underline">President</span> acting through an <span className="font-bold">Administrator</span>.
                     </p>
                     <div className="space-y-2 mt-4">
-                        <div className="font-bold text-slate-900 border-b-2 border-slate-100 pb-1">Designations:</div>
+                        <div className="font-bold text-foreground border-b-2 border-slate-100 pb-1">Designations:</div>
                         <ul className="grid grid-cols-1 gap-2">
-                            <li className="flex gap-2 items-start bg-slate-50 p-2 rounded-lg border border-slate-200">
+                            <li className="flex gap-2 items-start bg-muted p-2 rounded-lg border border-border">
                                 <span className="font-bold text-blue-700">LG:</span>
                                 <span className="text-sm italic">Delhi, Puducherry, A&N, J&K, Ladakh.</span>
                             </li>
-                            <li className="flex gap-2 items-start bg-slate-50 p-2 rounded-lg border border-slate-200">
+                            <li className="flex gap-2 items-start bg-muted p-2 rounded-lg border border-border">
                                 <span className="font-bold text-blue-700">Admin:</span>
                                 <span className="text-sm italic">Chandigarh, D&NH+D&D, Lakshadweep.</span>
                             </li>
@@ -123,12 +123,12 @@ export default function UnionTerritoriesModule({ onComplete, isCompleted, chapte
                             Without Legislature: 5 Others.
                         </div>
                     </div>
-                    <div className="mt-4 text-xs font-bold text-slate-500 uppercase">Why Created?</div>
+                    <div className="mt-4 text-xs font-bold text-muted-foreground uppercase">Why Created?</div>
                     <div className="grid grid-cols-2 gap-2 text-[10px] mt-2 font-black">
-                        <div className="p-2 border rounded bg-slate-50">ADMIN/POL: <br /><span className="text-slate-400">Delhi, Chandi</span></div>
-                        <div className="p-2 border rounded bg-slate-50">CULTURAL: <br /><span className="text-slate-400">Pudu, D&D</span></div>
-                        <div className="p-2 border rounded bg-slate-50">STRATEGIC: <br /><span className="text-slate-400">A&N, Laksha</span></div>
-                        <div className="p-2 border rounded bg-slate-50">BACKWARD: <br /><span className="text-slate-400">Former NE UTs</span></div>
+                        <div className="p-2 border rounded bg-muted">ADMIN/POL: <br /><span className="text-muted-foreground">Delhi, Chandi</span></div>
+                        <div className="p-2 border rounded bg-muted">CULTURAL: <br /><span className="text-muted-foreground">Pudu, D&D</span></div>
+                        <div className="p-2 border rounded bg-muted">STRATEGIC: <br /><span className="text-muted-foreground">A&N, Laksha</span></div>
+                        <div className="p-2 border rounded bg-muted">BACKWARD: <br /><span className="text-muted-foreground">Former NE UTs</span></div>
                     </div>
                 </ScrapbookCard>
             </div>
@@ -140,7 +140,7 @@ export default function UnionTerritoriesModule({ onComplete, isCompleted, chapte
                 <ScrapbookCard title="Puducherry (Art 239A)" color="border-green-700">
                     <div className="flex items-center gap-4 border-b-2 border-green-50 pb-4 mb-4">
                         <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-700 font-bold">14th</div>
-                        <p className="text-sm font-bold text-slate-500">Created by 14th Amendment Act (1962)</p>
+                        <p className="text-sm font-bold text-muted-foreground">Created by 14th Amendment Act (1962)</p>
                     </div>
                     <ul className="space-y-4">
                         <li className="flex gap-3">
@@ -162,20 +162,20 @@ export default function UnionTerritoriesModule({ onComplete, isCompleted, chapte
                     <div className="absolute top-4 right-4 animate-bounce">
                         <Badge className="bg-red-600">CRITICAL</Badge>
                     </div>
-                    <div className="bg-white p-4 rounded-xl border-2 border-green-700 shadow-sm">
+                    <div className="bg-card p-4 rounded-xl border-2 border-green-700 shadow-sm">
                         <h4 className="font-black text-green-900 border-b-2 border-green-50 mb-2">69th Amendment (1991)</h4>
                         <div className="grid grid-cols-2 gap-4">
                             <div>
                                 <span className="block text-3xl font-black text-green-700">70</span>
-                                <span className="text-[10px] uppercase font-bold text-slate-400">Assembly Seats</span>
+                                <span className="text-[10px] uppercase font-bold text-muted-foreground">Assembly Seats</span>
                             </div>
                             <div>
                                 <span className="block text-3xl font-black text-green-700">CM</span>
-                                <span className="text-[10px] uppercase font-bold text-slate-400">Appointed by President</span>
+                                <span className="text-[10px] uppercase font-bold text-muted-foreground">Appointed by President</span>
                             </div>
                         </div>
                     </div>
-                    <div className="mt-4 p-4 bg-white border-2 border-dashed border-red-200 rounded-xl">
+                    <div className="mt-4 p-4 bg-card border-2 border-dashed border-red-200 rounded-xl">
                         <p className="text-sm font-bold text-red-900 mb-2">3 LIST EXCEPTIONS (PYQ):</p>
                         <div className="flex gap-2">
                             <Badge variant="outline" className="border-red-500 text-red-700">1. Public Order</Badge>
@@ -183,7 +183,7 @@ export default function UnionTerritoriesModule({ onComplete, isCompleted, chapte
                             <Badge variant="outline" className="border-red-500 text-red-700">3. Land</Badge>
                         </div>
                     </div>
-                    <p className="text-xs text-slate-500 mt-4 italic">
+                    <p className="text-xs text-muted-foreground mt-4 italic">
                         "Difference of opinion? LG refers matter to <span className="font-bold text-blue-700">President</span> for final decision."
                     </p>
                 </ScrapbookCard>
@@ -210,12 +210,12 @@ export default function UnionTerritoriesModule({ onComplete, isCompleted, chapte
                             </div>
                         </div>
                         <div className="flex-1 space-y-3">
-                            <div className="flex items-center gap-3 p-3 bg-white border-2 border-slate-100 rounded-xl shadow-sm">
-                                <Compass className="text-slate-400" />
+                            <div className="flex items-center gap-3 p-3 bg-card border-2 border-slate-100 rounded-xl shadow-sm">
+                                <Compass className="text-muted-foreground" />
                                 <span className="text-xs font-bold italic">Common High Court for both J&K and Ladakh.</span>
                             </div>
-                            <div className="flex items-center gap-3 p-3 bg-white border-2 border-slate-100 rounded-xl shadow-sm">
-                                <Gavel className="text-slate-400" />
+                            <div className="flex items-center gap-3 p-3 bg-card border-2 border-slate-100 rounded-xl shadow-sm">
+                                <Gavel className="text-muted-foreground" />
                                 <span className="text-xs font-bold italic">Ranbir Penal Code replaced by <span className="text-red-700 underline">IPC</span>.</span>
                             </div>
                         </div>
@@ -227,7 +227,7 @@ export default function UnionTerritoriesModule({ onComplete, isCompleted, chapte
                         <div className="text-center py-4">
                             <Users size={48} className="mx-auto text-red-700 mb-2" />
                             <h5 className="font-bold text-red-900">HMAC</h5>
-                            <p className="text-[10px] text-slate-500 uppercase tracking-tighter">Home Minister's Advisory Committee</p>
+                            <p className="text-[10px] text-muted-foreground uppercase tracking-tighter">Home Minister's Advisory Committee</p>
                         </div>
                         <div className="text-xs space-y-2">
                             <p>● For UTs without legislature.</p>
@@ -239,7 +239,7 @@ export default function UnionTerritoriesModule({ onComplete, isCompleted, chapte
             </div>
 
             {/* COMPLETION BUTTON */}
-            <div className="mt-16 text-center border-t-2 border-dashed border-slate-200 pt-12 pb-12">
+            <div className="mt-16 text-center border-t-2 border-dashed border-border pt-12 pb-12">
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
@@ -259,7 +259,7 @@ export default function UnionTerritoriesModule({ onComplete, isCompleted, chapte
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold font-['Kalam']">Signed: Collector of Federal Administration</p>
+                <p className="mt-4 text-muted-foreground font-bold font-['Kalam']">Signed: Collector of Federal Administration</p>
             </div>
         </AdminContainer>
     );

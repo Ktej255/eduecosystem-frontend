@@ -67,23 +67,23 @@ export default function HistoryDashboard() {
             {/* Header / Actions */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
+                    <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
                         <Scroll className="h-8 w-8 text-amber-600" />
                         History Dashboard
                     </h1>
-                    <p className="text-gray-500 dark:text-gray-400">Track your journey across Ancient, Medieval, and Modern India.</p>
+                    <p className="text-muted-foreground dark:text-muted-foreground">Track your journey across Ancient, Medieval, and Modern India.</p>
                 </div>
                 <div className="flex gap-3">
-                    <div className="flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg p-1 border border-slate-200 dark:border-slate-700">
+                    <div className="flex items-center bg-muted rounded-lg p-1 border border-border">
                         <button
                             onClick={() => setLanguage('en')}
-                            className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all ${language === 'en' ? 'bg-white dark:bg-slate-700 shadow-sm text-blue-600 dark:text-blue-400' : 'text-slate-500 hover:text-slate-900 dark:hover:text-slate-300'}`}
+                            className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all ${language === 'en' ? 'bg-card shadow-sm text-blue-600 dark:text-blue-400' : 'text-muted-foreground hover:text-foreground dark:hover:text-slate-300'}`}
                         >
                             EN
                         </button>
                         <button
                             onClick={() => setLanguage('hi')}
-                            className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all ${language === 'hi' ? 'bg-white dark:bg-slate-700 shadow-sm text-orange-600 dark:text-orange-400' : 'text-slate-500 hover:text-slate-900 dark:hover:text-slate-300'}`}
+                            className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all ${language === 'hi' ? 'bg-card shadow-sm text-orange-600 dark:text-orange-400' : 'text-muted-foreground hover:text-foreground dark:hover:text-slate-300'}`}
                         >
                             हिंदी
                         </button>
@@ -120,9 +120,9 @@ export default function HistoryDashboard() {
             </div>
 
             <Tabs defaultValue="overview" className="space-y-6">
-                <TabsList className="bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
-                    <TabsTrigger value="overview" className="rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-sm">Overview</TabsTrigger>
-                    <TabsTrigger value="bank" className="rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-sm">Question Bank</TabsTrigger>
+                <TabsList className="bg-muted p-1 rounded-xl">
+                    <TabsTrigger value="overview" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">Overview</TabsTrigger>
+                    <TabsTrigger value="bank" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">Question Bank</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="overview">
@@ -149,7 +149,7 @@ export default function HistoryDashboard() {
 
                         {/* Ancient & Medieval Summaries (Takes 1 column) */}
                         <div className="space-y-6">
-                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">Historical Eras</h3>
+                            <h3 className="text-xl font-bold text-foreground">Historical Eras</h3>
                             {HISTORY_ERAS.map((era) => (
                                 <Card key={era.id} className="hover:shadow-md transition-all">
                                     <div className={`p-4 border-b-2 ${era.color} bg-opacity-10 border-opacity-20`}>
@@ -161,14 +161,14 @@ export default function HistoryDashboard() {
                                             </div>
                                         </div>
                                     </div>
-                                    <CardContent className="p-4 bg-slate-50 dark:bg-slate-900/20">
-                                        <div className="space-y-4 relative pl-4 border-l-2 border-dashed border-gray-200 dark:border-gray-800">
+                                    <CardContent className="p-4 bg-muted/20">
+                                        <div className="space-y-4 relative pl-4 border-l-2 border-dashed border-border">
                                             {era.events.map((event, idx) => (
                                                 <div key={idx} className="relative">
-                                                    <div className="absolute -left-[21px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-gray-300 dark:border-gray-700" />
+                                                    <div className="absolute -left-[21px] top-1.5 w-3 h-3 rounded-full bg-card border-2 border-border" />
                                                     <div>
                                                         <div className="font-bold text-xs text-indigo-600 dark:text-indigo-400">{event.year}</div>
-                                                        <div className="text-sm text-gray-700 dark:text-gray-300">{event.title}</div>
+                                                        <div className="text-sm text-muted-foreground dark:text-muted-foreground">{event.title}</div>
                                                     </div>
                                                 </div>
                                             ))}
@@ -207,13 +207,13 @@ function StatCard({ label, value, color, icon }: { label: string, value: string,
         <Card>
             <CardContent className="p-6">
                 <div className="flex items-center justify-between mb-4">
-                    <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                    <div className="p-2 bg-muted rounded-lg">
                         {icon}
                     </div>
                 </div>
                 <div>
                     <h3 className={`text-2xl font-bold mb-1 ${color}`}>{value}</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{label}</p>
+                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">{label}</p>
                 </div>
             </CardContent>
         </Card>

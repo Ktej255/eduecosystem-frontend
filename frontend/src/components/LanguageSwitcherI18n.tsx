@@ -71,7 +71,7 @@ export default function LanguageSwitcherI18n({
     <div className={`relative ${className}`}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+        className="flex items-center gap-2 px-3 py-2 rounded-lg bg-muted hover:bg-muted dark:hover:bg-gray-700 transition-colors"
         aria-label={t("common.selectLanguage")}
       >
         <Globe className="w-4 h-4" />
@@ -100,9 +100,9 @@ export default function LanguageSwitcherI18n({
             onClick={() => setIsOpen(false)}
           />
 
-          <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 z-50 overflow-hidden">
-            <div className="p-2 border-b border-gray-200 dark:border-gray-700">
-              <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 px-2 py-1">
+          <div className="absolute right-0 mt-2 w-64 bg-card rounded-lg shadow-lg border border-border z-50 overflow-hidden">
+            <div className="p-2 border-b border-border">
+              <h3 className="text-sm font-semibold text-foreground px-2 py-1">
                 {t("common.selectLanguage")}
               </h3>
             </div>
@@ -115,17 +115,17 @@ export default function LanguageSwitcherI18n({
                   <button
                     key={language.code}
                     onClick={() => handleLanguageChange(language.code)}
-                    className={`w-full flex items-center justify-between px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${
+                    className={`w-full flex items-center justify-between px-4 py-3 hover:bg-muted dark:hover:bg-gray-700 transition-colors ${
                       isActive ? "bg-blue-50 dark:bg-blue-900/20" : ""
                     }`}
                   >
                     <div className="flex items-center gap-3">
                       <span className="text-2xl">{language.flag}</span>
                       <div className="text-left">
-                        <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                        <div className="text-sm font-medium text-foreground">
                           {language.nativeName}
                         </div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">
+                        <div className="text-xs text-muted-foreground dark:text-muted-foreground">
                           {language.name}
                           {language.rtl && " (RTL)"}
                         </div>
@@ -140,8 +140,8 @@ export default function LanguageSwitcherI18n({
               })}
             </div>
 
-            <div className="p-2 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
-              <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
+            <div className="p-2 border-t border-border bg-muted">
+              <p className="text-xs text-muted-foreground dark:text-muted-foreground text-center">
                 {LANGUAGES.length} languages available
               </p>
             </div>

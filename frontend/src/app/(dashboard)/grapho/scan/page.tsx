@@ -29,7 +29,7 @@ export default function GraphoScanPage() {
                 <h1 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 font-display tracking-tight">
                     Holographic Analyzer
                 </h1>
-                <p className="text-gray-400 max-w-lg mx-auto">
+                <p className="text-muted-foreground max-w-lg mx-auto">
                     Hold your handwriting sample up to the camera. Our Vision AI will scan the strokes and project your personality traits in real-time.
                 </p>
             </div>
@@ -44,16 +44,16 @@ export default function GraphoScanPage() {
                 {/* Instructions */}
                 <div className="max-w-xl mx-auto mt-12 grid grid-cols-3 gap-6 text-center">
                     <div className="p-4 rounded-lg bg-gray-900/50 border border-gray-800">
-                        <div className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center mx-auto mb-3 font-bold text-gray-500">1</div>
-                        <p className="text-sm text-gray-400">Write a sentence on white paper</p>
+                        <div className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center mx-auto mb-3 font-bold text-muted-foreground">1</div>
+                        <p className="text-sm text-muted-foreground">Write a sentence on white paper</p>
                     </div>
                     <div className="p-4 rounded-lg bg-gray-900/50 border border-gray-800">
-                        <div className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center mx-auto mb-3 font-bold text-gray-500">2</div>
-                        <p className="text-sm text-gray-400">Position clearly in the frame</p>
+                        <div className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center mx-auto mb-3 font-bold text-muted-foreground">2</div>
+                        <p className="text-sm text-muted-foreground">Position clearly in the frame</p>
                     </div>
                     <div className="p-4 rounded-lg bg-gray-900/50 border border-gray-800">
                         <div className="w-8 h-8 rounded-full bg-cyan-900/30 text-cyan-500 flex items-center justify-center mx-auto mb-3 font-bold">3</div>
-                        <p className="text-sm text-gray-400">Click camera to scan & analyze</p>
+                        <p className="text-sm text-muted-foreground">Click camera to scan & analyze</p>
                     </div>
                 </div>
             </div>

@@ -45,11 +45,11 @@ export default function AIInsights() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1 }}
-                        className={`p-6 rounded-2xl border border-white/5 ${MEDITATION_THEME.gradients.glassCard} hover:bg-white/10 transition-colors group`}
+                        className={`p-6 rounded-2xl border border-white/5 ${MEDITATION_THEME.gradients.glassCard} hover:bg-card/10 transition-colors group`}
                     >
                         <div className="flex justify-between items-start mb-4">
                             <div className="flex items-center gap-3">
-                                <div className="p-2 rounded-full bg-white/5 group-hover:bg-white/10 transition-colors">
+                                <div className="p-2 rounded-full bg-card/5 group-hover:bg-card/10 transition-colors">
                                     {getIcon(insight.type)}
                                 </div>
                                 <span className="text-xs font-bold uppercase tracking-wider text-white/40">
@@ -88,14 +88,14 @@ export default function AIInsights() {
                     transition={{ delay: 0.4 }}
                     className="p-6 rounded-xl border border-dashed border-white/10 flex flex-col items-center justify-center text-center space-y-4"
                 >
-                    <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-card/5 flex items-center justify-center">
                         <span className="text-xl">🔒</span>
                     </div>
                     <div>
                         <h3 className="text-white font-medium">Unlock Deep Analytics</h3>
                         <p className="text-white/40 text-sm mt-1">Get detailed biometrics & long-term trend analysis.</p>
                     </div>
-                    <Button variant="outline" className="border-white/10 text-white/60 hover:text-white hover:bg-white/5">
+                    <Button variant="outline" className="border-white/10 text-white/60 hover:text-white hover:bg-card/5">
                         View Premium Plans
                     </Button>
                 </motion.div>

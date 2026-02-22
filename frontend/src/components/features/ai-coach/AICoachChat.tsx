@@ -110,7 +110,7 @@ export default function AICoachChat() {
                         <div className="mx-auto bg-indigo-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mb-2">
                             <Bot className="w-8 h-8 text-indigo-600" />
                         </div>
-                        <CardTitle className="text-2xl font-bold text-slate-800">AI Coach</CardTitle>
+                        <CardTitle className="text-2xl font-bold text-foreground">AI Coach</CardTitle>
                         <CardDescription>
                             Enter a topic you want to master. I'll quiz you and help you improve.
                         </CardDescription>
@@ -150,15 +150,15 @@ export default function AICoachChat() {
         <Card className="w-full h-[600px] flex flex-col shadow-lg border-0 overflow-hidden">
             <CardHeader className="bg-indigo-50 py-3 px-4 flex flex-row items-center justify-between border-b">
                 <div className="flex items-center gap-3">
-                    <div className="bg-white p-2 rounded-full shadow-sm">
+                    <div className="bg-card p-2 rounded-full shadow-sm">
                         <Bot className="w-5 h-5 text-indigo-600" />
                     </div>
                     <div>
-                        <CardTitle className="text-lg font-semibold text-slate-800">Coach: {topic}</CardTitle>
+                        <CardTitle className="text-lg font-semibold text-foreground">Coach: {topic}</CardTitle>
                         <CardDescription className="text-xs">AI-Powered Personal Tutor</CardDescription>
                     </div>
                 </div>
-                <Button variant="ghost" size="sm" onClick={resetSession} className="text-slate-500 hover:text-slate-700">
+                <Button variant="ghost" size="sm" onClick={resetSession} className="text-muted-foreground hover:text-muted-foreground">
                     <RefreshCw className="w-4 h-4 mr-1" /> New Topic
                 </Button>
             </CardHeader>
@@ -177,14 +177,14 @@ export default function AICoachChat() {
                                 `}>
                                     <div className={`
                                         w-8 h-8 rounded-full flex items-center justify-center shrink-0
-                                        ${msg.role === 'assistant' ? 'bg-indigo-100 text-indigo-600' : 'bg-slate-200 text-slate-600'}
+                                        ${msg.role === 'assistant' ? 'bg-indigo-100 text-indigo-600' : 'bg-slate-200 text-muted-foreground'}
                                     `}>
                                         {msg.role === 'assistant' ? <Bot size={16} /> : <User size={16} />}
                                     </div>
                                     <div className={`
                                         p-3 px-4 rounded-2xl text-sm leading-relaxed shadow-sm
                                         ${msg.role === 'assistant'
-                                            ? 'bg-white text-slate-800 border-slate-100 border'
+                                            ? 'bg-card text-foreground border-slate-100 border'
                                             : 'bg-indigo-600 text-white'}
                                     `}>
                                         {msg.content}
@@ -198,7 +198,7 @@ export default function AICoachChat() {
                                     <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 bg-indigo-100 text-indigo-600">
                                         <Bot size={16} />
                                     </div>
-                                    <div className="bg-white p-3 px-4 rounded-2xl border border-slate-100 flex items-center gap-1">
+                                    <div className="bg-card p-3 px-4 rounded-2xl border border-slate-100 flex items-center gap-1">
                                         <span className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
                                         <span className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
                                         <span className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce"></span>
@@ -211,7 +211,7 @@ export default function AICoachChat() {
                 </ScrollArea>
             </CardContent>
 
-            <div className="p-4 bg-white border-t">
+            <div className="p-4 bg-card border-t">
                 <div className="flex gap-2">
                     <Input
                         placeholder="Type your answer or question..."

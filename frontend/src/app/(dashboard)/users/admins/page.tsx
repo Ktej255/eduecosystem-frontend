@@ -35,7 +35,7 @@ export default function AdminsPage() {
           </Avatar>
           <div>
             <div className="font-medium text-white">{value || "Unknown"}</div>
-            <div className="text-xs text-gray-500">{row.email}</div>
+            <div className="text-xs text-muted-foreground">{row.email}</div>
           </div>
         </div>
       )

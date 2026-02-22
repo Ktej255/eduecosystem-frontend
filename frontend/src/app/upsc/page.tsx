@@ -112,7 +112,7 @@ function ProgramCard({
                 <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-semibold ${styles.iconBg} ${styles.accent}`}>
                     {subtitle}
                 </div>
-                <div className="flex items-center gap-1 text-sm text-gray-500">
+                <div className="flex items-center gap-1 text-sm text-muted-foreground">
                     <Clock className="w-4 h-4" />
                     {duration}
                 </div>
@@ -122,7 +122,7 @@ function ProgramCard({
                 {title}
             </h3>
 
-            <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+            <p className="text-muted-foreground dark:text-muted-foreground mb-6 leading-relaxed">
                 {description}
             </p>
 
@@ -137,7 +137,7 @@ function ProgramCard({
                         className="flex items-start gap-3"
                     >
                         <CheckCircle2 className={`w-5 h-5 ${styles.accent} shrink-0 mt-0.5`} />
-                        <span className="text-sm text-gray-700 dark:text-gray-300">{feature}</span>
+                        <span className="text-sm text-muted-foreground dark:text-muted-foreground">{feature}</span>
                     </motion.li>
                 ))}
             </ul>
@@ -149,7 +149,7 @@ function ProgramCard({
                     ) : (
                         <>
                             <span className={`text-4xl font-bold ${styles.accent}`}>₹{price}</span>
-                            <span className="text-gray-500 text-sm">/ program</span>
+                            <span className="text-muted-foreground text-sm">/ program</span>
                         </>
                     )}
                 </div>
@@ -189,7 +189,7 @@ function TricolorBackground() {
             {[...Array(8)].map((_, i) => (
                 <motion.div
                     key={`white-${i}`}
-                    className="absolute w-2 h-2 rounded-full bg-white/40"
+                    className="absolute w-2 h-2 rounded-full bg-card/40"
                     style={{ left: `${35 + Math.random() * 30}%`, top: `${Math.random() * 100}%` }}
                     animate={{ y: [0, -15, 0], opacity: [0.4, 0.8, 0.4] }}
                     transition={{ duration: 3 + Math.random() * 2, delay: Math.random() * 2, repeat: Infinity }}
@@ -335,7 +335,7 @@ export default function UPSCLandingPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 }}
-                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-orange-300 text-sm font-medium mb-8"
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/10 backdrop-blur-sm border border-white/20 text-orange-300 text-sm font-medium mb-8"
                             >
                                 <GraduationCap className="w-4 h-4" />
                                 UPSC CIVIL SERVICES EXAMINATION
@@ -348,7 +348,7 @@ export default function UPSCLandingPage() {
                                 </span>
                             </h1>
 
-                            <p className="text-lg sm:text-xl text-gray-300 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
+                            <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
                                 Stop random reading. Start <span className="text-orange-400 font-semibold">strategic preparation</span>.
                                 Our AI-driven platform optimizes your study schedule, revision cycles, and test performance.
                             </p>
@@ -367,7 +367,7 @@ export default function UPSCLandingPage() {
                                 <Button
                                     variant="outline"
                                     size="lg"
-                                    className="border-2 border-white/30 text-white hover:bg-white/10 text-lg px-8 py-6 h-auto rounded-full backdrop-blur-sm"
+                                    className="border-2 border-white/30 text-white hover:bg-card/10 text-lg px-8 py-6 h-auto rounded-full backdrop-blur-sm"
                                 >
                                     <PlayCircle className="mr-2 h-5 w-5" />
                                     Watch Orientation
@@ -382,15 +382,15 @@ export default function UPSCLandingPage() {
                             >
                                 <div className="text-center">
                                     <div className="text-3xl font-bold text-white">500+</div>
-                                    <div className="text-sm text-gray-400">Active Aspirants</div>
+                                    <div className="text-sm text-muted-foreground">Active Aspirants</div>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-3xl font-bold text-orange-400">95%</div>
-                                    <div className="text-sm text-gray-400">Retention Rate</div>
+                                    <div className="text-sm text-muted-foreground">Retention Rate</div>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-3xl font-bold text-green-400">4.8★</div>
-                                    <div className="text-sm text-gray-400">Student Rating</div>
+                                    <div className="text-sm text-muted-foreground">Student Rating</div>
                                 </div>
                             </motion.div>
                         </motion.div>
@@ -444,7 +444,7 @@ export default function UPSCLandingPage() {
             </header>
 
             {/* ======================= WHY US ======================= */}
-            <section className="py-24 bg-white">
+            <section className="py-24 bg-card">
                 <div className="container mx-auto px-4">
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
@@ -452,10 +452,10 @@ export default function UPSCLandingPage() {
                         viewport={{ once: true }}
                         className="text-center max-w-3xl mx-auto mb-16"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                             Why <span className="text-orange-600">Choose Us</span>?
                         </h2>
-                        <p className="text-xl text-gray-600 leading-relaxed">
+                        <p className="text-xl text-muted-foreground leading-relaxed">
                             We don't just teach—we <strong>optimize your brain</strong> for the toughest exam in India.
                         </p>
                     </motion.div>
@@ -468,13 +468,13 @@ export default function UPSCLandingPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1 }}
-                                className={`${item.bg} p-8 rounded-2xl hover:shadow-lg transition-shadow border border-gray-100`}
+                                className={`${item.bg} p-8 rounded-2xl hover:shadow-lg transition-shadow border border-border`}
                             >
                                 <div className={`w-14 h-14 rounded-xl ${item.bg} flex items-center justify-center mb-6 ${item.color}`}>
                                     <item.icon className="w-7 h-7" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                                <p className="text-gray-600">{item.description}</p>
+                                <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
+                                <p className="text-muted-foreground">{item.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -490,10 +490,10 @@ export default function UPSCLandingPage() {
                         viewport={{ once: true }}
                         className="text-center max-w-3xl mx-auto mb-16"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                             Comprehensive <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Programs</span>
                         </h2>
-                        <p className="text-xl text-gray-600">
+                        <p className="text-xl text-muted-foreground">
                             Everything you need to crack the exam, under one roof.
                         </p>
                     </motion.div>
@@ -522,7 +522,7 @@ export default function UPSCLandingPage() {
                         <h2 className="text-4xl md:text-5xl font-bold mb-6">
                             Your Seat at LBSNAA Awaits
                         </h2>
-                        <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                        <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
                             Don't let another attempt go to waste. Join the revolution in UPSC preparation.
                             Start with our free revision portal today.
                         </p>

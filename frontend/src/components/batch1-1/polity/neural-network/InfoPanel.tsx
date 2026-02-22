@@ -15,7 +15,7 @@ export default function InfoPanel({ selectedNode, activeScenario }: InfoPanelPro
     return (
         <Card className="w-80 h-full bg-slate-900/90 border-slate-700 text-slate-100 overflow-y-auto">
             <CardHeader>
-                <CardTitle className="text-sm font-bold uppercase tracking-wider text-slate-400">
+                <CardTitle className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
                     Neural Analysis
                 </CardTitle>
             </CardHeader>
@@ -24,18 +24,18 @@ export default function InfoPanel({ selectedNode, activeScenario }: InfoPanelPro
                 {selectedNode ? (
                     <div>
                         <h3 className="text-xl font-bold text-sky-400 mb-1">{selectedNode.data.label}</h3>
-                        <p className="text-xs text-slate-400 mb-4">{selectedNode.data.articleRange}</p>
+                        <p className="text-xs text-muted-foreground mb-4">{selectedNode.data.articleRange}</p>
                         <p className="text-sm text-slate-300 leading-relaxed">
                             {selectedNode.data.description}
                         </p>
                         <div className="mt-4 flex gap-2">
-                            <span className="px-2 py-1 bg-slate-800 rounded text-xs text-slate-400 border border-slate-700">
+                            <span className="px-2 py-1 bg-slate-800 rounded text-xs text-muted-foreground border border-slate-700">
                                 {selectedNode.data.category}
                             </span>
                         </div>
                     </div>
                 ) : (
-                    <div className="text-center py-10 text-slate-500 text-sm">
+                    <div className="text-center py-10 text-muted-foreground text-sm">
                         Select a node to view Constitutional details.
                     </div>
                 )}
@@ -44,7 +44,7 @@ export default function InfoPanel({ selectedNode, activeScenario }: InfoPanelPro
 
                 {/* Scenario Feedback */}
                 <div>
-                    <h4 className="text-xs font-semibold mb-3 text-slate-500">Active Signals</h4>
+                    <h4 className="text-xs font-semibold mb-3 text-muted-foreground">Active Signals</h4>
                     {activeScenario ? (
                         <div className="p-3 bg-slate-800 rounded border border-slate-700">
                             <p className="text-sm font-medium text-amber-400 mb-1">
@@ -55,7 +55,7 @@ export default function InfoPanel({ selectedNode, activeScenario }: InfoPanelPro
                                 {activeScenario === 'rights' && "Writ Petition (Art 32): Habeas Corpus"}
                                 {['bill_pass', 'governor_reserve'].includes(activeScenario || '') && activeScenario}
                             </p>
-                            <p className="text-xs text-slate-400">
+                            <p className="text-xs text-muted-foreground">
                                 {activeScenario === 'emergency' && "Federal structure suspended. Centre becomes unitary. Fundamental Rights (Art 19) suspended."}
                                 {activeScenario === 'impeachment' && "Parliament initiates removal. 14 days notice required. Special majority needed in both houses."}
                                 {activeScenario === 'appointment' && "President appoints PM. Logic: Must appoint leader of majority party in Lok Sabha."}
@@ -65,7 +65,7 @@ export default function InfoPanel({ selectedNode, activeScenario }: InfoPanelPro
                             </p>
                         </div>
                     ) : (
-                        <p className="text-xs text-slate-600 italic">No active scenarios running.</p>
+                        <p className="text-xs text-muted-foreground italic">No active scenarios running.</p>
                     )}
                 </div>
             </CardContent>

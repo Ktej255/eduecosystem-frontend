@@ -144,7 +144,7 @@ export const StudyGroupDetailPage: React.FC = () => {
   if (!group) {
     return (
       <div className="text-center py-12">
-        <p className="text-gray-500">Group not found</p>
+        <p className="text-muted-foreground">Group not found</p>
       </div>
     );
   }
@@ -152,14 +152,14 @@ export const StudyGroupDetailPage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Group Header */}
-      <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+      <div className="bg-card rounded-lg shadow-md p-6 mb-6">
         <div className="flex justify-between items-start">
           <div className="flex-1">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            <h1 className="text-3xl font-bold text-foreground mb-2">
               {group.name}
             </h1>
-            <p className="text-gray-600 mb-4">{group.description}</p>
-            <div className="flex items-center space-x-4 text-sm text-gray-500">
+            <p className="text-muted-foreground mb-4">{group.description}</p>
+            <div className="flex items-center space-x-4 text-sm text-muted-foreground">
               <span className="flex items-center">
                 <Users className="w-4 h-4 mr-1" />
                 {members.length} members
@@ -180,7 +180,7 @@ export const StudyGroupDetailPage: React.FC = () => {
                   <LogOut className="w-4 h-4 inline mr-2" />
                   Leave Group
                 </button>
-                <button className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
+                <button className="px-4 py-2 border border-border text-muted-foreground rounded-lg hover:bg-muted">
                   <Settings className="w-4 h-4 inline mr-2" />
                   Settings
                 </button>
@@ -199,14 +199,14 @@ export const StudyGroupDetailPage: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="border-b border-gray-200 mb-6">
+      <div className="border-b border-border mb-6">
         <nav className="-mb-px flex space-x-8">
           <button
             onClick={() => setActiveTab("posts")}
             className={`py-4 px-1 border-b-2 font-medium text-sm ${
               activeTab === "posts"
                 ? "border-indigo-500 text-indigo-600"
-                : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                : "border-transparent text-muted-foreground hover:text-muted-foreground hover:border-border"
             }`}
           >
             <MessageSquare className="w-5 h-5 inline mr-2" />
@@ -217,7 +217,7 @@ export const StudyGroupDetailPage: React.FC = () => {
             className={`py-4 px-1 border-b-2 font-medium text-sm ${
               activeTab === "members"
                 ? "border-indigo-500 text-indigo-600"
-                : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                : "border-transparent text-muted-foreground hover:text-muted-foreground hover:border-border"
             }`}
           >
             <Users className="w-5 h-5 inline mr-2" />
@@ -231,13 +231,13 @@ export const StudyGroupDetailPage: React.FC = () => {
         <div className="space-y-6">
           {/* Create Post */}
           {isMember && (
-            <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="bg-card rounded-lg shadow-md p-6">
               <form onSubmit={handleCreatePost}>
                 <textarea
                   value={newPost}
                   onChange={(e) => setNewPost(e.target.value)}
                   placeholder="Share something with the group..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
+                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
                   rows={3}
                 />
                 <div className="mt-3 flex justify-end">
@@ -254,7 +254,7 @@ export const StudyGroupDetailPage: React.FC = () => {
 
           {/* Posts List */}
           {posts.map((post) => (
-            <div key={post.id} className="bg-white rounded-lg shadow-md p-6">
+            <div key={post.id} className="bg-card rounded-lg shadow-md p-6">
               <div className="flex items-start space-x-3">
                 <div className="flex-shrink-0">
                   <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
@@ -265,19 +265,19 @@ export const StudyGroupDetailPage: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center justify-between">
-                    <h4 className="font-medium text-gray-900">
+                    <h4 className="font-medium text-foreground">
                       {post.author.full_name}
                     </h4>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-muted-foreground">
                       {new Date(post.created_at).toLocaleDateString()}
                     </span>
                   </div>
-                  <p className="mt-2 text-gray-700">{post.content}</p>
+                  <p className="mt-2 text-muted-foreground">{post.content}</p>
                   <div className="mt-3 flex items-center space-x-4">
-                    <button className="text-sm text-gray-500 hover:text-indigo-600">
+                    <button className="text-sm text-muted-foreground hover:text-indigo-600">
                       👍 {post.likes_count}
                     </button>
-                    <button className="text-sm text-gray-500 hover:text-indigo-600">
+                    <button className="text-sm text-muted-foreground hover:text-indigo-600">
                       Reply
                     </button>
                   </div>
@@ -287,12 +287,12 @@ export const StudyGroupDetailPage: React.FC = () => {
           ))}
 
           {posts.length === 0 && (
-            <div className="text-center py-12 bg-white rounded-lg shadow-md">
-              <MessageSquare className="mx-auto h-12 w-12 text-gray-400" />
-              <h3 className="mt-2 text-sm font-medium text-gray-900">
+            <div className="text-center py-12 bg-card rounded-lg shadow-md">
+              <MessageSquare className="mx-auto h-12 w-12 text-muted-foreground" />
+              <h3 className="mt-2 text-sm font-medium text-foreground">
                 No posts yet
               </h3>
-              <p className="mt-1 text-sm text-gray-500">
+              <p className="mt-1 text-sm text-muted-foreground">
                 {isMember
                   ? "Be the first to post!"
                   : "Join the group to see posts"}
@@ -301,8 +301,8 @@ export const StudyGroupDetailPage: React.FC = () => {
           )}
         </div>
       ) : (
-        <div className="bg-white rounded-lg shadow-md">
-          <ul className="divide-y divide-gray-200">
+        <div className="bg-card rounded-lg shadow-md">
+          <ul className="divide-y divide-border">
             {members.map((member) => (
               <li
                 key={member.id}
@@ -315,13 +315,13 @@ export const StudyGroupDetailPage: React.FC = () => {
                     </span>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900">
+                    <h4 className="font-medium text-foreground">
                       {member.user.full_name}
                     </h4>
-                    <p className="text-sm text-gray-500">{member.user.email}</p>
+                    <p className="text-sm text-muted-foreground">{member.user.email}</p>
                   </div>
                 </div>
-                <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+                <span className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-sm">
                   {member.role}
                 </span>
               </li>

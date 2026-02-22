@@ -17,7 +17,7 @@ interface FederalSystemModuleProps {
 // --- Design System: The Tilted Scale ---
 
 const ScaleContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="bg-[#f0f4f8] min-h-screen p-4 md:p-8 font-sans selection:bg-orange-200 selection:text-orange-900 relative text-slate-800">
+    <div className="bg-[#f0f4f8] min-h-screen p-4 md:p-8 font-sans selection:bg-orange-200 selection:text-orange-900 relative text-foreground">
         {/* Graph Paper / Balance Sheet Texture */}
         <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#64748b_1px,transparent_1px),linear-gradient(to_bottom,#64748b_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 
@@ -31,7 +31,7 @@ const SectionHeader = ({ title, icon: Icon, color = "slate" }: { title: string, 
     const colors = {
         green: "text-green-700 border-green-200 bg-green-50",
         orange: "text-orange-700 border-orange-200 bg-orange-50",
-        slate: "text-slate-700 border-slate-200 bg-white"
+        slate: "text-muted-foreground border-border bg-card"
     };
 
     return (
@@ -55,11 +55,11 @@ const FeatureCard = ({ title, children, icon: Icon, type = "Federal" }: { title:
             </div>
             <div className="mt-4">
                 {Icon && (
-                    <div className={`float-right ml-4 mb-2 p-2 rounded-lg bg-white shadow-sm border ${isFederal ? 'border-green-100 text-green-600' : 'border-orange-100 text-orange-600'}`}>
+                    <div className={`float-right ml-4 mb-2 p-2 rounded-lg bg-card shadow-sm border ${isFederal ? 'border-green-100 text-green-600' : 'border-orange-100 text-orange-600'}`}>
                         <Icon size={24} />
                     </div>
                 )}
-                <div className="text-sm space-y-3 font-handwriting text-slate-700 leading-relaxed">
+                <div className="text-sm space-y-3 font-handwriting text-muted-foreground leading-relaxed">
                     {children}
                 </div>
             </div>
@@ -68,8 +68,8 @@ const FeatureCard = ({ title, children, icon: Icon, type = "Federal" }: { title:
 };
 
 const WeightItem = ({ title, pyq }: { title: string, pyq?: boolean }) => (
-    <div className="bg-white border border-slate-200 p-3 rounded shadow-sm flex items-center justify-between gap-2">
-        <span className="font-semibold text-slate-700 text-sm">{title}</span>
+    <div className="bg-card border border-border p-3 rounded shadow-sm flex items-center justify-between gap-2">
+        <span className="font-semibold text-muted-foreground text-sm">{title}</span>
         {pyq && <Badge className="bg-red-600 hover:bg-red-700 text-[10px] h-5">PYQ</Badge>}
     </div>
 );
@@ -79,7 +79,7 @@ export default function FederalSystemModule({ onComplete, isCompleted }: Federal
     return (
         <ScaleContainer>
             {/* HERO */}
-            <div className="bg-white p-8 md:p-12 rounded-xl shadow-xl relative overflow-hidden border border-slate-200">
+            <div className="bg-card p-8 md:p-12 rounded-xl shadow-xl relative overflow-hidden border border-border">
                 {/* Decorative Scale */}
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none">
                     <Scale size={300} />
@@ -90,11 +90,11 @@ export default function FederalSystemModule({ onComplete, isCompleted }: Federal
                         <div className="bg-orange-100 p-3 rounded-full border border-orange-200">
                             <Scale size={32} className="text-orange-600 transform -rotate-12" />
                         </div>
-                        <h1 className="text-3xl md:text-5xl font-black font-serif text-slate-800 tracking-tight">
+                        <h1 className="text-3xl md:text-5xl font-black font-serif text-foreground tracking-tight">
                             The Tilted Scale
                         </h1>
                     </div>
-                    <p className="text-slate-500 max-w-2xl text-lg leading-relaxed font-handwriting italic border-l-4 border-orange-400 pl-4 py-1">
+                    <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed font-handwriting italic border-l-4 border-orange-400 pl-4 py-1">
                         "Federal in form but Unitary in spirit. An indestructible Union of destructible States."
                     </p>
                 </div>
@@ -105,20 +105,20 @@ export default function FederalSystemModule({ onComplete, isCompleted }: Federal
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
                 {/* Left: Article 1 */}
-                <div className="bg-white border-2 border-slate-200 rounded-xl p-6 shadow-sm">
-                    <h3 className="font-bold text-lg text-slate-800 mb-3 flex items-center gap-2">
+                <div className="bg-card border-2 border-border rounded-xl p-6 shadow-sm">
+                    <h3 className="font-bold text-lg text-foreground mb-3 flex items-center gap-2">
                         <span className="bg-slate-800 text-white px-2 py-0.5 rounded text-xs">Art 1</span> Union of States
                     </h3>
-                    <div className="space-y-3 text-sm font-handwriting text-slate-600">
+                    <div className="space-y-3 text-sm font-handwriting text-muted-foreground">
                         <p>Constitution uses "Union of States", NOT "Federation of States".</p>
-                        <div className="bg-slate-50 p-3 rounded border border-slate-100">
+                        <div className="bg-muted p-3 rounded border border-slate-100">
                             <strong>Dr. Ambedkar's Logic:</strong>
                             <ul className="list-disc pl-4 mt-1 space-y-1">
                                 <li>Not result of agreement by states (unlike USA).</li>
                                 <li>No right to secede. <Badge variant="outline" className="text-red-500 border-red-200 text-[10px] ml-1">PYQ</Badge></li>
                             </ul>
                         </div>
-                        <p className="font-bold text-slate-700">Result: "Indestructible Union of Destructible States".</p>
+                        <p className="font-bold text-muted-foreground">Result: "Indestructible Union of Destructible States".</p>
                     </div>
                 </div>
 
@@ -127,9 +127,9 @@ export default function FederalSystemModule({ onComplete, isCompleted }: Federal
                     <h3 className="font-bold text-lg text-orange-800 mb-3 flex items-center gap-2">
                         <Globe size={18} /> The Canadian Model
                     </h3>
-                    <div className="space-y-3 text-sm font-handwriting text-slate-600">
+                    <div className="space-y-3 text-sm font-handwriting text-muted-foreground">
                         <p>We adopted the <strong>Canadian Model</strong> (Not American). <Badge className="bg-red-600 ml-1 text-[10px]">PYQ</Badge></p>
-                        <div className="bg-white p-3 rounded border border-orange-100">
+                        <div className="bg-card p-3 rounded border border-orange-100">
                             <strong>Why?</strong>
                             <ul className="list-disc pl-4 mt-1 space-y-1">
                                 <li>Formation by disintegration (Unitary → Federal).</li>
@@ -157,13 +157,13 @@ export default function FederalSystemModule({ onComplete, isCompleted }: Federal
 
                 <FeatureCard title="Division of Powers" type="Federal" icon={Component}>
                     <div className="space-y-1">
-                        <div className="flex justify-between text-xs bg-white p-2 rounded border border-green-100">
+                        <div className="flex justify-between text-xs bg-card p-2 rounded border border-green-100">
                             <span>Union List</span> <strong>100 Subjects</strong>
                         </div>
-                        <div className="flex justify-between text-xs bg-white p-2 rounded border border-green-100">
+                        <div className="flex justify-between text-xs bg-card p-2 rounded border border-green-100">
                             <span>State List</span> <strong>61 Subjects</strong>
                         </div>
-                        <div className="flex justify-between text-xs bg-white p-2 rounded border border-green-100">
+                        <div className="flex justify-between text-xs bg-card p-2 rounded border border-green-100">
                             <span>Concurrent List</span> <strong>52 Subjects</strong>
                         </div>
                     </div>
@@ -191,27 +191,27 @@ export default function FederalSystemModule({ onComplete, isCompleted }: Federal
                         </h3>
 
                         <div className="grid sm:grid-cols-2 gap-4">
-                            <div className="bg-white p-3 rounded border border-orange-100 shadow-sm text-sm font-handwriting">
+                            <div className="bg-card p-3 rounded border border-orange-100 shadow-sm text-sm font-handwriting">
                                 <strong className="text-orange-700 block mb-1">1. Strong Centre</strong>
                                 Division of powers favours Centre (Union List is longer & more important).
                             </div>
-                            <div className="bg-white p-3 rounded border border-orange-100 shadow-sm text-sm font-handwriting">
+                            <div className="bg-card p-3 rounded border border-orange-100 shadow-sm text-sm font-handwriting">
                                 <strong className="text-orange-700 block mb-1">2. States Not Indestructible</strong>
                                 Parliament can redraw map/change names unilaterally (Art 3). <Badge className="bg-red-500 scale-75 origin-left">PYQ</Badge>
                             </div>
-                            <div className="bg-white p-3 rounded border border-orange-100 shadow-sm text-sm font-handwriting">
+                            <div className="bg-card p-3 rounded border border-orange-100 shadow-sm text-sm font-handwriting">
                                 <strong className="text-orange-700 block mb-1">3. Single Constitution</strong>
                                 States don't have their own constitution.
                             </div>
-                            <div className="bg-white p-3 rounded border border-orange-100 shadow-sm text-sm font-handwriting">
+                            <div className="bg-card p-3 rounded border border-orange-100 shadow-sm text-sm font-handwriting">
                                 <strong className="text-orange-700 block mb-1">4. Flexibility</strong>
                                 Bulk of Constitution amended by Parliament alone.
                             </div>
-                            <div className="bg-white p-3 rounded border border-orange-100 shadow-sm text-sm font-handwriting">
+                            <div className="bg-card p-3 rounded border border-orange-100 shadow-sm text-sm font-handwriting">
                                 <strong className="text-orange-700 block mb-1">5. No Equality of Representation</strong>
                                 RS seats based on Population (1-31), not equality (like US Senate).
                             </div>
-                            <div className="bg-white p-3 rounded border border-orange-100 shadow-sm text-sm font-handwriting">
+                            <div className="bg-card p-3 rounded border border-orange-100 shadow-sm text-sm font-handwriting">
                                 <strong className="text-orange-700 block mb-1">6. Emergency Provisions</strong>
                                 Art 352, 356, 360 convert structure to Unitary <strong>without amendment</strong>. <Badge className="bg-red-500 scale-75 origin-left">PYQ</Badge>
                             </div>
@@ -239,15 +239,15 @@ export default function FederalSystemModule({ onComplete, isCompleted }: Federal
                 <div className="grid md:grid-cols-3 gap-6 text-center mb-8">
                     <div className="bg-slate-700/50 p-4 rounded-lg">
                         <p className="text-slate-300 italic text-sm mb-2">"Quasi-Federal"</p>
-                        <p className="text-slate-400 text-xs font-bold uppercase tracking-wider">— K.C. Wheare <Badge variant="outline" className="ml-1 border-slate-500 text-slate-400 text-[9px]">PYQ</Badge></p>
+                        <p className="text-muted-foreground text-xs font-bold uppercase tracking-wider">— K.C. Wheare <Badge variant="outline" className="ml-1 border-slate-500 text-muted-foreground text-[9px]">PYQ</Badge></p>
                     </div>
                     <div className="bg-slate-700/50 p-4 rounded-lg">
                         <p className="text-slate-300 italic text-sm mb-2">"Bargaining Federalism"</p>
-                        <p className="text-slate-400 text-xs font-bold uppercase tracking-wider">— Morris Jones</p>
+                        <p className="text-muted-foreground text-xs font-bold uppercase tracking-wider">— Morris Jones</p>
                     </div>
                     <div className="bg-slate-700/50 p-4 rounded-lg">
                         <p className="text-slate-300 italic text-sm mb-2">"Co-operative Federalism"</p>
-                        <p className="text-slate-400 text-xs font-bold uppercase tracking-wider">— Granville Austin</p>
+                        <p className="text-muted-foreground text-xs font-bold uppercase tracking-wider">— Granville Austin</p>
                     </div>
                 </div>
 

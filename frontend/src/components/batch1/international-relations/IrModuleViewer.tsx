@@ -51,13 +51,13 @@ export default function IrModuleViewer({ moduleId }: IrModuleViewerProps) {
     const filteredTopics = filter === 'all' ? topics : topics.filter(t => t.priority === 'High');
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-black p-4 md:p-8">
+        <div className="min-h-screen bg-muted dark:bg-black p-4 md:p-8">
             {/* Header */}
             <div className="max-w-5xl mx-auto mb-8">
                 <Button
                     variant="ghost"
                     onClick={() => router.back()}
-                    className="mb-4 text-slate-500 hover:text-slate-800 dark:text-slate-400"
+                    className="mb-4 text-muted-foreground hover:text-foreground dark:text-muted-foreground"
                 >
                     <ArrowLeft className="w-4 h-4 mr-2" /> Back to Global Hub
                 </Button>
@@ -72,27 +72,27 @@ export default function IrModuleViewer({ moduleId }: IrModuleViewerProps) {
                             >
                                 {subject.category} Module
                             </Badge>
-                            <span className="text-sm text-slate-400 font-mono">{topics.length} Topics</span>
+                            <span className="text-sm text-muted-foreground font-mono">{topics.length} Topics</span>
                         </div>
-                        <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                        <h1 className="text-3xl md:text-4xl font-black text-foreground tracking-tight">
                             {subject.title}
                         </h1>
-                        <p className="text-slate-600 dark:text-slate-300 mt-2 max-w-2xl">
+                        <p className="text-muted-foreground mt-2 max-w-2xl">
                             {subject.description}
                         </p>
                     </div>
 
                     <div className="flex gap-2">
-                        <div className="bg-white dark:bg-slate-900 p-1 rounded-lg border border-slate-200 dark:border-slate-800 flex">
+                        <div className="bg-card p-1 rounded-lg border border-border flex">
                             <button
                                 onClick={() => setFilter('all')}
-                                className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${filter === 'all' ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-700'}`}
+                                className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${filter === 'all' ? 'bg-muted text-foreground' : 'text-muted-foreground hover:text-muted-foreground'}`}
                             >
                                 All Topics
                             </button>
                             <button
                                 onClick={() => setFilter('high-priority')}
-                                className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${filter === 'high-priority' ? 'bg-rose-100 text-rose-700' : 'text-slate-500 hover:text-rose-600'}`}
+                                className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${filter === 'high-priority' ? 'bg-rose-100 text-rose-700' : 'text-muted-foreground hover:text-rose-600'}`}
                             >
                                 High Yield
                             </button>
@@ -104,7 +104,7 @@ export default function IrModuleViewer({ moduleId }: IrModuleViewerProps) {
             {/* Topics Grid */}
             <div className="max-w-5xl mx-auto grid grid-cols-1 gap-4">
                 {filteredTopics.map((topic) => (
-                    <Card key={topic.id} className="group hover:border-indigo-300 dark:hover:border-indigo-700 transition-all hover:shadow-md border-slate-200 dark:border-slate-800">
+                    <Card key={topic.id} className="group hover:border-indigo-300 dark:hover:border-indigo-700 transition-all hover:shadow-md border-border">
                         <CardContent className="p-0 flex flex-col md:flex-row">
                             {/* Status Strip */}
                             <div className={`w-full md:w-2 h-2 md:h-auto ${topic.priority === 'High' ? 'bg-rose-500' : 'bg-indigo-500'}`}></div>
@@ -112,26 +112,26 @@ export default function IrModuleViewer({ moduleId }: IrModuleViewerProps) {
                             <div className="p-6 flex-1">
                                 <div className="flex justify-between items-start mb-2">
                                     <div className="flex items-center gap-2">
-                                        <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                        <h3 className="text-lg font-bold text-foreground group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                                             {topic.title}
                                         </h3>
                                         {topic.priority === 'High' && (
                                             <Badge variant="secondary" className="text-[10px] bg-rose-50 text-rose-600 border-rose-100 h-5">HIGH YIELD</Badge>
                                         )}
                                     </div>
-                                    <div className="text-xs text-slate-400 font-mono">ID: {topic.id}</div>
+                                    <div className="text-xs text-muted-foreground font-mono">ID: {topic.id}</div>
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                                     <div>
-                                        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Static Focus</span>
-                                        <p className="text-sm text-slate-600 dark:text-slate-300">{topic.staticFocus}</p>
+                                        <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider block mb-1">Static Focus</span>
+                                        <p className="text-sm text-muted-foreground">{topic.staticFocus}</p>
                                     </div>
                                     <div>
-                                        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Key Concepts</span>
+                                        <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider block mb-1">Key Concepts</span>
                                         <div className="flex flex-wrap gap-1">
                                             {topic.keyConcepts.map((k: string, i: number) => (
-                                                <span key={i} className="text-xs bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">
+                                                <span key={i} className="text-xs bg-muted px-2 py-0.5 rounded text-muted-foreground dark:text-muted-foreground">
                                                     {k}
                                                 </span>
                                             ))}
@@ -139,7 +139,7 @@ export default function IrModuleViewer({ moduleId }: IrModuleViewerProps) {
                                     </div>
                                 </div>
 
-                                <div className="flex items-center gap-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
+                                <div className="flex items-center gap-3 pt-4 border-t border-slate-100/50">
                                     <Link href={`/student/batch1/international-relations/${moduleId}/${topic.id}`}>
                                         <Button size="sm" variant="outline" className="gap-2 h-8">
                                             <BookOpen className="w-3 h-3" /> Read
@@ -164,7 +164,7 @@ export default function IrModuleViewer({ moduleId }: IrModuleViewerProps) {
                 ))}
 
                 {filteredTopics.length === 0 && (
-                    <div className="text-center py-12 text-slate-500">
+                    <div className="text-center py-12 text-muted-foreground">
                         No topics found matching your filter.
                     </div>
                 )}

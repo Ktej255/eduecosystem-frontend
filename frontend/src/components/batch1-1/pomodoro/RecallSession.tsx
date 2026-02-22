@@ -97,14 +97,14 @@ export default function RecallSession({
                         <div className={`text-4xl font-bold mb-2 ${isGoodRecall ? 'text-green-600' : 'text-amber-600'}`}>
                             {result.recallPercentage}%
                         </div>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                        <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                             {isGoodRecall ? 'Excellent recall! Keep it up!' : 'Good effort! Focus on the missing points.'}
                         </p>
                     </div>
 
                     {/* Feedback */}
-                    <div className="bg-white dark:bg-gray-800 rounded-lg p-4 mb-4">
-                        <p className="text-sm text-gray-700 dark:text-gray-300">{result.feedback}</p>
+                    <div className="bg-card rounded-lg p-4 mb-4">
+                        <p className="text-sm text-muted-foreground dark:text-muted-foreground">{result.feedback}</p>
                     </div>
 
                     {/* Key Points Mentioned */}
@@ -159,8 +159,8 @@ export default function RecallSession({
                 </div>
 
                 {/* Topics to recall */}
-                <div className="bg-white dark:bg-gray-800 rounded-lg p-4 mb-6">
-                    <h4 className="text-xs uppercase text-gray-500 mb-2">Topics to Recall:</h4>
+                <div className="bg-card rounded-lg p-4 mb-6">
+                    <h4 className="text-xs uppercase text-muted-foreground mb-2">Topics to Recall:</h4>
                     <div className="flex flex-wrap gap-2">
                         {topics.map((topic, i) => (
                             <span key={i} className="text-sm px-3 py-1 bg-purple-100 text-purple-700 rounded-full font-medium">

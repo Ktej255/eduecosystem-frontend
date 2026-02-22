@@ -46,11 +46,11 @@ export default function SecuritySection() {
                         <Shield className="w-4 h-4" />
                         Protected Excellence
                     </div>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
                         Commitment to{' '}
                         <span className="collexo-gradient-text">Security</span>
                     </h2>
-                    <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+                    <p className="text-lg text-muted-foreground dark:text-muted-foreground max-w-3xl mx-auto">
                         At SaritClasses, we are dedicated to upholding the highest standards of quality and security in our services.
                         Our pursuit of globally recognized certifications and adherence to industry standards reflects our commitment
                         to excellence and the trust you can place in our solutions.
@@ -68,8 +68,8 @@ export default function SecuritySection() {
                                 <cert.icon className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
                             </div>
                             <div className="text-center">
-                                <div className="font-bold text-slate-900 dark:text-white text-lg">{cert.name}</div>
-                                <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">{cert.description}</div>
+                                <div className="font-bold text-foreground text-lg">{cert.name}</div>
+                                <div className="text-xs text-muted-foreground dark:text-muted-foreground mt-1">{cert.description}</div>
                             </div>
                         </div>
                     ))}
@@ -77,30 +77,30 @@ export default function SecuritySection() {
 
                 {/* Trust Indicators */}
                 <div className="mt-16 flex flex-wrap justify-center gap-8">
-                    <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
+                    <div className="flex items-center gap-3 text-muted-foreground dark:text-muted-foreground">
                         <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
                             <Shield className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                         </div>
                         <div>
-                            <div className="font-semibold text-slate-900 dark:text-white">256-bit SSL Encryption</div>
+                            <div className="font-semibold text-foreground">256-bit SSL Encryption</div>
                             <div className="text-sm">Bank-grade security</div>
                         </div>
                     </div>
-                    <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
+                    <div className="flex items-center gap-3 text-muted-foreground dark:text-muted-foreground">
                         <div className="w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
                             <Lock className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                         </div>
                         <div>
-                            <div className="font-semibold text-slate-900 dark:text-white">PCI DSS Compliant</div>
+                            <div className="font-semibold text-foreground">PCI DSS Compliant</div>
                             <div className="text-sm">Payment security standard</div>
                         </div>
                     </div>
-                    <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
+                    <div className="flex items-center gap-3 text-muted-foreground dark:text-muted-foreground">
                         <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
                             <Award className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                         </div>
                         <div>
-                            <div className="font-semibold text-slate-900 dark:text-white">99.9% Uptime</div>
+                            <div className="font-semibold text-foreground">99.9% Uptime</div>
                             <div className="text-sm">Enterprise reliability</div>
                         </div>
                     </div>

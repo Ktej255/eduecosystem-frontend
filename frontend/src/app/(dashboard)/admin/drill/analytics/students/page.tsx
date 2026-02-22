@@ -11,7 +11,7 @@ export default function DrillAnalyticsStudentsPage() {
             <div className="mb-8">
                 <Link
                     href="/admin/drill/analytics"
-                    className="inline-flex items-center text-sm text-gray-500 hover:text-indigo-600 mb-4 transition-colors"
+                    className="inline-flex items-center text-sm text-muted-foreground hover:text-indigo-600 mb-4 transition-colors"
                 >
                     <ArrowLeft className="mr-1 h-4 w-4" /> Back to Analytics
                 </Link>
@@ -19,7 +19,7 @@ export default function DrillAnalyticsStudentsPage() {
                     <Users className="h-8 w-8 text-indigo-600" />
                     <h1 className="text-3xl font-bold">Student Analytics</h1>
                 </div>
-                <p className="text-gray-600 mt-2">View detailed drill performance by student.</p>
+                <p className="text-muted-foreground mt-2">View detailed drill performance by student.</p>
             </div>
 
             <Card>
@@ -30,7 +30,7 @@ export default function DrillAnalyticsStudentsPage() {
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <div className="text-center py-12 text-gray-500">
+                    <div className="text-center py-12 text-muted-foreground">
                         <Users className="h-12 w-12 mx-auto mb-4 opacity-50" />
                         <p className="text-lg font-medium">Student analytics coming soon</p>
                         <p className="text-sm">This feature is under development.</p>

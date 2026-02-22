@@ -75,7 +75,7 @@ export default function FocusAnalyticsDashboard() {
                             <span className="font-semibold text-sm">Flashcards Mastered</span>
                         </div>
                         <div className="flex items-end gap-2">
-                            <div className="text-4xl font-bold text-gray-900 dark:text-white">{stats.flashcardsMastered}</div>
+                            <div className="text-4xl font-bold text-foreground">{stats.flashcardsMastered}</div>
                             <div className="text-sm font-medium text-green-600 mb-1 flex items-center">
                                 <TrendingUp className="w-3 h-3 mr-1" />
                                 +{stats.flashcardsGrowth}
@@ -93,7 +93,7 @@ export default function FocusAnalyticsDashboard() {
                             </div>
                             <span className="font-semibold text-sm">Focus Hours</span>
                         </div>
-                        <div className="text-4xl font-bold text-gray-900 dark:text-white">{stats.focusHours}h</div>
+                        <div className="text-4xl font-bold text-foreground">{stats.focusHours}h</div>
                         <p className="text-xs text-purple-600/70 mt-2">Across Pomodoro sessions</p>
                     </CardContent>
                 </Card>
@@ -106,7 +106,7 @@ export default function FocusAnalyticsDashboard() {
                             </div>
                             <span className="font-semibold text-sm">Voice Notes</span>
                         </div>
-                        <div className="text-4xl font-bold text-gray-900 dark:text-white">{stats.audioNotesRecorded}</div>
+                        <div className="text-4xl font-bold text-foreground">{stats.audioNotesRecorded}</div>
                         <p className="text-xs text-amber-600/70 mt-2">Recall practice sessions</p>
                     </CardContent>
                 </Card>
@@ -117,14 +117,14 @@ export default function FocusAnalyticsDashboard() {
                 <Card className="h-full">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
-                            <FileText className="w-5 h-5 text-gray-500" />
+                            <FileText className="w-5 h-5 text-muted-foreground" />
                             Recent Test Reports
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="space-y-4">
                             {recentTests.length === 0 && (
-                                <div className="text-center text-gray-400 py-8">
+                                <div className="text-center text-muted-foreground py-8">
                                     No completed tests found via Pomodoro sessions yet.
                                 </div>
                             )}
@@ -132,7 +132,7 @@ export default function FocusAnalyticsDashboard() {
                                 <button
                                     key={test.id}
                                     onClick={() => setSelectedTestId(test.id)}
-                                    className="w-full text-left bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700 transition-all flex items-center justify-between group"
+                                    className="w-full text-left bg-muted/50 hover:bg-muted dark:hover:bg-gray-800 p-4 rounded-xl border border-border transition-all flex items-center justify-between group"
                                 >
                                     <div className="flex items-center gap-4">
                                         <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg ${test.score >= 80 ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
@@ -140,8 +140,8 @@ export default function FocusAnalyticsDashboard() {
                                             {test.score}%
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-gray-900 dark:text-white">{test.title}</h4>
-                                            <div className="text-xs text-gray-500 flex items-center gap-2">
+                                            <h4 className="font-bold text-foreground">{test.title}</h4>
+                                            <div className="text-xs text-muted-foreground flex items-center gap-2">
                                                 <Calendar className="w-3 h-3" />
                                                 {new Date(test.date).toLocaleDateString()}
                                                 <span>•</span>
@@ -149,7 +149,7 @@ export default function FocusAnalyticsDashboard() {
                                             </div>
                                         </div>
                                     </div>
-                                    <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transform group-hover:translate-x-1 transition-all" />
+                                    <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-blue-500 transform group-hover:translate-x-1 transition-all" />
                                 </button>
                             ))}
                         </div>
@@ -168,24 +168,24 @@ export default function FocusAnalyticsDashboard() {
                         <div className="space-y-6">
                             <div className="flex gap-4">
                                 <div className="flex flex-col items-center gap-1">
-                                    <div className="w-0.5 h-full bg-gray-200 dark:bg-gray-700" />
+                                    <div className="w-0.5 h-full bg-muted" />
                                     <div className="w-3 h-3 rounded-full bg-blue-500 flex-shrink-0" />
                                 </div>
                                 <div className="pb-6">
-                                    <p className="text-sm font-bold text-gray-900 dark:text-white">Polity Module Strength</p>
-                                    <p className="text-xs text-gray-500 mt-1">
+                                    <p className="text-sm font-bold text-foreground">Polity Module Strength</p>
+                                    <p className="text-xs text-muted-foreground mt-1">
                                         Your accuracy has improved by 15% this week.
                                     </p>
                                 </div>
                             </div>
                             <div className="flex gap-4">
                                 <div className="flex flex-col items-center gap-1">
-                                    <div className="w-0.5 h-full bg-gray-200 dark:bg-gray-700" />
+                                    <div className="w-0.5 h-full bg-muted" />
                                     <div className="w-3 h-3 rounded-full bg-purple-500 flex-shrink-0" />
                                 </div>
                                 <div className="pb-6">
-                                    <p className="text-sm font-bold text-gray-900 dark:text-white">Consistent Recall</p>
-                                    <p className="text-xs text-gray-500 mt-1">
+                                    <p className="text-sm font-bold text-foreground">Consistent Recall</p>
+                                    <p className="text-xs text-muted-foreground mt-1">
                                         You've completed Audio Recall for 5 consecutive days. Streak: 5 🔥
                                     </p>
                                 </div>
@@ -195,8 +195,8 @@ export default function FocusAnalyticsDashboard() {
                                     <div className="w-3 h-3 rounded-full bg-orange-500 flex-shrink-0" />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-bold text-gray-900 dark:text-white">Areas to Improve</p>
-                                    <p className="text-xs text-gray-500 mt-1">
+                                    <p className="text-sm font-bold text-foreground">Areas to Improve</p>
+                                    <p className="text-xs text-muted-foreground mt-1">
                                         Focus on logic-based questions.
                                     </p>
                                 </div>

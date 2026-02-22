@@ -67,7 +67,7 @@ export default function CommunityPage() {
         <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-pink-600">
           🐺 Wolf Pack Community
         </h1>
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
           Join forces with learners at your level. Compete, collaborate, and
           conquer together!
         </p>
@@ -85,13 +85,13 @@ export default function CommunityPage() {
                 <h2 className="text-3xl font-bold text-white">
                   {myGroup.name}
                 </h2>
-                <p className="text-gray-400">
+                <p className="text-muted-foreground">
                   {myGroup.description || "A pack of determined learners"}
                 </p>
               </div>
             </div>
             <div className="text-right">
-              <p className="text-gray-400 text-sm">Group Rank</p>
+              <p className="text-muted-foreground text-sm">Group Rank</p>
               <p className="text-4xl font-bold text-orange-400">
                 #{myGroup.rank || 1}
               </p>
@@ -103,7 +103,7 @@ export default function CommunityPage() {
             <div className="bg-black/20 p-4 rounded-lg border border-orange-500/20">
               <div className="flex items-center space-x-2 mb-2">
                 <Users className="h-4 w-4 text-orange-400" />
-                <span className="text-gray-400 text-sm">Members</span>
+                <span className="text-muted-foreground text-sm">Members</span>
               </div>
               <p className="text-2xl font-bold text-white">
                 {myGroup.member_count || 0}/5
@@ -112,7 +112,7 @@ export default function CommunityPage() {
             <div className="bg-black/20 p-4 rounded-lg border border-orange-500/20">
               <div className="flex items-center space-x-2 mb-2">
                 <Zap className="h-4 w-4 text-yellow-400" />
-                <span className="text-gray-400 text-sm">Avg Streak</span>
+                <span className="text-muted-foreground text-sm">Avg Streak</span>
               </div>
               <p className="text-2xl font-bold text-white">
                 {myGroup.avg_streak || 0} days
@@ -121,7 +121,7 @@ export default function CommunityPage() {
             <div className="bg-black/20 p-4 rounded-lg border border-orange-500/20">
               <div className="flex items-center space-x-2 mb-2">
                 <Trophy className="h-4 w-4 text-purple-400" />
-                <span className="text-gray-400 text-sm">Total Coins</span>
+                <span className="text-muted-foreground text-sm">Total Coins</span>
               </div>
               <p className="text-2xl font-bold text-white">
                 {myGroup.total_coins || 0}
@@ -172,7 +172,7 @@ export default function CommunityPage() {
                     </div>
                     <div>
                       <p className="text-white font-medium">{member.name}</p>
-                      <div className="flex items-center space-x-3 text-xs text-gray-400">
+                      <div className="flex items-center space-x-3 text-xs text-muted-foreground">
                         <span className="flex items-center">
                           <Zap className="h-3 w-3 mr-1 text-yellow-400" />
                           {member.streak}d
@@ -187,7 +187,7 @@ export default function CommunityPage() {
                   <Button
                     size="sm"
                     variant="ghost"
-                    className="text-gray-400 hover:text-white"
+                    className="text-muted-foreground hover:text-white"
                   >
                     <MessageCircle className="h-4 w-4" />
                   </Button>
@@ -198,11 +198,11 @@ export default function CommunityPage() {
         </Card>
       ) : (
         <Card className="bg-gray-900 border-gray-800 p-12 text-center">
-          <Users className="h-20 w-20 text-gray-600 mx-auto mb-4" />
+          <Users className="h-20 w-20 text-muted-foreground mx-auto mb-4" />
           <h3 className="text-2xl font-bold text-white mb-2">
             You're Not in a Pack Yet!
           </h3>
-          <p className="text-gray-400 mb-6 max-w-md mx-auto">
+          <p className="text-muted-foreground mb-6 max-w-md mx-auto">
             Join a Wolf Pack to collaborate with learners at your level, share
             progress, and climb the leaderboard together.
           </p>
@@ -278,25 +278,25 @@ export default function CommunityPage() {
                         ? "bg-gray-400 text-black"
                         : i === 2
                           ? "bg-orange-600 text-white"
-                          : "bg-gray-700 text-gray-300"
+                          : "bg-gray-700 text-muted-foreground"
                   }`}
                 >
                   {i < 3 ? <Star className="h-5 w-5" /> : group.rank}
                 </div>
                 <div>
                   <p className="text-white font-bold">{group.name}</p>
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-muted-foreground text-sm">
                     {group.members} members
                   </p>
                 </div>
               </div>
               <div className="flex items-center space-x-6 text-sm">
                 <div className="text-right">
-                  <p className="text-gray-400">Avg Streak</p>
+                  <p className="text-muted-foreground">Avg Streak</p>
                   <p className="text-white font-bold">{group.avgStreak} days</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-gray-400">Total Coins</p>
+                  <p className="text-muted-foreground">Total Coins</p>
                   <p className="text-white font-bold">
                     {group.totalCoins.toLocaleString()}
                   </p>
@@ -350,7 +350,7 @@ export default function CommunityPage() {
                   <span className="font-bold">{activity.user}</span>{" "}
                   {activity.action}
                 </p>
-                <p className="text-gray-400 text-sm">{activity.time}</p>
+                <p className="text-muted-foreground text-sm">{activity.time}</p>
               </div>
             </div>
           ))}

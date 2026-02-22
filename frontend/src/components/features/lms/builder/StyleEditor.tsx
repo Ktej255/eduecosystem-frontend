@@ -17,7 +17,7 @@ export function StyleEditor() {
   if (!selectedSection) {
     return (
       <div className="w-80 bg-gray-900 border-l border-gray-800 p-4">
-        <p className="text-gray-500 text-sm text-center mt-8">
+        <p className="text-muted-foreground text-sm text-center mt-8">
           Select a section to edit its content and styles
         </p>
       </div>
@@ -42,12 +42,12 @@ export function StyleEditor() {
 
       {/* Content Editor */}
       <div className="space-y-4 mb-6">
-        <h3 className="text-sm font-semibold text-gray-400">Content</h3>
+        <h3 className="text-sm font-semibold text-muted-foreground">Content</h3>
 
         {selectedSection.type === "hero" && (
           <>
             <div>
-              <Label className="text-gray-300">Title</Label>
+              <Label className="text-muted-foreground">Title</Label>
               <Input
                 value={selectedSection.content.title || ""}
                 onChange={(e) => updateContent("title", e.target.value)}
@@ -55,7 +55,7 @@ export function StyleEditor() {
               />
             </div>
             <div>
-              <Label className="text-gray-300">Subtitle</Label>
+              <Label className="text-muted-foreground">Subtitle</Label>
               <Textarea
                 value={selectedSection.content.subtitle || ""}
                 onChange={(e) => updateContent("subtitle", e.target.value)}
@@ -64,7 +64,7 @@ export function StyleEditor() {
               />
             </div>
             <div>
-              <Label className="text-gray-300">CTA Button Text</Label>
+              <Label className="text-muted-foreground">CTA Button Text</Label>
               <Input
                 value={selectedSection.content.ctaText || ""}
                 onChange={(e) => updateContent("ctaText", e.target.value)}
@@ -76,7 +76,7 @@ export function StyleEditor() {
 
         {selectedSection.type === "features" && (
           <div>
-            <Label className="text-gray-300 mb-2  block">Features</Label>
+            <Label className="text-muted-foreground mb-2  block">Features</Label>
             {selectedSection.content.features?.map(
               (feature: any, idx: number) => (
                 <div
@@ -112,7 +112,7 @@ export function StyleEditor() {
         {selectedSection.type === "instructor" && (
           <>
             <div>
-              <Label className="text-gray-300">Name</Label>
+              <Label className="text-muted-foreground">Name</Label>
               <Input
                 value={selectedSection.content.name || ""}
                 onChange={(e) => updateContent("name", e.target.value)}
@@ -120,7 +120,7 @@ export function StyleEditor() {
               />
             </div>
             <div>
-              <Label className="text-gray-300">Title</Label>
+              <Label className="text-muted-foreground">Title</Label>
               <Input
                 value={selectedSection.content.title || ""}
                 onChange={(e) => updateContent("title", e.target.value)}
@@ -128,7 +128,7 @@ export function StyleEditor() {
               />
             </div>
             <div>
-              <Label className="text-gray-300">Bio</Label>
+              <Label className="text-muted-foreground">Bio</Label>
               <Textarea
                 value={selectedSection.content.bio || ""}
                 onChange={(e) => updateContent("bio", e.target.value)}
@@ -142,7 +142,7 @@ export function StyleEditor() {
         {selectedSection.type === "pricing" && (
           <>
             <div>
-              <Label className="text-gray-300">Price (INR)</Label>
+              <Label className="text-muted-foreground">Price (INR)</Label>
               <Input
                 type="number"
                 value={selectedSection.content.price || 0}
@@ -158,10 +158,10 @@ export function StyleEditor() {
 
       {/* Styles Editor */}
       <div className="space-y-4 pt-4 border-t border-gray-800">
-        <h3 className="text-sm font-semibold text-gray-400">Styling</h3>
+        <h3 className="text-sm font-semibold text-muted-foreground">Styling</h3>
 
         <div>
-          <Label className="text-gray-300">Padding</Label>
+          <Label className="text-muted-foreground">Padding</Label>
           <select
             value={selectedSection.styles.padding || "medium"}
             onChange={(e) => updateStyles("padding", e.target.value)}
@@ -174,7 +174,7 @@ export function StyleEditor() {
         </div>
 
         <div>
-          <Label className="text-gray-300">Text Align</Label>
+          <Label className="text-muted-foreground">Text Align</Label>
           <select
             value={selectedSection.styles.textAlign || "center"}
             onChange={(e) => updateStyles("textAlign", e.target.value)}

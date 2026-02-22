@@ -75,18 +75,18 @@ export default function LeaderboardConfigurator() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-5xl mx-auto">
             {/* Config Panel */}
             <div className="md:col-span-8">
-                <Card className="border-slate-200 dark:border-slate-800">
-                    <CardHeader className="pb-4 border-b border-slate-100 dark:border-slate-800">
+                <Card className="border-border">
+                    <CardHeader className="pb-4 border-b border-slate-100">
                         <div className="flex items-center justify-between">
                             <div>
                                 <CardTitle className="text-lg font-bold flex items-center gap-2">
-                                    <Settings className="h-5 w-5 text-slate-500" />
+                                    <Settings className="h-5 w-5 text-muted-foreground" />
                                     Karma Logic Engine
                                 </CardTitle>
                                 <CardDescription>Fine-tune how students earn XP and rank up.</CardDescription>
                             </div>
                             <div className="flex items-center gap-2">
-                                <Label htmlFor="season-mode" className="text-sm font-medium text-slate-600">Season 6 Active</Label>
+                                <Label htmlFor="season-mode" className="text-sm font-medium text-muted-foreground">Season 6 Active</Label>
                                 <Switch id="season-mode" checked={isSeasonActive} onCheckedChange={setIsSeasonActive} />
                             </div>
                         </div>
@@ -96,12 +96,12 @@ export default function LeaderboardConfigurator() {
                             <div key={rule.id} className="space-y-3">
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
-                                        <div className={`p-2 rounded-lg bg-slate-100 dark:bg-slate-800 ${rule.color}`}>
+                                        <div className={`p-2 rounded-lg bg-muted ${rule.color}`}>
                                             <rule.icon className="h-5 w-5" />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-100">{rule.label}</h4>
-                                            <p className="text-xs text-slate-500">{rule.description}</p>
+                                            <h4 className="font-semibold text-sm text-foreground">{rule.label}</h4>
+                                            <p className="text-xs text-muted-foreground">{rule.description}</p>
                                         </div>
                                     </div>
                                     <Badge variant="outline" className="font-mono text-xs w-16 justify-center">
@@ -119,8 +119,8 @@ export default function LeaderboardConfigurator() {
                             </div>
                         ))}
                     </CardContent>
-                    <CardFooter className="bg-slate-50 dark:bg-slate-900/50 flex justify-between py-3 border-t border-slate-100 dark:border-slate-800">
-                        <Button variant="ghost" size="sm" onClick={handleReset} disabled={!hasChanges} className="text-slate-500">
+                    <CardFooter className="bg-muted/50 flex justify-between py-3 border-t border-slate-100">
+                        <Button variant="ghost" size="sm" onClick={handleReset} disabled={!hasChanges} className="text-muted-foreground">
                             <RotateCcw className="h-4 w-4 mr-2" /> Reset Defaults
                         </Button>
                         <Button size="sm" onClick={handleSave} disabled={!hasChanges} className={hasChanges ? "bg-indigo-600 hover:bg-indigo-700" : ""}>
@@ -148,7 +148,7 @@ export default function LeaderboardConfigurator() {
                             <span className="text-sm font-medium text-indigo-200 uppercase tracking-widest">XP / Week</span>
                         </div>
 
-                        <div className="space-y-3 bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                        <div className="space-y-3 bg-card/10 rounded-xl p-4 backdrop-blur-sm">
                             <h4 className="text-xs font-bold uppercase tracking-wider text-indigo-200 mb-2">Breakdown</h4>
                             <div className="flex justify-between text-sm">
                                 <span className="text-indigo-100">Login Streak</span>

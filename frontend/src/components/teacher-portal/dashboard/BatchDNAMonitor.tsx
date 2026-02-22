@@ -7,6 +7,7 @@ import {
 } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Users, TrendingUp, AlertTriangle, ShieldCheck } from 'lucide-react';
+import ChartErrorBoundary from '@/components/ui/ChartErrorBoundary';
 
 // Mock aggregate data for the batch
 const BATCH_DATA = [
@@ -22,12 +23,12 @@ const BATCH_DATA = [
 
 export default function BatchDNAMonitor() {
     return (
-        <Card className="w-full bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden">
-            <CardHeader className="border-b border-slate-50 dark:border-slate-900 bg-slate-50/50 dark:bg-black/20">
+        <Card className="w-full bg-card border-border shadow-xl overflow-hidden">
+            <CardHeader className="border-b border-slate-50 bg-slate-50/50 dark:bg-black/20">
                 <div className="flex justify-between items-center">
                     <div>
                         <CardTitle className="text-xl font-bold flex items-center gap-2">
-                            <Users className="w-5 h-5 text-blue-600" />
+                            <Users className="w-5 h-5 text-primary" />
                             Batch Performance DNA
                         </CardTitle>
                         <CardDescription>Aggregate mastery across 124 active students</CardDescription>
@@ -38,34 +39,37 @@ export default function BatchDNAMonitor() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {/* Radar Chart */}
                     <div className="h-[350px] w-full">
-                        <ResponsiveContainer width="100%" height="100%">
-                            <RadarChart cx="50%" cy="50%" outerRadius="80%" data={BATCH_DATA}>
-                                <PolarGrid stroke="#e2e8f0" />
-                                <PolarAngleAxis
-                                    dataKey="subject"
-                                    tick={{ fill: '#64748b', fontSize: 11, fontWeight: 'bold' }}
-                                />
-                                <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} />
-                                <Radar
-                                    name="Batch Average"
-                                    dataKey="BatchAvg"
-                                    stroke="#3b82f6"
-                                    fill="#3b82f6"
-                                    fillOpacity={0.4}
-                                />
-                                <Radar
-                                    name="Top 10% Accuracy"
-                                    dataKey="TopPercentile"
-                                    stroke="#10b981"
-                                    fill="#10b981"
-                                    fillOpacity={0.1}
-                                />
-                                <Tooltip
-                                    contentStyle={{ backgroundColor: '#fff', border: '1px solid #e2e8f0', borderRadius: '8px' }}
-                                />
-                                <Legend />
-                            </RadarChart>
-                        </ResponsiveContainer>
+                        <ChartErrorBoundary name="Batch DNA Radar">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={BATCH_DATA}>
+                                    <PolarGrid stroke="var(--border)" opacity={0.5} />
+                                    <PolarAngleAxis
+                                        dataKey="subject"
+                                        tick={{ fill: 'var(--muted-foreground)', fontSize: 11, fontWeight: 'bold' }}
+                                    />
+                                    <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} />
+                                    <Radar
+                                        name="Batch Average"
+                                        dataKey="BatchAvg"
+                                        stroke="var(--primary)"
+                                        fill="var(--primary)"
+                                        fillOpacity={0.4}
+                                    />
+                                    <Radar
+                                        name="Top 10% Accuracy"
+                                        dataKey="TopPercentile"
+                                        stroke="#10b981"
+                                        fill="#10b981"
+                                        fillOpacity={0.1}
+                                    />
+                                    <Tooltip
+                                        contentStyle={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)', borderRadius: '8px', color: 'var(--foreground)' }}
+                                        itemStyle={{ color: 'var(--foreground)' }}
+                                    />
+                                    <Legend />
+                                </RadarChart>
+                            </ResponsiveContainer>
+                        </ChartErrorBoundary>
                     </div>
 
                     {/* Insights for Teacher */}
@@ -90,24 +94,24 @@ export default function BatchDNAMonitor() {
                             </p>
                         </div>
 
-                        <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                            <h4 className="text-xs font-black uppercase text-slate-400 mb-4 tracking-widest">Growth Vector</h4>
+                        <div className="pt-4 border-t border-slate-100">
+                            <h4 className="text-xs font-black uppercase text-muted-foreground mb-4 tracking-widest">Growth Vector</h4>
                             <div className="flex items-center gap-4">
                                 <div className="flex-1">
                                     <div className="flex justify-between text-xs mb-1">
-                                        <span className="text-slate-500">Weekly Consistency</span>
+                                        <span className="text-muted-foreground">Weekly Consistency</span>
                                         <span className="font-bold">+12%</span>
                                     </div>
-                                    <div className="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div className="h-1.5 w-full bg-muted rounded-full overflow-hidden">
                                         <div className="h-full w-[72%] bg-blue-500 rounded-full"></div>
                                     </div>
                                 </div>
                                 <div className="flex-1">
                                     <div className="flex justify-between text-xs mb-1">
-                                        <span className="text-slate-500">Retention Stability</span>
+                                        <span className="text-muted-foreground">Retention Stability</span>
                                         <span className="font-bold">4.2 Days</span>
                                     </div>
-                                    <div className="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div className="h-1.5 w-full bg-muted rounded-full overflow-hidden">
                                         <div className="h-full w-[60%] bg-indigo-500 rounded-full"></div>
                                     </div>
                                 </div>

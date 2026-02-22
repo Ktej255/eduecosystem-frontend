@@ -104,7 +104,7 @@ export default function BehavioralHeatmap() {
                             <Brain className="h-5 w-5 text-purple-400" />
                             Student Pulse Monitor
                         </CardTitle>
-                        <CardDescription className="text-slate-400">
+                        <CardDescription className="text-muted-foreground">
                             Real-time behavioral struggle signals across lessons.
                         </CardDescription>
                     </div>
@@ -112,7 +112,7 @@ export default function BehavioralHeatmap() {
                         variant="ghost"
                         size="sm"
                         onClick={fetchSignals}
-                        className="text-slate-400 hover:text-white"
+                        className="text-muted-foreground hover:text-white"
                     >
                         <RefreshCw className={cn("h-4 w-4 mr-1", loading && "animate-spin")} />
                         Refresh
@@ -131,7 +131,7 @@ export default function BehavioralHeatmap() {
                             <div key={key} className="bg-slate-950 rounded-xl p-4 border border-slate-800">
                                 <div className="flex items-center gap-2 mb-2">
                                     <div className={cn("w-2 h-2 rounded-full", config.color)} />
-                                    <span className="text-[10px] font-black uppercase text-slate-500 tracking-widest">
+                                    <span className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
                                         {config.label}
                                     </span>
                                 </div>
@@ -139,7 +139,7 @@ export default function BehavioralHeatmap() {
                                     <span className={cn("text-2xl font-black", config.textColor)}>
                                         {count}
                                     </span>
-                                    <span className="text-[10px] text-slate-500">signals</span>
+                                    <span className="text-[10px] text-muted-foreground">signals</span>
                                 </div>
                             </div>
                         );
@@ -148,7 +148,7 @@ export default function BehavioralHeatmap() {
 
                 {/* Page-Level Heatmap */}
                 <div className="space-y-2">
-                    <h3 className="text-xs font-black uppercase text-slate-500 tracking-widest">
+                    <h3 className="text-xs font-black uppercase text-muted-foreground tracking-widest">
                         Lesson Struggle Heatmap
                     </h3>
                     <div className="space-y-2">
@@ -191,12 +191,12 @@ export default function BehavioralHeatmap() {
                                                 ? "border-red-500/50 text-red-400"
                                                 : pulse.total >= 15
                                                     ? "border-amber-500/50 text-amber-400"
-                                                    : "border-slate-600 text-slate-400"
+                                                    : "border-slate-600 text-muted-foreground"
                                         )}
                                     >
                                         {pulse.total} signals
                                     </Badge>
-                                    <span className="text-[10px] text-slate-600 w-16 text-right">
+                                    <span className="text-[10px] text-muted-foreground w-16 text-right">
                                         {pulse.lastSeen}
                                     </span>
                                 </div>

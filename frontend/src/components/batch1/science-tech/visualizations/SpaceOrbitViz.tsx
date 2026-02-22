@@ -249,7 +249,7 @@ export default function SpaceOrbitViz() {
                     </div>
                     <button
                         onClick={() => setShowInfo(!showInfo)}
-                        className={`p-2 rounded-full transition-colors ${showInfo ? 'bg-white/20 text-white' : 'hover:bg-white/10 text-slate-400 hover:text-white'}`}
+                        className={`p-2 rounded-full transition-colors ${showInfo ? 'bg-card/20 text-white' : 'hover:bg-card/10 text-muted-foreground hover:text-white'}`}
                     >
                         <Info className="w-4 h-4" />
                     </button>
@@ -277,21 +277,21 @@ export default function SpaceOrbitViz() {
                                 <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1 shrink-0" />
                                 <div>
                                     <strong className="text-cyan-400 block">LEO (160-2000km)</strong>
-                                    <span className="text-slate-400">Remote Sensing (Cartosat), Spy Satellites, ISS. Period: ~90 mins. Best for high-res imaging.</span>
+                                    <span className="text-muted-foreground">Remote Sensing (Cartosat), Spy Satellites, ISS. Period: ~90 mins. Best for high-res imaging.</span>
                                 </div>
                             </li>
                             <li className="flex gap-2">
                                 <div className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-1 shrink-0" />
                                 <div>
                                     <strong className="text-purple-400 block">MEO (2000-35786km)</strong>
-                                    <span className="text-slate-400">Navigation (GPS, GLONASS, Galileo). Period: ~12 hrs. Larger coverage area than LEO.</span>
+                                    <span className="text-muted-foreground">Navigation (GPS, GLONASS, Galileo). Period: ~12 hrs. Larger coverage area than LEO.</span>
                                 </div>
                             </li>
                             <li className="flex gap-2">
                                 <div className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1 shrink-0" />
                                 <div>
                                     <strong className="text-amber-400 block">GEO (35,786km)</strong>
-                                    <span className="text-slate-400">Telecommunications, Weather (INSAT). Period: 24 hrs. Fixed position relative to Earth.</span>
+                                    <span className="text-muted-foreground">Telecommunications, Weather (INSAT). Period: 24 hrs. Fixed position relative to Earth.</span>
                                 </div>
                             </li>
                         </ul>

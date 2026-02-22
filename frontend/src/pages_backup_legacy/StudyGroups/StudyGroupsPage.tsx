@@ -63,7 +63,7 @@ export const StudyGroupsPage: React.FC = () => {
       discussion: "bg-purple-100 text-purple-800",
       peer_support: "bg-orange-100 text-orange-800",
     };
-    return colors[type as keyof typeof colors] || "bg-gray-100 text-gray-800";
+    return colors[type as keyof typeof colors] || "bg-muted text-foreground";
   };
 
   if (loading) {
@@ -79,8 +79,8 @@ export const StudyGroupsPage: React.FC = () => {
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Study Groups</h1>
-          <p className="mt-2 text-gray-600">
+          <h1 className="text-3xl font-bold text-foreground">Study Groups</h1>
+          <p className="mt-2 text-muted-foreground">
             Join or create groups to learn together
           </p>
         </div>
@@ -96,19 +96,19 @@ export const StudyGroupsPage: React.FC = () => {
       {/* Search and Filters */}
       <div className="mb-6 flex flex-col sm:flex-row gap-4">
         <div className="flex-1 relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
           <input
             type="text"
             placeholder="Search groups..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            className="w-full pl-10 pr-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
           />
         </div>
         <select
           value={filterType}
           onChange={(e) => setFilterType(e.target.value)}
-          className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+          className="px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
         >
           <option value="all">All Types</option>
           <option value="study">Study</option>
@@ -121,11 +121,11 @@ export const StudyGroupsPage: React.FC = () => {
       {/* Groups Grid */}
       {filteredGroups.length === 0 ? (
         <div className="text-center py-12">
-          <Users className="mx-auto h-12 w-12 text-gray-400" />
-          <h3 className="mt-2 text-sm font-medium text-gray-900">
+          <Users className="mx-auto h-12 w-12 text-muted-foreground" />
+          <h3 className="mt-2 text-sm font-medium text-foreground">
             No groups found
           </h3>
-          <p className="mt-1 text-sm text-gray-500">
+          <p className="mt-1 text-sm text-muted-foreground">
             {searchQuery
               ? "Try adjusting your search"
               : "Get started by creating a new group"}
@@ -137,7 +137,7 @@ export const StudyGroupsPage: React.FC = () => {
             <Link
               key={group.id}
               to={`/groups/${group.id}`}
-              className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-200"
+              className="bg-card rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 border border-border"
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center space-x-2">
@@ -146,24 +146,24 @@ export const StudyGroupsPage: React.FC = () => {
                   >
                     {group.group_type}
                   </span>
-                  <span className="text-gray-500">
+                  <span className="text-muted-foreground">
                     {getPrivacyIcon(group.privacy)}
                   </span>
                 </div>
-                <span className="text-sm text-gray-500">
+                <span className="text-sm text-muted-foreground">
                   {group.member_count || 0}/{group.max_members}
                 </span>
               </div>
 
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="text-lg font-semibold text-foreground mb-2">
                 {group.name}
               </h3>
-              <p className="text-gray-600 text-sm line-clamp-2 mb-4">
+              <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
                 {group.description || "No description available"}
               </p>
 
               <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-500">
+                <span className="text-muted-foreground">
                   Created {new Date(group.created_at).toLocaleDateString()}
                 </span>
                 {group.is_active && (

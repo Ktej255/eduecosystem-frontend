@@ -115,7 +115,7 @@ export default function SRSReviewMode() {
             <div className="min-h-screen bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 dark:from-[#030303] dark:via-[#050510] dark:to-[#030303] flex items-center justify-center">
                 <div className="text-center">
                     <Brain className="w-12 h-12 text-indigo-600 mx-auto mb-4 animate-pulse" />
-                    <p className="text-gray-600">Preparing your smart review session...</p>
+                    <p className="text-muted-foreground">Preparing your smart review session...</p>
                 </div>
             </div>
         );
@@ -125,12 +125,12 @@ export default function SRSReviewMode() {
     if (dueCards.length === 0) {
         return (
             <div className="min-h-screen bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 dark:from-[#030303] dark:via-[#050510] dark:to-[#030303] flex items-center justify-center p-6">
-                <div className="bg-white dark:bg-[#111] rounded-3xl border border-gray-200 dark:border-gray-800 p-8 max-w-md w-full text-center shadow-xl">
+                <div className="bg-card dark:bg-[#111] rounded-3xl border border-border p-8 max-w-md w-full text-center shadow-xl">
                     <div className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center mx-auto mb-4">
                         <Trophy className="w-10 h-10 text-white" />
                     </div>
-                    <h1 className="text-2xl font-black text-gray-900 dark:text-white mb-2">All Caught Up!</h1>
-                    <p className="text-gray-500 mb-6">No flashcards are due for review right now. Come back later or start a regular session.</p>
+                    <h1 className="text-2xl font-black text-foreground mb-2">All Caught Up!</h1>
+                    <p className="text-muted-foreground mb-6">No flashcards are due for review right now. Come back later or start a regular session.</p>
                     <div className="space-y-3">
                         <Link
                             href="/student/batch1/polity/revision/quick"
@@ -140,7 +140,7 @@ export default function SRSReviewMode() {
                         </Link>
                         <Link
                             href="/student/batch1/polity/revision"
-                            className="block w-full bg-gray-100 dark:bg-[#0a0a0a] text-gray-700 dark:text-gray-300 py-4 rounded-2xl font-bold hover:bg-gray-200 transition-all"
+                            className="block w-full bg-muted dark:bg-[#0a0a0a] text-muted-foreground dark:text-muted-foreground py-4 rounded-2xl font-bold hover:bg-muted transition-all"
                         >
                             Back to Revision Hub
                         </Link>
@@ -155,12 +155,12 @@ export default function SRSReviewMode() {
         const successRate = Math.round((sessionStats.correct / (sessionStats.correct + sessionStats.incorrect)) * 100);
         return (
             <div className="min-h-screen bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 dark:from-[#030303] dark:via-[#050510] dark:to-[#030303] flex items-center justify-center p-6">
-                <div className="bg-white dark:bg-[#111] rounded-3xl border border-gray-200 dark:border-gray-800 p-8 max-w-md w-full text-center shadow-xl">
+                <div className="bg-card dark:bg-[#111] rounded-3xl border border-border p-8 max-w-md w-full text-center shadow-xl">
                     <div className="w-20 h-20 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center mx-auto mb-4">
                         <Brain className="w-10 h-10 text-white" />
                     </div>
-                    <h1 className="text-2xl font-black text-gray-900 dark:text-white mb-2">SRS Session Complete!</h1>
-                    <p className="text-gray-500 mb-6">{dueCards.length} cards reviewed</p>
+                    <h1 className="text-2xl font-black text-foreground mb-2">SRS Session Complete!</h1>
+                    <p className="text-muted-foreground mb-6">{dueCards.length} cards reviewed</p>
 
                     <div className="grid grid-cols-2 gap-4 mb-6">
                         <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-2xl p-4">
@@ -174,8 +174,8 @@ export default function SRSReviewMode() {
                     </div>
 
                     <div className="mb-8">
-                        <div className="text-5xl font-black text-gray-900 dark:text-white mb-2">{successRate}%</div>
-                        <div className="text-gray-500">Retention Rate</div>
+                        <div className="text-5xl font-black text-foreground mb-2">{successRate}%</div>
+                        <div className="text-muted-foreground">Retention Rate</div>
                     </div>
 
                     <div className="space-y-3">
@@ -188,7 +188,7 @@ export default function SRSReviewMode() {
                         </button>
                         <Link
                             href="/student/batch1/polity/revision"
-                            className="block w-full bg-gray-100 dark:bg-[#0a0a0a] text-gray-700 dark:text-gray-300 py-4 rounded-2xl font-bold hover:bg-gray-200 transition-all"
+                            className="block w-full bg-muted dark:bg-[#0a0a0a] text-muted-foreground dark:text-muted-foreground py-4 rounded-2xl font-bold hover:bg-muted transition-all"
                         >
                             Back to Revision Hub
                         </Link>
@@ -204,9 +204,9 @@ export default function SRSReviewMode() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 dark:from-[#030303] dark:via-[#050510] dark:to-[#030303] pb-20">
             {/* Header */}
-            <div className="bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-800 sticky top-0 z-10">
+            <div className="bg-card dark:bg-[#0a0a0a] border-b border-border sticky top-0 z-10">
                 <div className="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
-                    <Link href="/student/batch1/polity/revision" className="text-gray-500 hover:text-gray-700 flex items-center gap-1">
+                    <Link href="/student/batch1/polity/revision" className="text-muted-foreground hover:text-muted-foreground flex items-center gap-1">
                         <ChevronLeft className="w-4 h-4" />
                         Exit
                     </Link>
@@ -233,12 +233,12 @@ export default function SRSReviewMode() {
                 {/* Progress */}
                 <div className="mb-6">
                     <div className="flex items-center justify-between text-sm mb-2">
-                        <span className="text-gray-500">{currentIdx + 1} of {dueCards.length}</span>
+                        <span className="text-muted-foreground">{currentIdx + 1} of {dueCards.length}</span>
                         <span className="text-indigo-600 font-medium">
                             Next review: {currentCard.interval === 0 ? 'New' : `${currentCard.interval}d`}
                         </span>
                     </div>
-                    <div className="h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                    <div className="h-2 bg-muted rounded-full overflow-hidden">
                         <div
                             className="h-full bg-gradient-to-r from-indigo-600 to-purple-600 transition-all"
                             style={{ width: `${progress}%` }}
@@ -250,7 +250,7 @@ export default function SRSReviewMode() {
                 <div className="text-center text-sm text-indigo-600 font-medium mb-2">
                     {currentCard.chapterTitle}
                 </div>
-                <div className="flex items-center justify-center gap-3 mb-6 text-xs text-gray-400">
+                <div className="flex items-center justify-center gap-3 mb-6 text-xs text-muted-foreground">
                     <span>Ease: {currentCard.easeFactor.toFixed(2)}</span>
                     <span>•</span>
                     <span>Reps: {currentCard.repetitions}</span>
@@ -261,20 +261,20 @@ export default function SRSReviewMode() {
                 {/* Flashcard */}
                 <div
                     onClick={() => !showAnswer && setShowAnswer(true)}
-                    className={`bg-white dark:bg-[#111] rounded-3xl border border-gray-200 dark:border-gray-800 p-8 min-h-[300px] shadow-xl flex flex-col items-center justify-center ${!showAnswer ? 'cursor-pointer' : ''}`}
+                    className={`bg-card dark:bg-[#111] rounded-3xl border border-border p-8 min-h-[300px] shadow-xl flex flex-col items-center justify-center ${!showAnswer ? 'cursor-pointer' : ''}`}
                 >
                     {!showAnswer ? (
                         <>
-                            <div className="text-sm text-gray-500 mb-4">QUESTION</div>
-                            <div className="text-xl font-bold text-center text-gray-900 dark:text-white">
+                            <div className="text-sm text-muted-foreground mb-4">QUESTION</div>
+                            <div className="text-xl font-bold text-center text-foreground">
                                 {currentCard.flashcard.question}
                             </div>
-                            <div className="mt-6 text-sm text-gray-400">Tap to reveal answer</div>
+                            <div className="mt-6 text-sm text-muted-foreground">Tap to reveal answer</div>
                         </>
                     ) : (
                         <>
                             <div className="text-sm text-emerald-500 mb-4">ANSWER</div>
-                            <div className="text-lg text-gray-700 dark:text-gray-300 text-center">
+                            <div className="text-lg text-muted-foreground dark:text-muted-foreground text-center">
                                 {currentCard.flashcard.answer}
                             </div>
                         </>
@@ -284,7 +284,7 @@ export default function SRSReviewMode() {
                 {/* Quality Rating Buttons */}
                 {showAnswer && (
                     <div className="mt-6 space-y-3">
-                        <div className="text-center text-sm text-gray-500 mb-4">How well did you remember?</div>
+                        <div className="text-center text-sm text-muted-foreground mb-4">How well did you remember?</div>
                         <div className="grid grid-cols-2 gap-3">
                             <button
                                 onClick={() => handleQualityRating(0)}

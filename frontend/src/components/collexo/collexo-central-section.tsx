@@ -29,7 +29,7 @@ const features = [
 
 export default function CollexoCentralSection() {
     return (
-        <section id="central" className="collexo-section bg-white dark:bg-slate-950">
+        <section id="central" className="collexo-section bg-card">
             <div className="collexo-container">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
@@ -39,12 +39,12 @@ export default function CollexoCentralSection() {
                             Centralized Platform
                         </div>
 
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
                             All built on top of{' '}
                             <span className="collexo-gradient-text">SaritClasses Central</span>
                         </h2>
 
-                        <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
+                        <p className="text-lg text-muted-foreground dark:text-muted-foreground mb-8">
                             A powerful SaaS, centralizing all aspects of fee management into one integrated platform
                         </p>
 
@@ -53,12 +53,12 @@ export default function CollexoCentralSection() {
                             {features.map((feature, index) => (
                                 <div
                                     key={index}
-                                    className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-900 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors group"
+                                    className="flex items-center gap-3 p-3 rounded-xl bg-muted hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors group"
                                 >
                                     <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800/50 transition-colors">
                                         <feature.icon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                                     </div>
-                                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                                    <span className="text-sm font-medium text-muted-foreground">
                                         {feature.text}
                                     </span>
                                 </div>
@@ -75,15 +75,15 @@ export default function CollexoCentralSection() {
                     <div className="relative">
                         <div className="relative rounded-2xl bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 p-8">
                             {/* Dashboard Mockup */}
-                            <div className="bg-white dark:bg-slate-900 rounded-xl shadow-xl p-6">
+                            <div className="bg-card rounded-xl shadow-xl p-6">
                                 <div className="flex items-center justify-between mb-6">
                                     <div className="flex items-center gap-3">
                                         <div className="w-10 h-10 rounded-xl collexo-gradient flex items-center justify-center">
                                             <span className="text-white font-bold">S</span>
                                         </div>
                                         <div>
-                                            <div className="font-bold text-slate-900 dark:text-white">SaritClasses Central</div>
-                                            <div className="text-xs text-slate-500">Enterprise Dashboard</div>
+                                            <div className="font-bold text-foreground">SaritClasses Central</div>
+                                            <div className="text-xs text-muted-foreground">Enterprise Dashboard</div>
                                         </div>
                                     </div>
                                     <div className="flex gap-2">
@@ -95,17 +95,17 @@ export default function CollexoCentralSection() {
 
                                 {/* Stats Row */}
                                 <div className="grid grid-cols-3 gap-4 mb-6">
-                                    <div className="text-center p-4 bg-slate-50 dark:bg-slate-800 rounded-xl">
+                                    <div className="text-center p-4 bg-muted rounded-xl">
                                         <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">₹5.2Cr</div>
-                                        <div className="text-xs text-slate-500 mt-1">Total Revenue</div>
+                                        <div className="text-xs text-muted-foreground mt-1">Total Revenue</div>
                                     </div>
-                                    <div className="text-center p-4 bg-slate-50 dark:bg-slate-800 rounded-xl">
+                                    <div className="text-center p-4 bg-muted rounded-xl">
                                         <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">99.2%</div>
-                                        <div className="text-xs text-slate-500 mt-1">Success Rate</div>
+                                        <div className="text-xs text-muted-foreground mt-1">Success Rate</div>
                                     </div>
-                                    <div className="text-center p-4 bg-slate-50 dark:bg-slate-800 rounded-xl">
+                                    <div className="text-center p-4 bg-muted rounded-xl">
                                         <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">3,847</div>
-                                        <div className="text-xs text-slate-500 mt-1">Transactions</div>
+                                        <div className="text-xs text-muted-foreground mt-1">Transactions</div>
                                     </div>
                                 </div>
 

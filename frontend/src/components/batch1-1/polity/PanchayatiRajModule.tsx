@@ -17,7 +17,7 @@ interface PanchayatiRajModuleProps {
 // --- Design System: The Village Tree ---
 
 const TreeContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#fafaf9] text-slate-900 selection:bg-emerald-100">
+    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#fafaf9] text-foreground selection:bg-emerald-100">
         {/* Crumpled Grid Texture */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')]"></div>
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[size:30px_30px] bg-[linear-gradient(to_right,#a16207_1px,transparent_1px),linear-gradient(to_bottom,#a16207_1px,transparent_1px)]"></div>
@@ -106,7 +106,7 @@ export default function PanchayatiRajModule({ onComplete, isCompleted }: Panchay
                         ))}
                     </div>
 
-                    <div className="mt-12 p-6 bg-white border-2 border-amber-200 rounded-2xl shadow-xl relative">
+                    <div className="mt-12 p-6 bg-card border-2 border-amber-200 rounded-2xl shadow-xl relative">
                         <div className="absolute -top-4 left-8 bg-amber-700 text-white text-xs font-bold px-3 py-1 rounded">Recommendation</div>
                         <p className="text-xl font-serif text-amber-900 italic">
                             "{committees[activeRoot].recon}"
@@ -152,7 +152,7 @@ export default function PanchayatiRajModule({ onComplete, isCompleted }: Panchay
                     {/* THE 3 TIERS */}
                     <div className="relative group">
                         <div className="absolute inset-0 bg-emerald-900/5 rounded-2xl -rotate-1 group-hover:rotate-0 transition-transform"></div>
-                        <div className="relative bg-white border-2 border-emerald-800 p-8 rounded-2xl flex flex-col items-center space-y-4">
+                        <div className="relative bg-card border-2 border-emerald-800 p-8 rounded-2xl flex flex-col items-center space-y-4">
                             <h3 className="font-bold text-emerald-900 uppercase tracking-widest border-b-2 border-emerald-100 pb-2 w-full text-center">3-Tier Hierarchy (Art 243-B)</h3>
 
                             <div className="w-full space-y-3">
@@ -178,7 +178,7 @@ export default function PanchayatiRajModule({ onComplete, isCompleted }: Panchay
                             <Users size={40} />
                             <h3 className="text-2xl font-black font-serif uppercase leading-tight">Gram Sabha<br /><span className="text-sm font-normal text-emerald-600">Art 243-A</span></h3>
                         </div>
-                        <p className="text-sm italic text-emerald-900 bg-white/60 p-4 rounded-xl border border-emerald-100 shadow-inner">
+                        <p className="text-sm italic text-emerald-900 bg-card/60 p-4 rounded-xl border border-emerald-100 shadow-inner">
                             "The Foundation of the entire system. Consists of <span className="font-bold underline">all registered voters</span> in the village area."
                         </p>
                         <div className="flex items-center gap-2 text-xs font-bold text-emerald-800">
@@ -191,11 +191,11 @@ export default function PanchayatiRajModule({ onComplete, isCompleted }: Panchay
                 <div className="grid md:grid-cols-2 gap-8">
                     <SketchCard title="Election Process" icon={UserPlus} color="stone">
                         <div className="space-y-4 text-sm">
-                            <div className="p-3 border-l-4 border-stone-800 bg-white shadow-sm">
+                            <div className="p-3 border-l-4 border-stone-800 bg-card shadow-sm">
                                 <strong className="block text-stone-900">Members</strong>
                                 <p className="text-xs">Directly elected at ALL levels.</p>
                             </div>
-                            <div className="p-3 border-l-4 border-stone-400 bg-white shadow-sm">
+                            <div className="p-3 border-l-4 border-stone-400 bg-card shadow-sm">
                                 <strong className="block text-stone-900">Chairpersons</strong>
                                 <p className="text-xs">Indirectly elected at Inter/District levels. Village level as per State Law.</p>
                             </div>
@@ -225,7 +225,7 @@ export default function PanchayatiRajModule({ onComplete, isCompleted }: Panchay
 
                 <div className="grid md:grid-cols-2 gap-8">
                     {/* COMPULSORY */}
-                    <div className="bg-white border-2 border-emerald-600 rounded-3xl p-8 relative shadow-xl">
+                    <div className="bg-card border-2 border-emerald-600 rounded-3xl p-8 relative shadow-xl">
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-emerald-600 text-white px-4 py-1 rounded-full font-bold text-xs uppercase tracking-widest">Compulsory</div>
                         <ul className="space-y-4 text-sm">
                             {[
@@ -239,14 +239,14 @@ export default function PanchayatiRajModule({ onComplete, isCompleted }: Panchay
                             ].map((item, i) => (
                                 <li key={i} className="flex gap-3 items-start group">
                                     <CheckCircle2 size={18} className="text-emerald-500 shrink-0 group-hover:scale-110 transition-transform" />
-                                    <span className="text-slate-700 leading-tight">{item}</span>
+                                    <span className="text-muted-foreground leading-tight">{item}</span>
                                 </li>
                             ))}
                         </ul>
                     </div>
 
                     {/* VOLUNTARY */}
-                    <div className="bg-white border-2 border-blue-600 rounded-3xl p-8 relative shadow-xl">
+                    <div className="bg-card border-2 border-blue-600 rounded-3xl p-8 relative shadow-xl">
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-full font-bold text-xs uppercase tracking-widest">Voluntary</div>
                         <ul className="space-y-4 text-sm">
                             {[
@@ -258,7 +258,7 @@ export default function PanchayatiRajModule({ onComplete, isCompleted }: Panchay
                             ].map((item, i) => (
                                 <li key={i} className="flex gap-3 items-start group">
                                     <HelpCircle size={18} className="text-blue-500 shrink-0 group-hover:scale-110 transition-transform" />
-                                    <span className="text-slate-700 leading-tight">{item}</span>
+                                    <span className="text-muted-foreground leading-tight">{item}</span>
                                 </li>
                             ))}
                         </ul>
@@ -293,7 +293,7 @@ export default function PanchayatiRajModule({ onComplete, isCompleted }: Panchay
                             <div>• Drinking Water</div>
                             <div>• PDS (Public Distribution)</div>
                         </div>
-                        <div className="p-3 bg-white/5 rounded-lg border border-white/10 flex items-center gap-3">
+                        <div className="p-3 bg-card/5 rounded-lg border border-white/10 flex items-center gap-3">
                             <Info size={16} className="text-emerald-400" />
                             <span className="text-xs uppercase font-bold tracking-widest">Total 29 Functional Items</span>
                         </div>
@@ -307,7 +307,7 @@ export default function PanchayatiRajModule({ onComplete, isCompleted }: Panchay
                                 <p className="text-lg font-black tracking-[0.2em]">NaMeMi</p>
                                 <span className="text-[10px] opacity-60">(Nagaland, Meghalaya, Mizoram)</span>
                             </div>
-                            <div className="text-xs text-slate-400 leading-relaxed">
+                            <div className="text-xs text-muted-foreground leading-relaxed">
                                 Partially Exempt: Hill areas of <span className="text-slate-100">Manipur</span> & <span className="text-slate-100">Darjeeling</span>.
                             </div>
                         </div>
@@ -325,7 +325,7 @@ export default function PanchayatiRajModule({ onComplete, isCompleted }: Panchay
                         <h3 className="text-3xl font-black text-white font-serif mb-4 flex items-center justify-center gap-3">
                             PESA ACT 1996
                         </h3>
-                        <div className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 text-white space-y-3">
+                        <div className="bg-card/10 backdrop-blur-md p-4 rounded-xl border border-white/20 text-white space-y-3">
                             <p className="text-sm font-bold uppercase tracking-widest">"Self Rule for Tribals"</p>
                             <p className="text-xs text-amber-50 opacity-90 leading-relaxed">
                                 Gram Sabha is **SUPREME**. Ownership of minor forest produce, control over money lending, and prevention of land alienation.
@@ -339,14 +339,14 @@ export default function PanchayatiRajModule({ onComplete, isCompleted }: Panchay
                         className={`
                             px-12 py-4 rounded-xl font-bold uppercase tracking-[0.2em] transition-all
                             ${isCompleted
-                                ? 'bg-slate-200 text-slate-400 cursor-not-allowed shadow-inner'
+                                ? 'bg-slate-200 text-muted-foreground cursor-not-allowed shadow-inner'
                                 : 'bg-gradient-to-r from-amber-700 via-amber-800 to-amber-900 text-white shadow-[0_10px_20px_-10px_rgba(146,64,14,0.5)] hover:scale-[1.02] hover:shadow-2xl active:scale-95'
                             }
                         `}
                     >
                         {isCompleted ? "Panchayat Empowered" : "Notify Constitution (73rd AA)"}
                     </button>
-                    <p className="text-[10px] text-slate-400 uppercase tracking-widest">Goal: Power to the People 365 Days a Year</p>
+                    <p className="text-[10px] text-muted-foreground uppercase tracking-widest">Goal: Power to the People 365 Days a Year</p>
                 </div>
             </div>
         </TreeContainer>

@@ -282,7 +282,7 @@ const routes: Route[] = [
     label: "Settings",
     icon: Settings,
     href: "/settings",
-    color: "text-gray-500",
+    color: "text-muted-foreground",
     children: [
       { label: "Domain management", icon: LinkIcon, href: "/settings/domain", color: "text-zinc-400" },
       { label: "Payments", icon: CreditCard, href: "/settings/payments", color: "text-zinc-400" },
@@ -356,7 +356,7 @@ export default function Sidebar() {
       <div className="px-3 py-2">
         <button
           onClick={logout}
-          className="text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition text-zinc-400"
+          className="text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-card/10 rounded-lg transition text-zinc-400"
         >
           <div className="flex items-center flex-1">
             <LogOut className="h-5 w-5 mr-3 text-red-500" />
@@ -389,7 +389,7 @@ function SidebarItem({
     <div className="flex flex-col mb-1">
       <div
         className={cn(
-          "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
+          "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-card/10 rounded-lg transition",
           isActive && !hasChildren ? "text-white bg-blue-600 hover:bg-blue-700" : "text-zinc-400",
           isActive && hasChildren ? "text-white" : ""
         )}
@@ -421,7 +421,7 @@ function SidebarItem({
         {hasChildren && (
           <div
             role="button"
-            className="ml-auto p-1 hover:bg-white/20 rounded"
+            className="ml-auto p-1 hover:bg-card/20 rounded"
             onClick={(e) => {
               e.stopPropagation();
               onToggle();
@@ -443,7 +443,7 @@ function SidebarItem({
               key={child.href}
               href={child.href}
               className={cn(
-                "text-sm group flex p-2 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
+                "text-sm group flex p-2 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-card/10 rounded-lg transition",
                 pathname === child.href
                   ? "text-white bg-blue-600/20"
                   : "text-zinc-400"

@@ -31,14 +31,14 @@ export default function HandwrittenChapter4() {
     const t = language === 'hi' ? ch4Translations.hi : ch4Translations.en;
 
     return (
-        <div className="min-h-screen bg-[#fdfbf7] p-4 md:p-8 font-['Kalam',_cursive] text-slate-800 selection:bg-orange-100 overflow-x-hidden">
+        <div className="min-h-screen bg-paper p-4 md:p-8 font-['Kalam',_cursive] text-paper-gray selection:bg-sticky-yellow/40 overflow-x-hidden">
             <style jsx global>{`
                 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Permanent+Marker&family=Patrick+Hand&display=swap');
                 
                 .weathered-scroll {
-                    background-color: #fff;
+                    background-color: var(--paper-bg);
                     position: relative;
-                    border: 1px solid #d1d5db;
+                    border: 1px solid var(--paper-border);
                 }
 
                 .weathered-scroll::before {
@@ -62,16 +62,17 @@ export default function HandwrittenChapter4() {
                 }
 
                 .marker-yellow {
-                    background-color: #fef08a;
+                    background-color: var(--sticky-yellow);
                     padding: 0 4px;
                     border-radius: 2px;
                     font-weight: bold;
+                    color: initial;
                 }
 
-                .mughal-purple { color: #663399; }
-                .maratha-saffron { color: #FF9933; }
-                .successor-green { color: #006400; }
-                .danger-red { color: #8B0000; }
+                .mughal-purple { color: var(--paper-text-purple); }
+                .maratha-saffron { color: var(--paper-text-saffron); }
+                .successor-green { color: var(--paper-text-green); }
+                .danger-red { color: var(--paper-text-red); }
 
                 .grid-of-ruin {
                     display: grid;
@@ -80,7 +81,7 @@ export default function HandwrittenChapter4() {
 
                 .cracked-card {
                     transform: rotate(-0.5deg);
-                    box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+                    box-shadow: 4px 4px 0px var(--paper-border);
                 }
 
                 .cracked-card:nth-child(even) {
@@ -89,16 +90,18 @@ export default function HandwrittenChapter4() {
 
                 .paper-border {
                     border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-                    border: 2px solid #333;
+                    border: 2px solid var(--paper-border);
                 }
 
                 .body-handwritten {
                     font-family: 'Kalam', cursive;
                     line-height: 1.8;
+                    color: var(--paper-text-gray);
                 }
 
                 .marker-label {
                     font-family: 'Permanent Marker', cursive;
+                    color: var(--paper-text-gray);
                 }
             `}</style>
 
@@ -110,7 +113,7 @@ export default function HandwrittenChapter4() {
                     className="relative"
                 >
                     <div className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-20 transform rotate-12">
-                        <Skull className="w-32 h-32 text-slate-400" />
+                        <Skull className="w-32 h-32 text-muted-foreground" />
                     </div>
                     <h1 className="text-4xl md:text-7xl font-['Permanent_Marker'] danger-red mb-2 tracking-tighter uppercase">
                         {t.heroTitle}
@@ -125,7 +128,7 @@ export default function HandwrittenChapter4() {
                     <p className="text-2xl body-handwritten leading-relaxed text-slate-700">
                         {t.heroQuestion}<span className="underline decoration-red-400">{t.heroDarkAge}</span>{t.heroOr}<span className="underline decoration-green-400">{t.heroTransition}</span>{t.heroModernity}
                     </p>
-                    <div className="flex justify-center gap-6 text-sm font-bold uppercase tracking-tighter text-slate-400">
+                    <div className="flex justify-center gap-6 text-sm font-bold uppercase tracking-tighter text-muted-foreground">
                         {t.heroTags.map((tag, i) => (
                             <span key={i} className="flex items-center gap-1">
                                 {tag.icon === 'divide' && <Divide className="w-4 h-4" />}
@@ -146,7 +149,7 @@ export default function HandwrittenChapter4() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     {/* NADIR SHAH */}
-                    <div className="bg-white p-8 paper-border border-4 border-slate-800 shadow-2xl relative overflow-hidden transform -rotate-1">
+                    <div className="bg-paper p-8 paper-border border-4 border-paper-border shadow-2xl relative overflow-hidden transform -rotate-1 text-inherit">
                         <div className="absolute top-0 right-0 p-4 opacity-5 bg-red-100 rounded-bl-full">
                             <Gem className="w-32 h-32" />
                         </div>
@@ -165,7 +168,7 @@ export default function HandwrittenChapter4() {
                     </div>
 
                     {/* ABDALI */}
-                    <div className="bg-white p-8 paper-border border-4 border-slate-800 shadow-2xl relative overflow-hidden transform rotate-1">
+                    <div className="bg-card p-8 paper-border border-4 border-slate-800 shadow-2xl relative overflow-hidden transform rotate-1">
                         <div className="absolute top-0 right-0 p-4 opacity-5 bg-orange-100 rounded-bl-full">
                             <Sword className="w-32 h-32" />
                         </div>
@@ -197,14 +200,14 @@ export default function HandwrittenChapter4() {
                         <Card className="cracked-card border-l-8 border-green-800">
                             <CardContent className="p-6">
                                 <h4 className="text-2xl font-['Permanent_Marker'] successor-green mb-2">{t.hyderabadTitle}</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.hyderabadFounder}</p>
+                                <p className="text-xs font-bold text-muted-foreground mb-4 uppercase tracking-widest">{t.hyderabadFounder}</p>
                                 <p className="body-handwritten text-lg leading-snug">{t.hyderabadText}</p>
                             </CardContent>
                         </Card>
                         <Card className="cracked-card border-l-8 border-green-800">
                             <CardContent className="p-6">
                                 <h4 className="text-2xl font-['Permanent_Marker'] successor-green mb-2">{t.bengalTitle}</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.bengalFounder}</p>
+                                <p className="text-xs font-bold text-muted-foreground mb-4 uppercase tracking-widest">{t.bengalFounder}</p>
                                 <p className="body-handwritten text-lg leading-snug">
                                     {t.bengalText}
                                     <span className="block mt-2 italic text-sm">{t.bengalKey}</span>
@@ -214,7 +217,7 @@ export default function HandwrittenChapter4() {
                         <Card className="cracked-card border-l-8 border-green-800">
                             <CardContent className="p-6">
                                 <h4 className="text-2xl font-['Permanent_Marker'] successor-green mb-2">{t.awadhTitle}</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.awadhFounder}</p>
+                                <p className="text-xs font-bold text-muted-foreground mb-4 uppercase tracking-widest">{t.awadhFounder}</p>
                                 <p className="body-handwritten text-lg leading-snug">
                                     {t.awadhText}
                                     <span className="block mt-2 text-red-700">{t.awadhArch}</span>
@@ -228,7 +231,7 @@ export default function HandwrittenChapter4() {
                         <Card className="cracked-card border-l-8 border-orange-600">
                             <CardContent className="p-6">
                                 <h4 className="text-2xl font-['Permanent_Marker'] text-orange-700 mb-2">{t.mysoreTitle}</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.mysoreFounder}</p>
+                                <p className="text-xs font-bold text-muted-foreground mb-4 uppercase tracking-widest">{t.mysoreFounder}</p>
                                 <p className="body-handwritten text-lg leading-snug">{t.mysoreText}</p>
                             </CardContent>
                         </Card>
@@ -236,14 +239,14 @@ export default function HandwrittenChapter4() {
                             <CardContent className="p-6 relative">
                                 <div className="absolute top-2 right-2 p-1 bg-yellow-100 text-[10px] font-bold uppercase rounded">{t.rajputLabel}</div>
                                 <h4 className="text-2xl font-['Permanent_Marker'] text-orange-700 mb-2">{t.rajputTitle}</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.rajputFounder}</p>
+                                <p className="text-xs font-bold text-muted-foreground mb-4 uppercase tracking-widest">{t.rajputFounder}</p>
                                 <p className="body-handwritten text-lg leading-snug">{t.rajputText}</p>
                             </CardContent>
                         </Card>
                         <Card className="cracked-card border-l-8 border-orange-600">
                             <CardContent className="p-6">
                                 <h4 className="text-2xl font-['Permanent_Marker'] text-orange-700 mb-2">{t.keralaTitle}</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.keralaFounder}</p>
+                                <p className="text-xs font-bold text-muted-foreground mb-4 uppercase tracking-widest">{t.keralaFounder}</p>
                                 <p className="body-handwritten text-lg leading-snug">{t.keralaText}</p>
                             </CardContent>
                         </Card>
@@ -255,7 +258,7 @@ export default function HandwrittenChapter4() {
                             <CardContent className="p-6 relative overflow-hidden">
                                 <div className="absolute top-2 right-2 opacity-5"><Coins className="w-12 h-12" /></div>
                                 <h4 className="text-2xl font-['Permanent_Marker'] text-red-800 mb-2">{t.marathaTitle}</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.marathaFounder}</p>
+                                <p className="text-xs font-bold text-muted-foreground mb-4 uppercase tracking-widest">{t.marathaFounder}</p>
                                 <p className="body-handwritten text-lg leading-snug">
                                     {t.marathaText}
                                     <span className="block mt-2 font-bold text-red-900 border-t pt-2">{t.marathaTax}</span>
@@ -265,7 +268,7 @@ export default function HandwrittenChapter4() {
                         <Card className="cracked-card border-l-8 border-red-700 bg-red-50/10">
                             <CardContent className="p-6">
                                 <h4 className="text-2xl font-['Permanent_Marker'] text-red-800 mb-2">{t.sikhTitle}</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.sikhFounder}</p>
+                                <p className="text-xs font-bold text-muted-foreground mb-4 uppercase tracking-widest">{t.sikhFounder}</p>
                                 <p className="body-handwritten text-lg leading-snug">
                                     {t.sikhText}
                                     <span className="block mt-2 italic text-sm">{t.sikhRevenue}</span>
@@ -275,7 +278,7 @@ export default function HandwrittenChapter4() {
                         <Card className="cracked-card border-l-8 border-red-700 bg-red-50/10">
                             <CardContent className="p-6">
                                 <h4 className="text-2xl font-['Permanent_Marker'] text-red-800 mb-2">{t.jatTitle}</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.jatFounder}</p>
+                                <p className="text-xs font-bold text-muted-foreground mb-4 uppercase tracking-widest">{t.jatFounder}</p>
                                 <p className="body-handwritten text-lg leading-snug">{t.jatText}</p>
                             </CardContent>
                         </Card>
@@ -308,7 +311,7 @@ export default function HandwrittenChapter4() {
             {/* SOCIO-ECONOMIC LIFE: THE SINK OF GOLD */}
             <section className="max-w-6xl mx-auto mb-20 grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Economy Card */}
-                <div className="bg-white p-8 paper-border border-4 border-slate-800 relative shadow-lg">
+                <div className="bg-card p-8 paper-border border-4 border-slate-800 relative shadow-lg">
                     <div className="absolute top-0 right-0 p-4 opacity-10"><Coins className="w-16 h-16" /></div>
                     <h3 className="marker-label text-2xl mb-6 flex items-center gap-2 underline decoration-yellow-400 decoration-4">{t.economyTitle}</h3>
                     <ul className="body-handwritten text-lg space-y-3">
@@ -319,7 +322,7 @@ export default function HandwrittenChapter4() {
                 </div>
 
                 {/* Society Card */}
-                <div className="bg-white p-8 paper-border border-4 border-slate-800 relative shadow-lg">
+                <div className="bg-card p-8 paper-border border-4 border-slate-800 relative shadow-lg">
                     <div className="absolute top-0 right-0 p-4 opacity-10"><Ghost className="w-16 h-16" /></div>
                     <h3 className="marker-label text-2xl mb-6 flex items-center gap-2 underline decoration-red-400 decoration-4">{t.societyTitle}</h3>
                     <ul className="body-handwritten text-lg space-y-3">
@@ -330,7 +333,7 @@ export default function HandwrittenChapter4() {
                 </div>
 
                 {/* Culture Card */}
-                <div className="bg-white p-8 paper-border border-4 border-slate-800 relative shadow-lg">
+                <div className="bg-card p-8 paper-border border-4 border-slate-800 relative shadow-lg">
                     <div className="absolute top-0 right-0 p-4 opacity-10"><Feather className="w-16 h-16" /></div>
                     <h3 className="marker-label text-2xl mb-6 flex items-center gap-2 underline decoration-purple-400 decoration-4">{t.cultureTitle}</h3>
                     <ul className="body-handwritten text-lg space-y-3">
@@ -343,10 +346,10 @@ export default function HandwrittenChapter4() {
 
             {/* FINAL WARNING MAP PLACEHOLDER */}
             <div className="max-w-4xl mx-auto mb-20 text-center">
-                <div className="bg-white p-12 paper-border border-2 border-slate-300 relative overflow-hidden flex flex-col items-center">
+                <div className="bg-card p-12 paper-border border-2 border-slate-300 relative overflow-hidden flex flex-col items-center">
                     <MapIcon className="w-16 h-16 text-slate-300 mb-4" />
-                    <p className="text-3xl font-['Permanent_Marker'] text-slate-400 mb-2 uppercase opacity-40">{t.mapPlaceholder}</p>
-                    <p className="body-handwritten text-lg italic text-slate-500">{t.mapQuote}</p>
+                    <p className="text-3xl font-['Permanent_Marker'] text-muted-foreground mb-2 uppercase opacity-40">{t.mapPlaceholder}</p>
+                    <p className="body-handwritten text-lg italic text-muted-foreground">{t.mapQuote}</p>
                     <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-red-500/5 rounded-full blur-3xl"></div>
                     <div className="absolute -top-6 -right-6 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl"></div>
                 </div>
@@ -354,7 +357,7 @@ export default function HandwrittenChapter4() {
 
             <footer className="text-center pb-12">
                 <Quote className="w-8 h-8 text-slate-300 mx-auto mb-4" />
-                <p className="marker-label text-slate-400 uppercase text-xs tracking-widest font-bold">{t.footerText}</p>
+                <p className="marker-label text-muted-foreground uppercase text-xs tracking-widest font-bold">{t.footerText}</p>
                 <div className="flex justify-center gap-2 mt-4 opacity-20">
                     <div className="w-2 h-2 rounded-full bg-slate-400"></div>
                     <div className="w-2 h-2 rounded-full bg-slate-400"></div>

@@ -30,14 +30,14 @@ const SectionHeader = ({ title, subtitle }: { title: string, subtitle?: string }
     <div className="flex items-center gap-4 my-8">
         <div className="h-[2px] flex-1 bg-gradient-to-r from-transparent via-orange-300 to-transparent"></div>
         <div className="text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-800 font-serif tracking-tight">{title}</h2>
-            {subtitle && <p className="text-sm text-slate-500 italic mt-1 font-handwriting">{subtitle}</p>}
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground font-serif tracking-tight">{title}</h2>
+            {subtitle && <p className="text-sm text-muted-foreground italic mt-1 font-handwriting">{subtitle}</p>}
         </div>
         <div className="h-[2px] flex-1 bg-gradient-to-r from-transparent via-green-300 to-transparent"></div>
     </div>
 );
 
-const PledgeCard = ({ title, children, icon: Icon, colorClass = "bg-white", borderColor = "border-slate-200", badge }: { title: string, children: React.ReactNode, icon?: any, colorClass?: string, borderColor?: string, badge?: React.ReactNode }) => (
+const PledgeCard = ({ title, children, icon: Icon, colorClass = "bg-card", borderColor = "border-border", badge }: { title: string, children: React.ReactNode, icon?: any, colorClass?: string, borderColor?: string, badge?: React.ReactNode }) => (
     <div className={`relative ${colorClass} border-2 ${borderColor} rounded-lg p-6 shadow-sm hover:shadow-md transition-all`}>
         {badge && (
             <div className="absolute -right-2 -top-2">
@@ -46,12 +46,12 @@ const PledgeCard = ({ title, children, icon: Icon, colorClass = "bg-white", bord
         )}
         <div className="flex items-start gap-4 mb-3">
             {Icon && (
-                <div className="p-3 bg-white/80 rounded-full border border-black/5 shadow-sm">
-                    <Icon size={24} className="opacity-80 text-slate-700" />
+                <div className="p-3 bg-card/80 rounded-full border border-black/5 shadow-sm">
+                    <Icon size={24} className="opacity-80 text-muted-foreground" />
                 </div>
             )}
             <div className="flex-1">
-                <h3 className="font-bold text-lg leading-tight text-slate-900 font-serif">{title}</h3>
+                <h3 className="font-bold text-lg leading-tight text-foreground font-serif">{title}</h3>
             </div>
         </div>
         <div className="text-sm space-y-2 opacity-90 leading-relaxed font-handwriting pl-1">
@@ -71,7 +71,7 @@ export default function FundamentalDutiesModule({ onComplete, isCompleted }: Fun
     return (
         <PledgeContainer>
             {/* HERO */}
-            <div className="bg-[#fff] p-8 md:p-12 rounded-xl shadow-xl relative overflow-hidden border-8 border-double border-slate-200">
+            <div className="bg-[#fff] p-8 md:p-12 rounded-xl shadow-xl relative overflow-hidden border-8 border-double border-border">
                 {/* Tri-color Accent */}
                 <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-orange-500 via-white to-green-600 opacity-80"></div>
 
@@ -81,11 +81,11 @@ export default function FundamentalDutiesModule({ onComplete, isCompleted }: Fun
                             <Feather size={32} />
                         </div>
                     </div>
-                    <div className="flex justify-center items-center gap-2 text-slate-500 font-bold uppercase tracking-widest text-xs mb-2">
+                    <div className="flex justify-center items-center gap-2 text-muted-foreground font-bold uppercase tracking-widest text-xs mb-2">
                         <Scroll size={14} /> Part IV-A (Article 51A)
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black mb-4 font-serif text-slate-800">The Citizen's Pledge</h1>
-                    <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed font-handwriting italic">
+                    <h1 className="text-4xl md:text-6xl font-black mb-4 font-serif text-foreground">The Citizen's Pledge</h1>
+                    <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed font-handwriting italic">
                         "Rights and Duties are correlative and inseparable."
                     </p>
                 </div>
@@ -95,32 +95,32 @@ export default function FundamentalDutiesModule({ onComplete, isCompleted }: Fun
             <SectionHeader title="Phase 1: Origin & Amendment" subtitle="The Source Code of Duty" />
             <div className="grid md:grid-cols-2 gap-8">
                 {/* Left: History */}
-                <div className="bg-white p-6 rounded-xl border border-slate-300 shadow-sm relative rotate-[-1deg]">
+                <div className="bg-card p-6 rounded-xl border border-border shadow-sm relative rotate-[-1deg]">
                     <div className="absolute -top-3 -left-3">
                         <Badge className="bg-slate-800 text-white hover:bg-slate-700">Ref: USSR</Badge>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2 border-b pb-2">
+                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2 border-b pb-2">
                         <BookOpen className="text-orange-600" /> The History
                     </h3>
-                    <ul className="space-y-4 text-sm font-handwriting text-slate-700">
+                    <ul className="space-y-4 text-sm font-handwriting text-muted-foreground">
                         <li className="flex gap-3">
-                            <span className="font-bold text-slate-900 min-w-[80px]">Source:</span>
+                            <span className="font-bold text-foreground min-w-[80px]">Source:</span>
                             <span>USSR (Now Russia). <span className="text-red-500 font-bold text-[10px] ml-1">[PYQ]</span></span>
                         </li>
                         <li className="flex gap-3">
-                            <span className="font-bold text-slate-900 min-w-[80px]">Committee:</span>
+                            <span className="font-bold text-foreground min-w-[80px]">Committee:</span>
                             <span>Swaran Singh Committee (1976).</span>
                         </li>
                         <li className="flex gap-3">
-                            <span className="font-bold text-slate-900 min-w-[80px]">Recs:</span>
+                            <span className="font-bold text-foreground min-w-[80px]">Recs:</span>
                             <span>Recommended 8 duties. Govt enacted 10.</span>
                         </li>
                         <li className="flex gap-3">
-                            <span className="font-bold text-slate-900 min-w-[80px]">Rejection:</span>
+                            <span className="font-bold text-foreground min-w-[80px]">Rejection:</span>
                             <span className="bg-red-50 text-red-800 px-1 rounded">Penalty/Punishment for non-performance was REJECTED.</span>
                         </li>
                         <li className="flex gap-3">
-                            <span className="font-bold text-slate-900 min-w-[80px]">Amendment:</span>
+                            <span className="font-bold text-foreground min-w-[80px]">Amendment:</span>
                             <span><strong>42nd AA, 1976</strong> (Mini Constitution). <span className="text-red-500 font-bold text-[10px] ml-1">[PYQ]</span></span>
                         </li>
                     </ul>
@@ -135,7 +135,7 @@ export default function FundamentalDutiesModule({ onComplete, isCompleted }: Fun
                         <Users className="text-green-700" /> The 11th Duty
                     </h3>
                     <div className="space-y-4 text-sm font-handwriting text-green-800">
-                        <div className="bg-white/50 p-3 rounded border border-green-100">
+                        <div className="bg-card/50 p-3 rounded border border-green-100">
                             <strong>Added By:</strong> 86th Constitutional Amendment Act, 2002. <span className="text-green-600 font-bold text-[10px] ml-1">[PYQ]</span>
                         </div>
                         <p>
@@ -174,14 +174,14 @@ export default function FundamentalDutiesModule({ onComplete, isCompleted }: Fun
                 </div>
 
                 {/* CLUSTER B: SOCIETY */}
-                <div className="bg-white/50 rounded-2xl border border-slate-200 pb-6">
+                <div className="bg-card/50 rounded-2xl border border-border pb-6">
                     <ClusterHeader title="Cluster B: Society & Nature" color="bg-slate-700" icon={Globe} />
                     <div className="grid md:grid-cols-2 gap-4 p-4">
-                        <PledgeCard title="Harmony & Brotherhood" icon={Handshake} borderColor="border-slate-300">
+                        <PledgeCard title="Harmony & Brotherhood" icon={Handshake} borderColor="border-border">
                             <span className="font-bold">(e)</span> To promote Harmony and spirit of common brotherhood; to renounce practices derogatory to the dignity of women.
                         </PledgeCard>
 
-                        <PledgeCard title="Composite Culture" icon={Landmark} borderColor="border-slate-300">
+                        <PledgeCard title="Composite Culture" icon={Landmark} borderColor="border-border">
                             <span className="font-bold">(f)</span> To value and preserve the rich heritage of our Composite Culture.
                         </PledgeCard>
 
@@ -214,7 +214,7 @@ export default function FundamentalDutiesModule({ onComplete, isCompleted }: Fun
             {/* PHASE 3: STATUS & SIGNIFICANCE */}
             <SectionHeader title="Phase 3: Legal Status" subtitle="Enforceability & Significance" />
             <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-red-500">
+                <div className="bg-card p-6 rounded-lg shadow-sm border-l-4 border-red-500">
                     <h3 className="font-bold text-lg mb-3">Non-Justiciable</h3>
                     <ul className="space-y-3 text-sm">
                         <li className="flex gap-2">
@@ -245,14 +245,14 @@ export default function FundamentalDutiesModule({ onComplete, isCompleted }: Fun
             </div>
 
             {/* FOOTER */}
-            <div className="mt-12 bg-white rounded-xl p-8 border-2 border-slate-200 shadow-xl text-center">
+            <div className="mt-12 bg-card rounded-xl p-8 border-2 border-border shadow-xl text-center">
                 <div className="flex justify-center mb-4">
                     <div className="bg-blue-100 p-3 rounded-full text-blue-700">
                         <Heart size={32} fill="currentColor" className="text-blue-600" />
                     </div>
                 </div>
                 <h3 className="text-xl font-bold mb-2">"Rights and Duties are Correlative"</h3>
-                <p className="text-slate-500 text-sm max-w-md mx-auto mb-8">
+                <p className="text-muted-foreground text-sm max-w-md mx-auto mb-8">
                     "In the past, people laid too much emphasis on rights... it is necessary to emphasize obligations." <br /> - H.R. Gokhale
                 </p>
 

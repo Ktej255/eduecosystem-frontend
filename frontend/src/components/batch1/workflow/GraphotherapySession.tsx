@@ -102,10 +102,10 @@ export default function GraphotherapySession({ onComplete, onBack }: { onComplet
 
     const renderWritingPhase = () => (
         <div className="max-w-2xl mx-auto space-y-6 animate-in fade-in">
-            <div className="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border">
+            <div className="flex justify-between items-center bg-card p-4 rounded-lg shadow-sm border">
                 <div>
                     <h2 className="text-lg font-semibold">Writing Phase: Page {pageCount}</h2>
-                    <p className="text-sm text-gray-500">{level === 'level1' ? '2 Pages Required' : 'Advanced Practice'}</p>
+                    <p className="text-sm text-muted-foreground">{level === 'level1' ? '2 Pages Required' : 'Advanced Practice'}</p>
                 </div>
                 <div className="flex items-center gap-2 text-2xl font-mono font-bold text-blue-600">
                     <Clock className="w-6 h-6" />
@@ -115,9 +115,9 @@ export default function GraphotherapySession({ onComplete, onBack }: { onComplet
 
             <Card className="min-h-[400px] flex items-center justify-center border-dashed border-2">
                 <div className="text-center p-8">
-                    <FileText className="w-16 h-16 mx-auto text-gray-300 mb-4" />
+                    <FileText className="w-16 h-16 mx-auto text-muted-foreground mb-4" />
                     <h3 className="text-xl font-medium mb-2">Physical Writing in Progress</h3>
-                    <p className="text-gray-500 max-w-md mx-auto mb-8">
+                    <p className="text-muted-foreground max-w-md mx-auto mb-8">
                         Please write on your physical sheet. Keep the timer running while you write.
                         Click "Done" when you finish Page {pageCount}.
                     </p>
@@ -163,7 +163,7 @@ export default function GraphotherapySession({ onComplete, onBack }: { onComplet
                 <Input placeholder="3. I am grateful for..." />
 
                 <div className="pt-4 border-t mt-4">
-                    <h4 className="font-semibold mb-3 text-sm text-gray-500 uppercase">Night Owl Optional</h4>
+                    <h4 className="font-semibold mb-3 text-sm text-muted-foreground uppercase">Night Owl Optional</h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="space-y-2">
                             <Label>Appreciation Journal</Label>

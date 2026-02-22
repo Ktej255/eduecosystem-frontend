@@ -25,9 +25,9 @@ export default function MasteryTracker({ subject }: MasteryTrackerProps) {
         return (
             <Card className="border-dashed border-2">
                 <CardContent className="flex flex-col items-center justify-center py-10 text-center">
-                    <Target className="w-12 h-12 text-gray-300 mb-4" />
-                    <p className="text-gray-500 font-medium">No data available yet</p>
-                    <p className="text-sm text-gray-400">Complete tests to unlock mastery insights</p>
+                    <Target className="w-12 h-12 text-muted-foreground mb-4" />
+                    <p className="text-muted-foreground font-medium">No data available yet</p>
+                    <p className="text-sm text-muted-foreground">Complete tests to unlock mastery insights</p>
                 </CardContent>
             </Card>
         );
@@ -39,15 +39,15 @@ export default function MasteryTracker({ subject }: MasteryTrackerProps) {
                 {/* Overall Mastery Card */}
                 <Card className="bg-gradient-to-br from-indigo-50 to-white dark:from-indigo-950/20 dark:to-gray-950">
                     <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-medium text-gray-500 flex items-center gap-2">
+                        <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
                             <Trophy className="w-4 h-4 text-indigo-500" />
                             Overall Mastery
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="flex items-end gap-2">
-                            <span className="text-4xl font-bold text-gray-900 dark:text-white">{stats.averageAccuracy}%</span>
-                            <span className="text-sm text-gray-500 mb-1">avg. score</span>
+                            <span className="text-4xl font-bold text-foreground">{stats.averageAccuracy}%</span>
+                            <span className="text-sm text-muted-foreground mb-1">avg. score</span>
                         </div>
                         <Progress value={stats.averageAccuracy} className="mt-4 h-2" />
                     </CardContent>
@@ -56,17 +56,17 @@ export default function MasteryTracker({ subject }: MasteryTrackerProps) {
                 {/* Questions Solved Card */}
                 <Card>
                     <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-medium text-gray-500 flex items-center gap-2">
+                        <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
                             <TrendingUp className="w-4 h-4 text-emerald-500" />
                             Questions Solved
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="flex items-end gap-2">
-                            <span className="text-4xl font-bold text-gray-900 dark:text-white">{stats.totalQuestions}</span>
-                            <span className="text-sm text-gray-500 mb-1">questions</span>
+                            <span className="text-4xl font-bold text-foreground">{stats.totalQuestions}</span>
+                            <span className="text-sm text-muted-foreground mb-1">questions</span>
                         </div>
-                        <p className="text-xs text-gray-400 mt-4">{stats.totalAttempts} tests completed</p>
+                        <p className="text-xs text-muted-foreground mt-4">{stats.totalAttempts} tests completed</p>
                     </CardContent>
                 </Card>
 

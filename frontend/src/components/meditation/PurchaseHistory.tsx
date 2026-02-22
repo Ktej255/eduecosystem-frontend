@@ -97,7 +97,7 @@ export default function PurchaseHistory() {
                 <p>{error}</p>
                 <Button
                     variant="ghost"
-                    className="mt-4 text-white hover:bg-white/10"
+                    className="mt-4 text-white hover:bg-card/10"
                     onClick={() => window.location.reload()}
                 >
                     Try Again
@@ -127,19 +127,19 @@ export default function PurchaseHistory() {
         <div className="max-w-4xl mx-auto space-y-8">
             {/* Header Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                <div className="bg-card/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
                     <p className="text-sm text-white/40 mb-1">Total Spent</p>
                     <p className="text-3xl font-bold text-white">
                         ₹{history.total_spent.toLocaleString()}
                     </p>
                 </div>
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                <div className="bg-card/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
                     <p className="text-sm text-white/40 mb-1">Levels Owned</p>
                     <p className="text-3xl font-bold text-white">
                         {history.levels_owned.length}
                     </p>
                 </div>
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                <div className="bg-card/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
                     <p className="text-sm text-white/40 mb-1">Last Purchase</p>
                     <p className="text-lg font-medium text-white break-words">
                         {history.purchases[0]?.purchased_at
@@ -163,7 +163,7 @@ export default function PurchaseHistory() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.05 }}
-                        className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors group"
+                        className="bg-card/5 border border-white/10 rounded-2xl p-6 hover:bg-card/10 transition-colors group"
                     >
                         <div className="flex flex-col md:flex-row justify-between gap-4 md:items-center">
                             <div className="flex items-start gap-4">

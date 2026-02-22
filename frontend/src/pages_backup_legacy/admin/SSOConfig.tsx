@@ -71,11 +71,11 @@ export const SSOConfigPage: React.FC = () => {
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-zinc-900 dark:text-white">
+      <h1 className="text-3xl font-bold mb-6 text-zinc-900">
         SSO Configuration
       </h1>
 
-      <div className="bg-white dark:bg-zinc-900 rounded-lg shadow p-6 border border-zinc-200 dark:border-zinc-800">
+      <div className="bg-card dark:bg-zinc-900 rounded-lg shadow p-6 border border-zinc-200 dark:border-zinc-800">
         {error && (
           <div className="mb-4 p-3 bg-red-100 text-red-700 rounded border border-red-200">
             {error}
@@ -120,7 +120,7 @@ export const SSOConfigPage: React.FC = () => {
 
           {config.provider_type === "SAML" && (
             <div className="space-y-4 border-t pt-4 dark:border-zinc-800">
-              <h3 className="font-medium text-zinc-900 dark:text-white">
+              <h3 className="font-medium text-zinc-900">
                 SAML Settings
               </h3>
               <input
@@ -153,7 +153,7 @@ export const SSOConfigPage: React.FC = () => {
 
           {config.provider_type === "OAUTH" && (
             <div className="space-y-4 border-t pt-4 dark:border-zinc-800">
-              <h3 className="font-medium text-zinc-900 dark:text-white">
+              <h3 className="font-medium text-zinc-900">
                 OAuth Settings
               </h3>
               <input
@@ -204,7 +204,7 @@ export const SSOConfigPage: React.FC = () => {
           )}
 
           <div className="space-y-2 border-t pt-4 dark:border-zinc-800">
-            <h3 className="font-medium text-zinc-900 dark:text-white">
+            <h3 className="font-medium text-zinc-900">
               Provisioning
             </h3>
             <label className="flex items-center space-x-2">
@@ -214,7 +214,7 @@ export const SSOConfigPage: React.FC = () => {
                 onChange={(e) =>
                   setConfig({ ...config, jit_enabled: e.target.checked })
                 }
-                className="rounded border-gray-300"
+                className="rounded border-border"
               />
               <span className="text-sm text-zinc-700 dark:text-zinc-300">
                 Enable Just-In-Time (JIT) Provisioning
@@ -227,7 +227,7 @@ export const SSOConfigPage: React.FC = () => {
                 onChange={(e) =>
                   setConfig({ ...config, auto_assign_roles: e.target.checked })
                 }
-                className="rounded border-gray-300"
+                className="rounded border-border"
               />
               <span className="text-sm text-zinc-700 dark:text-zinc-300">
                 Auto-assign Roles from Groups

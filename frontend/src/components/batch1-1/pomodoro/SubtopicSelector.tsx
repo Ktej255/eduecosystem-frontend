@@ -47,7 +47,7 @@ const RecursiveSubtopicItem = ({
             <div
                 className={`flex items-center gap-2 p-2 rounded-lg transition-all cursor-pointer ${isSelected
                     ? 'bg-indigo-100 dark:bg-indigo-900/30 border-indigo-300 dark:border-indigo-700 border-2'
-                    : 'bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 hover:border-indigo-300'
+                    : 'bg-card border border-border hover:border-indigo-300'
                     }`}
                 style={{ marginLeft: `${level * 16}px` }}
             >
@@ -60,7 +60,7 @@ const RecursiveSubtopicItem = ({
                         }}
                         className="p-1 hover:bg-black/5 rounded-full"
                     >
-                        {isExpanded ? <ChevronDown className="h-4 w-4 text-gray-500" /> : <ChevronRight className="h-4 w-4 text-gray-500" />}
+                        {isExpanded ? <ChevronDown className="h-4 w-4 text-muted-foreground" /> : <ChevronRight className="h-4 w-4 text-muted-foreground" />}
                     </div>
                 )}
 
@@ -74,7 +74,7 @@ const RecursiveSubtopicItem = ({
                         ? 'bg-indigo-500 border-indigo-500 text-white'
                         : isCompleted
                             ? 'bg-green-100 border-green-500 text-green-600' // Green tick style
-                            : 'bg-gray-100 border-gray-300 dark:bg-gray-800 dark:border-gray-600'
+                            : 'bg-muted border-border'
                         }`}
                 >
                     {isSelected && <CheckCircle2 className="h-3 w-3" />}
@@ -84,11 +84,11 @@ const RecursiveSubtopicItem = ({
                 {/* Label Area */}
                 <div className="flex-1 flex items-center gap-2" onClick={handleMainClick}>
                     {hasChildren ? (
-                        <Folder className={`h-4 w-4 ${isExpanded ? 'text-indigo-500' : 'text-gray-400'}`} />
+                        <Folder className={`h-4 w-4 ${isExpanded ? 'text-indigo-500' : 'text-muted-foreground'}`} />
                     ) : (
-                        <FileText className="h-4 w-4 text-gray-400" />
+                        <FileText className="h-4 w-4 text-muted-foreground" />
                     )}
-                    <span className={`text-sm ${isSelected ? 'text-indigo-700 dark:text-indigo-300 font-bold' : isCompleted ? 'text-green-700 line-through decoration-green-500/50' : 'text-gray-700 dark:text-gray-300'}`}>
+                    <span className={`text-sm ${isSelected ? 'text-indigo-700 dark:text-indigo-300 font-bold' : isCompleted ? 'text-green-700 line-through decoration-green-500/50' : 'text-muted-foreground dark:text-muted-foreground'}`}>
                         {subtopic.label}
                     </span>
                     {isCompleted && <span className="text-[10px] bg-green-100 text-green-700 px-1.5 rounded-full font-bold">DONE</span>}
@@ -222,7 +222,7 @@ export default function SubtopicSelector({
 
                     {/* Selection Stats */}
                     <div className="flex items-center justify-between mb-4 px-2">
-                        <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                        <span className="text-sm font-medium text-muted-foreground dark:text-muted-foreground">
                             {selectedSubtopics.length} items selected
                         </span>
                         <Button
@@ -238,10 +238,10 @@ export default function SubtopicSelector({
                     {/* Subtopics by Chapter */}
                     <div className="max-h-[500px] overflow-y-auto space-y-4 pr-2 custom-scrollbar">
                         {groupedSubtopics.map(group => (
-                            <div key={group.chapter} className="bg-white dark:bg-gray-900 rounded-xl p-4 border border-gray-100 dark:border-gray-800 shadow-sm">
-                                <div className="flex items-center gap-2 mb-3 border-b pb-2 border-gray-100 dark:border-gray-800">
+                            <div key={group.chapter} className="bg-card rounded-xl p-4 border border-border shadow-sm">
+                                <div className="flex items-center gap-2 mb-3 border-b pb-2 border-border">
                                     <BookOpen className="h-4 w-4 text-indigo-500" />
-                                    <span className="font-bold text-sm text-gray-800 dark:text-gray-200">
+                                    <span className="font-bold text-sm text-foreground">
                                         Chapter {group.chapter}
                                     </span>
                                 </div>

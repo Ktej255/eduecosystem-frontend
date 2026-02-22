@@ -142,7 +142,7 @@ export default function GenericVoiceRecallMode({
                 <div className="text-center">
                     <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
                     <h2 className="text-xl font-bold">No Flashcards Available</h2>
-                    <p className="text-gray-400 mb-6">Select chapters with flashcards to start.</p>
+                    <p className="text-muted-foreground mb-6">Select chapters with flashcards to start.</p>
                     <Link href={backLink}>
                         <Button variant="outline">Go Back</Button>
                     </Link>
@@ -157,11 +157,11 @@ export default function GenericVoiceRecallMode({
         <div className="min-h-screen bg-slate-950 text-white p-6 flex flex-col items-center">
             {/* Header */}
             <div className="w-full max-w-4xl flex items-center justify-between mb-8">
-                <Link href={backLink} className="text-slate-400 hover:text-white flex items-center gap-2">
+                <Link href={backLink} className="text-muted-foreground hover:text-white flex items-center gap-2">
                     <ChevronRight className="w-4 h-4 rotate-180" /> Exit
                 </Link>
                 <div className="flex items-center gap-4">
-                    <span className="text-sm font-medium text-slate-400">Card {currentIndex + 1} / {flashcards.length}</span>
+                    <span className="text-sm font-medium text-muted-foreground">Card {currentIndex + 1} / {flashcards.length}</span>
                     <Progress value={(currentIndex / flashcards.length) * 100} className="w-32 h-2" />
                 </div>
             </div>
@@ -170,14 +170,14 @@ export default function GenericVoiceRecallMode({
             <div className="w-full max-w-2xl flex-1 flex flex-col gap-8">
                 {/* Question Card */}
                 <Card className="p-8 bg-slate-900 border-slate-800 relative overflow-hidden min-h-[200px] flex items-center justify-center text-center">
-                    <div className="absolute top-4 left-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Question</div>
+                    <div className="absolute top-4 left-4 text-xs font-bold text-muted-foreground uppercase tracking-widest">Question</div>
                     <h2 className="text-2xl md:text-3xl font-bold leading-relaxed">
                         {currentCard.front}
                     </h2>
                     <Button
                         variant="ghost"
                         size="icon"
-                        className="absolute top-4 right-4 text-slate-500 hover:text-white"
+                        className="absolute top-4 right-4 text-muted-foreground hover:text-white"
                         onClick={() => speakText(currentCard.front)}
                     >
                         <Volume2 className={`w-5 h-5 ${isSpeaking ? 'text-indigo-400 animate-pulse' : ''}`} />
@@ -195,7 +195,7 @@ export default function GenericVoiceRecallMode({
                                     {isListening && <div className="mt-4 flex gap-1 justify-center"><span className="w-2 h-2 bg-indigo-500 rounded-full animate-bounce" /><span className="w-2 h-2 bg-indigo-500 rounded-full animate-bounce delay-75" /><span className="w-2 h-2 bg-indigo-500 rounded-full animate-bounce delay-150" /></div>}
                                 </div>
                             ) : (
-                                <div className="text-center text-slate-500 mb-8">
+                                <div className="text-center text-muted-foreground mb-8">
                                     <p>Tap the microphone and answer aloud.</p>
                                 </div>
                             )}
@@ -218,7 +218,7 @@ export default function GenericVoiceRecallMode({
                     ) : (
                         <div className="flex-1 bg-slate-900 rounded-2xl border border-slate-800 p-8 space-y-6 animate-in fade-in slide-in-from-bottom-4">
                             <div className="flex items-center justify-between">
-                                <div className="text-xs font-bold text-slate-500 uppercase">Analysis</div>
+                                <div className="text-xs font-bold text-muted-foreground uppercase">Analysis</div>
                                 <div className={`px-3 py-1 rounded-full text-sm font-bold flex items-center gap-2 ${feedback === 'correct' ? 'bg-emerald-500/10 text-emerald-400' :
                                         feedback === 'partial' ? 'bg-amber-500/10 text-amber-400' :
                                             'bg-red-500/10 text-red-400'
@@ -229,7 +229,7 @@ export default function GenericVoiceRecallMode({
                             </div>
 
                             <div className="space-y-2">
-                                <div className="text-sm text-slate-400">Correct Answer:</div>
+                                <div className="text-sm text-muted-foreground">Correct Answer:</div>
                                 <p className="text-lg text-emerald-300 font-medium leading-relaxed">{currentCard.back}</p>
                             </div>
 

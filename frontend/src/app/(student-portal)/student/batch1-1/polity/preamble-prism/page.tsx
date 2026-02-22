@@ -23,7 +23,7 @@ export default function PreamblePrismPage() {
                     <Button
                         variant="ghost"
                         size="sm"
-                        className="text-white hover:bg-white/10 mb-4"
+                        className="text-white hover:bg-card/10 mb-4"
                         onClick={() => router.back()}
                     >
                         <ChevronLeft className="w-4 h-4 mr-1" /> Back to Dashboard
@@ -32,7 +32,7 @@ export default function PreamblePrismPage() {
                     <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 to-purple-400 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
                         The Preamble Prism
                     </h1>
-                    <p className="text-slate-400 text-sm mt-1 max-w-md drop-shadow-md">
+                    <p className="text-muted-foreground text-sm mt-1 max-w-md drop-shadow-md">
                         "We The People" refracts into the spectral ideals of the Indian State.
                     </p>
                 </div>
@@ -45,7 +45,7 @@ export default function PreamblePrismPage() {
             </div>
 
             {/* Instruction Hint */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-500 text-xs animate-pulse pointer-events-none">
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground text-xs animate-pulse pointer-events-none">
                 Hover over the Beam Keywords to unlock their meaning
             </div>
         </div>

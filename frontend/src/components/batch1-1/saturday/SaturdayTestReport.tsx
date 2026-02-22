@@ -123,14 +123,14 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                     <div className="flex items-center gap-4">
-                        <Button variant="ghost" size="icon" onClick={onBack} className="rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:text-white">
+                        <Button variant="ghost" size="icon" onClick={onBack} className="rounded-full bg-slate-900 border border-slate-800 text-muted-foreground hover:text-white">
                             <ArrowLeft className="w-5 h-5" />
                         </Button>
                         <div>
                             <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
                                 Performance Dashboard
                             </h1>
-                            <p className="text-slate-500 font-medium">Deep analysis for {results.testTitle}</p>
+                            <p className="text-muted-foreground font-medium">Deep analysis for {results.testTitle}</p>
                         </div>
                     </div>
                     <div className="flex gap-3">
@@ -163,11 +163,11 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                         <Card key={i} className="p-6 bg-slate-900/40 border-slate-800/80 backdrop-blur-md relative overflow-hidden group">
                             <div className={`absolute top-0 right-0 w-24 h-24 bg-${item.color}-500/5 blur-[40px] group-hover:bg-${item.color}-500/10 transition-all`} />
                             <div className="flex justify-between items-start mb-2">
-                                <span className="text-xs font-semibold text-slate-500 uppercase tracking-widest">{item.label}</span>
+                                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">{item.label}</span>
                                 <item.icon className={`w-5 h-5 text-${item.color}-400/80`} />
                             </div>
                             <div className="text-3xl font-bold text-white mb-1">{item.value}</div>
-                            <div className="text-[10px] text-slate-500 font-mono tracking-tighter">{item.sub}</div>
+                            <div className="text-[10px] text-muted-foreground font-mono tracking-tighter">{item.sub}</div>
                         </Card>
                     ))}
                 </div>
@@ -180,7 +180,7 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                 <Brain className="w-5 h-5 text-blue-400" />
                                 Chapter Analysis (Accuracy %)
                             </h3>
-                            <div className="text-xs text-slate-500 italic">Visualizing Retention Strengths</div>
+                            <div className="text-xs text-muted-foreground italic">Visualizing Retention Strengths</div>
                         </div>
                         <div className="h-[400px] w-full">
                             <ResponsiveContainer width="100%" height="100%">
@@ -230,13 +230,13 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                     <span className="font-bold text-slate-200">{stats.incorrect}</span>
                                 </div>
                                 <div className="flex justify-between text-sm">
-                                    <span className="text-slate-400 flex items-center gap-1.5"><HelpCircle className="w-4 h-4" /> Skipper</span>
+                                    <span className="text-muted-foreground flex items-center gap-1.5"><HelpCircle className="w-4 h-4" /> Skipper</span>
                                     <span className="font-bold text-slate-200">{stats.unattempted}</span>
                                 </div>
                             </div>
 
                             <div className="space-y-4">
-                                <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-widest">Efficiency Feedback</h4>
+                                <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">Efficiency Feedback</h4>
                                 <div className="p-4 rounded-xl bg-slate-800/30 border border-slate-800">
                                     <p className="text-sm text-slate-300 leading-relaxed italic">
                                         {stats.score && parseFloat(stats.score) > 100
@@ -317,11 +317,11 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
 
                             return (
                                 <div key={round} className="p-4 rounded-xl bg-slate-800/30 border border-slate-800 flex flex-col items-center text-center">
-                                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">
+                                    <h4 className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-2">
                                         {round === 3 ? '3rd+ Reading' : `${round === 1 ? '1st' : '2nd'} Reading`}
                                     </h4>
                                     <div className="text-3xl font-bold text-white mb-1">{acc}%</div>
-                                    <div className="text-xs text-slate-400">
+                                    <div className="text-xs text-muted-foreground">
                                         Accuracy ({correct}/{total})
                                     </div>
                                     <div className="w-full h-1.5 bg-slate-700/50 rounded-full mt-4 overflow-hidden">
@@ -343,7 +343,7 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                     <div className="overflow-x-auto">
                         <table className="w-full text-left">
                             <thead>
-                                <tr className="border-b border-slate-800 text-xs text-slate-500 uppercase tracking-widest">
+                                <tr className="border-b border-slate-800 text-xs text-muted-foreground uppercase tracking-widest">
                                     <th className="pb-4 font-semibold">Subject Area</th>
                                     <th className="pb-4 font-semibold">Subtopic</th>
                                     <th className="pb-4 font-semibold">Stability</th>
@@ -354,7 +354,7 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                 {questions.filter(q => !q.isCorrect && q.userAnswer !== null).slice(0, 5).map((q, i) => (
                                     <tr key={i} className="group hover:bg-slate-800/20 transition-all">
                                         <td className="py-4 text-sm font-medium text-slate-300">{q.chapter}</td>
-                                        <td className="py-4 text-sm text-slate-400">{q.subtopic}</td>
+                                        <td className="py-4 text-sm text-muted-foreground">{q.subtopic}</td>
                                         <td className="py-4">
                                             <div className="flex items-center gap-2">
                                                 <div className="w-16 h-1.5 bg-slate-800 rounded-full overflow-hidden">
@@ -393,7 +393,7 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                     <div className="overflow-x-auto max-h-[400px]">
                         <table className="w-full text-left border-collapse">
                             <thead className="sticky top-0 bg-[#020617] z-10">
-                                <tr className="border-b border-slate-800 text-xs text-slate-500 uppercase tracking-widest">
+                                <tr className="border-b border-slate-800 text-xs text-muted-foreground uppercase tracking-widest">
                                     <th className="pb-4 pl-4 font-semibold">Chapter</th>
                                     <th className="pb-4 font-semibold">Subtopic</th>
                                     <th className="pb-4 text-center font-semibold">Q Count</th>
@@ -413,8 +413,8 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                     return (
                                         <tr key={i} className="group hover:bg-slate-800/20 transition-all">
                                             <td className="py-3 pl-4 text-sm font-medium text-slate-300">{item.chapter}</td>
-                                            <td className="py-3 text-sm text-slate-400">{item.subtopic}</td>
-                                            <td className="py-3 text-center text-sm text-slate-500">{item.total}</td>
+                                            <td className="py-3 text-sm text-muted-foreground">{item.subtopic}</td>
+                                            <td className="py-3 text-center text-sm text-muted-foreground">{item.total}</td>
                                             <td className="py-3 text-center">
                                                 <span className={`font-mono font-bold ${acc >= 75 ? 'text-emerald-400' : acc >= 40 ? 'text-amber-400' : 'text-red-400'}`}>
                                                     {acc}%
@@ -450,7 +450,7 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                     variant="ghost"
                                     size="sm"
                                     onClick={() => setFilter(f as any)}
-                                    className={`capitalize rounded-full px-4 ${filter === f ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' : 'text-slate-500 hover:text-slate-300'}`}
+                                    className={`capitalize rounded-full px-4 ${filter === f ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' : 'text-muted-foreground hover:text-slate-300'}`}
                                 >
                                     {f}
                                 </Button>
@@ -470,11 +470,11 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                 <div key={q.id} className="p-6 rounded-2xl bg-slate-800/20 border border-slate-800/50 hover:border-slate-700/80 transition-all group">
                                     <div className="flex justify-between items-start mb-4">
                                         <div className="flex items-center gap-3">
-                                            <span className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-sm font-bold text-slate-400 group-hover:border-blue-500/30 group-hover:text-blue-400 transition-colors">
+                                            <span className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-sm font-bold text-muted-foreground group-hover:border-blue-500/30 group-hover:text-blue-400 transition-colors">
                                                 {q.id}
                                             </span>
                                             <div>
-                                                <div className="text-[10px] text-slate-500 font-mono uppercase tracking-widest leading-none mb-1">
+                                                <div className="text-[10px] text-muted-foreground font-mono uppercase tracking-widest leading-none mb-1">
                                                     {q.chapter} • {q.subtopic}
                                                 </div>
                                                 <div className="flex items-center gap-2">
@@ -483,7 +483,7 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                                             <CheckCircle2 className="w-3 h-3" /> CORRECT
                                                         </span>
                                                     ) : q.userAnswer === null ? (
-                                                        <span className="flex items-center gap-1 text-[10px] font-bold text-slate-400">
+                                                        <span className="flex items-center gap-1 text-[10px] font-bold text-muted-foreground">
                                                             <HelpCircle className="w-3 h-3" /> SKIPPED
                                                         </span>
                                                     ) : (
@@ -492,11 +492,11 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                                         </span>
                                                     )}
                                                     <span className="w-1 h-1 rounded-full bg-slate-800" />
-                                                    <span className="text-[10px] font-mono text-slate-500 uppercase">{q.confidence || 'No Confidence Set'}</span>
+                                                    <span className="text-[10px] font-mono text-muted-foreground uppercase">{q.confidence || 'No Confidence Set'}</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="text-xs text-slate-600 font-mono">{q.timeSpent}s spent</div>
+                                        <div className="text-xs text-muted-foreground font-mono">{q.timeSpent}s spent</div>
                                     </div>
 
                                     <h4 className="text-base font-medium text-slate-200 mb-6 leading-relaxed">
@@ -510,7 +510,7 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
 
                                             let borderClass = "border-slate-800/50 bg-slate-900/20";
                                             let icon = null;
-                                            let textClass = "text-slate-400";
+                                            let textClass = "text-muted-foreground";
 
                                             if (isCorrectChoice) {
                                                 borderClass = "border-emerald-500/30 bg-emerald-500/5";

@@ -28,7 +28,7 @@ export default function ArticleMemorySystem() {
         <div className="max-w-6xl mx-auto space-y-8 font-['Calibri']">
             {/* Hero Section */}
             <div className="bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-3xl p-8 md:p-12 text-white shadow-xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-card opacity-10 rounded-full transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
                 <div className="relative z-10 max-w-2xl">
                     <h2 className="text-3xl md:text-5xl font-black mb-4 flex items-center gap-3">
                         Article Memory Palace <Brain className="text-violet-200" />
@@ -43,7 +43,7 @@ export default function ArticleMemorySystem() {
             {/* Main Tabs */}
             <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
                 <div className="flex justify-center">
-                    <TabsList className="bg-white p-1 rounded-full border border-slate-200 shadow-sm">
+                    <TabsList className="bg-card p-1 rounded-full border border-border shadow-sm">
                         <TabsTrigger
                             value="training"
                             className="rounded-full px-8 py-3 data-[state=active]:bg-violet-600 data-[state=active]:text-white font-bold flex items-center gap-2 transition-all"
@@ -59,7 +59,7 @@ export default function ArticleMemorySystem() {
                     </TabsList>
                 </div>
 
-                <div className="bg-white rounded-3xl p-6 md:p-10 border border-slate-200 shadow-sm min-h-[600px]">
+                <div className="bg-card rounded-3xl p-6 md:p-10 border border-border shadow-sm min-h-[600px]">
 
                     {/* TRAINING TAB */}
                     <TabsContent value="training" className="mt-0 focus-visible:outline-none animate-in fade-in-50 zoom-in-95 duration-300">
@@ -75,7 +75,7 @@ export default function ArticleMemorySystem() {
                                 <Button
                                     onClick={() => setActiveLevel(null)}
                                     variant="ghost"
-                                    className="mb-4 hover:bg-slate-100 text-slate-500"
+                                    className="mb-4 hover:bg-muted text-muted-foreground"
                                 >
                                     <ArrowLeft className="mr-2 h-4 w-4" /> Back to Arena
                                 </Button>
@@ -124,8 +124,8 @@ function LevelSelector({ unlockedLevels, onSelectLevel }: { unlockedLevels: numb
     return (
         <div className="space-y-8">
             <div className="text-center space-y-2">
-                <h3 className="text-2xl font-black text-slate-800">Choose Your Challenge</h3>
-                <p className="text-slate-500">Complete levels to unlock the next difficulty.</p>
+                <h3 className="text-2xl font-black text-foreground">Choose Your Challenge</h3>
+                <p className="text-muted-foreground">Complete levels to unlock the next difficulty.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -141,8 +141,8 @@ function LevelSelector({ unlockedLevels, onSelectLevel }: { unlockedLevels: numb
                             className={`
                                 relative p-6 rounded-2xl border-2 text-left h-64 flex flex-col justify-between overflow-hidden transition-all
                                 ${isUnlocked
-                                    ? 'bg-white border-slate-200 shadow-lg hover:shadow-xl hover:border-slate-300'
-                                    : 'bg-slate-50 border-slate-100 opacity-70 cursor-not-allowed'
+                                    ? 'bg-card border-border shadow-lg hover:shadow-xl hover:border-border'
+                                    : 'bg-muted border-slate-100 opacity-70 cursor-not-allowed'
                                 }
                             `}
                         >
@@ -156,16 +156,16 @@ function LevelSelector({ unlockedLevels, onSelectLevel }: { unlockedLevels: numb
                                 `}>
                                     {isUnlocked ? level.icon : <Lock size={24} />}
                                 </div>
-                                <h4 className={`text-xl font-black mb-1 ${isUnlocked ? 'text-slate-800' : 'text-slate-400'}`}>
+                                <h4 className={`text-xl font-black mb-1 ${isUnlocked ? 'text-foreground' : 'text-muted-foreground'}`}>
                                     Level {level.id}
                                 </h4>
-                                <h5 className={`font-bold ${isUnlocked ? level.textColor : 'text-slate-400'}`}>
+                                <h5 className={`font-bold ${isUnlocked ? level.textColor : 'text-muted-foreground'}`}>
                                     {level.title}
                                 </h5>
                             </div>
 
                             <div className="space-y-4">
-                                <p className="text-sm text-slate-500 font-medium">
+                                <p className="text-sm text-muted-foreground font-medium">
                                     {level.desc}
                                 </p>
                                 {isUnlocked && (

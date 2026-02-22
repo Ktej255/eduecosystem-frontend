@@ -120,16 +120,16 @@ export default function FocusPortal() {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a]">
+        <div className="min-h-screen bg-muted dark:bg-[#0a0a0a]">
             {/* Top Navigation Bar */}
-            <div className="bg-white dark:bg-[#111] border-b border-gray-200 dark:border-gray-800 sticky top-0 z-30">
+            <div className="bg-card dark:bg-[#111] border-b border-border sticky top-0 z-30">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="flex items-center justify-between h-16">
                         <div className="flex items-center gap-2">
                             <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
                                 <Brain className="w-5 h-5 text-white" />
                             </div>
-                            <span className="font-bold text-lg text-gray-900 dark:text-white hidden md:block">
+                            <span className="font-bold text-lg text-foreground hidden md:block">
                                 Focus Command Center
                             </span>
                         </div>
@@ -144,8 +144,8 @@ export default function FocusPortal() {
                                         onClick={() => handleTabChange(tab.id as FocusTab)}
                                         className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap
                                             ${isActive
-                                                ? 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm ring-1 ring-gray-200 dark:ring-gray-700'
-                                                : 'text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900'
+                                                ? 'bg-muted text-foreground shadow-sm ring-1 ring-gray-200 dark:ring-gray-700'
+                                                : 'text-muted-foreground hover:text-muted-foreground dark:hover:text-muted-foreground hover:bg-muted dark:hover:bg-gray-900'
                                             }`}
                                     >
                                         <Icon className={`w-4 h-4 ${isActive ? tab.color : ''}`} />
@@ -175,17 +175,17 @@ export default function FocusPortal() {
                                         {/* Header & Week Selector */}
                                         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
                                             <div>
-                                                <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                                                <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
                                                     <Timer className="w-8 h-8 text-orange-500" />
                                                     Pomodoro Portal
                                                 </h1>
-                                                <p className="text-gray-500 dark:text-gray-400 mt-1">
+                                                <p className="text-muted-foreground dark:text-muted-foreground mt-1">
                                                     Daily Focus & Evening Revision Hub
                                                 </p>
                                             </div>
 
-                                            <div className="flex items-center gap-3 bg-white dark:bg-gray-800 p-2 rounded-xl border shadow-sm">
-                                                <span className="text-sm font-medium text-gray-500 ml-2">Select Week:</span>
+                                            <div className="flex items-center gap-3 bg-card p-2 rounded-xl border shadow-sm">
+                                                <span className="text-sm font-medium text-muted-foreground ml-2">Select Week:</span>
                                                 <Select
                                                     value={selectedWeek.toString()}
                                                     onValueChange={(v) => {
@@ -219,7 +219,7 @@ export default function FocusPortal() {
                                                         className={`border-2 cursor-pointer transition-all hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden
                                                             ${isToday
                                                                 ? 'border-orange-500 bg-orange-50/50 dark:bg-orange-900/10'
-                                                                : 'border-transparent hover:border-orange-300 bg-white dark:bg-gray-800'
+                                                                : 'border-transparent hover:border-orange-300 bg-card'
                                                             }
                                                         `}
                                                         onClick={() => handleDayClick(day.id)}
@@ -233,13 +233,13 @@ export default function FocusPortal() {
                                                                 <div>
                                                                     <div className="flex items-center gap-2 mb-1">
                                                                         <span className={`px-2 py-1 rounded text-xs font-bold uppercase tracking-wide
-                                                                            ${isToday ? 'bg-orange-100 text-orange-700' : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300'}
+                                                                            ${isToday ? 'bg-orange-100 text-orange-700' : 'bg-muted text-muted-foreground dark:text-muted-foreground'}
                                                                         `}>
                                                                             {day.short}
                                                                         </span>
                                                                         {isToday && <span className="flex items-center text-xs font-bold text-green-600 animate-pulse"><Flame className="w-3 h-3 mr-1" /> TODAY</span>}
                                                                     </div>
-                                                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                                                                    <h3 className="text-xl font-bold text-foreground">
                                                                         {day.label}
                                                                     </h3>
                                                                 </div>
@@ -249,18 +249,18 @@ export default function FocusPortal() {
                                                             </div>
 
                                                             <div className="space-y-3 mb-6">
-                                                                <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                                                                <div className="flex items-center text-sm text-muted-foreground dark:text-muted-foreground">
                                                                     <BookOpen className="w-4 h-4 mr-2 text-blue-500" />
                                                                     <span>Course Work & Study</span>
                                                                 </div>
-                                                                <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                                                                <div className="flex items-center text-sm text-muted-foreground dark:text-muted-foreground">
                                                                     <Moon className="w-4 h-4 mr-2 text-indigo-500" />
                                                                     <span>Evening Revision (PYQ)</span>
                                                                 </div>
                                                             </div>
 
-                                                            <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
-                                                                <span className="text-xs font-semibold text-gray-400">Day {absoluteDay}</span>
+                                                            <div className="flex items-center justify-between pt-4 border-t border-border">
+                                                                <span className="text-xs font-semibold text-muted-foreground">Day {absoluteDay}</span>
                                                                 <span className="text-sm font-bold text-orange-600 flex items-center group-hover:translate-x-1 transition-transform">
                                                                     Open Portal <ChevronRight className="w-4 h-4 ml-1" />
                                                                 </span>
@@ -278,7 +278,7 @@ export default function FocusPortal() {
                                             <Button
                                                 variant="ghost"
                                                 onClick={() => setPomodoroView('grid')}
-                                                className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                                className="text-muted-foreground hover:text-foreground dark:text-muted-foreground dark:hover:text-white"
                                             >
                                                 <ArrowLeft className="mr-2 h-4 w-4" /> Back to Pomodoro Portal
                                             </Button>
@@ -307,7 +307,7 @@ export default function FocusPortal() {
                             <div className="space-y-6">
                                 {/* Study Tab Content (Preserved) */}
                                 <div className="flex items-center justify-between">
-                                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Subject Study</h2>
+                                    <h2 className="text-2xl font-bold text-foreground">Subject Study</h2>
                                     <Select value={selectedSubject} onValueChange={(v) => handleSubjectChange(v as Subject)}>
                                         <SelectTrigger className="w-[180px]">
                                             <SelectValue />
@@ -324,12 +324,12 @@ export default function FocusPortal() {
                                 {selectedSubject === 'polity' && <PolityHome embedded={true} />}
                                 {selectedSubject === 'history' && <HistoryHome embedded={true} />}
                                 {(selectedSubject === 'geography' || selectedSubject === 'science') && (
-                                    <div className="p-12 text-center bg-white dark:bg-[#111] rounded-2xl border border-dashed border-gray-300 dark:border-gray-800">
-                                        <BookOpen className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-                                        <h3 className="text-lg font-medium text-gray-900 dark:text-white">
+                                    <div className="p-12 text-center bg-card dark:bg-[#111] rounded-2xl border border-dashed border-border">
+                                        <BookOpen className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+                                        <h3 className="text-lg font-medium text-foreground">
                                             {selectedSubject.charAt(0).toUpperCase() + selectedSubject.slice(1)} Module
                                         </h3>
-                                        <p className="text-gray-500">Content loading...</p>
+                                        <p className="text-muted-foreground">Content loading...</p>
                                     </div>
                                 )}
                             </div>

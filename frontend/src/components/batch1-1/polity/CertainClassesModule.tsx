@@ -17,7 +17,7 @@ interface CertainClassesModuleProps {
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="bg-[#f0fdf4] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-green-100">
-        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white/50 rounded-3xl p-6 shadow-inner border-2 border-slate-200">
+        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-card/50 rounded-3xl p-6 shadow-inner border-2 border-border">
             {children}
         </div>
     </div>
@@ -34,7 +34,7 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
         <div className={`p-3 rounded-full ${color} text-white shadow-lg`}>
             <Icon size={24} />
         </div>
-        <h2 className={`text-2xl font-black uppercase tracking-tight text-slate-800`}>
+        <h2 className={`text-2xl font-black uppercase tracking-tight text-foreground`}>
             {title}
         </h2>
         <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
@@ -48,7 +48,7 @@ export default function CertainClassesModule({ onComplete, isCompleted, chapterN
             <div className="relative bg-[#1d4ed8] border-4 border-blue-900 rounded-3xl p-8 md:p-12 shadow-2xl text-white overflow-hidden">
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-white text-blue-800 px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
+                        <Badge className="bg-card text-blue-800 px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
                         <span className="text-blue-100 font-bold uppercase tracking-widest text-sm">Part XVI</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
@@ -60,10 +60,10 @@ export default function CertainClassesModule({ onComplete, isCompleted, chapterN
                     </p>
                 </div>
                 <div className="absolute right-12 top-8 md:w-64 md:h-64 opacity-20">
-                    <div className="w-full h-4 bg-white mb-8 rounded"></div>
-                    <div className="w-full h-4 bg-white mb-8 rounded opacity-80"></div>
-                    <div className="w-full h-4 bg-white mb-8 rounded opacity-60"></div>
-                    <div className="w-full h-4 bg-white mb-8 rounded opacity-40"></div>
+                    <div className="w-full h-4 bg-card mb-8 rounded"></div>
+                    <div className="w-full h-4 bg-card mb-8 rounded opacity-80"></div>
+                    <div className="w-full h-4 bg-card mb-8 rounded opacity-60"></div>
+                    <div className="w-full h-4 bg-card mb-8 rounded opacity-40"></div>
                 </div>
             </div>
 
@@ -71,11 +71,11 @@ export default function CertainClassesModule({ onComplete, isCompleted, chapterN
             <SectionHeader title="Phase 1: Seats in Legislature" icon={Users} color="bg-[#1d4ed8]" />
 
             <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-white border-2 border-blue-200 rounded-2xl p-6 shadow-md">
+                <div className="bg-card border-2 border-blue-200 rounded-2xl p-6 shadow-md">
                     <h3 className="font-black text-xl mb-4 text-blue-800">Lok Sabha & Assemblies</h3>
                     <div className="space-y-4">
-                        <div className="flex items-center justify-between bg-slate-50 p-3 rounded">
-                            <span className="font-bold text-slate-700">SCs & STs</span>
+                        <div className="flex items-center justify-between bg-muted p-3 rounded">
+                            <span className="font-bold text-muted-foreground">SCs & STs</span>
                             <span className="font-bold text-blue-600">Reserved (Prop. to Population)</span>
                         </div>
 
@@ -89,12 +89,12 @@ export default function CertainClassesModule({ onComplete, isCompleted, chapterN
                     </div>
                 </div>
 
-                <div className="bg-white border-2 border-[#15803d] rounded-2xl p-6 shadow-md relative">
+                <div className="bg-card border-2 border-[#15803d] rounded-2xl p-6 shadow-md relative">
                     <div className="absolute top-2 right-2 opacity-10">
                         <Clock size={48} />
                     </div>
                     <h3 className="font-black text-xl mb-4 text-[#15803d]">Duration (Art 334)</h3>
-                    <div className="space-y-2 text-sm font-bold text-slate-600">
+                    <div className="space-y-2 text-sm font-bold text-muted-foreground">
                         <p>Original: 10 Years</p>
                         <p>Extended: Every 10 years</p>
                         <div className="bg-[#15803d] text-white p-3 rounded-xl mt-4 text-center">
@@ -113,19 +113,19 @@ export default function CertainClassesModule({ onComplete, isCompleted, chapterN
                     <div className="text-center">
                         <Scale size={64} className="mx-auto text-[#15803d] mb-4" />
                         <h3 className="font-black text-xl text-[#15803d]">Article 335</h3>
-                        <p className="font-bold text-slate-700 mt-2">
+                        <p className="font-bold text-muted-foreground mt-2">
                             Efficiency vs Equity
                         </p>
-                        <p className="text-xs font-bold text-slate-500 italic mt-1">
+                        <p className="text-xs font-bold text-muted-foreground italic mt-1">
                             Claims considered consistent with "Maintenance of efficiency".
                         </p>
                     </div>
 
-                    <div className="bg-white p-6 rounded-xl border border-dashed border-orange-300 shadow-sm">
+                    <div className="bg-card p-6 rounded-xl border border-dashed border-orange-300 shadow-sm">
                         <h4 className="font-black text-orange-600 mb-2 flex items-center gap-2">
                             <PieChart size={18} /> OBC Reservation
                         </h4>
-                        <ul className="space-y-2 text-xs font-bold text-slate-700">
+                        <ul className="space-y-2 text-xs font-bold text-muted-foreground">
                             <li>• Mandal Commission (1979)</li>
                             <li>• 27% in Central Services (1990)</li>
                             <li className="text-red-600">• Creamy Layer Excluded (Ram Nandan Comm)</li>

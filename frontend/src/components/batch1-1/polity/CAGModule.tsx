@@ -20,7 +20,7 @@ interface CAGModuleProps {
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="bg-[#f3f4f6] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-red-100">
-        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white/70 rounded-3xl p-6 shadow-2xl border-2 border-slate-200 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-card/70 rounded-3xl p-6 shadow-2xl border-2 border-border relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#b91c1c] via-[#b45309] to-[#1e40af] opacity-40"></div>
             {children}
         </div>
@@ -28,14 +28,14 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const AuditCard = ({ title, children, color = "border-[#b91c1c]", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(185,28,28,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(185,28,28,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute top-0 right-0 p-2 opacity-5">
             <Calculator size={48} />
         </div>
         <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-700 relative z-10 font-medium">
+        <div className="space-y-4 text-muted-foreground relative z-10 font-medium">
             {children}
         </div>
     </div>
@@ -58,11 +58,11 @@ export default function CAGModule({ onComplete, isCompleted, chapterNumber = "52
         <ScrapbookContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#b91c1c] border-4 border-slate-900 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(185,28,28,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -mr-40 -mt-40 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-card/5 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-[#b45309] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-red-50 font-bold uppercase tracking-widest text-sm italic">Guardian of the Public Purse</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
@@ -93,16 +93,16 @@ export default function CAGModule({ onComplete, isCompleted, chapterNumber = "52
                             </div>
                         </div>
                         <div className="grid grid-cols-2 gap-3">
-                            <div className="p-3 bg-white border-2 border-slate-100 rounded-xl text-center shadow-sm">
-                                <p className="text-[10px] font-black text-slate-400">TERM [PYQ]</p>
+                            <div className="p-3 bg-card border-2 border-slate-100 rounded-xl text-center shadow-sm">
+                                <p className="text-[10px] font-black text-muted-foreground">TERM [PYQ]</p>
                                 <p className="text-lg font-black text-[#b91c1c]">6 Years</p>
                             </div>
-                            <div className="p-3 bg-white border-2 border-slate-100 rounded-xl text-center shadow-sm">
-                                <p className="text-[10px] font-black text-slate-400">OR AGE</p>
+                            <div className="p-3 bg-card border-2 border-slate-100 rounded-xl text-center shadow-sm">
+                                <p className="text-[10px] font-black text-muted-foreground">OR AGE</p>
                                 <p className="text-lg font-black text-[#b91c1c]">65 Years</p>
                             </div>
                         </div>
-                        <p className="text-[10px] font-bold text-slate-500 text-center italic">Resignation: To President. | Oath: Before President.</p>
+                        <p className="text-[10px] font-bold text-muted-foreground text-center italic">Resignation: To President. | Oath: Before President.</p>
                     </div>
                 </AuditCard>
 
@@ -117,7 +117,7 @@ export default function CAGModule({ onComplete, isCompleted, chapterNumber = "52
                                 { t: "Conditions:", d: "Cannot be varied to his disadvantage after appointment." }
                             ].map((bolt, i) => (
                                 <li key={i} className="flex gap-3 items-start group">
-                                    <div className="w-4 h-4 rounded bg-white border-2 border-[#1e40af] flex items-center justify-center shrink-0 mt-1 shadow-sm font-black text-[8px] group-hover:bg-[#1e40af] group-hover:text-white transition-colors">{i + 1}</div>
+                                    <div className="w-4 h-4 rounded bg-card border-2 border-[#1e40af] flex items-center justify-center shrink-0 mt-1 shadow-sm font-black text-[8px] group-hover:bg-[#1e40af] group-hover:text-white transition-colors">{i + 1}</div>
                                     <p className="text-[11px] font-bold leading-relaxed italic"><span className="text-[#1e40af] font-black">{bolt.t}</span> {bolt.d}</p>
                                 </li>
                             ))}
@@ -145,7 +145,7 @@ export default function CAGModule({ onComplete, isCompleted, chapterNumber = "52
                                 "Contingency Fund & Public Account (India & States).",
                                 "All Trading, Manufacturing, Profit & Loss accounts."
                             ].map((dept, i) => (
-                                <div key={i} className="flex gap-3 items-center bg-white p-2 rounded border border-orange-100 shadow-sm">
+                                <div key={i} className="flex gap-3 items-center bg-card p-2 rounded border border-orange-100 shadow-sm">
                                     <div className="w-1.5 h-1.5 bg-[#b45309] rounded-full"></div>
                                     <p className="text-[10px] font-bold italic">{dept}</p>
                                 </div>
@@ -163,11 +163,11 @@ export default function CAGModule({ onComplete, isCompleted, chapterNumber = "52
                                 { t: "Finance Accounts", d: "Overall Income vs Expenditure." },
                                 { t: "Public Undertakings", d: "PSU performance check." }
                             ].map((rep, i) => (
-                                <div key={i} className="flex items-center gap-4 p-3 bg-white border-2 border-slate-100 rounded-xl hover:border-[#b91c1c] transition-colors group">
+                                <div key={i} className="flex items-center gap-4 p-3 bg-card border-2 border-slate-100 rounded-xl hover:border-[#b91c1c] transition-colors group">
                                     <FileText className="text-slate-300 group-hover:text-[#b91c1c]" size={20} />
                                     <div>
                                         <h5 className="text-[10px] font-black uppercase tracking-tighter text-[#b91c1c]">{rep.t}</h5>
-                                        <p className="text-[9px] font-bold text-slate-500 italic">{rep.d}</p>
+                                        <p className="text-[9px] font-bold text-muted-foreground italic">{rep.d}</p>
                                     </div>
                                 </div>
                             ))}
@@ -202,14 +202,14 @@ export default function CAGModule({ onComplete, isCompleted, chapterNumber = "52
 
                 <HandwrittenCard title="Limitations & Critics" color="border-[#b91c1c]">
                     <div className="space-y-4">
-                        <div className="p-4 bg-white border border-slate-200 rounded-xl relative">
+                        <div className="p-4 bg-card border border-border rounded-xl relative">
                             <AlertTriangle className="text-red-500 mb-2" size={20} />
-                            <h5 className="text-[10px] font-black uppercase text-slate-400">Post-Mortem Nature:</h5>
-                            <p className="text-[11px] font-bold italic text-slate-600 leading-relaxed">
+                            <h5 className="text-[10px] font-black uppercase text-muted-foreground">Post-Mortem Nature:</h5>
+                            <p className="text-[11px] font-bold italic text-muted-foreground leading-relaxed">
                                 Audit is <span className="underline decoration-red-500 decoration-2">Post-Facto</span>. Money is already spent.
                             </p>
                         </div>
-                        <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl italic">
+                        <div className="p-4 bg-muted border border-border rounded-xl italic">
                             <p className="text-[10px] font-bold leading-relaxed">
                                 <span className="text-[#1e40af] font-black uppercase mr-2">Appleby's Critique:</span>
                                 Called CAG a "colonial inheritance" and an "impediment" to administration.
@@ -226,7 +226,7 @@ export default function CAGModule({ onComplete, isCompleted, chapterNumber = "52
                 </div>
                 <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
                     <div className="text-center group">
-                        <div className="w-24 h-24 bg-white border-4 border-[#b91c1c] rounded-full flex items-center justify-center shadow-xl group-hover:rotate-12 transition-transform">
+                        <div className="w-24 h-24 bg-card border-4 border-[#b91c1c] rounded-full flex items-center justify-center shadow-xl group-hover:rotate-12 transition-transform">
                             <Eye size={40} className="text-[#b91c1c]" />
                         </div>
                         <p className="text-[10px] font-black uppercase mt-2">CAG</p>
@@ -246,7 +246,7 @@ export default function CAGModule({ onComplete, isCompleted, chapterNumber = "52
             </div>
 
             {/* COMPLETION BUTTON */}
-            <div className="mt-16 text-center border-t-2 border-dashed border-slate-200 pt-12 pb-12 font-['Kalam']">
+            <div className="mt-16 text-center border-t-2 border-dashed border-border pt-12 pb-12 font-['Kalam']">
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
@@ -266,18 +266,18 @@ export default function CAGModule({ onComplete, isCompleted, chapterNumber = "52
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold italic">The Most Important Officer. — Ambedkar</p>
+                <p className="mt-4 text-muted-foreground font-bold italic">The Most Important Officer. — Ambedkar</p>
             </div>
         </ScrapbookContainer>
     );
 }
 
 const HandwrittenCard = ({ title, children, color = "border-slate-800", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-700 relative z-10 font-medium">
+        <div className="space-y-4 text-muted-foreground relative z-10 font-medium">
             {children}
         </div>
     </div>

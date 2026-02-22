@@ -50,14 +50,14 @@ function MCQDrillContent() {
 
     if (loading) {
         return (
-            <div className="flex flex-col items-center justify-center min-h-screen bg-white dark:bg-black">
+            <div className="flex flex-col items-center justify-center min-h-screen bg-card dark:bg-black">
                 <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                 >
                     <Loader2 className="w-12 h-12 text-indigo-600" />
                 </motion.div>
-                <div className="mt-4 font-bold text-gray-500 animate-pulse">
+                <div className="mt-4 font-bold text-muted-foreground animate-pulse">
                     Compiling {subject} Drill...
                 </div>
             </div>
@@ -67,8 +67,8 @@ function MCQDrillContent() {
     if (questions.length === 0) {
         return (
             <div className="flex flex-col items-center justify-center min-h-screen">
-                <div className="text-xl font-bold text-gray-800 dark:text-gray-200">No questions found for {subject} chapters {chapterIds.join(', ')}.</div>
-                <p className="text-sm text-gray-500 mt-2">Check if MCQ content files exist in the data/mcqs directory.</p>
+                <div className="text-xl font-bold text-foreground">No questions found for {subject} chapters {chapterIds.join(', ')}.</div>
+                <p className="text-sm text-muted-foreground mt-2">Check if MCQ content files exist in the data/mcqs directory.</p>
                 <button
                     onClick={() => router.back()}
                     className="mt-4 px-6 py-2 bg-indigo-600 text-white rounded-xl"
@@ -93,7 +93,7 @@ function MCQDrillContent() {
     }
 
     return (
-        <div className="h-screen bg-gray-50 dark:bg-black p-4 md:p-8">
+        <div className="h-screen bg-muted dark:bg-black p-4 md:p-8">
             <HistoryMCQSession
                 questions={questions}
                 title={`${subject} Drill: ${chapterIds.length || 'Full'} Chapters`}

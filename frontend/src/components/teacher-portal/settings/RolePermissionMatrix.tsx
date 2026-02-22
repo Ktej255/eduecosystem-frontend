@@ -48,7 +48,7 @@ const roles: Role[] = [
     { id: "admin", name: "Super Admin", description: "Full access", usersCount: 2, color: "bg-red-100 text-red-700" },
     { id: "instructor", name: "Lead Instructor", description: "Course management", usersCount: 5, color: "bg-indigo-100 text-indigo-700" },
     { id: "ta", name: "Teaching Asst.", description: "Support & grading", usersCount: 12, color: "bg-green-100 text-green-700" },
-    { id: "guest", name: "Guest User", description: "Preview only", usersCount: 0, color: "bg-slate-100 text-slate-700" },
+    { id: "guest", name: "Guest User", description: "Preview only", usersCount: 0, color: "bg-muted text-muted-foreground" },
 ];
 
 // Initial Matrix State
@@ -89,7 +89,7 @@ export default function RolePermissionMatrix() {
     const categories = Array.from(new Set(permissions.map(p => p.category)));
 
     return (
-        <Card className="border-slate-200 dark:border-slate-800 shadow-sm">
+        <Card className="border-border shadow-sm">
             <CardHeader className="pb-6">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
@@ -100,7 +100,7 @@ export default function RolePermissionMatrix() {
                         <CardDescription>Manage granular permissions for each user role.</CardDescription>
                     </div>
                     <div className="flex items-center gap-2">
-                        <Button variant="ghost" size="sm" onClick={handleReset} disabled={!hasChanges} className="text-slate-500">
+                        <Button variant="ghost" size="sm" onClick={handleReset} disabled={!hasChanges} className="text-muted-foreground">
                             <RotateCcw className="h-4 w-4 mr-2" /> Reset
                         </Button>
                         <Button size="sm" onClick={handleSave} disabled={!hasChanges} className={hasChanges ? "bg-indigo-600 hover:bg-indigo-700" : ""}>
@@ -112,15 +112,15 @@ export default function RolePermissionMatrix() {
             <CardContent className="p-0 overflow-x-auto">
                 <table className="w-full text-sm border-collapse">
                     <thead>
-                        <tr className="bg-slate-50 dark:bg-slate-900/50 border-y border-slate-100 dark:border-slate-800">
-                            <th className="px-6 py-4 text-left font-medium text-slate-500 w-1/3 min-w-[200px]">Permission</th>
+                        <tr className="bg-muted/50 border-y border-slate-100">
+                            <th className="px-6 py-4 text-left font-medium text-muted-foreground w-1/3 min-w-[200px]">Permission</th>
                             {roles.map(role => (
                                 <th key={role.id} className="px-6 py-4 text-center min-w-[120px]">
                                     <div className="flex flex-col items-center gap-1">
                                         <Badge variant="secondary" className={role.color}>
                                             {role.name}
                                         </Badge>
-                                        <span className="text-[10px] font-normal text-slate-400">
+                                        <span className="text-[10px] font-normal text-muted-foreground">
                                             {role.usersCount} users
                                         </span>
                                     </div>
@@ -131,16 +131,16 @@ export default function RolePermissionMatrix() {
                     <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                         {categories.map(category => (
                             <>
-                                <tr key={category} className="bg-slate-50/50 dark:bg-slate-900/20">
-                                    <td colSpan={roles.length + 1} className="px-6 py-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+                                <tr key={category} className="bg-slate-50/50/20">
+                                    <td colSpan={roles.length + 1} className="px-6 py-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
                                         {category}
                                     </td>
                                 </tr>
                                 {permissions.filter(p => p.category === category).map(perm => (
-                                    <tr key={perm.id} className="hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors">
+                                    <tr key={perm.id} className="hover:bg-muted dark:hover:bg-slate-900/50 transition-colors">
                                         <td className="px-6 py-3">
                                             <div className="flex items-center gap-2 group cursor-help">
-                                                <span className="font-medium text-slate-700 dark:text-slate-200">{perm.label}</span>
+                                                <span className="font-medium text-muted-foreground">{perm.label}</span>
                                                 <div title={perm.description}>
                                                     <AlertCircle className="h-3 w-3 text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity" />
                                                 </div>
@@ -170,8 +170,8 @@ export default function RolePermissionMatrix() {
                     </tbody>
                 </table>
             </CardContent>
-            <CardFooter className="py-4 bg-slate-50 dark:bg-slate-900/30 border-t border-slate-100 dark:border-slate-800">
-                <div className="flex items-center gap-2 text-xs text-slate-500">
+            <CardFooter className="py-4 bg-muted/30 border-t border-slate-100">
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
                     <Lock className="h-3 w-3" />
                     <span>Super Admin permissions cannot be revoked to prevent lockout.</span>
                 </div>

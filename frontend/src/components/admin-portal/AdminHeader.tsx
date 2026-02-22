@@ -36,7 +36,7 @@ export default function AdminHeader() {
 
                 {/* Center: Live Date/Time - Hidden on mobile and tablet */}
                 <div className="hidden lg:flex">
-                    <LiveDateTime className="text-gray-700 dark:text-gray-200" />
+                    <LiveDateTime className="text-muted-foreground" />
                 </div>
 
                 {/* Right Section */}

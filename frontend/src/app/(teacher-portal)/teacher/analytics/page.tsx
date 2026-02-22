@@ -149,14 +149,14 @@ export default function AnalyticsPage() {
             {/* Header */}
             <div className="flex justify-between items-start">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-800 flex items-center gap-2">
+                    <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
                         <BarChart3 className="h-8 w-8 text-emerald-600" />
                         Analytics
                     </h1>
-                    <p className="text-gray-600 mt-1">Track student engagement and content performance</p>
+                    <p className="text-muted-foreground mt-1">Track student engagement and content performance</p>
                 </div>
                 <div className="flex items-center gap-2">
-                    <div className="flex bg-gray-100 rounded-lg p-1">
+                    <div className="flex bg-muted rounded-lg p-1">
                         <Button
                             variant={dateRange === "7days" ? "default" : "ghost"}
                             size="sm"
@@ -197,8 +197,8 @@ export default function AnalyticsPage() {
                                         <stat.icon className={`h-6 w-6 ${stat.color}`} />
                                     </div>
                                     <div>
-                                        <p className="text-2xl font-bold text-gray-800">{stat.value}</p>
-                                        <p className="text-sm text-gray-500">{stat.label}</p>
+                                        <p className="text-2xl font-bold text-foreground">{stat.value}</p>
+                                        <p className="text-sm text-muted-foreground">{stat.label}</p>
                                     </div>
                                 </div>
                                 <div className={`flex items-center text-sm ${stat.trend === "up" ? "text-green-600" : "text-red-600"}`}>
@@ -291,7 +291,7 @@ export default function AnalyticsPage() {
                                         className="w-3 h-3 rounded-full"
                                         style={{ backgroundColor: item.color }}
                                     />
-                                    <span className="text-sm text-gray-600">{item.name}</span>
+                                    <span className="text-sm text-muted-foreground">{item.name}</span>
                                 </div>
                             ))}
                         </div>
@@ -336,15 +336,15 @@ export default function AnalyticsPage() {
                         {topContent.map((content, index) => (
                             <div
                                 key={content.id}
-                                className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                                className="flex items-center justify-between p-4 bg-muted rounded-lg hover:bg-muted transition-colors"
                             >
                                 <div className="flex items-center gap-4">
                                     <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold">
                                         #{index + 1}
                                     </div>
                                     <div>
-                                        <h4 className="font-medium text-gray-800">{content.title}</h4>
-                                        <div className="flex items-center gap-4 text-sm text-gray-500 mt-1">
+                                        <h4 className="font-medium text-foreground">{content.title}</h4>
+                                        <div className="flex items-center gap-4 text-sm text-muted-foreground mt-1">
                                             <span className="flex items-center gap-1">
                                                 <Eye className="h-3 w-3" />
                                                 {content.views.toLocaleString()} views
@@ -369,11 +369,11 @@ export default function AnalyticsPage() {
             {/* Engagement Heatmap */}
             <div className="mt-8">
                 <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+                    <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
                         <Clock className="h-5 w-5 text-indigo-600" />
                         Engagement Heatmap
                     </h2>
-                    <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Phase 33</span>
+                    <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full">Phase 33</span>
                 </div>
                 <EngagementHeatmap />
             </div>
@@ -381,7 +381,7 @@ export default function AnalyticsPage() {
             {/* Student Behavioral Pulse Monitor */}
             <div className="mt-8">
                 <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+                    <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
                         <Eye className="h-5 w-5 text-purple-600" />
                         Student Pulse Monitor
                     </h2>
@@ -393,11 +393,11 @@ export default function AnalyticsPage() {
             {/* Feedback Aggregator */}
             <div className="mt-8">
                 <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+                    <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
                         <Users className="h-5 w-5 text-indigo-600" />
                         Student Feedback
                     </h2>
-                    <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Phase 32</span>
+                    <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full">Phase 32</span>
                 </div>
                 <FeedbackAggregator />
             </div>

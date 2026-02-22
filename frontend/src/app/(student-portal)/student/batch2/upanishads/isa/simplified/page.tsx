@@ -68,7 +68,7 @@ export default function IshaSimplifiedPage() {
                     >
                         {/* Pulsing Circle */}
                         <span className="absolute inset-0 rounded-full bg-amber-400/50 animate-ping" />
-                        <span className="relative flex items-center justify-center w-10 h-10 rounded-full bg-amber-500 text-slate-900 font-bold shadow-lg shadow-amber-500/50 cursor-pointer hover:scale-110 transition-transform">
+                        <span className="relative flex items-center justify-center w-10 h-10 rounded-full bg-amber-500 text-foreground font-bold shadow-lg shadow-amber-500/50 cursor-pointer hover:scale-110 transition-transform">
                             {idx + 1}
                         </span>
 
@@ -111,7 +111,7 @@ export default function IshaSimplifiedPage() {
                     {/* Back Link */}
                     <Link
                         href="/student/batch2/upanishads/isa"
-                        className="flex items-center gap-2 text-slate-400 hover:text-amber-400 transition-colors"
+                        className="flex items-center gap-2 text-muted-foreground hover:text-amber-400 transition-colors"
                     >
                         <ArrowLeft className="w-5 h-5" />
                         <span className="hidden sm:inline">Detailed View</span>
@@ -122,8 +122,8 @@ export default function IshaSimplifiedPage() {
                         <button
                             onClick={() => setLang("en")}
                             className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${lang === "en"
-                                    ? "bg-amber-500 text-slate-900"
-                                    : "text-slate-400 hover:text-white"
+                                    ? "bg-amber-500 text-foreground"
+                                    : "text-muted-foreground hover:text-white"
                                 }`}
                         >
                             English
@@ -131,8 +131,8 @@ export default function IshaSimplifiedPage() {
                         <button
                             onClick={() => setLang("hi")}
                             className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${lang === "hi"
-                                    ? "bg-amber-500 text-slate-900"
-                                    : "text-slate-400 hover:text-white"
+                                    ? "bg-amber-500 text-foreground"
+                                    : "text-muted-foreground hover:text-white"
                                 }`}
                         >
                             हिन्दी
@@ -142,7 +142,7 @@ export default function IshaSimplifiedPage() {
                     {/* Audio Toggle */}
                     <button
                         onClick={() => setIsPlaying(!isPlaying)}
-                        className="p-2 rounded-full bg-slate-800 text-slate-400 hover:text-amber-400 transition-colors"
+                        className="p-2 rounded-full bg-slate-800 text-muted-foreground hover:text-amber-400 transition-colors"
                     >
                         {isPlaying ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5" />}
                     </button>
@@ -197,7 +197,7 @@ export default function IshaSimplifiedPage() {
                                     onClick={() => setGoldenLidRevealed(true)}
                                 >
                                     <div className="absolute inset-0 flex items-center justify-center">
-                                        <p className="text-slate-900 font-bold text-lg">
+                                        <p className="text-foreground font-bold text-lg">
                                             {lang === "en" ? "Unveil Truth" : "सत्य प्रकट करें"}
                                         </p>
                                     </div>
@@ -218,7 +218,7 @@ export default function IshaSimplifiedPage() {
                                         <p className="text-4xl md:text-5xl font-serif text-amber-400 mb-4">
                                             {lang === "en" ? meta.revealTextEn : meta.revealTextHi}
                                         </p>
-                                        <p className="text-slate-400 text-sm">
+                                        <p className="text-muted-foreground text-sm">
                                             {lang === "en"
                                                 ? "The Truth was always within you."
                                                 : "सत्य सदैव आपके भीतर था।"
@@ -261,10 +261,10 @@ export default function IshaSimplifiedPage() {
             {/* Footer */}
             <footer className="bg-slate-950 border-t border-slate-800 py-8">
                 <div className="max-w-4xl mx-auto px-4 text-center">
-                    <p className="text-slate-500 text-sm">
+                    <p className="text-muted-foreground text-sm">
                         ॐ पूर्णमदः पूर्णमिदं पूर्णात्पूर्णमुदच्यते ।
                     </p>
-                    <p className="text-slate-600 text-xs mt-2">
+                    <p className="text-muted-foreground text-xs mt-2">
                         {lang === "en"
                             ? "That is complete, This is complete. From the Complete, the Complete arises."
                             : "वह पूर्ण है, यह पूर्ण है। पूर्ण से पूर्ण प्रकट होता है।"

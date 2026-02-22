@@ -53,7 +53,7 @@ export default function DiscussionForum() {
     const currentPosts = MOCK_POSTS.filter(p => p.channel === activeChannel || activeChannel === 'general');
 
     return (
-        <div className="flex h-[calc(100vh-100px)] border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden bg-white dark:bg-neutral-900">
+        <div className="flex h-[calc(100vh-100px)] border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden bg-card dark:bg-neutral-900">
             {/* Sidebar Channels */}
             <div className="w-64 bg-neutral-50 dark:bg-neutral-950 border-r border-neutral-200 dark:border-neutral-800 flex flex-col">
                 <div className="p-4 border-b border-neutral-200 dark:border-neutral-800">
@@ -86,7 +86,7 @@ export default function DiscussionForum() {
             {/* Main Chat Area */}
             <div className="flex-1 flex flex-col">
                 {/* Header */}
-                <div className="h-16 flex items-center justify-between px-6 border-b border-neutral-200 dark:border-neutral-800 bg-white/50 backdrop-blur">
+                <div className="h-16 flex items-center justify-between px-6 border-b border-neutral-200 dark:border-neutral-800 bg-card/50 backdrop-blur">
                     <div className="flex items-center gap-2 font-bold text-lg">
                         <Hash className="w-5 h-5 text-neutral-400" />
                         {CHANNELS.find(c => c.id === activeChannel)?.name}
@@ -132,7 +132,7 @@ export default function DiscussionForum() {
                 </ScrollArea>
 
                 {/* Input Area */}
-                <div className="p-4 border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+                <div className="p-4 border-t border-neutral-200 dark:border-neutral-800 bg-card dark:bg-neutral-900">
                     <div className="max-w-3xl mx-auto flex gap-4">
                         <Button variant="outline" size="icon" className="shrink-0">
                             <MoreHorizontal className="w-5 h-5 text-neutral-500" />

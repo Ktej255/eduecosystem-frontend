@@ -50,7 +50,7 @@ export default function RevisionWheel({ onClose }: RevisionWheelProps) {
 
     return (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <Card className="w-full max-w-2xl bg-white dark:bg-gray-900 border-none shadow-2xl overflow-hidden relative">
+            <Card className="w-full max-w-2xl bg-card border-none shadow-2xl overflow-hidden relative">
                 <Button
                     className="absolute top-4 right-4 z-10 rounded-full h-10 w-10 p-0"
                     variant="ghost"
@@ -65,7 +65,7 @@ export default function RevisionWheel({ onClose }: RevisionWheelProps) {
                             <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
                                 Revision Wheel
                             </h2>
-                            <p className="text-gray-500 text-center max-w-md">
+                            <p className="text-muted-foreground text-center max-w-md">
                                 Spin the wheel to get a random topic from your completed modules.
                                 Recall and record your summary to check retention!
                             </p>
@@ -103,15 +103,15 @@ export default function RevisionWheel({ onClose }: RevisionWheelProps) {
                                 <Award className="h-10 w-10" />
                             </div>
 
-                            <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-widest">
+                            <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-widest">
                                 Your Topic
                             </h2>
-                            <h3 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-gray-100">
+                            <h3 className="text-3xl md:text-4xl font-bold text-center text-foreground">
                                 {selectedTopic}
                             </h3>
 
-                            <div className="w-full max-w-md bg-gray-50 dark:bg-gray-800 rounded-xl p-6 border-2 border-dashed border-gray-200 dark:border-gray-700 mt-8">
-                                <p className="text-center text-sm text-gray-500 mb-4">
+                            <div className="w-full max-w-md bg-muted rounded-xl p-6 border-2 border-dashed border-border mt-8">
+                                <p className="text-center text-sm text-muted-foreground mb-4">
                                     Tap microphone to record your explanation (max 2 mins)
                                 </p>
                                 <div className="flex justify-center">

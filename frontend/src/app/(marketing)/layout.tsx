@@ -8,9 +8,9 @@ export default function MarketingLayout({
     children: React.ReactNode;
 }) {
     return (
-        <div className="min-h-screen bg-white dark:bg-black font-sans selection:bg-blue-100 dark:selection:bg-blue-900">
+        <div className="min-h-screen bg-card dark:bg-black font-sans selection:bg-blue-100 dark:selection:bg-blue-900">
             {/* Global Navigation */}
-            <header className="sticky top-0 z-50 w-full border-b border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-black/80 backdrop-blur-md">
+            <header className="sticky top-0 z-50 w-full border-b border-border bg-card/80 dark:bg-black/80 backdrop-blur-md">
                 <div className="container mx-auto px-4 h-16 flex items-center justify-between">
 
                     {/* Logo / Brand */}
@@ -22,7 +22,7 @@ export default function MarketingLayout({
                     </Link>
 
                     {/* Desktop Product Nav */}
-                    <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground dark:text-muted-foreground">
                         <Link href="/batch1" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1.5">
                             <BookOpen className="w-4 h-4" /> Batch 1
                         </Link>
@@ -43,7 +43,7 @@ export default function MarketingLayout({
                     {/* Auth Button */}
                     <div>
                         <Link href="/login">
-                            <Button size="sm" className="rounded-full px-6 font-semibold bg-gray-900 text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+                            <Button size="sm" className="rounded-full px-6 font-semibold bg-gray-900 text-white hover:bg-gray-800 dark:bg-card dark:text-black dark:hover:bg-muted">
                                 Student Login <ArrowRight className="w-4 h-4 ml-1" />
                             </Button>
                         </Link>
@@ -57,7 +57,7 @@ export default function MarketingLayout({
             </main>
 
             {/* Global Footer */}
-            <footer className="border-t border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-neutral-900">
+            <footer className="border-t border-border bg-muted dark:bg-neutral-900">
                 <div className="container mx-auto px-4 py-12 md:py-16">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         <div className="col-span-2 md:col-span-1">
@@ -65,14 +65,14 @@ export default function MarketingLayout({
                                 <div className="w-6 h-6 rounded bg-blue-600"></div>
                                 Eduecosystem
                             </div>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                            <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                                 Integrated learning platform for holistic growth. Mastering the mind, the pen, and the syllabus.
                             </p>
                         </div>
 
                         <div className="space-y-4">
-                            <h4 className="font-bold text-sm uppercase tracking-wider text-gray-900 dark:text-white">Programs</h4>
-                            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                            <h4 className="font-bold text-sm uppercase tracking-wider text-foreground">Programs</h4>
+                            <ul className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
                                 <li><Link href="/batch1" className="hover:underline">UPSC Prelims (Batch 1)</Link></li>
                                 <li><Link href="/batch2" className="hover:underline">Sanatana Dharma (Batch 2)</Link></li>
                                 <li><Link href="/graphotherapy" className="hover:underline">Graphotherapy</Link></li>
@@ -80,8 +80,8 @@ export default function MarketingLayout({
                         </div>
 
                         <div className="space-y-4">
-                            <h4 className="font-bold text-sm uppercase tracking-wider text-gray-900 dark:text-white">Tools</h4>
-                            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                            <h4 className="font-bold text-sm uppercase tracking-wider text-foreground">Tools</h4>
+                            <ul className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
                                 <li><Link href="/revision" className="hover:underline">Revision Portal</Link></li>
                                 <li><Link href="/meditation" className="hover:underline">Meditation Center</Link></li>
                                 <li><Link href="/student/dashboard" className="hover:underline">Student Dashboard</Link></li>
@@ -89,14 +89,14 @@ export default function MarketingLayout({
                         </div>
 
                         <div className="space-y-4">
-                            <h4 className="font-bold text-sm uppercase tracking-wider text-gray-900 dark:text-white">Legal</h4>
-                            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                            <h4 className="font-bold text-sm uppercase tracking-wider text-foreground">Legal</h4>
+                            <ul className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
                                 <li>Privacy Policy</li>
                                 <li>Terms of Service</li>
                             </ul>
                         </div>
                     </div>
-                    <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800 text-center text-xs text-gray-400">
+                    <div className="mt-12 pt-8 border-t border-border text-center text-xs text-muted-foreground">
                         © {new Date().getFullYear()} Eduecosystem. All rights reserved.
                     </div>
                 </div>

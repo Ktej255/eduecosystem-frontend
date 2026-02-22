@@ -22,7 +22,7 @@ export default function HeroSection() {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
                     <div className="text-center lg:text-left">
-                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+                        <div className="inline-flex items-center gap-2 bg-card/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
                             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                             <span className="text-white/90 text-sm font-medium">Trusted by 500+ Educational Institutions</span>
                         </div>
@@ -44,7 +44,7 @@ export default function HeroSection() {
                             {highlights.map((item, index) => (
                                 <div
                                     key={index}
-                                    className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2"
+                                    className="flex items-center gap-2 bg-card/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2"
                                 >
                                     <CheckCircle className="w-4 h-4 text-emerald-400" />
                                     <span className="text-white/80 text-sm">{item}</span>
@@ -60,7 +60,7 @@ export default function HeroSection() {
                                 <ArrowRight className="w-5 h-5" />
                             </button>
                             <button className="flex items-center gap-2 text-white/90 hover:text-white transition-colors group">
-                                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                                <div className="w-12 h-12 rounded-full bg-card/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-card/20 transition-colors">
                                     <Play className="w-5 h-5 fill-current" />
                                 </div>
                                 <span className="font-medium">Watch Demo</span>
@@ -84,19 +84,19 @@ export default function HeroSection() {
 
                                 {/* Stats Grid */}
                                 <div className="grid grid-cols-2 gap-4 mb-6">
-                                    <div className="bg-white/10 rounded-xl p-4">
+                                    <div className="bg-card/10 rounded-xl p-4">
                                         <div className="text-2xl font-bold text-white">₹2.4Cr</div>
                                         <div className="text-sm text-white/60">Total Collected</div>
                                     </div>
-                                    <div className="bg-white/10 rounded-xl p-4">
+                                    <div className="bg-card/10 rounded-xl p-4">
                                         <div className="text-2xl font-bold text-emerald-400">98%</div>
                                         <div className="text-sm text-white/60">Collection Rate</div>
                                     </div>
-                                    <div className="bg-white/10 rounded-xl p-4">
+                                    <div className="bg-card/10 rounded-xl p-4">
                                         <div className="text-2xl font-bold text-white">1,247</div>
                                         <div className="text-sm text-white/60">Active Students</div>
                                     </div>
-                                    <div className="bg-white/10 rounded-xl p-4">
+                                    <div className="bg-card/10 rounded-xl p-4">
                                         <div className="text-2xl font-bold text-cyan-400">24</div>
                                         <div className="text-sm text-white/60">Pending Dues</div>
                                     </div>
@@ -115,27 +115,27 @@ export default function HeroSection() {
                             </div>
 
                             {/* Floating Card 1 */}
-                            <div className="absolute -top-6 -right-6 bg-white dark:bg-slate-800 rounded-xl p-4 shadow-xl animate-fade-in-up stagger-1">
+                            <div className="absolute -top-6 -right-6 bg-card rounded-xl p-4 shadow-xl animate-fade-in-up stagger-1">
                                 <div className="flex items-center gap-3">
                                     <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center">
                                         <CheckCircle className="w-5 h-5 text-emerald-600" />
                                     </div>
                                     <div>
-                                        <div className="font-semibold text-slate-900 dark:text-white">Payment Received</div>
-                                        <div className="text-sm text-slate-500">₹45,000 • Just now</div>
+                                        <div className="font-semibold text-foreground">Payment Received</div>
+                                        <div className="text-sm text-muted-foreground">₹45,000 • Just now</div>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Floating Card 2 */}
-                            <div className="absolute -bottom-4 -left-6 bg-white dark:bg-slate-800 rounded-xl p-4 shadow-xl animate-fade-in-up stagger-2">
+                            <div className="absolute -bottom-4 -left-6 bg-card rounded-xl p-4 shadow-xl animate-fade-in-up stagger-2">
                                 <div className="flex items-center gap-3">
                                     <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center">
                                         <Calendar className="w-5 h-5 text-indigo-600" />
                                     </div>
                                     <div>
-                                        <div className="font-semibold text-slate-900 dark:text-white">Auto-Debit</div>
-                                        <div className="text-sm text-slate-500">23 scheduled today</div>
+                                        <div className="font-semibold text-foreground">Auto-Debit</div>
+                                        <div className="text-sm text-muted-foreground">23 scheduled today</div>
                                     </div>
                                 </div>
                             </div>

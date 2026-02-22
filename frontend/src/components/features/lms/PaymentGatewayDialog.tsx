@@ -206,7 +206,7 @@ export function PaymentGatewayDialog({
           <DialogTitle className="text-white text-2xl">
             Select Payment Method
           </DialogTitle>
-          <DialogDescription className="text-gray-400">
+          <DialogDescription className="text-muted-foreground">
             Choose your preferred payment gateway
           </DialogDescription>
         </DialogHeader>
@@ -214,13 +214,13 @@ export function PaymentGatewayDialog({
         {/* Course Summary */}
         <div className="bg-gray-800/50 rounded-lg p-4 mb-4">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-gray-400 text-sm">Course</span>
+            <span className="text-muted-foreground text-sm">Course</span>
             <span className="text-white font-medium text-sm">
               {courseTitle}
             </span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-gray-400 text-sm">Total Amount</span>
+            <span className="text-muted-foreground text-sm">Total Amount</span>
             <span className="text-cyan-400 font-bold text-xl">
               ₹{price.toFixed(2)}
             </span>
@@ -253,7 +253,7 @@ export function PaymentGatewayDialog({
                         </span>
                       )}
                     </div>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-muted-foreground text-sm">
                       {gateway.description}
                     </p>
                   </div>
@@ -313,7 +313,7 @@ export function PaymentGatewayDialog({
               </Button>
             </div>
             <div className="space-y-1 text-sm">
-              <div className="flex justify-between text-gray-400">
+              <div className="flex justify-between text-muted-foreground">
                 <span>Original Price:</span>
                 <span>₹{price}</span>
               </div>

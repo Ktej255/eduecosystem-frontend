@@ -229,7 +229,7 @@ export default function PDFStudySession({ segmentKey, onBack, onComplete }: PDFS
         return (
             <div className="flex flex-col items-center justify-center min-h-[400px]">
                 <Loader2 className="h-12 w-12 animate-spin text-purple-500 mb-4" />
-                <p className="text-gray-400">Loading PDF...</p>
+                <p className="text-muted-foreground">Loading PDF...</p>
             </div>
         );
     }
@@ -237,9 +237,9 @@ export default function PDFStudySession({ segmentKey, onBack, onComplete }: PDFS
     if (!pdfData) {
         return (
             <div className="text-center py-12">
-                <FileText className="h-16 w-16 mx-auto text-gray-500 mb-4" />
-                <h3 className="text-xl font-bold text-gray-300 mb-2">No PDF Available</h3>
-                <p className="text-gray-500 mb-4">This segment doesn't have a PDF yet.</p>
+                <FileText className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
+                <h3 className="text-xl font-bold text-muted-foreground mb-2">No PDF Available</h3>
+                <p className="text-muted-foreground mb-4">This segment doesn't have a PDF yet.</p>
                 <Button variant="outline" onClick={onBack}>Go Back</Button>
             </div>
         );
@@ -254,14 +254,14 @@ export default function PDFStudySession({ segmentKey, onBack, onComplete }: PDFS
                         <FileText className="h-6 w-6 text-purple-500" />
                         PDF Self-Study
                     </h2>
-                    <p className="text-gray-400">{pdfData.title}</p>
+                    <p className="text-muted-foreground">{pdfData.title}</p>
                 </div>
                 <div className="text-right">
                     <div className={`text-3xl font-mono font-bold ${timeRemaining < 60 ? "text-red-500" : "text-cyan-400"}`}>
                         <Clock className="inline h-5 w-5 mr-2" />
                         {formatTime(timeRemaining)}
                     </div>
-                    <div className="text-xs text-gray-500">
+                    <div className="text-xs text-muted-foreground">
                         Page {currentPage} of {pdfData.page_count}
                     </div>
                 </div>
@@ -269,7 +269,7 @@ export default function PDFStudySession({ segmentKey, onBack, onComplete }: PDFS
 
             {/* Progress */}
             <div className="space-y-2">
-                <div className="flex justify-between text-sm text-gray-400">
+                <div className="flex justify-between text-sm text-muted-foreground">
                     <span>{completedPages.length} pages completed</span>
                     <span>{Math.round(progress)}%</span>
                 </div>
@@ -285,7 +285,7 @@ export default function PDFStudySession({ segmentKey, onBack, onComplete }: PDFS
                     </CardHeader>
                     <CardContent>
                         {pageImage && (
-                            <div className="bg-white rounded-lg overflow-hidden max-h-[500px] overflow-y-auto">
+                            <div className="bg-card rounded-lg overflow-hidden max-h-[500px] overflow-y-auto">
                                 <img
                                     src={`data:image/png;base64,${pageImage}`}
                                     alt={`Page ${currentPage}`}
@@ -307,7 +307,7 @@ export default function PDFStudySession({ segmentKey, onBack, onComplete }: PDFS
                     <CardContent className="space-y-4">
                         {!recallResult ? (
                             <>
-                                <p className="text-gray-400 text-sm">
+                                <p className="text-muted-foreground text-sm">
                                     Read the page carefully, then record yourself explaining what you learned.
                                 </p>
 
@@ -327,7 +327,7 @@ export default function PDFStudySession({ segmentKey, onBack, onComplete }: PDFS
                                             <p className="text-green-400 font-medium">Recording Ready</p>
                                         </div>
                                     )}
-                                    <p className="text-sm text-gray-500">
+                                    <p className="text-sm text-muted-foreground">
                                         {isRecording ? "Recording... Click to stop" : audioBlob ? "Ready to submit" : "Click to start recording"}
                                     </p>
                                 </div>
@@ -360,7 +360,7 @@ export default function PDFStudySession({ segmentKey, onBack, onComplete }: PDFS
                                     <div className={`text-5xl font-black mb-2 ${recallResult.passed ? "text-green-400" : "text-amber-400"}`}>
                                         {recallResult.score}%
                                     </div>
-                                    <p className="text-sm text-gray-400">
+                                    <p className="text-sm text-muted-foreground">
                                         {recallResult.passed ? "✅ Great job! You can proceed." : "⚠️ Need 80% to continue. Review and try again."}
                                     </p>
                                 </div>
@@ -368,7 +368,7 @@ export default function PDFStudySession({ segmentKey, onBack, onComplete }: PDFS
                                 {recallResult.recalled_points.length > 0 && (
                                     <div>
                                         <h4 className="text-green-400 font-bold mb-2">✓ Points Recalled:</h4>
-                                        <ul className="text-sm text-gray-300 space-y-1">
+                                        <ul className="text-sm text-muted-foreground space-y-1">
                                             {recallResult.recalled_points.map((p, i) => (
                                                 <li key={i}>• {p}</li>
                                             ))}
@@ -379,7 +379,7 @@ export default function PDFStudySession({ segmentKey, onBack, onComplete }: PDFS
                                 {recallResult.missing_points.length > 0 && (
                                     <div>
                                         <h4 className="text-amber-400 font-bold mb-2">✗ Points Missing:</h4>
-                                        <ul className="text-sm text-gray-300 space-y-1">
+                                        <ul className="text-sm text-muted-foreground space-y-1">
                                             {recallResult.missing_points.map((p, i) => (
                                                 <li key={i}>• {p}</li>
                                             ))}
@@ -387,7 +387,7 @@ export default function PDFStudySession({ segmentKey, onBack, onComplete }: PDFS
                                     </div>
                                 )}
 
-                                <p className="text-gray-400 italic text-sm">{recallResult.feedback}</p>
+                                <p className="text-muted-foreground italic text-sm">{recallResult.feedback}</p>
 
                                 <div className="flex gap-4">
                                     {!recallResult.passed && (
@@ -419,7 +419,7 @@ export default function PDFStudySession({ segmentKey, onBack, onComplete }: PDFS
                         <CardContent className="p-6 text-center">
                             <Coins className="h-12 w-12 text-amber-500 mx-auto mb-4" />
                             <h3 className="text-xl font-bold text-white mb-2">Need More Time?</h3>
-                            <p className="text-gray-400 mb-4">
+                            <p className="text-muted-foreground mb-4">
                                 Requesting 10 more minutes will deduct <strong className="text-amber-400">5 coins</strong> from your balance.
                             </p>
                             <div className="flex gap-4">

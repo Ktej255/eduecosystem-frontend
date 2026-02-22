@@ -29,7 +29,7 @@ function PortalContent() {
 
 export default function HistoryPortalPage() {
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-[#050505]">
+        <div className="min-h-screen bg-muted dark:bg-[#050505]">
             <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading Portal...</div>}>
                 <PortalContent />
             </Suspense>

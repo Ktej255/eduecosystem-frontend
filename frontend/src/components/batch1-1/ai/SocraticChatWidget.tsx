@@ -89,11 +89,11 @@ export default function SocraticChatWidget() {
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}
                         className="mb-4 pointer-events-auto origin-bottom-right"
                     >
-                        <Card className="w-[350px] h-[500px] flex flex-col shadow-2xl border-indigo-200 dark:border-indigo-800 bg-white dark:bg-gray-900 overflow-hidden rounded-2xl">
+                        <Card className="w-[350px] h-[500px] flex flex-col shadow-2xl border-indigo-200 dark:border-indigo-800 bg-card overflow-hidden rounded-2xl">
                             {/* Header */}
                             <div className="p-4 bg-gradient-to-r from-indigo-600 to-violet-600 text-white flex justify-between items-center">
                                 <div className="flex items-center gap-2">
-                                    <div className="bg-white/20 p-2 rounded-full">
+                                    <div className="bg-card/20 p-2 rounded-full">
                                         <Sparkles className="h-4 w-4 text-white" />
                                     </div>
                                     <div>
@@ -101,19 +101,19 @@ export default function SocraticChatWidget() {
                                         <p className="text-xs text-indigo-100 opacity-80">AI Learning Guide</p>
                                     </div>
                                 </div>
-                                <Button size="icon" variant="ghost" className="h-8 w-8 text-white hover:bg-white/20 rounded-full" onClick={() => setIsOpen(false)}>
+                                <Button size="icon" variant="ghost" className="h-8 w-8 text-white hover:bg-card/20 rounded-full" onClick={() => setIsOpen(false)}>
                                     <X className="h-4 w-4" />
                                 </Button>
                             </div>
 
                             {/* Chat Area */}
-                            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-950/50" ref={scrollRef}>
+                            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-muted/50" ref={scrollRef}>
                                 {messages.map((msg, i) => (
                                     <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                                         <div
                                             className={`max-w-[85%] px-4 py-2 rounded-2xl text-sm ${msg.role === 'user'
                                                 ? 'bg-indigo-600 text-white rounded-br-none'
-                                                : 'bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-100 dark:border-gray-700 rounded-bl-none shadow-sm'
+                                                : 'bg-card text-foreground border border-border rounded-bl-none shadow-sm'
                                                 }`}
                                         >
                                             {msg.text}
@@ -122,23 +122,23 @@ export default function SocraticChatWidget() {
                                 ))}
                                 {isLoading && (
                                     <div className="flex justify-start">
-                                        <div className="bg-white dark:bg-gray-800 px-4 py-2 rounded-2xl rounded-bl-none border border-gray-100 dark:border-gray-700 shadow-sm flex items-center gap-2">
+                                        <div className="bg-card px-4 py-2 rounded-2xl rounded-bl-none border border-border shadow-sm flex items-center gap-2">
                                             <Loader2 className="h-4 w-4 animate-spin text-indigo-500" />
-                                            <span className="text-xs text-gray-400">Thinking...</span>
+                                            <span className="text-xs text-muted-foreground">Thinking...</span>
                                         </div>
                                     </div>
                                 )}
                             </div>
 
                             {/* Input Area */}
-                            <div className="p-3 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+                            <div className="p-3 bg-card border-t border-border">
                                 <div className="flex gap-2">
                                     <Input
                                         value={input}
                                         onChange={(e) => setInput(e.target.value)}
                                         onKeyDown={handleKeyDown}
                                         placeholder="Ask specific question..."
-                                        className="rounded-full border-gray-200 dark:border-gray-700 focus:border-indigo-500"
+                                        className="rounded-full border-border focus:border-indigo-500"
                                         disabled={isLoading}
                                     />
                                     <Button

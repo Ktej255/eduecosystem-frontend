@@ -58,7 +58,7 @@ const FeaturePillar = ({ title, desc, icon: Icon }: { title: string, desc: strin
 );
 
 const ComparisonRow = ({ label, left, right, highlight }: { label: string, left: React.ReactNode, right: React.ReactNode, highlight?: boolean }) => (
-    <div className={`grid grid-cols-[1fr_2fr_2fr] gap-4 p-4 border-b border-white/10 items-center ${highlight ? 'bg-white/5' : ''}`}>
+    <div className={`grid grid-cols-[1fr_2fr_2fr] gap-4 p-4 border-b border-white/10 items-center ${highlight ? 'bg-card/5' : ''}`}>
         <div className="font-bold text-amber-400 text-sm font-serif">{label}</div>
         <div className="text-sm text-green-200 font-handwriting border-l border-white/10 pl-4">{left}</div>
         <div className="text-sm text-blue-200 font-handwriting border-l border-white/10 pl-4">{right}</div>
@@ -209,7 +209,7 @@ export default function ParliamentarySystemModule({ onComplete, isCompleted }: P
 
             <div className="bg-slate-900 border border-slate-700 rounded-xl overflow-hidden shadow-2xl">
                 <div className="grid grid-cols-[1fr_2fr_2fr] gap-4 p-4 bg-slate-800 border-b border-slate-700">
-                    <div className="text-xs uppercase font-bold text-slate-400">Feature</div>
+                    <div className="text-xs uppercase font-bold text-muted-foreground">Feature</div>
                     <div className="text-xs uppercase font-bold text-green-400 flex items-center gap-2"><Crown size={12} /> British Model</div>
                     <div className="text-xs uppercase font-bold text-blue-400 flex items-center gap-2"><Landmark size={12} /> Indian Model</div>
                 </div>
@@ -260,7 +260,7 @@ export default function ParliamentarySystemModule({ onComplete, isCompleted }: P
                     </div>
                 </div>
 
-                <p className="text-slate-400 text-sm max-w-xl mx-auto mb-8 font-serif leading-relaxed">
+                <p className="text-muted-foreground text-sm max-w-xl mx-auto mb-8 font-serif leading-relaxed">
                     <strong className="text-green-400">Swaran Singh Committee (1975)</strong> considered switching to a Presidential System but rejected it. The Parliamentary system is now part of the <strong>Basic Structure</strong>.
                 </p>
 

@@ -194,7 +194,7 @@ function ParticipantTile({ id }: { id: string }) {
       {videoTrack.isOff && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
           <div className="h-20 w-20 rounded-full bg-gray-700 flex items-center justify-center">
-            <span className="text-2xl text-gray-400">
+            <span className="text-2xl text-muted-foreground">
               {id === "local" ? "You" : "User"}
             </span>
           </div>

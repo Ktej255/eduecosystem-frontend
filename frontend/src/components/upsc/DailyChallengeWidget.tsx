@@ -47,11 +47,11 @@ export default function DailyChallengeWidget() {
                 <p className="text-orange-100 mb-4">You scored {score}/{DAILY_QUESTIONS.length}</p>
 
                 <div className="flex justify-center gap-4 text-sm font-bold">
-                    <div className="bg-white/20 px-4 py-2 rounded-xl flex items-center gap-2">
+                    <div className="bg-card/20 px-4 py-2 rounded-xl flex items-center gap-2">
                         <Star className="w-4 h-4 text-yellow-300" />
                         +{score * 10 + 15} XP
                     </div>
-                    <div className="bg-white/20 px-4 py-2 rounded-xl flex items-center gap-2">
+                    <div className="bg-card/20 px-4 py-2 rounded-xl flex items-center gap-2">
                         <Flame className="w-4 h-4 text-orange-200" />
                         Streak Saved!
                     </div>
@@ -63,11 +63,11 @@ export default function DailyChallengeWidget() {
     const question = DAILY_QUESTIONS[currentQ];
 
     return (
-        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+        <div className="bg-card dark:bg-[#111] rounded-2xl border border-border overflow-hidden">
             <div className="bg-orange-50 dark:bg-orange-900/10 p-4 border-b border-orange-100 dark:border-orange-800/30 flex justify-between items-center">
                 <div className="flex items-center gap-2">
                     <Flame className="w-5 h-5 text-orange-500" />
-                    <h3 className="font-bold text-gray-900 dark:text-white">Daily Challenge</h3>
+                    <h3 className="font-bold text-foreground">Daily Challenge</h3>
                 </div>
                 <div className="text-xs font-bold text-orange-600 bg-orange-100 px-2 py-0.5 rounded">
                     {currentQ + 1}/{DAILY_QUESTIONS.length}
@@ -75,7 +75,7 @@ export default function DailyChallengeWidget() {
             </div>
 
             <div className="p-5">
-                <p className="font-medium text-gray-800 dark:text-gray-200 mb-4 min-h-[48px]">
+                <p className="font-medium text-foreground mb-4 min-h-[48px]">
                     {question.q}
                 </p>
 
@@ -88,7 +88,7 @@ export default function DailyChallengeWidget() {
                             className={`w-full text-left p-3 rounded-xl border text-sm transition-all flex justify-between items-center
                                 ${selected === idx
                                     ? (idx === question.a ? 'bg-green-100 border-green-500 text-green-800' : 'bg-red-100 border-red-500 text-red-800')
-                                    : 'bg-white dark:bg-[#151515] border-gray-200 dark:border-gray-700 hover:border-orange-400'}`}
+                                    : 'bg-card dark:bg-[#151515] border-border hover:border-orange-400'}`}
                         >
                             {opt}
                             {selected === idx && <ChevronRight className="w-4 h-4" />}

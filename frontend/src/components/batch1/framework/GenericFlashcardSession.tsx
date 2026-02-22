@@ -148,18 +148,18 @@ export default function GenericFlashcardSession({ flashcards: initialFlashcards,
             case 'concept': return 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400';
             case 'fact': return 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400';
             case 'article': return 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400';
-            default: return 'bg-gray-100 text-gray-700';
+            default: return 'bg-muted text-muted-foreground';
         }
     };
 
     if (flashcards.length === 0) {
         return (
             <div className="text-center py-12">
-                <BookOpen className="h-16 w-16 mx-auto text-gray-400 mb-4" />
-                <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <BookOpen className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
+                <h3 className="text-xl font-semibold text-muted-foreground dark:text-muted-foreground mb-2">
                     No Flashcards Available
                 </h3>
-                <p className="text-gray-500 mb-4">
+                <p className="text-muted-foreground mb-4">
                     {title ? `${title} content is being prepared.` : "Content is being prepared."}
                 </p>
                 <Button variant="outline" onClick={onClose}>
@@ -181,10 +181,10 @@ export default function GenericFlashcardSession({ flashcards: initialFlashcards,
                 </div>
 
                 <div>
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                    <h2 className="text-2xl font-bold text-foreground mb-2">
                         Session Complete! 🎉
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-muted-foreground dark:text-muted-foreground">
                         You reviewed all {flashcards.length} cards
                     </p>
                 </div>
@@ -227,7 +227,7 @@ export default function GenericFlashcardSession({ flashcards: initialFlashcards,
                 <Button variant="ghost" size="sm" onClick={onClose}>
                     <ArrowLeft className="mr-2 h-4 w-4" /> Back
                 </Button>
-                <div className="text-sm text-gray-500">
+                <div className="text-sm text-muted-foreground">
                     Card {currentIndex + 1} of {flashcards.length}
                 </div>
             </div>
@@ -269,11 +269,11 @@ export default function GenericFlashcardSession({ flashcards: initialFlashcards,
                                 {currentCard?.category?.toUpperCase()}
                             </div>
 
-                            <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 dark:text-gray-100">
+                            <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground">
                                 {currentCard?.front}
                             </h2>
 
-                            <p className="text-gray-400 mt-6 text-sm">
+                            <p className="text-muted-foreground mt-6 text-sm">
                                 Tap to reveal answer
                             </p>
                         </CardContent>
@@ -289,11 +289,11 @@ export default function GenericFlashcardSession({ flashcards: initialFlashcards,
                         }}
                     >
                         <CardContent className="p-8 flex flex-col items-center justify-center min-h-[300px]">
-                            <div className="text-xs text-gray-500 mb-4 uppercase tracking-wider">
+                            <div className="text-xs text-muted-foreground mb-4 uppercase tracking-wider">
                                 {currentCard?.source}
                             </div>
 
-                            <p className="text-lg md:text-xl text-center text-gray-800 dark:text-gray-200 whitespace-pre-line">
+                            <p className="text-lg md:text-xl text-center text-foreground whitespace-pre-line">
                                 {currentCard?.back}
                             </p>
 
@@ -306,7 +306,7 @@ export default function GenericFlashcardSession({ flashcards: initialFlashcards,
                             {isAnalyzing && (
                                 <div className="mt-6 flex flex-col items-center gap-2">
                                     <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                                    <p className="text-sm text-gray-500 font-medium">AI Analyzing...</p>
+                                    <p className="text-sm text-muted-foreground font-medium">AI Analyzing...</p>
                                 </div>
                             )}
 
@@ -320,8 +320,8 @@ export default function GenericFlashcardSession({ flashcards: initialFlashcards,
                                         </div>
                                     </div>
 
-                                    <div className="bg-white/50 dark:bg-black/20 p-4 rounded-lg border border-gray-100 dark:border-gray-800">
-                                        <p className="text-sm text-gray-800 dark:text-gray-200">{aiResult.feedback}</p>
+                                    <div className="bg-card/50 dark:bg-black/20 p-4 rounded-lg border border-border">
+                                        <p className="text-sm text-foreground">{aiResult.feedback}</p>
                                     </div>
                                 </div>
                             )}

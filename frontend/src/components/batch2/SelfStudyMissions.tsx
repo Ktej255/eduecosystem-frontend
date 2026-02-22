@@ -150,7 +150,7 @@ export default function SelfStudyMissions() {
                     {[...Array(20)].map((_, i) => (
                         <motion.div
                             key={i}
-                            className="absolute w-2 h-2 bg-white/20 rounded-full"
+                            className="absolute w-2 h-2 bg-card/20 rounded-full"
                             initial={{
                                 x: Math.random() * 100 + "%",
                                 y: Math.random() * 100 + "%",
@@ -176,7 +176,7 @@ export default function SelfStudyMissions() {
                             animate={{ opacity: 1, y: 0 }}
                             className="flex items-center gap-2 mb-4"
                         >
-                            <span className="px-3 py-1 bg-white/20 backdrop-blur rounded-full text-white text-sm font-medium flex items-center gap-1">
+                            <span className="px-3 py-1 bg-card/20 backdrop-blur rounded-full text-white text-sm font-medium flex items-center gap-1">
                                 <Flame className="w-4 h-4 text-yellow-300" />
                                 Featured Research
                             </span>
@@ -222,7 +222,7 @@ export default function SelfStudyMissions() {
                         >
                             <Button
                                 size="lg"
-                                className="bg-white text-gray-900 hover:bg-white/90 shadow-xl"
+                                className="bg-card text-foreground hover:bg-card/90 shadow-xl"
                                 onClick={() => setSelectedContent(featuredContent as ContentItem)}
                             >
                                 <Play className="w-5 h-5 mr-2 fill-current" />
@@ -260,12 +260,12 @@ export default function SelfStudyMissions() {
                         >
                             <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
                                 <CardContent className="p-4 flex items-center gap-3">
-                                    <div className={cn("p-2 rounded-xl bg-gray-100 dark:bg-gray-800", stat.color)}>
+                                    <div className={cn("p-2 rounded-xl bg-muted", stat.color)}>
                                         <stat.icon className="w-5 h-5" />
                                     </div>
                                     <div>
-                                        <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{stat.value}</p>
-                                        <p className="text-xs text-gray-500 dark:text-gray-400">{stat.label}</p>
+                                        <p className="text-2xl font-bold text-foreground">{stat.value}</p>
+                                        <p className="text-xs text-muted-foreground dark:text-muted-foreground">{stat.label}</p>
                                     </div>
                                 </CardContent>
                             </Card>
@@ -307,10 +307,10 @@ export default function SelfStudyMissions() {
             {/* Content Grid */}
             <div className="px-4 md:px-6">
                 <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+                    <h2 className="text-xl font-bold text-foreground">
                         {activeCategory === "all" ? "All Research Content" : CATEGORIES[activeCategory as keyof typeof CATEGORIES]?.label}
                     </h2>
-                    <span className="text-sm text-gray-500">{filteredContent.length} items</span>
+                    <span className="text-sm text-muted-foreground">{filteredContent.length} items</span>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -329,7 +329,7 @@ export default function SelfStudyMissions() {
                                     className="cursor-pointer"
                                     onClick={() => setSelectedContent(content as ContentItem)}
                                 >
-                                    <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white dark:bg-gray-800">
+                                    <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-card">
                                         {/* Thumbnail Area */}
                                         <div className={cn(
                                             "h-32 bg-gradient-to-br flex items-center justify-center relative",
@@ -352,7 +352,7 @@ export default function SelfStudyMissions() {
 
                                             {/* AI Score Badge */}
                                             {content.aiScore !== null && (
-                                                <div className="absolute bottom-3 right-3 px-2 py-1 bg-white/90 rounded-full text-xs font-bold flex items-center gap-1">
+                                                <div className="absolute bottom-3 right-3 px-2 py-1 bg-card/90 rounded-full text-xs font-bold flex items-center gap-1">
                                                     <Brain className="w-3 h-3 text-purple-600" />
                                                     <span className={cn(
                                                         content.aiScore >= 80 ? "text-green-600" :
@@ -363,18 +363,18 @@ export default function SelfStudyMissions() {
                                         </div>
 
                                         <CardContent className="p-4">
-                                            <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-1 line-clamp-1">
+                                            <h3 className="font-bold text-foreground mb-1 line-clamp-1">
                                                 {content.title}
                                             </h3>
-                                            <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-3">
+                                            <p className="text-sm text-muted-foreground dark:text-muted-foreground line-clamp-2 mb-3">
                                                 {content.description}
                                             </p>
                                             <div className="flex items-center justify-between">
-                                                <div className="flex items-center gap-1 text-xs text-gray-400">
+                                                <div className="flex items-center gap-1 text-xs text-muted-foreground">
                                                     <Clock className="w-3 h-3" />
                                                     <span>{content.duration}</span>
                                                 </div>
-                                                <ChevronRight className="w-4 h-4 text-gray-400" />
+                                                <ChevronRight className="w-4 h-4 text-muted-foreground" />
                                             </div>
                                         </CardContent>
                                     </Card>
@@ -399,7 +399,7 @@ export default function SelfStudyMissions() {
                             initial={{ opacity: 0, scale: 0.9, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                            className="bg-white dark:bg-gray-900 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+                            className="bg-card rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
                             onClick={e => e.stopPropagation()}
                         >
                             {/* Modal Header */}
@@ -426,15 +426,15 @@ export default function SelfStudyMissions() {
                                         )}>
                                             {CATEGORIES[selectedContent.category].label}
                                         </span>
-                                        <span className="text-sm text-gray-500 flex items-center gap-1">
+                                        <span className="text-sm text-muted-foreground flex items-center gap-1">
                                             {getTypeIcon(selectedContent.type)}
                                             {selectedContent.duration}
                                         </span>
                                     </div>
-                                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                                    <h2 className="text-2xl font-bold text-foreground">
                                         {selectedContent.title}
                                     </h2>
-                                    <p className="text-gray-600 dark:text-gray-400 mt-2">
+                                    <p className="text-muted-foreground dark:text-muted-foreground mt-2">
                                         {selectedContent.description}
                                     </p>
                                 </div>
@@ -450,15 +450,15 @@ export default function SelfStudyMissions() {
                                 </Button>
 
                                 {/* Divider */}
-                                <div className="border-t border-gray-200 dark:border-gray-700" />
+                                <div className="border-t border-border" />
 
                                 {/* Response Section */}
                                 <div>
-                                    <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+                                    <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                                         <GraduationCap className="w-5 h-5 text-purple-500" />
                                         Reflect & Respond
                                     </h3>
-                                    <p className="text-sm text-gray-500 mb-4">
+                                    <p className="text-sm text-muted-foreground mb-4">
                                         After consuming this content, share your understanding. AI will analyze your response.
                                     </p>
 
@@ -471,20 +471,20 @@ export default function SelfStudyMissions() {
                                                 "p-6 rounded-2xl border-2 transition-all flex flex-col items-center gap-3",
                                                 submissionMode === "voice"
                                                     ? "border-purple-500 bg-purple-50 dark:bg-purple-900/20"
-                                                    : "border-gray-200 dark:border-gray-700 hover:border-purple-300"
+                                                    : "border-border hover:border-purple-300"
                                             )}
                                         >
                                             <div className={cn(
                                                 "w-14 h-14 rounded-full flex items-center justify-center",
-                                                submissionMode === "voice" ? "bg-purple-500" : "bg-gray-100 dark:bg-gray-800"
+                                                submissionMode === "voice" ? "bg-purple-500" : "bg-muted"
                                             )}>
                                                 <Mic className={cn(
                                                     "w-7 h-7",
-                                                    submissionMode === "voice" ? "text-white" : "text-gray-500"
+                                                    submissionMode === "voice" ? "text-white" : "text-muted-foreground"
                                                 )} />
                                             </div>
-                                            <span className="font-semibold text-gray-900 dark:text-gray-100">Voice Response</span>
-                                            <span className="text-xs text-gray-500">Record your thoughts</span>
+                                            <span className="font-semibold text-foreground">Voice Response</span>
+                                            <span className="text-xs text-muted-foreground">Record your thoughts</span>
                                         </motion.button>
 
                                         <motion.button
@@ -495,20 +495,20 @@ export default function SelfStudyMissions() {
                                                 "p-6 rounded-2xl border-2 transition-all flex flex-col items-center gap-3",
                                                 submissionMode === "written"
                                                     ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
-                                                    : "border-gray-200 dark:border-gray-700 hover:border-blue-300"
+                                                    : "border-border hover:border-blue-300"
                                             )}
                                         >
                                             <div className={cn(
                                                 "w-14 h-14 rounded-full flex items-center justify-center",
-                                                submissionMode === "written" ? "bg-blue-500" : "bg-gray-100 dark:bg-gray-800"
+                                                submissionMode === "written" ? "bg-blue-500" : "bg-muted"
                                             )}>
                                                 <PenTool className={cn(
                                                     "w-7 h-7",
-                                                    submissionMode === "written" ? "text-white" : "text-gray-500"
+                                                    submissionMode === "written" ? "text-white" : "text-muted-foreground"
                                                 )} />
                                             </div>
-                                            <span className="font-semibold text-gray-900 dark:text-gray-100">Written Response</span>
-                                            <span className="text-xs text-gray-500">Type your reflection</span>
+                                            <span className="font-semibold text-foreground">Written Response</span>
+                                            <span className="text-xs text-muted-foreground">Type your reflection</span>
                                         </motion.button>
                                     </div>
 
@@ -518,7 +518,7 @@ export default function SelfStudyMissions() {
                                             animate={{ opacity: 1, height: "auto" }}
                                         >
                                             {submissionMode === "voice" ? (
-                                                <div className="text-center py-8 border-2 border-dashed border-gray-200 rounded-2xl">
+                                                <div className="text-center py-8 border-2 border-dashed border-border rounded-2xl">
                                                     <motion.div
                                                         animate={{ scale: [1, 1.1, 1] }}
                                                         transition={{ repeat: Infinity, duration: 1.5 }}
@@ -530,12 +530,12 @@ export default function SelfStudyMissions() {
                                                             <Mic className="w-8 h-8" />
                                                         </Button>
                                                     </motion.div>
-                                                    <p className="mt-4 text-gray-500">Tap to start recording</p>
+                                                    <p className="mt-4 text-muted-foreground">Tap to start recording</p>
                                                 </div>
                                             ) : (
                                                 <div>
                                                     <textarea
-                                                        className="w-full h-32 p-4 border-2 border-gray-200 dark:border-gray-700 rounded-2xl resize-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-transparent"
+                                                        className="w-full h-32 p-4 border-2 border-border rounded-2xl resize-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-transparent"
                                                         placeholder="Share your thoughts, key learnings, and reflections..."
                                                     />
                                                 </div>
@@ -564,7 +564,7 @@ export default function SelfStudyMissions() {
                                                 {selectedContent.aiScore}%
                                             </div>
                                         </div>
-                                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                                        <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                                             Great understanding! You demonstrated clear comprehension of the core concepts.
                                             Consider exploring deeper connections between this topic and practical applications.
                                         </p>

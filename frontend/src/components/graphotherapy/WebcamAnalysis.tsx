@@ -128,7 +128,7 @@ export function WebcamAnalysis() {
                                         <Sparkles className="w-3 h-3" />
                                         {trait.name}
                                     </div>
-                                    <div className="text-[10px] text-gray-300 leading-tight">
+                                    <div className="text-[10px] text-muted-foreground leading-tight">
                                         {trait.description}
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@ export function WebcamAnalysis() {
                     <Button
                         onClick={capture}
                         size="lg"
-                        className="rounded-full h-16 w-16 bg-white hover:bg-gray-200 text-black shadow-lg"
+                        className="rounded-full h-16 w-16 bg-card hover:bg-muted text-black shadow-lg"
                     >
                         <Camera className="w-8 h-8" />
                     </Button>

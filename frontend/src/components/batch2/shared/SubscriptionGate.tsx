@@ -35,7 +35,7 @@ export default function SubscriptionGate({ children, fallback }: SubscriptionGat
                     <Lock className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold text-white">Premium Content</h3>
-                <p className="text-slate-400 max-w-md">
+                <p className="text-muted-foreground max-w-md">
                     This deep-dive session is available for Batch 2 students. Unlock the full Ancient Wisdom portal to continue.
                 </p>
                 <button className="px-6 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-lg hover:from-amber-400 hover:to-orange-500 transition-all shadow-lg hover:shadow-amber-500/20">

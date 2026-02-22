@@ -141,21 +141,21 @@ export default function RetentionQuiz({
                     <h2 className={`text-2xl font-bold ${msg.color} mb-2`}>
                         {msg.title}
                     </h2>
-                    <p className="text-gray-400 mb-6">{msg.desc}</p>
+                    <p className="text-muted-foreground mb-6">{msg.desc}</p>
 
                     <div className="flex items-center justify-center gap-4 mb-8">
                         <div className="text-center">
                             <div className="text-4xl font-black text-white">
                                 {correctCount}
                             </div>
-                            <div className="text-xs text-gray-500">Correct</div>
+                            <div className="text-xs text-muted-foreground">Correct</div>
                         </div>
-                        <div className="text-gray-600 text-2xl">/</div>
+                        <div className="text-muted-foreground text-2xl">/</div>
                         <div className="text-center">
-                            <div className="text-4xl font-black text-gray-500">
+                            <div className="text-4xl font-black text-muted-foreground">
                                 {questions.length}
                             </div>
-                            <div className="text-xs text-gray-500">Total</div>
+                            <div className="text-xs text-muted-foreground">Total</div>
                         </div>
                     </div>
 
@@ -206,12 +206,12 @@ export default function RetentionQuiz({
                             <h3 className="text-white font-semibold text-sm">
                                 Retention Check
                             </h3>
-                            <p className="text-gray-500 text-xs">{topicName}</p>
+                            <p className="text-muted-foreground text-xs">{topicName}</p>
                         </div>
                     </div>
                     <button
                         onClick={onClose}
-                        className="text-gray-500 hover:text-white transition-colors"
+                        className="text-muted-foreground hover:text-white transition-colors"
                     >
                         <X className="w-5 h-5" />
                     </button>
@@ -228,7 +228,7 @@ export default function RetentionQuiz({
                 </div>
 
                 {/* Question counter */}
-                <div className="text-gray-500 text-xs mb-3">
+                <div className="text-muted-foreground text-xs mb-3">
                     Question {currentIndex + 1} of {questions.length}
                 </div>
 
@@ -282,7 +282,7 @@ export default function RetentionQuiz({
                                         disabled={isRevealed}
                                         className={`w-full text-left p-4 rounded-xl border transition-all flex items-center gap-3 ${optionClass}`}
                                     >
-                                        <span className="w-7 h-7 rounded-lg bg-neutral-700/50 flex items-center justify-center text-xs font-bold text-gray-400 flex-shrink-0">
+                                        <span className="w-7 h-7 rounded-lg bg-neutral-700/50 flex items-center justify-center text-xs font-bold text-muted-foreground flex-shrink-0">
                                             {String.fromCharCode(65 + i)}
                                         </span>
                                         <span className="text-sm">
@@ -308,7 +308,7 @@ export default function RetentionQuiz({
                                 animate={{ opacity: 1, y: 0 }}
                                 className="mt-4 p-3 rounded-xl bg-neutral-800/50 border border-neutral-700"
                             >
-                                <p className="text-gray-400 text-xs leading-relaxed">
+                                <p className="text-muted-foreground text-xs leading-relaxed">
                                     💡 {currentQuestion.explanation}
                                 </p>
                             </motion.div>
@@ -318,7 +318,7 @@ export default function RetentionQuiz({
 
                 {/* Action buttons */}
                 <div className="flex items-center justify-between mt-6">
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-muted-foreground">
                         {correctCount} / {currentIndex + (isRevealed ? 1 : 0)}{" "}
                         correct
                     </div>
@@ -331,7 +331,7 @@ export default function RetentionQuiz({
                             disabled={selectedAnswer === null}
                             className={`px-5 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-all ${selectedAnswer !== null
                                     ? "bg-indigo-600 hover:bg-indigo-500 text-white"
-                                    : "bg-neutral-800 text-gray-600 cursor-not-allowed"
+                                    : "bg-neutral-800 text-muted-foreground cursor-not-allowed"
                                 }`}
                         >
                             <Target className="w-4 h-4" />

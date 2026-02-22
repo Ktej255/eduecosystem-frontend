@@ -59,7 +59,7 @@ const ATMOSPHERE_LAYERS: LayerData[] = [
         funFact: "Weather balloons and spy planes fly here to avoid turbulence.",
         features: [
             { icon: <div className="w-full h-1 bg-teal-400/30 blur-sm rounded-full" />, label: "Ozone Layer", position: "40%" },
-            { icon: <div className="w-3 h-3 bg-white/80 rounded-full" />, label: "Weather Balloons", position: "70%" },
+            { icon: <div className="w-3 h-3 bg-card/80 rounded-full" />, label: "Weather Balloons", position: "70%" },
         ]
     },
     {
@@ -71,7 +71,7 @@ const ATMOSPHERE_LAYERS: LayerData[] = [
         textColor: "text-sky-900",
         description: "Where we live. Contains 75% of the atmosphere's mass and almost all weather.",
         features: [
-            { icon: <Plane className="w-5 h-5 text-slate-700" />, label: "Commercial Jets (Top)", position: "85%" },
+            { icon: <Plane className="w-5 h-5 text-muted-foreground" />, label: "Commercial Jets (Top)", position: "85%" },
             { icon: <Cloud className="w-8 h-8 text-white/90" />, label: "Cumulus Clouds", position: "30%" },
             { icon: <div className="w-0 h-0 border-l-[10px] border-l-transparent border-b-[15px] border-b-stone-700 border-r-[10px] border-r-transparent" />, label: "Mt. Everest (8.8km)", position: "73%" }
         ]
@@ -109,7 +109,7 @@ function AtmosphereLayer({ layer, isActive, onClick }: { layer: LayerData, isAct
                     >
                         <p className="text-sm leading-relaxed mb-3">{layer.description}</p>
 
-                        <div className="flex items-center gap-2 text-xs font-mono bg-white/10 px-2 py-1 rounded w-fit mb-2">
+                        <div className="flex items-center gap-2 text-xs font-mono bg-card/10 px-2 py-1 rounded w-fit mb-2">
                             <Thermometer className="w-3 h-3" />
                             {layer.tempRange}
                         </div>
@@ -143,7 +143,7 @@ function AtmosphereLayer({ layer, isActive, onClick }: { layer: LayerData, isAct
 
             {/* Hover hint */}
             {!isActive && (
-                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                <div className="absolute inset-0 bg-card/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
             )}
         </motion.div>
     );
@@ -163,7 +163,7 @@ export default function AtmosphereViz() {
                             </span>
                             Atmosphere Structure
                         </CardTitle>
-                        <CardDescription className="text-slate-400">
+                        <CardDescription className="text-muted-foreground">
                             Vertical layers of Earth's atmosphere. Click a layer to explore.
                         </CardDescription>
                     </div>
@@ -174,7 +174,7 @@ export default function AtmosphereViz() {
                 <div className="flex flex-col relative min-h-full">
                     {/* Exosphere Fade */}
                     <div className="h-24 bg-gradient-to-b from-black to-slate-950 relative">
-                        <div className="absolute top-4 left-4 text-slate-500 text-xs font-mono">
+                        <div className="absolute top-4 left-4 text-muted-foreground text-xs font-mono">
                             Exosphere (Above 700km)
                             <br />
                             Transition to Space

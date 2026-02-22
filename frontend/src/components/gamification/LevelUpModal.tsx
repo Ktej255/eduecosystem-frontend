@@ -42,13 +42,13 @@ export default function LevelUpModal({ level, onClose }: LevelUpModalProps) {
             <motion.div
                 initial={{ opacity: 0, scale: 0.5, rotateX: -90 }}
                 animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-                className="bg-white dark:bg-slate-900 border-4 border-amber-500 rounded-3xl p-8 max-w-md w-full text-center relative shadow-[0_0_50px_rgba(245,158,11,0.5)]"
+                className="bg-card border-4 border-amber-500 rounded-3xl p-8 max-w-md w-full text-center relative shadow-[0_0_50px_rgba(245,158,11,0.5)]"
             >
                 <div className="absolute -top-12 left-1/2 -translate-x-1/2">
                     <motion.div
                         animate={{ rotate: 360 }}
                         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                        className="w-24 h-24 bg-gradient-to-br from-amber-300 to-orange-500 rounded-full flex items-center justify-center border-4 border-white dark:border-slate-900 shadow-xl"
+                        className="w-24 h-24 bg-gradient-to-br from-amber-300 to-orange-500 rounded-full flex items-center justify-center border-4 border-white shadow-xl"
                     >
                         <Crown className="w-12 h-12 text-white fill-white" />
                     </motion.div>
@@ -60,19 +60,19 @@ export default function LevelUpModal({ level, onClose }: LevelUpModalProps) {
                     </h2>
 
                     <div className="py-4">
-                        <span className="text-8xl font-black text-slate-800 dark:text-white drop-shadow-2xl">
+                        <span className="text-8xl font-black text-foreground drop-shadow-2xl">
                             {level}
                         </span>
                     </div>
 
-                    <p className="text-slate-500 dark:text-slate-400 font-medium">
+                    <p className="text-muted-foreground dark:text-muted-foreground font-medium">
                         You have reached a new milestone. Keep exploring to unlock more rewards!
                     </p>
 
                     <div className="flex gap-3 justify-center pt-4">
                         <button
                             onClick={onClose}
-                            className="bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-6 py-3 rounded-xl font-bold hover:bg-slate-300 dark:hover:bg-slate-700 transition"
+                            className="bg-slate-200 text-muted-foreground px-6 py-3 rounded-xl font-bold hover:bg-slate-300 dark:hover:bg-slate-700 transition"
                         >
                             Close
                         </button>

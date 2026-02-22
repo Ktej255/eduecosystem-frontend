@@ -58,8 +58,8 @@ export default function SSOLogin() {
     };
 
     return (
-        <div className="max-w-md mx-auto mt-16 p-6 bg-white dark:bg-zinc-900 rounded-lg shadow-lg border border-zinc-200 dark:border-zinc-800">
-            <h1 className="text-2xl font-bold text-center mb-6 text-zinc-900 dark:text-white">
+        <div className="max-w-md mx-auto mt-16 p-6 bg-card dark:bg-zinc-900 rounded-lg shadow-lg border border-zinc-200 dark:border-zinc-800">
+            <h1 className="text-2xl font-bold text-center mb-6 text-zinc-900">
                 Sign in to your account
             </h1>
 
@@ -78,7 +78,7 @@ export default function SSOLogin() {
                         <input
                             id="orgSlug"
                             type="text"
-                            className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white"
+                            className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-card dark:bg-zinc-800 text-zinc-900"
                             value={orgSlug}
                             onChange={(e) => setOrgSlug(e.target.value)}
                             placeholder="e.g. acme-corp"
@@ -99,13 +99,13 @@ export default function SSOLogin() {
                             <div className="w-full border-t border-zinc-300 dark:border-zinc-700"></div>
                         </div>
                         <div className="relative flex justify-center text-sm">
-                            <span className="px-2 bg-white dark:bg-zinc-900 text-zinc-500">OR</span>
+                            <span className="px-2 bg-card dark:bg-zinc-900 text-zinc-500">OR</span>
                         </div>
                     </div>
 
                     <button
                         onClick={() => router.push('/login')}
-                        className="w-full flex justify-center py-2 px-4 border border-zinc-300 dark:border-zinc-700 rounded-md shadow-sm text-sm font-medium text-zinc-700 dark:text-zinc-300 bg-white dark:bg-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="w-full flex justify-center py-2 px-4 border border-zinc-300 dark:border-zinc-700 rounded-md shadow-sm text-sm font-medium text-zinc-700 dark:text-zinc-300 bg-card dark:bg-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     >
                         Sign in with Email & Password
                     </button>

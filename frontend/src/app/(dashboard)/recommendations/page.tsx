@@ -77,7 +77,7 @@ export default function RecommendationsPage() {
               <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
                 AI Recommendations
               </h1>
-              <p className="text-gray-400 mt-1">
+              <p className="text-muted-foreground mt-1">
                 Personalized course suggestions powered by AI
               </p>
             </div>
@@ -106,7 +106,7 @@ export default function RecommendationsPage() {
                     <h4 className="font-semibold text-white mb-2 line-clamp-2">
                       {course.title}
                     </h4>
-                    <div className="flex items-center gap-2 text-xs text-gray-400 mb-2">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
                       <Star className="h-3 w-3 text-yellow-400 fill-yellow-400" />
                       <span>{course.rating.toFixed(1)}</span>
                       <Users className="h-3 w-3 ml-2" />
@@ -129,18 +129,18 @@ export default function RecommendationsPage() {
               <Target className="h-5 w-5 text-purple-400" />
               <CardTitle className="text-white">Recommended For You</CardTitle>
             </div>
-            <p className="text-sm text-gray-400 mt-1">
+            <p className="text-sm text-muted-foreground mt-1">
               Based on your learning history and preferences
             </p>
           </CardHeader>
           <CardContent>
             {recommendations.length === 0 ? (
               <div className="text-center py-12">
-                <Lightbulb className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+                <Lightbulb className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-2">
                   No recommendations yet
                 </h3>
-                <p className="text-gray-400 mb-6">
+                <p className="text-muted-foreground mb-6">
                   Enroll in more courses to get personalized recommendations
                 </p>
                 <Button
@@ -162,12 +162,12 @@ export default function RecommendationsPage() {
                       <h4 className="font-semibold text-white group-hover:text-purple-400 transition-colors mb-2 line-clamp-2">
                         {rec.title}
                       </h4>
-                      <p className="text-sm text-gray-400 line-clamp-3 mb-3">
+                      <p className="text-sm text-muted-foreground line-clamp-3 mb-3">
                         {rec.description}
                       </p>
                     </div>
 
-                    <div className="flex items-center gap-3 text-xs text-gray-400 mb-3">
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
                       <div className="flex items-center gap-1">
                         <Star className="h-3 w-3 text-yellow-400 fill-yellow-400" />
                         <span>{rec.rating.toFixed(1)}</span>
@@ -189,7 +189,7 @@ export default function RecommendationsPage() {
                         <div className="text-lg font-semibold text-purple-400">
                           {rec.price > 0 ? `₹${rec.price}` : "Free"}
                         </div>
-                        <div className="text-xs text-gray-500">
+                        <div className="text-xs text-muted-foreground">
                           by {rec.instructor_name}
                         </div>
                       </div>

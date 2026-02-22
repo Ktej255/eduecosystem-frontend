@@ -181,7 +181,7 @@ export default function VoiceRecorder({
             <Button
                 variant="ghost"
                 size="icon"
-                className="absolute top-4 right-4 text-gray-400 hover:text-white"
+                className="absolute top-4 right-4 text-muted-foreground hover:text-white"
                 onClick={onClose}
             >
                 <X className="h-6 w-6" />
@@ -193,7 +193,7 @@ export default function VoiceRecorder({
                     <h2 className="text-xl font-bold text-white">
                         {audioBlob ? "Review Recording" : isRecording ? "Recording..." : "Voice Note"}
                     </h2>
-                    <p className="text-gray-400 text-sm mt-1">
+                    <p className="text-muted-foreground text-sm mt-1">
                         {audioBlob
                             ? "Listen and save your recording"
                             : isRecording
@@ -253,7 +253,7 @@ export default function VoiceRecorder({
                                     <Button
                                         size="icon"
                                         variant="ghost"
-                                        className="h-14 w-14 rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700"
+                                        className="h-14 w-14 rounded-full bg-gray-800 text-muted-foreground hover:bg-gray-700"
                                         onClick={togglePause}
                                     >
                                         {isPaused ? (
@@ -285,7 +285,7 @@ export default function VoiceRecorder({
                             <Button
                                 size="icon"
                                 variant="ghost"
-                                className="h-14 w-14 rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700"
+                                className="h-14 w-14 rounded-full bg-gray-800 text-muted-foreground hover:bg-gray-700"
                                 onClick={resetRecorder}
                             >
                                 <X className="h-6 w-6" />
@@ -312,7 +312,7 @@ export default function VoiceRecorder({
                             placeholder="Add a title (optional)"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
-                            className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                            className="bg-gray-800/50 border-gray-700 text-white placeholder:text-muted-foreground"
                         />
 
                         {error && (

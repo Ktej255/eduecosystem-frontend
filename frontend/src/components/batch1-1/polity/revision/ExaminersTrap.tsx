@@ -88,7 +88,7 @@ export default function ExaminersTrap() {
                                             ? 'bg-green-100 border-green-500 text-green-900 scale-105 font-bold shadow-sm'
                                             : isRevealed
                                                 ? 'opacity-40 border-transparent cursor-default'
-                                                : 'hover:bg-white hover:border-stone-400 border-transparent hover:shadow-sm active:scale-95'
+                                                : 'hover:bg-card hover:border-stone-400 border-transparent hover:shadow-sm active:scale-95'
                                     }
                                 `}
                             >
@@ -117,7 +117,7 @@ export default function ExaminersTrap() {
                             initial={{ opacity: 0, height: 0, scale: 0.95 }}
                             animate={{ opacity: 1, height: 'auto', scale: 1 }}
                             exit={{ opacity: 0, height: 0 }}
-                            className="bg-white rounded-2xl border-2 border-stone-200 shadow-inner overflow-hidden"
+                            className="bg-card rounded-2xl border-2 border-stone-200 shadow-inner overflow-hidden"
                         >
                             <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6">
                                 <div className="shrink-0 flex items-start justify-center">

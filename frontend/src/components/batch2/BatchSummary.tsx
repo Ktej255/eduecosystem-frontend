@@ -49,7 +49,7 @@ export default function BatchSummary() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Timeline */}
                 <div className="lg:col-span-2 space-y-6">
-                    <div className="bg-white rounded-2xl border border-amber-100 p-8 shadow-sm">
+                    <div className="bg-card rounded-2xl border border-amber-100 p-8 shadow-sm">
                         <h3 className="text-xl font-bold mb-8 flex items-center gap-3 text-amber-950 font-serif">
                             <TrendingUp className="h-6 w-6 text-emerald-600" />
                             Journey Timeline
@@ -59,8 +59,8 @@ export default function BatchSummary() {
                                 <div key={i} className="relative group">
                                     <div className={`absolute -left-[41px] top-1.5 h-6 w-6 rounded-full ${stat.color} border-4 border-white shadow-md group-hover:scale-110 transition-transform`} />
                                     <div>
-                                        <h4 className="font-bold text-slate-900 text-lg">{stat.month} - {stat.focus}</h4>
-                                        <p className="text-slate-500 text-sm mt-1 leading-relaxed">
+                                        <h4 className="font-bold text-foreground text-lg">{stat.month} - {stat.focus}</h4>
+                                        <p className="text-muted-foreground text-sm mt-1 leading-relaxed">
                                             Successfully integrated the foundational concepts of {stat.focus.toLowerCase()} into daily practice and study routine.
                                         </p>
                                     </div>
@@ -86,7 +86,7 @@ export default function BatchSummary() {
                                         initial={{ opacity: 0, x: 10 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: i * 0.05 }}
-                                        className="bg-white/80 p-5 rounded-xl border border-amber-100 shadow-sm relative group overflow-hidden"
+                                        className="bg-card/80 p-5 rounded-xl border border-amber-100 shadow-sm relative group overflow-hidden"
                                     >
                                         <div className="absolute top-0 right-0 p-2 opacity-5">
                                             <Sparkles className="w-8 h-8 text-amber-600" />
@@ -95,23 +95,23 @@ export default function BatchSummary() {
                                             <span className="text-[10px] font-black uppercase tracking-widest text-amber-600">
                                                 {log.module} • {log.type}
                                             </span>
-                                            <span className="text-[10px] text-slate-400 font-medium">
+                                            <span className="text-[10px] text-muted-foreground font-medium">
                                                 {new Date(log.timestamp).toLocaleDateString()}
                                             </span>
                                         </div>
-                                        <p className="text-slate-700 text-sm italic font-medium leading-relaxed mb-3">
+                                        <p className="text-muted-foreground text-sm italic font-medium leading-relaxed mb-3">
                                             "{log.text}"
                                         </p>
 
                                         {/* Guna Micro-Visualization */}
                                         {log.gunas && (
                                             <div className="flex items-center gap-1.5 pt-3 border-t border-amber-50">
-                                                <div className="flex-1 h-1.5 rounded-full overflow-hidden flex bg-slate-100">
+                                                <div className="flex-1 h-1.5 rounded-full overflow-hidden flex bg-muted">
                                                     <div className="h-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]" style={{ width: `${log.gunas.sattva}%` }} />
                                                     <div className="h-full bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,0.5)]" style={{ width: `${log.gunas.rajas}%` }} />
                                                     <div className="h-full bg-indigo-400 shadow-[0_0_8px_rgba(129,140,248,0.5)]" style={{ width: `${log.gunas.tamas}%` }} />
                                                 </div>
-                                                <div className="flex gap-2 text-[8px] font-bold uppercase tracking-tighter text-slate-400">
+                                                <div className="flex gap-2 text-[8px] font-bold uppercase tracking-tighter text-muted-foreground">
                                                     <span className="text-emerald-600">S:{log.gunas.sattva}</span>
                                                     <span className="text-orange-600">R:{log.gunas.rajas}</span>
                                                     <span className="text-indigo-600">T:{log.gunas.tamas}</span>
@@ -123,10 +123,10 @@ export default function BatchSummary() {
                             </div>
                         ) : (
                             <div className="text-center py-12 px-4 space-y-4">
-                                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm border border-amber-100">
+                                <div className="w-16 h-16 bg-card rounded-full flex items-center justify-center mx-auto shadow-sm border border-amber-100">
                                     <Clock className="w-8 h-8 text-amber-200" />
                                 </div>
-                                <p className="text-slate-500 text-sm italic">
+                                <p className="text-muted-foreground text-sm italic">
                                     Your personal realizations and internal shifts will appear here as you log them during your practice sessions.
                                 </p>
                             </div>

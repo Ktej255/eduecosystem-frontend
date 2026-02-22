@@ -56,7 +56,7 @@ export default function WalletPage() {
 
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-6xl mx-auto">
-      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground">
         <ArrowLeft className="h-4 w-4 mr-1" />
         Back
       </Link>
@@ -64,11 +64,11 @@ export default function WalletPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
             <Wallet className="h-8 w-8 text-green-600" />
             Wallet
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-muted-foreground dark:text-muted-foreground mt-1">
             Manage your marketing budget and transactions
           </p>
         </div>
@@ -101,7 +101,7 @@ export default function WalletPage() {
           <CardContent className="p-5">
             <div className="flex justify-between items-start">
               <div>
-                <p className="text-sm text-gray-500">This Month Revenue</p>
+                <p className="text-sm text-muted-foreground">This Month Revenue</p>
                 <p className="text-2xl font-bold text-green-600 mt-1">+₹{stats.revenue.toLocaleString()}</p>
               </div>
               <ArrowUpRight className="h-6 w-6 text-green-500" />
@@ -112,7 +112,7 @@ export default function WalletPage() {
           <CardContent className="p-5">
             <div className="flex justify-between items-start">
               <div>
-                <p className="text-sm text-gray-500">This Month Spent</p>
+                <p className="text-sm text-muted-foreground">This Month Spent</p>
                 <p className="text-2xl font-bold text-red-600 mt-1">-₹{stats.spent.toLocaleString()}</p>
               </div>
               <ArrowDownRight className="h-6 w-6 text-red-500" />
@@ -123,7 +123,7 @@ export default function WalletPage() {
           <CardContent className="p-5">
             <div className="flex justify-between items-start">
               <div>
-                <p className="text-sm text-gray-500">Pending Payouts</p>
+                <p className="text-sm text-muted-foreground">Pending Payouts</p>
                 <p className="text-2xl font-bold text-orange-600 mt-1">₹{stats.pendingPayout.toLocaleString()}</p>
               </div>
               <CreditCard className="h-6 w-6 text-orange-500" />
@@ -147,7 +147,7 @@ export default function WalletPage() {
               <div key={idx}>
                 <div className="flex justify-between text-sm mb-1">
                   <span>{cat.name}</span>
-                  <span className="text-gray-500">
+                  <span className="text-muted-foreground">
                     ₹{cat.spent.toLocaleString()} / ₹{cat.allocated.toLocaleString()}
                   </span>
                 </div>
@@ -166,7 +166,7 @@ export default function WalletPage() {
           </CardHeader>
           <CardContent>
             <div className="h-48 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg flex items-center justify-center">
-              <div className="text-center text-gray-500">
+              <div className="text-center text-muted-foreground">
                 <BarChart3 className="h-12 w-12 mx-auto mb-2 opacity-50" />
                 <p>Revenue vs Expenses chart</p>
               </div>
@@ -208,7 +208,7 @@ export default function WalletPage() {
                     <TableCell>
                       <Badge variant="outline">{txn.category}</Badge>
                     </TableCell>
-                    <TableCell className="text-gray-500">{txn.date}</TableCell>
+                    <TableCell className="text-muted-foreground">{txn.date}</TableCell>
                     <TableCell>
                       <Badge className={
                         txn.status === 'completed' ? 'bg-green-100 text-green-700' :

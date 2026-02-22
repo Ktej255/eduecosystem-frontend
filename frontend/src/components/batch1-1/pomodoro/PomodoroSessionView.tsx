@@ -736,10 +736,10 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                     <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
                         <Trophy className="h-12 w-12 text-green-500" />
                     </div>
-                    <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                    <h1 className="text-4xl font-bold text-foreground mb-2">
                         6-Hour Session Complete! 🎉
                     </h1>
-                    <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
+                    <p className="text-xl text-muted-foreground dark:text-muted-foreground mb-8">
                         You have mastered {totalSubtopicsCompleted} subtopics across 3 intensity blocks.
                     </p>
 
@@ -766,7 +766,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
 
                     {/* Block-wise Breakdown */}
                     <div className="max-w-3xl mx-auto space-y-6 text-left mb-12">
-                        <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4 px-2">Session Breakdown</h3>
+                        <h3 className="text-2xl font-bold text-foreground mb-4 px-2">Session Breakdown</h3>
                         {[1, 2, 3].map(blockId => {
                             // Filter sessions for this block
                             // blockId 1: sessions 1-4, blockId 2: 5-8, blockId 3: 9-12
@@ -782,7 +782,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
 
                             return (
                                 <Card key={blockId} className="overflow-hidden">
-                                    <div className="bg-gray-50 dark:bg-gray-800/50 p-4 border-b flex justify-between items-center">
+                                    <div className="bg-muted/50 p-4 border-b flex justify-between items-center">
                                         <span className="font-bold text-lg">Block {blockId} (Sessions {start}-{end})</span>
                                         <span className={`px-3 py-1 rounded-full text-sm font-bold ${blockScore >= 80 ? 'bg-green-100 text-green-700' :
                                             blockScore >= 60 ? 'bg-yellow-100 text-yellow-700' :
@@ -795,10 +795,10 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                                         {blockSessions.map((session) => (
                                             <div key={session.cycleNumber} className="flex justify-between items-center text-sm border-b last:border-0 pb-2 last:pb-0">
                                                 <div className="flex-1">
-                                                    <span className="font-medium text-gray-700 mr-2">Session {(session.cycleNumber - 1) % 4 + 1}:</span>
-                                                    <span className="text-gray-500">{session.selectedSubtopics.map(s => s.label).join(", ").slice(0, 60)}...</span>
+                                                    <span className="font-medium text-muted-foreground mr-2">Session {(session.cycleNumber - 1) % 4 + 1}:</span>
+                                                    <span className="text-muted-foreground">{session.selectedSubtopics.map(s => s.label).join(", ").slice(0, 60)}...</span>
                                                 </div>
-                                                <div className="font-mono text-gray-600">
+                                                <div className="font-mono text-muted-foreground">
                                                     {session.mcqResults.correct}/{session.mcqResults.total}
                                                 </div>
                                             </div>
@@ -839,17 +839,17 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
             <div className="flex items-center justify-between mb-6">
                 {showBackButton && (
                     <Link href={subjectOverride === 'history' ? "/student/batch1/history" : "/student/batch1"}>
-                        <Button variant="ghost" className="hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <Button variant="ghost" className="hover:bg-muted dark:hover:bg-gray-800">
                             <ArrowLeft className="mr-2 h-4 w-4" />
                             Back to {subjectOverride === 'history' ? 'Dashboard' : 'Batch 1'}
                         </Button>
                     </Link>
                 )}
                 <div className="text-center">
-                    <h1 className="text-xl font-bold text-gray-800 dark:text-gray-200">
+                    <h1 className="text-xl font-bold text-foreground">
                         {subjectOverride === 'history' ? (HISTORY_PLAN_CONFIGS[historySection as HistorySection]?.title || 'History') : 'Polity'} • Day {((weekId - 1) * 7) + dayId}
                     </h1>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-muted-foreground">
                         Session {currentSessionGlobal} of {TOTAL_SESSIONS} (Block {currentBlock}) • <span className="text-[10px] font-mono bg-green-50 text-green-700 border border-green-200 px-1.5 py-0.5 rounded">v2.4 Live</span>
                     </p>
                 </div>
@@ -869,7 +869,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
 
             {/* Session Progress Bar (12 segments divided into 3 blocks) */}
             <div className="mb-6">
-                <div className="flex justify-between text-xs text-gray-500 mb-1">
+                <div className="flex justify-between text-xs text-muted-foreground mb-1">
                     <span>Block 1</span>
                     <span>Block 2</span>
                     <span>Block 3</span>
@@ -886,7 +886,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                                         ? 'bg-green-500'
                                         : sessionNum === currentSessionGlobal
                                             ? 'bg-orange-500 animate-pulse'
-                                            : 'bg-gray-200 dark:bg-gray-700'
+                                            : 'bg-muted'
                                         }`}
                                 />
                             </div>
@@ -896,11 +896,11 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
             </div>
 
             {/* Daily Goal Progress Bar */}
-            <div className="mb-6 bg-white dark:bg-gray-900 rounded-xl p-4 border border-gray-100 dark:border-gray-800 shadow-sm">
+            <div className="mb-6 bg-card rounded-xl p-4 border border-border shadow-sm">
                 <div className="flex justify-between items-center mb-2">
                     <div>
-                        <h3 className="font-bold text-gray-800 dark:text-gray-200">Today's Schedule</h3>
-                        <p className="text-xs text-gray-500">
+                        <h3 className="font-bold text-foreground">Today's Schedule</h3>
+                        <p className="text-xs text-muted-foreground">
                             {(() => {
                                 if (isFabSchedule) {
                                     return (
@@ -940,7 +940,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                     </div>
                 </div>
                 {todayChapters.length > 0 && (
-                    <div className="h-3 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                    <div className="h-3 bg-muted rounded-full overflow-hidden">
                         <div
                             className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-500"
                             style={{ width: `${Math.min(100, (new Set(sessionHistory.flatMap(s => s.selectedSubtopics).map(s => s.id.split('.')[0])).size / Math.max(1, todayChapters.length)) * 100)}%` }}
@@ -965,7 +965,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                             </span>
                         );
                     }) : (
-                        <span className="text-xs text-gray-400 italic">No scheduled items for this day.</span>
+                        <span className="text-xs text-muted-foreground italic">No scheduled items for this day.</span>
                     )}
                 </div>
             </div>
@@ -992,10 +992,10 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
 
                                 <div className="max-w-md mx-auto mb-6">
                                     <div className="relative">
-                                        <Target className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                                        <Target className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
                                         <Input
                                             placeholder="What is your main goal for this session?"
-                                            className="pl-10 h-12 text-lg bg-white/80 border-orange-200 focus:border-orange-500"
+                                            className="pl-10 h-12 text-lg bg-card/80 border-orange-200 focus:border-orange-500"
                                             value={sessionGoal}
                                             onChange={(e) => setSessionGoal(e.target.value)}
                                         />
@@ -1018,19 +1018,19 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                         <Card className="mb-6 border-blue-100 bg-blue-50/50 dark:bg-blue-900/10">
                             <CardContent className="p-4 flex items-center justify-between">
                                 <div className="flex items-center gap-3">
-                                    <div className={`p-2 rounded-full ${ambientEnabled ? 'bg-blue-500 text-white animate-pulse' : 'bg-gray-200 text-gray-500'}`}>
+                                    <div className={`p-2 rounded-full ${ambientEnabled ? 'bg-blue-500 text-white animate-pulse' : 'bg-muted text-muted-foreground'}`}>
                                         <Headphones className="h-5 w-5" />
                                     </div>
                                     <div>
-                                        <h3 className="font-bold text-sm text-gray-700 dark:text-gray-300">Peaceful Soundscapes</h3>
-                                        <p className="text-xs text-gray-500">Piano & Nature Sounds</p>
+                                        <h3 className="font-bold text-sm text-muted-foreground dark:text-muted-foreground">Peaceful Soundscapes</h3>
+                                        <p className="text-xs text-muted-foreground">Piano & Nature Sounds</p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-center gap-4">
                                     {ambientEnabled && (
                                         <div className="hidden md:flex items-center gap-2 w-32">
-                                            <Volume1 className="h-4 w-4 text-gray-400" />
+                                            <Volume1 className="h-4 w-4 text-muted-foreground" />
                                             <Slider
                                                 value={[ambientVolume]}
                                                 min={0}
@@ -1039,11 +1039,11 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                                                 onValueChange={handleVolumeChange}
                                                 className="cursor-pointer"
                                             />
-                                            <Volume2 className="h-4 w-4 text-gray-400" />
+                                            <Volume2 className="h-4 w-4 text-muted-foreground" />
                                         </div>
                                     )}
 
-                                    <div className="flex items-center gap-2 bg-white dark:bg-gray-800 rounded-lg border p-1">
+                                    <div className="flex items-center gap-2 bg-card rounded-lg border p-1">
                                         {[
                                             { id: 'white', label: 'Forest' },
                                             { id: 'pink', label: 'Rain' },
@@ -1054,7 +1054,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                                                 onClick={() => handleTypeChange(opt.id as NoiseType)}
                                                 className={`text-[10px] px-2 py-1 rounded-md font-bold uppercase transition-all ${ambientType === opt.id
                                                     ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'
-                                                    : 'text-gray-400 hover:text-gray-600'}`}
+                                                    : 'text-muted-foreground hover:text-muted-foreground'}`}
                                             >
                                                 {opt.label}
                                             </button>
@@ -1102,8 +1102,8 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <CheckCircle2 className="h-8 w-8 text-green-600" />
                                 </div>
-                                <h2 className="text-2xl font-bold text-gray-800">Pomodoro Complete!</h2>
-                                <p className="text-gray-600">Great focus session. What would you like to do next?</p>
+                                <h2 className="text-2xl font-bold text-foreground">Pomodoro Complete!</h2>
+                                <p className="text-muted-foreground">Great focus session. What would you like to do next?</p>
 
                                 <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
                                     <Button onClick={() => handlePostTimerAction('extend_5')} variant="outline" className="border-indigo-300 hover:bg-indigo-50">
@@ -1135,11 +1135,11 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                     )}
 
                     {sessionState === 'loading_content' && (
-                        <Card className="p-12 text-center bg-white">
+                        <Card className="p-12 text-center bg-card">
                             <div className="flex flex-col items-center justify-center">
                                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mb-4"></div>
-                                <p className="text-gray-600 font-medium">Curating your customized history session...</p>
-                                <p className="text-xs text-gray-400 mt-2">Loading flashcards and MCQs for selected chapters</p>
+                                <p className="text-muted-foreground font-medium">Curating your customized history session...</p>
+                                <p className="text-xs text-muted-foreground mt-2">Loading flashcards and MCQs for selected chapters</p>
                             </div>
                         </Card>
                     )}
@@ -1215,7 +1215,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                             '50-50': { label: '🤔 50-50', color: 'text-yellow-700', bg: 'bg-yellow-50 border-yellow-200' },
                             'one-option': { label: '🎯 One Known', color: 'text-blue-700', bg: 'bg-blue-50 border-blue-200' },
                             'blind': { label: '🎲 Blind', color: 'text-red-700', bg: 'bg-red-50 border-red-200' },
-                            'unknown': { label: '❓ Unset', color: 'text-gray-700', bg: 'bg-gray-50 border-gray-200' },
+                            'unknown': { label: '❓ Unset', color: 'text-muted-foreground', bg: 'bg-muted border-border' },
                         };
 
                         return (
@@ -1226,29 +1226,29 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                                         <div className={`w-16 h-16 mx-auto mb-3 rounded-full flex items-center justify-center ${accuracy >= 70 ? 'bg-green-100' : accuracy >= 40 ? 'bg-yellow-100' : 'bg-red-100'}`}>
                                             <Trophy className={`h-8 w-8 ${accuracy >= 70 ? 'text-green-600' : accuracy >= 40 ? 'text-yellow-600' : 'text-red-600'}`} />
                                         </div>
-                                        <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-1">Session {currentSessionGlobal} Report</h2>
-                                        <p className="text-sm text-gray-500">{correct}/{total} correct • {avgTime}s avg per question</p>
+                                        <h2 className="text-xl font-bold text-foreground mb-1">Session {currentSessionGlobal} Report</h2>
+                                        <p className="text-sm text-muted-foreground">{correct}/{total} correct • {avgTime}s avg per question</p>
                                     </div>
 
                                     {/* Score Cards */}
                                     <div className="grid grid-cols-3 gap-3">
-                                        <div className="text-center p-3 bg-white dark:bg-gray-900 rounded-xl border shadow-sm">
+                                        <div className="text-center p-3 bg-card rounded-xl border shadow-sm">
                                             <div className={`text-3xl font-black ${accuracy >= 70 ? 'text-green-600' : accuracy >= 40 ? 'text-yellow-600' : 'text-red-600'}`}>{accuracy}%</div>
-                                            <div className="text-[10px] font-bold text-gray-500 uppercase mt-1">Accuracy</div>
+                                            <div className="text-[10px] font-bold text-muted-foreground uppercase mt-1">Accuracy</div>
                                         </div>
-                                        <div className="text-center p-3 bg-white dark:bg-gray-900 rounded-xl border shadow-sm">
+                                        <div className="text-center p-3 bg-card rounded-xl border shadow-sm">
                                             <div className="text-3xl font-black text-indigo-600">{correct}</div>
-                                            <div className="text-[10px] font-bold text-gray-500 uppercase mt-1">Correct</div>
+                                            <div className="text-[10px] font-bold text-muted-foreground uppercase mt-1">Correct</div>
                                         </div>
-                                        <div className="text-center p-3 bg-white dark:bg-gray-900 rounded-xl border shadow-sm">
-                                            <div className="text-3xl font-black text-gray-700 dark:text-gray-300">{avgTime}s</div>
-                                            <div className="text-[10px] font-bold text-gray-500 uppercase mt-1">Avg Time</div>
+                                        <div className="text-center p-3 bg-card rounded-xl border shadow-sm">
+                                            <div className="text-3xl font-black text-muted-foreground dark:text-muted-foreground">{avgTime}s</div>
+                                            <div className="text-[10px] font-bold text-muted-foreground uppercase mt-1">Avg Time</div>
                                         </div>
                                     </div>
 
                                     {/* Confidence Breakdown */}
                                     <div>
-                                        <h3 className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Confidence vs. Correctness</h3>
+                                        <h3 className="text-sm font-bold text-muted-foreground dark:text-muted-foreground mb-2">Confidence vs. Correctness</h3>
                                         <div className="grid grid-cols-2 gap-2">
                                             {Object.entries(confidenceGroups).map(([conf, data]) => {
                                                 const info = confidenceLabels[conf] || confidenceLabels['unknown'];
@@ -1257,9 +1257,9 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                                                     <div key={conf} className={`p-2.5 rounded-lg border ${info.bg}`}>
                                                         <div className="flex justify-between items-center">
                                                             <span className={`text-xs font-bold ${info.color}`}>{info.label}</span>
-                                                            <span className="text-xs font-mono text-gray-600">{data.correct}/{data.total}</span>
+                                                            <span className="text-xs font-mono text-muted-foreground">{data.correct}/{data.total}</span>
                                                         </div>
-                                                        <div className="h-1.5 bg-gray-200 rounded-full mt-1.5 overflow-hidden">
+                                                        <div className="h-1.5 bg-muted rounded-full mt-1.5 overflow-hidden">
                                                             <div className={`h-full rounded-full ${confAcc >= 70 ? 'bg-green-500' : confAcc >= 40 ? 'bg-yellow-500' : 'bg-red-500'}`}
                                                                 style={{ width: `${confAcc}%` }} />
                                                         </div>
@@ -1271,7 +1271,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
 
                                     {/* Individual Questions */}
                                     <div>
-                                        <h3 className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Question Results</h3>
+                                        <h3 className="text-sm font-bold text-muted-foreground dark:text-muted-foreground mb-2">Question Results</h3>
                                         <div className="flex flex-wrap gap-1.5">
                                             {lastMCQResults.map((r, idx) => (
                                                 <div key={idx} className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold border ${r.isCorrect
@@ -1324,9 +1324,9 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
 
                 {/* Right: Cycle History */}
                 <div>
-                    <Card className="bg-gray-50 dark:bg-gray-800 h-full max-h-[600px] overflow-y-auto">
+                    <Card className="bg-muted h-full max-h-[600px] overflow-y-auto">
                         <CardContent className="p-4">
-                            <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center justify-between">
+                            <h4 className="text-sm font-semibold text-muted-foreground dark:text-muted-foreground mb-3 flex items-center justify-between">
                                 <span className="flex items-center gap-2"><Repeat className="h-4 w-4" /> Session History</span>
                                 <span className="text-xs text-muted-foreground">{currentSessionGlobal}/{TOTAL_SESSIONS}</span>
                             </h4>
@@ -1352,17 +1352,17 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                                                 ? 'bg-green-50 dark:bg-green-900/10 border-green-200'
                                                 : isActive
                                                     ? 'bg-orange-50 dark:bg-orange-900/10 border-orange-200 shadow-sm transform scale-102'
-                                                    : 'bg-white dark:bg-gray-900 border-gray-100 opacity-60'
+                                                    : 'bg-card border-border opacity-60'
                                                 }`}
                                         >
                                             <div className="flex items-center justify-between mb-1">
-                                                <span className={`font-bold ${isComplete ? 'text-green-700' : isActive ? 'text-orange-700' : 'text-gray-400'}`}>
+                                                <span className={`font-bold ${isComplete ? 'text-green-700' : isActive ? 'text-orange-700' : 'text-muted-foreground'}`}>
                                                     S{sessionNum} (Block {blockNum})
                                                 </span>
                                                 {isComplete && <CheckCircle2 className="h-3 w-3 text-green-500" />}
                                             </div>
                                             {isComplete && sessionData && (
-                                                <div className="text-gray-500 space-y-0.5">
+                                                <div className="text-muted-foreground space-y-0.5">
                                                     <div>{sessionData.selectedSubtopics.length} topics</div>
                                                     <div>{Math.round((sessionData.mcqResults.correct / sessionData.mcqResults.total) * 100)}% Acc</div>
                                                 </div>

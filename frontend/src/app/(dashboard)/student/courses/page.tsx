@@ -118,7 +118,7 @@ export default function MyCoursesPage() {
     return (
       <div className="container mx-auto py-8 px-4">
         <div className="flex items-center justify-center min-h-[400px]">
-          <div className="text-gray-400">Loading your courses...</div>
+          <div className="text-muted-foreground">Loading your courses...</div>
         </div>
       </div>
     );
@@ -129,7 +129,7 @@ export default function MyCoursesPage() {
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">My Courses</h1>
-        <p className="text-gray-400">
+        <p className="text-muted-foreground">
           {courses.length} course{courses.length !== 1 ? "s" : ""} enrolled
         </p>
       </div>
@@ -140,7 +140,7 @@ export default function MyCoursesPage() {
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-400 mb-1">Total Enrolled</p>
+                <p className="text-sm text-muted-foreground mb-1">Total Enrolled</p>
                 <p className="text-2xl font-bold">{courses.length}</p>
               </div>
               <BookOpen className="w-8 h-8 text-blue-500 opacity-50" />
@@ -152,7 +152,7 @@ export default function MyCoursesPage() {
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-400 mb-1">In Progress</p>
+                <p className="text-sm text-muted-foreground mb-1">In Progress</p>
                 <p className="text-2xl font-bold">
                   {
                     courses.filter(
@@ -172,7 +172,7 @@ export default function MyCoursesPage() {
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-400 mb-1">Completed</p>
+                <p className="text-sm text-muted-foreground mb-1">Completed</p>
                 <p className="text-2xl font-bold">
                   {courses.filter((c) => c.progress_percentage === 100).length}
                 </p>
@@ -186,7 +186,7 @@ export default function MyCoursesPage() {
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-400 mb-1">Certificates</p>
+                <p className="text-sm text-muted-foreground mb-1">Certificates</p>
                 <p className="text-2xl font-bold">
                   {courses.filter((c) => c.certificate_available).length}
                 </p>
@@ -200,7 +200,7 @@ export default function MyCoursesPage() {
       {/* Filters */}
       <div className="flex flex-col md:flex-row gap-4 mb-6">
         <div className="flex-1 relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
           <Input
             placeholder="Search your courses..."
             value={searchQuery}
@@ -225,8 +225,8 @@ export default function MyCoursesPage() {
       {filteredCourses.length === 0 ? (
         <Card className="bg-gray-900 border-gray-800">
           <CardContent className="flex flex-col items-center justify-center py-12">
-            <BookOpen className="w-16 h-16 text-gray-700 mb-4" />
-            <p className="text-gray-400 text-lg mb-4">
+            <BookOpen className="w-16 h-16 text-muted-foreground mb-4" />
+            <p className="text-muted-foreground text-lg mb-4">
               {searchQuery || filterStatus !== "all"
                 ? "No courses match your filters"
                 : "You haven't enrolled in any courses yet"}
@@ -256,7 +256,7 @@ export default function MyCoursesPage() {
                 onClick={() => router.push(`/lms/courses/${course.id}/learn`)}
               >
                 {!course.thumbnail_url && (
-                  <div className="h-full flex items-center justify-center text-gray-600 text-4xl font-bold">
+                  <div className="h-full flex items-center justify-center text-muted-foreground text-4xl font-bold">
                     {course.title[0]}
                   </div>
                 )}
@@ -279,7 +279,7 @@ export default function MyCoursesPage() {
                 <CardTitle className="text-lg line-clamp-2">
                   {course.title}
                 </CardTitle>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-muted-foreground">
                   by {course.instructor_name}
                 </p>
               </CardHeader>
@@ -288,7 +288,7 @@ export default function MyCoursesPage() {
                 {/* Progress */}
                 <div className="space-y-1">
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-400">Progress</span>
+                    <span className="text-muted-foreground">Progress</span>
                     <span className="font-medium">
                       {course.progress_percentage}%
                     </span>
@@ -297,7 +297,7 @@ export default function MyCoursesPage() {
                     value={course.progress_percentage}
                     className="h-2"
                   />
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-muted-foreground">
                     {course.completed_lessons} of {course.total_lessons} lessons
                   </div>
                 </div>
@@ -334,7 +334,7 @@ export default function MyCoursesPage() {
 
                 {/* Last Accessed */}
                 {course.last_accessed && (
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-muted-foreground">
                     Last accessed:{" "}
                     {new Date(course.last_accessed).toLocaleDateString()}
                   </div>

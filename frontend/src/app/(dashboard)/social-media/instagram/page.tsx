@@ -41,7 +41,7 @@ export default function InstagramPage() {
 
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-5xl mx-auto">
-      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground">
         <ArrowLeft className="h-4 w-4 mr-1" />
         Back
       </Link>
@@ -49,13 +49,13 @@ export default function InstagramPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
             <div className="w-10 h-10 bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] rounded-lg flex items-center justify-center">
               <InstagramIcon className="h-6 w-6 text-white" />
             </div>
             Instagram
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-muted-foreground dark:text-muted-foreground mt-1">
             Manage your Instagram business account
           </p>
         </div>
@@ -78,21 +78,21 @@ export default function InstagramPage() {
           <CardContent className="p-5">
             <Grid3X3 className="h-8 w-8 text-purple-500 mb-2" />
             <p className="text-2xl font-bold">{stats.posts}</p>
-            <p className="text-sm text-gray-500">Posts</p>
+            <p className="text-sm text-muted-foreground">Posts</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5">
             <Heart className="h-8 w-8 text-pink-500 mb-2" />
             <p className="text-2xl font-bold">{stats.avgEngagement}%</p>
-            <p className="text-sm text-gray-500">Avg Engagement</p>
+            <p className="text-sm text-muted-foreground">Avg Engagement</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5">
             <TrendingUp className="h-8 w-8 text-green-500 mb-2" />
             <p className="text-2xl font-bold">{stats.following}</p>
-            <p className="text-sm text-gray-500">Following</p>
+            <p className="text-sm text-muted-foreground">Following</p>
           </CardContent>
         </Card>
       </div>
@@ -146,20 +146,20 @@ export default function InstagramPage() {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-              <p className="text-sm text-gray-500 mb-1">Top Locations</p>
+            <div className="p-4 bg-muted rounded-lg">
+              <p className="text-sm text-muted-foreground mb-1">Top Locations</p>
               <p className="font-medium">{audienceInsights.topLocations.join(", ")}</p>
             </div>
-            <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-              <p className="text-sm text-gray-500 mb-1">Age Range</p>
+            <div className="p-4 bg-muted rounded-lg">
+              <p className="text-sm text-muted-foreground mb-1">Age Range</p>
               <p className="font-medium">{audienceInsights.ageRange}</p>
             </div>
-            <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-              <p className="text-sm text-gray-500 mb-1">Gender Split</p>
+            <div className="p-4 bg-muted rounded-lg">
+              <p className="text-sm text-muted-foreground mb-1">Gender Split</p>
               <p className="font-medium">{audienceInsights.genderSplit.male}% M / {audienceInsights.genderSplit.female}% F</p>
             </div>
-            <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-              <p className="text-sm text-gray-500 mb-1">Active Hours</p>
+            <div className="p-4 bg-muted rounded-lg">
+              <p className="text-sm text-muted-foreground mb-1">Active Hours</p>
               <p className="font-medium">{audienceInsights.activeHours}</p>
             </div>
           </div>
@@ -175,17 +175,17 @@ export default function InstagramPage() {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <div className="flex items-center justify-between p-3 bg-muted rounded-lg">
             <div>
               <p className="font-medium">Auto-post stories</p>
-              <p className="text-sm text-gray-500">Share announcements as Instagram stories</p>
+              <p className="text-sm text-muted-foreground">Share announcements as Instagram stories</p>
             </div>
             <Switch checked={autoPost} onCheckedChange={setAutoPost} />
           </div>
-          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <div className="flex items-center justify-between p-3 bg-muted rounded-lg">
             <div>
               <p className="font-medium">Connected Account</p>
-              <p className="text-sm text-gray-500">@eduecosystem_official</p>
+              <p className="text-sm text-muted-foreground">@eduecosystem_official</p>
             </div>
             <Button variant="outline" size="sm">
               <ExternalLink className="h-4 w-4 mr-2" />

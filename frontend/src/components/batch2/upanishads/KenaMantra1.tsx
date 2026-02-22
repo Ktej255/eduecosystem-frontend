@@ -117,7 +117,7 @@ export default function KenaMantra1({ onClose }: { onClose?: () => void }) {
                 />
             </div>
 
-            <button onClick={onClose} className="absolute top-8 right-8 text-slate-500 hover:text-white transition-colors z-[110]">
+            <button onClick={onClose} className="absolute top-8 right-8 text-muted-foreground hover:text-white transition-colors z-[110]">
                 <X className="w-8 h-8" />
             </button>
 
@@ -164,7 +164,7 @@ export default function KenaMantra1({ onClose }: { onClose?: () => void }) {
                             </div>
 
                             {STEPS[currentStep].vibration && (
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-white/5 text-[10px] text-white/40 uppercase tracking-widest">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-card/5 text-[10px] text-white/40 uppercase tracking-widest">
                                     <Music className="w-3 h-3" /> {STEPS[currentStep].vibration}
                                 </div>
                             )}
@@ -176,7 +176,7 @@ export default function KenaMantra1({ onClose }: { onClose?: () => void }) {
                     {/* Progress Circle & Play/Pause */}
                     <div className="relative w-32 h-32 flex items-center justify-center">
                         <svg className="w-full h-full transform -rotate-90">
-                            <circle cx="64" cy="64" r="60" stroke="currentColor" strokeWidth="2" fill="transparent" className="text-slate-900" />
+                            <circle cx="64" cy="64" r="60" stroke="currentColor" strokeWidth="2" fill="transparent" className="text-foreground" />
                             <motion.circle
                                 cx="64" cy="64" r="60" stroke="currentColor" strokeWidth="4" fill="transparent"
                                 className="text-amber-500"
@@ -198,7 +198,7 @@ export default function KenaMantra1({ onClose }: { onClose?: () => void }) {
                         <button
                             onClick={handlePrev}
                             disabled={currentStep === 0}
-                            className="p-4 rounded-full border border-white/5 text-slate-600 hover:text-white disabled:opacity-0 transition-all group"
+                            className="p-4 rounded-full border border-white/5 text-muted-foreground hover:text-white disabled:opacity-0 transition-all group"
                         >
                             <ChevronLeft className="w-10 h-10 group-hover:-translate-x-1 transition-transform" />
                         </button>
@@ -209,7 +209,7 @@ export default function KenaMantra1({ onClose }: { onClose?: () => void }) {
 
                         <button
                             onClick={handleNext}
-                            className="p-4 rounded-full border border-white/5 text-slate-600 hover:text-white transition-all group flex items-center gap-4"
+                            className="p-4 rounded-full border border-white/5 text-muted-foreground hover:text-white transition-all group flex items-center gap-4"
                         >
                             <span className="font-bold text-sm uppercase tracking-[0.2em] hidden md:block">
                                 {currentStep === STEPS.length - 1 ? "Complete" : "Skip Forward"}

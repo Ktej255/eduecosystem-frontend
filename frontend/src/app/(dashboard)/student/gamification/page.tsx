@@ -96,7 +96,7 @@ export default function GamificationPage() {
         return (
             <div className="container mx-auto py-8 px-4">
                 <div className="flex items-center justify-center min-h-[400px]">
-                    <div className="text-gray-400">Loading...</div>
+                    <div className="text-muted-foreground">Loading...</div>
                 </div>
             </div>
         )
@@ -109,7 +109,7 @@ export default function GamificationPage() {
             {/* Header */}
             <div className="mb-8">
                 <h1 className="text-3xl font-bold mb-2">Achievements & Progress</h1>
-                <p className="text-gray-400">Track your learning journey and compete with others</p>
+                <p className="text-muted-foreground">Track your learning journey and compete with others</p>
             </div>
 
             {/* Stats Overview */}
@@ -222,7 +222,7 @@ export default function GamificationPage() {
                                         </div>
                                         <div className="flex-1">
                                             <h3 className="font-semibold mb-1">{achievement.title}</h3>
-                                            <p className="text-sm text-gray-400 mb-2">
+                                            <p className="text-sm text-muted-foreground mb-2">
                                                 {achievement.description}
                                             </p>
                                             <div className="flex items-center justify-between">
@@ -234,7 +234,7 @@ export default function GamificationPage() {
                                                         ✓ Earned
                                                     </span>
                                                 ) : achievement.progress !== undefined ? (
-                                                    <span className="text-xs text-gray-500">
+                                                    <span className="text-xs text-muted-foreground">
                                                         {achievement.progress}/{achievement.total}
                                                     </span>
                                                 ) : null}
@@ -283,13 +283,13 @@ export default function GamificationPage() {
                                                 <Trophy className="w-8 h-8 mx-auto text-yellow-500" />
                                             )}
                                             {entry.rank === 2 && (
-                                                <Medal className="w-8 h-8 mx-auto text-gray-400" />
+                                                <Medal className="w-8 h-8 mx-auto text-muted-foreground" />
                                             )}
                                             {entry.rank === 3 && (
                                                 <Medal className="w-8 h-8 mx-auto text-orange-600" />
                                             )}
                                             {entry.rank > 3 && (
-                                                <div className="text-2xl font-bold text-gray-500">
+                                                <div className="text-2xl font-bold text-muted-foreground">
                                                     #{entry.rank}
                                                 </div>
                                             )}
@@ -298,7 +298,7 @@ export default function GamificationPage() {
                                         {/* User Info */}
                                         <div className="flex-1">
                                             <div className="font-semibold">{entry.user_name}</div>
-                                            <div className="text-sm text-gray-400">
+                                            <div className="text-sm text-muted-foreground">
                                                 Level {entry.level} • {entry.badges_count} badges
                                             </div>
                                         </div>
@@ -308,7 +308,7 @@ export default function GamificationPage() {
                                             <div className="text-xl font-bold text-yellow-500">
                                                 {entry.total_points.toLocaleString()}
                                             </div>
-                                            <div className="text-xs text-gray-500">XP</div>
+                                            <div className="text-xs text-muted-foreground">XP</div>
                                         </div>
                                     </div>
                                 ))}
@@ -329,12 +329,12 @@ export default function GamificationPage() {
                                     </div>
                                     <div className="flex-1">
                                         <h3 className="font-semibold mb-1">Complete 2 Lessons</h3>
-                                        <p className="text-sm text-gray-400 mb-3">
+                                        <p className="text-sm text-muted-foreground mb-3">
                                             Finish any 2 lessons today to earn bonus XP
                                         </p>
                                         <Progress value={50} className="h-2 mb-2" />
                                         <div className="flex items-center justify-between text-sm">
-                                            <span className="text-gray-500">1/2 complete</span>
+                                            <span className="text-muted-foreground">1/2 complete</span>
                                             <Badge className="bg-blue-600">+50 XP</Badge>
                                         </div>
                                     </div>
@@ -351,12 +351,12 @@ export default function GamificationPage() {
                                     </div>
                                     <div className="flex-1">
                                         <h3 className="font-semibold mb-1">Perfect Quiz Score</h3>
-                                        <p className="text-sm text-gray-400 mb-3">
+                                        <p className="text-sm text-muted-foreground mb-3">
                                             Get 100% on any quiz attempt
                                         </p>
                                         <Progress value={0} className="h-2 mb-2" />
                                         <div className="flex items-center justify-between text-sm">
-                                            <span className="text-gray-500">Not started</span>
+                                            <span className="text-muted-foreground">Not started</span>
                                             <Badge className="bg-purple-600">+100 XP</Badge>
                                         </div>
                                     </div>
@@ -373,7 +373,7 @@ export default function GamificationPage() {
                                     </div>
                                     <div className="flex-1">
                                         <h3 className="font-semibold mb-1">Help a Classmate</h3>
-                                        <p className="text-sm text-gray-400 mb-3">
+                                        <p className="text-sm text-muted-foreground mb-3">
                                             Answer a question in the discussion forum
                                         </p>
                                         <Progress value={100} className="h-2 mb-2" />
@@ -395,12 +395,12 @@ export default function GamificationPage() {
                                     </div>
                                     <div className="flex-1">
                                         <h3 className="font-semibold mb-1">Maintain Your Streak</h3>
-                                        <p className="text-sm text-gray-400 mb-3">
+                                        <p className="text-sm text-muted-foreground mb-3">
                                             Learn for at least 15 minutes today
                                         </p>
                                         <Progress value={75} className="h-2 mb-2" />
                                         <div className="flex items-center justify-between text-sm">
-                                            <span className="text-gray-500">11/15 minutes</span>
+                                            <span className="text-muted-foreground">11/15 minutes</span>
                                             <Badge className="bg-orange-600">+25 XP</Badge>
                                         </div>
                                     </div>

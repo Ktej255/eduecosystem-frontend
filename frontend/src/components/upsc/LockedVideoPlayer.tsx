@@ -26,12 +26,12 @@ export default function LockedVideoPlayer({
 
                 <div className="relative z-10 max-w-md space-y-6">
                     <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto border-2 border-gray-700">
-                        <Lock className="w-8 h-8 text-gray-500" />
+                        <Lock className="w-8 h-8 text-muted-foreground" />
                     </div>
 
                     <div>
                         <h3 className="text-xl font-bold text-white mb-2">Level 2: Visual Classroom</h3>
-                        <p className="text-gray-400 text-sm">
+                        <p className="text-muted-foreground text-sm">
                             This premium video lecture is unlocked for consistent learners.
                             Complete 3 more chapters to unlock this reward.
                         </p>
@@ -44,7 +44,7 @@ export default function LockedVideoPlayer({
                         >
                             <Star className="w-4 h-4 mr-2" /> Check My Consistency
                         </Button>
-                        <p className="text-xs text-gray-600">
+                        <p className="text-xs text-muted-foreground">
                             Requirement: 7-day streak + &gt;80% MCQ Accuracy
                         </p>
                     </div>

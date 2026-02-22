@@ -28,7 +28,7 @@ const TribalContainer = ({ children }: { children: React.ReactNode }) => (
 
 const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any, color: string }) => (
     <div className="flex items-center gap-4 my-8">
-        <div className={`p-3 rounded-xl bg-white shadow-sm border-2 ${color}`}>
+        <div className={`p-3 rounded-xl bg-card shadow-sm border-2 ${color}`}>
             <Icon className={color.replace('border-', 'text-')} size={24} />
         </div>
         <h2 className={`text-2xl font-black uppercase tracking-tight ${color.replace('border-', 'text-')} font-['Kalam']`}>
@@ -39,14 +39,14 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
 );
 
 const BasketCard = ({ title, children, color = "border-amber-900", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         {/* Tribal Art Background Pattern */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] bg-[size:20px_20px]"></div>
 
         <h3 className={`text-xl font-bold mb-4 flex items-center gap-2 font-['Kalam'] ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-800 relative z-10 font-medium">
+        <div className="space-y-4 text-foreground relative z-10 font-medium">
             {children}
         </div>
     </div>
@@ -56,7 +56,7 @@ export default function ScheduledTribalAreasModule({ onComplete, isCompleted, ch
     return (
         <TribalContainer>
             {/* HERO SECTION */}
-            <div className="relative bg-white border-4 border-amber-950 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(120,53,15,1)] overflow-hidden">
+            <div className="relative bg-card border-4 border-amber-950 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(120,53,15,1)] overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-amber-50 rounded-full -mr-24 -mt-24 opacity-60"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
@@ -68,7 +68,7 @@ export default function ScheduledTribalAreasModule({ onComplete, isCompleted, ch
                         Scheduled & <br />
                         <span className="text-green-700">Tribal Areas</span>
                     </h1>
-                    <p className="text-xl text-slate-700 max-w-2xl leading-relaxed italic">
+                    <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed italic">
                         "Indigenous communities require special constitutional protection to preserve their unique culture and facilitate development without assimilation."
                     </p>
                 </div>
@@ -83,8 +83,8 @@ export default function ScheduledTribalAreasModule({ onComplete, isCompleted, ch
                         <Map size={80} className="text-amber-200" />
                         <div className="absolute inset-0 flex items-center justify-center text-amber-900 font-black text-4xl opacity-10">10 STATES</div>
                     </div>
-                    <p className="text-sm font-bold text-slate-500 uppercase pb-2 border-b">Coverage:</p>
-                    <p className="text-xs text-slate-700 leading-relaxed font-bold italic">
+                    <p className="text-sm font-bold text-muted-foreground uppercase pb-2 border-b">Coverage:</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed font-bold italic">
                         AP, Telangana, Chhattisgarh, Gujarat, HP, Jharkhand, MP, Maharashtra, Odisha, Rajasthan.
                     </p>
                     <div className="mt-4 p-3 bg-amber-50 border-l-4 border-amber-900 rounded">
@@ -92,12 +92,12 @@ export default function ScheduledTribalAreasModule({ onComplete, isCompleted, ch
                         <p className="text-sm">By <span className="font-bold underline">President</span> (in consultation with Governor). [PYQ]</p>
                     </div>
                     <div className="space-y-1 mt-4">
-                        <div className="text-[10px] font-black text-slate-400">CRITERIA:</div>
+                        <div className="text-[10px] font-black text-muted-foreground">CRITERIA:</div>
                         <div className="grid grid-cols-2 gap-2 text-[10px]">
-                            <div className="p-1 border rounded bg-white">● Tribal Pop Size</div>
-                            <div className="p-1 border rounded bg-white">● Compactness</div>
-                            <div className="p-1 border rounded bg-white">● Under-developed</div>
-                            <div className="p-1 border rounded bg-white">● Eco Disparity</div>
+                            <div className="p-1 border rounded bg-card">● Tribal Pop Size</div>
+                            <div className="p-1 border rounded bg-card">● Compactness</div>
+                            <div className="p-1 border rounded bg-card">● Under-developed</div>
+                            <div className="p-1 border rounded bg-card">● Eco Disparity</div>
                         </div>
                     </div>
                 </BasketCard>
@@ -135,7 +135,7 @@ export default function ScheduledTribalAreasModule({ onComplete, isCompleted, ch
                     <div className="flex items-center gap-4 mb-4">
                         <div className="text-4xl font-black text-green-700 font-['Kalam']">AMTM</div>
                         <div className="h-8 w-[2px] bg-green-200"></div>
-                        <div className="text-[10px] font-bold text-slate-500 uppercase">
+                        <div className="text-[10px] font-bold text-muted-foreground uppercase">
                             Assam, Meghalaya, <br /> Tripura, Mizoram. [PYQ]
                         </div>
                     </div>
@@ -151,17 +151,17 @@ export default function ScheduledTribalAreasModule({ onComplete, isCompleted, ch
                     <div className="bg-green-700 text-white p-3 rounded-t-xl font-black text-center text-sm">
                         "STATE WITHIN A STATE"
                     </div>
-                    <div className="border-2 border-green-700 p-4 rounded-b-xl space-y-3 bg-white">
+                    <div className="border-2 border-green-700 p-4 rounded-b-xl space-y-3 bg-card">
                         <div className="flex justify-between items-center text-xs font-bold border-b pb-2">
                             <span>TOTAL MEMBERS:</span>
                             <span className="text-green-700 text-lg">30</span>
                         </div>
                         <div className="grid grid-cols-2 gap-2 text-[10px] font-black">
-                            <div className="p-2 bg-green-50 rounded">4 NOMINATED <br /><span className="text-slate-400">(by Governor)</span></div>
-                            <div className="p-2 bg-green-50 rounded">26 ELECTED <br /><span className="text-slate-400">(5 Year Term)</span></div>
+                            <div className="p-2 bg-green-50 rounded">4 NOMINATED <br /><span className="text-muted-foreground">(by Governor)</span></div>
+                            <div className="p-2 bg-green-50 rounded">26 ELECTED <br /><span className="text-muted-foreground">(5 Year Term)</span></div>
                         </div>
-                        <div className="bg-slate-50 p-3 rounded text-[10px]">
-                            <p className="font-bold text-slate-400 uppercase mb-1">Powers [PYQ]:</p>
+                        <div className="bg-muted p-3 rounded text-[10px]">
+                            <p className="font-bold text-muted-foreground uppercase mb-1">Powers [PYQ]:</p>
                             <p>Land, Forest, Canal water, Shifting cultivation, Marriage, Divorce.</p>
                             <p className="mt-1 text-green-700 italic">● Requires Governor's Assent.</p>
                         </div>
@@ -173,7 +173,7 @@ export default function ScheduledTribalAreasModule({ onComplete, isCompleted, ch
             <div className="grid md:grid-cols-3 gap-8">
                 <BasketCard title="Judicial Powers" color="border-slate-900">
                     <div className="text-center py-2">
-                        <Gavel size={40} className="mx-auto text-slate-900 mb-2" />
+                        <Gavel size={40} className="mx-auto text-foreground mb-2" />
                     </div>
                     <ul className="text-xs space-y-2">
                         <li className="flex gap-2">
@@ -206,14 +206,14 @@ export default function ScheduledTribalAreasModule({ onComplete, isCompleted, ch
             </div>
 
             {/* FOOTER */}
-            <div className="bg-white border-2 border-amber-950 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4 shadow-md">
+            <div className="bg-card border-2 border-amber-950 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4 shadow-md">
                 <div className="flex items-center gap-3">
                     <div className="w-12 h-12 bg-amber-900 rounded-full flex items-center justify-center text-white">
                         <BadgeCheck size={24} />
                     </div>
                     <div>
                         <h5 className="font-black text-amber-950">PESA ACT (1996)</h5>
-                        <p className="text-xs text-slate-500 italic">"Self Rule" through Gram Sabha supremacy in 5th Schedule areas.</p>
+                        <p className="text-xs text-muted-foreground italic">"Self Rule" through Gram Sabha supremacy in 5th Schedule areas.</p>
                     </div>
                 </div>
                 <Button variant="outline" className="border-amber-900 text-amber-900 hover:bg-amber-50">

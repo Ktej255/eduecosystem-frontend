@@ -45,7 +45,7 @@ export default function ArticleFlashcards() {
         <div className="max-w-4xl mx-auto p-4 md:p-8 font-['Calibri'] flex flex-col items-center">
             {/* Header / Progress */}
             <div className="w-full mb-8 space-y-2">
-                <div className="flex justify-between items-center text-sm font-bold text-slate-600">
+                <div className="flex justify-between items-center text-sm font-bold text-muted-foreground">
                     <span>Mastery Progress</span>
                     <span>{masteredDetails.length} / {ARTICLE_MEMORY_DATA.length} Articles</span>
                 </div>
@@ -59,17 +59,17 @@ export default function ArticleFlashcards() {
                     animate={{ rotateY: isFlipped ? 180 : 0 }}
                 >
                     {/* FRONT SIDE */}
-                    <div className="absolute w-full h-full backface-hidden bg-white border-2 border-slate-200 rounded-3xl flex flex-col items-center justify-center p-8 text-center shadow-sm group-hover:border-blue-300 group-hover:shadow-md transition-all">
-                        <div className="absolute top-6 right-6 text-slate-400">
+                    <div className="absolute w-full h-full backface-hidden bg-card border-2 border-border rounded-3xl flex flex-col items-center justify-center p-8 text-center shadow-sm group-hover:border-blue-300 group-hover:shadow-md transition-all">
+                        <div className="absolute top-6 right-6 text-muted-foreground">
                             <RotateCw size={24} />
                         </div>
-                        <span className="text-sm font-bold tracking-widest text-slate-400 uppercase mb-4">
+                        <span className="text-sm font-bold tracking-widest text-muted-foreground uppercase mb-4">
                             {currentCard.group}
                         </span>
-                        <h2 className="text-6xl md:text-8xl font-black text-slate-800 mb-2">
+                        <h2 className="text-6xl md:text-8xl font-black text-foreground mb-2">
                             Art. {currentCard.articleNumber}
                         </h2>
-                        <p className="text-slate-400 text-sm mt-4">Click to Flip</p>
+                        <p className="text-muted-foreground text-sm mt-4">Click to Flip</p>
                     </div>
 
                     {/* BACK SIDE */}
@@ -80,7 +80,7 @@ export default function ArticleFlashcards() {
                         <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
                             {currentCard.provision}
                         </h3>
-                        <div className="bg-white/10 p-4 rounded-xl border border-white/20 backdrop-blur-sm">
+                        <div className="bg-card/10 p-4 rounded-xl border border-white/20 backdrop-blur-sm">
                             <div className="flex items-center justify-center gap-2 text-yellow-300 font-bold mb-1 text-sm uppercase">
                                 <Lightbulb size={16} /> Mnemonic Hint
                             </div>

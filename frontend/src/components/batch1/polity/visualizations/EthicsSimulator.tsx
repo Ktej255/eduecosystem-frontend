@@ -170,7 +170,7 @@ export default function EthicsSimulator() {
                                     <button
                                         key={i}
                                         onClick={() => handleChoice(choice)}
-                                        className="group p-6 rounded-2xl border border-white/10 bg-white/5 text-left hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all duration-300"
+                                        className="group p-6 rounded-2xl border border-white/10 bg-card/5 text-left hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all duration-300"
                                     >
                                         <div className="flex justify-between items-center mb-2">
                                             <span className="text-xs font-black uppercase text-white/40 tracking-widest group-hover:text-emerald-400 transition-colors">Action {i + 1}</span>
@@ -195,7 +195,7 @@ export default function EthicsSimulator() {
 
                             <div className="space-y-4 mb-8">
                                 {history.map((h, i) => (
-                                    <div key={i} className="p-4 rounded-xl bg-white/5 border border-white/5">
+                                    <div key={i} className="p-4 rounded-xl bg-card/5 border border-white/5">
                                         <p className="text-[10px] text-white/30 uppercase font-black mb-1">Decision {i + 1}</p>
                                         <p className="text-sm text-white/80 font-medium italic mb-2">"{h.choice}"</p>
                                         <div className="p-3 bg-emerald-500/5 rounded-lg border border-emerald-500/20 text-[11px] text-emerald-200/70 leading-relaxed">
@@ -206,7 +206,7 @@ export default function EthicsSimulator() {
                             </div>
 
                             <div className="flex flex-col md:flex-row gap-4 justify-center">
-                                <Button onClick={reset} size="lg" className="bg-white text-black hover:bg-slate-200 font-black uppercase tracking-widest">
+                                <Button onClick={reset} size="lg" className="bg-card text-black hover:bg-slate-200 font-black uppercase tracking-widest">
                                     <RotateCcw className="mr-2 h-4 w-4" /> Restart
                                 </Button>
                                 <Button variant="outline" size="lg" className="border-white/20 text-white font-black uppercase tracking-widest">

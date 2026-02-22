@@ -40,7 +40,7 @@ export default function AdaptiveTestCreator() {
     };
 
     return (
-        <Card className="h-full border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+        <Card className="h-full border-neutral-200 dark:border-neutral-800 bg-card dark:bg-neutral-900">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-rose-600">
                     <BrainCircuit className="w-5 h-5" />
@@ -93,7 +93,7 @@ export default function AdaptiveTestCreator() {
                         </div>
                         <div className="space-y-2">
                             {generatedTest.questions.map((q: any, i: number) => (
-                                <div key={i} className="flex gap-2 text-sm bg-white dark:bg-neutral-900 p-2 rounded border border-neutral-100 dark:border-neutral-800">
+                                <div key={i} className="flex gap-2 text-sm bg-card dark:bg-neutral-900 p-2 rounded border border-neutral-100 dark:border-neutral-800">
                                     <span className="font-bold text-neutral-400">{i + 1}.</span>
                                     <span>{q.q}</span>
                                 </div>

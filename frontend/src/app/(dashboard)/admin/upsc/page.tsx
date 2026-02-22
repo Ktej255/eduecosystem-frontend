@@ -17,7 +17,7 @@ export default function AdminDashboardPage() {
             {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Card 1 */}
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-[var(--neutral-cool-grey)] hover:shadow-md transition-shadow">
+                <div className="bg-card p-6 rounded-2xl shadow-sm border border-[var(--neutral-cool-grey)] hover:shadow-md transition-shadow">
                     <div className="flex justify-between items-start">
                         <div>
                             <p className="text-sm font-medium text-[var(--neutral-slate-grey)]">Total Students</p>
@@ -33,7 +33,7 @@ export default function AdminDashboardPage() {
                 </div>
 
                 {/* Card 2 */}
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-[var(--neutral-cool-grey)] hover:shadow-md transition-shadow">
+                <div className="bg-card p-6 rounded-2xl shadow-sm border border-[var(--neutral-cool-grey)] hover:shadow-md transition-shadow">
                     <div className="flex justify-between items-start">
                         <div>
                             <p className="text-sm font-medium text-[var(--neutral-slate-grey)]">Active Batches</p>
@@ -49,7 +49,7 @@ export default function AdminDashboardPage() {
                 </div>
 
                 {/* Card 3 */}
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-[var(--neutral-cool-grey)] hover:shadow-md transition-shadow">
+                <div className="bg-card p-6 rounded-2xl shadow-sm border border-[var(--neutral-cool-grey)] hover:shadow-md transition-shadow">
                     <div className="flex justify-between items-start">
                         <div>
                             <p className="text-sm font-medium text-[var(--neutral-slate-grey)]">Pending Reviews</p>
@@ -67,7 +67,7 @@ export default function AdminDashboardPage() {
 
             {/* Quick Actions */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-[var(--neutral-cool-grey)]">
+                <div className="bg-card p-6 rounded-2xl shadow-sm border border-[var(--neutral-cool-grey)]">
                     <h3 className="text-lg font-bold text-[var(--primary-indigo)] mb-4">Quick Actions</h3>
                     <div className="grid grid-cols-2 gap-4">
                         <Link href="/admin/upsc/batches" className="p-4 rounded-xl border border-[var(--neutral-cool-grey)] hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)]/5 transition-all text-center group">
@@ -101,7 +101,7 @@ export default function AdminDashboardPage() {
                         </div>
                     </div>
                     {/* Decorative Circle */}
-                    <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/5 rounded-full blur-2xl"></div>
+                    <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-card/5 rounded-full blur-2xl"></div>
                 </div>
             </div>
         </div>

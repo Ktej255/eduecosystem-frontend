@@ -39,7 +39,7 @@ export function HistoryTimeline() {
     };
 
     return (
-        <div className="w-full max-w-4xl mx-auto p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md relative overflow-hidden">
+        <div className="w-full max-w-4xl mx-auto p-8 rounded-2xl border border-white/10 bg-card/5 backdrop-blur-md relative overflow-hidden">
             {/* ... header ... */}
             <div className="absolute top-0 right-0 p-4 opacity-10">
                 <Crown size={120} />
@@ -63,13 +63,13 @@ export function HistoryTimeline() {
                         className="relative"
                     >
                         {/* Node */}
-                        <div className={`absolute -left-[41px] top-1 w-6 h-6 rounded-full border-4 border-[#0f0f13] flex items-center justify-center transition-colors duration-500 ${activeEvent === index ? "bg-white shadow-[0_0_15px_rgba(255,165,0,0.8)]" :
+                        <div className={`absolute -left-[41px] top-1 w-6 h-6 rounded-full border-4 border-[#0f0f13] flex items-center justify-center transition-colors duration-500 ${activeEvent === index ? "bg-card shadow-[0_0_15px_rgba(255,165,0,0.8)]" :
                             item.is_battle ? "bg-red-500" : "bg-orange-500"
                             }`}>
                             {item.is_battle ? <GitPullRequest size={10} className={activeEvent === index ? "text-black" : "text-white"} /> : <GitCommit size={10} className={activeEvent === index ? "text-black" : "text-white"} />}
                         </div>
 
-                        <div className={`flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 rounded-lg transition-colors border ${activeEvent === index ? "bg-orange-500/20 border-orange-500/50" : "bg-white/5 border-white/5 hover:bg-white/10"
+                        <div className={`flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 rounded-lg transition-colors border ${activeEvent === index ? "bg-orange-500/20 border-orange-500/50" : "bg-card/5 border-white/5 hover:bg-card/10"
                             }`}>
                             <div>
                                 <span className={`text-xs font-mono block mb-1 ${activeEvent === index ? "text-white" : "text-orange-400"}`}>{item.year}</span>

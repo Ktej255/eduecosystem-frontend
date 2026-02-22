@@ -65,16 +65,16 @@ export default function GraphoDashboard() {
 
                     {/* Tabs */}
                     <Tabs defaultValue="drills" onValueChange={(value) => setActiveTab(value as 'drills' | 'transformation')} className="mt-8">
-                        <TabsList className="grid w-full grid-cols-2 bg-gray-100 dark:bg-white/5 p-1 rounded-xl">
+                        <TabsList className="grid w-full grid-cols-2 bg-muted dark:bg-card/5 p-1 rounded-xl">
                             <TabsTrigger
                                 value="drills"
-                                className={`data-[state=active]:bg-white dark:data-[state=active]:bg-neutral-800 data-[state=active]:shadow-sm rounded-lg transition-all ${activeTab === 'drills' ? '' : 'text-gray-500'}`}
+                                className={`data-[state=active]:bg-card dark:data-[state=active]:bg-neutral-800 data-[state=active]:shadow-sm rounded-lg transition-all ${activeTab === 'drills' ? '' : 'text-muted-foreground'}`}
                             >
                                 Daily Drills
                             </TabsTrigger>
                             <TabsTrigger
                                 value="transformation"
-                                className={`data-[state=active]:bg-white dark:data-[state=active]:bg-neutral-800 data-[state=active]:shadow-sm rounded-lg transition-all ${activeTab === 'transformation' ? '' : 'text-gray-500'}`}
+                                className={`data-[state=active]:bg-card dark:data-[state=active]:bg-neutral-800 data-[state=active]:shadow-sm rounded-lg transition-all ${activeTab === 'transformation' ? '' : 'text-muted-foreground'}`}
                             >
                                 Transformation Insights
                             </TabsTrigger>
@@ -99,11 +99,11 @@ export default function GraphoDashboard() {
 
                             {/* Upsell / Monetization Card */}
                             <div className="mt-6 bg-gradient-to-br from-gray-900 to-purple-900 rounded-2xl p-6 text-white text-center relative overflow-hidden group cursor-pointer" onClick={() => setShowUnlockModal(true)}>
-                                <div className="absolute inset-0 bg-white/5 group-hover:bg-white/10 transition-colors" />
+                                <div className="absolute inset-0 bg-card/5 group-hover:bg-card/10 transition-colors" />
                                 <Lock className="w-8 h-8 mx-auto mb-3 text-purple-300" />
                                 <h3 className="font-bold text-lg">Unlock Level 2</h3>
                                 <p className="text-purple-200 text-sm mb-4">Master Neuro-Linguistic Integration</p>
-                                <Button size="sm" className="w-full bg-white text-purple-900 hover:bg-gray-100 font-bold">
+                                <Button size="sm" className="w-full bg-card text-purple-900 hover:bg-muted font-bold">
                                     Unlock Now
                                 </Button>
                             </div>
@@ -154,7 +154,7 @@ export default function GraphoDashboard() {
 
                                         {/* Label */}
                                         {isCurrent && (
-                                            <div className="absolute -bottom-3 bg-white text-green-900 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                                            <div className="absolute -bottom-3 bg-card text-green-900 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
                                                 Today
                                             </div>
                                         )}

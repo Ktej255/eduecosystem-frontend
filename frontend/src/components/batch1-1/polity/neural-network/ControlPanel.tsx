@@ -19,7 +19,7 @@ export default function ControlPanel({ onScenarioTrigger, mode }: ControlPanelPr
 
             {/* 1. The Master Switch */}
             <div className="space-y-4">
-                <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
                     The Master Switch
                 </h3>
 
@@ -41,7 +41,7 @@ export default function ControlPanel({ onScenarioTrigger, mode }: ControlPanelPr
                             className="data-[state=checked]:bg-red-600"
                         />
                     </div>
-                    <p className="text-[10px] text-slate-400 leading-tight">
+                    <p className="text-[10px] text-muted-foreground leading-tight">
                         Article 352. Suspends Federalism. Centre can legislate on State Lists.
                     </p>
                 </div>
@@ -49,7 +49,7 @@ export default function ControlPanel({ onScenarioTrigger, mode }: ControlPanelPr
 
             {/* 2. Scenario Triggers */}
             <div className="space-y-3">
-                <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
                     Test Circuits
                 </h3>
 
@@ -95,23 +95,23 @@ export default function ControlPanel({ onScenarioTrigger, mode }: ControlPanelPr
 
             {/* 3. Legend */}
             <div className="mt-auto space-y-3 p-4 bg-black/20 rounded-lg border border-white/5">
-                <h4 className="text-[10px] font-bold text-slate-500 uppercase">Circuit Legend</h4>
+                <h4 className="text-[10px] font-bold text-muted-foreground uppercase">Circuit Legend</h4>
                 <div className="space-y-2">
                     <div className="flex items-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_8px_cyan]"></div>
-                        <span className="text-[10px] text-slate-400">Union Power (Active)</span>
+                        <span className="text-[10px] text-muted-foreground">Union Power (Active)</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                        <span className="text-[10px] text-slate-400">State Power (Active)</span>
+                        <span className="text-[10px] text-muted-foreground">State Power (Active)</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                        <span className="text-[10px] text-slate-400">Override / Veto</span>
+                        <span className="text-[10px] text-muted-foreground">Override / Veto</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-slate-600"></div>
-                        <span className="text-[10px] text-slate-400">Power Cut (Inactive)</span>
+                        <span className="text-[10px] text-muted-foreground">Power Cut (Inactive)</span>
                     </div>
                 </div>
             </div>

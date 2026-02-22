@@ -69,8 +69,8 @@ export default function GraphoSidebar() {
               key={route.href}
               href={route.href}
               className={cn(
-                "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
-                pathname === route.href ? "text-white bg-white/10" : "text-zinc-400"
+                "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-card/10 rounded-lg transition",
+                pathname === route.href ? "text-white bg-card/10" : "text-zinc-400"
               )}
             >
               <div className="flex items-center flex-1">
@@ -83,14 +83,14 @@ export default function GraphoSidebar() {
       </div>
       <div className="px-3 py-2">
         <div className="bg-slate-800 p-4 rounded-xl mb-4">
-          <h4 className="text-xs font-bold text-slate-400 mb-2 uppercase">Your Streak</h4>
+          <h4 className="text-xs font-bold text-muted-foreground mb-2 uppercase">Your Streak</h4>
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-orange-500/20 rounded-full flex items-center justify-center text-orange-500">
               🔥
             </div>
             <div>
               <div className="text-lg font-bold text-white">0 Days</div>
-              <div className="text-xs text-slate-500">Keep it up!</div>
+              <div className="text-xs text-muted-foreground">Keep it up!</div>
             </div>
           </div>
         </div>

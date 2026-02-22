@@ -162,7 +162,7 @@ export default function Level4_Transcendence({ onExit, onComplete, level = 4, da
                     <Button variant="ghost" className="text-white/60 hover:text-white" onClick={onExit}>
                         <X className="w-6 h-6" />
                     </Button>
-                    <div className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full backdrop-blur-md border border-white/10">
+                    <div className="flex items-center gap-2 px-3 py-1 bg-card/5 rounded-full backdrop-blur-md border border-white/10">
                         <Infinity className="w-4 h-4 text-fuchsia-400" />
                         <span className="text-xs font-medium tracking-wide opacity-80">LEVEL 4 • TRANSCENDENCE</span>
                     </div>
@@ -179,7 +179,7 @@ export default function Level4_Transcendence({ onExit, onComplete, level = 4, da
                         <h1 className="text-5xl font-thin tracking-[0.2em] mb-4 text-white/80">VOID</h1>
                         <Button
                             onClick={() => setIsPlaying(true)}
-                            className="bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full px-8 py-6 text-lg tracking-widest transition-all hover:scale-105 backdrop-blur-md"
+                            className="bg-card/10 hover:bg-card/20 text-white border border-white/20 rounded-full px-8 py-6 text-lg tracking-widest transition-all hover:scale-105 backdrop-blur-md"
                         >
                             ENTER
                         </Button>

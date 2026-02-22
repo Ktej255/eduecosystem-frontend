@@ -73,11 +73,11 @@ export default function NotificationPreferences() {
         { id: "course", label: "Course Activity", icon: BookOpen, color: "text-indigo-600 bg-indigo-50" },
         { id: "finance", label: "Finance & Sales", icon: DollarSign, color: "text-green-600 bg-green-50" },
         { id: "security", label: "Security & Login", icon: Shield, color: "text-red-600 bg-red-50" },
-        { id: "account", label: "Account & Updates", icon: User, color: "text-slate-600 bg-slate-50" },
+        { id: "account", label: "Account & Updates", icon: User, color: "text-muted-foreground bg-muted" },
     ];
 
     return (
-        <Card className="border-slate-200 dark:border-slate-800 shadow-sm max-w-4xl mx-auto">
+        <Card className="border-border shadow-sm max-w-4xl mx-auto">
             <CardHeader className="pb-6">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
@@ -88,7 +88,7 @@ export default function NotificationPreferences() {
                         <CardDescription>Manage how and when you want to be notified.</CardDescription>
                     </div>
                     <div className="flex items-center gap-2">
-                        <Button variant="ghost" size="sm" onClick={handleReset} disabled={!hasChanges} className="text-slate-500">
+                        <Button variant="ghost" size="sm" onClick={handleReset} disabled={!hasChanges} className="text-muted-foreground">
                             <RotateCcw className="h-4 w-4 mr-2" /> Reset
                         </Button>
                         <Button size="sm" onClick={handleSave} disabled={!hasChanges} className={hasChanges ? "bg-indigo-600 hover:bg-indigo-700" : ""}>
@@ -99,7 +99,7 @@ export default function NotificationPreferences() {
             </CardHeader>
             <CardContent className="p-0">
                 <div className="divide-y divide-slate-100 dark:divide-slate-800">
-                    <div className="grid grid-cols-12 gap-4 px-6 py-3 bg-slate-50/50 dark:bg-slate-900/50 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                    <div className="grid grid-cols-12 gap-4 px-6 py-3 bg-slate-50/50/50 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                         <div className="col-span-8 md:col-span-6">Alert Type</div>
                         <div className="col-span-2 md:col-span-3 text-center flex items-center justify-center gap-1">
                             <Mail className="h-3 w-3" /> Email
@@ -116,20 +116,20 @@ export default function NotificationPreferences() {
                         return (
                             <div key={category.id}>
                                 {/* Category Header */}
-                                <div className="px-6 py-4 bg-white dark:bg-slate-950 flex items-center gap-2">
+                                <div className="px-6 py-4 bg-card flex items-center gap-2">
                                     <div className={`p-1.5 rounded-md ${category.color}`}>
                                         <category.icon className="h-4 w-4" />
                                     </div>
-                                    <h3 className="font-semibold text-slate-900 dark:text-slate-100">{category.label}</h3>
+                                    <h3 className="font-semibold text-foreground">{category.label}</h3>
                                 </div>
 
                                 {/* Items */}
                                 <div className="divide-y divide-slate-50 dark:divide-slate-900">
                                     {categorySettings.map((setting) => (
-                                        <div key={setting.id} className="grid grid-cols-12 gap-4 px-6 py-4 hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors">
+                                        <div key={setting.id} className="grid grid-cols-12 gap-4 px-6 py-4 hover:bg-muted dark:hover:bg-slate-900/50 transition-colors">
                                             <div className="col-span-8 md:col-span-6 pr-4">
-                                                <p className="font-medium text-slate-700 dark:text-slate-200 text-sm">{setting.label}</p>
-                                                <p className="text-xs text-slate-500 mt-0.5">{setting.description}</p>
+                                                <p className="font-medium text-muted-foreground text-sm">{setting.label}</p>
+                                                <p className="text-xs text-muted-foreground mt-0.5">{setting.description}</p>
                                             </div>
                                             <div className="col-span-2 md:col-span-3 flex justify-center items-center">
                                                 <Switch
@@ -151,7 +151,7 @@ export default function NotificationPreferences() {
                     })}
                 </div>
             </CardContent>
-            <CardFooter className="py-6 bg-slate-50 dark:bg-slate-900/10 border-t border-slate-100 dark:border-slate-800 flex justify-center text-xs text-slate-400 text-center">
+            <CardFooter className="py-6 bg-muted/10 border-t border-slate-100 flex justify-center text-xs text-muted-foreground text-center">
                 <p>
                     Tip: Push notifications are sent to your mobile device via the EduTeacher App. <br />
                     Email notifications are sent to your registered address (t*********@example.com).

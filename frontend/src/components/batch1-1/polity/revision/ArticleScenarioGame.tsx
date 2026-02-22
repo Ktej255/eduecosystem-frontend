@@ -85,7 +85,7 @@ export default function ArticleScenarioGame({ onComplete }: { onComplete?: () =>
                 </div>
                 <h2 className="text-4xl font-black mb-2 tracking-tight">Level 3 Mastered!</h2>
                 <p className="text-indigo-200 mb-8 text-lg">Your Constitutional IQ is: <span className="font-bold text-white">{Math.round((score / SCENARIOS.length) * 100)}%</span></p>
-                <Button onClick={handleRestart} size="lg" className="rounded-full font-bold bg-white text-indigo-900 hover:bg-indigo-50">
+                <Button onClick={handleRestart} size="lg" className="rounded-full font-bold bg-card text-indigo-900 hover:bg-indigo-50">
                     <RefreshCw className="mr-2" /> Replay Scenario Mode
                 </Button>
             </div>
@@ -95,16 +95,16 @@ export default function ArticleScenarioGame({ onComplete }: { onComplete?: () =>
     return (
         <div className="max-w-3xl mx-auto space-y-6 font-['Calibri']">
             {/* Header */}
-            <div className="flex justify-between items-center bg-slate-100 p-4 rounded-xl">
-                <div className="flex items-center gap-2 font-bold text-slate-600">
+            <div className="flex justify-between items-center bg-muted p-4 rounded-xl">
+                <div className="flex items-center gap-2 font-bold text-muted-foreground">
                     <Siren className="text-red-500" /> Crisis Situation #{currentIndex + 1}
                 </div>
-                <div className="text-sm font-bold text-slate-400">
+                <div className="text-sm font-bold text-muted-foreground">
                     Score: {score}
                 </div>
             </div>
 
-            <Card className="border-0 shadow-2xl relative overflow-hidden bg-white">
+            <Card className="border-0 shadow-2xl relative overflow-hidden bg-card">
                 <div className="absolute top-0 left-0 w-2 h-full bg-red-500"></div>
 
                 <CardContent className="p-8 md:p-12">
@@ -112,17 +112,17 @@ export default function ArticleScenarioGame({ onComplete }: { onComplete?: () =>
                         Constitutional Crisis
                     </Badge>
 
-                    <h3 className="text-2xl md:text-3xl font-medium text-slate-800 leading-snug mb-8 font-serif italic">
+                    <h3 className="text-2xl md:text-3xl font-medium text-foreground leading-snug mb-8 font-serif italic">
                         "{currentScenario.situation}"
                     </h3>
 
-                    <p className="text-sm text-slate-400 font-bold uppercase tracking-wider mb-4">
+                    <p className="text-sm text-muted-foreground font-bold uppercase tracking-wider mb-4">
                         Which Article Applies?
                     </p>
 
                     <div className="grid grid-cols-2 gap-4">
                         {currentScenario.options.map((opt) => {
-                            let statusClass = "bg-white border-2 border-slate-200 hover:border-slate-400 text-slate-600";
+                            let statusClass = "bg-card border-2 border-border hover:border-slate-400 text-muted-foreground";
 
                             if (isAnswered) {
                                 if (opt === currentScenario.answer) {
@@ -130,7 +130,7 @@ export default function ArticleScenarioGame({ onComplete }: { onComplete?: () =>
                                 } else if (opt === selectedOption) {
                                     statusClass = "bg-red-500 border-red-500 text-white opacity-50";
                                 } else {
-                                    statusClass = "bg-slate-50 border-slate-100 text-slate-300";
+                                    statusClass = "bg-muted border-slate-100 text-slate-300";
                                 }
                             }
 
@@ -160,8 +160,8 @@ export default function ArticleScenarioGame({ onComplete }: { onComplete?: () =>
                                         <Gavel className="text-indigo-600" />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-slate-800 mb-1">Judicial Explanation</h4>
-                                        <p className="text-slate-600 leading-relaxed text-sm">
+                                        <h4 className="font-bold text-foreground mb-1">Judicial Explanation</h4>
+                                        <p className="text-muted-foreground leading-relaxed text-sm">
                                             {currentScenario.explanation}
                                         </p>
                                     </div>

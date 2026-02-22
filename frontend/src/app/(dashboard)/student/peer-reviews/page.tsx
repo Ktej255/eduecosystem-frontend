@@ -42,7 +42,7 @@ export default function PeerReviewsToCompletePage() {
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-500 mx-auto mb-4"></div>
-          <p className="text-gray-400">Loading peer reviews...</p>
+          <p className="text-muted-foreground">Loading peer reviews...</p>
         </div>
       </div>
     );
@@ -57,7 +57,7 @@ export default function PeerReviewsToCompletePage() {
         <h1 className="text-3xl font-bold text-white mb-2">
           Peer Reviews to Complete
         </h1>
-        <p className="text-gray-400">
+        <p className="text-muted-foreground">
           Review your classmates' work and provide constructive feedback
         </p>
       </div>
@@ -71,7 +71,7 @@ export default function PeerReviewsToCompletePage() {
                 <p className="text-3xl font-bold text-white">
                   {pendingReviews.length}
                 </p>
-                <p className="text-gray-400 mt-1">Pending Reviews</p>
+                <p className="text-muted-foreground mt-1">Pending Reviews</p>
               </div>
               <Clock className="h-12 w-12 text-yellow-500" />
             </div>
@@ -85,7 +85,7 @@ export default function PeerReviewsToCompletePage() {
                 <p className="text-3xl font-bold text-white">
                   {completedReviews.length}
                 </p>
-                <p className="text-gray-400 mt-1">Completed</p>
+                <p className="text-muted-foreground mt-1">Completed</p>
               </div>
               <CheckCircle className="h-12 w-12 text-green-500" />
             </div>
@@ -127,7 +127,7 @@ export default function PeerReviewsToCompletePage() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-sm text-gray-400">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <FileText className="h-4 w-4" />
                       <span>Review assignment submission</span>
                     </div>
@@ -180,7 +180,7 @@ export default function PeerReviewsToCompletePage() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-between">
-                    <div className="text-sm text-gray-400">
+                    <div className="text-sm text-muted-foreground">
                       Submitted on{" "}
                       {new Date(assignment.updated_at).toLocaleDateString()}
                     </div>
@@ -207,11 +207,11 @@ export default function PeerReviewsToCompletePage() {
       {assignments.length === 0 && (
         <Card className="bg-gray-800 border-gray-700">
           <CardContent className="py-12 text-center">
-            <FileText className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+            <FileText className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-white mb-2">
               No Peer Reviews Assigned
             </h3>
-            <p className="text-gray-400">
+            <p className="text-muted-foreground">
               You don't have any peer reviews to complete at the moment.
             </p>
           </CardContent>

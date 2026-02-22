@@ -68,7 +68,7 @@ export function SecurityAlertsDashboard() {
                 <Card className="bg-black border-gray-800 text-center py-20">
                     <CardContent>
                         <CheckCircle2 className="w-12 h-12 text-green-500 mx-auto mb-4 opacity-20" />
-                        <p className="text-gray-500">No suspicious login activity detected.</p>
+                        <p className="text-muted-foreground">No suspicious login activity detected.</p>
                     </CardContent>
                 </Card>
             ) : (
@@ -84,18 +84,18 @@ export function SecurityAlertsDashboard() {
                                         </div>
                                         <div>
                                             <div className="font-bold text-gray-200">{alert.user_name || "Unknown User"}</div>
-                                            <div className="text-xs text-gray-500 truncate">{alert.user_email}</div>
+                                            <div className="text-xs text-muted-foreground truncate">{alert.user_email}</div>
                                         </div>
                                     </div>
 
                                     {/* Conflict Logins */}
                                     <div className="p-4 md:w-2/4 grid grid-cols-2 gap-4">
                                         <div className="space-y-1">
-                                            <div className="text-[10px] text-gray-500 uppercase font-bold flex items-center gap-1">
+                                            <div className="text-[10px] text-muted-foreground uppercase font-bold flex items-center gap-1">
                                                 <Clock className="w-3 h-3" /> Login A
                                             </div>
-                                            <div className="text-sm font-mono text-gray-300">{alert.login_a.ip}</div>
-                                            <div className="text-[10px] text-gray-400">{new Date(alert.login_a.time).toLocaleString()}</div>
+                                            <div className="text-sm font-mono text-muted-foreground">{alert.login_a.ip}</div>
+                                            <div className="text-[10px] text-muted-foreground">{new Date(alert.login_a.time).toLocaleString()}</div>
                                         </div>
                                         <div className="space-y-1">
                                             <div className="text-[10px] text-red-500 uppercase font-bold flex items-center gap-1">
@@ -109,7 +109,7 @@ export function SecurityAlertsDashboard() {
                                     {/* Distance/Risk */}
                                     <div className="p-4 md:w-1/4 flex flex-col justify-between">
                                         <div className="flex items-center justify-between text-sm">
-                                            <div className="flex items-center gap-2 text-gray-400">
+                                            <div className="flex items-center gap-2 text-muted-foreground">
                                                 <Map className="w-4 h-4" /> ~{alert.distance_km}km
                                             </div>
                                             <div className="px-2 py-0.5 bg-red-500/20 text-red-500 text-[10px] font-black rounded uppercase tracking-widest">

@@ -34,7 +34,7 @@ export default function TeacherLayout({
 
     if (loading) {
         return (
-            <div className="flex h-screen items-center justify-center bg-gray-100">
+            <div className="flex h-screen items-center justify-center bg-muted">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600"></div>
             </div>
         );
@@ -45,7 +45,7 @@ export default function TeacherLayout({
     }
 
     return (
-        <div className="flex flex-col md:flex-row min-h-screen bg-gray-100 text-gray-900 light">
+        <div className="flex flex-col md:flex-row min-h-screen bg-muted text-foreground light">
             {/* Mobile Header - Only visible on mobile */}
             <header className="md:hidden fixed top-0 left-0 right-0 h-14 bg-gradient-to-r from-emerald-800 to-emerald-900 flex items-center justify-between px-4 z-50 border-b border-emerald-700/50">
                 <div className="flex items-center gap-3">

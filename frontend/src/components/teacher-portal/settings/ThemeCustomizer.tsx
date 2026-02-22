@@ -61,7 +61,7 @@ export default function ThemeCustomizer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
             {/* Controls */}
             <div className="lg:col-span-4 space-y-6">
-                <Card className="border-slate-200 dark:border-slate-800">
+                <Card className="border-border">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2 text-lg">
                             <Palette className="h-5 w-5 text-indigo-500" />
@@ -88,7 +88,7 @@ export default function ThemeCustomizer() {
                                     </button>
                                 ))}
                             </div>
-                            <p className="text-xs text-slate-500 flex items-center gap-1.5 mt-1">
+                            <p className="text-xs text-muted-foreground flex items-center gap-1.5 mt-1">
                                 <span className={cn("inline-block w-2 h-2 rounded-full", selectedTheme.color)}></span>
                                 Selected: <span className="font-medium">{selectedTheme.label}</span>
                             </p>
@@ -97,11 +97,11 @@ export default function ThemeCustomizer() {
                         <div className="space-y-3">
                             <div className="flex items-center justify-between">
                                 <Label className="text-sm font-medium">Appearance Mode</Label>
-                                <div className="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
+                                <div className="flex items-center gap-2 bg-muted p-1 rounded-lg">
                                     <Button
                                         variant="ghost"
                                         size="sm"
-                                        className={cn("h-7 w-7 p-0 rounded-md", !isDarkMode && "bg-white shadow text-slate-800")}
+                                        className={cn("h-7 w-7 p-0 rounded-md", !isDarkMode && "bg-card shadow text-foreground")}
                                         onClick={() => setIsDarkMode(false)}
                                     >
                                         <Sun className="h-4 w-4" />
@@ -118,7 +118,7 @@ export default function ThemeCustomizer() {
                             </div>
                         </div>
 
-                        <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex gap-2">
+                        <div className="pt-4 border-t border-slate-100 flex gap-2">
                             <Button
                                 variant="outline"
                                 className="flex-1"
@@ -142,20 +142,20 @@ export default function ThemeCustomizer() {
             {/* Live Preview */}
             <div className="lg:col-span-8">
                 <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-sm font-medium text-slate-600 dark:text-slate-400 flex items-center gap-2">
+                    <h3 className="text-sm font-medium text-muted-foreground dark:text-muted-foreground flex items-center gap-2">
                         <Monitor className="h-4 w-4" /> Live Preview
                     </h3>
                     <Badge variant="outline" className="text-xs font-normal">Student View</Badge>
                 </div>
 
                 <div className={cn(
-                    "rounded-xl overflow-hidden border border-slate-200 shadow-xl transition-all duration-300",
-                    isDarkMode ? "bg-slate-950 text-slate-100 border-slate-800" : "bg-white text-slate-900"
+                    "rounded-xl overflow-hidden border border-border shadow-xl transition-all duration-300",
+                    isDarkMode ? "bg-slate-950 text-slate-100 border-slate-800" : "bg-card text-foreground"
                 )}>
                     {/* Fake Browser Header */}
                     <div className={cn(
                         "h-12 border-b flex items-center px-4 gap-4",
-                        isDarkMode ? "bg-slate-900 border-slate-800" : "bg-slate-50 border-slate-100"
+                        isDarkMode ? "bg-slate-900 border-slate-800" : "bg-muted border-slate-100"
                     )}>
                         <div className="flex gap-1.5">
                             <div className="w-3 h-3 rounded-full bg-red-400"></div>
@@ -164,7 +164,7 @@ export default function ThemeCustomizer() {
                         </div>
                         <div className={cn(
                             "flex-1 h-8 rounded-md flex items-center px-3 text-xs opacity-50",
-                            isDarkMode ? "bg-slate-800" : "bg-white border border-slate-200"
+                            isDarkMode ? "bg-slate-800" : "bg-card border border-border"
                         )}>
                             eduecosystem.com/student/dashboard
                         </div>
@@ -177,7 +177,7 @@ export default function ThemeCustomizer() {
                             <div className="flex-1 space-y-4">
                                 <Badge className={cn("hover:opacity-90 transition-colors", selectedTheme.color)}>NEW COURSE</Badge>
                                 <h1 className="text-3xl font-bold tracking-tight">Mastering Geography 2.0</h1>
-                                <p className={isDarkMode ? "text-slate-400" : "text-slate-500"}>
+                                <p className={isDarkMode ? "text-muted-foreground" : "text-muted-foreground"}>
                                     Unlock the secrets of the Earth with our comprehensive guide to physical and human geography.
                                 </p>
                                 <div className="flex gap-3 pt-2">
@@ -191,7 +191,7 @@ export default function ThemeCustomizer() {
                             </div>
                             <div className={cn(
                                 "w-full md:w-64 h-40 rounded-lg flex items-center justify-center relative overflow-hidden",
-                                isDarkMode ? "bg-slate-900" : "bg-slate-100"
+                                isDarkMode ? "bg-slate-900" : "bg-muted"
                             )}>
                                 <div className={cn("absolute inset-0 opacity-10", selectedTheme.color)}></div>
                                 <Layout className={cn("h-16 w-16 opacity-20", isDarkMode ? "text-white" : "text-black")} />
@@ -203,7 +203,7 @@ export default function ThemeCustomizer() {
                             <h2 className="text-lg font-semibold">Your Progress</h2>
                             <div className={cn(
                                 "p-4 rounded-lg border",
-                                isDarkMode ? "border-slate-800 bg-slate-900/50" : "border-slate-100 bg-slate-50"
+                                isDarkMode ? "border-slate-800 bg-slate-900/50" : "border-slate-100 bg-muted"
                             )}>
                                 <div className="flex justify-between items-center mb-2 text-sm">
                                     <span>Course Completion</span>

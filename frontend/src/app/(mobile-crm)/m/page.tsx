@@ -149,7 +149,7 @@ function getStatusColor(status: string) {
         case "New":
             return "bg-emerald-500/20 text-emerald-400";
         default:
-            return "bg-gray-500/20 text-gray-400";
+            return "bg-muted-foreground/20 text-muted-foreground";
     }
 }
 
@@ -181,7 +181,7 @@ export default function MobileDashboardPage() {
                 <h2 className="text-2xl font-bold text-white">
                     Good {new Date().getHours() < 12 ? "Morning" : new Date().getHours() < 17 ? "Afternoon" : "Evening"}, {user?.full_name?.split(" ")[0] || "Agent"}!
                 </h2>
-                <p className="text-gray-400 flex items-center gap-2">
+                <p className="text-muted-foreground flex items-center gap-2">
                     <Clock className="h-4 w-4" />
                     {currentTime} • {new Date().toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric" })}
                 </p>
@@ -217,7 +217,7 @@ export default function MobileDashboardPage() {
                             >
                                 <action.icon className="h-6 w-6 text-white" />
                             </div>
-                            <span className="text-xs text-gray-300 text-center">
+                            <span className="text-xs text-muted-foreground text-center">
                                 {action.label}
                             </span>
                         </div>
@@ -243,7 +243,7 @@ export default function MobileDashboardPage() {
                                 <div className="flex items-start justify-between">
                                     <div className="space-y-1">
                                         <p className="text-2xl font-bold text-white">{stat.value}</p>
-                                        <p className="text-xs text-gray-400">{stat.label}</p>
+                                        <p className="text-xs text-muted-foreground">{stat.label}</p>
                                     </div>
                                     <stat.icon className={`h-5 w-5 ${stat.color}`} />
                                 </div>
@@ -285,7 +285,7 @@ export default function MobileDashboardPage() {
                                         <p className="text-sm font-medium text-white">
                                             {task.title}
                                         </p>
-                                        <p className="text-xs text-gray-400">{task.time}</p>
+                                        <p className="text-xs text-muted-foreground">{task.time}</p>
                                     </div>
                                 </div>
                                 <Badge
@@ -327,7 +327,7 @@ export default function MobileDashboardPage() {
                                             <p className="text-sm font-medium text-white">
                                                 {lead.name}
                                             </p>
-                                            <p className="text-xs text-gray-400">{lead.course}</p>
+                                            <p className="text-xs text-muted-foreground">{lead.course}</p>
                                         </div>
                                     </div>
                                     <div className="text-right">
@@ -337,7 +337,7 @@ export default function MobileDashboardPage() {
                                         >
                                             {lead.status}
                                         </Badge>
-                                        <p className="text-xs text-gray-500 mt-1">
+                                        <p className="text-xs text-muted-foreground mt-1">
                                             {lead.lastContact}
                                         </p>
                                     </div>

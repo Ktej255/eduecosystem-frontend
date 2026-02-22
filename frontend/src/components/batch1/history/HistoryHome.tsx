@@ -48,7 +48,7 @@ function HistoryHomeContent({ embedded = false }: { embedded?: boolean }) {
         <div className="min-h-screen bg-[#F9FAFB] dark:bg-[#0a0a0a]">
             {/* Header */}
             {!embedded && (
-                <div className="bg-white border-b border-neutral-200 dark:bg-black dark:border-neutral-800 sticky top-0 z-50">
+                <div className="bg-card border-b border-neutral-200 dark:bg-black dark:border-neutral-800 sticky top-0 z-50">
                     <div className="max-w-7xl mx-auto px-4">
                         <div className="flex items-center justify-between h-16">
                             <div className="font-bold text-xl text-amber-700 dark:text-amber-500 tracking-tight flex items-center gap-2">
@@ -155,7 +155,7 @@ function HistoryHomeContent({ embedded = false }: { embedded?: boolean }) {
             {/* Sub-Nav for Study Dashboard */}
             {
                 activeTab === 'dashboard' && (
-                    <div className="bg-white/50 backdrop-blur-sm border-b border-neutral-200 dark:bg-neutral-900/50 dark:border-neutral-800 animate-in fade-in slide-in-from-top-4 duration-300">
+                    <div className="bg-card/50 backdrop-blur-sm border-b border-neutral-200 dark:bg-neutral-900/50 dark:border-neutral-800 animate-in fade-in slide-in-from-top-4 duration-300">
                         <div className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-center gap-8">
                             {sections.map((sec) => (
                                 <button
@@ -164,7 +164,7 @@ function HistoryHomeContent({ embedded = false }: { embedded?: boolean }) {
                                     className={`h-full px-2 text-xs font-black uppercase tracking-widest flex items-center gap-2 transition-all border-b-2
                                     ${selectedSection === sec.id
                                             ? `border-indigo-600 ${sec.color} scale-110`
-                                            : 'border-transparent text-gray-400 hover:text-gray-600'
+                                            : 'border-transparent text-muted-foreground hover:text-muted-foreground'
                                         }`}
                                 >
                                     <sec.icon className="w-3.5 h-3.5" />
@@ -184,7 +184,7 @@ function HistoryHomeContent({ embedded = false }: { embedded?: boolean }) {
                 {activeTab === 'timeline' && (
                     <div className="max-w-7xl mx-auto p-6 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <div className="text-center py-8">
-                            <h1 className="text-4xl font-bold text-neutral-900 dark:text-white mb-2">Detailed Timeline</h1>
+                            <h1 className="text-4xl font-bold text-neutral-900 mb-2">Detailed Timeline</h1>
                             <p className="text-neutral-500">Navigate through the ages of Indian History</p>
                         </div>
                         <HistoryTimeline config={HISTORY_CONFIG} onSelectTopic={handleTopicSelect} />

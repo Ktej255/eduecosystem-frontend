@@ -348,7 +348,7 @@ export function LiveClassViewer({
             </Badge>
           </div>
           <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1 text-gray-400 text-sm mr-2">
+            <div className="flex items-center gap-1 text-muted-foreground text-sm mr-2">
               <Users className="h-4 w-4" />
               <span>{onlineUserCount}</span>
             </div>
@@ -356,7 +356,7 @@ export function LiveClassViewer({
               variant="ghost"
               size="icon"
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-              className="text-gray-400 hover:text-white"
+              className="text-muted-foreground hover:text-white"
             >
               {isSidebarOpen ? (
                 <Maximize2 className="h-4 w-4" />
@@ -370,10 +370,10 @@ export function LiveClassViewer({
         {/* Video Container */}
         <div className="flex-1 bg-black relative flex items-center justify-center">
           {/* Placeholder for Video Player */}
-          <div className="w-full h-full bg-gray-900 flex items-center justify-center text-gray-500">
+          <div className="w-full h-full bg-gray-900 flex items-center justify-center text-muted-foreground">
             <div className="text-center">
               <p className="mb-2">Video Stream Area</p>
-              <p className="text-xs text-gray-600">
+              <p className="text-xs text-muted-foreground">
                 Stream URL: {liveClass.video_url || "Not available"}
               </p>
             </div>
@@ -403,7 +403,7 @@ export function LiveClassViewer({
             variant="ghost"
             size="icon"
             onClick={() => setIsSidebarOpen(false)}
-            className="md:hidden text-gray-400"
+            className="md:hidden text-muted-foreground"
           >
             <X className="h-4 w-4" />
           </Button>

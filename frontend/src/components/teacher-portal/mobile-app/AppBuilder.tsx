@@ -27,7 +27,7 @@ export default function AppBuilder() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full">
             {/* Configuration Panel */}
             <div className="lg:col-span-2 space-y-6">
-                <Card className="border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+                <Card className="border-neutral-200 dark:border-neutral-800 bg-card dark:bg-neutral-900">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2 text-indigo-600">
                             <Palette className="w-5 h-5" />
@@ -82,7 +82,7 @@ export default function AppBuilder() {
                     </CardContent>
                 </Card>
 
-                <Card className="border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+                <Card className="border-neutral-200 dark:border-neutral-800 bg-card dark:bg-neutral-900">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2 text-emerald-600">
                             <RefreshCcw className="w-5 h-5" />
@@ -120,8 +120,8 @@ export default function AppBuilder() {
                     <div className="absolute top-0 w-full h-8 bg-black/20 z-20 flex justify-between items-center px-4 pt-1">
                         <span className="text-[10px] text-white font-medium">9:41</span>
                         <div className="flex gap-1">
-                            <div className="w-3 h-3 bg-white/80 rounded-full" />
-                            <div className="w-3 h-3 bg-white/80 rounded-full" />
+                            <div className="w-3 h-3 bg-card/80 rounded-full" />
+                            <div className="w-3 h-3 bg-card/80 rounded-full" />
                         </div>
                     </div>
 
@@ -137,13 +137,13 @@ export default function AppBuilder() {
 
                         {/* Body */}
                         <div className="flex-1 p-4 space-y-4 overflow-y-auto">
-                            <div className="h-32 rounded-xl bg-white shadow-sm p-4 animate-pulse">
+                            <div className="h-32 rounded-xl bg-card shadow-sm p-4 animate-pulse">
                                 <div className="h-4 w-2/3 bg-neutral-200 rounded mb-2" />
                                 <div className="h-3 w-full bg-neutral-100 rounded" />
                             </div>
                             <div className="grid grid-cols-2 gap-4">
-                                <div className="h-24 rounded-xl bg-white shadow-sm" />
-                                <div className="h-24 rounded-xl bg-white shadow-sm" />
+                                <div className="h-24 rounded-xl bg-card shadow-sm" />
+                                <div className="h-24 rounded-xl bg-card shadow-sm" />
                             </div>
                             <div className="h-20 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-400 text-sm font-medium">
                                 Upcoming Live Class
@@ -151,7 +151,7 @@ export default function AppBuilder() {
                         </div>
 
                         {/* Tab Bar */}
-                        <div className="h-16 bg-white border-t flex justify-around items-center px-2">
+                        <div className="h-16 bg-card border-t flex justify-around items-center px-2">
                             <div className="p-2" style={{ color: primaryColor }}><MobileIcon className="w-5 h-5" /></div>
                             <div className="p-2 text-neutral-400"><Upload className="w-5 h-5" /></div>
                             <div className="p-2 text-neutral-400"><Palette className="w-5 h-5" /></div>

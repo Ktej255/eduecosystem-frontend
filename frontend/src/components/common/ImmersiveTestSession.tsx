@@ -280,7 +280,7 @@ const ImmersiveTestSession: React.FC<ImmersiveTestSessionProps> = ({
                     <h1 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
                         {testTitle}
                     </h1>
-                    <div className="flex items-center gap-4 text-sm text-slate-400 mt-1">
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground mt-1">
                         <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-blue-400" /> {formatTime(timeLeft)} left</span>
                         <span className="flex items-center gap-1.5"><Progress value={progress} className="w-24 h-2 bg-slate-700" /> {Math.round(progress)}% done</span>
                     </div>
@@ -301,7 +301,7 @@ const ImmersiveTestSession: React.FC<ImmersiveTestSessionProps> = ({
                 <div className="lg:col-span-3 space-y-4">
                     <Card className="p-8 bg-slate-900/40 border-slate-800 backdrop-blur-md min-h-[400px] flex flex-col relative">
                         {/* Watermark for Visit Count */}
-                        <div className="absolute top-4 right-4 text-[10px] uppercase font-bold text-slate-600 tracking-widest opacity-50">
+                        <div className="absolute top-4 right-4 text-[10px] uppercase font-bold text-muted-foreground tracking-widest opacity-50">
                             Visit #{currentState.visitCount}
                         </div>
 
@@ -311,7 +311,7 @@ const ImmersiveTestSession: React.FC<ImmersiveTestSessionProps> = ({
                             </span>
                             <button
                                 onClick={toggleBookmark}
-                                className={`p-2 rounded-full transition-all ${currentState.isBookmarked ? 'text-amber-400 bg-amber-400/10 shadow-[0_0_15px_rgba(251,191,36,0.2)]' : 'text-slate-500 hover:text-slate-300 hover:bg-slate-800'}`}
+                                className={`p-2 rounded-full transition-all ${currentState.isBookmarked ? 'text-amber-400 bg-amber-400/10 shadow-[0_0_15px_rgba(251,191,36,0.2)]' : 'text-muted-foreground hover:text-slate-300 hover:bg-slate-800'}`}
                             >
                                 <Bookmark className={`w-6 h-6 ${currentState.isBookmarked ? 'fill-current' : ''}`} />
                             </button>
@@ -321,7 +321,7 @@ const ImmersiveTestSession: React.FC<ImmersiveTestSessionProps> = ({
                             <h2 className="text-xl font-medium leading-relaxed text-slate-100 mb-2 whitespace-pre-wrap">
                                 {currentQuestion.question}
                             </h2>
-                            <div className="flex gap-2 text-xs text-slate-500 italic">
+                            <div className="flex gap-2 text-xs text-muted-foreground italic">
                                 <span>{currentQuestion.chapter || 'Polity'}</span>
                                 {currentQuestion.difficulty && <span>• {currentQuestion.difficulty}</span>}
                             </div>
@@ -339,7 +339,7 @@ const ImmersiveTestSession: React.FC<ImmersiveTestSessionProps> = ({
                                 >
                                     <div className={`absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full border flex items-center justify-center text-xs font-bold transition-all ${currentState.selectedAnswer === idx
                                         ? 'bg-blue-500 border-blue-400 text-white'
-                                        : 'bg-slate-700 border-slate-600 text-slate-400 group-hover:border-slate-500'
+                                        : 'bg-slate-700 border-slate-600 text-muted-foreground group-hover:border-slate-500'
                                         }`}>
                                         {String.fromCharCode(65 + idx)}
                                     </div>
@@ -351,7 +351,7 @@ const ImmersiveTestSession: React.FC<ImmersiveTestSessionProps> = ({
 
                     {/* Confidence Slider */}
                     <Card className="p-6 bg-slate-900/40 border-slate-800 backdrop-blur-md">
-                        <h3 className="text-sm font-semibold text-slate-400 mb-4 uppercase tracking-wider flex items-center gap-2">
+                        <h3 className="text-sm font-semibold text-muted-foreground mb-4 uppercase tracking-wider flex items-center gap-2">
                             <Timer className="w-4 h-4 text-blue-400" />
                             Confidence Level
                         </h3>
@@ -371,8 +371,8 @@ const ImmersiveTestSession: React.FC<ImmersiveTestSessionProps> = ({
                                         : 'bg-slate-800/30 border-slate-700/50 hover:bg-slate-800/60'
                                         }`}
                                 >
-                                    <level.icon className={`w-5 h-5 ${currentState.confidence === level.id ? `text-${level.color.split('-')[1]}-400` : 'text-slate-500'}`} />
-                                    <span className={`text-xs font-medium ${currentState.confidence === level.id ? 'text-slate-100' : 'text-slate-400'}`}>
+                                    <level.icon className={`w-5 h-5 ${currentState.confidence === level.id ? `text-${level.color.split('-')[1]}-400` : 'text-muted-foreground'}`} />
+                                    <span className={`text-xs font-medium ${currentState.confidence === level.id ? 'text-slate-100' : 'text-muted-foreground'}`}>
                                         {level.label}
                                     </span>
                                 </button>
@@ -414,7 +414,7 @@ const ImmersiveTestSession: React.FC<ImmersiveTestSessionProps> = ({
 
                 {/* Desktop Question Grid Panel */}
                 <Card className="hidden lg:block lg:col-span-1 p-6 bg-slate-900/40 border-slate-800 backdrop-blur-md h-fit static top-10">
-                    <h3 className="text-sm font-semibold text-slate-400 mb-6 uppercase tracking-wider flex items-center justify-between">
+                    <h3 className="text-sm font-semibold text-muted-foreground mb-6 uppercase tracking-wider flex items-center justify-between">
                         Overview
                         <span className="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300 font-mono">
                             {Object.keys(answers).filter(id => answers[id].selectedAnswer !== null).length}/{questions.length}
@@ -434,7 +434,7 @@ const ImmersiveTestSession: React.FC<ImmersiveTestSessionProps> = ({
                                     className={`w-full aspect-square rounded-lg text-xs font-semibold transition-all duration-200 border flex items-center justify-center relative ${isCurrent ? 'bg-blue-500 border-blue-400 text-white shadow-[0_0_15px_rgba(59,130,246,0.4)] z-10 scale-110' :
                                         isAnswered ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400' :
                                             isBookmarked ? 'bg-amber-500/10 border-amber-500/30 text-amber-400' :
-                                                'bg-slate-800/50 border-slate-700 text-slate-500 hover:border-slate-500 hover:text-slate-300'
+                                                'bg-slate-800/50 border-slate-700 text-muted-foreground hover:border-slate-500 hover:text-slate-300'
                                         }`}
                                 >
                                     {idx + 1}

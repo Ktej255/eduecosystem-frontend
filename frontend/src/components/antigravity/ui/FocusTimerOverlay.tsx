@@ -72,7 +72,7 @@ export default function FocusTimerOverlay({ slot, onClose, onComplete }: Props) 
                     />
                 </div>
 
-                <p className="text-xs text-gray-500 uppercase tracking-widest font-mono">
+                <p className="text-xs text-muted-foreground uppercase tracking-widest font-mono">
                     {isActive ? "Lock-down Protocol Active" : "Systems Standby"}
                 </p>
 
@@ -80,7 +80,7 @@ export default function FocusTimerOverlay({ slot, onClose, onComplete }: Props) 
                     {!isActive && timeLeft > 0 && (
                         <button
                             onClick={() => setIsActive(true)}
-                            className="px-10 py-4 bg-white text-black rounded-full font-black text-lg hover:scale-105 transition-transform flex items-center gap-2"
+                            className="px-10 py-4 bg-card text-black rounded-full font-black text-lg hover:scale-105 transition-transform flex items-center gap-2"
                         >
                             <Play className="w-6 h-6 fill-black" /> IGNITE
                         </button>
@@ -98,7 +98,7 @@ export default function FocusTimerOverlay({ slot, onClose, onComplete }: Props) 
 
                     <button
                         onClick={onClose}
-                        className="px-8 py-3 text-gray-400 hover:text-white font-mono text-sm uppercase tracking-widest transition-colors flex items-center gap-2"
+                        className="px-8 py-3 text-muted-foreground hover:text-white font-mono text-sm uppercase tracking-widest transition-colors flex items-center gap-2"
                     >
                         <XCircle className="w-5 h-5" /> Abort
                     </button>

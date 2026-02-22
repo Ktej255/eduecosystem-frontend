@@ -114,7 +114,7 @@ export default function InteractiveVideoPlayer({ src, questions = [], title, onC
             {/* Quiz Overlay */}
             {showQuiz && questions.length > 0 && (
                 <div className="absolute inset-0 bg-black/90 z-20 flex items-center justify-center p-4">
-                    <div className="w-full max-w-lg bg-white dark:bg-gray-900 border-indigo-500 border-2 rounded-xl shadow-2xl">
+                    <div className="w-full max-w-lg bg-card border-indigo-500 border-2 rounded-xl shadow-2xl">
                         <div className="p-6">
                             <div className="flex justify-between items-center mb-4">
                                 <span className="text-sm font-bold text-indigo-500 uppercase tracking-widest">
@@ -125,7 +125,7 @@ export default function InteractiveVideoPlayer({ src, questions = [], title, onC
                                 </span>
                             </div>
 
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
+                            <h3 className="text-xl font-bold text-foreground mb-6">
                                 {questions[currentQuestionIndex].question}
                             </h3>
 
@@ -140,12 +140,12 @@ export default function InteractiveVideoPlayer({ src, questions = [], title, onC
                                         } else if (selectedOption === letter) {
                                             btnClass += "bg-red-50 border-red-500 text-red-700";
                                         } else {
-                                            btnClass += "border-gray-200 opacity-50";
+                                            btnClass += "border-border opacity-50";
                                         }
                                     } else if (selectedOption === letter) {
                                         btnClass += "border-indigo-500 bg-indigo-50 text-indigo-700";
                                     } else {
-                                        btnClass += "border-gray-200 hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800";
+                                        btnClass += "border-border hover:bg-muted dark:hover:bg-gray-800";
                                     }
 
                                     return (
@@ -155,7 +155,7 @@ export default function InteractiveVideoPlayer({ src, questions = [], title, onC
                                             onClick={() => handleOptionSelect(idx)}
                                             disabled={isAnswered}
                                         >
-                                            <span className="font-bold mr-3 text-gray-400">{letter}.</span>
+                                            <span className="font-bold mr-3 text-muted-foreground">{letter}.</span>
                                             {opt}
                                         </button>
                                     );
@@ -215,7 +215,7 @@ export default function InteractiveVideoPlayer({ src, questions = [], title, onC
                         )}
                     </div>
                     {/* Progress Bar */}
-                    <div className="mt-2 h-1 bg-white/20 rounded-full overflow-hidden cursor-pointer" onClick={(e) => {
+                    <div className="mt-2 h-1 bg-card/20 rounded-full overflow-hidden cursor-pointer" onClick={(e) => {
                         // Simple seek logic could go here
                     }}>
                         <div

@@ -65,8 +65,8 @@ export default function PomodoroReport() {
         return (
             <Card className="p-12 text-center bg-gradient-to-br from-orange-50 to-amber-50 dark:from-gray-900 dark:to-gray-800 border-orange-200">
                 <Timer className="w-12 h-12 text-orange-300 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-gray-700 dark:text-gray-300">No Pomodoro Data Yet</h3>
-                <p className="text-sm text-gray-500 mt-2">Complete MCQs in Pomodoro sessions to see your report here.</p>
+                <h3 className="text-lg font-bold text-muted-foreground dark:text-muted-foreground">No Pomodoro Data Yet</h3>
+                <p className="text-sm text-muted-foreground mt-2">Complete MCQs in Pomodoro sessions to see your report here.</p>
             </Card>
         );
     }
@@ -76,7 +76,7 @@ export default function PomodoroReport() {
         '50-50': { label: '50-50', emoji: '🤔', color: 'bg-yellow-500' },
         'one-option': { label: 'One Known', emoji: '🎯', color: 'bg-blue-500' },
         'blind': { label: 'Blind', emoji: '🎲', color: 'bg-red-500' },
-        'unknown': { label: 'Unset', emoji: '❓', color: 'bg-gray-500' },
+        'unknown': { label: 'Unset', emoji: '❓', color: 'bg-muted-foreground' },
     };
 
     return (
@@ -127,19 +127,19 @@ export default function PomodoroReport() {
                             const accuracy = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
                             return (
                                 <div key={topic} className="flex items-center gap-4">
-                                    <div className="w-24 text-sm font-semibold text-gray-700 dark:text-gray-300 truncate">{topic}</div>
+                                    <div className="w-24 text-sm font-semibold text-muted-foreground dark:text-muted-foreground truncate">{topic}</div>
                                     <div className="flex-1">
-                                        <div className="h-6 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden relative">
+                                        <div className="h-6 bg-muted rounded-full overflow-hidden relative">
                                             <div
                                                 className={`h-full rounded-full transition-all duration-500 ${accuracy >= 70 ? 'bg-green-500' : accuracy >= 40 ? 'bg-yellow-500' : 'bg-red-500'}`}
                                                 style={{ width: `${accuracy}%` }}
                                             />
-                                            <span className="absolute inset-0 flex items-center justify-center text-xs font-bold text-gray-700">
+                                            <span className="absolute inset-0 flex items-center justify-center text-xs font-bold text-muted-foreground">
                                                 {stats.correct}/{stats.total} ({accuracy}%)
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="text-xs text-gray-400 w-16 text-right">{stats.avgTime}s avg</div>
+                                    <div className="text-xs text-muted-foreground w-16 text-right">{stats.avgTime}s avg</div>
                                 </div>
                             );
                         })}
@@ -161,18 +161,18 @@ export default function PomodoroReport() {
                             const info = confidenceLabels[conf] || confidenceLabels['unknown'];
                             const accuracy = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
                             return (
-                                <div key={conf} className="p-3 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800">
+                                <div key={conf} className="p-3 rounded-xl bg-muted border border-border">
                                     <div className="flex items-center gap-2 mb-2">
                                         <span className="text-lg">{info.emoji}</span>
-                                        <span className="text-sm font-bold text-gray-700 dark:text-gray-300">{info.label}</span>
+                                        <span className="text-sm font-bold text-muted-foreground dark:text-muted-foreground">{info.label}</span>
                                     </div>
                                     <div className="flex items-baseline gap-2">
                                         <span className={`text-2xl font-black ${accuracy >= 70 ? 'text-green-600' : accuracy >= 40 ? 'text-yellow-600' : 'text-red-600'}`}>
                                             {accuracy}%
                                         </span>
-                                        <span className="text-xs text-gray-400">{stats.correct}/{stats.total}</span>
+                                        <span className="text-xs text-muted-foreground">{stats.correct}/{stats.total}</span>
                                     </div>
-                                    <div className="h-1.5 bg-gray-200 rounded-full mt-2">
+                                    <div className="h-1.5 bg-muted rounded-full mt-2">
                                         <div className={`h-full rounded-full ${info.color}`} style={{ width: `${accuracy}%` }} />
                                     </div>
                                 </div>
@@ -198,14 +198,14 @@ export default function PomodoroReport() {
                                 const height = maxCount > 0 ? (count / maxCount) * 100 : 0;
                                 return (
                                     <div key={day} className="flex-1 flex flex-col items-center gap-1">
-                                        <span className="text-xs font-bold text-gray-600">{count}</span>
-                                        <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-t-lg overflow-hidden relative" style={{ height: '100px' }}>
+                                        <span className="text-xs font-bold text-muted-foreground">{count}</span>
+                                        <div className="w-full bg-muted rounded-t-lg overflow-hidden relative" style={{ height: '100px' }}>
                                             <div
                                                 className="absolute bottom-0 w-full bg-gradient-to-t from-orange-500 to-amber-400 rounded-t-lg transition-all duration-500"
                                                 style={{ height: `${height}%` }}
                                             />
                                         </div>
-                                        <span className="text-[10px] text-gray-500 font-medium">{day}</span>
+                                        <span className="text-[10px] text-muted-foreground font-medium">{day}</span>
                                     </div>
                                 );
                             })}

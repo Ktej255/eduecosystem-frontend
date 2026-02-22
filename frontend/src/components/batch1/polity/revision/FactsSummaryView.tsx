@@ -51,12 +51,12 @@ export default function FactsSummaryView() {
                                 key={section.id}
                                 onClick={() => setActiveSection(section.id)}
                                 className={`w-full flex items-center justify-between p-4 rounded-xl transition-all ${activeSection === section.id
-                                    ? 'bg-white dark:bg-[#111] shadow-lg border border-blue-500/30 text-blue-600 font-bold'
-                                    : 'bg-white/50 dark:bg-[#0a0a0a]/50 text-gray-500 hover:bg-white dark:hover:bg-[#111]'
+                                    ? 'bg-card dark:bg-[#111] shadow-lg border border-blue-500/30 text-blue-600 font-bold'
+                                    : 'bg-card/50 dark:bg-[#0a0a0a]/50 text-muted-foreground hover:bg-card dark:hover:bg-[#111]'
                                     }`}
                             >
                                 <div className="flex items-center gap-3">
-                                    <section.icon className={`w-5 h-5 ${activeSection === section.id ? 'text-blue-600' : 'text-gray-400'}`} />
+                                    <section.icon className={`w-5 h-5 ${activeSection === section.id ? 'text-blue-600' : 'text-muted-foreground'}`} />
                                     <span>{section.label}</span>
                                 </div>
                                 {activeSection === section.id && <ArrowRight className="w-4 h-4" />}
@@ -66,7 +66,7 @@ export default function FactsSummaryView() {
 
                     {/* Main Content */}
                     <div className="lg:col-span-3">
-                        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-8 shadow-sm">
+                        <div className="bg-card dark:bg-[#111] rounded-2xl border border-border p-8 shadow-sm">
 
                             {/* Render Different Sections */}
                             {activeSection === 'dates' && (
@@ -76,11 +76,11 @@ export default function FactsSummaryView() {
                                     </h2>
                                     <div className="space-y-4">
                                         {POLITY_SUMMARY_FACTS.dates.map((item, idx) => (
-                                            <div key={idx} className="flex gap-6 p-4 rounded-lg bg-gray-50 dark:bg-[#0a0a0a] border border-gray-100 dark:border-gray-900 group">
+                                            <div key={idx} className="flex gap-6 p-4 rounded-lg bg-muted dark:bg-[#0a0a0a] border border-border group">
                                                 <div className="font-black text-blue-600 text-lg whitespace-nowrap pt-1 w-32 group-hover:scale-105 transition-transform">{item.year}</div>
                                                 <div>
-                                                    <div className="font-bold text-gray-900 dark:text-white mb-1">{item.event}</div>
-                                                    <div className="text-sm text-gray-500">{item.significance}</div>
+                                                    <div className="font-bold text-foreground mb-1">{item.event}</div>
+                                                    <div className="text-sm text-muted-foreground">{item.significance}</div>
                                                 </div>
                                             </div>
                                         ))}
@@ -95,10 +95,10 @@ export default function FactsSummaryView() {
                                     </h2>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         {POLITY_SUMMARY_FACTS.persons.map((item, idx) => (
-                                            <div key={idx} className="p-5 rounded-xl bg-gray-50 dark:bg-[#0a0a0a] border border-gray-100 dark:border-gray-900">
+                                            <div key={idx} className="p-5 rounded-xl bg-muted dark:bg-[#0a0a0a] border border-border">
                                                 <div className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">{item.designation}</div>
-                                                <div className="text-xl font-bold text-gray-900 dark:text-white">{item.name}</div>
-                                                <div className="text-xs text-gray-400 mt-2 italic">{item.significance}</div>
+                                                <div className="text-xl font-bold text-foreground">{item.name}</div>
+                                                <div className="text-xs text-muted-foreground mt-2 italic">{item.significance}</div>
                                             </div>
                                         ))}
                                     </div>
@@ -116,7 +116,7 @@ export default function FactsSummaryView() {
                                                 <h3 className="text-xl font-bold mb-3">{act.name}</h3>
                                                 <ul className="space-y-2">
                                                     {act.keyFeatures.map((f, fIdx) => (
-                                                        <li key={fIdx} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                                                        <li key={fIdx} className="text-sm text-muted-foreground dark:text-muted-foreground flex items-start gap-2">
                                                             <span className="text-blue-500 font-bold">•</span> {f}
                                                         </li>
                                                     ))}
@@ -134,15 +134,15 @@ export default function FactsSummaryView() {
                                     </h2>
                                     <div className="grid grid-cols-1 gap-4">
                                         {POLITY_SUMMARY_FACTS.sources.map((source, idx) => (
-                                            <details key={idx} className="group overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800">
-                                                <summary className="list-none p-5 cursor-pointer bg-gray-50 dark:bg-[#0a0a0a] hover:bg-white transition-colors flex items-center justify-between font-bold">
+                                            <details key={idx} className="group overflow-hidden rounded-xl border border-border">
+                                                <summary className="list-none p-5 cursor-pointer bg-muted dark:bg-[#0a0a0a] hover:bg-card transition-colors flex items-center justify-between font-bold">
                                                     <span>{source.source}</span>
                                                     <span className="text-blue-500 transition-transform group-open:rotate-90">→</span>
                                                 </summary>
-                                                <div className="p-5 bg-white dark:bg-[#111]">
+                                                <div className="p-5 bg-card dark:bg-[#111]">
                                                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-6">
                                                         {source.features.split(', ').map((f, fIdx) => (
-                                                            <li key={fIdx} className="text-sm text-gray-600 dark:text-gray-400">• {f}</li>
+                                                            <li key={fIdx} className="text-sm text-muted-foreground dark:text-muted-foreground">• {f}</li>
                                                         ))}
                                                     </ul>
                                                 </div>
@@ -159,12 +159,12 @@ export default function FactsSummaryView() {
                                     </h2>
                                     <div className="space-y-4">
                                         {POLITY_SUMMARY_FACTS.cases.map((item, idx) => (
-                                            <div key={idx} className="p-6 rounded-2xl bg-gray-50 dark:bg-[#0a0a0a] border border-gray-100 dark:border-gray-900">
+                                            <div key={idx} className="p-6 rounded-2xl bg-muted dark:bg-[#0a0a0a] border border-border">
                                                 <div className="flex justify-between items-start mb-2">
                                                     <h4 className="text-lg font-bold text-blue-700 dark:text-blue-400">{item.case}</h4>
                                                     <span className="text-[10px] px-2 py-0.5 rounded bg-blue-100 text-blue-800 font-black uppercase">Case Law</span>
                                                 </div>
-                                                <p className="text-sm text-gray-700 dark:text-gray-300 font-medium italic">"{item.ruling}"</p>
+                                                <p className="text-sm text-muted-foreground dark:text-muted-foreground font-medium italic">"{item.ruling}"</p>
                                             </div>
                                         ))}
                                     </div>
@@ -178,10 +178,10 @@ export default function FactsSummaryView() {
                                     </h2>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         {POLITY_SUMMARY_FACTS.schedules.map((item, idx) => (
-                                            <div key={idx} className="p-5 rounded-xl bg-gray-50 dark:bg-[#0a0a0a] border border-gray-100 dark:border-gray-900 group">
-                                                <div className="text-2xl font-black text-gray-300 dark:text-gray-800 mb-2 group-hover:text-blue-500 transition-colors">#{item.schedule}</div>
-                                                <div className="font-bold text-gray-900 dark:text-white mb-1">Schedule {item.schedule}</div>
-                                                <div className="text-xs text-gray-500 line-clamp-2">{item.subject}</div>
+                                            <div key={idx} className="p-5 rounded-xl bg-muted dark:bg-[#0a0a0a] border border-border group">
+                                                <div className="text-2xl font-black text-muted-foreground dark:text-foreground mb-2 group-hover:text-blue-500 transition-colors">#{item.schedule}</div>
+                                                <div className="font-bold text-foreground mb-1">Schedule {item.schedule}</div>
+                                                <div className="text-xs text-muted-foreground line-clamp-2">{item.subject}</div>
                                             </div>
                                         ))}
                                     </div>

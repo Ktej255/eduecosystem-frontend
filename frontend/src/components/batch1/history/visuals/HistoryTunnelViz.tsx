@@ -157,7 +157,7 @@ export default function HistoryTunnelViz() {
                     {/* Fixed UI on overlay */}
                     <Scroll html>
                         <div className="w-screen h-screen pointer-events-none flex flex-col items-center justify-between p-12">
-                            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl text-center">
+                            <div className="bg-card/10 backdrop-blur-md border border-white/20 p-4 rounded-xl text-center">
                                 <h2 className="text-white font-bold text-xl tracking-tighter uppercase">Chronicle Tunnel</h2>
                                 <p className="text-white/50 text-xs">Scroll to navigate through the river of time</p>
                             </div>

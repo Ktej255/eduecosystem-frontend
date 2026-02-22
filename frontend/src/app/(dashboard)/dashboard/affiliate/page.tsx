@@ -137,7 +137,7 @@ export default function AffiliateDashboardPage() {
               <Input
                 readOnly
                 value={`${typeof window !== "undefined" ? window.location.origin : ""}/?ref=${stats.referral_code}`}
-                className="bg-white"
+                className="bg-card"
               />
               <Button onClick={copyLink} variant="outline">
                 {copied ? (

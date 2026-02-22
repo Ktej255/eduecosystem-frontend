@@ -220,7 +220,7 @@ export default function SadhanaTimer({ duration = 300, title = "Upanishadic Cont
                             stroke="currentColor"
                             strokeWidth="4"
                             fill="transparent"
-                            className="text-slate-800"
+                            className="text-foreground"
                         />
                         {/* Progress Ring */}
                         <motion.circle
@@ -256,7 +256,7 @@ export default function SadhanaTimer({ duration = 300, title = "Upanishadic Cont
                                         <span className="text-[10px] uppercase font-black tracking-widest">{getBreathText()}</span>
                                     </motion.div>
                                 ) : (
-                                    <span className="text-xs text-slate-500 uppercase tracking-widest">Ready</span>
+                                    <span className="text-xs text-muted-foreground uppercase tracking-widest">Ready</span>
                                 )}
                             </AnimatePresence>
                         </div>
@@ -274,7 +274,7 @@ export default function SadhanaTimer({ duration = 300, title = "Upanishadic Cont
                                 onClick={() => setSelectedBreath(b)}
                                 className={`px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all border ${selectedBreath.id === b.id
                                     ? "bg-amber-500/20 text-amber-400 border-amber-500/50"
-                                    : "bg-transparent text-slate-500 border-transparent hover:border-slate-700"
+                                    : "bg-transparent text-muted-foreground border-transparent hover:border-slate-700"
                                     }`}
                             >
                                 {b.name}
@@ -290,7 +290,7 @@ export default function SadhanaTimer({ duration = 300, title = "Upanishadic Cont
                                 onClick={() => setSelectedSound(s)}
                                 className={`px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${selectedSound.id === s.id
                                     ? "bg-slate-800 text-white shadow-lg border border-white/10"
-                                    : "bg-transparent text-slate-600 hover:text-slate-400 border border-transparent"
+                                    : "bg-transparent text-muted-foreground hover:text-muted-foreground border border-transparent"
                                     }`}
                             >
                                 {s.name}
@@ -302,7 +302,7 @@ export default function SadhanaTimer({ duration = 300, title = "Upanishadic Cont
                     <div className="flex items-center justify-center gap-8">
                         <button
                             onClick={() => setIsMuted(!isMuted)}
-                            className={`p-4 rounded-full bg-slate-900 border border-white/10 transition-all ${isMuted ? "text-red-500" : "text-slate-500 hover:text-white"
+                            className={`p-4 rounded-full bg-slate-900 border border-white/10 transition-all ${isMuted ? "text-red-500" : "text-muted-foreground hover:text-white"
                                 }`}
                         >
                             {isMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
@@ -319,7 +319,7 @@ export default function SadhanaTimer({ duration = 300, title = "Upanishadic Cont
 
                         <button
                             onClick={resetTimer}
-                            className="p-4 rounded-full bg-slate-900 border border-white/10 text-slate-500 hover:text-white transition-all"
+                            className="p-4 rounded-full bg-slate-900 border border-white/10 text-muted-foreground hover:text-white transition-all"
                         >
                             <RotateCcw className="w-6 h-6" />
                         </button>
@@ -330,14 +330,14 @@ export default function SadhanaTimer({ duration = 300, title = "Upanishadic Cont
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="mt-10 p-4 rounded-2xl bg-white/5 border border-white/5 flex items-start gap-3 text-left"
+                    className="mt-10 p-4 rounded-2xl bg-card/5 border border-white/5 flex items-start gap-3 text-left"
                 >
                     <Sparkles className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                     <div>
                         <p className="text-[10px] text-emerald-400 font-bold uppercase tracking-widest mb-1">
                             {selectedBreath.name}
                         </p>
-                        <p className="text-xs text-slate-400 leading-relaxed italic">
+                        <p className="text-xs text-muted-foreground leading-relaxed italic">
                             {selectedBreath.description} pattern engaged. Follow the visual cue to synchronize your breath and quiet the mind.
                         </p>
                     </div>

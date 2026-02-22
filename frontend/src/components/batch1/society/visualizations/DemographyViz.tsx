@@ -20,12 +20,12 @@ export default function DemographyViz() {
     const maxVal = 13;
 
     return (
-        <Card className="p-6 bg-white dark:bg-[#0a0a0a] border-slate-200 dark:border-slate-800">
-            <h3 className="text-lg font-bold mb-6 text-center text-slate-900 dark:text-white">India's Population Pyramid (2025 Est)</h3>
+        <Card className="p-6 bg-card dark:bg-[#0a0a0a] border-border">
+            <h3 className="text-lg font-bold mb-6 text-center text-foreground">India's Population Pyramid (2025 Est)</h3>
 
             <div className="relative">
                 {/* Labels Header */}
-                <div className="flex justify-between text-xs font-bold text-slate-400 mb-2 px-10">
+                <div className="flex justify-between text-xs font-bold text-muted-foreground mb-2 px-10">
                     <span>MALE</span>
                     <span>FEMALE</span>
                 </div>
@@ -39,13 +39,13 @@ export default function DemographyViz() {
                                     className="h-full bg-blue-500 rounded-l-sm transition-all group-hover:bg-blue-600"
                                     style={{ width: `${(row.male / maxVal) * 100}%` }}
                                 />
-                                <span className="absolute right-full mr-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span className="absolute right-full mr-2 top-1/2 -translate-y-1/2 text-[10px] text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity">
                                     {row.male}%
                                 </span>
                             </div>
 
                             {/* Age Label (Center) */}
-                            <div className="w-16 text-center text-[10px] font-mono text-slate-500">
+                            <div className="w-16 text-center text-[10px] font-mono text-muted-foreground">
                                 {row.age}
                             </div>
 
@@ -55,7 +55,7 @@ export default function DemographyViz() {
                                     className="h-full bg-pink-500 rounded-r-sm transition-all group-hover:bg-pink-600"
                                     style={{ width: `${(row.female / maxVal) * 100}%` }}
                                 />
-                                <span className="absolute left-full ml-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span className="absolute left-full ml-2 top-1/2 -translate-y-1/2 text-[10px] text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity">
                                     {row.female}%
                                 </span>
                             </div>
@@ -64,8 +64,8 @@ export default function DemographyViz() {
                 </div>
 
                 {/* Analysis Box */}
-                <div className="mt-8 p-4 bg-slate-50 dark:bg-slate-900 rounded-xl text-center">
-                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+                <div className="mt-8 p-4 bg-muted rounded-xl text-center">
+                    <p className="text-sm font-semibold text-muted-foreground">
                         <span className="text-emerald-600 font-bold">Demographic Dividend:</span> The bulge in the <span className="underline decoration-indigo-500">20-39 age group</span> indicates India's working-age population advantage.
                     </p>
                 </div>

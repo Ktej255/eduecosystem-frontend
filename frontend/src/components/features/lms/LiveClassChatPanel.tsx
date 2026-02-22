@@ -83,7 +83,7 @@ export function LiveClassChatPanel({
           className="flex-1 overflow-y-auto p-4 space-y-4 scroll-smooth"
         >
           {messages.length === 0 ? (
-            <div className="h-full flex flex-col items-center justify-center text-gray-500 space-y-2 min-h-[200px]">
+            <div className="h-full flex flex-col items-center justify-center text-muted-foreground space-y-2 min-h-[200px]">
               <p className="text-sm">Welcome to the live chat!</p>
               <p className="text-xs">Say hello to everyone 👋</p>
             </div>
@@ -97,7 +97,7 @@ export function LiveClassChatPanel({
                 >
                   <Avatar className="h-8 w-8 border border-gray-700">
                     <AvatarFallback
-                      className={`text-xs ${msg.is_instructor ? "bg-cyan-900 text-cyan-200" : "bg-gray-800 text-gray-300"}`}
+                      className={`text-xs ${msg.is_instructor ? "bg-cyan-900 text-cyan-200" : "bg-gray-800 text-muted-foreground"}`}
                     >
                       {msg.user_name.substring(0, 2).toUpperCase()}
                     </AvatarFallback>
@@ -108,12 +108,12 @@ export function LiveClassChatPanel({
                   >
                     <div className="flex items-center gap-2 mb-1">
                       <span
-                        className={`text-xs font-medium ${msg.is_instructor ? "text-cyan-400" : "text-gray-400"}`}
+                        className={`text-xs font-medium ${msg.is_instructor ? "text-cyan-400" : "text-muted-foreground"}`}
                       >
                         {msg.user_name}
                         {msg.is_instructor && " (Instructor)"}
                       </span>
-                      <span className="text-[10px] text-gray-600">
+                      <span className="text-[10px] text-muted-foreground">
                         {new Date(msg.created_at).toLocaleTimeString([], {
                           hour: "2-digit",
                           minute: "2-digit",
@@ -142,7 +142,7 @@ export function LiveClassChatPanel({
 
           {/* Typing Indicator */}
           {typingUsers.length > 0 && (
-            <div className="flex items-center gap-2 text-xs text-gray-500 italic animate-pulse pl-10">
+            <div className="flex items-center gap-2 text-xs text-muted-foreground italic animate-pulse pl-10">
               <span>
                 {typingUsers.length === 1
                   ? `${typingUsers[0].user_name} is typing...`
@@ -159,7 +159,7 @@ export function LiveClassChatPanel({
               onChange={handleChange}
               onKeyDown={handleKeyDown}
               placeholder="Type a message..."
-              className="bg-gray-800 border-gray-700 text-gray-200 placeholder:text-gray-500 focus-visible:ring-cyan-500"
+              className="bg-gray-800 border-gray-700 text-gray-200 placeholder:text-muted-foreground focus-visible:ring-cyan-500"
             />
             <Button
               size="icon"

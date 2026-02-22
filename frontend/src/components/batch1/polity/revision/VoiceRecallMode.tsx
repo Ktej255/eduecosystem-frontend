@@ -204,7 +204,7 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
     if (isSelectionMode) {
         return (
             <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 dark:from-[#030303] dark:via-[#050505] dark:to-[#030303] pb-20">
-                <div className="bg-white/80 dark:bg-black/50 backdrop-blur-xl border-b border-pink-100 dark:border-pink-900/30 sticky top-0 z-10">
+                <div className="bg-card/80 dark:bg-black/50 backdrop-blur-xl border-b border-pink-100 dark:border-pink-900/30 sticky top-0 z-10">
                     <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
                         <div className="flex items-center gap-3">
                             <Link href="/student/batch1/polity/revision" className="p-2 hover:bg-black/5 rounded-full transition-colors">
@@ -218,12 +218,12 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
                 </div>
 
                 <div className="max-w-4xl mx-auto px-6 py-8">
-                    <div className="bg-white dark:bg-[#111] rounded-3xl p-8 shadow-xl border border-pink-100 dark:border-pink-900/30 text-center mb-8">
+                    <div className="bg-card dark:bg-[#111] rounded-3xl p-8 shadow-xl border border-pink-100 dark:border-pink-900/30 text-center mb-8">
                         <div className="w-16 h-16 bg-pink-100 dark:bg-pink-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
                             <Mic className="w-8 h-8 text-pink-600" />
                         </div>
-                        <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-2">Select Chapters to Recite</h2>
-                        <p className="text-gray-500 max-w-lg mx-auto">
+                        <h2 className="text-2xl font-black text-foreground mb-2">Select Chapters to Recite</h2>
+                        <p className="text-muted-foreground max-w-lg mx-auto">
                             Choose chapters you want to practice verbally. You'll be asked questions and must answer by speaking. AI will grade your recall.
                         </p>
                     </div>
@@ -235,21 +235,21 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
                                 onClick={() => toggleChapter(chapter.id)}
                                 className={`p-4 rounded-xl text-left transition-all border-2 ${selectedChapters.includes(chapter.id)
                                     ? 'border-pink-500 bg-pink-50 dark:bg-pink-900/20'
-                                    : 'border-transparent bg-white dark:bg-[#111] hover:border-gray-200 dark:hover:border-gray-800'
+                                    : 'border-transparent bg-card dark:bg-[#111] hover:border-border dark:hover:border-gray-800'
                                     }`}
                             >
                                 <div className="flex items-start justify-between mb-2">
-                                    <span className="text-xs font-bold text-gray-400">Chapter {chapter.id}</span>
+                                    <span className="text-xs font-bold text-muted-foreground">Chapter {chapter.id}</span>
                                     {selectedChapters.includes(chapter.id) && (
                                         <CheckCircle2 className="w-5 h-5 text-pink-500" />
                                     )}
                                 </div>
-                                <div className="font-bold text-gray-900 dark:text-white line-clamp-2">{chapter.title}</div>
+                                <div className="font-bold text-foreground line-clamp-2">{chapter.title}</div>
                             </button>
                         ))}
                     </div>
 
-                    <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-t border-gray-200 dark:border-gray-800 flex justify-center">
+                    <div className="fixed bottom-0 left-0 right-0 p-4 bg-card/80 dark:bg-black/80 backdrop-blur-xl border-t border-border flex justify-center">
                         <button
                             onClick={startSession}
                             disabled={selectedChapters.length === 0}
@@ -314,13 +314,13 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
 
         return (
             <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 dark:from-[#030303] dark:via-[#050505] dark:to-[#030303] flex items-center justify-center p-6">
-                <div className="bg-white dark:bg-[#111] rounded-3xl p-8 max-w-2xl w-full text-center shadow-xl border border-pink-100 dark:border-pink-900/30">
+                <div className="bg-card dark:bg-[#111] rounded-3xl p-8 max-w-2xl w-full text-center shadow-xl border border-pink-100 dark:border-pink-900/30">
                     <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
                         <Trophy className="w-10 h-10 text-green-600" />
                     </div>
 
-                    <h2 className="text-3xl font-black text-gray-900 dark:text-white mb-2">Session Complete!</h2>
-                    <p className="text-gray-500 mb-8">You've practiced specific recall for {results.length} concepts.</p>
+                    <h2 className="text-3xl font-black text-foreground mb-2">Session Complete!</h2>
+                    <p className="text-muted-foreground mb-8">You've practiced specific recall for {results.length} concepts.</p>
 
                     <div className="grid grid-cols-2 gap-4 mb-8">
                         <div className="bg-pink-50 dark:bg-pink-900/10 p-6 rounded-2xl">
@@ -334,7 +334,7 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
                     </div>
 
                     <div className="flex gap-3 justify-center">
-                        <Link href="/student/batch1/polity/revision" className="px-6 py-3 rounded-xl font-bold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 transition-colors">
+                        <Link href="/student/batch1/polity/revision" className="px-6 py-3 rounded-xl font-bold bg-muted text-muted-foreground dark:text-muted-foreground hover:bg-muted transition-colors">
                             Return to Hub
                         </Link>
                         <button
@@ -356,21 +356,21 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
 
     // LISTENING/FLASHCARD SCREEN
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-[#050505] flex flex-col">
+        <div className="min-h-screen bg-muted dark:bg-[#050505] flex flex-col">
             {/* Header */}
-            <div className="bg-white dark:bg-[#111] border-b border-gray-200 dark:border-gray-800 p-4 sticky top-0 z-10">
+            <div className="bg-card dark:bg-[#111] border-b border-border p-4 sticky top-0 z-10">
                 <div className="max-w-3xl mx-auto flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <button onClick={() => setIsSelectionMode(true)} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg text-gray-500">
+                        <button onClick={() => setIsSelectionMode(true)} className="p-2 hover:bg-muted dark:hover:bg-gray-800 rounded-lg text-muted-foreground">
                             <ChevronLeft className="w-5 h-5" />
                         </button>
                         <div>
-                            <div className="text-xs font-bold text-gray-400 uppercase tracking-wider">Voice Session</div>
-                            <div className="font-bold text-gray-900 dark:text-white">Card {currentIndex + 1} / {sessionCards.length}</div>
+                            <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Voice Session</div>
+                            <div className="font-bold text-foreground">Card {currentIndex + 1} / {sessionCards.length}</div>
                         </div>
                     </div>
                     <div className="flex items-center gap-2">
-                        <div className="w-32 h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                        <div className="w-32 h-2 bg-muted rounded-full overflow-hidden">
                             <div
                                 className="h-full bg-pink-500 transition-all duration-300"
                                 style={{ width: `${((currentIndex) / sessionCards.length) * 100}%` }}
@@ -385,17 +385,17 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
                 <div className="max-w-2xl w-full">
                     {/* Source Tag */}
                     <div className="flex justify-center mb-6">
-                        <span className="bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                        <span className="bg-muted text-muted-foreground dark:text-muted-foreground px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                             {currentCard.source}
                         </span>
                     </div>
 
                     {/* Question Card */}
-                    <div className="bg-white dark:bg-[#111] rounded-3xl p-8 shadow-xl border border-gray-100 dark:border-gray-800 text-center mb-6 relative overflow-hidden">
+                    <div className="bg-card dark:bg-[#111] rounded-3xl p-8 shadow-xl border border-border text-center mb-6 relative overflow-hidden">
                         <div className="w-16 h-16 bg-pink-50 dark:bg-pink-900/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                             <Lightbulb className="w-8 h-8 text-pink-500" />
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-black text-gray-900 dark:text-white mb-8">
+                        <h2 className="text-2xl md:text-3xl font-black text-foreground mb-8">
                             {currentCard.front}
                         </h2>
 
@@ -405,11 +405,11 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
                                 {isAnalyzing ? (
                                     <div className="py-8 text-center animate-pulse">
                                         <Loader2 className="w-12 h-12 text-pink-500 animate-spin mx-auto mb-4" />
-                                        <p className="text-gray-500 font-medium">AI Analyzing your answer...</p>
+                                        <p className="text-muted-foreground font-medium">AI Analyzing your answer...</p>
                                     </div>
                                 ) : (
-                                    <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
-                                        <p className="text-sm font-medium text-gray-500 mb-4">Tap mic to speak your answer</p>
+                                    <div className="bg-muted rounded-2xl p-6 border border-border">
+                                        <p className="text-sm font-medium text-muted-foreground mb-4">Tap mic to speak your answer</p>
                                         <VoiceRecorder
                                             onRecordingComplete={handleAudioRecording}
                                             autoSubmit={false}
@@ -420,7 +420,7 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
                         ) : (
                             // Answer & Result Display
                             <div className="text-left animate-in fade-in slide-in-from-bottom-4 duration-500">
-                                <div className="border-t border-gray-100 dark:border-gray-800 my-6"></div>
+                                <div className="border-t border-border my-6"></div>
 
                                 {/* Score Banner */}
                                 <div className={`flex items-center gap-4 p-4 rounded-xl mb-6 ${aiResult.score >= 70
@@ -437,26 +437,26 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
 
                                 <div className="space-y-4">
                                     <div>
-                                        <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Model Answer</div>
-                                        <div className="text-gray-900 dark:text-white text-lg leading-relaxed">{currentCard.back}</div>
+                                        <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2">Model Answer</div>
+                                        <div className="text-foreground text-lg leading-relaxed">{currentCard.back}</div>
                                     </div>
 
                                     <div>
-                                        <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Your Answer</div>
-                                        <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-xl text-gray-600 dark:text-gray-300 italic">
+                                        <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2">Your Answer</div>
+                                        <div className="bg-muted p-4 rounded-xl text-muted-foreground dark:text-muted-foreground italic">
                                             "{aiResult.transcription}"
                                         </div>
                                     </div>
 
                                     <div>
-                                        <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">AI Feedback</div>
-                                        <p className="text-gray-700 dark:text-gray-300">{aiResult.feedback}</p>
+                                        <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2">AI Feedback</div>
+                                        <p className="text-muted-foreground dark:text-muted-foreground">{aiResult.feedback}</p>
                                     </div>
                                 </div>
 
                                 <button
                                     onClick={nextCard}
-                                    className="w-full mt-8 bg-gray-900 dark:bg-white text-white dark:text-black py-4 rounded-xl font-bold hover:shadow-lg hover:scale-[1.02] transition-all flex items-center justify-center gap-2"
+                                    className="w-full mt-8 bg-gray-900 dark:bg-card text-white dark:text-black py-4 rounded-xl font-bold hover:shadow-lg hover:scale-[1.02] transition-all flex items-center justify-center gap-2"
                                 >
                                     Next Card <ChevronRight className="w-5 h-5" />
                                 </button>

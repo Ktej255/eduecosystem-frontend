@@ -61,18 +61,18 @@ export default function MyCertificatesPage() {
           <h1 className="text-4xl font-bold text-white mb-2">
             My Certificates
           </h1>
-          <p className="text-gray-400">
+          <p className="text-muted-foreground">
             View and download your earned certificates
           </p>
         </div>
 
         {certificates.length === 0 ? (
           <div className="bg-gray-900 rounded-xl border border-gray-800 p-12 text-center">
-            <Award className="h-16 w-16 text-gray-700 mx-auto mb-4" />
+            <Award className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-white mb-2">
               No certificates yet
             </h3>
-            <p className="text-gray-400 mb-6">
+            <p className="text-muted-foreground mb-6">
               Complete courses to earn certificates. Keep learning!
             </p>
             <Button
@@ -121,12 +121,12 @@ export default function MyCertificatesPage() {
                 <h3 className="text-lg font-bold text-white mb-1 line-clamp-1">
                   {cert.course_title}
                 </h3>
-                <p className="text-sm text-gray-400 mb-4">
+                <p className="text-sm text-muted-foreground mb-4">
                   Issued on {new Date(cert.issued_at).toLocaleDateString()}
                 </p>
 
                 <div className="pt-4 border-t border-gray-800 flex items-center justify-between">
-                  <span className="text-xs font-mono text-gray-500">
+                  <span className="text-xs font-mono text-muted-foreground">
                     {cert.certificate_number}
                   </span>
                   <Button

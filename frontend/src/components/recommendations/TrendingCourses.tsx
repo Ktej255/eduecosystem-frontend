@@ -89,7 +89,7 @@ export default function TrendingCourses({
           </h3>
 
           {/* Stats */}
-          <div className="flex items-center gap-3 text-xs text-gray-400 mb-2">
+          <div className="flex items-center gap-3 text-xs text-muted-foreground mb-2">
             <div className="flex items-center gap-1">
               <Star className="w-3 h-3 text-yellow-500" />
               <span>{course.rating.toFixed(1)}</span>

@@ -47,22 +47,22 @@ export default function SuccessCard({ stats, userName, onClose }: SuccessCardPro
             <motion.div
                 initial={{ scale: 0.9, y: 20 }}
                 animate={{ scale: 1, y: 0 }}
-                className="bg-white dark:bg-[#111] rounded-[2.5rem] overflow-hidden shadow-2xl max-w-md w-full"
+                className="bg-card dark:bg-[#111] rounded-[2.5rem] overflow-hidden shadow-2xl max-w-md w-full"
                 onClick={e => e.stopPropagation()}
                 ref={cardRef}
             >
                 {/* Poster Background */}
                 <div className="relative p-8 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white aspect-[4/5] flex flex-col justify-between overflow-hidden">
                     {/* Decorative Elements */}
-                    <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl" />
+                    <div className="absolute -top-10 -right-10 w-40 h-40 bg-card/10 rounded-full blur-3xl" />
                     <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-pink-400/20 rounded-full blur-3xl" />
 
                     <div className="relative z-10">
                         <div className="flex justify-between items-start">
-                            <div className="bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6">
+                            <div className="bg-card/20 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6">
                                 Community Milestone
                             </div>
-                            <div className="w-10 h-10 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center">
+                            <div className="w-10 h-10 bg-card/10 backdrop-blur-md rounded-xl flex items-center justify-center">
                                 <Trophy className="w-5 h-5" />
                             </div>
                         </div>
@@ -74,7 +74,7 @@ export default function SuccessCard({ stats, userName, onClose }: SuccessCardPro
                         </p>
                     </div>
 
-                    <div className="relative z-10 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6">
+                    <div className="relative z-10 bg-card/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6">
                         <p className="text-xs font-bold uppercase tracking-wider opacity-60 mb-4">Aspirant Profile</p>
                         <h3 className="text-2xl font-bold mb-6">{userName}</h3>
 
@@ -113,7 +113,7 @@ export default function SuccessCard({ stats, userName, onClose }: SuccessCardPro
                 </div>
 
                 {/* Footer Controls */}
-                <div className="p-6 bg-white dark:bg-[#111] border-t border-gray-100 dark:border-gray-800 flex gap-4">
+                <div className="p-6 bg-card dark:bg-[#111] border-t border-border flex gap-4">
                     <button
                         onClick={handleShare}
                         className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-2xl flex items-center justify-center gap-2 transition-all active:scale-95"
@@ -122,13 +122,13 @@ export default function SuccessCard({ stats, userName, onClose }: SuccessCardPro
                     </button>
                     <button
                         disabled
-                        className="p-3 bg-gray-100 dark:bg-gray-800 text-gray-400 rounded-2xl opacity-50 cursor-not-allowed"
+                        className="p-3 bg-muted text-muted-foreground rounded-2xl opacity-50 cursor-not-allowed"
                     >
                         <Download className="w-5 h-5" />
                     </button>
                     <button
                         onClick={onClose}
-                        className="px-6 py-3 font-bold text-gray-500 hover:text-gray-700 transition-colors"
+                        className="px-6 py-3 font-bold text-muted-foreground hover:text-muted-foreground transition-colors"
                     >
                         Close
                     </button>

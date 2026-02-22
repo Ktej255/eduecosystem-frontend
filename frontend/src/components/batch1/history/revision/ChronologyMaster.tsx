@@ -97,7 +97,7 @@ export default function ChronologyMaster({ eraData = DEFAULT_ERA_DATA, initialEr
                         onClick={() => setSelectedEra(era.id)}
                         className={`p-4 rounded-xl border-2 transition-all flex flex-col items-start ${selectedEra === era.id
                             ? `${era.borderColor} ${era.lightBg} shadow-md`
-                            : 'border-slate-100 bg-white hover:border-slate-200'
+                            : 'border-slate-100 bg-card hover:border-border'
                             }`}
                     >
                         <div className="flex justify-between w-full mb-1">
@@ -109,20 +109,20 @@ export default function ChronologyMaster({ eraData = DEFAULT_ERA_DATA, initialEr
                             </span>
                             {selectedEra === era.id && <CheckCircle2 size={16} className={era.textColor} />}
                         </div>
-                        <h3 className="text-xl font-bold text-slate-900">{era.title}</h3>
-                        <p className="text-xs text-slate-500 font-medium">{era.subtitle}</p>
+                        <h3 className="text-xl font-bold text-foreground">{era.title}</h3>
+                        <p className="text-xs text-muted-foreground font-medium">{era.subtitle}</p>
                     </button>
                 ))}
             </div>
 
             {/* Interactive Timeline */}
-            <div className={`bg-white rounded-3xl border-2 ${activeEra.borderColor} shadow-sm overflow-hidden`}>
+            <div className={`bg-card rounded-3xl border-2 ${activeEra.borderColor} shadow-sm overflow-hidden`}>
                 <div className={`${activeEra.color} p-4 text-white flex justify-between items-center`}>
                     <div className="flex items-center gap-2">
                         <Clock size={20} />
                         <h3 className="text-lg font-bold">Chronology Explorer: {activeEra.title}</h3>
                     </div>
-                    <Badge variant="outline" className="text-white border-white/40 bg-white/10">
+                    <Badge variant="outline" className="text-white border-white/40 bg-card/10">
                         {activeEra.events.length} Key Milestones
                     </Badge>
                 </div>
@@ -145,12 +145,12 @@ export default function ChronologyMaster({ eraData = DEFAULT_ERA_DATA, initialEr
                                 {/* Content Card */}
                                 <div className={`flex-1 p-5 rounded-2xl border-2 ${activeEra.borderColor} ${activeEra.lightBg} relative group hover:shadow-md transition-shadow`}>
                                     <div className="flex justify-between items-start mb-2">
-                                        <h4 className="text-xl font-bold text-slate-800">{event.title}</h4>
-                                        <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <h4 className="text-xl font-bold text-foreground">{event.title}</h4>
+                                        <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity">
                                             <Info size={16} />
                                         </Button>
                                     </div>
-                                    <p className="text-slate-600 leading-relaxed font-medium">
+                                    <p className="text-muted-foreground leading-relaxed font-medium">
                                         {event.detail}
                                     </p>
 
@@ -159,7 +159,7 @@ export default function ChronologyMaster({ eraData = DEFAULT_ERA_DATA, initialEr
                                         <Button size="sm" variant="outline" className={`rounded-lg border-${activeEra.id === 'ancient' ? 'amber' : activeEra.id === 'medieval' ? 'indigo' : 'red'}-200 text-xs font-bold h-7`}>
                                             Visual Guide
                                         </Button>
-                                        <Button size="sm" variant="outline" className="rounded-lg border-slate-200 text-xs font-bold h-7">
+                                        <Button size="sm" variant="outline" className="rounded-lg border-border text-xs font-bold h-7">
                                             Related MCQs
                                         </Button>
                                     </div>
@@ -170,13 +170,13 @@ export default function ChronologyMaster({ eraData = DEFAULT_ERA_DATA, initialEr
                 </div>
 
                 {/* Footer Insight */}
-                <div className="bg-slate-50 border-t border-slate-100 p-6 flex items-start gap-4">
+                <div className="bg-muted border-t border-slate-100 p-6 flex items-start gap-4">
                     <div className="p-2 bg-amber-100 rounded-lg text-amber-700">
                         <Lightbulb size={24} />
                     </div>
                     <div>
-                        <h4 className="font-bold text-slate-800">Productivity Hint: The Power of Sequencing</h4>
-                        <p className="text-sm text-slate-600 font-medium">
+                        <h4 className="font-bold text-foreground">Productivity Hint: The Power of Sequencing</h4>
+                        <p className="text-sm text-muted-foreground font-medium">
                             UPSC often asks for "Correct Chronological Order." Use this timeline to visualize causes and effects. For example, in Modern History, notice how world events (WWI, WWII) directly influenced Indian movements (Non-Cooperation, Quit India).
                         </p>
                     </div>

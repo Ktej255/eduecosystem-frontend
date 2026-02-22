@@ -31,8 +31,8 @@ export default function DrillPage() {
     return (
         <div className="space-y-8 max-w-4xl mx-auto p-6">
             <div className="flex items-center justify-between">
-                <h1 className="text-3xl font-bold text-slate-900 dark:text-white font-display">Daily Drills</h1>
-                <div className="text-sm text-slate-500 dark:text-slate-400">
+                <h1 className="text-3xl font-bold text-foreground font-display">Daily Drills</h1>
+                <div className="text-sm text-muted-foreground dark:text-muted-foreground">
                     Streak: <span className="font-bold text-orange-500">{dashboardData?.current_streak || 0} Days</span>
                 </div>
             </div>
@@ -42,7 +42,7 @@ export default function DrillPage() {
                 <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-3xl opacity-20 -mr-16 -mt-16"></div>
 
                 <div className="relative z-10">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-sm font-medium backdrop-blur-sm border border-white/10 mb-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-card/10 text-sm font-medium backdrop-blur-sm border border-white/10 mb-6">
                         <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
                         Today's Focus
                     </div>
@@ -62,7 +62,7 @@ export default function DrillPage() {
                             </Button>
                         </Link>
                     ) : (
-                        <Button disabled className="h-12 px-8 bg-slate-700 text-slate-400 rounded-xl">
+                        <Button disabled className="h-12 px-8 bg-slate-700 text-muted-foreground rounded-xl">
                             All Caught Up
                         </Button>
                     )}
@@ -71,23 +71,23 @@ export default function DrillPage() {
 
             {/* Past Drills / History */}
             <div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Recent History</h3>
-                <div className="bg-white dark:bg-neutral-800 rounded-2xl border border-slate-200 dark:border-neutral-700 overflow-hidden">
+                <h3 className="text-xl font-bold text-foreground mb-4">Recent History</h3>
+                <div className="bg-card dark:bg-neutral-800 rounded-2xl border border-border dark:border-neutral-700 overflow-hidden">
                     {dashboardData?.recent_reports?.length > 0 ? (
                         <div className="divide-y divide-slate-100 dark:divide-neutral-700">
                             {dashboardData.recent_reports.map((report: any) => (
-                                <div key={report.id} className="p-4 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-neutral-700/50 transition-colors">
+                                <div key={report.id} className="p-4 flex items-center justify-between hover:bg-muted dark:hover:bg-neutral-700/50 transition-colors">
                                     <div className="flex items-center gap-4">
                                         <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 flex items-center justify-center">
                                             <CheckSquare className="w-5 h-5" />
                                         </div>
                                         <div>
-                                            <h4 className="font-medium text-slate-900 dark:text-white">Drill Completed</h4>
-                                            <p className="text-sm text-slate-500 dark:text-slate-400">{report.generated_at ? new Date(report.generated_at).toLocaleDateString() : 'Unknown Date'}</p>
+                                            <h4 className="font-medium text-foreground">Drill Completed</h4>
+                                            <p className="text-sm text-muted-foreground dark:text-muted-foreground">{report.generated_at ? new Date(report.generated_at).toLocaleDateString() : 'Unknown Date'}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-4">
-                                        <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
+                                        <span className="text-sm font-medium text-muted-foreground">
                                             Score: {report.estimated_marks_after || report.estimated_marks_before || 0}
                                         </span>
                                         <Link href={`/student/reports/${report.id}`}>
@@ -98,7 +98,7 @@ export default function DrillPage() {
                             ))}
                         </div>
                     ) : (
-                        <div className="p-8 text-center text-slate-500 dark:text-slate-400">
+                        <div className="p-8 text-center text-muted-foreground dark:text-muted-foreground">
                             No recent drills completed.
                         </div>
                     )}

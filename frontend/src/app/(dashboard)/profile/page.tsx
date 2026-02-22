@@ -104,7 +104,7 @@ export default function ProfilePage() {
                   <h1 className="text-3xl font-bold bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent mb-2">
                     {user?.full_name || "User"}
                   </h1>
-                  <div className="flex items-center gap-4 text-gray-400 mb-3">
+                  <div className="flex items-center gap-4 text-muted-foreground mb-3">
                     <div className="flex items-center gap-2">
                       <Mail className="h-4 w-4" />
                       {user?.email}
@@ -117,7 +117,7 @@ export default function ProfilePage() {
                     </div>
                   </div>
                   {!editing && (
-                    <p className="text-gray-300">
+                    <p className="text-muted-foreground">
                       {formData.bio || "No bio yet. Click edit to add one!"}
                     </p>
                   )}
@@ -153,7 +153,7 @@ export default function ProfilePage() {
               {editing && (
                 <div className="mt-6 space-y-4">
                   <div>
-                    <label className="block text-gray-400 text-sm mb-2">
+                    <label className="block text-muted-foreground text-sm mb-2">
                       Full Name
                     </label>
                     <Input
@@ -165,7 +165,7 @@ export default function ProfilePage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-400 text-sm mb-2">
+                    <label className="block text-muted-foreground text-sm mb-2">
                       Bio
                     </label>
                     <Textarea
@@ -191,40 +191,40 @@ export default function ProfilePage() {
             <p className="text-2xl font-bold text-white">
               {stats.totalCourses}
             </p>
-            <p className="text-gray-400 text-sm">Courses</p>
+            <p className="text-muted-foreground text-sm">Courses</p>
           </Card>
           <Card className="bg-gradient-to-br from-green-900/30 to-green-700/20 border-green-500/30 p-4 text-center">
             <Target className="h-8 w-8 text-green-400 mx-auto mb-2" />
             <p className="text-2xl font-bold text-white">
               {stats.completedCourses}
             </p>
-            <p className="text-gray-400 text-sm">Completed</p>
+            <p className="text-muted-foreground text-sm">Completed</p>
           </Card>
           <Card className="bg-gradient-to-br from-purple-900/30 to-purple-700/20 border-purple-500/30 p-4 text-center">
             <Star className="h-8 w-8 text-purple-400 mx-auto mb-2" />
             <p className="text-2xl font-bold text-white">{stats.totalPoints}</p>
-            <p className="text-gray-400 text-sm">Points</p>
+            <p className="text-muted-foreground text-sm">Points</p>
           </Card>
           <Card className="bg-gradient-to-br from-orange-900/30 to-orange-700/20 border-orange-500/30 p-4 text-center">
             <Flame className="h-8 w-8 text-orange-400 mx-auto mb-2" />
             <p className="text-2xl font-bold text-white">
               {stats.currentStreak}
             </p>
-            <p className="text-gray-400 text-sm">Day Streak</p>
+            <p className="text-muted-foreground text-sm">Day Streak</p>
           </Card>
           <Card className="bg-gradient-to-br from-blue-900/30 to-blue-700/20 border-blue-500/30 p-4 text-center">
             <TrendingUp className="h-8 w-8 text-blue-400 mx-auto mb-2" />
             <p className="text-2xl font-bold text-white">
               {stats.totalStudyHours}
             </p>
-            <p className="text-gray-400 text-sm">Hours</p>
+            <p className="text-muted-foreground text-sm">Hours</p>
           </Card>
           <Card className="bg-gradient-to-br from-yellow-900/30 to-yellow-700/20 border-yellow-500/30 p-4 text-center">
             <Trophy className="h-8 w-8 text-yellow-400 mx-auto mb-2" />
             <p className="text-2xl font-bold text-white">
               {stats.achievements}
             </p>
-            <p className="text-gray-400 text-sm">Badges</p>
+            <p className="text-muted-foreground text-sm">Badges</p>
           </Card>
         </div>
 
@@ -262,12 +262,12 @@ export default function ProfilePage() {
                       className={`h-8 w-8 mx-auto mb-2 ${
                         achievement.unlocked
                           ? `text-${achievement.color}-400`
-                          : "text-gray-600"
+                          : "text-muted-foreground"
                       }`}
                     />
                     <p
                       className={`text-center text-sm font-semibold ${
-                        achievement.unlocked ? "text-white" : "text-gray-500"
+                        achievement.unlocked ? "text-white" : "text-muted-foreground"
                       }`}
                     >
                       {achievement.name}

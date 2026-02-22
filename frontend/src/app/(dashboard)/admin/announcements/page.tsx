@@ -95,10 +95,10 @@ export default function AdminAnnouncementsPage() {
                         </Button>
                     </Link>
                     <div>
-                        <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-200">
+                        <h1 className="text-2xl font-bold text-foreground">
                             📢 Announcements
                         </h1>
-                        <p className="text-gray-500 text-sm">Send notifications to teachers and students</p>
+                        <p className="text-muted-foreground text-sm">Send notifications to teachers and students</p>
                     </div>
                 </div>
                 <Button onClick={() => setShowCreateForm(!showCreateForm)} className="gap-2">
@@ -114,7 +114,7 @@ export default function AdminAnnouncementsPage() {
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div>
-                            <label className="text-sm font-medium text-gray-700">Title</label>
+                            <label className="text-sm font-medium text-muted-foreground">Title</label>
                             <Input
                                 placeholder="Announcement title..."
                                 value={newTitle}
@@ -123,7 +123,7 @@ export default function AdminAnnouncementsPage() {
                             />
                         </div>
                         <div>
-                            <label className="text-sm font-medium text-gray-700">Message</label>
+                            <label className="text-sm font-medium text-muted-foreground">Message</label>
                             <Textarea
                                 placeholder="Write your announcement message..."
                                 value={newMessage}
@@ -133,7 +133,7 @@ export default function AdminAnnouncementsPage() {
                             />
                         </div>
                         <div>
-                            <label className="text-sm font-medium text-gray-700">Target Audience</label>
+                            <label className="text-sm font-medium text-muted-foreground">Target Audience</label>
                             <div className="flex flex-wrap gap-2 mt-2">
                                 {(["all", "students", "teachers", "batch1", "ras"] as const).map((target) => (
                                     <Button
@@ -171,19 +171,19 @@ export default function AdminAnnouncementsPage() {
                 <CardContent>
                     <div className="space-y-3">
                         {announcements.map((announcement) => (
-                            <div key={announcement.id} className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                            <div key={announcement.id} className="p-4 bg-muted rounded-lg">
                                 <div className="flex items-start justify-between">
                                     <div className="flex-1">
                                         <div className="flex items-center gap-2 mb-1">
-                                            <h3 className="font-semibold text-gray-800 dark:text-gray-200">
+                                            <h3 className="font-semibold text-foreground">
                                                 {announcement.title}
                                             </h3>
                                             {getTargetBadge(announcement.target)}
                                         </div>
-                                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                                        <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-2">
                                             {announcement.message}
                                         </p>
-                                        <p className="text-xs text-gray-500 flex items-center gap-1">
+                                        <p className="text-xs text-muted-foreground flex items-center gap-1">
                                             <Clock className="h-3 w-3" />
                                             {new Date(announcement.created_at).toLocaleString()}
                                         </p>
@@ -195,7 +195,7 @@ export default function AdminAnnouncementsPage() {
                             </div>
                         ))}
                         {announcements.length === 0 && (
-                            <div className="text-center py-8 text-gray-500">
+                            <div className="text-center py-8 text-muted-foreground">
                                 <Bell className="h-12 w-12 mx-auto mb-3 opacity-50" />
                                 <p>No announcements yet</p>
                             </div>

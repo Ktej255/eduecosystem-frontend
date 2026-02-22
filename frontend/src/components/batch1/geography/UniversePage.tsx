@@ -26,7 +26,7 @@ export default function UniversePage() {
                                 <Orbit className="h-5 w-5" />
                                 {ORIGIN_OF_UNIVERSE_CONTENT.title}
                             </h1>
-                            <p className="text-xs text-slate-400">{ORIGIN_OF_UNIVERSE_CONTENT.description}</p>
+                            <p className="text-xs text-muted-foreground">{ORIGIN_OF_UNIVERSE_CONTENT.description}</p>
                         </div>
                     </div>
                 </div>
@@ -62,11 +62,11 @@ export default function UniversePage() {
                     <div className="md:col-span-1 space-y-4">
                         <Card className="sticky top-24 bg-slate-900 border-slate-800">
                             <CardHeader>
-                                <CardTitle className="text-sm uppercase tracking-wider text-slate-500">Topics</CardTitle>
+                                <CardTitle className="text-sm uppercase tracking-wider text-muted-foreground">Topics</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-2 p-4 pt-0">
                                 {ORIGIN_OF_UNIVERSE_CONTENT.sections.map(sec => (
-                                    <a key={sec.id} href={`#${sec.id}`} className="block text-sm font-medium text-slate-400 hover:text-indigo-400 p-2 rounded-lg hover:bg-slate-800 transition-colors">
+                                    <a key={sec.id} href={`#${sec.id}`} className="block text-sm font-medium text-muted-foreground hover:text-indigo-400 p-2 rounded-lg hover:bg-slate-800 transition-colors">
                                         {sec.title}
                                     </a>
                                 ))}
@@ -97,7 +97,7 @@ export default function UniversePage() {
                                                 {block.type === 'image' && (
                                                     <div className="relative rounded-xl overflow-hidden border border-slate-800 my-4">
                                                         <img src={block.content} alt={block.alt} className="w-full h-auto object-cover" />
-                                                        <div className="bg-black/50 p-2 text-xs text-slate-400 italic text-center backdrop-blur-sm absolute bottom-0 w-full">
+                                                        <div className="bg-black/50 p-2 text-xs text-muted-foreground italic text-center backdrop-blur-sm absolute bottom-0 w-full">
                                                             {block.caption}
                                                         </div>
                                                     </div>

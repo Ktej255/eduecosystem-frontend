@@ -87,7 +87,7 @@ export default function PreambleDecoder() {
     const [selectedWord, setSelectedWord] = useState(PREAMBLE_KEYWORDS[0]);
 
     return (
-        <div className="w-full bg-slate-50 dark:bg-neutral-950 rounded-3xl border border-slate-200 dark:border-neutral-800 overflow-hidden shadow-2xl flex flex-col lg:flex-row h-full min-h-[600px]">
+        <div className="w-full bg-muted dark:bg-neutral-950 rounded-3xl border border-border dark:border-neutral-800 overflow-hidden shadow-2xl flex flex-col lg:flex-row h-full min-h-[600px]">
             {/* Left Pane: Interactive Preamble Text */}
             <div className="flex-1 p-8 lg:p-12 overflow-y-auto">
                 <div className="max-w-xl mx-auto space-y-8">
@@ -96,12 +96,12 @@ export default function PreambleDecoder() {
                             <BookOpen className="w-6 h-6" />
                         </div>
                         <div>
-                            <h2 className="text-xl font-black tracking-tight dark:text-white uppercase">The Preamble</h2>
-                            <p className="text-xs text-slate-500 uppercase font-bold tracking-widest">Interactive Decoder</p>
+                            <h2 className="text-xl font-black tracking-tight uppercase">The Preamble</h2>
+                            <p className="text-xs text-muted-foreground uppercase font-bold tracking-widest">Interactive Decoder</p>
                         </div>
                     </div>
 
-                    <div className="relative font-serif text-lg md:text-xl leading-relaxed text-slate-700 dark:text-slate-300 italic border-l-4 border-amber-200 pl-8 py-4">
+                    <div className="relative font-serif text-lg md:text-xl leading-relaxed text-muted-foreground italic border-l-4 border-amber-200 pl-8 py-4">
                         "WE, THE PEOPLE OF INDIA, having solemnly resolved to constitute India into a
                         {PREAMBLE_KEYWORDS.slice(0, 5).map((kw, i) => (
                             <span key={i}>
@@ -167,7 +167,7 @@ export default function PreambleDecoder() {
             </div>
 
             {/* Right Pane: Detailed Explanation */}
-            <div className="w-full lg:w-96 bg-white dark:bg-neutral-900 border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-neutral-800 p-8 flex flex-col">
+            <div className="w-full lg:w-96 bg-card dark:bg-neutral-900 border-t lg:border-t-0 lg:border-l border-border dark:border-neutral-800 p-8 flex flex-col">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={selectedWord.word}
@@ -180,7 +180,7 @@ export default function PreambleDecoder() {
                             <div className={`p-4 rounded-2xl ${selectedWord.bg} ${selectedWord.color}`}>
                                 <selectedWord.icon className="w-8 h-8" />
                             </div>
-                            <Badge variant="outline" className="text-[10px] uppercase font-bold tracking-widest text-slate-400 border-slate-200">
+                            <Badge variant="outline" className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground border-border">
                                 Keyword Case Study
                             </Badge>
                         </div>
@@ -189,35 +189,35 @@ export default function PreambleDecoder() {
                             <h3 className={`text-3xl font-black tracking-tighter ${selectedWord.color} mb-1 uppercase`}>
                                 {selectedWord.word}
                             </h3>
-                            <div className="h-1 w-12 bg-slate-100 dark:bg-neutral-800 rounded-full" />
+                            <div className="h-1 w-12 bg-muted dark:bg-neutral-800 rounded-full" />
                         </div>
 
                         <div className="space-y-4 flex-1">
                             <div>
-                                <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Constitutional Meaning</h4>
-                                <p className="text-sm text-slate-600 dark:text-neutral-400 leading-relaxed font-medium">
+                                <h4 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">Constitutional Meaning</h4>
+                                <p className="text-sm text-muted-foreground dark:text-neutral-400 leading-relaxed font-medium">
                                     {selectedWord.meaning}
                                 </p>
                             </div>
 
-                            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-neutral-800/50 border border-slate-100 dark:border-neutral-800">
-                                <div className="flex items-center gap-2 mb-2 text-slate-900 dark:text-white">
+                            <div className="p-4 rounded-2xl bg-muted dark:bg-neutral-800/50 border border-slate-100 dark:border-neutral-800">
+                                <div className="flex items-center gap-2 mb-2 text-foreground">
                                     <Info className="w-4 h-4 text-amber-500" />
                                     <h4 className="text-xs font-bold uppercase tracking-widest">UPSC Perspective</h4>
                                 </div>
-                                <p className="text-xs text-slate-500 dark:text-neutral-400 leading-relaxed italic">
+                                <p className="text-xs text-muted-foreground dark:text-neutral-400 leading-relaxed italic">
                                     {selectedWord.upscNote}
                                 </p>
                             </div>
                         </div>
 
                         <div className="pt-6 border-t border-slate-100 dark:border-neutral-800">
-                            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-4">Related Articles</p>
+                            <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest mb-4">Related Articles</p>
                             <div className="flex flex-wrap gap-2">
-                                {selectedWord.word === "SECULAR" && ["Art 25-28", "Art 44"].map(tag => <Badge key={tag} className="bg-slate-100 dark:bg-neutral-800 text-slate-600 dark:text-neutral-400 border-none px-3">{tag}</Badge>)}
-                                {selectedWord.word === "REPUBLIC" && ["Art 52", "Art 54"].map(tag => <Badge key={tag} className="bg-slate-100 dark:bg-neutral-800 text-slate-600 dark:text-neutral-400 border-none px-3">{tag}</Badge>)}
-                                {selectedWord.word === "DEMOCRATIC" && ["Art 326"].map(tag => <Badge key={tag} className="bg-slate-100 dark:bg-neutral-800 text-slate-600 dark:text-neutral-400 border-none px-3">{tag}</Badge>)}
-                                {selectedWord.word === "JUSTICE" && ["Art 14-18", "Art 38"].map(tag => <Badge key={tag} className="bg-slate-100 dark:bg-neutral-800 text-slate-600 dark:text-neutral-400 border-none px-3">{tag}</Badge>)}
+                                {selectedWord.word === "SECULAR" && ["Art 25-28", "Art 44"].map(tag => <Badge key={tag} className="bg-muted dark:bg-neutral-800 text-muted-foreground dark:text-neutral-400 border-none px-3">{tag}</Badge>)}
+                                {selectedWord.word === "REPUBLIC" && ["Art 52", "Art 54"].map(tag => <Badge key={tag} className="bg-muted dark:bg-neutral-800 text-muted-foreground dark:text-neutral-400 border-none px-3">{tag}</Badge>)}
+                                {selectedWord.word === "DEMOCRATIC" && ["Art 326"].map(tag => <Badge key={tag} className="bg-muted dark:bg-neutral-800 text-muted-foreground dark:text-neutral-400 border-none px-3">{tag}</Badge>)}
+                                {selectedWord.word === "JUSTICE" && ["Art 14-18", "Art 38"].map(tag => <Badge key={tag} className="bg-muted dark:bg-neutral-800 text-muted-foreground dark:text-neutral-400 border-none px-3">{tag}</Badge>)}
                             </div>
                         </div>
                     </motion.div>

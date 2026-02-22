@@ -123,7 +123,7 @@ export default function MoodTracker() {
         { id: 'great', label: 'Great', icon: Sun, color: 'text-yellow-500' },
         { id: 'good', label: 'Good', icon: Smile, color: 'text-green-500' },
         { id: 'okay', label: 'Okay', icon: Meh, color: 'text-blue-500' },
-        { id: 'low', label: 'Low', icon: Cloud, color: 'text-gray-500' },
+        { id: 'low', label: 'Low', icon: Cloud, color: 'text-muted-foreground' },
         { id: 'stressed', label: 'Stressed', icon: Zap, color: 'text-red-500' },
     ];
 
@@ -166,11 +166,11 @@ export default function MoodTracker() {
                                             onClick={() => setCurrentMood(m.id)}
                                             className={`flex flex-col items-center gap-2 p-2 rounded-lg transition-all ${isSelected
                                                 ? 'bg-indigo-50 ring-2 ring-indigo-500 scale-110'
-                                                : 'hover:bg-gray-50'
+                                                : 'hover:bg-muted'
                                                 }`}
                                         >
                                             <Icon className={`h-8 w-8 ${m.color} ${isSelected ? 'fill-current opacity-20' : ''}`} />
-                                            <span className="text-xs font-medium text-gray-600">{m.label}</span>
+                                            <span className="text-xs font-medium text-muted-foreground">{m.label}</span>
                                         </button>
                                     );
                                 })}
@@ -178,7 +178,7 @@ export default function MoodTracker() {
 
                             {/* Energy Level */}
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                                <label className="text-sm font-medium text-muted-foreground flex items-center gap-2">
                                     <Zap className="h-4 w-4 text-orange-500" />
                                     Energy Level (1-10): {energyLevel}
                                 </label>
@@ -188,9 +188,9 @@ export default function MoodTracker() {
                                     max="10"
                                     value={energyLevel}
                                     onChange={(e) => setEnergyLevel(parseInt(e.target.value))}
-                                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+                                    className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer accent-indigo-600"
                                 />
-                                <div className="flex justify-between text-xs text-gray-400">
+                                <div className="flex justify-between text-xs text-muted-foreground">
                                     <span>Exhausted</span>
                                     <span>Energetic</span>
                                 </div>
@@ -198,7 +198,7 @@ export default function MoodTracker() {
 
                             {/* Note */}
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-gray-700">Optional Note</label>
+                                <label className="text-sm font-medium text-muted-foreground">Optional Note</label>
                                 <Input
                                     placeholder="E.g., Had a good sleep, or feeling distracted..."
                                     value={note}
@@ -214,14 +214,14 @@ export default function MoodTracker() {
 
                         <TabsContent value="history" className="space-y-4">
                             {entries.length === 0 ? (
-                                <div className="text-center py-8 text-gray-500">
+                                <div className="text-center py-8 text-muted-foreground">
                                     <TrendingUp className="h-8 w-8 mx-auto mb-2 opacity-50" />
                                     <p>No mood logs yet.</p>
                                 </div>
                             ) : (
                                 <>
                                     {/* Chart */}
-                                    <div className="h-40 w-full bg-gray-50 rounded-lg p-2 border border-gray-100">
+                                    <div className="h-40 w-full bg-muted rounded-lg p-2 border border-border">
                                         <ResponsiveContainer width="100%" height="100%">
                                             <LineChart data={entries.slice(-10)}>
                                                 <XAxis
@@ -238,15 +238,15 @@ export default function MoodTracker() {
                                                 <Line type="monotone" dataKey="energy" stroke="#f97316" strokeWidth={2} dot={false} />
                                             </LineChart>
                                         </ResponsiveContainer>
-                                        <div className="text-center text-[10px] text-gray-400 mt-1">Last 10 Entries (Energy Trend)</div>
+                                        <div className="text-center text-[10px] text-muted-foreground mt-1">Last 10 Entries (Energy Trend)</div>
                                     </div>
 
                                     {/* Recent List */}
                                     <div className="space-y-2 max-h-[200px] overflow-y-auto pr-1">
                                         {[...entries].reverse().slice(0, 5).map((entry, i) => (
-                                            <div key={i} className="flex items-center justify-between p-2 rounded bg-gray-50 text-sm">
+                                            <div key={i} className="flex items-center justify-between p-2 rounded bg-muted text-sm">
                                                 <div className="flex items-center gap-2">
-                                                    <span className="text-gray-500 text-xs">
+                                                    <span className="text-muted-foreground text-xs">
                                                         {new Date(entry.timestamp).toLocaleDateString([], { month: 'short', day: 'numeric' })}
                                                     </span>
                                                     <span className="font-medium capitalize">{entry.mood}</span>

@@ -32,12 +32,12 @@ export default function UPSCOnboarding() {
             <h2 className="text-2xl font-bold">Welcome to UPSC Batch 1</h2>
             <div className="aspect-video bg-gray-900 rounded-xl flex items-center justify-center relative group cursor-pointer overflow-hidden">
                 <div className="absolute inset-0 bg-cover bg-center opacity-50" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1000&auto=format&fit=crop)' }}></div>
-                <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center z-10 group-hover:scale-110 transition-transform">
+                <div className="w-16 h-16 bg-card/20 backdrop-blur-md rounded-full flex items-center justify-center z-10 group-hover:scale-110 transition-transform">
                     <Play className="w-8 h-8 text-white fill-current ml-1" />
                 </div>
                 <p className="absolute bottom-4 text-white text-sm font-medium">Watch Introductory Video</p>
             </div>
-            <p className="text-gray-500">
+            <p className="text-muted-foreground">
                 Discover how our Amazon-like store and automated planner will revolutionize your preparation.
             </p>
             <Button onClick={() => setStep('select-path')} className="w-full h-12 text-lg">
@@ -50,13 +50,13 @@ export default function UPSCOnboarding() {
         <div className="space-y-6">
             <div className="text-center">
                 <h2 className="text-xl font-bold">Choose Your Path</h2>
-                <p className="text-gray-500 text-sm">How would you like to prepare?</p>
+                <p className="text-muted-foreground text-sm">How would you like to prepare?</p>
             </div>
 
             <div className="grid grid-cols-1 gap-4">
                 <div
                     onClick={() => { setPathType('manual'); handleComplete(); }}
-                    className="border-2 border-gray-200 dark:border-gray-800 hover:border-blue-500 rounded-xl p-4 cursor-pointer transition-all hover:bg-blue-50 dark:hover:bg-blue-900/10"
+                    className="border-2 border-border hover:border-blue-500 rounded-xl p-4 cursor-pointer transition-all hover:bg-blue-50 dark:hover:bg-blue-900/10"
                 >
                     <div className="flex items-center gap-3 mb-2">
                         <div className="bg-blue-100 dark:bg-blue-900 p-2 rounded-lg text-blue-600">
@@ -64,7 +64,7 @@ export default function UPSCOnboarding() {
                         </div>
                         <h3 className="font-bold">Manual Exploration</h3>
                     </div>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-muted-foreground">
                         I know what I need. I'll browse the store and pick books/chapters myself.
                     </p>
                 </div>
@@ -82,7 +82,7 @@ export default function UPSCOnboarding() {
                         </div>
                         <h3 className="font-bold text-indigo-900 dark:text-indigo-100">Automated AI Planner</h3>
                     </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                         Answer a few questions and get a personalized daily schedule based on your goals.
                     </p>
                 </div>
@@ -94,14 +94,14 @@ export default function UPSCOnboarding() {
         <div className="space-y-6">
             <div className="text-center">
                 <h2 className="text-xl font-bold">Customize Your Plan</h2>
-                <p className="text-gray-500 text-sm">Let's build your schedule.</p>
+                <p className="text-muted-foreground text-sm">Let's build your schedule.</p>
             </div>
 
             <div className="space-y-4">
                 <div>
                     <label className="block text-sm font-medium mb-1">Target Completion (Days)</label>
-                    <div className="flex items-center gap-4 bg-gray-100 dark:bg-gray-800 p-3 rounded-lg">
-                        <Calendar className="w-5 h-5 text-gray-500" />
+                    <div className="flex items-center gap-4 bg-muted p-3 rounded-lg">
+                        <Calendar className="w-5 h-5 text-muted-foreground" />
                         <input
                             type="range"
                             min="7"
@@ -116,8 +116,8 @@ export default function UPSCOnboarding() {
 
                 <div>
                     <label className="block text-sm font-medium mb-1">Daily Study Time (Hours)</label>
-                    <div className="flex items-center gap-4 bg-gray-100 dark:bg-gray-800 p-3 rounded-lg">
-                        <Clock className="w-5 h-5 text-gray-500" />
+                    <div className="flex items-center gap-4 bg-muted p-3 rounded-lg">
+                        <Clock className="w-5 h-5 text-muted-foreground" />
                         <input
                             type="range"
                             min="1"
@@ -152,7 +152,7 @@ export default function UPSCOnboarding() {
                 <BrainCircuit className="w-16 h-16 text-indigo-500" />
             </motion.div>
             <h3 className="text-lg font-bold">Analyzing Syllabus...</h3>
-            <p className="text-sm text-gray-500">Creating your personalized path.</p>
+            <p className="text-sm text-muted-foreground">Creating your personalized path.</p>
         </div>
     );
 
@@ -163,7 +163,7 @@ export default function UPSCOnboarding() {
             </div>
             <div>
                 <h2 className="text-2xl font-bold">Prarambh Plan Ready!</h2>
-                <p className="text-gray-500">
+                <p className="text-muted-foreground">
                     Your {surveyData.days}-day schedule is set. We've unlocked the first module for you.
                 </p>
             </div>

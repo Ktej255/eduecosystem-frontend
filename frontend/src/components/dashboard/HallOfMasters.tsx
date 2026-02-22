@@ -129,7 +129,7 @@ export function HallOfMasters() {
 
             <div className="absolute bottom-10 left-10 z-20 pointer-events-none">
                 <h1 className="text-5xl font-black text-white uppercase tracking-tighter opacity-20">Hall of Masters</h1>
-                <p className="text-gray-500 max-w-xs">The eternal sanctuary for those who conquered their Sadhana.</p>
+                <p className="text-muted-foreground max-w-xs">The eternal sanctuary for those who conquered their Sadhana.</p>
             </div>
         </div>
     );

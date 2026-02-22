@@ -72,7 +72,7 @@ export default function PYQCommandCenter() {
                         </div>
                         <div>
                             <CardTitle className="text-xl font-bold text-white">PYQ Command Center</CardTitle>
-                            <CardDescription className="text-slate-400">Manage 2013-2024 UPSC Prelims Archive</CardDescription>
+                            <CardDescription className="text-muted-foreground">Manage 2013-2024 UPSC Prelims Archive</CardDescription>
                         </div>
                     </div>
                     <div className="flex gap-2 w-full md:w-auto">
@@ -102,14 +102,14 @@ export default function PYQCommandCenter() {
                 {/* Search & Filter Bar */}
                 <div className="flex flex-col md:flex-row gap-4 mb-8">
                     <div className="relative flex-1">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                         <Input
                             placeholder="Search by topic, keyword, or Year..."
                             className="pl-10 bg-slate-950 border-slate-800 text-slate-200 focus:ring-blue-500"
                         />
                     </div>
                     <div className="flex gap-2">
-                        <Button variant="ghost" size="sm" className="text-slate-400 border border-slate-800">
+                        <Button variant="ghost" size="sm" className="text-muted-foreground border border-slate-800">
                             <Filter className="w-4 h-4 mr-2" /> Filters
                         </Button>
                         <Badge variant="outline" className="bg-blue-950/30 text-blue-400 border-blue-900/50 px-3">
@@ -121,18 +121,18 @@ export default function PYQCommandCenter() {
                 {/* Subject Grid */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                     <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 group/item hover:border-blue-500/50 transition-all">
-                        <p className="text-[10px] font-black uppercase text-slate-500 tracking-widest mb-1">Total Questions</p>
+                        <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest mb-1">Total Questions</p>
                         <div className="flex items-baseline gap-2">
                             <span className="text-2xl font-black text-blue-600">{stats.total.toLocaleString()}</span>
-                            <span className="text-[10px] text-slate-400">Total Items</span>
+                            <span className="text-[10px] text-muted-foreground">Total Items</span>
                         </div>
                     </div>
                     {Object.entries(stats.by_subject).slice(0, 3).map(([subject, count], i) => (
                         <div key={i} className="bg-slate-950 p-4 rounded-xl border border-slate-800 group/item hover:border-blue-500/50 transition-all">
-                            <p className="text-[10px] font-black uppercase text-slate-500 tracking-widest mb-1 capitalize">{subject}</p>
+                            <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest mb-1 capitalize">{subject}</p>
                             <div className="flex items-baseline gap-2">
                                 <span className="text-2xl font-black text-emerald-600">{count.toLocaleString()}</span>
-                                <span className="text-[10px] text-slate-400">Total Items</span>
+                                <span className="text-[10px] text-muted-foreground">Total Items</span>
                             </div>
                         </div>
                     ))}
@@ -140,7 +140,7 @@ export default function PYQCommandCenter() {
 
                 {/* Active Projects / Recent Ingestions */}
                 <div className="space-y-4">
-                    <h3 className="text-xs font-black uppercase text-slate-500 tracking-widest">Recent Archive Updates</h3>
+                    <h3 className="text-xs font-black uppercase text-muted-foreground tracking-widest">Recent Archive Updates</h3>
                     <div className="border border-slate-800 rounded-xl overflow-hidden bg-slate-950/30">
                         {[
                             { title: "2024 Prelims Economics Section", count: 18, status: "Active", icon: <CheckCircle2 className="text-emerald-500" /> },
@@ -149,12 +149,12 @@ export default function PYQCommandCenter() {
                         ].map((item, i) => (
                             <div key={i} className="flex items-center justify-between p-4 border-b border-slate-800/50 last:border-0 hover:bg-slate-900 transition-colors">
                                 <div className="flex items-center gap-4">
-                                    <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400">
+                                    <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-muted-foreground">
                                         {item.icon}
                                     </div>
                                     <div>
                                         <p className="font-bold text-slate-200 text-sm">{item.title}</p>
-                                        <p className="text-xs text-slate-500">{item.count} Questions • Last updated 2h ago</p>
+                                        <p className="text-xs text-muted-foreground">{item.count} Questions • Last updated 2h ago</p>
                                     </div>
                                 </div>
                                 <Button variant="ghost" size="sm" className="text-blue-400 hover:text-blue-300 hover:bg-blue-900/20">

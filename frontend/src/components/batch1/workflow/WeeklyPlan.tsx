@@ -28,11 +28,11 @@ export default function WeeklyPlan({ onBack }: { onBack: () => void }) {
 
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100 flex items-center gap-3">
+                    <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
                         <CalendarRange className="w-8 h-8 text-blue-600" />
                         Week 1: Foundations
                     </h1>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">
+                    <p className="text-muted-foreground dark:text-muted-foreground mt-1">
                         Focus on core Polity concepts and daily answer writing.
                     </p>
                 </div>
@@ -44,7 +44,7 @@ export default function WeeklyPlan({ onBack }: { onBack: () => void }) {
                     <Card key={idx} className={`text-center ${day.status === 'active' ? 'border-blue-500 ring-2 ring-blue-200' : ''}`}>
                         <CardHeader className="p-4 pb-2">
                             <h3 className="font-bold text-lg">{day.day}</h3>
-                            <p className="text-xs text-gray-500">{day.date}</p>
+                            <p className="text-xs text-muted-foreground">{day.date}</p>
                         </CardHeader>
                         <CardContent className="p-4 pt-2">
                             <Badge variant={day.status === 'active' ? 'default' : 'secondary'} className="mb-2">
@@ -66,10 +66,10 @@ export default function WeeklyPlan({ onBack }: { onBack: () => void }) {
                             </CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <ul className="space-y-2 text-sm text-gray-600">
+                            <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> Polity: Preamble</li>
                                 <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> Polity: FRs (Part 1)</li>
-                                <li className="flex items-center gap-2"><Circle className="w-4 h-4 text-gray-300" /> Geography: Solar System</li>
+                                <li className="flex items-center gap-2"><Circle className="w-4 h-4 text-muted-foreground" /> Geography: Solar System</li>
                             </ul>
                         </CardContent>
                     </Card>
@@ -81,10 +81,10 @@ export default function WeeklyPlan({ onBack }: { onBack: () => void }) {
                             </CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <ul className="space-y-2 text-sm text-gray-600">
+                            <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> 2 Essays Written</li>
-                                <li className="flex items-center gap-2"><Circle className="w-4 h-4 text-gray-300" /> 50 MCQs Solved</li>
-                                <li className="flex items-center gap-2"><Circle className="w-4 h-4 text-gray-300" /> 2 CSAT Papers</li>
+                                <li className="flex items-center gap-2"><Circle className="w-4 h-4 text-muted-foreground" /> 50 MCQs Solved</li>
+                                <li className="flex items-center gap-2"><Circle className="w-4 h-4 text-muted-foreground" /> 2 CSAT Papers</li>
                             </ul>
                         </CardContent>
                     </Card>
@@ -96,10 +96,10 @@ export default function WeeklyPlan({ onBack }: { onBack: () => void }) {
                             </CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <ul className="space-y-2 text-sm text-gray-600">
+                            <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> 7 Morning Meditations</li>
-                                <li className="flex items-center gap-2"><Circle className="w-4 h-4 text-gray-300" /> 6 Graphotherapy Sessions</li>
-                                <li className="flex items-center gap-2"><Circle className="w-4 h-4 text-gray-300" /> 1 Sunday Rest</li>
+                                <li className="flex items-center gap-2"><Circle className="w-4 h-4 text-muted-foreground" /> 6 Graphotherapy Sessions</li>
+                                <li className="flex items-center gap-2"><Circle className="w-4 h-4 text-muted-foreground" /> 1 Sunday Rest</li>
                             </ul>
                         </CardContent>
                     </Card>

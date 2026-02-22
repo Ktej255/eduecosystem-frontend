@@ -201,7 +201,7 @@ function getStrengthBadge(strength: string) {
 
 function getStageBadge(stage: string) {
     const stageColors: Record<string, string> = {
-        "New": "bg-gray-500/10 text-gray-500 border-gray-500/20",
+        "New": "bg-muted-foreground/10 text-muted-foreground border-gray-500/20",
         "Inquiry": "bg-blue-500/10 text-blue-500 border-blue-500/20",
         "Follow-up": "bg-purple-500/10 text-purple-500 border-purple-500/20",
         "Demo Scheduled": "bg-amber-500/10 text-amber-500 border-amber-500/20",
@@ -209,7 +209,7 @@ function getStageBadge(stage: string) {
         "Enrolled": "bg-green-500/10 text-green-600 border-green-500/20",
         "Lost": "bg-red-500/10 text-red-500 border-red-500/20",
     };
-    return <Badge className={stageColors[stage] || "bg-gray-500/10 text-gray-500"}>{stage}</Badge>;
+    return <Badge className={stageColors[stage] || "bg-muted-foreground/10 text-muted-foreground"}>{stage}</Badge>;
 }
 
 function getScoreColor(score: number) {

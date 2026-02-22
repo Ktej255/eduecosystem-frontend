@@ -111,7 +111,7 @@ export default function Level3_Resonance({ onExit, onComplete, level = 3, dayNum
                             <Button variant="ghost" className="text-white/60 hover:text-white" onClick={onExit}>
                                 <X className="w-6 h-6" />
                             </Button>
-                            <div className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full backdrop-blur-md border border-white/10">
+                            <div className="flex items-center gap-2 px-3 py-1 bg-card/5 rounded-full backdrop-blur-md border border-white/10">
                                 <Waves className="w-4 h-4 text-indigo-400" />
                                 <span className="text-xs font-medium tracking-wide opacity-80">LEVEL 3 • RESONANCE</span>
                             </div>

@@ -10,7 +10,7 @@ export default function MindMapPage() {
             <div className="mb-8">
                 <Link
                     href="/student/batch1-1"
-                    className="inline-flex items-center text-sm text-gray-500 hover:text-indigo-600 mb-4 transition-colors"
+                    className="inline-flex items-center text-sm text-muted-foreground hover:text-indigo-600 mb-4 transition-colors"
                 >
                     <ArrowLeft className="mr-1 h-4 w-4" /> Back to Dashboard
                 </Link>
@@ -18,7 +18,7 @@ export default function MindMapPage() {
                     <Network className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
                     Smart Mind Map Generator
                 </h1>
-                <p className="text-gray-600 dark:text-gray-400 mt-2">
+                <p className="text-muted-foreground dark:text-muted-foreground mt-2">
                     Turn any topic into an interactive concept map instantly using AI.
                 </p>
             </div>

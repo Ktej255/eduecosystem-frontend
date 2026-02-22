@@ -44,7 +44,7 @@ export default function MembershipsPage() {
                         <h1 className="text-3xl font-bold text-white mb-2">
                             Membership Plans
                         </h1>
-                        <p className="text-gray-400">
+                        <p className="text-muted-foreground">
                             Create and manage subscription plans for your students.
                         </p>
                     </div>
@@ -65,26 +65,26 @@ export default function MembershipsPage() {
                                 </div>
                                 <Badge
                                     variant="secondary"
-                                    className={plan.status === "active" ? "bg-blue-600 text-white" : "bg-gray-700 text-gray-300"}
+                                    className={plan.status === "active" ? "bg-blue-600 text-white" : "bg-gray-700 text-muted-foreground"}
                                 >
                                     {plan.status}
                                 </Badge>
                             </div>
 
-                            <p className="text-gray-400 text-sm mb-6 line-clamp-2">
+                            <p className="text-muted-foreground text-sm mb-6 line-clamp-2">
                                 Access all PRO courses and exclusive content on a monthly basis.
                             </p>
 
                             <div className="flex items-baseline mb-6">
                                 <span className="text-3xl font-bold text-white">₹{plan.price.toLocaleString()}</span>
-                                <span className="text-gray-500 ml-1">/{plan.interval}</span>
+                                <span className="text-muted-foreground ml-1">/{plan.interval}</span>
                             </div>
 
                             <div className="space-y-3 mb-8 flex-1">
                                 {plan.features.map((feature, index) => (
                                     <div key={index} className="flex items-start gap-2">
                                         <Check className="h-4 w-4 text-green-500 mt-0.5" />
-                                        <span className="text-sm text-gray-300">{feature}</span>
+                                        <span className="text-sm text-muted-foreground">{feature}</span>
                                     </div>
                                 ))}
                             </div>

@@ -119,7 +119,7 @@ function MeditationLevelCard({
                     <IconComponent className="w-4 h-4" />
                     Level {level}
                 </div>
-                <div className="flex items-center gap-1 text-sm text-gray-500">
+                <div className="flex items-center gap-1 text-sm text-muted-foreground">
                     <Clock className="w-4 h-4" />
                     {duration}
                 </div>
@@ -134,7 +134,7 @@ function MeditationLevelCard({
                 </p>
             </div>
 
-            <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+            <p className="text-muted-foreground dark:text-muted-foreground mb-6 leading-relaxed">
                 {description}
             </p>
 
@@ -149,7 +149,7 @@ function MeditationLevelCard({
                         className="flex items-start gap-3"
                     >
                         <Leaf className={`w-5 h-5 ${theme.accent} shrink-0 mt-0.5`} />
-                        <span className="text-sm text-gray-700 dark:text-gray-300">{feature}</span>
+                        <span className="text-sm text-muted-foreground dark:text-muted-foreground">{feature}</span>
                     </motion.li>
                 ))}
             </ul>
@@ -161,7 +161,7 @@ function MeditationLevelCard({
                     ) : (
                         <>
                             <span className={`text-4xl font-bold ${theme.accent}`}>₹{price}</span>
-                            <span className="text-gray-500 text-sm">/ program</span>
+                            <span className="text-muted-foreground text-sm">/ program</span>
                         </>
                     )}
                 </div>
@@ -191,7 +191,7 @@ function ZenParticleBackground() {
             {[...Array(20)].map((_, i) => (
                 <motion.div
                     key={i}
-                    className="absolute w-2 h-2 rounded-full bg-white/20"
+                    className="absolute w-2 h-2 rounded-full bg-card/20"
                     style={{
                         left: `${Math.random() * 100}%`,
                         top: `${Math.random() * 100}%`,
@@ -341,7 +341,7 @@ export default function MeditationLandingPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 }}
-                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-violet-300 text-sm font-medium mb-8"
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/10 backdrop-blur-sm border border-white/20 text-violet-300 text-sm font-medium mb-8"
                             >
                                 <Flower2 className="w-4 h-4" />
                                 #1 MENTAL FITNESS PLATFORM
@@ -352,12 +352,12 @@ export default function MeditationLandingPage() {
                                 <span className="block bg-gradient-to-r from-violet-400 via-purple-300 to-fuchsia-400 bg-clip-text text-transparent">
                                     Mind.
                                 </span>
-                                <span className="block mt-2 text-3xl sm:text-4xl lg:text-5xl font-light text-gray-300">
+                                <span className="block mt-2 text-3xl sm:text-4xl lg:text-5xl font-light text-muted-foreground">
                                     Unleash Your Potential.
                                 </span>
                             </h1>
 
-                            <p className="text-lg sm:text-xl text-gray-300 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
+                            <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
                                 A scientific approach to meditation designed for students and high performers.
                                 Move from <span className="text-violet-400 font-semibold">chaos</span> to
                                 <span className="text-fuchsia-400 font-semibold"> clarity</span> in just 10 minutes a day.
@@ -377,7 +377,7 @@ export default function MeditationLandingPage() {
                                 <Button
                                     variant="outline"
                                     size="lg"
-                                    className="border-2 border-white/30 text-white hover:bg-white/10 text-lg px-8 py-6 h-auto rounded-full backdrop-blur-sm"
+                                    className="border-2 border-white/30 text-white hover:bg-card/10 text-lg px-8 py-6 h-auto rounded-full backdrop-blur-sm"
                                 >
                                     <PlayCircle className="mr-2 h-5 w-5" />
                                     How It Works
@@ -392,15 +392,15 @@ export default function MeditationLandingPage() {
                             >
                                 <div className="text-center">
                                     <div className="text-3xl font-bold text-white">10,000+</div>
-                                    <div className="text-sm text-gray-400">Students Meditating</div>
+                                    <div className="text-sm text-muted-foreground">Students Meditating</div>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-3xl font-bold text-violet-400">10 Min</div>
-                                    <div className="text-sm text-gray-400">Daily Practice</div>
+                                    <div className="text-sm text-muted-foreground">Daily Practice</div>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-3xl font-bold text-fuchsia-400">4.9★</div>
-                                    <div className="text-sm text-gray-400">Student Rating</div>
+                                    <div className="text-sm text-muted-foreground">Student Rating</div>
                                 </div>
                             </motion.div>
                         </motion.div>
@@ -464,7 +464,7 @@ export default function MeditationLandingPage() {
             </header>
 
             {/* ======================= WHY MEDITATE ======================= */}
-            <section className="py-24 bg-white">
+            <section className="py-24 bg-card">
                 <div className="container mx-auto px-4">
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
@@ -472,10 +472,10 @@ export default function MeditationLandingPage() {
                         viewport={{ once: true }}
                         className="text-center max-w-3xl mx-auto mb-16"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                             Why <span className="text-violet-600">Meditate</span>?
                         </h2>
-                        <p className="text-xl text-gray-600 leading-relaxed">
+                        <p className="text-xl text-muted-foreground leading-relaxed">
                             It's not just spiritual—it's <strong>neuroscience</strong>.
                             Here's how meditation upgrades your brain hardware.
                         </p>
@@ -494,8 +494,8 @@ export default function MeditationLandingPage() {
                                 <div className={`w-14 h-14 rounded-xl ${item.bg} border border-current/10 flex items-center justify-center mb-6 ${item.color}`}>
                                     <item.icon className="w-7 h-7" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                                <p className="text-gray-600">{item.description}</p>
+                                <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
+                                <p className="text-muted-foreground">{item.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -511,10 +511,10 @@ export default function MeditationLandingPage() {
                         viewport={{ once: true }}
                         className="text-center max-w-3xl mx-auto mb-16"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                             Your Path to <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">Mastery</span>
                         </h2>
-                        <p className="text-xl text-gray-600">
+                        <p className="text-xl text-muted-foreground">
                             A structured curriculum to take you from novice to zen master.
                         </p>
                     </motion.div>
@@ -550,7 +550,7 @@ export default function MeditationLandingPage() {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button
                                 size="lg"
-                                className="bg-white text-violet-700 hover:bg-violet-50 text-lg px-10 py-6 h-auto rounded-full font-semibold shadow-xl"
+                                className="bg-card text-violet-700 hover:bg-violet-50 text-lg px-10 py-6 h-auto rounded-full font-semibold shadow-xl"
                                 onClick={() => router.push('/student/meditation/level/1')}
                             >
                                 Begin Free Trial

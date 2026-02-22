@@ -55,13 +55,13 @@ export default function ConstitutionalTimeline() {
     const activeRelations = hoveredId ? getRelatedEvents(hoveredId) : [];
 
     return (
-        <Card className="w-full bg-slate-50 border-4 border-stone-300 shadow-xl overflow-hidden font-['Kalam']">
+        <Card className="w-full bg-muted border-4 border-stone-300 shadow-xl overflow-hidden font-['Kalam']">
             <div className="bg-stone-900 text-white p-6 border-b-4 border-stone-600">
                 <h2 className="text-2xl font-black flex items-center gap-3">
                     <Scale className="text-amber-400" />
                     The Constitutional Timeline
                 </h2>
-                <p className="text-slate-400 text-sm font-bold">The War between Parliament & Judiciary</p>
+                <p className="text-muted-foreground text-sm font-bold">The War between Parliament & Judiciary</p>
             </div>
 
             <CardContent className="p-0 relative h-[700px] overflow-hidden">
@@ -112,7 +112,7 @@ export default function ConstitutionalTimeline() {
                                     <motion.div
                                         layoutId={node.id}
                                         className={`
-                                            relative w-56 p-4 rounded-xl border-2 shadow-sm bg-white cursor-pointer
+                                            relative w-56 p-4 rounded-xl border-2 shadow-sm bg-card cursor-pointer
                                             transition-all duration-300 transform origin-center
                                             ${isTop ? 'rounded-b-none border-b-0' : 'rounded-t-none border-t-0'}
                                             ${isHovered ? 'scale-110 shadow-2xl border-amber-500 z-50 bg-amber-50' : 'hover:scale-105'}
@@ -158,7 +158,7 @@ export default function ConstitutionalTimeline() {
                 </ScrollArea>
 
                 {/* Fixed Legend */}
-                <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur border border-stone-200 p-2 rounded-lg text-xs font-bold shadow-lg flex gap-3 z-50">
+                <div className="absolute bottom-4 right-4 bg-card/90 backdrop-blur border border-stone-200 p-2 rounded-lg text-xs font-bold shadow-lg flex gap-3 z-50">
                     <div className="flex items-center gap-1"><div className="w-3 h-3 bg-red-100 border border-red-500 rounded"></div> Parliament</div>
                     <div className="flex items-center gap-1"><div className="w-3 h-3 bg-stone-100 border border-stone-800 rounded"></div> Judiciary</div>
                     <div className="flex items-center gap-1"><div className="w-3 h-3 rounded-full bg-amber-400"></div> Connection</div>

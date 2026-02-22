@@ -84,7 +84,7 @@ export default function SubjectAnalytics() {
                         </BarChart>
                     </ResponsiveContainer>
                 ) : (
-                    <div className="h-full flex flex-col items-center justify-center text-gray-400 gap-2">
+                    <div className="h-full flex flex-col items-center justify-center text-muted-foreground gap-2">
                         <BarChart3 className="w-8 h-8 opacity-20" />
                         <span>No chapter data recorded yet.</span>
                     </div>
@@ -123,7 +123,7 @@ export default function SubjectAnalytics() {
                         </LineChart>
                     </ResponsiveContainer>
                 ) : (
-                    <div className="h-full flex flex-col items-center justify-center text-gray-400 gap-2">
+                    <div className="h-full flex flex-col items-center justify-center text-muted-foreground gap-2">
                         <TrendingUp className="w-8 h-8 opacity-20" />
                         <span>Not enough data to generate trend.</span>
                     </div>
@@ -134,7 +134,7 @@ export default function SubjectAnalytics() {
 
     return (
         <Tabs defaultValue="history" className="space-y-6">
-            <TabsList className="bg-slate-100 dark:bg-slate-800 p-1 rounded-xl w-full md:w-auto">
+            <TabsList className="bg-muted p-1 rounded-xl w-full md:w-auto">
                 <TabsTrigger value="history" className="rounded-lg data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 flex gap-2">
                     <ScrollText className="w-4 h-4" /> History
                 </TabsTrigger>

@@ -50,15 +50,15 @@ export default function DilemmaFlowViz() {
     const [activeStep, setActiveStep] = useState(0);
 
     return (
-        <div className="w-full bg-slate-50 dark:bg-[#0a0a0a] rounded-2xl p-6 border border-slate-200 dark:border-slate-800">
+        <div className="w-full bg-muted dark:bg-[#0a0a0a] rounded-2xl p-6 border border-border">
             <div className="text-center mb-8">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">Ethical Decision Making Framework</h3>
-                <p className="text-slate-500 text-sm">Follow the 5-step process to resolve administrative dilemmas</p>
+                <h3 className="text-xl font-bold text-foreground">Ethical Decision Making Framework</h3>
+                <p className="text-muted-foreground text-sm">Follow the 5-step process to resolve administrative dilemmas</p>
             </div>
 
             <div className="flex flex-col md:flex-row items-start justify-between gap-4 relative">
                 {/* Connecting Line (Desktop) */}
-                <div className="hidden md:block absolute top-8 left-0 w-full h-1 bg-slate-200 dark:bg-slate-800 -z-0" />
+                <div className="hidden md:block absolute top-8 left-0 w-full h-1 bg-slate-200 -z-0" />
 
                 {STEPS.map((step, index) => (
                     <div
@@ -75,14 +75,14 @@ export default function DilemmaFlowViz() {
                             className={`w-16 h-16 rounded-full flex items-center justify-center border-4 border-white dark:border-[#0a0a0a] shadow-lg transition-colors duration-300
                                 ${activeStep >= index
                                     ? step.color.replace('text-', 'bg-').replace('100', '500').replace('900/30', '600') + ' text-white'
-                                    : 'bg-white dark:bg-slate-800 text-slate-400'
+                                    : 'bg-card text-muted-foreground'
                                 }`}
                         >
                             {activeStep > index ? <Check className="w-8 h-8" /> : <step.Icon className="w-6 h-6" />}
                         </motion.div>
 
                         <div className="text-center mt-4 px-2">
-                            <h4 className={`text-sm font-bold ${activeStep === index ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400'}`}>
+                            <h4 className={`text-sm font-bold ${activeStep === index ? 'text-indigo-600 dark:text-indigo-400' : 'text-muted-foreground dark:text-muted-foreground'}`}>
                                 {step.title}
                             </h4>
                         </div>
@@ -99,7 +99,7 @@ export default function DilemmaFlowViz() {
                     exit={{ opacity: 0, y: -10 }}
                     className="mt-12"
                 >
-                    <Card className="border-l-4 border-l-indigo-600 bg-white dark:bg-[#111] overflow-hidden">
+                    <Card className="border-l-4 border-l-indigo-600 bg-card dark:bg-[#111] overflow-hidden">
                         <div className="p-6 flex flex-col md:flex-row gap-6 items-center">
                             {(() => {
                                 const CurrentIcon = STEPS[activeStep].Icon;
@@ -110,10 +110,10 @@ export default function DilemmaFlowViz() {
                                 );
                             })()}
                             <div className="flex-1 text-center md:text-left">
-                                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                                <h4 className="text-xl font-bold text-foreground mb-2">
                                     {STEPS[activeStep].title}
                                 </h4>
-                                <p className="text-slate-600 dark:text-slate-300 text-lg">
+                                <p className="text-muted-foreground text-lg">
                                     {STEPS[activeStep].desc}
                                 </p>
                             </div>

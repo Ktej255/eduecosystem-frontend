@@ -124,7 +124,7 @@ export default function CourseCreationWizard({ onCourseCreated }: { onCourseCrea
                     Create Course
                 </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-2xl border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+            <DialogContent className="sm:max-w-2xl border-border bg-card">
                 <DialogHeader>
                     <DialogTitle className="flex items-center gap-2 text-xl">
                         {step === 1 && <BookOpen className="h-5 w-5 text-emerald-600" />}
@@ -180,7 +180,7 @@ export default function CourseCreationWizard({ onCourseCreated }: { onCourseCrea
                                 <div className="grid gap-2">
                                     <Label htmlFor="duration">Duration</Label>
                                     <div className="relative">
-                                        <Clock className="absolute left-2.5 top-2.5 h-4 w-4 text-slate-400" />
+                                        <Clock className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                                         <Input
                                             id="duration"
                                             placeholder="e.g. 90 Days"
@@ -195,7 +195,7 @@ export default function CourseCreationWizard({ onCourseCreated }: { onCourseCrea
                             <div className="grid gap-2">
                                 <Label htmlFor="price">Price (₹)</Label>
                                 <div className="relative">
-                                    <DollarSign className="absolute left-2.5 top-2.5 h-4 w-4 text-slate-400" />
+                                    <DollarSign className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                                     <Input
                                         id="price"
                                         type="number"
@@ -228,10 +228,10 @@ export default function CourseCreationWizard({ onCourseCreated }: { onCourseCrea
                                 <Layout className="h-16 w-16 text-emerald-600 animate-bounce relative z-10" />
                             </div>
                             <div className="flex flex-col gap-2 w-full max-w-xs">
-                                <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                                <div className="h-2 bg-muted rounded-full overflow-hidden">
                                     <div className="h-full bg-emerald-500 w-2/3 animate-[shimmer_1s_infinite]"></div>
                                 </div>
-                                <div className="text-xs text-center text-slate-500">Generating Syllabus Structure...</div>
+                                <div className="text-xs text-center text-muted-foreground">Generating Syllabus Structure...</div>
                             </div>
                         </div>
                     )}
@@ -239,14 +239,14 @@ export default function CourseCreationWizard({ onCourseCreated }: { onCourseCrea
                     {/* Step 3: Success */}
                     {step === 3 && (
                         <div className="flex flex-col items-center justify-center py-4 animate-in zoom-in duration-300">
-                            <div className="w-full bg-slate-50 border border-slate-100 rounded-xl p-4 mb-6">
+                            <div className="w-full bg-muted border border-slate-100 rounded-xl p-4 mb-6">
                                 <div className="flex items-start gap-4">
                                     <div className="h-12 w-12 rounded-lg bg-emerald-600 flex items-center justify-center text-white text-xl font-bold">
                                         {courseName.charAt(0) || "C"}
                                     </div>
                                     <div>
-                                        <h3 className="font-bold text-slate-800">{courseName}</h3>
-                                        <div className="flex items-center gap-2 text-sm text-slate-500 mt-1">
+                                        <h3 className="font-bold text-foreground">{courseName}</h3>
+                                        <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
                                             <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 capitalize">{category}</Badge>
                                             <span>•</span>
                                             <span>{duration}</span>
@@ -257,7 +257,7 @@ export default function CourseCreationWizard({ onCourseCreated }: { onCourseCrea
                                 </div>
                             </div>
 
-                            <p className="text-slate-600 text-center text-sm max-w-sm">
+                            <p className="text-muted-foreground text-center text-sm max-w-sm">
                                 Course created successfully. We've defined the basic structure. You can now start uploading lectures and notes.
                             </p>
                         </div>

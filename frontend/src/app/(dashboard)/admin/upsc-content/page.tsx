@@ -49,11 +49,11 @@ export default function AdminUPSCPDFUpload() {
     return (
         <div className="p-8 max-w-4xl mx-auto space-y-8">
             <div>
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-3">
+                <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
                     <Upload className="w-8 h-8 text-indigo-600" />
                     UPSC Content Management
                 </h1>
-                <p className="text-gray-500 mt-2">Upload and manage secure PDF assets for UPSC chapters.</p>
+                <p className="text-muted-foreground mt-2">Upload and manage secure PDF assets for UPSC chapters.</p>
             </div>
 
             <Card>
@@ -119,15 +119,15 @@ export default function AdminUPSCPDFUpload() {
                     </div>
 
                     {/* File Upload Area */}
-                    <div className="border-2 border-dashed border-gray-200 dark:border-gray-800 rounded-lg p-8 flex flex-col items-center justify-center text-center transition-colors hover:border-indigo-400 bg-gray-50 dark:bg-gray-900/50">
+                    <div className="border-2 border-dashed border-border rounded-lg p-8 flex flex-col items-center justify-center text-center transition-colors hover:border-indigo-400 bg-muted/50">
                         {file ? (
                             <div className="flex items-center gap-4">
                                 <div className="p-3 bg-red-100 rounded-lg">
                                     <FileText className="w-8 h-8 text-red-600" />
                                 </div>
                                 <div className="text-left">
-                                    <p className="font-medium text-gray-900 dark:text-gray-100">{file.name}</p>
-                                    <p className="text-xs text-gray-500">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                                    <p className="font-medium text-foreground">{file.name}</p>
+                                    <p className="text-xs text-muted-foreground">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
                                 </div>
                                 <Button variant="ghost" size="sm" onClick={() => setFile(null)} className="ml-4 text-red-500 hover:text-red-700">
                                     Remove
@@ -135,11 +135,11 @@ export default function AdminUPSCPDFUpload() {
                             </div>
                         ) : (
                             <>
-                                <Upload className="w-12 h-12 text-gray-400 mb-4" />
-                                <h3 className="font-medium text-gray-900 dark:text-gray-100 mb-1">
+                                <Upload className="w-12 h-12 text-muted-foreground mb-4" />
+                                <h3 className="font-medium text-foreground mb-1">
                                     Click to upload or drag and drop
                                 </h3>
-                                <p className="text-sm text-gray-500 mb-4">PDF files only (Max 20MB)</p>
+                                <p className="text-sm text-muted-foreground mb-4">PDF files only (Max 20MB)</p>
                                 <Input
                                     type="file"
                                     accept=".pdf"
@@ -203,25 +203,25 @@ export default function AdminUPSCPDFUpload() {
                 <CardContent>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800">
-                            <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Total Chapters</p>
+                            <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Total Chapters</p>
                             <p className="text-2xl font-bold text-blue-700 dark:text-blue-300">
                                 {UPSC_CATALOG.reduce((acc, subj) => acc + subj.books.reduce((bAcc, book) => bAcc + getBookChapters(book.id).length, 0), 0)}
                             </p>
                         </div>
                         <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-100 dark:border-green-800">
-                            <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Active PDFs</p>
+                            <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Active PDFs</p>
                             <p className="text-2xl font-bold text-green-700 dark:text-green-300">
                                 {UPSC_CATALOG.reduce((acc, subj) => acc + subj.books.reduce((bAcc, book) => bAcc + getBookChapters(book.id).filter(c => c.pdfUrl).length, 0), 0)}
                             </p>
                         </div>
                         <div className="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-100 dark:border-amber-800">
-                            <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Pending Uploads</p>
+                            <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Pending Uploads</p>
                             <p className="text-2xl font-bold text-amber-700 dark:text-amber-300">
                                 {UPSC_CATALOG.reduce((acc, subj) => acc + subj.books.reduce((bAcc, book) => bAcc + getBookChapters(book.id).filter(c => !c.pdfUrl).length, 0), 0)}
                             </p>
                         </div>
                         <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-100 dark:border-purple-800">
-                            <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Books</p>
+                            <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Books</p>
                             <p className="text-2xl font-bold text-purple-700 dark:text-purple-300">
                                 {UPSC_CATALOG.reduce((acc, subj) => acc + subj.books.length, 0)}
                             </p>

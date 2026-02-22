@@ -70,7 +70,7 @@ export default function LessonView({ content, onClose }: LessonViewProps) {
         <div className="w-full h-full bg-slate-950 text-white flex flex-col animate-in fade-in duration-300">
             {/* Header */}
             <div className="h-16 border-b border-white/10 flex items-center px-6 bg-slate-900/50 backdrop-blur-md shrink-0">
-                <Button variant="ghost" size="sm" onClick={onClose} className="mr-4 text-slate-400 hover:text-white">
+                <Button variant="ghost" size="sm" onClick={onClose} className="mr-4 text-muted-foreground hover:text-white">
                     <ArrowLeft className="w-4 h-4 mr-2" />
                     Back to Map
                 </Button>
@@ -189,7 +189,7 @@ function ContentBlockRenderer({ block, onLaunchSimulation }: ContentBlockRendere
                         className="w-full h-auto max-h-[500px] object-cover"
                     />
                     {block.caption && (
-                        <figcaption className="p-3 text-center text-sm text-slate-400 bg-black/40 border-t border-white/5">
+                        <figcaption className="p-3 text-center text-sm text-muted-foreground bg-black/40 border-t border-white/5">
                             {block.caption}
                         </figcaption>
                     )}
@@ -270,7 +270,7 @@ function QuizBlockRenderer({ block }: { block: ContentBlock }) {
                                 : idx === selectedOption
                                     ? 'bg-red-900/30 border-red-500 text-red-200'
                                     : 'bg-black/20 border-transparent opacity-50'
-                            : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20 text-slate-200'
+                            : 'bg-card/5 border-white/10 hover:bg-card/10 hover:border-white/20 text-slate-200'
                             }`}
                     >
                         <div className="flex items-center gap-3">

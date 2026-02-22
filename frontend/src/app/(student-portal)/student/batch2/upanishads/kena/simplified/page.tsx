@@ -67,7 +67,7 @@ export default function KenaSimplifiedPage() {
                     >
                         {/* Pulsing Circle */}
                         <span className="absolute inset-0 rounded-full bg-teal-400/50 animate-ping" />
-                        <span className="relative flex items-center justify-center w-10 h-10 rounded-full bg-teal-500 text-slate-900 font-bold shadow-lg shadow-teal-500/50 cursor-pointer hover:scale-110 transition-transform">
+                        <span className="relative flex items-center justify-center w-10 h-10 rounded-full bg-teal-500 text-foreground font-bold shadow-lg shadow-teal-500/50 cursor-pointer hover:scale-110 transition-transform">
                             {idx + 1}
                         </span>
 
@@ -110,7 +110,7 @@ export default function KenaSimplifiedPage() {
                     {/* Back Link */}
                     <Link
                         href="/student/batch2/upanishads/kena"
-                        className="flex items-center gap-2 text-slate-400 hover:text-teal-400 transition-colors"
+                        className="flex items-center gap-2 text-muted-foreground hover:text-teal-400 transition-colors"
                     >
                         <ArrowLeft className="w-5 h-5" />
                         <span className="hidden sm:inline">Detailed View</span>
@@ -121,8 +121,8 @@ export default function KenaSimplifiedPage() {
                         <button
                             onClick={() => setLang("en")}
                             className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${lang === "en"
-                                ? "bg-teal-500 text-slate-900"
-                                : "text-slate-400 hover:text-white"
+                                ? "bg-teal-500 text-foreground"
+                                : "text-muted-foreground hover:text-white"
                                 }`}
                         >
                             English
@@ -130,8 +130,8 @@ export default function KenaSimplifiedPage() {
                         <button
                             onClick={() => setLang("hi")}
                             className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${lang === "hi"
-                                ? "bg-teal-500 text-slate-900"
-                                : "text-slate-400 hover:text-white"
+                                ? "bg-teal-500 text-foreground"
+                                : "text-muted-foreground hover:text-white"
                                 }`}
                         >
                             हिन्दी
@@ -141,7 +141,7 @@ export default function KenaSimplifiedPage() {
                     {/* Audio Toggle */}
                     <button
                         onClick={() => setIsPlaying(!isPlaying)}
-                        className="p-2 rounded-full bg-slate-800 text-slate-400 hover:text-teal-400 transition-colors"
+                        className="p-2 rounded-full bg-slate-800 text-muted-foreground hover:text-teal-400 transition-colors"
                     >
                         {isPlaying ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5" />}
                     </button>
@@ -267,10 +267,10 @@ export default function KenaSimplifiedPage() {
             {/* Footer */}
             <footer className="bg-slate-950 border-t border-teal-900/20 py-8">
                 <div className="max-w-4xl mx-auto px-4 text-center">
-                    <p className="text-slate-500 text-sm italic">
+                    <p className="text-muted-foreground text-sm italic">
                         अविज्ञातं विजानतां विज्ञातमविजानताम् ।
                     </p>
-                    <p className="text-slate-600 text-xs mt-2">
+                    <p className="text-muted-foreground text-xs mt-2">
                         {lang === "en"
                             ? "It is unknown to those who know; known to those who do not know."
                             : "जो इसे जानता है, वह इसे नहीं जानता; जिसके लिए यह अज्ञात है, वह इसे जानता है।"

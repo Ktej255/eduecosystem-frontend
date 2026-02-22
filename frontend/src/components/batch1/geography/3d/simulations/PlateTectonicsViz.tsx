@@ -175,7 +175,7 @@ function PlateMarker({ plate, isActive, onClick }: {
                 <Html distanceFactor={3}>
                     <div className="bg-slate-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap border border-white/20">
                         <div className="font-bold">{plate.name}</div>
-                        <div className="text-slate-400">{plate.movement.direction} @ {plate.movement.speed}</div>
+                        <div className="text-muted-foreground">{plate.movement.direction} @ {plate.movement.speed}</div>
                     </div>
                 </Html>
             )}
@@ -298,8 +298,8 @@ export default function PlateTectonicsViz() {
                 <button
                     onClick={() => setSelectedBoundary(null)}
                     className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${selectedBoundary === null
-                        ? 'bg-white/20 text-white'
-                        : 'bg-slate-800/80 text-slate-400 hover:bg-slate-700'
+                        ? 'bg-card/20 text-white'
+                        : 'bg-slate-800/80 text-muted-foreground hover:bg-slate-700'
                         }`}
                 >
                     All
@@ -308,7 +308,7 @@ export default function PlateTectonicsViz() {
                     onClick={() => setSelectedBoundary('divergent')}
                     className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${selectedBoundary === 'divergent'
                         ? 'bg-green-600 text-white'
-                        : 'bg-slate-800/80 text-slate-400 hover:bg-slate-700'
+                        : 'bg-slate-800/80 text-muted-foreground hover:bg-slate-700'
                         }`}
                 >
                     <span className="w-2 h-2 rounded-full bg-green-500" />
@@ -318,7 +318,7 @@ export default function PlateTectonicsViz() {
                     onClick={() => setSelectedBoundary('convergent')}
                     className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${selectedBoundary === 'convergent'
                         ? 'bg-red-600 text-white'
-                        : 'bg-slate-800/80 text-slate-400 hover:bg-slate-700'
+                        : 'bg-slate-800/80 text-muted-foreground hover:bg-slate-700'
                         }`}
                 >
                     <span className="w-2 h-2 rounded-full bg-red-500" />
@@ -328,7 +328,7 @@ export default function PlateTectonicsViz() {
                     onClick={() => setSelectedBoundary('transform')}
                     className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${selectedBoundary === 'transform'
                         ? 'bg-orange-600 text-white'
-                        : 'bg-slate-800/80 text-slate-400 hover:bg-slate-700'
+                        : 'bg-slate-800/80 text-muted-foreground hover:bg-slate-700'
                         }`}
                 >
                     <span className="w-2 h-2 rounded-full bg-orange-500" />
@@ -342,7 +342,7 @@ export default function PlateTectonicsViz() {
                     <h3 className="text-lg font-bold text-white mb-1">
                         {boundaryInfo[selectedBoundary].name}
                     </h3>
-                    <p className="text-slate-400 text-sm mb-3">
+                    <p className="text-muted-foreground text-sm mb-3">
                         {boundaryInfo[selectedBoundary].description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-2">
@@ -361,7 +361,7 @@ export default function PlateTectonicsViz() {
             {/* Title */}
             <div className="absolute top-16 left-4 text-white">
                 <h2 className="text-xl font-bold">Plate Tectonics</h2>
-                <p className="text-slate-400 text-sm">Interactive 3D Visualization</p>
+                <p className="text-muted-foreground text-sm">Interactive 3D Visualization</p>
             </div>
 
             {/* Legend */}
@@ -371,7 +371,7 @@ export default function PlateTectonicsViz() {
                     {(tectonicsData.majorPlates as unknown as Plate[]).slice(0, 5).map((plate) => (
                         <div key={plate.id} className="flex items-center gap-2">
                             <div className="w-3 h-3 rounded-full" style={{ backgroundColor: plate.color }} />
-                            <span className="text-slate-400">{plate.name}</span>
+                            <span className="text-muted-foreground">{plate.name}</span>
                         </div>
                     ))}
                 </div>

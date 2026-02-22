@@ -181,7 +181,7 @@ export default function GeographyGlobe({ activeModuleId, onSelectTopic }: Geogra
                 </h2>
                 <div className="flex items-center gap-2 mt-2">
                     <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: activeModule?.color }}></div>
-                    <span className="text-gray-400 text-sm font-mono tracking-widest">LIVE DATA FEED</span>
+                    <span className="text-muted-foreground text-sm font-mono tracking-widest">LIVE DATA FEED</span>
                 </div>
             </div>
         </div>

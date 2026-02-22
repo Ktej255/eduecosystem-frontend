@@ -27,12 +27,12 @@ export default function FocusTimerWidget() {
     return (
         <Card className="h-full bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 border-orange-200 dark:border-orange-800 transition-all hover:shadow-md">
             <CardContent className="p-6 flex flex-col items-center justify-center h-full text-center space-y-4">
-                <div className="p-3 bg-white dark:bg-orange-950/50 rounded-full shadow-sm">
+                <div className="p-3 bg-card dark:bg-orange-950/50 rounded-full shadow-sm">
                     <Timer className="w-8 h-8 text-orange-500" />
                 </div>
                 <div>
-                    <h3 className="font-bold text-gray-800 dark:text-gray-200">Ready to Focus?</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">Start a quick 25-minute session</p>
+                    <h3 className="font-bold text-foreground">Ready to Focus?</h3>
+                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">Start a quick 25-minute session</p>
                 </div>
                 <Button
                     onClick={() => setShowTimer(true)}

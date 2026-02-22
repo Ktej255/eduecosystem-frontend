@@ -8,6 +8,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Brain, Target, Zap, TrendingUp, Info } from 'lucide-react';
 import { getLearningProgress } from "@/services/progressStorage";
+import ChartErrorBoundary from '@/components/ui/ChartErrorBoundary';
 
 export default function StudentDNAWidget() {
     const progress = getLearningProgress();
@@ -34,7 +35,7 @@ export default function StudentDNAWidget() {
     }, [mastery]);
 
     return (
-        <Card className="w-full bg-slate-50 dark:bg-black/40 border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden group">
+        <Card className="w-full bg-card/50 border-border shadow-xl overflow-hidden group transition-colors">
             <CardHeader className="pb-2">
                 <div className="flex justify-between items-center">
                     <div>
@@ -53,38 +54,40 @@ export default function StudentDNAWidget() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                     {/* Radar Chart */}
                     <div className="h-[300px] w-full relative">
-                        <ResponsiveContainer width="100%" height="100%">
-                            <RadarChart cx="50%" cy="50%" outerRadius="80%" data={chartData}>
-                                <PolarGrid stroke="#334155" opacity={0.3} />
-                                <PolarAngleAxis
-                                    dataKey="subject"
-                                    tick={{ fill: '#64748b', fontSize: 10, fontWeight: 'bold' }}
-                                />
-                                <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
-                                <Radar
-                                    name="Mastery"
-                                    dataKey="A"
-                                    stroke="#4f46e5"
-                                    fill="#4f46e5"
-                                    fillOpacity={0.5}
-                                />
-                                <Tooltip
-                                    contentStyle={{ backgroundColor: '#0f172a', border: 'none', borderRadius: '8px', fontSize: '12px' }}
-                                    itemStyle={{ color: '#fff' }}
-                                />
-                            </RadarChart>
-                        </ResponsiveContainer>
+                        <ChartErrorBoundary name="Student DNA Radar">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={chartData}>
+                                    <PolarGrid stroke="var(--border)" opacity={0.5} />
+                                    <PolarAngleAxis
+                                        dataKey="subject"
+                                        tick={{ fill: 'var(--muted-foreground)', fontSize: 10, fontWeight: 'bold' }}
+                                    />
+                                    <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
+                                    <Radar
+                                        name="Mastery"
+                                        dataKey="A"
+                                        stroke="var(--primary)"
+                                        fill="var(--primary)"
+                                        fillOpacity={0.5}
+                                    />
+                                    <Tooltip
+                                        contentStyle={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)', borderRadius: '8px', fontSize: '12px', color: 'var(--foreground)' }}
+                                        itemStyle={{ color: 'var(--foreground)' }}
+                                    />
+                                </RadarChart>
+                            </ResponsiveContainer>
+                        </ChartErrorBoundary>
                     </div>
 
                     {/* Stats & Insights */}
                     <div className="space-y-4">
                         <div className="grid grid-cols-2 gap-3">
-                            <div className="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
-                                <p className="text-[10px] text-slate-500 font-bold uppercase">Mastery Index</p>
-                                <p className="text-2xl font-black text-indigo-600 dark:text-indigo-400">{stats.avg}%</p>
+                            <div className="p-4 bg-muted/50 rounded-xl border border-border">
+                                <p className="text-[10px] text-muted-foreground font-bold uppercase">Mastery Index</p>
+                                <p className="text-2xl font-black text-primary">{stats.avg}%</p>
                             </div>
-                            <div className="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
-                                <p className="text-[10px] text-slate-500 font-bold uppercase">Peak Strength</p>
+                            <div className="p-4 bg-muted/50 rounded-xl border border-border">
+                                <p className="text-[10px] text-muted-foreground font-bold uppercase">Peak Strength</p>
                                 <p className="text-2xl font-black text-emerald-600 dark:text-emerald-400">{stats.max}%</p>
                             </div>
                         </div>
@@ -100,7 +103,7 @@ export default function StudentDNAWidget() {
                         </div>
 
                         <div className="pt-2">
-                            <button className="w-full py-2 bg-slate-900 text-white rounded-lg text-xs font-bold hover:bg-slate-800 transition-colors flex items-center justify-center gap-2">
+                            <button className="w-full py-2 bg-primary text-primary-foreground rounded-lg text-xs font-bold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
                                 View Deep DNA Analysis <Zap className="w-3 h-3 fill-amber-400 text-amber-400" />
                             </button>
                         </div>

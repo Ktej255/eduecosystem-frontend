@@ -46,7 +46,7 @@ export default function BundlesPage() {
             <h1 className="text-3xl font-bold text-white mb-2">
               Course Bundles
             </h1>
-            <p className="text-gray-400">
+            <p className="text-muted-foreground">
               Package and sell your courses together.
             </p>
           </div>
@@ -60,7 +60,7 @@ export default function BundlesPage() {
 
         {/* Content */}
         {loading ? (
-          <div className="text-center py-20 text-gray-400">Loading...</div>
+          <div className="text-center py-20 text-muted-foreground">Loading...</div>
         ) : bundles.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {bundles.map((bundle) => (
@@ -70,12 +70,12 @@ export default function BundlesPage() {
         ) : (
           <div className="bg-gray-900/30 border border-gray-800 rounded-xl flex flex-col items-center justify-center py-24">
             <div className="w-16 h-16 bg-gray-800 rounded-xl flex items-center justify-center mb-6">
-              <Package className="h-8 w-8 text-gray-400" />
+              <Package className="h-8 w-8 text-muted-foreground" />
             </div>
             <h3 className="text-xl font-bold text-white mb-2">
               No bundles created yet
             </h3>
-            <p className="text-gray-400 mb-8">
+            <p className="text-muted-foreground mb-8">
               Create your first bundle to package courses together.
             </p>
             <Button className="bg-blue-600 hover:bg-blue-500 px-8" asChild>

@@ -102,13 +102,13 @@ export default function MainsEvaluator() {
                                 placeholder="Enter the question you answered..."
                                 value={question}
                                 onChange={(e) => setQuestion(e.target.value)}
-                                className="min-h-[100px] border-gray-200 focus:border-indigo-500"
+                                className="min-h-[100px] border-border focus:border-indigo-500"
                             />
                         </div>
 
                         <div className="space-y-2">
                             <Label>Answer Image</Label>
-                            <div className="border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-lg p-6 flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-900/50 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors cursor-pointer relative">
+                            <div className="border-2 border-dashed border-border rounded-lg p-6 flex flex-col items-center justify-center bg-muted/50 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors cursor-pointer relative">
                                 <Input
                                     type="file"
                                     accept="image/*"
@@ -124,13 +124,13 @@ export default function MainsEvaluator() {
                                     </div>
                                 ) : (
                                     <>
-                                        <div className="bg-white dark:bg-gray-800 p-3 rounded-full shadow-sm mb-3">
+                                        <div className="bg-card p-3 rounded-full shadow-sm mb-3">
                                             <Upload className="h-6 w-6 text-indigo-500" />
                                         </div>
-                                        <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                                        <p className="text-sm font-medium text-muted-foreground dark:text-muted-foreground">
                                             Click to Upload
                                         </p>
-                                        <p className="text-xs text-gray-500 mt-1">
+                                        <p className="text-xs text-muted-foreground mt-1">
                                             JPG, PNG (Max 10MB)
                                         </p>
                                     </>
@@ -172,7 +172,7 @@ export default function MainsEvaluator() {
                                 <CardHeader className="pb-2">
                                     <div className="flex justify-between items-start">
                                         <div>
-                                            <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white">
+                                            <CardTitle className="text-2xl font-bold text-foreground">
                                                 Evaluation Results
                                             </CardTitle>
                                             <CardDescription>
@@ -180,9 +180,9 @@ export default function MainsEvaluator() {
                                             </CardDescription>
                                         </div>
                                         <div className="flex flex-col items-end">
-                                            <span className="text-sm text-gray-500 font-medium uppercase tracking-wider">Total Score</span>
+                                            <span className="text-sm text-muted-foreground font-medium uppercase tracking-wider">Total Score</span>
                                             <div className="text-4xl font-extrabold text-indigo-600 dark:text-indigo-400">
-                                                {result.scores.total}<span className="text-xl text-gray-400">/10</span>
+                                                {result.scores.total}<span className="text-xl text-muted-foreground">/10</span>
                                             </div>
                                         </div>
                                     </div>
@@ -222,11 +222,11 @@ export default function MainsEvaluator() {
                                     </div>
 
                                     {/* Model Answer Summary */}
-                                    <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-800">
-                                        <h4 className="font-semibold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-                                            <FileText className="h-4 w-4 text-gray-500" /> Model Approach
+                                    <div className="mt-6 pt-6 border-t border-border">
+                                        <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                                            <FileText className="h-4 w-4 text-muted-foreground" /> Model Approach
                                         </h4>
-                                        <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed bg-gray-50 dark:bg-gray-900 p-4 rounded-md">
+                                        <p className="text-sm text-muted-foreground dark:text-muted-foreground leading-relaxed bg-muted p-4 rounded-md">
                                             {result.model_answer_summary}
                                         </p>
                                     </div>
@@ -234,14 +234,14 @@ export default function MainsEvaluator() {
                             </Card>
                         </motion.div>
                     ) : (
-                        <div className="h-full flex flex-col items-center justify-center text-center p-8 border-2 border-dashed border-gray-200 dark:border-gray-800 rounded-xl">
+                        <div className="h-full flex flex-col items-center justify-center text-center p-8 border-2 border-dashed border-border rounded-xl">
                             <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-full mb-4">
                                 <FileText className="h-10 w-10 text-indigo-300" />
                             </div>
-                            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
+                            <h3 className="text-lg font-medium text-foreground mb-2">
                                 No Analysis Yet
                             </h3>
-                            <p className="text-gray-500 max-w-xs">
+                            <p className="text-muted-foreground max-w-xs">
                                 Submit your answer on the left to confirm your readiness for the Mains.
                             </p>
                         </div>
@@ -269,12 +269,12 @@ function ScoreItem({ label, score, max }: { label: string, score: number, max: n
     // I'll just display what comes back.
 
     return (
-        <div className="bg-white dark:bg-gray-800 p-3 rounded border border-gray-100 dark:border-gray-700">
+        <div className="bg-card p-3 rounded border border-border">
             <div className="flex justify-between mb-1">
-                <span className="text-xs font-medium text-gray-500 uppercase">{label}</span>
-                <span className="text-sm font-bold text-gray-900 dark:text-white">{score}</span>
+                <span className="text-xs font-medium text-muted-foreground uppercase">{label}</span>
+                <span className="text-sm font-bold text-foreground">{score}</span>
             </div>
-            <div className="h-2 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+            <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
                 <div
                     className="h-full bg-indigo-500 rounded-full"
                     style={{ width: `${Math.min(100, (score / 10) * 100)}%` }} // Assuming max 10 for individual too for visualization scaling

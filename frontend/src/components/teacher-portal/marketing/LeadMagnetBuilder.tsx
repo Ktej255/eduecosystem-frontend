@@ -39,7 +39,7 @@ export default function LeadMagnetBuilder() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto">
             {/* Editor Panel */}
             <div className="lg:col-span-4 space-y-4">
-                <Card className="border-slate-200 dark:border-slate-800">
+                <Card className="border-border">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2 text-lg">
                             <Magnet className="h-5 w-5 text-indigo-500" />
@@ -50,7 +50,7 @@ export default function LeadMagnetBuilder() {
                     <CardContent className="space-y-4">
                         <div className="space-y-2">
                             <Label className="flex items-center gap-2">
-                                <Type className="h-3 w-3 text-slate-400" /> Headline
+                                <Type className="h-3 w-3 text-muted-foreground" /> Headline
                             </Label>
                             <Input
                                 value={headline}
@@ -61,7 +61,7 @@ export default function LeadMagnetBuilder() {
 
                         <div className="space-y-2">
                             <Label className="flex items-center gap-2">
-                                <FileText className="h-3 w-3 text-slate-400" /> Description
+                                <FileText className="h-3 w-3 text-muted-foreground" /> Description
                             </Label>
                             <Textarea
                                 value={subheadline}
@@ -73,7 +73,7 @@ export default function LeadMagnetBuilder() {
 
                         <div className="space-y-2">
                             <Label className="flex items-center gap-2">
-                                <MousePointerClick className="h-3 w-3 text-slate-400" /> CTA Button Text
+                                <MousePointerClick className="h-3 w-3 text-muted-foreground" /> CTA Button Text
                             </Label>
                             <Input
                                 value={buttonText}
@@ -84,7 +84,7 @@ export default function LeadMagnetBuilder() {
 
                         <div className="space-y-2">
                             <Label className="flex items-center gap-2">
-                                <LinkIcon className="h-3 w-3 text-slate-400" /> Asset URL (PDF/Link)
+                                <LinkIcon className="h-3 w-3 text-muted-foreground" /> Asset URL (PDF/Link)
                             </Label>
                             <Input
                                 value={assetUrl}
@@ -94,7 +94,7 @@ export default function LeadMagnetBuilder() {
                             />
                         </div>
 
-                        <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-slate-800">
+                        <div className="flex items-center justify-between p-3 bg-muted rounded-lg border border-slate-100">
                             <Label htmlFor="phone-toggle" className="text-sm cursor-pointer">Collect Phone Number?</Label>
                             <Switch
                                 id="phone-toggle"
@@ -117,18 +117,18 @@ export default function LeadMagnetBuilder() {
 
             {/* Preview Panel */}
             <div className="lg:col-span-8 flex flex-col h-full">
-                <Card className="flex-1 border-slate-200 dark:border-slate-800 bg-slate-100/50 dark:bg-slate-950/50 flex flex-col">
-                    <CardHeader className="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-3">
+                <Card className="flex-1 border-border bg-slate-100/50/50 flex flex-col">
+                    <CardHeader className="border-b border-border bg-card py-3">
                         <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+                            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
                                 <Eye className="h-4 w-4" /> Live Preview
                             </div>
-                            <Badge variant="outline" className="bg-slate-100 dark:bg-slate-800">Desktop View</Badge>
+                            <Badge variant="outline" className="bg-muted">Desktop View</Badge>
                         </div>
                     </CardHeader>
                     <CardContent className="flex-1 flex items-center justify-center p-10">
                         {/* The Lead Magnet Widget Preview */}
-                        <div className="w-full max-w-lg bg-white dark:bg-slate-900 rounded-2xl shadow-xl overflow-hidden border border-slate-200 dark:border-slate-800 animate-in zoom-in-95 duration-300">
+                        <div className="w-full max-w-lg bg-card rounded-2xl shadow-xl overflow-hidden border border-border animate-in zoom-in-95 duration-300">
                             {/* Visual Header */}
                             <div className="h-24 bg-gradient-to-r from-violet-600 to-indigo-600 flex items-center justify-center relative overflow-hidden">
                                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
@@ -137,10 +137,10 @@ export default function LeadMagnetBuilder() {
 
                             <div className="p-8 text-center space-y-6">
                                 <div>
-                                    <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2 leading-tight">
+                                    <h3 className="text-2xl font-bold text-foreground mb-2 leading-tight">
                                         {headline || "Your Headline Here"}
                                     </h3>
-                                    <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                                    <p className="text-muted-foreground dark:text-muted-foreground text-sm leading-relaxed">
                                         {subheadline || "Your subheadline goes here. It should be compelling."}
                                     </p>
                                 </div>
@@ -148,13 +148,13 @@ export default function LeadMagnetBuilder() {
                                 <div className="space-y-3 max-w-xs mx-auto">
                                     <Input
                                         placeholder="Enter your email address"
-                                        className="h-11 bg-slate-50 border-slate-200 dark:bg-slate-950 dark:border-slate-800 focus-visible:ring-indigo-500"
+                                        className="h-11 bg-muted border-border focus-visible:ring-indigo-500"
                                         readOnly
                                     />
                                     {collectPhone && (
                                         <Input
                                             placeholder="Phone number (WhatsApp)"
-                                            className="h-11 bg-slate-50 border-slate-200 dark:bg-slate-950 dark:border-slate-800 focus-visible:ring-indigo-500"
+                                            className="h-11 bg-muted border-border focus-visible:ring-indigo-500"
                                             readOnly
                                         />
                                     )}
@@ -163,7 +163,7 @@ export default function LeadMagnetBuilder() {
                                     </Button>
                                 </div>
 
-                                <p className="text-[10px] text-slate-400">
+                                <p className="text-[10px] text-muted-foreground">
                                     We respect your privacy. Unsubscribe at any time.
                                 </p>
                             </div>

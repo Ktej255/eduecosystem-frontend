@@ -39,11 +39,11 @@ export default function VisualEconomyPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
-            <header className="p-6 border-b border-gray-200 dark:border-white/10 flex items-center justify-between bg-white/50 dark:bg-slate-900/50 backdrop-blur-md sticky top-0 z-10">
+        <div className="min-h-screen bg-muted text-foreground">
+            <header className="p-6 border-b border-border dark:border-white/10 flex items-center justify-between bg-card/50/50 backdrop-blur-md sticky top-0 z-10">
                 <button
                     onClick={() => router.push('/student/upsc/economy?level=1')}
-                    className="flex items-center text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+                    className="flex items-center text-sm text-muted-foreground dark:text-muted-foreground hover:text-foreground dark:hover:text-white transition-colors"
                 >
                     <ArrowLeft className="w-4 h-4 mr-2" />
                     Back to Economy Module
@@ -60,7 +60,7 @@ export default function VisualEconomyPage() {
                     <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-emerald-600 dark:from-green-400 dark:to-emerald-400">
                         Macroeconomics Simulations
                     </h1>
-                    <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
+                    <p className="text-lg text-muted-foreground max-w-2xl">
                         Complex economic theories made simple through interactive visualizations. Break down models like Circular Flow and Money Multiplier.
                     </p>
                 </div>
@@ -72,8 +72,8 @@ export default function VisualEconomyPage() {
                             className={`
                                 relative overflow-hidden rounded-2xl border transition-all duration-300
                                 ${module.disabled
-                                    ? 'opacity-60 grayscale cursor-not-allowed border-gray-200 dark:border-white/5 bg-gray-100 dark:bg-slate-900'
-                                    : 'cursor-pointer border-gray-200 dark:border-white/10 bg-white dark:bg-slate-900/50 hover:shadow-xl hover:-translate-y-1 hover:border-green-500/50'
+                                    ? 'opacity-60 grayscale cursor-not-allowed border-border dark:border-white/5 bg-muted'
+                                    : 'cursor-pointer border-border dark:border-white/10 bg-card/50 hover:shadow-xl hover:-translate-y-1 hover:border-green-500/50'
                                 }
                             `}
                             onClick={() => {
@@ -89,14 +89,14 @@ export default function VisualEconomyPage() {
                                 <div className={`w-12 h-12 rounded-xl ${module.color} flex items-center justify-center mb-4 shadow-lg text-white`}>
                                     <module.icon className="w-6 h-6" />
                                 </div>
-                                <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">
+                                <h3 className="text-xl font-bold mb-2 text-foreground">
                                     {module.title}
                                 </h3>
-                                <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-6">
                                     {module.description}
                                 </p>
 
-                                <div className={`flex items-center text-xs font-bold uppercase tracking-wider ${module.disabled ? 'text-gray-400' : 'text-green-600 dark:text-green-400'}`}>
+                                <div className={`flex items-center text-xs font-bold uppercase tracking-wider ${module.disabled ? 'text-muted-foreground' : 'text-green-600 dark:text-green-400'}`}>
                                     {module.disabled ? 'In Development' : 'Launch Simulation'}
                                     {!module.disabled && <ArrowLeft className="w-3 h-3 ml-1 rotate-180" />}
                                 </div>

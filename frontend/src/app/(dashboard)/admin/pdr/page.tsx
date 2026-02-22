@@ -132,7 +132,7 @@ export default function PDRPage() {
 
                     dynamicData[key] = {
                         name: pNode.label,
-                        color: staticMatch?.color || "bg-gray-500",
+                        color: staticMatch?.color || "bg-muted-foreground",
                         icon: staticMatch?.icon || Layers,
                         basePath: key === 'grapho' ? '/graphotherapy' : `/${key}`,
                         pages: []
@@ -186,11 +186,11 @@ export default function PDRPage() {
             <div className="mb-8">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-3">
+                        <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
                             <Network className="w-8 h-8 text-indigo-600" />
                             Portal Map (PDR)
                         </h1>
-                        <p className="text-gray-500 dark:text-gray-400 mt-2">
+                        <p className="text-muted-foreground dark:text-muted-foreground mt-2">
                             Visual representation of all pages and their connections
                         </p>
                     </div>
@@ -198,7 +198,7 @@ export default function PDRPage() {
                         <Button variant="outline" size="sm" onClick={() => setZoom(Math.max(50, zoom - 10))}>
                             <ZoomOut className="w-4 h-4" />
                         </Button>
-                        <span className="text-sm text-gray-600">{zoom}%</span>
+                        <span className="text-sm text-muted-foreground">{zoom}%</span>
                         <Button variant="outline" size="sm" onClick={() => setZoom(Math.min(150, zoom + 10))}>
                             <ZoomIn className="w-4 h-4" />
                         </Button>
@@ -209,13 +209,13 @@ export default function PDRPage() {
             {/* Search and Filters */}
             <div className="mb-6 flex flex-wrap gap-4 items-center">
                 <div className="relative flex-1 max-w-md">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <input
                         type="text"
                         placeholder="Search pages..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 border rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                        className="w-full pl-10 pr-4 py-2 border rounded-lg bg-card text-foreground"
                     />
                 </div>
                 <div className="flex gap-2">
@@ -259,8 +259,8 @@ export default function PDRPage() {
                                     <Icon className="w-5 h-5 text-white" />
                                 </div>
                                 <div>
-                                    <p className="font-bold text-gray-900 dark:text-gray-100">{portal.pages.length}</p>
-                                    <p className="text-xs text-gray-500">{portal.name.split(' ')[0]}</p>
+                                    <p className="font-bold text-foreground">{portal.pages.length}</p>
+                                    <p className="text-xs text-muted-foreground">{portal.name.split(' ')[0]}</p>
                                 </div>
                             </CardContent>
                         </Card>
@@ -296,17 +296,17 @@ export default function PDRPage() {
                                         {portalPages.map((page: any, idx: any) => (
                                             <div
                                                 key={idx}
-                                                className="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group"
+                                                className="p-3 bg-muted rounded-lg hover:bg-muted dark:hover:bg-gray-700 transition-colors group"
                                             >
                                                 <div className="flex items-center justify-between">
                                                     <div className="flex-1">
-                                                        <h4 className="font-medium text-gray-900 dark:text-gray-100 text-sm">
+                                                        <h4 className="font-medium text-foreground text-sm">
                                                             {page.name}
                                                         </h4>
-                                                        <p className="text-xs text-gray-500 font-mono">{page.path}</p>
+                                                        <p className="text-xs text-muted-foreground font-mono">{page.path}</p>
                                                     </div>
                                                     <Link href={page.path} target="_blank">
-                                                        <ExternalLink className="w-4 h-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                        <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                                                     </Link>
                                                 </div>
                                                 {page.connections.length > 0 && (
@@ -314,7 +314,7 @@ export default function PDRPage() {
                                                         {page.connections.map((conn: any, i: any) => (
                                                             <span
                                                                 key={i}
-                                                                className="inline-flex items-center gap-1 text-xs px-2 py-0.5 bg-white dark:bg-gray-700 rounded border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300"
+                                                                className="inline-flex items-center gap-1 text-xs px-2 py-0.5 bg-card rounded border border-border text-muted-foreground dark:text-muted-foreground"
                                                             >
                                                                 <ChevronRight className="w-3 h-3" />
                                                                 {conn}
@@ -333,16 +333,16 @@ export default function PDRPage() {
             </div>
 
             {/* Legend */}
-            <div className="mt-8 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                <h3 className="font-medium text-gray-900 dark:text-gray-100 mb-3">Legend</h3>
+            <div className="mt-8 p-4 bg-muted rounded-lg">
+                <h3 className="font-medium text-foreground mb-3">Legend</h3>
                 <div className="flex flex-wrap gap-4">
                     {Object.entries(portalData).map(([key, portal]: [string, any]) => {
                         const Icon = portal.icon;
                         return (
                             <div key={key} className="flex items-center gap-2">
                                 <div className={`w-4 h-4 rounded ${portal.color}`} />
-                                <Icon className="w-4 h-4 text-gray-600" />
-                                <span className="text-sm text-gray-600 dark:text-gray-400">{portal.name}</span>
+                                <Icon className="w-4 h-4 text-muted-foreground" />
+                                <span className="text-sm text-muted-foreground dark:text-muted-foreground">{portal.name}</span>
                             </div>
                         );
                     })}
@@ -350,7 +350,7 @@ export default function PDRPage() {
             </div>
 
             {/* Total Count */}
-            <div className="mt-4 text-center text-gray-500 text-sm">
+            <div className="mt-4 text-center text-muted-foreground text-sm">
                 Showing {filteredPages.length} pages across {Object.keys(portalData).length} portals
             </div>
         </div>

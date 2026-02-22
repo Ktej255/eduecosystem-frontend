@@ -94,11 +94,11 @@ export default function IntermediatePDFSession({
     return (
         <div className="flex h-[calc(100vh-100px)] gap-4 p-4 max-w-7xl mx-auto">
             {/* Left: PDF Viewer (Simulated) */}
-            <Card className="flex-1 flex flex-col overflow-hidden border-slate-200 dark:border-slate-800 shadow-xl bg-slate-50 dark:bg-slate-900/50">
+            <Card className="flex-1 flex flex-col overflow-hidden border-border shadow-xl bg-muted/50">
                 {/* PDF Toolbar */}
-                <div className="h-14 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-between px-4">
+                <div className="h-14 border-b border-border bg-card flex items-center justify-between px-4">
                     <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 rounded-md px-2 py-1">
+                        <div className="flex items-center gap-1 bg-muted rounded-md px-2 py-1">
                             <Button variant="ghost" size="icon" className="h-6 w-6" onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}>
                                 <ChevronLeft className="w-4 h-4" />
                             </Button>
@@ -107,7 +107,7 @@ export default function IntermediatePDFSession({
                                 <ChevronRight className="w-4 h-4" />
                             </Button>
                         </div>
-                        <div className="h-4 w-[1px] bg-slate-300 dark:bg-slate-700 mx-2" />
+                        <div className="h-4 w-[1px] bg-slate-300 mx-2" />
                         <div className="flex items-center gap-1">
                             <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setZoom(z => Math.max(50, z - 10))}>
                                 <ZoomOut className="w-4 h-4" />
@@ -140,19 +140,19 @@ export default function IntermediatePDFSession({
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="bg-white dark:bg-white text-slate-900 w-full max-w-3xl min-h-[1000px] shadow-2xl p-16 relative"
+                        className="bg-card dark:bg-card text-foreground w-full max-w-3xl min-h-[1000px] shadow-2xl p-16 relative"
                         style={{ transform: `scale(${zoom / 100})`, transformOrigin: 'top center' }}
                     >
                         {/* Mock Document Content */}
                         <div className="space-y-8 font-serif leading-relaxed">
                             <div className="border-b-2 border-slate-900 pb-4 mb-12">
                                 <h1 className="text-4xl font-black mb-2">{topicName}</h1>
-                                <p className="text-slate-500 italic">Target 2026 • Revision Module • Batch 1.1</p>
+                                <p className="text-muted-foreground italic">Target 2026 • Revision Module • Batch 1.1</p>
                             </div>
 
                             <section>
-                                <h2 className="text-2xl font-bold mb-4 text-slate-800">1. Introduction to Emergency Provisions</h2>
-                                <p className="text-lg text-slate-700 mb-6">
+                                <h2 className="text-2xl font-bold mb-4 text-foreground">1. Introduction to Emergency Provisions</h2>
+                                <p className="text-lg text-muted-foreground mb-6">
                                     The Emergency provisions are contained in Part XVIII of the Constitution of India, from Articles 352 to 360.
                                     These provisions enable the Central government to meet any abnormal situation effectively.
                                     <span className="bg-yellow-200 px-1">The rationality behind the incorporation of these provisions</span> is to safeguard the
@@ -161,8 +161,8 @@ export default function IntermediatePDFSession({
                             </section>
 
                             <section>
-                                <h2 className="text-2xl font-bold mb-4 text-slate-800">2. National Emergency (Article 352)</h2>
-                                <p className="text-lg text-slate-700 mb-6">
+                                <h2 className="text-2xl font-bold mb-4 text-foreground">2. National Emergency (Article 352)</h2>
+                                <p className="text-lg text-muted-foreground mb-6">
                                     Under Article 352, the President can declare a national emergency when the security of India or a part of it is threatened by war or external aggression or armed rebellion.
                                     It may be noted that the president can declare a national emergency even before the actual occurrence of war or external aggression or armed rebellion, if he is satisfied that there is an imminent danger.
                                 </p>
@@ -197,18 +197,18 @@ export default function IntermediatePDFSession({
                     </div>
                     <div className="relative z-10">
                         <div className="flex items-center justify-between mb-4">
-                            <Badge className="bg-white/20 hover:bg-white/30 text-white border-none">Deep Focus</Badge>
+                            <Badge className="bg-card/20 hover:bg-card/30 text-white border-none">Deep Focus</Badge>
                             <span className="text-xs font-medium opacity-80">{Math.round((timeLeft / (durationMinutes * 60)) * 100)}%</span>
                         </div>
                         <div className="text-5xl font-mono font-bold tracking-tighter mb-6">
                             {formatTime(timeLeft)}
                         </div>
-                        <Progress value={(timeLeft / (durationMinutes * 60)) * 100} className="h-2 bg-white/20 mb-6" color="bg-white" />
+                        <Progress value={(timeLeft / (durationMinutes * 60)) * 100} className="h-2 bg-card/20 mb-6" color="bg-card" />
 
                         <div className="flex items-center gap-3">
                             <Button
                                 onClick={() => setIsActive(!isActive)}
-                                className={`flex-1 font-bold ${isActive ? 'bg-white/20 hover:bg-white/30 text-white' : 'bg-white text-indigo-600 hover:bg-indigo-50'}`}
+                                className={`flex-1 font-bold ${isActive ? 'bg-card/20 hover:bg-card/30 text-white' : 'bg-card text-indigo-600 hover:bg-indigo-50'}`}
                             >
                                 {isActive ? <Pause className="w-4 h-4 mr-2" /> : <Play className="w-4 h-4 mr-2" />}
                                 {isActive ? "Pause" : "Start"}
@@ -218,19 +218,19 @@ export default function IntermediatePDFSession({
                 </Card>
 
                 {/* Tools Panel */}
-                <Card className="flex-1 border-slate-200 dark:border-slate-800 shadow-lg bg-white dark:bg-slate-900 flex flex-col">
-                    <div className="p-4 border-b border-slate-100 dark:border-slate-800 font-semibold flex items-center gap-2">
+                <Card className="flex-1 border-border shadow-lg bg-card flex flex-col">
+                    <div className="p-4 border-b border-slate-100 font-semibold flex items-center gap-2">
                         <Brain className="w-4 h-4 text-purple-500" /> Session Tools
                     </div>
 
                     <div className="p-4 space-y-4 flex-1">
                         <div className="space-y-2">
-                            <label className="text-xs font-medium text-slate-500 uppercase tracking-wider">Assignments</label>
-                            <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg flex items-start gap-3 border border-slate-100 dark:border-slate-700">
-                                <div className="mt-0.5"><div className="w-4 h-4 rounded-full border-2 border-slate-300" /></div>
+                            <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Assignments</label>
+                            <div className="p-3 bg-muted rounded-lg flex items-start gap-3 border border-slate-100">
+                                <div className="mt-0.5"><div className="w-4 h-4 rounded-full border-2 border-border" /></div>
                                 <div className="text-sm">
                                     <p className="font-medium">Read Articles 352-360</p>
-                                    <p className="text-xs text-slate-500 mt-1">Pages 1-4</p>
+                                    <p className="text-xs text-muted-foreground mt-1">Pages 1-4</p>
                                 </div>
                             </div>
                             <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg flex items-start gap-3 border border-green-100 dark:border-green-900/30">
@@ -243,9 +243,9 @@ export default function IntermediatePDFSession({
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-xs font-medium text-slate-500 uppercase tracking-wider">Your Notes</label>
+                            <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Your Notes</label>
                             <div className="h-32 bg-yellow-50 dark:bg-yellow-900/10 border border-yellow-200 dark:border-yellow-900/30 rounded-lg p-3 text-sm font-handwriting">
-                                <p className="text-slate-800 dark:text-slate-200">
+                                <p className="text-foreground">
                                     Recall: National Emergency can be declared on grounds of war, external aggression, or armed rebellion.
                                     <br /><br />
                                     *Internal disturbance removed in 1978.
@@ -253,13 +253,13 @@ export default function IntermediatePDFSession({
                             </div>
                         </div>
 
-                        <div className="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800">
+                        <div className="mt-auto pt-4 border-t border-slate-100">
                             <div className="flex justify-between items-center mb-2">
-                                <span className="text-xs text-slate-500">Highlights</span>
+                                <span className="text-xs text-muted-foreground">Highlights</span>
                                 <Badge variant="outline">{annotations}</Badge>
                             </div>
                             <div className="flex justify-between items-center">
-                                <span className="text-xs text-slate-500">Time Elapsed</span>
+                                <span className="text-xs text-muted-foreground">Time Elapsed</span>
                                 <span className="text-xs font-mono">{formatTime((durationMinutes * 60) - timeLeft)}</span>
                             </div>
                         </div>

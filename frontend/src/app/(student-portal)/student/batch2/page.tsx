@@ -25,7 +25,7 @@ export default function Batch2Page() {
     return (
         <div className="min-h-screen bg-[#FDF8F0] pb-20">
             {/* Top Navigation / Tabs */}
-            <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-amber-100 px-4 py-3">
+            <div className="sticky top-0 z-40 bg-card/80 backdrop-blur-md border-b border-amber-100 px-4 py-3">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     <div className="flex items-center gap-2">
                         <div className="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center">
@@ -45,7 +45,7 @@ export default function Batch2Page() {
                                     className={`
                                         flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium transition-all whitespace-nowrap
                                         ${isActive
-                                            ? "bg-white text-amber-700 shadow-sm ring-1 ring-amber-200"
+                                            ? "bg-card text-amber-700 shadow-sm ring-1 ring-amber-200"
                                             : "text-amber-600/70 hover:text-amber-800 hover:bg-amber-100/50"}
                                     `}
                                 >
@@ -80,7 +80,7 @@ export default function Batch2Page() {
 
                             {/* Progress Banner (Map View Only) */}
                             <div className="mb-6">
-                                <div className="flex items-center justify-between bg-white/60 backdrop-blur-sm rounded-xl border border-amber-200 p-4 shadow-sm max-w-3xl mx-auto">
+                                <div className="flex items-center justify-between bg-card/60 backdrop-blur-sm rounded-xl border border-amber-200 p-4 shadow-sm max-w-3xl mx-auto">
                                     <div className="flex items-center gap-3">
                                         <div className="p-2 bg-amber-100 rounded-full">
                                             <BookOpen className="w-5 h-5 text-amber-600" />
@@ -97,7 +97,7 @@ export default function Batch2Page() {
                                 </div>
                             </div>
 
-                            <div className="w-full bg-white rounded-xl shadow-sm border border-amber-100 overflow-hidden">
+                            <div className="w-full bg-card rounded-xl shadow-sm border border-amber-100 overflow-hidden">
                                 <CanonicalKnowledgeMap />
                             </div>
                         </>
@@ -116,7 +116,7 @@ export default function Batch2Page() {
 
                             {/* Progress Banner (Progress View) */}
                             <div className="mb-8">
-                                <div className="flex items-center justify-between bg-white/80 backdrop-blur-md rounded-2xl border-2 border-amber-200 p-6 shadow-xl max-w-4xl mx-auto relative overflow-hidden group">
+                                <div className="flex items-center justify-between bg-card/80 backdrop-blur-md rounded-2xl border-2 border-amber-200 p-6 shadow-xl max-w-4xl mx-auto relative overflow-hidden group">
                                     <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                                         <Sparkles className="w-20 h-20 text-amber-600" />
                                     </div>

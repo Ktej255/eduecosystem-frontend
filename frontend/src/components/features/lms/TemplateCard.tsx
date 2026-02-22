@@ -47,8 +47,8 @@ export function TemplateCard({
             />
           ) : (
             <div className="text-center p-4">
-              <FileText className="h-12 w-12 mx-auto mb-2 text-gray-400" />
-              <p className="text-xs text-gray-400">Preview</p>
+              <FileText className="h-12 w-12 mx-auto mb-2 text-muted-foreground" />
+              <p className="text-xs text-muted-foreground">Preview</p>
             </div>
           )}
 
@@ -71,7 +71,7 @@ export function TemplateCard({
         <div>
           <h3 className="text-white font-semibold mb-1">{template.name}</h3>
           {template.description && (
-            <p className="text-xs text-gray-400 line-clamp-2">
+            <p className="text-xs text-muted-foreground line-clamp-2">
               {template.description}
             </p>
           )}
@@ -80,7 +80,7 @@ export function TemplateCard({
             {template.is_public && (
               <Badge
                 variant="secondary"
-                className="bg-gray-700 text-gray-300 text-xs"
+                className="bg-gray-700 text-muted-foreground text-xs"
               >
                 Public
               </Badge>

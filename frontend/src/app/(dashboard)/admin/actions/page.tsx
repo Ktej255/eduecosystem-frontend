@@ -95,10 +95,10 @@ export default function AdminActionsPage() {
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                    <h1 className="text-2xl font-bold text-foreground">
                         Today&apos;s Action Log
                     </h1>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                         Track daily development progress and feature work
                     </p>
                 </div>
@@ -119,20 +119,20 @@ export default function AdminActionsPage() {
                                 <AlertTriangle className="h-6 w-6 text-yellow-600" />
                             </div>
                             <div>
-                                <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200">
+                                <h3 className="text-lg font-bold text-foreground">
                                     Week 2 Content Preparation Needed
                                 </h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                                     Upcoming content for Week 2 (starting Jan 19) is incomplete. Please generate missing Flashcards and MCQs.
                                 </p>
                                 <div className="flex flex-wrap gap-2 mt-2">
                                     {week2Status.missingItems.map((item, idx) => (
-                                        <span key={idx} className="text-xs px-2 py-1 bg-white dark:bg-gray-800 border rounded text-gray-500">
+                                        <span key={idx} className="text-xs px-2 py-1 bg-card border rounded text-muted-foreground">
                                             Missing: {item}
                                         </span>
                                     ))}
                                     {week2Status.missingCount > week2Status.missingItems.length && (
-                                        <span className="text-xs px-2 py-1 text-gray-500">
+                                        <span className="text-xs px-2 py-1 text-muted-foreground">
                                             + {week2Status.missingCount - week2Status.missingItems.length} more...
                                         </span>
                                     )}
@@ -149,10 +149,10 @@ export default function AdminActionsPage() {
                     <CardContent className="p-4 flex items-center gap-4">
                         <CheckCircle2 className="h-6 w-6 text-green-600" />
                         <div>
-                            <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200">
+                            <h3 className="text-lg font-bold text-foreground">
                                 Week 2 Content Ready
                             </h3>
-                            <p className="text-sm text-gray-600">All flashcards and MCQs for next week are prepared.</p>
+                            <p className="text-sm text-muted-foreground">All flashcards and MCQs for next week are prepared.</p>
                         </div>
                     </CardContent>
                 </Card>
@@ -177,7 +177,7 @@ export default function AdminActionsPage() {
                             {/* Day headers */}
                             <div className="grid grid-cols-7 gap-1 mb-2">
                                 {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(d => (
-                                    <div key={d} className="text-center text-xs font-medium text-gray-500 py-1">
+                                    <div key={d} className="text-center text-xs font-medium text-muted-foreground py-1">
                                         {d}
                                     </div>
                                 ))}
@@ -197,7 +197,7 @@ export default function AdminActionsPage() {
                                                     ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 font-bold'
                                                     : day.hasActions
                                                         ? 'bg-green-50 dark:bg-green-900/20 text-green-700 hover:bg-green-100'
-                                                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                                                        : 'text-muted-foreground dark:text-muted-foreground hover:bg-muted dark:hover:bg-gray-800'
                                             }`}
                                     >
                                         {day.day || ''}
@@ -244,7 +244,7 @@ export default function AdminActionsPage() {
                                 <CardContent>
                                     <ul className="space-y-2">
                                         {todayActions.commands.map((cmd, idx) => (
-                                            <li key={idx} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+                                            <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-muted-foreground">
                                                 <CheckCircle2 className="h-4 w-4 text-orange-500 mt-0.5 flex-shrink-0" />
                                                 {cmd}
                                             </li>
@@ -264,7 +264,7 @@ export default function AdminActionsPage() {
                                 <CardContent>
                                     <ul className="space-y-2">
                                         {todayActions.features.map((feature, idx) => (
-                                            <li key={idx} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+                                            <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-muted-foreground">
                                                 <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
                                                 {feature}
                                             </li>
@@ -321,11 +321,11 @@ export default function AdminActionsPage() {
                         </>
                     ) : (
                         <Card className="p-12 text-center">
-                            <Calendar className="h-12 w-12 mx-auto text-gray-300 mb-4" />
-                            <h3 className="text-lg font-medium text-gray-600 dark:text-gray-400">
+                            <Calendar className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
+                            <h3 className="text-lg font-medium text-muted-foreground dark:text-muted-foreground">
                                 No actions logged for this date
                             </h3>
-                            <p className="text-sm text-gray-500 mt-1">
+                            <p className="text-sm text-muted-foreground mt-1">
                                 Select a different date from the calendar
                             </p>
                         </Card>

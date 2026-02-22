@@ -53,7 +53,7 @@ export default function SubmissionsPage() {
           <h1 className="text-4xl font-bold text-white mb-2">
             Content Moderation
           </h1>
-          <p className="text-gray-400">Review handwriting submissions</p>
+          <p className="text-muted-foreground">Review handwriting submissions</p>
         </div>
         <Button
           onClick={fetchSubmissions}
@@ -69,8 +69,8 @@ export default function SubmissionsPage() {
         <div className="text-white text-center py-12">Loading...</div>
       ) : submissions.length === 0 ? (
         <Card className="bg-gray-900 border-gray-800 p-12 text-center">
-          <FileText className="h-12 w-12 text-gray-600 mx-auto mb-4" />
-          <p className="text-gray-400">No submissions yet</p>
+          <FileText className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+          <p className="text-muted-foreground">No submissions yet</p>
         </Card>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -84,10 +84,10 @@ export default function SubmissionsPage() {
                   <h3 className="text-lg font-bold text-white mb-1">
                     Submission #{submission.id}
                   </h3>
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-muted-foreground text-sm">
                     User: {submission.user_email || `ID ${submission.user_id}`}
                   </p>
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-muted-foreground text-sm">
                     Date: {formatDate(submission.created_at)}
                   </p>
                 </div>
@@ -110,7 +110,7 @@ export default function SubmissionsPage() {
 
               {submission.analysis_result && (
                 <div className="mt-4 p-4 bg-gray-800 rounded">
-                  <p className="text-sm text-gray-400 mb-2">Analysis Result:</p>
+                  <p className="text-sm text-muted-foreground mb-2">Analysis Result:</p>
                   <div className="flex flex-wrap gap-2">
                     {submission.analysis_result.traits?.map(
                       (trait: string, idx: number) => (
@@ -124,7 +124,7 @@ export default function SubmissionsPage() {
                     )}
                   </div>
                   {submission.analysis_result.confidence && (
-                    <p className="text-sm text-gray-400 mt-2">
+                    <p className="text-sm text-muted-foreground mt-2">
                       Confidence:{" "}
                       {(submission.analysis_result.confidence * 100).toFixed(0)}
                       %
@@ -152,18 +152,18 @@ export default function SubmissionsPage() {
             </h2>
             <div className="space-y-4">
               <div>
-                <p className="text-gray-400 text-sm">User ID</p>
+                <p className="text-muted-foreground text-sm">User ID</p>
                 <p className="text-white">{selectedSubmission.user_id}</p>
               </div>
               <div>
-                <p className="text-gray-400 text-sm">Submitted</p>
+                <p className="text-muted-foreground text-sm">Submitted</p>
                 <p className="text-white">
                   {formatDate(selectedSubmission.created_at)}
                 </p>
               </div>
               {selectedSubmission.analysis_result && (
                 <div>
-                  <p className="text-gray-400 text-sm mb-2">Analysis</p>
+                  <p className="text-muted-foreground text-sm mb-2">Analysis</p>
                   <pre className="bg-gray-800 p-4 rounded text-white text-sm overflow-x-auto">
                     {JSON.stringify(
                       selectedSubmission.analysis_result,

@@ -27,7 +27,7 @@ export default function TechTreeViz() {
                     <Atom className="w-5 h-5 text-indigo-400" />
                     Technology Tree v3.0
                 </CardTitle>
-                <CardDescription className="text-slate-400">
+                <CardDescription className="text-muted-foreground">
                     Interactive Knowledge Graph
                 </CardDescription>
             </CardHeader>
@@ -84,7 +84,7 @@ export default function TechTreeViz() {
                         >
                             <button
                                 onClick={() => setSelectedTech(null)}
-                                className="self-end text-slate-500 hover:text-white mb-4"
+                                className="self-end text-muted-foreground hover:text-white mb-4"
                             >
                                 Close
                             </button>
@@ -94,7 +94,7 @@ export default function TechTreeViz() {
                             </div>
 
                             <h2 className="text-2xl font-bold text-white mb-2">{selectedTech.name}</h2>
-                            <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                                 Unlock deep insights into {selectedTech.name} and its applications in UPSC Civil Services.
                             </p>
 

@@ -95,46 +95,46 @@ export default function MajorityCalculator() {
         <div className="space-y-8 font-['Calibri']">
 
             {/* CALCULATOR CARD */}
-            <Card className="max-w-4xl mx-auto border-4 border-slate-900 bg-slate-50 shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] font-['Kalam']">
+            <Card className="max-w-4xl mx-auto border-4 border-slate-900 bg-muted shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] font-['Kalam']">
                 <div className="bg-slate-900 text-white p-6 flex items-center gap-3">
                     <Calculator className="text-yellow-400" size={32} />
                     <div>
                         <h2 className="text-2xl font-black">The Majority Calculator</h2>
-                        <p className="text-slate-400 text-sm font-bold">Math behind the Politics</p>
+                        <p className="text-muted-foreground text-sm font-bold">Math behind the Politics</p>
                     </div>
                 </div>
 
                 <CardContent className="p-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* INPUT SECTION */}
-                        <div className="space-y-6 bg-white p-6 rounded-xl border-2 border-slate-200 shadow-sm">
-                            <h3 className="font-black text-lg text-slate-700 flex items-center gap-2">
+                        <div className="space-y-6 bg-card p-6 rounded-xl border-2 border-border shadow-sm">
+                            <h3 className="font-black text-lg text-muted-foreground flex items-center gap-2">
                                 <Users size={18} /> House Parameters
                             </h3>
                             <div className="space-y-4">
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label className="text-xs font-bold text-slate-500 uppercase">Total Strength</label>
-                                        <Input type="number" value={totalStrength} onChange={(e) => setTotalStrength(Number(e.target.value))} className="font-mono text-lg font-bold border-slate-300" />
+                                        <label className="text-xs font-bold text-muted-foreground uppercase">Total Strength</label>
+                                        <Input type="number" value={totalStrength} onChange={(e) => setTotalStrength(Number(e.target.value))} className="font-mono text-lg font-bold border-border" />
                                     </div>
                                     <div>
-                                        <label className="text-xs font-bold text-slate-500 uppercase">Vacancies</label>
-                                        <Input type="number" value={vacancies} onChange={(e) => setVacancies(Number(e.target.value))} className="font-mono text-lg font-bold border-slate-300" />
+                                        <label className="text-xs font-bold text-muted-foreground uppercase">Vacancies</label>
+                                        <Input type="number" value={vacancies} onChange={(e) => setVacancies(Number(e.target.value))} className="font-mono text-lg font-bold border-border" />
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label className="text-xs font-bold text-slate-500 uppercase">Present & Voting</label>
-                                        <Input type="number" value={presentVoting} onChange={(e) => setPresentVoting(Number(e.target.value))} className="font-mono text-lg font-bold border-slate-300" />
+                                        <label className="text-xs font-bold text-muted-foreground uppercase">Present & Voting</label>
+                                        <Input type="number" value={presentVoting} onChange={(e) => setPresentVoting(Number(e.target.value))} className="font-mono text-lg font-bold border-border" />
                                     </div>
                                     <div>
                                         <label className="text-xs font-bold text-green-600 uppercase">"Ayes" (Votes For)</label>
                                         <Input type="number" value={ayes} onChange={(e) => setAyes(Number(e.target.value))} className="font-mono text-lg font-bold border-green-300 text-green-700 bg-green-50" />
                                     </div>
                                 </div>
-                                <div className="bg-slate-100 p-3 rounded-lg text-center">
-                                    <span className="text-xs font-bold text-slate-500 uppercase block">Effective Strength</span>
-                                    <span className="text-xl font-mono font-bold text-slate-700">{totalStrength - vacancies}</span>
+                                <div className="bg-muted p-3 rounded-lg text-center">
+                                    <span className="text-xs font-bold text-muted-foreground uppercase block">Effective Strength</span>
+                                    <span className="text-xl font-mono font-bold text-muted-foreground">{totalStrength - vacancies}</span>
                                 </div>
                             </div>
                         </div>
@@ -142,16 +142,16 @@ export default function MajorityCalculator() {
                         {/* RESULTS SECTION */}
                         <div className="space-y-3">
                             {results.map((res, idx) => (
-                                <div key={idx} className={`relative overflow-hidden rounded-xl border-2 p-3 transition-all duration-300 ${res.passed ? 'border-green-500 bg-green-50 shadow-md transform scale-102' : 'border-slate-200 bg-white opacity-90'}`}>
+                                <div key={idx} className={`relative overflow-hidden rounded-xl border-2 p-3 transition-all duration-300 ${res.passed ? 'border-green-500 bg-green-50 shadow-md transform scale-102' : 'border-border bg-card opacity-90'}`}>
                                     <div className="flex justify-between items-start mb-1">
                                         <div>
-                                            <div className="text-sm font-black text-slate-800">{res.label}</div>
-                                            <div className="text-[10px] font-bold text-slate-500">{res.formula}</div>
+                                            <div className="text-sm font-black text-foreground">{res.label}</div>
+                                            <div className="text-[10px] font-bold text-muted-foreground">{res.formula}</div>
                                         </div>
                                         <Badge className={`${res.passed ? 'bg-green-600' : 'bg-slate-400'} text-white border-0 text-[10px]`}>{res.passed ? 'PASSED' : 'FAILED'}</Badge>
                                     </div>
                                     <div className="flex items-end justify-between">
-                                        <div className="text-[10px] font-bold text-slate-400">Needs <span className="text-slate-800 text-base font-mono">{res.value}</span> votes</div>
+                                        <div className="text-[10px] font-bold text-muted-foreground">Needs <span className="text-foreground text-base font-mono">{res.value}</span> votes</div>
                                         {res.passed && <Zap className="text-yellow-500 fill-yellow-500 animate-pulse" size={16} />}
                                     </div>
                                 </div>
@@ -165,7 +165,7 @@ export default function MajorityCalculator() {
             <div className="max-w-5xl mx-auto">
                 <div className="flex items-center gap-2 mb-6">
                     <BookOpen className="text-indigo-600" />
-                    <h2 className="text-2xl font-bold text-slate-800">Majority Concepts Explained</h2>
+                    <h2 className="text-2xl font-bold text-foreground">Majority Concepts Explained</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -267,7 +267,7 @@ function MajorityInfoCard({ title, formula, usedFor, color }: { title: string, f
         <Card className={`border-2 ${color.replace('text', 'border')} ${color} shadow-sm hover:shadow-md transition-shadow`}>
             <CardHeader className="pb-2">
                 <CardTitle className="text-lg font-black">{title}</CardTitle>
-                <div className="text-xs font-bold opacity-80 font-mono bg-white/50 inline-block px-2 py-1 rounded">{formula}</div>
+                <div className="text-xs font-bold opacity-80 font-mono bg-card/50 inline-block px-2 py-1 rounded">{formula}</div>
             </CardHeader>
             <CardContent>
                 <ul className="space-y-1">

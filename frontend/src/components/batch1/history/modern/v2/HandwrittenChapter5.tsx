@@ -42,25 +42,25 @@ export default function HandwrittenChapter5() {
 
     const wars = t.wars.map((w, i) => ({
         ...w,
-        color: ["border-orange-500", "border-red-500", "border-blue-500"][i],
-        bg: ["bg-orange-50", "bg-red-50", "bg-blue-50"][i],
+        color: ["border-paper-orange", "border-paper-red", "border-paper-navy"][i],
+        bg: ["bg-paper-orange/10", "bg-paper-red/10", "bg-paper-navy/10"][i],
     }));
 
     return (
-        <div className="min-h-screen bg-[#f3f4f6] p-4 md:p-8 font-['Kalam',_cursive] text-slate-800 selection:bg-red-100 overflow-x-hidden">
+        <div className="min-h-screen bg-paper p-4 md:p-8 font-['Kalam',_cursive] text-paper-gray selection:bg-paper-red/10 overflow-x-hidden">
             <style jsx global>{`
                 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Permanent+Marker&family=Cutive+Mono&display=swap');
                 
                 .war-room-paper {
-                    background-color: #fff;
-                    border: 1px solid #ccc;
-                    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+                    background-color: var(--paper-bg);
+                    border: 1px solid var(--paper-border);
+                    box-shadow: 2px 2px 10px var(--paper-border);
                 }
 
                 .stamp-annexed {
                     font-family: 'Permanent Marker', cursive;
-                    color: #b22222;
-                    border: 4px solid #b22222;
+                    color: var(--paper-text-red);
+                    border: 4px solid var(--paper-text-red);
                     padding: 5px 15px;
                     display: inline-block;
                     transform: rotate(-10deg);
@@ -70,8 +70,8 @@ export default function HandwrittenChapter5() {
 
                 .stamp-lapsed {
                     font-family: 'Permanent Marker', cursive;
-                    color: #4b5563;
-                    border: 4px solid #4b5563;
+                    color: var(--paper-text-gray);
+                    border: 4px solid var(--paper-text-gray);
                     padding: 5px 15px;
                     display: inline-block;
                     transform: rotate(5deg);
@@ -81,7 +81,7 @@ export default function HandwrittenChapter5() {
 
                 .tactical-pin {
                     width: 12px; height: 12px;
-                    background-color: #ef4444;
+                    background-color: var(--paper-text-red);
                     border-radius: 50%;
                     position: relative;
                 }
@@ -94,36 +94,38 @@ export default function HandwrittenChapter5() {
                 }
 
                 .marker-yellow {
-                    background-color: #fef08a;
+                    background-color: var(--sticky-yellow);
                     padding: 0 4px;
                     border-radius: 2px;
                     font-weight: bold;
+                    color: initial;
                 }
 
-                .british-red { color: #b22222; }
+                .british-red { color: var(--paper-text-red); }
 
                 .timeline-node {
                     position: relative;
                     padding-left: 20px;
-                    border-left: 2px dashed #ccc;
+                    border-left: 2px dashed var(--paper-border);
                 }
                 .timeline-node::before {
                     content: '';
                     position: absolute;
                     left: -7px; top: 0;
                     width: 12px; height: 12px;
-                    background-color: #b22222;
+                    background-color: var(--paper-text-red);
                     border-radius: 50%;
                 }
 
                 .paper-border {
                     border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-                    border: 2px solid #333;
+                    border: 2px solid var(--paper-border);
                 }
 
                 .body-handwritten {
                     font-family: 'Kalam', cursive;
                     line-height: 1.8;
+                    color: var(--paper-text-gray);
                 }
 
                 .marker-label {
@@ -138,17 +140,17 @@ export default function HandwrittenChapter5() {
                     animate={{ opacity: 1, y: 0 }}
                 >
                     <div className="flex justify-center mb-6">
-                        <Stamp className="w-20 h-20 text-[#b22222]" />
+                        <Stamp className="w-20 h-20 text-paper-red" />
                     </div>
                     <h1 className="text-4xl md:text-8xl font-['Permanent_Marker'] british-red mb-2 tracking-tighter">
                         {t.heroTitle}
                     </h1>
-                    <p className="text-xl md:text-2xl text-slate-500 font-bold uppercase tracking-[0.4em] italic">
+                    <p className="text-xl md:text-2xl text-muted-foreground font-bold uppercase tracking-[0.4em] italic">
                         {t.heroSubtitle}
                     </p>
                 </motion.div>
 
-                <div className="max-w-3xl mx-auto bg-white p-6 paper-border border-4 border-slate-900 transform rotate-1 shadow-2xl relative">
+                <div className="max-w-3xl mx-auto bg-paper p-6 paper-border border-4 border-paper-border transform rotate-1 shadow-2xl relative">
                     <div className="absolute -top-4 -left-4 tactical-pin"></div>
                     <div className="absolute -bottom-4 -right-4 tactical-pin"></div>
                     <p className="text-2xl leading-relaxed italic body-handwritten">
@@ -161,8 +163,8 @@ export default function HandwrittenChapter5() {
             <div className="max-w-7xl mx-auto mb-20 grid grid-cols-1 lg:grid-cols-3 gap-8">
 
                 {/* RING FENCE */}
-                <div className="bg-white p-8 paper-border border-2 border-slate-300 relative transform -rotate-1 hover:rotate-0 transition-transform cursor-help group">
-                    <div className="absolute top-4 right-4 text-slate-200 group-hover:text-slate-400 transition-colors">
+                <div className="bg-paper p-8 paper-border border-2 border-paper-border/30 relative transform -rotate-1 hover:rotate-0 transition-transform cursor-help group text-inherit">
+                    <div className="absolute top-4 right-4 text-paper-border/20 group-hover:text-paper-border/40 transition-colors">
                         <Shield className="w-12 h-12" />
                     </div>
                     <h3 className="text-2xl font-bold british-red mb-6 border-b pb-2">{t.ringFenceTitle}</h3>
@@ -173,16 +175,16 @@ export default function HandwrittenChapter5() {
                         {t.ringFencePoints.map((pt, i) => (
                             <li key={i}>• {pt.bold ? <><strong>{pt.bold}</strong>{pt.text}</> : pt.text}</li>
                         ))}
-                        <li className="text-sm bg-slate-50 p-2 rounded border border-dashed">
+                        <li className="text-sm bg-paper/50 p-2 rounded border border-dashed border-paper-border/20">
                             <strong>{t.rohillaWar}</strong>{t.rohillaText}
                         </li>
                     </ul>
                 </div>
 
                 {/* SUBSIDIARY ALLIANCE */}
-                <Card className="bg-white p-8 paper-border border-4 border-[#b22222] relative transform rotate-1 hover:rotate-0 transition-transform shadow-xl">
+                <Card className="bg-paper p-8 paper-border border-4 border-paper-red relative transform rotate-1 hover:rotate-0 transition-transform shadow-xl text-inherit">
                     <div className="absolute top-2 right-2 stamp-lapsed text-[10px]">{t.subsidiaryStamp}</div>
-                    <h3 className="text-2xl font-bold british-red mb-6 border-b-2 border-red-100 pb-2 flex items-center gap-2">
+                    <h3 className="text-2xl font-bold british-red mb-6 border-b-2 border-paper-red/10 pb-2 flex items-center gap-2">
                         <Target className="w-6 h-6" /> {t.subsidiaryTitle}
                     </h3>
                     <p className="body-handwritten text-lg leading-relaxed mb-6">
@@ -190,7 +192,7 @@ export default function HandwrittenChapter5() {
                     </p>
 
                     <div className="space-y-2 body-handwritten">
-                        <p className="font-bold text-xs uppercase tracking-widest text-slate-400">{t.subsidiaryChronLabel}</p>
+                        <p className="font-bold text-xs uppercase tracking-widest text-muted-foreground">{t.subsidiaryChronLabel}</p>
                         {SUBSIDIARY_CHRONOLOGY.slice(0, 5).map((item, i) => (
                             <div key={i} className="flex justify-between text-sm border-b border-slate-100 pb-1">
                                 <span>{item.name}</span>
@@ -199,17 +201,17 @@ export default function HandwrittenChapter5() {
                         ))}
                     </div>
 
-                    <div className="mt-6 p-3 bg-red-50 text-red-900 text-xs italic border border-red-100">
+                    <div className="mt-6 p-3 bg-paper-red/5 text-paper-red text-xs italic border border-paper-red/10">
                         <strong>{t.nonWarTakeovers}</strong>{t.nonWarText}
                     </div>
                 </Card>
 
                 {/* DOCTRINE OF LAPSE */}
-                <div className="bg-white p-8 paper-border border-2 border-slate-300 relative transform -rotate-1 hover:rotate-0 transition-transform group">
-                    <div className="absolute top-4 right-4 text-slate-200 group-hover:text-slate-400 transition-colors">
+                <div className="bg-paper p-8 paper-border border-2 border-paper-border/30 relative transform -rotate-1 hover:rotate-0 transition-transform group text-inherit">
+                    <div className="absolute top-4 right-4 text-paper-border/20 group-hover:text-paper-border/40 transition-colors">
                         <Stamp className="w-12 h-12" />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-700 mb-6 border-b pb-2">{t.doctrineTitle}</h3>
+                    <h3 className="text-2xl font-bold text-paper-gray opacity-80 mb-6 border-b border-paper-border/10 pb-2">{t.doctrineTitle}</h3>
                     <p className="body-handwritten text-lg leading-relaxed mb-6 italic">
                         {t.doctrineQuote}
                     </p>
@@ -218,12 +220,12 @@ export default function HandwrittenChapter5() {
                             <div key={i} className="flex items-center gap-2 text-sm">
                                 <span className="timeline-node"></span>
                                 <span className="font-bold">{item.name}</span>
-                                <span className="text-[10px] text-slate-500">[{item.year}]</span>
+                                <span className="text-[10px] text-muted-foreground">[{item.year}]</span>
                                 {i === 0 && <span className="stamp-annexed text-[8px] p-1 border-2 ml-auto">{t.doctrineFirst}</span>}
                             </div>
                         ))}
                     </div>
-                    <div className="mt-6 p-3 bg-amber-50 text-amber-900 text-xs rounded border border-amber-100">
+                    <div className="mt-6 p-3 bg-sticky-yellow/10 text-paper-gray opacity-80 text-xs rounded border border-paper-border/10">
                         <strong>{t.doctrineException}</strong>{t.doctrineExceptionText}
                     </div>
                 </div>
@@ -233,37 +235,37 @@ export default function HandwrittenChapter5() {
             <section className="max-w-6xl mx-auto mb-20">
                 <div className="bg-[#fffdf5] p-10 paper-border border-2 border-slate-300 shadow-lg relative overflow-hidden">
                     <div className="absolute top-0 right-0 p-10 opacity-5">
-                        <MapIcon className="w-64 h-64 text-slate-400" />
+                        <MapIcon className="w-64 h-64 text-muted-foreground" />
                     </div>
 
                     <h2 className="text-3xl font-['Permanent_Marker'] british-red mb-10 flex items-center gap-3">
                         <Anchor className="w-8 h-8" /> {t.bengalTitle}
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10 text-inherit">
                         <div className="space-y-6">
-                            <div className="bg-white p-6 paper-border border-l-8 border-l-red-800 shadow-sm relative">
+                            <div className="bg-paper p-6 paper-border border-l-8 border-l-paper-red shadow-sm relative">
                                 <div className="absolute -top-4 -right-4 stamp-annexed text-[10px]">{t.plassey1757}</div>
                                 <h4 className="marker-label text-xl mb-2">{t.plassey}</h4>
                                 <p className="body-handwritten text-lg">{t.plasseyText}</p>
                             </div>
-                            <div className="bg-white p-6 paper-border border-l-8 border-l-red-800 shadow-sm relative">
+                            <div className="bg-paper p-6 paper-border border-l-8 border-l-paper-red shadow-sm relative text-inherit">
                                 <div className="absolute -top-4 -right-4 stamp-annexed text-[10px]">{t.buxar1764}</div>
                                 <h4 className="marker-label text-xl mb-2">{t.buxar}</h4>
                                 <p className="body-handwritten text-lg">{t.buxarText}</p>
                             </div>
                         </div>
 
-                        <div className="bg-[#f0f9ff] p-8 paper-border border-2 border-blue-200">
-                            <h4 className="marker-label text-blue-900 border-b border-blue-100 mb-4 pb-2">{t.dualSystem}</h4>
+                        <div className="bg-paper-navy/5 p-8 paper-border border-2 border-paper-navy/20 text-inherit">
+                            <h4 className="marker-label text-paper-navy border-b border-paper-navy/10 mb-4 pb-2">{t.dualSystem}</h4>
                             <p className="body-handwritten text-xl italic mb-6">{t.dualQuote}</p>
                             <div className="grid grid-cols-2 gap-4 text-center">
-                                <div className="bg-white p-4 rounded-xl shadow-sm border border-blue-100">
-                                    <p className="text-xs uppercase font-bold text-slate-400 mb-2">{t.diwani}</p>
+                                <div className="bg-card p-4 rounded-xl shadow-sm border border-blue-100">
+                                    <p className="text-xs uppercase font-bold text-muted-foreground mb-2">{t.diwani}</p>
                                     <p className="font-bold text-blue-800">{t.diwaniText}</p>
                                 </div>
-                                <div className="bg-white p-4 rounded-xl shadow-sm border border-blue-100">
-                                    <p className="text-xs uppercase font-bold text-slate-400 mb-2">{t.nizamat}</p>
+                                <div className="bg-card p-4 rounded-xl shadow-sm border border-blue-100">
+                                    <p className="text-xs uppercase font-bold text-muted-foreground mb-2">{t.nizamat}</p>
                                     <p className="font-bold text-blue-800">{t.nizamatText}</p>
                                 </div>
                             </div>
@@ -312,7 +314,7 @@ export default function HandwrittenChapter5() {
                             {wars[activeWar].battles.map((battle, bIdx) => (
                                 <div key={bIdx} className="relative group">
                                     <div className="flex items-start gap-4">
-                                        <div className="bg-white p-3 rounded-full shadow-md border-2 border-slate-900 z-10">
+                                        <div className="bg-card p-3 rounded-full shadow-md border-2 border-slate-900 z-10">
                                             <Target className="w-6 h-6" />
                                         </div>
                                         <div className="body-handwritten">
@@ -330,7 +332,7 @@ export default function HandwrittenChapter5() {
 
                         {/* SPECIFIC TREATMENT FOR SIKH WAR */}
                         {activeWar === 2 && wars[activeWar].extraNotes && (
-                            <div className="mt-8 p-4 bg-white/50 border-2 border-dashed border-blue-300 rounded-xl space-y-2 body-handwritten text-sm">
+                            <div className="mt-8 p-4 bg-card/50 border-2 border-dashed border-blue-300 rounded-xl space-y-2 body-handwritten text-sm">
                                 {(wars[activeWar] as any).extraNotes.map((note: any, i: number) => (
                                     <p key={i}>• <strong>{note.bold}</strong>{note.text}</p>
                                 ))}
@@ -343,7 +345,7 @@ export default function HandwrittenChapter5() {
             {/* SECTION 4: THE FRONTIER EXPANSION */}
             <div className="max-w-6xl mx-auto mb-20 grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* NEPAL & AFGHANS */}
-                <section className="bg-white p-8 paper-border border-4 border-slate-900 shadow-xl transform -rotate-1">
+                <section className="bg-card p-8 paper-border border-4 border-slate-900 shadow-xl transform -rotate-1">
                     <h3 className="text-2xl font-['Permanent_Marker'] mb-6 flex items-center gap-2">
                         <Flag className="w-6 h-6" /> {t.frontierTitle}
                     </h3>
@@ -364,16 +366,16 @@ export default function HandwrittenChapter5() {
                 </section>
 
                 {/* SINDH & BURMA */}
-                <section className="bg-white p-8 paper-border border-4 border-slate-900 shadow-xl transform rotate-1">
+                <section className="bg-card p-8 paper-border border-4 border-slate-900 shadow-xl transform rotate-1">
                     <h3 className="text-2xl font-['Permanent_Marker'] mb-6 flex items-center gap-2">
                         <Compass className="w-6 h-6" /> {t.expansionTitle}
                     </h3>
                     <div className="space-y-4 body-handwritten">
-                        <div className="bg-stone-50 p-4 rounded border-2 border-dashed">
+                        <div className="bg-muted p-4 rounded border-2 border-dashed">
                             <h4 className="font-bold mb-1">{t.sindh}</h4>
                             <p className="text-sm italic">{t.sindhQuote}</p>
                         </div>
-                        <div className="bg-stone-50 p-4 rounded border-2 border-dashed">
+                        <div className="bg-muted p-4 rounded border-2 border-dashed">
                             <h4 className="font-bold mb-1">{t.burma}</h4>
                             <p className="text-sm">{t.burmaText}</p>
                         </div>
@@ -393,13 +395,13 @@ export default function HandwrittenChapter5() {
             <footer className="max-w-5xl mx-auto pb-20 text-center">
                 <div className="bg-slate-900 text-slate-100 p-8 rounded-[50px] relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-blue-500 to-yellow-500"></div>
-                    <h4 className="text-2xl font-['Permanent_Marker'] mb-8 text-slate-400">{t.phasesTitle}</h4>
+                    <h4 className="text-2xl font-['Permanent_Marker'] mb-8 text-muted-foreground">{t.phasesTitle}</h4>
                     <div className="flex flex-col md:flex-row justify-center gap-4 text-xs font-['Permanent_Marker'] uppercase">
                         <div className="px-4 py-2 border border-slate-700 rounded-full">{t.phases[0]}</div>
                         <div className="px-4 py-2 border border-slate-700 rounded-full bg-red-900/20">{t.phases[1]}</div>
                         <div className="px-4 py-2 border border-slate-700 rounded-full bg-red-900/50">{t.phases[2]}</div>
                     </div>
-                    <p className="mt-8 text-slate-500 italic body-handwritten">{t.footerText}</p>
+                    <p className="mt-8 text-muted-foreground italic body-handwritten">{t.footerText}</p>
                 </div>
 
                 <div className="mt-12 opacity-30">

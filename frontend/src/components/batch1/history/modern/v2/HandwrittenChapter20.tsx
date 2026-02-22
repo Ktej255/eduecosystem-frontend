@@ -27,13 +27,14 @@ export default function HandwrittenChapter20() {
     const t = language === 'hi' ? ch20Translations.hi : ch20Translations.en;
 
     return (
-        <div className="min-h-screen bg-[#1a1a1a] font-sans text-gray-100 selection:bg-red-900 overflow-x-hidden relative">
+        <div className="min-h-screen bg-paper font-sans text-paper-gray selection:bg-paper-red/30 overflow-x-hidden relative">
             <style jsx global>{`
                 @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Courier+Prime:wght@400;700&family=Special+Elite&display=swap');
                 
                 .burnt-texture {
-                    background-color: #1a1a1a;
+                    background-color: var(--paper-bg);
                     background-image: url("https://www.transparenttextures.com/patterns/cracked-concrete.png");
+                    opacity: 0.1;
                 }
 
                 .stencil-font { font-family: 'Black Ops One', cursive; }
@@ -41,27 +42,28 @@ export default function HandwrittenChapter20() {
                 .handwritten-font { font-family: 'Special Elite', monospace; }
 
                 .fire-text {
-                    background: linear-gradient(to bottom, #ff9933, #ff0000);
+                    background: linear-gradient(to bottom, var(--paper-orange), var(--paper-red));
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }
 
                 .steel-card {
-                    background: linear-gradient(135deg, #2c3e50, #4ca1af);
-                    border: 1px solid #7f8c8d;
-                    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+                    background: var(--paper-indigo-5);
+                    border: 1px solid var(--paper-indigo-20);
+                    box-shadow: inset 0 0 20px var(--paper-indigo-10);
                 }
 
                 .radio-card {
-                    background: #2d3436;
-                    border: 4px solid #000;
-                    box-shadow: 0 0 10px #FFD700;
+                    background: var(--paper-bg);
+                    border: 4px solid var(--paper-border);
+                    box-shadow: 0 0 10px var(--paper-orange-20);
                 }
 
                 .torn-paper {
-                    background: #fff;
-                    color: #000;
+                    background: var(--paper-bg);
+                    color: var(--paper-gray);
                     clip-path: polygon(0 0, 100% 0, 100% 90%, 95% 100%, 90% 90%, 85% 100%, 80% 90%, 75% 100%, 70% 90%, 65% 100%, 60% 90%, 55% 100%, 50% 90%, 45% 100%, 40% 90%, 35% 100%, 30% 90%, 25% 100%, 20% 90%, 15% 100%, 10% 90%, 5% 100%, 0 90%);
+                    border: 1px solid var(--paper-border-20);
                     padding-bottom: 2rem;
                     transform: rotate(1deg);
                 }
@@ -71,17 +73,17 @@ export default function HandwrittenChapter20() {
             <div className="fixed inset-0 burnt-texture pointer-events-none z-0 opacity-50"></div>
 
             {/* HEADER */}
-            <header className="max-w-6xl mx-auto mb-12 text-center relative z-10 pt-12 pb-8">
-                <div className="border-4 border-red-800 p-8 bg-black/80 inline-block transform -rotate-1">
+            <header className="max-w-6xl mx-auto mb-12 text-center relative z-10 pt-12 pb-8 text-inherit">
+                <div className="border-4 border-paper-red/40 p-8 bg-paper/50 backdrop-blur-md inline-block transform -rotate-1 shadow-xl">
                     <div className="flex justify-center items-center gap-4 mb-2">
-                        <Flame className="w-8 h-8 text-red-500 animate-pulse" />
-                        <span className="typewriter-font text-red-500 text-xl tracking-widest uppercase">{t.august1942}</span>
-                        <Flame className="w-8 h-8 text-red-500 animate-pulse" />
+                        <Flame className="w-8 h-8 text-paper-orange animate-pulse" />
+                        <span className="typewriter-font text-paper-orange text-xl tracking-widest uppercase">{t.august1942}</span>
+                        <Flame className="w-8 h-8 text-paper-orange animate-pulse" />
                     </div>
                     <h1 className="stencil-font text-6xl md:text-8xl fire-text uppercase tracking-widest leading-none mb-4">
                         {t.headerTitle}
                     </h1>
-                    <div className="flex justify-center flex-wrap gap-4 text-xs font-bold uppercase tracking-widest text-gray-400">
+                    <div className="flex justify-center flex-wrap gap-4 text-xs font-bold uppercase tracking-widest text-paper-orange opacity-60">
                         <span>{t.quitIndia}</span>
                         <span>•</span>
                         <span>{t.leaderlessRevolt}</span>
@@ -98,28 +100,28 @@ export default function HandwrittenChapter20() {
 
                     {/* CRIPPS MISSION (TORN CHEQUE) */}
                     <div className="torn-paper p-6 relative">
-                        <div className="absolute top-2 right-2 text-red-600 font-bold border-2 border-red-600 p-1 transform rotate-12 text-xs uppercase">
+                        <div className="absolute top-2 right-2 text-paper-red font-bold border-2 border-paper-red p-1 transform rotate-12 text-xs uppercase opacity-60">
                             {t.rejected}
                         </div>
-                        <h3 className="typewriter-font text-2xl font-bold mb-4 flex items-center gap-2 border-b-2 border-dashed border-gray-400 pb-2">
-                            <Plane className="w-5 h-5" /> {t.crippsMissionTitle}
+                        <h3 className="typewriter-font text-2xl font-bold mb-4 flex items-center gap-2 border-b-2 border-dashed border-paper-border/20 pb-2 text-inherit">
+                            <Plane className="w-5 h-5 opacity-40" /> {t.crippsMissionTitle}
                         </h3>
 
-                        <div className="space-y-4 text-sm font-mono leading-tight">
-                            <p className="bg-gray-100 p-2">
-                                <strong>{t.envoyLabel}</strong> {t.envoyText}
-                                <br /><span className="text-gray-500 text-xs">{t.pressureNote}</span>
+                        <div className="space-y-4 text-sm font-mono leading-tight text-inherit">
+                            <p className="bg-paper-border/5 p-2 text-inherit">
+                                <strong>{t.envoyLabel}</strong> <span className="opacity-80">{t.envoyText}</span>
+                                <br /><span className="text-paper-orange/60 text-xs">{t.pressureNote}</span>
                             </p>
 
-                            <ul className="list-disc ml-4 space-y-2">
-                                <li><strong>{t.dominionStatus}</strong></li>
-                                <li><strong>{t.constituentAssembly}</strong></li>
-                                <li className="text-red-700 font-bold bg-red-50 p-1">
+                            <ul className="list-disc ml-4 space-y-2 text-inherit">
+                                <li><strong className="opacity-90">{t.dominionStatus}</strong></li>
+                                <li><strong className="opacity-90">{t.constituentAssembly}</strong></li>
+                                <li className="text-paper-red font-bold bg-paper-red/5 p-1">
                                     {t.rightToSecede}
                                 </li>
                             </ul>
 
-                            <div className="mt-4 text-center italic text-red-600 font-bold">
+                            <div className="mt-4 text-center italic text-paper-red font-bold opacity-80">
                                 {t.gandhiQuoteCripps}
                             </div>
                         </div>
@@ -142,11 +144,11 @@ export default function HandwrittenChapter20() {
                             </div>
 
                             <div className="grid grid-cols-2 gap-2 text-xs">
-                                <div className="bg-white/5 p-2 border border-white/10">
+                                <div className="bg-card/5 p-2 border border-white/10">
                                     <strong className="block text-red-400">{t.soldiersLabel}</strong>
                                     {t.soldiersText}
                                 </div>
-                                <div className="bg-white/5 p-2 border border-white/10">
+                                <div className="bg-card/5 p-2 border border-white/10">
                                     <strong className="block text-red-400">{t.studentsLabel}</strong>
                                     {t.studentsText}
                                 </div>
@@ -155,25 +157,25 @@ export default function HandwrittenChapter20() {
                     </div>
 
                     {/* OPPOSITION */}
-                    <div className="bg-gray-800 p-4 border border-gray-600 relative">
-                        <div className="absolute -top-3 left-4 bg-gray-600 text-white text-xs px-2 py-1 uppercase font-bold">
+                    <div className="bg-paper-border/10 p-4 border border-paper-border/20 relative text-inherit">
+                        <div className="absolute -top-3 left-4 bg-paper-border text-paper-bg text-xs px-2 py-1 uppercase font-bold">
                             {t.dissentersTitle}
                         </div>
-                        <div className="grid grid-cols-2 gap-4 text-xs mt-2">
+                        <div className="grid grid-cols-2 gap-4 text-xs mt-2 text-inherit">
                             <div>
-                                <strong className="block text-yellow-400">{t.cpi}</strong>
+                                <strong className="block text-paper-orange">{t.cpi}</strong>
                                 <span className="opacity-70">{t.cpiDesc}</span>
                             </div>
                             <div>
-                                <strong className="block text-green-400">{t.muslimLeague}</strong>
+                                <strong className="block text-paper-green">{t.muslimLeague}</strong>
                                 <span className="opacity-70">{t.mlDesc}</span>
                             </div>
                             <div>
-                                <strong className="block text-orange-400">{t.hinduMahasabha}</strong>
+                                <strong className="block text-paper-orange opacity-70">{t.hinduMahasabha}</strong>
                                 <span className="opacity-70">{t.hmDesc}</span>
                             </div>
                             <div>
-                                <strong className="block text-blue-400">{t.ambedkar}</strong>
+                                <strong className="block text-paper-indigo">{t.ambedkar}</strong>
                                 <span className="opacity-70">{t.ambedkarDesc}</span>
                             </div>
                         </div>
@@ -184,74 +186,74 @@ export default function HandwrittenChapter20() {
                 <div className="space-y-12">
 
                     {/* OPERATION ZERO HOUR & UNDERGROUND */}
-                    <div className="radio-card p-6 text-yellow-500 relative overflow-hidden">
-                        <div className="absolute top-2 right-2 animate-pulse rounded-full h-3 w-3 bg-red-500"></div>
-                        <h3 className="handwritten-font text-2xl font-bold mb-4 flex items-center gap-2">
-                            <Radio className="w-5 h-5" /> {t.radioTitle}
+                    <div className="radio-card p-6 text-paper-orange relative overflow-hidden text-inherit">
+                        <div className="absolute top-2 right-2 animate-pulse rounded-full h-3 w-3 bg-paper-red"></div>
+                        <h3 className="handwritten-font text-2xl font-bold mb-4 flex items-center gap-2 text-inherit">
+                            <Radio className="w-5 h-5 opacity-40" /> {t.radioTitle}
                         </h3>
 
-                        <div className="space-y-4 text-sm font-mono">
-                            <div className="bg-black/50 p-3 border border-yellow-500/30">
+                        <div className="space-y-4 text-sm font-mono text-inherit">
+                            <div className="bg-black/40 p-3 border border-paper-orange/20 text-inherit">
                                 <strong className="block text-white mb-1 uppercase text-xs">{t.zeroHourTitle}</strong>
-                                {t.zeroHourDesc}
+                                <span className="opacity-80 text-white">{t.zeroHourDesc}</span>
                             </div>
 
-                            <div className="flex gap-4">
-                                <div className="flex-1">
-                                    <strong className="block text-white text-xs uppercase mb-1">{t.broadcasterTitle}</strong>
-                                    {t.broadcasterName}
+                            <div className="flex gap-4 text-inherit">
+                                <div className="flex-1 text-inherit">
+                                    <strong className="block text-paper-orange opacity-60 text-xs uppercase mb-1">{t.broadcasterTitle}</strong>
+                                    <span className="opacity-80">{t.broadcasterName}</span>
                                 </div>
-                                <div className="flex-1">
-                                    <strong className="block text-white text-xs uppercase mb-1">{t.coordinatorTitle}</strong>
-                                    {t.coordinatorName}
+                                <div className="flex-1 text-inherit">
+                                    <strong className="block text-paper-orange opacity-60 text-xs uppercase mb-1">{t.coordinatorTitle}</strong>
+                                    <span className="opacity-80">{t.coordinatorName}</span>
                                 </div>
                             </div>
 
-                            <div className="bg-yellow-900/20 p-2 text-xs border-l-2 border-yellow-500">
-                                <strong>{t.azadDastaTitle}</strong> {t.azadDastaDesc}
-                                <br />{t.pilotFinancier}
+                            <div className="bg-paper-orange/10 p-2 text-xs border-l-2 border-paper-orange text-inherit">
+                                <strong className="text-paper-orange">{t.azadDastaTitle}</strong> <span className="opacity-80">{t.azadDastaDesc}</span>
+                                <br /><span className="opacity-60 italic">{t.pilotFinancier}</span>
                             </div>
                         </div>
                     </div>
 
                     {/* PARALLEL GOVERNMENTS MAP */}
-                    <div className="steel-card p-6 text-white relative">
-                        <Badge className="absolute top-4 right-4 bg-orange-500 text-black">{t.parallelGovtBadge}</Badge>
-                        <h3 className="stencil-font text-xl mb-4 uppercase">{t.powerToPeople}</h3>
+                    <div className="steel-card p-6 text-inherit relative border border-paper-indigo/20">
+                        <Badge className="absolute top-4 right-4 bg-paper-orange text-white border-none">{t.parallelGovtBadge}</Badge>
+                        <h3 className="stencil-font text-xl mb-4 uppercase text-paper-indigo">{t.powerToPeople}</h3>
 
-                        <div className="space-y-3 text-xs">
-                            <div className="flex justify-between items-center border-b border-white/20 pb-2">
-                                <span><strong>{t.ballia}</strong><br /><span className="opacity-70">{t.balliaLeader}</span></span>
-                                <span className="text-right">{t.balliaDuration}<br /><span className="opacity-70">{t.balliaAction}</span></span>
+                        <div className="space-y-3 text-xs text-inherit">
+                            <div className="flex justify-between items-center border-b border-paper-border/10 pb-2 text-inherit">
+                                <span><strong>{t.ballia}</strong><br /><span className="opacity-60">{t.balliaLeader}</span></span>
+                                <span className="text-right">{t.balliaDuration}<br /><span className="opacity-60">{t.balliaAction}</span></span>
                             </div>
-                            <div className="flex justify-between items-center border-b border-white/20 pb-2">
-                                <span><strong>{t.tamluk}</strong><br /><span className="opacity-70">{t.tamlukLeader}</span></span>
-                                <span className="text-right">{t.tamlukDuration}<br /><span className="opacity-70">{t.tamlukAction}</span></span>
+                            <div className="flex justify-between items-center border-b border-paper-border/10 pb-2 text-inherit">
+                                <span><strong>{t.tamluk}</strong><br /><span className="opacity-60">{t.tamlukLeader}</span></span>
+                                <span className="text-right">{t.tamlukDuration}<br /><span className="opacity-60">{t.tamlukAction}</span></span>
                             </div>
-                            <div className="flex justify-between items-center">
-                                <span><strong>{t.satara}</strong><br /><span className="opacity-70">{t.sataraLeader}</span></span>
-                                <span className="text-right">{t.sataraDuration}<br /><span className="opacity-70">{t.sataraAction}</span></span>
+                            <div className="flex justify-between items-center text-inherit">
+                                <span><strong>{t.satara}</strong><br /><span className="opacity-60">{t.sataraLeader}</span></span>
+                                <span className="text-right">{t.sataraDuration}<br /><span className="opacity-60">{t.sataraAction}</span></span>
                             </div>
                         </div>
                     </div>
 
                     {/* MARTYRS & TRAGEDY */}
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="bg-red-950/50 p-4 border border-red-800 relative">
-                            <strong className="block text-red-400 text-xs uppercase mb-2">{t.martyrsTitle}</strong>
-                            <ul className="space-y-2 text-xs opacity-80">
+                    <div className="grid grid-cols-2 gap-4 text-inherit">
+                        <div className="bg-paper-red/10 p-4 border border-paper-red/20 relative text-inherit">
+                            <strong className="block text-paper-red text-xs uppercase mb-2">{t.martyrsTitle}</strong>
+                            <ul className="space-y-2 text-xs opacity-70 text-inherit">
                                 <li>{t.matanginiHazra}</li>
                                 <li>{t.kanaklataBarua}</li>
                                 <li>{t.bhaiKotwal}</li>
                             </ul>
                         </div>
 
-                        <div className="bg-black p-4 border border-gray-700 relative text-gray-400">
-                            <strong className="block text-gray-200 text-xs uppercase mb-2">{t.palaceTragedyTitle}</strong>
-                            <ul className="space-y-2 text-xs">
+                        <div className="bg-neutral-900 dark:bg-black p-4 border border-paper-border/10 relative text-white">
+                            <strong className="block text-white/40 text-xs uppercase mb-2">{t.palaceTragedyTitle}</strong>
+                            <ul className="space-y-2 text-xs text-white">
                                 <li><strong>{t.mahadevDesai}</strong></li>
                                 <li><strong>{t.kasturba}</strong></li>
-                                <li className="text-[10px] mt-2 italic pt-2 border-t border-gray-800">
+                                <li className="text-[10px] mt-2 italic pt-2 border-t border-white/10 opacity-60">
                                     {t.churchillQuote}
                                 </li>
                             </ul>
@@ -259,14 +261,14 @@ export default function HandwrittenChapter20() {
                     </div>
 
                     {/* DIPLOMATIC END */}
-                    <div className="bg-white/5 p-3 text-xs flex justify-between items-center border-t border-white/10">
-                        <div>
-                            <strong className="block text-green-400">{t.crFormula}</strong>
-                            {t.crFormulaDesc}
+                    <div className="bg-paper-border/5 p-3 text-xs flex justify-between items-center border-t border-paper-border/10 text-inherit">
+                        <div className="text-inherit">
+                            <strong className="block text-paper-green">{t.crFormula}</strong>
+                            <span className="opacity-70">{t.crFormulaDesc}</span>
                         </div>
-                        <div className="text-right">
-                            <strong className="block text-red-400">{t.gandhiJinnahTalks}</strong>
-                            {t.gandhiJinnahDesc}
+                        <div className="text-right text-inherit">
+                            <strong className="block text-paper-red">{t.gandhiJinnahTalks}</strong>
+                            <span className="opacity-70">{t.gandhiJinnahDesc}</span>
                         </div>
                     </div>
 

@@ -39,7 +39,7 @@ export default function MinistriesPage() {
                         <Landmark className="h-6 w-6 text-blue-600" />
                         Ministries of India
                     </h1>
-                    <p className="text-gray-500 text-sm">
+                    <p className="text-muted-foreground text-sm">
                         Directory of Central Ministries, their mandates, and flagship schemes.
                     </p>
                 </div>
@@ -52,20 +52,20 @@ export default function MinistriesPage() {
 
                 return (
                     <div key={category} className="space-y-4">
-                        <h2 className="text-lg font-bold text-gray-700 dark:text-gray-300 border-b pb-2 flex items-center gap-2">
+                        <h2 className="text-lg font-bold text-muted-foreground dark:text-muted-foreground border-b pb-2 flex items-center gap-2">
                             <span className="w-2 h-6 bg-indigo-500 rounded-full"></span>
                             {category} Sector
                         </h2>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {ministries.map((ministry) => (
-                                <Card key={ministry.id} className="group hover:shadow-lg transition-all duration-300 border-l-4 border-l-indigo-500 bg-white dark:bg-gray-800">
+                                <Card key={ministry.id} className="group hover:shadow-lg transition-all duration-300 border-l-4 border-l-indigo-500 bg-card">
                                     <CardHeader className="pb-3">
                                         <div className="flex justify-between items-start">
                                             <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-blue-600">
                                                 <Building2 className="h-5 w-5" />
                                             </div>
-                                            <a href={ministry.website} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-500 transition-colors">
+                                            <a href={ministry.website} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-blue-500 transition-colors">
                                                 <ExternalLink className="h-4 w-4" />
                                             </a>
                                         </div>
@@ -77,11 +77,11 @@ export default function MinistriesPage() {
                                         </CardDescription>
                                     </CardHeader>
                                     <CardContent className="space-y-4">
-                                        <p className="text-sm text-gray-600 dark:text-gray-300 min-h-[40px]">
+                                        <p className="text-sm text-muted-foreground dark:text-muted-foreground min-h-[40px]">
                                             {ministry.mandate}
                                         </p>
 
-                                        <div className="pt-2 border-t border-gray-100 dark:border-gray-700 flex gap-2">
+                                        <div className="pt-2 border-t border-border flex gap-2">
                                             {/* Link to Schemes Page with Filter */}
                                             <Link href={`/student/batch1/value-addition/schemes?ministryId=${ministry.id}`} className="w-full">
                                                 <Button size="sm" variant="outline" className="w-full gap-2 group-hover:bg-indigo-50 dark:group-hover:bg-indigo-900/20 hover:text-indigo-600 hover:border-indigo-200">

@@ -204,13 +204,13 @@ export default function VoiceRecallSession({ card, onNext, onComplete }: VoiceRe
 
                 {/* Question Area */}
                 <div className="mb-8 text-center">
-                    <h2 className="text-xl md:text-2xl font-medium text-gray-800 dark:text-gray-100 leading-relaxed mb-4">
+                    <h2 className="text-xl md:text-2xl font-medium text-foreground leading-relaxed mb-4">
                         {getFront()}
                     </h2>
 
                     {/* Live Transcript (during recording) */}
                     {mode === 'recording' && (
-                        <div className="min-h-[60px] p-4 bg-white/50 dark:bg-black/20 rounded-lg text-gray-600 dark:text-gray-400 text-sm italic">
+                        <div className="min-h-[60px] p-4 bg-card/50 dark:bg-black/20 rounded-lg text-muted-foreground dark:text-muted-foreground text-sm italic">
                             {transcript || "Listening..."}
                         </div>
                     )}
@@ -276,7 +276,7 @@ export default function VoiceRecallSession({ card, onNext, onComplete }: VoiceRe
                                         {feedback.score >= 70 ? "Passed" : "Needs Review"}
                                     </Badge>
                                 </div>
-                                <p className="text-gray-700 dark:text-gray-300 text-sm">
+                                <p className="text-muted-foreground dark:text-muted-foreground text-sm">
                                     {feedback.feedback}
                                 </p>
                             </div>

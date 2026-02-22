@@ -125,7 +125,7 @@ export default function InstructorCoursesPage() {
     return (
       <div className="container mx-auto py-8 px-4">
         <div className="flex items-center justify-center min-h-[400px]">
-          <div className="text-gray-400">Loading courses...</div>
+          <div className="text-muted-foreground">Loading courses...</div>
         </div>
       </div>
     );
@@ -137,7 +137,7 @@ export default function InstructorCoursesPage() {
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
         <div>
           <h1 className="text-3xl font-bold mb-2">My Courses</h1>
-          <p className="text-gray-400">Manage and create your courses</p>
+          <p className="text-muted-foreground">Manage and create your courses</p>
         </div>
         <Button
           onClick={() => router.push("/instructor/courses/create")}
@@ -152,7 +152,7 @@ export default function InstructorCoursesPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <Card className="bg-gray-900 border-gray-800">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-gray-400">
+            <CardTitle className="text-sm font-medium text-muted-foreground">
               Total Courses
             </CardTitle>
           </CardHeader>
@@ -163,7 +163,7 @@ export default function InstructorCoursesPage() {
 
         <Card className="bg-gray-900 border-gray-800">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-gray-400">
+            <CardTitle className="text-sm font-medium text-muted-foreground">
               Published
             </CardTitle>
           </CardHeader>
@@ -176,7 +176,7 @@ export default function InstructorCoursesPage() {
 
         <Card className="bg-gray-900 border-gray-800">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-gray-400">
+            <CardTitle className="text-sm font-medium text-muted-foreground">
               Total Students
             </CardTitle>
           </CardHeader>
@@ -191,7 +191,7 @@ export default function InstructorCoursesPage() {
       {/* Filters */}
       <div className="flex flex-col md:flex-row gap-4 mb-6">
         <div className="flex-1 relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
           <Input
             placeholder="Search courses..."
             value={searchQuery}
@@ -215,7 +215,7 @@ export default function InstructorCoursesPage() {
       {filteredCourses.length === 0 ? (
         <Card className="bg-gray-900 border-gray-800">
           <CardContent className="flex flex-col items-center justify-center py-12">
-            <p className="text-gray-400 text-lg mb-4">
+            <p className="text-muted-foreground text-lg mb-4">
               {searchQuery || filterStatus !== "all"
                 ? "No courses match your filters"
                 : "You haven't created any courses yet"}
@@ -245,7 +245,7 @@ export default function InstructorCoursesPage() {
                 }}
               >
                 {!course.thumbnail_url && (
-                  <div className="h-full flex items-center justify-center text-gray-600 text-4xl font-bold">
+                  <div className="h-full flex items-center justify-center text-muted-foreground text-4xl font-bold">
                     {course.title[0]}
                   </div>
                 )}
@@ -263,13 +263,13 @@ export default function InstructorCoursesPage() {
                     {course.is_published ? "Published" : "Draft"}
                   </Badge>
                 </div>
-                <p className="text-sm text-gray-400 line-clamp-2 mt-2">
+                <p className="text-sm text-muted-foreground line-clamp-2 mt-2">
                   {course.description}
                 </p>
               </CardHeader>
 
               <CardContent>
-                <div className="flex items-center gap-4 text-sm text-gray-400">
+                <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   {course.enrolled_count !== undefined && (
                     <div className="flex items-center gap-1">
                       <Users className="w-4 h-4" />

@@ -82,7 +82,7 @@ export function BulkActions<T>({
         <div className="flex items-center gap-4">
           <button
             onClick={allSelected ? onDeselectAll : onSelectAll}
-            className="text-gray-400 hover:text-white transition-colors"
+            className="text-muted-foreground hover:text-white transition-colors"
           >
             {allSelected ? (
               <CheckSquare className="h-5 w-5 text-blue-500" />
@@ -116,7 +116,7 @@ export function BulkActions<T>({
           <Button
             onClick={onDeselectAll}
             variant="outline"
-            className="border-gray-700 text-gray-300"
+            className="border-gray-700 text-muted-foreground"
           >
             Clear
           </Button>

@@ -111,7 +111,7 @@ export default function PreSessionExperienceForm({
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
                     How Are You Feeling?
                 </h1>
-                <p className="text-gray-400">
+                <p className="text-muted-foreground">
                     Take a moment to reflect on your current mental state
                 </p>
             </motion.div>
@@ -134,7 +134,7 @@ export default function PreSessionExperienceForm({
                             <span className={`text-2xl font-bold ${getLevelColor(stressLevel).replace('bg-', 'text-')}`}>
                                 {stressLevel}
                             </span>
-                            <span className="text-sm text-gray-400">
+                            <span className="text-sm text-muted-foreground">
                                 {getLevelLabel(stressLevel, "stress")}
                             </span>
                         </div>
@@ -147,7 +147,7 @@ export default function PreSessionExperienceForm({
                         step={1}
                         className="w-full"
                     />
-                    <div className="flex justify-between text-xs text-gray-500">
+                    <div className="flex justify-between text-xs text-muted-foreground">
                         <span>Very Calm</span>
                         <span>Extremely Stressed</span>
                     </div>
@@ -164,7 +164,7 @@ export default function PreSessionExperienceForm({
                             <span className={`text-2xl font-bold ${getLevelColor(anxietyLevel).replace('bg-', 'text-')}`}>
                                 {anxietyLevel}
                             </span>
-                            <span className="text-sm text-gray-400">
+                            <span className="text-sm text-muted-foreground">
                                 {getLevelLabel(anxietyLevel, "anxiety")}
                             </span>
                         </div>
@@ -177,7 +177,7 @@ export default function PreSessionExperienceForm({
                         step={1}
                         className="w-full"
                     />
-                    <div className="flex justify-between text-xs text-gray-500">
+                    <div className="flex justify-between text-xs text-muted-foreground">
                         <span>Very Relaxed</span>
                         <span>Very Anxious</span>
                     </div>
@@ -197,7 +197,7 @@ export default function PreSessionExperienceForm({
                                 }`}>
                                 {focusLevel}
                             </span>
-                            <span className="text-sm text-gray-400">
+                            <span className="text-sm text-muted-foreground">
                                 {getLevelLabel(focusLevel, "focus")}
                             </span>
                         </div>
@@ -210,7 +210,7 @@ export default function PreSessionExperienceForm({
                         step={1}
                         className="w-full"
                     />
-                    <div className="flex justify-between text-xs text-gray-500">
+                    <div className="flex justify-between text-xs text-muted-foreground">
                         <span>Can't Focus</span>
                         <span>Highly Focused</span>
                     </div>
@@ -247,13 +247,13 @@ export default function PreSessionExperienceForm({
                 {/* Concerns */}
                 <div className="space-y-4">
                     <label className="text-white font-semibold">
-                        Any Specific Concerns? <span className="text-gray-500 text-sm font-normal">(Optional)</span>
+                        Any Specific Concerns? <span className="text-muted-foreground text-sm font-normal">(Optional)</span>
                     </label>
                     <Textarea
                         value={concerns}
                         onChange={(e) => setConcerns(e.target.value)}
                         placeholder="What's on your mind? Share any worries or thoughts..."
-                        className="w-full min-h-[100px] bg-neutral-800 border-neutral-700 text-white placeholder:text-gray-500 resize-none"
+                        className="w-full min-h-[100px] bg-neutral-800 border-neutral-700 text-white placeholder:text-muted-foreground resize-none"
                     />
                 </div>
 
@@ -262,7 +262,7 @@ export default function PreSessionExperienceForm({
                     <Button
                         variant="outline"
                         onClick={onSkip}
-                        className="flex-1 border-gray-700 text-gray-400 hover:text-white"
+                        className="flex-1 border-gray-700 text-muted-foreground hover:text-white"
                         disabled={isSubmitting}
                     >
                         Skip for Now

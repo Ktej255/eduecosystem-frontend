@@ -72,8 +72,8 @@ export default function SimplePDFViewer({ segmentTitle, pdfFiles, onBack, onComp
     if (!currentPdf) {
         return (
             <div className="text-center py-12">
-                <FileText className="h-16 w-16 mx-auto text-gray-400 mb-4" />
-                <p className="text-gray-500">No PDFs available for this segment.</p>
+                <FileText className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
+                <p className="text-muted-foreground">No PDFs available for this segment.</p>
                 <Button variant="outline" onClick={onBack} className="mt-4">
                     Go Back
                 </Button>
@@ -82,7 +82,7 @@ export default function SimplePDFViewer({ segmentTitle, pdfFiles, onBack, onComp
     }
 
     return (
-        <div className={`space-y-4 ${isFullscreen ? 'fixed inset-0 z-50 bg-white dark:bg-gray-900 p-4' : ''}`}>
+        <div className={`space-y-4 ${isFullscreen ? 'fixed inset-0 z-50 bg-card p-4' : ''}`}>
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div>
@@ -90,7 +90,7 @@ export default function SimplePDFViewer({ segmentTitle, pdfFiles, onBack, onComp
                         <FileText className="h-5 w-5 text-red-500" />
                         {segmentTitle}
                     </h2>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-muted-foreground">
                         Page {currentPdfIndex + 1} of {totalPdfs}: {currentPdf.name}
                     </p>
                 </div>
@@ -101,7 +101,7 @@ export default function SimplePDFViewer({ segmentTitle, pdfFiles, onBack, onComp
 
             {/* Progress Bar */}
             <div className="space-y-1">
-                <div className="flex justify-between text-sm text-gray-500">
+                <div className="flex justify-between text-sm text-muted-foreground">
                     <span>Progress</span>
                     <span>{Math.round(progress)}%</span>
                 </div>
@@ -109,7 +109,7 @@ export default function SimplePDFViewer({ segmentTitle, pdfFiles, onBack, onComp
             </div>
 
             {/* Controls */}
-            <div className="flex items-center justify-between bg-gray-100 dark:bg-gray-800 p-2 rounded-lg">
+            <div className="flex items-center justify-between bg-muted p-2 rounded-lg">
                 <div className="flex items-center gap-2">
                     <Button variant="ghost" size="sm" onClick={() => adjustZoom(-10)}>
                         <ZoomOut className="h-4 w-4" />
@@ -136,7 +136,7 @@ export default function SimplePDFViewer({ segmentTitle, pdfFiles, onBack, onComp
             <Card className="overflow-hidden">
                 <CardContent className="p-0">
                     <div
-                        className="relative bg-gray-200 dark:bg-gray-800"
+                        className="relative bg-muted"
                         style={{
                             height: isFullscreen ? 'calc(100vh - 200px)' : '600px',
                             overflow: 'auto'
@@ -170,7 +170,7 @@ export default function SimplePDFViewer({ segmentTitle, pdfFiles, onBack, onComp
                 </Button>
 
                 <div className="text-center">
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-muted-foreground">
                         {currentPdfIndex + 1} / {totalPdfs}
                     </span>
                 </div>
@@ -204,12 +204,12 @@ export default function SimplePDFViewer({ segmentTitle, pdfFiles, onBack, onComp
                                 flex-shrink-0 p-2 rounded-lg border-2 transition-all
                                 ${index === currentPdfIndex
                                     ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30'
-                                    : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
+                                    : 'border-border hover:border-border'
                                 }
                             `}
                         >
                             <div className="flex items-center gap-2">
-                                <FileText className={`h-4 w-4 ${index === currentPdfIndex ? 'text-blue-500' : 'text-gray-400'}`} />
+                                <FileText className={`h-4 w-4 ${index === currentPdfIndex ? 'text-blue-500' : 'text-muted-foreground'}`} />
                                 <span className="text-xs font-medium max-w-[100px] truncate">
                                     Page {index + 1}
                                 </span>

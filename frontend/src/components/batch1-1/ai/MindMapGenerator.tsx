@@ -108,7 +108,7 @@ export default function MindMapGenerator() {
                 </Button>
             </div>
 
-            <Card className="flex-1 overflow-hidden border-indigo-100 dark:border-indigo-900 shadow-sm relative bg-gray-50 dark:bg-gray-900">
+            <Card className="flex-1 overflow-hidden border-indigo-100 dark:border-indigo-900 shadow-sm relative bg-muted">
                 <ReactFlow
                     nodes={nodes}
                     edges={edges}
@@ -122,7 +122,7 @@ export default function MindMapGenerator() {
                 </ReactFlow>
 
                 {nodes.length === 0 && !loading && (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-muted-foreground">
                         <Share2 className="h-16 w-16 mb-4 opacity-50" />
                         <p>Enter a topic to generate an interactive AI mind map.</p>
                     </div>

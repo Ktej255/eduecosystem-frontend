@@ -137,7 +137,7 @@ function TimeBlock({ node, depth = 0 }: { node: GtsNode, depth?: number }) {
                 onClick={() => setIsOpen(!isOpen)}
             >
                 {hasChildren && (
-                    <div className={`w-1.5 h-1.5 rounded-full transition-colors ${isOpen ? 'bg-transparent' : 'bg-slate-500'}`} style={{ backgroundColor: isOpen ? node.color : undefined }} />
+                    <div className={`w-1.5 h-1.5 rounded-full transition-colors ${isOpen ? 'bg-transparent' : 'bg-muted-foreground'}`} style={{ backgroundColor: isOpen ? node.color : undefined }} />
                 )}
             </div>
 
@@ -149,15 +149,15 @@ function TimeBlock({ node, depth = 0 }: { node: GtsNode, depth?: number }) {
                 <div className="flex flex-col">
                     <div className="flex items-center gap-2">
                         <span className="font-bold text-lg text-white">{node.name}</span>
-                        <Badge variant="outline" className="text-[10px] h-5 px-1.5 border-slate-700 text-slate-400 font-mono">
+                        <Badge variant="outline" className="text-[10px] h-5 px-1.5 border-slate-700 text-muted-foreground font-mono">
                             {node.startMa} - {node.endMa} Ma
                         </Badge>
                     </div>
-                    {node.description && <span className="text-xs text-slate-500 line-clamp-1">{node.description}</span>}
+                    {node.description && <span className="text-xs text-muted-foreground line-clamp-1">{node.description}</span>}
                 </div>
                 {hasChildren && (
                     <div className="ml-auto">
-                        {isOpen ? <ChevronDown className="w-4 h-4 text-slate-500" /> : <ChevronRight className="w-4 h-4 text-slate-500" />}
+                        {isOpen ? <ChevronDown className="w-4 h-4 text-muted-foreground" /> : <ChevronRight className="w-4 h-4 text-muted-foreground" />}
                     </div>
                 )}
             </div>
@@ -202,7 +202,7 @@ export default function GeologicalTimeScaleViz() {
                             </span>
                             Geological Time Scale
                         </CardTitle>
-                        <CardDescription className="text-slate-400">
+                        <CardDescription className="text-muted-foreground">
                             Chronological dating of Earth's 4.6 billion year history.
                         </CardDescription>
                     </div>
@@ -212,7 +212,7 @@ export default function GeologicalTimeScaleViz() {
             <ScrollArea className="flex-1 bg-slate-950 p-6">
                 <div className="max-w-3xl mx-auto pl-4 border-l border-slate-800 ml-4 md:ml-8">
                     {/* Scale Start */}
-                    <div className="flex items-center gap-2 ml-[-21px] mb-8 text-slate-500">
+                    <div className="flex items-center gap-2 ml-[-21px] mb-8 text-muted-foreground">
                         <div className="w-10 h-10 rounded-full border border-slate-700 bg-slate-900 flex items-center justify-center text-xs font-bold font-mono">
                             4.6 Ga
                         </div>

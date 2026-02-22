@@ -93,7 +93,7 @@ export default function VaultPage() {
                 </CardHeader>
                 <CardContent className="space-y-3">
                     {items.length === 0 ? (
-                        <div className="text-center py-8 text-gray-500">
+                        <div className="text-center py-8 text-muted-foreground">
                             Vault is empty. Download content to access it offline.
                         </div>
                     ) : (
@@ -107,7 +107,7 @@ export default function VaultPage() {
                                         </div>
                                         <div>
                                             <p className="font-medium text-sm text-gray-200">{item.title}</p>
-                                            <p className="text-xs text-gray-500">{new Date(item.timestamp).toLocaleDateString()}</p>
+                                            <p className="text-xs text-muted-foreground">{new Date(item.timestamp).toLocaleDateString()}</p>
                                         </div>
                                     </div>
                                     <Button
@@ -127,7 +127,7 @@ export default function VaultPage() {
 
             {/* Simulation Helper */}
             {!isOffline && (
-                <p className="text-xs text-gray-500 text-center">
+                <p className="text-xs text-muted-foreground text-center">
                     Tip: Turn off your internet connection to test the offline capabilities fully.
                 </p>
             )}

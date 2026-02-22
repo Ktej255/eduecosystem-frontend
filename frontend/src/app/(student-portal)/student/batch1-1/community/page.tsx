@@ -11,7 +11,7 @@ export default function CommunityPage() {
             <div className="mb-8">
                 <Link
                     href="/student/batch1-1"
-                    className="inline-flex items-center text-sm text-gray-500 hover:text-indigo-600 mb-4 transition-colors"
+                    className="inline-flex items-center text-sm text-muted-foreground hover:text-indigo-600 mb-4 transition-colors"
                 >
                     <ArrowLeft className="mr-1 h-4 w-4" /> Back to Dashboard
                 </Link>
@@ -21,7 +21,7 @@ export default function CommunityPage() {
                             <Users className="h-8 w-8 text-blue-600 dark:text-blue-400" />
                             Community Hub
                         </h1>
-                        <p className="text-gray-600 dark:text-gray-400 mt-2">
+                        <p className="text-muted-foreground dark:text-muted-foreground mt-2">
                             Study together in silence, track your global rank, and stay motivated.
                         </p>
                     </div>
@@ -45,7 +45,7 @@ export default function CommunityPage() {
                         <p className="opacity-90 mb-4">
                             Log in before 5:30 AM for 5 consecutive days to unlock the "Early Bird" badge and +500 XP.
                         </p>
-                        <button className="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
+                        <button className="bg-card/20 hover:bg-card/30 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
                             Join Challenge
                         </button>
                     </div>

@@ -18,7 +18,7 @@ export function MoodTrackerModal({ isOpen, onClose }: MoodTrackerModalProps) {
         { id: "great", icon: Sun, label: "Great", color: "text-yellow-400" },
         { id: "good", icon: Smile, label: "Good", color: "text-green-400" },
         { id: "okay", icon: Meh, label: "Okay", color: "text-blue-400" },
-        { id: "low", icon: Cloud, label: "Low", color: "text-gray-400" },
+        { id: "low", icon: Cloud, label: "Low", color: "text-muted-foreground" },
         { id: "stressed", icon: Zap, label: "Stressed", color: "text-red-400" },
     ];
 
@@ -56,9 +56,9 @@ export function MoodTrackerModal({ isOpen, onClose }: MoodTrackerModalProps) {
                     <div className="p-6 border-b border-white/10 flex justify-between items-start">
                         <div>
                             <h2 className="text-xl font-bold font-serif mb-1 text-white">How are you feeling right now?</h2>
-                            <p className="text-sm text-gray-400">Tracking your mood helps optimize your study schedule.</p>
+                            <p className="text-sm text-muted-foreground">Tracking your mood helps optimize your study schedule.</p>
                         </div>
-                        <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors">
+                        <button onClick={onClose} className="text-muted-foreground hover:text-white transition-colors">
                             <X size={20} />
                         </button>
                     </div>
@@ -67,7 +67,7 @@ export function MoodTrackerModal({ isOpen, onClose }: MoodTrackerModalProps) {
                         {/* Selector Tabs (Mocking the UI in screenshot which had Tabs "Log Mood" | "History") */}
                         <div className="flex bg-black/40 p-1 rounded-xl">
                             <button className="flex-1 py-1.5 text-sm font-medium bg-[#2a2a2a] rounded-lg text-white shadow-sm">Log Mood</button>
-                            <button className="flex-1 py-1.5 text-sm font-medium text-gray-400 hover:text-white transition-colors">History</button>
+                            <button className="flex-1 py-1.5 text-sm font-medium text-muted-foreground hover:text-white transition-colors">History</button>
                         </div>
 
                         {/* Mood Icons */}
@@ -78,17 +78,17 @@ export function MoodTrackerModal({ isOpen, onClose }: MoodTrackerModalProps) {
                                     onClick={() => setMood(m.id)}
                                     className={`flex flex-col items-center gap-2 group transition-all ${mood === m.id ? "scale-110 opacity-100" : "opacity-50 hover:opacity-80"}`}
                                 >
-                                    <div className={`p-3 rounded-full bg-white/5 group-hover:bg-white/10 transition-colors ${mood === m.id ? "bg-white/10 ring-2 ring-indigo-500/50" : ""}`}>
+                                    <div className={`p-3 rounded-full bg-card/5 group-hover:bg-card/10 transition-colors ${mood === m.id ? "bg-card/10 ring-2 ring-indigo-500/50" : ""}`}>
                                         <m.icon className={`w-8 h-8 ${m.color}`} />
                                     </div>
-                                    <span className={`text-xs font-medium ${mood === m.id ? m.color : "text-gray-500"}`}>{m.label}</span>
+                                    <span className={`text-xs font-medium ${mood === m.id ? m.color : "text-muted-foreground"}`}>{m.label}</span>
                                 </button>
                             ))}
                         </div>
 
                         {/* Energy Slider */}
                         <div className="space-y-3">
-                            <div className="flex items-center gap-2 text-sm font-semibold text-gray-300">
+                            <div className="flex items-center gap-2 text-sm font-semibold text-muted-foreground">
                                 <Zap size={14} className="text-orange-500" />
                                 <span>Energy Level (1-10): {energy}</span>
                             </div>
@@ -100,7 +100,7 @@ export function MoodTrackerModal({ isOpen, onClose }: MoodTrackerModalProps) {
                                 onChange={(e) => setEnergy(parseInt(e.target.value))}
                                 className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-indigo-500"
                             />
-                            <div className="flex justify-between text-[10px] text-gray-500 uppercase font-bold tracking-widest">
+                            <div className="flex justify-between text-[10px] text-muted-foreground uppercase font-bold tracking-widest">
                                 <span>Exhausted</span>
                                 <span>Energetic</span>
                             </div>
@@ -108,21 +108,21 @@ export function MoodTrackerModal({ isOpen, onClose }: MoodTrackerModalProps) {
 
                         {/* Note Input */}
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-400">Optional Note</label>
+                            <label className="text-sm font-medium text-muted-foreground">Optional Note</label>
                             <textarea
                                 value={note}
                                 onChange={(e) => setNote(e.target.value)}
                                 placeholder="E.g., Had a good sleep, or feeling distracted..."
-                                className="w-full h-20 bg-black/20 border border-white/10 rounded-xl p-3 text-sm text-gray-300 focus:outline-none focus:border-indigo-500/50 resize-none placeholder:text-gray-600"
+                                className="w-full h-20 bg-black/20 border border-white/10 rounded-xl p-3 text-sm text-muted-foreground focus:outline-none focus:border-indigo-500/50 resize-none placeholder:text-muted-foreground"
                             />
                         </div>
                     </div>
 
                     {/* Footer */}
-                    <div className="p-4 border-t border-white/10 bg-white/5 flex justify-end gap-3 rounded-b-2xl">
+                    <div className="p-4 border-t border-white/10 bg-card/5 flex justify-end gap-3 rounded-b-2xl">
                         <button
                             onClick={onClose}
-                            className="px-4 py-2 text-sm font-bold text-gray-400 hover:text-white transition-colors"
+                            className="px-4 py-2 text-sm font-bold text-muted-foreground hover:text-white transition-colors"
                         >
                             Snooze 1h
                         </button>

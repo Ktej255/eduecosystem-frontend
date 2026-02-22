@@ -96,7 +96,7 @@ Status: ${purchase.status}
               <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent">
                 Purchase History
               </h1>
-              <p className="text-gray-400 mt-1">
+              <p className="text-muted-foreground mt-1">
                 View all your course purchases and invoices
               </p>
             </div>
@@ -107,7 +107,7 @@ Status: ${purchase.status}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <Card className="bg-gradient-to-br from-blue-900/20 to-gray-900 border-blue-500/20">
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-400">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
                 Total Purchases
               </CardTitle>
             </CardHeader>
@@ -120,7 +120,7 @@ Status: ${purchase.status}
 
           <Card className="bg-gradient-to-br from-green-900/20 to-gray-900 border-green-500/20">
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-400">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
                 Total Spent
               </CardTitle>
             </CardHeader>
@@ -133,7 +133,7 @@ Status: ${purchase.status}
 
           <Card className="bg-gradient-to-br from-purple-900/20 to-gray-900 border-purple-500/20">
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-400">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
                 This Month
               </CardTitle>
             </CardHeader>
@@ -160,7 +160,7 @@ Status: ${purchase.status}
             <div className="flex items-center justify-between">
               <CardTitle className="text-white">Transaction History</CardTitle>
               <div className="relative w-64">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   placeholder="Search courses..."
                   value={searchQuery}
@@ -174,30 +174,30 @@ Status: ${purchase.status}
           </CardHeader>
           <CardContent>
             {loading ? (
-              <div className="text-gray-400">Loading...</div>
+              <div className="text-muted-foreground">Loading...</div>
             ) : filteredPurchases.length === 0 ? (
               <div className="text-center py-12">
-                <Receipt className="h-16 w-16 text-gray-600 mx-auto mb-4" />
-                <p className="text-gray-400">No purchases found</p>
+                <Receipt className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+                <p className="text-muted-foreground">No purchases found</p>
               </div>
             ) : (
               <Table>
                 <TableHeader>
                   <TableRow className="border-gray-800">
-                    <TableHead className="text-gray-400">Date</TableHead>
-                    <TableHead className="text-gray-400">Course</TableHead>
-                    <TableHead className="text-gray-400">Amount</TableHead>
-                    <TableHead className="text-gray-400">
+                    <TableHead className="text-muted-foreground">Date</TableHead>
+                    <TableHead className="text-muted-foreground">Course</TableHead>
+                    <TableHead className="text-muted-foreground">Amount</TableHead>
+                    <TableHead className="text-muted-foreground">
                       Payment Method
                     </TableHead>
-                    <TableHead className="text-gray-400">Status</TableHead>
-                    <TableHead className="text-gray-400">Invoice</TableHead>
+                    <TableHead className="text-muted-foreground">Status</TableHead>
+                    <TableHead className="text-muted-foreground">Invoice</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {filteredPurchases.map((purchase) => (
                     <TableRow key={purchase.id} className="border-gray-800">
-                      <TableCell className="text-gray-400 text-sm">
+                      <TableCell className="text-muted-foreground text-sm">
                         {new Date(purchase.created_at).toLocaleDateString()}
                       </TableCell>
                       <TableCell className="text-white font-medium">
@@ -206,7 +206,7 @@ Status: ${purchase.status}
                       <TableCell className="text-cyan-400 font-semibold">
                         {purchase.currency} {purchase.amount}
                       </TableCell>
-                      <TableCell className="text-gray-400 text-sm capitalize">
+                      <TableCell className="text-muted-foreground text-sm capitalize">
                         {purchase.payment_provider}
                       </TableCell>
                       <TableCell>

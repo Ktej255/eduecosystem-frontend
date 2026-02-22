@@ -13,6 +13,7 @@ import {
     Zap,
     RotateCcw,
 } from "lucide-react";
+import ChartErrorBoundary from "@/components/ui/ChartErrorBoundary";
 
 interface CurvePoint {
     day: number;
@@ -113,15 +114,15 @@ export default function KnowledgeDecayCurve({
     const StatusIcon = status.icon;
 
     return (
-        <div className="w-full bg-neutral-900/80 backdrop-blur-xl border border-neutral-800 rounded-2xl p-6 overflow-hidden">
+        <div className="w-full bg-card/80 backdrop-blur-xl border border-border rounded-2xl p-6 overflow-hidden transition-colors">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
                 <div>
-                    <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-                        <Brain className="w-5 h-5 text-indigo-400" />
+                    <h3 className="text-lg font-semibold text-foreground flex items-center gap-2">
+                        <Brain className="w-5 h-5 text-primary" />
                         {topicName}
                     </h3>
-                    <p className="text-sm text-gray-400 mt-1">
+                    <p className="text-sm text-muted-foreground mt-1">
                         Stability: {stability.toFixed(1)} days
                     </p>
                 </div>
@@ -142,187 +143,189 @@ export default function KnowledgeDecayCurve({
 
             {/* Animated SVG Curve */}
             <div className="relative h-64 mb-6">
-                <svg
-                    viewBox="0 0 600 200"
-                    className="w-full h-full"
-                    preserveAspectRatio="xMidYMid meet"
-                >
-                    {/* Background grid */}
-                    <defs>
-                        <linearGradient id="curveGradient" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor={getRetentionColor(currentRetention)} stopOpacity="0.3" />
-                            <stop offset="100%" stopColor={getRetentionColor(currentRetention)} stopOpacity="0" />
-                        </linearGradient>
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                            <feMerge>
-                                <feMergeNode in="coloredBlur" />
-                                <feMergeNode in="SourceGraphic" />
-                            </feMerge>
-                        </filter>
-                    </defs>
+                <ChartErrorBoundary name="Decay Curve SVG">
+                    <svg
+                        viewBox="0 0 600 200"
+                        className="w-full h-full"
+                        preserveAspectRatio="xMidYMid meet"
+                    >
+                        {/* Background grid */}
+                        <defs>
+                            <linearGradient id="curveGradient" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor={getRetentionColor(currentRetention)} stopOpacity="0.3" />
+                                <stop offset="100%" stopColor={getRetentionColor(currentRetention)} stopOpacity="0" />
+                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
 
-                    {/* Danger zone (below 90%) */}
-                    <rect
-                        x="40"
-                        y="40"
-                        width="520"
-                        height="20"
-                        fill="rgba(239, 68, 68, 0.1)"
-                        className="transition-opacity duration-500"
-                    />
-
-                    {/* Grid lines */}
-                    {[0.25, 0.5, 0.75, 1].map((y, i) => (
-                        <line
-                            key={i}
-                            x1="40"
-                            y1={40 + (1 - y) * 120}
-                            x2="560"
-                            y2={40 + (1 - y) * 120}
-                            stroke="#333"
-                            strokeDasharray="4,4"
-                            opacity="0.5"
+                        {/* Danger zone (below 90%) */}
+                        <rect
+                            x="40"
+                            y="40"
+                            width="520"
+                            height="20"
+                            fill="rgba(239, 68, 68, 0.1)"
+                            className="transition-opacity duration-500"
                         />
-                    ))}
 
-                    {/* Y-axis labels */}
-                    {[0, 25, 50, 75, 100].map((label, i) => (
-                        <text
-                            key={i}
-                            x="30"
-                            y={160 - i * 30}
-                            fill="#666"
-                            fontSize="10"
-                            textAnchor="end"
-                            dominantBaseline="middle"
-                        >
-                            {label}%
-                        </text>
-                    ))}
-
-                    {/* 90% danger threshold line */}
-                    <line
-                        x1="40"
-                        y1="52"
-                        x2="560"
-                        y2="52"
-                        stroke="#ef4444"
-                        strokeWidth="2"
-                        strokeDasharray="8,4"
-                        opacity="0.7"
-                    />
-                    <text x="565" y="52" fill="#ef4444" fontSize="10" dominantBaseline="middle">
-                        90%
-                    </text>
-
-                    {/* Filled area under curve */}
-                    {curvePath && (
-                        <motion.path
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 1 }}
-                            d={`${curvePath} L 560 160 L 40 160 Z`}
-                            fill="url(#curveGradient)"
-                        />
-                    )}
-
-                    {/* Main curve line */}
-                    <motion.path
-                        d={curvePath}
-                        fill="none"
-                        stroke={getRetentionColor(currentRetention)}
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        filter="url(#glow)"
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ duration: 2, ease: "easeOut" }}
-                    />
-
-                    {/* Data points */}
-                    {animatedPoints.map((point, i) => {
-                        const x = 40 + (i / (curvePoints.length - 1)) * 520;
-                        const y = 40 + (1 - point.retention) * 120;
-
-                        return (
-                            <motion.g
+                        {/* Grid lines */}
+                        {[0.25, 0.5, 0.75, 1].map((y, i) => (
+                            <line
                                 key={i}
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                transition={{ delay: (i / curvePoints.length) * 2, duration: 0.3 }}
-                                onMouseEnter={() => setHoveredPoint(i)}
-                                onMouseLeave={() => setHoveredPoint(null)}
-                                className="cursor-pointer"
-                            >
-                                {/* Review spike indicator */}
-                                {point.reviewed && (
-                                    <motion.line
-                                        x1={x}
-                                        y1={y}
-                                        x2={x}
-                                        y2="160"
-                                        stroke="#22c55e"
-                                        strokeWidth="2"
-                                        strokeDasharray="4,2"
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 0.5 }}
-                                    />
-                                )}
+                                x1="40"
+                                y1={40 + (1 - y) * 120}
+                                x2="560"
+                                y2={40 + (1 - y) * 120}
+                                stroke="var(--border)"
+                                strokeDasharray="4,4"
+                                opacity="0.5"
+                            />
+                        ))}
 
-                                {/* Point circle */}
-                                <circle
-                                    cx={x}
-                                    cy={y}
-                                    r={hoveredPoint === i ? 8 : 5}
-                                    fill={point.reviewed ? "#22c55e" : getRetentionColor(point.retention)}
-                                    className="transition-all duration-200"
-                                />
-
-                                {/* Tooltip on hover */}
-                                {hoveredPoint === i && (
-                                    <g>
-                                        <rect
-                                            x={x - 35}
-                                            y={y - 35}
-                                            width="70"
-                                            height="25"
-                                            rx="4"
-                                            fill="#1f2937"
-                                            stroke="#374151"
-                                        />
-                                        <text
-                                            x={x}
-                                            y={y - 18}
-                                            fill="white"
-                                            fontSize="11"
-                                            textAnchor="middle"
-                                        >
-                                            Day {point.day}: {(point.retention * 100).toFixed(0)}%
-                                        </text>
-                                    </g>
-                                )}
-                            </motion.g>
-                        );
-                    })}
-
-                    {/* X-axis labels */}
-                    {curvePoints.filter((_, i) => i % 2 === 0 || i === curvePoints.length - 1).map((point, i, arr) => {
-                        const x = 40 + (curvePoints.indexOf(point) / (curvePoints.length - 1)) * 520;
-                        return (
+                        {/* Y-axis labels */}
+                        {[0, 25, 50, 75, 100].map((label, i) => (
                             <text
                                 key={i}
-                                x={x}
-                                y="175"
-                                fill="#666"
+                                x="30"
+                                y={160 - i * 30}
+                                fill="var(--muted-foreground)"
                                 fontSize="10"
-                                textAnchor="middle"
+                                textAnchor="end"
+                                dominantBaseline="middle"
                             >
-                                Day {point.day}
+                                {label}%
                             </text>
-                        );
-                    })}
-                </svg>
+                        ))}
+
+                        {/* 90% danger threshold line */}
+                        <line
+                            x1="40"
+                            y1="52"
+                            x2="560"
+                            y2="52"
+                            stroke="#ef4444"
+                            strokeWidth="2"
+                            strokeDasharray="8,4"
+                            opacity="0.7"
+                        />
+                        <text x="565" y="52" fill="#ef4444" fontSize="10" dominantBaseline="middle">
+                            90%
+                        </text>
+
+                        {/* Filled area under curve */}
+                        {curvePath && (
+                            <motion.path
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 1 }}
+                                d={`${curvePath} L 560 160 L 40 160 Z`}
+                                fill="url(#curveGradient)"
+                            />
+                        )}
+
+                        {/* Main curve line */}
+                        <motion.path
+                            d={curvePath}
+                            fill="none"
+                            stroke={getRetentionColor(currentRetention)}
+                            strokeWidth="3"
+                            strokeLinecap="round"
+                            filter="url(#glow)"
+                            initial={{ pathLength: 0 }}
+                            animate={{ pathLength: 1 }}
+                            transition={{ duration: 2, ease: "easeOut" }}
+                        />
+
+                        {/* Data points */}
+                        {animatedPoints.map((point, i) => {
+                            const x = 40 + (i / (curvePoints.length - 1)) * 520;
+                            const y = 40 + (1 - point.retention) * 120;
+
+                            return (
+                                <motion.g
+                                    key={i}
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1 }}
+                                    transition={{ delay: (i / curvePoints.length) * 2, duration: 0.3 }}
+                                    onMouseEnter={() => setHoveredPoint(i)}
+                                    onMouseLeave={() => setHoveredPoint(null)}
+                                    className="cursor-pointer"
+                                >
+                                    {/* Review spike indicator */}
+                                    {point.reviewed && (
+                                        <motion.line
+                                            x1={x}
+                                            y1={y}
+                                            x2={x}
+                                            y2="160"
+                                            stroke="#22c55e"
+                                            strokeWidth="2"
+                                            strokeDasharray="4,2"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 0.5 }}
+                                        />
+                                    )}
+
+                                    {/* Point circle */}
+                                    <circle
+                                        cx={x}
+                                        cy={y}
+                                        r={hoveredPoint === i ? 8 : 5}
+                                        fill={point.reviewed ? "#22c55e" : getRetentionColor(point.retention)}
+                                        className="transition-all duration-200"
+                                    />
+
+                                    {/* Tooltip on hover */}
+                                    {hoveredPoint === i && (
+                                        <g>
+                                            <rect
+                                                x={x - 35}
+                                                y={y - 35}
+                                                width="70"
+                                                height="25"
+                                                rx="4"
+                                                fill="#1f2937"
+                                                stroke="#374151"
+                                            />
+                                            <text
+                                                x={x}
+                                                y={y - 18}
+                                                fill="white"
+                                                fontSize="11"
+                                                textAnchor="middle"
+                                            >
+                                                Day {point.day}: {(point.retention * 100).toFixed(0)}%
+                                            </text>
+                                        </g>
+                                    )}
+                                </motion.g>
+                            );
+                        })}
+
+                        {/* X-axis labels */}
+                        {curvePoints.filter((_, i) => i % 2 === 0 || i === curvePoints.length - 1).map((point, i, arr) => {
+                            const x = 40 + (curvePoints.indexOf(point) / (curvePoints.length - 1)) * 520;
+                            return (
+                                <text
+                                    key={i}
+                                    x={x}
+                                    y="175"
+                                    fill="var(--muted-foreground)"
+                                    fontSize="10"
+                                    textAnchor="middle"
+                                >
+                                    Day {point.day}
+                                </text>
+                            );
+                        })}
+                    </svg>
+                </ChartErrorBoundary>
 
                 {/* Pulsing glow effect */}
                 <motion.div
@@ -343,7 +346,7 @@ export default function KnowledgeDecayCurve({
             </div>
 
             {/* Status Bar */}
-            <div className="flex items-center justify-between p-4 rounded-xl bg-neutral-800/50">
+            <div className="flex items-center justify-between p-4 rounded-xl bg-muted/50 border border-border">
                 <div className="flex items-center gap-3">
                     <motion.div
                         animate={{
@@ -363,7 +366,7 @@ export default function KnowledgeDecayCurve({
                     </motion.div>
                     <div>
                         <p className="text-white font-medium">{status.text}</p>
-                        <p className="text-sm text-gray-400">
+                        <p className="text-sm text-muted-foreground">
                             {nextReviewDays <= 0
                                 ? "Review now to boost retention!"
                                 : `Next review in ${nextReviewDays} day${nextReviewDays > 1 ? "s" : ""}`}
@@ -376,7 +379,7 @@ export default function KnowledgeDecayCurve({
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={onRefresh}
-                        className="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-medium flex items-center gap-2 transition-colors"
+                        className="px-4 py-2 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground font-bold flex items-center gap-2 transition-colors"
                     >
                         <Zap className="w-4 h-4" />
                         Quick Review

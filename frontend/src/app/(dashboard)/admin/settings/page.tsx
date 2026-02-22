@@ -47,7 +47,7 @@ export default function SettingsPage() {
             <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-purple-200 to-cyan-200 bg-clip-text text-transparent">
               Settings
             </h1>
-            <p className="text-gray-400 mt-1">
+            <p className="text-muted-foreground mt-1">
               Manage your account settings and preferences.
             </p>
           </div>
@@ -63,7 +63,7 @@ export default function SettingsPage() {
             </div>
             <h3 className="text-xl font-bold text-white">Notifications</h3>
           </div>
-          <p className="text-gray-400 text-sm mb-6">
+          <p className="text-muted-foreground text-sm mb-6">
             Configure how you want to receive notifications.
           </p>
 
@@ -77,7 +77,7 @@ export default function SettingsPage() {
                     <p className="text-white font-semibold">
                       Email Notifications
                     </p>
-                    <p className="text-gray-400 text-sm mt-1">
+                    <p className="text-muted-foreground text-sm mt-1">
                       Receive emails about your streak, rewards, and activity.
                     </p>
                   </div>
@@ -97,7 +97,7 @@ export default function SettingsPage() {
                   }`}
                 >
                   <span
-                    className={`absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full transition-transform duration-300 shadow-md ${
+                    className={`absolute top-0.5 left-0.5 w-6 h-6 bg-card rounded-full transition-transform duration-300 shadow-md ${
                       settings.requireEmailVerification
                         ? "translate-x-7"
                         : "translate-x-0"
@@ -114,7 +114,7 @@ export default function SettingsPage() {
                   <Sparkles className="h-5 w-5 text-purple-400 mt-1" />
                   <div>
                     <p className="text-white font-semibold">Marketing Emails</p>
-                    <p className="text-gray-400 text-sm mt-1">
+                    <p className="text-muted-foreground text-sm mt-1">
                       Receive emails about new features and special offers.
                     </p>
                   </div>
@@ -133,7 +133,7 @@ export default function SettingsPage() {
                   }`}
                 >
                   <span
-                    className={`absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full transition-transform duration-300 shadow-md ${
+                    className={`absolute top-0.5 left-0.5 w-6 h-6 bg-card rounded-full transition-transform duration-300 shadow-md ${
                       settings.analyticsEnabled
                         ? "translate-x-7"
                         : "translate-x-0"
@@ -153,13 +153,13 @@ export default function SettingsPage() {
             </div>
             <h3 className="text-xl font-bold text-white">Profile Settings</h3>
           </div>
-          <p className="text-gray-400 text-sm mb-6">
+          <p className="text-muted-foreground text-sm mb-6">
             Update your personal information.
           </p>
 
           <div className="space-y-4">
             <div className="p-6 rounded-xl bg-gradient-to-br from-gray-800/80 to-gray-900/80 border border-gray-700/50">
-              <p className="text-gray-300 mb-3">
+              <p className="text-muted-foreground mb-3">
                 To update your profile details, please visit the Profile page.
               </p>
               <Button
@@ -187,7 +187,7 @@ export default function SettingsPage() {
           <div className="space-y-4">
             {/* Site Name */}
             <div>
-              <label className="block text-gray-400 text-sm mb-2 font-medium">
+              <label className="block text-muted-foreground text-sm mb-2 font-medium">
                 Site Name
               </label>
               <Input
@@ -202,7 +202,7 @@ export default function SettingsPage() {
 
             {/* Max Upload Size */}
             <div>
-              <label className="block text-gray-400 text-sm mb-2 font-medium">
+              <label className="block text-muted-foreground text-sm mb-2 font-medium">
                 Max Upload Size (MB)
               </label>
               <Input
@@ -226,7 +226,7 @@ export default function SettingsPage() {
                       <p className="text-white font-semibold">
                         Allow Registration
                       </p>
-                      <p className="text-gray-400 text-sm">
+                      <p className="text-muted-foreground text-sm">
                         Enable new user signups
                       </p>
                     </div>
@@ -245,7 +245,7 @@ export default function SettingsPage() {
                     }`}
                   >
                     <span
-                      className={`absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full transition-transform duration-300 shadow-md ${
+                      className={`absolute top-0.5 left-0.5 w-6 h-6 bg-card rounded-full transition-transform duration-300 shadow-md ${
                         settings.allowRegistration
                           ? "translate-x-7"
                           : "translate-x-0"
@@ -264,7 +264,7 @@ export default function SettingsPage() {
                       <p className="text-white font-semibold">
                         Maintenance Mode
                       </p>
-                      <p className="text-gray-400 text-sm">
+                      <p className="text-muted-foreground text-sm">
                         Disable access for non-admin users
                       </p>
                     </div>
@@ -283,7 +283,7 @@ export default function SettingsPage() {
                     }`}
                   >
                     <span
-                      className={`absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full transition-transform duration-300 shadow-md ${
+                      className={`absolute top-0.5 left-0.5 w-6 h-6 bg-card rounded-full transition-transform duration-300 shadow-md ${
                         settings.maintenanceMode
                           ? "translate-x-7"
                           : "translate-x-0"

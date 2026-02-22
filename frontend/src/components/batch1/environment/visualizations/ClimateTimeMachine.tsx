@@ -199,7 +199,7 @@ export default function ClimateTimeMachine() {
                             </span>
                             Climate Time Machine
                         </CardTitle>
-                        <CardDescription className="text-slate-400">
+                        <CardDescription className="text-muted-foreground">
                             Visualize Global Warming (1880 - 2100)
                         </CardDescription>
                     </div>
@@ -207,13 +207,13 @@ export default function ClimateTimeMachine() {
                         <div className="bg-slate-900 border border-slate-700 rounded-lg p-1 flex">
                             <button
                                 onClick={() => setScenario('bau')}
-                                className={`px-3 py-1 text-xs font-bold rounded transition-all ${scenario === 'bau' ? 'bg-red-500/20 text-red-500' : 'text-slate-500 hover:text-slate-300'}`}
+                                className={`px-3 py-1 text-xs font-bold rounded transition-all ${scenario === 'bau' ? 'bg-red-500/20 text-red-500' : 'text-muted-foreground hover:text-slate-300'}`}
                             >
                                 Business as Usual
                             </button>
                             <button
                                 onClick={() => setScenario('paris')}
-                                className={`px-3 py-1 text-xs font-bold rounded transition-all ${scenario === 'paris' ? 'bg-green-500/20 text-green-500' : 'text-slate-500 hover:text-slate-300'}`}
+                                className={`px-3 py-1 text-xs font-bold rounded transition-all ${scenario === 'paris' ? 'bg-green-500/20 text-green-500' : 'text-muted-foreground hover:text-slate-300'}`}
                             >
                                 Paris Agreement
                             </button>
@@ -267,7 +267,7 @@ export default function ClimateTimeMachine() {
                 </div>
 
                 <div className="absolute top-8 right-8 z-20 text-right">
-                    <div className="text-sm text-slate-400 uppercase tracking-widest font-bold mb-1">Delta T</div>
+                    <div className="text-sm text-muted-foreground uppercase tracking-widest font-bold mb-1">Delta T</div>
                     <div className={`text-4xl font-bold ${tempAnomaly > 1.5 ? 'text-red-500' : 'text-blue-400'}`}>
                         {tempAnomaly > 0 ? '+' : ''}{tempAnomaly.toFixed(1)}°C
                     </div>
@@ -301,7 +301,7 @@ export default function ClimateTimeMachine() {
                                 }}
                                 className="cursor-pointer"
                             />
-                            <div className="flex justify-between text-[10px] text-slate-500 font-mono uppercase">
+                            <div className="flex justify-between text-[10px] text-muted-foreground font-mono uppercase">
                                 <span>1880 (Pre-Ind)</span>
                                 <span className={year === 2024 ? 'text-white font-bold' : ''}>2024 (Today)</span>
                                 <span>2100 (Future)</span>

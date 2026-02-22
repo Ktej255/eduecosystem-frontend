@@ -64,19 +64,19 @@ export default function SelfLearningLandingPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-amber-50/30 dark:bg-gray-950 font-serif">
+        <div className="min-h-screen bg-amber-50/30 font-serif">
             {/* Hero Section */}
-            <header className="relative overflow-hidden pt-20 pb-32 border-b border-amber-100 dark:border-gray-800">
+            <header className="relative overflow-hidden pt-20 pb-32 border-b border-amber-100">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] opacity-50 pointer-events-none"></div>
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center max-w-4xl mx-auto">
                         <div className="flex justify-center mb-6">
                             <Sun className="h-12 w-12 text-amber-600 animate-spin-slow" />
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-8">
+                        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-8">
                             Path to <span className="text-amber-700 dark:text-amber-500">Enlightenment</span>
                         </h1>
-                        <p className="mt-4 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-sans">
+                        <p className="mt-4 text-xl text-muted-foreground dark:text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed font-sans">
                             Reconnect with your roots. Explore the timeless wisdom of the Vedas, Upanishads, and ancient Indian sciences.
                             Self-learning modules designed for the seeker in you.
                         </p>
@@ -84,7 +84,7 @@ export default function SelfLearningLandingPage() {
                             <Button size="lg" className="bg-amber-700 hover:bg-amber-800 text-lg px-8 py-6 h-auto rounded-full shadow-xl hover:shadow-amber-600/30 transition-all text-white" onClick={() => router.push('/student/batch2')}>
                                 Enter Library
                             </Button>
-                            <Button variant="outline" size="lg" className="text-lg px-8 py-6 h-auto rounded-full border-2 border-amber-200 bg-white/50 hover:bg-white">
+                            <Button variant="outline" size="lg" className="text-lg px-8 py-6 h-auto rounded-full border-2 border-amber-200 bg-card/50 hover:bg-card">
                                 <Book className="mr-2 h-5 w-5" /> Browse Catalog
                             </Button>
                         </div>
@@ -93,10 +93,10 @@ export default function SelfLearningLandingPage() {
             </header>
 
             {/* Quote Section */}
-            <section className="py-16 bg-white dark:bg-gray-900 border-b border-amber-100 dark:border-gray-800">
+            <section className="py-16 bg-card border-b border-amber-100">
                 <div className="container mx-auto px-4 max-w-3xl text-center">
-                    <Feather className="h-8 w-8 mx-auto mb-4 text-gray-400" />
-                    <p className="text-2xl italic text-gray-700 dark:text-gray-300">
+                    <Feather className="h-8 w-8 mx-auto mb-4 text-muted-foreground" />
+                    <p className="text-2xl italic text-muted-foreground dark:text-muted-foreground">
                         "Knowledge is that which liberates."
                     </p>
                     <p className="mt-4 font-bold text-amber-800 uppercase tracking-widest text-sm font-sans">– Sa Vidya Ya Vimuktaye</p>
@@ -107,8 +107,8 @@ export default function SelfLearningLandingPage() {
             <section className="py-24 bg-transparent font-sans">
                 <div className="container mx-auto px-4">
                     <div className="text-center max-w-3xl mx-auto mb-16">
-                        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-serif">Sacred Knowledge Series</h2>
-                        <p className="text-gray-600 dark:text-gray-400">
+                        <h2 className="text-4xl font-bold text-foreground mb-4 font-serif">Sacred Knowledge Series</h2>
+                        <p className="text-muted-foreground dark:text-muted-foreground">
                             Structured courses to help you decode ancient texts and apply them today.
                         </p>
                     </div>

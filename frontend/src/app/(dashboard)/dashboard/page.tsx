@@ -78,7 +78,7 @@ export default function DashboardPage() {
           <p className="text-blue-100 max-w-xl mb-6">
             Welcome back to your learning dashboard. You have {coursesInProgress} active courses and {tasks?.length || 0} pending tasks.
           </p>
-          <Button variant="secondary" className="bg-white text-blue-600 hover:bg-blue-50">
+          <Button variant="secondary" className="bg-card text-blue-600 hover:bg-blue-50">
             View My Plan
           </Button>
         </div>

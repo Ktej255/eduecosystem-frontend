@@ -33,7 +33,7 @@ export default function PushNotificationCenter() {
 
     return (
         <div className="max-w-4xl mx-auto h-full space-y-6">
-            <Card className="border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+            <Card className="border-neutral-200 dark:border-neutral-800 bg-card dark:bg-neutral-900">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2 text-rose-500">
                         <Bell className="w-5 h-5" />
@@ -107,7 +107,7 @@ export default function PushNotificationCenter() {
                 </CardContent>
             </Card>
 
-            <Card className="border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 opacity-60">
+            <Card className="border-neutral-200 dark:border-neutral-800 bg-card dark:bg-neutral-900 opacity-60">
                 <CardHeader>
                     <CardTitle className="text-sm">Recent Campaigns</CardTitle>
                 </CardHeader>

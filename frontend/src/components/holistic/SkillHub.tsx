@@ -83,8 +83,8 @@ export default function SkillHub() {
                             key={cat}
                             onClick={() => setSelectedCategory(selectedCategory === cat ? null : cat)}
                             className={`px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${selectedCategory === cat
-                                ? 'bg-white text-black shadow-lg shadow-white/10'
-                                : 'bg-white/5 text-white/40 hover:bg-white/10'
+                                ? 'bg-card text-black shadow-lg shadow-white/10'
+                                : 'bg-card/5 text-white/40 hover:bg-card/10'
                                 }`}
                         >
                             {cat}
@@ -130,13 +130,13 @@ export default function SkillHub() {
                                     <span>Mastery</span>
                                     <span>{skill.progress}%</span>
                                 </div>
-                                <Progress value={skill.progress} className="h-1 bg-white/5" />
+                                <Progress value={skill.progress} className="h-1 bg-card/5" />
                             </div>
 
                             {!skill.isLocked ? (
                                 <Link
                                     href={`/student/holistic/skills/${skill.id}`}
-                                    className="mt-6 w-full flex items-center justify-center gap-2 py-3 bg-white/5 hover:bg-white/10 rounded-xl text-xs font-bold text-white transition-all group-hover:bg-blue-600"
+                                    className="mt-6 w-full flex items-center justify-center gap-2 py-3 bg-card/5 hover:bg-card/10 rounded-xl text-xs font-bold text-white transition-all group-hover:bg-blue-600"
                                 >
                                     {skill.progress === 100 ? 'Review Skill' : 'Resume Learning'}
                                     <ArrowRight className="w-3 h-3" />
@@ -144,7 +144,7 @@ export default function SkillHub() {
                             ) : (
                                 <button
                                     onClick={() => handleUnlock(skill.id)}
-                                    className="mt-6 w-full flex items-center justify-center gap-2 py-3 bg-white/20 hover:bg-white/30 rounded-xl text-xs font-bold text-white transition-all"
+                                    className="mt-6 w-full flex items-center justify-center gap-2 py-3 bg-card/20 hover:bg-card/30 rounded-xl text-xs font-bold text-white transition-all"
                                 >
                                     <Lock className="w-3 h-3" /> Unlock Skill
                                 </button>

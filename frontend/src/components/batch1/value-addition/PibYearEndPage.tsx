@@ -26,7 +26,7 @@ export default function PibYearEndPage() {
                         <Newspaper className="h-6 w-6 text-pink-600" />
                         PIB & Year End Reviews
                     </h1>
-                    <p className="text-gray-500 text-sm">
+                    <p className="text-muted-foreground text-sm">
                         Curated summaries from Press Information Bureau.
                     </p>
                 </div>
@@ -34,14 +34,14 @@ export default function PibYearEndPage() {
 
             <div className="space-y-4">
                 {reviews.map((review, idx) => (
-                    <Card key={idx} className="hover:bg-slate-50 transition-colors">
+                    <Card key={idx} className="hover:bg-muted transition-colors">
                         <CardContent className="p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                             <div>
-                                <h3 className="font-bold text-gray-800 dark:text-gray-200">{review.title}</h3>
-                                <div className="flex items-center gap-3 mt-1 text-xs text-gray-500">
+                                <h3 className="font-bold text-foreground">{review.title}</h3>
+                                <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
                                     <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {review.date}</span>
                                     {review.tags.map(tag => (
-                                        <span key={tag} className="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-slate-600">
+                                        <span key={tag} className="bg-muted px-2 py-0.5 rounded text-muted-foreground">
                                             {tag}
                                         </span>
                                     ))}
@@ -54,8 +54,8 @@ export default function PibYearEndPage() {
                     </Card>
                 ))}
 
-                <div className="text-center py-8 bg-slate-50 rounded-xl border border-dashed">
-                    <p className="text-gray-500">More updates will be populated automatically.</p>
+                <div className="text-center py-8 bg-muted rounded-xl border border-dashed">
+                    <p className="text-muted-foreground">More updates will be populated automatically.</p>
                 </div>
             </div>
         </div>

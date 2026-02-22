@@ -61,20 +61,20 @@ export default function DemandSupplyViz() {
     const eqY = scaleY(equilibriumPrice);
 
     return (
-        <Card className="border-0 shadow-lg overflow-hidden">
-            <CardHeader className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white pb-4">
+        <Card className="border-0 shadow-lg overflow-hidden transition-colors">
+            <CardHeader className="bg-primary text-primary-foreground pb-4">
                 <CardTitle className="flex items-center gap-2">
                     <TrendingUp className="w-5 h-5" />
                     Demand & Supply Curves
                 </CardTitle>
-                <CardDescription className="text-blue-100">
+                <CardDescription className="text-primary-foreground/80">
                     Interactive visualization of market equilibrium
                 </CardDescription>
             </CardHeader>
             <CardContent className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* SVG Graph */}
-                    <div className="bg-slate-50 dark:bg-slate-900 rounded-xl p-4">
+                    <div className="bg-muted rounded-xl p-4">
                         <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-auto">
                             {/* Grid lines */}
                             {[0, 50, 100, 150, 200].map(val => (
@@ -84,26 +84,28 @@ export default function DemandSupplyViz() {
                                         y1={scaleY(val)}
                                         x2={width - padding}
                                         y2={scaleY(val)}
-                                        stroke="#e2e8f0"
+                                        stroke="var(--border)"
                                         strokeDasharray="4,4"
+                                        opacity={0.5}
                                     />
                                     <line
                                         x1={scaleX(val)}
                                         y1={padding}
                                         x2={scaleX(val)}
                                         y2={height - padding}
-                                        stroke="#e2e8f0"
+                                        stroke="var(--border)"
                                         strokeDasharray="4,4"
+                                        opacity={0.5}
                                     />
                                 </g>
                             ))}
 
                             {/* Axes */}
-                            <line x1={padding} y1={height - padding} x2={width - padding} y2={height - padding} stroke="#64748b" strokeWidth={2} />
-                            <line x1={padding} y1={padding} x2={padding} y2={height - padding} stroke="#64748b" strokeWidth={2} />
+                            <line x1={padding} y1={height - padding} x2={width - padding} y2={height - padding} stroke="var(--muted-foreground)" strokeWidth={2} />
+                            <line x1={padding} y1={padding} x2={padding} y2={height - padding} stroke="var(--muted-foreground)" strokeWidth={2} />
 
                             {/* Axis labels */}
-                            <text x={width / 2} y={height - 8} textAnchor="middle" className="fill-slate-600 text-xs font-medium">
+                            <text x={width / 2} y={height - 8} textAnchor="middle" className="fill-muted-foreground text-[10px] font-bold uppercase tracking-tight">
                                 Quantity (Q)
                             </text>
                             <text
@@ -111,7 +113,7 @@ export default function DemandSupplyViz() {
                                 y={height / 2}
                                 textAnchor="middle"
                                 transform={`rotate(-90, 12, ${height / 2})`}
-                                className="fill-slate-600 text-xs font-medium"
+                                className="fill-muted-foreground text-[10px] font-bold uppercase tracking-tight"
                             >
                                 Price (P)
                             </text>
@@ -184,11 +186,11 @@ export default function DemandSupplyViz() {
                                 animate={{ cx: eqX, cy: eqY }}
                                 transition={{ type: "spring", stiffness: 100, damping: 20 }}
                                 r={8}
-                                fill="#22c55e"
-                                stroke="#fff"
+                                fill="var(--emerald-500)"
+                                stroke="var(--card)"
                                 strokeWidth={2}
                             />
-                            <text x={eqX + 12} y={eqY - 5} className="fill-green-600 text-xs font-medium">
+                            <text x={eqX + 12} y={eqY - 5} className="fill-emerald-600 dark:fill-emerald-400 text-[10px] font-black">
                                 E ({Math.round(equilibriumQuantity)}, ₹{Math.round(equilibriumPrice)})
                             </text>
 
@@ -196,7 +198,8 @@ export default function DemandSupplyViz() {
                             <motion.line
                                 initial={false}
                                 animate={{ x1: eqX, y1: eqY, x2: eqX }}
-                                x2={eqX} y2={height - padding} stroke="#22c55e" strokeDasharray="4,2" strokeWidth={1.5}
+                                x2={eqX} y2={height - padding} stroke="var(--emerald-500)" strokeDasharray="4,2" strokeWidth={1.5}
+                                opacity={0.6}
                             />
                             <motion.line
                                 initial={false}
@@ -215,7 +218,7 @@ export default function DemandSupplyViz() {
                                     <div className="w-3 h-3 bg-blue-500 rounded-full" />
                                     Demand Shift
                                 </label>
-                                <span className="text-sm text-slate-500">
+                                <span className="text-sm text-muted-foreground">
                                     {demandShift > 0 ? '→ Right (Increase)' : demandShift < 0 ? '← Left (Decrease)' : 'No Shift'}
                                 </span>
                             </div>
@@ -227,7 +230,7 @@ export default function DemandSupplyViz() {
                                 step={5}
                                 className="w-full"
                             />
-                            <p className="text-xs text-slate-500">
+                            <p className="text-xs text-muted-foreground">
                                 Causes: Income ↑, Tastes change, Population ↑, Expectations, Related goods prices
                             </p>
                         </div>
@@ -239,7 +242,7 @@ export default function DemandSupplyViz() {
                                     <div className="w-3 h-3 bg-red-500 rounded-full" />
                                     Supply Shift
                                 </label>
-                                <span className="text-sm text-slate-500">
+                                <span className="text-sm text-muted-foreground">
                                     {supplyShift > 0 ? '→ Right (Increase)' : supplyShift < 0 ? '← Left (Decrease)' : 'No Shift'}
                                 </span>
                             </div>
@@ -251,7 +254,7 @@ export default function DemandSupplyViz() {
                                 step={5}
                                 className="w-full"
                             />
-                            <p className="text-xs text-slate-500">
+                            <p className="text-xs text-muted-foreground">
                                 Causes: Input costs, Technology, Government policy, Natural events
                             </p>
                         </div>

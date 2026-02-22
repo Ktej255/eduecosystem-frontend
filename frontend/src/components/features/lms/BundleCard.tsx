@@ -49,7 +49,7 @@ export function BundleCard({ bundle, isEnrolled = false }: BundleCardProps) {
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
-            <Package className="h-16 w-16 text-gray-700 group-hover:text-cyan-500/50 transition-colors" />
+            <Package className="h-16 w-16 text-muted-foreground group-hover:text-cyan-500/50 transition-colors" />
           </div>
         )}
 
@@ -69,7 +69,7 @@ export function BundleCard({ bundle, isEnrolled = false }: BundleCardProps) {
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center bg-gray-700">
-                  <BookOpen className="h-4 w-4 text-gray-400" />
+                  <BookOpen className="h-4 w-4 text-muted-foreground" />
                 </div>
               )}
             </div>
@@ -94,13 +94,13 @@ export function BundleCard({ bundle, isEnrolled = false }: BundleCardProps) {
             {bundle.title}
           </h3>
         </div>
-        <p className="text-sm text-gray-400 line-clamp-2 h-10">
+        <p className="text-sm text-muted-foreground line-clamp-2 h-10">
           {bundle.description}
         </p>
       </CardHeader>
 
       <CardContent className="pb-4">
-        <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
           <BookOpen className="h-4 w-4" />
           <span>{bundle.courses.length} Courses included</span>
         </div>
@@ -111,7 +111,7 @@ export function BundleCard({ bundle, isEnrolled = false }: BundleCardProps) {
             {bundle.price.toLocaleString("en-IN")}
           </span>
           {bundle.total_value && bundle.total_value > bundle.price && (
-            <span className="text-sm text-gray-500 line-through">
+            <span className="text-sm text-muted-foreground line-through">
               {bundle.currency === "INR" ? "₹" : "$"}
               {bundle.total_value.toLocaleString("en-IN")}
             </span>

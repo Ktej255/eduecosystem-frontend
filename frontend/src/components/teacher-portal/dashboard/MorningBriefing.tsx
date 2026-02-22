@@ -56,7 +56,7 @@ export default function MorningBriefing() {
         <Card className={`border-0 overflow-hidden shadow-lg bg-gradient-to-r ${getGradient()} text-white relative`}>
             {/* Abstract Background Shapes */}
             <div className="absolute top-0 right-0 p-12 opacity-10 pointer-events-none">
-                <div className="h-64 w-64 rounded-full bg-white blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                <div className="h-64 w-64 rounded-full bg-card blur-3xl -translate-y-1/2 translate-x-1/2"></div>
             </div>
 
             <CardContent className="p-6 md:p-8 relative z-10">
@@ -64,7 +64,7 @@ export default function MorningBriefing() {
 
                     {/* Greeting Section */}
                     <div className="flex items-start gap-4">
-                        <div className="p-3 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-inner">
+                        <div className="p-3 bg-card/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-inner">
                             {getIcon()}
                         </div>
                         <div>
@@ -95,7 +95,7 @@ export default function MorningBriefing() {
                             </div>
                         </div>
 
-                        <div className="flex-1 lg:flex-none bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-3 px-4 flex items-center gap-3 hover:bg-white/20 transition-colors cursor-pointer group">
+                        <div className="flex-1 lg:flex-none bg-card/10 backdrop-blur-sm border border-white/10 rounded-xl p-3 px-4 flex items-center gap-3 hover:bg-card/20 transition-colors cursor-pointer group">
                             <div className="h-8 w-8 rounded-full bg-red-400/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <AlertTriangle className="h-4 w-4 text-red-200" />
                             </div>
@@ -105,7 +105,7 @@ export default function MorningBriefing() {
                             </div>
                         </div>
 
-                        <div className="flex-1 lg:flex-none bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-3 px-4 flex items-center gap-3 hover:bg-white/20 transition-colors cursor-pointer group">
+                        <div className="flex-1 lg:flex-none bg-card/10 backdrop-blur-sm border border-white/10 rounded-xl p-3 px-4 flex items-center gap-3 hover:bg-card/20 transition-colors cursor-pointer group">
                             <div className="h-8 w-8 rounded-full bg-amber-400/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <CheckCircle2 className="h-4 w-4 text-amber-200" />
                             </div>
@@ -115,7 +115,7 @@ export default function MorningBriefing() {
                             </div>
                         </div>
 
-                        <div className="hidden md:flex flex-1 lg:flex-none bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-3 px-4 items-center gap-3">
+                        <div className="hidden md:flex flex-1 lg:flex-none bg-card/10 backdrop-blur-sm border border-white/10 rounded-xl p-3 px-4 items-center gap-3">
                             <div className="h-8 w-8 rounded-full bg-emerald-400/20 flex items-center justify-center">
                                 <Clock className="h-4 w-4 text-emerald-200" />
                             </div>

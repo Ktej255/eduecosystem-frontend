@@ -220,7 +220,7 @@ export default function OceanCurrentsViz() {
                     <Globe className="text-blue-400" />
                     Major Ocean Currents
                 </h1>
-                <p className="text-slate-400 text-sm">Global circulation of warm & cold water</p>
+                <p className="text-muted-foreground text-sm">Global circulation of warm & cold water</p>
             </div>
 
             {/* Legend */}
@@ -244,7 +244,7 @@ export default function OceanCurrentsViz() {
                                 {selectedCurrent.type === 'warm' ? <ThermometerSun className="w-5 h-5" /> : <Snowflake className="w-5 h-5" />}
                                 {selectedCurrent.name}
                             </h2>
-                            <button onClick={() => setSelectedCurrent(null)} className="text-slate-400 hover:text-white">✕</button>
+                            <button onClick={() => setSelectedCurrent(null)} className="text-muted-foreground hover:text-white">✕</button>
                         </div>
                         <Badge className={`mb-3 ${selectedCurrent.type === 'warm' ? 'bg-red-900/50 text-red-200 hover:bg-red-900/50' : 'bg-blue-900/50 text-blue-200 hover:bg-blue-900/50'} border-none`}>
                             {selectedCurrent.type === 'warm' ? 'Warm Current' : 'Cold Current'}
@@ -258,7 +258,7 @@ export default function OceanCurrentsViz() {
 
             {/* Helper Hint */}
             {!selectedCurrent && (
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-400 text-sm bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm animate-pulse">
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground text-sm bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm animate-pulse">
                     Click on the flow lines to identify currents
                 </div>
             )}

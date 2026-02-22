@@ -59,7 +59,7 @@ export default function OnboardingFlow({ examId, exam }: OnboardingFlowProps) {
                         className="w-full flex flex-col items-center space-y-8"
                     >
                         <div className="text-center space-y-4">
-                            <h2 className="text-3xl md:text-5xl font-display font-bold text-grapho-ink dark:text-white">
+                            <h2 className="text-3xl md:text-5xl font-display font-bold text-grapho-ink">
                                 Welcome to <span className="text-grapho-gold">{exam?.shortName}</span> Revision
                             </h2>
                             <p className="text-neutral-600 dark:text-neutral-300 max-w-xl mx-auto">
@@ -72,7 +72,7 @@ export default function OnboardingFlow({ examId, exam }: OnboardingFlowProps) {
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <button
                                     onClick={() => setVideoCompleted(true)} // Simulate watching
-                                    className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 group-hover:scale-110 transition-transform"
+                                    className="w-20 h-20 bg-card/10 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 group-hover:scale-110 transition-transform"
                                 >
                                     <Play className="w-8 h-8 fill-current ml-1" />
                                 </button>
@@ -102,7 +102,7 @@ export default function OnboardingFlow({ examId, exam }: OnboardingFlowProps) {
                         className="w-full flex flex-col items-center space-y-12"
                     >
                         <div className="text-center space-y-4">
-                            <h2 className="text-3xl md:text-5xl font-display font-bold text-grapho-ink dark:text-white">
+                            <h2 className="text-3xl md:text-5xl font-display font-bold text-grapho-ink">
                                 Choose Your <span className="text-grapho-gold">Path</span>
                             </h2>
                             <p className="text-neutral-600 dark:text-neutral-300 max-w-xl mx-auto">
@@ -160,12 +160,12 @@ function LevelCard({ level, title, icon, desc, onSelect, color }: any) {
     return (
         <button
             onClick={onSelect}
-            className={`group text-left p-8 rounded-2xl bg-white dark:bg-neutral-800 border-2 ${color} hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-all hover:scale-105 shadow-sm hover:shadow-xl`}
+            className={`group text-left p-8 rounded-2xl bg-card dark:bg-neutral-800 border-2 ${color} hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-all hover:scale-105 shadow-sm hover:shadow-xl`}
         >
             <div className={`w-12 h-12 rounded-full bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                 {icon}
             </div>
-            <h3 className="text-2xl font-bold mb-3 text-grapho-ink dark:text-white group-hover:text-primary-blue transition-colors">{title}</h3>
+            <h3 className="text-2xl font-bold mb-3 text-grapho-ink group-hover:text-primary-blue transition-colors">{title}</h3>
             <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">{desc}</p>
         </button>
     )

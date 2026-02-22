@@ -52,7 +52,7 @@ export default function FloatingVoiceAssistant() {
                         exit={{ opacity: 0, y: 20, scale: 0.9 }}
                         className="pointer-events-auto"
                     >
-                        <Card className="w-80 shadow-2xl border-indigo-100 dark:border-indigo-900 bg-white/95 dark:bg-slate-900/95 backdrop-blur overflow-hidden">
+                        <Card className="w-80 shadow-2xl border-indigo-100 dark:border-indigo-900 bg-card/95/95 backdrop-blur overflow-hidden">
                             <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-3 flex justify-between items-center text-white">
                                 <span className="font-semibold text-sm flex items-center gap-2">
                                     <MessageSquare className="w-4 h-4" /> AI Tutor
@@ -60,16 +60,16 @@ export default function FloatingVoiceAssistant() {
                                 <Button
                                     size="icon"
                                     variant="ghost"
-                                    className="h-6 w-6 text-white/80 hover:bg-white/20 rounded-full"
+                                    className="h-6 w-6 text-white/80 hover:bg-card/20 rounded-full"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     <X className="w-4 h-4" />
                                 </Button>
                             </div>
 
-                            <div className="h-64 overflow-y-auto p-4 space-y-3 bg-slate-50 dark:bg-slate-950/50">
+                            <div className="h-64 overflow-y-auto p-4 space-y-3 bg-muted/50">
                                 {messages.length === 0 && (
-                                    <div className="text-center text-xs text-slate-400 mt-10">
+                                    <div className="text-center text-xs text-muted-foreground mt-10">
                                         Tap the mic to ask a question or start a quiz.
                                     </div>
                                 )}
@@ -80,7 +80,7 @@ export default function FloatingVoiceAssistant() {
                                             "text-sm p-2.5 rounded-lg max-w-[85%]",
                                             msg.role === 'user'
                                                 ? "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-200 ml-auto rounded-tr-none"
-                                                : "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 mr-auto rounded-tl-none shadow-sm"
+                                                : "bg-card border border-border mr-auto rounded-tl-none shadow-sm"
                                         )}
                                     >
                                         {msg.text}
@@ -95,7 +95,7 @@ export default function FloatingVoiceAssistant() {
                                 )}
                             </div>
 
-                            <div className="p-3 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2">
+                            <div className="p-3 bg-card border-t border-slate-100 flex items-center gap-2">
                                 <div className="flex-1">
                                     <VoiceInput
                                         onTranscript={handleTranscript}
@@ -130,7 +130,7 @@ export default function FloatingVoiceAssistant() {
                     ) : (
                         <div className="relative">
                             <MessageSquare className="h-6 w-6" />
-                            <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white dark:border-slate-900" />
+                            <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white" />
                         </div>
                     )}
                 </Button>

@@ -47,9 +47,9 @@ export function DashboardHeader({ phase, dailyProgress, mode, onToggleMode, onSt
         >
             <div className="flex flex-col md:flex-row items-center md:items-start gap-6 lg:gap-10">
                 {/* Date Navigator */}
-                <div className="flex flex-col items-center p-2 rounded-2xl bg-white/5 border border-white/10">
+                <div className="flex flex-col items-center p-2 rounded-2xl bg-card/5 border border-white/10">
                     <div className="flex items-center space-x-4 mb-1">
-                        <button onClick={onPrevDay} className="p-2 rounded-xl hover:bg-white/10 text-gray-400 hover:text-white transition-all active:scale-90">
+                        <button onClick={onPrevDay} className="p-2 rounded-xl hover:bg-card/10 text-muted-foreground hover:text-white transition-all active:scale-90">
                             <ChevronLeft size={20} />
                         </button>
                         <div className="flex flex-col items-center min-w-[100px]">
@@ -60,7 +60,7 @@ export function DashboardHeader({ phase, dailyProgress, mode, onToggleMode, onSt
                                 {isToday ? "TODAY" : selectedDate}
                             </span>
                         </div>
-                        <button onClick={onNextDay} className="p-2 rounded-xl hover:bg-white/10 text-gray-400 hover:text-white transition-all active:scale-90">
+                        <button onClick={onNextDay} className="p-2 rounded-xl hover:bg-card/10 text-muted-foreground hover:text-white transition-all active:scale-90">
                             <ChevronRight size={20} />
                         </button>
                     </div>
@@ -71,7 +71,7 @@ export function DashboardHeader({ phase, dailyProgress, mode, onToggleMode, onSt
                         <h1 className="text-2xl font-black text-white tracking-tight uppercase italic">{phase.name}</h1>
                         <div className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
                     </div>
-                    <p className="text-gray-400 text-sm font-medium mb-3">
+                    <p className="text-muted-foreground text-sm font-medium mb-3">
                         {phase.description} • <span className="text-blue-400/80">{phase.status_message}</span>
                     </p>
 
@@ -112,7 +112,7 @@ export function DashboardHeader({ phase, dailyProgress, mode, onToggleMode, onSt
                         <div className="relative">
                             <button
                                 onClick={() => setShowSoundMenu(!showSoundMenu)}
-                                className={`flex items-center gap-2 text-xs font-bold ${activeSound ? 'text-green-400' : 'text-gray-400'} hover:text-white bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-full transition-all border border-white/10`}
+                                className={`flex items-center gap-2 text-xs font-bold ${activeSound ? 'text-green-400' : 'text-muted-foreground'} hover:text-white bg-card/5 hover:bg-card/10 px-3 py-1.5 rounded-full transition-all border border-white/10`}
                             >
                                 <Headphones size={14} />
                                 {activeSound ? (
@@ -145,7 +145,7 @@ export function DashboardHeader({ phase, dailyProgress, mode, onToggleMode, onSt
                                                         setActiveSound(activeSound === s.id ? null : s.id);
                                                         setShowSoundMenu(false);
                                                     }}
-                                                    className={`flex items-center gap-3 px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-tight transition-all ${activeSound === s.id ? 'bg-blue-500 text-white' : 'hover:bg-white/5 text-gray-400 hover:text-white'}`}
+                                                    className={`flex items-center gap-3 px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-tight transition-all ${activeSound === s.id ? 'bg-blue-500 text-white' : 'hover:bg-card/5 text-muted-foreground hover:text-white'}`}
                                                 >
                                                     {s.icon} {s.name}
                                                 </button>
@@ -161,13 +161,13 @@ export function DashboardHeader({ phase, dailyProgress, mode, onToggleMode, onSt
 
             <div className="flex flex-col md:flex-row items-center gap-8 mt-6 lg:mt-0">
                 {/* Progress Circle Visual */}
-                <div className="flex items-center gap-4 bg-white/5 p-4 rounded-3xl border border-white/10">
+                <div className="flex items-center gap-4 bg-card/5 p-4 rounded-3xl border border-white/10">
                     <div className="relative w-12 h-12 flex items-center justify-center">
                         <svg className="w-full h-full transform -rotate-90">
                             <circle
                                 cx="24" cy="24" r="20"
                                 stroke="currentColor" strokeWidth="4"
-                                fill="transparent" className="text-gray-700"
+                                fill="transparent" className="text-muted-foreground"
                             />
                             <circle
                                 cx="24" cy="24" r="20"
@@ -181,7 +181,7 @@ export function DashboardHeader({ phase, dailyProgress, mode, onToggleMode, onSt
                         <span className="absolute text-[10px] font-bold">{Math.round(dailyProgress)}%</span>
                     </div>
                     <div className="flex flex-col">
-                        <span className="text-[10px] uppercase font-black text-gray-500 tracking-tighter">Daily Momentum</span>
+                        <span className="text-[10px] uppercase font-black text-muted-foreground tracking-tighter">Daily Momentum</span>
                         <div className="flex gap-1">
                             {[1, 2, 3, 4, 5].map(i => (
                                 <div key={i} className={`h-1 w-4 rounded-full ${dailyProgress >= i * 20 ? 'bg-blue-500' : 'bg-gray-800'}`} />
@@ -194,13 +194,13 @@ export function DashboardHeader({ phase, dailyProgress, mode, onToggleMode, onSt
                 <div className="flex p-1.5 bg-black/40 rounded-2xl border border-white/10 shadow-inner">
                     <button
                         onClick={() => onToggleMode("prelims")}
-                        className={`px-5 py-2 rounded-xl text-xs font-black uppercase transition-all ${mode === "prelims" ? "bg-white text-black shadow-[0_5px_15px_rgba(255,255,255,0.2)]" : "text-gray-500 hover:text-white"}`}
+                        className={`px-5 py-2 rounded-xl text-xs font-black uppercase transition-all ${mode === "prelims" ? "bg-card text-black shadow-[0_5px_15px_rgba(255,255,255,0.2)]" : "text-muted-foreground hover:text-white"}`}
                     >
                         Prelims
                     </button>
                     <button
                         onClick={() => onToggleMode("mains")}
-                        className={`px-5 py-2 rounded-xl text-xs font-black uppercase transition-all ${mode === "mains" ? "bg-[#ff4b2b] text-white shadow-[0_5px_15px_rgba(255,75,43,0.3)]" : "text-gray-500 hover:text-white"}`}
+                        className={`px-5 py-2 rounded-xl text-xs font-black uppercase transition-all ${mode === "mains" ? "bg-[#ff4b2b] text-white shadow-[0_5px_15px_rgba(255,75,43,0.3)]" : "text-muted-foreground hover:text-white"}`}
                     >
                         Mains
                     </button>

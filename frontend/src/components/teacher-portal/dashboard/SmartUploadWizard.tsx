@@ -105,7 +105,7 @@ export default function SmartUploadWizard() {
                     Smart Upload
                 </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-xl border-emerald-500/20 bg-white/95 backdrop-blur-xl dark:bg-slate-900/95">
+            <DialogContent className="sm:max-w-xl border-emerald-500/20 bg-card/95 backdrop-blur-xl/95">
                 <DialogHeader>
                     <DialogTitle className="flex items-center gap-2 text-xl">
                         {step === 1 && <Upload className="h-5 w-5 text-emerald-600" />}
@@ -127,7 +127,7 @@ export default function SmartUploadWizard() {
                     {/* Step 1: Upload */}
                     {step === 1 && (
                         <div
-                            className="border-2 border-dashed border-slate-200 rounded-xl p-10 flex flex-col items-center justify-center text-center cursor-pointer hover:border-emerald-400 hover:bg-emerald-50/30 transition-all group"
+                            className="border-2 border-dashed border-border rounded-xl p-10 flex flex-col items-center justify-center text-center cursor-pointer hover:border-emerald-400 hover:bg-emerald-50/30 transition-all group"
                             onClick={() => fileInputRef.current?.click()}
                         >
                             <input
@@ -136,11 +136,11 @@ export default function SmartUploadWizard() {
                                 ref={fileInputRef}
                                 onChange={handleFileSelect}
                             />
-                            <div className="h-16 w-16 bg-slate-100 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                                <Upload className="h-8 w-8 text-slate-400 group-hover:text-emerald-500" />
+                            <div className="h-16 w-16 bg-muted rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                <Upload className="h-8 w-8 text-muted-foreground group-hover:text-emerald-500" />
                             </div>
-                            <h3 className="font-semibold text-slate-700">Click to upload or drag and drop</h3>
-                            <p className="text-sm text-slate-500 mt-1">PDF, MP4, or DOCX (Max 50MB)</p>
+                            <h3 className="font-semibold text-muted-foreground">Click to upload or drag and drop</h3>
+                            <p className="text-sm text-muted-foreground mt-1">PDF, MP4, or DOCX (Max 50MB)</p>
                         </div>
                     )}
 
@@ -189,7 +189,7 @@ export default function SmartUploadWizard() {
                                                     </button>
                                                 </Badge>
                                             ))}
-                                            <Badge variant="outline" className="cursor-pointer border-dashed border-slate-300 text-slate-500 hover:border-purple-400 hover:text-purple-600">
+                                            <Badge variant="outline" className="cursor-pointer border-dashed border-border text-muted-foreground hover:border-purple-400 hover:text-purple-600">
                                                 <Plus className="h-3 w-3 mr-1" /> Add Tag
                                             </Badge>
                                         </div>
@@ -221,7 +221,7 @@ export default function SmartUploadWizard() {
                                         <Card key={i} className="group hover:border-amber-400 transition-colors">
                                             <CardContent className="p-3 flex items-start gap-3">
                                                 <Badge variant="outline" className="mt-0.5 bg-amber-100 text-amber-700 border-amber-200">{i}</Badge>
-                                                <p className="text-sm text-slate-700 flex-grow">
+                                                <p className="text-sm text-muted-foreground flex-grow">
                                                     {i === 1 ? `${title} is crucial for Prelims 2026 because of recent amendments.` :
                                                         i === 2 ? `Key statistic: 45% increase in related cases over the last decade.` :
                                                             `Remember: Article 34 of the constitution directly impacts this concept.`}
@@ -238,7 +238,7 @@ export default function SmartUploadWizard() {
                                         <CardContent className="p-4 space-y-4">
                                             <div className="flex items-center justify-between border-b border-slate-700 pb-2">
                                                 <Badge className="bg-red-600 text-white border-0"><Youtube className="h-3 w-3 mr-1" /> Shorts Script</Badge>
-                                                <Button variant="ghost" size="sm" className="text-slate-400 hover:text-white" onClick={() => copyToClipboard("Script content...")}>
+                                                <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-white" onClick={() => copyToClipboard("Script content...")}>
                                                     <Copy className="h-4 w-4 mr-2" /> Copy
                                                 </Button>
                                             </div>

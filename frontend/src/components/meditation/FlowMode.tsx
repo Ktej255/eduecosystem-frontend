@@ -246,7 +246,7 @@ export default function FlowMode({
                                 {currentProcess.name}
                             </h1>
                             {currentProcess.description && (
-                                <p className="text-gray-400 text-lg max-w-md mx-auto">
+                                <p className="text-muted-foreground text-lg max-w-md mx-auto">
                                     {currentProcess.description}
                                 </p>
                             )}
@@ -291,7 +291,7 @@ export default function FlowMode({
                         >
                             <span className="text-green-400 text-4xl">✓</span>
                         </motion.div>
-                        <p className="text-gray-400 mt-4">
+                        <p className="text-muted-foreground mt-4">
                             {isLastProcess ? "Session Complete!" : "Transitioning..."}
                         </p>
                     </motion.div>
@@ -315,7 +315,7 @@ export default function FlowMode({
                             🙏
                         </motion.div>
                         <h1 className="text-4xl font-bold text-white mb-2">Namaste</h1>
-                        <p className="text-gray-400">Session Complete</p>
+                        <p className="text-muted-foreground">Session Complete</p>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -339,14 +339,14 @@ export default function FlowMode({
 
                             <button
                                 onClick={(e) => { e.stopPropagation(); togglePause(); }}
-                                className="w-16 h-16 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+                                className="w-16 h-16 rounded-full bg-card/10 text-white flex items-center justify-center hover:bg-card/20 transition-colors"
                             >
                                 {isPaused ? <Play className="w-7 h-7" /> : <Pause className="w-7 h-7" />}
                             </button>
 
                             <button
                                 onClick={(e) => { e.stopPropagation(); skipProcess(); }}
-                                className="w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+                                className="w-12 h-12 rounded-full bg-card/10 text-white flex items-center justify-center hover:bg-card/20 transition-colors"
                             >
                                 <SkipForward className="w-5 h-5" />
                             </button>
@@ -365,7 +365,7 @@ export default function FlowMode({
                     >
                         <Pause className="w-16 h-16 text-white mx-auto mb-4" />
                         <p className="text-white text-xl font-medium">Paused</p>
-                        <p className="text-gray-400 text-sm mt-2">Tap anywhere to resume</p>
+                        <p className="text-muted-foreground text-sm mt-2">Tap anywhere to resume</p>
                     </motion.div>
                 </div>
             )}

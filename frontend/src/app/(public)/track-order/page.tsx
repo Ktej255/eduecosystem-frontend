@@ -81,9 +81,9 @@ export default function TrackOrderPage() {
       processing: "text-blue-600 bg-blue-50",
       completed: "text-green-600 bg-green-50",
       failed: "text-red-600 bg-red-50",
-      cancelled: "text-gray-600 bg-gray-50",
+      cancelled: "text-muted-foreground bg-muted",
     };
-    return colors[status] || "text-gray-600 bg-gray-50";
+    return colors[status] || "text-muted-foreground bg-muted";
   };
 
   return (

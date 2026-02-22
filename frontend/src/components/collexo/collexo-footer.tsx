@@ -56,13 +56,13 @@ const socials = [
 
 export default function CollexoFooter() {
     return (
-        <footer className="bg-slate-900 dark:bg-slate-950 text-white">
+        <footer className="bg-slate-900 text-white">
             {/* CTA Section */}
             <div className="collexo-container px-6 py-16">
                 <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-indigo-600 to-purple-600 p-8 md:p-12">
                     {/* Background Decoration */}
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-card/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-card/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                         <div>
@@ -73,7 +73,7 @@ export default function CollexoFooter() {
                                 Schedule a personalized demo and see SaritClasses CRM in action
                             </p>
                         </div>
-                        <button className="flex-shrink-0 bg-white text-indigo-600 px-8 py-4 rounded-xl font-semibold hover:bg-white/90 transition-colors flex items-center gap-2">
+                        <button className="flex-shrink-0 bg-card text-indigo-600 px-8 py-4 rounded-xl font-semibold hover:bg-card/90 transition-colors flex items-center gap-2">
                             Schedule a Demo
                             <ArrowUpRight className="w-5 h-5" />
                         </button>
@@ -92,22 +92,22 @@ export default function CollexoFooter() {
                             </div>
                             <span className="text-2xl font-bold">SaritClasses</span>
                         </Link>
-                        <p className="text-slate-400 mb-6 max-w-sm">
+                        <p className="text-muted-foreground mb-6 max-w-sm">
                             A complete CRM and management platform for education.
                             Powering 500+ coaching institutes and educational organizations.
                         </p>
 
                         {/* Contact Info */}
                         <div className="space-y-3">
-                            <div className="flex items-center gap-3 text-slate-400">
+                            <div className="flex items-center gap-3 text-muted-foreground">
                                 <Mail className="w-5 h-5" />
                                 <span>hello@saritclasses.com</span>
                             </div>
-                            <div className="flex items-center gap-3 text-slate-400">
+                            <div className="flex items-center gap-3 text-muted-foreground">
                                 <Phone className="w-5 h-5" />
                                 <span>+91 1800-XXX-XXXX</span>
                             </div>
-                            <div className="flex items-center gap-3 text-slate-400">
+                            <div className="flex items-center gap-3 text-muted-foreground">
                                 <MapPin className="w-5 h-5" />
                                 <span>Bangalore, India</span>
                             </div>
@@ -122,7 +122,7 @@ export default function CollexoFooter() {
                                 <li key={item.name}>
                                     <Link
                                         href={item.href}
-                                        className="text-slate-400 hover:text-white transition-colors flex items-center gap-2"
+                                        className="text-muted-foreground hover:text-white transition-colors flex items-center gap-2"
                                     >
                                         {item.icon && <item.icon className="w-4 h-4" />}
                                         {item.name}
@@ -140,7 +140,7 @@ export default function CollexoFooter() {
                                 <li key={item.name}>
                                     <Link
                                         href={item.href}
-                                        className="text-slate-400 hover:text-white transition-colors"
+                                        className="text-muted-foreground hover:text-white transition-colors"
                                     >
                                         {item.name}
                                     </Link>
@@ -157,7 +157,7 @@ export default function CollexoFooter() {
                                 <li key={item.name}>
                                     <Link
                                         href={item.href}
-                                        className="text-slate-400 hover:text-white transition-colors"
+                                        className="text-muted-foreground hover:text-white transition-colors"
                                     >
                                         {item.name}
                                     </Link>
@@ -174,7 +174,7 @@ export default function CollexoFooter() {
                                 <li key={item.name}>
                                     <Link
                                         href={item.href}
-                                        className="text-slate-400 hover:text-white transition-colors flex items-center gap-2"
+                                        className="text-muted-foreground hover:text-white transition-colors flex items-center gap-2"
                                     >
                                         {item.name}
                                         {item.badge && (
@@ -193,18 +193,18 @@ export default function CollexoFooter() {
             {/* Bottom Bar */}
             <div className="collexo-container px-6 py-6 border-t border-white/10">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                    <div className="text-slate-400 text-sm">
+                    <div className="text-muted-foreground text-sm">
                         © {new Date().getFullYear()} SaritClasses. All rights reserved.
                     </div>
 
                     <div className="flex items-center gap-6">
-                        <Link href="#" className="text-slate-400 hover:text-white text-sm transition-colors">
+                        <Link href="#" className="text-muted-foreground hover:text-white text-sm transition-colors">
                             Privacy Policy
                         </Link>
-                        <Link href="#" className="text-slate-400 hover:text-white text-sm transition-colors">
+                        <Link href="#" className="text-muted-foreground hover:text-white text-sm transition-colors">
                             Terms of Service
                         </Link>
-                        <Link href="#" className="text-slate-400 hover:text-white text-sm transition-colors">
+                        <Link href="#" className="text-muted-foreground hover:text-white text-sm transition-colors">
                             Cookie Policy
                         </Link>
                     </div>
@@ -214,7 +214,7 @@ export default function CollexoFooter() {
                             <Link
                                 key={social.name}
                                 href={social.href}
-                                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                                className="w-10 h-10 rounded-full bg-card/10 flex items-center justify-center hover:bg-card/20 transition-colors"
                             >
                                 <social.icon className="w-5 h-5" />
                             </Link>

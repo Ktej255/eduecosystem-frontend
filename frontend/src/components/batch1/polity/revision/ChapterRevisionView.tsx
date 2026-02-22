@@ -99,7 +99,7 @@ function ChapterReportHistory({ chapterId, subject }: { chapterId: number; subje
 
     if (reports.length === 0) {
         return (
-            <p className="text-sm text-slate-500 text-center py-4">
+            <p className="text-sm text-muted-foreground text-center py-4">
                 No test reports yet. Complete a Level 1 test to see your results here.
             </p>
         );
@@ -108,13 +108,13 @@ function ChapterReportHistory({ chapterId, subject }: { chapterId: number; subje
     return (
         <div className="space-y-2">
             {reports.map((r, i) => (
-                <div key={i} className="flex items-center justify-between p-3 bg-white dark:bg-gray-800 rounded-lg border border-slate-100 dark:border-gray-700">
+                <div key={i} className="flex items-center justify-between p-3 bg-card rounded-lg border border-slate-100">
                     <div>
-                        <span className="text-sm font-medium text-slate-700 dark:text-white">Level {r.level}</span>
-                        <span className="text-xs text-slate-400 ml-2">{new Date(r.timestamp).toLocaleDateString()}</span>
+                        <span className="text-sm font-medium text-muted-foreground">Level {r.level}</span>
+                        <span className="text-xs text-muted-foreground ml-2">{new Date(r.timestamp).toLocaleDateString()}</span>
                     </div>
                     <div className="flex items-center gap-3">
-                        <span className="text-sm text-slate-600 dark:text-slate-300">{r.score}/{r.totalQuestions}</span>
+                        <span className="text-sm text-muted-foreground">{r.score}/{r.totalQuestions}</span>
                         <span className={`text-sm font-bold px-2 py-1 rounded ${r.accuracy >= 70 ? 'bg-green-100 text-green-700' : r.accuracy >= 50 ? 'bg-amber-100 text-amber-700' : 'bg-red-100 text-red-700'}`}>
                             {r.accuracy}%
                         </span>
@@ -203,15 +203,15 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
     return (
         <div className="min-h-screen bg-[#F9FAFB] dark:bg-[#030303]">
             {/* Header */}
-            <div className="bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-800 sticky top-0 z-10">
+            <div className="bg-card dark:bg-[#0a0a0a] border-b border-border sticky top-0 z-10">
                 <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-                    <Link href={backLink || (subjectId === 'polity' ? '/student/batch1/polity' : `/student/revision/${subjectId}`)} className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors">
+                    <Link href={backLink || (subjectId === 'polity' ? '/student/batch1/polity' : `/student/revision/${subjectId}`)} className="flex items-center gap-2 text-muted-foreground hover:text-blue-600 transition-colors">
                         <ChevronLeft className="w-5 h-4" />
                         <span className="text-sm font-medium">{backLabel || "Back to Revision Hub"}</span>
                     </Link>
                     <div className="text-center">
                         <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600">Chapter {chapterId} Revision</span>
-                        <h1 className="text-sm font-bold text-gray-900 dark:text-white truncate max-w-[200px] md:max-w-none">{title}</h1>
+                        <h1 className="text-sm font-bold text-foreground truncate max-w-[200px] md:max-w-none">{title}</h1>
                     </div>
                     <div className="w-20" /> {/* Spacer */}
                 </div>
@@ -230,7 +230,7 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                                 onClick={() => setActiveTab(tab.id as 'content' | 'flashcards' | 'mcqs' | 'current_affairs')}
                                 className={`py-4 px-1 border-b-2 transition-all flex items-center gap-2 text-sm font-medium ${activeTab === tab.id
                                     ? 'border-blue-600 text-blue-600'
-                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                                    : 'border-transparent text-muted-foreground hover:text-muted-foreground hover:border-border'
                                     }`}
                             >
                                 <tab.icon className="w-4 h-4" />
@@ -244,10 +244,10 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
             <div className="max-w-4xl mx-auto px-4 py-8">
                 {/* Tab 1: Detailed Text */}
                 {activeTab === 'content' && (
-                    <div className="bg-white dark:bg-[#0a0a0a] rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 p-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                    <div className="bg-card dark:bg-[#0a0a0a] rounded-2xl shadow-sm border border-border p-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <div className="prose prose-blue dark:prose-invert max-w-none">
                             <h2 className="text-3xl font-bold mb-4">{content.title}</h2>
-                            <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-8">
+                            <p className="text-muted-foreground dark:text-muted-foreground text-lg leading-relaxed mb-8">
                                 {content.introduction}
                             </p>
 
@@ -255,19 +255,19 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                                 {content.sections.map((section: ContentSection, idx: number) => (
                                     <div key={idx} className="border-l-4 border-blue-500 pl-6 py-2">
                                         <h3 className="text-2xl font-bold mb-4">{section.title}</h3>
-                                        {section.content && <p className="mb-4 text-gray-700 dark:text-gray-300">{section.content}</p>}
+                                        {section.content && <p className="mb-4 text-muted-foreground dark:text-muted-foreground">{section.content}</p>}
 
                                         {section.subsections && (
                                             <div className="space-y-6 mt-4">
                                                 {section.subsections?.map((sub: { title: string; content: string; features: string[] }, sIdx: number) => (
-                                                    <div key={sIdx} className="bg-gray-50 dark:bg-[#111] p-5 rounded-xl">
+                                                    <div key={sIdx} className="bg-muted dark:bg-[#111] p-5 rounded-xl">
                                                         <h4 className="text-xl font-bold mb-3 text-blue-700 dark:text-blue-400">{sub.title}</h4>
-                                                        <p className="text-sm mb-4 text-gray-600 dark:text-gray-400">{sub.content}</p>
+                                                        <p className="text-sm mb-4 text-muted-foreground dark:text-muted-foreground">{sub.content}</p>
                                                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                                             {sub.features.map((feat: string, fIdx: number) => (
                                                                 <li key={fIdx} className="flex gap-2 text-sm">
                                                                     <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 shrink-0" />
-                                                                    <span className="text-gray-700 dark:text-gray-300">{feat}</span>
+                                                                    <span className="text-muted-foreground dark:text-muted-foreground">{feat}</span>
                                                                 </li>
                                                             ))}
                                                         </ul>
@@ -279,9 +279,9 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                                         {section.features && (
                                             <ul className="space-y-3 mt-4">
                                                 {section.features.map((feat: string, fIdx: number) => (
-                                                    <li key={fIdx} className="flex gap-3 bg-gray-50 dark:bg-[#111] p-3 rounded-lg border border-gray-100 dark:border-gray-800">
+                                                    <li key={fIdx} className="flex gap-3 bg-muted dark:bg-[#111] p-3 rounded-lg border border-border">
                                                         <Sparkles className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" />
-                                                        <span className="text-sm text-gray-700 dark:text-gray-300">{feat}</span>
+                                                        <span className="text-sm text-muted-foreground dark:text-muted-foreground">{feat}</span>
                                                     </li>
                                                 ))}
                                             </ul>
@@ -297,7 +297,7 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                 {activeTab === 'flashcards' && (
                     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <div className="flex items-center justify-between">
-                            <div className="text-sm font-medium text-gray-500">
+                            <div className="text-sm font-medium text-muted-foreground">
                                 Card {currentFlashIdx + 1} of {flashcards.length}
                             </div>
                             <div className="flex items-center gap-2">
@@ -320,11 +320,11 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                         >
                             <div className={`relative w-full h-full transition-all duration-500 preserve-3d ${showAnswer ? 'rotate-y-180' : ''}`}>
                                 {/* Front */}
-                                <div className="absolute inset-0 bg-white dark:bg-[#0a0a0a] rounded-3xl border-2 border-dashed border-gray-200 dark:border-gray-800 flex flex-col items-center justify-center p-12 backface-hidden shadow-sm">
+                                <div className="absolute inset-0 bg-card dark:bg-[#0a0a0a] rounded-3xl border-2 border-dashed border-border flex flex-col items-center justify-center p-12 backface-hidden shadow-sm">
                                     <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-6">
                                         <BookOpen className="w-6 h-6 text-blue-600" />
                                     </div>
-                                    <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white leading-snug">
+                                    <h3 className="text-2xl font-bold text-center text-foreground leading-snug">
                                         {flashcards[currentFlashIdx].question}
                                     </h3>
                                     <p className="mt-8 text-sm text-blue-600 font-medium opacity-50">Click to reveal answer</p>
@@ -332,7 +332,7 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
 
                                 {/* Back */}
                                 <div className="absolute inset-0 bg-blue-600 rounded-3xl flex flex-col items-center justify-center p-12 rotate-y-180 backface-hidden shadow-xl overflow-y-auto">
-                                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mb-6">
+                                    <div className="w-10 h-10 rounded-full bg-card/20 flex items-center justify-center mb-6">
                                         <CheckCircle2 className="w-6 h-6 text-white" />
                                     </div>
                                     <div className="text-white text-xl font-medium text-center leading-relaxed whitespace-pre-line">
@@ -348,20 +348,20 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                             <button
                                 onClick={(e) => { e.stopPropagation(); prevFlashcard(); }}
                                 disabled={currentFlashIdx === 0}
-                                className="w-12 h-12 rounded-full bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 flex items-center justify-center disabled:opacity-30 hover:bg-gray-50 transition-colors shadow-sm"
+                                className="w-12 h-12 rounded-full bg-card dark:bg-[#0a0a0a] border border-border flex items-center justify-center disabled:opacity-30 hover:bg-muted transition-colors shadow-sm"
                             >
                                 <ArrowLeft className="w-5 h-5" />
                             </button>
                             <button
                                 onClick={(e) => { e.stopPropagation(); setShowAnswer(!showAnswer); }}
-                                className="px-8 py-3 rounded-full bg-gray-900 dark:bg-white dark:text-black text-white font-bold text-sm shadow-lg hover:scale-105 transition-transform"
+                                className="px-8 py-3 rounded-full bg-gray-900 dark:bg-card dark:text-black text-white font-bold text-sm shadow-lg hover:scale-105 transition-transform"
                             >
                                 {showAnswer ? "View Question" : "Show Answer"}
                             </button>
                             <button
                                 onClick={(e) => { e.stopPropagation(); nextFlashcard(); }}
                                 disabled={currentFlashIdx === flashcards.length - 1}
-                                className="w-12 h-12 rounded-full bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 flex items-center justify-center disabled:opacity-30 hover:bg-gray-50 transition-colors shadow-sm"
+                                className="w-12 h-12 rounded-full bg-card dark:bg-[#0a0a0a] border border-border flex items-center justify-center disabled:opacity-30 hover:bg-muted transition-colors shadow-sm"
                             >
                                 <ArrowRight className="w-5 h-5" />
                             </button>
@@ -379,47 +379,47 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                                     {/* Level 1 */}
                                     <div
                                         onClick={() => setMcqLevel(1)}
-                                        className="bg-white dark:bg-[#0a0a0a] p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-blue-500 hover:shadow-lg cursor-pointer transition-all group"
+                                        className="bg-card dark:bg-[#0a0a0a] p-6 rounded-2xl border border-border hover:border-blue-500 hover:shadow-lg cursor-pointer transition-all group"
                                     >
                                         <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                                             <Target className="w-6 h-6" />
                                         </div>
-                                        <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Level 1: Foundation</h3>
-                                        <p className="text-sm text-gray-500 mb-4">Master the facts. Direct questions to build your base.</p>
+                                        <h3 className="text-xl font-bold mb-2 text-foreground">Level 1: Foundation</h3>
+                                        <p className="text-sm text-muted-foreground mb-4">Master the facts. Direct questions to build your base.</p>
                                         <Badge variant="secondary" className="bg-blue-50 text-blue-700">Recommended Start</Badge>
                                     </div>
 
                                     {/* Level 2 */}
                                     <div
                                         onClick={() => setMcqLevel(2)}
-                                        className="bg-white dark:bg-[#0a0a0a] p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-purple-500 hover:shadow-lg cursor-pointer transition-all group opacity-75 hover:opacity-100"
+                                        className="bg-card dark:bg-[#0a0a0a] p-6 rounded-2xl border border-border hover:border-purple-500 hover:shadow-lg cursor-pointer transition-all group opacity-75 hover:opacity-100"
                                     >
                                         <div className="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                                             <Layers className="w-6 h-6" />
                                         </div>
-                                        <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Level 2: Conceptual</h3>
-                                        <p className="text-sm text-gray-500 mb-4">Statement-based questions testing deep understanding.</p>
+                                        <h3 className="text-xl font-bold mb-2 text-foreground">Level 2: Conceptual</h3>
+                                        <p className="text-sm text-muted-foreground mb-4">Statement-based questions testing deep understanding.</p>
                                         <Badge variant="secondary" className="bg-purple-50 text-purple-700">Coming Soon</Badge>
                                     </div>
 
                                     {/* Level 3 */}
                                     <div
                                         onClick={() => setMcqLevel(3)}
-                                        className="bg-white dark:bg-[#0a0a0a] p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-red-500 hover:shadow-lg cursor-pointer transition-all group opacity-75 hover:opacity-100"
+                                        className="bg-card dark:bg-[#0a0a0a] p-6 rounded-2xl border border-border hover:border-red-500 hover:shadow-lg cursor-pointer transition-all group opacity-75 hover:opacity-100"
                                     >
                                         <div className="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                                             <Flame className="w-6 h-6" />
                                         </div>
-                                        <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Level 3: Applied</h3>
-                                        <p className="text-sm text-gray-500 mb-4">Complex scenarios and PYQ-style analysis.</p>
+                                        <h3 className="text-xl font-bold mb-2 text-foreground">Level 3: Applied</h3>
+                                        <p className="text-sm text-muted-foreground mb-4">Complex scenarios and PYQ-style analysis.</p>
                                         <Badge variant="secondary" className="bg-red-50 text-red-700">Coming Soon</Badge>
                                     </div>
                                 </div>
 
                                 {/* View Past Reports Section */}
-                                <div className="mt-8 p-4 bg-slate-50 dark:bg-gray-900 rounded-xl border border-slate-200 dark:border-gray-800">
+                                <div className="mt-8 p-4 bg-muted rounded-xl border border-border">
                                     <div className="flex items-center justify-between mb-4">
-                                        <h4 className="font-bold text-slate-700 dark:text-white flex items-center gap-2">
+                                        <h4 className="font-bold text-muted-foreground flex items-center gap-2">
                                             <FileText className="w-5 h-5 text-blue-600" />
                                             Past Test Reports
                                         </h4>
@@ -487,12 +487,12 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                             />
                         ) : (
                             // Placeholder for Level 2 & 3
-                            <div className="text-center py-24 bg-white dark:bg-[#0a0a0a] rounded-3xl border border-gray-200 dark:border-gray-800">
-                                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <Sparkles className="w-8 h-8 text-gray-400" />
+                            <div className="text-center py-24 bg-card dark:bg-[#0a0a0a] rounded-3xl border border-border">
+                                <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <Sparkles className="w-8 h-8 text-muted-foreground" />
                                 </div>
                                 <h3 className="text-xl font-bold mb-2">Coming Soon</h3>
-                                <p className="text-gray-500 mb-6">This level is under development.</p>
+                                <p className="text-muted-foreground mb-6">This level is under development.</p>
                                 <button
                                     onClick={() => setMcqLevel(null)}
                                     className="px-6 py-2 bg-gray-900 text-white rounded-lg text-sm font-bold"
@@ -506,12 +506,12 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
 
                 {/* Tab 4: Current Affairs */}
                 {activeTab === 'current_affairs' && (
-                    <div className="bg-white dark:bg-[#0a0a0a] rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 p-8 animate-in fade-in slide-in-from-bottom-4 duration-500 text-center">
+                    <div className="bg-card dark:bg-[#0a0a0a] rounded-2xl shadow-sm border border-border p-8 animate-in fade-in slide-in-from-bottom-4 duration-500 text-center">
                         <div className="w-16 h-16 bg-rose-100 dark:bg-rose-900/30 rounded-2xl flex items-center justify-center mx-auto mb-6">
                             <Flame className="w-8 h-8 text-rose-600" />
                         </div>
-                        <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Current Affairs Integrations</h2>
-                        <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+                        <h2 className="text-2xl font-bold mb-4 text-foreground">Current Affairs Integrations</h2>
+                        <p className="text-muted-foreground dark:text-muted-foreground text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
                             Connect static theory with dynamic current events. We have curated specific news items relevant to {title}.
                         </p>
                         <div className="flex justify-center gap-4">

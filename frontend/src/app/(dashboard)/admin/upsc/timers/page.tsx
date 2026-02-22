@@ -95,18 +95,18 @@ export default function TimerSettingsPage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Batch Selection Sidebar */}
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-[var(--neutral-cool-grey)]">
+                <div className="bg-card p-6 rounded-2xl shadow-sm border border-[var(--neutral-cool-grey)]">
                     <h3 className="font-bold text-[var(--neutral-dark-grey)] mb-4">Select Batch</h3>
                     <div className="space-y-2">
                         {loading ? (
-                            <p className="text-sm text-gray-400">Loading batches...</p>
+                            <p className="text-sm text-muted-foreground">Loading batches...</p>
                         ) : batches.map(batch => (
                             <button
                                 key={batch.id}
                                 onClick={() => setSelectedBatchId(batch.id)}
                                 className={`w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all ${selectedBatchId === batch.id
                                         ? 'bg-[var(--primary-blue)] text-white shadow-md shadow-blue-500/20'
-                                        : 'hover:bg-gray-50 text-[var(--neutral-slate-grey)]'
+                                        : 'hover:bg-muted text-[var(--neutral-slate-grey)]'
                                     }`}
                             >
                                 {batch.name}
@@ -116,7 +116,7 @@ export default function TimerSettingsPage() {
                 </div>
 
                 {/* Configuration Panel */}
-                <div className="lg:col-span-2 bg-white p-8 rounded-2xl shadow-sm border border-[var(--neutral-cool-grey)]">
+                <div className="lg:col-span-2 bg-card p-8 rounded-2xl shadow-sm border border-[var(--neutral-cool-grey)]">
                     {selectedBatchId ? (
                         <div className="space-y-8">
                             <div className="flex items-center gap-3 pb-6 border-b border-[var(--neutral-cool-grey)]">

@@ -20,7 +20,7 @@ interface AdvocateGeneralModuleProps {
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="bg-[#fffcf9] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-orange-100">
-        <div className="max-w-5xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white/80 rounded-3xl p-6 shadow-2xl border-4 border-[#c2410c] relative overflow-hidden">
+        <div className="max-w-5xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-card/80 rounded-3xl p-6 shadow-2xl border-4 border-[#c2410c] relative overflow-hidden">
             <div className="absolute top-0 left-0 w-2 h-full bg-[#c2410c] opacity-10"></div>
             {children}
         </div>
@@ -28,11 +28,11 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const RegionalCard = ({ title, children, color = "border-[#c2410c]", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(194,65,12,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(194,65,12,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-700 relative z-10 font-bold">
+        <div className="space-y-4 text-muted-foreground relative z-10 font-bold">
             {children}
         </div>
     </div>
@@ -55,11 +55,11 @@ export default function AdvocateGeneralModule({ onComplete, isCompleted, chapter
         <ScrapbookContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#c2410c] border-4 border-orange-950 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(194,65,12,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -mr-40 -mt-40 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-card/5 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-[#3f3f46] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-orange-100 font-bold uppercase tracking-widest text-sm italic">The State's Law Guardian</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
@@ -85,16 +85,16 @@ export default function AdvocateGeneralModule({ onComplete, isCompleted, chapter
                             <h4 className="font-black text-[#c2410c] flex items-center gap-2 uppercase text-xs mb-2">
                                 <MapPin size={18} /> Appointed By:
                             </h4>
-                            <p className="text-lg font-black text-slate-900 underline decoration-[#c2410c] underline-offset-4 tracking-tight">THE GOVERNOR</p>
+                            <p className="text-lg font-black text-foreground underline decoration-[#c2410c] underline-offset-4 tracking-tight">THE GOVERNOR</p>
                         </div>
-                        <div className="p-4 bg-white border-2 border-slate-900 rounded-xl relative">
-                            <h4 className="font-black text-slate-900 mb-2 italic">Qualification Mirror: [PYQ]</h4>
+                        <div className="p-4 bg-card border-2 border-slate-900 rounded-xl relative">
+                            <h4 className="font-black text-foreground mb-2 italic">Qualification Mirror: [PYQ]</h4>
                             <p className="text-xs font-bold leading-relaxed">
                                 Must be qualified to be a <span className="text-[#c2410c] font-black underline">Judge of a High Court</span>.
                             </p>
                             <div className="mt-3 grid grid-cols-2 gap-2">
-                                <div className="p-2 bg-slate-50 border rounded text-[8px] font-black uppercase tracking-tighter">10y Judicial Office</div>
-                                <div className="p-2 bg-slate-50 border rounded text-[8px] font-black uppercase tracking-tighter">10y HC Advocate</div>
+                                <div className="p-2 bg-muted border rounded text-[8px] font-black uppercase tracking-tighter">10y Judicial Office</div>
+                                <div className="p-2 bg-muted border rounded text-[8px] font-black uppercase tracking-tighter">10y HC Advocate</div>
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@ export default function AdvocateGeneralModule({ onComplete, isCompleted, chapter
                         <p className="text-xs font-bold text-slate-300 leading-relaxed italic mb-4">
                             No fixed term in the Constitution. Holds office during the pleasure of the Governor. [PYQ]
                         </p>
-                        <div className="p-3 bg-white/10 rounded-xl border border-white/20">
+                        <div className="p-3 bg-card/10 rounded-xl border border-white/20">
                             <p className="text-[10px] uppercase font-black text-orange-400">Remuneration:</p>
                             <p className="text-[11px] font-black mt-1 text-white underline decoration-[#c2410c]">NOT FIXED by Constitution; Determined by Governor.</p>
                         </div>
@@ -126,8 +126,8 @@ export default function AdvocateGeneralModule({ onComplete, isCompleted, chapter
                             { icon: MessageSquare, t: "Art 177: House Rights", d: "Right to speak and take part in proceedings of State Legislature. [HIGH YIELD]" },
                             { icon: Shield, t: "Immunities", d: "Enjoys privileges and immunities of a member of State Legislature." }
                         ].map((item, i) => (
-                            <div key={i} className="flex gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100 group">
-                                <div className="p-2 bg-white rounded-xl shadow-sm border border-[#c2410c] text-[#c2410c]">
+                            <div key={i} className="flex gap-4 p-4 bg-muted rounded-2xl border border-slate-100 group">
+                                <div className="p-2 bg-card rounded-xl shadow-sm border border-[#c2410c] text-[#c2410c]">
                                     <item.icon size={20} />
                                 </div>
                                 <div className="self-center">
@@ -147,11 +147,11 @@ export default function AdvocateGeneralModule({ onComplete, isCompleted, chapter
 
                 <RegionalCard title="Duties (The State Counsel)" color="border-[#c2410c]">
                     <div className="space-y-4">
-                        <div className="p-5 bg-white border-2 border-slate-900 rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                        <div className="p-5 bg-card border-2 border-slate-900 rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                             <h4 className="flex items-center gap-2 font-black text-[#c2410c] mb-3">
                                 <Gavel size={24} /> General Advocate
                             </h4>
-                            <p className="text-[11px] font-bold text-slate-600 leading-relaxed italic">
+                            <p className="text-[11px] font-bold text-muted-foreground leading-relaxed italic">
                                 To advise the State Govt on legal matters referred by the <span className="text-[#c2410c] font-black">Governor</span>.
                             </p>
                         </div>
@@ -185,7 +185,7 @@ export default function AdvocateGeneralModule({ onComplete, isCompleted, chapter
                             <Badge className="bg-[#c2410c]">Mirror Part 2</Badge>
                         </div>
                     </div>
-                    <div className="bg-white/5 border border-white/20 p-6 rounded-3xl backdrop-blur-sm">
+                    <div className="bg-card/5 border border-white/20 p-6 rounded-3xl backdrop-blur-sm">
                         <div className="space-y-4 text-[11px] font-black italic">
                             <div className="flex justify-between border-b border-white/10 pb-2">
                                 <span className="text-orange-400">ATTORNEY GEN</span>
@@ -229,18 +229,18 @@ export default function AdvocateGeneralModule({ onComplete, isCompleted, chapter
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold italic">Article 165: The Shield of the State.</p>
+                <p className="mt-4 text-muted-foreground font-bold italic">Article 165: The Shield of the State.</p>
             </div>
         </ScrapbookContainer>
     );
 }
 
 const HandwrittenCard = ({ title, children, color = "border-slate-800", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-700 relative z-10 font-medium">
+        <div className="space-y-4 text-muted-foreground relative z-10 font-medium">
             {children}
         </div>
     </div>

@@ -110,7 +110,7 @@ export default function UserAnalyticsPage() {
   if (!analytics) {
     return (
       <div className="p-6 text-center">
-        <p className="text-gray-400">No analytics data available</p>
+        <p className="text-muted-foreground">No analytics data available</p>
       </div>
     );
   }
@@ -135,7 +135,7 @@ export default function UserAnalyticsPage() {
           <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent">
             Learning Analytics
           </h1>
-          <p className="text-gray-400 mt-1">
+          <p className="text-muted-foreground mt-1">
             Track your progress and engagement
           </p>
         </div>
@@ -273,7 +273,7 @@ export default function UserAnalyticsPage() {
                     style={{ width: `${course.progress}%` }}
                   />
                 </div>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-muted-foreground mt-1">
                   {course.time_spent} hours studied
                 </p>
               </div>
@@ -335,7 +335,7 @@ export default function UserAnalyticsPage() {
                 className="text-center p-4 bg-gray-800/50 rounded-lg border border-gray-700"
               >
                 <div className="text-2xl font-bold text-blue-400">{count}</div>
-                <div className="text-xs text-gray-400 mt-1 capitalize">
+                <div className="text-xs text-muted-foreground mt-1 capitalize">
                   {category}
                 </div>
               </div>
@@ -405,7 +405,7 @@ const StatCard: React.FC<StatCardProps> = ({
           {icon}
         </div>
         <div>
-          <p className="text-gray-400 text-sm">{label}</p>
+          <p className="text-muted-foreground text-sm">{label}</p>
           <p
             className={`${small ? "text-xl" : "text-2xl"} font-bold text-white mt-1`}
           >

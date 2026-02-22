@@ -29,17 +29,17 @@ const PinboardGrid = ({ children }: { children: React.ReactNode }) => (
 
 const Pin = () => (
     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-red-800 shadow-sm border border-red-900 z-20">
-        <div className="absolute top-1 left-1 w-1 h-1 bg-white rounded-full opacity-40"></div>
+        <div className="absolute top-1 left-1 w-1 h-1 bg-card rounded-full opacity-40"></div>
     </div>
 );
 
 const PYQStamp = () => (
-    <div className="absolute -top-2 -right-2 rotate-12 border-2 border-red-600 text-red-600 px-2 py-0.5 text-[10px] font-black uppercase tracking-widest bg-white/90 shadow-sm z-10 rounded-sm">
+    <div className="absolute -top-2 -right-2 rotate-12 border-2 border-red-600 text-red-600 px-2 py-0.5 text-[10px] font-black uppercase tracking-widest bg-card/90 shadow-sm z-10 rounded-sm">
         PYQ Ask
     </div>
 );
 
-const HandIcon = ({ icon: Icon, color = "text-slate-700" }: { icon: any, color?: string }) => (
+const HandIcon = ({ icon: Icon, color = "text-muted-foreground" }: { icon: any, color?: string }) => (
     <div className={`relative inline-flex items-center justify-center w-10 h-10 ${color}`}>
         <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full opacity-20 transform rotate-odd">
             <path d="M50 5 C 20 5, 5 20, 5 50 C 5 80, 20 95, 50 95 C 80 95, 95 80, 95 50 C 95 20, 80 5, 50 5 Z" fill="none" stroke="currentColor" strokeWidth="3" />
@@ -49,13 +49,13 @@ const HandIcon = ({ icon: Icon, color = "text-slate-700" }: { icon: any, color?:
 );
 
 const PinCard = ({ children, className = "", title, icon, isWide = false, hasPYQ = false }: { children: React.ReactNode, className?: string, title?: string, icon?: any, isWide?: boolean, hasPYQ?: boolean }) => (
-    <div className={`relative bg-white rounded-lg shadow-sm border border-slate-200 p-5 pt-8 ${isWide ? 'md:col-span-2 lg:col-span-2' : ''} ${className} hover:shadow-md transition-shadow`}>
+    <div className={`relative bg-card rounded-lg shadow-sm border border-border p-5 pt-8 ${isWide ? 'md:col-span-2 lg:col-span-2' : ''} ${className} hover:shadow-md transition-shadow`}>
         <Pin />
         {hasPYQ && <PYQStamp />}
         {title && (
             <div className="flex items-center gap-3 mb-4 pb-2 border-b border-slate-100">
                 {icon && <HandIcon icon={icon} />}
-                <h3 className="font-bold text-lg text-slate-800">{title}</h3>
+                <h3 className="font-bold text-lg text-foreground">{title}</h3>
             </div>
         )}
         {children}
@@ -63,7 +63,7 @@ const PinCard = ({ children, className = "", title, icon, isWide = false, hasPYQ
 );
 
 const FactItem = ({ children, pyq = false }: { children: React.ReactNode, pyq?: boolean }) => (
-    <li className={`relative pl-4 mb-2 text-sm text-slate-700 leading-relaxed ${pyq ? 'font-medium' : ''}`}>
+    <li className={`relative pl-4 mb-2 text-sm text-muted-foreground leading-relaxed ${pyq ? 'font-medium' : ''}`}>
         <span className="absolute left-0 top-1.5 w-1.5 h-1.5 bg-slate-400 rounded-full"></span>
         {children}
         {pyq && <span className="ml-2 text-[10px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold border border-red-200">PYQ</span>}
@@ -78,7 +78,7 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
                 <div className="relative z-10 max-w-2xl mx-auto">
                     <span className="bg-blue-900/50 text-blue-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest border border-blue-700 mb-4 inline-block">Chapter {chapterNumber}</span>
                     <h1 className="text-3xl md:text-5xl font-bold mb-2 font-serif">Salient Features</h1>
-                    <p className="text-slate-400 text-sm md:text-lg italic">The Constitution Pinboard</p>
+                    <p className="text-muted-foreground text-sm md:text-lg italic">The Constitution Pinboard</p>
                 </div>
             </div>
 
@@ -90,11 +90,11 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
                 <PinCard title="Elephantine Size" icon={Scale}>
                     <div className="space-y-4">
                         <div className="grid grid-cols-2 gap-2 text-xs mb-2">
-                            <div className="bg-slate-50 p-2 rounded">
+                            <div className="bg-muted p-2 rounded">
                                 <span className="block font-bold mt-1">Geography</span>
                                 Vastness & Diversity <Map size={12} className="inline ml-1 opacity-50" />
                             </div>
-                            <div className="bg-slate-50 p-2 rounded">
+                            <div className="bg-muted p-2 rounded">
                                 <span className="block font-bold mt-1">History</span>
                                 GoI Act 1935 Legacy <Scroll size={12} className="inline ml-1 opacity-50" />
                             </div>
@@ -103,7 +103,7 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
                             <FactItem>Single Constitution (Centre + States)</FactItem>
                             <FactItem>"Paradise of Lawyers" (Sir Ivor Jennings)</FactItem>
                         </ul>
-                        <div className="mt-3 pt-3 border-t border-slate-100 text-xs text-slate-500 font-mono">
+                        <div className="mt-3 pt-3 border-t border-slate-100 text-xs text-muted-foreground font-mono">
                             Status: Preamble + 470+ Arts + 12 Schedules
                         </div>
                     </div>
@@ -114,44 +114,44 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
                     <div className="overflow-x-auto">
                         <table className="w-full text-sm text-left">
                             <tbody className="divide-y divide-slate-100">
-                                <tr className="group hover:bg-slate-50">
-                                    <td className="py-2 font-bold text-slate-800 w-1/4">GoI Act 1935</td>
-                                    <td className="py-2 text-slate-600">Federal Scheme, Governor, Judiciary, Public Service Comm, Emergency.</td>
+                                <tr className="group hover:bg-muted">
+                                    <td className="py-2 font-bold text-foreground w-1/4">GoI Act 1935</td>
+                                    <td className="py-2 text-muted-foreground">Federal Scheme, Governor, Judiciary, Public Service Comm, Emergency.</td>
                                     <td className="py-2 text-right"><span className="text-[10px] text-red-600 bg-red-50 px-1 font-bold">PYQ</span></td>
                                 </tr>
-                                <tr className="group hover:bg-slate-50">
-                                    <td className="py-2 font-bold text-slate-800">British (UK)</td>
-                                    <td className="py-2 text-slate-600">Parliamentary Govt, Rule of Law, Single Citizenship, Cabinet, Writs.</td>
+                                <tr className="group hover:bg-muted">
+                                    <td className="py-2 font-bold text-foreground">British (UK)</td>
+                                    <td className="py-2 text-muted-foreground">Parliamentary Govt, Rule of Law, Single Citizenship, Cabinet, Writs.</td>
                                     <td className="py-2 text-right"><span className="text-[10px] text-red-600 bg-red-50 px-1 font-bold">PYQ</span></td>
                                 </tr>
-                                <tr className="group hover:bg-slate-50">
-                                    <td className="py-2 font-bold text-slate-800">USA</td>
-                                    <td className="py-2 text-slate-600">Fundamental Rights, Judicial Independence, Judicial Review, Impeachment.</td>
+                                <tr className="group hover:bg-muted">
+                                    <td className="py-2 font-bold text-foreground">USA</td>
+                                    <td className="py-2 text-muted-foreground">Fundamental Rights, Judicial Independence, Judicial Review, Impeachment.</td>
                                     <td className="py-2 text-right"><span className="text-[10px] text-red-600 bg-red-50 px-1 font-bold">PYQ</span></td>
                                 </tr>
-                                <tr className="group hover:bg-slate-50">
-                                    <td className="py-2 font-bold text-slate-800">Ireland</td>
-                                    <td className="py-2 text-slate-600">DPSPs, RS Nomination, Prez Election Method.</td>
+                                <tr className="group hover:bg-muted">
+                                    <td className="py-2 font-bold text-foreground">Ireland</td>
+                                    <td className="py-2 text-muted-foreground">DPSPs, RS Nomination, Prez Election Method.</td>
                                     <td className="py-2 text-right"><span className="text-[10px] text-red-600 bg-red-50 px-1 font-bold">PYQ</span></td>
                                 </tr>
-                                <tr className="group hover:bg-slate-50">
-                                    <td className="py-2 font-bold text-slate-800">Canada</td>
-                                    <td className="py-2 text-slate-600">Strong Centre, Residuary Powers, SC Advisory Jurisdiction.</td>
+                                <tr className="group hover:bg-muted">
+                                    <td className="py-2 font-bold text-foreground">Canada</td>
+                                    <td className="py-2 text-muted-foreground">Strong Centre, Residuary Powers, SC Advisory Jurisdiction.</td>
                                     <td className="py-2 text-right"><span className="text-[10px] text-red-600 bg-red-50 px-1 font-bold">PYQ</span></td>
                                 </tr>
-                                <tr className="group hover:bg-slate-50">
-                                    <td className="py-2 font-bold text-slate-800">Australia</td>
-                                    <td className="py-2 text-slate-600">Concurrent List, Joint Sitting, Trade Freedom.</td>
+                                <tr className="group hover:bg-muted">
+                                    <td className="py-2 font-bold text-foreground">Australia</td>
+                                    <td className="py-2 text-muted-foreground">Concurrent List, Joint Sitting, Trade Freedom.</td>
                                     <td className="py-2 text-right"><span className="text-[10px] text-red-600 bg-red-50 px-1 font-bold">PYQ</span></td>
                                 </tr>
-                                <tr className="group hover:bg-slate-50">
-                                    <td className="py-2 font-bold text-slate-800">South Africa</td>
-                                    <td className="py-2 text-slate-600">Amendment Procedure, RS Member Election.</td>
+                                <tr className="group hover:bg-muted">
+                                    <td className="py-2 font-bold text-foreground">South Africa</td>
+                                    <td className="py-2 text-muted-foreground">Amendment Procedure, RS Member Election.</td>
                                     <td className="py-2 text-right"><span className="text-[10px] text-red-600 bg-red-50 px-1 font-bold">PYQ</span></td>
                                 </tr>
-                                <tr className="group hover:bg-slate-50">
-                                    <td className="py-2 font-bold text-slate-800">USSR/France</td>
-                                    <td className="py-2 text-slate-600">Duties, Justice (USSR) | Republic, Liberty, Equality (France).</td>
+                                <tr className="group hover:bg-muted">
+                                    <td className="py-2 font-bold text-foreground">USSR/France</td>
+                                    <td className="py-2 text-muted-foreground">Duties, Justice (USSR) | Republic, Liberty, Equality (France).</td>
                                     <td className="py-2 text-right opacity-50">--</td>
                                 </tr>
                             </tbody>
@@ -169,12 +169,12 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
                 <PinCard title="Rigidity vs Flexibility" icon={Scale}>
                     <div className="flex items-center justify-between mb-4">
                         <div className="text-center w-1/3">
-                            <div className="text-xs font-bold uppercase text-slate-500">USA</div>
+                            <div className="text-xs font-bold uppercase text-muted-foreground">USA</div>
                             <div className="font-bold text-red-600">Rigid</div>
                         </div>
                         <div className="text-2xl text-slate-300">⚔️</div>
                         <div className="text-center w-1/3">
-                            <div className="text-xs font-bold uppercase text-slate-500">UK</div>
+                            <div className="text-xs font-bold uppercase text-muted-foreground">UK</div>
                             <div className="font-bold text-green-600">Flexible</div>
                         </div>
                     </div>
@@ -189,8 +189,8 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
                         <FactItem><strong>Federal:</strong> 2 Govts, Division of Powers, Written Const, Independent Judiciary.</FactItem>
                         <FactItem><strong>Unitary:</strong> Strong Centre, Single Const, Governor, Emergency.</FactItem>
                     </ul>
-                    <div className="bg-slate-100 p-2 rounded text-xs space-y-1">
-                        <div className="font-bold text-slate-900 border-b border-slate-200 pb-1 mb-1">Direct PYQ Quotes:</div>
+                    <div className="bg-muted p-2 rounded text-xs space-y-1">
+                        <div className="font-bold text-foreground border-b border-border pb-1 mb-1">Direct PYQ Quotes:</div>
                         <div className="flex justify-between"><span>K.C. Wheare</span> <span className="font-bold">"Quasi-Federal"</span></div>
                         <div className="flex justify-between"><span>Morris Jones</span> <span className="opacity-80">"Bargaining Federalism"</span></div>
                         <div className="flex justify-between"><span>Granville Austin</span> <span className="opacity-80">"Co-operative Federalism"</span></div>
@@ -225,14 +225,14 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
 
                 {/* Card 7: Judiciary */}
                 <PinCard title="Integrated Judiciary" icon={Gavel} hasPYQ>
-                    <div className="flex flex-col items-center mb-4 text-xs font-bold text-slate-600">
-                        <div className="bg-white border-2 border-slate-800 rounded px-4 py-1 mb-1 shadow-sm">Supreme Court</div>
+                    <div className="flex flex-col items-center mb-4 text-xs font-bold text-muted-foreground">
+                        <div className="bg-card border-2 border-slate-800 rounded px-4 py-1 mb-1 shadow-sm">Supreme Court</div>
                         <ArrowDown size={14} />
-                        <div className="bg-white border border-slate-400 rounded px-3 py-1 mb-1 mt-1">High Courts</div>
+                        <div className="bg-card border border-slate-400 rounded px-3 py-1 mb-1 mt-1">High Courts</div>
                         <ArrowDown size={14} />
-                        <div className="bg-white border border-slate-200 rounded px-2 py-1 mt-1 opacity-80">District Courts</div>
+                        <div className="bg-card border border-border rounded px-2 py-1 mt-1 opacity-80">District Courts</div>
                     </div>
-                    <ul className="list-disc pl-4 text-xs space-y-1 text-slate-700">
+                    <ul className="list-disc pl-4 text-xs space-y-1 text-muted-foreground">
                         <li><strong>Integrated:</strong> Enforces Central & State laws.</li>
                         <li><strong>Independent:</strong> Security of tenure, Fixed expenses (Consolidated Fund), Separation (Art 50).</li>
                     </ul>
@@ -255,14 +255,14 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
                 {/* Card 9: DPSP & Duties */}
                 <PinCard title="DPSPs & Duties" icon={BookOpen} hasPYQ>
                     <div className="mb-4">
-                        <div className="text-xs font-bold uppercase text-slate-500 mb-1">DPSPs (Part IV)</div>
+                        <div className="text-xs font-bold uppercase text-muted-foreground mb-1">DPSPs (Part IV)</div>
                         <ul className="text-sm space-y-1">
                             <FactItem>Non-Justiciable.</FactItem>
                             <FactItem pyq>Goal: <strong>Welfare State</strong> (Social/Econ Democracy).</FactItem>
                         </ul>
                     </div>
                     <div className="border-t pt-3">
-                        <div className="text-xs font-bold uppercase text-slate-500 mb-1">Fund. Duties (Part IV-A)</div>
+                        <div className="text-xs font-bold uppercase text-muted-foreground mb-1">Fund. Duties (Part IV-A)</div>
                         <ul className="text-sm space-y-1">
                             <FactItem pyq>Added by <strong>42nd AA, 1976</strong> (Swaran Singh).</FactItem>
                             <FactItem>Total: 11 (86th AA 2002 added one).</FactItem>
@@ -272,7 +272,7 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
 
                 {/* Card 10: Secular State */}
                 <PinCard title="Secular State" icon={Flag}>
-                    <div className="text-center p-3 bg-slate-50 rounded-lg italic text-slate-600 mb-3">
+                    <div className="text-center p-3 bg-muted rounded-lg italic text-muted-foreground mb-3">
                         "Positive Concept" - All religions protected equally.
                     </div>
                     <ul className="text-sm space-y-1">
@@ -297,7 +297,7 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
                             <div className="text-3xl font-black">18</div>
                         </div>
                     </div>
-                    <div className="text-center text-xs font-bold text-slate-500">
+                    <div className="text-center text-xs font-bold text-muted-foreground">
                         61st Constitutional Amendment Act, 1988
                     </div>
                 </PinCard>
@@ -312,17 +312,17 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
                 {/* Card 13: Independent Bodies */}
                 <PinCard title="Bulwarks of Democracy" icon={Shield} className="md:col-span-2">
                     <div className="grid grid-cols-3 gap-4 text-center">
-                        <div className="p-3 bg-slate-50 rounded border border-slate-100">
-                            <div className="font-bold text-slate-800 block mb-1">Election Comm.</div>
-                            <div className="text-xs text-slate-500">Free & Fair Elections</div>
+                        <div className="p-3 bg-muted rounded border border-slate-100">
+                            <div className="font-bold text-foreground block mb-1">Election Comm.</div>
+                            <div className="text-xs text-muted-foreground">Free & Fair Elections</div>
                         </div>
-                        <div className="p-3 bg-slate-50 rounded border border-slate-100">
-                            <div className="font-bold text-slate-800 block mb-1 flex items-center justify-center gap-1">CAG <Wallet size={12} /></div>
-                            <div className="text-xs text-slate-500">Guardian of Purse</div>
+                        <div className="p-3 bg-muted rounded border border-slate-100">
+                            <div className="font-bold text-foreground block mb-1 flex items-center justify-center gap-1">CAG <Wallet size={12} /></div>
+                            <div className="text-xs text-muted-foreground">Guardian of Purse</div>
                         </div>
-                        <div className="p-3 bg-slate-50 rounded border border-slate-100">
-                            <div className="font-bold text-slate-800 block mb-1">UPSC/SPSC</div>
-                            <div className="text-xs text-slate-500">Merit Recruitment</div>
+                        <div className="p-3 bg-muted rounded border border-slate-100">
+                            <div className="font-bold text-foreground block mb-1">UPSC/SPSC</div>
+                            <div className="text-xs text-muted-foreground">Merit Recruitment</div>
                         </div>
                     </div>
                 </PinCard>
@@ -350,12 +350,12 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
 
                 {/* Card 15: Emergency Provisions (Critical) */}
                 <PinCard title="Emergency Provisions" icon={AlertTriangle} className="border-l-4 border-l-red-500">
-                    <div className="text-xs italic text-slate-500 mb-3">
+                    <div className="text-xs italic text-muted-foreground mb-3">
                         "Constitution turns Unitary without amendment"
                     </div>
                     <table className="w-full text-xs text-left mb-2">
                         <thead>
-                            <tr className="bg-slate-100 text-slate-600 uppercase">
+                            <tr className="bg-muted text-muted-foreground uppercase">
                                 <th className="p-1">Context</th>
                                 <th className="p-1">Art</th>
                                 <th className="p-1">Ground</th>
@@ -395,11 +395,11 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
                 <PinCard title="The 12 Schedules" icon={Scroll} isWide className="bg-[#fffef0]" hasPYQ>
                     <div className="flex flex-col md:flex-row gap-6">
                         <div className="md:w-1/3 flex items-center justify-center">
-                            <div className="font-handwriting text-4xl text-slate-800 rotate-[-4deg] text-center leading-tight">
+                            <div className="font-handwriting text-4xl text-foreground rotate-[-4deg] text-center leading-tight">
                                 "TEARS OF<br /><span className="text-red-600">OLD PM</span>"
                             </div>
                         </div>
-                        <div className="md:w-2/3 grid grid-cols-2 gap-x-4 gap-y-1 text-xs font-mono text-slate-700">
+                        <div className="md:w-2/3 grid grid-cols-2 gap-x-4 gap-y-1 text-xs font-mono text-muted-foreground">
                             <div><span className="font-bold">T</span>erritories (1)</div>
                             <div><span className="font-bold">F</span>ederal Lists (7)</div>
 
@@ -445,7 +445,7 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
                     <Button
                         onClick={onComplete}
                         disabled={isCompleted}
-                        className={isCompleted ? "bg-green-600 hover:bg-green-700 text-white" : "bg-white text-slate-900 hover:bg-slate-200"}
+                        className={isCompleted ? "bg-green-600 hover:bg-green-700 text-white" : "bg-card text-foreground hover:bg-slate-200"}
                     >
                         {isCompleted ? <span className="flex items-center gap-2"><CheckCircle2 size={16} /> Done</span> : "Mark Complete"}
                     </Button>

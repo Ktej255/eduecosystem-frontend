@@ -21,7 +21,7 @@ interface SHRCModuleProps {
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="bg-[#f0f9f3] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-green-100 selection:text-green-900">
-        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white/90 rounded-[40px] p-6 shadow-2xl border-4 border-green-900 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-card/90 rounded-[40px] p-6 shadow-2xl border-4 border-green-900 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-full h-2 bg-gradient-to-r from-[#15803d] via-[#c2410c] to-[#b91c1c] opacity-50"></div>
             {children}
         </div>
@@ -29,11 +29,11 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const RegionalCard = ({ title, children, color = "border-[#15803d]", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[4px_4px_0px_0px_rgba(21,128,61,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[4px_4px_0px_0px_rgba(21,128,61,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-700 relative z-10 font-bold">
+        <div className="space-y-4 text-muted-foreground relative z-10 font-bold">
             {children}
         </div>
     </div>
@@ -56,11 +56,11 @@ export default function SHRCModule({ onComplete, isCompleted, chapterNumber = "5
         <ScrapbookContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#15803d] border-4 border-green-950 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(21,128,61,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -mr-40 -mt-40 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-card/5 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-[#c2410c] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-green-50 font-bold uppercase tracking-widest text-sm italic">Regional Rights Guardian</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
@@ -81,7 +81,7 @@ export default function SHRCModule({ onComplete, isCompleted, chapterNumber = "5
 
             <div className="grid md:grid-cols-2 gap-8">
                 <RegionalCard title="State PHR List" color="border-slate-800">
-                    <div className="p-4 bg-slate-50 border-2 border-dashed border-slate-400 rounded-2xl">
+                    <div className="p-4 bg-muted border-2 border-dashed border-slate-400 rounded-2xl">
                         <ul className="space-y-4">
                             <li className="flex gap-3 items-start">
                                 <BadgeCheck size={18} className="text-[#15803d] shrink-0 mt-1" />
@@ -110,13 +110,13 @@ export default function SHRCModule({ onComplete, isCompleted, chapterNumber = "5
                                 "1 Retd/Serving HC Judge OR District Judge (7y exp)",
                                 "1 Person with Knowledge of Human Rights"
                             ].map((m, i) => (
-                                <div key={i} className="flex items-center gap-3 bg-white p-2 rounded border border-orange-100 shadow-sm">
+                                <div key={i} className="flex items-center gap-3 bg-card p-2 rounded border border-orange-100 shadow-sm">
                                     <UserPlus size={16} className="text-orange-600" />
                                     <p className="text-[11px] font-bold italic">{m}</p>
                                 </div>
                             ))}
                         </div>
-                        <div className="p-3 bg-slate-900 md:bg-white md:text-slate-900 text-white md:border-2 md:border-slate-100 rounded-xl">
+                        <div className="p-3 bg-slate-900 md:bg-card md:text-foreground text-white md:border-2 md:border-slate-100 rounded-xl">
                             <h5 className="text-[10px] font-black uppercase tracking-widest text-orange-400 mb-1 flex items-center gap-2">
                                 <Building2 size={14} /> Secretary:
                             </h5>
@@ -127,7 +127,7 @@ export default function SHRCModule({ onComplete, isCompleted, chapterNumber = "5
             </div>
 
             {/* APPOINTMENT COMMITTEE */}
-            <div className="bg-white border-4 border-green-900 rounded-[50px] p-8 shadow-2xl relative overflow-hidden text-center">
+            <div className="bg-card border-4 border-green-900 rounded-[50px] p-8 shadow-2xl relative overflow-hidden text-center">
                 <div className="absolute top-0 left-0 w-full h-2 bg-[#c2410c] opacity-20"></div>
                 <h4 className="text-2xl font-black mb-8 italic text-green-900 flex items-center justify-center gap-3 underline decoration-orange-400">
                     <Users size={32} /> The Appointment Loop
@@ -142,7 +142,7 @@ export default function SHRCModule({ onComplete, isCompleted, chapterNumber = "5
                         <div key={i} className="flex flex-col items-center">
                             <div className={`w-14 h-14 ${member.i} text-white rounded-2xl flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform font-black text-xl`}>{member.t.charAt(0)}</div>
                             <p className="text-[11px] font-black uppercase mt-2">{member.t}</p>
-                            <p className="text-[9px] font-bold text-slate-400 italic">{member.d}</p>
+                            <p className="text-[9px] font-bold text-muted-foreground italic">{member.d}</p>
                         </div>
                     ))}
                 </div>
@@ -162,7 +162,7 @@ export default function SHRCModule({ onComplete, isCompleted, chapterNumber = "5
                     <div className="flex-1 space-y-4">
                         <h4 className="text-4xl md:text-5xl font-black italic underline decoration-white mb-6">Appointment vs Removal</h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div className="p-6 bg-white/10 border-2 border-white/20 rounded-3xl backdrop-blur-sm group hover:bg-white/20 transition-all">
+                            <div className="p-6 bg-card/10 border-2 border-white/20 rounded-3xl backdrop-blur-sm group hover:bg-card/20 transition-all">
                                 <p className="text-[10px] font-black uppercase tracking-widest text-orange-300">Appointed By:</p>
                                 <p className="text-3xl font-black italic mt-2 text-white">GOVERNOR</p>
                             </div>
@@ -219,11 +219,11 @@ export default function SHRCModule({ onComplete, isCompleted, chapterNumber = "5
             </div>
 
             {/* FOOTER: HUMAN RIGHTS COURTS */}
-            <div className="p-8 bg-slate-100 border-4 border-slate-900 rounded-[30px] relative overflow-hidden">
+            <div className="p-8 bg-muted border-4 border-slate-900 rounded-[30px] relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-4 opacity-5 rotate-12"><Gavel size={100} /></div>
                 <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
-                    <div className="p-4 bg-white border-2 border-slate-900 rounded-2xl">
-                        <Gavel className="text-slate-900" size={32} />
+                    <div className="p-4 bg-card border-2 border-slate-900 rounded-2xl">
+                        <Gavel className="text-foreground" size={32} />
                     </div>
                     <div className="text-left">
                         <h4 className="text-xl font-black italic underline decoration-green-700">Human Rights Courts (Sec 30)</h4>
@@ -255,7 +255,7 @@ export default function SHRCModule({ onComplete, isCompleted, chapterNumber = "5
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold italic underline decoration-[#c2410c] tracking-widest">Article 165 - The Mirror Scroll.</p>
+                <p className="mt-4 text-muted-foreground font-bold italic underline decoration-[#c2410c] tracking-widest">Article 165 - The Mirror Scroll.</p>
             </div>
         </ScrapbookContainer>
     );

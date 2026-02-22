@@ -32,7 +32,7 @@ export default function AssetLibraryPage() {
         <div className="flex items-center gap-2">
           {row.file_type === "image" ? <ImageIcon className="h-4 w-4 text-blue-400" /> :
             row.file_type === "video" ? <Video className="h-4 w-4 text-purple-400" /> :
-              <FileText className="h-4 w-4 text-gray-400" />}
+              <FileText className="h-4 w-4 text-muted-foreground" />}
           <span className="font-medium text-white">{value}</span>
         </div>
       )
@@ -43,7 +43,7 @@ export default function AssetLibraryPage() {
       label: "Size",
       render: (value: number) => {
         const mb = value / (1024 * 1024);
-        return <span className="text-gray-400">{mb.toFixed(2)} MB</span>;
+        return <span className="text-muted-foreground">{mb.toFixed(2)} MB</span>;
       }
     },
     {

@@ -15,14 +15,14 @@ interface QuestionCardProps {
 
 export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
     return (
-        <Card className="w-full bg-white shadow-lg border-l-4 border-l-blue-600">
+        <Card className="w-full bg-card shadow-lg border-l-4 border-l-blue-600">
             <CardHeader className="pb-2">
                 <div className="flex justify-between items-start">
                     <div className="space-y-1">
                         <span className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
                             {question.subject} • Q{question.question_number}
                         </span>
-                        <CardTitle className="text-xl font-bold text-slate-900">
+                        <CardTitle className="text-xl font-bold text-foreground">
                             {question.title}
                         </CardTitle>
                     </div>
@@ -33,18 +33,18 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
             </CardHeader>
             <CardContent className="space-y-6">
                 <div className="prose prose-slate max-w-none">
-                    <p className="text-lg leading-relaxed text-slate-800 font-medium">
+                    <p className="text-lg leading-relaxed text-foreground font-medium">
                         {question.question_text}
                     </p>
                 </div>
 
                 <div className="pt-4 border-t border-slate-100">
-                    <p className="text-xs text-slate-500 uppercase font-semibold mb-2">
+                    <p className="text-xs text-muted-foreground uppercase font-semibold mb-2">
                         Focus Microtopics
                     </p>
                     <div className="flex flex-wrap gap-2">
                         {question.microtopics.map((topic, idx) => (
-                            <Badge key={idx} variant="outline" className="bg-slate-50">
+                            <Badge key={idx} variant="outline" className="bg-muted">
                                 {topic}
                             </Badge>
                         ))}

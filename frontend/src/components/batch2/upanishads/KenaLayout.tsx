@@ -136,11 +136,11 @@ function PhilosophyStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: b
                                             <Zap className="w-4 h-4 fill-current" /> Unlock Insights
                                         </button>
                                     </div>
-                                    <h4 className="text-slate-500 font-bold mb-3 flex items-center gap-2 blur-[1px]">
+                                    <h4 className="text-muted-foreground font-bold mb-3 flex items-center gap-2 blur-[1px]">
                                         <span className="text-xl">💡</span>
                                         Sarit's Insight
                                     </h4>
-                                    <p className="text-slate-600 text-lg leading-relaxed italic font-medium blur-[4px] select-none">
+                                    <p className="text-muted-foreground text-lg leading-relaxed italic font-medium blur-[4px] select-none">
                                         This hidden wisdom explains how the mind functions as a mirror for the ultimate reality, reflecting the light of pure consciousness...
                                     </p>
                                 </div>
@@ -252,7 +252,7 @@ function StoryStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: boolea
                 </div>
                 <div className="space-y-2 max-w-md">
                     <h2 className="text-2xl font-bold text-white">The Yaksha Story</h2>
-                    <p className="text-slate-400">Join Agni, Vayu, and Indra on their quest to identify the mysterious Spirit. This visual storytelling experience is exclusive to Premium seekers.</p>
+                    <p className="text-muted-foreground">Join Agni, Vayu, and Indra on their quest to identify the mysterious Spirit. This visual storytelling experience is exclusive to Premium seekers.</p>
                 </div>
                 <button className="bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-teal-500/20 hover:scale-105 transition-transform">
                     Unlock Premium Wisdom

@@ -112,7 +112,7 @@ export default function TransformationRoadmap({ suggestedPhaseId }: { suggestedP
                                             <h3 className={`text-xl font-bold text-${phase.color}-400 group-hover:text-white transition-colors`}>{phase.title}</h3>
                                             {completedPhases.includes(phase.id) && <CheckCircle2 className="w-5 h-5 text-emerald-500" />}
                                         </div>
-                                        <p className="text-slate-400 font-light group-hover:text-slate-200 transition-colors">{phase.desc}</p>
+                                        <p className="text-muted-foreground font-light group-hover:text-slate-200 transition-colors">{phase.desc}</p>
                                     </Link>
                                 </div>
 

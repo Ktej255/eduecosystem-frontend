@@ -36,14 +36,14 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const InfluenceCard = ({ title, icon, color, children, className = "" }: { title: string, icon: React.ReactNode, color: string, children: React.ReactNode, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute top-0 right-0 p-2 opacity-10 translate-x-1/4 -translate-y-1/4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
             {icon}
         </div>
         <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-800 relative z-10 font-bold leading-relaxed">
+        <div className="space-y-4 text-foreground relative z-10 font-bold leading-relaxed">
             {children}
         </div>
     </div>
@@ -60,7 +60,7 @@ const PhaseHeader = ({ number, title, color, subtitle }: { number: string, title
             </h2>
             <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
         </div>
-        {subtitle && <p className="text-slate-500 font-bold italic ml-16">{subtitle}</p>}
+        {subtitle && <p className="text-muted-foreground font-bold italic ml-16">{subtitle}</p>}
     </div>
 );
 
@@ -69,11 +69,11 @@ export default function VotingBehaviourModule({ onComplete, isCompleted, chapter
         <ScrapbookContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#7c3aed] border-4 border-[#5b21b6] rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(124,58,237,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-card/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-[#5b21b6] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-purple-100 font-bold uppercase tracking-widest text-sm italic underline decoration-white">Sociology of Politics</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
@@ -105,9 +105,9 @@ export default function VotingBehaviourModule({ onComplete, isCompleted, chapter
                     className="bg-purple-50"
                 >
                     <p className="text-sm">Parties use "caste banks" to win. Shift from <span className="underline">Upper Caste dominance</span> to <span className="underline">OBC/Dalit assertion</span>.</p>
-                    <div className="bg-white p-4 rounded-xl border-l-4 border-purple-600 shadow-sm mt-4">
+                    <div className="bg-card p-4 rounded-xl border-l-4 border-purple-600 shadow-sm mt-4">
                         <h5 className="font-black text-purple-700 uppercase mb-2">Rajni Kothari's View</h5>
-                        <p className="text-xs font-bold text-slate-700 italic">"Politics is not just caste-ridden; it is caste that has become politicized." [Mains Quote]</p>
+                        <p className="text-xs font-bold text-muted-foreground italic">"Politics is not just caste-ridden; it is caste that has become politicized." [Mains Quote]</p>
                     </div>
                 </InfluenceCard>
 
@@ -120,11 +120,11 @@ export default function VotingBehaviourModule({ onComplete, isCompleted, chapter
                     <div className="space-y-4">
                         <div className="flex items-center gap-3">
                             <Badge className="bg-orange-600">Religion</Badge>
-                            <p className="text-sm font-bold text-slate-700">Communal polarization consolidates votes (e.g., Post-Ayodhya).</p>
+                            <p className="text-sm font-bold text-muted-foreground">Communal polarization consolidates votes (e.g., Post-Ayodhya).</p>
                         </div>
                         <div className="flex items-center gap-3">
                             <Badge className="bg-blue-600">Language</Badge>
-                            <p className="text-sm font-bold text-slate-700">Identity drives voting in states like Tamil Nadu & Karnataka.</p>
+                            <p className="text-sm font-bold text-muted-foreground">Identity drives voting in states like Tamil Nadu & Karnataka.</p>
                         </div>
                     </div>
                 </InfluenceCard>
@@ -161,11 +161,11 @@ export default function VotingBehaviourModule({ onComplete, isCompleted, chapter
                     className="bg-green-50"
                 >
                     <div className="space-y-4">
-                        <div className="bg-white p-3 rounded-lg border border-red-200">
+                        <div className="bg-card p-3 rounded-lg border border-red-200">
                             <div className="flex items-center gap-2 mb-1 text-red-700 font-black"><ThumbsDown size={16} /> Anti-Incumbency</div>
                             <p className="text-xs">Voting <span className="underline">against</span> ruling party due to dissatisfaction.</p>
                         </div>
-                        <div className="bg-white p-3 rounded-lg border border-green-200">
+                        <div className="bg-card p-3 rounded-lg border border-green-200">
                             <div className="flex items-center gap-2 mb-1 text-green-700 font-black"><ThumbsUp size={16} /> Pro-Incumbency</div>
                             <p className="text-xs">New class of voters <span className="text-green-600 font-black">("Labharthi Varg")</span> voting for welfare delivery.</p>
                         </div>
@@ -213,10 +213,10 @@ export default function VotingBehaviourModule({ onComplete, isCompleted, chapter
             </div>
 
             {/* FOOTER: NOTA */}
-            <div className="mt-8 p-8 bg-slate-100 border-4 border-slate-400 rounded-[2rem] relative overflow-hidden flex flex-col items-center text-center">
-                <XCircle className="text-slate-400 mb-4" size={48} />
-                <h4 className="text-2xl font-black uppercase mb-2 text-slate-600">The NOTA Factor</h4>
-                <p className="text-sm font-bold text-slate-500 max-w-xl mb-4">
+            <div className="mt-8 p-8 bg-muted border-4 border-slate-400 rounded-[2rem] relative overflow-hidden flex flex-col items-center text-center">
+                <XCircle className="text-muted-foreground mb-4" size={48} />
+                <h4 className="text-2xl font-black uppercase mb-2 text-muted-foreground">The NOTA Factor</h4>
+                <p className="text-sm font-bold text-muted-foreground max-w-xl mb-4">
                     Expresses systemic dissatisfaction. High usage often seen in reserved constituencies or areas with left-wing extremism.
                 </p>
             </div>
@@ -242,7 +242,7 @@ export default function VotingBehaviourModule({ onComplete, isCompleted, chapter
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold italic tracking-widest text-center uppercase">Caste • Religion • Labharthi • Media.</p>
+                <p className="mt-4 text-muted-foreground font-bold italic tracking-widest text-center uppercase">Caste • Religion • Labharthi • Media.</p>
             </div>
         </ScrapbookContainer>
     );

@@ -84,7 +84,7 @@ export default function LandingPage() {
                     </div>
                     <button
                         onClick={() => router.push("/login")}
-                        className="px-6 py-2 rounded-full border border-neutral-cool/30 hover:bg-white/5 transition-all font-semibold"
+                        className="px-6 py-2 rounded-full border border-neutral-cool/30 hover:bg-card/5 transition-all font-semibold"
                     >
                         Login
                     </button>
@@ -132,7 +132,7 @@ export default function LandingPage() {
                         >
                             Get Started <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </button>
-                        <button className="px-10 py-5 bg-white/5 hover:bg-white/10 rounded-2xl text-lg font-bold border border-white/10 transition-all backdrop-blur-md">
+                        <button className="px-10 py-5 bg-card/5 hover:bg-card/10 rounded-2xl text-lg font-bold border border-white/10 transition-all backdrop-blur-md">
                             Watch Demo
                         </button>
                     </motion.div>

@@ -122,11 +122,11 @@ export default function ClimateClassificationViz() {
     const Icon = selected.icon;
 
     return (
-        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+        <div className="bg-card dark:bg-[#111] rounded-2xl border border-border overflow-hidden">
             {/* Header */}
             <div className="bg-gradient-to-r from-blue-600 to-cyan-600 p-4">
                 <div className="flex items-center gap-3">
-                    <div className="p-2 bg-white/20 rounded-lg">
+                    <div className="p-2 bg-card/20 rounded-lg">
                         <CloudRain className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -137,7 +137,7 @@ export default function ClimateClassificationViz() {
             </div>
 
             {/* Climate Codes Strip */}
-            <div className="px-4 py-3 bg-gray-50 dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-800 overflow-x-auto">
+            <div className="px-4 py-3 bg-muted dark:bg-[#0a0a0a] border-b border-border overflow-x-auto">
                 <div className="flex items-center gap-2 min-w-max">
                     {CLIMATE_ZONES.map((z) => (
                         <button
@@ -145,7 +145,7 @@ export default function ClimateClassificationViz() {
                             onClick={() => setSelectedCode(z.code)}
                             className={`flex-shrink-0 px-3 py-2 rounded-lg text-sm font-bold transition-all ${z.code === selectedCode
                                     ? `${z.color} text-white shadow-lg scale-105`
-                                    : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700 hover:border-gray-300'
+                                    : 'bg-card text-muted-foreground dark:text-muted-foreground border border-border hover:border-border'
                                 }`}
                         >
                             {z.code}
@@ -169,8 +169,8 @@ export default function ClimateClassificationViz() {
                                 <span className="font-black text-xl">{selected.code}</span>
                             </div>
                             <div>
-                                <h4 className="text-xl font-bold text-gray-900 dark:text-white">{selected.name}</h4>
-                                <p className="text-sm text-gray-500">{selected.description}</p>
+                                <h4 className="text-xl font-bold text-foreground">{selected.name}</h4>
+                                <p className="text-sm text-muted-foreground">{selected.description}</p>
                             </div>
                         </div>
                     </div>
@@ -178,10 +178,10 @@ export default function ClimateClassificationViz() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                         <div className="space-y-3">
                             <div>
-                                <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Characteristics</span>
+                                <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Characteristics</span>
                                 <ul className="mt-1 space-y-1">
                                     {selected.characteristics.map(c => (
-                                        <li key={c} className="text-sm text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                                        <li key={c} className="text-sm text-muted-foreground dark:text-muted-foreground flex items-center gap-2">
                                             <div className={`w-1.5 h-1.5 rounded-full ${selected.color}`} />
                                             {c}
                                         </li>
@@ -189,21 +189,21 @@ export default function ClimateClassificationViz() {
                                 </ul>
                             </div>
                             <div>
-                                <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Vegetation</span>
-                                <p className="mt-1 text-sm font-medium text-gray-900 dark:text-white flex items-center gap-2">
+                                <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Vegetation</span>
+                                <p className="mt-1 text-sm font-medium text-foreground flex items-center gap-2">
                                     <Leaf className="w-3 h-3 text-green-500" />
                                     {selected.vegetation}
                                 </p>
                             </div>
                         </div>
 
-                        <div className="bg-gray-50 dark:bg-[#0a0a0a] rounded-xl p-3">
-                            <span className="text-xs font-bold text-gray-500 uppercase tracking-wider flex items-center gap-1 mb-2">
+                        <div className="bg-muted dark:bg-[#0a0a0a] rounded-xl p-3">
+                            <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider flex items-center gap-1 mb-2">
                                 <MapPin className="w-3 h-3" /> Key Regions
                             </span>
                             <div className="flex flex-wrap gap-2">
                                 {selected.regions.map(r => (
-                                    <span key={r} className="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded text-xs font-medium text-gray-700 dark:text-gray-300">
+                                    <span key={r} className="px-2 py-1 bg-card border border-border rounded text-xs font-medium text-muted-foreground dark:text-muted-foreground">
                                         {r}
                                     </span>
                                 ))}

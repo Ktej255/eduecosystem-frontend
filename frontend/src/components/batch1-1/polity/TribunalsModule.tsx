@@ -20,7 +20,7 @@ interface TribunalsModuleProps {
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="bg-[#f5f3ff] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-indigo-100 selection:text-indigo-900">
-        <div className="max-w-5xl mx-auto space-y-12 bg-white rounded-3xl p-6 shadow-2xl border-4 border-indigo-900 relative overflow-hidden bg-[url('https://www.transparenttextures.com/patterns/pinstriped-suit.png')]">
+        <div className="max-w-5xl mx-auto space-y-12 bg-card rounded-3xl p-6 shadow-2xl border-4 border-indigo-900 relative overflow-hidden bg-[url('https://www.transparenttextures.com/patterns/pinstriped-suit.png')]">
             <div className="absolute top-0 right-0 w-full h-2 bg-[#4f46e5] opacity-30"></div>
             {children}
         </div>
@@ -28,14 +28,14 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const JusticeCard = ({ title, children, color = "border-indigo-900", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[4px_4px_0px_0px_rgba(79,70,229,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[4px_4px_0px_0px_rgba(79,70,229,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute top-0 right-0 p-2 opacity-5 translate-x-1/4 -translate-y-1/4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
             <Maximize2 size={64} className={color.replace('border-', 'text-')} />
         </div>
         <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-800 relative z-10 font-bold">
+        <div className="space-y-4 text-foreground relative z-10 font-bold">
             {children}
         </div>
     </div>
@@ -58,11 +58,11 @@ export default function TribunalsModule({ onComplete, isCompleted, chapterNumber
         <ScrapbookContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#4f46e5] border-4 border-indigo-950 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(79,70,229,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-card/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-[#3730a3] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-indigo-100 font-bold uppercase tracking-widest text-sm italic">Quasi-Judicial Excellence</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
@@ -88,12 +88,12 @@ export default function TribunalsModule({ onComplete, isCompleted, chapterNumber
                         <h4 className="font-black text-indigo-700 flex items-center gap-2 uppercase text-xs mb-4">
                             Mini-Constitution Legacy
                         </h4>
-                        <p className="text-sm font-black text-slate-900 leading-relaxed italic mb-4">
+                        <p className="text-sm font-black text-foreground leading-relaxed italic mb-4">
                             Tribunals were <span className="text-xl text-indigo-600 underline">NOT</span> in the original Constitution. They were added by the 42nd Amendment. [PYQ]
                         </p>
                         <div className="grid grid-cols-2 gap-2">
-                            <div className="p-2 bg-white border rounded text-[10px] font-black text-center">Art 323-A</div>
-                            <div className="p-2 bg-white border rounded text-[10px] font-black text-center">Art 323-B</div>
+                            <div className="p-2 bg-card border rounded text-[10px] font-black text-center">Art 323-A</div>
+                            <div className="p-2 bg-card border rounded text-[10px] font-black text-center">Art 323-B</div>
                         </div>
                     </div>
                 </JusticeCard>
@@ -124,9 +124,9 @@ export default function TribunalsModule({ onComplete, isCompleted, chapterNumber
                         Exclusively for Public Service Matters [PYQ]
                     </h4>
                     <div className="grid md:grid-cols-2 gap-8 text-left">
-                        <div className="p-6 bg-white border-2 border-indigo-900 rounded-3xl shadow-sm relative group hover:scale-105 transition-transform">
+                        <div className="p-6 bg-card border-2 border-indigo-900 rounded-3xl shadow-sm relative group hover:scale-105 transition-transform">
                             <Badge className="absolute -top-3 left-4 bg-indigo-600">CENTRE (CAT)</Badge>
-                            <p className="text-xs font-black italic text-slate-600 mb-4">
+                            <p className="text-xs font-black italic text-muted-foreground mb-4">
                                 Established by Parliament (1985). Jurisdiction over All-India, Central Civil Services, etc.
                             </p>
                             <div className="p-3 bg-indigo-50 rounded-xl">
@@ -134,13 +134,13 @@ export default function TribunalsModule({ onComplete, isCompleted, chapterNumber
                                 <p className="text-[10px] font-bold">Judge of HC (or former). Apptd by President.</p>
                             </div>
                         </div>
-                        <div className="p-6 bg-white border-2 border-indigo-900 rounded-3xl shadow-sm relative group hover:scale-105 transition-transform">
+                        <div className="p-6 bg-card border-2 border-indigo-900 rounded-3xl shadow-sm relative group hover:scale-105 transition-transform">
                             <Badge className="absolute -top-3 left-4 bg-indigo-900">STATE (SAT)</Badge>
-                            <p className="text-xs font-black italic text-slate-600 mb-4">
+                            <p className="text-xs font-black italic text-muted-foreground mb-4">
                                 Established by Parliament on <span className="underline decoration-indigo-200">State Government request</span>.
                             </p>
-                            <div className="p-3 bg-slate-50 border border-dashed border-slate-300 rounded-xl">
-                                <p className="text-[8px] font-black uppercase text-slate-400">Special Note:</p>
+                            <div className="p-3 bg-muted border border-dashed border-border rounded-xl">
+                                <p className="text-[8px] font-black uppercase text-muted-foreground">Special Note:</p>
                                 <p className="text-[10px] font-bold">Joint Administrative Tribunals (JAT) can also be formed for 2+ states. [PYQ]</p>
                             </div>
                         </div>
@@ -158,8 +158,8 @@ export default function TribunalsModule({ onComplete, isCompleted, chapterNumber
                             <h5 className="text-[10px] font-black uppercase text-indigo-700">Art 323-A:</h5>
                             <p className="text-[10px] font-bold italic">Only by <span className="underline">Parliament</span>. Only for <span className="underline">Public Services</span>.</p>
                         </div>
-                        <div className="p-3 bg-slate-50 border-l-4 border-slate-900 rounded">
-                            <h5 className="text-[10px] font-black uppercase text-slate-700">Art 323-B:</h5>
+                        <div className="p-3 bg-muted border-l-4 border-slate-900 rounded">
+                            <h5 className="text-[10px] font-black uppercase text-muted-foreground">Art 323-B:</h5>
                             <p className="text-[10px] font-bold italic">By <span className="underline">Parliament OR State Legislature</span>. For Taxation, Land Reforms, Elections, etc. [PYQ]</p>
                         </div>
                     </div>
@@ -172,7 +172,7 @@ export default function TribunalsModule({ onComplete, isCompleted, chapterNumber
                         <p className="text-xs font-bold leading-relaxed mb-4">
                             SC declared that Judicial Review is a <span className="text-red-700 underline font-black">Basic Structure</span>.
                         </p>
-                        <div className="p-4 bg-white rounded-2xl border-2 border-red-600 shadow-sm relative">
+                        <div className="p-4 bg-card rounded-2xl border-2 border-red-600 shadow-sm relative">
                             <div className="absolute top-0 right-0 bg-red-600 text-white p-1 text-[8px] font-black">NEW RULE</div>
                             <p className="text-[10px] font-black italic">
                                 Appeals from CAT/SAT <span className="text-red-600">MUST go to Division Bench of High Court</span> first. NOT directly to SC.
@@ -186,7 +186,7 @@ export default function TribunalsModule({ onComplete, isCompleted, chapterNumber
             <div className="mt-8 p-8 bg-indigo-900 text-white border-4 border-slate-950 rounded-3xl relative overflow-hidden shadow-2xl">
                 <div className="absolute top-0 left-0 p-4 opacity-5 rotate-12"><Zap size={150} /></div>
                 <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
-                    <div className="p-6 bg-white text-indigo-900 rounded-full border-4 border-indigo-400 shadow-[0_0_50px_rgba(79,70,229,0.3)] flex-shrink-0">
+                    <div className="p-6 bg-card text-indigo-900 rounded-full border-4 border-indigo-400 shadow-[0_0_50px_rgba(79,70,229,0.3)] flex-shrink-0">
                         <Scale size={48} />
                     </div>
                     <div className="space-y-4">
@@ -221,7 +221,7 @@ export default function TribunalsModule({ onComplete, isCompleted, chapterNumber
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold italic tracking-widest text-center">Part XIV-A: Specialized Adjudication.</p>
+                <p className="mt-4 text-muted-foreground font-bold italic tracking-widest text-center">Part XIV-A: Specialized Adjudication.</p>
             </div>
         </ScrapbookContainer>
     );

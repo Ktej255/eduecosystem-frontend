@@ -14,7 +14,7 @@ export function ReflectionJournal() {
     const [reflection, setReflection] = useState("");
     const [isAnalyzing, setIsAnalyzing] = useState(false);
     const [insight, setInsight] = useState<string | null>(null);
-    const recognitionRef = useRef<any>(null);
+    const recognitionRef = useRef<SpeechRecognition | null>(null);
 
     const startRecording = () => {
         if (!("webkitSpeechRecognition" in window) && !("speechRecognition" in window)) {
@@ -22,17 +22,18 @@ export function ReflectionJournal() {
             return;
         }
 
-        const SpeechRecognition = (window as any).webkitSpeechRecognition || (window as any).speechRecognition;
+        const SpeechRecognition = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition;
+        if (!SpeechRecognition) return;
         recognitionRef.current = new SpeechRecognition();
         recognitionRef.current.continuous = true;
         recognitionRef.current.interimResults = true;
 
         recognitionRef.current.onstart = () => setIsRecording(true);
         recognitionRef.current.onend = () => setIsRecording(false);
-        recognitionRef.current.onresult = (event: any) => {
+        recognitionRef.current.onresult = (event: SpeechRecognitionEvent) => {
             const transcript = Array.from(event.results)
-                .map((result: any) => result[0])
-                .map((result: any) => result.transcript)
+                .map((result) => result[0])
+                .map((result) => result.transcript)
                 .join("");
             setReflection(transcript);
         };
@@ -75,7 +76,7 @@ export function ReflectionJournal() {
                     <BrainCircuit className="w-5 h-5" />
                     Wisdom Journal
                 </CardTitle>
-                <p className="text-xs text-gray-500">Document your internal realizations</p>
+                <p className="text-xs text-muted-foreground">Document your internal realizations</p>
             </CardHeader>
             <CardContent className="pt-6 space-y-4">
                 <div className="relative">

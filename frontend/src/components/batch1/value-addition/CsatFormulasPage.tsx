@@ -33,7 +33,7 @@ export default function CsatFormulasPage() {
                         <Calculator className="h-6 w-6 text-red-600" />
                         CSAT Cheat Sheet
                     </h1>
-                    <p className="text-gray-500 text-sm">
+                    <p className="text-muted-foreground text-sm">
                         High-yield formulas for Quant & Reasoning revision.
                     </p>
                 </div>
@@ -75,9 +75,9 @@ export default function CsatFormulasPage() {
 // Helper Card Component
 function FormulaCard({ topicData }: { topicData: any }) {
     return (
-        <Card className="hover:shadow-md transition-shadow dark:bg-gray-800 border-t-4 border-t-red-500">
+        <Card className="hover:shadow-md transition-shadow border-t-4 border-t-red-500">
             <CardHeader className="pb-2">
-                <CardTitle className="text-lg text-gray-800 dark:text-gray-100 flex justify-between items-center">
+                <CardTitle className="text-lg text-foreground flex justify-between items-center">
                     {topicData.topic}
                     <Badge variant="secondary" className="text-xs font-normal opacity-70">
                         {topicData.formulas.length} Formulas
@@ -91,11 +91,11 @@ function FormulaCard({ topicData }: { topicData: any }) {
                             <p className="text-xs font-bold text-red-600 dark:text-red-400 uppercase mb-1">
                                 {formula.title}
                             </p>
-                            <p className="font-mono text-sm text-gray-800 dark:text-gray-200 bg-white dark:bg-black/20 p-1.5 rounded border border-dashed border-gray-300 dark:border-gray-700 inline-block w-full text-center">
+                            <p className="font-mono text-sm text-foreground bg-card dark:bg-black/20 p-1.5 rounded border border-dashed border-border inline-block w-full text-center">
                                 {formula.expression}
                             </p>
                             {formula.note && (
-                                <p className="text-[11px] text-gray-500 italic mt-1.5">
+                                <p className="text-[11px] text-muted-foreground italic mt-1.5">
                                     Tip: {formula.note}
                                 </p>
                             )}

@@ -139,7 +139,7 @@ export default function VoiceRecorder({
     };
 
     return (
-        <div className="flex flex-col items-center gap-4 p-6 rounded-xl bg-white dark:bg-gray-900">
+        <div className="flex flex-col items-center gap-4 p-6 rounded-xl bg-card">
             {!audioUrl ? (
                 <div className="text-center w-full">
                     {isRecording ? (
@@ -174,7 +174,7 @@ export default function VoiceRecorder({
                                 <Square className="h-10 w-10" fill="white" />
                             </Button>
 
-                            <p className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                            <p className="text-lg font-semibold text-muted-foreground dark:text-muted-foreground">
                                 Tap to STOP Recording
                             </p>
                         </div>
@@ -193,8 +193,8 @@ export default function VoiceRecorder({
                                 <Mic className="h-10 w-10" />
                             </Button>
                             <div>
-                                <h4 className="font-semibold text-gray-700 dark:text-gray-300">Tap to start recording</h4>
-                                <p className="text-sm text-gray-500">Explain the concept in your own words</p>
+                                <h4 className="font-semibold text-muted-foreground dark:text-muted-foreground">Tap to start recording</h4>
+                                <p className="text-sm text-muted-foreground">Explain the concept in your own words</p>
                             </div>
                         </div>
                     )}
@@ -209,7 +209,7 @@ export default function VoiceRecorder({
                     </div>
 
                     {/* Playback controls */}
-                    <div className="flex items-center gap-4 justify-between bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                    <div className="flex items-center gap-4 justify-between bg-muted p-4 rounded-lg">
                         <Button
                             variant="ghost"
                             size="sm"
@@ -222,11 +222,11 @@ export default function VoiceRecorder({
                             {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
                         </Button>
 
-                        <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                        <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
                             <div className="h-full bg-primary w-full rounded-full"></div>
                         </div>
 
-                        <span className="text-sm font-mono text-gray-600 dark:text-gray-400">{formatTime(duration)}</span>
+                        <span className="text-sm font-mono text-muted-foreground dark:text-muted-foreground">{formatTime(duration)}</span>
                     </div>
 
                     <audio
@@ -246,7 +246,7 @@ export default function VoiceRecorder({
                                 e.stopPropagation();
                                 handleReset();
                             }}
-                            className="flex-1 gap-2 text-gray-600"
+                            className="flex-1 gap-2 text-muted-foreground"
                         >
                             <RotateCcw className="h-4 w-4" />
                             Re-record

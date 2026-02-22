@@ -22,13 +22,13 @@ export default function GenericPage({ title, description, children }: GenericPag
                         <Button
                             variant="ghost"
                             onClick={() => router.back()}
-                            className="mb-4 text-gray-400 hover:text-white pl-0 hover:bg-transparent"
+                            className="mb-4 text-muted-foreground hover:text-white pl-0 hover:bg-transparent"
                         >
                             <ArrowLeft className="mr-2 h-4 w-4" />
                             Back
                         </Button>
                         <h1 className="text-3xl font-bold text-white mb-2">{title}</h1>
-                        <p className="text-gray-400">
+                        <p className="text-muted-foreground">
                             {description || "Manage your settings and preferences here."}
                         </p>
                     </div>
@@ -44,7 +44,7 @@ export default function GenericPage({ title, description, children }: GenericPag
                                 <Construction className="h-10 w-10 text-cyan-500" />
                             </div>
                             <h2 className="text-2xl font-bold text-white mb-2">Under Construction</h2>
-                            <p className="text-gray-400 max-w-md mb-8">
+                            <p className="text-muted-foreground max-w-md mb-8">
                                 This page is currently being developed. Check back soon for updates!
                             </p>
                             <Button

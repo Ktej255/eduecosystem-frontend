@@ -215,7 +215,7 @@ export default function OceanFloorViz() {
                     <Waves className="text-sky-400" />
                     Ocean Relief Profile
                 </h1>
-                <p className="text-slate-400 text-sm">Interactive Cross-Section of the Ocean Floor</p>
+                <p className="text-muted-foreground text-sm">Interactive Cross-Section of the Ocean Floor</p>
             </div>
 
             {/* Info Panel */}
@@ -224,7 +224,7 @@ export default function OceanFloorViz() {
                     <>
                         <div className="flex justify-between items-start mb-2">
                             <h2 className="text-xl font-bold text-sky-100">{selectedZone.name}</h2>
-                            <button onClick={() => setSelectedZone(null)} className="text-slate-400 hover:text-white">✕</button>
+                            <button onClick={() => setSelectedZone(null)} className="text-muted-foreground hover:text-white">✕</button>
                         </div>
                         <div className="inline-block bg-sky-900/50 text-sky-300 text-xs px-2 py-1 rounded mb-3 border border-sky-500/20 font-mono">
                             Depth: {selectedZone.depth}
@@ -238,7 +238,7 @@ export default function OceanFloorViz() {
 
             {/* Helper Hint */}
             {!selectedZone && (
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-400 text-sm bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm animate-pulse">
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground text-sm bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm animate-pulse">
                     Click the yellow markers to explore zones
                 </div>
             )}

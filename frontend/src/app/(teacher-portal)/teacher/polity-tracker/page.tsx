@@ -104,7 +104,7 @@ export default function PolityTrackerPage() {
             <div className="flex items-center justify-center h-screen">
                 <div className="flex flex-col items-center gap-2">
                     <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
-                    <p className="text-sm text-gray-500">Loading operations center...</p>
+                    <p className="text-sm text-muted-foreground">Loading operations center...</p>
                 </div>
             </div>
         );
@@ -115,11 +115,11 @@ export default function PolityTrackerPage() {
             {/* Header */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
                         <Shield className="h-8 w-8 text-blue-600" />
                         Operation Lakshmikant Shield
                     </h1>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">
+                    <p className="text-muted-foreground dark:text-muted-foreground mt-1">
                         Tracking the 5-step content factory for all 95 chapters
                     </p>
                 </div>
@@ -131,18 +131,18 @@ export default function PolityTrackerPage() {
                             <div className="text-2xl font-bold">{stats.completed}</div>
                             <div className="text-xs opacity-70">Completed</div>
                         </div>
-                        <div className="h-10 w-px bg-white/20"></div>
+                        <div className="h-10 w-px bg-card/20"></div>
                         <div className="text-center">
                             <div className="text-2xl font-bold">{stats.total - stats.completed}</div>
                             <div className="text-xs opacity-70">Pending</div>
                         </div>
-                        <div className="h-10 w-px bg-white/20"></div>
+                        <div className="h-10 w-px bg-card/20"></div>
                         <div className="w-24">
                             <div className="flex justify-between text-xs mb-1">
                                 <span>Progress</span>
                                 <span>{stats.percentage}%</span>
                             </div>
-                            <Progress value={stats.percentage} className="h-2 bg-white/20" />
+                            <Progress value={stats.percentage} className="h-2 bg-card/20" />
                         </div>
                     </CardContent>
                 </Card>
@@ -232,7 +232,7 @@ export default function PolityTrackerPage() {
                                         <TableCell className="text-center">
                                             {task.status === 'completed' && <Badge className="bg-green-600">Done</Badge>}
                                             {task.status === 'in_progress' && <Badge variant="secondary" className="bg-blue-100 text-blue-700">WIP</Badge>}
-                                            {task.status === 'pending' && <Badge variant="outline" className="text-gray-400">Todo</Badge>}
+                                            {task.status === 'pending' && <Badge variant="outline" className="text-muted-foreground">Todo</Badge>}
                                         </TableCell>
                                     </TableRow>
                                 ))}

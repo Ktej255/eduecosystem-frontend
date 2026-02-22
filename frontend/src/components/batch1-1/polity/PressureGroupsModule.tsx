@@ -17,7 +17,7 @@ interface PressureGroupsModuleProps {
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="bg-[#f3f4f6] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-slate-200">
-        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white/50 rounded-3xl p-6 shadow-inner border-2 border-slate-200">
+        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-card/50 rounded-3xl p-6 shadow-inner border-2 border-border">
             {children}
         </div>
     </div>
@@ -28,7 +28,7 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
         <div className={`p-3 rounded-full ${color} text-white shadow-lg`}>
             <Icon size={24} />
         </div>
-        <h2 className={`text-2xl font-black uppercase tracking-tight text-slate-800`}>
+        <h2 className={`text-2xl font-black uppercase tracking-tight text-foreground`}>
             {title}
         </h2>
         <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
@@ -36,12 +36,12 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
 );
 
 const ClassificationCard = ({ title, examples, icon: Icon, color }: { title: string, examples: string[], icon: any, color: string }) => (
-    <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col items-center text-center transform hover:scale-105 transition-transform">
+    <div className="bg-card p-4 rounded-xl border border-border shadow-sm flex flex-col items-center text-center transform hover:scale-105 transition-transform">
         <div className={`p-2 rounded-full ${color} text-white mb-3`}>
             <Icon size={16} />
         </div>
-        <h4 className="font-black text-slate-800 text-sm mb-2">{title}</h4>
-        <div className="text-xs font-bold text-slate-500 space-y-1">
+        <h4 className="font-black text-foreground text-sm mb-2">{title}</h4>
+        <div className="text-xs font-bold text-muted-foreground space-y-1">
             {examples.map((e, i) => <p key={i}>{e}</p>)}
         </div>
     </div>
@@ -59,7 +59,7 @@ export default function PressureGroupsModule({ onComplete, isCompleted, chapterN
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
                         Pressure Groups <br />
-                        <span className="text-slate-400">The Lobbyist's Whisper</span>
+                        <span className="text-muted-foreground">The Lobbyist's Whisper</span>
                     </h1>
                     <p className="text-xl text-slate-300 italic max-w-2xl">
                         "Influence without Power. The Invisible Hand pushing the button."
@@ -107,27 +107,27 @@ export default function PressureGroupsModule({ onComplete, isCompleted, chapterN
                 <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-6">
                     <h3 className="font-black text-blue-900 mb-4">Techniques</h3>
                     <ul className="space-y-3">
-                        <li className="flex gap-2 text-sm font-bold text-slate-700">
+                        <li className="flex gap-2 text-sm font-bold text-muted-foreground">
                             <span className="text-blue-600">►</span> Lobbying (Persuasion)
                         </li>
-                        <li className="flex gap-2 text-sm font-bold text-slate-700">
+                        <li className="flex gap-2 text-sm font-bold text-muted-foreground">
                             <span className="text-blue-600">►</span> PIL (Litigation)
                         </li>
-                        <li className="flex gap-2 text-sm font-bold text-slate-700">
+                        <li className="flex gap-2 text-sm font-bold text-muted-foreground">
                             <span className="text-blue-600">►</span> Direct Action (Strikes/Bandhs)
                         </li>
                     </ul>
                 </div>
 
-                <div className="bg-white border-2 border-slate-300 rounded-2xl p-6 shadow-lg">
-                    <h3 className="font-black text-slate-800 text-center mb-4">Pressure Group VS Political Party</h3>
+                <div className="bg-card border-2 border-border rounded-2xl p-6 shadow-lg">
+                    <h3 className="font-black text-foreground text-center mb-4">Pressure Group VS Political Party</h3>
                     <div className="grid grid-cols-2 gap-4 text-xs font-bold text-center">
                         <div className="space-y-2">
-                            <div className="bg-slate-100 p-2 rounded">Influence Policy</div>
-                            <div className="bg-slate-100 p-2 rounded">Indirect Method</div>
-                            <div className="bg-slate-100 p-2 rounded">Narrow Interest</div>
+                            <div className="bg-muted p-2 rounded">Influence Policy</div>
+                            <div className="bg-muted p-2 rounded">Indirect Method</div>
+                            <div className="bg-muted p-2 rounded">Narrow Interest</div>
                         </div>
-                        <div className="border-l-2 border-slate-200 space-y-2">
+                        <div className="border-l-2 border-border space-y-2">
                             <div className="bg-blue-100 text-blue-800 p-2 rounded">Capture Power</div>
                             <div className="bg-blue-100 text-blue-800 p-2 rounded">Direct Elections</div>
                             <div className="bg-blue-100 text-blue-800 p-2 rounded">National Ideology</div>

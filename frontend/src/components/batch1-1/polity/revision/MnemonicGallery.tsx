@@ -19,14 +19,14 @@ export default function MnemonicGallery() {
     return (
         <div className="max-w-7xl mx-auto space-y-6 font-['Calibri']">
             {/* Header & Filter */}
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 bg-card p-4 rounded-2xl border border-border shadow-sm">
                 <div className="flex items-center gap-2">
                     <span className="bg-yellow-100 p-2 rounded-lg text-yellow-700">
                         <Lightbulb size={24} />
                     </span>
                     <div>
-                        <h2 className="text-xl font-black text-slate-800">Mnemonic Cheat Codes</h2>
-                        <p className="text-xs text-slate-500">Memorize the impossible with these hacks.</p>
+                        <h2 className="text-xl font-black text-foreground">Mnemonic Cheat Codes</h2>
+                        <p className="text-xs text-muted-foreground">Memorize the impossible with these hacks.</p>
                     </div>
                 </div>
 
@@ -37,7 +37,7 @@ export default function MnemonicGallery() {
                             onClick={() => setFilter(cat)}
                             className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all ${filter === cat
                                     ? 'bg-slate-800 text-white shadow-md'
-                                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                                    : 'bg-muted text-muted-foreground hover:bg-slate-200'
                                 }`}
                         >
                             {cat}
@@ -68,15 +68,15 @@ function MnemonicCard({ item }: { item: MnemonicItem }) {
 
     return (
         <motion.div layout>
-            <Card className="overflow-hidden border-2 border-slate-100 hover:border-slate-300 transition-colors h-full flex flex-col">
+            <Card className="overflow-hidden border-2 border-slate-100 hover:border-border transition-colors h-full flex flex-col">
                 <div className={`p-4 ${item.color.split(' ')[0]} border-b border-white/20 flex justify-between items-start`}>
-                    <Badge variant="outline" className="bg-white/50 border-white/30 text-slate-900 font-bold backdrop-blur-sm">
+                    <Badge variant="outline" className="bg-card/50 border-white/30 text-foreground font-bold backdrop-blur-sm">
                         {item.category}
                     </Badge>
                     <Button
                         size="icon"
                         variant="ghost"
-                        className="h-6 w-6 text-slate-700 hover:bg-white/30 rounded-full"
+                        className="h-6 w-6 text-muted-foreground hover:bg-card/30 rounded-full"
                         onClick={handleCopy}
                     >
                         {copied ? <CheckCircle2 size={14} /> : <Copy size={14} />}
@@ -84,12 +84,12 @@ function MnemonicCard({ item }: { item: MnemonicItem }) {
                 </div>
 
                 <CardContent className="p-5 flex-1 flex flex-col">
-                    <h3 className="text-lg font-bold text-slate-800 mb-3 leading-snug">
+                    <h3 className="text-lg font-bold text-foreground mb-3 leading-snug">
                         {item.title}
                     </h3>
 
-                    <div className="bg-slate-50 p-4 rounded-xl border-l-4 border-yellow-400 mb-4">
-                        <p className="text-lg font-medium text-slate-800 font-mono">
+                    <div className="bg-muted p-4 rounded-xl border-l-4 border-yellow-400 mb-4">
+                        <p className="text-lg font-medium text-foreground font-mono">
                             "{item.mnemonic}"
                         </p>
                     </div>
@@ -98,7 +98,7 @@ function MnemonicCard({ item }: { item: MnemonicItem }) {
                         <Button
                             onClick={() => setIsExpanded(!isExpanded)}
                             variant="ghost"
-                            className="w-full justify-between hover:bg-slate-50 text-slate-500 text-xs uppercase font-bold tracking-wider"
+                            className="w-full justify-between hover:bg-muted text-muted-foreground text-xs uppercase font-bold tracking-wider"
                         >
                             {isExpanded ? 'Hide Explanation' : 'Decode Mnemonic'}
                             {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -113,7 +113,7 @@ function MnemonicCard({ item }: { item: MnemonicItem }) {
                                 exit={{ height: 0, opacity: 0 }}
                                 className="overflow-hidden"
                             >
-                                <div className="pt-4 text-sm text-slate-600 space-y-1 whitespace-pre-line border-t border-slate-100 mt-2">
+                                <div className="pt-4 text-sm text-muted-foreground space-y-1 whitespace-pre-line border-t border-slate-100 mt-2">
                                     {item.explanation}
                                 </div>
                             </motion.div>

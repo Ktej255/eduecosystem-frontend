@@ -132,7 +132,7 @@ export function VideoAttachment({
 
         <TabsContent value="youtube" className="space-y-3">
           <div>
-            <Label className="text-gray-300">YouTube URL</Label>
+            <Label className="text-muted-foreground">YouTube URL</Label>
             <Input
               value={url}
               onChange={(e) => setUrl(e.target.value)}
@@ -159,7 +159,7 @@ export function VideoAttachment({
 
         <TabsContent value="vimeo" className="space-y-3">
           <div>
-            <Label className="text-gray-300">Vimeo URL</Label>
+            <Label className="text-muted-foreground">Vimeo URL</Label>
             <Input
               value={url}
               onChange={(e) => setUrl(e.target.value)}
@@ -195,11 +195,11 @@ export function VideoAttachment({
               disabled={uploading}
             />
             <label htmlFor="video-upload" className="cursor-pointer">
-              <Upload className="h-12 w-12 text-gray-500 mx-auto mb-3" />
+              <Upload className="h-12 w-12 text-muted-foreground mx-auto mb-3" />
               <p className="text-white font-medium">
                 {uploading ? "Uploading..." : "Click to upload video"}
               </p>
-              <p className="text-sm text-gray-400 mt-1">
+              <p className="text-sm text-muted-foreground mt-1">
                 MP4, WebM, or OGG (max 500MB)
               </p>
             </label>
@@ -207,7 +207,7 @@ export function VideoAttachment({
 
           {url && (
             <div>
-              <p className="text-sm text-gray-400 mb-2">Uploaded video:</p>
+              <p className="text-sm text-muted-foreground mb-2">Uploaded video:</p>
               <div className="aspect-video bg-black rounded-lg overflow-hidden">
                 <video src={url} controls className="w-full h-full" />
               </div>
@@ -289,7 +289,7 @@ export function FileAttachment({ files = [], onUpdate }: FileAttachmentProps) {
       return <FileText className="h-5 w-5 text-red-400" />;
     if (type.includes("video"))
       return <Video className="h-5 w-5 text-purple-400" />;
-    return <File className="h-5 w-5 text-gray-400" />;
+    return <File className="h-5 w-5 text-muted-foreground" />;
   };
 
   return (
@@ -304,11 +304,11 @@ export function FileAttachment({ files = [], onUpdate }: FileAttachmentProps) {
           disabled={uploading}
         />
         <label htmlFor="file-upload" className="cursor-pointer">
-          <Upload className="h-10 w-10 text-gray-500 mx-auto mb-2" />
+          <Upload className="h-10 w-10 text-muted-foreground mx-auto mb-2" />
           <p className="text-white font-medium">
             {uploading ? "Uploading..." : "Click to upload files"}
           </p>
-          <p className="text-sm text-gray-400 mt-1">
+          <p className="text-sm text-muted-foreground mt-1">
             PDF, documents, images, or any file type
           </p>
         </label>
@@ -316,7 +316,7 @@ export function FileAttachment({ files = [], onUpdate }: FileAttachmentProps) {
 
       {currentFiles.length > 0 && (
         <div className="space-y-2">
-          <Label className="text-gray-300">
+          <Label className="text-muted-foreground">
             Attached Files ({currentFiles.length})
           </Label>
           <div className="space-y-2">
@@ -331,7 +331,7 @@ export function FileAttachment({ files = [], onUpdate }: FileAttachmentProps) {
                     <p className="text-white font-medium truncate">
                       {file.name}
                     </p>
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-muted-foreground">
                       {formatFileSize(file.size)}
                     </p>
                   </div>

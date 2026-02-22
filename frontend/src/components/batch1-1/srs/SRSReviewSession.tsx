@@ -124,11 +124,11 @@ export default function SRSReviewSession({ onComplete, onBack, preloadCards }: S
                             No cards due for review right now. Come back later!
                         </p>
                         <div className="grid grid-cols-2 gap-4 mb-6">
-                            <div className="bg-white/50 dark:bg-gray-800/50 rounded-xl p-4">
+                            <div className="bg-card/50/50 rounded-xl p-4">
                                 <div className="text-2xl font-bold text-green-700">{stats.masteredCards}</div>
                                 <div className="text-sm text-green-600">Mastered</div>
                             </div>
-                            <div className="bg-white/50 dark:bg-gray-800/50 rounded-xl p-4">
+                            <div className="bg-card/50/50 rounded-xl p-4">
                                 <div className="text-2xl font-bold text-blue-700">{stats.retentionRate}%</div>
                                 <div className="text-sm text-blue-600">Retention</div>
                             </div>
@@ -161,15 +161,15 @@ export default function SRSReviewSession({ onComplete, onBack, preloadCards }: S
                         </p>
 
                         <div className="grid grid-cols-3 gap-4 mb-6">
-                            <div className="bg-white/50 dark:bg-gray-800/50 rounded-xl p-4">
+                            <div className="bg-card/50/50 rounded-xl p-4">
                                 <div className="text-2xl font-bold text-indigo-700">{sessionStats.reviewed}</div>
                                 <div className="text-sm text-indigo-600">Reviewed</div>
                             </div>
-                            <div className="bg-white/50 dark:bg-gray-800/50 rounded-xl p-4">
+                            <div className="bg-card/50/50 rounded-xl p-4">
                                 <div className="text-2xl font-bold text-green-700">{accuracy}%</div>
                                 <div className="text-sm text-green-600">Accuracy</div>
                             </div>
-                            <div className="bg-white/50 dark:bg-gray-800/50 rounded-xl p-4">
+                            <div className="bg-card/50/50 rounded-xl p-4">
                                 <div className="text-2xl font-bold text-blue-700">{sessionDuration}m</div>
                                 <div className="text-sm text-blue-600">Duration</div>
                             </div>
@@ -200,7 +200,7 @@ export default function SRSReviewSession({ onComplete, onBack, preloadCards }: S
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                     <Brain className="h-5 w-5 text-indigo-600" />
-                    <span className="font-semibold text-gray-700 dark:text-gray-300">
+                    <span className="font-semibold text-muted-foreground dark:text-muted-foreground">
                         SRS Review
                     </span>
                 </div>
@@ -218,7 +218,7 @@ export default function SRSReviewSession({ onComplete, onBack, preloadCards }: S
 
             {/* Progress Bar */}
             <div className="space-y-1">
-                <div className="flex justify-between text-sm text-gray-500">
+                <div className="flex justify-between text-sm text-muted-foreground">
                     <span>Card {currentIndex + 1} of {dueCards.length}</span>
                     <span>{Math.round(((currentIndex + 1) / dueCards.length) * 100)}%</span>
                 </div>
@@ -237,7 +237,7 @@ export default function SRSReviewSession({ onComplete, onBack, preloadCards }: S
                     {!isFlipped ? (
                         <>
                             <Badge className="mb-4 bg-blue-600 text-white shadow-sm dark:bg-blue-100 dark:text-blue-700">Question</Badge>
-                            <div className="text-xl text-center font-bold text-slate-900 dark:text-gray-100 leading-relaxed space-y-2">
+                            <div className="text-xl text-center font-bold text-foreground leading-relaxed space-y-2">
                                 {currentCard?.front?.split(/(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)/g).map((part, i, arr) => {
                                     if (!part) return null;
                                     if (/^(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)$/.test(part)) {
@@ -250,14 +250,14 @@ export default function SRSReviewSession({ onComplete, onBack, preloadCards }: S
                                     return <p key={i}>{part}</p>;
                                 })}
                             </div>
-                            <p className="mt-6 text-sm text-slate-500 dark:text-gray-400 font-medium flex items-center gap-1">
+                            <p className="mt-6 text-sm text-muted-foreground dark:text-muted-foreground font-medium flex items-center gap-1">
                                 <RotateCcw className="h-4 w-4" /> Tap to reveal answer
                             </p>
                         </>
                     ) : (
                         <>
                             <Badge className="mb-4 bg-green-600 text-white shadow-sm dark:bg-green-100 dark:text-green-700">Answer</Badge>
-                            <div className="text-xl text-center font-bold text-slate-900 dark:text-gray-100 leading-relaxed space-y-2">
+                            <div className="text-xl text-center font-bold text-foreground leading-relaxed space-y-2">
                                 {currentCard?.back?.split(/(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)/g).map((part, i, arr) => {
                                     if (!part) return null;
                                     if (/^(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)$/.test(part)) {
@@ -270,7 +270,7 @@ export default function SRSReviewSession({ onComplete, onBack, preloadCards }: S
                                     return <p key={i}>{part}</p>;
                                 })}
                             </div>
-                            <div className="mt-4 text-xs text-gray-400">
+                            <div className="mt-4 text-xs text-muted-foreground">
                                 Next review: {getNextReviewText(currentCard)}
                             </div>
                         </>
@@ -313,7 +313,7 @@ export default function SRSReviewSession({ onComplete, onBack, preloadCards }: S
             )}
 
             {/* Stats Footer */}
-            <div className="flex items-center justify-between text-sm text-gray-500 pt-4 border-t">
+            <div className="flex items-center justify-between text-sm text-muted-foreground pt-4 border-t">
                 <div className="flex items-center gap-4">
                     <span className="flex items-center gap-1">
                         <BarChart3 className="h-4 w-4" />

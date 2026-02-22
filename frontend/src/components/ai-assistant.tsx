@@ -74,7 +74,7 @@ export default function AIAssistant() {
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            className="text-gray-400 hover:text-white"
+            className="text-muted-foreground hover:text-white"
           >
             <X className="h-5 w-5" />
           </button>
@@ -98,15 +98,15 @@ export default function AIAssistant() {
             <div className="flex justify-start">
               <div className="bg-gray-800 p-3 rounded-xl rounded-tl-none flex space-x-1">
                 <div
-                  className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"
+                  className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"
                   style={{ animationDelay: "0ms" }}
                 />
                 <div
-                  className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"
+                  className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"
                   style={{ animationDelay: "150ms" }}
                 />
                 <div
-                  className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"
+                  className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"
                   style={{ animationDelay: "300ms" }}
                 />
               </div>

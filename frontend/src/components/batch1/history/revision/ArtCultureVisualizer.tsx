@@ -69,18 +69,18 @@ export default function ArtCultureVisualizer() {
                         onClick={() => setSelected(item)}
                         className={`p-4 rounded-2xl border-2 transition-all text-left flex flex-col justify-between h-32 ${selected.title === item.title
                                 ? `${item.borderColor} ${item.bg} shadow-md`
-                                : 'border-slate-100 bg-white hover:border-slate-200'
+                                : 'border-slate-100 bg-card hover:border-border'
                             }`}
                     >
                         <div>
                             <span className={`text-[10px] font-black uppercase tracking-widest ${item.color}`}>
                                 {item.category}
                             </span>
-                            <h4 className="font-bold text-slate-800 leading-tight mt-1 truncate w-full">
+                            <h4 className="font-bold text-foreground leading-tight mt-1 truncate w-full">
                                 {item.title}
                             </h4>
                         </div>
-                        <div className="flex justify-between items-center text-slate-400">
+                        <div className="flex justify-between items-center text-muted-foreground">
                             <span className="text-[10px] font-bold">{item.era}</span>
                             <Camera size={14} />
                         </div>
@@ -89,18 +89,18 @@ export default function ArtCultureVisualizer() {
             </div>
 
             {/* Detailed Visual Insight */}
-            <div className={`bg-white rounded-3xl border-2 ${selected.border} shadow-sm overflow-hidden animate-in fade-in duration-500`}>
+            <div className={`bg-card rounded-3xl border-2 ${selected.border} shadow-sm overflow-hidden animate-in fade-in duration-500`}>
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                     {/* Placeholder for Image/Visual */}
                     <div className={`${selected.bg} aspect-video flex items-center justify-center p-12 border-b lg:border-b-0 lg:border-r ${selected.border}`}>
                         <div className="text-center space-y-4">
-                            <div className={`w-20 h-20 mx-auto rounded-full bg-white flex items-center justify-center shadow-sm ${selected.color}`}>
+                            <div className={`w-20 h-20 mx-auto rounded-full bg-card flex items-center justify-center shadow-sm ${selected.color}`}>
                                 <Landmark size={40} />
                             </div>
                             <p className={`text-sm font-bold ${selected.color} uppercase tracking-widest italic`}>
                                 Visual Simulation: {selected.title}
                             </p>
-                            <Button variant="outline" className={`rounded-xl border-${selected.color.split('-')[1]}-200 bg-white shadow-sm`}>
+                            <Button variant="outline" className={`rounded-xl border-${selected.color.split('-')[1]}-200 bg-card shadow-sm`}>
                                 Launch 3D Viewer
                             </Button>
                         </div>
@@ -112,22 +112,22 @@ export default function ArtCultureVisualizer() {
                             <Badge className={`${selected.bg} ${selected.color} ${selected.border} border mb-2`}>
                                 {selected.category}
                             </Badge>
-                            <h3 className="text-3xl font-black text-slate-900">{selected.title}</h3>
-                            <p className="text-slate-500 font-medium text-sm mt-1">{selected.era} Period</p>
+                            <h3 className="text-3xl font-black text-foreground">{selected.title}</h3>
+                            <p className="text-muted-foreground font-medium text-sm mt-1">{selected.era} Period</p>
                         </div>
 
-                        <p className="text-slate-600 font-medium leading-relaxed">
+                        <p className="text-muted-foreground font-medium leading-relaxed">
                             {selected.description}
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-slate-100">
                             <div className="space-y-3">
-                                <h4 className="flex items-center gap-2 font-black text-slate-800 text-xs uppercase tracking-wider">
+                                <h4 className="flex items-center gap-2 font-black text-foreground text-xs uppercase tracking-wider">
                                     <Layers size={16} className="text-blue-500" /> Defining Features
                                 </h4>
                                 <ul className="space-y-2">
                                     {selected.keyFeatures.map((feat, i) => (
-                                        <li key={i} className="flex items-center gap-2 text-sm text-slate-600 font-medium">
+                                        <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
                                             <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
                                             {feat}
                                         </li>
@@ -135,12 +135,12 @@ export default function ArtCultureVisualizer() {
                                 </ul>
                             </div>
                             <div className="space-y-3">
-                                <h4 className="flex items-center gap-2 font-black text-slate-800 text-xs uppercase tracking-wider">
+                                <h4 className="flex items-center gap-2 font-black text-foreground text-xs uppercase tracking-wider">
                                     <MapPin size={16} className="text-red-500" /> Prominent Sites
                                 </h4>
                                 <ul className="space-y-2">
                                     {selected.sites.map((site, i) => (
-                                        <li key={i} className="flex items-center gap-2 text-sm text-slate-600 font-medium">
+                                        <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
                                             <div className="w-1.5 h-1.5 rounded-full bg-red-500"></div>
                                             {site}
                                         </li>

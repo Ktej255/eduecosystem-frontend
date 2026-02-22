@@ -15,7 +15,7 @@ interface GovernorModuleProps {
 // --- Design System: The Agent & The Head (Dual Hat) ---
 
 const StateContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#fafaf9] text-slate-900">
+    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#fafaf9] text-foreground">
         {/* State Emblem Texture (Abstract) */}
         <div className="absolute inset-0 opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/black-scales.png')]"></div>
 
@@ -57,10 +57,10 @@ export default function GovernorModule({ onComplete, isCompleted }: GovernorModu
                             <Link size={32} />
                         </div>
                     </div>
-                    <h1 className="text-5xl md:text-7xl font-black text-slate-800 font-serif mb-2 relative z-10">
+                    <h1 className="text-5xl md:text-7xl font-black text-foreground font-serif mb-2 relative z-10">
                         THE GOVERNOR
                     </h1>
-                    <p className="text-xl font-bold uppercase tracking-widest text-slate-600">
+                    <p className="text-xl font-bold uppercase tracking-widest text-muted-foreground">
                         "The Dual Hat: Agent & Head"
                     </p>
                 </div>
@@ -76,13 +76,13 @@ export default function GovernorModule({ onComplete, isCompleted }: GovernorModu
 
                 <div className="grid md:grid-cols-2 gap-8">
                     {/* APPOINTMENT LETTER */}
-                    <div className="bg-white p-6 shadow-xl border border-slate-200 rotate-1 relative">
+                    <div className="bg-card p-6 shadow-xl border border-border rotate-1 relative">
                         <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-6 bg-red-100/80 skew-x-12 flex items-center justify-center text-xs font-bold text-red-800 border border-red-200">
                             CONFIDENTIAL
                         </div>
-                        <div className="font-serif space-y-4 text-slate-700">
+                        <div className="font-serif space-y-4 text-muted-foreground">
                             <div className="flex justify-between items-start border-b pb-2">
-                                <span className="text-xs uppercase tracking-widest text-slate-400">From: Rashtrapati Bhavan</span>
+                                <span className="text-xs uppercase tracking-widest text-muted-foreground">From: Rashtrapati Bhavan</span>
                                 <AlertCircle size={20} className="text-orange-500" />
                             </div>
                             <p className="leading-relaxed">
@@ -103,7 +103,7 @@ export default function GovernorModule({ onComplete, isCompleted }: GovernorModu
                         <div className="text-center space-y-4">
                             <div className="relative inline-block p-4">
                                 <div className="absolute top-0 left-1/2 w-0.5 h-8 bg-slate-400 -translate-x-1/2"></div>
-                                <div className="bg-white px-4 py-2 rounded shadow border border-slate-300 font-bold z-10 relative">
+                                <div className="bg-card px-4 py-2 rounded shadow border border-border font-bold z-10 relative">
                                     Pleasure of President
                                 </div>
                             </div>
@@ -139,7 +139,7 @@ export default function GovernorModule({ onComplete, isCompleted }: GovernorModu
                                 <div className="w-2 h-2 bg-green-600 rounded-full"></div>
                                 <span>All executive action in his name.</span>
                             </li>
-                            <li className="bg-white/50 p-2 rounded border border-green-200">
+                            <li className="bg-card/50 p-2 rounded border border-green-200">
                                 <strong>Appoints:</strong> CM, State Election Comm., Advocate Gen, SPSC Members.
                             </li>
                             <li className="flex items-center gap-2 text-xs font-bold text-red-700 bg-red-50 p-1 rounded inline-block">
@@ -163,7 +163,7 @@ export default function GovernorModule({ onComplete, isCompleted }: GovernorModu
                                 <span>Dissolve Assembly</span>
                                 <span className="text-xs">(On CM's advice)</span>
                             </div>
-                            <div className="bg-white/60 p-3 rounded text-green-900 border border-green-300 shadow-inner">
+                            <div className="bg-card/60 p-3 rounded text-green-900 border border-green-300 shadow-inner">
                                 <strong>Nominations:</strong><br />
                                 1/6th to Council (Lit, Sci, Art, Social Svc + <span className="underline decoration-wavy decoration-green-500 font-bold">Cooperative Movement</span>).
                             </div>
@@ -190,17 +190,17 @@ export default function GovernorModule({ onComplete, isCompleted }: GovernorModu
                             <h3 className="text-2xl font-black text-red-800 flex items-center gap-2">
                                 <AlertTriangle /> ART 163 ALERT
                             </h3>
-                            <p className="font-bold text-slate-800 text-lg">
+                            <p className="font-bold text-foreground text-lg">
                                 Constitution explicitly mentions "Discretion" for Governor.
                             </p>
-                            <div className="bg-white p-2 rounded text-xs text-red-600 font-mono border border-red-200 inline-block">
+                            <div className="bg-card p-2 rounded text-xs text-red-600 font-mono border border-red-200 inline-block">
                                 (President does NOT have this text!)
                             </div>
                         </div>
 
-                        <div className="bg-white p-4 rounded-lg shadow-md border border-red-100 space-y-3">
+                        <div className="bg-card p-4 rounded-lg shadow-md border border-red-100 space-y-3">
                             <strong className="block text-red-800 border-b border-red-100 pb-1 mb-2">Scope of Discretion:</strong>
-                            <ul className="space-y-2 text-sm text-slate-700">
+                            <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li className="flex gap-2">
                                     <div className="mt-1 w-2 h-2 bg-red-500 rounded-full"></div>
                                     <span>Reservation of Bill (Art 200).</span>
@@ -238,7 +238,7 @@ export default function GovernorModule({ onComplete, isCompleted }: GovernorModu
                         className={`
                             px-8 py-3 rounded font-bold uppercase tracking-widest transition-all
                             ${isCompleted
-                                ? 'bg-slate-600 text-slate-400 cursor-not-allowed'
+                                ? 'bg-slate-600 text-muted-foreground cursor-not-allowed'
                                 : 'bg-orange-600 text-white hover:bg-orange-700 hover:shadow-lg hover:-translate-y-1'
                             }
                         `}

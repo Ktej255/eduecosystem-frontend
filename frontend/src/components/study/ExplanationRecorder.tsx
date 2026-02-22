@@ -271,7 +271,7 @@ export default function ExplanationRecorder({
                 <CardContent className="p-6 text-center">
                     <MicOff className="w-12 h-12 mx-auto mb-4 text-red-500" />
                     <h3 className="font-semibold mb-2">Microphone Access Required</h3>
-                    <p className="text-sm text-gray-500 mb-4">
+                    <p className="text-sm text-muted-foreground mb-4">
                         Please allow microphone access to record your explanation.
                     </p>
                     <Button onClick={startRecording}>
@@ -287,7 +287,7 @@ export default function ExplanationRecorder({
         <Card className={cn("overflow-hidden", className)}>
             <CardContent className="p-6 space-y-6">
                 {/* Waveform Visualization */}
-                <div className="relative h-24 flex items-center justify-center gap-0.5 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
+                <div className="relative h-24 flex items-center justify-center gap-0.5 bg-muted rounded-lg overflow-hidden">
                     {waveformData.map((value, index) => (
                         <div
                             key={index}
@@ -319,7 +319,7 @@ export default function ExplanationRecorder({
                     <p className="text-4xl font-mono font-bold">
                         {formatTime(recordingTime)}
                     </p>
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-sm text-muted-foreground mt-1">
                         {recordingState === "recording"
                             ? "Recording..."
                             : recordingState === "paused"
@@ -412,7 +412,7 @@ export default function ExplanationRecorder({
                 {(recordingState === "recording" || recordingState === "paused") &&
                     onExtendTime && (
                         <div className="space-y-2">
-                            <p className="text-sm text-center text-gray-500">
+                            <p className="text-sm text-center text-muted-foreground">
                                 Need more time?
                             </p>
                             <div className="flex justify-center gap-2 flex-wrap">

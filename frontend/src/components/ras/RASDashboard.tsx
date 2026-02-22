@@ -242,7 +242,7 @@ export default function RASDashboard() {
                                                                         <div className="text-xs text-neutral-500">Middle Ages • Guhila Dynasty</div>
                                                                     </div>
                                                                     <Link href="/student/ras/focus?topic=Rajasthan%20History">
-                                                                        <Button size="sm" className="h-8 bg-white text-black hover:bg-neutral-200">Start</Button>
+                                                                        <Button size="sm" className="h-8 bg-card text-black hover:bg-neutral-200">Start</Button>
                                                                     </Link>
                                                                 </div>
                                                                 <div className="p-3 bg-neutral-800/50 rounded-lg border border-neutral-700/50 flex items-center gap-3">

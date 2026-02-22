@@ -68,32 +68,32 @@ export default function ContentHealthScore() {
             <CardContent>
                 <div className="flex items-end gap-2 mb-2">
                     <span className="text-3xl font-bold">{score}%</span>
-                    <span className="text-sm text-gray-500 mb-1">optimization score</span>
+                    <span className="text-sm text-muted-foreground mb-1">optimization score</span>
                 </div>
                 <Progress value={score} className="h-2 mb-4 bg-amber-100" indicatorClassName={score > 80 ? "bg-green-500" : score > 50 ? "bg-amber-500" : "bg-red-500"} />
 
-                <h4 className="text-xs font-semibold uppercase text-gray-400 mb-3 tracking-wider">Action Items</h4>
+                <h4 className="text-xs font-semibold uppercase text-muted-foreground mb-3 tracking-wider">Action Items</h4>
 
                 <div className="space-y-2">
                     {loading ? (
                         <div className="space-y-2">
                             {[1, 2, 3].map(i => (
-                                <div key={i} className="h-8 bg-gray-100 rounded animate-pulse" />
+                                <div key={i} className="h-8 bg-muted rounded animate-pulse" />
                             ))}
                         </div>
                     ) : (
                         issues.map((issue) => (
-                            <div key={issue.id} className="flex items-center justify-between p-2 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors group cursor-pointer border border-transparent hover:border-slate-200">
+                            <div key={issue.id} className="flex items-center justify-between p-2 bg-muted rounded-lg hover:bg-muted transition-colors group cursor-pointer border border-transparent hover:border-border">
                                 <div className="flex items-center gap-3">
                                     <div className={`p-1.5 rounded-md ${issue.severity === 'high' ? 'bg-red-100 text-red-600' : 'bg-amber-100 text-amber-600'}`}>
                                         {getIcon(issue.type)}
                                     </div>
                                     <div className="text-xs">
-                                        <p className="font-medium text-slate-700">{issue.title}</p>
-                                        <p className="text-slate-400 capitalize">{issue.type.replace('-', ' ')} missing</p>
+                                        <p className="font-medium text-muted-foreground">{issue.title}</p>
+                                        <p className="text-muted-foreground capitalize">{issue.type.replace('-', ' ')} missing</p>
                                     </div>
                                 </div>
-                                <Badge variant="outline" className="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] h-5 bg-white">
+                                <Badge variant="outline" className="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] h-5 bg-card">
                                     Fix
                                 </Badge>
                             </div>

@@ -219,22 +219,22 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
 
     return (
         <aside
-            className={`fixed left-0 top-16 h-[calc(100vh-4rem)] bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 overflow-y-auto transition-all duration-300 ease-in-out z-40 ${showExpanded ? "w-64" : "w-20"
+            className={`fixed left-0 top-16 h-[calc(100vh-4rem)] bg-card border-r border-border overflow-y-auto transition-all duration-300 ease-in-out z-40 ${showExpanded ? "w-64" : "w-20"
                 }`}
             onMouseEnter={() => isCollapsed && setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             {/* Toggle Button - Hamburger Style */}
-            <div className="p-4 border-b border-gray-200 dark:border-gray-800">
+            <div className="p-4 border-b border-border">
                 <button
                     onClick={onToggle}
-                    className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors w-full flex items-center justify-center"
+                    className="p-2 rounded-lg hover:bg-muted dark:hover:bg-gray-800 transition-colors w-full flex items-center justify-center"
                     title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
                 >
                     {isCollapsed ? (
-                        <Menu className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+                        <Menu className="h-5 w-5 text-muted-foreground dark:text-muted-foreground" />
                     ) : (
-                        <X className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+                        <X className="h-5 w-5 text-muted-foreground dark:text-muted-foreground" />
                     )}
                 </button>
             </div>
@@ -257,7 +257,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                                 href={item.href}
                                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 overflow-hidden ${isActive
                                     ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                                    : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                    : "text-muted-foreground dark:text-muted-foreground hover:bg-muted dark:hover:bg-gray-800"
                                     } ${!showExpanded ? "justify-center px-2" : ""}`}
                                 title={!showExpanded ? item.name : ""}
                             >
@@ -274,7 +274,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                 {isMasterId && (
                     <>
                         <div className={`mt-4 mb-2 px-4 transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 h-0 overflow-hidden"}`}>
-                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Batches</p>
+                            <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Batches</p>
                         </div>
                         {batchItems.map((item) => {
                             const Icon = item.icon;
@@ -286,7 +286,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                                     href={item.href}
                                     className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 overflow-hidden ${isActive
                                         ? "bg-amber-500 text-white shadow-lg shadow-amber-500/30"
-                                        : "text-gray-700 dark:text-gray-300 hover:bg-amber-50 dark:hover:bg-amber-900/10"
+                                        : "text-muted-foreground dark:text-muted-foreground hover:bg-amber-50 dark:hover:bg-amber-900/10"
                                         } ${!showExpanded ? "justify-center px-2" : ""}`}
                                     title={!showExpanded ? item.name : ""}
                                 >
@@ -303,7 +303,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
             </nav>
 
             {/* Progress Section */}
-            <div className={`p-4 mt-4 border-t border-gray-200 dark:border-gray-800 transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 h-0 overflow-hidden p-0"
+            <div className={`p-4 mt-4 border-t border-border transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 h-0 overflow-hidden p-0"
                 }`}>
                 {/* XP & Level Widget */}
                 {xpData && (
@@ -312,10 +312,10 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                             <div className="flex items-center gap-2">
                                 <span className="text-2xl">{getLevelIcon(xpData.level)}</span>
                                 <div>
-                                    <div className="font-bold text-sm text-gray-800 dark:text-gray-200">
+                                    <div className="font-bold text-sm text-foreground">
                                         Level {xpData.level}
                                     </div>
-                                    <div className="text-[10px] text-gray-500">
+                                    <div className="text-[10px] text-muted-foreground">
                                         {getLevelTitle(xpData.level)}
                                     </div>
                                 </div>
@@ -328,14 +328,14 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                             )}
                         </div>
                         <div className="space-y-1">
-                            <div className="flex justify-between text-[10px] text-gray-500">
+                            <div className="flex justify-between text-[10px] text-muted-foreground">
                                 <span className="flex items-center gap-1">
                                     <Sparkles className="h-3 w-3 text-indigo-500" />
                                     {xpData.currentXP} / {xpData.xpToNextLevel} XP
                                 </span>
                                 <span>{Math.round((xpData.currentXP / xpData.xpToNextLevel) * 100)}%</span>
                             </div>
-                            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                            <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
                                 <div
                                     className="bg-gradient-to-r from-indigo-500 to-purple-600 h-2 rounded-full transition-all duration-500"
                                     style={{ width: `${(xpData.currentXP / xpData.xpToNextLevel) * 100}%` }}
@@ -347,22 +347,22 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
 
                 {/* Study Progress */}
                 <div className="bg-gradient-to-r from-blue-50 to-emerald-50 dark:from-blue-900/20 dark:to-emerald-900/20 rounded-lg p-4">
-                    <h3 className="font-semibold text-sm text-gray-900 dark:text-gray-100 mb-2">
+                    <h3 className="font-semibold text-sm text-foreground mb-2">
                         Study Progress
                     </h3>
                     <div className="space-y-2">
                         <div className="flex justify-between text-xs">
-                            <span className="text-gray-600 dark:text-gray-400">Overall</span>
-                            <span className="font-medium text-gray-900 dark:text-gray-100">{progressPercent}%</span>
+                            <span className="text-muted-foreground dark:text-muted-foreground">Overall</span>
+                            <span className="font-medium text-foreground">{progressPercent}%</span>
                         </div>
-                        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
                             <div
                                 className="bg-gradient-to-r from-blue-600 to-emerald-600 h-2 rounded-full transition-all duration-500"
                                 style={{ width: `${progressPercent}%` }}
                             />
                         </div>
                         {stats && (
-                            <div className="mt-3 space-y-1 text-xs text-gray-500 dark:text-gray-400">
+                            <div className="mt-3 space-y-1 text-xs text-muted-foreground dark:text-muted-foreground">
                                 <div className="flex justify-between">
                                     <span>🧘 Meditation</span>
                                     <span>Lv{stats.meditation.currentLevel} D{stats.meditation.currentDay}</span>
@@ -379,7 +379,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
 
             {/* Admin Portal Switcher - Only for Master ID */}
             {isMasterId && (
-                <div className={`p-4 border-t border-gray-200 dark:border-gray-800 transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 h-0 overflow-hidden p-0"}`}>
+                <div className={`p-4 border-t border-border transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 h-0 overflow-hidden p-0"}`}>
                     <Link
                         href="/admin"
                         className="flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:from-purple-600 hover:to-indigo-700 transition-all shadow-lg"
@@ -398,7 +398,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
             )}
 
             {/* Bottom Menu Items */}
-            <div className={`p-4 mt-auto border-t border-gray-200 dark:border-gray-800 space-y-2 ${!showExpanded ? "flex flex-col items-center" : ""}`}>
+            <div className={`p-4 mt-auto border-t border-border space-y-2 ${!showExpanded ? "flex flex-col items-center" : ""}`}>
                 {showExpanded && <NotificationManager />}
                 {bottomMenuItems.map((item) => {
                     const Icon = item.icon;
@@ -409,8 +409,8 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                             key={item.href}
                             href={item.href}
                             className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${isActive
-                                ? "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium"
-                                : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
+                                ? "bg-muted text-foreground font-medium"
+                                : "text-muted-foreground dark:text-muted-foreground hover:bg-muted dark:hover:bg-gray-800 hover:text-foreground dark:hover:text-white"
                                 } ${!showExpanded ? "justify-center px-2" : ""}`}
                             title={!showExpanded ? item.name : ""}
                         >

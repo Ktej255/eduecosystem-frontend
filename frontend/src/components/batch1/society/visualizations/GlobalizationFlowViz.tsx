@@ -15,7 +15,7 @@ export default function GlobalizationFlowViz() {
         <div className="bg-slate-900 rounded-xl p-8 relative overflow-hidden min-h-[300px] flex items-center justify-center">
             {/* Background Globe Effect */}
             <div className="absolute inset-0 opacity-20">
-                <Globe className="w-full h-full text-slate-700" strokeWidth={0.5} />
+                <Globe className="w-full h-full text-muted-foreground" strokeWidth={0.5} />
             </div>
 
             <div className="relative z-10 w-full grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -31,12 +31,12 @@ export default function GlobalizationFlowViz() {
                             {flow.icon}
                         </div>
                         <h4 className="text-white font-bold mb-1">{flow.title}</h4>
-                        <div className="flex items-center justify-center gap-2 text-xs text-slate-400 mb-2">
+                        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground mb-2">
                             <span>{flow.from}</span>
-                            <span className="text-slate-600">→</span>
+                            <span className="text-muted-foreground">→</span>
                             <span>{flow.to}</span>
                         </div>
-                        <p className="text-xs text-slate-300 bg-white/5 py-1 px-2 rounded-lg inline-block">
+                        <p className="text-xs text-slate-300 bg-card/5 py-1 px-2 rounded-lg inline-block">
                             {flow.desc}
                         </p>
                     </motion.div>

@@ -54,7 +54,7 @@ export default function MajoritiesMasterclass() {
     return (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 font-['Kalam']">
             {MAJORITY_TYPES.map((maj, index) => (
-                <Card key={index} className={`border-l-8 shadow-md hover:shadow-xl transition-shadow bg-white
+                <Card key={index} className={`border-l-8 shadow-md hover:shadow-xl transition-shadow bg-card
                     ${maj.color === 'blue' ? 'border-blue-500' :
                         maj.color === 'green' ? 'border-green-500' :
                             maj.color === 'purple' ? 'border-purple-500' :
@@ -63,22 +63,22 @@ export default function MajoritiesMasterclass() {
                 `}>
                     <CardContent className="p-6 space-y-4">
                         <div className="flex justify-between items-start">
-                            <h3 className="text-xl font-black text-slate-800 leading-tight">{maj.name}</h3>
-                            <Badge variant="outline" className="font-bold border-slate-300">
+                            <h3 className="text-xl font-black text-foreground leading-tight">{maj.name}</h3>
+                            <Badge variant="outline" className="font-bold border-border">
                                 {maj.color === 'rose' ? 'Toughest' : 'Common'}
                             </Badge>
                         </div>
 
-                        <div className="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                            <p className="text-xs text-slate-500 font-bold uppercase mb-1">Formula</p>
-                            <p className="text-lg font-bold text-slate-900">{maj.formula}</p>
+                        <div className="bg-muted p-3 rounded-lg border border-slate-100">
+                            <p className="text-xs text-muted-foreground font-bold uppercase mb-1">Formula</p>
+                            <p className="text-lg font-bold text-foreground">{maj.formula}</p>
                         </div>
 
                         <div>
-                            <p className="text-xs text-slate-500 font-bold uppercase mb-1 flex items-center gap-1">
+                            <p className="text-xs text-muted-foreground font-bold uppercase mb-1 flex items-center gap-1">
                                 <FileBarChart size={12} /> Used For
                             </p>
-                            <p className="text-sm font-medium text-slate-700 leading-snug">{maj.useCase}</p>
+                            <p className="text-sm font-medium text-muted-foreground leading-snug">{maj.useCase}</p>
                         </div>
 
                         <div className={`p-3 rounded-lg text-xs font-bold flex items-start gap-2

@@ -69,7 +69,7 @@ export default function AdminDashboard() {
     <Button
       variant={selectedTab === id ? "default" : "ghost"}
       onClick={() => setSelectedTab(id as any)}
-      className={`flex items-center gap-2 ${selectedTab === id ? 'bg-indigo-600 hover:bg-indigo-700' : 'text-gray-600 hover:text-indigo-600'}`}
+      className={`flex items-center gap-2 ${selectedTab === id ? 'bg-indigo-600 hover:bg-indigo-700' : 'text-muted-foreground hover:text-indigo-600'}`}
     >
       <Icon className="w-4 h-4" />
       {label}
@@ -81,11 +81,11 @@ export default function AdminDashboard() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-3">
+          <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
             <Shield className="w-8 h-8 text-indigo-600" />
             Admin Command Center
           </h1>
-          <p className="text-gray-500 mt-1">Manage users, content, and track platform health.</p>
+          <p className="text-muted-foreground mt-1">Manage users, content, and track platform health.</p>
         </div>
         <div className="flex items-center gap-2">
           <div className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold flex items-center gap-1">
@@ -119,7 +119,7 @@ export default function AdminDashboard() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between pb-2">
-                  <CardTitle className="text-sm font-medium text-gray-500">Total Users</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground">Total Users</CardTitle>
                   <Users className="w-4 h-4 text-indigo-600" />
                 </CardHeader>
                 <CardContent>
@@ -131,7 +131,7 @@ export default function AdminDashboard() {
               </Card>
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between pb-2">
-                  <CardTitle className="text-sm font-medium text-gray-500">Active Learners</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground">Active Learners</CardTitle>
                   <Activity className="w-4 h-4 text-emerald-600" />
                 </CardHeader>
                 <CardContent>
@@ -141,7 +141,7 @@ export default function AdminDashboard() {
               </Card>
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between pb-2">
-                  <CardTitle className="text-sm font-medium text-gray-500">Tests Taken</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground">Tests Taken</CardTitle>
                   <FileText className="w-4 h-4 text-blue-600" />
                 </CardHeader>
                 <CardContent>
@@ -151,12 +151,12 @@ export default function AdminDashboard() {
               </Card>
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between pb-2">
-                  <CardTitle className="text-sm font-medium text-gray-500">Avg. Score</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground">Avg. Score</CardTitle>
                   <Award className="w-4 h-4 text-amber-500" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">{stats.avgScore}%</div>
-                  <p className="text-xs text-gray-500 mt-1">Across all batches</p>
+                  <p className="text-xs text-muted-foreground mt-1">Across all batches</p>
                 </CardContent>
               </Card>
             </div>
@@ -168,7 +168,7 @@ export default function AdminDashboard() {
                   <CardTitle>Recent Enrollments</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="text-sm text-gray-500 italic text-center py-4">No recent enrollments available in this view.</div>
+                  <div className="text-sm text-muted-foreground italic text-center py-4">No recent enrollments available in this view.</div>
                 </CardContent>
               </Card>
               <Card>
@@ -208,9 +208,9 @@ export default function AdminDashboard() {
 
         {/* Placeholders for other tabs */}
         {(selectedTab === "teachers" || selectedTab === "students") && (
-          <div className="flex items-center justify-center h-64 border-2 border-dashed rounded-lg bg-gray-50">
-            <div className="text-center text-gray-500">
-              <Lock className="w-8 h-8 mx-auto mb-2 text-gray-400" />
+          <div className="flex items-center justify-center h-64 border-2 border-dashed rounded-lg bg-muted">
+            <div className="text-center text-muted-foreground">
+              <Lock className="w-8 h-8 mx-auto mb-2 text-muted-foreground" />
               <p>This module is currently restricted or under maintenance.</p>
             </div>
           </div>

@@ -20,7 +20,7 @@ export default function ExamCard({ exam, index }: ExamCardProps) {
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
             whileHover={{ y: -5 }}
-            className="group relative bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+            className="group relative bg-card dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full"
         >
             <Link href={`/revision/${exam.id}`} className="flex flex-col h-full">
                 {/* Image Placeholder or Gradient Header */}
@@ -29,7 +29,7 @@ export default function ExamCard({ exam, index }: ExamCardProps) {
                             'bg-gradient-to-r from-blue-100 to-indigo-100'
                     }`}>
                     <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-300" />
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur rounded-full px-3 py-1 text-xs font-bold text-neutral-600 shadow-sm border border-neutral-100">
+                    <div className="absolute top-4 right-4 bg-card/90 backdrop-blur rounded-full px-3 py-1 text-xs font-bold text-neutral-600 shadow-sm border border-neutral-100">
                         {exam.category}
                     </div>
                 </div>

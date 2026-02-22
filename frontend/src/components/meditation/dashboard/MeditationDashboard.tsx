@@ -76,7 +76,7 @@ export default function MeditationDashboard() {
                     <h2 className="text-3xl font-light text-white">Experience Coming Soon</h2>
                     <Button
                         onClick={() => setSelectedLevelId(null)}
-                        className="rounded-full px-8 bg-white/10 hover:bg-white/20 border-white/20"
+                        className="rounded-full px-8 bg-card/10 hover:bg-card/20 border-white/20"
                     >
                         Return to Sanctum
                     </Button>

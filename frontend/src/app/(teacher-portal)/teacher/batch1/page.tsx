@@ -51,11 +51,11 @@ export default function TeacherBatch1Page() {
             {/* Header */}
             <div className="flex justify-between items-start">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-800 flex items-center gap-2">
+                    <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
                         <Layers className="h-8 w-8 text-emerald-600" />
                         Batch 1 - Content Management
                     </h1>
-                    <p className="text-gray-500 mt-1">
+                    <p className="text-muted-foreground mt-1">
                         UPSC Prelims 2026 • 90 Days • Upload videos for each segment
                     </p>
                 </div>
@@ -77,7 +77,7 @@ export default function TeacherBatch1Page() {
             {/* Cycles Grid */}
             {!selectedCycle ? (
                 <div>
-                    <h2 className="text-xl font-bold text-gray-800 mb-4">Select Cycle to Manage</h2>
+                    <h2 className="text-xl font-bold text-foreground mb-4">Select Cycle to Manage</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {UPSC_CYCLES.map((cycle) => {
                             const colors = getColorClasses(cycle.color);
@@ -99,7 +99,7 @@ export default function TeacherBatch1Page() {
                                         </div>
                                     </CardHeader>
                                     <CardContent>
-                                        <div className="flex items-center justify-between text-sm text-gray-500">
+                                        <div className="flex items-center justify-between text-sm text-muted-foreground">
                                             <span className="flex items-center gap-1">
                                                 <Calendar className="h-4 w-4" />
                                                 {cycle.dates}
@@ -124,7 +124,7 @@ export default function TeacherBatch1Page() {
                             <h2 className={`text-xl font-bold ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`}>
                                 Cycle {selectedCycle}: {UPSC_CYCLES[selectedCycle - 1].name}
                             </h2>
-                            <p className="text-gray-600">{UPSC_CYCLES[selectedCycle - 1].theme}</p>
+                            <p className="text-muted-foreground">{UPSC_CYCLES[selectedCycle - 1].theme}</p>
                         </CardContent>
                     </Card>
 
@@ -137,9 +137,9 @@ export default function TeacherBatch1Page() {
                                 onClick={() => setSelectedDay(day)}
                             >
                                 <CardContent className="p-4">
-                                    <div className="text-2xl font-bold text-gray-700">{day}</div>
-                                    <div className="text-xs text-gray-500">Day {day}</div>
-                                    <div className="text-xs text-gray-400 mt-1">12 segments</div>
+                                    <div className="text-2xl font-bold text-muted-foreground">{day}</div>
+                                    <div className="text-xs text-muted-foreground">Day {day}</div>
+                                    <div className="text-xs text-muted-foreground mt-1">12 segments</div>
                                 </CardContent>
                             </Card>
                         ))}
@@ -419,7 +419,7 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                     <h2 className={`text-xl font-bold ${getColorClasses(color).text}`}>
                         Cycle {cycleId}: {cycleName} - Day {dayNumber}
                     </h2>
-                    <p className="text-gray-600">Upload content for 12 segments (4 per part × 3 parts)</p>
+                    <p className="text-muted-foreground">Upload content for 12 segments (4 per part × 3 parts)</p>
                 </CardContent>
             </Card>
 
@@ -441,8 +441,8 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                             return (
                                 <div key={seg} className="border rounded-lg p-4 space-y-4">
                                     <div className="flex items-center justify-between">
-                                        <h4 className="font-semibold text-gray-700">Segment {seg}</h4>
-                                        <span className="text-xs text-gray-400">~25 minutes</span>
+                                        <h4 className="font-semibold text-muted-foreground">Segment {seg}</h4>
+                                        <span className="text-xs text-muted-foreground">~25 minutes</span>
                                     </div>
 
                                     {/* Title and Notes */}

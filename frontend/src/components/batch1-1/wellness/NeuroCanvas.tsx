@@ -125,7 +125,7 @@ export default function NeuroCanvas() {
     return (
         <div className="flex flex-col h-[80vh] gap-4">
             {/* Toolbar */}
-            <Card className="p-4 flex flex-wrap items-center justify-between gap-4 border-indigo-100 dark:border-indigo-900 bg-white/80 dark:bg-gray-900/80 backend-blur supports-[backdrop-filter]:backdrop-blur-sm sticky top-0 z-10 shadow-sm">
+            <Card className="p-4 flex flex-wrap items-center justify-between gap-4 border-indigo-100 dark:border-indigo-900 bg-card/80/80 backend-blur supports-[backdrop-filter]:backdrop-blur-sm sticky top-0 z-10 shadow-sm">
                 <div className="flex items-center gap-4">
                     <div className="flex gap-2">
                         {['#000000', '#4f46e5', '#ef4444', '#10b981', '#ffffff'].map((c) => (
@@ -139,10 +139,10 @@ export default function NeuroCanvas() {
                         ))}
                     </div>
 
-                    <div className="h-8 w-px bg-gray-200 dark:bg-gray-700 mx-2" />
+                    <div className="h-8 w-px bg-muted mx-2" />
 
                     <div className="flex items-center gap-2">
-                        <PenTool className="h-4 w-4 text-gray-500" />
+                        <PenTool className="h-4 w-4 text-muted-foreground" />
                         <Slider
                             value={[lineWidth]}
                             min={1}
@@ -171,7 +171,7 @@ export default function NeuroCanvas() {
             </Card>
 
             {/* Canvas Area */}
-            <div className="flex-1 relative rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-inner bg-white dark:bg-gray-950">
+            <div className="flex-1 relative rounded-xl overflow-hidden border border-border shadow-inner bg-card">
                 {/* Grid Background */}
                 {showGrid && (
                     <div className="absolute inset-0 pointer-events-none opacity-10"
@@ -192,7 +192,7 @@ export default function NeuroCanvas() {
                 />
 
                 <div className="absolute bottom-4 left-4 pointer-events-none select-none">
-                    <p className="text-xs text-gray-400 font-handwriting italic opacity-50">
+                    <p className="text-xs text-muted-foreground font-handwriting italic opacity-50">
                         "Let the ink flow, let the mind steady."
                     </p>
                 </div>

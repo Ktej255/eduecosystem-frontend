@@ -72,7 +72,7 @@ export default function SocialContentGenerator() {
     };
 
     return (
-        <Card className="h-full border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+        <Card className="h-full border-neutral-200 dark:border-neutral-800 bg-card dark:bg-neutral-900">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-pink-600">
                     <Sparkles className="w-5 h-5" />
@@ -139,7 +139,7 @@ export default function SocialContentGenerator() {
                                         <Button
                                             size="sm"
                                             variant="ghost"
-                                            className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-white dark:bg-neutral-900 shadow-sm"
+                                            className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-card dark:bg-neutral-900 shadow-sm"
                                             onClick={() => copyToClipboard(content, platform)}
                                         >
                                             {copied === platform ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}

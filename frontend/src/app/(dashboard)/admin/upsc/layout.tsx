@@ -15,22 +15,22 @@ export default function AdminLayout({
                 </div>
 
                 <nav className="flex-1 px-4 space-y-2">
-                    <Link href="/admin/upsc" className="block px-4 py-3 rounded-lg hover:bg-white/10 transition-colors">
+                    <Link href="/admin/upsc" className="block px-4 py-3 rounded-lg hover:bg-card/10 transition-colors">
                         Dashboard
                     </Link>
-                    <Link href="/admin/upsc/batches" className="block px-4 py-3 rounded-lg hover:bg-white/10 transition-colors">
+                    <Link href="/admin/upsc/batches" className="block px-4 py-3 rounded-lg hover:bg-card/10 transition-colors">
                         Batches
                     </Link>
-                    <Link href="/admin/upsc/plans" className="block px-4 py-3 rounded-lg hover:bg-white/10 transition-colors">
+                    <Link href="/admin/upsc/plans" className="block px-4 py-3 rounded-lg hover:bg-card/10 transition-colors">
                         Plans
                     </Link>
-                    <Link href="/admin/upsc/timers" className="block px-4 py-3 rounded-lg hover:bg-white/10 transition-colors">
+                    <Link href="/admin/upsc/timers" className="block px-4 py-3 rounded-lg hover:bg-card/10 transition-colors">
                         Timer Settings
                     </Link>
-                    <Link href="/admin/upsc/students" className="block px-4 py-3 rounded-lg hover:bg-white/10 transition-colors">
+                    <Link href="/admin/upsc/students" className="block px-4 py-3 rounded-lg hover:bg-card/10 transition-colors">
                         Students
                     </Link>
-                    <Link href="/admin/upsc/content" className="block px-4 py-3 rounded-lg hover:bg-white/10 transition-colors">
+                    <Link href="/admin/upsc/content" className="block px-4 py-3 rounded-lg hover:bg-card/10 transition-colors">
                         Content Bank
                     </Link>
                 </nav>
@@ -42,7 +42,7 @@ export default function AdminLayout({
                         </div>
                         <div>
                             <p className="text-sm font-medium">Admin User</p>
-                            <p className="text-xs text-gray-400">Super Admin</p>
+                            <p className="text-xs text-muted-foreground">Super Admin</p>
                         </div>
                     </div>
                 </div>
@@ -51,12 +51,12 @@ export default function AdminLayout({
             {/* Main Content */}
             <main className="flex-1 overflow-auto">
                 {/* Top Header */}
-                <header className="bg-white border-b border-[var(--neutral-cool-grey)] h-16 flex items-center justify-between px-8">
+                <header className="bg-card border-b border-[var(--neutral-cool-grey)] h-16 flex items-center justify-between px-8">
                     <h2 className="text-lg font-semibold text-[var(--neutral-dark-grey)]">
                         Overview
                     </h2>
                     <div className="flex items-center gap-4">
-                        <button className="p-2 rounded-full hover:bg-gray-100">
+                        <button className="p-2 rounded-full hover:bg-muted">
                             <span className="sr-only">Notifications</span>
                             🔔
                         </button>

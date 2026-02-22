@@ -79,7 +79,7 @@ export default function UserManagementPage() {
             <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
                 <div>
                     <h1 className="text-3xl font-bold tracking-tight">User Management</h1>
-                    <p className="text-gray-500">Manage student access, roles, and permissions.</p>
+                    <p className="text-muted-foreground">Manage student access, roles, and permissions.</p>
                 </div>
                 <Link href="/admin/users/create">
                     <Button>
@@ -91,7 +91,7 @@ export default function UserManagementPage() {
             <Card>
                 <CardHeader className="pb-3 md:flex-row md:items-center justify-between gap-4">
                     <div className="relative w-full md:w-96">
-                        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
+                        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                         <Input
                             placeholder="Search by name or email..."
                             className="pl-9"
@@ -100,14 +100,14 @@ export default function UserManagementPage() {
                         />
                     </div>
                     <div className="flex gap-2">
-                        <div className="flex space-x-1 bg-gray-100 p-1 rounded-lg">
+                        <div className="flex space-x-1 bg-muted p-1 rounded-lg">
                             {['all', 'student', 'teacher', 'admin', 'batch1'].map((role) => (
                                 <button
                                     key={role}
                                     onClick={() => setFilterRole(role)}
                                     className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${filterRole === role
-                                            ? 'bg-white shadow text-indigo-600'
-                                            : 'text-gray-500 hover:text-gray-700'
+                                            ? 'bg-card shadow text-indigo-600'
+                                            : 'text-muted-foreground hover:text-muted-foreground'
                                         }`}
                                 >
                                     {role.charAt(0).toUpperCase() + role.slice(1)}
@@ -144,7 +144,7 @@ export default function UserManagementPage() {
                                             <TableCell>
                                                 <div className="flex flex-col">
                                                     <span className="font-medium">{user.full_name || "N/A"}</span>
-                                                    <span className="text-xs text-gray-500">{user.email}</span>
+                                                    <span className="text-xs text-muted-foreground">{user.email}</span>
                                                 </div>
                                             </TableCell>
                                             <TableCell>
@@ -173,13 +173,13 @@ export default function UserManagementPage() {
                                                             <CheckCircle2 className="h-4 w-4 mr-1" /> Active
                                                         </div>
                                                     ) : (
-                                                        <div className="flex items-center text-gray-400 text-xs font-medium">
+                                                        <div className="flex items-center text-muted-foreground text-xs font-medium">
                                                             <XCircle className="h-4 w-4 mr-1" /> Inactive
                                                         </div>
                                                     )}
                                                 </button>
                                             </TableCell>
-                                            <TableCell className="text-gray-500 text-xs">
+                                            <TableCell className="text-muted-foreground text-xs">
                                                 {user.created_at ? format(new Date(user.created_at), 'MMM d, yyyy') : 'N/A'}
                                             </TableCell>
                                             <TableCell className="text-right">

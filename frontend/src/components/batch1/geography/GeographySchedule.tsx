@@ -43,7 +43,7 @@ export default function GeographySchedule() {
                 <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
                     Geography 21-Day Schedule
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                <p className="text-muted-foreground dark:text-muted-foreground max-w-2xl mx-auto">
                     Comprehensive coverage of Geomorphology, Climatology, Oceanography, Indian, and Human Geography.
                     Feb 6 - Feb 26.
                 </p>
@@ -59,10 +59,10 @@ export default function GeographySchedule() {
                                 style={{ backgroundColor: getModuleColor(moduleId) }}
                             />
                             <div>
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+                                <h3 className="text-xl font-bold text-foreground">
                                     {getModuleTitle(moduleId)}
                                 </h3>
-                                <p className="text-sm text-gray-500">
+                                <p className="text-sm text-muted-foreground">
                                     {scheduleByModule[moduleId].length} Sessions
                                 </p>
                             </div>
@@ -71,21 +71,21 @@ export default function GeographySchedule() {
                         {/* Days Grid */}
                         <div className="grid gap-4">
                             {scheduleByModule[moduleId].map((day) => (
-                                <Card key={day.day} className="group overflow-hidden border-0 bg-white dark:bg-gray-900 shadow-sm hover:shadow-md transition-shadow">
+                                <Card key={day.day} className="group overflow-hidden border-0 bg-card shadow-sm hover:shadow-md transition-shadow">
                                     <div className="absolute left-0 top-0 bottom-0 w-1" style={{ backgroundColor: getModuleColor(moduleId) }} />
                                     <CardContent className="p-0 flex flex-col md:flex-row">
                                         {/* Date Box */}
-                                        <div className="p-6 md:w-48 bg-gray-50 dark:bg-gray-800/40 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-gray-100 dark:border-gray-800">
-                                            <span className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">
+                                        <div className="p-6 md:w-48 bg-muted/40 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-border">
+                                            <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1">
                                                 Day {day.day}
                                             </span>
-                                            <span className="text-2xl font-bold text-gray-900 dark:text-white">
+                                            <span className="text-2xl font-bold text-foreground">
                                                 {day.date.split(' ')[1]}
                                             </span>
-                                            <span className="text-sm font-medium text-gray-500 uppercase">
+                                            <span className="text-sm font-medium text-muted-foreground uppercase">
                                                 {day.date.split(' ')[0]}
                                             </span>
-                                            <Badge variant="outline" className="mt-2 bg-white dark:bg-black/20">
+                                            <Badge variant="outline" className="mt-2 bg-card dark:bg-black/20">
                                                 6:00 PM
                                             </Badge>
                                         </div>
@@ -93,12 +93,12 @@ export default function GeographySchedule() {
                                         {/* Content Box */}
                                         <div className="flex-1 p-6 flex flex-col justify-center">
                                             <div className="flex items-start justify-between gap-4 mb-2">
-                                                <h4 className="text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 transition-colors">
+                                                <h4 className="text-lg font-bold text-foreground group-hover:text-blue-600 transition-colors">
                                                     {day.title}
                                                 </h4>
                                                 {/* <Badge>Active</Badge> */}
                                             </div>
-                                            <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+                                            <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-4 line-clamp-2">
                                                 {day.description}
                                             </p>
 

@@ -39,7 +39,7 @@ export default function TemplatesPage() {
 
   if (loading) {
     return (
-      <div className="text-center py-8 text-gray-400">Loading templates...</div>
+      <div className="text-center py-8 text-muted-foreground">Loading templates...</div>
     );
   }
 
@@ -52,7 +52,7 @@ export default function TemplatesPage() {
             <h1 className="text-4xl font-bold text-white mb-2">
               Certificate Templates
             </h1>
-            <p className="text-gray-400">
+            <p className="text-muted-foreground">
               Customize your course completion certificates
             </p>
           </div>
@@ -79,7 +79,7 @@ export default function TemplatesPage() {
           {/* All Templates Tab */}
           <TabsContent value="all">
             {allTemplates.length === 0 ? (
-              <div className="text-center py-12 text-gray-400">
+              <div className="text-center py-12 text-muted-foreground">
                 No templates available
               </div>
             ) : (
@@ -99,7 +99,7 @@ export default function TemplatesPage() {
           <TabsContent value="my">
             {myTemplates.length === 0 ? (
               <div className="text-center py-12">
-                <p className="text-gray-400 mb-4">
+                <p className="text-muted-foreground mb-4">
                   You haven't created any templates yet
                 </p>
                 <Button className="bg-cyan-600 hover:bg-cyan-500">

@@ -99,7 +99,7 @@ export default function ProfilePage() {
             <Card className="bg-gray-800/50 border-gray-700/50">
                 <CardHeader className="p-4 pb-2">
                     <div className="flex items-center justify-between">
-                        <CardTitle className="text-sm text-gray-300 flex items-center gap-2">
+                        <CardTitle className="text-sm text-muted-foreground flex items-center gap-2">
                             <TrendingUp className="h-4 w-4 text-emerald-400" />
                             {currentMonth} Performance
                         </CardTitle>
@@ -109,7 +109,7 @@ export default function ProfilePage() {
                     {/* Leads Progress */}
                     <div className="space-y-2">
                         <div className="flex items-center justify-between text-sm">
-                            <span className="text-gray-400">Leads Contacted</span>
+                            <span className="text-muted-foreground">Leads Contacted</span>
                             <span className="text-white font-medium">
                                 {performanceData.leadsContacted}/{performanceData.leadsTarget}
                             </span>
@@ -120,7 +120,7 @@ export default function ProfilePage() {
                     {/* Conversions Progress */}
                     <div className="space-y-2">
                         <div className="flex items-center justify-between text-sm">
-                            <span className="text-gray-400">Conversions</span>
+                            <span className="text-muted-foreground">Conversions</span>
                             <span className="text-white font-medium">
                                 {performanceData.conversions}/{performanceData.conversionsTarget}
                             </span>
@@ -131,7 +131,7 @@ export default function ProfilePage() {
                     {/* Meetings Progress */}
                     <div className="space-y-2">
                         <div className="flex items-center justify-between text-sm">
-                            <span className="text-gray-400">Meetings</span>
+                            <span className="text-muted-foreground">Meetings</span>
                             <span className="text-white font-medium">
                                 {performanceData.meetings}/{performanceData.meetingsTarget}
                             </span>
@@ -144,15 +144,15 @@ export default function ProfilePage() {
                         <div className="bg-gray-700/30 rounded-lg p-3 text-center">
                             <p className="text-2xl font-bold text-white">
                                 {performanceData.totalDistance}
-                                <span className="text-sm font-normal text-gray-400 ml-1">km</span>
+                                <span className="text-sm font-normal text-muted-foreground ml-1">km</span>
                             </p>
-                            <p className="text-xs text-gray-400 mt-1">Distance Traveled</p>
+                            <p className="text-xs text-muted-foreground mt-1">Distance Traveled</p>
                         </div>
                         <div className="bg-gray-700/30 rounded-lg p-3 text-center">
                             <p className="text-2xl font-bold text-white">
                                 {performanceData.avgResponseTime}
                             </p>
-                            <p className="text-xs text-gray-400 mt-1">Avg Response Time</p>
+                            <p className="text-xs text-muted-foreground mt-1">Avg Response Time</p>
                         </div>
                     </div>
                 </CardContent>
@@ -161,7 +161,7 @@ export default function ProfilePage() {
             {/* Achievements */}
             <Card className="bg-gray-800/50 border-gray-700/50">
                 <CardHeader className="p-4 pb-2">
-                    <CardTitle className="text-sm text-gray-300 flex items-center gap-2">
+                    <CardTitle className="text-sm text-muted-foreground flex items-center gap-2">
                         <Award className="h-4 w-4 text-amber-400" />
                         Achievements
                     </CardTitle>
@@ -177,11 +177,11 @@ export default function ProfilePage() {
                                     }`}
                             >
                                 <achievement.icon
-                                    className={`h-5 w-5 ${achievement.completed ? "text-emerald-400" : "text-gray-500"
+                                    className={`h-5 w-5 ${achievement.completed ? "text-emerald-400" : "text-muted-foreground"
                                         }`}
                                 />
                                 <span
-                                    className={`text-xs ${achievement.completed ? "text-emerald-300" : "text-gray-500"
+                                    className={`text-xs ${achievement.completed ? "text-emerald-300" : "text-muted-foreground"
                                         }`}
                                 >
                                     {achievement.label}
@@ -202,10 +202,10 @@ export default function ProfilePage() {
                                     }`}
                             >
                                 <div className="flex items-center gap-3">
-                                    <item.icon className="h-5 w-5 text-gray-400" />
+                                    <item.icon className="h-5 w-5 text-muted-foreground" />
                                     <span className="text-white">{item.label}</span>
                                 </div>
-                                <ChevronRight className="h-5 w-5 text-gray-500" />
+                                <ChevronRight className="h-5 w-5 text-muted-foreground" />
                             </div>
                         </Link>
                     ))}

@@ -102,7 +102,7 @@ function SortableQuestion({ question, index, onEdit, onDelete }: any) {
             {...listeners}
             className="cursor-grab active:cursor-grabbing mt-1"
           >
-            <GripVertical className="h-5 w-5 text-gray-500 hover:text-cyan-400" />
+            <GripVertical className="h-5 w-5 text-muted-foreground hover:text-cyan-400" />
           </div>
           <div className="flex items-center justify-center w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-bold">
             {index + 1}
@@ -114,7 +114,7 @@ function SortableQuestion({ question, index, onEdit, onDelete }: any) {
               </p>
               <Badge
                 variant="outline"
-                className="text-xs border-gray-600 text-gray-400"
+                className="text-xs border-gray-600 text-muted-foreground"
               >
                 {getQuestionTypeLabel(question.type)}
               </Badge>
@@ -126,7 +126,7 @@ function SortableQuestion({ question, index, onEdit, onDelete }: any) {
               </Badge>
             </div>
             {question.options.length > 0 && (
-              <div className="text-sm text-gray-400 space-y-1">
+              <div className="text-sm text-muted-foreground space-y-1">
                 {question.options.slice(0, 2).map((opt: any, i: number) => (
                   <div key={i} className="flex items-center gap-2">
                     {opt.is_correct && (
@@ -136,7 +136,7 @@ function SortableQuestion({ question, index, onEdit, onDelete }: any) {
                   </div>
                 ))}
                 {question.options.length > 2 && (
-                  <span className="text-xs text-gray-500">
+                  <span className="text-xs text-muted-foreground">
                     +{question.options.length - 2} more options
                   </span>
                 )}
@@ -149,7 +149,7 @@ function SortableQuestion({ question, index, onEdit, onDelete }: any) {
             size="sm"
             variant="ghost"
             onClick={() => onEdit(question)}
-            className="text-gray-400 hover:text-white"
+            className="text-muted-foreground hover:text-white"
           >
             <Edit2 className="h-4 w-4" />
           </Button>
@@ -274,7 +274,7 @@ export function QuizBuilder({
 
       {questions.length === 0 ? (
         <div className="text-center py-12 border-2 border-dashed border-gray-800 rounded-lg">
-          <p className="text-gray-400 mb-4">
+          <p className="text-muted-foreground mb-4">
             No questions yet. Add your first question.
           </p>
           <Button

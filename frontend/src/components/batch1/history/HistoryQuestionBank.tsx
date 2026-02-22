@@ -57,11 +57,11 @@ export default function HistoryQuestionBank() {
         <div className="max-w-7xl mx-auto p-6 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-neutral-900 dark:text-white">Question Bank</h1>
+                    <h1 className="text-3xl font-bold text-neutral-900">Question Bank</h1>
                     <p className="text-neutral-500 mt-1">Practice MCQs from all chapters</p>
                 </div>
 
-                <div className="flex bg-white dark:bg-neutral-900 p-1 rounded-lg border border-neutral-200 dark:border-neutral-800">
+                <div className="flex bg-card dark:bg-neutral-900 p-1 rounded-lg border border-neutral-200 dark:border-neutral-800">
                     {(['modern', 'medieval', 'ancient'] as HistorySection[]).map((section) => (
                         <button
                             key={section}
@@ -78,7 +78,7 @@ export default function HistoryQuestionBank() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-white dark:bg-neutral-900 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm">
+                <div className="bg-card dark:bg-neutral-900 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm">
                     <div className="flex items-center gap-4">
                         <div className="p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg text-indigo-600 dark:text-indigo-400">
                             <Trophy className="w-6 h-6" />
@@ -86,45 +86,45 @@ export default function HistoryQuestionBank() {
                         <div>
                             <p className="text-sm text-neutral-500 font-medium">Questions Mastery</p>
                             <div className="flex items-baseline gap-2">
-                                <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">{solvedCount}</h3>
+                                <h3 className="text-2xl font-bold text-neutral-900">{solvedCount}</h3>
                                 <span className="text-sm text-neutral-400">/ {totalQuestions}</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="bg-white dark:bg-neutral-900 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm">
+                <div className="bg-card dark:bg-neutral-900 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm">
                     <div className="flex items-center gap-4">
                         <div className="p-3 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg text-emerald-600 dark:text-emerald-400">
                             <CheckCircle className="w-6 h-6" />
                         </div>
                         <div>
                             <p className="text-sm text-neutral-500 font-medium">Active Chapters</p>
-                            <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">{chaptersWithMCQs.length}</h3>
+                            <h3 className="text-2xl font-bold text-neutral-900">{chaptersWithMCQs.length}</h3>
                         </div>
                     </div>
                 </div>
 
-                <div className="bg-white dark:bg-neutral-900 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm">
+                <div className="bg-card dark:bg-neutral-900 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm">
                     <div className="flex items-center gap-4">
                         <div className="p-3 bg-amber-100 dark:bg-amber-900/30 rounded-lg text-amber-600 dark:text-amber-400">
                             <Clock className="w-6 h-6" />
                         </div>
                         <div>
                             <p className="text-sm text-neutral-500 font-medium">Est. Practice Time</p>
-                            <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">{Math.ceil(totalQuestions * 1.5)} mins</h3>
+                            <h3 className="text-2xl font-bold text-neutral-900">{Math.ceil(totalQuestions * 1.5)} mins</h3>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div className="space-y-4">
-                <h2 className="text-xl font-semibold text-neutral-900 dark:text-white">Available Chapters</h2>
+                <h2 className="text-xl font-semibold text-neutral-900">Available Chapters</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {chaptersWithMCQs.map((chapter: HistoryChapter & { mcqCount: number }) => (
                         <div
                             key={chapter.id}
-                            className="bg-white dark:bg-neutral-900 p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 hover:border-amber-400 dark:hover:border-amber-600 transition-all group"
+                            className="bg-card dark:bg-neutral-900 p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 hover:border-amber-400 dark:hover:border-amber-600 transition-all group"
                         >
                             <div className="flex justify-between items-start mb-3">
                                 <span className="text-xs font-bold text-amber-600 dark:text-amber-500 uppercase tracking-wider bg-amber-50 dark:bg-amber-900/20 px-2 py-1 rounded">
@@ -136,7 +136,7 @@ export default function HistoryQuestionBank() {
                                 </span>
                             </div>
 
-                            <h3 className="font-semibold text-neutral-900 dark:text-white mb-4 line-clamp-2 h-12">
+                            <h3 className="font-semibold text-neutral-900 mb-4 line-clamp-2 h-12">
                                 {chapter.title}
                             </h3>
 

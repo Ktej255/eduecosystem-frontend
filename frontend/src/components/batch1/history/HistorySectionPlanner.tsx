@@ -124,34 +124,34 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a] pb-24">
+        <div className="min-h-screen bg-muted dark:bg-[#0a0a0a] pb-24">
             {/* Header */}
             <div className={`${colors.bg} text-white pt-12 pb-24 px-6 relative overflow-hidden transition-colors duration-500`}>
-                <div className="absolute top-0 right-0 p-32 bg-white/10 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
+                <div className="absolute top-0 right-0 p-32 bg-card/10 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                         <div>
-                            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                            <div className="inline-flex items-center gap-2 bg-card/10 border border-white/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
                                 <Clock className="w-3 h-3" /> 15 Day Intensive Plan
                             </div>
                             <h1 className="text-3xl md:text-5xl font-black mb-2 uppercase italic tracking-tight">
                                 {config.title} <span className={colors.text}>{config.subtitle}</span>
                             </h1>
-                            <p className="text-gray-300 max-w-xl">
+                            <p className="text-muted-foreground max-w-xl">
                                 {config.description} Targeted Daily Drills & Intensive Revision.
                             </p>
                         </div>
 
                         {todaysPlan && (
-                            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-center gap-4 animate-in zoom-in duration-500">
+                            <div className="bg-card/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-center gap-4 animate-in zoom-in duration-500">
                                 <div className="text-center">
                                     <div className={`text-xs ${colors.text} font-bold uppercase`}>Current Day</div>
                                     <div className="text-3xl font-black">{todaysPlan.day}</div>
                                 </div>
-                                <div className="h-10 w-px bg-white/20"></div>
+                                <div className="h-10 w-px bg-card/20"></div>
                                 <div>
                                     <div className="font-bold text-sm">{todaysPlan.title}</div>
-                                    <div className="text-xs text-gray-300">{todaysPlan.mcqCount} MCQ Target</div>
+                                    <div className="text-xs text-muted-foreground">{todaysPlan.mcqCount} MCQ Target</div>
                                 </div>
                             </div>
                         )}
@@ -165,37 +165,37 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                     {config.phases.map((phase) => {
                         const phaseData = config.schedule.filter(d => d.phase === phase.id);
                         return (
-                            <div key={phase.id} className="bg-white dark:bg-[#111] rounded-3xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
-                                <div className="p-6 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 flex justify-between items-center">
+                            <div key={phase.id} className="bg-card dark:bg-[#111] rounded-3xl border border-border shadow-sm overflow-hidden">
+                                <div className="p-6 bg-muted border-b border-border flex justify-between items-center">
                                     <div>
-                                        <h3 className="font-bold text-lg text-gray-900 dark:text-white">Phase {phase.id}: {phase.title}</h3>
-                                        <p className="text-xs text-gray-500">Days {phase.days}</p>
+                                        <h3 className="font-bold text-lg text-foreground">Phase {phase.id}: {phase.title}</h3>
+                                        <p className="text-xs text-muted-foreground">Days {phase.days}</p>
                                     </div>
                                 </div>
-                                <div className="divide-y divide-gray-100 dark:divide-gray-800">
+                                <div className="divide-y divide-border dark:divide-gray-800">
                                     {phaseData.map((day) => (
                                         <div
                                             key={day.day}
                                             onClick={() => setSelectedDay(day.day)}
-                                            className={`p-4 flex items-center gap-4 cursor-pointer transition-colors hover:bg-gray-50 dark:hover:bg-gray-900
-                                                ${selectedDay === day.day ? `bg-gray-50 dark:bg-white/5 border-l-4 ${colors.border}` : 'border-l-4 border-transparent'}
+                                            className={`p-4 flex items-center gap-4 cursor-pointer transition-colors hover:bg-muted dark:hover:bg-gray-900
+                                                ${selectedDay === day.day ? `bg-muted dark:bg-card/5 border-l-4 ${colors.border}` : 'border-l-4 border-transparent'}
                                             `}
                                         >
                                             <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm shrink-0
-                                                ${day.isAssessmentDay ? 'bg-amber-100 text-amber-700' : 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400'}
+                                                ${day.isAssessmentDay ? 'bg-amber-100 text-amber-700' : 'bg-muted text-muted-foreground dark:text-muted-foreground'}
                                             `}>
                                                 {day.day}
                                             </div>
                                             <div className="flex-1">
-                                                <div className="font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                                                <div className="font-bold text-foreground flex items-center gap-2">
                                                     {day.title}
                                                     {day.isAssessmentDay && <span className="text-[10px] bg-amber-500 text-white px-2 py-0.5 rounded-full">TEST</span>}
                                                 </div>
-                                                <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                                <div className="text-xs text-muted-foreground dark:text-muted-foreground mt-1">
                                                     {new Date(day.date).toLocaleDateString('en-IN', { weekday: 'short', month: 'short', day: 'numeric' })}
                                                 </div>
                                             </div>
-                                            <ChevronRight className={`w-5 h-5 text-gray-400 transition-transform ${selectedDay === day.day ? 'rotate-90 text-indigo-500' : ''}`} />
+                                            <ChevronRight className={`w-5 h-5 text-muted-foreground transition-transform ${selectedDay === day.day ? 'rotate-90 text-indigo-500' : ''}`} />
                                         </div>
                                     ))}
                                 </div>
@@ -213,7 +213,7 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                 initial="hidden"
                                 animate="visible"
                                 variants={containerVariants}
-                                className="bg-white dark:bg-[#111] rounded-3xl border border-gray-200 dark:border-gray-800 p-6 shadow-xl"
+                                className="bg-card dark:bg-[#111] rounded-3xl border border-border p-6 shadow-xl"
                             >
                                 <div className="flex items-center justify-between mb-4">
                                     <div className="flex items-center gap-3">
@@ -221,8 +221,8 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                             <Target className={`w-5 h-5 ${colors.text.replace('text-', 'text-indigo-600')}`} />
                                         </div>
                                         <div>
-                                            <div className="text-xs text-gray-500 font-bold uppercase">Day {dayData.day} Plan</div>
-                                            <div className="font-bold text-gray-900 dark:text-white">Session Dashboard</div>
+                                            <div className="text-xs text-muted-foreground font-bold uppercase">Day {dayData.day} Plan</div>
+                                            <div className="font-bold text-foreground">Session Dashboard</div>
                                         </div>
                                     </div>
                                     {allChecked && <CheckCircle className="w-6 h-6 text-green-500 animate-bounce" />}
@@ -255,7 +255,7 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                 </div>
 
                                 <div className="space-y-3 mb-8">
-                                    <div className="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
+                                    <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
                                         <BookOpen className="w-3 h-3" /> Select Completed Chapters
                                     </div>
                                     {dayData.chapterNames.map((chapter: string, idx: number) => (
@@ -265,7 +265,7 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                             className={`flex items-start gap-4 p-4 rounded-2xl border transition-all cursor-pointer
                                                 ${checklist[idx]
                                                     ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-200 dark:border-indigo-800'
-                                                    : 'bg-white dark:bg-gray-900 border-gray-100 dark:border-gray-800 hover:border-indigo-100'}
+                                                    : 'bg-card border-border hover:border-indigo-100'}
                                             `}
                                             onClick={() => handleCheck(idx)}
                                         >
@@ -275,7 +275,7 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                                         <div className={`text-[10px] font-bold uppercase ${colors.text} mb-0.5`}>
                                                             Chapter {dayData.chapters[idx] || (dayData.isAssessmentDay ? 'ASSESS' : 'SPL')}
                                                         </div>
-                                                        <div className="text-sm font-bold text-gray-800 dark:text-gray-200 leading-tight">
+                                                        <div className="text-sm font-bold text-foreground leading-tight">
                                                             {chapter}
                                                         </div>
                                                     </div>
@@ -287,17 +287,17 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                                 </div>
 
                                                 {/* 7-Icon Action Row (Polity Style) */}
-                                                <div className="grid grid-cols-7 gap-1 pt-3 border-t border-gray-100 dark:border-gray-800 mt-2">
+                                                <div className="grid grid-cols-7 gap-1 pt-3 border-t border-border mt-2">
                                                     {/* 1. Flashcards */}
                                                     <button
                                                         onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/flashcards?chapter=${dayData.chapters[idx]}`); }}
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Study Flashcards"
                                                     >
-                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-blue-50 group-hover/btn:text-blue-500 transition-colors">
+                                                        <div className="p-1.5 rounded-lg bg-muted text-muted-foreground group-hover/btn:bg-blue-50 group-hover/btn:text-blue-500 transition-colors">
                                                             <StickyNote className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-blue-500">Cards</span>
+                                                        <span className="text-[8px] font-medium text-muted-foreground group-hover/btn:text-blue-500">Cards</span>
                                                     </button>
 
                                                     {/* 2. Level 1 MCQs */}
@@ -306,10 +306,10 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Level 1: Foundation"
                                                     >
-                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-green-50 group-hover/btn:text-green-500 transition-colors">
+                                                        <div className="p-1.5 rounded-lg bg-muted text-muted-foreground group-hover/btn:bg-green-50 group-hover/btn:text-green-500 transition-colors">
                                                             <Target className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-green-500">L1</span>
+                                                        <span className="text-[8px] font-medium text-muted-foreground group-hover/btn:text-green-500">L1</span>
                                                     </button>
 
                                                     {/* 2. Level 2 MCQs */}
@@ -323,10 +323,10 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                                         className={`flex flex-col items-center gap-0.5 group/btn ${isLevelLocked(dayData.chapters[idx], 2) ? 'opacity-50 cursor-not-allowed' : ''}`}
                                                         title="Level 2: Conceptual"
                                                     >
-                                                        <div className={`p-1.5 rounded-lg ${isLevelLocked(dayData.chapters[idx], 2) ? 'bg-gray-100 text-gray-300' : 'bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-purple-50 group-hover/btn:text-purple-500'} transition-colors`}>
+                                                        <div className={`p-1.5 rounded-lg ${isLevelLocked(dayData.chapters[idx], 2) ? 'bg-muted text-muted-foreground' : 'bg-muted text-muted-foreground group-hover/btn:bg-purple-50 group-hover/btn:text-purple-500'} transition-colors`}>
                                                             {isLevelLocked(dayData.chapters[idx], 2) ? <Lock className="w-3.5 h-3.5" /> : <Target className="w-3.5 h-3.5" />}
                                                         </div>
-                                                        <span className={`text-[8px] font-medium ${isLevelLocked(dayData.chapters[idx], 2) ? 'text-gray-300' : 'text-gray-400 group-hover/btn:text-purple-500'}`}>L2</span>
+                                                        <span className={`text-[8px] font-medium ${isLevelLocked(dayData.chapters[idx], 2) ? 'text-muted-foreground' : 'text-muted-foreground group-hover/btn:text-purple-500'}`}>L2</span>
                                                     </button>
 
                                                     {/* 3. Level 3 MCQs */}
@@ -340,10 +340,10 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                                         className={`flex flex-col items-center gap-0.5 group/btn ${isLevelLocked(dayData.chapters[idx], 3) ? 'opacity-50 cursor-not-allowed' : ''}`}
                                                         title="Level 3: Applied"
                                                     >
-                                                        <div className={`p-1.5 rounded-lg ${isLevelLocked(dayData.chapters[idx], 3) ? 'bg-gray-100 text-gray-300' : 'bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-red-50 group-hover/btn:text-red-500'} transition-colors`}>
+                                                        <div className={`p-1.5 rounded-lg ${isLevelLocked(dayData.chapters[idx], 3) ? 'bg-muted text-muted-foreground' : 'bg-muted text-muted-foreground group-hover/btn:bg-red-50 group-hover/btn:text-red-500'} transition-colors`}>
                                                             {isLevelLocked(dayData.chapters[idx], 3) ? <Lock className="w-3.5 h-3.5" /> : <Flame className="w-3.5 h-3.5" />}
                                                         </div>
-                                                        <span className={`text-[8px] font-medium ${isLevelLocked(dayData.chapters[idx], 3) ? 'text-gray-300' : 'text-gray-400 group-hover/btn:text-red-500'}`}>L3</span>
+                                                        <span className={`text-[8px] font-medium ${isLevelLocked(dayData.chapters[idx], 3) ? 'text-muted-foreground' : 'text-muted-foreground group-hover/btn:text-red-500'}`}>L3</span>
                                                     </button>
 
                                                     {/* 5. Read */}
@@ -356,10 +356,10 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Read Content"
                                                     >
-                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-indigo-50 group-hover/btn:text-indigo-500 transition-colors">
+                                                        <div className="p-1.5 rounded-lg bg-muted text-muted-foreground group-hover/btn:bg-indigo-50 group-hover/btn:text-indigo-500 transition-colors">
                                                             <BookOpen className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-indigo-500">Read</span>
+                                                        <span className="text-[8px] font-medium text-muted-foreground group-hover/btn:text-indigo-500">Read</span>
                                                     </button>
 
                                                     {/* 6. Visuals/Mapping */}
@@ -368,10 +368,10 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Interactive Visuals"
                                                     >
-                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-amber-50 group-hover/btn:text-amber-600 transition-colors">
+                                                        <div className="p-1.5 rounded-lg bg-muted text-muted-foreground group-hover/btn:bg-amber-50 group-hover/btn:text-amber-600 transition-colors">
                                                             <Map className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-amber-600">Map</span>
+                                                        <span className="text-[8px] font-medium text-muted-foreground group-hover/btn:text-amber-600">Map</span>
                                                     </button>
 
                                                     {/* 7. Current Affairs */}
@@ -380,10 +380,10 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Current Affairs"
                                                     >
-                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-rose-50 group-hover/btn:text-rose-600 transition-colors">
+                                                        <div className="p-1.5 rounded-lg bg-muted text-muted-foreground group-hover/btn:bg-rose-50 group-hover/btn:text-rose-600 transition-colors">
                                                             <Flame className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-rose-600">CA</span>
+                                                        <span className="text-[8px] font-medium text-muted-foreground group-hover/btn:text-rose-600">CA</span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -396,7 +396,7 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                         className={`w-full h-16 text-lg font-black rounded-2xl shadow-xl transition-all
                                             ${checklist.some(Boolean)
                                                 ? `bg-gradient-to-r ${colors.gradient} hover:scale-[1.02] active:scale-95 text-white`
-                                                : 'bg-gray-100 text-gray-400 cursor-not-allowed dark:bg-gray-800'
+                                                : 'bg-muted text-muted-foreground cursor-not-allowed'
                                             }`}
                                         disabled={!checklist.some(Boolean)}
                                         onClick={() => {
@@ -418,15 +418,15 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                             </div>
                                         )}
                                     </Button>
-                                    <p className="text-[10px] text-center text-gray-400 px-6 leading-relaxed">
-                                        Your results will be analyzed by the <span className="font-bold text-gray-500 italic">Synapse Engine</span> for cognitive gap reporting.
+                                    <p className="text-[10px] text-center text-muted-foreground px-6 leading-relaxed">
+                                        Your results will be analyzed by the <span className="font-bold text-muted-foreground italic">Synapse Engine</span> for cognitive gap reporting.
                                     </p>
                                 </div>
 
                                 {dayData.isAssessmentDay && (
                                     <div className="mt-8 bg-amber-500 rounded-2xl p-4 text-white shadow-lg shadow-amber-500/20 border-b-4 border-amber-700">
                                         <div className="flex items-center gap-3 mb-2">
-                                            <div className="bg-white/20 p-2 rounded-lg">
+                                            <div className="bg-card/20 p-2 rounded-lg">
                                                 <Award className="w-5 h-5 text-white" />
                                             </div>
                                             <h4 className="font-bold">Phase Assessment</h4>
@@ -439,31 +439,31 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                             </motion.div>
 
                         ) : (
-                            <div className="text-center p-12 text-gray-400">
+                            <div className="text-center p-12 text-muted-foreground">
                                 Select a day to view plan
                             </div>
                         )}
                         {/* Stats Widget */}
-                        <div className="bg-white dark:bg-[#111] border border-gray-200 dark:border-gray-800 rounded-3xl p-6 shadow-sm overflow-hidden relative">
+                        <div className="bg-card dark:bg-[#111] border border-border rounded-3xl p-6 shadow-sm overflow-hidden relative">
                             <div className={`absolute top-0 right-0 p-12 ${colors.ghost} blur-3xl rounded-full translate-x-1/2 -translate-y-1/2`}></div>
                             <div className="flex items-center gap-3 mb-4 relative z-10">
                                 <Award className={`w-5 h-5 ${colors.text.replace('text-', 'text-')}`} />
-                                <h3 className="font-bold text-gray-900 dark:text-white">{config.title} Progress</h3>
+                                <h3 className="font-bold text-foreground">{config.title} Progress</h3>
                             </div>
                             <div className="space-y-4 relative z-10">
                                 <div>
                                     <div className="flex justify-between text-[10px] font-bold uppercase mb-1.5">
-                                        <span className="text-gray-400 tracking-wider">Chapters Sequenced</span>
-                                        <span className="text-gray-900 dark:text-white">0 / {config.chaptersTotal}</span>
+                                        <span className="text-muted-foreground tracking-wider">Chapters Sequenced</span>
+                                        <span className="text-foreground">0 / {config.chaptersTotal}</span>
                                     </div>
-                                    <div className="h-2 bg-gray-100 dark:bg-white/5 rounded-full overflow-hidden">
+                                    <div className="h-2 bg-muted dark:bg-card/5 rounded-full overflow-hidden">
                                         <div
                                             className={`h-full bg-gradient-to-r ${colors.gradient} transition-all duration-1000`}
                                             style={{ width: `5%` }}
                                         ></div>
                                     </div>
                                 </div>
-                                <div className={`p-3 rounded-2xl text-[10px] font-bold uppercase tracking-wide text-center bg-gray-50 dark:bg-white/5 text-gray-500`}>
+                                <div className={`p-3 rounded-2xl text-[10px] font-bold uppercase tracking-wide text-center bg-muted dark:bg-card/5 text-muted-foreground`}>
                                     Status: <span className={`${colors.text} ml-1`}>Initializing Module</span>
                                 </div>
                             </div>

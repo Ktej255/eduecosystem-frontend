@@ -82,7 +82,7 @@ const accentColors: Record<string, { bg: string; text: string; hover: string }> 
 
 export default function StakeholdersSection() {
     return (
-        <section id="stakeholders" className="collexo-section bg-white dark:bg-slate-950">
+        <section id="stakeholders" className="collexo-section bg-card">
             <div className="collexo-container">
                 {/* Section Header */}
                 <div className="text-center mb-16">
@@ -90,7 +90,7 @@ export default function StakeholdersSection() {
                         <Users className="w-4 h-4" />
                         Shared Success
                     </div>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
                         Empowering every stakeholder{' '}
                         <span className="collexo-gradient-text">in Education</span>
                     </h2>
@@ -111,15 +111,15 @@ export default function StakeholdersSection() {
                                 </div>
 
                                 {/* Title */}
-                                <div className="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-1">
+                                <div className="text-sm font-semibold text-muted-foreground dark:text-muted-foreground mb-1">
                                     {stakeholder.title}
                                 </div>
-                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+                                <h3 className="text-2xl font-bold text-foreground mb-4">
                                     {stakeholder.subtitle}
                                 </h3>
 
                                 {/* Description */}
-                                <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                                <p className="text-muted-foreground dark:text-muted-foreground mb-6 leading-relaxed">
                                     {stakeholder.description}
                                 </p>
 
@@ -128,7 +128,7 @@ export default function StakeholdersSection() {
                                     {stakeholder.benefits.map((benefit, idx) => (
                                         <li
                                             key={idx}
-                                            className="flex items-center gap-3 text-slate-700 dark:text-slate-300 group"
+                                            className="flex items-center gap-3 text-muted-foreground group"
                                         >
                                             <div className={`w-8 h-8 rounded-lg ${colors.bg} ${colors.hover} flex items-center justify-center flex-shrink-0 transition-colors`}>
                                                 <benefit.icon className={`w-4 h-4 ${colors.text}`} />

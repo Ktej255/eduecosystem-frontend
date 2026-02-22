@@ -85,7 +85,7 @@ export default function BreakTimer({
                     </div>
 
                     {/* Progress Ring */}
-                    <div className="relative w-32 h-2 mx-auto mb-6 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                    <div className="relative w-32 h-2 mx-auto mb-6 bg-muted rounded-full overflow-hidden">
                         <div
                             className={`absolute inset-y-0 left-0 bg-gradient-to-r ${progressColor} transition-all duration-1000`}
                             style={{ width: `${progress}%` }}

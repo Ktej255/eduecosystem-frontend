@@ -104,7 +104,7 @@ export const NotificationCenter: React.FC = () => {
       {/* Bell Icon */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative p-2 text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-gray-800"
+        className="relative p-2 text-muted-foreground hover:text-white transition-colors rounded-lg hover:bg-gray-800"
         aria-label="Notifications"
       >
         <Bell className="h-6 w-6" />
@@ -142,7 +142,7 @@ export const NotificationCenter: React.FC = () => {
                 )}
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-muted-foreground hover:text-white transition-colors"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -152,7 +152,7 @@ export const NotificationCenter: React.FC = () => {
             {/* Notifications List */}
             <div className="overflow-y-auto flex-1">
               {loading ? (
-                <div className="p-8 text-center text-gray-500">
+                <div className="p-8 text-center text-muted-foreground">
                   Loading notifications...
                 </div>
               ) : notifications.length > 0 ? (
@@ -176,11 +176,11 @@ export const NotificationCenter: React.FC = () => {
                             </Badge>
                           )}
                         </div>
-                        <p className="text-sm text-gray-400 mt-1">
+                        <p className="text-sm text-muted-foreground mt-1">
                           {notification.message}
                         </p>
                         <div className="flex items-center justify-between mt-2">
-                          <span className="text-xs text-gray-500 flex items-center gap-1">
+                          <span className="text-xs text-muted-foreground flex items-center gap-1">
                             <Clock className="h-3 w-3" />
                             {formatTime(notification.created_at)}
                           </span>
@@ -209,8 +209,8 @@ export const NotificationCenter: React.FC = () => {
                 ))
               ) : (
                 <div className="p-8 text-center">
-                  <Bell className="h-12 w-12 text-gray-700 mx-auto mb-3" />
-                  <p className="text-gray-500 text-sm">No notifications</p>
+                  <Bell className="h-12 w-12 text-muted-foreground mx-auto mb-3" />
+                  <p className="text-muted-foreground text-sm">No notifications</p>
                 </div>
               )}
             </div>

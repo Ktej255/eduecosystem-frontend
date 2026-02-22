@@ -125,7 +125,7 @@ export default function ExperienceReport({ isOpen, onClose, onSubmit, title = "P
                         <div className="p-8 md:p-12">
                             <button
                                 onClick={onClose}
-                                className="absolute top-8 right-8 text-slate-500 hover:text-white transition-colors"
+                                className="absolute top-8 right-8 text-muted-foreground hover:text-white transition-colors"
                             >
                                 <X className="w-6 h-6" />
                             </button>
@@ -135,7 +135,7 @@ export default function ExperienceReport({ isOpen, onClose, onSubmit, title = "P
                                     <Brain className="w-3 h-3" /> Externalization Phase
                                 </div>
                                 <h2 className="text-3xl font-serif text-white">{title}</h2>
-                                <p className="text-slate-400 mt-2">What shifted within you during this contemplation?</p>
+                                <p className="text-muted-foreground mt-2">What shifted within you during this contemplation?</p>
                             </div>
 
                             <div className="space-y-8">
@@ -188,8 +188,8 @@ export default function ExperienceReport({ isOpen, onClose, onSubmit, title = "P
                                                     }
                                                 }}
                                                 className={`px-3 py-1.5 rounded-full text-xs font-bold border transition-all ${selectedTags.includes(tag)
-                                                    ? "bg-amber-500 text-slate-900 border-amber-500"
-                                                    : "bg-transparent text-slate-500 border-slate-800 hover:border-slate-600"
+                                                    ? "bg-amber-500 text-foreground border-amber-500"
+                                                    : "bg-transparent text-muted-foreground border-slate-800 hover:border-slate-600"
                                                     }`}
                                             >
                                                 {tag}
@@ -233,7 +233,7 @@ export default function ExperienceReport({ isOpen, onClose, onSubmit, title = "P
                                             "Seal in Consciousness"
                                         )}
                                     </Button>
-                                    <p className="text-[10px] text-slate-500 mt-4 uppercase tracking-[0.2em]">This records your shift in the Bio-Memory</p>
+                                    <p className="text-[10px] text-muted-foreground mt-4 uppercase tracking-[0.2em]">This records your shift in the Bio-Memory</p>
                                 </div>
                             </div>
                         </div>
@@ -256,7 +256,7 @@ export default function ExperienceReport({ isOpen, onClose, onSubmit, title = "P
                                     <h3 className="text-2xl font-serif text-white mb-2">Shift Recorded</h3>
 
                                     {aiInsight ? (
-                                        <div className="max-w-md bg-white/5 rounded-xl p-6 border border-emerald-500/30 mt-4 text-left relative overflow-hidden">
+                                        <div className="max-w-md bg-card/5 rounded-xl p-6 border border-emerald-500/30 mt-4 text-left relative overflow-hidden">
                                             <div className="absolute top-0 right-0 p-3 opacity-20">
                                                 <Sparkles className="w-12 h-12 text-emerald-400" />
                                             </div>
@@ -265,17 +265,17 @@ export default function ExperienceReport({ isOpen, onClose, onSubmit, title = "P
 
                                             <div className="flex items-center gap-4 mt-4 pt-4 border-t border-white/10">
                                                 <div>
-                                                    <p className="text-slate-500 text-[10px] uppercase">State</p>
+                                                    <p className="text-muted-foreground text-[10px] uppercase">State</p>
                                                     <p className="text-emerald-100 font-bold text-sm">{aiInsight.state}</p>
                                                 </div>
                                                 <div>
-                                                    <p className="text-slate-500 text-[10px] uppercase">Alignment</p>
+                                                    <p className="text-muted-foreground text-[10px] uppercase">Alignment</p>
                                                     <p className="text-emerald-100 font-bold text-sm">{aiInsight.score}/100</p>
                                                 </div>
                                             </div>
                                         </div>
                                     ) : (
-                                        <p className="text-slate-400">Your bio-memory has been updated with this realization.</p>
+                                        <p className="text-muted-foreground">Your bio-memory has been updated with this realization.</p>
                                     )}
                                 </motion.div>
                             )}
@@ -298,10 +298,10 @@ function GunaSlider({ label, icon, value, color, onChange, description }: { labe
         <div className="space-y-3">
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-slate-300">
-                    <span className={`p-1.5 rounded-lg bg-white/5 text-${color}-400`}>{icon}</span>
+                    <span className={`p-1.5 rounded-lg bg-card/5 text-${color}-400`}>{icon}</span>
                     <span className="text-xs font-bold uppercase tracking-widest">{label}</span>
                 </div>
-                <span className="text-xs font-black text-slate-500">{value}%</span>
+                <span className="text-xs font-black text-muted-foreground">{value}%</span>
             </div>
             <input
                 type="range"
@@ -311,7 +311,7 @@ function GunaSlider({ label, icon, value, color, onChange, description }: { labe
                 onChange={(e) => onChange(parseInt(e.target.value))}
                 className={`w-full h-1.5 rounded-full appearance-none cursor-pointer bg-slate-800 ${colorMap[color]}`}
             />
-            <p className="text-[10px] text-slate-500 italic">{description}</p>
+            <p className="text-[10px] text-muted-foreground italic">{description}</p>
         </div>
     );
 }

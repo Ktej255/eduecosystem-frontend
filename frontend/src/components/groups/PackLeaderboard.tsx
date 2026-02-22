@@ -28,7 +28,7 @@ export function PackLeaderboard({ packs }: PackLeaderboardProps) {
                     <Trophy className="h-6 w-6 text-amber-500" />
                     <h3 className="text-xl font-bold text-white">Global Pack Rankings</h3>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-gray-400">
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
                     <TrendingUp className="h-3 w-3" />
                     <span>Updates every 5 mins</span>
                 </div>
@@ -49,7 +49,7 @@ export function PackLeaderboard({ packs }: PackLeaderboardProps) {
                         >
                             <div className={`w-8 h-8 flex items-center justify-center font-bold rounded-lg ${index === 0 ? "bg-amber-500 text-black" :
                                     index === 1 ? "bg-gray-300 text-black" :
-                                        index === 2 ? "bg-amber-800 text-white" : "bg-gray-800 text-gray-400"
+                                        index === 2 ? "bg-amber-800 text-white" : "bg-gray-800 text-muted-foreground"
                                 }`}>
                                 {index + 1}
                             </div>
@@ -65,12 +65,12 @@ export function PackLeaderboard({ packs }: PackLeaderboardProps) {
                                         <span className="text-[10px] bg-cyan-600 px-2 py-0.5 rounded-full uppercase font-bold text-white">My Pack</span>
                                     )}
                                 </div>
-                                <p className="text-sm text-gray-500 italic">"{pack.metadata.motto || 'Strength in unity.'}"</p>
+                                <p className="text-sm text-muted-foreground italic">"{pack.metadata.motto || 'Strength in unity.'}"</p>
                             </div>
 
                             <div className="text-right">
                                 <div className="text-2xl font-black text-cyan-400 leading-none">{pack.points.toLocaleString()}</div>
-                                <div className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Pack Points</div>
+                                <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold">Pack Points</div>
                             </div>
                         </motion.div>
                     ))}
@@ -78,7 +78,7 @@ export function PackLeaderboard({ packs }: PackLeaderboardProps) {
             </div>
 
             <div className="p-4 bg-black/40 text-center border-t border-gray-800">
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-muted-foreground">
                     Earn <span className="text-cyan-400 font-bold">Learning Coins</span> to boost your pack's rank!
                 </p>
             </div>

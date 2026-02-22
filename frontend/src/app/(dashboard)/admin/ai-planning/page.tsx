@@ -122,7 +122,7 @@ export default function AIPlanningPage() {
             case "high": return "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200";
             case "medium": return "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200";
             case "low": return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200";
-            default: return "bg-gray-100 text-gray-800";
+            default: return "bg-muted text-foreground";
         }
     };
 
@@ -131,7 +131,7 @@ export default function AIPlanningPage() {
             case "priority": return <Zap className="w-4 h-4 text-red-500" />;
             case "enhancement": return <Lightbulb className="w-4 h-4 text-amber-500" />;
             case "recommendation": return <Target className="w-4 h-4 text-blue-500" />;
-            default: return <Sparkles className="w-4 h-4 text-gray-500" />;
+            default: return <Sparkles className="w-4 h-4 text-muted-foreground" />;
         }
     };
 
@@ -144,11 +144,11 @@ export default function AIPlanningPage() {
             <div className="mb-8">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-3">
+                        <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
                             <Brain className="w-8 h-8 text-purple-600" />
                             AI-Powered Planning
                         </h1>
-                        <p className="text-gray-500 dark:text-gray-400 mt-2">
+                        <p className="text-muted-foreground dark:text-muted-foreground mt-2">
                             Analyzes past development and generates 7-day enhancement plans
                         </p>
                     </div>
@@ -161,11 +161,11 @@ export default function AIPlanningPage() {
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-6">
                             <div>
-                                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Analyze Last</label>
+                                <label className="text-sm font-medium text-muted-foreground dark:text-muted-foreground">Analyze Last</label>
                                 <select
                                     value={daysToAnalyze}
                                     onChange={(e) => setDaysToAnalyze(Number(e.target.value))}
-                                    className="ml-2 px-3 py-1.5 border rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                                    className="ml-2 px-3 py-1.5 border rounded-lg bg-card text-foreground"
                                 >
                                     <option value={7}>7 days</option>
                                     <option value={10}>10 days</option>
@@ -173,7 +173,7 @@ export default function AIPlanningPage() {
                                     <option value={30}>30 days</option>
                                 </select>
                             </div>
-                            <div className="text-sm text-gray-500">
+                            <div className="text-sm text-muted-foreground">
                                 Portals: Admin, Student, Teacher, CRM, Graphotherapy
                             </div>
                         </div>
@@ -206,8 +206,8 @@ export default function AIPlanningPage() {
                             <div className="flex items-center gap-3">
                                 <Calendar className="w-8 h-8 text-purple-600" />
                                 <div>
-                                    <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">7</p>
-                                    <p className="text-sm text-gray-500">Days Planned</p>
+                                    <p className="text-2xl font-bold text-foreground">7</p>
+                                    <p className="text-sm text-muted-foreground">Days Planned</p>
                                 </div>
                             </div>
                         </Card>
@@ -215,8 +215,8 @@ export default function AIPlanningPage() {
                             <div className="flex items-center gap-3">
                                 <Target className="w-8 h-8 text-blue-600" />
                                 <div>
-                                    <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{totalTasks}</p>
-                                    <p className="text-sm text-gray-500">Tasks Identified</p>
+                                    <p className="text-2xl font-bold text-foreground">{totalTasks}</p>
+                                    <p className="text-sm text-muted-foreground">Tasks Identified</p>
                                 </div>
                             </div>
                         </Card>
@@ -224,8 +224,8 @@ export default function AIPlanningPage() {
                             <div className="flex items-center gap-3">
                                 <Clock className="w-8 h-8 text-amber-600" />
                                 <div>
-                                    <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{totalHours}h</p>
-                                    <p className="text-sm text-gray-500">Estimated Time</p>
+                                    <p className="text-2xl font-bold text-foreground">{totalHours}h</p>
+                                    <p className="text-sm text-muted-foreground">Estimated Time</p>
                                 </div>
                             </div>
                         </Card>
@@ -233,8 +233,8 @@ export default function AIPlanningPage() {
                             <div className="flex items-center gap-3">
                                 <Lightbulb className="w-8 h-8 text-green-600" />
                                 <div>
-                                    <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{planData?.insights?.length || 0}</p>
-                                    <p className="text-sm text-gray-500">AI Insights</p>
+                                    <p className="text-2xl font-bold text-foreground">{planData?.insights?.length || 0}</p>
+                                    <p className="text-sm text-muted-foreground">AI Insights</p>
                                 </div>
                             </div>
                         </Card>
@@ -242,7 +242,7 @@ export default function AIPlanningPage() {
 
                     {/* AI Insights */}
                     <div className="mb-8">
-                        <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                             <Lightbulb className="w-5 h-5 text-amber-600" />
                             AI-Generated Insights
                         </h2>
@@ -253,12 +253,12 @@ export default function AIPlanningPage() {
                                         {getInsightIcon(insight.type)}
                                         <div className="flex-1">
                                             <div className="flex items-center gap-2 mb-1">
-                                                <span className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">
+                                                <span className="text-xs px-2 py-0.5 bg-muted text-muted-foreground dark:text-muted-foreground rounded">
                                                     {insight.portal}
                                                 </span>
-                                                <span className="text-xs text-gray-400 capitalize">{insight.type}</span>
+                                                <span className="text-xs text-muted-foreground capitalize">{insight.type}</span>
                                             </div>
-                                            <p className="text-sm text-gray-700 dark:text-gray-300">{insight.message}</p>
+                                            <p className="text-sm text-muted-foreground dark:text-muted-foreground">{insight.message}</p>
                                         </div>
                                     </div>
                                 </Card>
@@ -268,7 +268,7 @@ export default function AIPlanningPage() {
 
                     {/* 7-Day Plan */}
                     <div>
-                        <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                             <Calendar className="w-5 h-5 text-indigo-600" />
                             7-Day Development Plan
                         </h2>
@@ -286,16 +286,16 @@ export default function AIPlanningPage() {
                                             <div className="flex items-start justify-between mb-3">
                                                 <div>
                                                     <div className="flex items-center gap-2">
-                                                        <h3 className="font-semibold text-gray-900 dark:text-gray-100">
+                                                        <h3 className="font-semibold text-foreground">
                                                             {plan.portal}
                                                         </h3>
                                                         <span className={`text-xs px-2 py-0.5 rounded ${getPriorityColor(plan.priority)}`}>
                                                             {plan.priority}
                                                         </span>
                                                     </div>
-                                                    <p className="text-sm text-gray-500">{new Date(plan.date).toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })}</p>
+                                                    <p className="text-sm text-muted-foreground">{new Date(plan.date).toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })}</p>
                                                 </div>
-                                                <div className="flex items-center gap-1 text-sm text-gray-500">
+                                                <div className="flex items-center gap-1 text-sm text-muted-foreground">
                                                     <Clock className="w-4 h-4" />
                                                     {plan.estimated_hours}h
                                                 </div>
@@ -303,8 +303,8 @@ export default function AIPlanningPage() {
 
                                             <ul className="space-y-2">
                                                 {plan.tasks.map((task, idx) => (
-                                                    <li key={idx} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-                                                        <ChevronRight className="w-4 h-4 text-gray-400" />
+                                                    <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground dark:text-muted-foreground">
+                                                        <ChevronRight className="w-4 h-4 text-muted-foreground" />
                                                         {task}
                                                     </li>
                                                 ))}
@@ -323,14 +323,14 @@ export default function AIPlanningPage() {
             <Card className="bg-zinc-900/50 border-zinc-800 border-dashed">
                 <CardHeader>
                     <CardTitle className="text-sm font-bold flex items-center gap-2">
-                        <Plus className="w-4 h-4 text-gray-500" />
+                        <Plus className="w-4 h-4 text-muted-foreground" />
                         Log Manual Development Activity
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <select
-                            className="bg-black border border-zinc-800 rounded px-3 py-1.5 text-xs text-gray-300"
+                            className="bg-black border border-zinc-800 rounded px-3 py-1.5 text-xs text-muted-foreground"
                             value={logForm.portal}
                             onChange={(e) => setLogForm({ ...logForm, portal: e.target.value })}
                         >
@@ -341,7 +341,7 @@ export default function AIPlanningPage() {
                             <option>Graphotherapy</option>
                         </select>
                         <select
-                            className="bg-black border border-zinc-800 rounded px-3 py-1.5 text-xs text-gray-300"
+                            className="bg-black border border-zinc-800 rounded px-3 py-1.5 text-xs text-muted-foreground"
                             value={logForm.action}
                             onChange={(e) => setLogForm({ ...logForm, action: e.target.value })}
                         >
@@ -356,7 +356,7 @@ export default function AIPlanningPage() {
                             onChange={(e) => setLogForm({ ...logForm, feature: e.target.value })}
                         />
                         <select
-                            className="bg-black border border-zinc-800 rounded px-3 py-1.5 text-xs text-gray-300"
+                            className="bg-black border border-zinc-800 rounded px-3 py-1.5 text-xs text-muted-foreground"
                             value={logForm.impact}
                             onChange={(e) => setLogForm({ ...logForm, impact: e.target.value })}
                         >
@@ -382,7 +382,7 @@ export default function AIPlanningPage() {
                             {isLogging ? "Logging..." : "Log Activity"}
                         </Button>
                     </div>
-                    <p className="text-[10px] text-gray-500">
+                    <p className="text-[10px] text-muted-foreground">
                         Historical logs are used by the Strategic AI to understand current project state and suggest next steps.
                     </p>
                 </CardContent>

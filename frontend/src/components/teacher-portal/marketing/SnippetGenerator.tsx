@@ -114,7 +114,7 @@ export default function SnippetGenerator() {
                 {/* Input Section */}
                 <div className="flex gap-4 items-end">
                     <div className="flex-1 space-y-2">
-                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Select Source Video</label>
+                        <label className="text-sm font-medium text-muted-foreground">Select Source Video</label>
                         <Select value={selectedVideo} onValueChange={setSelectedVideo}>
                             <SelectTrigger className="h-10">
                                 <SelectValue placeholder="Choose a lecture..." />
@@ -153,7 +153,7 @@ export default function SnippetGenerator() {
                             <span>{progress}%</span>
                         </div>
                         <Progress value={progress} className="h-2 bg-purple-100 [&>div]:bg-purple-600" />
-                        <p className="text-xs text-center text-slate-400 mt-2">AI is identifying high-engagement moments...</p>
+                        <p className="text-xs text-center text-muted-foreground mt-2">AI is identifying high-engagement moments...</p>
                     </div>
                 )}
 
@@ -161,7 +161,7 @@ export default function SnippetGenerator() {
                 {!isGenerating && snippets.length > 0 && (
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 animate-in slide-in-from-bottom-4 duration-500">
                         {snippets.map((snippet) => (
-                            <Card key={snippet.id} className="border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 overflow-hidden hover:shadow-md transition-shadow group">
+                            <Card key={snippet.id} className="border-border bg-slate-50/50/50 overflow-hidden hover:shadow-md transition-shadow group">
                                 <div className="h-2 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500" />
                                 <CardContent className="p-4 pt-5 space-y-3">
                                     <div className="flex justify-between items-start">
@@ -175,22 +175,22 @@ export default function SnippetGenerator() {
                                     </div>
 
                                     <div>
-                                        <h3 className="font-bold text-slate-800 dark:text-slate-100 leading-tight">{snippet.title}</h3>
-                                        <p className="text-xs text-slate-500 mt-1 flex items-center gap-1">
+                                        <h3 className="font-bold text-foreground leading-tight">{snippet.title}</h3>
+                                        <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
                                             <Video className="h-3 w-3" /> {snippet.duration} est.
                                         </p>
                                     </div>
 
-                                    <div className="bg-white dark:bg-slate-800 p-3 rounded-lg border border-slate-100 dark:border-slate-700 shadow-sm">
-                                        <p className="text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">Hook:</p>
-                                        <p className="text-sm italic text-slate-800 dark:text-slate-200">"{snippet.hook}"</p>
+                                    <div className="bg-card p-3 rounded-lg border border-slate-100 shadow-sm">
+                                        <p className="text-xs font-semibold text-muted-foreground dark:text-muted-foreground mb-1">Hook:</p>
+                                        <p className="text-sm italic text-foreground">"{snippet.hook}"</p>
                                     </div>
 
-                                    <div className="text-xs text-slate-500">
-                                        <span className="font-semibold text-slate-600">Script Idea:</span> {snippet.script}
+                                    <div className="text-xs text-muted-foreground">
+                                        <span className="font-semibold text-muted-foreground">Script Idea:</span> {snippet.script}
                                     </div>
                                 </CardContent>
-                                <CardFooter className="p-3 bg-white dark:bg-slate-800 border-t border-slate-100 dark:border-slate-700 gap-2">
+                                <CardFooter className="p-3 bg-card border-t border-slate-100 gap-2">
                                     <Button variant="ghost" size="sm" className="w-full text-xs h-8" onClick={() => copyScript(snippet.id, snippet.script)}>
                                         {copiedId === snippet.id ? <Check className="h-3 w-3 mr-1" /> : <Copy className="h-3 w-3 mr-1" />}
                                         {copiedId === snippet.id ? "Copied" : "Copy Script"}

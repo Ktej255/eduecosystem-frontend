@@ -102,10 +102,10 @@ export default function TeacherContentPage() {
                         </Button>
                     </Link>
                     <div>
-                        <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-200">
+                        <h1 className="text-2xl font-bold text-foreground">
                             Content & Curriculum
                         </h1>
-                        <p className="text-gray-500 text-sm">Manage library and AI generation</p>
+                        <p className="text-muted-foreground text-sm">Manage library and AI generation</p>
                     </div>
                 </div>
             </div>
@@ -146,7 +146,7 @@ export default function TeacherContentPage() {
                     {/* Filters */}
                     <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
                         <div className="relative w-full md:w-64">
-                            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                             <Input
                                 placeholder="Search content..."
                                 className="pl-10"
@@ -194,14 +194,14 @@ export default function TeacherContentPage() {
                             ) : (
                                 <div className="space-y-2">
                                     {filteredContent.map((item) => (
-                                        <div key={item.id} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:shadow-sm transition">
+                                        <div key={item.id} className="flex items-center justify-between p-4 bg-muted rounded-lg hover:shadow-sm transition">
                                             <div className="flex items-center gap-3">
                                                 <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${item.type === "video" ? "bg-purple-100 text-purple-600" : "bg-orange-100 text-orange-600"}`}>
                                                     {item.type === "video" ? <Video className="h-5 w-5" /> : <FileText className="h-5 w-5" />}
                                                 </div>
                                                 <div>
-                                                    <p className="font-medium text-gray-800 dark:text-gray-200">{item.title}</p>
-                                                    <p className="text-xs text-gray-500 flex items-center gap-1">
+                                                    <p className="font-medium text-foreground">{item.title}</p>
+                                                    <p className="text-xs text-muted-foreground flex items-center gap-1">
                                                         <Clock className="h-3 w-3" />
                                                         {new Date(item.uploaded_at).toLocaleDateString()}
                                                     </p>
@@ -222,7 +222,7 @@ export default function TeacherContentPage() {
                                         </div>
                                     ))}
                                     {filteredContent.length === 0 && (
-                                        <div className="text-center py-8 text-gray-500">
+                                        <div className="text-center py-8 text-muted-foreground">
                                             <FileText className="h-12 w-12 mx-auto mb-3 opacity-50" />
                                             <p>No content found</p>
                                             <Link href="/teacher/batch1">

@@ -128,7 +128,7 @@ function MiniGlobe({ activeEmpire }: { activeEmpire: any }) {
                 </mesh>
                 <Html distanceFactor={10}>
                     <div className="flex flex-col items-center">
-                        <div className="w-2 h-2 rounded-full bg-white animate-ping" />
+                        <div className="w-2 h-2 rounded-full bg-card animate-ping" />
                         <span className="text-[8px] font-black text-white bg-black/40 px-1 rounded mt-1 uppercase tracking-tighter shadow-glow">
                             {activeEmpire.id === 'british' ? 'Calcutta' : activeEmpire.id === 'mughal' ? 'Agra' : 'Pataliputra'}
                         </span>
@@ -146,11 +146,11 @@ export default function EmpireMapViz() {
     const closestEmpire = EMPIRES.slice().sort((a, b) => Math.abs(a.year - year) - Math.abs(b.year - year))[0];
 
     return (
-        <Card className="w-full bg-white dark:bg-[#111] border-gray-200 dark:border-gray-800 shadow-xl overflow-hidden">
+        <Card className="w-full bg-card dark:bg-[#111] border-border shadow-xl overflow-hidden">
             <CardHeader className="bg-gradient-to-r from-amber-600 to-orange-600 p-4 shrink-0">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center gap-3">
-                        <div className="p-2 bg-white/20 rounded-lg">
+                        <div className="p-2 bg-card/20 rounded-lg">
                             <MapIcon className="w-5 h-5 text-white" />
                         </div>
                         <div>
@@ -185,7 +185,7 @@ export default function EmpireMapViz() {
 
                     {/* Controls Overlay */}
                     <div className="absolute bottom-6 left-6 right-6">
-                        <div className="bg-white/80 dark:bg-black/80 backdrop-blur-md p-4 rounded-xl shadow-lg border border-gray-200/50 dark:border-gray-800/50">
+                        <div className="bg-card/80 dark:bg-black/80 backdrop-blur-md p-4 rounded-xl shadow-lg border border-border/50/50">
                             <Slider
                                 value={[year]}
                                 min={-400}
@@ -194,7 +194,7 @@ export default function EmpireMapViz() {
                                 onValueChange={(val) => setYear(val[0])}
                                 className="mb-4"
                             />
-                            <div className="flex justify-between text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                            <div className="flex justify-between text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
                                 <span>Ancient</span>
                                 <span>Medieval</span>
                                 <span>Modern</span>
@@ -204,7 +204,7 @@ export default function EmpireMapViz() {
                 </div>
 
                 {/* Info Panel */}
-                <div className="w-full md:w-80 border-t md:border-t-0 md:border-l border-gray-100 dark:border-gray-800 p-6 flex flex-col bg-white dark:bg-[#0a0a0a]">
+                <div className="w-full md:w-80 border-t md:border-t-0 md:border-l border-border p-6 flex flex-col bg-card dark:bg-[#0a0a0a]">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={closestEmpire.id}
@@ -217,12 +217,12 @@ export default function EmpireMapViz() {
                                 <Badge className={`${closestEmpire.color} ${closestEmpire.color.replace('fill', 'text')} bg-opacity-10 border-none mb-2`}>
                                     {closestEmpire.period}
                                 </Badge>
-                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white leading-tight">
+                                <h3 className="text-2xl font-bold text-foreground leading-tight">
                                     {closestEmpire.name}
                                 </h3>
                             </div>
 
-                            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                            <p className="text-sm text-muted-foreground dark:text-muted-foreground leading-relaxed">
                                 {closestEmpire.description}
                             </p>
 
@@ -232,7 +232,7 @@ export default function EmpireMapViz() {
                                 </h4>
                                 <div className="space-y-2">
                                     {closestEmpire.keyFacts.map((fact, i) => (
-                                        <div key={i} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+                                        <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground dark:text-muted-foreground">
                                             <div className="w-1.5 h-1.5 rounded-full bg-orange-400" />
                                             {fact}
                                         </div>

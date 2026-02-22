@@ -59,7 +59,7 @@ export function CourseCard({ course, showProgress = false }: CourseCardProps) {
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
-              <BookOpen className="h-16 w-16 text-gray-700" />
+              <BookOpen className="h-16 w-16 text-muted-foreground" />
             </div>
           )}
           {course.price === 0 && !showProgress && (
@@ -80,12 +80,12 @@ export function CourseCard({ course, showProgress = false }: CourseCardProps) {
           {/* Category & Level */}
           <div className="flex gap-2 mb-3">
             <Badge
-              className={`${categoryColors[course.category] || "bg-gray-500/10 text-gray-400"} border-0 text-xs`}
+              className={`${categoryColors[course.category] || "bg-muted-foreground/10 text-muted-foreground"} border-0 text-xs`}
             >
               {(course.category || "Uncategorized").replace(/_/g, " ")}
             </Badge>
             <Badge
-              className={`${levelColors[course.level as keyof typeof levelColors] || "bg-gray-500/10 text-gray-400"} border text-xs`}
+              className={`${levelColors[course.level as keyof typeof levelColors] || "bg-muted-foreground/10 text-muted-foreground"} border text-xs`}
             >
               {course.level}
             </Badge>
@@ -97,14 +97,14 @@ export function CourseCard({ course, showProgress = false }: CourseCardProps) {
           </h3>
 
           {/* Description */}
-          <p className="text-gray-400 text-sm mb-4 line-clamp-2 flex-1">
+          <p className="text-muted-foreground text-sm mb-4 line-clamp-2 flex-1">
             {course.description}
           </p>
 
           {/* Progress Bar (if enabled) */}
           {showProgress && typeof course.progress === "number" && (
             <div className="mb-4">
-              <div className="flex justify-between text-xs text-gray-400 mb-1">
+              <div className="flex justify-between text-xs text-muted-foreground mb-1">
                 <span>Progress</span>
                 <span>{Math.round(course.progress)}%</span>
               </div>
@@ -113,7 +113,7 @@ export function CourseCard({ course, showProgress = false }: CourseCardProps) {
           )}
 
           {/* Stats */}
-          <div className="flex items-center justify-between text-xs text-gray-500 mb-4 pb-4 border-b border-gray-800">
+          <div className="flex items-center justify-between text-xs text-muted-foreground mb-4 pb-4 border-b border-gray-800">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1">
                 <Users className="h-3.5 w-3.5" />

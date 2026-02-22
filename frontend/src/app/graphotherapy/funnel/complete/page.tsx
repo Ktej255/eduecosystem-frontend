@@ -3,9 +3,9 @@ import { ShieldCheck } from 'lucide-react';
 
 export default function CompleteOrderPage() {
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex flex-col">
-            <header className="h-16 bg-white dark:bg-gray-900 border-b flex items-center justify-center px-4">
-                <div className="flex items-center gap-2 text-gray-400 text-sm font-medium">
+        <div className="min-h-screen bg-muted flex flex-col">
+            <header className="h-16 bg-card border-b flex items-center justify-center px-4">
+                <div className="flex items-center gap-2 text-muted-foreground text-sm font-medium">
                     <ShieldCheck className="w-4 h-4 text-green-500" />
                     SECURE CHECKOUT
                 </div>

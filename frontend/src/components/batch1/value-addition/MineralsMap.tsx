@@ -25,7 +25,7 @@ export default function MineralsMap() {
     const getMineralColor = (type: string) => {
         switch (type) {
             case 'Fuel': return 'text-orange-500 fill-orange-500 stroke-orange-600';
-            case 'Metallic': return 'text-slate-600 fill-slate-500 stroke-slate-700';
+            case 'Metallic': return 'text-muted-foreground fill-slate-500 stroke-slate-700';
             case 'Atomic': return 'text-indigo-500 fill-indigo-500 stroke-indigo-600';
             default: return 'text-emerald-500 fill-emerald-500 stroke-emerald-600';
         }
@@ -34,17 +34,17 @@ export default function MineralsMap() {
     const getBgColor = (type: string) => {
         switch (type) {
             case 'Fuel': return 'bg-orange-50 dark:bg-orange-900/20';
-            case 'Metallic': return 'bg-slate-100 dark:bg-slate-800';
+            case 'Metallic': return 'bg-muted';
             case 'Atomic': return 'bg-indigo-50 dark:bg-indigo-900/20';
             default: return 'bg-emerald-50 dark:bg-emerald-900/20';
         }
     };
 
     return (
-        <div className="flex flex-col h-[calc(100vh-4rem)] lg:flex-row overflow-hidden bg-stone-50 dark:bg-slate-950">
+        <div className="flex flex-col h-[calc(100vh-4rem)] lg:flex-row overflow-hidden bg-stone-50">
             {/* Sidebar Details Panel */}
             <div className={`
-                fixed inset-0 z-20 bg-white dark:bg-slate-900 shadow-2xl transform transition-transform duration-300
+                fixed inset-0 z-20 bg-card shadow-2xl transform transition-transform duration-300
                 lg:relative lg:translate-x-0 lg:w-96 lg:border-r lg:shadow-none
                 ${selectedMineral ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
             `}>
@@ -56,7 +56,7 @@ export default function MineralsMap() {
                                 <ArrowLeft className="h-5 w-5" />
                             </Button>
                         </Link>
-                        <h1 className="text-xl font-bold text-gray-800 dark:text-gray-100">Mineral Resources</h1>
+                        <h1 className="text-xl font-bold text-foreground">Mineral Resources</h1>
                         {/* Mobile Close Button */}
                         <Button
                             variant="ghost"
@@ -76,35 +76,35 @@ export default function MineralsMap() {
                                     className: "h-16 w-16 opacity-20 absolute"
                                 })}
                                 <div className="z-10 text-center px-4">
-                                    <h2 className="text-2xl font-bold text-gray-800 dark:text-white leading-tight">{selectedMineral.name}</h2>
-                                    <p className="text-gray-600 dark:text-gray-300 font-medium mt-1">{selectedMineral.state}</p>
+                                    <h2 className="text-2xl font-bold text-foreground leading-tight">{selectedMineral.name}</h2>
+                                    <p className="text-muted-foreground dark:text-muted-foreground font-medium mt-1">{selectedMineral.state}</p>
                                 </div>
                             </div>
 
                             {/* Type Badge */}
                             <div className="flex gap-2">
-                                <Badge variant="outline" className="text-gray-600 border-gray-300">
+                                <Badge variant="outline" className="text-muted-foreground border-border">
                                     {selectedMineral.type} Mineral
                                 </Badge>
                             </div>
 
                             {/* Description */}
-                            <div className="bg-white dark:bg-slate-800 p-4 rounded-xl border shadow-sm">
-                                <h3 className="text-sm font-bold text-gray-500 uppercase mb-2">Significance</h3>
-                                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <div className="bg-card p-4 rounded-xl border shadow-sm">
+                                <h3 className="text-sm font-bold text-muted-foreground uppercase mb-2">Significance</h3>
+                                <p className="text-muted-foreground dark:text-muted-foreground leading-relaxed">
                                     {selectedMineral.description}
                                 </p>
                             </div>
 
                             {/* Key Minerals */}
-                            <div className="bg-white dark:bg-slate-800 p-4 rounded-xl border shadow-sm">
-                                <h3 className="text-sm font-bold text-gray-500 uppercase mb-2 flex items-center gap-2">
+                            <div className="bg-card p-4 rounded-xl border shadow-sm">
+                                <h3 className="text-sm font-bold text-muted-foreground uppercase mb-2 flex items-center gap-2">
                                     <Layers className="h-4 w-4" />
                                     Resources Found
                                 </h3>
                                 <div className="flex flex-wrap gap-2">
                                     {selectedMineral.minerals.map(min => (
-                                        <span key={min} className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-1 rounded-md text-sm border border-gray-200 dark:border-gray-600">
+                                        <span key={min} className="bg-muted text-foreground px-2 py-1 rounded-md text-sm border border-border">
                                             {min}
                                         </span>
                                     ))}
@@ -112,16 +112,16 @@ export default function MineralsMap() {
                             </div>
                         </div>
                     ) : (
-                        <div className="flex-1 flex flex-col items-center justify-center text-center text-gray-400 p-4">
+                        <div className="flex-1 flex flex-col items-center justify-center text-center text-muted-foreground p-4">
                             <Pickaxe className="h-12 w-12 mb-4 opacity-20" />
                             <p className="text-lg font-medium">Explore Mineral Belts</p>
                             <p className="text-sm">Discover India's major mining regions and resources.</p>
 
                             {/* Legend */}
-                            <div className="mt-8 w-full bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg text-left">
-                                <p className="text-xs font-bold text-gray-500 uppercase mb-3 text-center">Map Legend</p>
+                            <div className="mt-8 w-full bg-muted/50 p-4 rounded-lg text-left">
+                                <p className="text-xs font-bold text-muted-foreground uppercase mb-3 text-center">Map Legend</p>
                                 <div className="grid grid-cols-2 gap-3 text-xs">
-                                    <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-slate-500"></div> Metallic</div>
+                                    <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-muted-foreground"></div> Metallic</div>
                                     <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-orange-500"></div> Fuel (Coal/Oil)</div>
                                     <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-indigo-500"></div> Atomic</div>
                                     <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-emerald-500"></div> Non-Metallic</div>
@@ -133,7 +133,7 @@ export default function MineralsMap() {
             </div>
 
             {/* Map Area */}
-            <div className="flex-1 relative bg-stone-100 dark:bg-slate-950 p-4 overflow-hidden flex items-center justify-center">
+            <div className="flex-1 relative bg-stone-100 p-4 overflow-hidden flex items-center justify-center">
                 <div className="relative w-full max-w-2xl aspect-[3/4]">
                     <svg viewBox="0 0 100 120" className="w-full h-full drop-shadow-xl filter">
                         {/* India Map Base */}
@@ -181,7 +181,7 @@ export default function MineralsMap() {
                         ))}
                     </svg>
 
-                    <div className="absolute bottom-4 right-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur p-2 rounded-lg border text-xs text-gray-500">
+                    <div className="absolute bottom-4 right-4 bg-card/80/80 backdrop-blur p-2 rounded-lg border text-xs text-muted-foreground">
                         * Locations are approximate
                     </div>
                 </div>

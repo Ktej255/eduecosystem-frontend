@@ -15,7 +15,7 @@ export default function EnvironmentHome() {
     return (
         <div className="min-h-screen bg-[#F9FAFB] dark:bg-[#0a0a0a]">
             {/* Header */}
-            <div className="bg-white border-b border-neutral-200 dark:bg-black dark:border-neutral-800 sticky top-0 z-50">
+            <div className="bg-card border-b border-neutral-200 dark:bg-black dark:border-neutral-800 sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="flex items-center justify-between h-16">
                         <div className="font-bold text-xl text-emerald-700 dark:text-emerald-500 tracking-tight flex items-center gap-2">
@@ -101,7 +101,7 @@ export default function EnvironmentHome() {
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 py-8">
                         <div className="max-w-4xl mx-auto mb-8 text-center">
                             <h2 className="text-3xl font-bold mb-2">Environment Flashcards</h2>
-                            <p className="text-gray-500">Key concepts in Ecology, Biodiversity, and Climate Change.</p>
+                            <p className="text-muted-foreground">Key concepts in Ecology, Biodiversity, and Climate Change.</p>
                         </div>
                         <GenericFlashcardSession
                             flashcards={ENVIRONMENT_FLASHCARDS.map(fc => ({

@@ -23,8 +23,8 @@ export default function TeacherLearnPage() {
             {/* Header */}
             <div className="flex justify-between items-center">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Learning Management</h1>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">
+                    <h1 className="text-3xl font-bold text-foreground">Learning Management</h1>
+                    <p className="text-muted-foreground dark:text-muted-foreground mt-1">
                         Monitor student progress and manage learning content
                     </p>
                 </div>
@@ -36,8 +36,8 @@ export default function TeacherLearnPage() {
                     <CardContent className="p-4">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">Active Students</p>
-                                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">24</p>
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">Active Students</p>
+                                <p className="text-2xl font-bold text-foreground">24</p>
                             </div>
                             <Users className="h-8 w-8 text-blue-500" />
                         </div>
@@ -47,8 +47,8 @@ export default function TeacherLearnPage() {
                     <CardContent className="p-4">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">Lessons Completed</p>
-                                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">156</p>
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">Lessons Completed</p>
+                                <p className="text-2xl font-bold text-foreground">156</p>
                             </div>
                             <CheckCircle className="h-8 w-8 text-green-500" />
                         </div>
@@ -58,8 +58,8 @@ export default function TeacherLearnPage() {
                     <CardContent className="p-4">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">Avg. Progress</p>
-                                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">67%</p>
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">Avg. Progress</p>
+                                <p className="text-2xl font-bold text-foreground">67%</p>
                             </div>
                             <TrendingUp className="h-8 w-8 text-purple-500" />
                         </div>
@@ -69,8 +69,8 @@ export default function TeacherLearnPage() {
                     <CardContent className="p-4">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">Avg. Time/Day</p>
-                                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">45m</p>
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">Avg. Time/Day</p>
+                                <p className="text-2xl font-bold text-foreground">45m</p>
                             </div>
                             <Clock className="h-8 w-8 text-orange-500" />
                         </div>
@@ -152,32 +152,32 @@ export default function TeacherLearnPage() {
                 </CardHeader>
                 <CardContent>
                     <div className="space-y-4">
-                        <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-neutral-800 rounded-lg">
+                        <div className="flex items-center justify-between p-3 bg-muted dark:bg-neutral-800 rounded-lg">
                             <div className="flex items-center gap-3">
                                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                                 <div>
-                                    <p className="font-medium text-gray-900 dark:text-gray-100">Student completed GS2 - Lesson 3</p>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">2 minutes ago</p>
+                                    <p className="font-medium text-foreground">Student completed GS2 - Lesson 3</p>
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">2 minutes ago</p>
                                 </div>
                             </div>
                             <Badge>Completed</Badge>
                         </div>
-                        <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-neutral-800 rounded-lg">
+                        <div className="flex items-center justify-between p-3 bg-muted dark:bg-neutral-800 rounded-lg">
                             <div className="flex items-center gap-3">
                                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                                 <div>
-                                    <p className="font-medium text-gray-900 dark:text-gray-100">Student started Quality video</p>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">15 minutes ago</p>
+                                    <p className="font-medium text-foreground">Student started Quality video</p>
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">15 minutes ago</p>
                                 </div>
                             </div>
                             <Badge variant="outline">In Progress</Badge>
                         </div>
-                        <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-neutral-800 rounded-lg">
+                        <div className="flex items-center justify-between p-3 bg-muted dark:bg-neutral-800 rounded-lg">
                             <div className="flex items-center gap-3">
                                 <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
                                 <div>
-                                    <p className="font-medium text-gray-900 dark:text-gray-100">AI Analysis completed for drill submission</p>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">30 minutes ago</p>
+                                    <p className="font-medium text-foreground">AI Analysis completed for drill submission</p>
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">30 minutes ago</p>
                                 </div>
                             </div>
                             <Badge variant="secondary">AI</Badge>

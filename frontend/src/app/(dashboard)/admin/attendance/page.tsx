@@ -31,16 +31,16 @@ export default function AdminAttendancePage() {
     };
 
     if (loading) {
-        return <div className="p-8 text-center text-gray-500">Loading Attendance Data...</div>;
+        return <div className="p-8 text-center text-muted-foreground">Loading Attendance Data...</div>;
     }
 
     return (
         <div className="p-8 space-y-8">
             <div className="flex justify-between items-center">
-                <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h1 className="text-3xl font-bold tracking-tight text-foreground">
                     Morning Session Attendance
                 </h1>
-                <div className="text-sm text-gray-500">
+                <div className="text-sm text-muted-foreground">
                     Live Tracking: {format(new Date(), "MMMM do, yyyy")}
                 </div>
             </div>
@@ -99,21 +99,21 @@ export default function AdminAttendancePage() {
                         {records.map((record) => (
                             <div
                                 key={record.id}
-                                className="flex items-center justify-between p-4 border rounded-lg bg-gray-50 dark:bg-gray-800/50"
+                                className="flex items-center justify-between p-4 border rounded-lg bg-muted/50"
                             >
                                 <div className="flex items-center gap-4">
                                     <div className="h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold">
                                         {record.user.full_name?.[0] || "U"}
                                     </div>
                                     <div>
-                                        <p className="font-medium text-gray-900 dark:text-white">
+                                        <p className="font-medium text-foreground">
                                             {record.user.full_name}
                                         </p>
-                                        <p className="text-sm text-gray-500">{record.user.email}</p>
+                                        <p className="text-sm text-muted-foreground">{record.user.email}</p>
                                     </div>
                                 </div>
                                 <div className="text-right">
-                                    <p className="font-medium text-gray-900 dark:text-white">
+                                    <p className="font-medium text-foreground">
                                         {format(new Date(record.joined_at), "h:mm a")}
                                     </p>
                                     <p className={`text-xs ${record.is_late ? "text-red-500" : "text-green-500"}`}>
@@ -123,7 +123,7 @@ export default function AdminAttendancePage() {
                             </div>
                         ))}
                         {records.length === 0 && (
-                            <p className="text-center text-gray-500 py-4">No check-ins recorded yet today.</p>
+                            <p className="text-center text-muted-foreground py-4">No check-ins recorded yet today.</p>
                         )}
                     </div>
                 </CardContent>

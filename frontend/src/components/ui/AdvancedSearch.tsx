@@ -72,20 +72,20 @@ export const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
             {/* Main Search Bar */}
       <div className="relative flex gap-2">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             type="text"
             placeholder={placeholder}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyPress={handleKeyPress}
-            className="pl-10 pr-10 bg-gray-800/80 border-gray-700/50 text-white placeholder:text-gray-500 focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20"
+            className="pl-10 pr-10 bg-gray-800/80 border-gray-700/50 text-white placeholder:text-muted-foreground focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20"
             aria-label="Search input"
           />
           {query && (
             <button
               onClick={() => setQuery("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-white transition-colors"
               aria-label="Clear search"
             >
               <X className="h-4 w-4" />
@@ -115,7 +115,7 @@ export const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
       {/* Active Filters */}
       {filters.length > 0 && (
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-sm text-gray-400">Active filters:</span>
+          <span className="text-sm text-muted-foreground">Active filters:</span>
           {filters.map((filter, index) => (
             <Badge
               key={index}
@@ -129,7 +129,7 @@ export const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
           ))}
           <button
             onClick={clearAll}
-            className="text-sm text-gray-400 hover:text-white transition-colors"
+            className="text-sm text-muted-foreground hover:text-white transition-colors"
           >
             Clear all
           </button>
@@ -146,7 +146,7 @@ export const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {availableFilters.map((filter) => (
               <div key={filter.key} className="space-y-1">
-                <label className="text-xs text-gray-400">{filter.label}</label>
+                <label className="text-xs text-muted-foreground">{filter.label}</label>
                 {filter.type === "select" && filter.options && (
                   <select
                     className="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded text-white text-sm"

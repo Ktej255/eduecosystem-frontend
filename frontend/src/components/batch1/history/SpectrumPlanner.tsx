@@ -94,35 +94,35 @@ export default function SpectrumPlanner() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a] pb-24">
+        <div className="min-h-screen bg-muted dark:bg-[#0a0a0a] pb-24">
             {/* Header */}
             <div className="bg-[#1a237e] text-white pt-12 pb-24 px-6 relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-32 bg-indigo-500/20 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                         <div>
-                            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                            <div className="inline-flex items-center gap-2 bg-card/10 border border-white/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
                                 <Clock className="w-3 h-3" /> 15 Day Intensive
                             </div>
                             <h1 className="text-3xl md:text-5xl font-black mb-2">
                                 Modern History <span className="text-indigo-400">Spectrum</span>
                             </h1>
-                            <p className="text-gray-300 max-w-xl">
+                            <p className="text-muted-foreground max-w-xl">
                                 Daily Study (8 AM - 1 PM) + Daily Drill (1 PM - 2 PM).
                                 Covers 39 Chapters in 15 Days.
                             </p>
                         </div>
 
                         {todaysPlan && (
-                            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-center gap-4">
+                            <div className="bg-card/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-center gap-4">
                                 <div className="text-center">
                                     <div className="text-xs text-indigo-300 font-bold uppercase">Current Day</div>
                                     <div className="text-3xl font-black">{todaysPlan.day}</div>
                                 </div>
-                                <div className="h-10 w-px bg-white/20"></div>
+                                <div className="h-10 w-px bg-card/20"></div>
                                 <div>
                                     <div className="font-bold text-sm">{todaysPlan.title}</div>
-                                    <div className="text-xs text-gray-300">{todaysPlan.mcqCount} MCQ Target</div>
+                                    <div className="text-xs text-muted-foreground">{todaysPlan.mcqCount} MCQ Target</div>
                                 </div>
                             </div>
                         )}
@@ -137,37 +137,37 @@ export default function SpectrumPlanner() {
                     {SPECTRUM_PHASES.map((phase) => {
                         const phaseData = SPECTRUM_SCHEDULE.filter(d => d.phase === phase.id);
                         return (
-                            <div key={phase.id} className="bg-white dark:bg-[#111] rounded-3xl border border-gray-200 dark:border-gray-800 overflow-hidden">
-                                <div className="p-6 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 flex justify-between items-center">
+                            <div key={phase.id} className="bg-card dark:bg-[#111] rounded-3xl border border-border overflow-hidden">
+                                <div className="p-6 bg-muted border-b border-border flex justify-between items-center">
                                     <div>
-                                        <h3 className="font-bold text-lg text-gray-900 dark:text-white">Phase {phase.id}: {phase.title}</h3>
-                                        <p className="text-xs text-gray-500">Days {phase.days}</p>
+                                        <h3 className="font-bold text-lg text-foreground">Phase {phase.id}: {phase.title}</h3>
+                                        <p className="text-xs text-muted-foreground">Days {phase.days}</p>
                                     </div>
                                 </div>
-                                <div className="divide-y divide-gray-100 dark:divide-gray-800">
+                                <div className="divide-y divide-border dark:divide-gray-800">
                                     {phaseData.map((day) => (
                                         <div
                                             key={day.day}
                                             onClick={() => setSelectedDay(day.day)}
-                                            className={`p-4 flex items-center gap-4 cursor-pointer transition-colors hover:bg-gray-50 dark:hover:bg-gray-900
+                                            className={`p-4 flex items-center gap-4 cursor-pointer transition-colors hover:bg-muted dark:hover:bg-gray-900
                                                 ${selectedDay === day.day ? 'bg-indigo-50 dark:bg-indigo-900/10 border-l-4 border-indigo-600' : 'border-l-4 border-transparent'}
                                             `}
                                         >
                                             <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm shrink-0
-                                                ${day.isAssessmentDay ? 'bg-amber-100 text-amber-700' : 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400'}
+                                                ${day.isAssessmentDay ? 'bg-amber-100 text-amber-700' : 'bg-muted text-muted-foreground dark:text-muted-foreground'}
                                             `}>
                                                 {day.day}
                                             </div>
                                             <div className="flex-1">
-                                                <div className="font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                                                <div className="font-bold text-foreground flex items-center gap-2">
                                                     {day.title}
                                                     {day.isAssessmentDay && <span className="text-[10px] bg-amber-500 text-white px-2 py-0.5 rounded-full">TEST</span>}
                                                 </div>
-                                                <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                                <div className="text-xs text-muted-foreground dark:text-muted-foreground mt-1">
                                                     {new Date(day.date).toLocaleDateString('en-IN', { weekday: 'short', month: 'short', day: 'numeric' })}
                                                 </div>
                                             </div>
-                                            <ChevronRight className={`w-5 h-5 text-gray-400 transition-transform ${selectedDay === day.day ? 'rotate-90 text-indigo-500' : ''}`} />
+                                            <ChevronRight className={`w-5 h-5 text-muted-foreground transition-transform ${selectedDay === day.day ? 'rotate-90 text-indigo-500' : ''}`} />
                                         </div>
                                     ))}
                                 </div>
@@ -184,7 +184,7 @@ export default function SpectrumPlanner() {
                                 initial="hidden"
                                 animate="visible"
                                 variants={containerVariants}
-                                className="bg-white dark:bg-[#111] rounded-3xl border border-gray-200 dark:border-gray-800 p-6 shadow-xl"
+                                className="bg-card dark:bg-[#111] rounded-3xl border border-border p-6 shadow-xl"
                             >
                                 <div className="flex items-center justify-between mb-4">
                                     <div className="flex items-center gap-3">
@@ -192,8 +192,8 @@ export default function SpectrumPlanner() {
                                             <Target className="w-5 h-5 text-indigo-600" />
                                         </div>
                                         <div>
-                                            <div className="text-xs text-gray-500 font-bold uppercase">Day {dayData.day} Plan</div>
-                                            <div className="font-bold text-gray-900 dark:text-white">Session Dashboard</div>
+                                            <div className="text-xs text-muted-foreground font-bold uppercase">Day {dayData.day} Plan</div>
+                                            <div className="font-bold text-foreground">Session Dashboard</div>
                                         </div>
                                     </div>
                                     {allChecked && <CheckCircle className="w-6 h-6 text-green-500 animate-bounce" />}
@@ -220,7 +220,7 @@ export default function SpectrumPlanner() {
                                 </div>
 
                                 <div className="space-y-3 mb-8">
-                                    <div className="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
+                                    <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
                                         <BookOpen className="w-3 h-3" /> Select Completed Chapters
                                     </div>
                                     {dayData.chapterNames.map((chapter, idx) => (
@@ -230,7 +230,7 @@ export default function SpectrumPlanner() {
                                             className={`flex items-start gap-3 p-4 rounded-2xl border transition-all cursor-pointer
                                                 ${checklist[idx]
                                                     ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-200 dark:border-indigo-800'
-                                                    : 'bg-white dark:bg-gray-900 border-gray-100 dark:border-gray-800 hover:border-indigo-100'}
+                                                    : 'bg-card border-border hover:border-indigo-100'}
                                             `}
                                             onClick={() => handleCheck(idx)}
                                         >
@@ -241,7 +241,7 @@ export default function SpectrumPlanner() {
                                             />
                                             <div className="flex-1">
                                                 <div className="text-xs font-bold text-indigo-600 mb-0.5">Chapter {dayData.chapters[idx] || 'Special'}</div>
-                                                <div className="text-sm font-medium text-gray-800 dark:text-gray-200 leading-tight">
+                                                <div className="text-sm font-medium text-foreground leading-tight">
                                                     {chapter}
                                                 </div>
                                             </div>
@@ -254,7 +254,7 @@ export default function SpectrumPlanner() {
                                         className={`w-full h-16 text-lg font-black rounded-2xl shadow-xl transition-all
                                             ${checklist.some(Boolean)
                                                 ? 'bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-700 hover:scale-[1.02] active:scale-95 text-white'
-                                                : 'bg-gray-100 text-gray-400 cursor-not-allowed dark:bg-gray-800'
+                                                : 'bg-muted text-muted-foreground cursor-not-allowed'
                                             }`}
                                         disabled={!checklist.some(Boolean)}
                                         onClick={() => {
@@ -280,15 +280,15 @@ export default function SpectrumPlanner() {
                                             </div>
                                         )}
                                     </Button>
-                                    <p className="text-[10px] text-center text-gray-400 px-6 leading-relaxed">
-                                        Your performance will be logged in the <span className="font-bold text-gray-500">Deep Report Section</span> for gap analysis.
+                                    <p className="text-[10px] text-center text-muted-foreground px-6 leading-relaxed">
+                                        Your performance will be logged in the <span className="font-bold text-muted-foreground">Deep Report Section</span> for gap analysis.
                                     </p>
                                 </div>
 
                                 {dayData.isAssessmentDay && (
                                     <div className="mt-8 bg-amber-500 rounded-2xl p-4 text-white shadow-lg shadow-amber-500/20">
                                         <div className="flex items-center gap-3 mb-2">
-                                            <div className="bg-white/20 p-2 rounded-lg">
+                                            <div className="bg-card/20 p-2 rounded-lg">
                                                 <Award className="w-5 h-5 text-white" />
                                             </div>
                                             <h4 className="font-bold">Phase Assessment</h4>
@@ -301,23 +301,23 @@ export default function SpectrumPlanner() {
                             </motion.div>
 
                         ) : (
-                            <div className="text-center p-12 text-gray-400">
+                            <div className="text-center p-12 text-muted-foreground">
                                 Select a day to view plan
                             </div>
                         )}
                         {/* Stats Widget */}
-                        <div className="bg-white dark:bg-[#111] rounded-3xl border border-gray-200 dark:border-gray-800 p-6">
+                        <div className="bg-card dark:bg-[#111] rounded-3xl border border-border p-6">
                             <div className="flex items-center gap-3 mb-4">
                                 <Award className="w-5 h-5 text-yellow-500" />
-                                <h3 className="font-bold text-gray-900 dark:text-white">Your Progress</h3>
+                                <h3 className="font-bold text-foreground">Your Progress</h3>
                             </div>
                             <div className="space-y-4">
                                 <div>
                                     <div className="flex justify-between text-xs mb-1">
-                                        <span className="text-gray-500">Chapters Completed</span>
+                                        <span className="text-muted-foreground">Chapters Completed</span>
                                         <span className="font-bold">{getHistoryProgressStore().totalChaptersCompleted}/39</span>
                                     </div>
-                                    <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                    <div className="h-2 bg-muted rounded-full overflow-hidden">
                                         <div
                                             className="h-full bg-indigo-500 transition-all duration-500"
                                             style={{ width: `${(getHistoryProgressStore().totalChaptersCompleted / 39) * 100}%` }}

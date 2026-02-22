@@ -76,11 +76,11 @@ export function DailyCheckIn() {
                     <div className="text-center py-2 space-y-2">
                         <CheckCircle className="w-12 h-12 text-green-500 mx-auto" />
                         <p className="font-semibold text-green-700 dark:text-green-400">Checked In!</p>
-                        <p className="text-xs text-gray-500">Streak: {streak} days</p>
+                        <p className="text-xs text-muted-foreground">Streak: {streak} days</p>
                     </div>
                 ) : (
                     <div className="space-y-3">
-                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                        <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                             {is5AMClub()
                                 ? "You're up early! Join the 5AM Club."
                                 : "Mark your daily progress."}

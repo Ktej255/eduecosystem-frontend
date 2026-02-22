@@ -20,7 +20,7 @@ const benefits = [
 
 export default function WhyChooseSection() {
     return (
-        <section className="collexo-section bg-slate-50 dark:bg-slate-900">
+        <section className="collexo-section bg-muted">
             <div className="collexo-container">
                 {/* Section Header */}
                 <div className="text-center mb-16">
@@ -28,11 +28,11 @@ export default function WhyChooseSection() {
                         <Star className="w-4 h-4" />
                         Benefits
                     </div>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
                         Why Choose{' '}
                         <span className="collexo-gradient-text">SaritClasses CRM?</span>
                     </h2>
-                    <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+                    <p className="text-lg text-muted-foreground dark:text-muted-foreground max-w-3xl mx-auto">
                         Designed to meet the unique needs of educational institutions, here's why we're the game-changers
                         for financial stability and growth
                     </p>
@@ -45,12 +45,12 @@ export default function WhyChooseSection() {
                             {benefits.map((benefit, index) => (
                                 <div
                                     key={index}
-                                    className={`flex items-center gap-4 p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm hover:shadow-md transition-shadow animate-fade-in-up stagger-${index + 1}`}
+                                    className={`flex items-center gap-4 p-4 bg-card rounded-xl shadow-sm hover:shadow-md transition-shadow animate-fade-in-up stagger-${index + 1}`}
                                 >
                                     <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center flex-shrink-0">
                                         <CheckCircle2 className="w-5 h-5 text-white" />
                                     </div>
-                                    <span className="font-medium text-slate-700 dark:text-slate-300">
+                                    <span className="font-medium text-muted-foreground">
                                         {benefit}
                                     </span>
                                 </div>
@@ -80,8 +80,8 @@ export default function WhyChooseSection() {
                             <div className="aspect-video bg-gradient-to-br from-slate-900 to-indigo-900 rounded-xl flex items-center justify-center relative group cursor-pointer">
                                 {/* Video Placeholder with Play Button */}
                                 <div className="absolute inset-0 flex items-center justify-center bg-black/20 rounded-xl">
-                                    <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                                        <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <div className="w-20 h-20 rounded-full bg-card/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-card/30 transition-colors">
+                                        <div className="w-16 h-16 rounded-full bg-card flex items-center justify-center group-hover:scale-110 transition-transform">
                                             <Play className="w-7 h-7 text-indigo-600 fill-current ml-1" />
                                         </div>
                                     </div>
@@ -90,10 +90,10 @@ export default function WhyChooseSection() {
                                 {/* Dashboard Preview Elements */}
                                 <div className="absolute inset-4 opacity-30">
                                     <div className="grid grid-cols-3 gap-2 h-full">
-                                        <div className="col-span-2 bg-white/10 rounded-lg"></div>
-                                        <div className="bg-white/10 rounded-lg"></div>
-                                        <div className="bg-white/10 rounded-lg"></div>
-                                        <div className="col-span-2 bg-white/10 rounded-lg"></div>
+                                        <div className="col-span-2 bg-card/10 rounded-lg"></div>
+                                        <div className="bg-card/10 rounded-lg"></div>
+                                        <div className="bg-card/10 rounded-lg"></div>
+                                        <div className="col-span-2 bg-card/10 rounded-lg"></div>
                                     </div>
                                 </div>
                             </div>

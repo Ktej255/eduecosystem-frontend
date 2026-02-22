@@ -100,7 +100,7 @@ export default function InstructorDashboard() {
             <h1 className="text-3xl font-bold text-white mb-2">
               Instructor Dashboard
             </h1>
-            <p className="text-gray-400">
+            <p className="text-muted-foreground">
               Overview of your courses and performance
             </p>
           </div>
@@ -235,14 +235,14 @@ export default function InstructorDashboard() {
                     className="flex items-center justify-between p-3 bg-gray-800 rounded-lg"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 bg-gray-700 rounded flex items-center justify-center text-gray-400">
+                      <div className="h-10 w-10 bg-gray-700 rounded flex items-center justify-center text-muted-foreground">
                         {i}
                       </div>
                       <div>
                         <p className="text-sm font-medium text-white">
                           Course Title {i}
                         </p>
-                        <p className="text-xs text-gray-400">12 sales</p>
+                        <p className="text-xs text-muted-foreground">12 sales</p>
                       </div>
                     </div>
                     <p className="text-sm font-bold text-cyan-400">₹4,500</p>
@@ -262,7 +262,7 @@ function StatsCard({ title, value, subValue, icon: Icon, trend }: any) {
     <Card className="bg-gray-900 border-gray-800">
       <CardContent className="p-6">
         <div className="flex items-center justify-between mb-4">
-          <p className="text-sm font-medium text-gray-400">{title}</p>
+          <p className="text-sm font-medium text-muted-foreground">{title}</p>
           <div className="h-8 w-8 bg-gray-800 rounded-full flex items-center justify-center">
             <Icon className="h-4 w-4 text-cyan-500" />
           </div>
@@ -274,9 +274,9 @@ function StatsCard({ title, value, subValue, icon: Icon, trend }: any) {
           {trend === "up" ? (
             <ArrowUpRight className="h-3 w-3 text-green-500 mr-1" />
           ) : (
-            <ArrowDownRight className="h-3 w-3 text-gray-500 mr-1" />
+            <ArrowDownRight className="h-3 w-3 text-muted-foreground mr-1" />
           )}
-          <span className={trend === "up" ? "text-green-500" : "text-gray-500"}>
+          <span className={trend === "up" ? "text-green-500" : "text-muted-foreground"}>
             {subValue}
           </span>
         </div>

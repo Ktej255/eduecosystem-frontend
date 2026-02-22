@@ -101,7 +101,7 @@ export default function StudySessionPage() {
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
                     Study Session
                 </h1>
-                <p className="text-gray-500">
+                <p className="text-muted-foreground">
                     {isMorning && "Good morning! Perfect time for focused study."}
                     {isAfternoon && "Good afternoon! Let's continue learning."}
                     {isEvening && "Good evening! Time for revision."}
@@ -126,9 +126,9 @@ export default function StudySessionPage() {
                         </div>
                         <div>
                             <h3 className="font-semibold">Pomodoro Study</h3>
-                            <p className="text-sm text-gray-500">5-hour focused session</p>
+                            <p className="text-sm text-muted-foreground">5-hour focused session</p>
                         </div>
-                        <ChevronRight className="w-5 h-5 text-gray-400 ml-auto" />
+                        <ChevronRight className="w-5 h-5 text-muted-foreground ml-auto" />
                     </CardContent>
                 </Card>
 
@@ -145,9 +145,9 @@ export default function StudySessionPage() {
                         </div>
                         <div>
                             <h3 className="font-semibold">Evening Revision</h3>
-                            <p className="text-sm text-gray-500">25-min review session</p>
+                            <p className="text-sm text-muted-foreground">25-min review session</p>
                         </div>
-                        <ChevronRight className="w-5 h-5 text-gray-400 ml-auto" />
+                        <ChevronRight className="w-5 h-5 text-muted-foreground ml-auto" />
                     </CardContent>
                 </Card>
 
@@ -164,9 +164,9 @@ export default function StudySessionPage() {
                         </div>
                         <div>
                             <h3 className="font-semibold">Daily Test</h3>
-                            <p className="text-sm text-gray-500">30-40 MCQ questions</p>
+                            <p className="text-sm text-muted-foreground">30-40 MCQ questions</p>
                         </div>
-                        <ChevronRight className="w-5 h-5 text-gray-400 ml-auto" />
+                        <ChevronRight className="w-5 h-5 text-muted-foreground ml-auto" />
                     </CardContent>
                 </Card>
             </div>
@@ -183,7 +183,7 @@ export default function StudySessionPage() {
                     <CardContent>
                         {/* Target Hours Selection */}
                         <div className="mb-6">
-                            <label className="text-sm font-medium text-gray-500 mb-2 block">
+                            <label className="text-sm font-medium text-muted-foreground mb-2 block">
                                 Study Duration (hours)
                             </label>
                             <div className="flex gap-2">
@@ -218,7 +218,7 @@ export default function StudySessionPage() {
                                         <div className="text-4xl">{subject.icon}</div>
                                         <div>
                                             <h3 className="font-semibold">{subject.name}</h3>
-                                            <p className="text-sm text-gray-500">
+                                            <p className="text-sm text-muted-foreground">
                                                 {subject.topics} topics
                                             </p>
                                         </div>

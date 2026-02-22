@@ -10,18 +10,18 @@ export default function HandwrittenChapter27() {
     const t = language === 'hi' ? ch27Translations.hi : ch27Translations.en;
 
     return (
-        <div className="min-h-screen bg-[#fdfbf7] p-4 md:p-8 font-['Kalam',_cursive] text-[#000080] selection:bg-yellow-200">
+        <div className="min-h-screen bg-paper p-4 md:p-8 font-['Kalam',_cursive] text-paper-indigo selection:bg-paper-orange/30">
             <style jsx global>{`
                 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Permanent+Marker&display=swap');
                 
                 .handwritten-paper {
-                    background-image: repeating-linear-gradient(transparent, transparent 31px, #e5e5f7 31px, #e5e5f7 32px);
+                    background-image: repeating-linear-gradient(transparent, transparent 31px, var(--paper-border) 31px, var(--paper-border) 32px);
                     background-attachment: local;
                 }
                 
                 .paper-border {
                     border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-                    border: 2px solid #333;
+                    border: 2px solid var(--paper-gray);
                 }
 
                 .highlight {
@@ -45,22 +45,22 @@ export default function HandwrittenChapter27() {
             `}</style>
 
             <div className="max-w-5xl mx-auto mb-16 relative pt-12">
-                <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-[#CC0000] mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase leading-tight">
+                <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-paper-red mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase leading-tight">
                     {t.headerTitle}
                 </h1>
-                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline uppercase">{t.studyNotesLabel}</p>
+                <p className="text-center text-xl text-paper-gray mb-12 font-bold opacity-70 italic underline uppercase">{t.studyNotesLabel}</p>
             </div>
 
             {/* ARCHITECTURE SECTION */}
-            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2 uppercase">{t.architectureTitle}</h2>
+            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-paper relative">
+                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-paper-indigo border-b-2 border-paper-border pb-2 uppercase">{t.architectureTitle}</h2>
                 <div className="space-y-6">
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.indoSaracenicTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.indoSaracenicTitle}</h3>
                         <ul className="space-y-3">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.indoSaracenicDesc}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold uppercase text-xs mr-1">{t.purposeLabel}</span>{t.purposeDesc}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span className="font-bold uppercase tracking-widest text-xs text-gray-500">{t.keyExamplesLabel}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.indoSaracenicDesc}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span><span className="font-bold uppercase text-xs mr-1">{t.purposeLabel}</span>{t.purposeDesc}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span className="font-bold uppercase tracking-widest text-xs text-paper-gray/60">{t.keyExamplesLabel}</span></li>
                             <li className="pl-6 space-y-2">
                                 <p className="text-lg leading-relaxed shrink-0"><strong>{t.victoriaMemorial}</strong> {t.victoriaMemorialDesc}</p>
                                 <p className="text-lg leading-relaxed shrink-0"><strong>{t.cstMumbai}</strong> {t.cstMumbaiDesc}</p>
@@ -70,67 +70,67 @@ export default function HandwrittenChapter27() {
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.lutyensDelhiTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.lutyensDelhiTitle}</h3>
                         <ul className="space-y-3">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.lutyensDelhiDesc}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold uppercase text-xs mr-1">{t.styleLabel}</span>{t.styleDesc}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold uppercase text-xs mr-1">{t.keyBuildingsLabel}</span>{t.keyBuildingsDesc}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.lutyensDelhiDesc}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span><span className="font-bold uppercase text-xs mr-1">{t.styleLabel}</span>{t.styleDesc}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span><span className="font-bold uppercase text-xs mr-1">{t.keyBuildingsLabel}</span>{t.keyBuildingsDesc}</span></li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.artDecoTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.artDecoTitle}</h3>
                         <ul className="space-y-2">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.artDecoDesc}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.artDecoDesc}</span></li>
                         </ul>
                     </div>
                 </div>
             </section>
 
             {/* ART & PAINTING SECTION */}
-            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2 uppercase">{t.artSectionTitle}</h2>
+            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-paper relative">
+                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-paper-indigo border-b-2 border-paper-border pb-2 uppercase">{t.artSectionTitle}</h2>
                 <div className="space-y-6">
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.companySchoolTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.companySchoolTitle}</h3>
                         <ul className="space-y-2">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.companySchoolDesc}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.companySchoolDesc}</span></li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.rajaRaviVarmaTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.rajaRaviVarmaTitle}</h3>
                         <ul className="space-y-3">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.rajaRaviVarmaDesc1}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.rajaRaviVarmaDesc2}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.rajaRaviVarmaDesc3}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.rajaRaviVarmaDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.rajaRaviVarmaDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.rajaRaviVarmaDesc3}</span></li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.bengalSchoolTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.bengalSchoolTitle}</h3>
                         <ul className="space-y-3">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.bengalSchoolDesc1}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.bengalSchoolDesc2}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold uppercase text-xs mr-1">{t.styleLabel}</span>{t.bengalSchoolStyleDesc}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold uppercase text-xs mr-1">{t.keyArtistsLabel}</span>{t.keyArtistsDesc}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold uppercase text-xs mr-1">{t.famousWorkLabel}</span>{t.famousWorkDesc}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.bengalSchoolDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.bengalSchoolDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span><span className="font-bold uppercase text-xs mr-1">{t.styleLabel}</span>{t.bengalSchoolStyleDesc}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span><span className="font-bold uppercase text-xs mr-1">{t.keyArtistsLabel}</span>{t.keyArtistsDesc}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span><span className="font-bold uppercase text-xs mr-1">{t.famousWorkLabel}</span>{t.famousWorkDesc}</span></li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.modernistsTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.modernistsTitle}</h3>
                         <ul className="space-y-4">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong>{t.amritaSherGil}</strong> {t.amritaSherGilDesc}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong>{t.jaminiRoy}</strong> {t.jaminiRoyDesc}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong>{t.progressiveArtistsGroup}</strong> {t.progressiveArtistsGroupDesc}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span><strong>{t.amritaSherGil}</strong> {t.amritaSherGilDesc}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span><strong>{t.jaminiRoy}</strong> {t.jaminiRoyDesc}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span><strong>{t.progressiveArtistsGroup}</strong> {t.progressiveArtistsGroupDesc}</span></li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <div className="text-center font-['Just_Another_Hand'] text-2xl opacity-40 mt-20 mb-10 italic">
+            <div className="text-center font-['Just_Another_Hand'] text-2xl opacity-40 mt-20 mb-10 italic text-inherit">
                 {t.endOfNotes}
             </div>
         </div>

@@ -16,7 +16,7 @@ interface JudicialActivismModuleProps {
 // --- Design System: The Gavel & The Line (Protest & Activism) ---
 
 const ActivismContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#e5e7eb] text-slate-900">
+    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#e5e7eb] text-foreground">
         {/* Grunge/Protest Texture */}
         <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/concrete-wall.png')]"></div>
         {/* Fence Pattern */}
@@ -37,12 +37,12 @@ const ProtestCard = ({ children, title, icon: Icon, color = "orange", className 
     const bgs = {
         orange: "bg-orange-50",
         red: "bg-red-50",
-        grey: "bg-slate-50"
+        grey: "bg-muted"
     };
     const text = {
         orange: "text-orange-900",
         red: "text-red-900",
-        grey: "text-slate-900"
+        grey: "text-foreground"
     };
 
     return (
@@ -72,11 +72,11 @@ export default function JudicialActivismModule({ onComplete, isCompleted }: Judi
                     <div className="bg-orange-600 text-white px-8 py-2 text-4xl md:text-6xl font-black uppercase tracking-widest shadow-xl transform skew-x-[-10deg]">
                         Judicial Activism
                     </div>
-                    <div className="absolute -top-8 -right-8 text-slate-800 rotate-[15deg]">
+                    <div className="absolute -top-8 -right-8 text-foreground rotate-[15deg]">
                         <Megaphone size={60} strokeWidth={2.5} />
                     </div>
                 </div>
-                <p className="mt-8 text-xl font-bold uppercase tracking-widest text-slate-600 border-y-2 border-slate-400 inline-block py-2">
+                <p className="mt-8 text-xl font-bold uppercase tracking-widest text-muted-foreground border-y-2 border-slate-400 inline-block py-2">
                     "Stepping Out of the Courtroom"
                 </p>
             </div>
@@ -85,7 +85,7 @@ export default function JudicialActivismModule({ onComplete, isCompleted }: Judi
             <div className="space-y-8">
                 <div className="flex items-center gap-4">
                     <div className="h-2 w-2 bg-orange-600 rounded-full"></div>
-                    <h2 className="text-2xl font-black uppercase text-slate-700">Phase 1: The Awakening</h2>
+                    <h2 className="text-2xl font-black uppercase text-muted-foreground">Phase 1: The Awakening</h2>
                     <div className="h-1 flex-1 bg-slate-300"></div>
                 </div>
 
@@ -96,10 +96,10 @@ export default function JudicialActivismModule({ onComplete, isCompleted }: Judi
                             <p className="font-bold text-lg leading-tight">
                                 Judiciary playing an <span className="text-orange-600">ACTIVE ROLE</span> in protecting rights & promoting justice.
                             </p>
-                            <div className="p-3 bg-white/50 rounded border border-orange-200">
+                            <div className="p-3 bg-card/50 rounded border border-orange-200">
                                 <strong>Tool:</strong> PIL (Public Interest Litigation).
                             </div>
-                            <div className="flex items-center gap-2 text-xs text-slate-500 uppercase tracking-widest mt-2 border-t pt-2 border-orange-200">
+                            <div className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-widest mt-2 border-t pt-2 border-orange-200">
                                 <Swords size={12} /> Opposite: Judicial Restraint
                             </div>
                         </div>
@@ -113,13 +113,13 @@ export default function JudicialActivismModule({ onComplete, isCompleted }: Judi
                                 <span>India (1970s)</span>
                             </div>
                             <div className="grid grid-cols-2 gap-4">
-                                <div className="bg-white p-2 rounded shadow text-center border border-slate-200">
-                                    <span className="block text-xs uppercase text-slate-400">Coined By</span>
-                                    <strong className="block text-slate-800 leading-tight mt-1">Arthur Schlesinger Jr.</strong>
+                                <div className="bg-card p-2 rounded shadow text-center border border-border">
+                                    <span className="block text-xs uppercase text-muted-foreground">Coined By</span>
+                                    <strong className="block text-foreground leading-tight mt-1">Arthur Schlesinger Jr.</strong>
                                 </div>
-                                <div className="bg-white p-2 rounded shadow text-center border border-slate-200 space-y-2">
-                                    <span className="block text-xs uppercase text-slate-400">Developed By</span>
-                                    <div className="text-left pl-2 space-y-1 text-xs font-bold text-slate-700 border-l-2 border-orange-400">
+                                <div className="bg-card p-2 rounded shadow text-center border border-border space-y-2">
+                                    <span className="block text-xs uppercase text-muted-foreground">Developed By</span>
+                                    <div className="text-left pl-2 space-y-1 text-xs font-bold text-muted-foreground border-l-2 border-orange-400">
                                         <div>V.R. Krishna Iyer</div>
                                         <div>P.N. Bhagwati (Father of PIL)</div>
                                     </div>
@@ -134,7 +134,7 @@ export default function JudicialActivismModule({ onComplete, isCompleted }: Judi
             <div className="space-y-8 mt-12">
                 <div className="flex items-center gap-4">
                     <div className="h-2 w-2 bg-orange-600 rounded-full"></div>
-                    <h2 className="text-2xl font-black uppercase text-slate-700">Phase 2: Justification (Why?)</h2>
+                    <h2 className="text-2xl font-black uppercase text-muted-foreground">Phase 2: Justification (Why?)</h2>
                     <div className="h-1 flex-1 bg-slate-300"></div>
                 </div>
 
@@ -150,28 +150,28 @@ export default function JudicialActivismModule({ onComplete, isCompleted }: Judi
                                     <div className="mt-1"><AlertTriangle size={16} className="text-yellow-400" /></div>
                                     <div>
                                         <strong className="text-white block">Legislative Vacuum</strong>
-                                        <span className="text-slate-400">Parliament fails to make laws. (e.g. Vishaka Guidelines).</span>
+                                        <span className="text-muted-foreground">Parliament fails to make laws. (e.g. Vishaka Guidelines).</span>
                                     </div>
                                 </li>
                                 <li className="flex gap-3">
                                     <div className="mt-1"><AlertTriangle size={16} className="text-red-400" /></div>
                                     <div>
                                         <strong className="text-white block">Executive Failure</strong>
-                                        <span className="text-slate-400">Govt fails to protect rights (Bonded Labor).</span>
+                                        <span className="text-muted-foreground">Govt fails to protect rights (Bonded Labor).</span>
                                     </div>
                                 </li>
                                 <li className="flex gap-3">
                                     <div className="mt-1"><AlertTriangle size={16} className="text-blue-400" /></div>
                                     <div>
                                         <strong className="text-white block">Constitutional Vacuum</strong>
-                                        <span className="text-slate-400">Expanding meanings (Art 21 = Privacy, Health).</span>
+                                        <span className="text-muted-foreground">Expanding meanings (Art 21 = Privacy, Health).</span>
                                     </div>
                                 </li>
                             </ul>
                         </div>
 
                         {/* ACTIVATORS (TOOLS) */}
-                        <div className="bg-white/5 p-4 rounded border border-white/10">
+                        <div className="bg-card/5 p-4 rounded border border-white/10">
                             <h3 className="text-xl font-bold text-orange-400 mb-4 flex items-center gap-2"><Construction /> The Tools</h3>
                             <div className="space-y-3">
                                 <div className="bg-slate-700 p-2 rounded flex items-center gap-3">
@@ -201,8 +201,8 @@ export default function JudicialActivismModule({ onComplete, isCompleted }: Judi
                 </div>
 
                 {/* THE THIN RED LINE DIAGRAM */}
-                <div className="bg-white p-6 rounded-xl shadow-xl border-t-8 border-red-600 relative overflow-hidden">
-                    <h3 className="text-center font-black text-2xl mb-8 uppercase tracking-widest text-slate-800">The Thin Red Line</h3>
+                <div className="bg-card p-6 rounded-xl shadow-xl border-t-8 border-red-600 relative overflow-hidden">
+                    <h3 className="text-center font-black text-2xl mb-8 uppercase tracking-widest text-foreground">The Thin Red Line</h3>
 
                     <div className="relative h-64 border-b-4 border-dashed border-red-300 flex items-end justify-center gap-8 md:gap-16 pb-0">
                         {/* Fence Line */}
@@ -251,7 +251,7 @@ export default function JudicialActivismModule({ onComplete, isCompleted }: Judi
                     <p className="font-serif italic text-lg leading-relaxed mb-4">
                         "Judicial activism is like a sharp-edged tool. It has to be used as a <span className="text-green-400 font-bold">scalpel by a surgeon</span>, not as a <span className="text-red-400 font-bold">rampuri knife</span>."
                     </p>
-                    <div className="text-right text-sm font-bold text-slate-400 uppercase tracking-widest">
+                    <div className="text-right text-sm font-bold text-muted-foreground uppercase tracking-widest">
                         - Justice J.S. Verma
                     </div>
                 </div>
@@ -263,7 +263,7 @@ export default function JudicialActivismModule({ onComplete, isCompleted }: Judi
                         className={`
                             px-8 py-4 rounded font-black uppercase text-xl transition-all skew-x-[-10deg]
                             ${isCompleted
-                                ? 'bg-slate-900 text-slate-500 cursor-not-allowed shadow-none scale-95'
+                                ? 'bg-slate-900 text-muted-foreground cursor-not-allowed shadow-none scale-95'
                                 : 'bg-orange-600 text-white shadow-[8px_8px_0px_#1e293b] hover:-translate-y-1 hover:shadow-[12px_12px_0px_#1e293b] active:translate-y-0 active:shadow-none'
                             }
                         `}

@@ -81,9 +81,9 @@ export default function EnergyLogger() {
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="space-y-4 pt-4 border-t border-gray-100 dark:border-gray-800"
+                    className="space-y-4 pt-4 border-t border-border"
                 >
-                    <h3 className="font-semibold text-lg text-gray-900 dark:text-white">Authorized Schedule</h3>
+                    <h3 className="font-semibold text-lg text-foreground">Authorized Schedule</h3>
                     <div className="grid grid-cols-1 gap-3">
                         <SuggestionRow time="Morning" suggestion={suggestions.morning} color="border-orange-200 bg-orange-50 dark:bg-orange-900/10" />
                         <SuggestionRow time="Afternoon" suggestion={suggestions.afternoon} color="border-yellow-200 bg-yellow-50 dark:bg-yellow-900/10" />
@@ -97,9 +97,9 @@ export default function EnergyLogger() {
 
 function EnergyCard({ title, icon, value, onChange, energyIcon }: any) {
     return (
-        <Card className="border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
+        <Card className="border-border shadow-sm hover:shadow-md transition-shadow">
             <CardHeader className="pb-2 flex flex-row items-center justify-between space-y-0">
-                <CardTitle className="text-sm font-medium flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                <CardTitle className="text-sm font-medium flex items-center gap-2 text-muted-foreground dark:text-muted-foreground">
                     {icon} {title}
                 </CardTitle>
                 {energyIcon}
@@ -107,7 +107,7 @@ function EnergyCard({ title, icon, value, onChange, energyIcon }: any) {
             <CardContent>
                 <div className="space-y-3">
                     <span className="text-2xl font-bold">{value}</span>
-                    <span className="text-xs text-gray-400 ml-1">/ 10 Energy</span>
+                    <span className="text-xs text-muted-foreground ml-1">/ 10 Energy</span>
                     <Slider
                         value={[value]}
                         max={10}
@@ -126,7 +126,7 @@ function SuggestionRow({ time, suggestion, color }: any) {
         <div className={`p-4 rounded-lg border-l-4 ${color} flex items-start justify-between`}>
             <div>
                 <span className="text-xs font-bold uppercase tracking-wider opacity-60 block mb-1">{time} Suggestion</span>
-                <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{suggestion}</p>
+                <p className="text-sm font-medium text-foreground">{suggestion}</p>
             </div>
         </div>
     );

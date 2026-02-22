@@ -165,7 +165,7 @@ export default function TopicSelector({
             <CardContent className="p-4 space-y-4">
                 {/* Search */}
                 <div className="relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input
                         placeholder="Search topics..."
                         value={searchQuery}
@@ -198,7 +198,7 @@ export default function TopicSelector({
                 {/* Recent Topics */}
                 {recentTopics.length > 0 && !searchQuery && !selectedSubject && (
                     <div className="space-y-2">
-                        <p className="text-sm text-gray-500 flex items-center gap-2">
+                        <p className="text-sm text-muted-foreground flex items-center gap-2">
                             <History className="w-4 h-4" />
                             Recently Studied
                         </p>
@@ -225,23 +225,23 @@ export default function TopicSelector({
                         {filteredTopics.map((topic) => (
                             <div
                                 key={topic.id}
-                                className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors group"
+                                className="flex items-center justify-between p-3 rounded-lg hover:bg-muted dark:hover:bg-gray-800 cursor-pointer transition-colors group"
                                 onClick={() => handleSelectTopic(topic)}
                             >
                                 <div>
                                     <p className="font-medium group-hover:text-indigo-500 transition-colors">
                                         {topic.name}
                                     </p>
-                                    <p className="text-sm text-gray-500">
+                                    <p className="text-sm text-muted-foreground">
                                         {topic.subject} • {topic.category}
                                     </p>
                                 </div>
-                                <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-indigo-500 transition-colors" />
+                                <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-indigo-500 transition-colors" />
                             </div>
                         ))}
 
                         {filteredTopics.length === 0 && (
-                            <div className="text-center py-8 text-gray-500">
+                            <div className="text-center py-8 text-muted-foreground">
                                 <p>No topics found</p>
                                 <p className="text-sm">Try a different search or add custom topic</p>
                             </div>

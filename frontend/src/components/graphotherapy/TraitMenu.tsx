@@ -11,21 +11,21 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '
 function RetentionPopup({ isOpen, onClose, onAccept }: { isOpen: boolean; onClose: () => void; onAccept: () => void }) {
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="sm:max-w-md bg-white dark:bg-gray-900 border-2 border-red-500 animate-in zoom-in-95 duration-300">
+            <DialogContent className="sm:max-w-md bg-card border-2 border-red-500 animate-in zoom-in-95 duration-300">
                 <DialogHeader>
                     <DialogTitle className="text-2xl font-bold text-red-600 flex items-center gap-2">
                         <AlertCircle className="w-6 h-6" /> WAIT! Special First-Time Offer
                     </DialogTitle>
                 </DialogHeader>
                 <div className="space-y-4 py-4">
-                    <p className="text-gray-600 dark:text-gray-300">
+                    <p className="text-muted-foreground dark:text-muted-foreground">
                         We see you're interested in deep analysis. Don't leave your potential unlocked.
                     </p>
                     <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
                         <p className="text-sm font-bold text-yellow-800 uppercase tracking-wide">Limited Time Coupon</p>
                         <div className="flex items-baseline gap-2 mt-1">
-                            <span className="text-3xl font-extrabold text-gray-900">₹999</span>
-                            <span className="text-gray-400 line-through">₹1,599</span>
+                            <span className="text-3xl font-extrabold text-foreground">₹999</span>
+                            <span className="text-muted-foreground line-through">₹1,599</span>
                         </div>
                         <p className="text-xs text-yellow-700 mt-2">Unlock EVERY trait + Full 30-Page Report.</p>
                     </div>
@@ -40,7 +40,7 @@ function RetentionPopup({ isOpen, onClose, onAccept }: { isOpen: boolean; onClos
                     <Button
                         variant="ghost"
                         onClick={onClose}
-                        className="w-full text-gray-400 hover:text-gray-500 text-xs"
+                        className="w-full text-muted-foreground hover:text-muted-foreground text-xs"
                     >
                         No thanks, I'll stick to my selection
                     </Button>
@@ -120,9 +120,9 @@ export default function TraitMenu() {
     // Render Groups
     const renderGroup = (groupNum: 1 | 2 | 3, title: string, price: number) => (
         <div className="space-y-4">
-            <div className="flex items-center justify-between p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                <h3 className="font-bold text-gray-800 dark:text-gray-100">{title}</h3>
-                <span className="bg-white dark:bg-gray-700 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+            <div className="flex items-center justify-between p-3 bg-muted rounded-lg">
+                <h3 className="font-bold text-foreground">{title}</h3>
+                <span className="bg-card px-3 py-1 rounded-full text-xs font-bold shadow-sm">
                     ₹{price} / trait
                 </span>
             </div>
@@ -135,16 +135,16 @@ export default function TraitMenu() {
                     cursor-pointer p-4 rounded-xl border-2 transition-all duration-200 relative
                     ${selectedTraits.has(trait.id)
                                 ? 'border-purple-600 bg-purple-50 dark:bg-purple-900/20 shadow-md'
-                                : 'border-transparent bg-white dark:bg-gray-800 hover:border-gray-300 shadow-sm'}
+                                : 'border-transparent bg-card hover:border-border shadow-sm'}
                 `}
                     >
                         <div className="flex justify-between items-start">
-                            <h4 className={`font-semibold ${selectedTraits.has(trait.id) ? 'text-purple-700' : 'text-gray-700'} dark:text-gray-200`}>
+                            <h4 className={`font-semibold ${selectedTraits.has(trait.id) ? 'text-purple-700' : 'text-muted-foreground'}`}>
                                 {trait.name}
                             </h4>
                             {selectedTraits.has(trait.id) && <CheckCircle2 className="w-5 h-5 text-purple-600" />}
                         </div>
-                        <p className="text-xs text-gray-500 mt-2 leading-relaxed">{trait.description}</p>
+                        <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{trait.description}</p>
                     </div>
                 ))}
             </div>
@@ -154,8 +154,8 @@ export default function TraitMenu() {
     return (
         <div className="max-w-6xl mx-auto space-y-8 p-6">
             <div className="text-center space-y-2">
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Customize Your Analysis</h1>
-                <p className="text-gray-500">Select specific traits or unlock the full blueprint.</p>
+                <h1 className="text-3xl font-bold text-foreground">Customize Your Analysis</h1>
+                <p className="text-muted-foreground">Select specific traits or unlock the full blueprint.</p>
             </div>
 
             {renderGroup(1, TRAIT_GROUPS.GROUP_1.label, TRAIT_GROUPS.GROUP_1.price)}
@@ -163,15 +163,15 @@ export default function TraitMenu() {
             {renderGroup(3, TRAIT_GROUPS.GROUP_3.label, TRAIT_GROUPS.GROUP_3.price)}
 
             {/* Floating Checkout Bar */}
-            <div className="fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur border-t p-4 shadow-2xl z-50">
+            <div className="fixed bottom-0 left-0 right-0 bg-card/95/95 backdrop-blur border-t p-4 shadow-2xl z-50">
                 <div className="max-w-4xl mx-auto flex items-center justify-between">
                     <div className="flex items-center gap-4">
                         <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
                             <ShoppingCart className="w-6 h-6 text-purple-600" />
                         </div>
                         <div>
-                            <div className="text-sm text-gray-500">{selectedTraits.size} traits selected</div>
-                            <div className="text-2xl font-bold text-gray-900 dark:text-white">
+                            <div className="text-sm text-muted-foreground">{selectedTraits.size} traits selected</div>
+                            <div className="text-2xl font-bold text-foreground">
                                 ₹{calculateTotal}
                                 {appliedCoupon === 'BUNDLE_999' && <span className="text-sm text-green-500 ml-2 line-through">₹1599</span>}
                             </div>
@@ -200,11 +200,11 @@ export default function TraitMenu() {
                         </DialogTitle>
                     </DialogHeader>
                     <div className="space-y-4">
-                        <p className="text-gray-600">
+                        <p className="text-muted-foreground">
                             You've selected a few traits, but you're missing the big picture.
                             Unlock ALL 50+ dimensions + 30-Page Report for just ₹1,599.
                         </p>
-                        <ul className="text-sm space-y-2 text-gray-500">
+                        <ul className="text-sm space-y-2 text-muted-foreground">
                             <li>✅ All Group 3 Premium Traits</li>
                             <li>✅ Relationship Compatibility</li>
                             <li>✅ Future Wealth Potential</li>

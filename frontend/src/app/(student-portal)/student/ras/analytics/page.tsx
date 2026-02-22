@@ -48,7 +48,7 @@ export default function RASAnalyticsPage() {
         }
     };
 
-    if (loading) return <div className="min-h-screen bg-slate-50 flex items-center justify-center">Loading...</div>;
+    if (loading) return <div className="min-h-screen bg-muted flex items-center justify-center">Loading...</div>;
 
     const latest = results[0];
     const totalTests = results.length;
@@ -83,7 +83,7 @@ export default function RASAnalyticsPage() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 p-6">
+        <div className="min-h-screen bg-muted p-6">
             <div className="max-w-7xl mx-auto space-y-6">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
@@ -92,15 +92,15 @@ export default function RASAnalyticsPage() {
                                 <ArrowLeft className="mr-2 h-4 w-4" /> Back to RAS Home
                             </Button>
                         </Link>
-                        <h1 className="text-3xl font-bold text-slate-900">RAS Analytics Dashboard</h1>
+                        <h1 className="text-3xl font-bold text-foreground">RAS Analytics Dashboard</h1>
                     </div>
                 </div>
 
                 {results.length === 0 ? (
                     <Card className="p-12 text-center">
-                        <BarChart3 className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                        <h2 className="text-xl font-semibold text-gray-700 mb-2">No Test Data Yet</h2>
-                        <p className="text-gray-500 mb-4">Take your first mock test to generate analytics!</p>
+                        <BarChart3 className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+                        <h2 className="text-xl font-semibold text-muted-foreground mb-2">No Test Data Yet</h2>
+                        <p className="text-muted-foreground mb-4">Take your first mock test to generate analytics!</p>
                         <Link href="/student/ras">
                             <Button>Go to RAS Platform</Button>
                         </Link>
@@ -109,12 +109,12 @@ export default function RASAnalyticsPage() {
                     <>
                         {/* Stats Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                            <Card className="bg-white border-blue-100">
+                            <Card className="bg-card border-blue-100">
                                 <CardContent className="p-6">
                                     <div className="flex justify-between items-center">
                                         <div>
-                                            <p className="text-sm text-slate-500">Total Tests</p>
-                                            <p className="text-3xl font-bold text-slate-900">{totalTests}</p>
+                                            <p className="text-sm text-muted-foreground">Total Tests</p>
+                                            <p className="text-3xl font-bold text-foreground">{totalTests}</p>
                                         </div>
                                         <div className="p-3 bg-blue-50 rounded-lg">
                                             <Trophy className="h-6 w-6 text-blue-600" />
@@ -122,12 +122,12 @@ export default function RASAnalyticsPage() {
                                     </div>
                                 </CardContent>
                             </Card>
-                            <Card className="bg-white border-purple-100">
+                            <Card className="bg-card border-purple-100">
                                 <CardContent className="p-6">
                                     <div className="flex justify-between items-center">
                                         <div>
-                                            <p className="text-sm text-slate-500">Average Score</p>
-                                            <p className="text-3xl font-bold text-slate-900">{avgScore}</p>
+                                            <p className="text-sm text-muted-foreground">Average Score</p>
+                                            <p className="text-3xl font-bold text-foreground">{avgScore}</p>
                                         </div>
                                         <div className="p-3 bg-purple-50 rounded-lg">
                                             <TrendingUp className="h-6 w-6 text-purple-600" />
@@ -135,12 +135,12 @@ export default function RASAnalyticsPage() {
                                     </div>
                                 </CardContent>
                             </Card>
-                            <Card className="bg-white border-green-100">
+                            <Card className="bg-card border-green-100">
                                 <CardContent className="p-6">
                                     <div className="flex justify-between items-center">
                                         <div>
-                                            <p className="text-sm text-slate-500">Best Score</p>
-                                            <p className="text-3xl font-bold text-slate-900">{bestScore}</p>
+                                            <p className="text-sm text-muted-foreground">Best Score</p>
+                                            <p className="text-3xl font-bold text-foreground">{bestScore}</p>
                                         </div>
                                         <div className="p-3 bg-green-50 rounded-lg">
                                             <Target className="h-6 w-6 text-green-600" />
@@ -148,12 +148,12 @@ export default function RASAnalyticsPage() {
                                     </div>
                                 </CardContent>
                             </Card>
-                            <Card className="bg-white border-orange-100">
+                            <Card className="bg-card border-orange-100">
                                 <CardContent className="p-6">
                                     <div className="flex justify-between items-center">
                                         <div>
-                                            <p className="text-sm text-slate-500">Latest Score</p>
-                                            <p className="text-3xl font-bold text-slate-900">{latest.score}</p>
+                                            <p className="text-sm text-muted-foreground">Latest Score</p>
+                                            <p className="text-3xl font-bold text-foreground">{latest.score}</p>
                                         </div>
                                         <div className="p-3 bg-orange-50 rounded-lg">
                                             <Calendar className="h-6 w-6 text-orange-600" />
@@ -197,8 +197,8 @@ export default function RASAnalyticsPage() {
                                         return (
                                             <div key={subject}>
                                                 <div className="flex justify-between text-sm mb-1">
-                                                    <span className="font-medium text-slate-700">{subject}</span>
-                                                    <span className="text-slate-500">{Math.round(accuracy)}%</span>
+                                                    <span className="font-medium text-muted-foreground">{subject}</span>
+                                                    <span className="text-muted-foreground">{Math.round(accuracy)}%</span>
                                                 </div>
                                                 <Progress value={accuracy} className="h-2" color={subjectColors[subject] || 'bg-slate-200'} />
                                             </div>

@@ -128,10 +128,10 @@ export default function StudentDashboard() {
 
     if (!stats || !dayPlan) {
         return (
-            <div className="flex items-center justify-center h-screen bg-gray-50 dark:bg-[#000]">
+            <div className="flex items-center justify-center h-screen bg-muted dark:bg-[#000]">
                 <div className="flex flex-col items-center gap-4">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-                    <p className="text-gray-500 animate-pulse">Calculating your optimal journey...</p>
+                    <p className="text-muted-foreground animate-pulse">Calculating your optimal journey...</p>
                 </div>
             </div>
         );
@@ -139,15 +139,15 @@ export default function StudentDashboard() {
 
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-[#000] pb-20">
+        <div className="min-h-screen bg-muted dark:bg-[#000] pb-20">
             {/* Top Bar */}
-            <div className="sticky top-0 z-30 bg-white/80 dark:bg-[#000]/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 px-4 py-3">
+            <div className="sticky top-0 z-30 bg-card/80 dark:bg-[#000]/80 backdrop-blur-md border-b border-border px-4 py-3">
                 <div className="max-w-4xl mx-auto flex justify-between items-center">
                     <div>
                         <h1 className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
                             Day {dayPlan.dayNumber}
                         </h1>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-muted-foreground">
                             {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
                         </p>
                     </div>
@@ -176,7 +176,7 @@ export default function StudentDashboard() {
                             size="icon"
                             onClick={loadStats}
                             disabled={isRefreshing}
-                            className="text-gray-400 hover:text-blue-600"
+                            className="text-muted-foreground hover:text-blue-600"
                         >
                             <RefreshCw className={`h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`} />
                         </Button>
@@ -231,7 +231,7 @@ export default function StudentDashboard() {
 
             {/* Quick Access Modules */}
             <div className="max-w-4xl mx-auto px-4 md:px-8 mt-12">
-                <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                <h2 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
                     <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                     Jump to Module
                 </h2>
@@ -254,12 +254,12 @@ export default function StudentDashboard() {
                             <a
                                 key={module.name}
                                 href={module.href}
-                                className="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 p-5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                                className="group relative overflow-hidden rounded-2xl border border-border bg-card/50 p-5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                             >
                                 <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${module.color} opacity-10 rounded-bl-full group-hover:opacity-20 transition-opacity`} />
                                 <div className="text-3xl mb-3">{module.emoji}</div>
-                                <div className="font-bold text-gray-900 dark:text-white">{module.name}</div>
-                                <div className="text-xs text-gray-500 mt-1">Explore →</div>
+                                <div className="font-bold text-foreground">{module.name}</div>
+                                <div className="text-xs text-muted-foreground mt-1">Explore →</div>
                             </a>
                         ))}
                 </div>

@@ -49,15 +49,15 @@ export default function PaymentFunnelModal({ isOpen, onClose, baseItem }: Paymen
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    className="bg-white dark:bg-[#111] rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden border border-gray-200 dark:border-gray-800"
+                    className="bg-card dark:bg-[#111] rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden border border-border"
                 >
                     {/* Header */}
-                    <div className="bg-gray-50 dark:bg-gray-900 px-6 py-4 flex justify-between items-center border-b border-gray-200 dark:border-gray-800">
-                        <div className="flex items-center gap-2 text-sm font-bold text-gray-500">
+                    <div className="bg-muted px-6 py-4 flex justify-between items-center border-b border-border">
+                        <div className="flex items-center gap-2 text-sm font-bold text-muted-foreground">
                             <ShieldCheck className="w-4 h-4 text-green-500" />
                             Secure Checkout
                         </div>
-                        <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+                        <button onClick={onClose} className="text-muted-foreground hover:text-muted-foreground">
                             <X className="w-5 h-5" />
                         </button>
                     </div>
@@ -66,7 +66,7 @@ export default function PaymentFunnelModal({ isOpen, onClose, baseItem }: Paymen
                         <div className="p-8">
                             <div className="text-center mb-8">
                                 <h2 className="text-2xl font-bold mb-2">Confirm Your Order</h2>
-                                <p className="text-gray-500">You are purchasing <span className="font-bold text-gray-900 dark:text-white">{baseItem.title}</span></p>
+                                <p className="text-muted-foreground">You are purchasing <span className="font-bold text-foreground">{baseItem.title}</span></p>
                             </div>
 
                             <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border border-blue-100 dark:border-blue-800 mb-8 flex justify-between items-center">
@@ -86,13 +86,13 @@ export default function PaymentFunnelModal({ isOpen, onClose, baseItem }: Paymen
 
                     {step === 'upsell1' && (
                         <div className="p-8 relative">
-                            <div className="absolute top-0 left-0 w-full h-2 bg-gray-200">
+                            <div className="absolute top-0 left-0 w-full h-2 bg-muted">
                                 <div className="h-full bg-green-500 w-[80%]"></div>
                             </div>
 
                             <div className="text-center mb-6 mt-4">
                                 <h2 className="text-2xl font-bold text-green-600 mb-1">Wait! Your Order is 80% Complete</h2>
-                                <p className="text-gray-600">Don't miss this one-time offer.</p>
+                                <p className="text-muted-foreground">Don't miss this one-time offer.</p>
                             </div>
 
                             <div className="border-2 border-dashed border-red-500 bg-red-50 dark:bg-red-900/10 rounded-2xl p-6 mb-6 relative">
@@ -100,11 +100,11 @@ export default function PaymentFunnelModal({ isOpen, onClose, baseItem }: Paymen
                                     One Time Offer
                                 </div>
                                 <h3 className="font-bold text-lg text-center mb-2">Upgrade to All 10 Subjects Bundle?</h3>
-                                <p className="text-sm text-center text-gray-600 dark:text-gray-400 mb-4">
+                                <p className="text-sm text-center text-muted-foreground dark:text-muted-foreground mb-4">
                                     Get Polity, History, Geography + 7 more subjects for just ₹2449 more! (Save ₹5000)
                                 </p>
                                 <div className="text-center">
-                                    <span className="text-gray-400 line-through mr-2">₹2990</span>
+                                    <span className="text-muted-foreground line-through mr-2">₹2990</span>
                                     <span className="text-3xl font-bold text-red-600">₹2449</span>
                                 </div>
                             </div>
@@ -118,7 +118,7 @@ export default function PaymentFunnelModal({ isOpen, onClose, baseItem }: Paymen
                                 </button>
                                 <button
                                     onClick={handleUpsellDecline}
-                                    className="w-full text-gray-500 hover:text-gray-700 text-sm font-medium"
+                                    className="w-full text-muted-foreground hover:text-muted-foreground text-sm font-medium"
                                 >
                                     No thanks, I'll pass on this huge savings
                                 </button>
@@ -131,7 +131,7 @@ export default function PaymentFunnelModal({ isOpen, onClose, baseItem }: Paymen
                             <div className="text-center mb-6">
                                 <Gift className="w-12 h-12 text-blue-500 mx-auto mb-2" />
                                 <h2 className="text-xl font-bold">How about a smaller pack?</h2>
-                                <p className="text-gray-500 text-sm">Get just History & Geography with your Polity.</p>
+                                <p className="text-muted-foreground text-sm">Get just History & Geography with your Polity.</p>
                             </div>
 
                             <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border border-blue-200 mb-6 text-center">
@@ -148,7 +148,7 @@ export default function PaymentFunnelModal({ isOpen, onClose, baseItem }: Paymen
                                 </button>
                                 <button
                                     onClick={() => setStep('success')}
-                                    className="w-full text-gray-500 hover:text-gray-700 text-sm"
+                                    className="w-full text-muted-foreground hover:text-muted-foreground text-sm"
                                 >
                                     No thanks, just the single subject
                                 </button>
@@ -163,17 +163,17 @@ export default function PaymentFunnelModal({ isOpen, onClose, baseItem }: Paymen
                                 <CheckCircle className="w-10 h-10 text-green-600" />
                             </div>
                             <h2 className="text-2xl font-bold mb-2">Order Confirmed!</h2>
-                            <p className="text-gray-500 mb-6">Thank you for your purchase.</p>
+                            <p className="text-muted-foreground mb-6">Thank you for your purchase.</p>
 
-                            <div className="bg-gray-50 dark:bg-gray-900 rounded-xl p-4 mb-6 text-left">
-                                <p className="text-xs font-bold uppercase text-gray-400 mb-2">Order Summary</p>
+                            <div className="bg-muted rounded-xl p-4 mb-6 text-left">
+                                <p className="text-xs font-bold uppercase text-muted-foreground mb-2">Order Summary</p>
                                 {items.map((item, idx) => (
-                                    <div key={idx} className="flex justify-between items-center py-2 border-b border-gray-200 dark:border-gray-800 last:border-0">
+                                    <div key={idx} className="flex justify-between items-center py-2 border-b border-border last:border-0">
                                         <span className="font-medium">{item}</span>
                                         <CheckCircle className="w-4 h-4 text-green-500" />
                                     </div>
                                 ))}
-                                <div className="mt-4 pt-2 border-t border-gray-200 dark:border-gray-800 flex justify-between font-bold">
+                                <div className="mt-4 pt-2 border-t border-border flex justify-between font-bold">
                                     <span>Total Paid</span>
                                     <span>₹{totalPrice}</span>
                                 </div>
@@ -181,7 +181,7 @@ export default function PaymentFunnelModal({ isOpen, onClose, baseItem }: Paymen
 
                             <button
                                 onClick={onClose}
-                                className="w-full bg-gray-900 dark:bg-white text-white dark:text-black py-3 rounded-xl font-bold"
+                                className="w-full bg-gray-900 dark:bg-card text-white dark:text-black py-3 rounded-xl font-bold"
                             >
                                 Go to Dashboard
                             </button>

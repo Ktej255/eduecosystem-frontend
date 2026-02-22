@@ -34,14 +34,14 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const RightCard = ({ title, icon, color, children, className = "" }: { title: string, icon: React.ReactNode, color: string, children: React.ReactNode, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute top-0 right-0 p-2 opacity-10 translate-x-1/4 -translate-y-1/4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
             {icon}
         </div>
         <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-800 relative z-10 font-bold leading-relaxed">
+        <div className="space-y-4 text-foreground relative z-10 font-bold leading-relaxed">
             {children}
         </div>
     </div>
@@ -58,7 +58,7 @@ const PhaseHeader = ({ number, title, color, subtitle }: { number: string, title
             </h2>
             <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
         </div>
-        {subtitle && <p className="text-slate-500 font-bold italic ml-16">{subtitle}</p>}
+        {subtitle && <p className="text-muted-foreground font-bold italic ml-16">{subtitle}</p>}
     </div>
 );
 
@@ -67,11 +67,11 @@ export default function ScopeOfArticle21Module({ onComplete, isCompleted, chapte
         <ScrapbookContainer>
             {/* HERO SECTION */}
             <div className="relative bg-gradient-to-br from-[#15803d] to-[#166534] border-4 border-[#14532d] rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(21,128,61,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-card/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-[#14532d] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-green-100 font-bold uppercase tracking-widest text-sm italic underline decoration-white">Life & Liberty</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
@@ -98,12 +98,12 @@ export default function ScopeOfArticle21Module({ onComplete, isCompleted, chapte
             <div className="grid md:grid-cols-2 gap-8">
                 <RightCard
                     title="Before Maneka (1950-78)"
-                    icon={<Lock size={120} className="text-slate-500" />}
+                    icon={<Lock size={120} className="text-muted-foreground" />}
                     color="border-slate-500"
-                    className="bg-slate-50"
+                    className="bg-muted"
                 >
-                    <p className="text-sm font-bold text-slate-600 mb-2">AK Gopalan Era:</p>
-                    <ul className="list-disc pl-4 space-y-2 text-sm text-slate-800">
+                    <p className="text-sm font-bold text-muted-foreground mb-2">AK Gopalan Era:</p>
+                    <ul className="list-disc pl-4 space-y-2 text-sm text-foreground">
                         <li>Article 21 protects ONLY against <span className="underline">Executive Action</span>.</li>
                         <li>Legislature can take away life/liberty by passing ANY law.</li>
                         <li>"Procedure Established by Law" = Just technical compliance.</li>
@@ -116,8 +116,8 @@ export default function ScopeOfArticle21Module({ onComplete, isCompleted, chapte
                     color="border-orange-500"
                     className="bg-orange-50"
                 >
-                    <p className="text-sm font-bold text-slate-600 mb-2">Maneka Gandhi Era:</p>
-                    <ul className="list-disc pl-4 space-y-2 text-sm text-slate-800">
+                    <p className="text-sm font-bold text-muted-foreground mb-2">Maneka Gandhi Era:</p>
+                    <ul className="list-disc pl-4 space-y-2 text-sm text-foreground">
                         <li>Article 21 protects against Executive AND <span className="underline font-black text-orange-700">Legislative Action</span>.</li>
                         <li>Law must be "Just, Fair & Reasonable" (Due Process).</li>
                         <li>Life ≠ Mere Animal Existence.</li>
@@ -137,32 +137,32 @@ export default function ScopeOfArticle21Module({ onComplete, isCompleted, chapte
                 <div className="p-4 bg-blue-50 border-2 border-blue-200 rounded-xl hover:scale-105 transition-transform">
                     <div className="flex justify-center mb-2"><Wifi className="text-blue-600" /></div>
                     <p className="text-center text-xs font-black text-blue-900">Right to Internet</p>
-                    <p className="text-center text-[10px] text-slate-500">Anuradha Bhasin Case</p>
+                    <p className="text-center text-[10px] text-muted-foreground">Anuradha Bhasin Case</p>
                 </div>
                 <div className="p-4 bg-green-50 border-2 border-green-200 rounded-xl hover:scale-105 transition-transform">
                     <div className="flex justify-center mb-2"><TreePine className="text-green-600" /></div>
                     <p className="text-center text-xs font-black text-green-900">Clean Environment</p>
-                    <p className="text-center text-[10px] text-slate-500">MC Mehta Cases</p>
+                    <p className="text-center text-[10px] text-muted-foreground">MC Mehta Cases</p>
                 </div>
                 <div className="p-4 bg-red-50 border-2 border-red-200 rounded-xl hover:scale-105 transition-transform">
                     <div className="flex justify-center mb-2"><Heart className="text-red-600" /></div>
                     <p className="text-center text-xs font-black text-red-900">Right to Health</p>
-                    <p className="text-center text-[10px] text-slate-500">Parmanand Katara Case</p>
+                    <p className="text-center text-[10px] text-muted-foreground">Parmanand Katara Case</p>
                 </div>
                 <div className="p-4 bg-purple-50 border-2 border-purple-200 rounded-xl hover:scale-105 transition-transform">
                     <div className="flex justify-center mb-2"><Briefcase className="text-purple-600" /></div>
                     <p className="text-center text-xs font-black text-purple-900">Livelihood</p>
-                    <p className="text-center text-[10px] text-slate-500">Olga Tellis Case</p>
+                    <p className="text-center text-[10px] text-muted-foreground">Olga Tellis Case</p>
                 </div>
                 <div className="p-4 bg-yellow-50 border-2 border-yellow-200 rounded-xl hover:scale-105 transition-transform">
                     <div className="flex justify-center mb-2"><Moon className="text-yellow-600" /></div>
                     <p className="text-center text-xs font-black text-yellow-900">Right to Sleep</p>
-                    <p className="text-center text-[10px] text-slate-500">Ramlila Maidan Case</p>
+                    <p className="text-center text-[10px] text-muted-foreground">Ramlila Maidan Case</p>
                 </div>
                 <div className="p-4 bg-indigo-50 border-2 border-indigo-200 rounded-xl hover:scale-105 transition-transform">
                     <div className="flex justify-center mb-2"><Eye className="text-indigo-600" /></div>
                     <p className="text-center text-xs font-black text-indigo-900">Right to Privacy</p>
-                    <p className="text-center text-[10px] text-slate-500">Puttaswamy Case</p>
+                    <p className="text-center text-[10px] text-muted-foreground">Puttaswamy Case</p>
                 </div>
             </div>
 
@@ -179,21 +179,21 @@ export default function ScopeOfArticle21Module({ onComplete, isCompleted, chapte
                 <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <h3 className="text-2xl font-black text-red-700 uppercase mb-4">No Right to Die</h3>
-                        <p className="font-bold text-slate-700 mb-4">
+                        <p className="font-bold text-muted-foreground mb-4">
                             Right to Life does <span className="underline decoration-red-500">NOT</span> include Right to Die (Suicide).
                         </p>
-                        <div className="bg-white p-4 rounded-xl shadow-sm border border-red-200">
+                        <div className="bg-card p-4 rounded-xl shadow-sm border border-red-200">
                             <div className="flex items-center gap-2 mb-2">
                                 <Activity className="text-red-500" />
-                                <span className="font-black text-slate-800">Euthanasia (Passive)</span>
+                                <span className="font-black text-foreground">Euthanasia (Passive)</span>
                             </div>
-                            <p className="text-xs text-slate-600 font-bold">Allowed under strict guidelines (Common Cause Case, 2018). Living Will is legal.</p>
+                            <p className="text-xs text-muted-foreground font-bold">Allowed under strict guidelines (Common Cause Case, 2018). Living Will is legal.</p>
                         </div>
                     </div>
                     <div className="space-y-4">
-                        <div className="bg-white p-4 rounded-xl border border-slate-300">
-                            <h5 className="font-black text-slate-800">Right to Marriage?</h5>
-                            <p className="text-xs font-bold text-slate-600">Fundamental Right under Art 21 (Hadiya Case). But Same-Sex Marriage is <span className="text-red-600">not yet</span> a statutory right.</p>
+                        <div className="bg-card p-4 rounded-xl border border-border">
+                            <h5 className="font-black text-foreground">Right to Marriage?</h5>
+                            <p className="text-xs font-bold text-muted-foreground">Fundamental Right under Art 21 (Hadiya Case). But Same-Sex Marriage is <span className="text-red-600">not yet</span> a statutory right.</p>
                         </div>
                     </div>
                 </div>
@@ -220,7 +220,7 @@ export default function ScopeOfArticle21Module({ onComplete, isCompleted, chapte
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold italic tracking-widest text-center uppercase">Due Process • Passive Euthanasia • Privacy.</p>
+                <p className="mt-4 text-muted-foreground font-bold italic tracking-widest text-center uppercase">Due Process • Passive Euthanasia • Privacy.</p>
             </div>
         </ScrapbookContainer>
     );

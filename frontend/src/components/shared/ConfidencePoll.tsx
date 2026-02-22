@@ -37,11 +37,11 @@ export default function ConfidencePoll({ chapterId, onPollSubmit }: ConfidencePo
     }
 
     return (
-        <div className="w-full max-w-md mx-auto mt-8 p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm text-center">
-            <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2">
+        <div className="w-full max-w-md mx-auto mt-8 p-6 bg-card rounded-xl border border-border shadow-sm text-center">
+            <h3 className="text-lg font-semibold text-foreground mb-2">
                 How confident do you feel?
             </h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">
+            <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-6">
                 Your feedback helps tailor your revision schedule.
             </p>
 
@@ -52,7 +52,7 @@ export default function ConfidencePoll({ chapterId, onPollSubmit }: ConfidencePo
                         flex flex-col items-center gap-2 p-3 rounded-lg transition-all w-24
                         ${confidence === 'low'
                             ? 'bg-red-100 text-red-700 ring-2 ring-red-500 ring-offset-2 dark:ring-offset-slate-900'
-                            : 'bg-slate-50 dark:bg-slate-800 text-slate-600 hover:bg-red-50 hover:text-red-600'}
+                            : 'bg-muted text-muted-foreground hover:bg-red-50 hover:text-red-600'}
                     `}
                 >
                     <AlertTriangle className="w-6 h-6" />
@@ -65,7 +65,7 @@ export default function ConfidencePoll({ chapterId, onPollSubmit }: ConfidencePo
                         flex flex-col items-center gap-2 p-3 rounded-lg transition-all w-24
                         ${confidence === 'medium'
                             ? 'bg-amber-100 text-amber-700 ring-2 ring-amber-500 ring-offset-2 dark:ring-offset-slate-900'
-                            : 'bg-slate-50 dark:bg-slate-800 text-slate-600 hover:bg-amber-50 hover:text-amber-600'}
+                            : 'bg-muted text-muted-foreground hover:bg-amber-50 hover:text-amber-600'}
                     `}
                 >
                     <HelpCircle className="w-6 h-6" />
@@ -78,7 +78,7 @@ export default function ConfidencePoll({ chapterId, onPollSubmit }: ConfidencePo
                         flex flex-col items-center gap-2 p-3 rounded-lg transition-all w-24
                         ${confidence === 'high'
                             ? 'bg-green-100 text-green-700 ring-2 ring-green-500 ring-offset-2 dark:ring-offset-slate-900'
-                            : 'bg-slate-50 dark:bg-slate-800 text-slate-600 hover:bg-green-50 hover:text-green-600'}
+                            : 'bg-muted text-muted-foreground hover:bg-green-50 hover:text-green-600'}
                     `}
                 >
                     <ThumbsUp className="w-6 h-6" />

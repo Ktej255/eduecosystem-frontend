@@ -14,10 +14,10 @@ export default function BiosphereReservesMap() {
     const [selectedBR, setSelectedBR] = useState<BiosphereReserve | null>(null);
 
     return (
-        <div className="flex flex-col h-[calc(100vh-4rem)] lg:flex-row overflow-hidden bg-teal-50 dark:bg-slate-950">
+        <div className="flex flex-col h-[calc(100vh-4rem)] lg:flex-row overflow-hidden bg-teal-50">
             {/* Sidebar Details Panel */}
             <div className={`
-                fixed inset-0 z-20 bg-white dark:bg-slate-900 shadow-2xl transform transition-transform duration-300
+                fixed inset-0 z-20 bg-card shadow-2xl transform transition-transform duration-300
                 lg:relative lg:translate-x-0 lg:w-96 lg:border-r lg:shadow-none
                 ${selectedBR ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
             `}>
@@ -29,7 +29,7 @@ export default function BiosphereReservesMap() {
                                 <ArrowLeft className="h-5 w-5" />
                             </Button>
                         </Link>
-                        <h1 className="text-xl font-bold text-gray-800 dark:text-gray-100">Biosphere Reserves</h1>
+                        <h1 className="text-xl font-bold text-foreground">Biosphere Reserves</h1>
                         {/* Mobile Close Button */}
                         <Button
                             variant="ghost"
@@ -53,7 +53,7 @@ export default function BiosphereReservesMap() {
                             </div>
 
                             {/* UNESCO Status Badge */}
-                            <div className={`p-3 rounded-lg border ${selectedBR.unescoStatus ? 'bg-indigo-50 border-indigo-100 text-indigo-700' : 'bg-gray-50 border-gray-100 text-gray-600'}`}>
+                            <div className={`p-3 rounded-lg border ${selectedBR.unescoStatus ? 'bg-indigo-50 border-indigo-100 text-indigo-700' : 'bg-muted border-border text-muted-foreground'}`}>
                                 <div className="flex items-center gap-2">
                                     <Globe className="h-4 w-4" />
                                     <p className="text-sm font-bold">
@@ -63,16 +63,16 @@ export default function BiosphereReservesMap() {
                             </div>
 
                             {/* Description */}
-                            <div className="bg-white dark:bg-slate-800 p-4 rounded-xl border shadow-sm">
-                                <h3 className="text-sm font-bold text-gray-500 uppercase mb-2">About</h3>
-                                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <div className="bg-card p-4 rounded-xl border shadow-sm">
+                                <h3 className="text-sm font-bold text-muted-foreground uppercase mb-2">About</h3>
+                                <p className="text-muted-foreground dark:text-muted-foreground leading-relaxed">
                                     {selectedBR.description}
                                 </p>
                             </div>
 
                             {/* Key Features */}
-                            <div className="bg-white dark:bg-slate-800 p-4 rounded-xl border shadow-sm">
-                                <h3 className="text-sm font-bold text-gray-500 uppercase mb-2 flex items-center gap-2">
+                            <div className="bg-card p-4 rounded-xl border shadow-sm">
+                                <h3 className="text-sm font-bold text-muted-foreground uppercase mb-2 flex items-center gap-2">
                                     <Trees className="h-4 w-4" />
                                     Key Fauna & Flora
                                 </h3>
@@ -86,7 +86,7 @@ export default function BiosphereReservesMap() {
                             </div>
                         </div>
                     ) : (
-                        <div className="flex-1 flex flex-col items-center justify-center text-center text-gray-400 p-4">
+                        <div className="flex-1 flex flex-col items-center justify-center text-center text-muted-foreground p-4">
                             <Mountain className="h-12 w-12 mb-4 opacity-20" />
                             <p className="text-lg font-medium">Explore the 18 Reserves</p>
                             <p className="text-sm">Biosphere Reserves integrate biological and cultural diversity. Click to explore.</p>
@@ -96,7 +96,7 @@ export default function BiosphereReservesMap() {
             </div>
 
             {/* Map Area */}
-            <div className="flex-1 relative bg-teal-50/50 dark:bg-slate-950 p-4 overflow-hidden flex items-center justify-center">
+            <div className="flex-1 relative bg-teal-50/50 p-4 overflow-hidden flex items-center justify-center">
                 <div className="relative w-full max-w-2xl aspect-[3/4]">
                     <svg viewBox="0 0 100 120" className="w-full h-full drop-shadow-xl filter">
                         {/* India Map Base */}
@@ -149,7 +149,7 @@ export default function BiosphereReservesMap() {
                         ))}
                     </svg>
 
-                    <div className="absolute bottom-4 right-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur p-2 rounded-lg border text-xs text-gray-500">
+                    <div className="absolute bottom-4 right-4 bg-card/80/80 backdrop-blur p-2 rounded-lg border text-xs text-muted-foreground">
                         * Locations are approximate
                     </div>
                 </div>

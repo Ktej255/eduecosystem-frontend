@@ -46,7 +46,7 @@ export default function SchedulesMnemonics() {
                                 relative h-40 rounded-2xl border-b-8 transition-all duration-300 cursor-pointer group perspective
                                 ${focused === index
                                     ? 'bg-emerald-600 border-emerald-800 text-white -translate-y-2 shadow-2xl z-10 scale-110'
-                                    : 'bg-white border-emerald-200 text-slate-800 hover:border-emerald-400 hover:-translate-y-1'
+                                    : 'bg-card border-emerald-200 text-foreground hover:border-emerald-400 hover:-translate-y-1'
                                 }
                             `}
                             onClick={() => setFocused(focused === index ? null : index)}
@@ -78,7 +78,7 @@ export default function SchedulesMnemonics() {
                     ))}
                 </div>
 
-                <div className="mt-8 text-center text-slate-500 text-sm font-bold flex items-center justify-center gap-2">
+                <div className="mt-8 text-center text-muted-foreground text-sm font-bold flex items-center justify-center gap-2">
                     <Sparkles size={16} /> Tap any card to flip/reveal details
                 </div>
             </CardContent>

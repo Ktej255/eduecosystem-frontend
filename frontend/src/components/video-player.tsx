@@ -67,7 +67,7 @@ export default function VideoPlayer({ src, title }: VideoPlayerProps) {
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/90 z-10 space-y-4">
             <Lock className="h-16 w-16 text-red-500" />
             <h2 className="text-2xl font-bold text-white">Session Locked</h2>
-            <p className="text-gray-400 text-center max-w-md">
+            <p className="text-muted-foreground text-center max-w-md">
               30-minute learning block complete. It's time for the "Write-Back"
               session. Upload your notes to unlock the next segment.
             </p>

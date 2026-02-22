@@ -16,6 +16,7 @@ import {
     Trash2,
     ShieldAlert,
 } from "lucide-react";
+import ChartErrorBoundary from "@/components/ui/ChartErrorBoundary";
 import { useHabits, Habit } from "@/context/HabitContext";
 import { useAuth } from "@/contexts/auth-context";
 import { isMasterUser } from "@/config/user-access-config";
@@ -93,7 +94,7 @@ export default function HabitTracker({
             case "productivity":
                 return "bg-orange-500/20 text-orange-400 border-orange-500/30";
             default:
-                return "bg-gray-500/20 text-gray-400 border-gray-500/30";
+                return "bg-muted-foreground/20 text-muted-foreground border-gray-500/30";
         }
     };
 
@@ -101,7 +102,7 @@ export default function HabitTracker({
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="rounded-2xl bg-neutral-900/80 backdrop-blur-xl border border-neutral-800 overflow-hidden"
+            className="rounded-2xl bg-card/80 backdrop-blur-xl border border-border overflow-hidden transition-colors"
         >
             {/* Header */}
             <div
@@ -113,8 +114,8 @@ export default function HabitTracker({
                         <Target className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                        <h3 className="font-semibold text-white">Today's Habits</h3>
-                        <p className="text-sm text-gray-400">
+                        <h3 className="font-semibold text-foreground">Today's Habits</h3>
+                        <p className="text-sm text-muted-foreground">
                             {completedCount}/{habits.length} completed
                         </p>
                     </div>
@@ -122,42 +123,44 @@ export default function HabitTracker({
 
                 <div className="flex items-center gap-3">
                     {/* Progress ring */}
-                    <div className="relative w-10 h-10">
-                        <svg className="w-10 h-10 transform -rotate-90">
-                            <circle
-                                cx="20"
-                                cy="20"
-                                r="16"
-                                stroke="#333"
-                                strokeWidth="3"
-                                fill="none"
-                            />
-                            <motion.circle
-                                cx="20"
-                                cy="20"
-                                r="16"
-                                stroke="#10b981"
-                                strokeWidth="3"
-                                fill="none"
-                                strokeLinecap="round"
-                                initial={{ pathLength: 0 }}
-                                animate={{ pathLength: progressPercent / 100 }}
-                                transition={{ duration: 0.5 }}
-                                style={{
-                                    strokeDasharray: "100",
-                                    strokeDashoffset: 0,
-                                }}
-                            />
-                        </svg>
-                        <span className="absolute inset-0 flex items-center justify-center text-xs font-bold text-emerald-400">
-                            {Math.round(progressPercent)}%
-                        </span>
-                    </div>
+                    <ChartErrorBoundary name="Habit Progress Mini">
+                        <div className="relative w-10 h-10">
+                            <svg className="w-10 h-10 transform -rotate-90">
+                                <circle
+                                    cx="20"
+                                    cy="20"
+                                    r="16"
+                                    stroke="var(--border)"
+                                    strokeWidth="3"
+                                    fill="none"
+                                />
+                                <motion.circle
+                                    cx="20"
+                                    cy="20"
+                                    r="16"
+                                    stroke="var(--primary)"
+                                    strokeWidth="3"
+                                    fill="none"
+                                    strokeLinecap="round"
+                                    initial={{ pathLength: 0 }}
+                                    animate={{ pathLength: progressPercent / 100 }}
+                                    transition={{ duration: 0.5 }}
+                                    style={{
+                                        strokeDasharray: "100",
+                                        strokeDashoffset: 0,
+                                    }}
+                                />
+                            </svg>
+                            <span className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-primary">
+                                {Math.round(progressPercent)}%
+                            </span>
+                        </div>
+                    </ChartErrorBoundary>
 
                     {isExpanded ? (
-                        <ChevronUp className="w-5 h-5 text-gray-400" />
+                        <ChevronUp className="w-5 h-5 text-muted-foreground" />
                     ) : (
-                        <ChevronDown className="w-5 h-5 text-gray-400" />
+                        <ChevronDown className="w-5 h-5 text-muted-foreground" />
                     )}
                 </div>
             </div>
@@ -205,7 +208,7 @@ export default function HabitTracker({
                                         ) : isCompletedToday(habit) ? (
                                             <CheckCircle className="w-6 h-6 text-emerald-400" />
                                         ) : (
-                                            <Circle className="w-6 h-6 text-gray-500 hover:text-gray-300" />
+                                            <Circle className="w-6 h-6 text-muted-foreground hover:text-muted-foreground" />
                                         )}
                                     </motion.button>
 
@@ -217,8 +220,8 @@ export default function HabitTracker({
                                         <div className="flex items-center gap-2">
                                             <p
                                                 className={`font-medium ${isCompletedToday(habit)
-                                                    ? "text-emerald-400 line-through"
-                                                    : "text-white"
+                                                    ? "text-emerald-500 line-through opacity-70"
+                                                    : "text-foreground"
                                                     }`}
                                             >
                                                 {habit.name}
@@ -231,7 +234,7 @@ export default function HabitTracker({
                                                 {habit.category}
                                             </span>
                                         </div>
-                                        <div className="flex items-center gap-3 text-xs text-gray-500 mt-1">
+                                        <div className="flex items-center gap-3 text-xs text-muted-foreground mt-1">
                                             {habit.reminderTime && (
                                                 <span className="flex items-center gap-1">
                                                     <Clock className="w-3 h-3" />
@@ -261,7 +264,7 @@ export default function HabitTracker({
                                                     deleteHabit(habit.id);
                                                 }
                                             }}
-                                            className="p-2 text-gray-500 hover:text-red-400 transition-colors"
+                                            className="p-2 text-muted-foreground hover:text-red-400 transition-colors"
                                             title="Remove Habit"
                                         >
                                             <Trash2 className="w-4 h-4" />
@@ -291,7 +294,7 @@ export default function HabitTracker({
                                 whileTap={{ scale: 0.98 }}
                                 onClick={onAddHabit || handleAddHabitDefault}
                                 className="w-full p-3 rounded-xl border-2 border-dashed border-neutral-700 
-                                         hover:border-neutral-600 text-gray-500 hover:text-gray-400
+                                         hover:border-neutral-600 text-muted-foreground hover:text-muted-foreground
                                          flex items-center justify-center gap-2 transition-colors"
                             >
                                 <Plus className="w-5 h-5" />

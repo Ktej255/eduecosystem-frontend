@@ -54,7 +54,7 @@ export default function AvatarsListPage() {
             sales: "bg-green-500/20 text-green-400",
             support: "bg-blue-500/20 text-blue-400",
             engage: "bg-purple-500/20 text-purple-400",
-            generic: "bg-gray-500/20 text-gray-400",
+            generic: "bg-muted-foreground/20 text-muted-foreground",
         };
         return colors[purpose] || colors.generic;
     };
@@ -88,7 +88,7 @@ export default function AvatarsListPage() {
             {avatars.length === 0 ? (
                 <Card>
                     <CardContent className="text-center py-12">
-                        <Sparkles className="h-16 w-16 mx-auto text-gray-400 mb-4" />
+                        <Sparkles className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
                         <h3 className="text-xl font-semibold mb-2">No AI Avatars Yet</h3>
                         <p className="text-muted-foreground mb-6">
                             Create your first AI avatar to start providing automated assistance

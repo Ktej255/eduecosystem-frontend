@@ -74,7 +74,7 @@ export function Level4OfferModal({ isOpen, onClose, onPurchase }: Level4OfferMod
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: i * 0.1 }}
-                                className="flex items-center gap-3 p-2 bg-white/5 rounded-lg"
+                                className="flex items-center gap-3 p-2 bg-card/5 rounded-lg"
                             >
                                 <CheckCircle className="w-5 h-5 text-purple-400" />
                                 <span>{item}</span>
@@ -84,7 +84,7 @@ export function Level4OfferModal({ isOpen, onClose, onPurchase }: Level4OfferMod
 
                     <div className="text-center space-y-1">
                         <div className="text-3xl font-bold">
-                            <span className="text-gray-400 line-through text-lg mr-2">₹5,000</span>
+                            <span className="text-muted-foreground line-through text-lg mr-2">₹5,000</span>
                             <span className="text-white">₹2,500</span>
                         </div>
                         <p className="text-xs text-purple-300">One-time payment. Lifetime access.</p>

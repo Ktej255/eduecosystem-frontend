@@ -90,10 +90,10 @@ export default function Batch11Page() {
             subtitle: "Phase 3: Core",
             time: "180 min",
             desc: isSaturday ? "Full assessment of this week's learning." : "Deep work session on planned topics.",
-            icon: <BookOpen className="h-6 w-6 text-slate-600" />,
+            icon: <BookOpen className="h-6 w-6 text-muted-foreground" />,
             color: "slate",
-            bg: "bg-slate-100",
-            border: "border-slate-200",
+            bg: "bg-muted",
+            border: "border-border",
             action: isSaturday
                 ? { label: "Start Test", link: `/student/batch1-1/${selectedWeek}/saturday-test` }
                 : { label: "Start Session", link: `/student/batch1-1/${selectedWeek}/${selectedDay}/pomodoro` },
@@ -134,10 +134,10 @@ export default function Batch11Page() {
             {/* Header */}
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-200">
+                    <h1 className="text-2xl font-bold text-foreground">
                         RAS Revision Portal
                     </h1>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm">
+                    <p className="text-muted-foreground dark:text-muted-foreground text-sm">
                         Daily Protocol & Progress Tracking
                     </p>
                 </div>
@@ -147,7 +147,7 @@ export default function Batch11Page() {
                     <select
                         value={selectedWeek}
                         onChange={(e) => setSelectedWeek(Number(e.target.value))}
-                        className="px-4 py-2 rounded-lg border bg-white dark:bg-gray-800 dark:border-gray-700 text-sm font-medium focus:ring-2 focus:ring-indigo-500 outline-none"
+                        className="px-4 py-2 rounded-lg border bg-card text-sm font-medium focus:ring-2 focus:ring-indigo-500 outline-none"
                     >
                         {WEEKS.map(week => (
                             <option key={week.id} value={week.id}>Week {week.id}</option>
@@ -157,18 +157,18 @@ export default function Batch11Page() {
                     <Button
                         variant="ghost"
                         size="icon"
-                        className="text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 rounded-full"
+                        className="text-muted-foreground hover:text-indigo-600 hover:bg-indigo-50 rounded-full"
                         onClick={() => setShowMoodModal(true)}
                     >
                         <Smile className="h-5 w-5" />
                     </Button>
                     <Link href="/student/upsc">
-                        <Button variant="ghost" size="icon" className="text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-full" title="Resource Library">
+                        <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-blue-600 hover:bg-blue-50 rounded-full" title="Resource Library">
                             <BookOpen className="h-5 w-5" />
                         </Button>
                     </Link>
                     <Link href="/student/batch1-1/deep-report">
-                        <Button variant="ghost" size="icon" className="text-gray-500 hover:text-purple-600 hover:bg-purple-50 rounded-full">
+                        <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-purple-600 hover:bg-purple-50 rounded-full">
                             <BarChart3 className="h-5 w-5" />
                         </Button>
                     </Link>
@@ -176,7 +176,7 @@ export default function Batch11Page() {
             </div>
 
             {/* Day Selector */}
-            <div className="bg-white dark:bg-gray-800 p-1.5 rounded-xl border shadow-sm flex items-center justify-between gap-2 overflow-x-auto mb-8">
+            <div className="bg-card p-1.5 rounded-xl border shadow-sm flex items-center justify-between gap-2 overflow-x-auto mb-8">
                 {WEEKDAYS.map((day) => (
                     <button
                         key={day.id}
@@ -184,7 +184,7 @@ export default function Batch11Page() {
                         className={`flex-1 min-w-[60px] py-2 px-3 rounded-lg text-sm transition-all flex flex-col items-center gap-1
                             ${selectedDay === day.id
                                 ? 'bg-indigo-600 text-white shadow-md'
-                                : 'text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700'
+                                : 'text-muted-foreground hover:bg-muted dark:hover:bg-gray-700'
                             }`}
                     >
                         <span className="font-semibold">{day.short}</span>
@@ -195,7 +195,7 @@ export default function Batch11Page() {
             {/* Vertical Timeline */}
             <div className="relative space-y-8 md:space-y-12 pl-4 md:pl-0">
                 {/* Vertical Line */}
-                <div className="absolute left-[27px] md:left-[50px] top-8 bottom-8 w-0.5 bg-indigo-100 dark:bg-gray-800 -z-10" />
+                <div className="absolute left-[27px] md:left-[50px] top-8 bottom-8 w-0.5 bg-indigo-100 -z-10" />
 
                 {/* Daily Protocol Timeline */}
                 <DailyProtocolTimeline weekId={selectedWeek} dayId={selectedDay} />

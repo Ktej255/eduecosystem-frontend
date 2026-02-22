@@ -114,7 +114,7 @@ export default function TieredLevelView({ subjectId, level, onBack, chapters }: 
         <div className="max-w-4xl mx-auto">
             <button
                 onClick={onBack}
-                className="flex items-center text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white mb-6"
+                className="flex items-center text-sm text-muted-foreground hover:text-foreground dark:hover:text-white mb-6"
             >
                 <ArrowLeft className="w-4 h-4 mr-1" /> Back to Store
             </button>
@@ -127,9 +127,9 @@ export default function TieredLevelView({ subjectId, level, onBack, chapters }: 
                                 'bg-purple-100 text-purple-700'}`}>
                         Level {level}
                     </span>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-white">{levelData?.title || `Level ${level}`} Module</h1>
+                    <h1 className="text-3xl font-bold text-foreground">{levelData?.title || `Level ${level}`} Module</h1>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
+                <p className="text-muted-foreground dark:text-muted-foreground max-w-2xl">
                     {levelData?.description || "Select a chapter to begin your practice session."}
                 </p>
             </header>
@@ -137,7 +137,7 @@ export default function TieredLevelView({ subjectId, level, onBack, chapters }: 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Chapter List */}
                 <div className="col-span-1 space-y-3">
-                    <h3 className="font-bold text-gray-900 dark:text-white mb-2">Chapters</h3>
+                    <h3 className="font-bold text-foreground mb-2">Chapters</h3>
                     {chapters.map(ch => (
                         <button
                             key={ch.id}
@@ -145,12 +145,12 @@ export default function TieredLevelView({ subjectId, level, onBack, chapters }: 
                             className={`w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between
                                 ${activeChapter === ch.id
                                     ? 'bg-blue-50 border-blue-500 ring-1 ring-blue-500'
-                                    : 'bg-white dark:bg-[#111] border-gray-200 dark:border-gray-800 hover:border-blue-300'}`}
+                                    : 'bg-card dark:bg-[#111] border-border hover:border-blue-300'}`}
                         >
-                            <span className={`text-sm font-medium ${activeChapter === ch.id ? 'text-blue-700' : 'text-gray-700 dark:text-gray-300'}`}>
+                            <span className={`text-sm font-medium ${activeChapter === ch.id ? 'text-blue-700' : 'text-muted-foreground dark:text-muted-foreground'}`}>
                                 {ch.id}. {ch.title}
                             </span>
-                            {(ch.id === 7 || ch.id === 5 || ch.id === 1) ? <Play className="w-4 h-4 text-blue-500" /> : <Lock className="w-4 h-4 text-gray-300" />}
+                            {(ch.id === 7 || ch.id === 5 || ch.id === 1) ? <Play className="w-4 h-4 text-blue-500" /> : <Lock className="w-4 h-4 text-muted-foreground" />}
                         </button>
                     ))}
                 </div>
@@ -158,27 +158,27 @@ export default function TieredLevelView({ subjectId, level, onBack, chapters }: 
                 {/* Question Area */}
                 <div className="col-span-1 md:col-span-2">
                     {activeChapter && selectedChapterData ? (
-                        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6 md:p-8 shadow-sm">
+                        <div className="bg-card dark:bg-[#111] rounded-2xl border border-border p-6 md:p-8 shadow-sm">
                             <div className="flex items-center justify-between mb-6">
                                 <h3 className="text-xl font-bold">{selectedChapterData.title}</h3>
-                                <span className="text-sm text-gray-500">{questions.length} Questions</span>
+                                <span className="text-sm text-muted-foreground">{questions.length} Questions</span>
                             </div>
 
                             {!showScore ? (
                                 <div className="space-y-8">
                                     {questions.map((q, idx) => (
                                         <div key={q.id} className="relative">
-                                            <p className="font-medium text-gray-900 dark:text-white mb-4">
-                                                <span className="text-gray-400 mr-2">{idx + 1}.</span>
+                                            <p className="font-medium text-foreground mb-4">
+                                                <span className="text-muted-foreground mr-2">{idx + 1}.</span>
                                                 {q.question}
                                             </p>
                                             <div className="space-y-3 pl-6">
                                                 {q.options.map((opt, optIdx) => {
                                                     const isSelected = answers[q.id]?.optionIdx === optIdx;
                                                     return (
-                                                        <div key={optIdx} className={`rounded-xl border transition-all overflow-hidden ${isSelected ? 'border-blue-500 ring-1 ring-blue-500' : 'border-gray-200 dark:border-gray-700'}`}>
+                                                        <div key={optIdx} className={`rounded-xl border transition-all overflow-hidden ${isSelected ? 'border-blue-500 ring-1 ring-blue-500' : 'border-border'}`}>
                                                             <div
-                                                                className={`p-3 text-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-900 ${isSelected ? 'bg-blue-50 dark:bg-blue-900/10' : ''}`}
+                                                                className={`p-3 text-sm cursor-pointer hover:bg-muted dark:hover:bg-gray-900 ${isSelected ? 'bg-blue-50 dark:bg-blue-900/10' : ''}`}
                                                                 onClick={() => !answers[q.id] && handleAnswer(q.id, optIdx, 'sure')}
                                                             >
                                                                 {opt}
@@ -186,18 +186,18 @@ export default function TieredLevelView({ subjectId, level, onBack, chapters }: 
 
                                                             {/* Confidence Selection (Show only when answer is selected or actively picking) */}
                                                             {isSelected && (
-                                                                <div className="flex bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 divide-x divide-gray-200 dark:divide-gray-600">
+                                                                <div className="flex bg-muted border-t border-border divide-x divide-border dark:divide-gray-600">
                                                                     <button
                                                                         onClick={() => handleAnswer(q.id, optIdx, 'sure')}
                                                                         className={`flex-1 py-1.5 text-xs font-bold transition-colors flex items-center justify-center gap-1
-                                                                            ${answers[q.id]?.confidence === 'sure' ? 'bg-green-100 text-green-700' : 'text-gray-500 hover:text-green-600'}`}
+                                                                            ${answers[q.id]?.confidence === 'sure' ? 'bg-green-100 text-green-700' : 'text-muted-foreground hover:text-green-600'}`}
                                                                     >
                                                                         <CheckCircle className="w-3 h-3" /> Sure
                                                                     </button>
                                                                     <button
                                                                         onClick={() => handleAnswer(q.id, optIdx, 'guessing')}
                                                                         className={`flex-1 py-1.5 text-xs font-bold transition-colors flex items-center justify-center gap-1
-                                                                            ${answers[q.id]?.confidence === 'guessing' ? 'bg-amber-100 text-amber-700' : 'text-gray-500 hover:text-amber-600'}`}
+                                                                            ${answers[q.id]?.confidence === 'guessing' ? 'bg-amber-100 text-amber-700' : 'text-muted-foreground hover:text-amber-600'}`}
                                                                     >
                                                                         <Star className="w-3 h-3" /> Guessing
                                                                     </button>
@@ -262,7 +262,7 @@ export default function TieredLevelView({ subjectId, level, onBack, chapters }: 
                                                 <div className="flex justify-center gap-4">
                                                     <button
                                                         onClick={() => { setShowScore(false); setAnswers({}); }}
-                                                        className="px-6 py-2 border border-gray-300 rounded-lg font-medium hover:bg-gray-50"
+                                                        className="px-6 py-2 border border-border rounded-lg font-medium hover:bg-muted"
                                                     >
                                                         Retry
                                                     </button>
@@ -279,7 +279,7 @@ export default function TieredLevelView({ subjectId, level, onBack, chapters }: 
                             )}
                         </div>
                     ) : (
-                        <div className="h-full flex flex-col items-center justify-center text-gray-400 min-h-[400px] border-2 border-dashed border-gray-200 dark:border-gray-800 rounded-2xl">
+                        <div className="h-full flex flex-col items-center justify-center text-muted-foreground min-h-[400px] border-2 border-dashed border-border rounded-2xl">
                             <Star className="w-12 h-12 mb-3 opacity-20" />
                             <p>Select a chapter to start practicing</p>
                         </div>

@@ -28,9 +28,9 @@ export default function LeaderboardPage() {
 
     const getRankIcon = (rank: number) => {
         if (rank === 1) return <Crown className="h-5 w-5 text-yellow-500" />;
-        if (rank === 2) return <Medal className="h-5 w-5 text-gray-400" />;
+        if (rank === 2) return <Medal className="h-5 w-5 text-muted-foreground" />;
         if (rank === 3) return <Medal className="h-5 w-5 text-amber-600" />;
-        return <span className="text-sm font-bold text-gray-500">#{rank}</span>;
+        return <span className="text-sm font-bold text-muted-foreground">#{rank}</span>;
     };
 
     return (
@@ -38,7 +38,7 @@ export default function LeaderboardPage() {
             <div className="mb-8">
                 <Link
                     href="/student/batch1-1"
-                    className="inline-flex items-center text-sm text-gray-500 hover:text-indigo-600 mb-4 transition-colors"
+                    className="inline-flex items-center text-sm text-muted-foreground hover:text-indigo-600 mb-4 transition-colors"
                 >
                     <ArrowLeft className="mr-1 h-4 w-4" /> Back to Dashboard
                 </Link>
@@ -48,7 +48,7 @@ export default function LeaderboardPage() {
                         Leaderboard
                     </h1>
                 </div>
-                <p className="text-gray-600 mt-2">Top performers in Batch 1-1 this month.</p>
+                <p className="text-muted-foreground mt-2">Top performers in Batch 1-1 this month.</p>
             </div>
 
             <Card className="border-yellow-100 dark:border-yellow-900/30">
@@ -59,11 +59,11 @@ export default function LeaderboardPage() {
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
-                    <div className="divide-y divide-gray-100 dark:divide-gray-800">
+                    <div className="divide-y divide-border dark:divide-gray-800">
                         {leaders.map((leader) => (
                             <div
                                 key={leader.rank}
-                                className={`flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors ${leader.rank <= 3 ? 'bg-gradient-to-r from-yellow-50/50 to-transparent dark:from-yellow-900/5' : ''
+                                className={`flex items-center justify-between p-4 hover:bg-muted dark:hover:bg-gray-800/50 transition-colors ${leader.rank <= 3 ? 'bg-gradient-to-r from-yellow-50/50 to-transparent dark:from-yellow-900/5' : ''
                                     }`}
                             >
                                 <div className="flex items-center gap-4">
@@ -79,7 +79,7 @@ export default function LeaderboardPage() {
                                     <span className="text-lg font-bold text-indigo-600 dark:text-indigo-400">
                                         {leader.score.toLocaleString()}
                                     </span>
-                                    <span className="text-xs text-gray-500 ml-1">XP</span>
+                                    <span className="text-xs text-muted-foreground ml-1">XP</span>
                                 </div>
                             </div>
                         ))}

@@ -93,7 +93,7 @@ export function QuestionEditor({
               variant="outline"
               size="sm"
               onClick={addOption}
-              className="border-gray-700 text-gray-300"
+              className="border-gray-700 text-muted-foreground"
             >
               <Plus className="mr-2 h-4 w-4" />
               Add Option
@@ -116,7 +116,7 @@ export function QuestionEditor({
                 className={`px-6 py-3 rounded-lg ${
                   options[0]?.is_correct
                     ? "bg-green-600 text-white"
-                    : "bg-gray-800 text-gray-400"
+                    : "bg-gray-800 text-muted-foreground"
                 }`}
               >
                 True
@@ -131,7 +131,7 @@ export function QuestionEditor({
                 className={`px-6 py-3 rounded-lg ${
                   options[1]?.is_correct
                     ? "bg-green-600 text-white"
-                    : "bg-gray-800 text-gray-400"
+                    : "bg-gray-800 text-muted-foreground"
                 }`}
               >
                 False
@@ -168,7 +168,7 @@ export function QuestionEditor({
               variant="outline"
               size="sm"
               onClick={addOption}
-              className="border-gray-700 text-gray-300"
+              className="border-gray-700 text-muted-foreground"
             >
               <Plus className="mr-2 h-4 w-4" />
               Add Answer
@@ -179,7 +179,7 @@ export function QuestionEditor({
       case "long_answer":
         return (
           <div className="p-4 bg-gray-800/50 rounded border border-gray-700">
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-muted-foreground">
               This question requires manual grading. Students will provide a
               text response.
             </p>

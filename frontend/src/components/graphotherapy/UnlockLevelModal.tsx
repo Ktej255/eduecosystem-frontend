@@ -66,7 +66,7 @@ export default function UnlockLevelModal({ isOpen, onClose, level, userCoins, on
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="max-w-md bg-white dark:bg-neutral-900 border border-gray-100 dark:border-white/10">
+            <DialogContent className="max-w-md bg-card dark:bg-neutral-900 border border-border dark:border-white/10">
                 <DialogHeader>
                     <DialogTitle className="flex items-center gap-2 text-2xl">
                         <Lock className="w-6 h-6 text-amber-500" />
@@ -80,12 +80,12 @@ export default function UnlockLevelModal({ isOpen, onClose, level, userCoins, on
                 <div className="space-y-6 mt-4">
                     {/* Bundle Option Toggle (Only if not Level 3 already?) - For demo simpler */}
                     <div
-                        className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${isBundle ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/20' : 'border-gray-200 dark:border-white/10 hover:border-purple-200'}`}
+                        className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${isBundle ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/20' : 'border-border dark:border-white/10 hover:border-purple-200'}`}
                         onClick={() => setIsBundle(!isBundle)}
                     >
                         <div className="flex justify-between items-center">
                             <div className="flex items-center gap-2">
-                                <Sparkles className={`w-5 h-5 ${isBundle ? 'text-purple-600' : 'text-gray-400'}`} />
+                                <Sparkles className={`w-5 h-5 ${isBundle ? 'text-purple-600' : 'text-muted-foreground'}`} />
                                 <span className="font-bold">Unlock Bundle (Lvl 2 + 3 + 4)</span>
                             </div>
                             <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold">SAVE ₹5000</span>
@@ -94,7 +94,7 @@ export default function UnlockLevelModal({ isOpen, onClose, level, userCoins, on
 
                     {/* Price Breakdown */}
                     <div className="space-y-2 text-sm">
-                        <div className="flex justify-between text-gray-500">
+                        <div className="flex justify-between text-muted-foreground">
                             <span>Base Price</span>
                             <span>₹{basePrice.toLocaleString()}</span>
                         </div>
@@ -110,7 +110,7 @@ export default function UnlockLevelModal({ isOpen, onClose, level, userCoins, on
                                 <span>-₹{coinDiscount.toLocaleString()}</span>
                             </div>
                         )}
-                        <div className="h-px bg-gray-200 dark:bg-white/10 my-2" />
+                        <div className="h-px bg-muted dark:bg-card/10 my-2" />
                         <div className="flex justify-between text-xl font-bold">
                             <span>Total</span>
                             <span>₹{finalPrice.toLocaleString()}</span>
@@ -125,7 +125,7 @@ export default function UnlockLevelModal({ isOpen, onClose, level, userCoins, on
                                 <span className="text-sm font-medium">Use Coins (Bal: {userCoins})</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <span className="text-xs text-gray-500 max-w-[100px] text-right leading-tight">Max ₹1k off</span>
+                                <span className="text-xs text-muted-foreground max-w-[100px] text-right leading-tight">Max ₹1k off</span>
                                 <input
                                     type="checkbox"
                                     checked={useCoins}

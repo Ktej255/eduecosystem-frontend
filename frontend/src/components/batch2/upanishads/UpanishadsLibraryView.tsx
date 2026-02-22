@@ -54,7 +54,7 @@ export default function UpanishadsLibraryView({ onClose }: { onClose?: () => voi
     };
 
     return (
-        <div className="bg-white/50 dark:bg-gray-900/50 min-h-screen">
+        <div className="bg-card/50/50 min-h-screen">
             <div className="space-y-8 p-4 md:p-8 max-w-7xl mx-auto">
                 {/* Header inside the view if needed, or rely on parent */}
                 {onClose && (
@@ -67,10 +67,10 @@ export default function UpanishadsLibraryView({ onClose }: { onClose?: () => voi
 
                 {/* Search */}
                 <div className="max-w-md mx-auto relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                         placeholder="Search by name, meaning, or concept..."
-                        className="pl-10 bg-white/50 backdrop-blur-sm border-amber-200 focus:ring-amber-500"
+                        className="pl-10 bg-card/50 backdrop-blur-sm border-amber-200 focus:ring-amber-500"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
@@ -112,8 +112,8 @@ export default function UpanishadsLibraryView({ onClose }: { onClose?: () => voi
                                 >
                                     {/* Lock overlay for locked content */}
                                     {!unlocked && (
-                                        <div className="absolute inset-0 bg-gray-900/10 dark:bg-gray-900/30 flex items-center justify-center z-10">
-                                            <div className="bg-white/90 dark:bg-gray-800/90 rounded-full p-3 shadow-lg">
+                                        <div className="absolute inset-0 bg-gray-900/10/30 flex items-center justify-center z-10">
+                                            <div className="bg-card/90/90 rounded-full p-3 shadow-lg">
                                                 <Lock className="h-6 w-6 text-amber-600" />
                                             </div>
                                         </div>
@@ -128,7 +128,7 @@ export default function UpanishadsLibraryView({ onClose }: { onClose?: () => voi
 
                                     <CardHeader className="pb-2">
                                         <div className="flex justify-between items-start">
-                                            <span className="text-xs font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-600">
+                                            <span className="text-xs font-bold px-2 py-0.5 rounded bg-muted text-muted-foreground">
                                                 #{upanishad.studyOrder}
                                             </span>
                                             {unlocked ? (
@@ -143,7 +143,7 @@ export default function UpanishadsLibraryView({ onClose }: { onClose?: () => voi
                                         </div>
                                         <CardTitle className="text-xl font-serif mt-2 flex items-baseline gap-2">
                                             {upanishad.name}
-                                            <span className="text-sm font-normal text-gray-400 font-sans">
+                                            <span className="text-sm font-normal text-muted-foreground font-sans">
                                                 {upanishad.nameSanskrit}
                                             </span>
                                         </CardTitle>
@@ -153,7 +153,7 @@ export default function UpanishadsLibraryView({ onClose }: { onClose?: () => voi
                                     </CardHeader>
 
                                     <CardContent>
-                                        <div className="flex flex-wrap gap-2 text-xs text-gray-500 mt-2">
+                                        <div className="flex flex-wrap gap-2 text-xs text-muted-foreground mt-2">
                                             <span className="flex items-center gap-1" style={{ color: colors.text }}>
                                                 {upanishad.veda}
                                             </span>
@@ -174,7 +174,7 @@ export default function UpanishadsLibraryView({ onClose }: { onClose?: () => voi
                 </div>
 
                 {filteredUpanishads.length === 0 && (
-                    <div className="text-center py-20 text-gray-500">
+                    <div className="text-center py-20 text-muted-foreground">
                         <Scroll className="h-12 w-12 mx-auto mb-4 opacity-20" />
                         <p>No Upanishads found matching your criteria.</p>
                     </div>
@@ -211,7 +211,7 @@ export default function UpanishadsLibraryView({ onClose }: { onClose?: () => voi
 
                         <div className="text-center">
                             <p className="text-2xl font-bold text-amber-900">₹2,999</p>
-                            <p className="text-sm text-gray-500">One-time payment • Lifetime access</p>
+                            <p className="text-sm text-muted-foreground">One-time payment • Lifetime access</p>
                         </div>
                     </div>
 

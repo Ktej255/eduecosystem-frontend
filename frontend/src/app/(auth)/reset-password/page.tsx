@@ -68,7 +68,7 @@ function ResetPasswordForm() {
                         <Check className="h-8 w-8 text-green-500" />
                     </div>
                     <h2 className="text-2xl font-bold text-white">Password Reset Complete</h2>
-                    <p className="text-gray-400">
+                    <p className="text-muted-foreground">
                         Your password has been successfully updated. You can now log in with your new password.
                     </p>
                     <Button className="w-full bg-blue-600 hover:bg-blue-500" asChild>
@@ -84,7 +84,7 @@ function ResetPasswordForm() {
             <div className="w-full max-w-md space-y-8">
                 <div className="text-center">
                     <h1 className="text-3xl font-bold text-white">Set New Password</h1>
-                    <p className="text-gray-400 mt-2">
+                    <p className="text-muted-foreground mt-2">
                         Please enter your new password below.
                     </p>
                 </div>
@@ -96,7 +96,7 @@ function ResetPasswordForm() {
                                 New Password
                             </Label>
                             <div className="relative">
-                                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+                                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                                 <Input
                                     id="password"
                                     type={showPassword ? "text" : "password"}
@@ -109,7 +109,7 @@ function ResetPasswordForm() {
                                 <button
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
-                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white"
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-white"
                                 >
                                     {showPassword ? (
                                         <EyeOff className="h-4 w-4" />
@@ -125,7 +125,7 @@ function ResetPasswordForm() {
                                 Confirm Password
                             </Label>
                             <div className="relative">
-                                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+                                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                                 <Input
                                     id="confirmPassword"
                                     type="password"

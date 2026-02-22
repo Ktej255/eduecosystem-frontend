@@ -59,7 +59,7 @@ export default function BlogsPage() {
 
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-6xl mx-auto">
-      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground">
         <ArrowLeft className="h-4 w-4 mr-1" />
         Back
       </Link>
@@ -67,11 +67,11 @@ export default function BlogsPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
             <FileText className="h-8 w-8 text-orange-600" />
             Blogs
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-muted-foreground dark:text-muted-foreground mt-1">
             Create and manage your blog posts
           </p>
         </div>
@@ -85,26 +85,26 @@ export default function BlogsPage() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <Card>
           <CardContent className="p-4 text-center">
-            <p className="text-3xl font-bold text-gray-800">{stats.total}</p>
-            <p className="text-sm text-gray-500">Total Posts</p>
+            <p className="text-3xl font-bold text-foreground">{stats.total}</p>
+            <p className="text-sm text-muted-foreground">Total Posts</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-4 text-center">
             <p className="text-3xl font-bold text-green-600">{stats.published}</p>
-            <p className="text-sm text-gray-500">Published</p>
+            <p className="text-sm text-muted-foreground">Published</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-4 text-center">
             <p className="text-3xl font-bold text-yellow-600">{stats.draft}</p>
-            <p className="text-sm text-gray-500">Drafts</p>
+            <p className="text-sm text-muted-foreground">Drafts</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-4 text-center">
             <p className="text-3xl font-bold text-blue-600">{stats.totalViews.toLocaleString()}</p>
-            <p className="text-sm text-gray-500">Total Views</p>
+            <p className="text-sm text-muted-foreground">Total Views</p>
           </CardContent>
         </Card>
       </div>
@@ -114,7 +114,7 @@ export default function BlogsPage() {
         <CardContent className="p-4">
           <div className="flex flex-col md:flex-row gap-4 justify-between">
             <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search posts..."
                 className="pl-10"
@@ -151,10 +151,10 @@ export default function BlogsPage() {
                 <div className="flex-1">
                   <div className="flex justify-between items-start">
                     <div>
-                      <h3 className="font-semibold text-lg text-gray-800 dark:text-gray-200 hover:text-orange-600 cursor-pointer">
+                      <h3 className="font-semibold text-lg text-foreground hover:text-orange-600 cursor-pointer">
                         {post.title}
                       </h3>
-                      <p className="text-sm text-gray-500 mt-1 line-clamp-2">{post.excerpt}</p>
+                      <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{post.excerpt}</p>
                     </div>
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
@@ -170,7 +170,7 @@ export default function BlogsPage() {
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </div>
-                  <div className="flex items-center gap-4 mt-3 text-sm text-gray-500">
+                  <div className="flex items-center gap-4 mt-3 text-sm text-muted-foreground">
                     <span className="flex items-center gap-1">
                       <Tag className="h-4 w-4" />
                       {post.category}

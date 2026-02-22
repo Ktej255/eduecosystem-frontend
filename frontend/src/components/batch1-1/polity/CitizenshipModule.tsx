@@ -28,14 +28,14 @@ const ImmigrationContainer = ({ children }: { children: React.ReactNode }) => (
 
 const PassportCard = ({ title, icon: Icon, children, type = "standard", stamp }: { title: string, icon: any, children: React.ReactNode, type?: "standard" | "alert" | "info" | "success", stamp?: string }) => {
     const styles = {
-        standard: "bg-white border-slate-200",
+        standard: "bg-card border-border",
         alert: "bg-red-50 border-red-200",
         info: "bg-blue-50 border-blue-200",
         success: "bg-green-50 border-green-200"
     };
 
     const iconColors = {
-        standard: "text-slate-600 bg-slate-100",
+        standard: "text-muted-foreground bg-muted",
         alert: "text-red-600 bg-red-100",
         info: "text-blue-600 bg-blue-100",
         success: "text-green-600 bg-green-100"
@@ -52,9 +52,9 @@ const PassportCard = ({ title, icon: Icon, children, type = "standard", stamp }:
                 <div className={`p-2 rounded-lg ${iconColors[type]}`}>
                     <Icon size={20} />
                 </div>
-                <h3 className="font-bold text-lg text-slate-800">{title}</h3>
+                <h3 className="font-bold text-lg text-foreground">{title}</h3>
             </div>
-            <div className="text-sm text-slate-700 space-y-3 relative z-10">
+            <div className="text-sm text-muted-foreground space-y-3 relative z-10">
                 {children}
             </div>
         </div>
@@ -90,12 +90,12 @@ export default function CitizenshipModule({ onComplete, isCompleted }: Citizensh
                     <div className="bg-blue-100 p-2 rounded-lg text-blue-700">
                         <FileText size={24} />
                     </div>
-                    <h2 className="text-2xl font-bold text-slate-800">1950 Status</h2>
+                    <h2 className="text-2xl font-bold text-foreground">1950 Status</h2>
                 </div>
 
-                <div className="bg-slate-100 p-4 rounded-lg border border-slate-200 text-center mb-4">
-                    <h3 className="font-bold text-slate-800">Part II (Articles 5-11)</h3>
-                    <p className="text-xs text-slate-500">Note: These articles ONLY identify citizens as of <strong className="text-slate-800">Jan 26, 1950</strong>. Future law left to Parliament.</p>
+                <div className="bg-muted p-4 rounded-lg border border-border text-center mb-4">
+                    <h3 className="font-bold text-foreground">Part II (Articles 5-11)</h3>
+                    <p className="text-xs text-muted-foreground">Note: These articles ONLY identify citizens as of <strong className="text-foreground">Jan 26, 1950</strong>. Future law left to Parliament.</p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -123,7 +123,7 @@ export default function CitizenshipModule({ onComplete, isCompleted }: Citizensh
 
                     <PassportCard title="Article 8: PIOs Abroad" icon={Globe}>
                         <p><strong>Target:</strong> Persons of Indian Origin residing outside India.</p>
-                        <p className="mt-2 text-xs bg-slate-50 p-2 rounded border"><strong>Condition:</strong> Registered by Diplomatic/Consular rep of India.</p>
+                        <p className="mt-2 text-xs bg-muted p-2 rounded border"><strong>Condition:</strong> Registered by Diplomatic/Consular rep of India.</p>
                     </PassportCard>
 
                     <PassportCard title="Article 9: No Dual Citizenship" icon={XCircle} type="alert" stamp="VOID">
@@ -134,24 +134,24 @@ export default function CitizenshipModule({ onComplete, isCompleted }: Citizensh
 
                 <div className="bg-slate-800 text-white p-4 rounded-xl flex items-center justify-between shadow-lg">
                     <div>
-                        <div className="text-xs text-slate-400 uppercase font-bold">The Power Article</div>
+                        <div className="text-xs text-muted-foreground uppercase font-bold">The Power Article</div>
                         <div className="font-bold text-lg">Article 11</div>
                         <div className="text-sm opacity-80">Parliament regulates citizenship law.</div>
                     </div>
                     <div className="text-right">
-                        <div className="text-xs text-slate-400 uppercase font-bold">Result</div>
+                        <div className="text-xs text-muted-foreground uppercase font-bold">Result</div>
                         <div className="font-bold text-lg text-yellow-400">Citizenship Act, 1955</div>
                     </div>
                 </div>
             </div>
 
             {/* PHASE 2: ACQUISITION */}
-            <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 pt-8 border-t border-slate-200">
+            <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 pt-8 border-t border-border">
                 <div className="flex items-center gap-2 mb-4">
                     <div className="bg-green-100 p-2 rounded-lg text-green-700">
                         <UserCheck size={24} />
                     </div>
-                    <h2 className="text-2xl font-bold text-slate-800">Acquisition (1955 Act)</h2>
+                    <h2 className="text-2xl font-bold text-foreground">Acquisition (1955 Act)</h2>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -169,7 +169,7 @@ export default function CitizenshipModule({ onComplete, isCompleted }: Citizensh
                                 <span>2004-Now</span>
                                 <span className="font-bold text-right">Both Indian OR<br />1 Indian + 1 Not Illegal</span>
                             </div>
-                            <div className="text-[10px] text-slate-500 italic mt-1">Exception: Children of Foreign Diplomats.</div>
+                            <div className="text-[10px] text-muted-foreground italic mt-1">Exception: Children of Foreign Diplomats.</div>
                         </div>
                     </PassportCard>
 
@@ -185,12 +185,12 @@ export default function CitizenshipModule({ onComplete, isCompleted }: Citizensh
                     <PassportCard title="By Registration" icon={UserCheck}>
                         <p><strong>Target:</strong> PIOs, Spouses.</p>
                         <p className="my-2 text-green-700 font-bold bg-green-50 p-2 rounded border border-green-100 text-center">7 Years Residence</p>
-                        <p className="text-xs text-slate-500">Must take oath of allegiance.</p>
+                        <p className="text-xs text-muted-foreground">Must take oath of allegiance.</p>
                     </PassportCard>
 
                     <PassportCard title="By Naturalization" icon={FileText}>
                         <p><strong>Target:</strong> Foreigners.</p>
-                        <div className="bg-slate-50 p-2 rounded border mt-2 space-y-1 text-xs">
+                        <div className="bg-muted p-2 rounded border mt-2 space-y-1 text-xs">
                             <div>1. Not illegal migrant.</div>
                             <div>2. Renounce previous citizenship.</div>
                             <div className="font-bold text-blue-700">3. Resided 12 Months + 11 Years (Total 12).</div>
@@ -200,29 +200,29 @@ export default function CitizenshipModule({ onComplete, isCompleted }: Citizensh
                 </div>
                 <div className="bg-blue-50 border border-blue-200 p-4 rounded-xl text-center">
                     <h4 className="font-bold text-blue-800 text-sm uppercase">By Incorporation of Territory</h4>
-                    <p className="text-xs text-slate-600 mt-1">If territory joins India, Govt specifies citizens. (Ex: Pondicherry 1962, Goa).</p>
+                    <p className="text-xs text-muted-foreground mt-1">If territory joins India, Govt specifies citizens. (Ex: Pondicherry 1962, Goa).</p>
                 </div>
             </div>
 
             {/* PHASE 3: LOSS & OCI */}
-            <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 pt-8 border-t border-slate-200">
+            <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 pt-8 border-t border-border">
                 <div className="flex items-center gap-2 mb-4">
                     <div className="bg-red-100 p-2 rounded-lg text-red-700">
                         <XCircle size={24} />
                     </div>
-                    <h2 className="text-2xl font-bold text-slate-800">Loss & OCI</h2>
+                    <h2 className="text-2xl font-bold text-foreground">Loss & OCI</h2>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
                     <PassportCard title="Voluntary Loss" icon={UserCheck}>
                         <div className="space-y-4">
                             <div>
-                                <div className="font-bold text-slate-800">1. Renunciation</div>
-                                <div className="text-xs text-slate-600">Man declares "I give up". Minor child also loses (can resume at 18).</div>
+                                <div className="font-bold text-foreground">1. Renunciation</div>
+                                <div className="text-xs text-muted-foreground">Man declares "I give up". Minor child also loses (can resume at 18).</div>
                             </div>
                             <div className="border-t pt-2">
-                                <div className="font-bold text-slate-800">2. Termination</div>
-                                <div className="text-xs text-slate-600">Automatic. If citizen acquires another passport.</div>
+                                <div className="font-bold text-foreground">2. Termination</div>
+                                <div className="text-xs text-muted-foreground">Automatic. If citizen acquires another passport.</div>
                             </div>
                         </div>
                     </PassportCard>
@@ -248,7 +248,7 @@ export default function CitizenshipModule({ onComplete, isCompleted }: Citizensh
                     <div className="grid md:grid-cols-2 gap-8 relative z-10">
                         <div>
                             <h4 className="font-bold text-green-700 mb-2 flex items-center gap-2"><CheckCircle2 size={16} /> The Rights</h4>
-                            <ul className="text-sm space-y-1 text-slate-700">
+                            <ul className="text-sm space-y-1 text-muted-foreground">
                                 <li>Multiple entry, lifelong visa.</li>
                                 <li>Parity with NRIs (Fin/Edu/Econ).</li>
                                 <li>No police reporting.</li>
@@ -256,7 +256,7 @@ export default function CitizenshipModule({ onComplete, isCompleted }: Citizensh
                         </div>
                         <div>
                             <h4 className="font-bold text-red-700 mb-2 flex items-center gap-2"><XCircle size={16} /> The Restrictions</h4>
-                            <ul className="text-sm space-y-1 text-slate-700">
+                            <ul className="text-sm space-y-1 text-muted-foreground">
                                 <li><strong>Cannot Vote</strong>.</li>
                                 <li>Cannot hold Constitutional Office.</li>
                                 <li><strong>Cannot buy Agri Land</strong>.</li>
@@ -270,31 +270,31 @@ export default function CitizenshipModule({ onComplete, isCompleted }: Citizensh
             </div>
 
             {/* PHASE 4: CAA 2019 */}
-            <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 pt-8 border-t border-slate-200">
+            <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 pt-8 border-t border-border">
                 <div className="flex items-center gap-2 mb-4">
                     <div className="bg-slate-900 p-2 rounded-lg text-yellow-500">
                         <Stamp size={24} />
                     </div>
-                    <h2 className="text-2xl font-bold text-slate-800">CAA 2019</h2>
+                    <h2 className="text-2xl font-bold text-foreground">CAA 2019</h2>
                 </div>
 
                 <div className="bg-slate-900 text-slate-200 p-6 rounded-xl shadow-lg border-l-4 border-yellow-500">
                     <h3 className="text-2xl font-bold text-white mb-4">Citizenship Amendment Act, 2019</h3>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div>
-                            <div className="text-xs uppercase font-bold text-slate-400 mb-1">Target Group</div>
+                            <div className="text-xs uppercase font-bold text-muted-foreground mb-1">Target Group</div>
                             <div className="text-sm mb-4">
                                 Illegal Migrants from <strong className="text-yellow-400">Afghanistan, Bangladesh, Pakistan</strong>.
                             </div>
 
-                            <div className="text-xs uppercase font-bold text-slate-400 mb-1">Communities (6)</div>
+                            <div className="text-xs uppercase font-bold text-muted-foreground mb-1">Communities (6)</div>
                             <div className="flex flex-wrap gap-2 mb-4">
                                 {["Hindu", "Sikh", "Buddhist", "Jain", "Parsi", "Christian"].map(c => (
                                     <Badge key={c} variant="secondary" className="bg-slate-700 text-slate-200 hover:bg-slate-600">{c}</Badge>
                                 ))}
                             </div>
 
-                            <div className="text-xs uppercase font-bold text-slate-400 mb-1">Cut-off Date</div>
+                            <div className="text-xs uppercase font-bold text-muted-foreground mb-1">Cut-off Date</div>
                             <div className="text-yellow-400 font-bold">On or before Dec 31, 2014</div>
                         </div>
 
@@ -319,8 +319,8 @@ export default function CitizenshipModule({ onComplete, isCompleted }: Citizensh
             </div>
 
             {/* COMPLETION */}
-            <div className="mt-8 text-center pb-8 border-t border-slate-200 pt-8">
-                <div className="flex justify-center gap-4 mb-6 text-sm text-slate-500">
+            <div className="mt-8 text-center pb-8 border-t border-border pt-8">
+                <div className="flex justify-center gap-4 mb-6 text-sm text-muted-foreground">
                     <span className="flex items-center gap-1"><CheckCircle2 size={14} className="text-green-500" /> Single Citizenship (UK)</span>
                     <span className="flex items-center gap-1"><AlertTriangle size={14} className="text-orange-500" /> Parliament can prescribe 'Residence' (Emp)</span>
                 </div>

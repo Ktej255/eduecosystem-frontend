@@ -86,7 +86,7 @@ const PrincipalNodeComponent = memo(({ data }: NodeProps) => {
                 border: `2px solid ${bgColor}`,
             }}
         >
-            <Handle type="target" position={Position.Left} className="!bg-white !w-2.5 !h-2.5 !border-2" style={{ borderColor: bgColor }} />
+            <Handle type="target" position={Position.Left} className="!bg-card !w-2.5 !h-2.5 !border-2" style={{ borderColor: bgColor }} />
 
             {/* Study Order Badge */}
             {studyOrder && studyOrder <= 10 && (
@@ -111,7 +111,7 @@ const PrincipalNodeComponent = memo(({ data }: NodeProps) => {
                 {nodeData?.name}
             </div>
 
-            <Handle type="source" position={Position.Right} className="!bg-white !w-2 !h-2" />
+            <Handle type="source" position={Position.Right} className="!bg-card !w-2 !h-2" />
         </div>
     );
 });
@@ -127,7 +127,7 @@ const MinorNodeComponent = memo(({ data }: NodeProps) => {
 
     return (
         <div
-            className="relative px-3 py-2 rounded-lg bg-white/80 backdrop-blur-sm cursor-pointer transition-all duration-300 hover:bg-white hover:shadow-md hover:scale-102"
+            className="relative px-3 py-2 rounded-lg bg-card/80 backdrop-blur-sm cursor-pointer transition-all duration-300 hover:bg-card hover:shadow-md hover:scale-102"
             style={{
                 border: `2px solid ${borderColor}`,
                 minWidth: 120,

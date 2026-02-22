@@ -35,7 +35,7 @@ export default function RevisionGlobalPage() {
                                 onClick={() => setActiveCategory(cat)}
                                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === cat
                                         ? "bg-grapho-ink text-white shadow-lg scale-105"
-                                        : "bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 hover:scale-105 border border-neutral-200 dark:border-neutral-700"
+                                        : "bg-card dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 hover:scale-105 border border-neutral-200 dark:border-neutral-700"
                                     }`}
                             >
                                 {cat}
@@ -67,7 +67,7 @@ export default function RevisionGlobalPage() {
                 <div className="container mx-auto px-4 md:px-6 relative z-10">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="space-y-8">
-                            <h2 className="text-4xl md:text-5xl font-display font-bold text-grapho-ink dark:text-white leading-tight">
+                            <h2 className="text-4xl md:text-5xl font-display font-bold text-grapho-ink leading-tight">
                                 Why Top Rankers Choose <span className="text-primary-blue">Eduecosystem?</span>
                             </h2>
                             <p className="text-lg text-neutral-600 dark:text-neutral-400">
@@ -95,7 +95,7 @@ export default function RevisionGlobalPage() {
 
                         <div className="relative">
                             {/* Abstract Visual Representation features */}
-                            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white dark:bg-neutral-800 p-8 border border-neutral-100 dark:border-neutral-700">
+                            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-card dark:bg-neutral-800 p-8 border border-neutral-100 dark:border-neutral-700">
                                 <div className="flex items-center justify-between mb-8">
                                     <h3 className="text-xl font-bold">Your Progress</h3>
                                     <span className="text-green-500 font-bold text-sm">+24% This Week</span>
@@ -149,7 +149,7 @@ export default function RevisionGlobalPage() {
 function FeatureItem({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) {
     return (
         <div className="flex gap-4 items-start">
-            <div className="p-3 bg-white dark:bg-neutral-800 rounded-xl shadow-sm border border-neutral-100 dark:border-neutral-700 shrink-0">
+            <div className="p-3 bg-card dark:bg-neutral-800 rounded-xl shadow-sm border border-neutral-100 dark:border-neutral-700 shrink-0">
                 {icon}
             </div>
             <div>

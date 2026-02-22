@@ -64,19 +64,19 @@ export default function UPSCGlobalSearch() {
             <DialogTrigger asChild>
                 <div className="relative w-full max-w-xl cursor-pointer group">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <Search className="h-5 w-5 text-gray-400 group-hover:text-blue-500 transition-colors" />
+                        <Search className="h-5 w-5 text-muted-foreground group-hover:text-blue-500 transition-colors" />
                     </div>
-                    <div className="block w-full pl-10 pr-3 py-3 border border-gray-200 dark:border-gray-800 rounded-xl leading-5 bg-white dark:bg-[#111] text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm group-hover:shadow-md transition-all">
+                    <div className="block w-full pl-10 pr-3 py-3 border border-border rounded-xl leading-5 bg-card dark:bg-[#111] text-foreground placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm group-hover:shadow-md transition-all">
                         Search books, chapters, or topics...
                     </div>
                     <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                        <span className="text-gray-400 text-xs border border-gray-200 dark:border-gray-800 rounded px-1.5 py-0.5">Ctrl K</span>
+                        <span className="text-muted-foreground text-xs border border-border rounded px-1.5 py-0.5">Ctrl K</span>
                     </div>
                 </div>
             </DialogTrigger>
-            <DialogContent className="p-0 max-w-2xl bg-white dark:bg-[#111] overflow-hidden">
-                <div className="flex items-center border-b border-gray-200 dark:border-gray-800 px-4">
-                    <Search className="mr-2 h-5 w-5 text-gray-400" />
+            <DialogContent className="p-0 max-w-2xl bg-card dark:bg-[#111] overflow-hidden">
+                <div className="flex items-center border-b border-border px-4">
+                    <Search className="mr-2 h-5 w-5 text-muted-foreground" />
                     <Input
                         className="border-0 focus-visible:ring-0 px-0 py-4 text-lg bg-transparent"
                         placeholder="Type to search..."
@@ -87,10 +87,10 @@ export default function UPSCGlobalSearch() {
                 </div>
                 <div className="max-h-[60vh] overflow-y-auto p-2">
                     {results.length === 0 && query && (
-                        <p className="p-4 text-center text-gray-500">No results found.</p>
+                        <p className="p-4 text-center text-muted-foreground">No results found.</p>
                     )}
                     {results.length === 0 && !query && (
-                        <div className="p-8 text-center text-gray-500">
+                        <div className="p-8 text-center text-muted-foreground">
                             <Search className="w-12 h-12 mx-auto mb-3 opacity-20" />
                             <p>Search across 15+ books and 300+ chapters.</p>
                         </div>
@@ -99,20 +99,20 @@ export default function UPSCGlobalSearch() {
                         <div
                             key={idx}
                             onClick={() => handleSelect(result.url)}
-                            className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
+                            className="flex items-center gap-4 p-3 rounded-lg hover:bg-muted dark:hover:bg-gray-800 cursor-pointer transition-colors"
                         >
                             <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0
                                 ${result.type === 'book' ? 'bg-blue-100 text-blue-600' :
-                                    result.type === 'chapter' ? 'bg-orange-100 text-orange-600' : 'bg-gray-100 text-gray-600'}`}>
+                                    result.type === 'chapter' ? 'bg-orange-100 text-orange-600' : 'bg-muted text-muted-foreground'}`}>
                                 {result.type === 'book' && <Book className="w-5 h-5" />}
                                 {result.type === 'chapter' && <FileText className="w-5 h-5" />}
                                 {result.type === 'subject' && <Search className="w-5 h-5" />}
                             </div>
                             <div className="flex-1 min-w-0">
-                                <h4 className="font-medium text-gray-900 dark:text-gray-100 truncate">{result.title}</h4>
-                                {result.subtitle && <p className="text-xs text-gray-500 truncate">{result.subtitle}</p>}
+                                <h4 className="font-medium text-foreground truncate">{result.title}</h4>
+                                {result.subtitle && <p className="text-xs text-muted-foreground truncate">{result.subtitle}</p>}
                             </div>
-                            <ArrowRight className="w-4 h-4 text-gray-400" />
+                            <ArrowRight className="w-4 h-4 text-muted-foreground" />
                         </div>
                     ))}
                 </div>

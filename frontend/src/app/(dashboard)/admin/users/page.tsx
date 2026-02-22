@@ -98,13 +98,13 @@ export default function UsersPage() {
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-4xl font-bold text-white mb-2">User Management</h1>
-        <p className="text-gray-400">Manage all platform users</p>
+        <p className="text-muted-foreground">Manage all platform users</p>
       </div>
 
       {/* Search Bar */}
       <div className="mb-6 flex items-center space-x-4">
         <div className="relative flex-1 max-w-md">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input
             type="text"
             placeholder="Search by name or email..."
@@ -124,7 +124,7 @@ export default function UsersPage() {
 
       {/* Stats */}
       <div className="mb-6">
-        <p className="text-gray-400">
+        <p className="text-muted-foreground">
           Total Users: <span className="text-white font-bold">{total}</span>
         </p>
       </div>
@@ -138,15 +138,15 @@ export default function UsersPage() {
             <table className="w-full">
               <thead className="border-b border-gray-800">
                 <tr className="text-left">
-                  <th className="p-4 text-gray-400 font-semibold">ID</th>
-                  <th className="p-4 text-gray-400 font-semibold">Email</th>
-                  <th className="p-4 text-gray-400 font-semibold">Name</th>
-                  <th className="p-4 text-gray-400 font-semibold">Role</th>
-                  <th className="p-4 text-gray-400 font-semibold">Coins</th>
-                  <th className="p-4 text-gray-400 font-semibold">Streak</th>
-                  <th className="p-4 text-gray-400 font-semibold">Status</th>
-                  <th className="p-4 text-gray-400 font-semibold">Batch 1</th>
-                  <th className="p-4 text-gray-400 font-semibold">Actions</th>
+                  <th className="p-4 text-muted-foreground font-semibold">ID</th>
+                  <th className="p-4 text-muted-foreground font-semibold">Email</th>
+                  <th className="p-4 text-muted-foreground font-semibold">Name</th>
+                  <th className="p-4 text-muted-foreground font-semibold">Role</th>
+                  <th className="p-4 text-muted-foreground font-semibold">Coins</th>
+                  <th className="p-4 text-muted-foreground font-semibold">Streak</th>
+                  <th className="p-4 text-muted-foreground font-semibold">Status</th>
+                  <th className="p-4 text-muted-foreground font-semibold">Batch 1</th>
+                  <th className="p-4 text-muted-foreground font-semibold">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -162,7 +162,7 @@ export default function UsersPage() {
                       <span
                         className={`px-2 py-1 rounded text-xs font-semibold ${user.role === "admin"
                           ? "bg-purple-600 text-white"
-                          : "bg-gray-700 text-gray-300"
+                          : "bg-gray-700 text-muted-foreground"
                           }`}
                       >
                         {user.role}
@@ -189,7 +189,7 @@ export default function UsersPage() {
                       {user.is_batch1_authorized ? (
                         <span className="text-green-500 text-xs font-bold">Yes</span>
                       ) : (
-                        <span className="text-gray-500 text-xs">No</span>
+                        <span className="text-muted-foreground text-xs">No</span>
                       )}
                     </td>
                     <td className="p-4">

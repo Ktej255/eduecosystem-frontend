@@ -65,7 +65,7 @@ export default function AIWritingToolsPage() {
                 <FileEdit className="h-8 w-8 text-purple-500" />
                 <h1 className="text-4xl font-black text-white">AI Writing Tools</h1>
             </div>
-            <p className="text-gray-400 text-lg">
+            <p className="text-muted-foreground text-lg">
                 Improve your writing with AI-powered analysis. Grade essays and check for plagiarism.
             </p>
 
@@ -94,7 +94,7 @@ export default function AIWritingToolsPage() {
                                 onChange={(e) => setEssayText(e.target.value)}
                             />
                             <div className="flex justify-between items-center mt-4">
-                                <span className="text-xs text-gray-500">{essayText.length} characters</span>
+                                <span className="text-xs text-muted-foreground">{essayText.length} characters</span>
                                 <Button
                                     onClick={activeTab === "grader" ? handleGradeEssay : handleCheckPlagiarism}
                                     disabled={loading || !essayText.trim()}
@@ -119,7 +119,7 @@ export default function AIWritingToolsPage() {
                         </CardHeader>
                         <CardContent>
                             {!result && !loading && (
-                                <div className="text-center py-12 text-gray-500">
+                                <div className="text-center py-12 text-muted-foreground">
                                     <Sparkles className="h-12 w-12 mx-auto mb-4 opacity-30" />
                                     <p>Paste your text and click analyze to see results</p>
                                 </div>
@@ -128,8 +128,8 @@ export default function AIWritingToolsPage() {
                             {result && !result.error && activeTab === "grader" && (
                                 <div className="space-y-6">
                                     <div className="text-center p-6 bg-gradient-to-br from-purple-900/30 to-black rounded-xl border border-purple-500/20">
-                                        <div className="text-5xl font-black text-purple-400">{result.score}<span className="text-2xl text-gray-500">/100</span></div>
-                                        <p className="text-sm text-gray-400 mt-2">Overall Score</p>
+                                        <div className="text-5xl font-black text-purple-400">{result.score}<span className="text-2xl text-muted-foreground">/100</span></div>
+                                        <p className="text-sm text-muted-foreground mt-2">Overall Score</p>
                                     </div>
 
                                     <div>
@@ -137,7 +137,7 @@ export default function AIWritingToolsPage() {
                                             <CheckCircle2 className="h-4 w-4 text-green-500" />
                                             Strengths
                                         </h4>
-                                        <ul className="space-y-1 text-sm text-gray-400">
+                                        <ul className="space-y-1 text-sm text-muted-foreground">
                                             {result.strengths?.map((s: string, i: number) => (
                                                 <li key={i} className="flex items-start gap-2">
                                                     <span className="text-green-500">•</span> {s}
@@ -151,7 +151,7 @@ export default function AIWritingToolsPage() {
                                             <AlertTriangle className="h-4 w-4 text-amber-500" />
                                             Areas to Improve
                                         </h4>
-                                        <ul className="space-y-1 text-sm text-gray-400">
+                                        <ul className="space-y-1 text-sm text-muted-foreground">
                                             {result.improvements?.map((s: string, i: number) => (
                                                 <li key={i} className="flex items-start gap-2">
                                                     <span className="text-amber-500">•</span> {s}
@@ -168,7 +168,7 @@ export default function AIWritingToolsPage() {
                                         <div className={`text-5xl font-black ${result.is_plagiarized ? 'text-red-400' : 'text-green-400'}`}>
                                             {result.originality_score?.toFixed(0)}%
                                         </div>
-                                        <p className="text-sm text-gray-400 mt-2">Originality Score</p>
+                                        <p className="text-sm text-muted-foreground mt-2">Originality Score</p>
                                     </div>
 
                                     <div className={`p-4 rounded-lg ${result.is_plagiarized ? 'bg-red-500/10 text-red-400' : 'bg-green-500/10 text-green-400'}`}>

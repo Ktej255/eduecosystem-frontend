@@ -33,12 +33,12 @@ export default function AssignmentsPage() {
         {
             key: "course_id",
             label: "Course",
-            render: (val: number) => <span className="text-gray-400">Course #{val}</span>
+            render: (val: number) => <span className="text-muted-foreground">Course #{val}</span>
         },
         {
             key: "due_date",
             label: "Due Date",
-            render: (val: string) => <span className="text-gray-400">{val ? new Date(val).toLocaleDateString() : "No due date"}</span>
+            render: (val: string) => <span className="text-muted-foreground">{val ? new Date(val).toLocaleDateString() : "No due date"}</span>
         },
         {
             key: "status",

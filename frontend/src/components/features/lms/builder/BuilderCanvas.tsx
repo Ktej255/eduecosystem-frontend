@@ -56,7 +56,7 @@ function SortableSection({ section }: { section: PageSection }) {
           {...listeners}
           className="p-2 bg-gray-900 rounded-lg border border-gray-700 hover:border-cyan-500 cursor-grab active:cursor-grabbing"
         >
-          <GripVertical className="h-4 w-4 text-gray-400" />
+          <GripVertical className="h-4 w-4 text-muted-foreground" />
         </button>
         <button
           onClick={(e) => {
@@ -65,7 +65,7 @@ function SortableSection({ section }: { section: PageSection }) {
           }}
           className="p-2 bg-gray-900 rounded-lg border border-gray-700 hover:border-red-500 hover:text-red-500"
         >
-          <Trash2 className="h-4 w-4 text-gray-400" />
+          <Trash2 className="h-4 w-4 text-muted-foreground" />
         </button>
       </div>
 
@@ -101,8 +101,8 @@ export function BuilderCanvas() {
   if (sections.length === 0) {
     return (
       <div className="flex-1 bg-black overflow-y-auto flex items-center justify-center">
-        <div className="text-center text-gray-500">
-          <Layout className="h-16 w-16 mx-auto mb-4 text-gray-700" />
+        <div className="text-center text-muted-foreground">
+          <Layout className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
           <p className="text-lg">
             Click sections on the left to add them to your page
           </p>

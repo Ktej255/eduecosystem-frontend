@@ -60,10 +60,10 @@ export default function MeditationDashboard() {
                     <h1 className="text-3xl md:text-5xl font-serif text-white/90 mb-2">Meditation Center</h1>
                     <p className="text-neutral-400">Find your center. Realign your mind.</p>
                     <div className="mt-4 flex gap-4 text-sm text-neutral-400">
-                        <div className="bg-white/5 px-3 py-1 rounded-lg border border-white/10">
+                        <div className="bg-card/5 px-3 py-1 rounded-lg border border-white/10">
                             Streak: <span className="text-white font-bold">{overview?.total_streak} Days</span>
                         </div>
-                        <div className="bg-white/5 px-3 py-1 rounded-lg border border-white/10">
+                        <div className="bg-card/5 px-3 py-1 rounded-lg border border-white/10">
                             Level: <span className="text-white font-bold">{overview?.current_level}</span>
                         </div>
                     </div>

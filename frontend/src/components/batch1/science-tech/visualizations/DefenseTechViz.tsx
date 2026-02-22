@@ -232,16 +232,16 @@ export default function DefenseTechViz() {
     const [selectedSystem, setSelectedSystem] = useState<MissileSystem>(MISSILE_SYSTEMS[0]);
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm h-[500px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-border rounded-2xl overflow-hidden shadow-sm h-[500px]">
             {/* Left: List & Info */}
-            <div className="bg-white dark:bg-slate-900 overflow-y-auto w-full p-4 flex flex-col">
+            <div className="bg-card overflow-y-auto w-full p-4 flex flex-col">
                 <div className="flex items-center gap-3 mb-6">
                     <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
                         <Shield className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                     </div>
                     <div>
-                        <h3 className="font-bold text-slate-900 dark:text-white">Defense Tech</h3>
-                        <p className="text-xs text-slate-500">Missile Systems Registry</p>
+                        <h3 className="font-bold text-foreground">Defense Tech</h3>
+                        <p className="text-xs text-muted-foreground">Missile Systems Registry</p>
                     </div>
                 </div>
 
@@ -252,11 +252,11 @@ export default function DefenseTechViz() {
                             onClick={() => setSelectedSystem(sys)}
                             className={`w-full text-left p-3 rounded-lg border transition-all ${selectedSystem.id === sys.id
                                 ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20'
-                                : 'border-slate-200 dark:border-slate-800 hover:border-indigo-300'
+                                : 'border-border hover:border-indigo-300'
                                 }`}
                         >
                             <div className="flex justify-between items-start mb-1">
-                                <span className={`font-bold text-sm ${selectedSystem.id === sys.id ? 'text-indigo-700 dark:text-indigo-300' : 'text-slate-700 dark:text-slate-300'}`}>
+                                <span className={`font-bold text-sm ${selectedSystem.id === sys.id ? 'text-indigo-700 dark:text-indigo-300' : 'text-muted-foreground'}`}>
                                     {sys.name}
                                 </span>
                                 <span className={`text-[10px] px-1.5 py-0.5 rounded font-mono uppercase ${sys.trajectory === 'ballistic' ? 'bg-red-100 text-red-700' : 'bg-amber-100 text-amber-700'
@@ -264,17 +264,17 @@ export default function DefenseTechViz() {
                                     {sys.trajectory}
                                 </span>
                             </div>
-                            <p className="text-xs text-slate-500 line-clamp-1">{sys.description}</p>
+                            <p className="text-xs text-muted-foreground line-clamp-1">{sys.description}</p>
                         </button>
                     ))}
                 </div>
 
-                <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-950 rounded-lg border border-slate-100 dark:border-slate-800">
+                <div className="mt-4 p-3 bg-muted rounded-lg border border-slate-100">
                     <div className="flex items-center gap-2 mb-2 text-indigo-600 dark:text-indigo-400">
                         <Info className="w-4 h-4" />
                         <span className="text-xs font-bold uppercase">Strategic Context</span>
                     </div>
-                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <p className="text-xs text-muted-foreground dark:text-muted-foreground leading-relaxed">
                         {selectedSystem.type.includes('ICBM') && "ICBMs (Intercontinental Ballistic Missiles) exit the atmosphere (exospheric) for maximum range, re-entering at hypersonic speeds. Agni-V puts all of China/Europe in range."}
                         {selectedSystem.type.includes('MRBM') && "MRBM (Medium Range) bridges the gap between tactical and strategic deterrence. Agni-P is canisterised, meaning rapid deployment."}
                         {selectedSystem.type.includes('Cruise') && "Cruise missiles (like BrahMos/Nirbhay) fly at low altitudes (endospheric) to evade radar detection, hugging the terrain."}

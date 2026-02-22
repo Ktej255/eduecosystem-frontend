@@ -15,7 +15,7 @@ import RASAnswerWritingSession from "@/components/ras/RASAnswerWritingSession";
 import { getPomodoroTimerService } from "@/services/PomodoroTimerService";
 
 // Organic Futurism Utilities
-const glassCard = "bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-white/20 dark:border-neutral-800 shadow-xl";
+const glassCard = "bg-card/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-white/20 dark:border-neutral-800 shadow-xl";
 const gradientText = "bg-gradient-to-r from-amber-600 to-rose-600 bg-clip-text text-transparent";
 
 export default function RASRevisionPortal() {
@@ -193,7 +193,7 @@ export default function RASRevisionPortal() {
                         <Button
                             size="lg"
                             variant="outline"
-                            className="h-14 px-8 rounded-full border-neutral-700 hover:bg-white/5 text-white backdrop-blur-md"
+                            className="h-14 px-8 rounded-full border-neutral-700 hover:bg-card/5 text-white backdrop-blur-md"
                             onClick={() => setIsScheduleOpen(true)}
                         >
                             View Full Schedule
@@ -208,7 +208,7 @@ export default function RASRevisionPortal() {
                         <Button
                             size="lg"
                             variant="ghost"
-                            className="h-14 px-8 rounded-full text-neutral-400 hover:text-white hover:bg-white/5"
+                            className="h-14 px-8 rounded-full text-neutral-400 hover:text-white hover:bg-card/5"
                             onClick={() => setIsSyllabusOpen(true)}
                         >
                             <BookOpen className="w-5 h-5 mr-2" /> Syllabus 2026
@@ -455,7 +455,7 @@ export default function RASRevisionPortal() {
                                     variant="ghost"
                                     size="icon"
                                     onClick={() => setIsScheduleOpen(false)}
-                                    className="rounded-full hover:bg-white/10"
+                                    className="rounded-full hover:bg-card/10"
                                 >
                                     <X className="w-6 h-6 text-white" />
                                 </Button>
@@ -541,7 +541,7 @@ function SessionCard({ session, onStart }: { session: RASSession, onStart: () =>
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                        <span className={`px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest border ${typeColors[session.type] || "bg-gray-100 text-gray-700"}`}>
+                        <span className={`px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest border ${typeColors[session.type] || "bg-muted text-muted-foreground"}`}>
                             {session.type}
                         </span>
                         <span className="text-xs text-neutral-400 font-medium flex items-center gap-1">
@@ -562,7 +562,7 @@ function SessionCard({ session, onStart }: { session: RASSession, onStart: () =>
                     ) : (
                         <Button
                             size="lg"
-                            className="rounded-full bg-neutral-900 dark:bg-white text-white dark:text-black hover:bg-amber-500 dark:hover:bg-amber-500 font-bold shadow-lg transition-all"
+                            className="rounded-full bg-neutral-900 dark:bg-card text-white dark:text-black hover:bg-amber-500 dark:hover:bg-amber-500 font-bold shadow-lg transition-all"
                             onClick={onStart}
                         >
                             <Play className="w-4 h-4 mr-2 fill-current" /> Start

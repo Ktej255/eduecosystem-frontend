@@ -22,7 +22,7 @@ export default function TelegramCommunitiesPage() {
           </div>
           <div>
             <div className="font-medium text-white">{value}</div>
-            <div className="text-xs text-gray-500">{row.type}</div>
+            <div className="text-xs text-muted-foreground">{row.type}</div>
           </div>
         </div>
       )
@@ -32,7 +32,7 @@ export default function TelegramCommunitiesPage() {
       label: "Members",
       render: (value: number) => (
         <div className="flex items-center gap-2">
-          <Users className="h-3 w-3 text-gray-500" />
+          <Users className="h-3 w-3 text-muted-foreground" />
           {value.toLocaleString()}
         </div>
       )

@@ -108,7 +108,7 @@ export function BiometricLock() {
             <CardContent className="space-y-6">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                        <ShieldCheck className="w-4 h-4 text-gray-400" />
+                        <ShieldCheck className="w-4 h-4 text-muted-foreground" />
                         <span className="text-sm font-medium">Enable Biometric Login</span>
                     </div>
                     <Switch checked={isEnabled} onCheckedChange={handleToggle} />
@@ -119,7 +119,7 @@ export function BiometricLock() {
                         <div className={`p-3 rounded-full ${isAuthenticated ? "bg-green-500/20 text-green-500" : "bg-red-500/20 text-red-500"}`}>
                             {isAuthenticated ? <Unlock className="w-6 h-6" /> : <Lock className="w-6 h-6" />}
                         </div>
-                        <p className="text-xs text-center text-gray-500">
+                        <p className="text-xs text-center text-muted-foreground">
                             {isAuthenticated ? "Session Secure & Verified" : "Verification Required for Sensitive Actions"}
                         </p>
                         {!isAuthenticated && (

@@ -82,7 +82,7 @@ export function ProgressBar({
                 </div>
             )}
             <div
-                className="w-full bg-gray-200 rounded-full overflow-hidden"
+                className="w-full bg-muted rounded-full overflow-hidden"
                 style={{ height }}
             >
                 <div
@@ -122,7 +122,7 @@ export function StreakCalendar({ completedDays, totalDays = 30 }: StreakCalendar
                         key={index}
                         className={`aspect-square rounded-md transition-all ${isCompleted
                                 ? 'bg-[var(--accent-green)] opacity-100'
-                                : 'bg-gray-200 opacity-40'
+                                : 'bg-muted opacity-40'
                             } ${isToday ? 'ring-2 ring-[var(--primary-blue)]' : ''}`}
                         title={`${dateStr}${isCompleted ? ' - Completed' : ''}`}
                     />

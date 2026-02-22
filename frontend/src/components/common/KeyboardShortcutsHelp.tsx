@@ -15,12 +15,12 @@ export default function KeyboardShortcutsHelp({ context, compact = false }: Keyb
 
     if (compact) {
         return (
-            <div className="text-xs text-gray-500 flex items-center gap-2">
+            <div className="text-xs text-muted-foreground flex items-center gap-2">
                 <Keyboard className="h-3 w-3" />
                 <span>
                     {shortcuts.slice(0, 2).map((s, i) => (
                         <span key={i}>
-                            <kbd className="px-1 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-[10px]">{s.key}</kbd>
+                            <kbd className="px-1 py-0.5 bg-muted rounded text-[10px]">{s.key}</kbd>
                             <span className="mx-1">{s.description}</span>
                             {i < 1 && <span className="mx-2">|</span>}
                         </span>
@@ -31,21 +31,21 @@ export default function KeyboardShortcutsHelp({ context, compact = false }: Keyb
     }
 
     return (
-        <Card className="bg-gray-50 dark:bg-gray-900">
+        <Card className="bg-muted">
             <CardContent className="p-4">
                 <div className="flex items-center gap-2 mb-3">
-                    <Keyboard className="h-4 w-4 text-gray-500" />
-                    <span className="font-medium text-sm text-gray-700 dark:text-gray-300">
+                    <Keyboard className="h-4 w-4 text-muted-foreground" />
+                    <span className="font-medium text-sm text-muted-foreground dark:text-muted-foreground">
                         Keyboard Shortcuts
                     </span>
                 </div>
                 <div className="space-y-2">
                     {shortcuts.map((shortcut, index) => (
                         <div key={index} className="flex items-center justify-between text-sm">
-                            <kbd className="px-2 py-1 bg-white dark:bg-gray-800 border rounded text-xs font-mono">
+                            <kbd className="px-2 py-1 bg-card border rounded text-xs font-mono">
                                 {shortcut.key}
                             </kbd>
-                            <span className="text-gray-600 dark:text-gray-400 text-xs">
+                            <span className="text-muted-foreground dark:text-muted-foreground text-xs">
                                 {shortcut.description}
                             </span>
                         </div>

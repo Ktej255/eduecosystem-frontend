@@ -41,7 +41,7 @@ export default function SecurePDFViewer({ pdfUrl, title }: SecurePDFViewerProps)
         <div ref={containerRef} className="relative w-full h-full bg-gray-900 flex flex-col items-center select-none print:hidden">
             {/* Security Watermark / Overlay */}
             <div className="absolute inset-0 pointer-events-none z-10 flex items-center justify-center opacity-[0.03] rotate-45">
-                <div className="text-9xl font-bold text-black dark:text-white whitespace-nowrap">
+                <div className="text-9xl font-bold text-black whitespace-nowrap">
                     CONFIDENTIAL • DO NOT SHARE
                 </div>
             </div>
@@ -63,7 +63,7 @@ export default function SecurePDFViewer({ pdfUrl, title }: SecurePDFViewerProps)
             `}</style>
 
             {/* The PDF Iframe - "Sandboxed" via overlays */}
-            <div className="relative w-full h-[800px] bg-white overflow-hidden shadow-2xl rounded-sm">
+            <div className="relative w-full h-[800px] bg-card overflow-hidden shadow-2xl rounded-sm">
                 {/* Transparent overlay to block direct iframe interaction (optional - blocks scroll so maybe allow scroll but block context) */}
                 {/* We can't block direct interaction if we want them to scroll internal PDF. 
                     Best effort: simple iframe. If native PDF reader inside iframe allows download, we can't easily stop it cross-origin.
@@ -79,7 +79,7 @@ export default function SecurePDFViewer({ pdfUrl, title }: SecurePDFViewerProps)
                 {/* Fallback msg if iframe blocks */}
             </div>
 
-            <div className="mt-4 text-xs text-gray-500 flex items-center gap-2">
+            <div className="mt-4 text-xs text-muted-foreground flex items-center gap-2">
                 <Lock className="w-3 h-3" />
                 <span>Protected Content. Downloads and Printing disabled.</span>
             </div>

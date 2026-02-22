@@ -94,18 +94,18 @@ export default function UPSCStorePage() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a] pb-24">
+        <div className="min-h-screen bg-muted dark:bg-[#0a0a0a] pb-24">
             {/* HERDER */}
             <div className="bg-[#0f172a] text-white pt-12 pb-24 px-6 relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-32 bg-blue-500/20 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
                 <div className="max-w-7xl mx-auto relative z-10 text-center">
-                    <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                    <div className="inline-flex items-center gap-2 bg-card/10 border border-white/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
                         <ShoppingBag className="w-3 h-3" /> UPSC Arsenal
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
                         Upgrade Your Preparation
                     </h1>
-                    <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                         Unlock advanced cognitive engines, stress management tools, and logic masterclasses.
                     </p>
                 </div>
@@ -117,7 +117,7 @@ export default function UPSCStorePage() {
                     {PRODUCTS.map((product) => (
                         <div
                             key={product.id}
-                            className={`bg-white dark:bg-[#111] rounded-3xl p-8 border hover:scale-105 transition-all duration-300 shadow-xl flex flex-col ${product.bestValue ? 'border-amber-500 ring-4 ring-amber-500/10' : 'border-gray-200 dark:border-gray-800'}`}
+                            className={`bg-card dark:bg-[#111] rounded-3xl p-8 border hover:scale-105 transition-all duration-300 shadow-xl flex flex-col ${product.bestValue ? 'border-amber-500 ring-4 ring-amber-500/10' : 'border-border'}`}
                         >
                             {product.bestValue && (
                                 <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold uppercase tracking-widest py-1.5 px-3 rounded-full w-fit mb-4">
@@ -129,21 +129,21 @@ export default function UPSCStorePage() {
                                 <product.icon className="w-7 h-7" />
                             </div>
 
-                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                            <h3 className="text-2xl font-bold text-foreground mb-2">
                                 {product.title}
                             </h3>
-                            <p className="text-gray-500 dark:text-gray-400 text-sm mb-6 flex-1">
+                            <p className="text-muted-foreground dark:text-muted-foreground text-sm mb-6 flex-1">
                                 {product.description}
                             </p>
 
                             <div className="flex items-end gap-2 mb-8">
-                                <span className="text-4xl font-black text-gray-900 dark:text-white">₹{product.price}</span>
-                                <span className="text-lg text-gray-400 line-through mb-1">₹{product.originalPrice}</span>
+                                <span className="text-4xl font-black text-foreground">₹{product.price}</span>
+                                <span className="text-lg text-muted-foreground line-through mb-1">₹{product.originalPrice}</span>
                             </div>
 
                             <ul className="space-y-3 mb-8">
                                 {product.features.map((feat, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                                    <li key={i} className="flex items-center gap-3 text-sm text-muted-foreground dark:text-muted-foreground">
                                         <CheckCircle className="w-4 h-4 text-green-500 shrink-0" />
                                         {feat}
                                     </li>
@@ -154,8 +154,8 @@ export default function UPSCStorePage() {
                                 onClick={() => handlePurchase(product.id, product.price)}
                                 disabled={purchasing === product.id}
                                 className={`w-full py-4 rounded-xl font-bold text-lg shadow-xl flex items-center justify-center gap-2 transition-all ${purchasing === product.id
-                                    ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-                                    : 'bg-gray-900 dark:bg-white text-white dark:text-black hover:opacity-90 active:scale-95'
+                                    ? 'bg-muted text-muted-foreground cursor-not-allowed'
+                                    : 'bg-gray-900 dark:bg-card text-white dark:text-black hover:opacity-90 active:scale-95'
                                     }`}
                             >
                                 {purchasing === product.id ? (
@@ -174,8 +174,8 @@ export default function UPSCStorePage() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-50 grayscale hover:grayscale-0 transition-all">
                     {[1, 2, 3, 4].map((_, i) => (
                         <div key={i} className="flex flex-col items-center gap-2">
-                            <Shield className="w-8 h-8 text-gray-400" />
-                            <span className="text-xs font-bold uppercase text-gray-500">Secure Payment</span>
+                            <Shield className="w-8 h-8 text-muted-foreground" />
+                            <span className="text-xs font-bold uppercase text-muted-foreground">Secure Payment</span>
                         </div>
                     ))}
                 </div>

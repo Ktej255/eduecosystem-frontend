@@ -47,11 +47,11 @@ export default function InstructorsPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
             <GraduationCap className="h-8 w-8 text-emerald-600" />
             Instructors
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-muted-foreground dark:text-muted-foreground mt-1">
             Manage course instructors and their assignments
           </p>
         </div>
@@ -67,7 +67,7 @@ export default function InstructorsPage() {
           <CardContent className="p-4">
             <div className="text-center">
               <p className="text-3xl font-bold text-emerald-600">{instructors.length}</p>
-              <p className="text-sm text-gray-500">Total Instructors</p>
+              <p className="text-sm text-muted-foreground">Total Instructors</p>
             </div>
           </CardContent>
         </Card>
@@ -77,7 +77,7 @@ export default function InstructorsPage() {
               <p className="text-3xl font-bold text-blue-600">
                 {instructors.reduce((sum, i) => sum + i.courses, 0)}
               </p>
-              <p className="text-sm text-gray-500">Total Courses</p>
+              <p className="text-sm text-muted-foreground">Total Courses</p>
             </div>
           </CardContent>
         </Card>
@@ -87,7 +87,7 @@ export default function InstructorsPage() {
               <p className="text-3xl font-bold text-purple-600">
                 {instructors.reduce((sum, i) => sum + i.students, 0)}
               </p>
-              <p className="text-sm text-gray-500">Total Students</p>
+              <p className="text-sm text-muted-foreground">Total Students</p>
             </div>
           </CardContent>
         </Card>
@@ -97,7 +97,7 @@ export default function InstructorsPage() {
               <p className="text-3xl font-bold text-yellow-600">
                 {(instructors.reduce((sum, i) => sum + i.rating, 0) / instructors.length).toFixed(1)}
               </p>
-              <p className="text-sm text-gray-500">Avg Rating</p>
+              <p className="text-sm text-muted-foreground">Avg Rating</p>
             </div>
           </CardContent>
         </Card>
@@ -107,7 +107,7 @@ export default function InstructorsPage() {
       <Card>
         <CardContent className="p-4">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder="Search instructors..."
               className="pl-10"
@@ -149,7 +149,7 @@ export default function InstructorsPage() {
                         <span className="font-medium">{instructor.name}</span>
                       </div>
                     </TableCell>
-                    <TableCell className="text-gray-500">{instructor.email}</TableCell>
+                    <TableCell className="text-muted-foreground">{instructor.email}</TableCell>
                     <TableCell className="text-center">
                       <div className="flex items-center justify-center gap-1">
                         <BookOpen className="h-4 w-4 text-blue-500" />

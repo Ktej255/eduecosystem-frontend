@@ -119,11 +119,11 @@ export default function MessageThread({
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {loading ? (
-          <p className="text-center text-gray-500 mt-10">
+          <p className="text-center text-muted-foreground mt-10">
             Loading conversation...
           </p>
         ) : messages.length === 0 ? (
-          <p className="text-center text-gray-500 mt-10">
+          <p className="text-center text-muted-foreground mt-10">
             No messages yet. Say hello!
           </p>
         ) : (
@@ -142,7 +142,7 @@ export default function MessageThread({
                 >
                   <p>{msg.message}</p>
                   <p
-                    className={`text-[10px] mt-1 ${isMe ? "text-blue-200" : "text-gray-400"}`}
+                    className={`text-[10px] mt-1 ${isMe ? "text-blue-200" : "text-muted-foreground"}`}
                   >
                     {new Date(msg.created_at).toLocaleTimeString([], {
                       hour: "2-digit",

@@ -107,10 +107,10 @@ export default function PolityRevisionGrid() {
         <div className="max-w-6xl mx-auto px-6 pt-10">
             <div className="flex items-center justify-between mb-6">
                 <div>
-                    <h2 className="text-2xl font-bold text-[#1F2937] dark:text-white">
+                    <h2 className="text-2xl font-bold text-[#1F2937]">
                         One-Stop Revision Solution
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    <p className="text-muted-foreground dark:text-muted-foreground text-sm">
                         Master Laxmikanth Chapters 1-95 with Flashcards & MCQs
                     </p>
                 </div>
@@ -124,33 +124,33 @@ export default function PolityRevisionGrid() {
                     <Link
                         key={ch.id}
                         href={`/student/batch1/polity/revision/${ch.id}`}
-                        className="group relative overflow-hidden bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        className="group relative overflow-hidden bg-card dark:bg-[#111] rounded-2xl border border-border p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                     >
                         <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${ch.color} opacity-10 group-hover:opacity-20 transition-opacity rounded-bl-[100px]`} />
 
                         <div className="flex items-center gap-4 mb-4">
                             <div className="text-3xl">{ch.icon}</div>
-                            <span className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Chapter {ch.id}</span>
+                            <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground dark:text-muted-foreground">Chapter {ch.id}</span>
                         </div>
 
-                        <h3 className="text-lg font-bold text-[#1F2937] dark:text-white group-hover:text-blue-600 transition-colors mb-2">
+                        <h3 className="text-lg font-bold text-[#1F2937] group-hover:text-blue-600 transition-colors mb-2">
                             {ch.title}
                         </h3>
 
                         <div className="flex items-center gap-3 mt-4">
                             <div className="flex flex-col">
-                                <span className="text-[10px] text-gray-400 uppercase font-semibold">Content</span>
-                                <span className="text-xs font-medium text-gray-600 dark:text-gray-300">Ready</span>
+                                <span className="text-[10px] text-muted-foreground uppercase font-semibold">Content</span>
+                                <span className="text-xs font-medium text-muted-foreground dark:text-muted-foreground">Ready</span>
                             </div>
-                            <div className="w-px h-6 bg-gray-200 dark:bg-gray-800" />
+                            <div className="w-px h-6 bg-muted" />
                             <div className="flex flex-col">
-                                <span className="text-[10px] text-gray-400 uppercase font-semibold">Flashcards</span>
-                                <span className="text-xs font-medium text-gray-600 dark:text-gray-300">15-25</span>
+                                <span className="text-[10px] text-muted-foreground uppercase font-semibold">Flashcards</span>
+                                <span className="text-xs font-medium text-muted-foreground dark:text-muted-foreground">15-25</span>
                             </div>
-                            <div className="w-px h-6 bg-gray-200 dark:bg-gray-800" />
+                            <div className="w-px h-6 bg-muted" />
                             <div className="flex flex-col">
-                                <span className="text-[10px] text-gray-400 uppercase font-semibold">MCQs</span>
-                                <span className="text-xs font-medium text-gray-600 dark:text-gray-300">30-50</span>
+                                <span className="text-[10px] text-muted-foreground uppercase font-semibold">MCQs</span>
+                                <span className="text-xs font-medium text-muted-foreground dark:text-muted-foreground">30-50</span>
                             </div>
                         </div>
                     </Link>

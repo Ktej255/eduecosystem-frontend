@@ -79,7 +79,7 @@ export function PeerReviewPanel({ assignmentId }: PeerReviewPanelProps) {
 
   if (loading) {
     return (
-      <div className="text-center py-8 text-gray-400">
+      <div className="text-center py-8 text-muted-foreground">
         Loading peer reviews...
       </div>
     );
@@ -96,7 +96,7 @@ export function PeerReviewPanel({ assignmentId }: PeerReviewPanelProps) {
 
         {reviewsToGive.length === 0 ? (
           <Card className="bg-gray-800/50 border-gray-700">
-            <CardContent className="p-6 text-center text-gray-400">
+            <CardContent className="p-6 text-center text-muted-foreground">
               No peer reviews assigned yet.
             </CardContent>
           </Card>
@@ -136,7 +136,7 @@ export function PeerReviewPanel({ assignmentId }: PeerReviewPanelProps) {
                           </Badge>
                         </div>
                         {pr.due_date && (
-                          <div className="flex items-center gap-1 text-sm text-gray-400">
+                          <div className="flex items-center gap-1 text-sm text-muted-foreground">
                             <Clock className="h-3 w-3" />
                             Due: {new Date(pr.due_date).toLocaleDateString()}
                           </div>

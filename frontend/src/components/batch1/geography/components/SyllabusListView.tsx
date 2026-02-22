@@ -20,7 +20,7 @@ export default function SyllabusListView({ activeModuleId, onSelectTopic, comple
                     <h1 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 mb-4">
                         {activeModule.title}
                     </h1>
-                    <p className="text-xl text-slate-400 max-w-2xl leading-relaxed">
+                    <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
                         {activeModule.description}
                     </p>
                 </div>
@@ -31,7 +31,7 @@ export default function SyllabusListView({ activeModuleId, onSelectTopic, comple
                         <div key={topic.id} className="relative group">
                             {/* Connector Line */}
                             {index !== activeModule.topics.length - 1 && (
-                                <div className="absolute left-8 top-16 bottom-0 w-px bg-white/5 -z-10 group-hover:bg-white/10 transition-colors" />
+                                <div className="absolute left-8 top-16 bottom-0 w-px bg-card/5 -z-10 group-hover:bg-card/10 transition-colors" />
                             )}
 
                             <div className="flex gap-6 items-start">
@@ -55,11 +55,11 @@ export default function SyllabusListView({ activeModuleId, onSelectTopic, comple
                                                 <div
                                                     key={micro.id}
                                                     onClick={() => onSelectTopic(micro)}
-                                                    className="bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 rounded-xl p-4 cursor-pointer transition-all group/card flex items-center gap-4"
+                                                    className="bg-card/5 hover:bg-card/10 border border-white/5 hover:border-white/20 rounded-xl p-4 cursor-pointer transition-all group/card flex items-center gap-4"
                                                 >
                                                     <div className="shrink-0">
                                                         {micro.status === 'locked' ? (
-                                                            <div className="w-10 h-10 rounded-full bg-black/40 flex items-center justify-center text-slate-600">
+                                                            <div className="w-10 h-10 rounded-full bg-black/40 flex items-center justify-center text-muted-foreground">
                                                                 <Lock className="w-5 h-5" />
                                                             </div>
                                                         ) : isCompleted ? (
@@ -80,7 +80,7 @@ export default function SyllabusListView({ activeModuleId, onSelectTopic, comple
                                                         <h3 className="font-medium text-slate-200 truncate group-hover/card:text-white transition-colors">
                                                             {micro.title}
                                                         </h3>
-                                                        <div className="flex items-center gap-2 mt-1 text-xs text-slate-500">
+                                                        <div className="flex items-center gap-2 mt-1 text-xs text-muted-foreground">
                                                             <span>15 mins</span>
                                                             <span>•</span>
                                                             <span>Video & Notes</span>
@@ -88,7 +88,7 @@ export default function SyllabusListView({ activeModuleId, onSelectTopic, comple
                                                     </div>
 
                                                     <div className="opacity-0 group-hover/card:opacity-100 transition-opacity transform translate-x-2 group-hover/card:translate-x-0">
-                                                        <ChevronRight className="w-5 h-5 text-slate-400" />
+                                                        <ChevronRight className="w-5 h-5 text-muted-foreground" />
                                                     </div>
                                                 </div>
                                             );

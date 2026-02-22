@@ -51,7 +51,7 @@ export function VideoAINotes({ segmentKey, lessonId }: VideoAINotesProps) {
         return (
             <div className="flex flex-col items-center justify-center py-12 text-purple-500">
                 <Loader2 className="h-8 w-8 animate-spin mb-4" />
-                <p className="text-sm text-gray-400">Loading AI Notes...</p>
+                <p className="text-sm text-muted-foreground">Loading AI Notes...</p>
             </div>
         );
     }
@@ -60,7 +60,7 @@ export function VideoAINotes({ segmentKey, lessonId }: VideoAINotesProps) {
         return (
             <div className="text-center py-12">
                 <AlertCircle className="h-12 w-12 mx-auto mb-4 text-amber-500 opacity-60" />
-                <p className="text-gray-400">{error}</p>
+                <p className="text-muted-foreground">{error}</p>
             </div>
         );
     }
@@ -78,7 +78,7 @@ export function VideoAINotes({ segmentKey, lessonId }: VideoAINotesProps) {
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <p className="text-gray-300 leading-relaxed">{document.summary}</p>
+                    <p className="text-muted-foreground leading-relaxed">{document.summary}</p>
                 </CardContent>
             </Card>
 
@@ -94,7 +94,7 @@ export function VideoAINotes({ segmentKey, lessonId }: VideoAINotesProps) {
                     <CardContent>
                         <ul className="space-y-3">
                             {document.key_points_for_recall.map((point, i) => (
-                                <li key={i} className="flex gap-3 text-gray-300">
+                                <li key={i} className="flex gap-3 text-muted-foreground">
                                     <span className="text-cyan-500 font-bold mt-0.5">{i + 1}.</span>
                                     <span>{point}</span>
                                 </li>
@@ -109,12 +109,12 @@ export function VideoAINotes({ segmentKey, lessonId }: VideoAINotesProps) {
                 <Card className="bg-gray-900 border-gray-800">
                     <CardHeader className="pb-2">
                         <CardTitle className="flex items-center gap-2 text-white">
-                            <FileText className="h-5 w-5 text-gray-400" />
+                            <FileText className="h-5 w-5 text-muted-foreground" />
                             Full Transcript
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <div className="max-h-[300px] overflow-y-auto text-sm text-gray-400 leading-relaxed bg-black/30 p-4 rounded-lg">
+                        <div className="max-h-[300px] overflow-y-auto text-sm text-muted-foreground leading-relaxed bg-black/30 p-4 rounded-lg">
                             {document.transcript_text}
                         </div>
                     </CardContent>

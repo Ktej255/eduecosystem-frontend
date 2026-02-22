@@ -20,9 +20,9 @@ export default function CheckoutPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex flex-col">
-            <header className="h-16 bg-white dark:bg-gray-900 border-b flex items-center justify-center px-4">
-                <div className="flex items-center gap-2 text-gray-400 text-sm font-medium">
+        <div className="min-h-screen bg-muted flex flex-col">
+            <header className="h-16 bg-card border-b flex items-center justify-center px-4">
+                <div className="flex items-center gap-2 text-muted-foreground text-sm font-medium">
                     <ShieldCheck className="w-4 h-4 text-green-500" />
                     SECURE CHECKOUT
                 </div>
@@ -38,13 +38,13 @@ export default function CheckoutPage() {
                                 <div className="flex justify-between items-center">
                                     <div>
                                         <h3 className="font-bold">Level 1 Graphotherapy Book</h3>
-                                        <p className="text-sm text-gray-500">21-Day Transformation Course</p>
+                                        <p className="text-sm text-muted-foreground">21-Day Transformation Course</p>
                                     </div>
                                     <span className="font-bold">₹2,499</span>
                                 </div>
                                 <hr />
                                 <div className="flex justify-between items-center">
-                                    <span className="text-gray-600">Includes 30-day Portal Access</span>
+                                    <span className="text-muted-foreground">Includes 30-day Portal Access</span>
                                     <span className="text-green-600 text-sm font-medium">FREE</span>
                                 </div>
                                 <hr />
@@ -99,7 +99,7 @@ export default function CheckoutPage() {
                                     )}
                                 </Button>
 
-                                <p className="text-xs text-center text-gray-400">
+                                <p className="text-xs text-center text-muted-foreground">
                                     <CreditCard className="inline w-4 h-4 mr-1" />
                                     Your payment is 100% secure. We never store your card details.
                                 </p>

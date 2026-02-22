@@ -30,16 +30,16 @@ export function PackDashboard({ pack }: { pack: PackStats }) {
                 className="relative p-12 rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
                 style={{ background: `linear-gradient(135deg, ${pack.metadata.color || '#111'}dd, #000000)` }}
             >
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-card/5 rounded-full -mr-32 -mt-32 blur-3xl" />
 
                 <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
-                    <div className="w-32 h-32 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-6xl font-black shadow-2xl">
+                    <div className="w-32 h-32 rounded-3xl bg-card/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-6xl font-black shadow-2xl">
                         {pack.metadata.emblem || pack.name[0]}
                     </div>
 
                     <div className="text-center md:text-left">
                         <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
-                            <span className="text-xs font-bold uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full text-white/80">
+                            <span className="text-xs font-bold uppercase tracking-widest bg-card/10 px-3 py-1 rounded-full text-white/80">
                                 House of {pack.house_type}
                             </span>
                             <span className="text-xs font-bold uppercase tracking-widest bg-cyan-600 px-3 py-1 rounded-full text-white">
@@ -73,7 +73,7 @@ export function PackDashboard({ pack }: { pack: PackStats }) {
                             <Target className="h-6 w-6 text-red-500" />
                             <h3 className="text-xl font-bold text-white">Weekly Pack Mission</h3>
                         </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-400">
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
                             <Flame className="h-4 w-4 text-orange-500" />
                             <span>Ends in 3 days</span>
                         </div>
@@ -82,7 +82,7 @@ export function PackDashboard({ pack }: { pack: PackStats }) {
                     <div className="space-y-6">
                         <div>
                             <div className="flex justify-between text-sm mb-2">
-                                <span className="text-gray-400 font-bold uppercase tracking-wider">Collective Progress: Complete 5,000 Lessons</span>
+                                <span className="text-muted-foreground font-bold uppercase tracking-wider">Collective Progress: Complete 5,000 Lessons</span>
                                 <span className="text-white font-bold">{Math.round(progress)}%</span>
                             </div>
                             <Progress value={progress} className="h-4 bg-gray-800" />
@@ -95,7 +95,7 @@ export function PackDashboard({ pack }: { pack: PackStats }) {
                                 </div>
                                 <div>
                                     <div className="text-lg font-bold text-white">{pack.weekly_points}</div>
-                                    <div className="text-[10px] text-gray-500 uppercase">Earned Today</div>
+                                    <div className="text-[10px] text-muted-foreground uppercase">Earned Today</div>
                                 </div>
                             </div>
                             <div className="p-4 bg-black/30 rounded-xl border border-gray-800 flex items-center gap-3">
@@ -104,7 +104,7 @@ export function PackDashboard({ pack }: { pack: PackStats }) {
                                 </div>
                                 <div>
                                     <div className="text-lg font-bold text-white">2.5x</div>
-                                    <div className="text-[10px] text-gray-500 uppercase">Point Multiplier</div>
+                                    <div className="text-[10px] text-muted-foreground uppercase">Point Multiplier</div>
                                 </div>
                             </div>
                             <div className="p-4 bg-black/30 rounded-xl border border-gray-800 flex items-center gap-3">
@@ -113,7 +113,7 @@ export function PackDashboard({ pack }: { pack: PackStats }) {
                                 </div>
                                 <div>
                                     <div className="text-lg font-bold text-white">12</div>
-                                    <div className="text-[10px] text-gray-500 uppercase">Learning Now</div>
+                                    <div className="text-[10px] text-muted-foreground uppercase">Learning Now</div>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@ export function PackDashboard({ pack }: { pack: PackStats }) {
                     </div>
                     <div className="space-y-4 opacity-40">
                         <div className="text-center py-12">
-                            <p className="text-gray-500 text-sm">Real-time pack chat coming soon in Phase 2!</p>
+                            <p className="text-muted-foreground text-sm">Real-time pack chat coming soon in Phase 2!</p>
                         </div>
                     </div>
                 </div>

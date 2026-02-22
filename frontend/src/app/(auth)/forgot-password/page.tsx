@@ -35,7 +35,7 @@ export default function ForgotPasswordPage() {
             <div className="w-full max-w-md space-y-8">
                 <div className="text-center">
                     <h1 className="text-3xl font-bold text-white">Reset Password</h1>
-                    <p className="text-gray-400 mt-2">
+                    <p className="text-muted-foreground mt-2">
                         Enter your email address and we'll send you a link to reset your password.
                     </p>
                 </div>
@@ -48,7 +48,7 @@ export default function ForgotPasswordPage() {
                                     Email Address
                                 </Label>
                                 <div className="relative">
-                                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+                                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                                     <Input
                                         id="email"
                                         type="email"
@@ -82,7 +82,7 @@ export default function ForgotPasswordPage() {
                                 <Mail className="h-8 w-8 text-green-500" />
                             </div>
                             <h3 className="text-xl font-semibold text-white">Check your email</h3>
-                            <p className="text-gray-400">
+                            <p className="text-muted-foreground">
                                 We've sent a password reset link to <span className="text-white">{email}</span>
                             </p>
                             <Button
@@ -99,7 +99,7 @@ export default function ForgotPasswordPage() {
                 <div className="text-center">
                     <Link
                         href="/login"
-                        className="text-gray-400 hover:text-white flex items-center justify-center gap-2"
+                        className="text-muted-foreground hover:text-white flex items-center justify-center gap-2"
                     >
                         <ArrowLeft className="h-4 w-4" />
                         Back to Login

@@ -40,7 +40,7 @@ export default function PromoCodesPage() {
       key: "usage_count",
       label: "Usage",
       render: (val: number, row: any) => (
-        <span className="text-gray-400">
+        <span className="text-muted-foreground">
           {val} / {row.usage_limit || "∞"}
         </span>
       )

@@ -24,13 +24,13 @@ export default function SimpleDailyQuote() {
     return (
         <Card className="h-full bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20 border-indigo-200 dark:border-indigo-800 transition-all hover:shadow-md">
             <CardContent className="p-6 flex flex-col items-center justify-center h-full text-center space-y-4">
-                <div className="p-3 bg-white dark:bg-indigo-950/50 rounded-full shadow-sm">
+                <div className="p-3 bg-card dark:bg-indigo-950/50 rounded-full shadow-sm">
                     <Quote className="w-6 h-6 text-indigo-500" />
                 </div>
-                <blockquote className="italic font-medium text-gray-800 dark:text-gray-200 font-serif text-lg leading-relaxed">
+                <blockquote className="italic font-medium text-foreground font-serif text-lg leading-relaxed">
                     "{quote.text}"
                 </blockquote>
-                <cite className="text-sm font-semibold text-gray-500 dark:text-gray-400 not-italic">
+                <cite className="text-sm font-semibold text-muted-foreground dark:text-muted-foreground not-italic">
                     — {quote.author}
                 </cite>
             </CardContent>

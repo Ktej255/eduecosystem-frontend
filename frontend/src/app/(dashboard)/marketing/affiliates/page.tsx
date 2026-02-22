@@ -62,7 +62,7 @@ export default function AffiliatesPage() {
             <CardTitle className="text-2xl text-white">Become an Affiliate Partner</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-gray-400 mb-6">
+            <p className="text-muted-foreground mb-6">
               Earn commissions by referring students to our courses. Join our affiliate program today!
             </p>
             <form onSubmit={handleRegister} className="space-y-4">
@@ -103,7 +103,7 @@ export default function AffiliatesPage() {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-white">Affiliate Dashboard</h1>
-          <p className="text-gray-400">Track your referrals and earnings</p>
+          <p className="text-muted-foreground">Track your referrals and earnings</p>
         </div>
         <div className="bg-gray-800 p-3 rounded-lg flex items-center gap-3 border border-gray-700">
           <LinkIcon className="text-blue-400 h-5 w-5" />
@@ -121,7 +121,7 @@ export default function AffiliatesPage() {
               <MousePointer className="h-6 w-6 text-blue-500" />
             </div>
             <div>
-              <p className="text-sm text-gray-400">Total Clicks</p>
+              <p className="text-sm text-muted-foreground">Total Clicks</p>
               <p className="text-2xl font-bold text-white">{stats?.total_clicks}</p>
             </div>
           </CardContent>
@@ -133,7 +133,7 @@ export default function AffiliatesPage() {
               <Users className="h-6 w-6 text-green-500" />
             </div>
             <div>
-              <p className="text-sm text-gray-400">Total Referrals</p>
+              <p className="text-sm text-muted-foreground">Total Referrals</p>
               <p className="text-2xl font-bold text-white">{stats?.total_referrals}</p>
             </div>
           </CardContent>
@@ -145,7 +145,7 @@ export default function AffiliatesPage() {
               <DollarSign className="h-6 w-6 text-yellow-500" />
             </div>
             <div>
-              <p className="text-sm text-gray-400">Total Earnings</p>
+              <p className="text-sm text-muted-foreground">Total Earnings</p>
               <p className="text-2xl font-bold text-white">${stats?.total_earnings}</p>
             </div>
           </CardContent>

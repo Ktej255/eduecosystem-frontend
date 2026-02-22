@@ -20,7 +20,7 @@ export default function ReviewsPage() {
       render: (value: number) => (
         <div className="flex items-center text-yellow-500">
           {[...Array(5)].map((_, i) => (
-            <Star key={i} className={`h-3 w-3 ${i < value ? "fill-current" : "text-gray-700"}`} />
+            <Star key={i} className={`h-3 w-3 ${i < value ? "fill-current" : "text-muted-foreground"}`} />
           ))}
         </div>
       )
@@ -29,7 +29,7 @@ export default function ReviewsPage() {
       key: "comment",
       label: "Comment",
       render: (value: string) => (
-        <div className="truncate max-w-xs text-gray-400 italic">"{value}"</div>
+        <div className="truncate max-w-xs text-muted-foreground italic">"{value}"</div>
       )
     },
     { key: "date", label: "Date" },

@@ -38,14 +38,14 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const RulebookCard = ({ title, icon, color, children, className = "" }: { title: string, icon: React.ReactNode, color: string, children: React.ReactNode, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute top-0 right-0 p-2 opacity-10 translate-x-1/4 -translate-y-1/4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
             {icon}
         </div>
         <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-800 relative z-10 font-bold leading-relaxed">
+        <div className="space-y-4 text-foreground relative z-10 font-bold leading-relaxed">
             {children}
         </div>
     </div>
@@ -62,7 +62,7 @@ const PhaseHeader = ({ number, title, color, subtitle }: { number: string, title
             </h2>
             <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
         </div>
-        {subtitle && <p className="text-slate-500 font-bold italic ml-16">{subtitle}</p>}
+        {subtitle && <p className="text-muted-foreground font-bold italic ml-16">{subtitle}</p>}
     </div>
 );
 
@@ -71,11 +71,11 @@ export default function ElectionLawsModule({ onComplete, isCompleted, chapterNum
         <ScrapbookContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#16a34a] border-4 border-[#14532d] rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(22,163,74,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-card/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-[#14532d] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-green-100 font-bold uppercase tracking-widest text-sm italic underline decoration-white">Statutory Framework</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
@@ -122,24 +122,24 @@ export default function ElectionLawsModule({ onComplete, isCompleted, chapterNum
                     className="bg-green-50"
                 >
                     <div className="space-y-4">
-                        <div className="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-green-200">
+                        <div className="flex items-center gap-3 p-3 bg-card rounded-xl shadow-sm border border-green-200">
                             <BadgeCheck className="text-green-600 shrink-0" />
                             <div>
-                                <p className="text-xs uppercase text-slate-500 font-black">State Level</p>
+                                <p className="text-xs uppercase text-muted-foreground font-black">State Level</p>
                                 <p className="text-green-800 font-black">Chief Electoral Officer (CEO)</p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-green-200">
+                        <div className="flex items-center gap-3 p-3 bg-card rounded-xl shadow-sm border border-green-200">
                             <UserCheck className="text-green-600 shrink-0" />
                             <div>
-                                <p className="text-xs uppercase text-slate-500 font-black">District Level</p>
+                                <p className="text-xs uppercase text-muted-foreground font-black">District Level</p>
                                 <p className="text-green-800 font-black">District Election Officer (DEO)</p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-green-200">
+                        <div className="flex items-center gap-3 p-3 bg-card rounded-xl shadow-sm border border-green-200">
                             <FileText className="text-green-600 shrink-0" />
                             <div>
-                                <p className="text-xs uppercase text-slate-500 font-black">Roll Prep</p>
+                                <p className="text-xs uppercase text-muted-foreground font-black">Roll Prep</p>
                                 <p className="text-green-800 font-black">Electoral Registration Officer (ERO)</p>
                             </div>
                         </div>
@@ -180,8 +180,8 @@ export default function ElectionLawsModule({ onComplete, isCompleted, chapterNum
                         <AlertCircle className="fill-red-100" />
                         Disqualification (Sec 8)
                     </h3>
-                    <div className="bg-white p-4 rounded-xl border-2 border-red-200 shadow-inner mb-4">
-                        <p className="text-sm font-bold text-slate-700 italic">
+                    <div className="bg-card p-4 rounded-xl border-2 border-red-200 shadow-inner mb-4">
+                        <p className="text-sm font-bold text-muted-foreground italic">
                             "A person convicted of any offence and sentenced to imprisonment for <span className="text-red-600 underline">not less than 2 years</span>..."
                         </p>
                     </div>
@@ -204,29 +204,29 @@ export default function ElectionLawsModule({ onComplete, isCompleted, chapterNum
                 subtitle="The Map Makers"
             />
 
-            <div className="bg-slate-50 border-4 border-slate-600 rounded-3xl p-8 relative overflow-hidden">
+            <div className="bg-muted border-4 border-slate-600 rounded-3xl p-8 relative overflow-hidden">
                 <Map size={200} className="absolute -right-10 -bottom-10 text-slate-200 opacity-50" />
                 <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
                     <div className="space-y-6">
-                        <h3 className="text-2xl font-black text-slate-800 uppercase underline decoration-slate-400">Delimitation Commission Act, 2002</h3>
+                        <h3 className="text-2xl font-black text-foreground uppercase underline decoration-slate-400">Delimitation Commission Act, 2002</h3>
                         <div className="space-y-3">
                             <div className="flex items-start gap-3">
-                                <UserCheck className="text-slate-600 mt-1 shrink-0" />
-                                <p className="text-sm font-bold text-slate-700"><strong>Appointed By:</strong> President of India.</p>
+                                <UserCheck className="text-muted-foreground mt-1 shrink-0" />
+                                <p className="text-sm font-bold text-muted-foreground"><strong>Appointed By:</strong> President of India.</p>
                             </div>
                             <div className="flex items-start gap-3">
-                                <Users className="text-slate-600 mt-1 shrink-0" />
-                                <p className="text-sm font-bold text-slate-700"><strong>Composition:</strong> Retired SC Judge + CEC + State Election Commissioners.</p>
+                                <Users className="text-muted-foreground mt-1 shrink-0" />
+                                <p className="text-sm font-bold text-muted-foreground"><strong>Composition:</strong> Retired SC Judge + CEC + State Election Commissioners.</p>
                             </div>
                             <div className="flex items-start gap-3">
-                                <Gavel className="text-slate-600 mt-1 shrink-0" />
-                                <p className="text-sm font-bold text-slate-700"><strong>Power:</strong> Orders have force of law & <span className="text-red-600 underline">cannot be questioned</span> in any court. [PYQ]</p>
+                                <Gavel className="text-muted-foreground mt-1 shrink-0" />
+                                <p className="text-sm font-bold text-muted-foreground"><strong>Power:</strong> Orders have force of law & <span className="text-red-600 underline">cannot be questioned</span> in any court. [PYQ]</p>
                             </div>
                         </div>
                     </div>
-                    <div className="bg-white p-6 rounded-2xl border-2 border-slate-300 shadow-xl rotate-1">
-                        <h4 className="font-black text-slate-700 mb-2 uppercase text-center">The Freeze</h4>
-                        <div className="flex justify-between items-center text-xs font-bold border-b border-slate-200 pb-2 mb-2">
+                    <div className="bg-card p-6 rounded-2xl border-2 border-border shadow-xl rotate-1">
+                        <h4 className="font-black text-muted-foreground mb-2 uppercase text-center">The Freeze</h4>
+                        <div className="flex justify-between items-center text-xs font-bold border-b border-border pb-2 mb-2">
                             <span>Number of Seats</span>
                             <span className="text-blue-600">1971 Census</span>
                         </div>
@@ -234,14 +234,14 @@ export default function ElectionLawsModule({ onComplete, isCompleted, chapterNum
                             <span>Boundaries</span>
                             <span className="text-green-600">2001 Census</span>
                         </div>
-                        <p className="mt-4 text-[10px] text-center text-slate-400 italic">Frozen till 2026/2031</p>
+                        <p className="mt-4 text-[10px] text-center text-muted-foreground italic">Frozen till 2026/2031</p>
                     </div>
                 </div>
             </div>
 
             {/* FOOTER: NOTA */}
             <div className="mt-8 p-8 bg-slate-900 text-white rounded-[2rem] border-4 border-slate-700 relative overflow-hidden flex flex-col items-center text-center">
-                <MinusCircle className="text-slate-500 mb-4" size={48} />
+                <MinusCircle className="text-muted-foreground mb-4" size={48} />
                 <h4 className="text-2xl font-black uppercase mb-2">NOTA (Negative Voting)</h4>
                 <p className="text-sm font-bold opacity-70 max-w-xl mb-4">
                     Introduced by SC in <span className="text-yellow-400">PUCL vs Union of India (2013)</span>.
@@ -270,7 +270,7 @@ export default function ElectionLawsModule({ onComplete, isCompleted, chapterNum
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold italic tracking-widest text-center uppercase">Prep vs Play • Section 8 • Delimitation.</p>
+                <p className="mt-4 text-muted-foreground font-bold italic tracking-widest text-center uppercase">Prep vs Play • Section 8 • Delimitation.</p>
             </div>
         </ScrapbookContainer>
     );

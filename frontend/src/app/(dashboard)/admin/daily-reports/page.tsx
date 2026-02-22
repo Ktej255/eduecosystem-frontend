@@ -212,7 +212,7 @@ export default function DailyReportsPage() {
             case "fix": return <CheckCircle2 className="w-4 h-4 text-red-500" />;
             case "enhancement": return <Code className="w-4 h-4 text-blue-500" />;
             case "refactor": return <GitBranch className="w-4 h-4 text-purple-500" />;
-            default: return <Code className="w-4 h-4 text-gray-500" />;
+            default: return <Code className="w-4 h-4 text-muted-foreground" />;
         }
     };
 
@@ -223,7 +223,7 @@ export default function DailyReportsPage() {
             enhancement: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
             refactor: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200"
         };
-        return colors[type] || "bg-gray-100 text-gray-800";
+        return colors[type] || "bg-muted text-foreground";
     };
 
     const totalMetrics = reports.reduce((acc, r) => ({
@@ -238,11 +238,11 @@ export default function DailyReportsPage() {
             <div className="mb-8">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-3">
+                        <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
                             <FileText className="w-8 h-8 text-indigo-600" />
                             Daily Development Reports
                         </h1>
-                        <p className="text-gray-500 dark:text-gray-400 mt-2">
+                        <p className="text-muted-foreground dark:text-muted-foreground mt-2">
                             Batch-wise breakdown of daily development activities
                         </p>
                     </div>
@@ -278,8 +278,8 @@ export default function DailyReportsPage() {
                     <div className="flex items-center gap-3">
                         <Calendar className="w-8 h-8 text-indigo-600" />
                         <div>
-                            <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{reports.length}</p>
-                            <p className="text-sm text-gray-500">Reports</p>
+                            <p className="text-2xl font-bold text-foreground">{reports.length}</p>
+                            <p className="text-sm text-muted-foreground">Reports</p>
                         </div>
                     </div>
                 </Card>
@@ -287,8 +287,8 @@ export default function DailyReportsPage() {
                     <div className="flex items-center gap-3">
                         <FileText className="w-8 h-8 text-green-600" />
                         <div>
-                            <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{totalMetrics.filesChanged}</p>
-                            <p className="text-sm text-gray-500">Files Changed</p>
+                            <p className="text-2xl font-bold text-foreground">{totalMetrics.filesChanged}</p>
+                            <p className="text-sm text-muted-foreground">Files Changed</p>
                         </div>
                     </div>
                 </Card>
@@ -297,7 +297,7 @@ export default function DailyReportsPage() {
                         <Code className="w-8 h-8 text-blue-600" />
                         <div>
                             <p className="text-2xl font-bold text-green-600">+{totalMetrics.linesAdded}</p>
-                            <p className="text-sm text-gray-500">Lines Added</p>
+                            <p className="text-sm text-muted-foreground">Lines Added</p>
                         </div>
                     </div>
                 </Card>
@@ -306,7 +306,7 @@ export default function DailyReportsPage() {
                         <GitBranch className="w-8 h-8 text-red-600" />
                         <div>
                             <p className="text-2xl font-bold text-red-600">-{totalMetrics.linesRemoved}</p>
-                            <p className="text-sm text-gray-500">Lines Removed</p>
+                            <p className="text-sm text-muted-foreground">Lines Removed</p>
                         </div>
                     </div>
                 </Card>
@@ -317,7 +317,7 @@ export default function DailyReportsPage() {
                 {reports.map((report) => (
                     <Card key={report.id} className="overflow-hidden">
                         <div
-                            className="p-5 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                            className="p-5 cursor-pointer hover:bg-muted dark:hover:bg-gray-800 transition-colors"
                             onClick={() => toggleExpanded(report.id)}
                         >
                             <div className="flex items-start justify-between">
@@ -330,14 +330,14 @@ export default function DailyReportsPage() {
 
                                     <div>
                                         <div className="flex items-center gap-2">
-                                            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                                            <h3 className="text-lg font-semibold text-foreground">
                                                 {report.batch}
                                             </h3>
-                                            <span className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">
+                                            <span className="text-xs px-2 py-0.5 bg-muted text-muted-foreground dark:text-muted-foreground rounded">
                                                 {report.actions.length} actions
                                             </span>
                                         </div>
-                                        <p className="text-gray-600 dark:text-gray-400 text-sm mt-1 max-w-2xl">
+                                        <p className="text-muted-foreground dark:text-muted-foreground text-sm mt-1 max-w-2xl">
                                             {report.summary}
                                         </p>
                                     </div>
@@ -350,9 +350,9 @@ export default function DailyReportsPage() {
                                         <span className="text-red-600">-{report.metrics.linesRemoved}</span>
                                     </div>
                                     {expandedReports.has(report.id) ? (
-                                        <ChevronDown className="w-5 h-5 text-gray-400" />
+                                        <ChevronDown className="w-5 h-5 text-muted-foreground" />
                                     ) : (
-                                        <ChevronRight className="w-5 h-5 text-gray-400" />
+                                        <ChevronRight className="w-5 h-5 text-muted-foreground" />
                                     )}
                                 </div>
                             </div>
@@ -360,13 +360,13 @@ export default function DailyReportsPage() {
 
                         {/* Expanded Content */}
                         {expandedReports.has(report.id) && (
-                            <div className="border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 p-5">
+                            <div className="border-t border-border bg-muted/50 p-5">
                                 {/* Actions */}
                                 <div className="mb-6">
-                                    <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-3">Actions Taken</h4>
+                                    <h4 className="font-medium text-foreground mb-3">Actions Taken</h4>
                                     <div className="space-y-3">
                                         {report.actions.map((action, idx) => (
-                                            <div key={idx} className="flex items-start gap-3 p-3 bg-white dark:bg-gray-800 rounded-lg">
+                                            <div key={idx} className="flex items-start gap-3 p-3 bg-card rounded-lg">
                                                 {getActionIcon(action.type)}
                                                 <div className="flex-1">
                                                     <div className="flex items-center gap-2">
@@ -374,12 +374,12 @@ export default function DailyReportsPage() {
                                                             {action.type}
                                                         </span>
                                                     </div>
-                                                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
+                                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground mt-1">
                                                         {action.description}
                                                     </p>
                                                     <div className="flex flex-wrap gap-2 mt-2">
                                                         {action.files.map((file, i) => (
-                                                            <span key={i} className="text-xs font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded">
+                                                            <span key={i} className="text-xs font-mono px-2 py-0.5 bg-muted text-muted-foreground dark:text-muted-foreground rounded">
                                                                 {file.split('/').pop()}
                                                             </span>
                                                         ))}
@@ -392,25 +392,25 @@ export default function DailyReportsPage() {
 
                                 {/* Metrics Summary */}
                                 <div className="grid grid-cols-5 gap-4">
-                                    <div className="p-3 bg-white dark:bg-gray-800 rounded-lg text-center">
-                                        <p className="text-lg font-bold text-gray-900 dark:text-gray-100">{report.metrics.filesChanged}</p>
-                                        <p className="text-xs text-gray-500">Files Changed</p>
+                                    <div className="p-3 bg-card rounded-lg text-center">
+                                        <p className="text-lg font-bold text-foreground">{report.metrics.filesChanged}</p>
+                                        <p className="text-xs text-muted-foreground">Files Changed</p>
                                     </div>
-                                    <div className="p-3 bg-white dark:bg-gray-800 rounded-lg text-center">
+                                    <div className="p-3 bg-card rounded-lg text-center">
                                         <p className="text-lg font-bold text-green-600">+{report.metrics.linesAdded}</p>
-                                        <p className="text-xs text-gray-500">Lines Added</p>
+                                        <p className="text-xs text-muted-foreground">Lines Added</p>
                                     </div>
-                                    <div className="p-3 bg-white dark:bg-gray-800 rounded-lg text-center">
+                                    <div className="p-3 bg-card rounded-lg text-center">
                                         <p className="text-lg font-bold text-red-600">-{report.metrics.linesRemoved}</p>
-                                        <p className="text-xs text-gray-500">Lines Removed</p>
+                                        <p className="text-xs text-muted-foreground">Lines Removed</p>
                                     </div>
-                                    <div className="p-3 bg-white dark:bg-gray-800 rounded-lg text-center">
+                                    <div className="p-3 bg-card rounded-lg text-center">
                                         <p className="text-lg font-bold text-blue-600">{report.metrics.testsRun}</p>
-                                        <p className="text-xs text-gray-500">Tests Run</p>
+                                        <p className="text-xs text-muted-foreground">Tests Run</p>
                                     </div>
-                                    <div className="p-3 bg-white dark:bg-gray-800 rounded-lg text-center">
+                                    <div className="p-3 bg-card rounded-lg text-center">
                                         <p className="text-lg font-bold text-green-600">{report.metrics.testsPassed}</p>
-                                        <p className="text-xs text-gray-500">Tests Passed</p>
+                                        <p className="text-xs text-muted-foreground">Tests Passed</p>
                                     </div>
                                 </div>
                             </div>

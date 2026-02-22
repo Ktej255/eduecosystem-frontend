@@ -35,7 +35,7 @@ export default function XPProgressBar({ compact = false, showStreak = true }: XP
         return (
             <div className="flex items-center gap-2">
                 <span className="text-lg">{getLevelIcon(xpData.level)}</span>
-                <span className="text-sm font-bold text-gray-700 dark:text-gray-300">
+                <span className="text-sm font-bold text-muted-foreground dark:text-muted-foreground">
                     Lv.{xpData.level}
                 </span>
                 {showStreak && xpData.streak > 0 && (
@@ -49,17 +49,17 @@ export default function XPProgressBar({ compact = false, showStreak = true }: XP
     }
 
     return (
-        <div className="bg-white dark:bg-gray-800 border rounded-xl p-4 shadow-sm">
+        <div className="bg-card border rounded-xl p-4 shadow-sm">
             <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-2xl">
                         {getLevelIcon(xpData.level)}
                     </div>
                     <div>
-                        <div className="font-bold text-lg text-gray-800 dark:text-gray-200">
+                        <div className="font-bold text-lg text-foreground">
                             Level {xpData.level}
                         </div>
-                        <div className="text-sm text-gray-500 dark:text-gray-400">
+                        <div className="text-sm text-muted-foreground dark:text-muted-foreground">
                             {getLevelTitle(xpData.level)}
                         </div>
                     </div>
@@ -68,19 +68,19 @@ export default function XPProgressBar({ compact = false, showStreak = true }: XP
                 {showStreak && (
                     <div className="text-center">
                         <div className="flex items-center gap-1">
-                            <Flame className={`h-5 w-5 ${xpData.streak > 0 ? 'text-orange-500' : 'text-gray-300'}`} />
-                            <span className={`text-xl font-bold ${xpData.streak > 0 ? 'text-orange-500' : 'text-gray-400'}`}>
+                            <Flame className={`h-5 w-5 ${xpData.streak > 0 ? 'text-orange-500' : 'text-muted-foreground'}`} />
+                            <span className={`text-xl font-bold ${xpData.streak > 0 ? 'text-orange-500' : 'text-muted-foreground'}`}>
                                 {xpData.streak}
                             </span>
                         </div>
-                        <div className="text-xs text-gray-500">Day Streak</div>
+                        <div className="text-xs text-muted-foreground">Day Streak</div>
                     </div>
                 )}
             </div>
 
             <div className="space-y-1">
                 <div className="flex justify-between text-sm">
-                    <span className="text-gray-500 dark:text-gray-400 flex items-center gap-1">
+                    <span className="text-muted-foreground dark:text-muted-foreground flex items-center gap-1">
                         <Sparkles className="h-3 w-3 text-indigo-500" />
                         {xpData.currentXP} / {xpData.xpToNextLevel} XP
                     </span>
@@ -90,11 +90,11 @@ export default function XPProgressBar({ compact = false, showStreak = true }: XP
                 </div>
                 <Progress
                     value={progressPercent}
-                    className="h-3 bg-gray-100 dark:bg-gray-700"
+                    className="h-3 bg-muted"
                 />
             </div>
 
-            <div className="mt-3 text-center text-xs text-gray-500">
+            <div className="mt-3 text-center text-xs text-muted-foreground">
                 Total XP: {xpData.totalXP.toLocaleString()} • Longest Streak: {xpData.longestStreak} days
             </div>
         </div>

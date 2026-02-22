@@ -31,14 +31,14 @@ export function LiveClassParticipantsList({
           Participants
           <Badge
             variant="secondary"
-            className="ml-auto bg-gray-800 text-gray-400"
+            className="ml-auto bg-gray-800 text-muted-foreground"
           >
             {participants.length}
           </Badge>
         </CardTitle>
         <div className="pt-2">
           <div className="relative">
-            <Search className="absolute left-2 top-2.5 h-3 w-3 text-gray-500" />
+            <Search className="absolute left-2 top-2.5 h-3 w-3 text-muted-foreground" />
             <Input
               placeholder="Search..."
               value={searchQuery}
@@ -52,7 +52,7 @@ export function LiveClassParticipantsList({
       <CardContent className="flex-1 overflow-y-auto p-2">
         <div className="space-y-1">
           {filteredParticipants.length === 0 ? (
-            <div className="text-center py-8 text-gray-500 text-xs">
+            <div className="text-center py-8 text-muted-foreground text-xs">
               No participants found
             </div>
           ) : (
@@ -66,7 +66,7 @@ export function LiveClassParticipantsList({
                   <div className="relative">
                     <Avatar className="h-8 w-8 border border-gray-700">
                       <AvatarFallback
-                        className={`text-xs ${isInstructor ? "bg-cyan-900 text-cyan-200" : "bg-gray-800 text-gray-300"}`}
+                        className={`text-xs ${isInstructor ? "bg-cyan-900 text-cyan-200" : "bg-gray-800 text-muted-foreground"}`}
                       >
                         {p.user_name.substring(0, 2).toUpperCase()}
                       </AvatarFallback>

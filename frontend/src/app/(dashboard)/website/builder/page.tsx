@@ -24,11 +24,11 @@ export default function WebsiteBuilderPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div className="min-h-screen bg-muted">
       {/* Top Bar */}
-      <div className="bg-white dark:bg-gray-800 border-b px-4 py-3 flex items-center justify-between">
+      <div className="bg-card border-b px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+          <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground">
             <ArrowLeft className="h-4 w-4 mr-1" />
             Back
           </Link>
@@ -41,7 +41,7 @@ export default function WebsiteBuilderPage() {
 
         <div className="flex items-center gap-2">
           {/* Device Preview Buttons */}
-          <div className="flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
+          <div className="flex bg-muted rounded-lg p-1">
             <Button
               variant={activeDevice === 'desktop' ? 'default' : 'ghost'}
               size="sm"
@@ -89,7 +89,7 @@ export default function WebsiteBuilderPage() {
 
       <div className="flex h-[calc(100vh-60px)]">
         {/* Left Sidebar - Tools */}
-        <div className="w-64 bg-white dark:bg-gray-800 border-r p-4 overflow-y-auto">
+        <div className="w-64 bg-card border-r p-4 overflow-y-auto">
           <Tabs defaultValue="design" className="w-full">
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="design">Design</TabsTrigger>
@@ -105,7 +105,7 @@ export default function WebsiteBuilderPage() {
                 </h3>
                 <div className="space-y-3">
                   <div>
-                    <Label className="text-xs text-gray-500">Primary Color</Label>
+                    <Label className="text-xs text-muted-foreground">Primary Color</Label>
                     <div className="flex gap-2 mt-1">
                       <input
                         type="color"
@@ -121,7 +121,7 @@ export default function WebsiteBuilderPage() {
                     </div>
                   </div>
                   <div>
-                    <Label className="text-xs text-gray-500">Secondary Color</Label>
+                    <Label className="text-xs text-muted-foreground">Secondary Color</Label>
                     <div className="flex gap-2 mt-1">
                       <input
                         type="color"
@@ -146,7 +146,7 @@ export default function WebsiteBuilderPage() {
                   Typography
                 </h3>
                 <div>
-                  <Label className="text-xs text-gray-500">Font Family</Label>
+                  <Label className="text-xs text-muted-foreground">Font Family</Label>
                   <select
                     className="w-full mt-1 p-2 border rounded-md text-sm"
                     value={theme.fontFamily}
@@ -191,11 +191,11 @@ export default function WebsiteBuilderPage() {
                 </h3>
                 <div className="space-y-3">
                   <div>
-                    <Label className="text-xs text-gray-500">Site Title</Label>
+                    <Label className="text-xs text-muted-foreground">Site Title</Label>
                     <Input className="mt-1" defaultValue="EduEcosystem" />
                   </div>
                   <div>
-                    <Label className="text-xs text-gray-500">Tagline</Label>
+                    <Label className="text-xs text-muted-foreground">Tagline</Label>
                     <Input className="mt-1" defaultValue="Learn. Grow. Succeed." />
                   </div>
                 </div>
@@ -207,7 +207,7 @@ export default function WebsiteBuilderPage() {
         {/* Main Preview Area */}
         <div className="flex-1 p-8 overflow-y-auto flex items-start justify-center">
           <div
-            className={`bg-white dark:bg-gray-800 shadow-2xl rounded-lg overflow-hidden transition-all duration-300 ${activeDevice === 'desktop' ? 'w-full max-w-5xl' :
+            className={`bg-card shadow-2xl rounded-lg overflow-hidden transition-all duration-300 ${activeDevice === 'desktop' ? 'w-full max-w-5xl' :
                 activeDevice === 'tablet' ? 'w-[768px]' : 'w-[375px]'
               }`}
             style={{ minHeight: '600px' }}
@@ -226,15 +226,15 @@ export default function WebsiteBuilderPage() {
             {/* Preview Content */}
             <div className="p-6">
               <div className="space-y-4">
-                <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
-                <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2"></div>
-                <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-5/6"></div>
+                <div className="h-4 bg-muted rounded w-3/4"></div>
+                <div className="h-4 bg-muted rounded w-1/2"></div>
+                <div className="h-4 bg-muted rounded w-5/6"></div>
               </div>
 
               <div className="grid grid-cols-3 gap-4 mt-8">
                 {[1, 2, 3].map((i) => (
-                  <div key={i} className="aspect-video bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-                    <Image className="h-8 w-8 text-gray-300" />
+                  <div key={i} className="aspect-video bg-muted rounded-lg flex items-center justify-center">
+                    <Image className="h-8 w-8 text-muted-foreground" />
                   </div>
                 ))}
               </div>

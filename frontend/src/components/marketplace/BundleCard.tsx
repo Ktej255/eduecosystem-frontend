@@ -18,7 +18,7 @@ interface BundleCardProps {
 export function BundleCard({ bundle }: BundleCardProps) {
   return (
     <Card className="h-full flex flex-col hover:shadow-lg transition-shadow">
-      <div className="relative h-48 w-full bg-gray-100 rounded-t-lg overflow-hidden">
+      <div className="relative h-48 w-full bg-muted rounded-t-lg overflow-hidden">
         {bundle.thumbnail_url ? (
           <img
             src={bundle.thumbnail_url}
@@ -45,7 +45,7 @@ export function BundleCard({ bundle }: BundleCardProps) {
       </CardHeader>
 
       <CardContent className="flex-grow">
-        <p className="text-sm text-gray-600 line-clamp-3 mb-4">
+        <p className="text-sm text-muted-foreground line-clamp-3 mb-4">
           {bundle.description}
         </p>
         <div className="flex items-baseline gap-2">
@@ -53,7 +53,7 @@ export function BundleCard({ bundle }: BundleCardProps) {
             ${bundle.price}
           </span>
           {bundle.original_price > bundle.price && (
-            <span className="text-sm text-gray-400 line-through">
+            <span className="text-sm text-muted-foreground line-through">
               ${bundle.original_price}
             </span>
           )}

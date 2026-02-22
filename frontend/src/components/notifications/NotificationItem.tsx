@@ -31,7 +31,7 @@ const getNotificationIcon = (type: string) => {
     case "student_enrolled":
       return <UserPlus className="w-5 h-5 text-indigo-500" />;
     default:
-      return <Bell className="w-5 h-5 text-gray-500" />;
+      return <Bell className="w-5 h-5 text-muted-foreground" />;
   }
 };
 
@@ -78,7 +78,7 @@ export default function NotificationItem({
   return (
     <div
       onClick={handleClick}
-      className={`p-4 border-b border-gray-100 dark:border-gray-800 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors ${
+      className={`p-4 border-b border-border cursor-pointer hover:bg-muted dark:hover:bg-gray-800 transition-colors ${
         !notification.is_read ? "bg-blue-50 dark:bg-blue-900/10" : ""
       }`}
     >
@@ -88,13 +88,13 @@ export default function NotificationItem({
         </div>
 
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-medium text-gray-900 dark:text-gray-100">
+          <p className="text-sm font-medium text-foreground">
             {notification.title}
           </p>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-sm text-muted-foreground dark:text-muted-foreground mt-1">
             {notification.message}
           </p>
-          <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
+          <p className="text-xs text-muted-foreground dark:text-muted-foreground mt-2">
             {formatTimeAgo(notification.created_at)}
           </p>
         </div>

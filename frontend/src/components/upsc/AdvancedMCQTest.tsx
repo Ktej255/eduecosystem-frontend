@@ -141,7 +141,7 @@ export default function AdvancedMCQTest({ questions, chapterId, bookId, chapterT
                     <Target className="w-10 h-10 text-blue-600 dark:text-blue-400" />
                 </div>
                 <h2 className="text-3xl font-bold mb-4">Start Assessment</h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-8">
+                <p className="text-muted-foreground dark:text-muted-foreground mb-8">
                     You are about to start a <strong>{questions.length} Question</strong> test for {chapterTitle}.
                     <br />
                     Mark your confidence level for each answer to get detailed analytics.
@@ -150,19 +150,19 @@ export default function AdvancedMCQTest({ questions, chapterId, bookId, chapterT
                 <div className="grid grid-cols-2 gap-4 mb-8 text-left max-w-lg mx-auto">
                     <div className="p-3 border rounded-lg bg-green-50 dark:bg-green-900/10 border-green-200">
                         <span className="font-bold text-green-700 block">Sure Shot</span>
-                        <span className="text-xs text-gray-500">100% Confident</span>
+                        <span className="text-xs text-muted-foreground">100% Confident</span>
                     </div>
                     <div className="p-3 border rounded-lg bg-yellow-50 dark:bg-yellow-900/10 border-yellow-200">
                         <span className="font-bold text-yellow-700 block">50:50</span>
-                        <span className="text-xs text-gray-500">Confused between 2</span>
+                        <span className="text-xs text-muted-foreground">Confused between 2</span>
                     </div>
                     <div className="p-3 border rounded-lg bg-blue-50 dark:bg-blue-900/10 border-blue-200">
                         <span className="font-bold text-blue-700 block">One Option</span>
-                        <span className="text-xs text-gray-500">Eliminated others</span>
+                        <span className="text-xs text-muted-foreground">Eliminated others</span>
                     </div>
                     <div className="p-3 border rounded-lg bg-red-50 dark:bg-red-900/10 border-red-200">
                         <span className="font-bold text-red-700 block">Blind Guess</span>
-                        <span className="text-xs text-gray-500">Pure Luck</span>
+                        <span className="text-xs text-muted-foreground">Pure Luck</span>
                     </div>
                 </div>
 
@@ -199,11 +199,11 @@ export default function AdvancedMCQTest({ questions, chapterId, bookId, chapterT
         <div className="max-w-3xl mx-auto">
             {/* Header */}
             <div className="flex justify-between items-center mb-6">
-                <span className="font-mono text-sm text-gray-500">
+                <span className="font-mono text-sm text-muted-foreground">
                     Q{currentQIndex + 1}/{questions.length}
                 </span>
                 <div className="flex items-center gap-4">
-                    <span className="font-mono text-sm text-gray-500">
+                    <span className="font-mono text-sm text-muted-foreground">
                         {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, '0')}
                     </span>
                     <Button
@@ -234,21 +234,21 @@ export default function AdvancedMCQTest({ questions, chapterId, bookId, chapterT
                                     onClick={() => !isOptionDisabled && setSelectedOption(calculateIdx)}
                                     disabled={isOptionDisabled}
                                     className={`w-full text-left p-4 rounded-lg border-2 transition-all relative
-                                        ${isOptionDisabled ? 'opacity-30 cursor-not-allowed bg-gray-100 border-gray-100' :
+                                        ${isOptionDisabled ? 'opacity-30 cursor-not-allowed bg-muted border-border' :
                                             selectedOption === calculateIdx
                                                 ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20 shadow-sm'
-                                                : 'border-gray-200 dark:border-gray-800 hover:border-gray-300'
+                                                : 'border-border hover:border-border'
                                         }`}
                                 >
                                     <div className="flex items-center gap-3">
                                         <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold
-                                            ${selectedOption === calculateIdx ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600'}`}>
+                                            ${selectedOption === calculateIdx ? 'bg-blue-600 text-white' : 'bg-muted text-muted-foreground'}`}>
                                             {String.fromCharCode(65 + calculateIdx)}
                                         </span>
                                         <span className={isOptionDisabled ? 'line-through' : ''}>{option}</span>
                                     </div>
                                     {isOptionDisabled && (
-                                        <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-400 transform rotate-12 border border-gray-300 px-1 rounded">
+                                        <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-muted-foreground transform rotate-12 border border-border px-1 rounded">
                                             ELIMINATED
                                         </span>
                                     )}
@@ -262,7 +262,7 @@ export default function AdvancedMCQTest({ questions, chapterId, bookId, chapterT
             {/* Confidence Selection (Only shows after option selected) */}
             {selectedOption !== null && (
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-300">
-                    <p className="text-center text-sm text-gray-500 mb-3">How confident are you?</p>
+                    <p className="text-center text-sm text-muted-foreground mb-3">How confident are you?</p>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
                         {[
                             { id: 'sure-shot', label: 'Sure Shot', icon: Target, color: 'text-green-600 bg-green-50 border-green-200', hover: 'hover:bg-green-100' },
@@ -276,10 +276,10 @@ export default function AdvancedMCQTest({ questions, chapterId, bookId, chapterT
                                 className={`p-3 rounded-lg border-2 transition-all flex flex-col items-center justify-center gap-2
                                     ${selectedConfidence === conf.id
                                         ? `border-current ring-2 ring-offset-2 ring-blue-500 ${conf.color}`
-                                        : 'border-gray-200 hover:border-gray-300'}`}
+                                        : 'border-border hover:border-border'}`}
                             >
-                                <conf.icon className={`w-5 h-5 ${selectedConfidence === conf.id ? '' : 'text-gray-400'}`} />
-                                <span className={`text-xs font-medium ${selectedConfidence === conf.id ? '' : 'text-gray-600'}`}>
+                                <conf.icon className={`w-5 h-5 ${selectedConfidence === conf.id ? '' : 'text-muted-foreground'}`} />
+                                <span className={`text-xs font-medium ${selectedConfidence === conf.id ? '' : 'text-muted-foreground'}`}>
                                     {conf.label}
                                 </span>
                             </button>

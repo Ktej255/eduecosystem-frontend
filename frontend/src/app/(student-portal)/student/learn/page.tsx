@@ -142,14 +142,14 @@ export default function LearnPage() {
         <div className="space-y-8 max-w-7xl mx-auto p-4 md:p-6">
             {/* Header */}
             <div>
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Learning Hub</h1>
-                <p className="text-gray-600 dark:text-gray-400">Select your path to continue your journey</p>
+                <h1 className="text-3xl font-bold text-foreground mb-2">Learning Hub</h1>
+                <p className="text-muted-foreground dark:text-muted-foreground">Select your path to continue your journey</p>
             </div>
 
             {/* Your Batches Section */}
             {filteredBatches.length > 0 && (
                 <div>
-                    <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Your Enrolled Batches</h2>
+                    <h2 className="text-lg font-semibold text-foreground mb-4">Your Enrolled Batches</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {filteredBatches.map((option, index) => (
                             <Link
@@ -167,10 +167,10 @@ export default function LearnPage() {
                                                 Enrolled
                                             </span>
                                         </div>
-                                        <CardTitle className="text-xl font-bold text-gray-900 dark:text-gray-100">
+                                        <CardTitle className="text-xl font-bold text-foreground">
                                             {option.title}
                                         </CardTitle>
-                                        <CardDescription className="text-gray-600 dark:text-gray-400 mt-2">
+                                        <CardDescription className="text-muted-foreground dark:text-muted-foreground mt-2">
                                             {option.description}
                                         </CardDescription>
                                     </CardHeader>
@@ -183,7 +183,7 @@ export default function LearnPage() {
 
             {/* Other Learning Options */}
             <div>
-                <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Other Activities</h2>
+                <h2 className="text-lg font-semibold text-foreground mb-4">Other Activities</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {generalItems.map((option, index) => (
                         <Link
@@ -198,15 +198,15 @@ export default function LearnPage() {
                                             <option.icon className={`h-6 w-6 ${option.color}`} />
                                         </div>
                                         {!option.active && (
-                                            <span className="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium text-gray-600 dark:text-gray-400">
+                                            <span className="px-2 py-1 rounded-full bg-muted text-xs font-medium text-muted-foreground dark:text-muted-foreground">
                                                 {option.status}
                                             </span>
                                         )}
                                     </div>
-                                    <CardTitle className="text-xl font-bold text-gray-900 dark:text-gray-100">
+                                    <CardTitle className="text-xl font-bold text-foreground">
                                         {option.title}
                                     </CardTitle>
-                                    <CardDescription className="text-gray-600 dark:text-gray-400 mt-2">
+                                    <CardDescription className="text-muted-foreground dark:text-muted-foreground mt-2">
                                         {option.description}
                                     </CardDescription>
                                 </CardHeader>

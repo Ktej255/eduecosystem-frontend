@@ -54,7 +54,7 @@ export default function HistoryScheduleView() {
                         <h2 className="text-2xl font-bold">Modern History - 30 Day Plan</h2>
                     </div>
                     {progressPercent > 0 && (
-                        <div className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-bold flex items-center gap-2">
+                        <div className="px-4 py-2 bg-card/20 backdrop-blur-sm rounded-full text-sm font-bold flex items-center gap-2">
                             <TrendingUp className="w-4 h-4" /> {progressPercent}% Complete
                         </div>
                     )}
@@ -63,13 +63,13 @@ export default function HistoryScheduleView() {
                     Based on "A Brief History of Modern India" (Spectrum) by Rajiv Ahir
                 </p>
                 <div className="flex flex-wrap gap-4 text-sm">
-                    <div className="flex items-center gap-2 bg-white/10 rounded-lg px-3 py-2">
+                    <div className="flex items-center gap-2 bg-card/10 rounded-lg px-3 py-2">
                         <Calendar className="w-4 h-4" /> Start: {startDateStr}
                     </div>
-                    <div className="flex items-center gap-2 bg-white/10 rounded-lg px-3 py-2">
+                    <div className="flex items-center gap-2 bg-card/10 rounded-lg px-3 py-2">
                         <Clock className="w-4 h-4" /> 6 Pomodoros/Day
                     </div>
-                    <div className="flex items-center gap-2 bg-white/10 rounded-lg px-3 py-2">
+                    <div className="flex items-center gap-2 bg-card/10 rounded-lg px-3 py-2">
                         <Target className="w-4 h-4" /> Current: Day {currentDayNumber || 'Not Started'}
                     </div>
                 </div>
@@ -84,7 +84,7 @@ export default function HistoryScheduleView() {
                         className={`px-4 py-2 rounded-xl font-medium text-sm transition-all border
                             ${selectedPhase === phase.id
                                 ? 'bg-amber-600 text-white border-amber-600 shadow-lg'
-                                : 'bg-white dark:bg-[#111] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-800 hover:border-amber-400'
+                                : 'bg-card dark:bg-[#111] text-muted-foreground dark:text-muted-foreground border-border hover:border-amber-400'
                             }`}
                     >
                         Phase {phase.id}: {phase.title}
@@ -99,12 +99,12 @@ export default function HistoryScheduleView() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6"
+                    className="bg-card dark:bg-[#111] rounded-2xl border border-border p-6"
                 >
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+                    <h3 className="text-lg font-bold text-foreground mb-1">
                         {HISTORY_PHASES.find(p => p.id === selectedPhase)?.title}
                     </h3>
-                    <p className="text-gray-500 text-sm mb-6">
+                    <p className="text-muted-foreground text-sm mb-6">
                         {HISTORY_PHASES.find(p => p.id === selectedPhase)?.description} (Days {HISTORY_PHASES.find(p => p.id === selectedPhase)?.days})
                     </p>
 
@@ -138,7 +138,7 @@ function DayCard({ dayData, isCompleted, isCurrent, onToggle }: {
                 ? 'bg-green-50 dark:bg-green-900/20 border-green-300 dark:border-green-700'
                 : isCurrent
                     ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-400 ring-2 ring-amber-400/50'
-                    : 'bg-gray-50 dark:bg-gray-900/50 border-gray-200 dark:border-gray-800'
+                    : 'bg-muted/50 border-border'
             }`}
         >
             <div className="flex items-start justify-between mb-3">
@@ -150,7 +150,7 @@ function DayCard({ dayData, isCompleted, isCurrent, onToggle }: {
                                 ? 'bg-amber-500 text-white'
                                 : dayData.isRevisionDay
                                     ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/50 dark:text-purple-300'
-                                    : 'bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-300'
+                                    : 'bg-muted text-muted-foreground dark:text-muted-foreground'
                         }`}>
                         {dayData.day}
                     </span>
@@ -170,16 +170,16 @@ function DayCard({ dayData, isCompleted, isCurrent, onToggle }: {
                     className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors
                         ${isCompleted
                             ? 'bg-green-500 border-green-500 text-white'
-                            : 'border-gray-300 dark:border-gray-600 hover:border-green-500'
+                            : 'border-border hover:border-green-500'
                         }`}
                 >
                     {isCompleted && <CheckCircle className="w-4 h-4" />}
                 </button>
             </div>
 
-            <h4 className="font-bold text-gray-900 dark:text-white text-sm mb-2">{dayData.title}</h4>
+            <h4 className="font-bold text-foreground text-sm mb-2">{dayData.title}</h4>
 
-            <ul className="text-xs text-gray-600 dark:text-gray-400 space-y-1 mb-3">
+            <ul className="text-xs text-muted-foreground dark:text-muted-foreground space-y-1 mb-3">
                 {dayData.topics.slice(0, 2).map((topic, i) => (
                     <li key={i} className="flex items-start gap-1">
                         <ChevronRight className="w-3 h-3 mt-0.5 flex-shrink-0" />
@@ -187,12 +187,12 @@ function DayCard({ dayData, isCompleted, isCurrent, onToggle }: {
                     </li>
                 ))}
                 {dayData.topics.length > 2 && (
-                    <li className="text-gray-400 text-xs">+{dayData.topics.length - 2} more</li>
+                    <li className="text-muted-foreground text-xs">+{dayData.topics.length - 2} more</li>
                 )}
             </ul>
 
             <div className="flex items-center justify-between text-xs">
-                <span className="text-gray-500 italic line-clamp-1">{dayData.strategy.slice(0, 40)}...</span>
+                <span className="text-muted-foreground italic line-clamp-1">{dayData.strategy.slice(0, 40)}...</span>
                 {dayData.chapters.length > 0 && (
                     <Link
                         href={`/student/batch1/history/portal?day=${dayData.day}`}

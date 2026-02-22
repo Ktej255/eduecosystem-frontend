@@ -80,10 +80,10 @@ export default function AdminInsightsPage() {
             {/* Header */}
             <div className="flex justify-between items-center">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                    <h1 className="text-3xl font-bold text-foreground">
                         AI-Powered Curriculum Insights
                     </h1>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">
+                    <p className="text-muted-foreground dark:text-muted-foreground mt-1">
                         Grok-generated recommendations for curriculum improvement
                     </p>
                 </div>
@@ -119,14 +119,14 @@ export default function AdminInsightsPage() {
             {loading ? (
                 <Card>
                     <CardContent className="p-8 text-center">
-                        <p className="text-gray-500">Loading insights...</p>
+                        <p className="text-muted-foreground">Loading insights...</p>
                     </CardContent>
                 </Card>
             ) : !latestInsight ? (
                 <Card>
                     <CardContent className="p-8 text-center">
-                        <Brain className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                        <p className="text-gray-500 mb-4">No insights available yet</p>
+                        <Brain className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+                        <p className="text-muted-foreground mb-4">No insights available yet</p>
                         <Button onClick={generateNewInsights}>
                             Generate First Insights
                         </Button>
@@ -143,25 +143,25 @@ export default function AdminInsightsPage() {
                             </CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <p className="text-muted-foreground dark:text-muted-foreground leading-relaxed">
                                 {latestInsight.ai_recommendations.overall_assessment}
                             </p>
                             <div className="mt-4 grid grid-cols-3 gap-4">
                                 <div className="text-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded">
-                                    <p className="text-sm text-gray-600 dark:text-gray-400">Students Analyzed</p>
-                                    <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">Students Analyzed</p>
+                                    <p className="text-2xl font-bold text-foreground">
                                         {latestInsight.total_students}
                                     </p>
                                 </div>
                                 <div className="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded">
-                                    <p className="text-sm text-gray-600 dark:text-gray-400">Average Score</p>
-                                    <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">Average Score</p>
+                                    <p className="text-2xl font-bold text-foreground">
                                         {latestInsight.average_score.toFixed(1)}%
                                     </p>
                                 </div>
                                 <div className="text-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded">
-                                    <p className="text-sm text-gray-600 dark:text-gray-400">Analysis Date</p>
-                                    <p className="text-sm font-bold text-gray-900 dark:text-gray-100">
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">Analysis Date</p>
+                                    <p className="text-sm font-bold text-foreground">
                                         {new Date(latestInsight.date).toLocaleDateString()}
                                     </p>
                                 </div>
@@ -194,20 +194,20 @@ export default function AdminInsightsPage() {
                                                 }`}>
                                                 {rec.priority.toUpperCase()} PRIORITY
                                             </span>
-                                            <span className="ml-2 px-2 py-1 rounded text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+                                            <span className="ml-2 px-2 py-1 rounded text-xs bg-muted text-muted-foreground dark:text-muted-foreground">
                                                 {rec.category.replace('_', ' ').toUpperCase()}
                                             </span>
                                         </div>
                                     </div>
                                     {rec.topic && (
-                                        <p className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                                        <p className="font-semibold text-foreground mb-2">
                                             Topic: {rec.topic}
                                         </p>
                                     )}
-                                    <p className="text-gray-700 dark:text-gray-300 mb-2">
+                                    <p className="text-muted-foreground dark:text-muted-foreground mb-2">
                                         <strong>Issue:</strong> {rec.description}
                                     </p>
-                                    <p className="text-gray-700 dark:text-gray-300 mb-2">
+                                    <p className="text-muted-foreground dark:text-muted-foreground mb-2">
                                         <strong>Suggested Action:</strong> {rec.suggested_action}
                                     </p>
                                     <p className="text-green-700 dark:text-green-400 text-sm">
@@ -230,7 +230,7 @@ export default function AdminInsightsPage() {
                             <CardContent>
                                 <ul className="space-y-2">
                                     {latestInsight.ai_recommendations.content_gaps.map((gap, idx) => (
-                                        <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                                        <li key={idx} className="flex items-start gap-2 text-muted-foreground dark:text-muted-foreground">
                                             <span className="text-orange-600 mt-1">•</span>
                                             <span>{gap}</span>
                                         </li>
@@ -249,7 +249,7 @@ export default function AdminInsightsPage() {
                             <CardContent>
                                 <ul className="space-y-2">
                                     {latestInsight.ai_recommendations.teaching_method_improvements.map((improvement, idx) => (
-                                        <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                                        <li key={idx} className="flex items-start gap-2 text-muted-foreground dark:text-muted-foreground">
                                             <span className="text-green-600 mt-1">•</span>
                                             <span>{improvement}</span>
                                         </li>
@@ -268,7 +268,7 @@ export default function AdminInsightsPage() {
                             <CardContent>
                                 <ul className="space-y-1">
                                     {latestInsight.high_performing_topics.map((topic, idx) => (
-                                        <li key={idx} className="text-gray-700 dark:text-gray-300">
+                                        <li key={idx} className="text-muted-foreground dark:text-muted-foreground">
                                             ✓ {topic}
                                         </li>
                                     ))}
@@ -283,7 +283,7 @@ export default function AdminInsightsPage() {
                             <CardContent>
                                 <ul className="space-y-1">
                                     {latestInsight.low_performing_topics.map((topic, idx) => (
-                                        <li key={idx} className="text-gray-700 dark:text-gray-300">
+                                        <li key={idx} className="text-muted-foreground dark:text-muted-foreground">
                                             ⚠ {topic}
                                         </li>
                                     ))}

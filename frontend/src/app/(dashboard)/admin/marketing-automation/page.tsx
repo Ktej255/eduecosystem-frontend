@@ -202,7 +202,7 @@ export default function MarketingAutomationPage() {
     const renderChannelCard = (channel: string, analytics: ChannelAnalytics, icon: React.ReactNode, color: string) => (
         <Card className={`p-4 bg-gradient-to-br ${color} border-0`}>
             <div className="flex items-center gap-3 mb-3">
-                <div className="p-2 bg-white/10 rounded-lg">{icon}</div>
+                <div className="p-2 bg-card/10 rounded-lg">{icon}</div>
                 <span className="font-semibold text-white">{channel}</span>
             </div>
             <div className="grid grid-cols-2 gap-2 text-sm">
@@ -243,7 +243,7 @@ export default function MarketingAutomationPage() {
                         <Zap className="h-8 w-8 text-amber-400" />
                         Marketing Automation
                     </h1>
-                    <p className="text-slate-400 mt-1">
+                    <p className="text-muted-foreground mt-1">
                         Create powerful drip campaigns and automate personalized engagement
                     </p>
                 </div>
@@ -269,7 +269,7 @@ export default function MarketingAutomationPage() {
                 <Card className="p-4 bg-slate-900 border-slate-800">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-xs text-slate-400 uppercase font-semibold">Total Workflows</p>
+                            <p className="text-xs text-muted-foreground uppercase font-semibold">Total Workflows</p>
                             <h3 className="text-2xl font-bold text-white mt-1">{dashboard?.total_workflows || 0}</h3>
                         </div>
                         <Workflow className="h-5 w-5 text-violet-500" />
@@ -278,7 +278,7 @@ export default function MarketingAutomationPage() {
                 <Card className="p-4 bg-slate-900 border-slate-800">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-xs text-slate-400 uppercase font-semibold">Active Workflows</p>
+                            <p className="text-xs text-muted-foreground uppercase font-semibold">Active Workflows</p>
                             <h3 className="text-2xl font-bold text-emerald-400 mt-1">{dashboard?.active_workflows || 0}</h3>
                         </div>
                         <Play className="h-5 w-5 text-emerald-500" />
@@ -287,7 +287,7 @@ export default function MarketingAutomationPage() {
                 <Card className="p-4 bg-slate-900 border-slate-800">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-xs text-slate-400 uppercase font-semibold">Templates</p>
+                            <p className="text-xs text-muted-foreground uppercase font-semibold">Templates</p>
                             <h3 className="text-2xl font-bold text-white mt-1">{dashboard?.total_templates || 0}</h3>
                         </div>
                         <FileText className="h-5 w-5 text-cyan-500" />
@@ -296,7 +296,7 @@ export default function MarketingAutomationPage() {
                 <Card className="p-4 bg-slate-900 border-slate-800">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-xs text-slate-400 uppercase font-semibold">Leads in Workflows</p>
+                            <p className="text-xs text-muted-foreground uppercase font-semibold">Leads in Workflows</p>
                             <h3 className="text-2xl font-bold text-amber-400 mt-1">{dashboard?.leads_in_workflows || 0}</h3>
                         </div>
                         <Users className="h-5 w-5 text-amber-500" />
@@ -335,19 +335,19 @@ export default function MarketingAutomationPage() {
                         <Table>
                             <TableHeader className="bg-slate-950">
                                 <TableRow className="border-slate-800">
-                                    <TableHead className="text-slate-400">Workflow</TableHead>
-                                    <TableHead className="text-slate-400">Trigger</TableHead>
-                                    <TableHead className="text-slate-400">Status</TableHead>
-                                    <TableHead className="text-slate-400">Steps</TableHead>
-                                    <TableHead className="text-slate-400">Enrolled</TableHead>
-                                    <TableHead className="text-slate-400">Converted</TableHead>
-                                    <TableHead className="text-right text-slate-400">Actions</TableHead>
+                                    <TableHead className="text-muted-foreground">Workflow</TableHead>
+                                    <TableHead className="text-muted-foreground">Trigger</TableHead>
+                                    <TableHead className="text-muted-foreground">Status</TableHead>
+                                    <TableHead className="text-muted-foreground">Steps</TableHead>
+                                    <TableHead className="text-muted-foreground">Enrolled</TableHead>
+                                    <TableHead className="text-muted-foreground">Converted</TableHead>
+                                    <TableHead className="text-right text-muted-foreground">Actions</TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
                                 {workflows.length === 0 ? (
                                     <TableRow>
-                                        <TableCell colSpan={7} className="text-center py-8 text-slate-500">
+                                        <TableCell colSpan={7} className="text-center py-8 text-muted-foreground">
                                             No workflows yet. Create your first automation workflow!
                                         </TableCell>
                                     </TableRow>
@@ -361,7 +361,7 @@ export default function MarketingAutomationPage() {
                                                     </div>
                                                     <div>
                                                         <div className="font-medium text-white">{workflow.name}</div>
-                                                        <div className="text-xs text-slate-500">ID: {workflow.id}</div>
+                                                        <div className="text-xs text-muted-foreground">ID: {workflow.id}</div>
                                                     </div>
                                                 </div>
                                             </TableCell>
@@ -386,7 +386,7 @@ export default function MarketingAutomationPage() {
                                                 <div className="flex items-center gap-1">
                                                     <span className="text-emerald-400 font-medium">{workflow.total_converted}</span>
                                                     {workflow.total_enrolled > 0 && (
-                                                        <span className="text-xs text-slate-500">
+                                                        <span className="text-xs text-muted-foreground">
                                                             ({((workflow.total_converted / workflow.total_enrolled) * 100).toFixed(1)}%)
                                                         </span>
                                                     )}
@@ -405,7 +405,7 @@ export default function MarketingAutomationPage() {
                                                     <Button
                                                         variant="ghost"
                                                         size="sm"
-                                                        className="h-8 text-slate-400 hover:text-white"
+                                                        className="h-8 text-muted-foreground hover:text-white"
                                                     >
                                                         <Settings className="h-4 w-4" />
                                                     </Button>
@@ -424,8 +424,8 @@ export default function MarketingAutomationPage() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {templates.length === 0 ? (
                             <Card className="col-span-3 p-8 bg-slate-900 border-slate-800 text-center">
-                                <FileText className="h-12 w-12 text-slate-600 mx-auto mb-4" />
-                                <p className="text-slate-400">No templates yet. Create your first communication template!</p>
+                                <FileText className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                                <p className="text-muted-foreground">No templates yet. Create your first communication template!</p>
                             </Card>
                         ) : (
                             templates.map((template) => (
@@ -441,19 +441,19 @@ export default function MarketingAutomationPage() {
                                             </div>
                                             <div>
                                                 <h4 className="font-medium text-white">{template.name}</h4>
-                                                <span className="text-xs text-slate-500">{template.channel}</span>
+                                                <span className="text-xs text-muted-foreground">{template.channel}</span>
                                             </div>
                                         </div>
-                                        <Badge variant="outline" className="text-xs border-slate-600 text-slate-400">
+                                        <Badge variant="outline" className="text-xs border-slate-600 text-muted-foreground">
                                             {template.category || "General"}
                                         </Badge>
                                     </div>
                                     {template.subject && (
-                                        <p className="text-sm text-slate-400 mb-2 truncate">
-                                            <span className="text-slate-500">Subject:</span> {template.subject}
+                                        <p className="text-sm text-muted-foreground mb-2 truncate">
+                                            <span className="text-muted-foreground">Subject:</span> {template.subject}
                                         </p>
                                     )}
-                                    <p className="text-sm text-slate-500 line-clamp-2">{template.body}</p>
+                                    <p className="text-sm text-muted-foreground line-clamp-2">{template.body}</p>
                                 </Card>
                             ))
                         )}
@@ -508,7 +508,7 @@ export default function MarketingAutomationPage() {
                         </div>
                     </div>
                     <DialogFooter>
-                        <Button variant="ghost" onClick={() => setIsWorkflowModalOpen(false)} className="text-slate-400">
+                        <Button variant="ghost" onClick={() => setIsWorkflowModalOpen(false)} className="text-muted-foreground">
                             Cancel
                         </Button>
                         <Button onClick={handleCreateWorkflow} className="bg-violet-600 hover:bg-violet-700">
@@ -579,7 +579,7 @@ Use tokens like {{name}}, {{email}}, {{course}} for personalization."
                             />
                         </div>
                         <div className="bg-slate-800 p-3 rounded-lg">
-                            <p className="text-xs text-slate-400 mb-2">Available Personalization Tokens:</p>
+                            <p className="text-xs text-muted-foreground mb-2">Available Personalization Tokens:</p>
                             <div className="flex flex-wrap gap-2">
                                 {["{{name}}", "{{email}}", "{{phone}}", "{{course}}", "{{stage}}", "{{source}}"].map((token) => (
                                     <Badge
@@ -595,7 +595,7 @@ Use tokens like {{name}}, {{email}}, {{course}} for personalization."
                         </div>
                     </div>
                     <DialogFooter>
-                        <Button variant="ghost" onClick={() => setIsTemplateModalOpen(false)} className="text-slate-400">
+                        <Button variant="ghost" onClick={() => setIsTemplateModalOpen(false)} className="text-muted-foreground">
                             Cancel
                         </Button>
                         <Button onClick={handleCreateTemplate} className="bg-cyan-600 hover:bg-cyan-700">

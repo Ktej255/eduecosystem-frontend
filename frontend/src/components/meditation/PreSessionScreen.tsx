@@ -63,7 +63,7 @@ export default function PreSessionScreen({
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
                     Prepare for Your Session
                 </h1>
-                <p className="text-gray-400">
+                <p className="text-muted-foreground">
                     {processCount} processes • ~{estimatedDuration} minutes
                 </p>
             </motion.div>
@@ -89,7 +89,7 @@ export default function PreSessionScreen({
                             className="flex items-center gap-3 p-3 rounded-lg bg-neutral-800/50"
                         >
                             <item.icon className={`w-5 h-5 ${item.color}`} />
-                            <span className="text-gray-300 text-sm">{item.text}</span>
+                            <span className="text-muted-foreground text-sm">{item.text}</span>
                         </motion.div>
                     ))}
                 </div>
@@ -115,7 +115,7 @@ export default function PreSessionScreen({
                                 p-4 rounded-xl border-2 transition-all text-center
                                 ${selectedSlot === slot.id
                                     ? 'border-indigo-500 bg-indigo-500/20 text-white'
-                                    : 'border-neutral-700 bg-neutral-800/50 text-gray-400 hover:border-neutral-600'
+                                    : 'border-neutral-700 bg-neutral-800/50 text-muted-foreground hover:border-neutral-600'
                                 }
                             `}
                         >
@@ -140,7 +140,7 @@ export default function PreSessionScreen({
                         onChange={(e) => setAcknowledged(e.target.checked)}
                         className="w-5 h-5 rounded accent-indigo-500"
                     />
-                    <span className="text-gray-300 text-sm">
+                    <span className="text-muted-foreground text-sm">
                         I am in a quiet place and ready to begin my practice
                     </span>
                 </label>

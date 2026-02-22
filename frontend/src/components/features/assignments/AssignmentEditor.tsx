@@ -93,7 +93,7 @@ export function AssignmentEditor({
               onChange={(e) => onDueDateChange(e.target.value)}
               className="bg-gray-800 border-gray-700 text-white"
             />
-            <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500 pointer-events-none" />
+            <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none" />
           </div>
         </div>
       </div>
@@ -131,7 +131,7 @@ export function AssignmentEditor({
               onChange={(e) => onLatePenaltyChange(parseFloat(e.target.value))}
               className="bg-gray-800 border-gray-700 text-white mt-2"
             />
-            <p className="text-sm text-gray-400 mt-2">
+            <p className="text-sm text-muted-foreground mt-2">
               Example: 10% penalty = 10 points deducted per day late on a
               100-point assignment
             </p>

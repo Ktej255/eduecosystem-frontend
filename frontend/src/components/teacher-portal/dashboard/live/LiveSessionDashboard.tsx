@@ -37,12 +37,12 @@ export default function LiveSessionDashboard() {
     };
 
     return (
-        <Card className="w-full border-indigo-500/20 shadow-xl overflow-hidden bg-white dark:bg-slate-950">
+        <Card className="w-full border-indigo-500/20 shadow-xl overflow-hidden bg-card">
             <CardHeader className="bg-gradient-to-r from-slate-900 to-indigo-950 text-white p-6">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
                         <div className={`p-3 rounded-xl ${isLive ? 'bg-red-500/20 animate-pulse' : 'bg-slate-800'}`}>
-                            <Radio className={`w-6 h-6 ${isLive ? 'text-red-500' : 'text-slate-400'}`} />
+                            <Radio className={`w-6 h-6 ${isLive ? 'text-red-500' : 'text-muted-foreground'}`} />
                         </div>
                         <div>
                             <CardTitle className="text-2xl font-black tracking-tight flex items-center gap-2">
@@ -81,10 +81,10 @@ export default function LiveSessionDashboard() {
                     {/* Top Metrics Row */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {/* Confusion Meter */}
-                        <div className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                        <div className="bg-muted p-4 rounded-xl border border-border flex items-center justify-between">
                             <div>
-                                <div className="text-xs text-slate-500 font-bold uppercase tracking-wider mb-1">Confusion Level</div>
-                                <div className={`text-3xl font-black ${confusionCount > 5 ? 'text-red-500' : 'text-slate-700 dark:text-slate-200'}`}>
+                                <div className="text-xs text-muted-foreground font-bold uppercase tracking-wider mb-1">Confusion Level</div>
+                                <div className={`text-3xl font-black ${confusionCount > 5 ? 'text-red-500' : 'text-muted-foreground'}`}>
                                     {Math.round((confusionCount / students.length) * 100)}%
                                 </div>
                             </div>
@@ -94,9 +94,9 @@ export default function LiveSessionDashboard() {
                         </div>
 
                         {/* Average Attentiveness */}
-                        <div className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                        <div className="bg-muted p-4 rounded-xl border border-border flex items-center justify-between">
                             <div>
-                                <div className="text-xs text-slate-500 font-bold uppercase tracking-wider mb-1">Avg. Focus</div>
+                                <div className="text-xs text-muted-foreground font-bold uppercase tracking-wider mb-1">Avg. Focus</div>
                                 <div className="text-3xl font-black text-indigo-600">
                                     {Math.round(students.reduce((acc, s) => acc + s.focusScore, 0) / students.length)}%
                                 </div>
@@ -132,11 +132,11 @@ export default function LiveSessionDashboard() {
                     {/* Attention Heatmap Grid */}
                     <div>
                         <div className="flex justify-between items-end mb-4">
-                            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-                                <Users className="w-5 h-5 text-slate-400" />
+                            <h3 className="text-lg font-bold text-foreground flex items-center gap-2">
+                                <Users className="w-5 h-5 text-muted-foreground" />
                                 Student Pulse
                             </h3>
-                            <div className="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                            <div className="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                                 <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-emerald-500"></span> Focused</span>
                                 <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-amber-500"></span> Drifting</span>
                                 <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-500"></span> Confused</span>
@@ -159,11 +159,11 @@ export default function LiveSessionDashboard() {
                                 >
                                     <div className={`
                                         w-8 h-8 rounded-full flex items-center justify-center font-black text-xs
-                                        ${student.isConfused ? 'bg-red-100 text-red-700' : 'bg-white text-slate-700 shadow-sm'}
+                                        ${student.isConfused ? 'bg-red-100 text-red-700' : 'bg-card text-muted-foreground shadow-sm'}
                                     `}>
                                         {student.avatar}
                                     </div>
-                                    <div className="text-[10px] font-bold truncate max-w-full text-slate-600 dark:text-slate-300">
+                                    <div className="text-[10px] font-bold truncate max-w-full text-muted-foreground">
                                         {student.name.split(' ')[0]}
                                     </div>
 
@@ -179,11 +179,11 @@ export default function LiveSessionDashboard() {
                     </div>
                 </CardContent>
             ) : (
-                <div className="p-12 text-center text-slate-500">
-                    <div className="w-20 h-20 bg-slate-100 dark:bg-slate-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="p-12 text-center text-muted-foreground">
+                    <div className="w-20 h-20 bg-muted rounded-full flex items-center justify-center mx-auto mb-6">
                         <Radio className="w-10 h-10 text-slate-300" />
                     </div>
-                    <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2">Classroom Offline</h3>
+                    <h3 className="text-xl font-bold text-foreground mb-2">Classroom Offline</h3>
                     <p className="max-w-md mx-auto mb-8">Start the session to connect with student devices, track real-time attention, and launch interactive polls.</p>
                 </div>
             )}

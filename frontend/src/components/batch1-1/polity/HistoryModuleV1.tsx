@@ -22,14 +22,14 @@ const Highlighter = ({ children }: { children: React.ReactNode }) => (
 );
 
 const Stamp = ({ children }: { children: React.ReactNode }) => (
-    <div className="border-2 border-slate-800/60 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest text-slate-800/80 inline-block transform -rotate-6 mix-blend-multiply opacity-80" style={{ borderRadius: "55% 45% 60% 40% / 40% 60% 50% 50%" }}>
+    <div className="border-2 border-slate-800/60 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest text-foreground/80 inline-block transform -rotate-6 mix-blend-multiply opacity-80" style={{ borderRadius: "55% 45% 60% 40% / 40% 60% 50% 50%" }}>
         {children}
     </div>
 );
 
 const PaperCard = ({ children, className = "", rotate = 0 }: { children: React.ReactNode, className?: string, rotate?: number }) => (
     <div
-        className={`bg-[#fdfbf7] shadow-lg border border-gray-200 relative p-6 md:p-8 ${className}`}
+        className={`bg-[#fdfbf7] shadow-lg border border-border relative p-6 md:p-8 ${className}`}
         style={{
             transform: `rotate(${rotate}deg)`,
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E")`
@@ -60,12 +60,12 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                 <h1 className="text-4xl md:text-6xl font-bold text-blue-900 mb-4 tracking-tight">
                     Historical Background
                 </h1>
-                <p className="text-xl md:text-2xl text-slate-700 italic border-b-2 border-dashed border-slate-400 inline-block pb-1">
+                <p className="text-xl md:text-2xl text-muted-foreground italic border-b-2 border-dashed border-slate-400 inline-block pb-1">
                     The Evolution of the Constitution
                 </p>
 
                 {/* Sticky Note Context */}
-                <div className="mt-8 md:absolute md:top-0 md:right-0 bg-yellow-200 p-4 shadow-lg transform rotate-2 w-64 mx-auto md:mx-0 text-left text-sm text-slate-800 font-medium">
+                <div className="mt-8 md:absolute md:top-0 md:right-0 bg-yellow-200 p-4 shadow-lg transform rotate-2 w-64 mx-auto md:mx-0 text-left text-sm text-foreground font-medium">
                     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-12 h-4 bg-yellow-400/50 opacity-50 block"></div>
                     <p><strong>1600:</strong> EIC comes as Traders (Queen Elizabeth I Charter).</p>
                     <p><strong>1765:</strong> Diwani Rights → Territorial Power starts.</p>
@@ -92,12 +92,12 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                         </div>
                         <ActTitle>Regulating Act, 1773</ActTitle>
 
-                        <div className="space-y-4 text-slate-800 leading-relaxed">
+                        <div className="space-y-4 text-foreground leading-relaxed">
                             <div className="flex items-start">
                                 <Bullet />
                                 <div>
                                     <span className="font-bold">Governor of Bengal</span> → designated <Highlighter>Governor-General of Bengal</Highlighter>
-                                    <div className="text-sm text-slate-600 mt-1 pl-2 border-l-2 border-slate-300">
+                                    <div className="text-sm text-muted-foreground mt-1 pl-2 border-l-2 border-border">
                                         • First Man: Lord Warren Hastings<br />
                                         • Support: Executive Council of 4 Members
                                     </div>
@@ -116,7 +116,7 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                                 <Bullet />
                                 <div>
                                     <span className="font-bold">Judiciary (SC):</span> Est. at Calcutta (1774).<br />
-                                    <span className="text-sm bg-slate-100 px-1 rounded">1 Chief Justice + 3 Judges</span>
+                                    <span className="text-sm bg-muted px-1 rounded">1 Chief Justice + 3 Judges</span>
                                 </div>
                             </div>
 
@@ -141,8 +141,8 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                             Patch: Act of Settlement
                         </div>
                         <h4 className="font-bold text-xl text-blue-900 mb-2">Amending Act of 1781</h4>
-                        <p className="text-sm italic text-slate-600 mb-3">Purpose: To correct defects of 1773 Act (The Exemptions)</p>
-                        <ul className="text-sm space-y-2 text-slate-800 list-disc list-inside">
+                        <p className="text-sm italic text-muted-foreground mb-3">Purpose: To correct defects of 1773 Act (The Exemptions)</p>
+                        <ul className="text-sm space-y-2 text-foreground list-disc list-inside">
                             <li><span className="font-bold">Executive Immunity:</span> GG & Council exempted from SC jurisdiction.</li>
                             <li><span className="font-bold">Revenue Separation:</span> Revenue matters excluded from SC.</li>
                             <li><span className="font-bold">Personal Law:</span> Hindus (Hindu Law), Muslims (Mohammedan Law).</li>
@@ -167,20 +167,20 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                                 <div className="flex items-center gap-2 mb-2 text-amber-900 font-bold uppercase text-xs">
                                     <Briefcase className="w-4 h-4" /> Commercial
                                 </div>
-                                <p className="font-bold text-lg text-slate-800">Court of Directors</p>
-                                <p className="text-xs text-slate-500 mt-1">Managed Company's Trade</p>
+                                <p className="font-bold text-lg text-foreground">Court of Directors</p>
+                                <p className="text-xs text-muted-foreground mt-1">Managed Company's Trade</p>
                             </div>
 
                             <div className="bg-blue-50 p-4 rounded border border-blue-200">
                                 <div className="flex items-center gap-2 mb-2 text-blue-900 font-bold uppercase text-xs">
                                     <Crown className="w-4 h-4" /> Political (New)
                                 </div>
-                                <p className="font-bold text-lg text-slate-800">Board of Control</p>
-                                <p className="text-xs text-slate-500 mt-1">Supervise Civil/Military Govt & Revenue</p>
+                                <p className="font-bold text-lg text-foreground">Board of Control</p>
+                                <p className="text-xs text-muted-foreground mt-1">Supervise Civil/Military Govt & Revenue</p>
                             </div>
                         </div>
 
-                        <div className="mt-4 pt-4 border-t border-dashed border-slate-300 text-sm text-center font-medium text-slate-700">
+                        <div className="mt-4 pt-4 border-t border-dashed border-border text-sm text-center font-medium text-muted-foreground">
                             Significance: Territories called <Highlighter>"British Possessions in India"</Highlighter>
                         </div>
                     </PaperCard>
@@ -202,7 +202,7 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                 <div className="mb-20 relative md:w-1/2 md:mr-auto md:pr-10">
                     <PaperCard rotate={-1} className="mr-8 md:mr-0">
                         <h4 className="font-bold text-lg text-blue-900 border-b border-blue-100 pb-2 mb-3">Charter Act of 1793</h4>
-                        <div className="space-y-2 text-slate-800 text-sm">
+                        <div className="space-y-2 text-foreground text-sm">
                             <div className="flex gap-2">
                                 <span className="font-bold text-blue-700 min-w-[80px]">Override:</span>
                                 <span>Extended to all future GGs/Governors.</span>
@@ -244,7 +244,7 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                                 </p>
                             </div>
 
-                            <div className="text-slate-800 text-sm space-y-2">
+                            <div className="text-foreground text-sm space-y-2">
                                 <p>👑 Asserted <span className="font-bold">Sovereignty of Crown</span>.</p>
                                 <p>📖 <Highlighter>Westernization</Highlighter>: Christian Missionaries & Education allowed.</p>
                                 <p>💰 <span className="font-bold">Taxation</span>: Local Govts authorized to impose taxes.</p>
@@ -264,30 +264,30 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                                 <div className="space-y-4">
                                     <div className="bg-blue-50 p-3 rounded">
                                         <h5 className="font-bold text-blue-800 text-sm uppercase mb-1">Nomenclature Change</h5>
-                                        <p className="text-xl font-bold text-slate-800">
+                                        <p className="text-xl font-bold text-foreground">
                                             GG of Bengal → <Highlighter>GG of INDIA</Highlighter>
                                         </p>
-                                        <p className="text-sm text-slate-600">First: Lord William Bentinck</p>
+                                        <p className="text-sm text-muted-foreground">First: Lord William Bentinck</p>
                                     </div>
 
                                     <div className="flex gap-4">
                                         <div className="flex-1">
-                                            <h5 className="font-bold text-slate-700 text-sm">Legislative</h5>
-                                            <p className="text-sm text-slate-600">Bombay/Madras deprived of powers. GG of India gets <span className="font-bold text-red-600">Exclusive</span> powers.</p>
+                                            <h5 className="font-bold text-muted-foreground text-sm">Legislative</h5>
+                                            <p className="text-sm text-muted-foreground">Bombay/Madras deprived of powers. GG of India gets <span className="font-bold text-red-600">Exclusive</span> powers.</p>
                                         </div>
                                         <div className="flex-1">
-                                            <h5 className="font-bold text-slate-700 text-sm">Commercial</h5>
-                                            <p className="text-sm text-slate-600">EIC becomes purely <span className="font-bold">Administrative Body</span>.</p>
+                                            <h5 className="font-bold text-muted-foreground text-sm">Commercial</h5>
+                                            <p className="text-sm text-muted-foreground">EIC becomes purely <span className="font-bold">Administrative Body</span>.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="w-full md:w-48 bg-slate-100 p-4 rounded text-center transform rotate-2">
-                                <h5 className="font-bold text-slate-400 text-xs uppercase mb-2">Attempts</h5>
-                                <p className="text-sm font-bold text-slate-700 mb-1">Open Civil Services?</p>
+                            <div className="w-full md:w-48 bg-muted p-4 rounded text-center transform rotate-2">
+                                <h5 className="font-bold text-muted-foreground text-xs uppercase mb-2">Attempts</h5>
+                                <p className="text-sm font-bold text-muted-foreground mb-1">Open Civil Services?</p>
                                 <p className="text-xs text-red-500 font-bold uppercase border-2 border-red-500 inline-block px-1 rounded rotate-[-10deg]">NEGATED</p>
-                                <p className="text-[10px] text-slate-500 mt-1">Opposed by Court of Directors</p>
+                                <p className="text-[10px] text-muted-foreground mt-1">Opposed by Court of Directors</p>
                             </div>
                         </div>
                     </PaperCard>
@@ -297,7 +297,7 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                 <div className="mb-24 relative md:w-2/3 mx-auto">
                     <PaperCard className="bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]" rotate={-1}>
                         <ActTitle>Charter Act of 1853</ActTitle>
-                        <p className="text-sm text-slate-500 mb-6 font-mono border-b border-slate-200 pb-2">Status: Last of the Charter Acts</p>
+                        <p className="text-sm text-muted-foreground mb-6 font-mono border-b border-border pb-2">Status: Last of the Charter Acts</p>
 
                         <div className="grid md:grid-cols-2 gap-8">
 
@@ -306,7 +306,7 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                                     <div className="bg-blue-100 p-2 rounded h-fit"><Key className="w-5 h-5 text-blue-700" /></div>
                                     <div>
                                         <h5 className="font-bold text-blue-900">Separation of Powers</h5>
-                                        <p className="text-sm text-slate-700">Separated Leg. & Exec. functions of GG Council.</p>
+                                        <p className="text-sm text-muted-foreground">Separated Leg. & Exec. functions of GG Council.</p>
                                     </div>
                                 </div>
 
@@ -314,7 +314,7 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                                     <div className="bg-purple-100 p-2 rounded h-fit"><Users className="w-5 h-5 text-purple-700" /></div>
                                     <div>
                                         <h5 className="font-bold text-purple-900">Mini-Parliament</h5>
-                                        <p className="text-sm text-slate-700">Created Indian (Central) Legislative Council (6 Members).</p>
+                                        <p className="text-sm text-muted-foreground">Created Indian (Central) Legislative Council (6 Members).</p>
                                     </div>
                                 </div>
 
@@ -322,19 +322,19 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                                     <div className="bg-green-100 p-2 rounded h-fit"><CheckCircle2 className="w-5 h-5 text-green-700" /></div>
                                     <div>
                                         <h5 className="font-bold text-green-900">Civil Services</h5>
-                                        <p className="text-sm text-slate-700">Open Competition Introduced! (Macaulay Committee 1854)</p>
+                                        <p className="text-sm text-muted-foreground">Open Competition Introduced! (Macaulay Committee 1854)</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="bg-slate-50 p-4 rounded border border-slate-200">
-                                <h5 className="font-bold text-slate-800 text-center mb-3 text-sm uppercase tracking-wide">Local Representation</h5>
-                                <p className="text-xs text-center text-slate-500 mb-2">4 of 6 members from:</p>
-                                <div className="grid grid-cols-2 gap-2 text-center text-sm font-bold text-slate-700">
-                                    <span className="bg-white p-1 shadow-sm">Madras</span>
-                                    <span className="bg-white p-1 shadow-sm">Bombay</span>
-                                    <span className="bg-white p-1 shadow-sm">Bengal</span>
-                                    <span className="bg-white p-1 shadow-sm">Agra</span>
+                            <div className="bg-muted p-4 rounded border border-border">
+                                <h5 className="font-bold text-foreground text-center mb-3 text-sm uppercase tracking-wide">Local Representation</h5>
+                                <p className="text-xs text-center text-muted-foreground mb-2">4 of 6 members from:</p>
+                                <div className="grid grid-cols-2 gap-2 text-center text-sm font-bold text-muted-foreground">
+                                    <span className="bg-card p-1 shadow-sm">Madras</span>
+                                    <span className="bg-card p-1 shadow-sm">Bombay</span>
+                                    <span className="bg-card p-1 shadow-sm">Bengal</span>
+                                    <span className="bg-card p-1 shadow-sm">Agra</span>
                                 </div>
                             </div>
 
@@ -345,7 +345,7 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                 {/* Completion Section */}
                 <div className="flex justify-center pb-20">
                     <div className="text-center relative">
-                        <div className="absolute inset-0 bg-white/50 blur-xl"></div>
+                        <div className="absolute inset-0 bg-card/50 blur-xl"></div>
                         <Button
                             onClick={onComplete}
                             disabled={isCompleted}

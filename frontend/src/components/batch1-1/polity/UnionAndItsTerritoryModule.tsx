@@ -28,25 +28,25 @@ const CartographerContainer = ({ children }: { children: React.ReactNode }) => (
 const SectionCompass = ({ title }: { title: string }) => (
     <div className="flex items-center gap-4 my-8">
         <div className="h-[1px] flex-1 bg-green-300"></div>
-        <div className="flex items-center gap-2 text-green-800 font-bold uppercase tracking-widest text-sm border-2 border-green-800 px-4 py-1 rounded-full bg-white shadow-sm">
+        <div className="flex items-center gap-2 text-green-800 font-bold uppercase tracking-widest text-sm border-2 border-green-800 px-4 py-1 rounded-full bg-card shadow-sm">
             <Compass size={16} className="text-orange-600 animate-pulse" /> {title}
         </div>
         <div className="h-[1px] flex-1 bg-green-300"></div>
     </div>
 );
 
-const MapCard = ({ title, icon: Icon, children, color = "bg-white", className = "" }: { title: string, icon: any, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`relative ${color} border-2 border-slate-200 rounded-xl p-5 shadow-md hover:shadow-lg transition-all ${className}`}>
+const MapCard = ({ title, icon: Icon, children, color = "bg-card", className = "" }: { title: string, icon: any, children: React.ReactNode, color?: string, className?: string }) => (
+    <div className={`relative ${color} border-2 border-border rounded-xl p-5 shadow-md hover:shadow-lg transition-all ${className}`}>
         {/* Map Grid Texture */}
         <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none rounded-xl"></div>
 
         <div className="flex items-center gap-3 mb-4 pb-2 border-b border-black/5 relative z-10">
-            <div className="p-2 bg-white rounded-lg shadow-sm border border-slate-100">
+            <div className="p-2 bg-card rounded-lg shadow-sm border border-slate-100">
                 <Icon size={20} className="text-green-700" />
             </div>
-            <h3 className="font-bold text-lg text-slate-800">{title}</h3>
+            <h3 className="font-bold text-lg text-foreground">{title}</h3>
         </div>
-        <div className="relative z-10 text-sm text-slate-700 space-y-3">
+        <div className="relative z-10 text-sm text-muted-foreground space-y-3">
             {children}
         </div>
     </div>
@@ -55,8 +55,8 @@ const MapCard = ({ title, icon: Icon, children, color = "bg-white", className = 
 const TimelineNode = ({ year, title, desc, isLeft = false }: { year: string, title: string, desc: string, isLeft?: boolean }) => (
     <div className={`flex items-center gap-4 ${isLeft ? 'flex-row-reverse' : ''} group`}>
         <div className={`flex-1 ${isLeft ? 'text-left' : 'text-right'}`}>
-            <div className="font-bold text-slate-800 group-hover:text-green-700 transition-colors">{title}</div>
-            <div className="text-xs text-slate-500">{desc}</div>
+            <div className="font-bold text-foreground group-hover:text-green-700 transition-colors">{title}</div>
+            <div className="text-xs text-muted-foreground">{desc}</div>
         </div>
         <div className="w-12 h-12 rounded-full border-4 border-white bg-green-600 shadow-md flex items-center justify-center text-white text-[10px] font-bold shrink-0 z-10 group-hover:scale-110 transition-transform">
             {year}
@@ -82,14 +82,14 @@ export default function UnionTerritoryModule({ onComplete, isCompleted }: UnionT
                             <span className="text-sm opacity-60 italic">Mapping the evolution of boundaries from 1950 to Today.</span>
                         </p>
                     </div>
-                    <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/10 text-center">
-                        <div className="text-xs uppercase text-slate-400 font-bold mb-1">Current Status</div>
+                    <div className="bg-card/10 p-4 rounded-xl backdrop-blur-sm border border-white/10 text-center">
+                        <div className="text-xs uppercase text-muted-foreground font-bold mb-1">Current Status</div>
                         <div className="flex justify-center gap-6">
                             <div>
                                 <span className="block text-3xl font-bold text-green-400">28</span>
                                 <span className="text-xs">States</span>
                             </div>
-                            <div className="w-[1px] bg-white/20"></div>
+                            <div className="w-[1px] bg-card/20"></div>
                             <div>
                                 <span className="block text-3xl font-bold text-orange-400">8</span>
                                 <span className="text-xs">UTs</span>
@@ -110,7 +110,7 @@ export default function UnionTerritoryModule({ onComplete, isCompleted }: UnionT
                     </div>
                     <div className="grid grid-cols-2 gap-4 text-xs">
                         <div className="space-y-1">
-                            <div className="font-bold text-slate-900 border-b border-slate-200 pb-1">Dr. Ambedkar's Logic</div>
+                            <div className="font-bold text-foreground border-b border-border pb-1">Dr. Ambedkar's Logic</div>
                             <ul className="list-disc pl-4 space-y-1 opacity-80">
                                 <li><strong>Not</strong> result of agreement.</li>
                                 <li><strong>No</strong> right to secede.</li>
@@ -118,7 +118,7 @@ export default function UnionTerritoryModule({ onComplete, isCompleted }: UnionT
                             </ul>
                         </div>
                         <div className="space-y-1">
-                            <div className="font-bold text-slate-900 border-b border-slate-200 pb-1">Territory Types</div>
+                            <div className="font-bold text-foreground border-b border-border pb-1">Territory Types</div>
                             <ol className="list-decimal pl-4 space-y-1 opacity-80">
                                 <li>Territories of States</li>
                                 <li>Union Territories</li>
@@ -131,17 +131,17 @@ export default function UnionTerritoryModule({ onComplete, isCompleted }: UnionT
                 {/* Article 2 & 3 */}
                 <MapCard title="Art 2 vs Art 3" icon={Scissors} className="lg:col-span-2">
                     <div className="grid grid-cols-2 h-full">
-                        <div className="pr-4 border-r border-slate-200">
+                        <div className="pr-4 border-r border-border">
                             <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200 mb-2">Article 2</Badge>
                             <p className="font-bold text-sm mb-1">Admission of NEW states</p>
                             <p className="text-xs opacity-70">Not previously part of India.</p>
-                            <div className="mt-2 text-xs bg-slate-50 p-1 rounded font-mono">Ex: Sikkim (1975)</div>
+                            <div className="mt-2 text-xs bg-muted p-1 rounded font-mono">Ex: Sikkim (1975)</div>
                         </div>
                         <div className="pl-4">
                             <Badge className="bg-orange-100 text-orange-800 hover:bg-orange-200 mb-2">Article 3</Badge>
                             <p className="font-bold text-sm mb-1">Reorg of EXISTING states</p>
                             <p className="text-xs opacity-70">Alter area, boundaries, name.</p>
-                            <div className="mt-2 text-xs bg-slate-50 p-1 rounded font-mono">Ex: Telangana (2014)</div>
+                            <div className="mt-2 text-xs bg-muted p-1 rounded font-mono">Ex: Telangana (2014)</div>
                         </div>
                     </div>
                 </MapCard>
@@ -151,17 +151,17 @@ export default function UnionTerritoryModule({ onComplete, isCompleted }: UnionT
             <div className="grid md:grid-cols-3 gap-6 mt-6">
                 <MapCard title="The Reorg Process (Art 3)" icon={MoveRight} className="md:col-span-2 bg-[#fffbf0]">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-center text-xs">
-                        <div className="bg-white p-3 rounded-lg shadow-sm w-full md:w-auto border flex-1">
-                            <div className="font-bold text-slate-800">1. President Rec</div>
-                            <div className="text-[10px] text-slate-500">Prior recommendation</div>
+                        <div className="bg-card p-3 rounded-lg shadow-sm w-full md:w-auto border flex-1">
+                            <div className="font-bold text-foreground">1. President Rec</div>
+                            <div className="text-[10px] text-muted-foreground">Prior recommendation</div>
                         </div>
-                        <ArrowRight className="text-slate-400 rotate-90 md:rotate-0" />
-                        <div className="bg-white p-3 rounded-lg shadow-sm w-full md:w-auto border flex-1">
-                            <div className="font-bold text-slate-800">2. State Legislature</div>
-                            <div className="text-[10px] text-slate-500">Views only (Not Bound)</div>
+                        <ArrowRight className="text-muted-foreground rotate-90 md:rotate-0" />
+                        <div className="bg-card p-3 rounded-lg shadow-sm w-full md:w-auto border flex-1">
+                            <div className="font-bold text-foreground">2. State Legislature</div>
+                            <div className="text-[10px] text-muted-foreground">Views only (Not Bound)</div>
                         </div>
-                        <ArrowRight className="text-slate-400 rotate-90 md:rotate-0" />
-                        <div className="bg-white p-3 rounded-lg shadow-sm w-full md:w-auto border flex-1 border-green-200 bg-green-50">
+                        <ArrowRight className="text-muted-foreground rotate-90 md:rotate-0" />
+                        <div className="bg-card p-3 rounded-lg shadow-sm w-full md:w-auto border flex-1 border-green-200 bg-green-50">
                             <div className="font-bold text-green-900">3. Parliament</div>
                             <div className="text-[10px] text-green-700">Simple Majority</div>
                         </div>
@@ -177,7 +177,7 @@ export default function UnionTerritoryModule({ onComplete, isCompleted }: UnionT
                     <div className="text-xs space-y-3">
                         <p><strong>Rule:</strong> Laws under Art 2 & 3 are <strong>NOT</strong> amendments under Art 368.</p>
                         <p><strong>Implication:</strong> Can be passed by Simple Majority.</p>
-                        <div className="bg-slate-100 p-2 rounded border-l-2 border-red-500">
+                        <div className="bg-muted p-2 rounded border-l-2 border-red-500">
                             <strong>Berubari Case (1960):</strong> Ceding territory requires <strong>Special Majority</strong> (Art 368).
                         </div>
                     </div>
@@ -188,20 +188,20 @@ export default function UnionTerritoryModule({ onComplete, isCompleted }: UnionT
             <SectionCompass title="Phase 2: Integration of Princely States" />
 
             <div className="grid md:grid-cols-2 gap-6">
-                <MapCard title="The Map of 1947" icon={Map} className="bg-slate-50">
+                <MapCard title="The Map of 1947" icon={Map} className="bg-muted">
                     <div className="flex items-center gap-4 mb-4">
                         <div className="text-4xl font-black text-slate-300">552</div>
                         <div>
-                            <div className="font-bold text-slate-800">Total Princely States</div>
-                            <div className="text-xs text-slate-500">within India's geography</div>
+                            <div className="font-bold text-foreground">Total Princely States</div>
+                            <div className="text-xs text-muted-foreground">within India's geography</div>
                         </div>
                     </div>
                     <div className="space-y-2 text-xs">
-                        <div className="flex items-center justify-between bg-white p-2 rounded border">
+                        <div className="flex items-center justify-between bg-card p-2 rounded border">
                             <span>549 Joined Easily</span>
                             <CheckCircle2 size={14} className="text-green-500" />
                         </div>
-                        <div className="flex items-center justify-between bg-white p-2 rounded border border-orange-200 bg-orange-50">
+                        <div className="flex items-center justify-between bg-card p-2 rounded border border-orange-200 bg-orange-50">
                             <span className="font-bold text-orange-800">3 Refused Initially</span>
                             <AlertTriangle size={14} className="text-orange-500" />
                         </div>
@@ -237,19 +237,19 @@ export default function UnionTerritoryModule({ onComplete, isCompleted }: UnionT
 
             <MapCard title="Obsolete: The 1950 Classification" icon={FileText} className="mt-6 opacity-80 border-dashed">
                 <div className="grid grid-cols-4 gap-2 text-center text-[10px] md:text-xs">
-                    <div className="bg-slate-100 p-2 rounded">
+                    <div className="bg-muted p-2 rounded">
                         <div className="font-bold">Part A</div>
                         <div className="opacity-60">Governor's Prov</div>
                     </div>
-                    <div className="bg-slate-100 p-2 rounded">
+                    <div className="bg-muted p-2 rounded">
                         <div className="font-bold">Part B</div>
                         <div className="opacity-60">Princely Legis</div>
                     </div>
-                    <div className="bg-slate-100 p-2 rounded">
+                    <div className="bg-muted p-2 rounded">
                         <div className="font-bold">Part C</div>
                         <div className="opacity-60">Comm. Prov</div>
                     </div>
-                    <div className="bg-slate-100 p-2 rounded">
+                    <div className="bg-muted p-2 rounded">
                         <div className="font-bold">Part D</div>
                         <div className="opacity-60">Andaman</div>
                     </div>
@@ -285,7 +285,7 @@ export default function UnionTerritoryModule({ onComplete, isCompleted }: UnionT
 
                     <MapCard title="Acceptance Phase (1953)" icon={CheckCircle2} color="bg-green-50/50">
                         <div className="space-y-4">
-                            <div className="bg-white p-2 rounded border border-green-100 shadow-sm relative">
+                            <div className="bg-card p-2 rounded border border-green-100 shadow-sm relative">
                                 <div className="absolute -right-2 top-2 bg-red-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded animate-pulse">Turning Point</div>
                                 <div className="font-bold text-green-900">Andhra State Created</div>
                                 <div className="text-xs mt-1 opacity-80">Death of Potti Sriramulu (Hunger Strike). First Linguistic State.</div>

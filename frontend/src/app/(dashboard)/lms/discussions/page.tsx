@@ -38,7 +38,7 @@ export default function DiscussionsPage() {
       render: (value: string, row: any) => (
         <div>
           <div className="font-medium text-white">{value}</div>
-          <div className="text-xs text-gray-500">by {row.author_name || "Unknown"}</div>
+          <div className="text-xs text-muted-foreground">by {row.author_name || "Unknown"}</div>
         </div>
       )
     },
@@ -46,7 +46,7 @@ export default function DiscussionsPage() {
       key: "reply_count",
       label: "Replies",
       render: (value: number) => (
-        <div className="flex items-center gap-2 text-gray-300">
+        <div className="flex items-center gap-2 text-muted-foreground">
           <MessageSquare className="h-3 w-3" />
           {value}
         </div>
@@ -55,7 +55,7 @@ export default function DiscussionsPage() {
     {
       key: "view_count",
       label: "Views",
-      render: (value: number) => <span className="text-gray-400">{value}</span>
+      render: (value: number) => <span className="text-muted-foreground">{value}</span>
     },
     {
       key: "is_resolved",

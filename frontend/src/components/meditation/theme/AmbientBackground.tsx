@@ -46,7 +46,7 @@ export default function AmbientBackground() {
             {particles.map((particle) => (
                 <motion.div
                     key={particle.id}
-                    className="absolute rounded-full bg-white"
+                    className="absolute rounded-full bg-card"
                     style={{
                         left: `${particle.x}%`,
                         top: `${particle.y}%`,

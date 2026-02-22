@@ -43,13 +43,13 @@ export default function PolityDecisionTree() {
     };
 
     return (
-        <Card className="max-w-4xl mx-auto border-4 border-slate-200 bg-white shadow-xl overflow-hidden font-['Kalam']">
+        <Card className="max-w-4xl mx-auto border-4 border-border bg-card shadow-xl overflow-hidden font-['Kalam']">
             <div className="bg-slate-900 text-white p-6 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div className="flex items-center gap-3">
                     <GitGraph className="text-cyan-400" size={28} />
                     <div>
                         <h2 className="text-2xl font-black">The Decision Tree</h2>
-                        <p className="text-slate-400 text-sm font-bold">Visualize the Constitutional Logic</p>
+                        <p className="text-muted-foreground text-sm font-bold">Visualize the Constitutional Logic</p>
                     </div>
                 </div>
 
@@ -79,7 +79,7 @@ export default function PolityDecisionTree() {
                         {/* Question / Text */}
                         <h3 className={`text-3xl font-black mb-8 leading-snug
               ${currentNode.type === 'end_fail' ? 'text-red-600' :
-                                currentNode.type === 'end_success' ? 'text-green-600' : 'text-slate-800'}
+                                currentNode.type === 'end_success' ? 'text-green-600' : 'text-foreground'}
             `}>
                             {currentNode.text}
                         </h3>
@@ -99,7 +99,7 @@ export default function PolityDecisionTree() {
                                     <button
                                         key={idx}
                                         onClick={() => handleOptionClick(opt.nextId)}
-                                        className="group relative w-full p-5 rounded-2xl border-2 border-slate-200 bg-slate-50 hover:bg-white hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 text-lg font-bold text-slate-700 text-left flex justify-between items-center"
+                                        className="group relative w-full p-5 rounded-2xl border-2 border-border bg-muted hover:bg-card hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 text-lg font-bold text-muted-foreground text-left flex justify-between items-center"
                                     >
                                         <span>{opt.label}</span>
                                         <span className="opacity-0 group-hover:opacity-100 transition-opacity">➜</span>
@@ -125,7 +125,7 @@ export default function PolityDecisionTree() {
                     {history.length > 1 && (
                         <button
                             onClick={handleBack}
-                            className="text-slate-400 hover:text-slate-800 flex items-center gap-1 text-sm font-bold transition-colors"
+                            className="text-muted-foreground hover:text-foreground flex items-center gap-1 text-sm font-bold transition-colors"
                         >
                             <ArrowLeft size={16} /> Back
                         </button>
@@ -138,7 +138,7 @@ export default function PolityDecisionTree() {
                                 <span className={`text-xs px-2 py-1 rounded-full font-bold
                              ${id === currentNodeId
                                         ? 'bg-slate-800 text-white'
-                                        : 'bg-slate-100 text-slate-400'}
+                                        : 'bg-muted text-muted-foreground'}
                          `}>
                                     {idx === 0 ? 'Start' : `Step ${idx}`}
                                 </span>

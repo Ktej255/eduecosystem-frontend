@@ -181,7 +181,7 @@ export default function DefenseSystemsViz() {
                         <Shield className="w-5 h-5 text-emerald-400" />
                         Defense Lab
                     </h2>
-                    <p className="text-slate-400 text-xs leading-relaxed">
+                    <p className="text-muted-foreground text-xs leading-relaxed">
                         Visualizing ballistic missile detection and interceptor flight paths. Models based on DRDO's Ballistic Missile Defense (BMD) shield logic.
                     </p>
                 </div>
@@ -189,7 +189,7 @@ export default function DefenseSystemsViz() {
                 <div className="flex flex-col gap-2">
                     <button
                         onClick={() => setActiveTab('trajectories')}
-                        className={`px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-2 transition-all ${activeTab === 'trajectories' ? 'bg-indigo-600 text-white shadow-lg' : 'bg-slate-900/60 text-slate-400 hover:bg-slate-800'
+                        className={`px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-2 transition-all ${activeTab === 'trajectories' ? 'bg-indigo-600 text-white shadow-lg' : 'bg-slate-900/60 text-muted-foreground hover:bg-slate-800'
                             }`}
                     >
                         <Zap className="w-3 h-3" />
@@ -197,7 +197,7 @@ export default function DefenseSystemsViz() {
                     </button>
                     <button
                         onClick={() => setActiveTab('interceptors')}
-                        className={`px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-2 transition-all ${activeTab === 'interceptors' ? 'bg-cyan-600 text-white shadow-lg' : 'bg-slate-900/60 text-slate-400 hover:bg-slate-800'
+                        className={`px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-2 transition-all ${activeTab === 'interceptors' ? 'bg-cyan-600 text-white shadow-lg' : 'bg-slate-900/60 text-muted-foreground hover:bg-slate-800'
                             }`}
                     >
                         <Shield className="w-3 h-3" />

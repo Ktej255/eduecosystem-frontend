@@ -750,18 +750,18 @@ export default function KnowledgeTree({ userRole = "student" }: KnowledgeTreePro
 
             {/* Zoom Controls */}
             <div className="absolute top-4 right-4 z-20 flex flex-col gap-2 bg-black/50 backdrop-blur-sm rounded-lg p-2 border border-white/10">
-                <Button size="sm" variant="ghost" onClick={handleZoomIn} className="text-white hover:bg-white/10" title="Zoom In">
+                <Button size="sm" variant="ghost" onClick={handleZoomIn} className="text-white hover:bg-card/10" title="Zoom In">
                     <ZoomIn className="h-4 w-4" />
                 </Button>
                 <div className="text-center text-xs text-white/60 font-mono">{Math.round(zoom * 100)}%</div>
-                <Button size="sm" variant="ghost" onClick={handleZoomOut} className="text-white hover:bg-white/10" title="Zoom Out">
+                <Button size="sm" variant="ghost" onClick={handleZoomOut} className="text-white hover:bg-card/10" title="Zoom Out">
                     <ZoomOut className="h-4 w-4" />
                 </Button>
-                <div className="w-full h-px bg-white/10" />
-                <Button size="sm" variant="ghost" onClick={handleFitToView} className="text-white hover:bg-white/10" title="Fit to View">
+                <div className="w-full h-px bg-card/10" />
+                <Button size="sm" variant="ghost" onClick={handleFitToView} className="text-white hover:bg-card/10" title="Fit to View">
                     <Maximize2 className="h-4 w-4" />
                 </Button>
-                <Button size="sm" variant="ghost" onClick={handleReset} className="text-white hover:bg-white/10" title="Reset View">
+                <Button size="sm" variant="ghost" onClick={handleReset} className="text-white hover:bg-card/10" title="Reset View">
                     <RotateCcw className="h-4 w-4" />
                 </Button>
             </div>
@@ -775,7 +775,7 @@ export default function KnowledgeTree({ userRole = "student" }: KnowledgeTreePro
                         onClick={() => setIsEditMode(!isEditMode)}
                         className={isEditMode
                             ? "bg-amber-600 hover:bg-amber-700 text-white border-amber-600"
-                            : "bg-black/50 backdrop-blur-sm text-white border-white/20 hover:bg-white/10"
+                            : "bg-black/50 backdrop-blur-sm text-white border-white/20 hover:bg-card/10"
                         }
                         title={isEditMode ? "Exit Edit Mode" : "Enter Edit Mode"}
                     >

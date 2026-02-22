@@ -142,7 +142,7 @@ export default function GamificationPage() {
         <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600">
           Gamification Hub
         </h1>
-        <p className="text-gray-400 mt-2">Compete, Earn, and Upgrade.</p>
+        <p className="text-muted-foreground mt-2">Compete, Earn, and Upgrade.</p>
       </div>
 
       {/* Stats Cards */}
@@ -152,7 +152,7 @@ export default function GamificationPage() {
             <Coins className="h-8 w-8 text-yellow-500" />
           </div>
           <div>
-            <p className="text-gray-400 text-sm">Total Coins</p>
+            <p className="text-muted-foreground text-sm">Total Coins</p>
             <h3 className="text-3xl font-bold text-white">
               {currentUser?.coins || 0}
             </h3>
@@ -164,7 +164,7 @@ export default function GamificationPage() {
             <Flame className="h-8 w-8 text-orange-500" />
           </div>
           <div>
-            <p className="text-gray-400 text-sm">Current Streak</p>
+            <p className="text-muted-foreground text-sm">Current Streak</p>
             <h3 className="text-3xl font-bold text-white">
               {currentUser?.streak_days || 0} Days
             </h3>
@@ -176,7 +176,7 @@ export default function GamificationPage() {
             <Trophy className="h-8 w-8 text-purple-500" />
           </div>
           <div>
-            <p className="text-gray-400 text-sm">Achievements</p>
+            <p className="text-muted-foreground text-sm">Achievements</p>
             <h3 className="text-3xl font-bold text-white">
               {myAchievements.length} / {achievements.length}
             </h3>
@@ -195,7 +195,7 @@ export default function GamificationPage() {
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id as any)}
-            className={`px-6 py-2 rounded-full font-bold transition whitespace-nowrap ${activeTab === tab.id ? "bg-yellow-500 text-black" : "text-gray-400 hover:text-white"}`}
+            className={`px-6 py-2 rounded-full font-bold transition whitespace-nowrap ${activeTab === tab.id ? "bg-yellow-500 text-black" : "text-muted-foreground hover:text-white"}`}
           >
             {tab.label}
           </button>
@@ -214,7 +214,7 @@ export default function GamificationPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
-                <tr className="bg-gray-800/50 text-gray-400 text-sm">
+                <tr className="bg-gray-800/50 text-muted-foreground text-sm">
                   <th className="p-4">Rank</th>
                   <th className="p-4">Student</th>
                   <th className="p-4 text-center">Streak</th>
@@ -224,13 +224,13 @@ export default function GamificationPage() {
               <tbody className="divide-y divide-gray-800">
                 {loading ? (
                   <tr>
-                    <td colSpan={4} className="p-8 text-center text-gray-500">
+                    <td colSpan={4} className="p-8 text-center text-muted-foreground">
                       Loading leaderboard...
                     </td>
                   </tr>
                 ) : leaderboard.length === 0 ? (
                   <tr>
-                    <td colSpan={4} className="p-8 text-center text-gray-500">
+                    <td colSpan={4} className="p-8 text-center text-muted-foreground">
                       No data yet.
                     </td>
                   </tr>
@@ -248,10 +248,10 @@ export default function GamificationPage() {
                               index === 0
                                 ? "bg-yellow-500/20 text-yellow-500"
                                 : index === 1
-                                  ? "bg-gray-400/20 text-gray-400"
+                                  ? "bg-gray-400/20 text-muted-foreground"
                                   : index === 2
                                     ? "bg-orange-500/20 text-orange-500"
-                                    : "text-gray-500"
+                                    : "text-muted-foreground"
                             }
                           `}
                         >
@@ -297,7 +297,7 @@ export default function GamificationPage() {
                 )}
                 <div className="flex items-start space-x-4">
                   <div
-                    className={`p-3 rounded-lg ${unlocked ? "bg-yellow-500/20 text-yellow-500" : "bg-gray-800 text-gray-500"}`}
+                    className={`p-3 rounded-lg ${unlocked ? "bg-yellow-500/20 text-yellow-500" : "bg-gray-800 text-muted-foreground"}`}
                   >
                     {unlocked ? (
                       <Award className="h-8 w-8" />
@@ -307,15 +307,15 @@ export default function GamificationPage() {
                   </div>
                   <div>
                     <h3
-                      className={`font-bold ${unlocked ? "text-white" : "text-gray-400"}`}
+                      className={`font-bold ${unlocked ? "text-white" : "text-muted-foreground"}`}
                     >
                       {achievement.name}
                     </h3>
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-sm text-muted-foreground mt-1">
                       {achievement.description}
                     </p>
                     <div className="mt-3 flex items-center space-x-2 text-xs">
-                      <span className="bg-gray-800 text-gray-400 px-2 py-1 rounded">
+                      <span className="bg-gray-800 text-muted-foreground px-2 py-1 rounded">
                         {achievement.category}
                       </span>
                       <span className="text-yellow-500 font-bold">
@@ -355,7 +355,7 @@ export default function GamificationPage() {
                     </span>
                   </div>
                 </div>
-                <p className="text-gray-400 mb-6">{challenge.description}</p>
+                <p className="text-muted-foreground mb-6">{challenge.description}</p>
 
                 {challenge.progress && (
                   <div className="space-y-4">
@@ -368,7 +368,7 @@ export default function GamificationPage() {
                       />
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-500">
+                      <span className="text-sm text-muted-foreground">
                         {Math.round(challenge.progress.progress_percentage)}%
                         Complete
                       </span>
@@ -376,7 +376,7 @@ export default function GamificationPage() {
                         challenge.progress.reward_claimed ? (
                           <button
                             disabled
-                            className="bg-gray-800 text-gray-500 px-4 py-2 rounded-lg font-bold text-sm flex items-center"
+                            className="bg-gray-800 text-muted-foreground px-4 py-2 rounded-lg font-bold text-sm flex items-center"
                           >
                             <CheckCircle className="w-4 h-4 mr-2" /> Claimed
                           </button>
@@ -389,7 +389,7 @@ export default function GamificationPage() {
                           </button>
                         )
                       ) : (
-                        <span className="text-sm text-gray-500">
+                        <span className="text-sm text-muted-foreground">
                           In Progress
                         </span>
                       )}
@@ -417,7 +417,7 @@ export default function GamificationPage() {
                     : "🧪"}
               </div>
               <h3 className="text-xl font-bold text-white">{item.name}</h3>
-              <p className="text-gray-400 text-sm mt-1 flex-1">
+              <p className="text-muted-foreground text-sm mt-1 flex-1">
                 {item.description}
               </p>
               <div className="mt-4 flex items-center justify-between">

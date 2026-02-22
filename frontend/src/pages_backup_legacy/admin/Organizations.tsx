@@ -50,7 +50,7 @@ export const Organizations: React.FC = () => {
   return (
     <div className="p-6 max-w-7xl mx-auto">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-zinc-900 dark:text-white">
+        <h1 className="text-3xl font-bold text-zinc-900">
           Organizations
         </h1>
         <button
@@ -62,7 +62,7 @@ export const Organizations: React.FC = () => {
         </button>
       </div>
 
-      <div className="bg-white dark:bg-zinc-900 rounded-lg shadow overflow-hidden border border-zinc-200 dark:border-zinc-800">
+      <div className="bg-card dark:bg-zinc-900 rounded-lg shadow overflow-hidden border border-zinc-200 dark:border-zinc-800">
         <table className="min-w-full divide-y divide-zinc-200 dark:divide-zinc-800">
           <thead className="bg-zinc-50 dark:bg-zinc-800/50">
             <tr>
@@ -86,10 +86,10 @@ export const Organizations: React.FC = () => {
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white dark:bg-zinc-900 divide-y divide-zinc-200 dark:divide-zinc-800">
+          <tbody className="bg-card dark:bg-zinc-900 divide-y divide-zinc-200 dark:divide-zinc-800">
             {orgs.map((org) => (
               <tr key={org.id}>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-zinc-900 dark:text-white">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-zinc-900">
                   {org.name}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-zinc-500 dark:text-zinc-400">
@@ -135,8 +135,8 @@ export const Organizations: React.FC = () => {
       {/* Modal would go here - simplified for brevity */}
       {open && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-zinc-900 p-6 rounded-lg w-full max-w-md">
-            <h2 className="text-xl font-bold mb-4 text-zinc-900 dark:text-white">
+          <div className="bg-card dark:bg-zinc-900 p-6 rounded-lg w-full max-w-md">
+            <h2 className="text-xl font-bold mb-4 text-zinc-900">
               Create Organization
             </h2>
             <div className="space-y-4">
@@ -171,7 +171,7 @@ export const Organizations: React.FC = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, sso_enabled: e.target.checked })
                   }
-                  className="rounded border-gray-300"
+                  className="rounded border-border"
                 />
                 <span className="text-sm text-zinc-700 dark:text-zinc-300">
                   Enable SSO

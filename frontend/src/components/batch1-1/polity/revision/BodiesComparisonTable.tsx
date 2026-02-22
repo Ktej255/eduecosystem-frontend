@@ -261,8 +261,8 @@ export default function BodiesComparisonTable() {
                                 key={type}
                                 onClick={() => setFilter(type as BodyType | 'All')}
                                 className={`px-4 py-2 rounded-md font-bold transition-all ${filter === type
-                                        ? 'bg-amber-400 text-slate-900 shadow-md transform scale-105'
-                                        : 'text-slate-400 hover:text-white'
+                                        ? 'bg-amber-400 text-foreground shadow-md transform scale-105'
+                                        : 'text-muted-foreground hover:text-white'
                                     }`}
                             >
                                 {type}
@@ -272,9 +272,9 @@ export default function BodiesComparisonTable() {
                 </div>
             </CardHeader>
             <CardContent className="p-0">
-                <div className="p-4 bg-amber-100 border-b-2 border-slate-200 flex flex-wrap gap-4 items-center justify-center text-sm font-bold text-slate-700">
+                <div className="p-4 bg-amber-100 border-b-2 border-border flex flex-wrap gap-4 items-center justify-center text-sm font-bold text-muted-foreground">
                     <span>Self Test Mode:</span>
-                    <label className="flex items-center gap-2 cursor-pointer bg-white px-3 py-1 rounded shadow-sm border hover:bg-slate-50">
+                    <label className="flex items-center gap-2 cursor-pointer bg-card px-3 py-1 rounded shadow-sm border hover:bg-muted">
                         <input
                             type="checkbox"
                             checked={hiddenColumns.appointment}
@@ -283,7 +283,7 @@ export default function BodiesComparisonTable() {
                         />
                         Hide Appointment
                     </label>
-                    <label className="flex items-center gap-2 cursor-pointer bg-white px-3 py-1 rounded shadow-sm border hover:bg-slate-50">
+                    <label className="flex items-center gap-2 cursor-pointer bg-card px-3 py-1 rounded shadow-sm border hover:bg-muted">
                         <input
                             type="checkbox"
                             checked={hiddenColumns.tenure}
@@ -292,7 +292,7 @@ export default function BodiesComparisonTable() {
                         />
                         Hide Tenure
                     </label>
-                    <label className="flex items-center gap-2 cursor-pointer bg-white px-3 py-1 rounded shadow-sm border hover:bg-slate-50">
+                    <label className="flex items-center gap-2 cursor-pointer bg-card px-3 py-1 rounded shadow-sm border hover:bg-muted">
                         <input
                             type="checkbox"
                             checked={hiddenColumns.removal}
@@ -321,15 +321,15 @@ export default function BodiesComparisonTable() {
                                 <tr
                                     key={body.id}
                                     className={`
-                                        border-b border-slate-300 transition-colors
-                                        ${index % 2 === 0 ? 'bg-white' : 'bg-amber-50'}
+                                        border-b border-border transition-colors
+                                        ${index % 2 === 0 ? 'bg-card' : 'bg-amber-50'}
                                         hover:bg-blue-50
                                     `}
                                 >
-                                    <td className="p-4 border-r border-slate-300 font-black text-slate-800">
+                                    <td className="p-4 border-r border-border font-black text-foreground">
                                         {body.name}
                                     </td>
-                                    <td className="p-4 border-r border-slate-300">
+                                    <td className="p-4 border-r border-border">
                                         <Badge className={`
                                             ${body.type === 'Constitutional' ? 'bg-blue-600' :
                                                 body.type === 'Statutory' ? 'bg-green-600' : 'bg-orange-600'}
@@ -337,10 +337,10 @@ export default function BodiesComparisonTable() {
                                             {body.type}
                                         </Badge>
                                     </td>
-                                    <td className="p-4 border-r border-slate-300 font-mono text-sm font-bold text-slate-600">
+                                    <td className="p-4 border-r border-border font-mono text-sm font-bold text-muted-foreground">
                                         {body.articleOrAct}
                                     </td>
-                                    <td className="p-4 border-r border-slate-300 relative group cursor-pointer">
+                                    <td className="p-4 border-r border-border relative group cursor-pointer">
                                         <div className={hiddenColumns.appointment ? 'opacity-0 group-hover:opacity-100 transition-opacity blur-sm group-hover:blur-0' : ''}>
                                             {body.appointment}
                                         </div>
@@ -350,7 +350,7 @@ export default function BodiesComparisonTable() {
                                             </div>
                                         )}
                                     </td>
-                                    <td className="p-4 border-r border-slate-300 relative group cursor-pointer">
+                                    <td className="p-4 border-r border-border relative group cursor-pointer">
                                         <div className={hiddenColumns.tenure ? 'opacity-0 group-hover:opacity-100 transition-opacity blur-sm group-hover:blur-0' : ''}>
                                             {body.tenure}
                                         </div>
@@ -360,7 +360,7 @@ export default function BodiesComparisonTable() {
                                             </div>
                                         )}
                                     </td>
-                                    <td className="p-4 border-r border-slate-300 relative group cursor-pointer">
+                                    <td className="p-4 border-r border-border relative group cursor-pointer">
                                         <div className={hiddenColumns.removal ? 'opacity-0 group-hover:opacity-100 transition-opacity blur-sm group-hover:blur-0' : ''}>
                                             {body.removal}
                                         </div>
@@ -370,7 +370,7 @@ export default function BodiesComparisonTable() {
                                             </div>
                                         )}
                                     </td>
-                                    <td className="p-4 text-sm text-slate-700 font-medium">
+                                    <td className="p-4 text-sm text-muted-foreground font-medium">
                                         {body.function}
                                     </td>
                                 </tr>

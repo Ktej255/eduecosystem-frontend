@@ -24,14 +24,14 @@ export default function EngagementDemoPage() {
                 {/* Top Row: Streak + Mastery */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <section>
-                        <h2 className="text-xl font-semibold mb-4 text-gray-400">
+                        <h2 className="text-xl font-semibold mb-4 text-muted-foreground">
                             🔥 Streak Tracker
                         </h2>
                         <StreakWidget />
                     </section>
 
                     <section>
-                        <h2 className="text-xl font-semibold mb-4 text-gray-400">
+                        <h2 className="text-xl font-semibold mb-4 text-muted-foreground">
                             🏆 Mastery Level
                         </h2>
                         <MasteryWidget />
@@ -40,7 +40,7 @@ export default function EngagementDemoPage() {
 
                 {/* Habit Tracker */}
                 <section>
-                    <h2 className="text-xl font-semibold mb-4 text-gray-400">
+                    <h2 className="text-xl font-semibold mb-4 text-muted-foreground">
                         ✅ Daily Habits
                     </h2>
                     <HabitTracker />
@@ -48,7 +48,7 @@ export default function EngagementDemoPage() {
 
                 {/* Connect The Dots */}
                 <section>
-                    <h2 className="text-xl font-semibold mb-4 text-gray-400">
+                    <h2 className="text-xl font-semibold mb-4 text-muted-foreground">
                         🔗 Connect The Dots
                     </h2>
                     <ConnectTheDots
@@ -60,7 +60,7 @@ export default function EngagementDemoPage() {
 
                 {/* Compact Widgets */}
                 <section>
-                    <h2 className="text-xl font-semibold mb-4 text-gray-400">
+                    <h2 className="text-xl font-semibold mb-4 text-muted-foreground">
                         Compact Widgets (for header)
                     </h2>
                     <div className="flex gap-4">

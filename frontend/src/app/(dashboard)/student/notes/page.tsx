@@ -191,7 +191,7 @@ export default function NotesBookmarksPage() {
     return (
       <div className="container mx-auto py-8 px-4">
         <div className="flex items-center justify-center min-h-[400px]">
-          <div className="text-gray-400">Loading...</div>
+          <div className="text-muted-foreground">Loading...</div>
         </div>
       </div>
     );
@@ -202,7 +202,7 @@ export default function NotesBookmarksPage() {
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">My Notes & Bookmarks</h1>
-        <p className="text-gray-400">Organize your learning materials</p>
+        <p className="text-muted-foreground">Organize your learning materials</p>
       </div>
 
       {/* Stats */}
@@ -211,7 +211,7 @@ export default function NotesBookmarksPage() {
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-400 mb-1">Total Notes</p>
+                <p className="text-sm text-muted-foreground mb-1">Total Notes</p>
                 <p className="text-2xl font-bold">{notes.length}</p>
               </div>
               <FileText className="w-8 h-8 text-blue-500 opacity-50" />
@@ -223,7 +223,7 @@ export default function NotesBookmarksPage() {
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-400 mb-1">Bookmarks</p>
+                <p className="text-sm text-muted-foreground mb-1">Bookmarks</p>
                 <p className="text-2xl font-bold">{bookmarks.length}</p>
               </div>
               <Bookmark className="w-8 h-8 text-yellow-500 opacity-50" />
@@ -235,7 +235,7 @@ export default function NotesBookmarksPage() {
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-400 mb-1">Recent Activity</p>
+                <p className="text-sm text-muted-foreground mb-1">Recent Activity</p>
                 <p className="text-2xl font-bold">
                   {
                     notes.filter((n) => {
@@ -265,7 +265,7 @@ export default function NotesBookmarksPage() {
           {/* Filters */}
           <div className="flex flex-col md:flex-row gap-4 mb-6">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
                 placeholder="Search notes..."
                 value={searchQuery}
@@ -289,11 +289,11 @@ export default function NotesBookmarksPage() {
           {filteredNotes.length === 0 ? (
             <Card className="bg-gray-900 border-gray-800">
               <CardContent className="flex flex-col items-center justify-center py-12">
-                <FileText className="w-16 h-16 text-gray-700 mb-4" />
-                <p className="text-gray-400 text-lg mb-2">
+                <FileText className="w-16 h-16 text-muted-foreground mb-4" />
+                <p className="text-muted-foreground text-lg mb-2">
                   {searchQuery ? "No notes match your search" : "No notes yet"}
                 </p>
-                <p className="text-gray-500 text-sm">
+                <p className="text-muted-foreground text-sm">
                   Take notes while watching lessons to remember key points
                 </p>
               </CardContent>
@@ -311,7 +311,7 @@ export default function NotesBookmarksPage() {
                         <CardTitle className="text-base font-medium mb-1">
                           {note.lesson_title}
                         </CardTitle>
-                        <div className="flex items-center gap-2 text-sm text-gray-400">
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
                           <span>{note.course_title}</span>
                           {note.timestamp_seconds && (
                             <>
@@ -347,12 +347,12 @@ export default function NotesBookmarksPage() {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-300 whitespace-pre-wrap mb-2">
+                    <p className="text-muted-foreground whitespace-pre-wrap mb-2">
                       {note.content}
                     </p>
                     {note.tags && note.tags.length > 0 && (
                       <div className="flex items-center gap-2 flex-wrap">
-                        <Tag className="w-3 h-3 text-gray-500" />
+                        <Tag className="w-3 h-3 text-muted-foreground" />
                         {note.tags.map((tag, idx) => (
                           <span
                             key={idx}
@@ -375,9 +375,9 @@ export default function NotesBookmarksPage() {
           {bookmarks.length === 0 ? (
             <Card className="bg-gray-900 border-gray-800">
               <CardContent className="flex flex-col items-center justify-center py-12">
-                <Bookmark className="w-16 h-16 text-gray-700 mb-4" />
-                <p className="text-gray-400 text-lg mb-2">No bookmarks yet</p>
-                <p className="text-gray-500 text-sm">
+                <Bookmark className="w-16 h-16 text-muted-foreground mb-4" />
+                <p className="text-muted-foreground text-lg mb-2">No bookmarks yet</p>
+                <p className="text-muted-foreground text-sm">
                   Bookmark lessons and courses for quick access
                 </p>
               </CardContent>
@@ -395,7 +395,7 @@ export default function NotesBookmarksPage() {
                         <CardTitle className="text-base font-medium mb-1">
                           {bookmark.lesson_title || bookmark.course_title}
                         </CardTitle>
-                        <p className="text-sm text-gray-400">
+                        <p className="text-sm text-muted-foreground">
                           {bookmark.lesson_title && bookmark.course_title}
                         </p>
                       </div>
@@ -410,11 +410,11 @@ export default function NotesBookmarksPage() {
                   </CardHeader>
                   {bookmark.notes && (
                     <CardContent>
-                      <p className="text-sm text-gray-300">{bookmark.notes}</p>
+                      <p className="text-sm text-muted-foreground">{bookmark.notes}</p>
                     </CardContent>
                   )}
                   <CardContent>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-muted-foreground">
                       Saved {new Date(bookmark.created_at).toLocaleDateString()}
                     </p>
                   </CardContent>

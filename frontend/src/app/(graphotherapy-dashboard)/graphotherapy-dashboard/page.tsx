@@ -79,7 +79,7 @@ export default function GraphotherapyDashboard() {
                     <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
                         Your Transformation Journey
                     </h1>
-                    <p className="text-gray-500 mt-2 font-medium">
+                    <p className="text-muted-foreground mt-2 font-medium">
                         Level {stats.level}: {stats.level === 1 ? "The Foundation" : "The Expansion"} • Day {stats.day}/30
                     </p>
                 </div>
@@ -107,14 +107,14 @@ export default function GraphotherapyDashboard() {
                     </DialogHeader>
                     <div className="grid gap-4 py-4">
                         {/* Streak Freeze */}
-                        <div className="flex items-center justify-between p-3 border rounded-xl hover:bg-slate-50 cursor-pointer group">
+                        <div className="flex items-center justify-between p-3 border rounded-xl hover:bg-muted cursor-pointer group">
                             <div className="flex items-center gap-3">
                                 <div className="bg-cyan-100 p-2 rounded-lg group-hover:scale-110 transition-transform">
                                     <span className="text-2xl">❄️</span>
                                 </div>
                                 <div>
-                                    <div className="font-bold text-gray-900">Streak Freeze</div>
-                                    <div className="text-xs text-gray-500">Protect your streak for 1 missed day.</div>
+                                    <div className="font-bold text-foreground">Streak Freeze</div>
+                                    <div className="text-xs text-muted-foreground">Protect your streak for 1 missed day.</div>
                                 </div>
                             </div>
                             <Button size="sm" variant="outline" className="border-yellow-500 text-yellow-600 hover:bg-yellow-50">
@@ -127,8 +127,8 @@ export default function GraphotherapyDashboard() {
 
             {/* Progress & Time Capsule */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="md:col-span-2 bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col justify-center">
-                    <div className="flex justify-between text-sm mb-2 text-gray-500">
+                <div className="md:col-span-2 bg-card p-4 rounded-xl shadow-sm border border-border flex flex-col justify-center">
+                    <div className="flex justify-between text-sm mb-2 text-muted-foreground">
                         <span>Progress</span>
                         <span>{Math.round((stats.day / 30) * 100)}%</span>
                     </div>
@@ -140,7 +140,7 @@ export default function GraphotherapyDashboard() {
             {/* Level Grid */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 {/* Level 1 */}
-                <Card className={`border-2 shadow-sm transition-all ${stats.level === 1 ? 'border-purple-500 ring-4 ring-purple-50' : 'border-gray-200'}`}>
+                <Card className={`border-2 shadow-sm transition-all ${stats.level === 1 ? 'border-purple-500 ring-4 ring-purple-50' : 'border-border'}`}>
                     <CardHeader>
                         <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-2 text-2xl">🌱</div>
                         <CardTitle>Level 1: Foundation</CardTitle>
@@ -154,9 +154,9 @@ export default function GraphotherapyDashboard() {
                 </Card>
 
                 {/* Level 2 */}
-                <Card className={`border-2 ${stats.level >= 2 ? 'border-blue-500 bg-white' : 'border-dashed border-gray-300 opacity-70'}`}>
+                <Card className={`border-2 ${stats.level >= 2 ? 'border-blue-500 bg-card' : 'border-dashed border-border opacity-70'}`}>
                     <CardHeader>
-                        <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 ${stats.level >= 2 ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-400'}`}>
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 ${stats.level >= 2 ? 'bg-blue-100 text-blue-600' : 'bg-muted text-muted-foreground'}`}>
                             {stats.level >= 2 ? <Trophy className="w-6 h-6" /> : <Lock className="w-5 h-5" />}
                         </div>
                         <CardTitle>Level 2: Expansion</CardTitle>
@@ -227,10 +227,10 @@ export default function GraphotherapyDashboard() {
                     </DialogHeader>
 
                     <div className="space-y-4 py-4">
-                        <div className="bg-white/10 p-4 rounded-xl border border-white/20">
+                        <div className="bg-card/10 p-4 rounded-xl border border-white/20">
                             <div className="flex justify-between items-center mb-2">
                                 <span className="text-indigo-300">Level 2 (Standard Price)</span>
-                                <span className="line-through text-gray-400">₹5,000</span>
+                                <span className="line-through text-muted-foreground">₹5,000</span>
                             </div>
                             <div className="flex justify-between items-center mb-2 font-bold text-green-400">
                                 <span>Streak Bonus (15 Days)</span>
@@ -240,7 +240,7 @@ export default function GraphotherapyDashboard() {
                                 <span className="flex items-center gap-2"><Coins className="w-4 h-4" /> Coin Redemption ({stats.coins})</span>
                                 <span>- ₹150</span>
                             </div>
-                            <div className="h-px bg-white/20 my-2"></div>
+                            <div className="h-px bg-card/20 my-2"></div>
                             <div className="flex justify-between items-end">
                                 <span className="text-lg">Your Price</span>
                                 <span className="text-3xl font-bold text-white">₹3,850</span>
@@ -258,7 +258,7 @@ export default function GraphotherapyDashboard() {
                         >
                             Redeem & Unlock Level 2
                         </Button>
-                        <Button variant="ghost" className="text-indigo-300 hover:text-white hover:bg-white/10" onClick={() => setShowDay15Modal(false)}>
+                        <Button variant="ghost" className="text-indigo-300 hover:text-white hover:bg-card/10" onClick={() => setShowDay15Modal(false)}>
                             No thanks, I'll continue Level 1
                         </Button>
                     </DialogFooter>

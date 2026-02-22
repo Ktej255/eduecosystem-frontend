@@ -92,9 +92,9 @@ export default function AchievementsPage() {
             >
                 <div className="flex items-center gap-3 mb-2">
                     <Trophy className="w-8 h-8 text-yellow-500" />
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Achievement Gallery</h1>
+                    <h1 className="text-3xl font-bold text-foreground">Achievement Gallery</h1>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-muted-foreground dark:text-muted-foreground">
                     Track your progress and unlock rewards as you master UPSC preparation.
                 </p>
             </motion.div>
@@ -155,7 +155,7 @@ export default function AchievementsPage() {
                         className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all
                             ${selectedCategory === cat
                                 ? 'bg-indigo-600 text-white shadow-lg'
-                                : 'bg-white dark:bg-[#1a1a1a] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900'
+                                : 'bg-card dark:bg-[#1a1a1a] text-muted-foreground dark:text-muted-foreground border border-border hover:bg-muted dark:hover:bg-gray-900'
                             }`}
                     >
                         {cat}
@@ -178,8 +178,8 @@ export default function AchievementsPage() {
                             transition={{ delay: index * 0.05 }}
                             className={`relative p-5 rounded-2xl border transition-all overflow-hidden
                                 ${isUnlocked
-                                    ? 'bg-white dark:bg-[#111] border-transparent shadow-lg'
-                                    : 'bg-gray-50 dark:bg-[#0a0a0a] border-gray-200 dark:border-gray-800 opacity-60'
+                                    ? 'bg-card dark:bg-[#111] border-transparent shadow-lg'
+                                    : 'bg-muted dark:bg-[#0a0a0a] border-border opacity-60'
                                 }`}
                         >
                             {/* Background Gradient for Unlocked */}
@@ -190,22 +190,22 @@ export default function AchievementsPage() {
                             <div className="relative z-10 flex items-start gap-4">
                                 <div className={`p-3 rounded-xl ${isUnlocked
                                     ? `bg-gradient-to-br ${achievement.color} text-white shadow-lg`
-                                    : 'bg-gray-200 dark:bg-gray-800 text-gray-400'}`}
+                                    : 'bg-muted text-muted-foreground'}`}
                                 >
                                     <Icon className="w-6 h-6" />
                                 </div>
 
                                 <div className="flex-1">
                                     <div className="flex items-center gap-2 mb-1">
-                                        <h3 className="font-bold text-gray-900 dark:text-white">{achievement.name}</h3>
+                                        <h3 className="font-bold text-foreground">{achievement.name}</h3>
                                         {isUnlocked && <CheckCircle className="w-4 h-4 text-green-500" />}
-                                        {!isUnlocked && <Lock className="w-4 h-4 text-gray-400" />}
+                                        {!isUnlocked && <Lock className="w-4 h-4 text-muted-foreground" />}
                                     </div>
-                                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{achievement.description}</p>
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-3">{achievement.description}</p>
 
                                     {/* Progress Bar */}
                                     {!isUnlocked && (
-                                        <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-2">
+                                        <div className="w-full bg-muted rounded-full h-2">
                                             <div
                                                 className={`bg-gradient-to-r ${achievement.color} h-2 rounded-full transition-all`}
                                                 style={{ width: `${progress}%` }}
@@ -216,7 +216,7 @@ export default function AchievementsPage() {
                             </div>
 
                             {/* Category Badge */}
-                            <span className="absolute top-3 right-3 text-[10px] font-medium text-gray-400 uppercase tracking-wider">
+                            <span className="absolute top-3 right-3 text-[10px] font-medium text-muted-foreground uppercase tracking-wider">
                                 {achievement.category}
                             </span>
                         </motion.div>
@@ -231,7 +231,7 @@ export default function AchievementsPage() {
                 transition={{ delay: 0.5 }}
                 className="mt-12 text-center"
             >
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-muted-foreground dark:text-muted-foreground">
                     🏆 Keep studying consistently to unlock more achievements!
                 </p>
             </motion.div>

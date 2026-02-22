@@ -60,7 +60,7 @@ function HubNode({
                 <div onClick={onClick} className="flex flex-col items-center cursor-pointer transition-transform hover:scale-110">
                     <div className={`
                         backdrop-blur-md p-2 rounded-xl border shadow-2xl flex items-center gap-2 transition-all
-                        ${isSelected ? 'bg-white/20 border-white/40 ring-2 ring-white/20 scale-110' : 'bg-white/10 border-white/20'}
+                        ${isSelected ? 'bg-card/20 border-white/40 ring-2 ring-white/20 scale-110' : 'bg-card/10 border-white/20'}
                     `}>
                         <Icon className="w-4 h-4" style={{ color }} />
                         <span className="text-[10px] font-black text-white uppercase tracking-tighter whitespace-nowrap">{label}</span>
@@ -140,12 +140,12 @@ export default function CarbonCycleViz() {
                 <div className="flex justify-between items-center">
                     <div className="space-y-1">
                         <CardTitle className="flex items-center gap-2 text-white">
-                            <span className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400">
+                            <span className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-muted-foreground">
                                 <Wind className="w-5 h-5" />
                             </span>
                             Volumetric Carbon Cycle
                         </CardTitle>
-                        <CardDescription className="text-slate-400">
+                        <CardDescription className="text-muted-foreground">
                             Interactive simulation of CO₂ fluxes. Click nodes for details.
                         </CardDescription>
                     </div>
@@ -154,7 +154,7 @@ export default function CarbonCycleViz() {
                             onClick={() => setShowFlows(!showFlows)}
                             className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${showFlows
                                 ? "bg-blue-500/20 text-blue-300 border-blue-500/30"
-                                : "bg-white/5 text-slate-400 border-white/10 hover:bg-white/10"
+                                : "bg-card/5 text-muted-foreground border-white/10 hover:bg-card/10"
                                 }`}
                         >
                             {showFlows ? "Hide Flows" : "Show Flows"}
@@ -223,7 +223,7 @@ export default function CarbonCycleViz() {
                     <div className="absolute top-4 left-4 z-20 w-64 bg-slate-900/90 backdrop-blur-md rounded-xl border border-white/10 p-4 shadow-2xl animate-in fade-in slide-in-from-left-4">
                         <div className="flex justify-between items-start mb-2">
                             <h3 className="text-lg font-bold text-white">{selectedNode}</h3>
-                            <button onClick={() => setSelectedNode(null)} className="text-slate-400 hover:text-white">
+                            <button onClick={() => setSelectedNode(null)} className="text-muted-foreground hover:text-white">
                                 <RotateCcw className="w-4 h-4" />
                             </button>
                         </div>
@@ -231,12 +231,12 @@ export default function CarbonCycleViz() {
                             {nodeData[selectedNode as keyof typeof nodeData].description}
                         </p>
                         <div className="space-y-2">
-                            <div className="bg-white/5 rounded-lg p-2 border border-white/5">
-                                <p className="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-0.5">Current Status</p>
+                            <div className="bg-card/5 rounded-lg p-2 border border-white/5">
+                                <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold mb-0.5">Current Status</p>
                                 <p className="text-xs font-mono text-blue-300">{nodeData[selectedNode as keyof typeof nodeData].stats}</p>
                             </div>
-                            <div className="bg-white/5 rounded-lg p-2 border border-white/5">
-                                <p className="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-0.5">Annual Flux</p>
+                            <div className="bg-card/5 rounded-lg p-2 border border-white/5">
+                                <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold mb-0.5">Annual Flux</p>
                                 <p className="text-xs font-mono text-emerald-300">{nodeData[selectedNode as keyof typeof nodeData].flux}</p>
                             </div>
                         </div>

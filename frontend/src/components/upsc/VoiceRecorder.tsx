@@ -188,7 +188,7 @@ export const VoiceRecorder: React.FC<VoiceRecorderProps> = ({ onRecordingComplet
                 {isRecording && (
                     <button
                         onClick={stopRecording}
-                        className="w-20 h-20 rounded-full bg-white hover:bg-gray-100 transition-all shadow-lg flex items-center justify-center group"
+                        className="w-20 h-20 rounded-full bg-card hover:bg-muted transition-all shadow-lg flex items-center justify-center group"
                     >
                         <Square className="w-8 h-8 text-[var(--primary-indigo)] group-hover:scale-110 transition-transform fill-current" />
                     </button>
@@ -198,7 +198,7 @@ export const VoiceRecorder: React.FC<VoiceRecorderProps> = ({ onRecordingComplet
                     <>
                         <button
                             onClick={resetRecording}
-                            className="w-14 h-14 rounded-full bg-white/10 hover:bg-white/20 transition-all flex items-center justify-center"
+                            className="w-14 h-14 rounded-full bg-card/10 hover:bg-card/20 transition-all flex items-center justify-center"
                             title="Retake"
                         >
                             <RotateCcw className="w-6 h-6 text-white" />

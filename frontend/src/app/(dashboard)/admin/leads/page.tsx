@@ -141,7 +141,7 @@ export default function LeadsPage() {
             <div className="flex justify-between items-center">
                 <div>
                     <h1 className="text-3xl font-bold text-white tracking-tight">Lead Management</h1>
-                    <p className="text-slate-400 mt-1">Centralize, track, and optimize your enrollments.</p>
+                    <p className="text-muted-foreground mt-1">Centralize, track, and optimize your enrollments.</p>
                 </div>
                 <div className="flex gap-3">
                     <Button variant="outline" className="border-slate-700 text-slate-300 hover:bg-slate-800">
@@ -158,7 +158,7 @@ export default function LeadsPage() {
                 <Card className="p-4 bg-slate-900 border-slate-800">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-xs text-slate-400 uppercase font-semibold">Total Leads</p>
+                            <p className="text-xs text-muted-foreground uppercase font-semibold">Total Leads</p>
                             <h3 className="text-2xl font-bold text-white mt-1">{totalLeads}</h3>
                         </div>
                         <Users className="h-5 w-5 text-blue-500" />
@@ -167,7 +167,7 @@ export default function LeadsPage() {
                 <Card className="p-4 bg-slate-900 border-slate-800">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-xs text-slate-400 uppercase font-semibold">New Leads</p>
+                            <p className="text-xs text-muted-foreground uppercase font-semibold">New Leads</p>
                             <h3 className="text-2xl font-bold text-white mt-1">{newLeads}</h3>
                         </div>
                         <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -176,7 +176,7 @@ export default function LeadsPage() {
                 <Card className="p-4 bg-slate-900 border-slate-800">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-xs text-slate-400 uppercase font-semibold">Conversion Rate</p>
+                            <p className="text-xs text-muted-foreground uppercase font-semibold">Conversion Rate</p>
                             <h3 className="text-2xl font-bold text-white mt-1">
                                 {totalLeads > 0 ? ((convertedLeads / totalLeads) * 100).toFixed(1) : 0}%
                             </h3>
@@ -187,7 +187,7 @@ export default function LeadsPage() {
                 <Card className="p-4 bg-slate-900 border-slate-800">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-xs text-slate-400 uppercase font-semibold">Unassigned</p>
+                            <p className="text-xs text-muted-foreground uppercase font-semibold">Unassigned</p>
                             <h3 className="text-2xl font-bold text-white mt-1">
                                 {leads.filter(l => !l.assigned_to_id).length}
                             </h3>
@@ -201,10 +201,10 @@ export default function LeadsPage() {
             <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-slate-900/50 p-4 rounded-lg border border-slate-800">
                 <div className="flex gap-4 items-center flex-1">
                     <div className="relative w-72">
-                        <Search className="absolute left-2 top-2.5 h-4 w-4 text-slate-500" />
+                        <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
                         <Input
                             placeholder="Search by name, email, phone..."
-                            className="pl-8 bg-slate-900 border-slate-700 text-slate-100 placeholder:text-slate-500 focus-visible:ring-emerald-500"
+                            className="pl-8 bg-slate-900 border-slate-700 text-slate-100 placeholder:text-muted-foreground focus-visible:ring-emerald-500"
                             value={filters.search}
                             onChange={(e) => setFilters({ ...filters, search: e.target.value })}
                         />
@@ -233,7 +233,7 @@ export default function LeadsPage() {
 
                 {selectedLeads.length > 0 && (
                     <div className="flex items-center gap-2 animate-in fade-in slide-in-from-right-5 duration-200">
-                        <span className="text-sm text-slate-400">{selectedLeads.length} selected</span>
+                        <span className="text-sm text-muted-foreground">{selectedLeads.length} selected</span>
                         <Dialog open={isReassignOpen} onOpenChange={setIsReassignOpen}>
                             <DialogTrigger asChild>
                                 <Button variant="secondary" className="bg-indigo-600 hover:bg-indigo-700 text-white border-0">
@@ -245,7 +245,7 @@ export default function LeadsPage() {
                                     <DialogTitle>Bulk Reassign Leads</DialogTitle>
                                 </DialogHeader>
                                 <div className="py-4 space-y-4">
-                                    <p className="text-slate-400">
+                                    <p className="text-muted-foreground">
                                         Assigning <strong>{selectedLeads.length}</strong> leads to:
                                     </p>
                                     <Select value={selectedAssignee} onValueChange={setSelectedAssignee}>
@@ -262,7 +262,7 @@ export default function LeadsPage() {
                                     </Select>
                                 </div>
                                 <DialogFooter>
-                                    <Button variant="ghost" onClick={() => setIsReassignOpen(false)} className="text-slate-400 hover:text-white hover:bg-slate-800">Cancel</Button>
+                                    <Button variant="ghost" onClick={() => setIsReassignOpen(false)} className="text-muted-foreground hover:text-white hover:bg-slate-800">Cancel</Button>
                                     <Button onClick={handleBulkReassign} className="bg-emerald-600 hover:bg-emerald-700">
                                         Confirm Reassignment
                                     </Button>
@@ -286,25 +286,25 @@ export default function LeadsPage() {
                                     onChange={(e) => handleSelectAll(e.target.checked)}
                                 />
                             </TableHead>
-                            <TableHead className="text-slate-400">Name</TableHead>
-                            <TableHead className="text-slate-400">Contact</TableHead>
-                            <TableHead className="text-slate-400">Status</TableHead>
-                            <TableHead className="text-slate-400">Source</TableHead>
-                            <TableHead className="text-slate-400">Verification</TableHead>
-                            <TableHead className="text-slate-400">Assigned To</TableHead>
-                            <TableHead className="text-right text-slate-400">Actions</TableHead>
+                            <TableHead className="text-muted-foreground">Name</TableHead>
+                            <TableHead className="text-muted-foreground">Contact</TableHead>
+                            <TableHead className="text-muted-foreground">Status</TableHead>
+                            <TableHead className="text-muted-foreground">Source</TableHead>
+                            <TableHead className="text-muted-foreground">Verification</TableHead>
+                            <TableHead className="text-muted-foreground">Assigned To</TableHead>
+                            <TableHead className="text-right text-muted-foreground">Actions</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         {loading ? (
                             <TableRow>
-                                <TableCell colSpan={8} className="text-center py-10 text-slate-500">
+                                <TableCell colSpan={8} className="text-center py-10 text-muted-foreground">
                                     Loading leads...
                                 </TableCell>
                             </TableRow>
                         ) : leads.length === 0 ? (
                             <TableRow>
-                                <TableCell colSpan={8} className="text-center py-10 text-slate-500">
+                                <TableCell colSpan={8} className="text-center py-10 text-muted-foreground">
                                     No leads found.
                                 </TableCell>
                             </TableRow>
@@ -321,11 +321,11 @@ export default function LeadsPage() {
                                     </TableCell>
                                     <TableCell>
                                         <div className="font-medium text-white">{lead.name}</div>
-                                        <div className="text-xs text-slate-500">Added {new Date(lead.created_at).toLocaleDateString()}</div>
+                                        <div className="text-xs text-muted-foreground">Added {new Date(lead.created_at).toLocaleDateString()}</div>
                                     </TableCell>
                                     <TableCell>
                                         <div className="text-sm text-slate-300">{lead.email}</div>
-                                        <div className="text-xs text-slate-500">{lead.phone || '-'}</div>
+                                        <div className="text-xs text-muted-foreground">{lead.phone || '-'}</div>
                                     </TableCell>
                                     <TableCell>
                                         <Badge variant="outline" className={`
@@ -359,7 +359,7 @@ export default function LeadsPage() {
                                             <Button
                                                 variant="ghost"
                                                 size="sm"
-                                                className="h-6 text-xs text-slate-500 hover:text-emerald-400"
+                                                className="h-6 text-xs text-muted-foreground hover:text-emerald-400"
                                                 onClick={() => verifyLead(lead.id)}
                                             >
                                                 Verify Now
@@ -378,11 +378,11 @@ export default function LeadsPage() {
                                                 </span>
                                             </div>
                                         ) : (
-                                            <span className="text-xs text-slate-600 italic">Unassigned</span>
+                                            <span className="text-xs text-muted-foreground italic">Unassigned</span>
                                         )}
                                     </TableCell>
                                     <TableCell className="text-right">
-                                        <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-white">
+                                        <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-white">
                                             <MoreHorizontal className="h-4 w-4" />
                                         </Button>
                                     </TableCell>

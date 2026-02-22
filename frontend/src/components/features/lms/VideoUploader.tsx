@@ -103,7 +103,7 @@ export default function VideoUploader({
           {status === "idle" && (
             <div className="space-y-4">
               <div className="mx-auto w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center">
-                <Upload className="w-6 h-6 text-gray-400" />
+                <Upload className="w-6 h-6 text-muted-foreground" />
               </div>
               <div>
                 <Button
@@ -113,7 +113,7 @@ export default function VideoUploader({
                 >
                   Select Video
                 </Button>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-muted-foreground">
                   MP4, MOV, AVI up to 500MB
                 </p>
               </div>
@@ -124,11 +124,11 @@ export default function VideoUploader({
             <div className="space-y-4">
               <FileVideo className="w-8 h-8 text-cyan-500 mx-auto animate-pulse" />
               <div className="space-y-2">
-                <p className="text-sm font-medium text-gray-300">
+                <p className="text-sm font-medium text-muted-foreground">
                   {status === "uploading" ? "Uploading..." : "Processing..."}
                 </p>
                 <Progress value={progress} className="h-2" />
-                <p className="text-xs text-gray-500">{progress}%</p>
+                <p className="text-xs text-muted-foreground">{progress}%</p>
               </div>
             </div>
           )}
@@ -151,8 +151,8 @@ export default function VideoUploader({
         <div className="relative rounded-lg overflow-hidden bg-black border border-gray-800">
           <div className="aspect-video bg-gray-900 flex items-center justify-center">
             {/* Placeholder for video player or thumbnail */}
-            <FileVideo className="w-12 h-12 text-gray-600" />
-            <p className="absolute bottom-4 text-sm text-gray-400">
+            <FileVideo className="w-12 h-12 text-muted-foreground" />
+            <p className="absolute bottom-4 text-sm text-muted-foreground">
               Video Ready
             </p>
           </div>

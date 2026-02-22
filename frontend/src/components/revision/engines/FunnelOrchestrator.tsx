@@ -78,7 +78,7 @@ export default function FunnelOrchestrator({ examId, examName }: FunnelOrchestra
                     >
                         <header className="mb-12">
                             <h2 className="text-3xl font-black mb-4">How well do you know {examName}?</h2>
-                            <p className="text-slate-500 dark:text-slate-400 max-w-xl mx-auto font-medium">
+                            <p className="text-muted-foreground dark:text-muted-foreground max-w-xl mx-auto font-medium">
                                 Customize your flow based on your current level. Our AI will adjust the methodology to maximize your retention.
                             </p>
                         </header>
@@ -90,7 +90,7 @@ export default function FunnelOrchestrator({ examId, examName }: FunnelOrchestra
                                     onClick={() => setLevel(l.id as StudentLevel)}
                                     className={`relative cursor-pointer group transition-all duration-300 border-2 overflow-hidden ${level === l.id
                                         ? `border-${l.color}-500 bg-${l.color}-50/50 dark:bg-${l.color}-950/20`
-                                        : 'border-slate-100 dark:border-slate-800 hover:border-indigo-200 dark:hover:border-indigo-800'
+                                        : 'border-slate-100 hover:border-indigo-200 dark:hover:border-indigo-800'
                                         }`}
                                 >
                                     <CardContent className="p-8">
@@ -98,8 +98,8 @@ export default function FunnelOrchestrator({ examId, examName }: FunnelOrchestra
                                             <l.icon className="w-7 h-7" />
                                         </div>
                                         <h3 className="text-xl font-bold mb-1">{l.title}</h3>
-                                        <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">{l.subtitle}</p>
-                                        <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                                        <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-4">{l.subtitle}</p>
+                                        <p className="text-sm text-muted-foreground dark:text-muted-foreground leading-relaxed">
                                             {l.description}
                                         </p>
 
@@ -208,29 +208,29 @@ function BeginnerSessionConfig({ level, examName, onStart, onBack }: { level: st
             </Button>
 
             <header className="mb-12">
-                <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight text-slate-900 dark:text-white">Setup Your Session</h2>
-                <p className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-[0.2em] text-[10px]">
+                <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight text-foreground">Setup Your Session</h2>
+                <p className="text-muted-foreground dark:text-muted-foreground font-bold uppercase tracking-[0.2em] text-[10px]">
                     Defining parameters for your <span className="text-indigo-600">{level}</span> study path in {examName}
                 </p>
             </header>
 
-            <Card className="border-none bg-slate-50 dark:bg-slate-900/40 overflow-hidden mb-8 rounded-[2rem]">
+            <Card className="border-none bg-muted/40 overflow-hidden mb-8 rounded-[2rem]">
                 <CardContent className="p-10 space-y-12">
                     {/* Duration Selection */}
                     <div>
-                        <div className="flex items-center gap-2 mb-6 text-slate-400">
+                        <div className="flex items-center gap-2 mb-6 text-muted-foreground">
                             <Clock className="w-5 h-5" />
                             <span className="font-bold uppercase tracking-widest text-xs">Step 1: Intensity</span>
                         </div>
-                        <h3 className="text-xl font-bold mb-6 text-slate-900 dark:text-white">How much time do you have today?</h3>
+                        <h3 className="text-xl font-bold mb-6 text-foreground">How much time do you have today?</h3>
                         <div className="grid grid-cols-3 gap-4">
                             {[2, 4, 6].map((h) => (
                                 <button
                                     key={h}
                                     onClick={() => setDuration(h)}
                                     className={`h-24 rounded-2xl flex flex-col items-center justify-center transition-all border-2 ${duration === h
-                                        ? 'border-indigo-600 bg-white dark:bg-slate-800 shadow-xl shadow-indigo-500/10 text-indigo-600 dark:text-indigo-400'
-                                        : 'border-white dark:border-slate-800 bg-white/50 dark:bg-slate-800/50 hover:border-slate-200 text-slate-500'
+                                        ? 'border-indigo-600 bg-card shadow-xl shadow-indigo-500/10 text-indigo-600 dark:text-indigo-400'
+                                        : 'border-white bg-card/50/50 hover:border-border text-muted-foreground'
                                         }`}
                                 >
                                     <span className="text-3xl font-black">{h}</span>
@@ -238,31 +238,31 @@ function BeginnerSessionConfig({ level, examName, onStart, onBack }: { level: st
                                 </button>
                             ))}
                         </div>
-                        <p className="mt-6 text-xs text-slate-500 dark:text-slate-400 font-medium bg-white dark:bg-slate-800/50 p-4 rounded-xl inline-block border border-slate-100 dark:border-slate-800">
+                        <p className="mt-6 text-xs text-muted-foreground dark:text-muted-foreground font-medium bg-card/50 p-4 rounded-xl inline-block border border-slate-100">
                             💡 {duration} hours will consist of <strong>{duration * 2} cycles</strong> of 25-minute high-yield blocks.
                         </p>
                     </div>
 
                     {/* Subject Selection */}
                     <div>
-                        <div className="flex items-center gap-2 mb-6 text-slate-400">
+                        <div className="flex items-center gap-2 mb-6 text-muted-foreground">
                             <Target className="w-5 h-5" />
                             <span className="font-bold uppercase tracking-widest text-xs">Step 2: Focus Area</span>
                         </div>
-                        <h3 className="text-xl font-bold mb-6 text-slate-900 dark:text-white">Which subject are you starting with?</h3>
+                        <h3 className="text-xl font-bold mb-6 text-foreground">Which subject are you starting with?</h3>
                         <div className="grid grid-cols-2 gap-4">
                             {subjects.map((s) => (
                                 <button
                                     key={s.id}
                                     onClick={() => setSubject(s.id)}
                                     className={`px-6 py-5 rounded-2xl flex items-center gap-4 transition-all border-2 ${subject === s.id
-                                        ? 'border-indigo-600 bg-white dark:bg-slate-800 shadow-xl shadow-indigo-500/10 text-indigo-600 dark:text-indigo-400'
-                                        : 'border-white dark:border-slate-800 bg-white/50 dark:bg-slate-800/50 hover:border-slate-200 text-slate-500'
+                                        ? 'border-indigo-600 bg-card shadow-xl shadow-indigo-500/10 text-indigo-600 dark:text-indigo-400'
+                                        : 'border-white bg-card/50/50 hover:border-border text-muted-foreground'
                                         }`}
                                 >
                                     <div className={`p-3 rounded-xl transition-colors ${subject === s.id
                                         ? 'bg-indigo-100 dark:bg-indigo-900/30'
-                                        : 'bg-slate-100 dark:bg-slate-700'
+                                        : 'bg-muted'
                                         }`}>
                                         <s.icon className="w-5 h-5" />
                                     </div>

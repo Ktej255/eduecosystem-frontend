@@ -40,8 +40,8 @@ export function SadhanaStreak() {
       className="flex items-center gap-1 bg-orange-100 dark:bg-orange-950 px-3 py-1.5 rounded-full cursor-help border border-orange-200 dark:border-orange-800"
       title={`${streak} Day Streak! Completing daily Sadhana builds your fire.`}
     >
-      <Flame className={`w-5 h-5 ${streak > 0 ? "fill-orange-500 text-orange-600 animate-pulse" : "text-gray-400"}`} />
-      <span className={`font-bold font-mono ${streak > 0 ? "text-orange-700 dark:text-orange-400" : "text-gray-500"}`}>
+      <Flame className={`w-5 h-5 ${streak > 0 ? "fill-orange-500 text-orange-600 animate-pulse" : "text-muted-foreground"}`} />
+      <span className={`font-bold font-mono ${streak > 0 ? "text-orange-700 dark:text-orange-400" : "text-muted-foreground"}`}>
         {streak}
       </span>
     </div>

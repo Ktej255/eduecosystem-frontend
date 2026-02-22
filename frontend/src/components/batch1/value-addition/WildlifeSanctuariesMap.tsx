@@ -14,10 +14,10 @@ export default function WildlifeSanctuariesMap() {
     const [selectedWLS, setSelectedWLS] = useState<WildlifeSanctuary | null>(null);
 
     return (
-        <div className="flex flex-col h-[calc(100vh-4rem)] lg:flex-row overflow-hidden bg-amber-50 dark:bg-slate-950">
+        <div className="flex flex-col h-[calc(100vh-4rem)] lg:flex-row overflow-hidden bg-amber-50">
             {/* Sidebar Details Panel */}
             <div className={`
-                fixed inset-0 z-20 bg-white dark:bg-slate-900 shadow-2xl transform transition-transform duration-300
+                fixed inset-0 z-20 bg-card shadow-2xl transform transition-transform duration-300
                 lg:relative lg:translate-x-0 lg:w-96 lg:border-r lg:shadow-none
                 ${selectedWLS ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
             `}>
@@ -29,7 +29,7 @@ export default function WildlifeSanctuariesMap() {
                                 <ArrowLeft className="h-5 w-5" />
                             </Button>
                         </Link>
-                        <h1 className="text-xl font-bold text-gray-800 dark:text-gray-100">Wildlife Sanctuaries</h1>
+                        <h1 className="text-xl font-bold text-foreground">Wildlife Sanctuaries</h1>
                         {/* Mobile Close Button */}
                         <Button
                             variant="ghost"
@@ -55,22 +55,22 @@ export default function WildlifeSanctuariesMap() {
                             {/* Significance Badge */}
                             <div className="bg-amber-50 dark:bg-amber-900/10 p-3 rounded-lg border border-amber-100 dark:border-amber-800">
                                 <p className="text-xs font-bold text-amber-600 uppercase mb-1">Key Significance</p>
-                                <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                                <p className="text-sm font-medium text-muted-foreground dark:text-muted-foreground">
                                     {selectedWLS.significance}
                                 </p>
                             </div>
 
                             {/* Description */}
-                            <div className="bg-white dark:bg-slate-800 p-4 rounded-xl border shadow-sm">
-                                <h3 className="text-sm font-bold text-gray-500 uppercase mb-2">About</h3>
-                                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <div className="bg-card p-4 rounded-xl border shadow-sm">
+                                <h3 className="text-sm font-bold text-muted-foreground uppercase mb-2">About</h3>
+                                <p className="text-muted-foreground dark:text-muted-foreground leading-relaxed">
                                     {selectedWLS.description}
                                 </p>
                             </div>
 
                             {/* Species */}
-                            <div className="bg-white dark:bg-slate-800 p-4 rounded-xl border shadow-sm">
-                                <h3 className="text-sm font-bold text-gray-500 uppercase mb-2 flex items-center gap-2">
+                            <div className="bg-card p-4 rounded-xl border shadow-sm">
+                                <h3 className="text-sm font-bold text-muted-foreground uppercase mb-2 flex items-center gap-2">
                                     <Bird className="h-4 w-4" />
                                     Flora & Fauna
                                 </h3>
@@ -84,7 +84,7 @@ export default function WildlifeSanctuariesMap() {
                             </div>
                         </div>
                     ) : (
-                        <div className="flex-1 flex flex-col items-center justify-center text-center text-gray-400 p-4">
+                        <div className="flex-1 flex flex-col items-center justify-center text-center text-muted-foreground p-4">
                             <MapPin className="h-12 w-12 mb-4 opacity-20" />
                             <p className="text-lg font-medium">Explore India's Sanctuaries</p>
                             <p className="text-sm">Click on any marker to learn about unique habitats and endangered species.</p>
@@ -94,7 +94,7 @@ export default function WildlifeSanctuariesMap() {
             </div>
 
             {/* Map Area */}
-            <div className="flex-1 relative bg-amber-50/50 dark:bg-slate-950 p-4 overflow-hidden flex items-center justify-center">
+            <div className="flex-1 relative bg-amber-50/50 p-4 overflow-hidden flex items-center justify-center">
                 <div className="relative w-full max-w-2xl aspect-[3/4]">
                     <svg viewBox="0 0 100 120" className="w-full h-full drop-shadow-xl filter">
                         {/* India Map Base */}
@@ -141,7 +141,7 @@ export default function WildlifeSanctuariesMap() {
                         ))}
                     </svg>
 
-                    <div className="absolute bottom-4 right-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur p-2 rounded-lg border text-xs text-gray-500">
+                    <div className="absolute bottom-4 right-4 bg-card/80/80 backdrop-blur p-2 rounded-lg border text-xs text-muted-foreground">
                         * Locations are approximate
                     </div>
                 </div>

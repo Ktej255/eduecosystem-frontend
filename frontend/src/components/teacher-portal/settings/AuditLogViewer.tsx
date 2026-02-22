@@ -116,7 +116,7 @@ export default function AuditLogViewer() {
             case "success": return "bg-green-100 text-green-700 border-green-200";
             case "warning": return "bg-amber-100 text-amber-700 border-amber-200";
             case "error": return "bg-red-100 text-red-700 border-red-200";
-            default: return "bg-slate-100";
+            default: return "bg-muted";
         }
     };
 
@@ -128,8 +128,8 @@ export default function AuditLogViewer() {
     );
 
     return (
-        <Card className="border-slate-200 dark:border-slate-800">
-            <CardHeader className="pb-4 border-b border-slate-100 dark:border-slate-800">
+        <Card className="border-border">
+            <CardHeader className="pb-4 border-b border-slate-100">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
                         <CardTitle className="text-lg font-bold flex items-center gap-2">
@@ -140,17 +140,17 @@ export default function AuditLogViewer() {
                     </div>
                     <div className="flex flex-col sm:flex-row gap-2">
                         <div className="relative w-full sm:w-64">
-                            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-slate-400" />
+                            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                             <Input
                                 placeholder="Search logs..."
-                                className="pl-9 h-9 text-xs bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800"
+                                className="pl-9 h-9 text-xs bg-muted border-border"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                             />
                         </div>
                         <Select value={moduleFilter} onValueChange={setModuleFilter}>
                             <SelectTrigger className="w-[140px] h-9 text-xs">
-                                <Filter className="h-3 w-3 mr-2 text-slate-500" />
+                                <Filter className="h-3 w-3 mr-2 text-muted-foreground" />
                                 <SelectValue placeholder="Module" />
                             </SelectTrigger>
                             <SelectContent>
@@ -170,7 +170,7 @@ export default function AuditLogViewer() {
             <CardContent className="p-0">
                 <div className="overflow-x-auto">
                     <table className="w-full text-sm text-left">
-                        <thead className="bg-slate-50 dark:bg-slate-900/50 text-slate-500 font-medium border-b border-slate-100 dark:border-slate-800">
+                        <thead className="bg-muted/50 text-muted-foreground font-medium border-b border-slate-100">
                             <tr>
                                 <th className="px-6 py-3 w-[250px]">Action</th>
                                 <th className="px-6 py-3">User</th>
@@ -182,17 +182,17 @@ export default function AuditLogViewer() {
                             {filteredLogs.map((log) => {
                                 const Icon = getIcon(log.module);
                                 return (
-                                    <tr key={log.id} className="hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors group">
+                                    <tr key={log.id} className="hover:bg-muted dark:hover:bg-slate-900/50 transition-colors group">
                                         <td className="px-6 py-4">
                                             <div className="flex items-start gap-3">
-                                                <div className={cn("p-2 rounded-lg bg-slate-100 dark:bg-slate-800",
+                                                <div className={cn("p-2 rounded-lg bg-muted",
                                                     log.status === 'error' ? "text-red-600 bg-red-50" :
-                                                        log.status === 'warning' ? "text-amber-600 bg-amber-50" : "text-slate-600"
+                                                        log.status === 'warning' ? "text-amber-600 bg-amber-50" : "text-muted-foreground"
                                                 )}>
                                                     <Icon className="h-4 w-4" />
                                                 </div>
                                                 <div>
-                                                    <div className="font-semibold text-slate-800 dark:text-slate-200">{log.action}</div>
+                                                    <div className="font-semibold text-foreground">{log.action}</div>
                                                     <Badge variant="outline" className={cn("mt-1 text-[10px] capitalize border-0 px-1.5 py-0 h-5", getStatusColor(log.status))}>
                                                         {log.status}
                                                     </Badge>
@@ -201,17 +201,17 @@ export default function AuditLogViewer() {
                                         </td>
                                         <td className="px-6 py-4">
                                             <div className="flex items-center gap-2">
-                                                <User className="h-3 w-3 text-slate-400" />
-                                                <span className="font-medium text-slate-700 dark:text-slate-300">{log.user}</span>
+                                                <User className="h-3 w-3 text-muted-foreground" />
+                                                <span className="font-medium text-muted-foreground">{log.user}</span>
                                             </div>
-                                            <div className="text-xs text-slate-500 ml-5">{log.role}</div>
-                                            <div className="text-[10px] text-slate-400 ml-5 font-mono mt-0.5">IP: {log.ip}</div>
+                                            <div className="text-xs text-muted-foreground ml-5">{log.role}</div>
+                                            <div className="text-[10px] text-muted-foreground ml-5 font-mono mt-0.5">IP: {log.ip}</div>
                                         </td>
-                                        <td className="px-6 py-4 text-slate-600 dark:text-slate-300">
+                                        <td className="px-6 py-4 text-muted-foreground">
                                             {log.description}
                                         </td>
                                         <td className="px-6 py-4 text-right whitespace-nowrap">
-                                            <div className="flex items-center justify-end gap-1.5 text-xs text-slate-500">
+                                            <div className="flex items-center justify-end gap-1.5 text-xs text-muted-foreground">
                                                 <Clock className="h-3 w-3" />
                                                 {log.timestamp}
                                             </div>
@@ -222,7 +222,7 @@ export default function AuditLogViewer() {
                         </tbody>
                     </table>
                     {filteredLogs.length === 0 && (
-                        <div className="text-center py-10 text-slate-500">
+                        <div className="text-center py-10 text-muted-foreground">
                             <ShieldAlert className="h-10 w-10 mx-auto text-slate-300 mb-2" />
                             <p>No audit logs found matching your criteria.</p>
                         </div>

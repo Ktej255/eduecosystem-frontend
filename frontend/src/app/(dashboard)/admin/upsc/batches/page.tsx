@@ -39,7 +39,7 @@ export default function BatchesPage() {
             </div>
 
             {/* Batches Table */}
-            <div className="bg-white rounded-2xl shadow-sm border border-[var(--neutral-cool-grey)] overflow-hidden">
+            <div className="bg-card rounded-2xl shadow-sm border border-[var(--neutral-cool-grey)] overflow-hidden">
                 <table className="w-full text-left">
                     <thead className="bg-[var(--neutral-light-grey)] border-b border-[var(--neutral-cool-grey)]">
                         <tr>
@@ -52,17 +52,17 @@ export default function BatchesPage() {
                     </thead>
                     <tbody className="divide-y divide-[var(--neutral-cool-grey)]">
                         {loading ? (
-                            <tr><td colSpan={5} className="px-6 py-8 text-center text-gray-500">Loading batches...</td></tr>
+                            <tr><td colSpan={5} className="px-6 py-8 text-center text-muted-foreground">Loading batches...</td></tr>
                         ) : batches.length === 0 ? (
-                            <tr><td colSpan={5} className="px-6 py-8 text-center text-gray-500">No batches found. Create one to get started.</td></tr>
+                            <tr><td colSpan={5} className="px-6 py-8 text-center text-muted-foreground">No batches found. Create one to get started.</td></tr>
                         ) : (
                             batches.map((batch) => (
-                                <tr key={batch.id} className="hover:bg-gray-50 transition-colors">
+                                <tr key={batch.id} className="hover:bg-muted transition-colors">
                                     <td className="px-6 py-4 font-medium text-[var(--neutral-dark-grey)]">{batch.name}</td>
                                     <td className="px-6 py-4 text-[var(--neutral-slate-grey)]">{new Date(batch.start_date).toLocaleDateString()}</td>
                                     <td className="px-6 py-4 text-[var(--neutral-slate-grey)]">{batch.end_date ? new Date(batch.end_date).toLocaleDateString() : '-'}</td>
                                     <td className="px-6 py-4">
-                                        <span className={`px-3 py-1 rounded-full text-xs font-bold ${batch.is_active ? 'bg-[var(--accent-green)]/10 text-[var(--accent-green)]' : 'bg-gray-100 text-gray-500'}`}>
+                                        <span className={`px-3 py-1 rounded-full text-xs font-bold ${batch.is_active ? 'bg-[var(--accent-green)]/10 text-[var(--accent-green)]' : 'bg-muted text-muted-foreground'}`}>
                                             {batch.is_active ? 'ACTIVE' : 'INACTIVE'}
                                         </span>
                                     </td>
@@ -79,7 +79,7 @@ export default function BatchesPage() {
             {/* Create Modal (Simplified) */}
             {showCreateModal && (
                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 backdrop-blur-sm">
-                    <div className="bg-white rounded-2xl p-8 w-full max-w-md shadow-2xl animate-in fade-in zoom-in duration-200">
+                    <div className="bg-card rounded-2xl p-8 w-full max-w-md shadow-2xl animate-in fade-in zoom-in duration-200">
                         <h2 className="text-xl font-bold text-[var(--primary-indigo)] mb-6">Create New Batch</h2>
                         <form onSubmit={(e) => {
                             e.preventDefault();
@@ -116,7 +116,7 @@ export default function BatchesPage() {
                                 </div>
                             </div>
                             <div className="flex justify-end gap-3 mt-8">
-                                <button type="button" onClick={() => setShowCreateModal(false)} className="px-4 py-2 text-[var(--neutral-slate-grey)] hover:bg-gray-100 rounded-lg transition-colors">Cancel</button>
+                                <button type="button" onClick={() => setShowCreateModal(false)} className="px-4 py-2 text-[var(--neutral-slate-grey)] hover:bg-muted rounded-lg transition-colors">Cancel</button>
                                 <button type="submit" className="px-6 py-2 bg-[var(--primary-blue)] text-white rounded-lg font-medium hover:opacity-90 transition-opacity">Create Batch</button>
                             </div>
                         </form>

@@ -32,7 +32,7 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const DoctrineCard = ({ title, metaphor, icon, color, children, caseName, caseYear }: { title: string, metaphor: string, icon: React.ReactNode, color: string, children: React.ReactNode, caseName?: string, caseYear?: string }) => (
-    <div className={`bg-white border-l-4 ${color.replace('text-', 'border-')} rounded-r-xl p-6 shadow-md relative overflow-hidden group hover:shadow-lg transition-all duration-300`}>
+    <div className={`bg-card border-l-4 ${color.replace('text-', 'border-')} rounded-r-xl p-6 shadow-md relative overflow-hidden group hover:shadow-lg transition-all duration-300`}>
         <div className="absolute right-0 top-0 p-4 opacity-5 pointer-events-none transform group-hover:scale-110 transition-transform">
             {icon}
         </div>
@@ -43,11 +43,11 @@ const DoctrineCard = ({ title, metaphor, icon, color, children, caseName, caseYe
             </div>
             <div>
                 <h3 className={`text-xl font-black ${color}`}>{title}</h3>
-                <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">{metaphor}</span>
+                <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">{metaphor}</span>
             </div>
         </div>
 
-        <div className="space-y-3 text-slate-700 font-medium leading-relaxed mb-4">
+        <div className="space-y-3 text-muted-foreground font-medium leading-relaxed mb-4">
             {children}
         </div>
 
@@ -94,19 +94,19 @@ export default function ConstitutionalDoctrinesModule({ onComplete, isCompleted,
                         <div className="relative">
                             <BriefcaseIcon size={180} className="text-blue-300 opacity-20 absolute top-0 left-0 animate-pulse" />
                             <div className="grid grid-cols-2 gap-4 relative z-10">
-                                <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/20 flex flex-col items-center">
+                                <div className="bg-card/10 p-4 rounded-xl backdrop-blur-sm border border-white/20 flex flex-col items-center">
                                     <Scissors size={32} className="text-red-400 mb-2" />
                                     <span className="text-xs font-bold">Cut</span>
                                 </div>
-                                <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/20 flex flex-col items-center">
-                                    <Cloud size={32} className="text-gray-300 mb-2" />
+                                <div className="bg-card/10 p-4 rounded-xl backdrop-blur-sm border border-white/20 flex flex-col items-center">
+                                    <Cloud size={32} className="text-muted-foreground mb-2" />
                                     <span className="text-xs font-bold">Hide</span>
                                 </div>
-                                <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/20 flex flex-col items-center">
+                                <div className="bg-card/10 p-4 rounded-xl backdrop-blur-sm border border-white/20 flex flex-col items-center">
                                     <Microscope size={32} className="text-green-400 mb-2" />
                                     <span className="text-xs font-bold">Examine</span>
                                 </div>
-                                <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/20 flex flex-col items-center">
+                                <div className="bg-card/10 p-4 rounded-xl backdrop-blur-sm border border-white/20 flex flex-col items-center">
                                     <Mask size={32} className="text-yellow-400 mb-2" />
                                     <span className="text-xs font-bold">Unmask</span>
                                 </div>
@@ -129,19 +129,19 @@ export default function ConstitutionalDoctrinesModule({ onComplete, isCompleted,
                     caseYear="1950"
                 >
                     <p>If a law violates FR, the Court will not strike down the entire law, but <span className="font-bold underline decoration-red-300">only the offending part</span>.</p>
-                    <p className="text-sm mt-2 italic text-slate-500">"Separate the bad from the good."</p>
+                    <p className="text-sm mt-2 italic text-muted-foreground">"Separate the bad from the good."</p>
                 </DoctrineCard>
 
                 <DoctrineCard
                     title="Eclipse"
                     metaphor="The Cloud"
                     icon={<Cloud className="w-8 h-8" />}
-                    color="text-slate-600"
+                    color="text-muted-foreground"
                     caseName="Bhikaji Narain vs State of MP"
                     caseYear="1955"
                 >
                     <p>Pre-constitutional laws violating FR are not dead, but <span className="font-bold underline decoration-slate-300">dormant (eclipsed)</span>. If FR is amended, they wake up!</p>
-                    <p className="text-sm mt-2 italic text-slate-500">"Hiding behind the shadow."</p>
+                    <p className="text-sm mt-2 italic text-muted-foreground">"Hiding behind the shadow."</p>
                 </DoctrineCard>
 
                 <DoctrineCard
@@ -153,7 +153,7 @@ export default function ConstitutionalDoctrinesModule({ onComplete, isCompleted,
                     caseYear="1959"
                 >
                     <p>Can a citizen voluntarily give up their Fundamental Rights? <span className="font-black text-red-600">NO.</span></p>
-                    <p className="text-sm mt-2 italic text-slate-500">"Rights are not just for you, but for public policy."</p>
+                    <p className="text-sm mt-2 italic text-muted-foreground">"Rights are not just for you, but for public policy."</p>
                 </DoctrineCard>
             </div>
 

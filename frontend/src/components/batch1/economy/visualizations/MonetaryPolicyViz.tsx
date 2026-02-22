@@ -93,18 +93,18 @@ export default function MonetaryPolicyViz() {
     return (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-[500px]">
             {/* Controls */}
-            <Card className="p-6 flex flex-col justify-center space-y-8 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800">
+            <Card className="p-6 flex flex-col justify-center space-y-8 bg-card border-border">
                 <div>
                     <h3 className="text-lg font-bold flex items-center gap-2 mb-1">
                         <RefreshCcw className="w-5 h-5 text-indigo-500" />
                         RBI Control Tower
                     </h3>
-                    <p className="text-xs text-slate-500">Adjust Repo Rate to balance the economy.</p>
+                    <p className="text-xs text-muted-foreground">Adjust Repo Rate to balance the economy.</p>
                 </div>
 
                 <div className="space-y-4">
                     <div className="flex justify-between items-end">
-                        <span className="text-sm font-bold text-slate-700 dark:text-slate-300">Repo Rate</span>
+                        <span className="text-sm font-bold text-muted-foreground">Repo Rate</span>
                         <span className="text-2xl font-black text-indigo-600">{repoRate}%</span>
                     </div>
                     <Slider
@@ -115,14 +115,14 @@ export default function MonetaryPolicyViz() {
                         onValueChange={(vals) => setRepoRate(vals[0])}
                         className="py-4"
                     />
-                    <div className="flex justify-between text-[10px] text-slate-400 uppercase font-bold tracking-wider">
+                    <div className="flex justify-between text-[10px] text-muted-foreground uppercase font-bold tracking-wider">
                         <span>Dovish (Growth)</span>
                         <span>Hawkish (Stability)</span>
                     </div>
                 </div>
 
                 <div className="space-y-2">
-                    <h4 className="text-xs font-bold uppercase text-slate-500">Projected Impact</h4>
+                    <h4 className="text-xs font-bold uppercase text-muted-foreground">Projected Impact</h4>
                     <div className="flex items-center justify-between p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-100 dark:border-red-800">
                         <span className="text-xs font-bold text-red-700 dark:text-red-400">Inflation</span>
                         {repoRate < 6.0 ? (

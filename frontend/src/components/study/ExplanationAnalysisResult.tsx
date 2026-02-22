@@ -35,7 +35,7 @@ export default function ExplanationAnalysisResult({
                 <CardContent className="p-6 text-center">
                     <XCircle className="w-12 h-12 mx-auto mb-4 text-red-500" />
                     <h3 className="font-semibold mb-2">Analysis Failed</h3>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-muted-foreground">
                         {analysis.error || "Could not analyze your explanation. Please try again."}
                     </p>
                 </CardContent>
@@ -64,7 +64,7 @@ export default function ExplanationAnalysisResult({
                 <div className="flex items-center justify-between">
                     <div>
                         <h3 className="font-semibold text-lg">Analysis Results</h3>
-                        <p className="text-sm text-gray-500">{analysis.topic_name}</p>
+                        <p className="text-sm text-muted-foreground">{analysis.topic_name}</p>
                     </div>
                     <div className={cn("w-20 h-20 rounded-full flex items-center justify-center", scoreBg)}>
                         <span className={cn("text-3xl font-bold", scoreColor)}>
@@ -77,7 +77,7 @@ export default function ExplanationAnalysisResult({
                 <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                         <div className="flex items-center justify-between text-sm">
-                            <span className="text-gray-500">Clarity</span>
+                            <span className="text-muted-foreground">Clarity</span>
                             <span className="font-medium">{data.clarity_rating}/5</span>
                         </div>
                         <div className="flex gap-1">
@@ -88,7 +88,7 @@ export default function ExplanationAnalysisResult({
                                         "w-4 h-4",
                                         star <= data.clarity_rating
                                             ? "text-yellow-400 fill-yellow-400"
-                                            : "text-gray-300"
+                                            : "text-muted-foreground"
                                     )}
                                 />
                             ))}
@@ -96,7 +96,7 @@ export default function ExplanationAnalysisResult({
                     </div>
                     <div className="space-y-2">
                         <div className="flex items-center justify-between text-sm">
-                            <span className="text-gray-500">Depth</span>
+                            <span className="text-muted-foreground">Depth</span>
                             <span className="font-medium">{data.depth_rating}/5</span>
                         </div>
                         <div className="flex gap-1">
@@ -107,7 +107,7 @@ export default function ExplanationAnalysisResult({
                                         "w-4 h-4",
                                         star <= data.depth_rating
                                             ? "text-purple-400 fill-purple-400"
-                                            : "text-gray-300"
+                                            : "text-muted-foreground"
                                     )}
                                 />
                             ))}
@@ -172,7 +172,7 @@ export default function ExplanationAnalysisResult({
                             <Star className="w-4 h-4" />
                             Strengths
                         </div>
-                        <ul className="space-y-1 text-sm text-gray-600 dark:text-gray-300">
+                        <ul className="space-y-1 text-sm text-muted-foreground dark:text-muted-foreground">
                             {data.strengths.map((strength, index) => (
                                 <li key={index} className="flex items-start gap-2">
                                     <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
@@ -190,7 +190,7 @@ export default function ExplanationAnalysisResult({
                             <TrendingUp className="w-4 h-4" />
                             How to Improve
                         </div>
-                        <ul className="space-y-1 text-sm text-gray-600 dark:text-gray-300">
+                        <ul className="space-y-1 text-sm text-muted-foreground dark:text-muted-foreground">
                             {data.improvements.map((improvement, index) => (
                                 <li key={index} className="flex items-start gap-2">
                                     <Lightbulb className="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" />
@@ -204,10 +204,10 @@ export default function ExplanationAnalysisResult({
                 {/* Transcript Preview */}
                 {analysis.transcript && (
                     <details className="pt-4 border-t">
-                        <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700">
+                        <summary className="cursor-pointer text-sm text-muted-foreground hover:text-muted-foreground">
                             View Transcript
                         </summary>
-                        <div className="mt-2 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm text-gray-600 dark:text-gray-300 max-h-40 overflow-y-auto">
+                        <div className="mt-2 p-3 bg-muted rounded-lg text-sm text-muted-foreground dark:text-muted-foreground max-h-40 overflow-y-auto">
                             {analysis.transcript}
                         </div>
                     </details>

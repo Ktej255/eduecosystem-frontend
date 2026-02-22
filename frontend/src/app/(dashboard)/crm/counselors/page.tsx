@@ -189,7 +189,7 @@ function getStatusBadge(status: string) {
             return (
                 <div className="flex items-center gap-1.5">
                     <div className="h-2 w-2 rounded-full bg-gray-400" />
-                    <span className="text-xs text-gray-500">Offline</span>
+                    <span className="text-xs text-muted-foreground">Offline</span>
                 </div>
             );
         default:
@@ -450,7 +450,7 @@ export default function CounselorsPage() {
                                     <div key={counselor.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
                                         <div className="flex items-center gap-3">
                                             <span className={`h-6 w-6 rounded-full flex items-center justify-center text-xs font-bold ${index === 0 ? "bg-amber-500 text-white" :
-                                                    index === 1 ? "bg-gray-300 text-gray-700" :
+                                                    index === 1 ? "bg-gray-300 text-muted-foreground" :
                                                         "bg-amber-700 text-white"
                                                 }`}>
                                                 {index + 1}

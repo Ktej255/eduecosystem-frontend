@@ -15,7 +15,7 @@ export default function StudentPortalLayout({
 
     return (
         <ProtectedRoute>
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+            <div className="min-h-screen bg-muted">
                 <StudentHeader />
                 <div className="flex">
                     {/* Sidebar - Hidden on mobile, shown on md+ */}

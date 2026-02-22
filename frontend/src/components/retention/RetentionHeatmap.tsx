@@ -127,7 +127,7 @@ export default function RetentionHeatmap({
             case "forgotten":
                 return { bg: "bg-red-500", text: "text-red-400", glow: "shadow-red-500/50" };
             default:
-                return { bg: "bg-gray-500", text: "text-gray-400", glow: "shadow-gray-500/50" };
+                return { bg: "bg-muted-foreground", text: "text-muted-foreground", glow: "shadow-gray-500/50" };
         }
     };
 
@@ -180,7 +180,7 @@ export default function RetentionHeatmap({
                         <h3 className="text-lg font-semibold text-white">
                             Retention Velocity
                         </h3>
-                        <p className="text-sm text-gray-400">
+                        <p className="text-sm text-muted-foreground">
                             Real-time protection stats
                         </p>
                     </div>
@@ -190,7 +190,7 @@ export default function RetentionHeatmap({
                 <div className="flex items-center gap-4 text-xs">
                     <div className="flex items-center gap-1.5">
                         <div className="w-3 h-3 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50" />
-                        <span className="text-gray-400">Mastered</span>
+                        <span className="text-muted-foreground">Mastered</span>
                     </div>
                 </div>
             </div>
@@ -228,7 +228,7 @@ export default function RetentionHeatmap({
                                     {/* Day info */}
                                     <div className="flex items-center gap-4">
                                         <div className="flex flex-col items-center w-12">
-                                            <span className="text-xs text-gray-500">{day.date.split(' ')[0]}</span>
+                                            <span className="text-xs text-muted-foreground">{day.date.split(' ')[0]}</span>
                                             <span className={`text-xl font-bold ${day.isToday ? "text-indigo-400" : "text-white"}`}>
                                                 {day.dayNumber}
                                             </span>
@@ -237,7 +237,7 @@ export default function RetentionHeatmap({
                                         {/* Topic pills */}
                                         <div className="flex items-center gap-2 flex-wrap">
                                             {day.topics.length === 0 ? (
-                                                <span className="text-xs text-gray-600 italic">No activity</span>
+                                                <span className="text-xs text-muted-foreground italic">No activity</span>
                                             ) : (
                                                 <>
                                                     {day.topics.slice(0, 6).map((topic, topicIndex) => {
@@ -266,7 +266,7 @@ export default function RetentionHeatmap({
                                                         );
                                                     })}
                                                     {day.topics.length > 6 && (
-                                                        <span className="text-sm text-gray-500">
+                                                        <span className="text-sm text-muted-foreground">
                                                             +{day.topics.length - 6}
                                                         </span>
                                                     )}
@@ -279,10 +279,10 @@ export default function RetentionHeatmap({
                                     <div className="flex items-center gap-4">
                                         {/* Day count */}
                                         <div className="text-right">
-                                            <div className={`text-lg font-bold ${day.topics.length > 0 ? "text-white" : "text-gray-600"}`}>
+                                            <div className={`text-lg font-bold ${day.topics.length > 0 ? "text-white" : "text-muted-foreground"}`}>
                                                 {day.topics.length}
                                             </div>
-                                            <div className="text-xs text-gray-500">concepts</div>
+                                            <div className="text-xs text-muted-foreground">concepts</div>
                                         </div>
 
                                         {/* Expand icon */}
@@ -290,7 +290,7 @@ export default function RetentionHeatmap({
                                             animate={{ rotate: isExpanded ? 180 : 0 }}
                                             transition={{ duration: 0.2 }}
                                         >
-                                            <ChevronDown className="w-5 h-5 text-gray-500" />
+                                            <ChevronDown className="w-5 h-5 text-muted-foreground" />
                                         </motion.div>
                                     </div>
                                 </div>
@@ -327,7 +327,7 @@ export default function RetentionHeatmap({
                                                                 <p className="text-white font-medium">
                                                                     {topic.topicName}
                                                                 </p>
-                                                                <p className="text-xs text-gray-500">
+                                                                <p className="text-xs text-muted-foreground">
                                                                     Mastered on {day.date}
                                                                 </p>
                                                             </div>

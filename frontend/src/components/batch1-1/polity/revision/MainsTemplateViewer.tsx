@@ -23,12 +23,12 @@ export default function MainsTemplateViewer() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 font-['Calibri'] h-[calc(100vh-140px)]">
 
             {/* Sidebar List */}
-            <div className="md:col-span-4 lg:col-span-3 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col h-full">
-                <div className="p-4 bg-slate-50 border-b border-slate-100 pb-2">
-                    <h3 className="font-bold text-slate-700 flex items-center gap-2">
+            <div className="md:col-span-4 lg:col-span-3 bg-card rounded-2xl border border-border shadow-sm overflow-hidden flex flex-col h-full">
+                <div className="p-4 bg-muted border-b border-slate-100 pb-2">
+                    <h3 className="font-bold text-muted-foreground flex items-center gap-2">
                         <BookOpen size={18} className="text-blue-600" /> High-Yield Topics
                     </h3>
-                    <p className="text-xs text-slate-500 mt-1">Select a theme to view templates.</p>
+                    <p className="text-xs text-muted-foreground mt-1">Select a theme to view templates.</p>
                 </div>
                 <ScrollArea className="flex-1 p-2">
                     <div className="space-y-1">
@@ -38,7 +38,7 @@ export default function MainsTemplateViewer() {
                                 onClick={() => setSelectedTemplate(template)}
                                 className={`w-full text-left p-3 rounded-lg text-sm transition-all border ${selectedTemplate.id === template.id
                                         ? 'bg-blue-50 border-blue-200 text-blue-700 font-bold shadow-sm'
-                                        : 'hover:bg-slate-50 border-transparent text-slate-600 hover:text-slate-900'
+                                        : 'hover:bg-muted border-transparent text-muted-foreground hover:text-foreground'
                                     }`}
                             >
                                 {template.topic}
@@ -46,7 +46,7 @@ export default function MainsTemplateViewer() {
                         ))}
                     </div>
                 </ScrollArea>
-                <div className="p-4 bg-slate-50 border-t border-slate-100 text-xs text-center text-slate-400">
+                <div className="p-4 bg-muted border-t border-slate-100 text-xs text-center text-muted-foreground">
                     {MAINS_TEMPLATES.length} Templates Available
                 </div>
             </div>
@@ -66,12 +66,12 @@ export default function MainsTemplateViewer() {
                         </Badge>
                     ))}
                     {selectedTemplate.judgements.map((j, i) => (
-                        <Badge key={i} variant="outline" className="text-slate-500 border-slate-300">
+                        <Badge key={i} variant="outline" className="text-muted-foreground border-border">
                             ⚖️ {j}
                         </Badge>
                     ))}
                     {selectedTemplate.articles.map((a, i) => (
-                        <Badge key={i} variant="outline" className="text-slate-500 border-slate-300">
+                        <Badge key={i} variant="outline" className="text-muted-foreground border-border">
                             📜 {a}
                         </Badge>
                     ))}
@@ -89,15 +89,15 @@ export default function MainsTemplateViewer() {
 
                 {/* Body Points */}
                 <div className="space-y-3">
-                    <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider pl-2">Structuring Body Paragraphs</h4>
+                    <h4 className="text-sm font-bold text-muted-foreground uppercase tracking-wider pl-2">Structuring Body Paragraphs</h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {selectedTemplate.bodyPoints.map((point, idx) => (
-                            <div key={idx} className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:border-blue-200 transition-colors">
-                                <h5 className="font-bold text-slate-800 mb-2 flex items-center gap-2">
-                                    <span className="bg-slate-100 text-slate-500 w-6 h-6 rounded-full flex items-center justify-center text-xs">{idx + 1}</span>
+                            <div key={idx} className="bg-card p-4 rounded-xl border border-border shadow-sm hover:border-blue-200 transition-colors">
+                                <h5 className="font-bold text-foreground mb-2 flex items-center gap-2">
+                                    <span className="bg-muted text-muted-foreground w-6 h-6 rounded-full flex items-center justify-center text-xs">{idx + 1}</span>
                                     {point.title}
                                 </h5>
-                                <p className="text-sm text-slate-600 leading-relaxed">{point.content}</p>
+                                <p className="text-sm text-muted-foreground leading-relaxed">{point.content}</p>
                             </div>
                         ))}
                     </div>
@@ -134,13 +134,13 @@ function SectionCard({ title, icon, color, content, onCopy, isCopied }: any) {
                     variant="ghost"
                     size="sm"
                     onClick={onCopy}
-                    className={`h-8 px-2 ${isCopied ? 'text-green-600 bg-green-100' : 'text-slate-500 hover:text-slate-700'}`}
+                    className={`h-8 px-2 ${isCopied ? 'text-green-600 bg-green-100' : 'text-muted-foreground hover:text-muted-foreground'}`}
                 >
                     {isCopied ? <><CheckCircle2 size={14} className="mr-1" /> Copied</> : <><Copy size={14} className="mr-1" /> Copy</>}
                 </Button>
             </div>
             <CardContent className="p-5">
-                <p className="text-slate-700 leading-relaxed font-medium">
+                <p className="text-muted-foreground leading-relaxed font-medium">
                     {content}
                 </p>
             </CardContent>

@@ -32,18 +32,18 @@ export default function DigitalProductsPage() {
         {
             key: "price",
             label: "Price",
-            render: (val: number) => <span className="text-gray-400">${val}</span>
+            render: (val: number) => <span className="text-muted-foreground">${val}</span>
         },
         {
             key: "file_type",
             label: "Type",
-            render: (val: string) => <span className="text-gray-400 uppercase">{val}</span>
+            render: (val: string) => <span className="text-muted-foreground uppercase">{val}</span>
         },
         {
             key: "status",
             label: "Status",
             render: (val: string) => (
-                <Badge variant="outline" className={val === "active" ? "border-green-500/50 text-green-500" : "border-gray-500/50 text-gray-500"}>
+                <Badge variant="outline" className={val === "active" ? "border-green-500/50 text-green-500" : "border-gray-500/50 text-muted-foreground"}>
                     {val || "Draft"}
                 </Badge>
             )

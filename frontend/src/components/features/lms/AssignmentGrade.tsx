@@ -92,7 +92,7 @@ export function AssignmentGrade({
 
   if (loading) {
     return (
-      <div className="p-8 text-center text-gray-400">
+      <div className="p-8 text-center text-muted-foreground">
         Loading submissions...
       </div>
     );
@@ -104,7 +104,7 @@ export function AssignmentGrade({
         <h2 className="text-2xl font-bold text-white mb-2">
           {assignment.title}
         </h2>
-        <p className="text-gray-400">Grade student submissions</p>
+        <p className="text-muted-foreground">Grade student submissions</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -116,8 +116,8 @@ export function AssignmentGrade({
 
           {submissions.length === 0 ? (
             <div className="bg-gray-900 rounded-lg p-6 border border-gray-800 text-center">
-              <FileText className="h-12 w-12 text-gray-700 mx-auto mb-2" />
-              <p className="text-gray-500">No submissions yet</p>
+              <FileText className="h-12 w-12 text-muted-foreground mx-auto mb-2" />
+              <p className="text-muted-foreground">No submissions yet</p>
             </div>
           ) : (
             submissions.map((submission) => (
@@ -132,7 +132,7 @@ export function AssignmentGrade({
               >
                 <div className="flex items-start justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <User className="h-4 w-4 text-gray-400" />
+                    <User className="h-4 w-4 text-muted-foreground" />
                     <span className="font-medium text-white">
                       {submission.student?.full_name || "Student"}
                     </span>
@@ -142,7 +142,7 @@ export function AssignmentGrade({
                   )}
                 </div>
 
-                <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
+                <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
                   <Clock className="h-3 w-3" />
                   <span>
                     {new Date(submission.submitted_at).toLocaleDateString()}
@@ -169,7 +169,7 @@ export function AssignmentGrade({
                 <h3 className="text-xl font-semibold text-white mb-4">
                   {selectedSubmission.student?.full_name}'s Submission
                 </h3>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-muted-foreground">
                   Submitted:{" "}
                   {new Date(selectedSubmission.submitted_at).toLocaleString()}
                 </p>
@@ -177,7 +177,7 @@ export function AssignmentGrade({
 
               {/* Submission Content */}
               <div className="bg-gray-800 rounded-lg p-4">
-                <p className="text-sm text-gray-400 mb-2">Submission:</p>
+                <p className="text-sm text-muted-foreground mb-2">Submission:</p>
 
                 {selectedSubmission.submission_text && (
                   <div className="text-white whitespace-pre-wrap mb-3">
@@ -211,7 +211,7 @@ export function AssignmentGrade({
               {/* Grading Form */}
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-2">
+                  <label className="block text-sm font-medium text-muted-foreground mb-2">
                     Score (out of {assignment.max_score})
                   </label>
                   <Input
@@ -226,7 +226,7 @@ export function AssignmentGrade({
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-2">
+                  <label className="block text-sm font-medium text-muted-foreground mb-2">
                     Feedback (optional)
                   </label>
                   <Textarea
@@ -249,8 +249,8 @@ export function AssignmentGrade({
             </div>
           ) : (
             <div className="bg-gray-900 rounded-lg border border-gray-800 p-12 text-center">
-              <FileText className="h-16 w-16 text-gray-700 mx-auto mb-4" />
-              <p className="text-gray-400">Select a submission to grade</p>
+              <FileText className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+              <p className="text-muted-foreground">Select a submission to grade</p>
             </div>
           )}
         </div>

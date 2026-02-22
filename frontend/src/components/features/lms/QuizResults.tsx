@@ -43,7 +43,7 @@ export function QuizResults({
         <h2 className="text-3xl font-bold text-white mb-2">
           {result.passed ? "Congratulations!" : "Keep Trying!"}
         </h2>
-        <p className="text-gray-400">
+        <p className="text-muted-foreground">
           {result.passed
             ? "You passed the quiz!"
             : "You didn't pass this time, but you can try again!"}
@@ -56,7 +56,7 @@ export function QuizResults({
           <div className="text-6xl font-bold text-cyan-400 mb-2">
             {Math.round(result.score_percentage)}%
           </div>
-          <p className="text-gray-400">Your Score</p>
+          <p className="text-muted-foreground">Your Score</p>
         </div>
 
         <Progress value={result.score_percentage} className="h-3 mb-4" />
@@ -69,7 +69,7 @@ export function QuizResults({
                 {result.correct_answers}/{result.total_questions}
               </span>
             </div>
-            <p className="text-sm text-gray-400">Correct Answers</p>
+            <p className="text-sm text-muted-foreground">Correct Answers</p>
           </div>
 
           <div className="bg-gray-800 rounded-lg p-4 text-center">
@@ -79,7 +79,7 @@ export function QuizResults({
                 {minutes}:{String(seconds).padStart(2, "0")}
               </span>
             </div>
-            <p className="text-sm text-gray-400">Time Spent</p>
+            <p className="text-sm text-muted-foreground">Time Spent</p>
           </div>
         </div>
       </div>

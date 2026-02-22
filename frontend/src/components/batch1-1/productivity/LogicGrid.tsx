@@ -87,8 +87,8 @@ export default function LogicGrid() {
                 </div>
 
                 <div className="text-center space-y-2">
-                    <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300">Complete the Sequence</h3>
-                    <div className="flex items-center justify-center gap-3 text-3xl font-mono font-bold text-gray-900 dark:text-white">
+                    <h3 className="text-lg font-semibold text-muted-foreground dark:text-muted-foreground">Complete the Sequence</h3>
+                    <div className="flex items-center justify-center gap-3 text-3xl font-mono font-bold text-foreground">
                         {sequence.map((num, i) => (
                             <motion.div
                                 key={i}
@@ -97,7 +97,7 @@ export default function LogicGrid() {
                                 transition={{ delay: i * 0.1 }}
                                 className={`w-14 h-14 flex items-center justify-center rounded-lg ${i === hiddenIndex
                                     ? 'bg-teal-100 dark:bg-teal-900/50 text-teal-700 border-2 border-dashed border-teal-300'
-                                    : 'bg-gray-100 dark:bg-gray-800'
+                                    : 'bg-muted'
                                     }`}
                             >
                                 {i === hiddenIndex ? "?" : num}
@@ -122,7 +122,7 @@ export default function LogicGrid() {
 
                 <div className="h-8">
                     {!showHint ? (
-                        <Button variant="ghost" size="sm" onClick={() => setShowHint(true)} className="text-xs text-gray-400 hover:text-teal-600">
+                        <Button variant="ghost" size="sm" onClick={() => setShowHint(true)} className="text-xs text-muted-foreground hover:text-teal-600">
                             <Lightbulb className="h-3 w-3 mr-1" /> Need a hint?
                         </Button>
                     ) : (

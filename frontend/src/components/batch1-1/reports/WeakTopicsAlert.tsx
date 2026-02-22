@@ -55,14 +55,14 @@ export default function WeakTopicsAlert() {
                     {alerts.slice(0, 6).map((alert, idx) => (
                         <div
                             key={idx}
-                            className="flex items-center justify-between p-3 bg-white dark:bg-slate-900 rounded-xl border border-amber-100 dark:border-amber-900/30 shadow-sm"
+                            className="flex items-center justify-between p-3 bg-card rounded-xl border border-amber-100 dark:border-amber-900/30 shadow-sm"
                         >
                             <div>
-                                <h4 className="font-bold text-slate-800 dark:text-slate-200">
+                                <h4 className="font-bold text-foreground">
                                     {alert.subject} Ch {alert.chapterId}
                                 </h4>
                                 <div className="flex items-center gap-2 mt-1">
-                                    <div className="w-20 h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div className="w-20 h-1.5 bg-muted rounded-full overflow-hidden">
                                         <div
                                             className="h-full bg-red-500"
                                             style={{ width: `${alert.accuracy}%` }}

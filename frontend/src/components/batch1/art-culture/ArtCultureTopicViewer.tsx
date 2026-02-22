@@ -33,7 +33,7 @@ export default function ArtCultureTopicViewer({ content }: ArtCultureTopicViewer
     return (
         <div className="min-h-screen bg-rose-50/30 dark:bg-neutral-950 font-sans">
             {/* Header - Rose/Gold Theme */}
-            <div className="bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border-b border-rose-100 dark:border-rose-900/30 sticky top-0 z-50">
+            <div className="bg-card/80 dark:bg-neutral-900/80 backdrop-blur-md border-b border-rose-100 dark:border-rose-900/30 sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
                     <div className="flex items-center gap-4">
                         <Link href="/student/batch1/art-culture">
@@ -76,7 +76,7 @@ export default function ArtCultureTopicViewer({ content }: ArtCultureTopicViewer
                     className="p-8 rounded-3xl bg-gradient-to-br from-rose-600 via-pink-700 to-amber-600 text-white shadow-2xl relative overflow-hidden"
                 >
                     <div className="relative z-10">
-                        <Badge className="bg-white/20 hover:bg-white/30 text-white border-0 mb-4 px-3 py-1">
+                        <Badge className="bg-card/20 hover:bg-card/30 text-white border-0 mb-4 px-3 py-1">
                             Heritage Module
                         </Badge>
                         <h2 className="text-3xl font-bold mb-4">{content.description}</h2>
@@ -92,7 +92,7 @@ export default function ArtCultureTopicViewer({ content }: ArtCultureTopicViewer
                         </div>
                     </div>
                     {/* Abstract background elements */}
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20" />
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-card/10 rounded-full blur-3xl -mr-20 -mt-20" />
                     <div className="absolute bottom-0 left-0 w-64 h-64 bg-rose-400/20 rounded-full blur-3xl -ml-20 -mb-20" />
                 </motion.div>
 

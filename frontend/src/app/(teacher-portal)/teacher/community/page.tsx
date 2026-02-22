@@ -12,8 +12,8 @@ export default function TeacherCommunityPage() {
     return (
         <div className="p-6 h-[calc(100vh-64px)] overflow-y-auto">
             <div className="mb-6">
-                <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-200">Community & Gamification</h1>
-                <p className="text-gray-500">Manage student engagement, rewards, and discussions.</p>
+                <h1 className="text-2xl font-bold text-foreground">Community & Gamification</h1>
+                <p className="text-muted-foreground">Manage student engagement, rewards, and discussions.</p>
             </div>
 
             <Tabs defaultValue="gamification" className="space-y-4">

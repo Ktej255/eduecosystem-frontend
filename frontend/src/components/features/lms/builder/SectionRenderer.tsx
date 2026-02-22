@@ -35,7 +35,7 @@ export function SectionRenderer({
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-4">{content.title}</h1>
             <p className="text-xl mb-8 text-cyan-100">{content.subtitle}</p>
-            <button className="bg-white text-cyan-600 px-8 py-3 rounded-lg font-semibold hover:bg-cyan-50 transition">
+            <button className="bg-card text-cyan-600 px-8 py-3 rounded-lg font-semibold hover:bg-cyan-50 transition">
               {content.ctaText}
             </button>
           </div>
@@ -56,7 +56,7 @@ export function SectionRenderer({
                   <h3 className="text-xl font-semibold text-white mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-400">{feature.description}</p>
+                  <p className="text-muted-foreground">{feature.description}</p>
                 </div>
               ))}
             </div>
@@ -72,7 +72,7 @@ export function SectionRenderer({
               {content.title}
             </h2>
             <div className="bg-gray-800 rounded-lg p-6">
-              <div className="flex items-center gap-2 text-gray-400 mb-4">
+              <div className="flex items-center gap-2 text-muted-foreground mb-4">
                 <BookOpen className="h-5 w-5" />
                 <span>Course curriculum will be displayed here</span>
               </div>
@@ -93,7 +93,7 @@ export function SectionRenderer({
                 {content.name}
               </h3>
               <p className="text-cyan-400 mb-3">{content.title}</p>
-              <p className="text-gray-400">{content.bio}</p>
+              <p className="text-muted-foreground">{content.bio}</p>
             </div>
           </div>
         </div>
@@ -120,7 +120,7 @@ export function SectionRenderer({
                       />
                     ))}
                   </div>
-                  <p className="text-gray-300 mb-4">{testimonial.text}</p>
+                  <p className="text-muted-foreground mb-4">{testimonial.text}</p>
                   <p className="text-cyan-400 font-semibold">
                     {testimonial.name}
                   </p>
@@ -143,7 +143,7 @@ export function SectionRenderer({
                   <div className="text-4xl font-bold text-cyan-400 mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-gray-300">{stat.label}</div>
+                  <div className="text-muted-foreground">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -159,11 +159,11 @@ export function SectionRenderer({
               <div className="text-4xl font-bold text-white mb-2">
                 ₹{content.price}
               </div>
-              <div className="text-gray-400">One-time payment</div>
+              <div className="text-muted-foreground">One-time payment</div>
             </div>
             <ul className="space-y-3 mb-6">
               {content.features?.map((feature: string, idx: number) => (
-                <li key={idx} className="flex items-center gap-2 text-gray-300">
+                <li key={idx} className="flex items-center gap-2 text-muted-foreground">
                   <CheckCircle className="h-5 w-5 text-cyan-500" />
                   {feature}
                 </li>
@@ -179,8 +179,8 @@ export function SectionRenderer({
     default:
       return (
         <div className={`${paddingClass} ${bgClass} bg-gray-800`}>
-          <div className="max-w-4xl mx-auto text-center text-gray-400">
-            <Trophy className="h-16 w-16 mx-auto mb-4 text-gray-600" />
+          <div className="max-w-4xl mx-auto text-center text-muted-foreground">
+            <Trophy className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
             <p>Section type: {type}</p>
           </div>
         </div>

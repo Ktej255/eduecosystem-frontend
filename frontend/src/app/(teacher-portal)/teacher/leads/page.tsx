@@ -130,7 +130,7 @@ export default function TeacherLeadsPage() {
     const convertedLeads = leads.filter(l => l.status === 'ENROLLED').length;
 
     return (
-        <div className="p-8 space-y-8 bg-slate-50 min-h-screen text-slate-900">
+        <div className="p-8 space-y-8 bg-muted min-h-screen text-foreground">
 
             {/* Header - Light Mode for Teacher Portal usually, but checking style... keeping consistent with code but maybe light bg */}
             {/* Wait, the teacher portal in previous tasks seemed to be using similar dark or emerald themes. Let's use a conditional styling or just safe defaults.
@@ -143,11 +143,11 @@ export default function TeacherLeadsPage() {
 
             <div className="flex justify-between items-center">
                 <div>
-                    <h1 className="text-3xl font-bold text-slate-900 tracking-tight">My Leads</h1>
-                    <p className="text-slate-500 mt-1">Manage inquiries and student enrollments.</p>
+                    <h1 className="text-3xl font-bold text-foreground tracking-tight">My Leads</h1>
+                    <p className="text-muted-foreground mt-1">Manage inquiries and student enrollments.</p>
                 </div>
                 <div className="flex gap-3">
-                    <Button variant="outline" className="border-slate-300">
+                    <Button variant="outline" className="border-border">
                         <Download className="mr-2 h-4 w-4" /> Export
                     </Button>
                     <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">
@@ -158,40 +158,40 @@ export default function TeacherLeadsPage() {
 
             {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <Card className="p-4 border-slate-200 shadow-sm">
+                <Card className="p-4 border-border shadow-sm">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-xs text-slate-500 uppercase font-semibold">Total Leads</p>
-                            <h3 className="text-2xl font-bold text-slate-900 mt-1">{totalLeads}</h3>
+                            <p className="text-xs text-muted-foreground uppercase font-semibold">Total Leads</p>
+                            <h3 className="text-2xl font-bold text-foreground mt-1">{totalLeads}</h3>
                         </div>
                         <Users className="h-5 w-5 text-blue-600" />
                     </div>
                 </Card>
-                <Card className="p-4 border-slate-200 shadow-sm">
+                <Card className="p-4 border-border shadow-sm">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-xs text-slate-500 uppercase font-semibold">New Leads</p>
-                            <h3 className="text-2xl font-bold text-slate-900 mt-1">{newLeads}</h3>
+                            <p className="text-xs text-muted-foreground uppercase font-semibold">New Leads</p>
+                            <h3 className="text-2xl font-bold text-foreground mt-1">{newLeads}</h3>
                         </div>
                         <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                     </div>
                 </Card>
-                <Card className="p-4 border-slate-200 shadow-sm">
+                <Card className="p-4 border-border shadow-sm">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-xs text-slate-500 uppercase font-semibold">Conversion Rate</p>
-                            <h3 className="text-2xl font-bold text-slate-900 mt-1">
+                            <p className="text-xs text-muted-foreground uppercase font-semibold">Conversion Rate</p>
+                            <h3 className="text-2xl font-bold text-foreground mt-1">
                                 {totalLeads > 0 ? ((convertedLeads / totalLeads) * 100).toFixed(1) : 0}%
                             </h3>
                         </div>
                         <CheckCircle2 className="h-5 w-5 text-emerald-600" />
                     </div>
                 </Card>
-                <Card className="p-4 border-slate-200 shadow-sm">
+                <Card className="p-4 border-border shadow-sm">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-xs text-slate-500 uppercase font-semibold">My Pending</p>
-                            <h3 className="text-2xl font-bold text-slate-900 mt-1">
+                            <p className="text-xs text-muted-foreground uppercase font-semibold">My Pending</p>
+                            <h3 className="text-2xl font-bold text-foreground mt-1">
                                 {leads.filter(l => l.status !== 'CLOSED' && l.status !== 'ENROLLED').length}
                             </h3>
                         </div>
@@ -201,13 +201,13 @@ export default function TeacherLeadsPage() {
             </div>
 
             {/* Filters & Actions */}
-            <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+            <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-card p-4 rounded-lg border border-border shadow-sm">
                 <div className="flex gap-4 items-center flex-1">
                     <div className="relative w-72">
-                        <Search className="absolute left-2 top-2.5 h-4 w-4 text-slate-400" />
+                        <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
                         <Input
                             placeholder="Search leads..."
-                            className="pl-8 border-slate-200 focus-visible:ring-emerald-500"
+                            className="pl-8 border-border focus-visible:ring-emerald-500"
                             value={filters.search}
                             onChange={(e) => setFilters({ ...filters, search: e.target.value })}
                         />
@@ -217,9 +217,9 @@ export default function TeacherLeadsPage() {
                         value={filters.status}
                         onValueChange={(val) => setFilters({ ...filters, status: val })}
                     >
-                        <SelectTrigger className="w-[180px] border-slate-200">
+                        <SelectTrigger className="w-[180px] border-border">
                             <div className="flex items-center gap-2">
-                                <Filter className="h-3 w-3 text-slate-500" />
+                                <Filter className="h-3 w-3 text-muted-foreground" />
                                 <SelectValue placeholder="Status" />
                             </div>
                         </SelectTrigger>
@@ -236,7 +236,7 @@ export default function TeacherLeadsPage() {
 
                 {selectedLeads.length > 0 && (
                     <div className="flex items-center gap-2 animate-in fade-in slide-in-from-right-5 duration-200">
-                        <span className="text-sm text-slate-500">{selectedLeads.length} selected</span>
+                        <span className="text-sm text-muted-foreground">{selectedLeads.length} selected</span>
                         <Dialog open={isReassignOpen} onOpenChange={setIsReassignOpen}>
                             <DialogTrigger asChild>
                                 <Button variant="secondary" className="bg-indigo-100 hover:bg-indigo-200 text-indigo-700 border-0">
@@ -248,7 +248,7 @@ export default function TeacherLeadsPage() {
                                     <DialogTitle>Transfer Leads</DialogTitle>
                                 </DialogHeader>
                                 <div className="py-4 space-y-4">
-                                    <p className="text-slate-600">
+                                    <p className="text-muted-foreground">
                                         Transferring <strong>{selectedLeads.length}</strong> leads to:
                                     </p>
                                     <Select value={selectedAssignee} onValueChange={setSelectedAssignee}>
@@ -277,14 +277,14 @@ export default function TeacherLeadsPage() {
             </div>
 
             {/* Main Table */}
-            <Card className="border-slate-200 shadow-sm overflow-hidden">
+            <Card className="border-border shadow-sm overflow-hidden">
                 <Table>
-                    <TableHeader className="bg-slate-50">
-                        <TableRow className="border-slate-200">
+                    <TableHeader className="bg-muted">
+                        <TableRow className="border-border">
                             <TableHead className="w-[50px]">
                                 <input
                                     type="checkbox"
-                                    className="rounded border-slate-300"
+                                    className="rounded border-border"
                                     checked={leads.length > 0 && selectedLeads.length === leads.length}
                                     onChange={(e) => handleSelectAll(e.target.checked)}
                                 />
@@ -301,34 +301,34 @@ export default function TeacherLeadsPage() {
                     <TableBody>
                         {loading ? (
                             <TableRow>
-                                <TableCell colSpan={8} className="text-center py-10 text-slate-500">
+                                <TableCell colSpan={8} className="text-center py-10 text-muted-foreground">
                                     Loading leads...
                                 </TableCell>
                             </TableRow>
                         ) : leads.length === 0 ? (
                             <TableRow>
-                                <TableCell colSpan={8} className="text-center py-10 text-slate-500">
+                                <TableCell colSpan={8} className="text-center py-10 text-muted-foreground">
                                     No leads found.
                                 </TableCell>
                             </TableRow>
                         ) : (
                             leads.map((lead) => (
-                                <TableRow key={lead.id} className="border-slate-100 hover:bg-slate-50">
+                                <TableRow key={lead.id} className="border-slate-100 hover:bg-muted">
                                     <TableCell>
                                         <input
                                             type="checkbox"
-                                            className="rounded border-slate-300"
+                                            className="rounded border-border"
                                             checked={selectedLeads.includes(lead.id)}
                                             onChange={(e) => handleSelectLead(lead.id, e.target.checked)}
                                         />
                                     </TableCell>
                                     <TableCell>
-                                        <div className="font-medium text-slate-900">{lead.name}</div>
-                                        <div className="text-xs text-slate-500">Added {new Date(lead.created_at).toLocaleDateString()}</div>
+                                        <div className="font-medium text-foreground">{lead.name}</div>
+                                        <div className="text-xs text-muted-foreground">Added {new Date(lead.created_at).toLocaleDateString()}</div>
                                     </TableCell>
                                     <TableCell>
-                                        <div className="text-sm text-slate-700">{lead.email}</div>
-                                        <div className="text-xs text-slate-500">{lead.phone || '-'}</div>
+                                        <div className="text-sm text-muted-foreground">{lead.email}</div>
+                                        <div className="text-xs text-muted-foreground">{lead.phone || '-'}</div>
                                     </TableCell>
                                     <TableCell>
                                         <Badge variant="outline" className={`
@@ -341,7 +341,7 @@ export default function TeacherLeadsPage() {
                                     </TableCell>
                                     <TableCell>
                                         <div className="flex flex-col gap-1">
-                                            <span className="text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 w-fit border border-slate-200">
+                                            <span className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground w-fit border border-border">
                                                 PRI: {lead.source_primary || 'Direct'}
                                             </span>
                                         </div>
@@ -353,16 +353,16 @@ export default function TeacherLeadsPage() {
                                                 Verified
                                             </div>
                                         ) : (
-                                            <span className="text-xs text-slate-400">Unverified</span>
+                                            <span className="text-xs text-muted-foreground">Unverified</span>
                                         )}
                                     </TableCell>
                                     <TableCell>
-                                        <span className="text-sm text-slate-600">
+                                        <span className="text-sm text-muted-foreground">
                                             {assignees.find(u => u.id === lead.assigned_to_id)?.full_name || '-'}
                                         </span>
                                     </TableCell>
                                     <TableCell className="text-right">
-                                        <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400">
+                                        <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground">
                                             <MoreHorizontal className="h-4 w-4" />
                                         </Button>
                                     </TableCell>

@@ -78,7 +78,7 @@ export default function SessionSummary({
                 </Button>
                 <Button
                     variant="outline"
-                    className="border-white/20 text-white hover:bg-white/10 px-6 py-6 rounded-full text-lg"
+                    className="border-white/20 text-white hover:bg-card/10 px-6 py-6 rounded-full text-lg"
                     title="Share Achievement"
                 >
                     <Share2 className="w-5 h-5" />

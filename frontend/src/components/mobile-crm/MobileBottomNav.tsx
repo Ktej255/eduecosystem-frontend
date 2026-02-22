@@ -57,7 +57,7 @@ export default function MobileBottomNav() {
                                 "flex flex-col items-center justify-center w-full h-full gap-1 transition-all duration-200",
                                 isActive
                                     ? "text-emerald-400"
-                                    : "text-gray-400 hover:text-gray-200"
+                                    : "text-muted-foreground hover:text-gray-200"
                             )}
                         >
                             <div

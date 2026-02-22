@@ -117,7 +117,7 @@ export default function RealityCheckOverlay({
                             ) : (
                                 <TrendingUp className="w-4 h-4 text-green-400" />
                             )}
-                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                            <ChevronRight className="w-4 h-4 text-muted-foreground" />
                         </div>
                     </motion.div>
                 )}
@@ -147,7 +147,7 @@ export default function RealityCheckOverlay({
                                 }}
                                 className="p-1 rounded-lg hover:bg-neutral-800 transition-colors"
                             >
-                                <X className="w-4 h-4 text-gray-400" />
+                                <X className="w-4 h-4 text-muted-foreground" />
                             </button>
                         </div>
 
@@ -155,7 +155,7 @@ export default function RealityCheckOverlay({
                         <div className="p-4 space-y-4">
                             {/* Previous Topic Status */}
                             <div>
-                                <p className="text-sm text-gray-400 mb-2">
+                                <p className="text-sm text-muted-foreground mb-2">
                                     Your previous topic:
                                 </p>
                                 <div className="flex items-center justify-between p-3 rounded-xl bg-neutral-800/50">
@@ -163,7 +163,7 @@ export default function RealityCheckOverlay({
                                         <p className="font-medium text-white">
                                             {retentionData.topicName}
                                         </p>
-                                        <p className="text-xs text-gray-400">
+                                        <p className="text-xs text-muted-foreground">
                                             {retentionData.daysSinceLastReview} days ago
                                         </p>
                                     </div>
@@ -224,7 +224,7 @@ export default function RealityCheckOverlay({
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     onClick={() => setIsExpanded(false)}
-                                    className="py-2.5 px-4 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-gray-300 font-medium text-sm transition-colors"
+                                    className="py-2.5 px-4 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-muted-foreground font-medium text-sm transition-colors"
                                 >
                                     Continue
                                 </motion.button>

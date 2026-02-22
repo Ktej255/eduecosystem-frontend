@@ -28,7 +28,7 @@ export default function EnvironmentDashboard() {
                     </div>
                 </div>
                 {/* View Toggle */}
-                <div className="flex bg-white/50 dark:bg-black/20 p-1 rounded-lg border border-emerald-100 dark:border-emerald-800 gap-1">
+                <div className="flex bg-card/50 dark:bg-black/20 p-1 rounded-lg border border-emerald-100 dark:border-emerald-800 gap-1">
                     <button
                         onClick={() => setViewMode('planner')}
                         className={`px-3 py-1.5 text-xs font-bold rounded-md transition-all flex items-center gap-2 ${viewMode === 'planner' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-700 hover:bg-emerald-100'}`}
@@ -112,9 +112,9 @@ export default function EnvironmentDashboard() {
                                         }`}>
                                         {topic.category}
                                     </span>
-                                    <span className="text-xs font-mono text-slate-400">{topic.days} Days</span>
+                                    <span className="text-xs font-mono text-muted-foreground">{topic.days} Days</span>
                                 </div>
-                                <CardTitle className="text-lg text-slate-800 dark:text-slate-100 group-hover:text-emerald-600 transition-colors">
+                                <CardTitle className="text-lg text-foreground group-hover:text-emerald-600 transition-colors">
                                     {topic.title}
                                 </CardTitle>
                                 <CardDescription className="line-clamp-2">
@@ -124,14 +124,14 @@ export default function EnvironmentDashboard() {
                             <CardContent>
                                 <div className="space-y-2 mb-4">
                                     {topic.subtopics.slice(0, 3).map((sub, i) => (
-                                        <div key={i} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                                        <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground dark:text-muted-foreground">
                                             <BookOpenCheck className="w-3 h-3 text-emerald-400" />
                                             <span className="truncate">{sub}</span>
                                         </div>
                                     ))}
                                 </div>
                                 <Link href={`/student/batch1/environment/${topic.id}`}>
-                                    <button className="w-full py-2 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors">
+                                    <button className="w-full py-2 bg-muted hover:bg-muted dark:hover:bg-slate-700 text-muted-foreground rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors">
                                         Start Module <ChevronRight className="w-4 h-4" />
                                     </button>
                                 </Link>
@@ -149,13 +149,13 @@ function StatCard({ label, value, color, icon }: { label: string, value: string,
         <Card>
             <CardContent className="p-6">
                 <div className="flex items-center justify-between mb-4">
-                    <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                    <div className="p-2 bg-muted rounded-lg">
                         {icon}
                     </div>
                 </div>
                 <div>
                     <h3 className={`text-2xl font-bold mb-1 ${color}`}>{value}</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{label}</p>
+                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">{label}</p>
                 </div>
             </CardContent>
         </Card>

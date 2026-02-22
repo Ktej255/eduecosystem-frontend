@@ -44,25 +44,25 @@ export default function PYQBank() {
     return (
         <div className="max-w-6xl mx-auto space-y-6 font-['Calibri']">
             {/* Header & Controls */}
-            <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+            <div className="bg-card rounded-2xl p-6 border border-border shadow-sm space-y-4">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <div>
-                        <h2 className="text-2xl font-black text-slate-800 flex items-center gap-2">
+                        <h2 className="text-2xl font-black text-foreground flex items-center gap-2">
                             <BookOpen className="text-blue-600" />
                             UPSC PYQ Bank
                         </h2>
-                        <p className="text-slate-500 text-sm">Validating your logic against the gold standard.</p>
+                        <p className="text-muted-foreground text-sm">Validating your logic against the gold standard.</p>
                     </div>
-                    <div className="flex bg-slate-100 p-1 rounded-lg">
+                    <div className="flex bg-muted p-1 rounded-lg">
                         <button
                             onClick={() => setExamType('PRELIMS')}
-                            className={`px-4 py-1.5 rounded-md text-sm font-bold transition-all ${examType === 'PRELIMS' ? 'bg-white shadow text-blue-600' : 'text-slate-500 hover:text-slate-700'}`}
+                            className={`px-4 py-1.5 rounded-md text-sm font-bold transition-all ${examType === 'PRELIMS' ? 'bg-card shadow text-blue-600' : 'text-muted-foreground hover:text-muted-foreground'}`}
                         >
                             Prelims
                         </button>
                         <button
                             onClick={() => setExamType('MAINS')}
-                            className={`px-4 py-1.5 rounded-md text-sm font-bold transition-all ${examType === 'MAINS' ? 'bg-white shadow text-blue-600' : 'text-slate-500 hover:text-slate-700'}`}
+                            className={`px-4 py-1.5 rounded-md text-sm font-bold transition-all ${examType === 'MAINS' ? 'bg-card shadow text-blue-600' : 'text-muted-foreground hover:text-muted-foreground'}`}
                         >
                             Mains
                         </button>
@@ -72,18 +72,18 @@ export default function PYQBank() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
                     {/* Search */}
                     <div className="relative md:col-span-2">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
                         <Input
                             placeholder="Search keywords (e.g., 'Privacy', 'Preamble')"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="pl-10 bg-slate-50 border-slate-200 focus:ring-blue-500"
+                            className="pl-10 bg-muted border-border focus:ring-blue-500"
                         />
                     </div>
 
                     {/* Year Filter */}
                     <Select value={selectedYear} onValueChange={setSelectedYear}>
-                        <SelectTrigger className="bg-slate-50 border-slate-200">
+                        <SelectTrigger className="bg-muted border-border">
                             <SelectValue placeholder="All Years" />
                         </SelectTrigger>
                         <SelectContent>
@@ -96,7 +96,7 @@ export default function PYQBank() {
 
                     {/* Topic Filter */}
                     <Select value={selectedTopic} onValueChange={setSelectedTopic}>
-                        <SelectTrigger className="bg-slate-50 border-slate-200">
+                        <SelectTrigger className="bg-muted border-border">
                             <SelectValue placeholder="All Topics" />
                         </SelectTrigger>
                         <SelectContent>
@@ -112,7 +112,7 @@ export default function PYQBank() {
             {/* Results */}
             <div className="grid gap-4">
                 {filteredQuestions.length === 0 ? (
-                    <div className="text-center py-20 text-slate-400 bg-white rounded-2xl border border-dashed border-slate-300">
+                    <div className="text-center py-20 text-muted-foreground bg-card rounded-2xl border border-dashed border-border">
                         <Search className="mx-auto mb-2 opacity-50" size={40} />
                         <p>No questions found matching your filters.</p>
                     </div>
@@ -131,7 +131,7 @@ function PYQCard({ question }: { question: PYQItem }) {
     const [userSelection, setUserSelection] = useState<string | null>(null);
 
     return (
-        <Card className="border border-slate-200 hover:border-blue-300 transition-colors shadow-sm overflow-hidden bg-white">
+        <Card className="border border-border hover:border-blue-300 transition-colors shadow-sm overflow-hidden bg-card">
             <CardContent className="p-0">
                 {/* Question Header */}
                 <div className="p-5 bg-gradient-to-r from-slate-50 to-white border-b border-slate-100 flex justify-between items-start gap-4">
@@ -140,16 +140,16 @@ function PYQCard({ question }: { question: PYQItem }) {
                             <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200 font-bold">
                                 {question.year}
                             </Badge>
-                            <Badge variant="outline" className="text-slate-500 border-slate-200">
+                            <Badge variant="outline" className="text-muted-foreground border-border">
                                 {question.difficulty}
                             </Badge>
                             {question.tags.map(tag => (
-                                <span key={tag} className="text-xs text-slate-400 font-medium px-1.5 py-0.5 bg-slate-100 rounded">
+                                <span key={tag} className="text-xs text-muted-foreground font-medium px-1.5 py-0.5 bg-muted rounded">
                                     {tag}
                                 </span>
                             ))}
                         </div>
-                        <h3 className="text-lg font-bold text-slate-800 leading-snug">
+                        <h3 className="text-lg font-bold text-foreground leading-snug">
                             {question.question}
                         </h3>
                     </div>
@@ -163,7 +163,7 @@ function PYQCard({ question }: { question: PYQItem }) {
                                 const isSelected = userSelection === opt.label;
                                 const isCorrect = opt.label === question.answer;
 
-                                let stateStyle = "border-slate-200 hover:bg-slate-50 bg-white";
+                                let stateStyle = "border-border hover:bg-muted bg-card";
                                 if (isRevealed) {
                                     if (isCorrect) stateStyle = "border-green-500 bg-green-50 text-green-900";
                                     else if (isSelected && !isCorrect) stateStyle = "border-red-500 bg-red-50 text-red-900 opacity-70";
@@ -181,7 +181,7 @@ function PYQCard({ question }: { question: PYQItem }) {
                                     >
                                         <span className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border ${isRevealed && isCorrect ? 'bg-green-600 border-green-600 text-white' :
                                                 isRevealed && isSelected ? 'bg-red-500 border-red-500 text-white' :
-                                                    isSelected ? 'bg-blue-600 border-blue-600 text-white' : 'bg-slate-100 text-slate-500 border-slate-300'
+                                                    isSelected ? 'bg-blue-600 border-blue-600 text-white' : 'bg-muted text-muted-foreground border-border'
                                             }`}>
                                             {opt.label}
                                         </span>
@@ -191,7 +191,7 @@ function PYQCard({ question }: { question: PYQItem }) {
                             })}
                         </div>
                     ) : (
-                        <div className="p-4 bg-slate-50 rounded-lg text-slate-600 italic text-sm">
+                        <div className="p-4 bg-muted rounded-lg text-muted-foreground italic text-sm">
                             This is a Mains question. Review the answer key below.
                         </div>
                     )}
@@ -217,7 +217,7 @@ function PYQCard({ question }: { question: PYQItem }) {
                             <div className="flex items-center gap-2 mb-3 text-blue-800 font-bold text-sm uppercase tracking-wide">
                                 <HelpCircle size={16} /> Explanation
                             </div>
-                            <p className="text-slate-700 leading-relaxed text-sm md:text-base">
+                            <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                                 {question.explanation}
                             </p>
 
@@ -230,7 +230,7 @@ function PYQCard({ question }: { question: PYQItem }) {
                                         <a
                                             key={tid}
                                             href={`/student/batch1/polity/topic/${tid}`}
-                                            className="px-2 py-1 bg-white hover:bg-white/80 text-blue-700 text-xs rounded border border-blue-200 font-medium transition-colors"
+                                            className="px-2 py-1 bg-card hover:bg-card/80 text-blue-700 text-xs rounded border border-blue-200 font-medium transition-colors"
                                         >
                                             {topic?.title || `Topic ${tid}`} ➜
                                         </a>

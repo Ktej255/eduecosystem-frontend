@@ -143,22 +143,22 @@ export default function SubjectPlanner({ config, embedded = false }: SubjectPlan
 
                         {/* Stats Grid */}
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-                            <div className="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10">
+                            <div className="bg-card/10 backdrop-blur rounded-xl p-4 border border-white/10">
                                 <div className="text-3xl font-bold">{config.totalChapters}</div>
                                 <div className="text-white/70 text-sm">Chapters</div>
                             </div>
-                            <div className="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10">
+                            <div className="bg-card/10 backdrop-blur rounded-xl p-4 border border-white/10">
                                 <div className="text-3xl font-bold">{config.totalParts}</div>
                                 <div className="text-white/70 text-sm">Parts</div>
                             </div>
-                            <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                            <div className="bg-card/10 backdrop-blur rounded-xl p-4">
                                 <div className="text-3xl font-bold flex items-center gap-1">
                                     {totalCA}
                                     <Sparkles className="w-5 h-5 text-yellow-400" />
                                 </div>
                                 <div className="text-white/70 text-sm">Current Affairs</div>
                             </div>
-                            <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                            <div className="bg-card/10 backdrop-blur rounded-xl p-4">
                                 <div className="text-3xl font-bold flex items-center gap-1">
                                     {highPriorityTopics}
                                     <Target className="w-5 h-5 text-red-400" />
@@ -170,14 +170,14 @@ export default function SubjectPlanner({ config, embedded = false }: SubjectPlan
                         <div className="mt-8 flex gap-4">
                             <button
                                 onClick={() => setView('schedule')}
-                                className={`bg-white text-${config.colors.primary}-700 hover:bg-${config.colors.primary}-50 font-bold py-3 px-6 rounded-lg shadow-lg flex items-center gap-2 transition-all`}
+                                className={`bg-card text-${config.colors.primary}-700 hover:bg-${config.colors.primary}-50 font-bold py-3 px-6 rounded-lg shadow-lg flex items-center gap-2 transition-all`}
                             >
                                 <TrendingUp className="w-5 h-5" />
                                 Open Planner & Schedule
                             </button>
                             <button
                                 onClick={() => setShowOralQuiz(true)}
-                                className="bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-6 rounded-lg backdrop-blur flex items-center gap-2 transition-all border border-white/30"
+                                className="bg-card/20 hover:bg-card/30 text-white font-bold py-3 px-6 rounded-lg backdrop-blur flex items-center gap-2 transition-all border border-white/30"
                             >
                                 <Mic className="w-5 h-5" />
                                 Start Oral Quiz
@@ -189,12 +189,12 @@ export default function SubjectPlanner({ config, embedded = false }: SubjectPlan
 
             {/* Tab Navigation */}
             <div className="max-w-6xl mx-auto px-6 mt-12">
-                <div className="flex border-b border-gray-200 dark:border-gray-800">
+                <div className="flex border-b border-border">
                     <button
                         onClick={() => setView('map')}
                         className={`px-8 py-4 text-sm font-bold transition-all border-b-2 ${view === 'map'
                             ? `text-${config.colors.primary}-600 border-${config.colors.primary}-600`
-                            : 'text-gray-500 border-transparent hover:text-gray-700'
+                            : 'text-muted-foreground border-transparent hover:text-muted-foreground'
                             }`}
                     >
                         Content Map
@@ -203,7 +203,7 @@ export default function SubjectPlanner({ config, embedded = false }: SubjectPlan
                         onClick={() => setView('topics')}
                         className={`px-8 py-4 text-sm font-bold transition-all border-b-2 ${view === 'topics'
                             ? `text-${config.colors.primary}-600 border-${config.colors.primary}-600`
-                            : 'text-gray-500 border-transparent hover:text-gray-700'
+                            : 'text-muted-foreground border-transparent hover:text-muted-foreground'
                             }`}
                     >
                         Detailed Syllabus
@@ -212,7 +212,7 @@ export default function SubjectPlanner({ config, embedded = false }: SubjectPlan
                         onClick={() => setView('schedule')}
                         className={`px-8 py-4 text-sm font-bold transition-all border-b-2 flex items-center gap-2 ${view === 'schedule'
                             ? `text-${config.colors.primary}-600 border-${config.colors.primary}-600`
-                            : 'text-gray-500 border-transparent hover:text-gray-700'
+                            : 'text-muted-foreground border-transparent hover:text-muted-foreground'
                             }`}
                     >
                         Study Planner
@@ -233,8 +233,8 @@ export default function SubjectPlanner({ config, embedded = false }: SubjectPlan
                 {view === 'map' && (
                     <div className="max-w-6xl mx-auto px-6 py-12">
                         {/* Placeholder for generic map, or we reuse the topics selection as map for now */}
-                        <div className="text-center py-10 bg-white dark:bg-[#111] rounded-2xl border border-dashed">
-                            <p className="text-gray-500">Interactive Content Map coming soon for {config.title}</p>
+                        <div className="text-center py-10 bg-card dark:bg-[#111] rounded-2xl border border-dashed">
+                            <p className="text-muted-foreground">Interactive Content Map coming soon for {config.title}</p>
                             <button onClick={() => setView('topics')} className="text-blue-600 mt-2 font-bold">View Syllabus List</button>
                         </div>
                     </div>
@@ -265,7 +265,7 @@ function TopicsView({ config, selectedModule, setSelectedModule }: { config: Sub
             {/* Module Grid */}
             {!selectedModule && (
                 <>
-                    <h2 className="text-2xl font-bold text-[#1F2937] dark:text-white mb-6">Structured Curriculum</h2>
+                    <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Structured Curriculum</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {(config?.modules || []).map(module => {
                             if (!module) return null;
@@ -277,8 +277,8 @@ function TopicsView({ config, selectedModule, setSelectedModule }: { config: Sub
                                     onClick={() => isActive && setSelectedModule(module.id)}
                                     disabled={!isActive}
                                     className={`text-left p-5 rounded-2xl border-2 transition-all ${isActive
-                                        ? `hover:shadow-lg hover:border-${config?.colors?.primary || 'blue'}-500 bg-white dark:bg-[#111] border-gray-200 dark:border-gray-800`
-                                        : `opacity-50 cursor-not-allowed bg-gray-100 dark:bg-gray-900 border-gray-200 dark:border-gray-800`
+                                        ? `hover:shadow-lg hover:border-${config?.colors?.primary || 'blue'}-500 bg-card dark:bg-[#111] border-border`
+                                        : `opacity-50 cursor-not-allowed bg-muted border-border`
                                         }`}
                                 >
                                     <div className="flex items-center gap-3 mb-3">
@@ -286,19 +286,19 @@ function TopicsView({ config, selectedModule, setSelectedModule }: { config: Sub
                                             {module.icon}
                                         </div>
                                         <div>
-                                            <div className="text-xs text-gray-500">Module {module.id}</div>
-                                            <div className="font-bold text-[#1F2937] dark:text-white">{module.title}</div>
+                                            <div className="text-xs text-muted-foreground">Module {module.id}</div>
+                                            <div className="font-bold text-[#1F2937]">{module.title}</div>
                                         </div>
                                     </div>
-                                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">{module.description}</p>
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-3 line-clamp-2">{module.description}</p>
                                     <div className="flex items-center justify-between text-sm">
-                                        <span className="text-gray-500">Topics {module.topicRange[0]}-{module.topicRange[1]}</span>
+                                        <span className="text-muted-foreground">Topics {module.topicRange[0]}-{module.topicRange[1]}</span>
                                         {isActive ? (
                                             <span className="flex items-center gap-1 text-green-600">
                                                 <TrendingUp className="w-4 h-4" /> {topics.length} Ready
                                             </span>
                                         ) : (
-                                            <span className="text-gray-400">Coming Soon</span>
+                                            <span className="text-muted-foreground">Coming Soon</span>
                                         )}
                                     </div>
                                 </button>
@@ -312,7 +312,7 @@ function TopicsView({ config, selectedModule, setSelectedModule }: { config: Sub
             {selectedModule && (
                 <div>
                     <div className="flex items-center justify-between mb-6">
-                        <h2 className="text-2xl font-bold text-[#1F2937] dark:text-white">Module {selectedModule} Topics</h2>
+                        <h2 className="text-2xl font-bold text-[#1F2937]">Module {selectedModule} Topics</h2>
                         <button onClick={() => setSelectedModule(null)} className={`text-${config?.colors?.primary || 'blue'}-600 hover:underline text-sm font-bold`}>
                             ← Back to Modules
                         </button>
@@ -321,7 +321,7 @@ function TopicsView({ config, selectedModule, setSelectedModule }: { config: Sub
                         {getTopics(selectedModule).map(topic => {
                             if (!topic) return null;
                             return (
-                                <div key={topic.id} className="block bg-white dark:bg-[#111] rounded-xl border border-gray-200 dark:border-gray-800 p-5 hover:shadow-lg transition-all">
+                                <div key={topic.id} className="block bg-card dark:bg-[#111] rounded-xl border border-border p-5 hover:shadow-lg transition-all">
                                     <div className="flex items-start justify-between">
                                         <div className="flex-1">
                                             <div className="flex items-center gap-2 mb-2">
@@ -329,8 +329,8 @@ function TopicsView({ config, selectedModule, setSelectedModule }: { config: Sub
                                                 {topic.priority === 'High' && <span className="text-xs px-2 py-0.5 rounded bg-red-100 text-red-700">High Priority</span>}
                                                 <TTSPlayer text={`${topic.title}. ${topic.staticFocus}`} className="ml-auto" />
                                             </div>
-                                            <h3 className="text-lg font-semibold text-[#1F2937] dark:text-white mb-1">{topic.title}</h3>
-                                            <p className="text-sm text-gray-600 dark:text-gray-400">{topic.staticFocus}</p>
+                                            <h3 className="text-lg font-semibold text-[#1F2937] mb-1">{topic.title}</h3>
+                                            <p className="text-sm text-muted-foreground dark:text-muted-foreground">{topic.staticFocus}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -374,20 +374,20 @@ function SubjectScheduleView({ config, isAdmin }: { config: SubjectConfig, isAdm
     return (
         <div className="space-y-8">
             {/* Header */}
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 bg-white dark:bg-[#111] p-6 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-sm">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 bg-card dark:bg-[#111] p-6 rounded-3xl border border-border shadow-sm">
                 <div className="flex-1">
                     <div className="flex items-center gap-3">
                         <Calendar className={`w-7 h-7 text-${config.colors.primary}-600`} />
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Study Planner</h2>
+                        <h2 className="text-2xl font-bold text-foreground">Study Planner</h2>
                     </div>
-                    <p className="text-gray-500 text-sm mt-1">Target: 6 Hours / Day</p>
+                    <p className="text-muted-foreground text-sm mt-1">Target: 6 Hours / Day</p>
                 </div>
                 {/* Week Pagination */}
                 <div className="flex items-center gap-2">
                     <button
                         onClick={() => setSelectedWeek(p => Math.max(0, p - 1))}
                         disabled={selectedWeek === 0}
-                        className="p-2 rounded-xl border hover:bg-gray-50"
+                        className="p-2 rounded-xl border hover:bg-muted"
                     >
                         <ChevronRight className="w-5 h-5 rotate-180" />
                     </button>
@@ -395,7 +395,7 @@ function SubjectScheduleView({ config, isAdmin }: { config: SubjectConfig, isAdm
                     <button
                         onClick={() => setSelectedWeek(p => Math.min(config.schedules.length - 1, p + 1))}
                         disabled={selectedWeek === config.schedules.length - 1}
-                        className="p-2 rounded-xl border hover:bg-gray-50"
+                        className="p-2 rounded-xl border hover:bg-muted"
                     >
                         <ChevronRight className="w-5 h-5" />
                     </button>
@@ -414,12 +414,12 @@ function SubjectScheduleView({ config, isAdmin }: { config: SubjectConfig, isAdm
                     return (
                         <div key={day} className="flex flex-col h-full">
                             <div className="flex items-center justify-between mb-3 px-2">
-                                <span className="text-xs font-black uppercase tracking-widest text-gray-400">{day}</span>
+                                <span className="text-xs font-black uppercase tracking-widest text-muted-foreground">{day}</span>
                             </div>
 
                             <div className={`flex-1 space-y-3 p-3 rounded-2xl border ${isSaturday ? 'bg-amber-50 border-amber-200' :
                                 isSunday ? 'bg-indigo-50 border-indigo-200' :
-                                    'bg-white dark:bg-[#111] border-gray-100 dark:border-gray-800'
+                                    'bg-card dark:bg-[#111] border-border'
                                 }`}>
                                 {(content as any[]).map((itemId: number | string, i: number) => {
                                     // Render logic varies by type
@@ -437,14 +437,14 @@ function SubjectScheduleView({ config, isAdmin }: { config: SubjectConfig, isAdm
                                     return (
                                         <div key={i}
                                             onClick={() => toggleCompletion(ch.chapter)}
-                                            className={`group relative bg-white dark:bg-[#111] rounded-2xl border p-4 transition-all cursor-pointer shadow-sm ${isDone ? 'border-green-500 bg-green-50/30' : 'hover:border-blue-400'
+                                            className={`group relative bg-card dark:bg-[#111] rounded-2xl border p-4 transition-all cursor-pointer shadow-sm ${isDone ? 'border-green-500 bg-green-50/30' : 'hover:border-blue-400'
                                                 }`}>
                                             <div className="flex items-center justify-between gap-1 mb-2">
                                                 <span className={`text-[9px] px-1.5 py-0.5 rounded font-bold uppercase bg-${mod?.color || 'blue'}-100 text-${mod?.color || 'blue'}-700`}>CH {ch.chapter}</span>
                                                 {isDone && <ShieldCheck className="w-4 h-4 text-green-600" />}
                                             </div>
                                             <h4 className={`text-sm font-bold mb-3 ${isDone ? 'line-through opacity-70' : ''}`}>{ch.topic}</h4>
-                                            <div className="flex items-center gap-2 text-xs text-gray-500">
+                                            <div className="flex items-center gap-2 text-xs text-muted-foreground">
                                                 <Clock className="w-3 h-3" /> {ch.slots} Slots
                                             </div>
                                         </div>

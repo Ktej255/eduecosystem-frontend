@@ -119,7 +119,7 @@ export default function SyllabusGenerator() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 shadow-sm"
+                        className="bg-card dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 shadow-sm"
                     >
                         <div className="flex justify-between items-center mb-6">
                             <div>
@@ -176,7 +176,7 @@ function SyllabusUnit({ unit, index }: { unit: any, index: number }) {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                     >
-                        <div className="p-4 bg-white dark:bg-neutral-950 space-y-2">
+                        <div className="p-4 bg-card dark:bg-neutral-950 space-y-2">
                             {unit.chapters.map((chapter: string, idx: number) => (
                                 <div key={idx} className="flex items-center gap-3 pl-9 py-1 text-sm text-neutral-600 dark:text-neutral-400 hover:text-purple-500 cursor-pointer group">
                                     <BookOpen className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />

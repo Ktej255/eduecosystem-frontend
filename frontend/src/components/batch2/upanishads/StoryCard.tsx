@@ -34,7 +34,7 @@ export default function StoryCard({
                 }`}
         >
             {/* Step Number Badge */}
-            <div className="absolute -left-5 top-6 w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-slate-900 font-bold text-lg shadow-lg">
+            <div className="absolute -left-5 top-6 w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-foreground font-bold text-lg shadow-lg">
                 {index + 1}
             </div>
 

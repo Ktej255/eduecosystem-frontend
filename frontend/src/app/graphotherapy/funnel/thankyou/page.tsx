@@ -18,10 +18,10 @@ export default function ThankYouPage() {
 
                 {/* Main Message */}
                 <div className="space-y-4">
-                    <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white">
+                    <h1 className="text-4xl font-extrabold text-foreground">
                         Thank You for Your Order! 🎉
                     </h1>
-                    <p className="text-lg text-gray-600 dark:text-gray-300">
+                    <p className="text-lg text-muted-foreground dark:text-muted-foreground">
                         Your Level 1 Graphotherapy course has been unlocked.
                         We've sent the access details to your email.
                     </p>
@@ -34,7 +34,7 @@ export default function ThankYouPage() {
                             <BookOpen className="w-8 h-8 text-green-600" />
                             <div className="text-left">
                                 <h3 className="font-bold">Level 1 Graphotherapy</h3>
-                                <p className="text-sm text-gray-500">21-Day Transformation Course</p>
+                                <p className="text-sm text-muted-foreground">21-Day Transformation Course</p>
                             </div>
                         </div>
                         <div className="text-sm text-green-700 bg-green-100 py-2 px-4 rounded-lg">
@@ -45,13 +45,13 @@ export default function ThankYouPage() {
 
                 {/* Next Steps */}
                 <div className="space-y-4">
-                    <h3 className="font-bold text-gray-700">What's Next?</h3>
+                    <h3 className="font-bold text-muted-foreground">What's Next?</h3>
                     <div className="grid gap-3 text-left">
-                        <div className="flex items-center gap-3 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
+                        <div className="flex items-center gap-3 bg-card p-4 rounded-lg shadow-sm">
                             <PlayCircle className="w-6 h-6 text-purple-500" />
                             <span>Watch the Introduction Video</span>
                         </div>
-                        <div className="flex items-center gap-3 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
+                        <div className="flex items-center gap-3 bg-card p-4 rounded-lg shadow-sm">
                             <BookOpen className="w-6 h-6 text-blue-500" />
                             <span>Start Day 1 of Your Journey</span>
                         </div>

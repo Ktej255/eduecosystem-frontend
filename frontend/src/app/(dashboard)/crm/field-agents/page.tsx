@@ -214,7 +214,7 @@ function getStatusBadge(status: string) {
             return (
                 <div className="flex items-center gap-1.5">
                     <div className="h-2 w-2 rounded-full bg-gray-400" />
-                    <span className="text-xs text-gray-500">Offline</span>
+                    <span className="text-xs text-muted-foreground">Offline</span>
                 </div>
             );
         default:

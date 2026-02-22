@@ -55,8 +55,8 @@ export default function IntentSelector({ selectedIntent, onSelect }: IntentSelec
                 viewport={{ once: true }}
                 className="text-center mb-8"
             >
-                <h3 className="text-xl font-serif italic text-gray-500 mb-2">What is your primary goal?</h3>
-                <p className="text-sm text-gray-400">We'll tailor the journey for you.</p>
+                <h3 className="text-xl font-serif italic text-muted-foreground mb-2">What is your primary goal?</h3>
+                <p className="text-sm text-muted-foreground">We'll tailor the journey for you.</p>
             </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -74,8 +74,8 @@ export default function IntentSelector({ selectedIntent, onSelect }: IntentSelec
                                 relative p-6 rounded-2xl border-2 transition-all duration-300 text-left
                                 group hover:shadow-lg overflow-hidden
                                 ${isSelected
-                                    ? `border-transparent bg-white shadow-xl`
-                                    : 'border-slate-100 bg-white/50 hover:border-slate-200'
+                                    ? `border-transparent bg-card shadow-xl`
+                                    : 'border-slate-100 bg-card/50 hover:border-border'
                                 }
                             `}
                         >
@@ -100,16 +100,16 @@ export default function IntentSelector({ selectedIntent, onSelect }: IntentSelec
 
                             <div className={`
                                 w-12 h-12 rounded-xl mb-4 flex items-center justify-center transition-colors
-                                ${isSelected ? `bg-gradient-to-br ${intent.color} text-white` : 'bg-slate-100 text-slate-400 group-hover:bg-slate-200'}
+                                ${isSelected ? `bg-gradient-to-br ${intent.color} text-white` : 'bg-muted text-muted-foreground group-hover:bg-slate-200'}
                             `}>
                                 <Icon className="w-6 h-6" />
                             </div>
 
-                            <h4 className={`text-lg font-bold mb-1 ${isSelected ? 'text-slate-900' : 'text-slate-600'}`}>
+                            <h4 className={`text-lg font-bold mb-1 ${isSelected ? 'text-foreground' : 'text-muted-foreground'}`}>
                                 {intent.label}
                             </h4>
 
-                            <p className="text-xs text-slate-500 leading-relaxed">
+                            <p className="text-xs text-muted-foreground leading-relaxed">
                                 {intent.desc}
                             </p>
 

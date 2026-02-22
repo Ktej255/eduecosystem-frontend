@@ -17,7 +17,7 @@ interface AntiDefectionLawModuleProps {
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="bg-[#fef2f2] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-red-100">
-        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white/50 rounded-3xl p-6 shadow-inner border-2 border-slate-200">
+        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-card/50 rounded-3xl p-6 shadow-inner border-2 border-border">
             {children}
         </div>
     </div>
@@ -28,7 +28,7 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
         <div className={`p-3 rounded-full ${color} text-white shadow-lg`}>
             <Icon size={24} />
         </div>
-        <h2 className={`text-2xl font-black uppercase tracking-tight text-slate-800`}>
+        <h2 className={`text-2xl font-black uppercase tracking-tight text-foreground`}>
             {title}
         </h2>
         <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
@@ -42,7 +42,7 @@ export default function AntiDefectionLawModule({ onComplete, isCompleted, chapte
             <div className="relative bg-[#b91c1c] border-4 border-red-900 rounded-3xl p-8 md:p-12 shadow-2xl text-white overflow-hidden">
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-white text-red-900 px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
+                        <Badge className="bg-card text-red-900 px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
                         <span className="text-red-200 font-bold uppercase tracking-widest text-sm">10th Schedule</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
@@ -62,18 +62,18 @@ export default function AntiDefectionLawModule({ onComplete, isCompleted, chapte
             <SectionHeader title="Phase 1: The Amendments" icon={ShieldCheck} color="bg-[#b91c1c]" />
 
             <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-white border-2 border-red-200 rounded-2xl p-6 shadow-md rotate-[-1deg]">
+                <div className="bg-card border-2 border-red-200 rounded-2xl p-6 shadow-md rotate-[-1deg]">
                     <h3 className="font-black text-xl mb-2 text-red-800">52nd Amendment (1985)</h3>
-                    <p className="font-bold text-slate-600">Added the <span className="bg-red-100 px-1 rounded">10th Schedule</span>.</p>
-                    <p className="text-sm text-slate-500 mt-2">Goal: Stability.</p>
+                    <p className="font-bold text-muted-foreground">Added the <span className="bg-red-100 px-1 rounded">10th Schedule</span>.</p>
+                    <p className="text-sm text-muted-foreground mt-2">Goal: Stability.</p>
                 </div>
 
-                <div className="bg-white border-2 border-green-200 rounded-2xl p-6 shadow-md rotate-[1deg] relative">
+                <div className="bg-card border-2 border-green-200 rounded-2xl p-6 shadow-md rotate-[1deg] relative">
                     <div className="absolute -top-3 -right-3 bg-green-600 text-white px-3 py-1 text-xs font-bold rounded shadow">91st AA (2003)</div>
                     <h3 className="font-black text-xl mb-2 text-green-800">The 2/3rd Rule</h3>
                     <div className="flex items-center gap-4 mt-4">
                         <Scissors className="text-red-500" />
-                        <div className="text-sm font-bold text-slate-700">
+                        <div className="text-sm font-bold text-muted-foreground">
                             Deleted "Split" (1/3rd). <br />
                             Only <span className="bg-green-100 text-green-800 px-1 rounded">Merger (2/3rd)</span> allowed.
                         </div>
@@ -91,9 +91,9 @@ export default function AntiDefectionLawModule({ onComplete, isCompleted, chapte
                     { title: "Independent Member", sub: "Joins ANY party -> Disqualified." },
                     { title: "Nominated Member", sub: "Joins after 6 months -> Disqualified." }
                 ].map((item, i) => (
-                    <div key={i} className="bg-white p-4 rounded-xl border-l-8 border-red-500 shadow-sm flex items-center justify-between">
-                        <span className="font-black text-slate-800">{item.title}</span>
-                        <span className="text-xs font-bold text-slate-500 hidden md:block">{item.sub}</span>
+                    <div key={i} className="bg-card p-4 rounded-xl border-l-8 border-red-500 shadow-sm flex items-center justify-between">
+                        <span className="font-black text-foreground">{item.title}</span>
+                        <span className="text-xs font-bold text-muted-foreground hidden md:block">{item.sub}</span>
                     </div>
                 ))}
             </div>
@@ -107,9 +107,9 @@ export default function AntiDefectionLawModule({ onComplete, isCompleted, chapte
                         <Users size={48} className="mx-auto text-[#ca8a04]" />
                         <div>
                             <h3 className="font-black text-xl text-[#ca8a04]">The Speaker / Chairman</h3>
-                            <p className="font-bold text-slate-700">Presiding Officer decides.</p>
+                            <p className="font-bold text-muted-foreground">Presiding Officer decides.</p>
                         </div>
-                        <div className="bg-white p-2 rounded text-xs font-bold border border-yellow-200">
+                        <div className="bg-card p-2 rounded text-xs font-bold border border-yellow-200">
                             Subject to Judicial Review (Kihoto Hollohan 1992)
                         </div>
                     </div>
@@ -128,11 +128,11 @@ export default function AntiDefectionLawModule({ onComplete, isCompleted, chapte
             </div>
 
             {/* FOOTER */}
-            <div className="mt-8 text-center bg-slate-100 p-4 rounded-xl">
-                <h4 className="font-black text-slate-800 flex items-center justify-center gap-2">
+            <div className="mt-8 text-center bg-muted p-4 rounded-xl">
+                <h4 className="font-black text-foreground flex items-center justify-center gap-2">
                     <Repeat size={16} /> The "Whip" System
                 </h4>
-                <p className="text-xs text-slate-500 font-bold max-w-lg mx-auto mt-2">
+                <p className="text-xs text-muted-foreground font-bold max-w-lg mx-auto mt-2">
                     Not mentioned in Constitution. Ensure attendance. Three-line whip = Must attend & vote (Defection applies).
                 </p>
             </div>

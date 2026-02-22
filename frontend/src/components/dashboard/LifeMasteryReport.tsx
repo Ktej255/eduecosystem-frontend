@@ -19,7 +19,7 @@ const MOCK_MASTERY_DATA = [
 
 export default function LifeMasteryReport() {
     return (
-        <Card className="w-full bg-white dark:bg-black/40 border-slate-200 dark:border-white/5 shadow-2xl overflow-hidden group">
+        <Card className="w-full bg-card dark:bg-black/40 border-border dark:border-white/5 shadow-2xl overflow-hidden group">
             <CardHeader className="pb-2 border-b border-white/5 bg-gradient-to-r from-blue-600/5 to-purple-600/5">
                 <div className="flex justify-between items-center">
                     <div>
@@ -99,19 +99,19 @@ export default function LifeMasteryReport() {
 
                     {/* Insights Grid */}
                     <div className="grid grid-cols-3 gap-4">
-                        <div className="p-4 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-all">
+                        <div className="p-4 bg-card/5 rounded-2xl border border-white/5 hover:bg-card/10 transition-all">
                             <Activity className="w-4 h-4 text-blue-400 mb-2" />
                             <p className="text-[10px] font-bold text-white/40 uppercase tracking-tighter leading-none mb-1">Consistency</p>
                             <p className="text-xl font-black text-white">92%</p>
                             <div className="mt-2 text-[8px] text-emerald-400 font-bold">↑ 12% vs last week</div>
                         </div>
-                        <div className="p-4 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-all">
+                        <div className="p-4 bg-card/5 rounded-2xl border border-white/5 hover:bg-card/10 transition-all">
                             <Zap className="w-4 h-4 text-purple-400 mb-2" />
                             <p className="text-[10px] font-bold text-white/40 uppercase tracking-tighter leading-none mb-1">Focus IQ</p>
                             <p className="text-xl font-black text-white">8.4</p>
                             <div className="mt-2 text-[8px] text-emerald-400 font-bold">Peak: Sat (10.0)</div>
                         </div>
-                        <div className="p-4 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-all">
+                        <div className="p-4 bg-card/5 rounded-2xl border border-white/5 hover:bg-card/10 transition-all">
                             <ShieldCheck className="w-4 h-4 text-emerald-400 mb-2" />
                             <p className="text-[10px] font-bold text-white/40 uppercase tracking-tighter leading-none mb-1">Skill Mastery</p>
                             <p className="text-xl font-black text-white">34/36</p>

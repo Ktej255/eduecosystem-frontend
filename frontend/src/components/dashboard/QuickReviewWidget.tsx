@@ -51,13 +51,13 @@ export default function QuickReviewWidget() {
                             <span className="text-xs font-bold text-indigo-400">Critical</span>
                         </div>
 
-                        <div className="p-4 rounded-xl bg-white/5 border border-white/5">
+                        <div className="p-4 rounded-xl bg-card/5 border border-white/5">
                             <div className="text-[10px] font-bold text-white/20 uppercase mb-2">Memory Retention</div>
                             <div className="flex items-end gap-2 mb-1">
                                 <span className="text-2xl font-bold text-white">84%</span>
                                 <span className="text-xs text-red-400 mb-1">-2% today</span>
                             </div>
-                            <Progress value={84} className="h-1 bg-white/5" />
+                            <Progress value={84} className="h-1 bg-card/5" />
                         </div>
 
                         <Button

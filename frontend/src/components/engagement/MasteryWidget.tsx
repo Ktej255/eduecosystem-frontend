@@ -42,7 +42,7 @@ const DUMMY_BADGES: Badge[] = [
 ];
 
 const LEVEL_COLORS: { [key: number]: { bg: string; text: string; glow: string } } = {
-    1: { bg: "from-gray-500 to-gray-600", text: "text-gray-400", glow: "gray" },
+    1: { bg: "from-gray-500 to-gray-600", text: "text-muted-foreground", glow: "gray" },
     2: { bg: "from-green-500 to-emerald-600", text: "text-green-400", glow: "#22c55e" },
     5: { bg: "from-blue-500 to-indigo-600", text: "text-blue-400", glow: "#3b82f6" },
     7: { bg: "from-purple-500 to-violet-600", text: "text-purple-400", glow: "#8b5cf6" },
@@ -126,7 +126,7 @@ export default function MasteryWidget({
                         <Trophy className="w-6 h-6 text-white" />
                     </motion.div>
                     <div>
-                        <p className="text-sm text-gray-400">Your Level</p>
+                        <p className="text-sm text-muted-foreground">Your Level</p>
                         <div className="flex items-center gap-2">
                             <span className={`text-2xl font-bold ${colors.text}`}>
                                 {level}
@@ -140,7 +140,7 @@ export default function MasteryWidget({
 
                 {/* Total XP */}
                 <div className="text-right">
-                    <p className="text-xs text-gray-500">Total XP</p>
+                    <p className="text-xs text-muted-foreground">Total XP</p>
                     <p className="text-xl font-bold text-white">{totalXP.toLocaleString()}</p>
                 </div>
             </div>
@@ -148,11 +148,11 @@ export default function MasteryWidget({
             {/* XP Progress Bar */}
             <div className="mb-4 relative z-10">
                 <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-sm text-gray-400 flex items-center gap-1">
+                    <span className="text-sm text-muted-foreground flex items-center gap-1">
                         <Zap className="w-4 h-4 text-amber-400" />
                         {animatedXP} / {xpToNextLevel} XP
                     </span>
-                    <span className="text-sm text-gray-400">
+                    <span className="text-sm text-muted-foreground">
                         {xpToNextLevel - currentXP} XP to Level {level + 1}
                     </span>
                 </div>
@@ -172,8 +172,8 @@ export default function MasteryWidget({
             {/* Badges */}
             <div className="relative z-10">
                 <div className="flex items-center justify-between mb-2">
-                    <p className="text-sm text-gray-400">Badges Earned</p>
-                    <span className="text-xs text-gray-500">
+                    <p className="text-sm text-muted-foreground">Badges Earned</p>
+                    <span className="text-xs text-muted-foreground">
                         {earnedBadges.length}/{badges.length}
                     </span>
                 </div>
@@ -197,7 +197,7 @@ export default function MasteryWidget({
                             <span className="text-2xl">{badge.icon}</span>
                             {!badge.earned && (
                                 <div className="absolute inset-0 flex items-center justify-center bg-neutral-900/60 rounded-xl">
-                                    <Lock className="w-4 h-4 text-gray-500" />
+                                    <Lock className="w-4 h-4 text-muted-foreground" />
                                 </div>
                             )}
                         </motion.div>
@@ -207,7 +207,7 @@ export default function MasteryWidget({
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             onClick={onViewDetails}
-                            className="w-12 h-12 rounded-xl bg-neutral-800/50 border border-neutral-700 flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+                            className="w-12 h-12 rounded-xl bg-neutral-800/50 border border-neutral-700 flex items-center justify-center text-muted-foreground hover:text-white transition-colors"
                         >
                             +{badges.length - 4}
                         </motion.button>

@@ -197,7 +197,7 @@ export function VoiceRecorder({ context }: VoiceRecorderProps) {
                     {/* Transcription */}
                     <Card className="bg-gray-800/50 border-gray-700">
                         <CardContent className="p-4">
-                            <h3 className="text-sm font-medium text-gray-400 mb-2">You said:</h3>
+                            <h3 className="text-sm font-medium text-muted-foreground mb-2">You said:</h3>
                             <p className="text-lg italic font-serif text-white">"{feedback.transcription}"</p>
                             <div className="mt-4 p-3 bg-cyan-950/30 border border-cyan-900 rounded-lg">
                                 <p className="text-cyan-200 font-medium text-sm">{feedback.overall_assessment}</p>
@@ -221,7 +221,7 @@ export function VoiceRecorder({ context }: VoiceRecorderProps) {
                                 </h3>
                                 <ul className="space-y-2">
                                     {feedback.feedback.strengths.map((item, i) => (
-                                        <li key={i} className="text-sm text-gray-300 flex items-start gap-2">
+                                        <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
                                             <span className="text-green-500 mt-1">•</span>
                                             {item}
                                         </li>
@@ -237,7 +237,7 @@ export function VoiceRecorder({ context }: VoiceRecorderProps) {
                                 </h3>
                                 <ul className="space-y-2">
                                     {feedback.feedback.improvements.map((item, i) => (
-                                        <li key={i} className="text-sm text-gray-300 flex items-start gap-2">
+                                        <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
                                             <span className="text-orange-500 mt-1">•</span>
                                             {item}
                                         </li>
@@ -262,7 +262,7 @@ function MetricCard({ label, score }: { label: string, score: number }) {
     return (
         <Card className="bg-gray-900 border-gray-800">
             <CardContent className="p-4 flex flex-col items-center">
-                <span className="text-gray-400 text-sm mb-1">{label}</span>
+                <span className="text-muted-foreground text-sm mb-1">{label}</span>
                 <div className={`text-4xl font-bold ${getColor(score)}`}>{score}/10</div>
                 {/* Simple bar */}
                 <div className="w-full h-1.5 bg-gray-800 rounded-full mt-3 overflow-hidden">

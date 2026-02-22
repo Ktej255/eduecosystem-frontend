@@ -158,7 +158,7 @@ export default function InstructorLiveClassesPage() {
     }
 
     if (loading) {
-        return <div className="p-8 text-center text-gray-400">Loading live classes...</div>
+        return <div className="p-8 text-center text-muted-foreground">Loading live classes...</div>
     }
 
     return (
@@ -166,7 +166,7 @@ export default function InstructorLiveClassesPage() {
             <div className="flex items-center justify-between mb-8">
                 <div>
                     <h1 className="text-3xl font-bold mb-2">Live Classes</h1>
-                    <p className="text-gray-400">Manage your upcoming streams and sessions</p>
+                    <p className="text-muted-foreground">Manage your upcoming streams and sessions</p>
                 </div>
                 <Dialog open={isSchedulerOpen} onOpenChange={setIsSchedulerOpen}>
                     <DialogTrigger asChild>
@@ -184,7 +184,7 @@ export default function InstructorLiveClassesPage() {
                             />
                         ) : (
                             <div className="text-center py-8">
-                                <p className="text-gray-400 mb-4">You need to create a course first.</p>
+                                <p className="text-muted-foreground mb-4">You need to create a course first.</p>
                                 <Button onClick={() => router.push("/instructor/courses/create")}>
                                     Create Course
                                 </Button>
@@ -200,7 +200,7 @@ export default function InstructorLiveClassesPage() {
                     <CardContent className="pt-6">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-sm text-gray-400 mb-1">Upcoming</p>
+                                <p className="text-sm text-muted-foreground mb-1">Upcoming</p>
                                 <p className="text-2xl font-bold">
                                     {classes.filter(c => c.status === "scheduled").length}
                                 </p>
@@ -213,7 +213,7 @@ export default function InstructorLiveClassesPage() {
                     <CardContent className="pt-6">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-sm text-gray-400 mb-1">Total Students Reached</p>
+                                <p className="text-sm text-muted-foreground mb-1">Total Students Reached</p>
                                 <p className="text-2xl font-bold">
                                     {classes.reduce((acc, curr) => acc + (curr.attendees_count || 0), 0)}
                                 </p>
@@ -226,7 +226,7 @@ export default function InstructorLiveClassesPage() {
                     <CardContent className="pt-6">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-sm text-gray-400 mb-1">Hours Streamed</p>
+                                <p className="text-sm text-muted-foreground mb-1">Hours Streamed</p>
                                 <p className="text-2xl font-bold">
                                     {(classes.filter(c => c.status === "ended").reduce((acc, curr) => acc + curr.duration_minutes, 0) / 60).toFixed(1)}
                                 </p>
@@ -242,8 +242,8 @@ export default function InstructorLiveClassesPage() {
                 {classes.length === 0 ? (
                     <Card className="bg-gray-900 border-gray-800">
                         <CardContent className="flex flex-col items-center justify-center py-12">
-                            <Video className="w-16 h-16 text-gray-700 mb-4" />
-                            <p className="text-gray-400 text-lg mb-4">No live classes scheduled</p>
+                            <Video className="w-16 h-16 text-muted-foreground mb-4" />
+                            <p className="text-muted-foreground text-lg mb-4">No live classes scheduled</p>
                             <Button onClick={() => setIsSchedulerOpen(true)}>
                                 Schedule Your First Class
                             </Button>
@@ -259,9 +259,9 @@ export default function InstructorLiveClassesPage() {
                                             {getStatusBadge(liveClass.status)}
                                             <h3 className="text-xl font-semibold">{liveClass.title}</h3>
                                         </div>
-                                        <p className="text-gray-400 mb-4 line-clamp-2">{liveClass.description}</p>
+                                        <p className="text-muted-foreground mb-4 line-clamp-2">{liveClass.description}</p>
 
-                                        <div className="flex items-center gap-6 text-sm text-gray-400">
+                                        <div className="flex items-center gap-6 text-sm text-muted-foreground">
                                             <div className="flex items-center gap-2">
                                                 <Calendar className="w-4 h-4" />
                                                 {new Date(liveClass.scheduled_at).toLocaleDateString()}
@@ -269,7 +269,7 @@ export default function InstructorLiveClassesPage() {
                                             <div className="flex items-center gap-2">
                                                 <Clock className="w-4 h-4" />
                                                 {new Date(liveClass.scheduled_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                                                <span className="text-gray-500">({liveClass.duration_minutes} min)</span>
+                                                <span className="text-muted-foreground">({liveClass.duration_minutes} min)</span>
                                             </div>
                                             <div className="flex items-center gap-2">
                                                 <Video className="w-4 h-4" />

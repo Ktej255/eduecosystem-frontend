@@ -15,7 +15,7 @@ interface StateCouncilModuleProps {
 // --- Design System: The Smaller Orbits (State Solar System) ---
 
 const OrbitContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#f1f5f9] text-slate-900">
+    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#f1f5f9] text-foreground">
         {/* Orbital Texture */}
         <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-300 via-transparent to-transparent"></div>
         <div className="absolute inset-0 opacity-5 pointer-events-none bg-[size:40px_40px] bg-[linear-gradient(to_right,#cbd5e1_1px,transparent_1px),linear-gradient(to_bottom,#cbd5e1_1px,transparent_1px)]"></div>
@@ -30,7 +30,7 @@ const OrbitCard = ({ children, title, icon: Icon, color = "green", className = "
     const styles = {
         green: "bg-emerald-50 border-emerald-200 text-emerald-900 shadow-emerald-900/10",
         red: "bg-red-50 border-red-200 text-red-900 shadow-red-900/10",
-        grey: "bg-slate-50 border-slate-200 text-slate-900 shadow-slate-900/10"
+        grey: "bg-muted border-border text-foreground shadow-slate-900/10"
     };
 
     return (
@@ -57,10 +57,10 @@ export default function StateCouncilModule({ onComplete, isCompleted }: StateCou
                     </div>
                     <div className="relative z-10 flex flex-col items-center">
                         <Users size={64} className="text-emerald-700 mb-4" />
-                        <h1 className="text-4xl md:text-6xl font-black text-slate-800 font-serif mb-2">
+                        <h1 className="text-4xl md:text-6xl font-black text-foreground font-serif mb-2">
                             STATE COUNCIL OF MINISTERS
                         </h1>
-                        <p className="text-xl font-bold uppercase tracking-widest text-slate-600">
+                        <p className="text-xl font-bold uppercase tracking-widest text-muted-foreground">
                             "The Smaller Orbits"
                         </p>
                     </div>
@@ -88,13 +88,13 @@ export default function StateCouncilModule({ onComplete, isCompleted }: StateCou
                             <h3 className="font-bold text-lg text-red-900 flex items-center gap-2">
                                 <Scale size={20} /> The Difference
                             </h3>
-                            <div className="p-4 bg-white rounded shadow-sm border border-red-100">
-                                <strong className="block text-slate-500 text-xs mb-1">CENTRE (Art 74)</strong>
+                            <div className="p-4 bg-card rounded shadow-sm border border-red-100">
+                                <strong className="block text-muted-foreground text-xs mb-1">CENTRE (Art 74)</strong>
                                 <p className="text-sm font-serif">"President <span className="underline decoration-wavy decoration-red-500">shall</span> act in accordance with advice."</p>
-                                <div className="mt-2 text-xs text-slate-400">(Binding, No Discretion mentioned)</div>
+                                <div className="mt-2 text-xs text-muted-foreground">(Binding, No Discretion mentioned)</div>
                             </div>
-                            <div className="p-4 bg-white rounded shadow-sm border border-red-100">
-                                <strong className="block text-slate-500 text-xs mb-1">STATE (Art 163)</strong>
+                            <div className="p-4 bg-card rounded shadow-sm border border-red-100">
+                                <strong className="block text-muted-foreground text-xs mb-1">STATE (Art 163)</strong>
                                 <p className="text-sm font-serif">"Exercise functions... <span className="bg-red-100 px-1 rounded font-bold text-red-700">except in so far as he is required to exercise his discretion</span>."</p>
                             </div>
                         </div>
@@ -103,7 +103,7 @@ export default function StateCouncilModule({ onComplete, isCompleted }: StateCou
                             <div className="text-center space-y-2">
                                 <ShieldAlert size={48} className="mx-auto text-red-600" />
                                 <p className="font-bold text-red-800">Judicial Review?</p>
-                                <p className="text-sm text-slate-600 bg-white p-2 rounded shadow-sm">
+                                <p className="text-sm text-muted-foreground bg-card p-2 rounded shadow-sm">
                                     Advice tendered by Ministers CANNOT be inquired into in any court.
                                 </p>
                             </div>
@@ -130,7 +130,7 @@ export default function StateCouncilModule({ onComplete, isCompleted }: StateCou
                                 </div>
                                 <span className="font-bold text-emerald-700">15%</span>
                             </div>
-                            <p className="text-slate-600">
+                            <p className="text-muted-foreground">
                                 Total Ministers (incl. CM) shall not exceed 15% of total strength of Legislative Assembly.
                             </p>
                             <div className="bg-emerald-100 p-2 rounded text-emerald-800 border-l-4 border-emerald-500">
@@ -143,14 +143,14 @@ export default function StateCouncilModule({ onComplete, isCompleted }: StateCou
                     {/* RESPONSIBILITY CARDS */}
                     <OrbitCard title="Responsibility" icon={MessageSquare} color="grey">
                         <div className="space-y-4">
-                            <div className="bg-white p-3 rounded shadow-sm border border-slate-200">
-                                <strong className="block text-slate-800 border-b pb-1 mb-1">Collective (Art 164)</strong>
-                                <p className="text-sm text-slate-600">To the Legislative <span className="font-bold text-emerald-700">Assembly</span> (Not Council!).</p>
-                                <p className="text-xs italic mt-1 text-slate-400">"Swim together, sink together."</p>
+                            <div className="bg-card p-3 rounded shadow-sm border border-border">
+                                <strong className="block text-foreground border-b pb-1 mb-1">Collective (Art 164)</strong>
+                                <p className="text-sm text-muted-foreground">To the Legislative <span className="font-bold text-emerald-700">Assembly</span> (Not Council!).</p>
+                                <p className="text-xs italic mt-1 text-muted-foreground">"Swim together, sink together."</p>
                             </div>
-                            <div className="bg-white p-3 rounded shadow-sm border border-slate-200">
-                                <strong className="block text-slate-800 border-b pb-1 mb-1">Individual (Art 164)</strong>
-                                <p className="text-sm text-slate-600">To the <span className="font-bold text-orange-700">Governor</span> (Pleasure Principle).</p>
+                            <div className="bg-card p-3 rounded shadow-sm border border-border">
+                                <strong className="block text-foreground border-b pb-1 mb-1">Individual (Art 164)</strong>
+                                <p className="text-sm text-muted-foreground">To the <span className="font-bold text-orange-700">Governor</span> (Pleasure Principle).</p>
                             </div>
                         </div>
                     </OrbitCard>
@@ -165,16 +165,16 @@ export default function StateCouncilModule({ onComplete, isCompleted }: StateCou
                     <div className="h-px bg-blue-600 flex-1"></div>
                 </div>
 
-                <div className="bg-white p-8 rounded-xl shadow-xl border border-slate-200 flex flex-col items-center">
-                    <h3 className="font-bold text-lg mb-6 flex items-center gap-2 text-slate-700">
+                <div className="bg-card p-8 rounded-xl shadow-xl border border-border flex flex-col items-center">
+                    <h3 className="font-bold text-lg mb-6 flex items-center gap-2 text-muted-foreground">
                         <Lock size={20} /> The Hierarchy of Power
                     </h3>
 
                     {/* Concentric Circles Visualization */}
                     <div className="relative w-72 h-72 flex items-center justify-center">
                         {/* Outer: Council */}
-                        <div className="absolute inset-0 rounded-full border-2 border-dashed border-slate-300 flex items-start justify-center pt-2">
-                            <span className="bg-white px-2 text-xs font-bold text-slate-400">Council of Ministers</span>
+                        <div className="absolute inset-0 rounded-full border-2 border-dashed border-border flex items-start justify-center pt-2">
+                            <span className="bg-card px-2 text-xs font-bold text-muted-foreground">Council of Ministers</span>
                         </div>
 
                         {/* Middle: Cabinet */}
@@ -194,10 +194,10 @@ export default function StateCouncilModule({ onComplete, isCompleted }: StateCou
                     </div>
 
                     <div className="mt-8 text-center max-w-lg space-y-2">
-                        <p className="font-mono text-sm text-slate-600">
+                        <p className="font-mono text-sm text-muted-foreground">
                             <strong>Kitchen Cabinet:</strong> Informal body. Consists of CM + 2-4 influential colleagues (may include friends/family).
                         </p>
-                        <p className="text-xs text-slate-400 italic">
+                        <p className="text-xs text-muted-foreground italic">
                             *Real power center, though not mentioned in Constitution.
                         </p>
                     </div>
@@ -206,9 +206,9 @@ export default function StateCouncilModule({ onComplete, isCompleted }: StateCou
 
             {/* FOOTER: OATH */}
             <div className="mt-16 text-center">
-                <div className="inline-block bg-white p-6 rounded-lg shadow-md border-t-4 border-emerald-500">
+                <div className="inline-block bg-card p-6 rounded-lg shadow-md border-t-4 border-emerald-500">
                     <Gavel size={32} className="mx-auto mb-4 text-emerald-600" />
-                    <p className="font-serif text-lg italic text-slate-700 mb-4">
+                    <p className="font-serif text-lg italic text-muted-foreground mb-4">
                         "I will do right to all manner of people... without fear or favour, affection or ill-will."
                     </p>
 
@@ -218,7 +218,7 @@ export default function StateCouncilModule({ onComplete, isCompleted }: StateCou
                         className={`
                             px-8 py-3 rounded-full font-bold uppercase tracking-widest transition-all
                             ${isCompleted
-                                ? 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                                ? 'bg-slate-200 text-muted-foreground cursor-not-allowed'
                                 : 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white hover:shadow-lg'
                             }
                         `}

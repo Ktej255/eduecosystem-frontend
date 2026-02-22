@@ -85,7 +85,7 @@ export default function NotificationsPage() {
             <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent">
               Notifications
             </h1>
-            <p className="text-gray-400 mt-1">
+            <p className="text-muted-foreground mt-1">
               Stay updated with your latest activities
             </p>
           </div>
@@ -106,14 +106,14 @@ export default function NotificationsPage() {
               className={`px-6 py-3 rounded-xl transition-all duration-300 font-semibold flex items-center gap-2 ${
                 filter === "all"
                   ? "bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg shadow-blue-500/30"
-                  : "bg-gray-800/80 text-gray-300 hover:bg-gray-700/80 border border-gray-700/50"
+                  : "bg-gray-800/80 text-muted-foreground hover:bg-gray-700/80 border border-gray-700/50"
               }`}
             >
               <Filter className="h-4 w-4" />
               All
               <span
                 className={`text-xs px-2 py-0.5 rounded-full ${
-                  filter === "all" ? "bg-white/20" : "bg-gray-700"
+                  filter === "all" ? "bg-card/20" : "bg-gray-700"
                 }`}
               >
                 {notifications.length}
@@ -124,7 +124,7 @@ export default function NotificationsPage() {
               className={`px-6 py-3 rounded-xl transition-all duration-300 font-semibold flex items-center gap-2 ${
                 filter === "unread"
                   ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/30"
-                  : "bg-gray-800/80 text-gray-300 hover:bg-gray-700/80 border border-gray-700/50"
+                  : "bg-gray-800/80 text-muted-foreground hover:bg-gray-700/80 border border-gray-700/50"
               }`}
             >
               <Sparkles className="h-4 w-4" />
@@ -133,7 +133,7 @@ export default function NotificationsPage() {
                 <span
                   className={`text-xs px-2 py-0.5 rounded-full ${
                     filter === "unread"
-                      ? "bg-white/20"
+                      ? "bg-card/20"
                       : "bg-purple-500/20 text-purple-400"
                   }`}
                 >
@@ -160,20 +160,20 @@ export default function NotificationsPage() {
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20">
             <Loader2 className="w-12 h-12 animate-spin text-blue-500 mb-4" />
-            <p className="text-gray-400 text-lg">Loading notifications...</p>
-            <p className="text-gray-500 text-sm mt-2">Please wait</p>
+            <p className="text-muted-foreground text-lg">Loading notifications...</p>
+            <p className="text-muted-foreground text-sm mt-2">Please wait</p>
           </div>
         ) : filteredNotifications.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 px-6">
             <div className="p-6 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700/50 mb-6">
-              <Bell className="h-16 w-16 text-gray-600" />
+              <Bell className="h-16 w-16 text-muted-foreground" />
             </div>
-            <p className="text-gray-300 text-xl font-semibold mb-2">
+            <p className="text-muted-foreground text-xl font-semibold mb-2">
               {filter === "unread"
                 ? "No unread notifications"
                 : "No notifications yet"}
             </p>
-            <p className="text-gray-500 text-sm">
+            <p className="text-muted-foreground text-sm">
               You're all caught up! Great job! 🎉
             </p>
           </div>
@@ -213,7 +213,7 @@ export default function NotificationsPage() {
                 <Mail className="h-5 w-5 text-blue-400" />
               </div>
               <div>
-                <p className="text-gray-400 text-sm">Total</p>
+                <p className="text-muted-foreground text-sm">Total</p>
                 <p className="text-white font-bold text-xl">
                   {notifications.length}
                 </p>
@@ -226,7 +226,7 @@ export default function NotificationsPage() {
                 <Sparkles className="h-5 w-5 text-purple-400" />
               </div>
               <div>
-                <p className="text-gray-400 text-sm">Unread</p>
+                <p className="text-muted-foreground text-sm">Unread</p>
                 <p className="text-white font-bold text-xl">{unreadCount}</p>
               </div>
             </div>
@@ -237,7 +237,7 @@ export default function NotificationsPage() {
                 <Trophy className="h-5 w-5 text-green-400" />
               </div>
               <div>
-                <p className="text-gray-400 text-sm">Read</p>
+                <p className="text-muted-foreground text-sm">Read</p>
                 <p className="text-white font-bold text-xl">
                   {notifications.length - unreadCount}
                 </p>

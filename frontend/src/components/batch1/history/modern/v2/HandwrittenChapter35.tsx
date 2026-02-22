@@ -10,18 +10,18 @@ export default function HandwrittenChapter35() {
     const t = ch35[language as keyof typeof ch35] || ch35.en;
 
     return (
-        <div className="min-h-screen bg-[#fdfbf7] p-4 md:p-8 font-['Kalam',_cursive] text-[#000080] selection:bg-yellow-200">
+        <div className="min-h-screen bg-paper p-4 md:p-8 font-['Kalam',_cursive] text-paper-indigo selection:bg-paper-orange/30">
             <style jsx global>{`
                 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Permanent+Marker&display=swap');
                 
                 .handwritten-paper {
-                    background-image: repeating-linear-gradient(transparent, transparent 31px, #e5e5f7 31px, #e5e5f7 32px);
+                    background-image: repeating-linear-gradient(transparent, transparent 31px, var(--paper-border) 31px, var(--paper-border) 32px);
                     background-attachment: local;
                 }
                 
                 .paper-border {
                     border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-                    border: 2px solid #333;
+                    border: 2px solid var(--paper-gray);
                 }
 
                 .highlight {
@@ -45,19 +45,19 @@ export default function HandwrittenChapter35() {
             `}</style>
 
             <div className="max-w-5xl mx-auto mb-16 relative pt-12">
-                <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-[#CC0000] mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase">
+                <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-paper-red mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase">
                     {t.title}
                 </h1>
-                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline">{t.subtitle}</p>
+                <p className="text-center text-xl text-paper-gray mb-12 font-bold opacity-70 italic underline">{t.subtitle}</p>
             </div>
 
             {t.sections.map((section, sIdx) => (
-                <section key={sIdx} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                    <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">{section.title}</h2>
+                <section key={sIdx} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-paper relative">
+                    <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-paper-indigo border-b-2 border-paper-border pb-2">{section.title}</h2>
                     <div className="space-y-6">
                         {section.content && (section.content as any[]).map((item: any, iIdx: number) => (
                             <div key={iIdx} className="flex gap-2 items-start text-lg">
-                                <span className="text-[#CC0000] mt-1">•</span>
+                                <span className="text-paper-red mt-1">•</span>
                                 <p>
                                     {item.highlight && <span className="font-bold highlight">{item.highlight}</span>}
                                     {item.text}

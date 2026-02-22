@@ -251,7 +251,7 @@ export default function PomodoroTimer({
                         variant="ghost"
                         size="sm"
                         onClick={() => setSoundEnabled(!soundEnabled)}
-                        className="text-gray-500"
+                        className="text-muted-foreground"
                     >
                         {soundEnabled ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
                     </Button>
@@ -288,14 +288,14 @@ export default function PomodoroTimer({
                         <span className={`text-5xl font-bold font-mono ${getTimerColor()}`}>
                             {formatTime(timeLeft)}
                         </span>
-                        <span className="text-sm text-gray-500 mt-2 max-w-[180px] text-center truncate px-2">
+                        <span className="text-sm text-muted-foreground mt-2 max-w-[180px] text-center truncate px-2">
                             {isRunning ? (focusTask || 'Deep Focus Mode') : hasStarted ? 'Paused' : 'Ready'}
                         </span>
                     </div>
                 </div>
 
                 <div className="mb-6 relative">
-                    <div className="flex justify-between text-xs text-gray-500 mb-1">
+                    <div className="flex justify-between text-xs text-muted-foreground mb-1">
                         <span>Progress</span>
                         <span>{Math.round(progress)}%</span>
                     </div>
@@ -311,7 +311,7 @@ export default function PomodoroTimer({
                                 setTimeLeft((prev: number) => prev + addSeconds);
                                 if (isRunning && endTime) setEndTime(endTime + (addSeconds * 1000));
                             }}
-                            className="h-7 text-xs border-orange-200 text-orange-600 hover:bg-orange-50 bg-white/50 dark:bg-orange-900/10"
+                            className="h-7 text-xs border-orange-200 text-orange-600 hover:bg-orange-50 bg-card/50 dark:bg-orange-900/10"
                         >
                             +5m
                         </Button>
@@ -323,7 +323,7 @@ export default function PomodoroTimer({
                                 setTimeLeft((prev: number) => prev + addSeconds);
                                 if (isRunning && endTime) setEndTime(endTime + (addSeconds * 1000));
                             }}
-                            className="h-7 text-xs border-orange-200 text-orange-600 hover:bg-orange-50 bg-white/50 dark:bg-orange-900/10"
+                            className="h-7 text-xs border-orange-200 text-orange-600 hover:bg-orange-50 bg-card/50 dark:bg-orange-900/10"
                         >
                             +10m
                         </Button>
@@ -335,7 +335,7 @@ export default function PomodoroTimer({
                                 setTimeLeft((prev: number) => prev + addSeconds);
                                 if (isRunning && endTime) setEndTime(endTime + (addSeconds * 1000));
                             }}
-                            className="h-7 text-xs border-orange-200 text-orange-600 hover:bg-orange-50 bg-white/50 dark:bg-orange-900/10"
+                            className="h-7 text-xs border-orange-200 text-orange-600 hover:bg-orange-50 bg-card/50 dark:bg-orange-900/10"
                         >
                             +15m
                         </Button>

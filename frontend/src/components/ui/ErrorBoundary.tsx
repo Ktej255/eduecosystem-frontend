@@ -38,29 +38,29 @@ export default class ErrorBoundary extends Component<Props, State> {
       }
 
       return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-900 p-4">
-          <div className="max-w-md w-full bg-gray-800 border border-red-500/30 rounded-xl p-8 text-center">
+        <div className="min-h-screen flex items-center justify-center bg-background p-4">
+          <div className="max-w-md w-full bg-card border border-destructive/30 rounded-xl p-8 text-center shadow-2xl transition-colors">
             <div className="flex justify-center mb-6">
-              <div className="p-4 bg-red-500/10 rounded-full">
-                <AlertTriangle className="h-12 w-12 text-red-500" />
+              <div className="p-4 bg-destructive/10 rounded-full">
+                <AlertTriangle className="h-12 w-12 text-destructive" />
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-2xl font-bold text-foreground mb-4">
               Something went wrong
             </h2>
 
-            <p className="text-gray-400 mb-6">
+            <p className="text-muted-foreground mb-6">
               We encountered an unexpected error. Please try refreshing the page
               or contact support if the problem persists.
             </p>
 
             {process.env.NODE_ENV === "development" && this.state.error && (
               <details className="mb-6 text-left">
-                <summary className="text-red-400 cursor-pointer text-sm mb-2">
+                <summary className="text-destructive cursor-pointer text-sm mb-2 hover:underline">
                   Error Details
                 </summary>
-                <pre className="text-xs text-gray-500 bg-gray-900 p-4 rounded overflow-auto max-h-40">
+                <pre className="text-xs text-muted-foreground bg-muted p-4 rounded overflow-auto max-h-40 border border-border">
                   {this.state.error.stack}
                 </pre>
               </details>
@@ -69,14 +69,14 @@ export default class ErrorBoundary extends Component<Props, State> {
             <div className="flex gap-4">
               <button
                 onClick={this.handleReset}
-                className="flex-1 bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+                className="flex-1 bg-muted hover:bg-muted/80 text-foreground px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 border border-border"
               >
                 <RefreshCw className="h-4 w-4" />
                 Try Again
               </button>
               <button
                 onClick={() => (window.location.href = "/")}
-                className="flex-1 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-colors shadow-sm"
               >
                 Go Home
               </button>

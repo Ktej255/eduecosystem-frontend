@@ -175,7 +175,7 @@ export default function Batch11AnalyticsPage() {
                         <h1 className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
                             📊 Pomodoro Progress Dashboard
                         </h1>
-                        <p className="text-gray-500 text-sm">Track your revision journey</p>
+                        <p className="text-muted-foreground text-sm">Track your revision journey</p>
                     </div>
                 </div>
 
@@ -267,7 +267,7 @@ export default function Batch11AnalyticsPage() {
                                     </ResponsiveContainer>
                                 </div>
                             ) : (
-                                <div className="h-[300px] flex items-center justify-center text-gray-400">
+                                <div className="h-[300px] flex items-center justify-center text-muted-foreground">
                                     <div className="text-center">
                                         <Timer className="h-12 w-12 mx-auto mb-2 opacity-50" />
                                         <p>No progress data yet</p>
@@ -311,7 +311,7 @@ export default function Batch11AnalyticsPage() {
                                 <p className="text-2xl font-bold text-green-600">
                                     {Math.round((totalStats.daysCompleted / 100) * 100)}%
                                 </p>
-                                <p className="text-gray-500 text-sm">Journey Completed</p>
+                                <p className="text-muted-foreground text-sm">Journey Completed</p>
                             </div>
                         </CardContent>
                     </Card>
@@ -326,19 +326,19 @@ export default function Batch11AnalyticsPage() {
                         <CardContent>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                                 {weeklyProgress.slice(0, 8).map((week) => (
-                                    <div key={week.week} className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                    <div key={week.week} className="p-4 bg-muted rounded-lg">
                                         <div className="flex items-center justify-between mb-2">
                                             <span className="font-semibold text-orange-600">Week {week.week}</span>
-                                            <span className="text-xs text-gray-500">{week.daysCompleted}/5 days</span>
+                                            <span className="text-xs text-muted-foreground">{week.daysCompleted}/5 days</span>
                                         </div>
                                         <Progress value={(week.daysCompleted / 5) * 100} className="h-2 mb-2" />
                                         <div className="grid grid-cols-2 gap-2 text-xs">
                                             <div>
-                                                <span className="text-gray-500">Pomodoros:</span>
+                                                <span className="text-muted-foreground">Pomodoros:</span>
                                                 <span className="font-medium ml-1">{week.pomodorosCompleted}</span>
                                             </div>
                                             <div>
-                                                <span className="text-gray-500">Topics:</span>
+                                                <span className="text-muted-foreground">Topics:</span>
                                                 <span className="font-medium ml-1">{week.topicsCompleted}</span>
                                             </div>
                                         </div>
@@ -353,8 +353,8 @@ export default function Batch11AnalyticsPage() {
                 {weeklyProgress.length === 0 && (
                     <Card className="p-12 text-center">
                         <Trophy className="h-16 w-16 text-orange-400 mx-auto mb-4" />
-                        <h2 className="text-xl font-semibold text-gray-700 mb-2">Start Your Journey!</h2>
-                        <p className="text-gray-500 mb-4">Complete your first Pomodoro session to see your progress here.</p>
+                        <h2 className="text-xl font-semibold text-muted-foreground mb-2">Start Your Journey!</h2>
+                        <p className="text-muted-foreground mb-4">Complete your first Pomodoro session to see your progress here.</p>
                         <Link href="/student/batch1-1">
                             <Button className="bg-orange-600 hover:bg-orange-700">
                                 <Timer className="mr-2 h-4 w-4" /> Go to Pomodoro Session

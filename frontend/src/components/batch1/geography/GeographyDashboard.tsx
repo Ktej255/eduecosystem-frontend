@@ -36,23 +36,23 @@ export default function GeographyDashboard() {
             </div>
 
             {/* View Toggle */}
-            <div className="flex justify-end border-b border-slate-200 dark:border-slate-800 pb-1">
+            <div className="flex justify-end border-b border-border pb-1">
                 <div className="flex gap-4">
                     <button
                         onClick={() => setViewMode('planner')}
-                        className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${viewMode === 'planner' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+                        className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${viewMode === 'planner' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-muted-foreground hover:text-muted-foreground'}`}
                     >
                         <Calendar className="w-4 h-4" /> Study Planner
                     </button>
                     <button
                         onClick={() => setViewMode('visual')}
-                        className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${viewMode === 'visual' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+                        className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${viewMode === 'visual' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-muted-foreground hover:text-muted-foreground'}`}
                     >
                         <LayoutGrid className="w-4 h-4" /> Visual Hub
                     </button>
                     <button
                         onClick={() => setViewMode('syllabus')}
-                        className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${viewMode === 'syllabus' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+                        className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${viewMode === 'syllabus' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-muted-foreground hover:text-muted-foreground'}`}
                     >
                         <Layers className="w-4 h-4" /> Syllabus
                     </button>
@@ -69,25 +69,25 @@ export default function GeographyDashboard() {
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 animate-in slide-in-from-bottom-4 duration-500">
                     {/* Simulation Controls - Left Sidebar */}
                     <div className="lg:col-span-1 space-y-4">
-                        <Card className="border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
-                            <CardHeader className="bg-slate-50 dark:bg-slate-900/50 py-4">
-                                <CardTitle className="text-sm font-black uppercase tracking-widest text-slate-500">TerraLab Hub</CardTitle>
+                        <Card className="border-border shadow-sm overflow-hidden">
+                            <CardHeader className="bg-muted/50 py-4">
+                                <CardTitle className="text-sm font-black uppercase tracking-widest text-muted-foreground">TerraLab Hub</CardTitle>
                             </CardHeader>
                             <CardContent className="p-0">
                                 {VIZ_LIST.map((viz) => (
                                     <button
                                         key={viz.id}
                                         onClick={() => setActiveViz(viz.id)}
-                                        className={`w-full flex items-center gap-4 p-4 border-b border-slate-100 dark:border-slate-800 transition-all text-left group ${activeViz === viz.id ? 'bg-indigo-50 dark:bg-indigo-950/20 border-l-4 border-l-indigo-600' : 'hover:bg-slate-50 dark:hover:bg-slate-900/30'}`}
+                                        className={`w-full flex items-center gap-4 p-4 border-b border-slate-100 transition-all text-left group ${activeViz === viz.id ? 'bg-indigo-50 dark:bg-indigo-950/20 border-l-4 border-l-indigo-600' : 'hover:bg-muted dark:hover:bg-slate-900/30'}`}
                                     >
-                                        <div className={`p-2 rounded-lg ${activeViz === viz.id ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 group-hover:text-indigo-500'}`}>
+                                        <div className={`p-2 rounded-lg ${activeViz === viz.id ? 'bg-indigo-600 text-white' : 'bg-muted text-muted-foreground group-hover:text-indigo-500'}`}>
                                             {viz.icon}
                                         </div>
                                         <div className="flex-1">
-                                            <h4 className={`text-sm font-bold ${activeViz === viz.id ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-700 dark:text-slate-300'}`}>
+                                            <h4 className={`text-sm font-bold ${activeViz === viz.id ? 'text-indigo-600 dark:text-indigo-400' : 'text-muted-foreground'}`}>
                                                 {viz.label}
                                             </h4>
-                                            <p className="text-[10px] text-slate-400 font-medium">{viz.desc}</p>
+                                            <p className="text-[10px] text-muted-foreground font-medium">{viz.desc}</p>
                                         </div>
                                         <ChevronRight className={`w-4 h-4 transition-transform ${activeViz === viz.id ? 'text-indigo-500 translate-x-1' : 'text-slate-300 opacity-0 group-hover:opacity-100'}`} />
                                     </button>
@@ -96,14 +96,14 @@ export default function GeographyDashboard() {
                         </Card>
 
                         <Card className="bg-indigo-600 text-white border-none overflow-hidden relative">
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-white/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
+                            <div className="absolute top-0 right-0 w-24 h-24 bg-card/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
                             <CardContent className="p-6">
                                 <h3 className="text-lg font-bold mb-2">3D Fullscreen</h3>
                                 <p className="text-indigo-100 text-[11px] mb-4">
                                     Experience physical geography in an immersive 3D environment.
                                 </p>
                                 <Link href="/student/upsc/geography/3d">
-                                    <button className="w-full py-2 bg-white text-indigo-600 rounded-lg text-xs font-black uppercase tracking-widest hover:bg-indigo-50 transition-colors shadow-lg">
+                                    <button className="w-full py-2 bg-card text-indigo-600 rounded-lg text-xs font-black uppercase tracking-widest hover:bg-indigo-50 transition-colors shadow-lg">
                                         Launch Module
                                     </button>
                                 </Link>
@@ -119,14 +119,14 @@ export default function GeographyDashboard() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
-                                className="flex-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-xl"
+                                className="flex-1 bg-card border border-border rounded-2xl overflow-hidden shadow-xl"
                             >
                                 {VIZ_COMPONENTS[activeViz]}
                             </motion.div>
                         </AnimatePresence>
 
                         {/* Quick Facts Strip */}
-                        <Card className="bg-slate-50 dark:bg-slate-950/50 border-slate-200 dark:border-slate-800">
+                        <Card className="bg-muted/50 border-border">
                             <CardContent className="p-4 flex items-center justify-between">
                                 <div className="flex gap-8">
                                     <FactItem text="India: 7516.6 km coastline" />
@@ -145,9 +145,9 @@ export default function GeographyDashboard() {
             {viewMode === 'syllabus' && (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in slide-in-from-bottom-4 duration-500">
                     {GEOGRAPHY_SYLLABUS.map((module) => (
-                        <Card key={module.id} className="group hover:border-indigo-300 transition-all hover:shadow-md dark:bg-slate-900 dark:border-slate-800">
+                        <Card key={module.id} className="group hover:border-indigo-300 transition-all hover:shadow-md">
                             <CardHeader className="pb-3" style={{ borderTop: `4px solid ${module.color}` }}>
-                                <CardTitle className="text-lg text-slate-800 dark:text-slate-100 group-hover:text-indigo-600 transition-colors">
+                                <CardTitle className="text-lg text-foreground group-hover:text-indigo-600 transition-colors">
                                     {module.title}
                                 </CardTitle>
                                 <CardDescription className="line-clamp-2">
@@ -158,7 +158,7 @@ export default function GeographyDashboard() {
                                 <div className="space-y-3 mb-4 max-h-40 overflow-y-auto pr-2 custom-scrollbar">
                                     {module.topics.map((topic, i) => (
                                         <Link key={topic.id} href={getModuleLink(module.id, topic.id)} className="block group/item">
-                                            <div className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                            <div className="flex items-start gap-2 text-sm text-muted-foreground dark:text-muted-foreground p-2 rounded-lg hover:bg-muted dark:hover:bg-slate-800 transition-colors">
                                                 <BookOpenCheck className="w-3.5 h-3.5 text-indigo-400 mt-0.5 group-hover/item:text-indigo-600" />
                                                 <span className="truncate flex-1 font-medium">{topic.title}</span>
                                                 <ChevronRight className="w-3 h-3 text-slate-300 opacity-0 group-hover/item:opacity-100 transition-all" />
@@ -167,7 +167,7 @@ export default function GeographyDashboard() {
                                     ))}
                                 </div>
                                 <Link href={getModuleLink(module.id)}>
-                                    <button className="w-full py-2 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors">
+                                    <button className="w-full py-2 bg-muted hover:bg-muted dark:hover:bg-slate-700 text-muted-foreground rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors">
                                         Explore Module <ChevronRight className="w-4 h-4" />
                                     </button>
                                 </Link>
@@ -190,8 +190,8 @@ function StatCard({ icon, label, value, color }: { icon: React.ReactNode, label:
                     </div>
                 </div>
                 <div>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{value}</h3>
-                    <p className="text-[10px] text-gray-500 font-black uppercase tracking-widest mt-0.5">{label}</p>
+                    <h3 className="text-2xl font-bold text-foreground">{value}</h3>
+                    <p className="text-[10px] text-muted-foreground font-black uppercase tracking-widest mt-0.5">{label}</p>
                 </div>
             </CardContent>
         </Card>
@@ -202,7 +202,7 @@ function FactItem({ text }: { text: string }) {
     return (
         <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
-            <p className="text-[11px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-tight">{text}</p>
+            <p className="text-[11px] text-muted-foreground dark:text-muted-foreground font-bold uppercase tracking-tight">{text}</p>
         </div>
     );
 }

@@ -63,12 +63,12 @@ export default function AntiGravityOnboarding({ onComplete }: Props) {
                             transition={{ duration: 0.3 }}
                             className="flex flex-col items-center"
                         >
-                            <div className={cn("p-6 rounded-full bg-white/5 border border-white/10 mb-6", steps[step].color)}>
+                            <div className={cn("p-6 rounded-full bg-card/5 border border-white/10 mb-6", steps[step].color)}>
                                 {React.createElement(steps[step].icon, { className: "w-12 h-12" })}
                             </div>
 
                             <h2 className="text-2xl font-bold text-white mb-4">{steps[step].title}</h2>
-                            <p className="text-gray-400 leading-relaxed min-h-[80px]">
+                            <p className="text-muted-foreground leading-relaxed min-h-[80px]">
                                 {steps[step].description}
                             </p>
                         </motion.div>
@@ -78,7 +78,7 @@ export default function AntiGravityOnboarding({ onComplete }: Props) {
                 <div className="p-6 bg-[#111] border-t border-white/5 flex items-center justify-between">
                     <button
                         onClick={onComplete}
-                        className="text-gray-500 text-sm hover:text-white transition-colors"
+                        className="text-muted-foreground text-sm hover:text-white transition-colors"
                     >
                         Skip
                     </button>
@@ -89,7 +89,7 @@ export default function AntiGravityOnboarding({ onComplete }: Props) {
                                 key={i}
                                 className={cn(
                                     "w-2 h-2 rounded-full transition-colors",
-                                    i === step ? "bg-white" : "bg-gray-700"
+                                    i === step ? "bg-card" : "bg-gray-700"
                                 )}
                             />
                         ))}
@@ -97,7 +97,7 @@ export default function AntiGravityOnboarding({ onComplete }: Props) {
 
                     <button
                         onClick={handleNext}
-                        className="px-6 py-2 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-colors flex items-center gap-2"
+                        className="px-6 py-2 bg-card text-black font-bold rounded-full hover:bg-muted transition-colors flex items-center gap-2"
                     >
                         {step === steps.length - 1 ? "Launch" : "Next"} <ChevronRight className="w-4 h-4" />
                     </button>

@@ -77,7 +77,7 @@ export default function AdvancedRevisionDashboard() {
                                 <div className="h-48 relative flex items-end gap-2">
                                     {[40, 45, 60, 55, 70, 82, 87].map((h, i) => (
                                         <div key={i} className="flex-1 bg-neutral-700 hover:bg-level-3-primary transition-colors rounded-t-sm relative group" style={{ height: `${h}%` }}>
-                                            <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-black text-xs font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                                            <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-card text-black text-xs font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                                                 Test {i + 1}: {h}%
                                             </div>
                                         </div>

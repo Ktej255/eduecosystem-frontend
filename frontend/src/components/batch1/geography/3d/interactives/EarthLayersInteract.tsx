@@ -105,7 +105,7 @@ export default function EarthLayersInteract({ onClose }: { onClose: () => void }
                     <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-200 to-yellow-600 mb-2">
                         Build the Earth
                     </h2>
-                    <p className="text-slate-400">Drag each component to its correct layer.</p>
+                    <p className="text-muted-foreground">Drag each component to its correct layer.</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -122,7 +122,7 @@ export default function EarthLayersInteract({ onClose }: { onClose: () => void }
                             onDrop={() => !showResults && handleDrop(zone.id)}
                         >
                             <h3 className="text-xl font-bold text-center text-slate-200 mb-1">{zone.label}</h3>
-                            <p className="text-xs text-center text-slate-500 mb-4">{zone.description}</p>
+                            <p className="text-xs text-center text-muted-foreground mb-4">{zone.description}</p>
 
                             {assignments[zone.id].map(item => {
                                 const isCorrect = zone.correctItems.includes(item);
@@ -153,7 +153,7 @@ export default function EarthLayersInteract({ onClose }: { onClose: () => void }
 
                             {/* Drop Zone Indicator */}
                             {assignments[zone.id].length === 0 && (
-                                <div className="absolute inset-0 flex items-center justify-center text-slate-700 text-sm pointer-events-none">
+                                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-sm pointer-events-none">
                                     Drop Items Here
                                 </div>
                             )}
@@ -178,7 +178,7 @@ export default function EarthLayersInteract({ onClose }: { onClose: () => void }
                     </AnimatePresence>
 
                     {getRemainingItems().length === 0 && !showResults && (
-                        <div className="text-slate-500 animate-pulse">All items placed! Check your results.</div>
+                        <div className="text-muted-foreground animate-pulse">All items placed! Check your results.</div>
                     )}
                 </div>
 

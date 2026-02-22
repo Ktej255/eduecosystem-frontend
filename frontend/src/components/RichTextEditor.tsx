@@ -144,7 +144,7 @@ export function RichTextEditor({
       // Quotes
       .replace(
         /^\> (.*$)/gim,
-        '<blockquote class="border-l-4 border-blue-500 pl-4 italic text-gray-400">$1</blockquote>',
+        '<blockquote class="border-l-4 border-blue-500 pl-4 italic text-muted-foreground">$1</blockquote>',
       )
       // Links
       .replace(
@@ -205,7 +205,7 @@ export function RichTextEditor({
       </div>
 
       {/* Help Text */}
-      <div className="border-t border-gray-800 px-4 py-2 text-xs text-gray-500">
+      <div className="border-t border-gray-800 px-4 py-2 text-xs text-muted-foreground">
         <div className="flex items-center justify-between">
           <span>Supports Markdown formatting</span>
           <span>{value.length} characters</span>

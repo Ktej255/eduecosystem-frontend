@@ -21,6 +21,28 @@
   --neutral-dark-grey: #1A1A1A;
   --neutral-slate-grey: #4A4A4A;
 
+  /* Semantic Theme Variables */
+  --paper-bg: #fdfbf7;
+  --paper-line: #e5e5f7;
+  --paper-border: #333333;
+  --paper-text-navy: #003366;
+  /* Chapter 3 Ocean Blue */
+  --paper-text-red: #CC0000;
+  --paper-text-orange: #CC5500;
+  /* Chapter 3 Spiced Orange */
+  --paper-text-purple: #663399;
+  /* Chapter 4 Mughal Purple */
+  --paper-text-saffron: #FF9933;
+  /* Chapter 4 Maratha Saffron */
+  --paper-text-green: #006400;
+  /* Chapter 4 Successor Green */
+  --paper-text-brown: #8b4513;
+  /* Chapter 6 Earth Brown */
+  --paper-text-gray: #333333;
+  --sticky-yellow: #ffffe0;
+  --sticky-pink: #ffefff;
+  --highlight-yellow: rgba(255, 255, 0, 0.4);
+
   /* ========================================
    * ORGANIC FUTURISM - Graphotherapy Theme
    * ======================================== */
@@ -110,6 +132,23 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+  /* Semantic Paper Colors */
+  --color-paper: var(--paper-bg);
+  --color-paper-line: var(--paper-line);
+  --color-paper-border: var(--paper-border);
+  --color-paper-navy: var(--paper-text-navy);
+  --color-paper-red: var(--paper-text-red);
+  --color-paper-orange: var(--paper-text-orange);
+  --color-paper-purple: var(--paper-text-purple);
+  --color-paper-saffron: var(--paper-text-saffron);
+  --color-paper-green: var(--paper-text-green);
+  --color-paper-brown: var(--paper-text-brown);
+  --color-paper-brown-dark: var(--paper-text-brown-dark);
+  --color-paper-reform: var(--paper-text-reform);
+  --color-paper-gray: var(--paper-text-gray);
+  --color-sticky-yellow: var(--sticky-yellow);
+  --color-sticky-pink: var(--sticky-pink);
+
   /* Graphotherapy Theme Colors */
   --color-grapho-gold: var(--grapho-gold);
   --color-grapho-gold-light: var(--grapho-gold-light);
@@ -159,11 +198,27 @@
   --muted-foreground: #a3a3a3;
   --accent: #262626;
   --accent-foreground: #ededed;
-  --destructive: #7f1d1d;
   --destructive-foreground: #ededed;
   --border: #262626;
   --input: #262626;
   --ring: #3b82f6;
+
+  /* Dark Mode Semantic Mappings */
+  --paper-bg: #1a1a1a;
+  --paper-line: #262626;
+  --paper-border: #444444;
+  --paper-text-navy: #93c5fd;
+  --paper-text-red: #f87171;
+  --paper-text-orange: #fb923c;
+  --paper-text-purple: #c084fc;
+  --paper-text-saffron: #fdba74;
+  --paper-text-green: #4ade80;
+  --paper-text-brown: #d97706;
+  /* Soft brown */
+  --paper-text-gray: #d4d4d4;
+  --sticky-yellow: #2d2605;
+  --sticky-pink: #2d0526;
+  --highlight-yellow: rgba(255, 255, 0, 0.15);
 }
 
 body {

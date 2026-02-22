@@ -26,7 +26,7 @@ const MeritContainer = ({ children }: { children: React.ReactNode }) => (
 
 const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any, color: string }) => (
     <div className="flex items-center gap-4 my-8">
-        <div className={`p-3 rounded-xl bg-white shadow-sm border-2 ${color}`}>
+        <div className={`p-3 rounded-xl bg-card shadow-sm border-2 ${color}`}>
             <Icon className={color.replace('border-', 'text-')} size={24} />
         </div>
         <h2 className={`text-2xl font-black uppercase tracking-tight ${color.replace('border-', 'text-')} font-['Kalam']`}>
@@ -37,13 +37,13 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
 );
 
 const MeritCard = ({ title, children, color = "border-blue-900", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 
         <h3 className={`text-xl font-bold mb-4 flex items-center gap-2 font-['Kalam'] ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-700 relative z-10 font-medium">
+        <div className="space-y-4 text-muted-foreground relative z-10 font-medium">
             {children}
         </div>
     </div>
@@ -54,11 +54,11 @@ export default function UPSCModule({ onComplete, isCompleted, chapterNumber = "4
         <MeritContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#1e3a8a] border-4 border-slate-900 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(30,58,138,1)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full -mr-24 -mt-24"></div>
+                <div className="absolute top-0 right-0 w-48 h-48 bg-card/10 rounded-full -mr-24 -mt-24"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-yellow-500 text-blue-900 font-['Kalam'] px-4 py-1 text-lg">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-blue-100 font-bold uppercase tracking-widest text-sm">Watchdog of Merit System</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 font-['Kalam'] leading-tight">
@@ -89,13 +89,13 @@ export default function UPSCModule({ onComplete, isCompleted, chapterNumber = "4
                             <span className="font-bold underline">Qualification Rule:</span> 1/2 of members must have 10+ years of Govt service (Centre/State).
                         </div>
                         <div className="grid grid-cols-2 gap-4 mt-2">
-                            <div className="p-3 border rounded-xl bg-slate-50 text-center">
+                            <div className="p-3 border rounded-xl bg-muted text-center">
                                 <span className="block text-2xl font-black text-blue-800">6Y</span>
-                                <span className="text-[10px] font-bold text-slate-400">TENURE</span>
+                                <span className="text-[10px] font-bold text-muted-foreground">TENURE</span>
                             </div>
-                            <div className="p-3 border rounded-xl bg-slate-50 text-center">
+                            <div className="p-3 border rounded-xl bg-muted text-center">
                                 <span className="block text-2xl font-black text-blue-800">65</span>
-                                <span className="text-[10px] font-bold text-slate-400">AGE LIMIT</span>
+                                <span className="text-[10px] font-bold text-muted-foreground">AGE LIMIT</span>
                             </div>
                         </div>
                     </div>
@@ -113,13 +113,13 @@ export default function UPSCModule({ onComplete, isCompleted, chapterNumber = "4
                         </ol>
                     </div>
                     <div className="mt-4 grid grid-cols-1 gap-2 text-xs">
-                        <div className="flex items-center gap-2 bg-slate-50 p-2 rounded border border-slate-200">
+                        <div className="flex items-center gap-2 bg-muted p-2 rounded border border-border">
                             <BadgeCheck className="text-red-700" size={14} /> <span>Insolvent</span>
                         </div>
-                        <div className="flex items-center gap-2 bg-slate-50 p-2 rounded border border-slate-200">
+                        <div className="flex items-center gap-2 bg-muted p-2 rounded border border-border">
                             <BadgeCheck className="text-red-700" size={14} /> <span>Paid employment outside</span>
                         </div>
-                        <div className="flex items-center gap-2 bg-slate-50 p-2 rounded border border-slate-200">
+                        <div className="flex items-center gap-2 bg-muted p-2 rounded border border-border">
                             <BadgeCheck className="text-red-700" size={14} /> <span>Unfit (Body/Mind)</span>
                         </div>
                     </div>
@@ -132,23 +132,23 @@ export default function UPSCModule({ onComplete, isCompleted, chapterNumber = "4
             <div className="grid md:grid-cols-3 gap-8">
                 <MeritCard title="Non-Votable" color="border-slate-700">
                     <div className="text-center py-4">
-                        <Scale size={40} className="mx-auto text-slate-600 mb-2" />
-                        <h5 className="font-bold text-slate-900">Charged Expenses</h5>
-                        <p className="text-[10px] text-slate-500 uppercase">Consolidated Fund of India</p>
+                        <Scale size={40} className="mx-auto text-muted-foreground mb-2" />
+                        <h5 className="font-bold text-foreground">Charged Expenses</h5>
+                        <p className="text-[10px] text-muted-foreground uppercase">Consolidated Fund of India</p>
                     </div>
-                    <p className="text-xs text-slate-600 italic">Entire salary and pension are NOT subject to vote in Parliament.</p>
+                    <p className="text-xs text-muted-foreground italic">Entire salary and pension are NOT subject to vote in Parliament.</p>
                 </MeritCard>
 
                 <MeritCard title="Eligibility Bar" color="border-slate-900" className="md:col-span-2">
                     <div className="grid grid-cols-2 gap-4">
-                        <div className="p-4 bg-slate-50 border-2 border-slate-200 rounded-2xl">
-                            <h5 className="font-black text-slate-900 mb-1 flex items-center gap-2">
+                        <div className="p-4 bg-muted border-2 border-border rounded-2xl">
+                            <h5 className="font-black text-foreground mb-1 flex items-center gap-2">
                                 <Lock size={18} /> CHAIRMAN
                             </h5>
                             <p className="text-xs font-bold text-red-700 underline italic">Ineligible for ANY further employment under Govt (India/State).</p>
                         </div>
-                        <div className="p-4 bg-slate-50 border-2 border-slate-200 rounded-2xl">
-                            <h5 className="font-black text-slate-900 mb-1 flex items-center gap-2">
+                        <div className="p-4 bg-muted border-2 border-border rounded-2xl">
+                            <h5 className="font-black text-foreground mb-1 flex items-center gap-2">
                                 <Unlock size={18} /> MEMBER
                             </h5>
                             <p className="text-xs">Eligible ONLY for UPSC Chairman or SPSC Chairman positions.</p>
@@ -192,11 +192,11 @@ export default function UPSCModule({ onComplete, isCompleted, chapterNumber = "4
                         <Shield className="text-red-700" size={64} />
                     </div>
                     <ul className="text-xs space-y-2">
-                        <li className="flex items-center gap-2 p-2 bg-white rounded border">
+                        <li className="flex items-center gap-2 p-2 bg-card rounded border">
                             <span className="w-2 h-2 rounded-full bg-red-600"></span>
                             <span>Reservations for Backward Classes.</span>
                         </li>
-                        <li className="flex items-center gap-2 p-2 bg-white rounded border">
+                        <li className="flex items-center gap-2 p-2 bg-card rounded border">
                             <span className="w-2 h-2 rounded-full bg-red-600"></span>
                             <span>Posts excluded by President.</span>
                         </li>
@@ -216,7 +216,7 @@ export default function UPSCModule({ onComplete, isCompleted, chapterNumber = "4
             </div>
 
             {/* COMPLETION BUTTON */}
-            <div className="mt-16 text-center border-t-2 border-dashed border-slate-200 pt-12 pb-12">
+            <div className="mt-16 text-center border-t-2 border-dashed border-border pt-12 pb-12">
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
@@ -236,7 +236,7 @@ export default function UPSCModule({ onComplete, isCompleted, chapterNumber = "4
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold font-['Kalam']">The Shield of the Steel Frame.</p>
+                <p className="mt-4 text-muted-foreground font-bold font-['Kalam']">The Shield of the Steel Frame.</p>
             </div>
         </MeritContainer>
     );

@@ -15,7 +15,7 @@ const BUILDS = [
 
 export default function BuildHistory() {
     return (
-        <Card className="h-full border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+        <Card className="h-full border-neutral-200 dark:border-neutral-800 bg-card dark:bg-neutral-900">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400">
                     <History className="w-5 h-5" />

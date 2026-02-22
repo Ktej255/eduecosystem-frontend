@@ -3,22 +3,22 @@ import React from 'react';
 
 // Dynamic imports to avoid SSR issues with heavy viz libraries
 const TechTreeViz = dynamic(() => import('@/components/batch1/science-tech/visualizations/TechTreeViz'), {
-    loading: () => <div className="h-[400px] flex items-center justify-center bg-gray-50 rounded-xl">Loading Tech Tree...</div>,
+    loading: () => <div className="h-[400px] flex items-center justify-center bg-muted rounded-xl">Loading Tech Tree...</div>,
     ssr: false
 });
 
 const CarbonCycleViz = dynamic(() => import('@/components/batch1/environment/visualizations/CarbonCycleViz'), {
-    loading: () => <div className="h-[400px] flex items-center justify-center bg-gray-50 rounded-xl">Loading Carbon Cycle...</div>,
+    loading: () => <div className="h-[400px] flex items-center justify-center bg-muted rounded-xl">Loading Carbon Cycle...</div>,
     ssr: false
 });
 
 const GeographyGlobe = dynamic(() => import('@/components/batch1/geography/3d/GeographyGlobe'), {
-    loading: () => <div className="h-[400px] flex items-center justify-center bg-gray-50 rounded-xl">Loading 3D Globe...</div>,
+    loading: () => <div className="h-[400px] flex items-center justify-center bg-muted rounded-xl">Loading 3D Globe...</div>,
     ssr: false
 });
 
 const CircularFlowViz = dynamic(() => import('@/components/batch1/economy/visualizations/CircularFlowViz'), {
-    loading: () => <div className="h-[400px] flex items-center justify-center bg-gray-50 rounded-xl">Loading Economy Model...</div>,
+    loading: () => <div className="h-[400px] flex items-center justify-center bg-muted rounded-xl">Loading Economy Model...</div>,
     ssr: false
 });
 

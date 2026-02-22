@@ -52,7 +52,7 @@ const CONFIDENCE_OPTIONS: { value: ConfidenceLevel; label: string; color: string
     { value: 'sure', label: 'Sure', color: 'text-emerald-600', bgColor: 'bg-emerald-50 border-emerald-200 hover:bg-emerald-100' },
     { value: '50-50', label: '50-50', color: 'text-orange-600', bgColor: 'bg-orange-50 border-orange-200 hover:bg-orange-100' },
     { value: 'one-option', label: 'One Option Known', color: 'text-blue-600', bgColor: 'bg-blue-50 border-blue-200 hover:bg-blue-100' },
-    { value: 'blind', label: 'Blind Guess', color: 'text-slate-600', bgColor: 'bg-slate-50 border-slate-200 hover:bg-slate-100' },
+    { value: 'blind', label: 'Blind Guess', color: 'text-muted-foreground', bgColor: 'bg-muted border-border hover:bg-muted' },
 ];
 
 function ConfidenceStrip({
@@ -66,7 +66,7 @@ function ConfidenceStrip({
 }) {
     return (
         <div className="mt-4 pt-4 border-t border-slate-100">
-            <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">How confident are you?</p>
+            <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">How confident are you?</p>
             <div className="flex flex-wrap gap-2">
                 {CONFIDENCE_OPTIONS.map((opt) => (
                     <button
@@ -77,7 +77,7 @@ function ConfidenceStrip({
                             px-3 py-2 rounded-lg text-sm font-medium border transition-all
                             ${selected === opt.value
                                 ? `${opt.bgColor} ${opt.color} ring-2 ring-offset-1 ring-${opt.value === 'sure' ? 'emerald' : opt.value === '50-50' ? 'orange' : opt.value === 'one-option' ? 'blue' : 'slate'}-300`
-                                : 'bg-white border-slate-200 text-slate-500 hover:bg-slate-50'
+                                : 'bg-card border-border text-muted-foreground hover:bg-muted'
                             }
                             ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
                         `}
@@ -111,10 +111,10 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
 
     if (!chapterData) {
         return (
-            <div className="text-center p-8 bg-slate-50 rounded-xl border border-slate-200">
+            <div className="text-center p-8 bg-muted rounded-xl border border-border">
                 <AlertTriangle className="mx-auto h-12 w-12 text-amber-500 mb-4" />
-                <h3 className="text-lg font-bold text-slate-800">Content Coming Soon!</h3>
-                <p className="text-slate-500">The Level System for this chapter is being prepared.</p>
+                <h3 className="text-lg font-bold text-foreground">Content Coming Soon!</h3>
+                <p className="text-muted-foreground">The Level System for this chapter is being prepared.</p>
             </div>
         );
     }
@@ -194,11 +194,11 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
     return (
         <div className="space-y-6 font-['Calibri']">
             <div className="text-center space-y-2">
-                <h3 className="text-2xl font-black text-slate-800 flex items-center justify-center gap-2">
+                <h3 className="text-2xl font-black text-foreground flex items-center justify-center gap-2">
                     <BookOpen className="text-violet-600" />
                     Chapter Mastery System
                 </h3>
-                <p className="text-slate-500">Complete Level 1 to unlock the next challenge.</p>
+                <p className="text-muted-foreground">Complete Level 1 to unlock the next challenge.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -216,8 +216,8 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
                             className={`
                                 relative p-6 rounded-2xl border-2 text-left h-full min-h-[200px] flex flex-col justify-between overflow-hidden transition-all shadow-sm
                                 ${isUnlocked
-                                    ? `bg-white ${colors.border} hover:shadow-xl`
-                                    : 'bg-slate-50 border-slate-100 opacity-60 cursor-not-allowed'
+                                    ? `bg-card ${colors.border} hover:shadow-xl`
+                                    : 'bg-muted border-slate-100 opacity-60 cursor-not-allowed'
                                 }
                             `}
                         >
@@ -234,15 +234,15 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
                                     {!isUnlocked && <Lock className="text-slate-300" />}
                                     {isUnlocked && <Play className={`w-8 h-8 ${colors.text} opacity-20`} fill="currentColor" />}
                                 </div>
-                                <h4 className={`text-lg font-black mb-1 leading-tight ${isUnlocked ? 'text-slate-800' : 'text-slate-400'}`}>
+                                <h4 className={`text-lg font-black mb-1 leading-tight ${isUnlocked ? 'text-foreground' : 'text-muted-foreground'}`}>
                                     {level.title}
                                 </h4>
-                                <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+                                <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
                                     {level.questions.length} Questions
                                 </p>
                             </div>
 
-                            <p className="text-sm text-slate-500 font-medium leading-relaxed">
+                            <p className="text-sm text-muted-foreground font-medium leading-relaxed">
                                 {level.description}
                             </p>
                         </motion.button>
@@ -286,12 +286,12 @@ function ReportHistoryButton({ topicId }: { topicId: number }) {
             {showHistory && (
                 <div className="mt-4 space-y-3 max-h-[300px] overflow-y-auto">
                     {reports.map((r, i) => (
-                        <div key={i} className="p-4 bg-slate-50 rounded-lg border border-slate-100 text-left">
+                        <div key={i} className="p-4 bg-muted rounded-lg border border-slate-100 text-left">
                             <div className="flex justify-between items-center">
                                 <div>
-                                    <span className="font-bold text-slate-700">Level {r.levelId}</span>
-                                    <span className="text-slate-400 mx-2">•</span>
-                                    <span className="text-slate-500 text-sm">{new Date(r.endTime).toLocaleDateString()}</span>
+                                    <span className="font-bold text-muted-foreground">Level {r.levelId}</span>
+                                    <span className="text-muted-foreground mx-2">•</span>
+                                    <span className="text-muted-foreground text-sm">{new Date(r.endTime).toLocaleDateString()}</span>
                                 </div>
                                 <Badge className={r.percentage >= 50 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}>
                                     {r.percentage}%
@@ -403,13 +403,13 @@ function GameInterface({
         return (
             <Card className="text-center p-8 max-w-2xl mx-auto shadow-2xl border-0 overflow-hidden relative">
                 <div className={`absolute top-0 left-0 w-full h-2 ${isPass ? 'bg-green-500' : 'bg-red-500'}`}></div>
-                <div className="mb-6 inline-block p-4 bg-slate-50 rounded-full">
-                    {isPass ? <Trophy className="w-16 h-16 text-yellow-500" /> : <RefreshCw className="w-16 h-16 text-slate-400" />}
+                <div className="mb-6 inline-block p-4 bg-muted rounded-full">
+                    {isPass ? <Trophy className="w-16 h-16 text-yellow-500" /> : <RefreshCw className="w-16 h-16 text-muted-foreground" />}
                 </div>
-                <h2 className="text-3xl font-black text-slate-800 mb-2">
+                <h2 className="text-3xl font-black text-foreground mb-2">
                     {isPass ? "Level Complete!" : "Keep Practicing!"}
                 </h2>
-                <p className="text-slate-500 mb-6 text-lg">
+                <p className="text-muted-foreground mb-6 text-lg">
                     You scored <span className={`font-bold ${isPass ? 'text-green-600' : 'text-red-500'}`}>{score}/{totalQuestions}</span> ({percentage}%)
                 </p>
 
@@ -440,16 +440,16 @@ function GameInterface({
         <div className="max-w-3xl mx-auto space-y-6">
             {/* Header */}
             <div className="flex justify-between items-center">
-                <Button variant="ghost" onClick={onBack} size="sm" className="text-slate-500 hover:text-slate-800">
+                <Button variant="ghost" onClick={onBack} size="sm" className="text-muted-foreground hover:text-foreground">
                     &larr; Exit Level
                 </Button>
-                <div className="text-sm font-bold text-slate-400">
+                <div className="text-sm font-bold text-muted-foreground">
                     {currentIndex + 1} / {totalQuestions}
                 </div>
             </div>
 
             {/* Progress Bar */}
-            <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+            <div className="h-2 bg-muted rounded-full overflow-hidden">
                 <motion.div
                     className="h-full bg-violet-600"
                     initial={{ width: 0 }}
@@ -463,14 +463,14 @@ function GameInterface({
                         <Badge variant="outline" className="mb-4">
                             {levelData.title}
                         </Badge>
-                        <h3 className="text-xl md:text-2xl font-bold text-slate-800 leading-relaxed">
+                        <h3 className="text-xl md:text-2xl font-bold text-foreground leading-relaxed">
                             {question.question}
                         </h3>
                     </div>
 
                     <div className="space-y-3">
                         {question.options.map((option, idx) => {
-                            let statusClass = "bg-white border-2 border-slate-100 text-slate-600 hover:border-violet-200 hover:bg-violet-50";
+                            let statusClass = "bg-card border-2 border-slate-100 text-muted-foreground hover:border-violet-200 hover:bg-violet-50";
                             const isSelected = selectedOption === idx;
                             const isCorrect = idx === question.correctAnswerIndex;
 
@@ -480,7 +480,7 @@ function GameInterface({
                                 } else if (isSelected) {
                                     statusClass = "bg-red-50 border-red-500 text-red-700 opacity-60";
                                 } else {
-                                    statusClass = "bg-slate-50 border-slate-100 text-slate-400 opacity-50";
+                                    statusClass = "bg-muted border-slate-100 text-muted-foreground opacity-50";
                                 }
                             } else if (isSelected) {
                                 statusClass = "border-violet-600 bg-violet-50 text-violet-800 font-bold shadow-md ring-2 ring-violet-100";
@@ -498,7 +498,7 @@ function GameInterface({
                                        w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border
                                        ${isAnswered && isCorrect ? 'bg-green-600 border-green-600 text-white' : ''}
                                        ${isAnswered && isSelected && !isCorrect ? 'bg-red-600 border-red-600 text-white' : ''}
-                                       ${!isAnswered ? 'bg-white border-slate-200 text-slate-500' : ''}
+                                       ${!isAnswered ? 'bg-card border-border text-muted-foreground' : ''}
                                    `}>
                                         {String.fromCharCode(65 + idx)}
                                     </div>
@@ -614,14 +614,14 @@ function ChapterTestReportView({
 
             {/* Confidence Analysis */}
             <Card className="p-6">
-                <h3 className="font-bold text-lg mb-4 text-slate-800">Confidence Level Analysis</h3>
+                <h3 className="font-bold text-lg mb-4 text-foreground">Confidence Level Analysis</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {confidenceStats.map((stat) => (
-                        <div key={stat.level} className="p-4 bg-slate-50 rounded-xl text-center">
-                            <p className="text-xs font-bold text-slate-500 uppercase">{stat.level}</p>
-                            <p className="text-2xl font-black text-slate-700">{stat.accuracy}%</p>
-                            <p className="text-xs text-slate-400">{stat.correct}/{stat.total} correct</p>
-                            <p className="text-xs text-slate-400">~{stat.avgTime}s avg</p>
+                        <div key={stat.level} className="p-4 bg-muted rounded-xl text-center">
+                            <p className="text-xs font-bold text-muted-foreground uppercase">{stat.level}</p>
+                            <p className="text-2xl font-black text-muted-foreground">{stat.accuracy}%</p>
+                            <p className="text-xs text-muted-foreground">{stat.correct}/{stat.total} correct</p>
+                            <p className="text-xs text-muted-foreground">~{stat.avgTime}s avg</p>
                         </div>
                     ))}
                 </div>
@@ -630,7 +630,7 @@ function ChapterTestReportView({
             {/* Question Review */}
             <Card className="p-6">
                 <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-bold text-lg text-slate-800">Question Review</h3>
+                    <h3 className="font-bold text-lg text-foreground">Question Review</h3>
                     <div className="flex gap-2">
                         {(['all', 'correct', 'incorrect'] as const).map(f => (
                             <Button
@@ -654,8 +654,8 @@ function ChapterTestReportView({
                                     {i + 1}
                                 </span>
                                 <div className="flex-1">
-                                    <p className="font-medium text-slate-800 leading-relaxed">{q.question}</p>
-                                    <div className="flex items-center gap-2 mt-1 text-xs text-slate-500">
+                                    <p className="font-medium text-foreground leading-relaxed">{q.question}</p>
+                                    <div className="flex items-center gap-2 mt-1 text-xs text-muted-foreground">
                                         <span className={`px-2 py-0.5 rounded-full ${q.isCorrect ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
                                             {q.isCorrect ? 'Correct' : 'Incorrect'}
                                         </span>
@@ -674,7 +674,7 @@ function ChapterTestReportView({
                                     let cls = "p-2 rounded-lg text-sm border ";
                                     if (isCorrect) cls += "bg-green-100 border-green-300 text-green-800";
                                     else if (isUserChoice) cls += "bg-red-100 border-red-300 text-red-800";
-                                    else cls += "bg-white border-slate-100 text-slate-500";
+                                    else cls += "bg-card border-slate-100 text-muted-foreground";
 
                                     return (
                                         <div key={idx} className={cls}>

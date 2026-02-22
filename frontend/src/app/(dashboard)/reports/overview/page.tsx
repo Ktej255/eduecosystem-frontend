@@ -61,7 +61,7 @@ export default function ReportsOverviewPage() {
     <div className="p-8 space-y-8">
       <div>
         <h1 className="text-3xl font-bold text-white">Reports Center</h1>
-        <p className="text-gray-400">Export data and generate reports for your analysis.</p>
+        <p className="text-muted-foreground">Export data and generate reports for your analysis.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -76,13 +76,13 @@ export default function ReportsOverviewPage() {
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-gray-400 mb-6 h-12">{report.description}</p>
+              <p className="text-muted-foreground mb-6 h-12">{report.description}</p>
               <div className="flex gap-3">
                 {report.actions.map((action, actionIdx) => (
                   <Button
                     key={actionIdx}
                     variant="outline"
-                    className="flex-1 border-gray-700 hover:bg-gray-800 text-gray-300"
+                    className="flex-1 border-gray-700 hover:bg-gray-800 text-muted-foreground"
                     onClick={() => handleDownload(action.endpoint, action.filename)}
                   >
                     <Download className="mr-2 h-4 w-4" />

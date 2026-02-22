@@ -27,7 +27,7 @@ const StateContainer = ({ children }: { children: React.ReactNode }) => (
 
 const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any, color: string }) => (
     <div className="flex items-center gap-4 my-8">
-        <div className={`p-3 rounded-xl bg-white shadow-sm border-2 ${color}`}>
+        <div className={`p-3 rounded-xl bg-card shadow-sm border-2 ${color}`}>
             <Icon className={color.replace('border-', 'text-')} size={24} />
         </div>
         <h2 className={`text-2xl font-black uppercase tracking-tight ${color.replace('border-', 'text-')} font-['Kalam']`}>
@@ -38,13 +38,13 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
 );
 
 const StateCard = ({ title, children, color = "border-green-800", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 
         <h3 className={`text-xl font-bold mb-4 flex items-center gap-2 font-['Kalam'] ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-700 relative z-10 font-medium">
+        <div className="space-y-4 text-muted-foreground relative z-10 font-medium">
             {children}
         </div>
     </div>
@@ -54,7 +54,7 @@ export default function SPSCModule({ onComplete, isCompleted, chapterNumber = "4
     return (
         <StateContainer>
             {/* HERO SECTION */}
-            <div className="relative bg-white border-4 border-green-800 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(21,128,61,1)] overflow-hidden">
+            <div className="relative bg-card border-4 border-green-800 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(21,128,61,1)] overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-green-100 rounded-full -mr-16 -mt-16 opacity-50"></div>
                 <div className="relative z-10 text-green-900">
                     <div className="flex items-center gap-3 mb-4">
@@ -66,7 +66,7 @@ export default function SPSCModule({ onComplete, isCompleted, chapterNumber = "4
                         SPSC <br />
                         <span className="text-orange-600">The Regional Gate</span>
                     </h1>
-                    <p className="text-xl text-slate-600 max-w-2xl leading-relaxed italic">
+                    <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed italic">
                         "The state mirror of UPSC, ensuring merit in state services while navigating the unique constitutional trap of regional commissions."
                     </p>
                 </div>
@@ -90,9 +90,9 @@ export default function SPSCModule({ onComplete, isCompleted, chapterNumber = "4
                             <span className="font-bold underline text-amber-900">Mnemonic:</span> Appointed locally, but removed centrally.
                         </div>
                         <div className="grid grid-cols-2 gap-4 mt-2">
-                            <div className="p-3 border rounded-xl bg-slate-50 text-center">
+                            <div className="p-3 border rounded-xl bg-muted text-center">
                                 <span className="block text-2xl font-black text-green-800">6Y</span>
-                                <span className="text-[10px] font-bold text-slate-400">TENURE</span>
+                                <span className="text-[10px] font-bold text-muted-foreground">TENURE</span>
                             </div>
                             <div className="p-3 border rounded-xl bg-orange-50 border-orange-200 text-center relative overflow-hidden">
                                 <span className="block text-2xl font-black text-orange-700">62</span>
@@ -100,7 +100,7 @@ export default function SPSCModule({ onComplete, isCompleted, chapterNumber = "4
                                 <Badge className="absolute -top-1 -right-4 bg-red-500 text-[8px] rotate-45">PYQ TRAP</Badge>
                             </div>
                         </div>
-                        <p className="text-[10px] text-center text-slate-400 font-bold">UPSC = 65y | SPSC = 62y</p>
+                        <p className="text-[10px] text-center text-muted-foreground font-bold">UPSC = 65y | SPSC = 62y</p>
                     </div>
                 </StateCard>
 
@@ -144,13 +144,13 @@ export default function SPSCModule({ onComplete, isCompleted, chapterNumber = "4
                             <span>Service conditions not varied to disadvantage.</span>
                         </li>
                     </ul>
-                    <div className="mt-4 bg-slate-50 p-4 rounded-xl border-2 border-slate-200">
+                    <div className="mt-4 bg-muted p-4 rounded-xl border-2 border-border">
                         <h5 className="text-xs font-black uppercase mb-2">Further Employment:</h5>
                         <div className="space-y-2 text-[11px] font-bold">
-                            <p className="p-2 bg-white rounded border border-slate-100">
+                            <p className="p-2 bg-card rounded border border-slate-100">
                                 <span className="text-green-700">Chairman:</span> Eligible only for UPSC Chair/Member or other SPSC Chair.
                             </p>
-                            <p className="p-2 bg-white rounded border border-slate-100">
+                            <p className="p-2 bg-card rounded border border-slate-100">
                                 <span className="text-green-700">Member:</span> Eligible for UPSC Chair/Member or SPSC Chair.
                             </p>
                         </div>
@@ -198,12 +198,12 @@ export default function SPSCModule({ onComplete, isCompleted, chapterNumber = "4
 
                 <StateCard title="Annual Report" color="border-slate-800">
                     <div className="flex gap-4">
-                        <div className="p-4 bg-slate-100 rounded-2xl border-2 border-slate-200">
-                            <FileText size={40} className="text-slate-600" />
+                        <div className="p-4 bg-muted rounded-2xl border-2 border-border">
+                            <FileText size={40} className="text-muted-foreground" />
                         </div>
                         <div className="flex-1">
                             <p className="text-sm">Submitted to <span className="font-bold text-green-800 underline">Governor</span>.</p>
-                            <div className="mt-2 text-[11px] p-2 bg-slate-50 rounded border italic border-slate-200">
+                            <div className="mt-2 text-[11px] p-2 bg-muted rounded border italic border-border">
                                 Governor places it before State Legislature with <span className="font-bold">Memorandum</span> for any non-accepted advice.
                             </div>
                         </div>
@@ -212,7 +212,7 @@ export default function SPSCModule({ onComplete, isCompleted, chapterNumber = "4
             </div>
 
             {/* MNEMONIC FOOTER */}
-            <div className="bg-white border-2 border-green-800 rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-md border-b-8">
+            <div className="bg-card border-2 border-green-800 rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-md border-b-8">
                 <div className="p-4 bg-green-50 rounded-xl">
                     <Scale size={48} className="text-green-700" />
                 </div>
@@ -220,15 +220,15 @@ export default function SPSCModule({ onComplete, isCompleted, chapterNumber = "4
                     <h5 className="font-black text-green-900 text-lg">The "62 vs 65" See-Saw</h5>
                     <div className="grid grid-cols-3 gap-4 mt-2">
                         <div className="text-center">
-                            <span className="block text-xs font-bold text-slate-500">UPSC</span>
+                            <span className="block text-xs font-bold text-muted-foreground">UPSC</span>
                             <span className="text-xl font-black text-blue-800">65</span>
                         </div>
-                        <div className="text-center border-l border-r border-slate-200">
-                            <span className="block text-xs font-bold text-slate-500">SPSC</span>
+                        <div className="text-center border-l border-r border-border">
+                            <span className="block text-xs font-bold text-muted-foreground">SPSC</span>
                             <span className="text-xl font-black text-green-800">62</span>
                         </div>
                         <div className="text-center">
-                            <span className="block text-xs font-bold text-slate-500">JSPSC</span>
+                            <span className="block text-xs font-bold text-muted-foreground">JSPSC</span>
                             <span className="text-xl font-black text-purple-800">62</span>
                         </div>
                     </div>
@@ -236,7 +236,7 @@ export default function SPSCModule({ onComplete, isCompleted, chapterNumber = "4
             </div>
 
             {/* COMPLETION BUTTON */}
-            <div className="mt-16 text-center border-t-2 border-dashed border-slate-200 pt-12 pb-12">
+            <div className="mt-16 text-center border-t-2 border-dashed border-border pt-12 pb-12">
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
@@ -256,7 +256,7 @@ export default function SPSCModule({ onComplete, isCompleted, chapterNumber = "4
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold font-['Kalam']">The Mirror to the Centre.</p>
+                <p className="mt-4 text-muted-foreground font-bold font-['Kalam']">The Mirror to the Centre.</p>
             </div>
         </StateContainer>
     );

@@ -12,7 +12,7 @@ export default function ForeignPolicyPage() {
     return (
         <div className="min-h-screen bg-indigo-50 dark:bg-black">
             {/* Header */}
-            <div className="bg-white dark:bg-[#111] border-b border-indigo-100 dark:border-indigo-900 sticky top-0 z-50">
+            <div className="bg-card dark:bg-[#111] border-b border-indigo-100 dark:border-indigo-900 sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
                     <div className="flex items-center gap-4">
                         <Link href="/student/batch1/international-relations">
@@ -40,7 +40,7 @@ export default function ForeignPolicyPage() {
                         </CardHeader>
                         <CardContent className="space-y-2 p-4 pt-0">
                             {FOREIGN_POLICY_CONTENT.sections.map(sec => (
-                                <a key={sec.id} href={`#${sec.id}`} className="block text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 p-2 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors">
+                                <a key={sec.id} href={`#${sec.id}`} className="block text-sm font-medium text-muted-foreground hover:text-indigo-600 dark:hover:text-indigo-400 p-2 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors">
                                     {sec.title}
                                 </a>
                             ))}
@@ -59,7 +59,7 @@ export default function ForeignPolicyPage() {
                                         {sec.title}
                                     </CardTitle>
                                 </CardHeader>
-                                <CardContent className="p-6 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
+                                <CardContent className="p-6 prose dark:prose-invert max-w-none text-muted-foreground">
                                     <ReactMarkdown>{sec.content}</ReactMarkdown>
                                 </CardContent>
                             </Card>

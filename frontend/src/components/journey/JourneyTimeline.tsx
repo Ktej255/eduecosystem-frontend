@@ -52,8 +52,8 @@ export default function JourneyTimeline({ plan }: { plan: DayPlan }) {
             {/* Header Quote */}
             {plan.quote && (
                 <div className="text-center mb-10 opacity-80">
-                    <p className="text-lg font-serif italic text-gray-700 dark:text-gray-300">"{plan.quote.text}"</p>
-                    <p className="text-sm font-bold text-gray-500 mt-2">— {plan.quote.author}</p>
+                    <p className="text-lg font-serif italic text-muted-foreground dark:text-muted-foreground">"{plan.quote.text}"</p>
+                    <p className="text-sm font-bold text-muted-foreground mt-2">— {plan.quote.author}</p>
                 </div>
             )}
 
@@ -80,9 +80,9 @@ export default function JourneyTimeline({ plan }: { plan: DayPlan }) {
                     className="flex justify-center mt-12"
                 >
                     <div className="bg-gradient-to-r from-green-400 to-emerald-500 p-[1px] rounded-full shadow-xl shadow-green-500/20">
-                        <div className="bg-white dark:bg-[#111] px-6 py-2 rounded-full flex items-center gap-2">
+                        <div className="bg-card dark:bg-[#111] px-6 py-2 rounded-full flex items-center gap-2">
                             <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                            <span className="text-sm font-bold text-gray-700 dark:text-gray-200">
+                            <span className="text-sm font-bold text-muted-foreground">
                                 Day {plan.dayNumber} Finish Line
                             </span>
                         </div>
@@ -107,9 +107,9 @@ function JourneyStepCard({ step, index, isLast }: { step: JourneyStep, index: nu
             className="relative z-10 pl-16 md:pl-20"
         >
             {/* Timeline Node */}
-            <div className={`absolute left-2 md:left-4 top-0 w-10 h-10 md:w-12 md:h-12 rounded-full border-4 flex items-center justify-center bg-white dark:bg-[#111] transition-colors duration-300 ${isCompleted ? 'border-green-500 text-green-500 shadow-[0_0_15px_rgba(34,197,94,0.3)]' :
+            <div className={`absolute left-2 md:left-4 top-0 w-10 h-10 md:w-12 md:h-12 rounded-full border-4 flex items-center justify-center bg-card dark:bg-[#111] transition-colors duration-300 ${isCompleted ? 'border-green-500 text-green-500 shadow-[0_0_15px_rgba(34,197,94,0.3)]' :
                 isActive ? 'border-blue-500 text-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.4)] scale-110' :
-                    'border-gray-200 dark:border-gray-800 text-gray-300 dark:text-gray-700'
+                    'border-border text-muted-foreground dark:text-muted-foreground'
                 }`}>
                 {isCompleted ? <CheckCircle className="w-5 h-5 md:w-6 md:h-6" /> :
                     isLocked ? <Lock className="w-4 h-4 md:w-5 md:h-5" /> :
@@ -118,8 +118,8 @@ function JourneyStepCard({ step, index, isLast }: { step: JourneyStep, index: nu
 
             {/* Card Content */}
             <div className={`group relative overflow-hidden rounded-2xl border transition-all duration-300 ${isActive
-                ? 'bg-white dark:bg-[#111] border-blue-200 dark:border-blue-900 shadow-xl shadow-blue-900/10 hover:shadow-2xl hover:-translate-y-1'
-                : 'bg-gray-50 dark:bg-gray-900/50 border-gray-100 dark:border-gray-800 opacity-60 grayscale-[0.8] hover:opacity-100 hover:grayscale-0'
+                ? 'bg-card dark:bg-[#111] border-blue-200 dark:border-blue-900 shadow-xl shadow-blue-900/10 hover:shadow-2xl hover:-translate-y-1'
+                : 'bg-muted/50 border-border opacity-60 grayscale-[0.8] hover:opacity-100 hover:grayscale-0'
                 }`}>
                 {/* Featured Gradient for Active Card */}
                 {isActive && (
@@ -138,16 +138,16 @@ function JourneyStepCard({ step, index, isLast }: { step: JourneyStep, index: nu
 
                     <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
-                            <span className={`text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full ${isActive ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300' : 'bg-gray-200 dark:bg-gray-800 text-gray-500'
+                            <span className={`text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full ${isActive ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300' : 'bg-muted text-muted-foreground'
                                 }`}>
                                 Phase {index + 1}: {step.phase}
                             </span>
-                            <span className="flex items-center gap-1 text-xs font-medium text-gray-500">
+                            <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground">
                                 <Clock className="w-3 h-3" /> {step.durationMinutes} min
                             </span>
                         </div>
 
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                        <h3 className="text-xl font-bold text-foreground mb-1">
                             {step.title}
                         </h3>
                         {step.subtitle && (
@@ -155,7 +155,7 @@ function JourneyStepCard({ step, index, isLast }: { step: JourneyStep, index: nu
                                 {step.subtitle}
                             </div>
                         )}
-                        <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-lg">
+                        <p className="text-sm text-muted-foreground dark:text-muted-foreground leading-relaxed max-w-lg">
                             {step.description}
                         </p>
                     </div>
@@ -163,7 +163,7 @@ function JourneyStepCard({ step, index, isLast }: { step: JourneyStep, index: nu
                     {/* Action Button */}
                     <div className="mt-4 md:mt-0 md:ml-4 shrink-0">
                         {isLocked ? (
-                            <button disabled className="px-6 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-400 font-bold text-sm flex items-center gap-2 cursor-not-allowed w-full md:w-auto justify-center">
+                            <button disabled className="px-6 py-3 rounded-xl bg-muted text-muted-foreground font-bold text-sm flex items-center gap-2 cursor-not-allowed w-full md:w-auto justify-center">
                                 <Lock className="w-4 h-4" /> Locked
                             </button>
                         ) : isCompleted ? (

@@ -17,7 +17,7 @@ const VideoPlayer = ({ title }: { title: string }) => (
     </div>
     <div className="absolute bottom-4 left-4">
       <p className="text-white font-bold text-lg">{title}</p>
-      <p className="text-gray-300 text-sm">45:00 • Dr. S. Chandra</p>
+      <p className="text-muted-foreground text-sm">45:00 • Dr. S. Chandra</p>
     </div>
   </div>
 );
@@ -62,7 +62,7 @@ export default function LMSPage() {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-white">Modern History</h1>
-          <p className="text-gray-400 mt-1">Lecture 14: The Revolt of 1857</p>
+          <p className="text-muted-foreground mt-1">Lecture 14: The Revolt of 1857</p>
         </div>
         <Button
           onClick={handleTakeQuiz}
@@ -82,12 +82,12 @@ export default function LMSPage() {
               <FileText className="mr-2 h-5 w-5 text-cyan-500" />
               Lecture Summary
             </h2>
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               The Revolt of 1857 was a major uprising in India in 1857–58
               against the rule of the British East India Company. Key causes
               included:
             </p>
-            <ul className="list-disc list-inside text-gray-400 mt-2 space-y-1 ml-4">
+            <ul className="list-disc list-inside text-muted-foreground mt-2 space-y-1 ml-4">
               <li>Doctrine of Lapse</li>
               <li>Greased Cartridges Issue</li>
               <li>Role of Mangal Pandey</li>
@@ -118,7 +118,7 @@ export default function LMSPage() {
                   <h2 className="text-2xl font-bold text-white">
                     {quizData.title}
                   </h2>
-                  <span className="text-gray-400">
+                  <span className="text-muted-foreground">
                     Q{currentQuestion + 1}/{quizData.questions.length}
                   </span>
                 </div>
@@ -133,7 +133,7 @@ export default function LMSPage() {
                       <button
                         key={opt}
                         onClick={() => handleAnswer(opt)}
-                        className="p-4 bg-gray-800 hover:bg-cyan-900/30 border border-gray-700 hover:border-cyan-500 rounded-xl text-left transition text-gray-300 hover:text-white"
+                        className="p-4 bg-gray-800 hover:bg-cyan-900/30 border border-gray-700 hover:border-cyan-500 rounded-xl text-left transition text-muted-foreground hover:text-white"
                       >
                         {opt}
                       </button>
@@ -147,7 +147,7 @@ export default function LMSPage() {
                 <h2 className="text-3xl font-bold text-white mb-2">
                   Quiz Complete!
                 </h2>
-                <p className="text-xl text-gray-400 mb-8">
+                <p className="text-xl text-muted-foreground mb-8">
                   You scored{" "}
                   <span className="text-cyan-500 font-bold">
                     {score}/{quizData.questions.length}

@@ -91,7 +91,7 @@ export function LiveClassReactionBar({
             key={r.id}
             variant="ghost"
             size="icon"
-            className="h-10 w-10 rounded-full hover:bg-gray-700 hover:scale-110 transition-all text-gray-300 hover:text-cyan-400"
+            className="h-10 w-10 rounded-full hover:bg-gray-700 hover:scale-110 transition-all text-muted-foreground hover:text-cyan-400"
             onClick={() => handleReactionClick(r.emoji)}
             title={r.label}
           >

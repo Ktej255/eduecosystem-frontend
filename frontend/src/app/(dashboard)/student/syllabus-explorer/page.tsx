@@ -16,7 +16,7 @@ export default function SyllabusExplorerPage() {
                             Interactive Graph
                         </div>
                     </div>
-                    <p className="text-gray-400 text-lg">
+                    <p className="text-muted-foreground text-lg">
                         Explore the entire RAS syllabus visually. Click nodes to expand topics.
                     </p>
                 </div>
@@ -24,7 +24,7 @@ export default function SyllabusExplorerPage() {
 
             <SyllabusKnowledgeGraph />
 
-            <div className="text-center text-gray-500 text-sm">
+            <div className="text-center text-muted-foreground text-sm">
                 Tip: Drag nodes to rearrange. Scroll to zoom. Click a subject to see its topics.
             </div>
         </div>

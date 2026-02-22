@@ -75,7 +75,7 @@ export default function UpanishadProgressSequence({
                     initial={{ scale: 0.9 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.3 }}
-                    className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur rounded-full border border-amber-200 shadow-lg"
+                    className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-card/80 backdrop-blur rounded-full border border-amber-200 shadow-lg"
                 >
                     <Star className="w-5 h-5 text-amber-500 fill-amber-400" />
                     <span className="text-amber-900 font-bold">{currentIndex} / 108</span>
@@ -212,8 +212,8 @@ export default function UpanishadProgressSequence({
                                                         "relative w-20 h-20 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 border-4",
                                                         status === "completed" && "bg-gradient-to-br from-green-400 to-emerald-500 border-green-300 shadow-lg shadow-green-500/40",
                                                         status === "in-progress" && "bg-gradient-to-br from-amber-400 to-orange-500 border-amber-300 shadow-xl shadow-amber-500/50",
-                                                        status === "next-up" && "bg-gradient-to-br from-slate-200 to-slate-300 border-slate-200 shadow-md",
-                                                        status === "locked" && "bg-slate-100 border-slate-100 opacity-40 blur-[1px] grayscale"
+                                                        status === "next-up" && "bg-gradient-to-br from-slate-200 to-slate-300 border-border shadow-md",
+                                                        status === "locked" && "bg-muted border-slate-100 opacity-40 blur-[1px] grayscale"
                                                     )}
                                                 >
                                                     {/* Pulsating ring for in-progress */}
@@ -246,7 +246,7 @@ export default function UpanishadProgressSequence({
                                                     {(status === "next-up" || status === "locked") && (
                                                         <Lock className={cn(
                                                             "drop-shadow",
-                                                            status === "next-up" ? "w-8 h-8 text-slate-500" : "w-6 h-6 text-slate-400"
+                                                            status === "next-up" ? "w-8 h-8 text-muted-foreground" : "w-6 h-6 text-muted-foreground"
                                                         )} />
                                                     )}
 
@@ -280,7 +280,7 @@ export default function UpanishadProgressSequence({
                                                         "font-bold text-sm leading-tight",
                                                         status === "completed" ? "text-green-700" :
                                                             status === "in-progress" ? "text-amber-800" :
-                                                                "text-slate-600"
+                                                                "text-muted-foreground"
                                                     )}>
                                                         {upanishad.name}
                                                     </p>
@@ -312,7 +312,7 @@ export default function UpanishadProgressSequence({
                     transition={{ delay: 1.5 }}
                     className="mt-16 text-center"
                 >
-                    <div className="inline-flex flex-col items-center gap-2 px-6 py-4 bg-white/60 backdrop-blur rounded-2xl border border-amber-200 shadow-xl">
+                    <div className="inline-flex flex-col items-center gap-2 px-6 py-4 bg-card/60 backdrop-blur rounded-2xl border border-amber-200 shadow-xl">
                         <div className="flex gap-1">
                             {[...Array(3)].map((_, i) => (
                                 <motion.div

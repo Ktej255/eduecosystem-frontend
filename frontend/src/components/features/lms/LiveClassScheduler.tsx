@@ -95,7 +95,7 @@ export function LiveClassScheduler({
           variant="ghost"
           size="sm"
           onClick={onCancel}
-          className="text-gray-400 hover:text-white"
+          className="text-muted-foreground hover:text-white"
         >
           Cancel
         </Button>
@@ -229,7 +229,7 @@ export function LiveClassScheduler({
                     {...field}
                   />
                 </FormControl>
-                <FormDescription className="text-gray-400 text-sm">
+                <FormDescription className="text-muted-foreground text-sm">
                   Leave empty to generate automatically
                 </FormDescription>
                 <FormMessage />
@@ -263,7 +263,7 @@ export function LiveClassScheduler({
               type="button"
               variant="outline"
               onClick={onCancel}
-              className="border-gray-700 text-gray-300"
+              className="border-gray-700 text-muted-foreground"
             >
               Cancel
             </Button>

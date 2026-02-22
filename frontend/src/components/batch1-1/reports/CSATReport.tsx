@@ -14,7 +14,7 @@ export default function CSATReport() {
                 </div>
             </CardHeader>
             <CardContent>
-                <p className="text-gray-500 text-center py-8">
+                <p className="text-muted-foreground text-center py-8">
                     CSAT Analytics visualization coming soon.
                 </p>
             </CardContent>

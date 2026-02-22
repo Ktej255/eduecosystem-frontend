@@ -325,7 +325,7 @@ export default function CircularFlowViz() {
                             </span>
                             Circular Flow of Income
                         </CardTitle>
-                        <CardDescription className="text-slate-400">
+                        <CardDescription className="text-muted-foreground">
                             Interactive Macroeconomic Model
                         </CardDescription>
                     </div>

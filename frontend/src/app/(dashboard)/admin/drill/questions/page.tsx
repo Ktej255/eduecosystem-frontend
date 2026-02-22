@@ -86,10 +86,10 @@ export default function AdminQuestionsPage() {
             {/* Header */}
             <div className="flex justify-between items-center">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                    <h1 className="text-3xl font-bold text-foreground">
                         Drill Questions Management
                     </h1>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">
+                    <p className="text-muted-foreground dark:text-muted-foreground mt-1">
                         Manage questions, content, and model answers
                     </p>
                 </div>
@@ -106,7 +106,7 @@ export default function AdminQuestionsPage() {
                 <CardContent className="p-4">
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                         <div className="relative">
-                            <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                            <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                             <Input
                                 placeholder="Search questions..."
                                 value={searchTerm}
@@ -117,7 +117,7 @@ export default function AdminQuestionsPage() {
                         <select
                             value={filterGS}
                             onChange={(e) => setFilterGS(e.target.value)}
-                            className="px-3 py-2 border rounded-md bg-white dark:bg-gray-800"
+                            className="px-3 py-2 border rounded-md bg-card"
                         >
                             <option value="">All GS Papers</option>
                             <option value="GS1">GS1</option>
@@ -128,7 +128,7 @@ export default function AdminQuestionsPage() {
                         <select
                             value={filterDifficulty}
                             onChange={(e) => setFilterDifficulty(e.target.value)}
-                            className="px-3 py-2 border rounded-md bg-white dark:bg-gray-800"
+                            className="px-3 py-2 border rounded-md bg-card"
                         >
                             <option value="">All Difficulties</option>
                             <option value="easy">Easy</option>
@@ -149,8 +149,8 @@ export default function AdminQuestionsPage() {
                     <CardContent className="p-4">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">Total Questions</p>
-                                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">Total Questions</p>
+                                <p className="text-2xl font-bold text-foreground">
                                     {questions.length}
                                 </p>
                             </div>
@@ -162,8 +162,8 @@ export default function AdminQuestionsPage() {
                     <CardContent className="p-4">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">With Content</p>
-                                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">With Content</p>
+                                <p className="text-2xl font-bold text-foreground">
                                     {questions.filter(q => q.has_content).length}
                                 </p>
                             </div>
@@ -175,8 +175,8 @@ export default function AdminQuestionsPage() {
                     <CardContent className="p-4">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">With Model Answer</p>
-                                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">With Model Answer</p>
+                                <p className="text-2xl font-bold text-foreground">
                                     {questions.filter(q => q.has_model_answer).length}
                                 </p>
                             </div>
@@ -188,8 +188,8 @@ export default function AdminQuestionsPage() {
                     <CardContent className="p-4">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">Incomplete</p>
-                                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">Incomplete</p>
+                                <p className="text-2xl font-bold text-foreground">
                                     {questions.filter(q => !q.has_content || !q.has_model_answer).length}
                                 </p>
                             </div>
@@ -208,23 +208,23 @@ export default function AdminQuestionsPage() {
                     {loading ? (
                         <div className="text-center py-8">Loading...</div>
                     ) : filteredQuestions.length === 0 ? (
-                        <div className="text-center py-8 text-gray-500">No questions found</div>
+                        <div className="text-center py-8 text-muted-foreground">No questions found</div>
                     ) : (
                         <div className="overflow-x-auto">
                             <table className="w-full">
                                 <thead>
                                     <tr className="border-b">
-                                        <th className="text-left p-3 text-gray-700 dark:text-gray-300">GS Paper</th>
-                                        <th className="text-left p-3 text-gray-700 dark:text-gray-300">Topic</th>
-                                        <th className="text-left p-3 text-gray-700 dark:text-gray-300">Question</th>
-                                        <th className="text-left p-3 text-gray-700 dark:text-gray-300">Difficulty</th>
-                                        <th className="text-left p-3 text-gray-700 dark:text-gray-300">Status</th>
-                                        <th className="text-right p-3 text-gray-700 dark:text-gray-300">Actions</th>
+                                        <th className="text-left p-3 text-muted-foreground dark:text-muted-foreground">GS Paper</th>
+                                        <th className="text-left p-3 text-muted-foreground dark:text-muted-foreground">Topic</th>
+                                        <th className="text-left p-3 text-muted-foreground dark:text-muted-foreground">Question</th>
+                                        <th className="text-left p-3 text-muted-foreground dark:text-muted-foreground">Difficulty</th>
+                                        <th className="text-left p-3 text-muted-foreground dark:text-muted-foreground">Status</th>
+                                        <th className="text-right p-3 text-muted-foreground dark:text-muted-foreground">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {filteredQuestions.map((question) => (
-                                        <tr key={question.id} className="border-b hover:bg-gray-50 dark:hover:bg-gray-800">
+                                        <tr key={question.id} className="border-b hover:bg-muted dark:hover:bg-gray-800">
                                             <td className="p-3">
                                                 <span className={`px-2 py-1 rounded text-sm font-medium ${question.gs_paper === 'GS1' ? 'bg-blue-100 text-blue-700' :
                                                     question.gs_paper === 'GS2' ? 'bg-purple-100 text-purple-700' :
@@ -234,8 +234,8 @@ export default function AdminQuestionsPage() {
                                                     {question.gs_paper}
                                                 </span>
                                             </td>
-                                            <td className="p-3 text-gray-900 dark:text-gray-100">{question.topic}</td>
-                                            <td className="p-3 text-gray-700 dark:text-gray-300 max-w-md truncate">
+                                            <td className="p-3 text-foreground">{question.topic}</td>
+                                            <td className="p-3 text-muted-foreground dark:text-muted-foreground max-w-md truncate">
                                                 {question.question_text}
                                             </td>
                                             <td className="p-3">
@@ -251,12 +251,12 @@ export default function AdminQuestionsPage() {
                                                     {question.has_content ? (
                                                         <CheckCircle className="h-4 w-4 text-green-600" />
                                                     ) : (
-                                                        <XCircle className="h-4 w-4 text-gray-400" />
+                                                        <XCircle className="h-4 w-4 text-muted-foreground" />
                                                     )}
                                                     {question.has_model_answer ? (
                                                         <CheckCircle className="h-4 w-4 text-green-600" />
                                                     ) : (
-                                                        <XCircle className="h-4 w-4 text-gray-400" />
+                                                        <XCircle className="h-4 w-4 text-muted-foreground" />
                                                     )}
                                                 </div>
                                             </td>

@@ -14,7 +14,7 @@ import CollexoFooter from '@/components/collexo/collexo-footer';
 
 export default function SaritClassesCRMLandingPage() {
     return (
-        <div className="min-h-screen bg-white dark:bg-slate-950">
+        <div className="min-h-screen bg-card">
             <CollexoNavbar />
             <main>
                 <HeroSection />

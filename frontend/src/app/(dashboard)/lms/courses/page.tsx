@@ -56,7 +56,7 @@ export default function CoursesPage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-bold text-white mb-2">My Created Courses</h1>
-            <p className="text-gray-400">Manage and track your course performance</p>
+            <p className="text-muted-foreground">Manage and track your course performance</p>
           </div>
           <Button className="bg-blue-600 hover:bg-blue-500" asChild>
             <Link href="/lms/courses/create">
@@ -80,17 +80,17 @@ export default function CoursesPage() {
                     <h3 className="text-white font-semibold line-clamp-2 h-12">
                       {course.title || "Untitled Course"}
                     </h3>
-                    <Badge variant="secondary" className="bg-gray-800 text-gray-400 text-xs">
+                    <Badge variant="secondary" className="bg-gray-800 text-muted-foreground text-xs">
                       {course.is_published ? "Published" : "Unknown"}
                     </Badge>
                   </div>
 
-                  <p className="text-gray-400 text-sm line-clamp-3 mb-4 h-[60px]">
+                  <p className="text-muted-foreground text-sm line-clamp-3 mb-4 h-[60px]">
                     {course.description || "Start by giving your course a title and description."}
                   </p>
 
                   <div className="flex items-center justify-between mt-auto">
-                    <div className="flex items-center text-gray-500 text-sm">
+                    <div className="flex items-center text-muted-foreground text-sm">
                       <Users className="h-4 w-4 mr-1" />
                       {course.total_enrollments} students
                     </div>
@@ -101,7 +101,7 @@ export default function CoursesPage() {
                 </div>
 
                 <div className="bg-gray-900/50 border-t border-gray-800 p-2 flex gap-2">
-                  <Button variant="outline" className="flex-1 border-gray-700 text-gray-300 hover:text-white hover:bg-gray-800 h-9 text-xs" asChild>
+                  <Button variant="outline" className="flex-1 border-gray-700 text-muted-foreground hover:text-white hover:bg-gray-800 h-9 text-xs" asChild>
                     <Link href={`/lms/courses/${course.id}/edit`}>
                       <Edit className="mr-2 h-3 w-3" />
                       Edit
@@ -121,20 +121,20 @@ export default function CoursesPage() {
               <div className="p-5 flex-1">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-white font-semibold">Untitled Course</h3>
-                  <Badge variant="secondary" className="bg-gray-800 text-gray-400 text-xs">Draft</Badge>
+                  <Badge variant="secondary" className="bg-gray-800 text-muted-foreground text-xs">Draft</Badge>
                 </div>
-                <p className="text-gray-400 text-sm mb-4">
+                <p className="text-muted-foreground text-sm mb-4">
                   Start by giving your course a title and description.
                 </p>
                 <div className="flex items-center justify-between mt-auto">
-                  <div className="flex items-center text-gray-500 text-sm">
+                  <div className="flex items-center text-muted-foreground text-sm">
                     0 students
                   </div>
                   <div className="text-white font-bold">₹100</div>
                 </div>
               </div>
               <div className="bg-gray-900/50 border-t border-gray-800 p-2 flex gap-2">
-                <Button variant="outline" className="flex-1 border-gray-700 text-gray-300 h-9 text-xs">
+                <Button variant="outline" className="flex-1 border-gray-700 text-muted-foreground h-9 text-xs">
                   <Edit className="mr-2 h-3 w-3" /> Edit
                 </Button>
                 <Button className="flex-1 bg-blue-600 hover:bg-blue-500 text-white h-9 text-xs">

@@ -39,7 +39,7 @@ const getIntentistyColor = (value: number) => {
     if (value > 75) return "bg-indigo-600 hover:bg-indigo-700";
     if (value > 50) return "bg-indigo-400 hover:bg-indigo-500";
     if (value > 25) return "bg-indigo-200 hover:bg-indigo-300";
-    return "bg-slate-100 dark:bg-slate-800 hover:bg-slate-200";
+    return "bg-muted hover:bg-slate-200";
 };
 
 const formatTime = (hour: number) => {
@@ -53,7 +53,7 @@ export default function EngagementHeatmap() {
     const [hoveredCell, setHoveredCell] = useState<{ day: string, hour: number, value: number } | null>(null);
 
     return (
-        <Card className="col-span-1 border-slate-200 dark:border-slate-800">
+        <Card className="col-span-1 border-border">
             <CardHeader className="pb-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div>
@@ -89,7 +89,7 @@ export default function EngagementHeatmap() {
                         {/* Y-Axis (Days) */}
                         <div className="w-10 flex-shrink-0 flex flex-col justify-end gap-1 pb-6 mr-2">
                             {heatmapData.map(d => (
-                                <div key={d.day} className="h-6 flex items-center justify-end text-[10px] font-medium text-slate-400">
+                                <div key={d.day} className="h-6 flex items-center justify-end text-[10px] font-medium text-muted-foreground">
                                     {d.day}
                                 </div>
                             ))}
@@ -118,7 +118,7 @@ export default function EngagementHeatmap() {
                             {/* X-Axis (Hours) */}
                             <div className="grid grid-cols-24 pt-2 gap-1">
                                 {hours.map((h) => (
-                                    <div key={h} className="text-[9px] text-slate-400 text-center relative h-6">
+                                    <div key={h} className="text-[9px] text-muted-foreground text-center relative h-6">
                                         {/* Show label every 3 hours to avoid clutter */}
                                         {h % 3 === 0 && (
                                             <span className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap">
@@ -133,8 +133,8 @@ export default function EngagementHeatmap() {
                 </div>
 
                 {/* Legend & Insight */}
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-100 dark:border-slate-800 pt-4">
-                    <div className="flex items-center gap-2 text-xs text-slate-500">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-100 pt-4">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         <span>Low</span>
                         <div className="flex gap-1">
                             <div className="w-3 h-3 bg-indigo-200 rounded-[2px]" />

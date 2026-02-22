@@ -71,10 +71,10 @@ export default function TestHistoryModal({ isOpen, onClose }: TestHistoryModalPr
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-            <Card className="w-full max-w-2xl max-h-[80vh] overflow-hidden flex flex-col bg-white dark:bg-gray-900">
+            <Card className="w-full max-w-2xl max-h-[80vh] overflow-hidden flex flex-col bg-card">
                 <div className="p-4 border-b flex items-center justify-between bg-blue-600 text-white">
                     <h3 className="font-bold text-lg">My Test Reports</h3>
-                    <Button variant="ghost" size="sm" onClick={onClose} className="text-white hover:bg-white/20">✕</Button>
+                    <Button variant="ghost" size="sm" onClick={onClose} className="text-white hover:bg-card/20">✕</Button>
                 </div>
 
                 <div className="flex-1 overflow-y-auto p-4">
@@ -88,11 +88,11 @@ export default function TestHistoryModal({ isOpen, onClose }: TestHistoryModalPr
                             <div className="flex items-center justify-between bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
                                 <div>
                                     <p className="font-bold text-blue-700 dark:text-blue-300">Cycle {reviewingTest.cycle_id}, Day {reviewingTest.day_number}</p>
-                                    <p className="text-xs text-gray-500">{new Date(reviewingTest.timestamp).toLocaleDateString()}</p>
+                                    <p className="text-xs text-muted-foreground">{new Date(reviewingTest.timestamp).toLocaleDateString()}</p>
                                 </div>
                                 <div className="text-right">
                                     <p className={`text-xl font-bold ${reviewingTest.score >= 0 ? 'text-green-600' : 'text-red-600'}`}>{reviewingTest.score}</p>
-                                    <p className="text-xs text-gray-500">{reviewingTest.correct_count}/{reviewingTest.total_questions}</p>
+                                    <p className="text-xs text-muted-foreground">{reviewingTest.correct_count}/{reviewingTest.total_questions}</p>
                                 </div>
                             </div>
 
@@ -110,9 +110,9 @@ export default function TestHistoryModal({ isOpen, onClose }: TestHistoryModalPr
 
                                     return (
                                         <div key={idx} className={`p-3 rounded-lg border ${ans.isCorrect ? 'bg-green-50 border-green-200 dark:bg-green-900/10' : 'bg-red-50 border-red-200 dark:bg-red-900/10'}`}>
-                                            <p className="text-sm font-medium mb-1 dark:text-gray-200">Q{idx + 1}: {q.question}</p>
+                                            <p className="text-sm font-medium mb-1">Q{idx + 1}: {q.question}</p>
                                             <div className="flex items-center justify-between text-xs mt-2">
-                                                <span className="dark:text-gray-400">Your Answer: <strong>{ans.answer >= 0 ? q.options[ans.answer] : 'Skipped'}</strong></span>
+                                                <span className="dark:text-muted-foreground">Your Answer: <strong>{ans.answer >= 0 ? q.options[ans.answer] : 'Skipped'}</strong></span>
                                                 <span className={ans.isCorrect ? 'text-green-600 font-bold' : 'text-red-600 font-bold'}>{ans.isCorrect ? '✓ Correct' : '✗ Incorrect'}</span>
                                             </div>
                                             {/* Show correct answer if incorrect */}
@@ -130,7 +130,7 @@ export default function TestHistoryModal({ isOpen, onClose }: TestHistoryModalPr
                             </div>
                         </div>
                     ) : history.length === 0 ? (
-                        <div className="text-center py-12 text-gray-500">
+                        <div className="text-center py-12 text-muted-foreground">
                             <p>No test reports found.</p>
                             <p className="text-sm mt-2">Complete a test in Batch 1 to see your results here!</p>
                         </div>
@@ -143,12 +143,12 @@ export default function TestHistoryModal({ isOpen, onClose }: TestHistoryModalPr
                                         <div className="flex items-center justify-between">
                                             <div>
                                                 <p className="font-semibold">Test Item: Cycle {result.cycle_id}, Day {result.day_number}</p>
-                                                <p className="text-xs text-gray-500">{new Date(result.timestamp).toLocaleDateString()} • {new Date(result.timestamp).toLocaleTimeString()}</p>
+                                                <p className="text-xs text-muted-foreground">{new Date(result.timestamp).toLocaleDateString()} • {new Date(result.timestamp).toLocaleTimeString()}</p>
                                             </div>
                                             <div className="text-right flex flex-col items-end gap-1">
                                                 <div className="flex items-center gap-2">
                                                     <span className={`text-xl font-bold ${result.score >= 0 ? 'text-green-600' : 'text-red-600'}`}>{result.score}</span>
-                                                    <span className="text-xs text-gray-400">marks</span>
+                                                    <span className="text-xs text-muted-foreground">marks</span>
                                                 </div>
                                                 <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => fetchDetail(result.id)}>
                                                     View Report

@@ -148,11 +148,11 @@ export default function AdminMeditationPage() {
             {/* Header */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2">
+                    <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
                         <Brain className="h-8 w-8 text-purple-600" />
                         Meditation Processes
                     </h1>
-                    <p className="text-gray-500 mt-1">Manage meditation processes and upload explanation videos</p>
+                    <p className="text-muted-foreground mt-1">Manage meditation processes and upload explanation videos</p>
                 </div>
                 <Button onClick={startAdd} disabled={isAddingNew}>
                     <Plus className="mr-2 h-4 w-4" />
@@ -245,8 +245,8 @@ export default function AdminMeditationPage() {
             ) : processes.length === 0 ? (
                 <Card>
                     <CardContent className="py-12 text-center">
-                        <Brain className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-                        <p className="text-gray-500">No processes for Level {selectedLevel} yet.</p>
+                        <Brain className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+                        <p className="text-muted-foreground">No processes for Level {selectedLevel} yet.</p>
                         <Button onClick={startAdd} className="mt-4">
                             <Plus className="mr-2 h-4 w-4" />
                             Add First Process
@@ -266,11 +266,11 @@ export default function AdminMeditationPage() {
 
                                     {/* Info */}
                                     <div className="flex-1">
-                                        <h3 className="font-semibold text-gray-800 dark:text-gray-200">{process.name}</h3>
+                                        <h3 className="font-semibold text-foreground">{process.name}</h3>
                                         {process.description && (
-                                            <p className="text-sm text-gray-500 dark:text-gray-400">{process.description}</p>
+                                            <p className="text-sm text-muted-foreground dark:text-muted-foreground">{process.description}</p>
                                         )}
-                                        <div className="flex items-center gap-4 mt-1 text-xs text-gray-400">
+                                        <div className="flex items-center gap-4 mt-1 text-xs text-muted-foreground">
                                             <span className="flex items-center gap-1">
                                                 <Clock className="h-3 w-3" />
                                                 {process.duration_minutes} min

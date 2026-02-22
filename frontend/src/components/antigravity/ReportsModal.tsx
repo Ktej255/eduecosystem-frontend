@@ -129,11 +129,11 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
                         className="relative w-full max-w-3xl bg-[#1a1b26] border border-white/10 rounded-2xl flex flex-col max-h-[90vh] overflow-hidden shadow-2xl"
                     >
                         {/* Header */}
-                        <div className="p-6 border-b border-white/10 flex justify-between items-center bg-white/5">
+                        <div className="p-6 border-b border-white/10 flex justify-between items-center bg-card/5">
                             <h2 className="text-2xl font-bold text-white flex items-center">
                                 <BarChart2 className="mr-2 text-blue-400" /> Performance Analytics
                             </h2>
-                            <button onClick={onClose} className="text-gray-400 hover:text-white">
+                            <button onClick={onClose} className="text-muted-foreground hover:text-white">
                                 <X size={24} />
                             </button>
                         </div>
@@ -143,25 +143,25 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
                             <div className="flex gap-4 mb-2 overflow-x-auto pb-2 scrollbar-hide">
                                 <button
                                     onClick={() => setActiveTab("activity")}
-                                    className={`px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${activeTab === "activity" ? "bg-blue-500 text-white" : "text-gray-400 hover:bg-white/5"}`}
+                                    className={`px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${activeTab === "activity" ? "bg-blue-500 text-white" : "text-muted-foreground hover:bg-card/5"}`}
                                 >
                                     Activity & Heatmap
                                 </button>
                                 <button
                                     onClick={() => setActiveTab("ai_strategy")}
-                                    className={`px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${activeTab === "ai_strategy" ? "bg-purple-500 text-white" : "text-gray-400 hover:bg-white/5"}`}
+                                    className={`px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${activeTab === "ai_strategy" ? "bg-purple-500 text-white" : "text-muted-foreground hover:bg-card/5"}`}
                                 >
                                     Weekly AI Strategy
                                 </button>
                                 <button
                                     onClick={() => setActiveTab("sunburst")}
-                                    className={`px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${activeTab === "sunburst" ? "bg-green-500 text-white" : "text-gray-400 hover:bg-white/5"}`}
+                                    className={`px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${activeTab === "sunburst" ? "bg-green-500 text-white" : "text-muted-foreground hover:bg-card/5"}`}
                                 >
                                     Mastery Sunburst
                                 </button>
                                 <button
                                     onClick={() => setActiveTab("vulnerabilities")}
-                                    className={`px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${activeTab === "vulnerabilities" ? "bg-red-500 text-white" : "text-gray-400 hover:bg-white/5"}`}
+                                    className={`px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${activeTab === "vulnerabilities" ? "bg-red-500 text-white" : "text-muted-foreground hover:bg-card/5"}`}
                                 >
                                     Vulnerabilities
                                 </button>
@@ -176,19 +176,19 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
                                     {/* Stats Grid */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                                         <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-500/30 p-4 rounded-xl flex flex-col justify-center">
-                                            <p className="text-gray-400 text-[10px] font-black uppercase tracking-widest mb-1">Total Tasks</p>
+                                            <p className="text-muted-foreground text-[10px] font-black uppercase tracking-widest mb-1">Total Tasks</p>
                                             <p className="text-2xl font-bold text-white">{data.total_tasks_completed}</p>
                                         </div>
                                         <div className="bg-gradient-to-br from-orange-500/20 to-red-600/10 border border-orange-500/30 p-4 rounded-xl flex flex-col justify-center">
-                                            <p className="text-gray-400 text-[10px] font-black uppercase tracking-widest mb-1">Current Streak</p>
+                                            <p className="text-muted-foreground text-[10px] font-black uppercase tracking-widest mb-1">Current Streak</p>
                                             <p className="text-2xl font-bold text-white">{data.current_streak} Days</p>
                                         </div>
                                         <div className="bg-gradient-to-br from-emerald-500/20 to-green-600/10 border border-emerald-500/30 p-4 rounded-xl flex flex-col justify-center">
-                                            <p className="text-gray-400 text-[10px] font-black uppercase tracking-widest mb-1">Weekly Accuracy</p>
+                                            <p className="text-muted-foreground text-[10px] font-black uppercase tracking-widest mb-1">Weekly Accuracy</p>
                                             <p className="text-2xl font-bold text-white">{weeklyReport?.mcqAccuracy || 0}%</p>
                                         </div>
                                         <div className="bg-gradient-to-br from-purple-500/20 to-indigo-600/10 border border-purple-500/30 p-4 rounded-xl flex flex-col justify-center">
-                                            <p className="text-gray-400 text-[10px] font-black uppercase tracking-widest mb-1">Focus Time</p>
+                                            <p className="text-muted-foreground text-[10px] font-black uppercase tracking-widest mb-1">Focus Time</p>
                                             <p className="text-2xl font-bold text-white">{weeklyReport?.totalStudyMinutes || 0}m</p>
                                         </div>
                                     </div>
@@ -198,20 +198,20 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
                                         <div className="space-y-8">
                                             {/* XP Progress Bar */}
                                             {userXP && (
-                                                <div className="p-6 bg-white/5 border border-white/10 rounded-2xl">
+                                                <div className="p-6 bg-card/5 border border-white/10 rounded-2xl">
                                                     <div className="flex justify-between items-end mb-4">
                                                         <div>
                                                             <div className="flex items-center gap-2 mb-1">
                                                                 <span className="text-2xl">{getLevelIcon(userXP.level)}</span>
                                                                 <h4 className="text-xl font-black text-white">{getLevelTitle(userXP.level)}</h4>
                                                             </div>
-                                                            <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Level {userXP.level} • {userXP.totalXP} Total XP</p>
+                                                            <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Level {userXP.level} • {userXP.totalXP} Total XP</p>
                                                         </div>
                                                         <div className="text-right">
                                                             <span className="text-xs font-black text-blue-400 uppercase tracking-tighter">{userXP.currentXP} / {userXP.xpToNextLevel} XP</span>
                                                         </div>
                                                     </div>
-                                                    <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
+                                                    <div className="h-2 w-full bg-card/5 rounded-full overflow-hidden border border-white/5">
                                                         <motion.div
                                                             initial={{ width: 0 }}
                                                             animate={{ width: `${(userXP.currentXP / userXP.xpToNextLevel) * 100}%` }}
@@ -225,24 +225,24 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
                                                 <RASHeatmap data={data.daily_breakdown} />
                                             </div>
                                             <div>
-                                                <h3 className="text-lg font-bold text-gray-300 mb-4">Recent Completed Tasks</h3>
+                                                <h3 className="text-lg font-bold text-muted-foreground mb-4">Recent Completed Tasks</h3>
                                                 <div className="space-y-2">
                                                     {data.recent_activity.length > 0 ? (
                                                         data.recent_activity.map((topic, i) => (
-                                                            <div key={i} className="p-3 bg-white/5 border border-white/5 rounded-lg flex items-center justify-between">
-                                                                <span className="text-sm text-gray-300 font-mono">{topic}</span>
+                                                            <div key={i} className="p-3 bg-card/5 border border-white/5 rounded-lg flex items-center justify-between">
+                                                                <span className="text-sm text-muted-foreground font-mono">{topic}</span>
                                                                 <span className="text-xs text-green-400 bg-green-500/10 px-2 py-1 rounded">Done</span>
                                                             </div>
                                                         ))
                                                     ) : (
-                                                        <p className="text-gray-500 italic">No recent activity found.</p>
+                                                        <p className="text-muted-foreground italic">No recent activity found.</p>
                                                     )}
                                                 </div>
                                             </div>
 
                                             {/* Milestones / Achievements Section */}
                                             <div>
-                                                <h3 className="text-lg font-bold text-gray-300 mb-4">Recent Milestones</h3>
+                                                <h3 className="text-lg font-bold text-muted-foreground mb-4">Recent Milestones</h3>
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                                     <div className="p-4 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 border border-yellow-500/20 rounded-xl flex items-center gap-3">
                                                         <div className="p-2 bg-yellow-500/20 rounded-lg">
@@ -250,7 +250,7 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
                                                         </div>
                                                         <div>
                                                             <p className="text-white text-xs font-bold">{data.current_streak}-Day Streak</p>
-                                                            <p className="text-[10px] text-gray-400 font-medium">Momentum is building!</p>
+                                                            <p className="text-[10px] text-muted-foreground font-medium">Momentum is building!</p>
                                                         </div>
                                                     </div>
                                                     <div className="p-4 bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl flex items-center gap-3">
@@ -259,7 +259,7 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
                                                         </div>
                                                         <div>
                                                             <p className="text-white text-xs font-bold">Level {userXP?.level || 1} Reached</p>
-                                                            <p className="text-[10px] text-gray-400 font-medium">Evolution in progress.</p>
+                                                            <p className="text-[10px] text-muted-foreground font-medium">Evolution in progress.</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -301,7 +301,7 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
                                                     </div>
                                                 </>
                                             ) : (
-                                                <div className="flex flex-col items-center justify-center py-12 text-gray-500">
+                                                <div className="flex flex-col items-center justify-center py-12 text-muted-foreground">
                                                     <Activity className="animate-pulse mb-2 text-purple-400" />
                                                     <p className="text-sm font-medium">Synthesizing AI Strategic Review...</p>
                                                 </div>
@@ -311,7 +311,7 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
 
                                     {activeTab === "sunburst" && (
                                         <div className="flex flex-col items-center">
-                                            <h3 className="text-lg font-bold text-gray-300 mb-6 w-full text-center">Syllabus Mastery Sunburst</h3>
+                                            <h3 className="text-lg font-bold text-muted-foreground mb-6 w-full text-center">Syllabus Mastery Sunburst</h3>
                                             {masteryData && masteryData.children ? (
                                                 <div className="relative w-full aspect-square max-w-[360px] mx-auto">
                                                     <svg viewBox="0 0 100 100" className="w-full h-full transform -rotate-90">
@@ -351,26 +351,26 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
                                                         <div className="flex flex-col gap-1">
                                                             <div className="flex items-center gap-2">
                                                                 <div className="w-2 h-2 rounded-full bg-green-500" />
-                                                                <span className="text-[10px] text-gray-400 uppercase font-black">High Mastery (&gt;80%)</span>
+                                                                <span className="text-[10px] text-muted-foreground uppercase font-black">High Mastery (&gt;80%)</span>
                                                             </div>
                                                             <div className="flex items-center gap-2">
                                                                 <div className="w-2 h-2 rounded-full bg-yellow-500" />
-                                                                <span className="text-[10px] text-gray-400 uppercase font-black">Stable (50-80%)</span>
+                                                                <span className="text-[10px] text-muted-foreground uppercase font-black">Stable (50-80%)</span>
                                                             </div>
                                                             <div className="flex items-center gap-2">
                                                                 <div className="w-2 h-2 rounded-full bg-red-500" />
-                                                                <span className="text-[10px] text-gray-400 uppercase font-black">Decayed (&lt;50%)</span>
+                                                                <span className="text-[10px] text-muted-foreground uppercase font-black">Decayed (&lt;50%)</span>
                                                             </div>
                                                         </div>
-                                                        <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
-                                                            <p className="text-[9px] text-gray-500 font-bold leading-tight italic uppercase tracking-widest text-center">
+                                                        <div className="bg-card/5 p-4 rounded-2xl border border-white/5">
+                                                            <p className="text-[9px] text-muted-foreground font-bold leading-tight italic uppercase tracking-widest text-center">
                                                                 Outer rings: Modules. Inner rings: Subjects.
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             ) : (
-                                                <div className="py-20 text-gray-600 font-mono text-sm uppercase italic">No Hierarchy Data Found</div>
+                                                <div className="py-20 text-muted-foreground font-mono text-sm uppercase italic">No Hierarchy Data Found</div>
                                             )}
                                         </div>
                                     )}
@@ -384,11 +384,11 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
                                                 <div className="space-y-3">
                                                     {vulnerabilities && vulnerabilities.weakTopics.length > 0 ? (
                                                         vulnerabilities.weakTopics.map((topic, i) => (
-                                                            <div key={i} className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/[0.08] transition-all">
+                                                            <div key={i} className="flex items-center justify-between p-4 bg-card/5 border border-white/10 rounded-xl hover:bg-card/[0.08] transition-all">
                                                                 <div>
                                                                     <p className="text-sm font-bold text-white mb-1">{topic.topicName}</p>
                                                                     <div className="flex gap-2">
-                                                                        <span className="text-[9px] font-black uppercase bg-white/10 px-2 py-0.5 rounded text-gray-400">
+                                                                        <span className="text-[9px] font-black uppercase bg-card/10 px-2 py-0.5 rounded text-muted-foreground">
                                                                             Accuracy: {topic.accuracy}%
                                                                         </span>
                                                                         <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded ${getPriorityColor(topic.practiceRecommendation)}`}>
@@ -408,7 +408,7 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
                                                             </div>
                                                         ))
                                                     ) : (
-                                                        <div className="text-center py-8 text-gray-500 italic text-sm">
+                                                        <div className="text-center py-8 text-muted-foreground italic text-sm">
                                                             No critical vulnerabilities detected. Your trajectory is stable.
                                                         </div>
                                                     )}
@@ -416,15 +416,15 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
                                             </div>
 
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                <div className="p-4 bg-white/5 border border-white/10 rounded-xl">
-                                                    <h5 className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Weekly Summary</h5>
-                                                    <p className="text-xs text-gray-300 leading-relaxed italic">
+                                                <div className="p-4 bg-card/5 border border-white/10 rounded-xl">
+                                                    <h5 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-2">Weekly Summary</h5>
+                                                    <p className="text-xs text-muted-foreground leading-relaxed italic">
                                                         {weeklyReport ? getWeeklySummaryText(weeklyReport) : "No weekly data available."}
                                                     </p>
                                                 </div>
-                                                <div className="p-4 bg-white/5 border border-white/10 rounded-xl">
-                                                    <h5 className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Subject Mastery</h5>
-                                                    <p className="text-xs text-gray-300 leading-relaxed font-bold">
+                                                <div className="p-4 bg-card/5 border border-white/10 rounded-xl">
+                                                    <h5 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-2">Subject Mastery</h5>
+                                                    <p className="text-xs text-muted-foreground leading-relaxed font-bold">
                                                         Strongest: <span className="text-green-400">{weeklyReport?.strongestTopic || "N/A"}</span><br />
                                                         Weakest: <span className="text-red-400">{weeklyReport?.weakestTopic || "N/A"}</span>
                                                     </p>
@@ -434,7 +434,7 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
                                     )}
                                 </div>
                             ) : (
-                                <div className="text-center text-gray-400 py-12 italic uppercase font-black tracking-widest opacity-20">NO INTEL DATA</div>
+                                <div className="text-center text-muted-foreground py-12 italic uppercase font-black tracking-widest opacity-20">NO INTEL DATA</div>
                             )}
                         </div>
                     </motion.div>

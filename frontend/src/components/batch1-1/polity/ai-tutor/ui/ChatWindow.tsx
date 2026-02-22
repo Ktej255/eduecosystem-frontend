@@ -23,7 +23,7 @@ export default function ChatWindow({ messages, isTyping }: ChatWindowProps) {
     return (
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
             {messages.length === 0 && (
-                <div className="flex flex-col items-center justify-center h-full text-slate-500 opacity-50">
+                <div className="flex flex-col items-center justify-center h-full text-muted-foreground opacity-50">
                     <Bot className="w-16 h-16 mb-4" />
                     <p className="text-sm">Ask Dr. Ambedkar anything about the Constitution.</p>
                 </div>
@@ -57,7 +57,7 @@ export default function ChatWindow({ messages, isTyping }: ChatWindowProps) {
                         {msg.sources && msg.sources.length > 0 && (
                             <div className="mt-2 pt-2 border-t border-slate-700/50 flex gap-2 flex-wrap">
                                 {msg.sources.map((src, idx) => (
-                                    <span key={idx} className="text-[10px] px-1.5 py-0.5 bg-slate-900/50 rounded text-slate-500 border border-slate-700/30">
+                                    <span key={idx} className="text-[10px] px-1.5 py-0.5 bg-slate-900/50 rounded text-muted-foreground border border-slate-700/30">
                                         Docs: {src}
                                     </span>
                                 ))}

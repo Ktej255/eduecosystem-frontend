@@ -133,7 +133,7 @@ export default function PricingPage() {
           className="relative w-14 h-8 bg-primary rounded-full transition-colors"
         >
           <div
-            className={`absolute top-1 left-1 w-6 h-6 bg-white rounded-full transition-transform ${
+            className={`absolute top-1 left-1 w-6 h-6 bg-card rounded-full transition-transform ${
               billingCycle === "yearly" ? "translate-x-6" : ""
             }`}
           />

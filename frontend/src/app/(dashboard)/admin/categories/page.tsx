@@ -171,7 +171,7 @@ export default function CategoriesPage() {
           <h1 className="text-3xl font-bold text-white mb-2">
             Taxonomy Management
           </h1>
-          <p className="text-gray-400">Manage course categories and tags</p>
+          <p className="text-muted-foreground">Manage course categories and tags</p>
         </div>
         <Button
           onClick={() => setIsCreateOpen(true)}
@@ -187,7 +187,7 @@ export default function CategoriesPage() {
         <button
           className={`pb-4 px-4 font-medium transition-colors ${activeTab === "categories"
             ? "text-cyan-400 border-b-2 border-cyan-400"
-            : "text-gray-400 hover:text-white"
+            : "text-muted-foreground hover:text-white"
             }`}
           onClick={() => setActiveTab("categories")}
         >
@@ -199,7 +199,7 @@ export default function CategoriesPage() {
         <button
           className={`pb-4 px-4 font-medium transition-colors ${activeTab === "tags"
             ? "text-cyan-400 border-b-2 border-cyan-400"
-            : "text-gray-400 hover:text-white"
+            : "text-muted-foreground hover:text-white"
             }`}
           onClick={() => setActiveTab("tags")}
         >
@@ -215,12 +215,12 @@ export default function CategoriesPage() {
         <Table>
           <TableHeader>
             <TableRow className="border-gray-800 hover:bg-gray-800/50">
-              <TableHead className="text-gray-400">Name</TableHead>
-              <TableHead className="text-gray-400">Slug</TableHead>
+              <TableHead className="text-muted-foreground">Name</TableHead>
+              <TableHead className="text-muted-foreground">Slug</TableHead>
               {activeTab === "categories" && (
-                <TableHead className="text-gray-400">Description</TableHead>
+                <TableHead className="text-muted-foreground">Description</TableHead>
               )}
-              <TableHead className="text-right text-gray-400">
+              <TableHead className="text-right text-muted-foreground">
                 Actions
               </TableHead>
             </TableRow>
@@ -230,7 +230,7 @@ export default function CategoriesPage() {
               <TableRow>
                 <TableCell
                   colSpan={4}
-                  className="text-center py-8 text-gray-500"
+                  className="text-center py-8 text-muted-foreground"
                 >
                   Loading...
                 </TableCell>
@@ -240,7 +240,7 @@ export default function CategoriesPage() {
               <TableRow>
                 <TableCell
                   colSpan={4}
-                  className="text-center py-8 text-gray-500"
+                  className="text-center py-8 text-muted-foreground"
                 >
                   No items found
                 </TableCell>
@@ -255,18 +255,18 @@ export default function CategoriesPage() {
                     <TableCell className="font-medium text-white">
                       <div className="flex items-center gap-3">
                         {activeTab === "categories" && (
-                          <div className="h-8 w-8 rounded bg-gray-800 flex items-center justify-center text-gray-400">
+                          <div className="h-8 w-8 rounded bg-gray-800 flex items-center justify-center text-muted-foreground">
                             <Folder className="h-4 w-4" />
                           </div>
                         )}
                         {item.name}
                       </div>
                     </TableCell>
-                    <TableCell className="text-gray-400 font-mono text-sm">
+                    <TableCell className="text-muted-foreground font-mono text-sm">
                       {item.slug}
                     </TableCell>
                     {activeTab === "categories" && (
-                      <TableCell className="text-gray-400 max-w-md truncate">
+                      <TableCell className="text-muted-foreground max-w-md truncate">
                         {item.description || "-"}
                       </TableCell>
                     )}
@@ -275,7 +275,7 @@ export default function CategoriesPage() {
                         <DropdownMenuTrigger asChild>
                           <Button
                             variant="ghost"
-                            className="h-8 w-8 p-0 text-gray-400 hover:text-white"
+                            className="h-8 w-8 p-0 text-muted-foreground hover:text-white"
                           >
                             <MoreVertical className="h-4 w-4" />
                           </Button>
@@ -284,7 +284,7 @@ export default function CategoriesPage() {
                           align="end"
                           className="bg-gray-900 border-gray-800"
                         >
-                          <DropdownMenuItem className="text-gray-300 focus:text-white focus:bg-gray-800 cursor-pointer">
+                          <DropdownMenuItem className="text-muted-foreground focus:text-white focus:bg-gray-800 cursor-pointer">
                             <Edit className="mr-2 h-4 w-4" /> Edit
                           </DropdownMenuItem>
                           <DropdownMenuItem className="text-red-400 focus:text-red-300 focus:bg-red-900/20 cursor-pointer">
@@ -308,7 +308,7 @@ export default function CategoriesPage() {
             <DialogTitle>
               Create {activeTab === "categories" ? "Category" : "Tag"}
             </DialogTitle>
-            <DialogDescription className="text-gray-400">
+            <DialogDescription className="text-muted-foreground">
               Add a new {activeTab === "categories" ? "category" : "tag"} to
               organize courses.
             </DialogDescription>

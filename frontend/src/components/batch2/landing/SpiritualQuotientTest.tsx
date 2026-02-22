@@ -139,13 +139,13 @@ export default function SpiritualQuotientTest({ onComplete }: { onComplete?: (ph
                     onClick={handleStart}
                     className="group relative px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full font-bold text-white shadow-lg shadow-purple-500/30 overflow-hidden"
                 >
-                    <div className="absolute inset-0 bg-white/20 group-hover:translate-x-full transition-transform duration-500 ease-in-out skew-x-12" />
+                    <div className="absolute inset-0 bg-card/20 group-hover:translate-x-full transition-transform duration-500 ease-in-out skew-x-12" />
                     <span className="relative flex items-center gap-2">
                         <Sparkles className="w-5 h-5" />
                         Discover Your Spiritual Quotient (SQ)
                     </span>
                 </motion.button>
-                <p className="mt-4 text-slate-400 text-sm">Takes 1 minute • Receive a personalized roadmap</p>
+                <p className="mt-4 text-muted-foreground text-sm">Takes 1 minute • Receive a personalized roadmap</p>
             </div>
 
             <AnimatePresence>
@@ -172,8 +172,8 @@ export default function SpiritualQuotientTest({ onComplete }: { onComplete?: (ph
                             {!showResult ? (
                                 <>
                                     <div className="flex justify-between items-center mb-8">
-                                        <span className="text-xs font-bold tracking-widest text-slate-500 uppercase">Question {currentQuestion + 1}/{QUESTIONS.length}</span>
-                                        <button onClick={handleClose} className="text-slate-500 hover:text-white">✕</button>
+                                        <span className="text-xs font-bold tracking-widest text-muted-foreground uppercase">Question {currentQuestion + 1}/{QUESTIONS.length}</span>
+                                        <button onClick={handleClose} className="text-muted-foreground hover:text-white">✕</button>
                                     </div>
 
                                     <h3 className="text-2xl font-serif text-white mb-8 leading-relaxed">
@@ -206,7 +206,7 @@ export default function SpiritualQuotientTest({ onComplete }: { onComplete?: (ph
                                     <div>
                                         <h3 className="text-sm font-bold text-amber-500 uppercase tracking-widest mb-2">Analysis Complete</h3>
                                         <h2 className="text-3xl font-serif text-white mb-4">You are a {result?.level}</h2>
-                                        <p className="text-slate-400 leading-relaxed">{result?.msg}</p>
+                                        <p className="text-muted-foreground leading-relaxed">{result?.msg}</p>
                                     </div>
 
                                     <div className="pt-4">

@@ -327,7 +327,7 @@ export const ${varName}: MCQ[] = ${JSON.stringify(questions.map(q => ({
                     </div>
 
                     {questions.length === 0 ? (
-                        <div className="border-2 border-dashed border-gray-200 rounded-lg p-12 text-center text-gray-400">
+                        <div className="border-2 border-dashed border-border rounded-lg p-12 text-center text-muted-foreground">
                             No questions generated yet.
                         </div>
                     ) : (
@@ -341,8 +341,8 @@ export const ${varName}: MCQ[] = ${JSON.stringify(questions.map(q => ({
                                             </Button>
                                         </div>
                                         <div className="flex items-start gap-2">
-                                            <span className="font-bold text-gray-500">Q{idx + 1}.</span>
-                                            <p className="font-medium text-gray-900 dark:text-gray-100">{q.question}</p>
+                                            <span className="font-bold text-muted-foreground">Q{idx + 1}.</span>
+                                            <p className="font-medium text-foreground">{q.question}</p>
                                         </div>
                                         <div className="grid grid-cols-2 gap-2 pl-6">
                                             {q.options.map((opt, optIdx) => (
@@ -350,7 +350,7 @@ export const ${varName}: MCQ[] = ${JSON.stringify(questions.map(q => ({
                                                     key={optIdx}
                                                     className={`text-sm p-2 rounded ${optIdx === q.correctAnswer
                                                         ? 'bg-green-50 text-green-700 border border-green-200'
-                                                        : 'bg-gray-50 text-gray-600'
+                                                        : 'bg-muted text-muted-foreground'
                                                         }`}
                                                 >
                                                     <span className="font-bold mr-2">{String.fromCharCode(65 + optIdx)}.</span>
@@ -361,7 +361,7 @@ export const ${varName}: MCQ[] = ${JSON.stringify(questions.map(q => ({
                                         </div>
                                         {q.explanation && (
                                             <div className="pl-6 pt-2 border-t mt-2">
-                                                <p className="text-xs text-gray-500">
+                                                <p className="text-xs text-muted-foreground">
                                                     <span className="font-bold">Explanation:</span> {q.explanation}
                                                 </p>
                                             </div>

@@ -30,20 +30,20 @@ export default function HandwrittenChapter11() {
     const [decoded, setDecoded] = useState<string | null>(null);
 
     return (
-        <div className="min-h-screen bg-[#1a1a1a] p-4 md:p-8 font-['Courier_Prime',_monospace] text-gray-200 selection:bg-red-900 overflow-x-hidden relative">
+        <div className="min-h-screen bg-neutral-900 dark:bg-black p-4 md:p-8 font-['Courier_Prime',_monospace] text-gray-200 selection:bg-paper-red/30 overflow-x-hidden relative">
             <style jsx global>{`
                 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Permanent+Marker&display=swap');
                 
                 .corkboard {
-                    background-color: #3d342b;
+                    background-color: var(--paper-text-brown-dark);
                     background-image: url("https://www.transparenttextures.com/patterns/cork-board.png");
                     border: 8px solid #2a2118;
                     box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
                 }
 
                 .folder-paper {
-                    background-color: #f4e4bc;
-                    color: #1a1a1a;
+                    background-color: var(--paper-bg);
+                    color: var(--paper-text-gray);
                     box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
                 }
 
@@ -56,7 +56,7 @@ export default function HandwrittenChapter11() {
                 }
 
                 .red-string {
-                    border-top: 2px dashed #e11d48;
+                    border-top: 2px dashed var(--paper-text-red);
                     opacity: 0.6;
                     transform-origin: left;
                 }
@@ -67,8 +67,8 @@ export default function HandwrittenChapter11() {
                 }
                 
                 .cipher-text:hover {
-                    color: #e11d48;
-                    text-shadow: 0 0 5px rgba(225, 29, 72, 0.8);
+                    color: var(--paper-text-red);
+                    text-shadow: 0 0 5px var(--paper-text-red);
                 }
             `}</style>
 
@@ -82,13 +82,13 @@ export default function HandwrittenChapter11() {
                     animate={{ scale: 1, opacity: 1 }}
                     className="inline-block relative"
                 >
-                    <div className="absolute -top-6 -left-12 transform -rotate-12 border-4 border-red-600 text-red-600 px-4 py-1 text-xl font-bold uppercase marker-font opacity-80">
+                    <div className="absolute -top-6 -left-12 transform -rotate-12 border-4 border-paper-red text-paper-red px-4 py-1 text-xl font-bold uppercase marker-font opacity-80">
                         {t.classified}
                     </div>
                     <h1 className="typewriter-font text-5xl md:text-7xl font-bold mb-4 text-gray-100 tracking-tighter">
                         {t.headerTitle}
                     </h1>
-                    <div className="flex items-center justify-center gap-4 text-red-500 font-bold tracking-widest uppercase">
+                    <div className="flex items-center justify-center gap-4 text-paper-red font-bold tracking-widest uppercase">
                         <Siren className="w-6 h-6 animate-pulse" />
                         <span>{t.headerPhase}</span>
                         <Siren className="w-6 h-6 animate-pulse" />
@@ -102,25 +102,25 @@ export default function HandwrittenChapter11() {
                 <div className="lg:col-span-4 space-y-8">
 
                     {/* MANIFESTO CARD */}
-                    <div className="folder-paper p-6 transform rotate-1 relative">
-                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-red-800 shadow-md"></div>
-                        <h3 className="marker-font text-2xl text-red-900 mb-2">{t.modusTitle}</h3>
-                        <p className="text-sm font-bold mb-4 font-serif italic">{t.modusQuote}</p>
+                    <div className="folder-paper p-6 transform rotate-1 relative text-inherit">
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-paper-red shadow-md"></div>
+                        <h3 className="marker-font text-2xl text-paper-red mb-2">{t.modusTitle}</h3>
+                        <p className="text-sm font-bold mb-4 font-serif italic text-inherit">{t.modusQuote}</p>
 
-                        <div className="space-y-3 text-sm">
+                        <div className="space-y-3 text-sm text-inherit">
                             <div className="flex items-start gap-2">
-                                <Bomb className="w-4 h-4 mt-1 text-slate-800" />
+                                <Bomb className="w-4 h-4 mt-1 text-inherit opacity-60" />
                                 <span><strong>{t.strategyBold}</strong>{t.strategyText}</span>
                             </div>
                             <div className="flex items-start gap-2">
-                                <Scroll className="w-4 h-4 mt-1 text-slate-800" />
+                                <Scroll className="w-4 h-4 mt-1 text-inherit opacity-60" />
                                 <span><strong>{t.bibleBold}</strong>{t.bibleText}</span>
                             </div>
-                            <div className="bg-red-100 p-2 border border-red-300 relative mt-2">
-                                <div className="absolute -right-2 -top-2 bg-red-600 text-white text-[10px] px-1 font-bold">{t.fundingLabel}</div>
+                            <div className="bg-paper-red/10 p-2 border border-paper-red/30 relative mt-2 text-inherit">
+                                <div className="absolute -right-2 -top-2 bg-paper-red text-paper-bg text-[10px] px-1 font-bold">{t.fundingLabel}</div>
                                 <strong>{t.fundingBold}</strong>
                                 <br />
-                                <span className="text-xs">{t.fundingText}</span>
+                                <span className="text-xs opacity-80">{t.fundingText}</span>
                             </div>
                         </div>
                     </div>
@@ -133,10 +133,10 @@ export default function HandwrittenChapter11() {
 
                         <div className="space-y-6">
                             {/* MAHARASHTRA */}
-                            <div className="bg-white/90 text-slate-900 p-3 rounded shadow-lg relative transform -rotate-1 hover:scale-105 transition-transform">
-                                <div className="absolute -left-2 top-2 w-2 h-2 rounded-full bg-red-600"></div>
-                                <h4 className="font-bold text-sm uppercase text-red-800">{t.maharashtraTitle}</h4>
-                                <ul className="text-xs space-y-1 mt-1">
+                            <div className="bg-paper text-paper-gray p-3 rounded shadow-lg relative transform -rotate-1 hover:scale-105 transition-transform border border-paper-border/20">
+                                <div className="absolute -left-2 top-2 w-2 h-2 rounded-full bg-paper-red"></div>
+                                <h4 className="font-bold text-sm uppercase text-paper-red">{t.maharashtraTitle}</h4>
+                                <ul className="text-xs space-y-1 mt-1 opacity-80">
                                     {t.maharashtraItems.map((item, i) => (
                                         <li key={i}><strong>{item.bold}</strong>{item.text}</li>
                                     ))}
@@ -144,10 +144,10 @@ export default function HandwrittenChapter11() {
                             </div>
 
                             {/* BENGAL */}
-                            <div className="bg-white/90 text-slate-900 p-3 rounded shadow-lg relative transform rotate-2 hover:scale-105 transition-transform ml-4">
-                                <div className="absolute -left-2 top-2 w-2 h-2 rounded-full bg-red-600"></div>
-                                <h4 className="font-bold text-sm uppercase text-red-800">{t.bengalTitle}</h4>
-                                <ul className="text-xs space-y-1 mt-1">
+                            <div className="bg-paper text-paper-gray p-3 rounded shadow-lg relative transform rotate-2 hover:scale-105 transition-transform ml-4 border border-paper-border/20">
+                                <div className="absolute -left-2 top-2 w-2 h-2 rounded-full bg-paper-red"></div>
+                                <h4 className="font-bold text-sm uppercase text-paper-red">{t.bengalTitle}</h4>
+                                <ul className="text-xs space-y-1 mt-1 opacity-80">
                                     {t.bengalItems.map((item, i) => (
                                         <li key={i}><strong>{item.bold}</strong>{item.text}</li>
                                     ))}
@@ -155,22 +155,22 @@ export default function HandwrittenChapter11() {
                             </div>
 
                             {/* DELHI/PUNJAB */}
-                            <div className="bg-white/90 text-slate-900 p-3 rounded shadow-lg relative transform -rotate-1 hover:scale-105 transition-transform">
-                                <div className="absolute -left-2 top-2 w-2 h-2 rounded-full bg-red-600"></div>
-                                <h4 className="font-bold text-sm uppercase text-red-800">{t.delhiTitle}</h4>
-                                <p className="text-xs mt-1">{t.delhiText}</p>
+                            <div className="bg-paper text-paper-gray p-3 rounded shadow-lg relative transform -rotate-1 hover:scale-105 transition-transform border border-paper-border/20">
+                                <div className="absolute -left-2 top-2 w-2 h-2 rounded-full bg-paper-red"></div>
+                                <h4 className="font-bold text-sm uppercase text-paper-red">{t.delhiTitle}</h4>
+                                <p className="text-xs mt-1 opacity-80">{t.delhiText}</p>
                                 <div className="flex gap-2 mt-1">
                                     {t.delhiBadges.map((b, i) => (
-                                        <Badge key={i} variant={b.variant as any} className="text-[10px]">{b.text}</Badge>
+                                        <Badge key={i} variant={b.variant as any} className="text-[10px] bg-paper-navy text-paper-bg">{b.text}</Badge>
                                     ))}
                                 </div>
                             </div>
 
                             {/* MADRAS */}
-                            <div className="bg-white/90 text-slate-900 p-3 rounded shadow-lg relative transform rotate-1 hover:scale-105 transition-transform ml-8">
-                                <div className="absolute -left-2 top-2 w-2 h-2 rounded-full bg-red-600"></div>
-                                <h4 className="font-bold text-sm uppercase text-red-800">{t.madrasTitle}</h4>
-                                <p className="text-xs mt-1"><strong>{t.madrasText}</strong></p>
+                            <div className="bg-paper text-paper-gray p-3 rounded shadow-lg relative transform rotate-1 hover:scale-105 transition-transform ml-8 border border-paper-border/20">
+                                <div className="absolute -left-2 top-2 w-2 h-2 rounded-full bg-paper-red"></div>
+                                <h4 className="font-bold text-sm uppercase text-paper-red">{t.madrasTitle}</h4>
+                                <p className="text-xs mt-1 opacity-80"><strong>{t.madrasText}</strong></p>
                             </div>
                         </div>
                     </div>
@@ -181,46 +181,46 @@ export default function HandwrittenChapter11() {
                 <div className="lg:col-span-5 space-y-8">
 
                     {/* GHADAR POSTER */}
-                    <div className="folder-paper p-8 text-center relative overflow-hidden border-4 border-double border-slate-800">
-                        <div className="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-4 py-1 rotate-45 transform translate-x-4 translate-y-4">{t.ghadarSeditious}</div>
+                    <div className="folder-paper p-8 text-center relative overflow-hidden border-4 border-double border-paper-border text-inherit">
+                        <div className="absolute top-0 right-0 bg-paper-red text-paper-bg text-xs font-bold px-4 py-1 rotate-45 transform translate-x-4 translate-y-4">{t.ghadarSeditious}</div>
 
-                        <h2 className="typewriter-font text-5xl font-black mb-2 tracking-tighter text-red-900">{t.ghadarTitle}</h2>
-                        <p className="text-sm font-bold uppercase tracking-widest text-slate-600 mb-6">{t.ghadarPlace}</p>
+                        <h2 className="typewriter-font text-5xl font-black mb-2 tracking-tighter text-paper-red">{t.ghadarTitle}</h2>
+                        <p className="text-sm font-bold uppercase tracking-widest text-paper-gray opacity-40 mb-6">{t.ghadarPlace}</p>
 
-                        <div className="grid grid-cols-2 gap-4 text-left text-xs mb-6">
-                            <div className="border p-2 border-slate-400">
-                                <strong>{t.ghadarHQ}</strong>{t.ghadarHQVal}
+                        <div className="grid grid-cols-2 gap-4 text-left text-xs mb-6 text-inherit">
+                            <div className="border p-2 border-paper-border/20">
+                                <strong className="text-paper-gray">{t.ghadarHQ}</strong><span className="opacity-80">{t.ghadarHQVal}</span>
                             </div>
-                            <div className="border p-2 border-slate-400">
-                                <strong>{t.ghadarJournal}</strong>{t.ghadarJournalVal}
+                            <div className="border p-2 border-paper-border/20">
+                                <strong className="text-paper-gray">{t.ghadarJournal}</strong><span className="opacity-80">{t.ghadarJournalVal}</span>
                             </div>
                         </div>
 
-                        <div className="bg-slate-800 text-white p-4 rounded relative">
-                            <div className="absolute -top-3 left-4 bg-yellow-500 text-black px-2 text-[10px] font-bold">{t.ghadarOperatives}</div>
+                        <div className="bg-neutral-800 dark:bg-black text-white p-4 rounded relative border border-white/10">
+                            <div className="absolute -top-3 left-4 bg-paper-orange text-paper-bg px-2 text-[10px] font-bold">{t.ghadarOperatives}</div>
                             <ul className="text-sm space-y-1">
                                 {t.ghadarMembers.map((m, i) => (
                                     <li key={i}>• {m}</li>
                                 ))}
-                                <li>• <span className="text-yellow-400 font-bold">{t.ghadarHero}</span>{t.ghadarHeroRole}</li>
+                                <li>• <span className="text-paper-orange font-bold font-marker">{t.ghadarHero}</span>{t.ghadarHeroRole}</li>
                             </ul>
                         </div>
 
-                        <div className="mt-4 bg-red-100 p-2 text-xs border border-red-300 text-red-900">
+                        <div className="mt-4 bg-paper-red/10 p-2 text-xs border border-paper-red/30 text-paper-red">
                             <strong>{t.ghadarFailure}</strong>{t.ghadarTraitor}
                         </div>
                     </div>
 
                     {/* KOMAGATA MARU FILE */}
-                    <div className="folder-paper p-6 relative bg-blue-50/90 rotate-1">
-                        <div className="flex items-center gap-4 mb-4 border-b border-blue-200 pb-2">
-                            <Ship className="w-10 h-10 text-blue-900" />
+                    <div className="folder-paper p-6 relative bg-paper shadow-lg rotate-1 text-inherit">
+                        <div className="flex items-center gap-4 mb-4 border-b border-paper-border/20 pb-2">
+                            <Ship className="w-10 h-10 text-paper-navy" />
                             <div>
-                                <h3 className="font-bold text-xl text-blue-900">{t.komagataTitle}</h3>
-                                <p className="text-xs italic">{t.komagataSubtitle}</p>
+                                <h3 className="font-bold text-xl text-paper-navy">{t.komagataTitle}</h3>
+                                <p className="text-xs italic opacity-60 text-inherit">{t.komagataSubtitle}</p>
                             </div>
                         </div>
-                        <ul className="text-sm space-y-2 list-disc ml-4 text-slate-800">
+                        <ul className="text-sm space-y-2 list-disc ml-4 text-inherit opacity-80">
                             {t.komagataItems.map((item, i) => (
                                 <li key={i}><strong>{item.bold}</strong>{item.text}</li>
                             ))}
@@ -228,21 +228,21 @@ export default function HandwrittenChapter11() {
                     </div>
 
                     {/* BERLIN & KABUL */}
-                    <div className="bg-slate-800 text-slate-200 p-6 rounded border border-slate-600 relative">
-                        <div className="absolute top-4 right-4 text-slate-500">
+                    <div className="bg-neutral-800 dark:bg-black text-slate-200 p-6 rounded border border-white/10 relative text-inherit">
+                        <div className="absolute top-4 right-4 text-muted-foreground">
                             <Globe className="w-12 h-12 opacity-20" />
                         </div>
-                        <h3 className="typewriter-font text-xl text-yellow-500 mb-4">{t.intlTitle}</h3>
+                        <h3 className="typewriter-font text-xl text-paper-orange mb-4">{t.intlTitle}</h3>
 
-                        <div className="space-y-4 text-sm">
-                            <div className="border-l-2 border-yellow-500 pl-4">
-                                <strong className="text-yellow-200">{t.zimTitle}</strong>
-                                <p className="text-xs mt-1 text-slate-400">{t.zimText}</p>
+                        <div className="space-y-4 text-sm text-inherit">
+                            <div className="border-l-2 border-paper-orange pl-4">
+                                <strong className="text-paper-orange opacity-80">{t.zimTitle}</strong>
+                                <p className="text-xs mt-1 text-muted-foreground">{t.zimText}</p>
                             </div>
 
-                            <div className="border-l-2 border-green-500 pl-4">
-                                <strong className="text-green-300">{t.kabulTitle}</strong>
-                                <p className="text-xs mt-1 text-slate-400">{t.kabulText}</p>
+                            <div className="border-l-2 border-paper-green pl-4">
+                                <strong className="text-paper-green opacity-80">{t.kabulTitle}</strong>
+                                <p className="text-xs mt-1 text-muted-foreground">{t.kabulText}</p>
                             </div>
                         </div>
                     </div>
@@ -253,56 +253,56 @@ export default function HandwrittenChapter11() {
                 <div className="lg:col-span-3 space-y-6">
 
                     {/* KHUDIRAM WANTED POSTER */}
-                    <div className="bg-[#e3dcd2] p-4 text-center border-4 border-slate-900 shadow-xl relative">
-                        <div className="border-b-2 border-slate-900 mb-2 pb-1">
-                            <h4 className="font-black text-3xl uppercase tracking-tighter scale-y-125">{t.wantedTitle}</h4>
-                            <p className="text-xs font-bold uppercase">{t.deadOrAlive}</p>
+                    <div className="bg-paper text-paper-gray p-4 text-center border-4 border-paper-gray/20 shadow-xl relative text-inherit">
+                        <div className="border-b-2 border-paper-gray/20 mb-2 pb-1">
+                            <h4 className="font-black text-3xl uppercase tracking-tighter scale-y-125 text-paper-gray">{t.wantedTitle}</h4>
+                            <p className="text-xs font-bold uppercase opacity-60">{t.deadOrAlive}</p>
                         </div>
-                        <div className="w-24 h-24 bg-slate-300 mx-auto mb-2 grayscale flex items-center justify-center border-2 border-slate-500">
-                            <Skull className="w-12 h-12 opacity-50" />
+                        <div className="w-24 h-24 bg-paper-border/20 mx-auto mb-2 grayscale flex items-center justify-center border-2 border-paper-border/40">
+                            <Skull className="w-12 h-12 opacity-30 text-paper-gray" />
                         </div>
-                        <h3 className="font-bold text-xl uppercase">{t.khudiramName}</h3>
-                        <p className="text-xs font-mono mt-1">{t.khudiramAge}</p>
-                        <p className="text-xs font-mono">{t.khudiramCrime}</p>
-                        <div className="mt-2 transform -rotate-12 border-2 border-red-700 text-red-700 font-bold px-2 py-1 inline-block text-xl opacity-80">
+                        <h3 className="font-bold text-xl uppercase text-paper-gray">{t.khudiramName}</h3>
+                        <p className="text-xs font-mono mt-1 opacity-60">{t.khudiramAge}</p>
+                        <p className="text-xs font-mono opacity-60">{t.khudiramCrime}</p>
+                        <div className="mt-2 transform -rotate-12 border-2 border-paper-red text-paper-red font-bold px-2 py-1 inline-block text-xl opacity-80">
                             {t.khudiramFate}
                         </div>
                     </div>
 
                     {/* RASHBEHARI ESCAPED */}
-                    <div className="bg-[#e3dcd2] p-4 text-center border-4 border-slate-900 shadow-xl relative">
-                        <div className="border-b-2 border-slate-900 mb-2 pb-1">
-                            <h4 className="font-black text-3xl uppercase tracking-tighter scale-y-125 text-slate-600">{t.escapedTitle}</h4>
+                    <div className="bg-paper text-paper-gray p-4 text-center border-4 border-paper-navy/20 shadow-xl relative text-inherit">
+                        <div className="border-b-2 border-paper-navy/20 mb-2 pb-1">
+                            <h4 className="font-black text-3xl uppercase tracking-tighter scale-y-125 text-paper-navy opacity-60">{t.escapedTitle}</h4>
                         </div>
-                        <div className="w-24 h-24 bg-slate-300 mx-auto mb-2 grayscale flex items-center justify-center border-2 border-slate-500">
-                            <UserUnknown className="w-12 h-12 opacity-50" />
+                        <div className="w-24 h-24 bg-paper-border/20 mx-auto mb-2 grayscale flex items-center justify-center border-2 border-paper-border/40">
+                            <UserUnknown className="w-12 h-12 opacity-30 text-paper-gray" />
                         </div>
-                        <h3 className="font-bold text-xl uppercase">{t.rashbehariName}</h3>
-                        <div className="text-left text-xs mt-2 space-y-1 font-mono bg-white p-2 border border-slate-400">
+                        <h3 className="font-bold text-xl uppercase text-paper-gray">{t.rashbehariName}</h3>
+                        <div className="text-left text-xs mt-2 space-y-1 font-mono bg-paper-border/10 p-2 border border-paper-border/20 text-inherit">
                             {t.rashbehariDetails.map((d, i) => (
-                                <p key={i}><strong>{d.bold}</strong>{d.text}</p>
+                                <p key={i} className="opacity-80"><strong>{d.bold}</strong>{d.text}</p>
                             ))}
                         </div>
                     </div>
 
                     {/* SILK LETTER CONSPIRACY */}
-                    <div className="bg-yellow-100 p-4 border border-yellow-300 relative shadow">
+                    <div className="bg-paper-orange/10 p-4 border border-paper-orange/30 relative shadow text-inherit">
                         <div className="absolute -top-2 -right-2 transform rotate-12">
-                            <Stamp className="w-8 h-8 text-yellow-600" />
+                            <Stamp className="w-8 h-8 text-paper-orange opacity-40" />
                         </div>
-                        <h4 className="font-bold text-sm uppercase text-yellow-800 mb-2">{t.silkTitle}</h4>
-                        <p className="text-xs text-slate-700 mb-2">{t.silkText}</p>
-                        <div className="text-[10px] bg-yellow-200 p-1 rounded font-mono">
+                        <h4 className="font-bold text-sm uppercase text-paper-orange mb-2">{t.silkTitle}</h4>
+                        <p className="text-xs opacity-70 mb-2">{t.silkText}</p>
+                        <div className="text-[10px] bg-paper-orange/10 p-1 rounded font-mono border border-paper-orange/20 text-inherit">
                             {t.silkLeaders}
                         </div>
                     </div>
 
                     {/* AFTERMATH */}
-                    <div className="bg-red-900 text-red-100 p-4 border-l-4 border-red-500">
-                        <h4 className="font-bold text-sm uppercase mb-2 flex items-center gap-2">
-                            <FileWarning className="w-4 h-4" /> {t.aftermathTitle}
+                    <div className="bg-paper-red text-paper-bg p-4 border-l-4 border-paper-red/50 text-inherit">
+                        <h4 className="font-bold text-sm uppercase mb-2 flex items-center gap-2 text-paper-bg">
+                            <FileWarning className="w-4 h-4 text-paper-bg" /> {t.aftermathTitle}
                         </h4>
-                        <ul className="text-xs space-y-2">
+                        <ul className="text-xs space-y-2 text-inherit opacity-90">
                             {t.aftermathItems.map((item, i) => (
                                 <li key={i}><strong>{item.bold}</strong>{item.text}</li>
                             ))}

@@ -236,10 +236,10 @@ export default function FreedomMovementViz() {
                         </div>
                     </div>
                     <div className="flex gap-2">
-                        <button onClick={goPrev} disabled={selectedIndex === 0} className="p-2 rounded-xl bg-white/5 border border-white/10 text-white disabled:opacity-20 hover:bg-orange-500/20 transition-all">
+                        <button onClick={goPrev} disabled={selectedIndex === 0} className="p-2 rounded-xl bg-card/5 border border-white/10 text-white disabled:opacity-20 hover:bg-orange-500/20 transition-all">
                             <ChevronLeft className="w-5 h-5" />
                         </button>
-                        <button onClick={goNext} disabled={selectedIndex === FREEDOM_MOVEMENTS.length - 1} className="p-2 rounded-xl bg-white/5 border border-white/10 text-white disabled:opacity-20 hover:bg-orange-500/20 transition-all">
+                        <button onClick={goNext} disabled={selectedIndex === FREEDOM_MOVEMENTS.length - 1} className="p-2 rounded-xl bg-card/5 border border-white/10 text-white disabled:opacity-20 hover:bg-orange-500/20 transition-all">
                             <ChevronRight className="w-5 h-5" />
                         </button>
                     </div>
@@ -297,10 +297,10 @@ export default function FreedomMovementViz() {
                         {/* Progress */}
                         <div className="bg-slate-900/40 backdrop-blur-md rounded-xl p-3 border border-white/5 pointer-events-auto">
                             <div className="flex justify-between items-center mb-2 px-1">
-                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Movement Stage</span>
+                                <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Movement Stage</span>
                                 <span className="text-[10px] font-black text-white">{selectedIndex + 1} / {FREEDOM_MOVEMENTS.length}</span>
                             </div>
-                            <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                            <div className="h-1.5 w-full bg-card/5 rounded-full overflow-hidden">
                                 <div
                                     className="h-full bg-gradient-to-r from-orange-500 to-red-500 transition-all duration-1000"
                                     style={{ width: `${((selectedIndex + 1) / FREEDOM_MOVEMENTS.length) * 100}%` }}

@@ -10,7 +10,7 @@ export default function ModernResume({ data }: { data: ResumeData }) {
     };
 
     return (
-        <div className="flex flex-col items-center bg-neutral-100 min-h-screen p-8 print:p-0 print:bg-white">
+        <div className="flex flex-col items-center bg-neutral-100 min-h-screen p-8 print:p-0 print:bg-card">
             {/* Action Bar (Hidden in Print) */}
             <div className="w-full max-w-[210mm] flex justify-between items-center mb-8 print:hidden">
                 <h1 className="text-2xl font-bold text-neutral-800">Master Resume Builder</h1>
@@ -20,7 +20,7 @@ export default function ModernResume({ data }: { data: ResumeData }) {
             </div>
 
             {/* A4 Paper Container */}
-            <div className="w-full max-w-[210mm] bg-white shadow-2xl print:shadow-none min-h-[297mm] relative overflow-hidden text-neutral-800">
+            <div className="w-full max-w-[210mm] bg-card shadow-2xl print:shadow-none min-h-[297mm] relative overflow-hidden text-neutral-800">
                 {/* Header Section */}
                 <div className="bg-neutral-900 text-white p-12 print:bg-neutral-900 print:text-white print-color-adjust-exact">
                     <h1 className="text-4xl font-bold uppercase tracking-wider mb-2">{data.personal.name}</h1>
@@ -73,7 +73,7 @@ export default function ModernResume({ data }: { data: ResumeData }) {
                                         <div className="text-xs font-bold text-neutral-700 mb-1">{skill.category}</div>
                                         <div className="flex flex-wrap gap-1">
                                             {skill.items.map((item, i) => (
-                                                <span key={i} className="text-[10px] px-2 py-1 bg-white border border-neutral-200 rounded-full">
+                                                <span key={i} className="text-[10px] px-2 py-1 bg-card border border-neutral-200 rounded-full">
                                                     {item}
                                                 </span>
                                             ))}

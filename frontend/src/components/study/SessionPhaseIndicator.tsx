@@ -71,7 +71,7 @@ export default function SessionPhaseIndicator({
                                 ? "bg-green-500/10 text-green-600"
                                 : currentStep === "explanation"
                                     ? "bg-amber-500/10 text-amber-600"
-                                    : "bg-gray-500/10 text-gray-600"
+                                    : "bg-muted-foreground/10 text-muted-foreground"
                         )}
                     >
                         {currentStep === "study" && "📚 Studying"}
@@ -80,7 +80,7 @@ export default function SessionPhaseIndicator({
                     </Badge>
                 </div>
 
-                <div className="text-sm text-gray-500">
+                <div className="text-sm text-muted-foreground">
                     <Clock className="w-4 h-4 inline mr-1" />
                     {formatDuration(totalElapsedMs)} / {formatDuration(targetMs)}
                 </div>
@@ -89,7 +89,7 @@ export default function SessionPhaseIndicator({
             {/* Phase 1 Cycle Indicators */}
             {currentPhase === 1 && (
                 <div className="flex items-center gap-2">
-                    <span className="text-xs text-gray-500 w-16">Phase 1:</span>
+                    <span className="text-xs text-muted-foreground w-16">Phase 1:</span>
                     <div className="flex gap-1">
                         {phase1Cycles.map((cycle) => (
                             <div
@@ -100,7 +100,7 @@ export default function SessionPhaseIndicator({
                                         ? "bg-green-500 text-white"
                                         : cycle.current
                                             ? "bg-blue-500 text-white ring-2 ring-blue-300 ring-offset-2"
-                                            : "bg-gray-200 dark:bg-gray-700 text-gray-500"
+                                            : "bg-muted text-muted-foreground"
                                 )}
                             >
                                 {cycle.completed ? (
@@ -111,7 +111,7 @@ export default function SessionPhaseIndicator({
                             </div>
                         ))}
                     </div>
-                    <span className="text-xs text-gray-400 ml-2">
+                    <span className="text-xs text-muted-foreground ml-2">
                         → 15 min break → Phase 2
                     </span>
                 </div>
@@ -120,12 +120,12 @@ export default function SessionPhaseIndicator({
             {/* Phase 2 indicator */}
             {currentPhase === 2 && (
                 <div className="flex items-center gap-2">
-                    <span className="text-xs text-gray-500 w-16">Phase 2:</span>
+                    <span className="text-xs text-muted-foreground w-16">Phase 2:</span>
                     <div className="flex items-center gap-2">
                         <Badge variant="outline" className="bg-purple-500/10">
                             Cycle {currentCycle}
                         </Badge>
-                        <span className="text-xs text-gray-400">
+                        <span className="text-xs text-muted-foreground">
                             45-min study sessions until target reached
                         </span>
                     </div>
@@ -134,7 +134,7 @@ export default function SessionPhaseIndicator({
 
             {/* Overall Progress Bar */}
             <div className="space-y-1">
-                <div className="flex justify-between text-xs text-gray-500">
+                <div className="flex justify-between text-xs text-muted-foreground">
                     <span>Overall Progress</span>
                     <span>{Math.round(overallProgress)}%</span>
                 </div>
@@ -142,7 +142,7 @@ export default function SessionPhaseIndicator({
             </div>
 
             {/* Legend */}
-            <div className="flex flex-wrap gap-4 text-xs text-gray-500 pt-2 border-t">
+            <div className="flex flex-wrap gap-4 text-xs text-muted-foreground pt-2 border-t">
                 <div className="flex items-center gap-1">
                     <div className="w-3 h-3 rounded-full bg-blue-500" />
                     <span>Phase 1: 25 min study</span>

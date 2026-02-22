@@ -75,20 +75,20 @@ export default function CommunicationHub() {
     };
 
     return (
-        <div className="h-[calc(100vh-120px)] bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden flex shadow-xl">
+        <div className="h-[calc(100vh-120px)] bg-muted border border-border rounded-xl overflow-hidden flex shadow-xl">
             {/* Sidebar List */}
-            <div className="w-80 border-r border-slate-200 dark:border-slate-800 flex flex-col bg-white dark:bg-slate-950">
+            <div className="w-80 border-r border-border flex flex-col bg-card">
                 {/* Header & Filter */}
-                <div className="p-4 border-b border-slate-100 dark:border-slate-800 space-y-4">
+                <div className="p-4 border-b border-slate-100 space-y-4">
                     <div className="flex items-center justify-between">
-                        <h2 className="font-bold text-lg text-slate-800 dark:text-slate-100">Inbox</h2>
+                        <h2 className="font-bold text-lg text-foreground">Inbox</h2>
                         <Button size="icon" variant="ghost" className="h-8 w-8">
                             <MoreVertical className="h-4 w-4" />
                         </Button>
                     </div>
                     <div className="relative">
-                        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-slate-400" />
-                        <Input placeholder="Search messages..." className="pl-9 bg-slate-50 dark:bg-slate-900" />
+                        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                        <Input placeholder="Search messages..." className="pl-9 bg-muted" />
                     </div>
                     <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
                         <Badge
@@ -121,26 +121,26 @@ export default function CommunicationHub() {
                         {filteredChats.map((chat) => (
                             <div
                                 key={chat.id}
-                                className={`p-4 border-b border-slate-50 dark:border-slate-900 cursor-pointer transition-colors hover:bg-slate-50 dark:hover:bg-slate-900 ${activeChat.id === chat.id ? "bg-indigo-50 dark:bg-indigo-950/20 border-l-4 border-l-indigo-500" : "border-l-4 border-l-transparent"}`}
+                                className={`p-4 border-b border-slate-50 cursor-pointer transition-colors hover:bg-muted dark:hover:bg-slate-900 ${activeChat.id === chat.id ? "bg-indigo-50 dark:bg-indigo-950/20 border-l-4 border-l-indigo-500" : "border-l-4 border-l-transparent"}`}
                                 onClick={() => setActiveChat(chat)}
                             >
                                 <div className="flex items-start gap-3">
                                     <div className="relative">
                                         <Avatar>
-                                            <AvatarFallback className="bg-slate-200 text-slate-600 font-bold">{chat.avatar}</AvatarFallback>
+                                            <AvatarFallback className="bg-slate-200 text-muted-foreground font-bold">{chat.avatar}</AvatarFallback>
                                         </Avatar>
-                                        <span className={`absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-white dark:border-slate-950 ${chat.status === "online" ? "bg-green-500" : "bg-slate-400"}`}></span>
+                                        <span className={`absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-white ${chat.status === "online" ? "bg-green-500" : "bg-slate-400"}`}></span>
                                     </div>
                                     <div className="flex-1 min-w-0">
                                         <div className="flex items-center justify-between mb-0.5">
-                                            <h3 className="font-semibold text-sm truncate text-slate-900 dark:text-slate-100">{chat.sender}</h3>
-                                            <span className="text-[10px] text-slate-400 whitespace-nowrap">{chat.time}</span>
+                                            <h3 className="font-semibold text-sm truncate text-foreground">{chat.sender}</h3>
+                                            <span className="text-[10px] text-muted-foreground whitespace-nowrap">{chat.time}</span>
                                         </div>
                                         <div className="flex items-center gap-1.5 mb-1">
                                             {getChannelIcon(chat.channel)}
-                                            <span className="text-xs text-slate-400 capitalize">{chat.channel}</span>
+                                            <span className="text-xs text-muted-foreground capitalize">{chat.channel}</span>
                                         </div>
-                                        <p className="text-xs text-slate-500 truncate dark:text-slate-400">{chat.preview}</p>
+                                        <p className="text-xs text-muted-foreground truncate dark:text-muted-foreground">{chat.preview}</p>
                                     </div>
                                     {chat.unread > 0 && (
                                         <div className="flex flex-col items-end justify-center pt-2">
@@ -159,14 +159,14 @@ export default function CommunicationHub() {
             {/* Chat Window */}
             <div className="flex-1 flex flex-col bg-slate-50/50 dark:bg-black">
                 {/* Header */}
-                <div className="h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-6 flex items-center justify-between shadow-sm z-10">
+                <div className="h-16 border-b border-border bg-card px-6 flex items-center justify-between shadow-sm z-10">
                     <div className="flex items-center gap-3">
                         <Avatar>
                             <AvatarFallback className="bg-indigo-100 text-indigo-700">{activeChat.avatar}</AvatarFallback>
                         </Avatar>
                         <div>
-                            <h2 className="font-bold text-slate-800 dark:text-slate-100">{activeChat.sender}</h2>
-                            <div className="flex items-center gap-2 text-xs text-slate-500">
+                            <h2 className="font-bold text-foreground">{activeChat.sender}</h2>
+                            <div className="flex items-center gap-2 text-xs text-muted-foreground">
                                 <span className="flex items-center gap-1">
                                     {getChannelIcon(activeChat.channel)}
                                     <span className="capitalize">{activeChat.channel}</span>
@@ -180,14 +180,14 @@ export default function CommunicationHub() {
                     </div>
                     <div className="flex items-center gap-2">
                         <Button variant="ghost" size="icon">
-                            <Phone className="h-4 w-4 text-slate-500" />
+                            <Phone className="h-4 w-4 text-muted-foreground" />
                         </Button>
                         <Button variant="ghost" size="icon">
-                            <Search className="h-4 w-4 text-slate-500" />
+                            <Search className="h-4 w-4 text-muted-foreground" />
                         </Button>
                         <Separator orientation="vertical" className="h-6" />
                         <Button variant="ghost" size="icon">
-                            <MoreVertical className="h-4 w-4 text-slate-500" />
+                            <MoreVertical className="h-4 w-4 text-muted-foreground" />
                         </Button>
                     </div>
                 </div>
@@ -196,7 +196,7 @@ export default function CommunicationHub() {
                 <ScrollArea className="flex-1 p-6">
                     <div className="space-y-6">
                         <div className="flex justify-center">
-                            <span className="text-[10px] uppercase font-bold text-slate-400 bg-slate-100 dark:bg-slate-900 px-3 py-1 rounded-full">Today</span>
+                            <span className="text-[10px] uppercase font-bold text-muted-foreground bg-muted px-3 py-1 rounded-full">Today</span>
                         </div>
 
                         {conversation.map((msg) => (
@@ -207,12 +207,12 @@ export default function CommunicationHub() {
                                 <div className={`max-w-[70%] group flex flex-col ${msg.sender === "me" ? "items-end" : "items-start"}`}>
                                     <div className={`px-4 py-2.5 rounded-2xl shadow-sm text-sm ${msg.sender === "me"
                                         ? "bg-indigo-600 text-white rounded-tr-none"
-                                        : "bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-slate-100 dark:border-slate-800 rounded-tl-none"
+                                        : "bg-card text-foreground border border-slate-100 rounded-tl-none"
                                         }`}>
                                         <p>{msg.text}</p>
                                     </div>
                                     <div className="flex items-center gap-1 mt-1 px-1">
-                                        <span className="text-[10px] text-slate-400">{msg.time}</span>
+                                        <span className="text-[10px] text-muted-foreground">{msg.time}</span>
                                         {msg.sender === "me" && <CheckCheck className="h-3 w-3 text-indigo-500" />}
                                     </div>
                                 </div>
@@ -222,13 +222,13 @@ export default function CommunicationHub() {
                 </ScrollArea>
 
                 {/* Input Area */}
-                <div className="p-4 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
-                    <div className="flex items-end gap-2 bg-slate-50 dark:bg-slate-900 rounded-xl p-2 border border-slate-200 dark:border-slate-800 focus-within:ring-2 focus-within:ring-indigo-100 dark:focus-within:ring-indigo-900/20 transition-all">
+                <div className="p-4 bg-card border-t border-border">
+                    <div className="flex items-end gap-2 bg-muted rounded-xl p-2 border border-border focus-within:ring-2 focus-within:ring-indigo-100 dark:focus-within:ring-indigo-900/20 transition-all">
                         <div className="flex gap-1 pb-1.5 pl-1">
-                            <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-slate-600">
+                            <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-muted-foreground">
                                 <Smile className="h-5 w-5" />
                             </Button>
-                            <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-slate-600">
+                            <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-muted-foreground">
                                 <Paperclip className="h-5 w-5" />
                             </Button>
                         </div>
@@ -237,7 +237,7 @@ export default function CommunicationHub() {
                             placeholder={`Reply via ${activeChat.channel}...`}
                         />
                         <div className="flex gap-1 pb-1.5 pr-1">
-                            <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-slate-600">
+                            <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-muted-foreground">
                                 <Mic className="h-5 w-5" />
                             </Button>
                             <Button size="icon" className="h-8 w-8 bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-md transition-transform hover:scale-105">
@@ -246,7 +246,7 @@ export default function CommunicationHub() {
                         </div>
                     </div>
                     <div className="flex justify-center mt-2">
-                        <p className="text-[10px] text-slate-400 flex items-center gap-1">
+                        <p className="text-[10px] text-muted-foreground flex items-center gap-1">
                             <Lock className="h-3 w-3" /> End-to-end encrypted via {activeChat.channel}
                         </p>
                     </div>

@@ -117,7 +117,7 @@ export default function AtRiskDetector() {
             <CardContent className="p-0">
                 <div className="divide-y divide-red-100 dark:divide-red-900/30">
                     {students.map((student) => (
-                        <div key={student.id} className="p-4 flex flex-col md:flex-row items-start md:items-center gap-4 hover:bg-white dark:hover:bg-slate-900 transition-colors">
+                        <div key={student.id} className="p-4 flex flex-col md:flex-row items-start md:items-center gap-4 hover:bg-card dark:hover:bg-slate-900 transition-colors">
                             {/* Student Info */}
                             <div className="flex items-center gap-3 min-w-[200px]">
                                 <Avatar className="h-10 w-10 border-2 border-white shadow-sm">
@@ -127,36 +127,36 @@ export default function AtRiskDetector() {
                                     </AvatarFallback>
                                 </Avatar>
                                 <div>
-                                    <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-100">{student.name}</h4>
-                                    <p className="text-xs text-slate-500">{student.email}</p>
+                                    <h4 className="font-semibold text-sm text-foreground">{student.name}</h4>
+                                    <p className="text-xs text-muted-foreground">{student.email}</p>
                                 </div>
                             </div>
 
                             {/* Risk Metrics */}
                             <div className="flex-1 grid grid-cols-2 lg:grid-cols-4 gap-4 w-full">
                                 <div className="space-y-1">
-                                    <span className="text-[10px] uppercase text-slate-400 font-bold tracking-wider">Attendance</span>
+                                    <span className="text-[10px] uppercase text-muted-foreground font-bold tracking-wider">Attendance</span>
                                     <div className="flex items-center gap-2">
                                         <Progress value={student.attendance} className="h-1.5 w-16 bg-red-100 [&>div]:bg-red-500" />
                                         <span className="text-xs font-bold text-red-600">{student.attendance}%</span>
                                     </div>
                                 </div>
                                 <div className="space-y-1">
-                                    <span className="text-[10px] uppercase text-slate-400 font-bold tracking-wider">Avg. Score</span>
+                                    <span className="text-[10px] uppercase text-muted-foreground font-bold tracking-wider">Avg. Score</span>
                                     <div className="flex items-center gap-2">
                                         <TrendingDown className="h-3 w-3 text-red-500" />
-                                        <span className="text-xs font-bold text-slate-700 dark:text-slate-300">{student.avgScore}%</span>
+                                        <span className="text-xs font-bold text-muted-foreground">{student.avgScore}%</span>
                                     </div>
                                 </div>
                                 <div className="space-y-1">
-                                    <span className="text-[10px] uppercase text-slate-400 font-bold tracking-wider">Last Active</span>
+                                    <span className="text-[10px] uppercase text-muted-foreground font-bold tracking-wider">Last Active</span>
                                     <div className="flex items-center gap-2">
-                                        <Clock className="h-3 w-3 text-slate-400" />
-                                        <span className="text-xs text-slate-600 dark:text-slate-400">{student.lastActive}</span>
+                                        <Clock className="h-3 w-3 text-muted-foreground" />
+                                        <span className="text-xs text-muted-foreground dark:text-muted-foreground">{student.lastActive}</span>
                                     </div>
                                 </div>
                                 <div className="space-y-1">
-                                    <span className="text-[10px] uppercase text-slate-400 font-bold tracking-wider">Risk Level</span>
+                                    <span className="text-[10px] uppercase text-muted-foreground font-bold tracking-wider">Risk Level</span>
                                     <Badge variant="outline" className={cn("text-[10px] h-5 border", getRiskColor(student.riskLevel))}>
                                         {student.riskLevel}
                                     </Badge>
@@ -177,7 +177,7 @@ export default function AtRiskDetector() {
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
                                         <Button variant="ghost" size="icon" className="h-8 w-8">
-                                            <MoreHorizontal className="h-4 w-4 text-slate-400" />
+                                            <MoreHorizontal className="h-4 w-4 text-muted-foreground" />
                                         </Button>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="end">

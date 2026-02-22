@@ -81,7 +81,7 @@ export default function ExplanationFeedback({ topicTitle, keyPoints, onComplete 
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden"
+                className="bg-card dark:bg-[#111] rounded-2xl border border-border overflow-hidden"
             >
                 {/* Score Header */}
                 <div className={`p-6 text-white ${result.score >= 70 ? 'bg-green-600' :
@@ -92,7 +92,7 @@ export default function ExplanationFeedback({ topicTitle, keyPoints, onComplete 
                             <div className="text-sm opacity-80">Your Retention Score</div>
                             <div className="text-4xl font-bold">{result.score}%</div>
                         </div>
-                        <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
+                        <div className="w-16 h-16 rounded-full bg-card/20 flex items-center justify-center">
                             {result.score >= 70 ? (
                                 <CheckCircle className="w-8 h-8" />
                             ) : (
@@ -113,7 +113,7 @@ export default function ExplanationFeedback({ topicTitle, keyPoints, onComplete 
                             </h4>
                             <ul className="space-y-1">
                                 {result.matchedPoints.map((point, idx) => (
-                                    <li key={idx} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
+                                    <li key={idx} className="text-sm text-muted-foreground dark:text-muted-foreground flex items-start gap-2">
                                         <span className="w-1.5 h-1.5 rounded-full bg-green-500 mt-1.5 flex-shrink-0" />
                                         {point}
                                     </li>
@@ -130,7 +130,7 @@ export default function ExplanationFeedback({ topicTitle, keyPoints, onComplete 
                             </h4>
                             <ul className="space-y-1">
                                 {result.missedPoints.map((point, idx) => (
-                                    <li key={idx} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
+                                    <li key={idx} className="text-sm text-muted-foreground dark:text-muted-foreground flex items-start gap-2">
                                         <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5 flex-shrink-0" />
                                         {point}
                                     </li>
@@ -142,7 +142,7 @@ export default function ExplanationFeedback({ topicTitle, keyPoints, onComplete 
                     <div className="flex gap-3 pt-4">
                         <button
                             onClick={handleRedo}
-                            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-gray-200 dark:border-gray-700 font-medium hover:bg-gray-50 dark:hover:bg-gray-900"
+                            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-border font-medium hover:bg-muted dark:hover:bg-gray-900"
                         >
                             <RefreshCw className="w-4 h-4" />
                             Try Again
@@ -160,10 +160,10 @@ export default function ExplanationFeedback({ topicTitle, keyPoints, onComplete 
     }
 
     return (
-        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
+        <div className="bg-card dark:bg-[#111] rounded-2xl border border-border p-6">
             <h2 className="text-xl font-bold mb-2">Explain What You Learned</h2>
-            <p className="text-gray-500 text-sm mb-4">
-                Summarize <span className="font-medium text-gray-700 dark:text-gray-300">{topicTitle}</span> in your own words.
+            <p className="text-muted-foreground text-sm mb-4">
+                Summarize <span className="font-medium text-muted-foreground dark:text-muted-foreground">{topicTitle}</span> in your own words.
                 Include key facts and concepts.
             </p>
 
@@ -171,17 +171,17 @@ export default function ExplanationFeedback({ topicTitle, keyPoints, onComplete 
                 <textarea
                     value={explanation}
                     onChange={(e) => setExplanation(e.target.value)}
-                    className="w-full h-40 p-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#0a0a0a] focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+                    className="w-full h-40 p-4 rounded-xl border border-border bg-muted dark:bg-[#0a0a0a] focus:ring-2 focus:ring-blue-500 outline-none resize-none"
                     placeholder="Type your explanation here. Try to mention specific terms, dates, names, and concepts..."
                     disabled={isAnalyzing}
                 />
-                <div className="absolute bottom-3 right-3 text-xs text-gray-400">
+                <div className="absolute bottom-3 right-3 text-xs text-muted-foreground">
                     {explanation.length} characters
                 </div>
             </div>
 
             <div className="flex items-center justify-between">
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-muted-foreground">
                     Minimum 20 characters required
                 </p>
                 <button

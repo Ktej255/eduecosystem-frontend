@@ -15,7 +15,7 @@ interface PrimeMinisterModuleProps {
 // --- Design System: The Keystone (Official Files) ---
 
 const PMOContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#eef2ff] text-slate-900">
+    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#eef2ff] text-foreground">
         {/* Blue Ink Grid */}
         <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#1e40af_1px,transparent_1px),linear-gradient(to_bottom,#1e40af_1px,transparent_1px)] bg-[size:25px_25px] pointer-events-none"></div>
 
@@ -28,8 +28,8 @@ const PMOContainer = ({ children }: { children: React.ReactNode }) => (
 // File Card Style
 const FileCard = ({ children, title, color = "blue", className = "" }: { children: React.ReactNode, title: string, color?: "blue" | "slate", className?: string }) => {
     const styles = {
-        blue: "border-blue-700 bg-white text-blue-900 shadow-[4px_4px_0px_#1e40af]",
-        slate: "border-slate-600 bg-slate-50 text-slate-900 shadow-[4px_4px_0px_#4b5563]",
+        blue: "border-blue-700 bg-card text-blue-900 shadow-[4px_4px_0px_#1e40af]",
+        slate: "border-slate-600 bg-muted text-foreground shadow-[4px_4px_0px_#4b5563]",
     };
 
     return (
@@ -56,7 +56,7 @@ export default function PrimeMinisterModule({ onComplete, isCompleted }: PrimeMi
             <div className="text-center py-10">
                 <div className="inline-block relative">
                     <div className="absolute -inset-2 bg-blue-200 opacity-50 blur-lg rounded-full"></div>
-                    <div className="relative border-4 border-blue-900 p-8 bg-white rounded-lg shadow-2xl -rotate-1">
+                    <div className="relative border-4 border-blue-900 p-8 bg-card rounded-lg shadow-2xl -rotate-1">
                         <div className="flex justify-center text-blue-600 mb-2">
                             <Anchor size={48} />
                         </div>
@@ -79,9 +79,9 @@ export default function PrimeMinisterModule({ onComplete, isCompleted }: PrimeMi
                 </div>
 
                 <div className="flex flex-col md:flex-row items-stretch justify-center gap-4 text-center">
-                    <div className="bg-white border-2 border-slate-400 p-4 rounded-lg shadow-md flex-1 max-w-sm mx-auto flex flex-col justify-center">
+                    <div className="bg-card border-2 border-slate-400 p-4 rounded-lg shadow-md flex-1 max-w-sm mx-auto flex flex-col justify-center">
                         <strong className="block text-lg">General Rule</strong>
-                        <span className="text-slate-600">President appoints leader of Majority Party in Lok Sabha.</span>
+                        <span className="text-muted-foreground">President appoints leader of Majority Party in Lok Sabha.</span>
                     </div>
 
                     <FlowArrow />
@@ -91,8 +91,8 @@ export default function PrimeMinisterModule({ onComplete, isCompleted }: PrimeMi
                             <AlertCircle size={20} />
                         </div>
                         <strong className="block text-lg text-yellow-900">Hung Parliament?</strong>
-                        <span className="text-slate-700 text-sm">President's Discretion: Appoint leader of largest party/coalition.</span>
-                        <div className="mt-2 bg-white/50 p-1 border border-yellow-300 rounded text-xs font-bold text-red-600">
+                        <span className="text-muted-foreground text-sm">President's Discretion: Appoint leader of largest party/coalition.</span>
+                        <div className="mt-2 bg-card/50 p-1 border border-yellow-300 rounded text-xs font-bold text-red-600">
                             Must prove confidence in 1 Month.
                         </div>
                     </div>
@@ -101,8 +101,8 @@ export default function PrimeMinisterModule({ onComplete, isCompleted }: PrimeMi
 
                     <div className="bg-blue-50 border-2 border-blue-400 p-4 rounded-lg shadow-md flex-1 max-w-sm mx-auto">
                         <strong className="block text-lg text-blue-900">Delhi HC (1980)</strong>
-                        <span className="text-slate-700 text-sm">Can be appointed PM *before* becoming MP.</span>
-                        <div className="mt-2 bg-white/50 p-1 border border-blue-300 rounded text-xs font-bold text-blue-600">
+                        <span className="text-muted-foreground text-sm">Can be appointed PM *before* becoming MP.</span>
+                        <div className="mt-2 bg-card/50 p-1 border border-blue-300 rounded text-xs font-bold text-blue-600">
                             Must become MP (LS or RS) within 6 Months.
                         </div>
                     </div>
@@ -144,15 +144,15 @@ export default function PrimeMinisterModule({ onComplete, isCompleted }: PrimeMi
 
                     {/* PRESIDENT BRIDGE */}
                     <FileCard title="The Bridge (Art 78)" color="slate">
-                        <div className="flex justify-center mb-4 text-slate-400 opacity-50">
+                        <div className="flex justify-center mb-4 text-muted-foreground opacity-50">
                             <Network size={40} />
                         </div>
                         <p className="mb-2 text-sm text-center italic">Principal channel of communication between President & Council.</p>
                         <div className="space-y-3 font-handwriting text-sm">
-                            <div className="p-2 border border-slate-300 rounded bg-white">
+                            <div className="p-2 border border-border rounded bg-card">
                                 <strong>Communicate:</strong> All decisions of Council.
                             </div>
-                            <div className="p-2 border border-slate-300 rounded bg-white">
+                            <div className="p-2 border border-border rounded bg-card">
                                 <strong>Furnish:</strong> Info called for by President.
                             </div>
                         </div>
@@ -184,7 +184,7 @@ export default function PrimeMinisterModule({ onComplete, isCompleted }: PrimeMi
             {/* PHASE 3: ROLES & QUOTES */}
             <div className="mt-12 grid md:grid-cols-2 gap-8 items-start">
                 {/* CHAIRMAN CARDS */}
-                <div className="bg-white border-2 border-slate-800 p-6 rounded-lg shadow-[8px_8px_0px_rgba(0,0,0,0.1)] rotate-1">
+                <div className="bg-card border-2 border-slate-800 p-6 rounded-lg shadow-[8px_8px_0px_rgba(0,0,0,0.1)] rotate-1">
                     <h3 className="font-bold font-serif text-xl border-b-2 border-slate-800 pb-2 mb-4">Chairman of Bodies [High Yield]</h3>
                     <div className="space-y-2 font-handwriting">
                         {["NITI Aayog", "National Development Council (NDC)", "National Integration Council", "Inter-State Council (Art 263)", "National Water Resources Council"].map((item, i) => (
@@ -221,13 +221,13 @@ export default function PrimeMinisterModule({ onComplete, isCompleted }: PrimeMi
                 <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
                     <div className="flex-1">
                         <h3 className="text-2xl font-bold font-serif text-slate-200 mb-2">The Shadow Cabinet</h3>
-                        <p className="text-slate-400 font-handwriting italic text-lg mb-4">"A government in waiting."</p>
+                        <p className="text-muted-foreground font-handwriting italic text-lg mb-4">"A government in waiting."</p>
                         <div className="grid grid-cols-2 gap-4 text-sm">
-                            <div className="p-3 bg-white/10 rounded border border-white/20">
+                            <div className="p-3 bg-card/10 rounded border border-white/20">
                                 <strong className="block text-blue-300">UK (Britain)</strong>
                                 Unique Institution. Opposition forms parallel cabinet.
                             </div>
-                            <div className="p-3 bg-white/10 rounded border border-white/20">
+                            <div className="p-3 bg-card/10 rounded border border-white/20">
                                 <strong className="block text-orange-300">India</strong>
                                 No such institution.
                             </div>
@@ -242,7 +242,7 @@ export default function PrimeMinisterModule({ onComplete, isCompleted }: PrimeMi
                                 px-8 py-4 text-lg font-bold font-serif rounded shadow-lg transition-all
                                 ${isCompleted
                                     ? 'bg-blue-600 text-white ring-2 ring-blue-300'
-                                    : 'bg-white text-blue-900 hover:bg-blue-50'
+                                    : 'bg-card text-blue-900 hover:bg-blue-50'
                                 }
                             `}
                         >

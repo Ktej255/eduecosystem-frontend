@@ -107,7 +107,7 @@ export default function BattleAnalytics({ battles = DEFAULT_BATTLES }: BattleAna
                             onClick={() => setSelectedBattle(battle)}
                             className={`w-full text-left p-4 rounded-2xl border-2 transition-all group ${selectedBattle.name === battle.name
                                 ? `${battle.border} ${battle.bg} shadow-md`
-                                : "border-transparent bg-white hover:border-slate-200"
+                                : "border-transparent bg-card hover:border-border"
                                 }`}
                         >
                             <div className="flex justify-between items-start mb-1">
@@ -116,10 +116,10 @@ export default function BattleAnalytics({ battles = DEFAULT_BATTLES }: BattleAna
                                 </span>
                                 {selectedBattle.name === battle.name && <Target size={14} className={battle.color} />}
                             </div>
-                            <h4 className="font-bold text-slate-800 group-hover:text-slate-900 leading-tight">
+                            <h4 className="font-bold text-foreground group-hover:text-foreground leading-tight">
                                 {battle.name}
                             </h4>
-                            <p className="text-[10px] text-slate-500 font-medium mt-1 truncate">
+                            <p className="text-[10px] text-muted-foreground font-medium mt-1 truncate">
                                 {battle.location}
                             </p>
                         </button>
@@ -129,7 +129,7 @@ export default function BattleAnalytics({ battles = DEFAULT_BATTLES }: BattleAna
 
             {/* Analysis View (Main) */}
             <div className="lg:col-span-8">
-                <div className={`bg-white rounded-3xl border-2 ${selectedBattle.border} shadow-sm overflow-hidden min-h-[600px] flex flex-col`}>
+                <div className={`bg-card rounded-3xl border-2 ${selectedBattle.border} shadow-sm overflow-hidden min-h-[600px] flex flex-col`}>
                     {/* Header */}
                     <div className={`${selectedBattle.bg} p-8 border-b ${selectedBattle.border}`}>
                         <div className="flex flex-col md:flex-row justify-between items-start gap-4">
@@ -137,16 +137,16 @@ export default function BattleAnalytics({ battles = DEFAULT_BATTLES }: BattleAna
                                 <Badge className={`${selectedBattle.bg} ${selectedBattle.color} ${selectedBattle.border} border mb-2 px-3`}>
                                     Year: {selectedBattle.year}
                                 </Badge>
-                                <h2 className="text-3xl md:text-4xl font-black text-slate-900">{selectedBattle.name}</h2>
-                                <div className="flex items-center gap-2 text-slate-500 mt-2 font-medium">
+                                <h2 className="text-3xl md:text-4xl font-black text-foreground">{selectedBattle.name}</h2>
+                                <div className="flex items-center gap-2 text-muted-foreground mt-2 font-medium">
                                     <MapPin size={16} /> {selectedBattle.location}
                                 </div>
                             </div>
-                            <div className="bg-white/80 backdrop-blur p-3 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-3">
+                            <div className="bg-card/80 backdrop-blur p-3 rounded-2xl border border-border shadow-sm flex items-center gap-3">
                                 <Sword size={24} className={selectedBattle.color} />
                                 <div>
-                                    <p className="text-[10px] font-black text-slate-400 uppercase">Status</p>
-                                    <p className="text-xs font-bold text-slate-700">Decisive Conflict</p>
+                                    <p className="text-[10px] font-black text-muted-foreground uppercase">Status</p>
+                                    <p className="text-xs font-bold text-muted-foreground">Decisive Conflict</p>
                                 </div>
                             </div>
                         </div>
@@ -159,30 +159,30 @@ export default function BattleAnalytics({ battles = DEFAULT_BATTLES }: BattleAna
                             <div className="p-5 rounded-2xl bg-stone-50 border border-stone-100 flex items-center justify-between">
                                 <div className="space-y-1">
                                     <p className="text-[10px] font-black text-stone-400 uppercase">Party A</p>
-                                    <p className="font-bold text-slate-800 italic">{selectedBattle.parties[0]}</p>
+                                    <p className="font-bold text-foreground italic">{selectedBattle.parties[0]}</p>
                                 </div>
                                 <div className="text-xl font-black text-stone-300">VS</div>
                                 <div className="space-y-1 text-right">
                                     <p className="text-[10px] font-black text-stone-400 uppercase">Party B</p>
-                                    <p className="font-bold text-slate-800 italic">{selectedBattle.parties[1]}</p>
+                                    <p className="font-bold text-foreground italic">{selectedBattle.parties[1]}</p>
                                 </div>
                             </div>
                             <div className="p-5 rounded-2xl bg-emerald-50 border border-emerald-100">
                                 <p className="text-[10px] font-black text-emerald-600 uppercase mb-1 flex items-center gap-1">
                                     <CheckCircle2 size={12} /> Ultimate Outcome
                                 </p>
-                                <p className="text-sm font-bold text-slate-800">{selectedBattle.outcome}</p>
+                                <p className="text-sm font-bold text-foreground">{selectedBattle.outcome}</p>
                             </div>
                         </div>
 
                         {/* Strategic Insight */}
                         <div className="space-y-4">
-                            <h4 className="flex items-center gap-2 font-black text-slate-800 text-sm uppercase tracking-wider">
+                            <h4 className="flex items-center gap-2 font-black text-foreground text-sm uppercase tracking-wider">
                                 <Target size={18} className="text-red-500" /> Strategic Key to Victory
                             </h4>
-                            <div className={`p-6 rounded-2xl border-2 ${selectedBattle.border} bg-white shadow-sm relative overflow-hidden group`}>
+                            <div className={`p-6 rounded-2xl border-2 ${selectedBattle.border} bg-card shadow-sm relative overflow-hidden group`}>
                                 <div className={`absolute top-0 right-0 w-24 h-24 ${selectedBattle.bg} opacity-50 rounded-full transform translate-x-1/2 -translate-y-1/2`}></div>
-                                <p className="text-lg text-slate-700 font-medium leading-relaxed relative z-10 italic">
+                                <p className="text-lg text-muted-foreground font-medium leading-relaxed relative z-10 italic">
                                     "{selectedBattle.strategicKey}"
                                 </p>
                             </div>
@@ -190,7 +190,7 @@ export default function BattleAnalytics({ battles = DEFAULT_BATTLES }: BattleAna
 
                         {/* Long-term Impact */}
                         <div className="space-y-4">
-                            <h4 className="flex items-center gap-2 font-black text-slate-800 text-sm uppercase tracking-wider">
+                            <h4 className="flex items-center gap-2 font-black text-foreground text-sm uppercase tracking-wider">
                                 <TrendingUp size={18} className="text-blue-500" /> Long-term Historical Impact
                             </h4>
                             <div className="p-6 rounded-2xl bg-slate-900 text-slate-100 shadow-xl border border-slate-800">

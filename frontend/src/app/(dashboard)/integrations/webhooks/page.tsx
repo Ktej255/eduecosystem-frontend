@@ -41,7 +41,7 @@ export default function WebhooksPage() {
 
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-6xl mx-auto">
-      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground">
         <ArrowLeft className="h-4 w-4 mr-1" />
         Back
       </Link>
@@ -49,11 +49,11 @@ export default function WebhooksPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
             <Webhook className="h-8 w-8 text-pink-600" />
             Webhooks
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-muted-foreground dark:text-muted-foreground mt-1">
             Configure real-time event notifications for your applications
           </p>
         </div>
@@ -99,7 +99,7 @@ export default function WebhooksPage() {
                         {hook.status}
                       </Badge>
                     </TableCell>
-                    <TableCell className="text-sm text-gray-500">
+                    <TableCell className="text-sm text-muted-foreground">
                       {hook.lastDelivery}
                     </TableCell>
                     <TableCell>
@@ -143,7 +143,7 @@ export default function WebhooksPage() {
         <CardContent>
           <div className="space-y-4">
             {recentDeliveries.map((log) => (
-              <div key={log.id} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <div key={log.id} className="flex items-center justify-between p-4 bg-muted rounded-lg">
                 <div className="flex items-center gap-4">
                   <div className={`p-2 rounded-full ${log.status === 'success' ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'
                     }`}>
@@ -154,11 +154,11 @@ export default function WebhooksPage() {
                       {log.event}
                       <Badge variant="outline" className="font-mono text-xs">{log.code}</Badge>
                     </p>
-                    <p className="text-sm text-gray-500 font-mono truncate max-w-[300px]">{log.url}</p>
+                    <p className="text-sm text-muted-foreground font-mono truncate max-w-[300px]">{log.url}</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm text-gray-500">{log.time}</p>
+                  <p className="text-sm text-muted-foreground">{log.time}</p>
                   <Button variant="link" size="sm" className="h-auto p-0 text-blue-600">
                     View Details
                   </Button>

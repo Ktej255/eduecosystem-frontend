@@ -10,18 +10,18 @@ export default function HandwrittenChapter28() {
     const t = language === 'hi' ? ch28Translations.hi : ch28Translations.en;
 
     return (
-        <div className="min-h-screen bg-[#fdfbf7] p-4 md:p-8 font-['Kalam',_cursive] text-[#000080] selection:bg-yellow-200">
+        <div className="min-h-screen bg-paper p-4 md:p-8 font-['Kalam',_cursive] text-paper-indigo selection:bg-paper-orange/30">
             <style jsx global>{`
                 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Permanent+Marker&display=swap');
                 
                 .handwritten-paper {
-                    background-image: repeating-linear-gradient(transparent, transparent 31px, #e5e5f7 31px, #e5e5f7 32px);
+                    background-image: repeating-linear-gradient(transparent, transparent 31px, var(--paper-border) 31px, var(--paper-border) 32px);
                     background-attachment: local;
                 }
                 
                 .paper-border {
                     border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-                    border: 2px solid #333;
+                    border: 2px solid var(--paper-gray);
                 }
 
                 .highlight {
@@ -45,125 +45,125 @@ export default function HandwrittenChapter28() {
             `}</style>
 
             <div className="max-w-5xl mx-auto mb-16 relative pt-12">
-                <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-[#CC0000] mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase leading-tight">
+                <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-paper-red mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase leading-tight">
                     {t.headerTitle}
                 </h1>
-                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline uppercase">{t.studyNotesLabel}</p>
+                <p className="text-center text-xl text-paper-gray mb-12 font-bold opacity-70 italic underline uppercase">{t.studyNotesLabel}</p>
             </div>
 
             {/* NATURE OF MOVEMENTS */}
-            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2 uppercase">{t.natureTitle}</h2>
+            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-paper relative">
+                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-paper-indigo border-b-2 border-paper-border pb-2 uppercase">{t.natureTitle}</h2>
                 <div className="space-y-6">
                     <div className="flex gap-2 items-start text-lg">
-                        <span className="text-[#CC0000] mt-1">•</span>
+                        <span className="text-paper-red mt-1">•</span>
                         <p><span className="font-bold highlight uppercase text-xs mr-1">{t.reformistLabel}</span>{t.reformistDesc}</p>
                     </div>
                     <div className="flex gap-2 items-start text-lg">
-                        <span className="text-[#CC0000] mt-1">•</span>
+                        <span className="text-paper-red mt-1">•</span>
                         <p><span className="font-bold highlight uppercase text-xs mr-1">{t.revivalistLabel}</span>{t.revivalistDesc}</p>
                     </div>
                 </div>
             </section>
 
             {/* KEY MOVEMENTS & LEADERS */}
-            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative text-gray-900">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2 uppercase">{t.keyMovementsTitle}</h2>
+            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-paper relative text-gray-900">
+                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-paper-indigo border-b-2 border-paper-border pb-2 uppercase">{t.keyMovementsTitle}</h2>
                 <div className="space-y-6">
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.brahmoSamajTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.brahmoSamajTitle}</h3>
                         <ul className="space-y-2">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.brahmoSamajDesc1}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.brahmoSamajDesc2}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.brahmoSamajDesc3}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.brahmoSamajDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.brahmoSamajDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.brahmoSamajDesc3}</span></li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.prarthanaSamajTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.prarthanaSamajTitle}</h3>
                         <ul className="space-y-2">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.prarthanaSamajDesc1}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.prarthanaSamajDesc2}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.prarthanaSamajDesc3}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.prarthanaSamajDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.prarthanaSamajDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.prarthanaSamajDesc3}</span></li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.aryaSamajTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.aryaSamajTitle}</h3>
                         <ul className="space-y-2">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.aryaSamajDesc1}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span className="font-bold underline text-red-900">{t.aryaSamajMotto}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.aryaSamajDesc2}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span className="font-bold italic">{t.aryaSamajBook}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.aryaSamajDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span className="font-bold underline text-paper-red">{t.aryaSamajMotto}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.aryaSamajDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span className="font-bold italic">{t.aryaSamajBook}</span></li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.ramakrishnaMissionTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.ramakrishnaMissionTitle}</h3>
                         <ul className="space-y-2">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.ramakrishnaMissionDesc1}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.ramakrishnaMissionDesc2}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span className="font-bold bg-orange-100 px-1">{t.ramakrishnaMissionFocus}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.ramakrishnaMissionDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.ramakrishnaMissionDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span className="font-bold bg-paper-orange/20 px-1">{t.ramakrishnaMissionFocus}</span></li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.theosophicalSocietyTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.theosophicalSocietyTitle}</h3>
                         <ul className="space-y-2">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.theosophicalSocietyDesc1}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.theosophicalSocietyDesc2}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.theosophicalSocietyDesc3}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.theosophicalSocietyDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.theosophicalSocietyDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.theosophicalSocietyDesc3}</span></li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.muslimReformsTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.muslimReformsTitle}</h3>
                         <ul className="space-y-4">
                             <li className="flex gap-2 items-start">
-                                <span className="text-slate-400 mt-1">→</span>
+                                <span className="text-paper-gray/40 mt-1">→</span>
                                 <div>
-                                    <strong className="block text-red-900 uppercase text-xs mb-1">{t.aligarhMovement}</strong>
+                                    <strong className="block text-paper-red uppercase text-xs mb-1">{t.aligarhMovement}</strong>
                                     <span>{t.aligarhMovementDesc}</span>
                                 </div>
                             </li>
                             <li className="flex gap-2 items-start">
-                                <span className="text-slate-400 mt-1">→</span>
+                                <span className="text-paper-gray/40 mt-1">→</span>
                                 <div>
-                                    <strong className="block text-red-900 uppercase text-xs mb-1">{t.deobandMovement}</strong>
+                                    <strong className="block text-paper-red uppercase text-xs mb-1">{t.deobandMovement}</strong>
                                     <span>{t.deobandMovementDesc}</span>
                                 </div>
                             </li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.sikhReformTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.sikhReformTitle}</h3>
                         <ul className="space-y-4">
                             <li className="flex gap-2 items-start">
-                                <span className="text-slate-400 mt-1">→</span>
+                                <span className="text-paper-gray/40 mt-1">→</span>
                                 <div>
-                                    <strong className="block text-red-900 uppercase text-xs mb-1">{t.singhSabha}</strong>
+                                    <strong className="block text-paper-red uppercase text-xs mb-1">{t.singhSabha}</strong>
                                     <span>{t.singhSabhaDesc}</span>
                                 </div>
                             </li>
                             <li className="flex gap-2 items-start">
-                                <span className="text-slate-400 mt-1">→</span>
+                                <span className="text-paper-gray/40 mt-1">→</span>
                                 <div>
-                                    <strong className="block text-red-900 uppercase text-xs mb-1">{t.akaliMovement}</strong>
+                                    <strong className="block text-paper-red uppercase text-xs mb-1">{t.akaliMovement}</strong>
                                     <span>{t.akaliMovementDesc}</span>
                                 </div>
                             </li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.parsiReformTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.parsiReformTitle}</h3>
                         <ul className="space-y-2">
                             <li className="flex gap-2 items-start">
-                                <span className="text-slate-400 mt-1">→</span>
+                                <span className="text-paper-gray/40 mt-1">→</span>
                                 <div>
-                                    <strong className="block text-red-900 uppercase text-xs mb-1">{t.rahnumaiMazdayasnan}</strong>
+                                    <strong className="block text-paper-red uppercase text-xs mb-1">{t.rahnumaiMazdayasnan}</strong>
                                     <span>{t.rahnumaiMazdayasnanDesc}</span>
                                 </div>
                             </li>
@@ -173,25 +173,25 @@ export default function HandwrittenChapter28() {
             </section>
 
             {/* IMPACT SECTION */}
-            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative text-gray-900">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2 uppercase">{t.impactTitle}</h2>
+            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-paper relative text-gray-900">
+                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-paper-indigo border-b-2 border-paper-border pb-2 uppercase">{t.impactTitle}</h2>
                 <div className="space-y-4">
                     <div className="flex gap-2 items-start text-lg">
-                        <span className="text-[#CC0000] mt-1">•</span>
+                        <span className="text-paper-red mt-1">•</span>
                         <p>{t.impactItem1}</p>
                     </div>
                     <div className="flex gap-2 items-start text-lg">
-                        <span className="text-[#CC0000] mt-1">•</span>
+                        <span className="text-paper-red mt-1">•</span>
                         <p>{t.impactItem2}</p>
                     </div>
                     <div className="flex gap-2 items-start text-lg">
-                        <span className="text-[#CC0000] mt-1">•</span>
+                        <span className="text-paper-red mt-1">•</span>
                         <p>{t.impactItem3}</p>
                     </div>
                 </div>
             </section>
 
-            <div className="text-center font-['Just_Another_Hand'] text-2xl opacity-40 mt-20 mb-10 italic">
+            <div className="text-center font-['Just_Another_Hand'] text-2xl opacity-40 mt-20 mb-10 italic text-inherit">
                 {t.endOfNotes}
             </div>
         </div>

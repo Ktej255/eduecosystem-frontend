@@ -51,7 +51,7 @@ export default function KnowledgeMemoryPage() {
             case "review_soon": return "bg-amber-500";
             case "critical": return "bg-orange-500";
             case "forgotten": return "bg-red-500";
-            default: return "bg-gray-500";
+            default: return "bg-muted-foreground";
         }
     };
 
@@ -70,7 +70,7 @@ export default function KnowledgeMemoryPage() {
         return (
             <div className="flex flex-col items-center justify-center min-h-[60vh] text-purple-500">
                 <Loader2 className="h-12 w-12 animate-spin mb-4" />
-                <p className="text-gray-400 font-medium">Scanning your memory...</p>
+                <p className="text-muted-foreground font-medium">Scanning your memory...</p>
             </div>
         );
     }
@@ -81,7 +81,7 @@ export default function KnowledgeMemoryPage() {
                 <Brain className="h-8 w-8 text-purple-500" />
                 <h1 className="text-4xl font-black text-white">Knowledge Memory</h1>
             </div>
-            <p className="text-gray-400 text-lg">
+            <p className="text-muted-foreground text-lg">
                 Track what you remember using science-backed spaced repetition (FSRS).
             </p>
 
@@ -92,25 +92,25 @@ export default function KnowledgeMemoryPage() {
                         <div className="text-4xl font-black text-white mb-1">
                             {data ? Math.round(data.average_retention * 100) : 0}%
                         </div>
-                        <p className="text-sm text-gray-400">Average Retention</p>
+                        <p className="text-sm text-muted-foreground">Average Retention</p>
                     </CardContent>
                 </Card>
                 <Card className="bg-gray-900 border-gray-800">
                     <CardContent className="p-6 text-center">
                         <div className="text-4xl font-black text-white mb-1">{data?.topics.length || 0}</div>
-                        <p className="text-sm text-gray-400">Topics Tracked</p>
+                        <p className="text-sm text-muted-foreground">Topics Tracked</p>
                     </CardContent>
                 </Card>
                 <Card className="bg-gray-900 border-gray-800">
                     <CardContent className="p-6 text-center">
                         <div className="text-4xl font-black text-amber-400 mb-1">{data?.due_today || 0}</div>
-                        <p className="text-sm text-gray-400">Due Today</p>
+                        <p className="text-sm text-muted-foreground">Due Today</p>
                     </CardContent>
                 </Card>
                 <Card className="bg-gray-900 border-gray-800">
                     <CardContent className="p-6 text-center">
                         <div className="text-4xl font-black text-red-400 mb-1">{data?.critical_count || 0}</div>
-                        <p className="text-sm text-gray-400">Critical</p>
+                        <p className="text-sm text-muted-foreground">Critical</p>
                     </CardContent>
                 </Card>
             </div>
@@ -122,7 +122,7 @@ export default function KnowledgeMemoryPage() {
                 </CardHeader>
                 <CardContent>
                     {!data || data.topics.length === 0 ? (
-                        <div className="text-center py-12 text-gray-500">
+                        <div className="text-center py-12 text-muted-foreground">
                             <Brain className="h-16 w-16 mx-auto mb-4 opacity-30" />
                             <p>No topics tracked yet. Complete lessons with the Feynman Summary feature to start tracking!</p>
                         </div>
@@ -145,7 +145,7 @@ export default function KnowledgeMemoryPage() {
 
                                     <div className="text-right">
                                         <div className="text-lg font-bold text-white">{Math.round(topic.retrievability * 100)}%</div>
-                                        <div className="text-xs text-gray-500">
+                                        <div className="text-xs text-muted-foreground">
                                             {topic.days_until_review === 0
                                                 ? "Due today!"
                                                 : topic.days_until_review > 0

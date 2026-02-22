@@ -14,6 +14,7 @@ import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import ChartErrorBoundary from "@/components/ui/ChartErrorBoundary";
 
 // --- Mock Data ---
 
@@ -76,11 +77,11 @@ function LineChart({ data, width = 600, height = 300 }: { data: typeof dataPoint
                             y1={getY(val)}
                             x2={width - padding}
                             y2={getY(val)}
-                            stroke="#e2e8f0"
+                            stroke="var(--border)"
                             strokeWidth="1"
                             strokeDasharray="4 4"
                         />
-                        <text x={padding - 10} y={getY(val) + 4} textAnchor="end" className="text-[10px] fill-slate-400">
+                        <text x={padding - 10} y={getY(val) + 4} textAnchor="end" className="text-[10px] fill-muted-foreground font-medium">
                             {val}%
                         </text>
                     </g>
@@ -93,7 +94,7 @@ function LineChart({ data, width = 600, height = 300 }: { data: typeof dataPoint
                         x={getX(i)}
                         y={height - 10}
                         textAnchor="middle"
-                        className="text-[10px] fill-slate-500 font-medium"
+                        className="text-[10px] fill-muted-foreground font-bold uppercase tracking-tight"
                     >
                         {d.week}
                     </text>
@@ -110,26 +111,26 @@ function LineChart({ data, width = 600, height = 300 }: { data: typeof dataPoint
                         <rect x={getX(i) - 10} y={padding} width={20} height={graphHeight} fill="transparent" className="cursor-pointer" />
 
                         {/* Visible Dots */}
-                        <circle cx={getX(i)} cy={getY(d.b1)} r={4} fill="white" stroke={cohorts[0].color} strokeWidth="2" />
-                        <circle cx={getX(i)} cy={getY(d.b2)} r={4} fill="white" stroke={cohorts[1].color} strokeWidth="2" />
+                        <circle cx={getX(i)} cy={getY(d.b1)} r={4} fill="var(--card)" stroke={cohorts[0].color} strokeWidth="2" />
+                        <circle cx={getX(i)} cy={getY(d.b2)} r={4} fill="var(--card)" stroke={cohorts[1].color} strokeWidth="2" />
 
                         {/* Hover Tooltip - Rendered inside SVG for simplicity of positioning */}
                         {hoveredIndex === i && (
                             <g>
-                                <line x1={getX(i)} y1={padding} x2={getX(i)} y2={height - padding} stroke="#cbd5e1" strokeWidth="1" />
+                                <line x1={getX(i)} y1={padding} x2={getX(i)} y2={height - padding} stroke="var(--border)" strokeWidth="1" />
                                 <rect
                                     x={getX(i) - 60}
                                     y={Math.min(getY(d.b1), getY(d.b2)) - 60}
                                     width={120}
                                     height={50}
                                     rx={4}
-                                    fill="white"
-                                    stroke="#e2e8f0"
+                                    fill="var(--card)"
+                                    stroke="var(--border)"
                                     className="shadow-lg"
                                 />
-                                <text x={getX(i)} y={Math.min(getY(d.b1), getY(d.b2)) - 45} textAnchor="middle" className="text-[10px] font-bold fill-slate-700">{d.week} Performance</text>
-                                <text x={getX(i) - 50} y={Math.min(getY(d.b1), getY(d.b2)) - 25} className="text-[10px] fill-indigo-600 font-medium">B1: {d.b1}%</text>
-                                <text x={getX(i) + 50} y={Math.min(getY(d.b1), getY(d.b2)) - 25} textAnchor="end" className="text-[10px] fill-pink-600 font-medium">B2: {d.b2}%</text>
+                                <text x={getX(i)} y={Math.min(getY(d.b1), getY(d.b2)) - 45} textAnchor="middle" className="text-[10px] font-black fill-foreground">{d.week} Performance</text>
+                                <text x={getX(i) - 50} y={Math.min(getY(d.b1), getY(d.b2)) - 25} className="text-[10px] fill-primary font-bold">B1: {d.b1}%</text>
+                                <text x={getX(i) + 50} y={Math.min(getY(d.b1), getY(d.b2)) - 25} textAnchor="end" className="text-[10px] fill-pink-500 font-bold">B2: {d.b2}%</text>
                             </g>
                         )}
                     </g>
@@ -143,7 +144,7 @@ export default function CohortComparison() {
     const [metric, setMetric] = useState("avg_score");
 
     return (
-        <Card className="col-span-1 md:col-span-2 border-slate-200 dark:border-slate-800">
+        <Card className="col-span-1 md:col-span-2 border-border">
             <CardHeader className="pb-2">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
@@ -176,7 +177,7 @@ export default function CohortComparison() {
                                 <div className="w-3 h-3 rounded-full bg-indigo-600"></div>
                                 <span className="text-xs font-bold text-indigo-900 dark:text-indigo-200">Batch 1 (Alpha)</span>
                             </div>
-                            <Badge variant="secondary" className="bg-white text-indigo-600 shadow-sm text-[10px]">Morning</Badge>
+                            <Badge variant="secondary" className="bg-card text-indigo-600 shadow-sm text-[10px]">Morning</Badge>
                         </div>
                         <div className="flex items-end justify-between">
                             <div>
@@ -187,7 +188,7 @@ export default function CohortComparison() {
                                 <span className="flex items-center text-xs font-medium text-green-600">
                                     <ArrowUpRight className="h-3 w-3 mr-1" /> {stats.b1.trend}
                                 </span>
-                                <p className="text-[10px] text-slate-500">{stats.b1.active} Active</p>
+                                <p className="text-[10px] text-muted-foreground">{stats.b1.active} Active</p>
                             </div>
                         </div>
                     </div>
@@ -198,7 +199,7 @@ export default function CohortComparison() {
                                 <div className="w-3 h-3 rounded-full bg-pink-500"></div>
                                 <span className="text-xs font-bold text-pink-900 dark:text-pink-200">Batch 2 (Beta)</span>
                             </div>
-                            <Badge variant="secondary" className="bg-white text-pink-600 shadow-sm text-[10px]">Evening</Badge>
+                            <Badge variant="secondary" className="bg-card text-pink-600 shadow-sm text-[10px]">Evening</Badge>
                         </div>
                         <div className="flex items-end justify-between">
                             <div>
@@ -209,18 +210,20 @@ export default function CohortComparison() {
                                 <span className="flex items-center text-xs font-medium text-green-600">
                                     <ArrowUpRight className="h-3 w-3 mr-1" /> {stats.b2.trend}
                                 </span>
-                                <p className="text-[10px] text-slate-500">{stats.b2.active} Active</p>
+                                <p className="text-[10px] text-muted-foreground">{stats.b2.active} Active</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Chart Area */}
-                <div className="h-[250px] w-full bg-slate-50/50 dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800 p-2">
-                    <LineChart data={dataPoints} />
+                <div className="h-[250px] w-full bg-muted/30 rounded-xl border border-border p-2">
+                    <ChartErrorBoundary name="Cohort Comparison Chart">
+                        <LineChart data={dataPoints} />
+                    </ChartErrorBoundary>
                 </div>
 
-                <div className="mt-4 flex items-center justify-center gap-2 text-xs text-slate-400">
+                <div className="mt-4 flex items-center justify-center gap-2 text-xs text-muted-foreground">
                     <MousePointer2 className="h-3 w-3" />
                     <span>Hover over chart comparison points to see detailed breakdown</span>
                 </div>

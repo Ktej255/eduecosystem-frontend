@@ -17,7 +17,7 @@ interface ElectionsModuleProps {
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="bg-[#eff6ff] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-blue-100">
-        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white/50 rounded-3xl p-6 shadow-inner border-2 border-slate-200">
+        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-card/50 rounded-3xl p-6 shadow-inner border-2 border-border">
             {children}
         </div>
     </div>
@@ -28,7 +28,7 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
         <div className={`p-3 rounded-full ${color} text-white shadow-lg`}>
             <Icon size={24} />
         </div>
-        <h2 className={`text-2xl font-black uppercase tracking-tight text-slate-800`}>
+        <h2 className={`text-2xl font-black uppercase tracking-tight text-foreground`}>
             {title}
         </h2>
         <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
@@ -61,7 +61,7 @@ export default function ElectionsModule({ onComplete, isCompleted, chapterNumber
             {/* PHASE 1: MACHINERY */}
             <SectionHeader title="Phase 1: The Machinery" icon={Users} color="bg-[#1d4ed8]" />
 
-            <div className="bg-white border-2 border-blue-200 rounded-2xl p-8 shadow-md">
+            <div className="bg-card border-2 border-blue-200 rounded-2xl p-8 shadow-md">
                 <div className="flex flex-col items-center space-y-4 relative">
                     {/* Pyramid */}
                     <div className="w-64 p-4 bg-blue-900 text-white rounded-t-xl text-center font-black shadow-lg z-30">
@@ -82,7 +82,7 @@ export default function ElectionsModule({ onComplete, isCompleted, chapterNumber
                     <h4 className="font-black text-blue-800 flex items-center gap-2">
                         <Flag size={18} /> Notification Trap
                     </h4>
-                    <p className="text-sm font-bold text-slate-700">
+                    <p className="text-sm font-bold text-muted-foreground">
                         President/Governor issues notification, BUT only on <span className="underline">recommendation of ECI</span>.
                     </p>
                 </div>
@@ -97,15 +97,15 @@ export default function ElectionsModule({ onComplete, isCompleted, chapterNumber
                     <ul className="space-y-4 mt-4">
                         <li className="flex items-center gap-3">
                             <Calendar size={20} className="text-[#b91c1c]" />
-                            <span className="font-bold text-slate-700 text-sm">Starts: Immediately on Schedule Announcement.</span>
+                            <span className="font-bold text-muted-foreground text-sm">Starts: Immediately on Schedule Announcement.</span>
                         </li>
                         <li className="flex items-center gap-3">
                             <Ban size={20} className="text-[#b91c1c]" />
-                            <span className="font-bold text-slate-700 text-sm">Finishes: End of Election Process.</span>
+                            <span className="font-bold text-muted-foreground text-sm">Finishes: End of Election Process.</span>
                         </li>
                         <li className="flex items-center gap-3">
-                            <Gavel size={20} className="text-slate-500" />
-                            <span className="font-bold text-slate-500 text-sm">Status: Not Statutory (Gentleman's Agreement).</span>
+                            <Gavel size={20} className="text-muted-foreground" />
+                            <span className="font-bold text-muted-foreground text-sm">Status: Not Statutory (Gentleman's Agreement).</span>
                         </li>
                     </ul>
                 </div>
@@ -120,7 +120,7 @@ export default function ElectionsModule({ onComplete, isCompleted, chapterNumber
                         [x] Candidate B  &lt;--- VVPAT Slip (7 secs) <br />
                         [ ] NOTA (Since 2013)
                     </div>
-                    <p className="text-xs text-slate-400 font-bold text-center">
+                    <p className="text-xs text-muted-foreground font-bold text-center">
                         Used universally since 2004 Lok Sabha.
                     </p>
                 </div>
@@ -130,20 +130,20 @@ export default function ElectionsModule({ onComplete, isCompleted, chapterNumber
             <SectionHeader title="Phase 3: Disputes & Polls" icon={Gavel} color="bg-slate-700" />
 
             <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-white p-6 rounded-2xl border-2 border-slate-200 shadow-sm">
+                <div className="bg-card p-6 rounded-2xl border-2 border-border shadow-sm">
                     <h3 className="font-black text-lg mb-2">Election Petitions</h3>
-                    <p className="font-bold text-slate-700 text-sm">
+                    <p className="font-bold text-muted-foreground text-sm">
                         Decided by <span className="text-blue-600 text-lg">High Court</span>.
                     </p>
-                    <p className="text-xs font-bold text-slate-400 mt-1">Appeal lies to Supreme Court.</p>
+                    <p className="text-xs font-bold text-muted-foreground mt-1">Appeal lies to Supreme Court.</p>
                 </div>
 
-                <div className="bg-white p-6 rounded-2xl border-2 border-slate-200 shadow-sm">
+                <div className="bg-card p-6 rounded-2xl border-2 border-border shadow-sm">
                     <h3 className="font-black text-lg mb-2 flex items-center gap-2"><BarChart size={18} /> Exit Polls</h3>
                     <p className="font-bold text-red-600 text-sm">
                         BANNED from start of polling till 30 mins after end of all phases.
                     </p>
-                    <div className="mt-2 bg-slate-100 p-2 rounded text-xs text-slate-500 font-bold">
+                    <div className="mt-2 bg-muted p-2 rounded text-xs text-muted-foreground font-bold">
                         Opinion Polls: Banned only 48h before voting.
                     </div>
                 </div>
@@ -155,10 +155,10 @@ export default function ElectionsModule({ onComplete, isCompleted, chapterNumber
                     <h4 className="font-black text-lg text-yellow-500 flex items-center gap-2">
                         <Speaker size={20} /> The 48-Hour Silence
                     </h4>
-                    <p className="text-sm font-bold text-slate-400">Section 126 RPA (1951)</p>
+                    <p className="text-sm font-bold text-muted-foreground">Section 126 RPA (1951)</p>
                 </div>
                 <div className="text-right">
-                    <p className="text-xs font-bold text-slate-500">Expenditure Limit (Candidate Only)</p>
+                    <p className="text-xs font-bold text-muted-foreground">Expenditure Limit (Candidate Only)</p>
                     <p className="font-bold text-white">LS: ₹95L / Assembly: ₹40L</p>
                 </div>
             </div>

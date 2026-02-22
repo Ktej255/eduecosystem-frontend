@@ -37,16 +37,16 @@ export default function StudentHeader() {
     const NavDropdown = ({ title, items }: { title: string, items: { label: string, href: string }[] }) => (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="h-9 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                <Button variant="ghost" className="h-9 px-4 py-2 text-sm font-medium text-muted-foreground hover:bg-muted dark:hover:bg-gray-800 transition-colors">
                     {title}
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="w-48 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg animate-in fade-in-0 zoom-in-95 data-[side=bottom]:slide-in-from-top-2">
+            <DropdownMenuContent align="start" className="w-48 bg-card border border-border shadow-lg animate-in fade-in-0 zoom-in-95 data-[side=bottom]:slide-in-from-top-2">
                 {items.map((item) => (
                     <DropdownMenuItem
                         key={item.href}
                         onClick={() => window.location.href = item.href}
-                        className="cursor-pointer focus:bg-gray-100 dark:focus:bg-gray-800"
+                        className="cursor-pointer focus:bg-muted dark:focus:bg-gray-800"
                     >
                         {item.label}
                     </DropdownMenuItem>

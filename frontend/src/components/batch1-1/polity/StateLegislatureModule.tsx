@@ -16,7 +16,7 @@ interface StateLegislatureModuleProps {
 // --- Design System: The Unequal Houses (Assembly Hall) ---
 
 const AssemblyContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#fefce8] text-slate-900">
+    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#fefce8] text-foreground">
         {/* Construction/Blueprint Texture */}
         <div className="absolute inset-0 opacity-10 pointer-events-none bg-[linear-gradient(45deg,#ca8a04_1px,transparent_1px),linear-gradient(-45deg,#ca8a04_1px,transparent_1px)] bg-[size:20px_20px]"></div>
 
@@ -56,10 +56,10 @@ export default function StateLegislatureModule({ onComplete, isCompleted }: Stat
                         <Building size={80} className="text-emerald-700" />
                         <Building size={60} className="text-red-700 opacity-60" />
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black text-slate-800 font-serif mb-2">
+                    <h1 className="text-4xl md:text-6xl font-black text-foreground font-serif mb-2">
                         STATE LEGISLATURE
                     </h1>
-                    <p className="text-xl font-bold uppercase tracking-widest text-slate-600">
+                    <p className="text-xl font-bold uppercase tracking-widest text-muted-foreground">
                         "The Unequal Houses"
                     </p>
                 </div>
@@ -73,7 +73,7 @@ export default function StateLegislatureModule({ onComplete, isCompleted }: Stat
                     <div className="h-px bg-yellow-500 flex-1"></div>
                 </div>
 
-                <div className="bg-white p-6 rounded-xl shadow-xl border border-slate-200">
+                <div className="bg-card p-6 rounded-xl shadow-xl border border-border">
                     <div className="flex flex-col md:flex-row items-center gap-8">
                         <div className="md:w-1/2">
                             <MapIcon size={120} className="mx-auto text-slate-200" />
@@ -86,12 +86,12 @@ export default function StateLegislatureModule({ onComplete, isCompleted }: Stat
                         <div className="md:w-1/2 space-y-4">
                             <h3 className="font-bold text-lg border-b pb-2">Remember: <span className="text-emerald-600">KUMBAT</span></h3>
                             <div className="grid grid-cols-2 gap-3 font-mono text-sm">
-                                <div className="bg-slate-50 p-2 rounded border border-slate-200"><strong>K</strong>arnataka</div>
-                                <div className="bg-slate-50 p-2 rounded border border-slate-200"><strong>U</strong>ttar Pradesh</div>
-                                <div className="bg-slate-50 p-2 rounded border border-slate-200"><strong>M</strong>aharashtra</div>
-                                <div className="bg-slate-50 p-2 rounded border border-slate-200"><strong>B</strong>ihar</div>
-                                <div className="bg-slate-50 p-2 rounded border border-slate-200"><strong>A</strong>ndhra Pradesh</div>
-                                <div className="bg-slate-50 p-2 rounded border border-slate-200"><strong>T</strong>elangana</div>
+                                <div className="bg-muted p-2 rounded border border-border"><strong>K</strong>arnataka</div>
+                                <div className="bg-muted p-2 rounded border border-border"><strong>U</strong>ttar Pradesh</div>
+                                <div className="bg-muted p-2 rounded border border-border"><strong>M</strong>aharashtra</div>
+                                <div className="bg-muted p-2 rounded border border-border"><strong>B</strong>ihar</div>
+                                <div className="bg-muted p-2 rounded border border-border"><strong>A</strong>ndhra Pradesh</div>
+                                <div className="bg-muted p-2 rounded border border-border"><strong>T</strong>elangana</div>
                             </div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@ export default function StateLegislatureModule({ onComplete, isCompleted }: Stat
                                     Passes Resolution by <span className="underline decoration-wavy decoration-emerald-500">Special Majority</span>.
                                 </div>
                             </div>
-                            <div className="flex justify-center text-slate-400">↓</div>
+                            <div className="flex justify-center text-muted-foreground">↓</div>
                             <div className="flex items-start gap-3">
                                 <div className="bg-blue-100 p-2 rounded font-bold text-blue-800 min-w-[80px] text-center">Step 2</div>
                                 <div>
@@ -132,7 +132,7 @@ export default function StateLegislatureModule({ onComplete, isCompleted }: Stat
                     </HouseCard>
 
                     {/* INTERACTIVE TRASH CAN */}
-                    <div className="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-xl border-dashed border-2 border-slate-300">
+                    <div className="flex flex-col items-center justify-center p-6 bg-muted rounded-xl border-dashed border-2 border-border">
                         <div className={`transition-all duration-500 ${demolished ? 'opacity-20 blur-sm scale-90' : 'opacity-100 scale-100'}`}>
                             <div className="w-32 h-40 bg-red-100 border-4 border-red-800 flex flex-col items-center justify-center rounded shadow-lg relative">
                                 <div className="absolute top-2 w-20 h-2 bg-red-800 rounded"></div>
@@ -172,7 +172,7 @@ export default function StateLegislatureModule({ onComplete, isCompleted }: Stat
                                 <span>Election</span>
                                 <span className="font-bold">Direct (People)</span>
                             </div>
-                            <div className="bg-white/50 p-2 rounded text-xs italic text-slate-500">
+                            <div className="bg-card/50 p-2 rounded text-xs italic text-muted-foreground">
                                 *Exceptions: Sikkim (32), Goa (40), Mizoram (40).
                             </div>
                         </div>
@@ -185,7 +185,7 @@ export default function StateLegislatureModule({ onComplete, isCompleted }: Stat
                                 <span>Strength</span>
                                 <span className="font-bold">Max 1/3 Assembly / Min 40</span>
                             </div>
-                            <div className="border border-red-200 bg-white/50 p-2 rounded">
+                            <div className="border border-red-200 bg-card/50 p-2 rounded">
                                 <strong className="block mb-1 text-xs uppercase text-red-500">Complex Election:</strong>
                                 <ul className="grid grid-cols-2 gap-1 text-xs">
                                     <li>• 1/3 MLAs</li>
@@ -199,7 +199,7 @@ export default function StateLegislatureModule({ onComplete, isCompleted }: Stat
                     </HouseCard>
 
                     {/* COMPARISON (THE SCALE) */}
-                    <div className="md:col-span-2 bg-slate-100 p-6 rounded-xl border border-slate-300">
+                    <div className="md:col-span-2 bg-muted p-6 rounded-xl border border-border">
                         <h3 className="font-bold text-center mb-4 flex justify-center gap-2">
                             <Scale /> Power Comparison
                         </h3>
@@ -212,7 +212,7 @@ export default function StateLegislatureModule({ onComplete, isCompleted }: Stat
                                 <strong>Ord. Bill Delay</strong>
                                 <div className="mt-1 text-xs">Max 4 Months (3+1)</div>
                             </div>
-                            <div className="p-3 bg-slate-200 rounded text-slate-900 opacity-50">
+                            <div className="p-3 bg-slate-200 rounded text-foreground opacity-50">
                                 <strong>Joint Sitting</strong>
                                 <div className="mt-1 text-xs">DOES NOT EXIST</div>
                             </div>
@@ -229,7 +229,7 @@ export default function StateLegislatureModule({ onComplete, isCompleted }: Stat
                     className={`
                         px-10 py-4 rounded-lg font-black uppercase text-lg transition-all border-b-4
                         ${isCompleted
-                            ? 'bg-slate-300 text-slate-500 border-slate-400 cursor-not-allowed'
+                            ? 'bg-slate-300 text-muted-foreground border-slate-400 cursor-not-allowed'
                             : 'bg-yellow-500 text-yellow-900 border-yellow-700 hover:bg-yellow-400 hover:translate-y-px hover:border-b-0'
                         }
                     `}

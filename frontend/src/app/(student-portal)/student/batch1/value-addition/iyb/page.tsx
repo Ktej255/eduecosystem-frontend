@@ -18,13 +18,13 @@ export default function Page() {
                         <BookMarked className="h-6 w-6 text-rose-600" />
                         India Year Book 2026
                     </h1>
-                    <p className="text-gray-500 text-sm">
+                    <p className="text-muted-foreground text-sm">
                         Chapter-wise summary coming soon.
                     </p>
                 </div>
             </div>
-            <div className="h-64 flex items-center justify-center bg-slate-50 border border-dashed rounded-xl">
-                <p className="text-gray-500">Content under preparation.</p>
+            <div className="h-64 flex items-center justify-center bg-muted border border-dashed rounded-xl">
+                <p className="text-muted-foreground">Content under preparation.</p>
             </div>
         </div>
     );

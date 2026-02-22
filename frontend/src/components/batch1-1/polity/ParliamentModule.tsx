@@ -17,7 +17,7 @@ interface ParliamentModuleProps {
 // --- Design System: The Two Houses (Green & Red) ---
 
 const ParliamentContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#fffbeb] text-slate-900">
+    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#fffbeb] text-foreground">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]"></div>
 
@@ -32,7 +32,7 @@ const SectionTitle = ({ title, subtitle, color = "slate" }: { title: string, sub
         green: "text-green-800 border-green-800",
         red: "text-red-800 border-red-800",
         gold: "text-yellow-800 border-yellow-800",
-        slate: "text-slate-800 border-slate-800",
+        slate: "text-foreground border-slate-800",
         blue: "text-blue-800 border-blue-800",
     };
 
@@ -51,7 +51,7 @@ const SketchCard = ({ children, title, icon: Icon, color = "slate", className = 
         green: "border-green-700 bg-green-50 shadow-[4px_4px_0px_#15803d]",
         red: "border-red-700 bg-red-50 shadow-[4px_4px_0px_#b91c1c]",
         gold: "border-yellow-600 bg-yellow-50 shadow-[4px_4px_0px_#ca8a04]",
-        slate: "border-slate-700 bg-slate-50 shadow-[4px_4px_0px_#334155]",
+        slate: "border-slate-700 bg-muted shadow-[4px_4px_0px_#334155]",
         blue: "border-blue-700 bg-blue-50 shadow-[4px_4px_0px_#1d4ed8]",
         indigo: "border-indigo-700 bg-indigo-50 shadow-[4px_4px_0px_#4338ca]",
     };
@@ -77,10 +77,10 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
                 <div className="absolute top-0 center-0 w-full h-full pointer-events-none opacity-10 flex justify-center items-center">
                     <Building2 size={300} />
                 </div>
-                <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-4 font-serif relative z-10">
+                <h1 className="text-5xl md:text-7xl font-black text-foreground mb-4 font-serif relative z-10">
                     PARLIAMENT
                 </h1>
-                <p className="text-2xl font-handwriting text-slate-700 italic max-w-3xl mx-auto bg-white/80 p-2 rounded relative z-10">
+                <p className="text-2xl font-handwriting text-muted-foreground italic max-w-3xl mx-auto bg-card/80 p-2 rounded relative z-10">
                     "The Behemoth of Indian Democracy. Chapter 22."
                 </p>
 
@@ -88,19 +88,19 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
                 <div className="flex flex-wrap justify-center gap-4 mt-8 relative z-20">
                     <button
                         onClick={() => setActiveTab("part1")}
-                        className={`px-6 py-2 rounded-full font-bold border-2 transition-all ${activeTab === "part1" ? "bg-slate-900 text-white border-slate-900" : "bg-white text-slate-900 border-slate-900 hover:bg-slate-100"}`}
+                        className={`px-6 py-2 rounded-full font-bold border-2 transition-all ${activeTab === "part1" ? "bg-slate-900 text-white border-slate-900" : "bg-card text-foreground border-slate-900 hover:bg-muted"}`}
                     >
                         Part 1: The People
                     </button>
                     <button
                         onClick={() => setActiveTab("part2")}
-                        className={`px-6 py-2 rounded-full font-bold border-2 transition-all ${activeTab === "part2" ? "bg-blue-700 text-white border-blue-700" : "bg-white text-blue-700 border-blue-700 hover:bg-blue-50"}`}
+                        className={`px-6 py-2 rounded-full font-bold border-2 transition-all ${activeTab === "part2" ? "bg-blue-700 text-white border-blue-700" : "bg-card text-blue-700 border-blue-700 hover:bg-blue-50"}`}
                     >
                         Part 2: The Process
                     </button>
                     <button
                         onClick={() => setActiveTab("part3")}
-                        className={`px-6 py-2 rounded-full font-bold border-2 transition-all ${activeTab === "part3" ? "bg-green-700 text-white border-green-700" : "bg-white text-green-700 border-green-700 hover:bg-green-50"}`}
+                        className={`px-6 py-2 rounded-full font-bold border-2 transition-all ${activeTab === "part3" ? "bg-green-700 text-white border-green-700" : "bg-card text-green-700 border-green-700 hover:bg-green-50"}`}
                     >
                         Part 3: Money & Oversight
                     </button>
@@ -114,7 +114,7 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
 
                     {/* PHASE 1: ORGANIZATION */}
                     <div className="grid md:grid-cols-3 gap-6">
-                        <SketchCard title="The Trinity (Art 79)" icon={Users} color="slate" className="md:col-span-3 bg-white text-center">
+                        <SketchCard title="The Trinity (Art 79)" icon={Users} color="slate" className="md:col-span-3 bg-card text-center">
                             <div className="flex flex-col md:flex-row items-center justify-around gap-6">
                                 <div className="bg-yellow-100 p-4 rounded-full border-2 border-yellow-500 w-32 h-32 flex flex-col items-center justify-center shadow-lg">
                                     <UserCheck size={32} className="text-yellow-700 mb-1" />
@@ -145,9 +145,9 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
                                     <strong>Nomination (CLASS):</strong> <br />
                                     Literature, Science, Art, Social Service
                                 </li>
-                                <li className="bg-white/50 p-1 rounded">
+                                <li className="bg-card/50 p-1 rounded">
                                     <strong>Representation:</strong> Unequal (Population).
-                                    <div className="text-xs text-slate-500">e.g., UP(31) vs Tripura(1)</div>
+                                    <div className="text-xs text-muted-foreground">e.g., UP(31) vs Tripura(1)</div>
                                 </li>
                             </ul>
                         </SketchCard>
@@ -155,7 +155,7 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
                         <SketchCard title="Lok Sabha (Green Chamber)" icon={Users} color="green">
                             <ul className="space-y-3 font-handwriting text-sm">
                                 <li><strong>Max Strength:</strong> 550 (530 States + 20 UTs)</li>
-                                <li className="text-xs italic bg-white/50 p-1 rounded">
+                                <li className="text-xs italic bg-card/50 p-1 rounded">
                                     (2 Anglo-Indians removed by 104th AA, 2019)
                                 </li>
                                 <li><strong>Current:</strong> 543</li>
@@ -190,11 +190,11 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
                     </div>
 
                     {/* PHASE 3: PRESIDING OFFICERS */}
-                    <div className="bg-slate-100 p-6 rounded-3xl border-2 border-slate-300">
+                    <div className="bg-muted p-6 rounded-3xl border-2 border-border">
                         <h3 className="text-2xl font-bold text-center mb-6 font-serif">The Presiding Officers</h3>
                         <div className="grid md:grid-cols-3 gap-6">
                             {/* SPEAKER */}
-                            <div className="bg-white p-4 rounded-xl border-4 border-yellow-500 shadow-xl relative overflow-hidden">
+                            <div className="bg-card p-4 rounded-xl border-4 border-yellow-500 shadow-xl relative overflow-hidden">
                                 <div className="absolute top-0 right-0 bg-yellow-500 text-white px-2 py-1 text-xs font-bold rounded-bl">THE BOSS</div>
                                 <h4 className="text-xl font-bold text-yellow-800 mb-2 flex items-center gap-2"><Gavel size={20} /> Speaker (LS)</h4>
                                 <ul className="space-y-2 text-sm font-handwriting">
@@ -210,7 +210,7 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
                             </div>
 
                             {/* CHAIRMAN */}
-                            <div className="bg-white p-4 rounded-xl border-4 border-red-500 shadow-xl relative">
+                            <div className="bg-card p-4 rounded-xl border-4 border-red-500 shadow-xl relative">
                                 <h4 className="text-xl font-bold text-red-800 mb-2 flex items-center gap-2"><Gavel size={20} /> Chairman (RS)</h4>
                                 <ul className="space-y-2 text-sm font-handwriting">
                                     <li>• <strong>Vice-President</strong> (Ex-officio).</li>
@@ -223,8 +223,8 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
                             </div>
 
                             {/* SECRETARIAT */}
-                            <div className="bg-white p-4 rounded-xl border-4 border-slate-500 shadow-xl relative">
-                                <h4 className="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><Building2 size={20} /> Secretariat</h4>
+                            <div className="bg-card p-4 rounded-xl border-4 border-slate-500 shadow-xl relative">
+                                <h4 className="text-xl font-bold text-foreground mb-2 flex items-center gap-2"><Building2 size={20} /> Secretariat</h4>
                                 <ul className="space-y-2 text-sm font-handwriting">
                                     <li>• Separate staff for each House.</li>
                                     <li>• Regulated by Parliament.</li>
@@ -281,12 +281,12 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
                     </div>
 
                     {/* DAILY GRIND CLOCKS */}
-                    <div className="bg-white p-6 rounded-2xl shadow-xl border-dashed border-2 border-slate-300">
+                    <div className="bg-card p-6 rounded-2xl shadow-xl border-dashed border-2 border-border">
                         <h3 className="text-center font-bold text-2xl mb-8 font-serif">The Daily Grind</h3>
                         <div className="flex flex-col md:flex-row justify-center items-center gap-12">
                             {/* 11 AM */}
                             <div className="relative text-center group">
-                                <div className="w-32 h-32 rounded-full border-4 border-slate-800 bg-white flex items-center justify-center relative shadow-lg">
+                                <div className="w-32 h-32 rounded-full border-4 border-slate-800 bg-card flex items-center justify-center relative shadow-lg">
                                     <div className="absolute w-1 h-12 bg-slate-800 bottom-1/2 left-1/2 origin-bottom -translate-x-1/2 rotate-[-30deg]"></div>
                                     <div className="absolute w-1 h-8 bg-slate-800 bottom-1/2 left-1/2 origin-bottom -translate-x-1/2 rotate-[0deg]"></div>
                                     <div className="w-2 h-2 bg-red-500 rounded-full z-10"></div>
@@ -300,7 +300,7 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
 
                             {/* 12 PM */}
                             <div className="relative text-center group">
-                                <div className="w-32 h-32 rounded-full border-4 border-slate-800 bg-white flex items-center justify-center relative shadow-lg">
+                                <div className="w-32 h-32 rounded-full border-4 border-slate-800 bg-card flex items-center justify-center relative shadow-lg">
                                     <div className="absolute w-1 h-12 bg-slate-800 bottom-1/2 left-1/2 origin-bottom -translate-x-1/2 rotate-[0deg]"></div>
                                     <div className="absolute w-1 h-8 bg-slate-800 bottom-1/2 left-1/2 origin-bottom -translate-x-1/2 rotate-[0deg]"></div>
                                     <div className="w-2 h-2 bg-red-500 rounded-full z-10"></div>
@@ -380,9 +380,9 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
                                     <div className="absolute left-4 top-0 w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold z-10 ring-4 ring-white">
                                         {idx + 1}
                                     </div>
-                                    <div className="bg-white p-4 rounded-xl shadow-md border border-slate-200">
+                                    <div className="bg-card p-4 rounded-xl shadow-md border border-border">
                                         <h4 className="font-bold flex items-center gap-2">{step.icon && <step.icon size={16} />} {step.title}</h4>
-                                        <p className="text-sm text-slate-500 font-handwriting">{step.desc}</p>
+                                        <p className="text-sm text-muted-foreground font-handwriting">{step.desc}</p>
                                     </div>
                                 </div>
                             ))}
@@ -426,7 +426,7 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
                         <h3 className="text-2xl font-bold text-indigo-900 mb-6 font-serif">The Watchdogs (Committees)</h3>
 
                         <div className="grid md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto relative z-10">
-                            <div className="bg-white p-5 rounded-xl shadow-lg border border-indigo-100">
+                            <div className="bg-card p-5 rounded-xl shadow-lg border border-indigo-100">
                                 <h4 className="font-bold text-indigo-800 mb-2 border-b pb-2">Public Accounts (PAC)</h4>
                                 <ul className="text-sm font-handwriting list-disc pl-4 space-y-1">
                                     <li>Oldest (1921). 22 Members (15 LS + 7 RS).</li>
@@ -434,7 +434,7 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
                                     <li><strong>Guide:</strong> CAG is "Friend, Philosopher & Guide".</li>
                                 </ul>
                             </div>
-                            <div className="bg-white p-5 rounded-xl shadow-lg border border-indigo-100">
+                            <div className="bg-card p-5 rounded-xl shadow-lg border border-indigo-100">
                                 <h4 className="font-bold text-indigo-800 mb-2 border-b pb-2">Estimates Committee</h4>
                                 <ul className="text-sm font-handwriting list-disc pl-4 space-y-1">
                                     <li>Largest (30 Members).</li>
@@ -453,7 +453,7 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
                                 px-10 py-4 rounded-full font-bold shadow-xl transition-transform hover:scale-105 active:scale-95 text-xl
                                 ${isCompleted
                                     ? 'bg-slate-900 text-white'
-                                    : 'bg-white text-slate-900 border-2 border-slate-900'
+                                    : 'bg-card text-foreground border-2 border-slate-900'
                                 }
                             `}
                         >

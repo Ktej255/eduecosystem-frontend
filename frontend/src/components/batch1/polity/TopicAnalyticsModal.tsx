@@ -44,7 +44,7 @@ export default function TopicAnalyticsModal({
 
     // Mock "Gap Analysis" based on score/status
     const getAnalysis = () => {
-        if (!data?.completed) return { status: 'Pending', color: 'text-gray-500', msg: 'Start this chapter to build your foundation.' };
+        if (!data?.completed) return { status: 'Pending', color: 'text-muted-foreground', msg: 'Start this chapter to build your foundation.' };
         if (data.score && data.score < 50) return { status: 'Critical Gap', color: 'text-red-500', msg: 'Low score detected. Immediate revision recommended.' };
         if (data.score && data.score < 80) return { status: 'Review Needed', color: 'text-amber-500', msg: 'Good progress, but some concepts need reinforcement.' };
         return { status: 'Strong', color: 'text-green-500', msg: 'Excellent command over this topic.' };
@@ -54,7 +54,7 @@ export default function TopicAnalyticsModal({
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="max-w-2xl bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+            <DialogContent className="max-w-2xl bg-card border-border">
                 <DialogHeader>
                     <div className="flex items-start justify-between gap-4">
                         <div>
@@ -78,28 +78,28 @@ export default function TopicAnalyticsModal({
                     {/* Left Column: Stats */}
                     <div className="space-y-6">
                         {/* Retention Score */}
-                        <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-xl space-y-2">
+                        <div className="bg-muted/50 p-4 rounded-xl space-y-2">
                             <div className="flex justify-between items-center text-sm">
-                                <span className="font-medium text-gray-500">Retention Score</span>
+                                <span className="font-medium text-muted-foreground">Retention Score</span>
                                 <span className="font-bold text-lg">{retentionScore}%</span>
                             </div>
                             <Progress value={retentionScore} className={`h-2 ${retentionScore < 50 ? 'bg-red-100' : 'bg-green-100'}`} />
-                            <p className="text-xs text-gray-400">Calculated based on MCQ performance and revision frequency.</p>
+                            <p className="text-xs text-muted-foreground">Calculated based on MCQ performance and revision frequency.</p>
                         </div>
 
                         {/* Activity Log */}
                         <div className="space-y-3">
-                            <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                            <h4 className="text-sm font-semibold text-muted-foreground dark:text-muted-foreground flex items-center gap-2">
                                 <Clock className="w-4 h-4" /> Activity Log
                             </h4>
                             <div className="space-y-2">
-                                <div className="flex justify-between text-sm p-2 rounded bg-gray-50 dark:bg-gray-800">
-                                    <span className="text-gray-500">Last Studied</span>
+                                <div className="flex justify-between text-sm p-2 rounded bg-muted">
+                                    <span className="text-muted-foreground">Last Studied</span>
                                     <span className="font-medium">{lastViewedDate}</span>
                                 </div>
-                                <div className="flex justify-between text-sm p-2 rounded bg-gray-50 dark:bg-gray-800">
-                                    <span className="text-gray-500">MCQ Score</span>
-                                    <span className={`font-medium ${data?.score ? (data.score > 70 ? 'text-green-500' : 'text-amber-500') : 'text-gray-400'}`}>
+                                <div className="flex justify-between text-sm p-2 rounded bg-muted">
+                                    <span className="text-muted-foreground">MCQ Score</span>
+                                    <span className={`font-medium ${data?.score ? (data.score > 70 ? 'text-green-500' : 'text-amber-500') : 'text-muted-foreground'}`}>
                                         {data?.score ? `${data.score}%` : 'Not taken'}
                                     </span>
                                 </div>

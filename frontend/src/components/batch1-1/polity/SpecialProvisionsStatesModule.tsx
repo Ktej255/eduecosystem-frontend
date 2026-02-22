@@ -37,14 +37,14 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const RegionalCard = ({ title, children, color = "border-[#2563eb]", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(37,99,235,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(37,99,235,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute top-0 right-0 p-2 opacity-10 translate-x-1/4 -translate-y-1/4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
             <MapPin size={64} className={color.replace('border-', 'text-')} />
         </div>
         <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-800 relative z-10 font-bold">
+        <div className="space-y-4 text-foreground relative z-10 font-bold">
             {children}
         </div>
     </div>
@@ -67,11 +67,11 @@ export default function SpecialProvisionsStatesModule({ onComplete, isCompleted,
         <ScrapbookContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#2563eb] border-4 border-[#1e40af] rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(37,99,235,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-card/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-[#1d4ed8] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-blue-100 font-bold uppercase tracking-widest text-sm italic underline decoration-white">Asymmetric Federalism</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
@@ -97,9 +97,9 @@ export default function SpecialProvisionsStatesModule({ onComplete, isCompleted,
 
                     <div className="flex flex-col md:flex-row gap-8 items-center">
                         <div className="flex-1 space-y-4">
-                            <div className="p-6 bg-white border-2 border-[#16a34a] rounded-2xl shadow-md">
+                            <div className="p-6 bg-card border-2 border-[#16a34a] rounded-2xl shadow-md">
                                 <h5 className="font-black text-[#16a34a] mb-2 uppercase italic text-sm">Governor's Special Responsibility [PYQ]</h5>
-                                <p className="text-xs font-bold text-slate-600 leading-relaxed">
+                                <p className="text-xs font-bold text-muted-foreground leading-relaxed">
                                     Establishing separate <span className="text-emerald-700 underline">Development Boards</span> for Vidarbha, Marathwada, Rest of Maharashtra, and Saurashtra, Kutch, Rest of Gujarat.
                                 </p>
                             </div>
@@ -120,7 +120,7 @@ export default function SpecialProvisionsStatesModule({ onComplete, isCompleted,
                     <div className="overflow-x-auto pt-4 italic">
                         <table className="w-full text-left text-xs font-bold border-collapse">
                             <thead>
-                                <tr className="bg-slate-100 text-slate-800 border-b-2 border-slate-900">
+                                <tr className="bg-muted text-foreground border-b-2 border-slate-900">
                                     <th className="p-3 uppercase">Article</th>
                                     <th className="p-3 uppercase">State</th>
                                     <th className="p-3 uppercase">Special Feature</th>
@@ -130,32 +130,32 @@ export default function SpecialProvisionsStatesModule({ onComplete, isCompleted,
                                 <tr>
                                     <td className="p-3 text-red-700 font-extrabold">371-A</td>
                                     <td className="p-3 text-blue-700 underline">Nagaland</td>
-                                    <td className="p-3 text-slate-600">Religious/social practices protected. Governor has L&O responsibility. [PYQ]</td>
+                                    <td className="p-3 text-muted-foreground">Religious/social practices protected. Governor has L&O responsibility. [PYQ]</td>
                                 </tr>
                                 <tr className="bg-red-50/30">
                                     <td className="p-3 text-red-700 font-extrabold">371-B</td>
                                     <td className="p-3 text-blue-700 underline">Assam</td>
-                                    <td className="p-3 text-slate-600">Committee of Assembly members from Tribal Areas.</td>
+                                    <td className="p-3 text-muted-foreground">Committee of Assembly members from Tribal Areas.</td>
                                 </tr>
                                 <tr>
                                     <td className="p-3 text-red-700 font-extrabold">371-C</td>
                                     <td className="p-3 text-blue-700 underline">Manipur</td>
-                                    <td className="p-3 text-slate-600">Committee of Assembly members from Hill Areas.</td>
+                                    <td className="p-3 text-muted-foreground">Committee of Assembly members from Hill Areas.</td>
                                 </tr>
                                 <tr className="bg-red-50/30">
                                     <td className="p-3 text-red-700 font-extrabold">371-F</td>
                                     <td className="p-3 text-blue-700 underline">Sikkim</td>
-                                    <td className="p-3 text-slate-600">Assembly min 30 members. 1 seat reserved for Sangha (Monks).</td>
+                                    <td className="p-3 text-muted-foreground">Assembly min 30 members. 1 seat reserved for Sangha (Monks).</td>
                                 </tr>
                                 <tr>
                                     <td className="p-3 text-red-700 font-extrabold">371-G</td>
                                     <td className="p-3 text-blue-700 underline">Mizoram</td>
-                                    <td className="p-3 text-slate-600">Similar to Nagaland protector (Religious/Social).</td>
+                                    <td className="p-3 text-muted-foreground">Similar to Nagaland protector (Religious/Social).</td>
                                 </tr>
                                 <tr className="bg-red-50/30">
                                     <td className="p-3 text-red-700 font-extrabold">371-H</td>
                                     <td className="p-3 text-blue-700 underline">Arunachal</td>
-                                    <td className="p-3 text-slate-600">Governor special responsibility for L&O. Min 30 members.</td>
+                                    <td className="p-3 text-muted-foreground">Governor special responsibility for L&O. Min 30 members.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -185,13 +185,13 @@ export default function SpecialProvisionsStatesModule({ onComplete, isCompleted,
                 </div>
             </div>
 
-            <div className="p-10 bg-white border-4 border-[#2563eb] rounded-[3rem] shadow-2xl relative overflow-hidden group italic">
+            <div className="p-10 bg-card border-4 border-[#2563eb] rounded-[3rem] shadow-2xl relative overflow-hidden group italic">
                 <div className="absolute top-0 right-0 p-4 opacity-10 rotate-12 group-hover:scale-110 transition-transform"><Compass size={120} className="text-[#2563eb]" /></div>
                 <h4 className="text-2xl font-black text-[#1e40af] uppercase mb-4 underline decoration-[#2563eb] underline-offset-8">Karnataka (Art 371-J) [98th AA, 2012]</h4>
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                     <div className="space-y-4">
                         <Badge className="bg-[#2563eb]">Region: Hyderabad-Karnataka</Badge>
-                        <p className="text-xs font-bold text-slate-600 leading-relaxed">
+                        <p className="text-xs font-bold text-muted-foreground leading-relaxed">
                             (Renamed Kalyana-Karnataka). Governor creates a separate <span className="text-blue-700 underline">Development Board</span>.
                             <br /><br />
                             Provides reservation in education and gov't posts for local people of this region.
@@ -207,7 +207,7 @@ export default function SpecialProvisionsStatesModule({ onComplete, isCompleted,
             <div className="mt-8 p-10 bg-[#eff6ff] border-4 border-[#2563eb] rounded-[3rem] relative overflow-hidden shadow-inner group flex flex-col items-center text-center italic">
                 <Scale className="text-[#2563eb] mb-6 animate-pulse" size={48} />
                 <h4 className="text-3xl font-black text-[#1d4ed8] uppercase mb-4">Asymmetric Federalism</h4>
-                <p className="text-sm font-bold text-slate-500 max-w-2xl leading-relaxed">
+                <p className="text-sm font-bold text-muted-foreground max-w-2xl leading-relaxed">
                     "Equality of Federation does not mean Uniformity of Federation. India accommodates diversity through special powers for specific states."
                 </p>
             </div>
@@ -233,7 +233,7 @@ export default function SpecialProvisionsStatesModule({ onComplete, isCompleted,
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold italic tracking-widest text-center uppercase">A to J • Regional Autonomy • Diversity.</p>
+                <p className="mt-4 text-muted-foreground font-bold italic tracking-widest text-center uppercase">A to J • Regional Autonomy • Diversity.</p>
             </div>
         </ScrapbookContainer>
     );

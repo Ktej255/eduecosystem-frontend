@@ -66,7 +66,7 @@ export default function PolityVisuals() {
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <button
                     onClick={() => setSelectedModule(null)}
-                    className="mb-4 text-sm font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white flex items-center gap-2"
+                    className="mb-4 text-sm font-medium text-muted-foreground hover:text-foreground dark:hover:text-white flex items-center gap-2"
                 >
                     &larr; Back to Governance Hub
                 </button>
@@ -81,7 +81,7 @@ export default function PolityVisuals() {
                 <div className="inline-flex items-center justify-center p-3 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 mb-4">
                     <Scale className="w-8 h-8" />
                 </div>
-                <h1 className="text-4xl font-bold text-neutral-900 dark:text-white mb-2">Visual Polity Hub</h1>
+                <h1 className="text-4xl font-bold text-neutral-900 mb-2">Visual Polity Hub</h1>
                 <p className="text-neutral-500 max-w-2xl mx-auto">
                     Visualize the framework of Indian Democracy. From the Preamble to the Parliament floor.
                 </p>
@@ -91,14 +91,14 @@ export default function PolityVisuals() {
                 {MODULES.map((module) => (
                     <div
                         key={module.id}
-                        className="group bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl p-6 hover:shadow-xl hover:border-amber-500/50 transition-all cursor-pointer relative overflow-hidden"
+                        className="group bg-card dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl p-6 hover:shadow-xl hover:border-amber-500/50 transition-all cursor-pointer relative overflow-hidden"
                         onClick={() => module.component ? handleModuleSelect(module.id) : null}
                     >
                         <div className={`w-14 h-14 rounded-xl ${module.color} flex items-center justify-center mb-6 shadow-lg text-white group-hover:scale-110 transition-transform`}>
                             <module.icon className="w-7 h-7" />
                         </div>
 
-                        <h3 className="text-xl font-bold mb-2 text-neutral-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                        <h3 className="text-xl font-bold mb-2 text-neutral-900 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                             {module.title}
                         </h3>
                         <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-6 leading-relaxed">

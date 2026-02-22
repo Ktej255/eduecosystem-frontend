@@ -180,7 +180,7 @@ export default function EmailTemplatesPage() {
 
   if (loading) {
     return (
-      <div className="p-8 text-center text-gray-400">
+      <div className="p-8 text-center text-muted-foreground">
         Loading email templates...
       </div>
     );
@@ -191,7 +191,7 @@ export default function EmailTemplatesPage() {
       <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-3xl font-bold">Email Templates</h1>
-          <p className="text-gray-400 mt-2">
+          <p className="text-muted-foreground mt-2">
             Manage system and custom email templates
           </p>
         </div>
@@ -264,7 +264,7 @@ export default function EmailTemplatesPage() {
               </div>
             </CardHeader>
             <CardContent>
-              <div className="space-y-2 text-sm text-gray-400">
+              <div className="space-y-2 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
                   <strong>Subject:</strong> {template.subject}
@@ -280,11 +280,11 @@ export default function EmailTemplatesPage() {
         {templates.length === 0 && (
           <Card className="bg-gray-900 border-gray-800">
             <CardContent className="py-12 text-center">
-              <Mail className="w-12 h-12 mx-auto text-gray-600 mb-4" />
+              <Mail className="w-12 h-12 mx-auto text-muted-foreground mb-4" />
               <h3 className="text-lg font-semibold mb-2">
                 No email templates found
               </h3>
-              <p className="text-gray-400">
+              <p className="text-muted-foreground">
                 Create your first custom email template to get started.
               </p>
             </CardContent>
@@ -570,7 +570,7 @@ export default function EmailTemplatesPage() {
                   </pre>
                 </div>
               )}
-              <div className="text-xs text-gray-400 space-y-1">
+              <div className="text-xs text-muted-foreground space-y-1">
                 <p>
                   Created:{" "}
                   {new Date(selectedTemplate.created_at).toLocaleString()}

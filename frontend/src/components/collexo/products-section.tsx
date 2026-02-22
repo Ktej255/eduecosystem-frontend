@@ -80,7 +80,7 @@ const products = [
 
 export default function ProductsSection() {
     return (
-        <section id="products" className="collexo-section bg-slate-50 dark:bg-slate-900">
+        <section id="products" className="collexo-section bg-muted">
             <div className="collexo-container">
                 {/* Section Header */}
                 <div className="text-center mb-16">
@@ -88,12 +88,12 @@ export default function ProductsSection() {
                         <Sparkles className="w-4 h-4" />
                         Unified Platform
                     </div>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
                         A full-stack fee payment solution,
                         <br />
                         <span className="collexo-gradient-text">purpose-built for the education industry</span>
                     </h2>
-                    <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+                    <p className="text-lg text-muted-foreground dark:text-muted-foreground max-w-3xl mx-auto">
                         From higher education and K-12 schools to EdTech platforms, online degree programmes and coaching institutes—
                         if your organization aims to automate fee processes while improving cash flow, SaritClasses CRM's product line is your ideal solution.
                     </p>
@@ -113,19 +113,19 @@ export default function ProductsSection() {
                             </div>
 
                             {/* Title */}
-                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                            <h3 className="text-xl font-bold text-foreground mb-2">
                                 {product.name}
                             </h3>
 
                             {/* Tagline */}
-                            <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed">
+                            <p className="text-muted-foreground dark:text-muted-foreground mb-6 text-sm leading-relaxed">
                                 {product.tagline}
                             </p>
 
                             {/* Features */}
                             <ul className="space-y-3 mb-6">
                                 {product.features.map((feature, idx) => (
-                                    <li key={idx} className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
+                                    <li key={idx} className="flex items-center gap-3 text-sm text-muted-foreground">
                                         <div className={`w-6 h-6 rounded-lg ${product.bgColor} flex items-center justify-center flex-shrink-0`}>
                                             <feature.icon className={`w-3.5 h-3.5 ${product.iconColor}`} />
                                         </div>

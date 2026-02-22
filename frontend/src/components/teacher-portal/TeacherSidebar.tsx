@@ -258,7 +258,7 @@ const teacherRoutes: Route[] = [
         label: "Settings",
         icon: Settings,
         href: "#",
-        color: "text-gray-400",
+        color: "text-muted-foreground",
         children: [
             { label: "Domain management", icon: LinkIcon, href: "/teacher/settings/domain", color: "text-emerald-300" },
             { label: "Payments", icon: CreditCard, href: "/teacher/settings/payments", color: "text-emerald-300" },

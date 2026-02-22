@@ -105,9 +105,9 @@ export default function MakingConstitutionModule({ onComplete, isCompleted }: Ma
 
             <div className="grid md:grid-cols-2 gap-6">
                 {/* The Numbers */}
-                <Card className="bg-slate-50 border-slate-200">
+                <Card className="bg-muted border-border">
                     <CardContent className="p-6">
-                        <h3 className="font-bold text-slate-800 mb-4 flex items-center gap-2">
+                        <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                             <Users size={20} className="text-blue-600" /> Total Seats: 389
                         </h3>
                         <div className="flex gap-4 items-end mb-6">
@@ -115,22 +115,22 @@ export default function MakingConstitutionModule({ onComplete, isCompleted }: Ma
                                 <div className="text-3xl font-bold text-blue-900">296</div>
                                 <div className="text-xs font-bold text-blue-700 uppercase tracking-wider">British India</div>
                             </div>
-                            <div className="text-2xl text-slate-400 font-bold">+</div>
+                            <div className="text-2xl text-muted-foreground font-bold">+</div>
                             <div className="flex-1 bg-amber-100 p-4 rounded-xl border border-amber-200 text-center">
                                 <div className="text-3xl font-bold text-amber-900">93</div>
                                 <div className="text-xs font-bold text-amber-700 uppercase tracking-wider">Princely States</div>
                             </div>
                         </div>
-                        <p className="text-xs text-slate-500 italic text-center">
+                        <p className="text-xs text-muted-foreground italic text-center">
                             *Princely States decided to stay away initially.
                         </p>
                     </CardContent>
                 </Card>
 
                 {/* The Election Result */}
-                <Card className="bg-slate-50 border-slate-200">
+                <Card className="bg-muted border-border">
                     <CardContent className="p-6">
-                        <h3 className="font-bold text-slate-800 mb-4 flex items-center gap-2">
+                        <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                             <VoteIcon /> Election Results (296 Seats)
                         </h3>
                         <div className="space-y-3">
@@ -138,7 +138,7 @@ export default function MakingConstitutionModule({ onComplete, isCompleted }: Ma
                             <ResultBar label="Muslim League" count={73} total={296} color="bg-green-700" />
                             <ResultBar label="Others/Ind" count={15} total={296} color="bg-gray-400" />
                         </div>
-                        <div className="mt-4 p-3 bg-white rounded border border-slate-100 text-xs text-slate-600">
+                        <div className="mt-4 p-3 bg-card rounded border border-slate-100 text-xs text-muted-foreground">
                             <span className="font-bold">Note:</span> Indirect Election by Provincial Assemblies (Limited Franchise).
                         </div>
                     </CardContent>
@@ -179,15 +179,15 @@ export default function MakingConstitutionModule({ onComplete, isCompleted }: Ma
                     <Globe size={18} /> Impact of Independence Act 1947
                 </h4>
                 <div className="grid md:grid-cols-3 gap-4 text-sm text-indigo-800">
-                    <div className="bg-white p-3 rounded shadow-sm">
+                    <div className="bg-card p-3 rounded shadow-sm">
                         <span className="font-bold block mb-1">1. Sovereign Body</span>
                         Could abrogate any British law.
                     </div>
-                    <div className="bg-white p-3 rounded shadow-sm">
+                    <div className="bg-card p-3 rounded shadow-sm">
                         <span className="font-bold block mb-1">2. Legislative Body</span>
                         First Parliament of Free India. (Chaired by G.V. Mavalankar).
                     </div>
-                    <div className="bg-white p-3 rounded shadow-sm">
+                    <div className="bg-card p-3 rounded shadow-sm">
                         <span className="font-bold block mb-1">3. Strength Reduced</span>
                         389 → 299 (Pak members withdrew).
                     </div>
@@ -235,12 +235,12 @@ export default function MakingConstitutionModule({ onComplete, isCompleted }: Ma
             />
 
             <div className="flex flex-col md:flex-row gap-6">
-                <div className="flex-1 bg-white border-2 border-slate-200 rounded-xl p-6 relative">
+                <div className="flex-1 bg-card border-2 border-border rounded-xl p-6 relative">
                     <div className="absolute top-4 right-4 text-slate-200"><Calendar size={40} /></div>
                     <Badge className="bg-slate-800 mb-2">Date of Adoption</Badge>
-                    <h3 className="text-3xl font-bold text-slate-800 mb-2">Nov 26, 1949</h3>
-                    <p className="text-sm text-slate-600 mb-4">"Adopted, Enacted and gave to themselves."</p>
-                    <ul className="text-xs text-slate-500 space-y-1">
+                    <h3 className="text-3xl font-bold text-foreground mb-2">Nov 26, 1949</h3>
+                    <p className="text-sm text-muted-foreground mb-4">"Adopted, Enacted and gave to themselves."</p>
+                    <ul className="text-xs text-muted-foreground space-y-1">
                         <li>• Present Members Signed: 284</li>
                         <li>• Preamble + 395 Articles + 8 Schedules.</li>
                         <li>• <strong>Citizenship, Elections (Arts 5, 6, 324 etc)</strong> came into force.</li>
@@ -252,7 +252,7 @@ export default function MakingConstitutionModule({ onComplete, isCompleted }: Ma
                     <Badge className="bg-orange-600 mb-2 hover:bg-orange-700">Date of Commencement</Badge>
                     <h3 className="text-3xl font-bold text-orange-900 mb-2">Jan 26, 1950</h3>
                     <p className="text-sm text-orange-800 mb-4">Republic Day (Purna Swaraj Day 1930)</p>
-                    <ul className="text-xs text-slate-600 space-y-1">
+                    <ul className="text-xs text-muted-foreground space-y-1">
                         <li>• Remaining Major Parts came into force.</li>
                         <li>• Indian Independence Act 1947 repealed.</li>
                     </ul>
@@ -261,9 +261,9 @@ export default function MakingConstitutionModule({ onComplete, isCompleted }: Ma
 
             {/* FOOTER: FACTS & CRITICISM */}
             <div className="grid md:grid-cols-2 gap-8 mt-12">
-                <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 text-sm">
-                    <h4 className="font-bold text-slate-800 mb-3 flex items-center gap-2"><Star size={14} /> Important Facts</h4>
-                    <ul className="space-y-2 text-slate-600">
+                <div className="bg-muted p-6 rounded-xl border border-border text-sm">
+                    <h4 className="font-bold text-foreground mb-3 flex items-center gap-2"><Star size={14} /> Important Facts</h4>
+                    <ul className="space-y-2 text-muted-foreground">
                         <li><strong>Symbol:</strong> Elephant 🐘</li>
                         <li><strong>Legal Advisor:</strong> Sir B.N. Rau</li>
                         <li><strong>Secretary:</strong> H.V.R. Iyengar</li>
@@ -314,13 +314,13 @@ export default function MakingConstitutionModule({ onComplete, isCompleted }: Ma
 
 function SectionHeader({ icon, title, subtitle }: { icon: any, title: string, subtitle: string }) {
     return (
-        <div className="flex items-start gap-4 border-b border-slate-200 pb-4 mb-6">
-            <div className="p-3 bg-slate-100 rounded-xl text-slate-600">
+        <div className="flex items-start gap-4 border-b border-border pb-4 mb-6">
+            <div className="p-3 bg-muted rounded-xl text-muted-foreground">
                 {icon}
             </div>
             <div>
-                <h2 className="text-2xl font-bold text-slate-800">{title}</h2>
-                <p className="text-sm text-slate-500 font-medium">{subtitle}</p>
+                <h2 className="text-2xl font-bold text-foreground">{title}</h2>
+                <p className="text-sm text-muted-foreground font-medium">{subtitle}</p>
             </div>
         </div>
     );
@@ -330,17 +330,17 @@ function TimelineItem({ year, title, desc, badge, isNegative, highlight, icon }:
     return (
         <div className="relative mb-8 last:mb-0">
             <div className={`absolute -left-[41px] md:-left-[57px] top-1 w-5 h-5 rounded-full border-4 border-white shadow-sm ${highlight ? 'bg-amber-500' : 'bg-slate-300'}`}></div>
-            <div className={`relative p-4 rounded-xl border ${highlight ? 'bg-amber-50 border-amber-200' : 'bg-white border-slate-200 shadow-sm'}`}>
+            <div className={`relative p-4 rounded-xl border ${highlight ? 'bg-amber-50 border-amber-200' : 'bg-card border-border shadow-sm'}`}>
                 <div className="flex justify-between items-start mb-1">
                     <div className="flex items-center gap-2">
-                        <span className={`text-xs font-bold px-2 py-1 rounded ${highlight ? 'bg-amber-200 text-amber-900' : 'bg-slate-100 text-slate-600'}`}>
+                        <span className={`text-xs font-bold px-2 py-1 rounded ${highlight ? 'bg-amber-200 text-amber-900' : 'bg-muted text-muted-foreground'}`}>
                             {year}
                         </span>
-                        <h4 className="font-bold text-slate-800">{title}</h4>
+                        <h4 className="font-bold text-foreground">{title}</h4>
                     </div>
                     {badge && <Badge variant="outline" className={isNegative ? 'bg-red-50 text-red-600 border-red-200' : 'bg-green-50 text-green-600 border-green-200'}>{badge}</Badge>}
                 </div>
-                <p className="text-sm text-slate-600">{desc}</p>
+                <p className="text-sm text-muted-foreground">{desc}</p>
             </div>
         </div>
     )
@@ -350,11 +350,11 @@ function ResultBar({ label, count, total, color }: any) {
     const percentage = (count / total) * 100;
     return (
         <div>
-            <div className="flex justify-between text-xs font-bold text-slate-700 mb-1">
+            <div className="flex justify-between text-xs font-bold text-muted-foreground mb-1">
                 <span>{label}</span>
                 <span>{count}</span>
             </div>
-            <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+            <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
                 <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${percentage}%` }}

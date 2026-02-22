@@ -102,11 +102,11 @@ export default function LearnersPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
             <Users className="h-8 w-8 text-blue-600" />
             Learners
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-muted-foreground dark:text-muted-foreground mt-1">
             Manage all enrolled students and their access
           </p>
         </div>
@@ -175,7 +175,7 @@ export default function LearnersPage() {
         <CardContent className="p-4">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search by name or email..."
                 className="pl-10"
@@ -244,7 +244,7 @@ export default function LearnersPage() {
                         </span>
                       </div>
                     </TableCell>
-                    <TableCell className="text-gray-500">{student.email}</TableCell>
+                    <TableCell className="text-muted-foreground">{student.email}</TableCell>
                     <TableCell className="text-center">
                       <div className="flex justify-center gap-1">
                         {student.is_batch1_authorized && (
@@ -254,7 +254,7 @@ export default function LearnersPage() {
                           <BadgeUI className="bg-orange-100 text-orange-700 text-xs">RAS</BadgeUI>
                         )}
                         {!student.is_batch1_authorized && !student.is_ras_authorized && (
-                          <BadgeUI variant="outline" className="text-gray-400 text-xs">None</BadgeUI>
+                          <BadgeUI variant="outline" className="text-muted-foreground text-xs">None</BadgeUI>
                         )}
                       </div>
                     </TableCell>
@@ -300,7 +300,7 @@ export default function LearnersPage() {
             </Table>
           </div>
           {filteredStudents.length === 0 && (
-            <div className="text-center py-12 text-gray-500">
+            <div className="text-center py-12 text-muted-foreground">
               <Users className="h-12 w-12 mx-auto mb-3 opacity-50" />
               <p>No students found</p>
             </div>

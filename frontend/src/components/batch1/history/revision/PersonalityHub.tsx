@@ -110,12 +110,12 @@ export default function PersonalityHub({ personalities = DEFAULT_PERSONALITIES, 
     return (
         <div className="space-y-6">
             {/* Header / Controls */}
-            <div className="bg-white p-6 rounded-3xl border-2 border-slate-100 shadow-sm flex flex-col md:flex-row gap-4 items-center justify-between">
+            <div className="bg-card p-6 rounded-3xl border-2 border-slate-100 shadow-sm flex flex-col md:flex-row gap-4 items-center justify-between">
                 <div className="relative w-full md:w-96">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
                     <Input
                         placeholder="Search by name, work, or ideology..."
-                        className="pl-10 rounded-xl border-slate-200 focus:ring-amber-500"
+                        className="pl-10 rounded-xl border-border focus:ring-amber-500"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -140,42 +140,42 @@ export default function PersonalityHub({ personalities = DEFAULT_PERSONALITIES, 
                 {filtered.map((person, idx) => (
                     <div key={idx} className={`rounded-3xl border-2 ${person.border} ${person.bg} p-6 h-full flex flex-col transition-all hover:shadow-lg group animate-in zoom-in-95 duration-300`}>
                         <div className="flex justify-between items-start mb-4">
-                            <div className={`p-3 rounded-2xl ${person.bg} border-2 ${person.border} shadow-sm group-hover:bg-white transition-colors`}>
+                            <div className={`p-3 rounded-2xl ${person.bg} border-2 ${person.border} shadow-sm group-hover:bg-card transition-colors`}>
                                 <User size={24} className={person.color} />
                             </div>
-                            <Badge variant="outline" className={`border-${person.era === 'Ancient' ? 'amber' : person.era === 'Medieval' ? 'indigo' : 'red'}-200 bg-white/50`}>
+                            <Badge variant="outline" className={`border-${person.era === 'Ancient' ? 'amber' : person.era === 'Medieval' ? 'indigo' : 'red'}-200 bg-card/50`}>
                                 {person.era} Era
                             </Badge>
                         </div>
 
-                        <h3 className="text-2xl font-bold text-slate-900 mb-1">{person.name}</h3>
+                        <h3 className="text-2xl font-bold text-foreground mb-1">{person.name}</h3>
                         <p className={`text-sm font-bold ${person.color} mb-6`}>{person.title}</p>
 
                         <div className="space-y-4 flex-1">
                             <div className="space-y-1">
-                                <label className="text-[10px] uppercase font-black text-slate-400 tracking-widest flex items-center gap-1">
+                                <label className="text-[10px] uppercase font-black text-muted-foreground tracking-widest flex items-center gap-1">
                                     <Sparkles size={10} /> Ideology / Philosophy
                                 </label>
-                                <p className="text-sm text-slate-700 font-bold leading-tight">{person.ideology}</p>
+                                <p className="text-sm text-muted-foreground font-bold leading-tight">{person.ideology}</p>
                             </div>
 
                             <div className="space-y-1">
-                                <label className="text-[10px] uppercase font-black text-slate-400 tracking-widest flex items-center gap-1">
+                                <label className="text-[10px] uppercase font-black text-muted-foreground tracking-widest flex items-center gap-1">
                                     <BookOpen size={10} /> Key Works / Contributions
                                 </label>
-                                <p className="text-sm text-slate-600 font-medium">{person.keyWorks}</p>
+                                <p className="text-sm text-muted-foreground font-medium">{person.keyWorks}</p>
                             </div>
 
                             <div className="space-y-1">
-                                <label className="text-[10px] uppercase font-black text-slate-400 tracking-widest flex items-center gap-1">
+                                <label className="text-[10px] uppercase font-black text-muted-foreground tracking-widest flex items-center gap-1">
                                     <Shield size={10} /> Association / Organization
                                 </label>
-                                <p className="text-sm text-slate-600 font-medium">{person.organization}</p>
+                                <p className="text-sm text-muted-foreground font-medium">{person.organization}</p>
                             </div>
                         </div>
 
-                        <div className="mt-6 pt-4 border-t border-slate-200/50 flex justify-between items-center">
-                            <Button variant="ghost" size="sm" className="text-xs font-bold gap-1 hover:bg-white">
+                        <div className="mt-6 pt-4 border-t border-border/50 flex justify-between items-center">
+                            <Button variant="ghost" size="sm" className="text-xs font-bold gap-1 hover:bg-card">
                                 View Full Profile <ChevronRight size={14} />
                             </Button>
                             <div className="flex -space-x-2">
@@ -190,8 +190,8 @@ export default function PersonalityHub({ personalities = DEFAULT_PERSONALITIES, 
             {filtered.length === 0 && (
                 <div className="py-20 text-center">
                     <Users size={64} className="mx-auto text-slate-200 mb-4" />
-                    <h3 className="text-xl font-bold text-slate-800">No Personalities Found</h3>
-                    <p className="text-slate-500">Try adjusting your search or filters.</p>
+                    <h3 className="text-xl font-bold text-foreground">No Personalities Found</h3>
+                    <p className="text-muted-foreground">Try adjusting your search or filters.</p>
                 </div>
             )}
         </div>

@@ -26,7 +26,7 @@ export default function QuestionBankPage() {
   const columns = [
     { key: "title", label: "Bank Name", render: (val: string) => <span className="font-medium text-white">{val}</span> },
     { key: "category", label: "Category" },
-    { key: "question_count", label: "Questions", render: (val: number) => <span className="text-gray-300">{val}</span> },
+    { key: "question_count", label: "Questions", render: (val: number) => <span className="text-muted-foreground">{val}</span> },
     {
       key: "difficulty_level",
       label: "Difficulty",

@@ -29,17 +29,17 @@ export default function MyPlansPage() {
     return (
         <div className="p-6 space-y-6">
             <div>
-                <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">My Customized Plans</h1>
-                <p className="text-gray-500 dark:text-gray-400">Personalized learning paths assigned to you</p>
+                <h1 className="text-2xl font-bold text-foreground">My Customized Plans</h1>
+                <p className="text-muted-foreground dark:text-muted-foreground">Personalized learning paths assigned to you</p>
             </div>
 
             {loading ? (
-                <div className="text-center py-12 text-gray-500">Loading your plans...</div>
+                <div className="text-center py-12 text-muted-foreground">Loading your plans...</div>
             ) : enrollments.length === 0 ? (
-                <div className="text-center py-16 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <BookOpen className="h-12 w-12 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
-                    <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">No Plans Assigned Yet</h3>
-                    <p className="text-gray-500 dark:text-gray-400 mt-2 max-w-sm mx-auto">
+                <div className="text-center py-16 bg-card rounded-lg border border-border">
+                    <BookOpen className="h-12 w-12 text-muted-foreground dark:text-muted-foreground mx-auto mb-4" />
+                    <h3 className="text-lg font-medium text-foreground">No Plans Assigned Yet</h3>
+                    <p className="text-muted-foreground dark:text-muted-foreground mt-2 max-w-sm mx-auto">
                         Your instructor hasn't assigned any customized learning paths to you yet.
                         Please contact your administrator if you are expecting one.
                     </p>
@@ -47,7 +47,7 @@ export default function MyPlansPage() {
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {enrollments.map((enrollment) => (
-                        <div key={enrollment.id} className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow">
+                        <div key={enrollment.id} className="bg-card rounded-lg border border-border overflow-hidden hover:shadow-lg transition-shadow">
                             <div className="h-32 bg-gradient-to-r from-blue-500 to-indigo-600 relative">
                                 {enrollment.path?.thumbnail_url && (
                                     <img
@@ -65,11 +65,11 @@ export default function MyPlansPage() {
 
                             <div className="p-6 space-y-4">
                                 <div className="flex justify-between items-center text-sm">
-                                    <span className="text-gray-500 dark:text-gray-400">Progress</span>
+                                    <span className="text-muted-foreground dark:text-muted-foreground">Progress</span>
                                     <span className="font-medium text-indigo-600 dark:text-indigo-400">{Math.round(enrollment.progress_percentage)}%</span>
                                 </div>
 
-                                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div className="w-full bg-muted rounded-full h-2">
                                     <div
                                         className="bg-indigo-600 h-2 rounded-full transition-all duration-500"
                                         style={{ width: `${enrollment.progress_percentage}%` }}
@@ -77,7 +77,7 @@ export default function MyPlansPage() {
                                 </div>
 
                                 <div className="flex justify-between items-center pt-2">
-                                    <span className="text-xs text-gray-500 dark:text-gray-400">
+                                    <span className="text-xs text-muted-foreground dark:text-muted-foreground">
                                         {enrollment.completed_courses} / {enrollment.total_courses} Courses
                                     </span>
                                     {enrollment.is_completed ? (

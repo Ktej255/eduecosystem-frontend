@@ -23,14 +23,14 @@ export default function GenericSocietyPage({ topicId }: { topicId: string }) {
     return (
         <div className="min-h-screen bg-rose-50 dark:bg-black p-8 flex flex-col items-center justify-center">
             <div className="max-w-md w-full text-center space-y-6">
-                <div className="w-20 h-20 bg-white dark:bg-rose-900/20 rounded-full flex items-center justify-center mx-auto border-4 border-rose-100 dark:border-rose-900">
+                <div className="w-20 h-20 bg-card dark:bg-rose-900/20 rounded-full flex items-center justify-center mx-auto border-4 border-rose-100 dark:border-rose-900">
                     <Users className="h-10 w-10 text-rose-500 dark:text-rose-400" />
                 </div>
                 <div>
                     <h1 className="text-2xl font-bold text-stone-900 dark:text-stone-100">{formatTitle(topicId)}</h1>
                     <p className="text-sm text-rose-500 font-mono mt-2 uppercase tracking-widest">GS-1 Society Module</p>
                 </div>
-                <div className="p-4 bg-white dark:bg-stone-900/50 rounded-lg border border-rose-100 dark:border-rose-900 shadow-sm text-stone-600 dark:text-stone-400 text-sm">
+                <div className="p-4 bg-card dark:bg-stone-900/50 rounded-lg border border-rose-100 dark:border-rose-900 shadow-sm text-stone-600 dark:text-stone-400 text-sm">
                     <strong>Coming Soon:</strong> Detailed sociological analysis, demographic data, and case studies for this topic are being prepared.
                 </div>
                 <div className="flex justify-center gap-4">

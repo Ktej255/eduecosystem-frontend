@@ -68,7 +68,7 @@ export const DrillTimer: React.FC<DrillTimerProps> = ({
 
     return (
         <Card className="p-4 flex flex-col items-center justify-center space-y-4 bg-slate-900 text-white border-slate-800">
-            <div className="flex items-center space-x-2 text-slate-400 uppercase tracking-wider text-sm font-semibold">
+            <div className="flex items-center space-x-2 text-muted-foreground uppercase tracking-wider text-sm font-semibold">
                 <Clock className="w-4 h-4" />
                 <span>{label}</span>
             </div>

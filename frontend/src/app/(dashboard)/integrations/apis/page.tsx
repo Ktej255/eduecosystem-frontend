@@ -41,7 +41,7 @@ export default function ApiAccessPage() {
 
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-5xl mx-auto">
-      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground">
         <ArrowLeft className="h-4 w-4 mr-1" />
         Back
       </Link>
@@ -49,11 +49,11 @@ export default function ApiAccessPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
-            <Terminal className="h-8 w-8 text-gray-700 dark:text-gray-300" />
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
+            <Terminal className="h-8 w-8 text-muted-foreground dark:text-muted-foreground" />
             API Access
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-muted-foreground dark:text-muted-foreground mt-1">
             Manage your API keys and monitor usage
           </p>
         </div>
@@ -86,12 +86,12 @@ export default function ApiAccessPage() {
               <Input
                 value={showKey ? fullKey : apiKey}
                 readOnly
-                className="font-mono bg-white dark:bg-gray-900 pr-10"
+                className="font-mono bg-card pr-10"
                 type={showKey ? "text" : "password"}
               />
               <button
                 onClick={() => setShowKey(!showKey)}
-                className="absolute right-3 top-2.5 text-gray-500 hover:text-gray-700"
+                className="absolute right-3 top-2.5 text-muted-foreground hover:text-muted-foreground"
               >
                 {showKey ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
@@ -112,7 +112,7 @@ export default function ApiAccessPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <Card>
           <CardContent className="p-5">
-            <div className="flex items-center gap-2 text-gray-500 mb-2">
+            <div className="flex items-center gap-2 text-muted-foreground mb-2">
               <BarChart3 className="h-5 w-5" />
               <span>Total Requests (24h)</span>
             </div>
@@ -121,7 +121,7 @@ export default function ApiAccessPage() {
         </Card>
         <Card>
           <CardContent className="p-5">
-            <div className="flex items-center gap-2 text-gray-500 mb-2">
+            <div className="flex items-center gap-2 text-muted-foreground mb-2">
               <ShieldAlert className="h-5 w-5" />
               <span>Error Rate</span>
             </div>
@@ -130,7 +130,7 @@ export default function ApiAccessPage() {
         </Card>
         <Card>
           <CardContent className="p-5">
-            <div className="flex items-center gap-2 text-gray-500 mb-2">
+            <div className="flex items-center gap-2 text-muted-foreground mb-2">
               <Clock className="h-5 w-5" />
               <span>Avg Latency</span>
             </div>

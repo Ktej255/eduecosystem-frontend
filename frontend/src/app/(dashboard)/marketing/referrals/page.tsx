@@ -66,7 +66,7 @@ export default function ReferralsPage() {
 
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-6xl mx-auto">
-      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground">
         <ArrowLeft className="h-4 w-4 mr-1" />
         Back
       </Link>
@@ -74,11 +74,11 @@ export default function ReferralsPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
             <Users2 className="h-8 w-8 text-pink-600" />
             Referrals
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-muted-foreground dark:text-muted-foreground mt-1">
             Manage your referral program and track commissions
           </p>
         </div>
@@ -100,14 +100,14 @@ export default function ReferralsPage() {
               <p className="text-sm opacity-80 mt-1">Share this link to earn ₹500 per successful referral</p>
             </div>
             <div className="flex gap-2 w-full md:w-auto">
-              <div className="flex-1 md:flex-none bg-white/20 rounded-lg px-4 py-2 flex items-center gap-2">
+              <div className="flex-1 md:flex-none bg-card/20 rounded-lg px-4 py-2 flex items-center gap-2">
                 <Link2 className="h-4 w-4" />
                 <span className="text-sm truncate max-w-[200px]">{referralLink}</span>
               </div>
               <Button
                 variant="secondary"
                 onClick={handleCopy}
-                className="bg-white text-pink-600 hover:bg-gray-100"
+                className="bg-card text-pink-600 hover:bg-muted"
               >
                 {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
               </Button>
@@ -122,28 +122,28 @@ export default function ReferralsPage() {
           <CardContent className="p-5 text-center">
             <UserPlus className="h-8 w-8 text-blue-500 mx-auto mb-2" />
             <p className="text-3xl font-bold">{stats.totalReferrals}</p>
-            <p className="text-sm text-gray-500">Total Referrals</p>
+            <p className="text-sm text-muted-foreground">Total Referrals</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5 text-center">
             <Users2 className="h-8 w-8 text-green-500 mx-auto mb-2" />
             <p className="text-3xl font-bold text-green-600">{stats.converted}</p>
-            <p className="text-sm text-gray-500">Converted</p>
+            <p className="text-sm text-muted-foreground">Converted</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5 text-center">
             <TrendingUp className="h-8 w-8 text-purple-500 mx-auto mb-2" />
             <p className="text-3xl font-bold text-purple-600">{stats.conversionRate}%</p>
-            <p className="text-sm text-gray-500">Conversion Rate</p>
+            <p className="text-sm text-muted-foreground">Conversion Rate</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5 text-center">
             <DollarSign className="h-8 w-8 text-orange-500 mx-auto mb-2" />
             <p className="text-3xl font-bold text-orange-600">₹{stats.totalPayout.toLocaleString()}</p>
-            <p className="text-sm text-gray-500">Total Payouts</p>
+            <p className="text-sm text-muted-foreground">Total Payouts</p>
           </CardContent>
         </Card>
       </div>
@@ -160,7 +160,7 @@ export default function ReferralsPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             {topReferrers.map((referrer, idx) => (
-              <div key={idx} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <div key={idx} className="flex items-center justify-between p-3 bg-muted rounded-lg">
                 <div className="flex items-center gap-3">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm ${idx === 0 ? 'bg-yellow-500' : idx === 1 ? 'bg-gray-400' : idx === 2 ? 'bg-amber-700' : 'bg-gray-300'
                     }`}>
@@ -168,7 +168,7 @@ export default function ReferralsPage() {
                   </div>
                   <div>
                     <p className="font-medium">{referrer.name}</p>
-                    <p className="text-xs text-gray-500">{referrer.referrals} referrals</p>
+                    <p className="text-xs text-muted-foreground">{referrer.referrals} referrals</p>
                   </div>
                 </div>
                 <span className="font-bold text-green-600">₹{referrer.earnings.toLocaleString()}</span>
@@ -181,26 +181,26 @@ export default function ReferralsPage() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Settings className="h-5 w-5 text-gray-600" />
+              <Settings className="h-5 w-5 text-muted-foreground" />
               Program Settings
             </CardTitle>
             <CardDescription>Current referral program configuration</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-              <span className="text-gray-600">Commission per referral</span>
+            <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
+              <span className="text-muted-foreground">Commission per referral</span>
               <span className="font-bold text-green-600">₹500</span>
             </div>
-            <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-              <span className="text-gray-600">Minimum payout</span>
+            <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
+              <span className="text-muted-foreground">Minimum payout</span>
               <span className="font-bold">₹1,000</span>
             </div>
-            <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-              <span className="text-gray-600">Cookie duration</span>
+            <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
+              <span className="text-muted-foreground">Cookie duration</span>
               <span className="font-bold">30 days</span>
             </div>
-            <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-              <span className="text-gray-600">Program status</span>
+            <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
+              <span className="text-muted-foreground">Program status</span>
               <Badge className="bg-green-100 text-green-700">Active</Badge>
             </div>
           </CardContent>
@@ -230,7 +230,7 @@ export default function ReferralsPage() {
                   <TableRow key={ref.id}>
                     <TableCell className="font-medium">{ref.referrerName}</TableCell>
                     <TableCell>{ref.referredName}</TableCell>
-                    <TableCell className="text-gray-500">{ref.date}</TableCell>
+                    <TableCell className="text-muted-foreground">{ref.date}</TableCell>
                     <TableCell>
                       <Badge className={
                         ref.status === 'converted' ? 'bg-green-100 text-green-700' :

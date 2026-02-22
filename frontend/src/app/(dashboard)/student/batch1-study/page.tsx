@@ -81,13 +81,13 @@ export default function Batch1StudyPage() {
             <div className="max-w-6xl mx-auto space-y-6">
                 {/* Header */}
                 <div className="flex items-center justify-between">
-                    <Button variant="ghost" onClick={() => router.back()} className="text-gray-400">
+                    <Button variant="ghost" onClick={() => router.back()} className="text-muted-foreground">
                         <ArrowLeft className="h-4 w-4 mr-2" />
                         Back to Batch 1
                     </Button>
                     <div className="text-right">
                         <h1 className="text-2xl font-bold text-white">Day {day} • Segment {segment}</h1>
-                        <p className="text-gray-500">Cycle {cycleId}</p>
+                        <p className="text-muted-foreground">Cycle {cycleId}</p>
                     </div>
                 </div>
 
@@ -102,7 +102,7 @@ export default function Batch1StudyPage() {
                             <Video className="h-4 w-4" />
                             Video Study
                             {!hasVideo && (
-                                <span className="absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 px-1.5 py-0.5 bg-gray-700 text-[10px] text-gray-400 rounded-full">
+                                <span className="absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 px-1.5 py-0.5 bg-gray-700 text-[10px] text-muted-foreground rounded-full">
                                     Coming Soon
                                 </span>
                             )}
@@ -120,7 +120,7 @@ export default function Batch1StudyPage() {
                             <FileText className="h-4 w-4" />
                             PDF Self-Study
                             {!hasPdf && (
-                                <span className="absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 px-1.5 py-0.5 bg-gray-700 text-[10px] text-gray-400 rounded-full">
+                                <span className="absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 px-1.5 py-0.5 bg-gray-700 text-[10px] text-muted-foreground rounded-full">
                                     Coming Soon
                                 </span>
                             )}
@@ -143,7 +143,7 @@ export default function Batch1StudyPage() {
                                             className="w-full h-full"
                                         />
                                     </div>
-                                    <div className="flex items-center gap-4 text-gray-400">
+                                    <div className="flex items-center gap-4 text-muted-foreground">
                                         <Clock className="h-4 w-4" />
                                         <span>25 minutes</span>
                                         <span className="text-purple-400">• Watch and take notes</span>
@@ -153,9 +153,9 @@ export default function Batch1StudyPage() {
                         ) : (
                             <Card className="bg-gray-900 border-gray-800">
                                 <CardContent className="p-12 text-center">
-                                    <Video className="h-16 w-16 mx-auto text-gray-600 mb-4" />
-                                    <h3 className="text-xl font-bold text-gray-400 mb-2">Video Coming Soon</h3>
-                                    <p className="text-gray-500">The video for this segment is being prepared.</p>
+                                    <Video className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
+                                    <h3 className="text-xl font-bold text-muted-foreground mb-2">Video Coming Soon</h3>
+                                    <p className="text-muted-foreground">The video for this segment is being prepared.</p>
                                 </CardContent>
                             </Card>
                         )}
@@ -173,9 +173,9 @@ export default function Batch1StudyPage() {
                         ) : (
                             <Card className="bg-gray-900 border-gray-800">
                                 <CardContent className="p-12 text-center">
-                                    <FileText className="h-16 w-16 mx-auto text-gray-600 mb-4" />
-                                    <h3 className="text-xl font-bold text-gray-400 mb-2">PDF Coming Soon</h3>
-                                    <p className="text-gray-500">The PDF for this segment is being prepared.</p>
+                                    <FileText className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
+                                    <h3 className="text-xl font-bold text-muted-foreground mb-2">PDF Coming Soon</h3>
+                                    <p className="text-muted-foreground">The PDF for this segment is being prepared.</p>
                                 </CardContent>
                             </Card>
                         )}

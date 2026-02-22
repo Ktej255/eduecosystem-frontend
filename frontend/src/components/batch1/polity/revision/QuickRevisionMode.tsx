@@ -112,24 +112,24 @@ export default function QuickRevisionMode() {
     if (!isStarted) {
         return (
             <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 dark:from-[#030303] dark:via-[#080808] dark:to-[#030303] flex items-center justify-center p-6">
-                <div className="bg-white dark:bg-[#111] rounded-3xl border border-gray-200 dark:border-gray-800 p-8 max-w-md w-full shadow-2xl">
+                <div className="bg-card dark:bg-[#111] rounded-3xl border border-border p-8 max-w-md w-full shadow-2xl">
                     <div className="text-center mb-8">
                         <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center mx-auto mb-4">
                             <Zap className="w-10 h-10 text-white" />
                         </div>
-                        <h1 className="text-2xl font-black text-gray-900 dark:text-white mb-2">Quick Revision</h1>
-                        <p className="text-gray-500">Rapid-fire flashcard session</p>
+                        <h1 className="text-2xl font-black text-foreground mb-2">Quick Revision</h1>
+                        <p className="text-muted-foreground">Rapid-fire flashcard session</p>
                     </div>
 
                     <div className="space-y-4 mb-8">
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-medium text-muted-foreground dark:text-muted-foreground mb-2">
                                 Number of Cards
                             </label>
                             <select
                                 value={sessionSize}
                                 onChange={(e) => setSessionSize(Number(e.target.value))}
-                                className="w-full bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3"
+                                className="w-full bg-muted dark:bg-[#0a0a0a] border border-border rounded-xl px-4 py-3"
                             >
                                 <option value={10}>10 cards (Quick)</option>
                                 <option value={20}>20 cards (Standard)</option>
@@ -138,17 +138,17 @@ export default function QuickRevisionMode() {
                             </select>
                         </div>
 
-                        <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-[#0a0a0a] rounded-xl">
+                        <div className="flex items-center justify-between p-4 bg-muted dark:bg-[#0a0a0a] rounded-xl">
                             <div className="flex items-center gap-3">
-                                <Timer className="w-5 h-5 text-gray-500" />
+                                <Timer className="w-5 h-5 text-muted-foreground" />
                                 <span className="font-medium">30s Timer per Card</span>
                             </div>
                             <button
                                 onClick={() => setTimerEnabled(!timerEnabled)}
-                                className={`w-12 h-6 rounded-full transition-colors ${timerEnabled ? 'bg-amber-500' : 'bg-gray-300 dark:bg-gray-700'
+                                className={`w-12 h-6 rounded-full transition-colors ${timerEnabled ? 'bg-amber-500' : 'bg-gray-300'
                                     }`}
                             >
-                                <div className={`w-5 h-5 rounded-full bg-white shadow transition-transform ${timerEnabled ? 'translate-x-6' : 'translate-x-0.5'
+                                <div className={`w-5 h-5 rounded-full bg-card shadow transition-transform ${timerEnabled ? 'translate-x-6' : 'translate-x-0.5'
                                     }`} />
                             </button>
                         </div>
@@ -164,7 +164,7 @@ export default function QuickRevisionMode() {
 
                     <Link
                         href="/student/batch1/polity/revision"
-                        className="block text-center mt-4 text-gray-500 hover:text-gray-700 text-sm"
+                        className="block text-center mt-4 text-muted-foreground hover:text-muted-foreground text-sm"
                     >
                         ← Back to Revision Hub
                     </Link>
@@ -178,12 +178,12 @@ export default function QuickRevisionMode() {
         const successRate = Math.round((score.correct / (score.correct + score.incorrect)) * 100);
         return (
             <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 dark:from-[#030303] dark:via-[#080808] dark:to-[#030303] flex items-center justify-center p-6">
-                <div className="bg-white dark:bg-[#111] rounded-3xl border border-gray-200 dark:border-gray-800 p-8 max-w-md w-full shadow-2xl text-center">
+                <div className="bg-card dark:bg-[#111] rounded-3xl border border-border p-8 max-w-md w-full shadow-2xl text-center">
                     <div className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center mx-auto mb-4">
                         <Trophy className="w-10 h-10 text-white" />
                     </div>
-                    <h1 className="text-2xl font-black text-gray-900 dark:text-white mb-2">Session Complete!</h1>
-                    <p className="text-gray-500 mb-6">You've finished {flashcards.length} flashcards</p>
+                    <h1 className="text-2xl font-black text-foreground mb-2">Session Complete!</h1>
+                    <p className="text-muted-foreground mb-6">You've finished {flashcards.length} flashcards</p>
 
                     <div className="grid grid-cols-2 gap-4 mb-8">
                         <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-2xl p-4">
@@ -197,8 +197,8 @@ export default function QuickRevisionMode() {
                     </div>
 
                     <div className="mb-6">
-                        <div className="text-5xl font-black text-gray-900 dark:text-white mb-2">{successRate}%</div>
-                        <div className="text-gray-500">Success Rate</div>
+                        <div className="text-5xl font-black text-foreground mb-2">{successRate}%</div>
+                        <div className="text-muted-foreground">Success Rate</div>
                     </div>
 
                     <div className="space-y-3">
@@ -211,7 +211,7 @@ export default function QuickRevisionMode() {
                         </button>
                         <Link
                             href="/student/batch1/polity/revision"
-                            className="block w-full bg-gray-100 dark:bg-[#0a0a0a] text-gray-700 dark:text-gray-300 py-4 rounded-2xl font-bold hover:bg-gray-200 transition-all"
+                            className="block w-full bg-muted dark:bg-[#0a0a0a] text-muted-foreground dark:text-muted-foreground py-4 rounded-2xl font-bold hover:bg-muted transition-all"
                         >
                             Back to Revision Hub
                         </Link>
@@ -227,7 +227,7 @@ export default function QuickRevisionMode() {
             {/* Header */}
             <div className="max-w-2xl mx-auto mb-6">
                 <div className="flex items-center justify-between mb-4">
-                    <Link href="/student/batch1/polity/revision" className="text-gray-500 hover:text-gray-700 flex items-center gap-1">
+                    <Link href="/student/batch1/polity/revision" className="text-muted-foreground hover:text-muted-foreground flex items-center gap-1">
                         <ChevronLeft className="w-4 h-4" />
                         Exit
                     </Link>
@@ -244,13 +244,13 @@ export default function QuickRevisionMode() {
                 </div>
 
                 {/* Progress bar */}
-                <div className="h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                <div className="h-2 bg-muted rounded-full overflow-hidden">
                     <div
                         className="h-full bg-gradient-to-r from-amber-500 to-orange-500 transition-all"
                         style={{ width: `${progress}%` }}
                     />
                 </div>
-                <div className="text-center text-sm text-gray-500 mt-2">
+                <div className="text-center text-sm text-muted-foreground mt-2">
                     {currentIndex + 1} of {flashcards.length}
                 </div>
             </div>
@@ -258,7 +258,7 @@ export default function QuickRevisionMode() {
             {/* Timer */}
             {timerEnabled && (
                 <div className="max-w-2xl mx-auto mb-4">
-                    <div className={`text-center text-2xl font-black ${timeLeft <= 10 ? 'text-red-600' : 'text-gray-400'}`}>
+                    <div className={`text-center text-2xl font-black ${timeLeft <= 10 ? 'text-red-600' : 'text-muted-foreground'}`}>
                         {timeLeft}s
                     </div>
                 </div>
@@ -269,7 +269,7 @@ export default function QuickRevisionMode() {
                 <div className="max-w-2xl mx-auto">
                     <div
                         onClick={() => setIsFlipped(!isFlipped)}
-                        className="relative bg-white dark:bg-[#111] rounded-3xl border border-gray-200 dark:border-gray-800 p-8 min-h-[300px] cursor-pointer shadow-xl hover:shadow-2xl transition-all"
+                        className="relative bg-card dark:bg-[#111] rounded-3xl border border-border p-8 min-h-[300px] cursor-pointer shadow-xl hover:shadow-2xl transition-all"
                     >
                         <div className="absolute top-4 left-4 text-xs font-bold text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30 px-3 py-1 rounded-full">
                             {currentCard.chapterTitle}
@@ -279,16 +279,16 @@ export default function QuickRevisionMode() {
                             <div className="text-center">
                                 {!isFlipped ? (
                                     <>
-                                        <div className="text-sm text-gray-500 mb-4">QUESTION</div>
-                                        <div className="text-xl font-bold text-gray-900 dark:text-white">
+                                        <div className="text-sm text-muted-foreground mb-4">QUESTION</div>
+                                        <div className="text-xl font-bold text-foreground">
                                             {currentCard.question}
                                         </div>
-                                        <div className="mt-6 text-sm text-gray-400">Tap to reveal answer</div>
+                                        <div className="mt-6 text-sm text-muted-foreground">Tap to reveal answer</div>
                                     </>
                                 ) : (
                                     <>
                                         <div className="text-sm text-emerald-500 mb-4">ANSWER</div>
-                                        <div className="text-lg text-gray-700 dark:text-gray-300">
+                                        <div className="text-lg text-muted-foreground dark:text-muted-foreground">
                                             {currentCard.answer}
                                         </div>
                                     </>

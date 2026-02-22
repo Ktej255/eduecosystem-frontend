@@ -100,7 +100,7 @@ export default function Level1_Breathing({ onExit, onComplete, level = 1, dayNum
                 <Button variant="ghost" className="text-white/60 hover:text-white" onClick={onExit}>
                     <Settings2 className="w-6 h-6" /> {/* Placeholder for 'Back' or 'Close' if needed */}
                 </Button>
-                <div className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full backdrop-blur-md border border-white/10">
+                <div className="flex items-center gap-2 px-3 py-1 bg-card/5 rounded-full backdrop-blur-md border border-white/10">
                     <Wind className="w-4 h-4 text-emerald-400" />
                     <span className="text-xs font-medium tracking-wide opacity-80">LEVEL 1 • BREATHING</span>
                 </div>
@@ -144,7 +144,7 @@ export default function Level1_Breathing({ onExit, onComplete, level = 1, dayNum
                     <div className="flex gap-4">
                         <Button
                             size="lg"
-                            className="rounded-full w-16 h-16 bg-white text-black hover:bg-emerald-50 hover:text-emerald-900 transition-all shadow-lg hover:shadow-emerald-500/20 hover:scale-105"
+                            className="rounded-full w-16 h-16 bg-card text-black hover:bg-emerald-50 hover:text-emerald-900 transition-all shadow-lg hover:shadow-emerald-500/20 hover:scale-105"
                             onClick={() => setIsActive(!isActive)}
                         >
                             {isActive ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-1" />}
@@ -152,7 +152,7 @@ export default function Level1_Breathing({ onExit, onComplete, level = 1, dayNum
                         <Button
                             size="icon"
                             variant="ghost"
-                            className="rounded-full w-12 h-12 text-white/40 hover:text-white hover:bg-white/10"
+                            className="rounded-full w-12 h-12 text-white/40 hover:text-white hover:bg-card/10"
                             onClick={() => {
                                 setIsActive(false);
                                 setTimeLeft(300);

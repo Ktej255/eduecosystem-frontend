@@ -291,8 +291,8 @@ export default function SubjectPomodoro() {
                     <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center shadow-lg">
                         <Timer className="h-8 w-8 text-white" />
                     </div>
-                    <h1 className="text-3xl font-black text-gray-900 dark:text-white">Subject Pomodoro</h1>
-                    <p className="text-gray-500 mt-2">Choose a subject to start focused study sessions</p>
+                    <h1 className="text-3xl font-black text-foreground">Subject Pomodoro</h1>
+                    <p className="text-muted-foreground mt-2">Choose a subject to start focused study sessions</p>
                 </div>
 
                 {pomodoroStats.total > 0 && (
@@ -337,14 +337,14 @@ export default function SubjectPomodoro() {
                                         <span className="text-4xl">{subject.icon}</span>
                                         <div>
                                             <h2 className={`text-xl font-black ${subject.color}`}>{subject.label}</h2>
-                                            <p className="text-sm text-gray-500">{subject.description}</p>
+                                            <p className="text-sm text-muted-foreground">{subject.description}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-center justify-between mt-6">
                                         <div className="flex items-center gap-4">
                                             <div className="flex items-center gap-1.5">
-                                                <BookOpen className="w-4 h-4 text-gray-400" />
-                                                <span className="text-sm font-medium text-gray-600">{subject.totalChapters} chapters</span>
+                                                <BookOpen className="w-4 h-4 text-muted-foreground" />
+                                                <span className="text-sm font-medium text-muted-foreground">{subject.totalChapters} chapters</span>
                                             </div>
                                             {completedCount > 0 && (
                                                 <div className="flex items-center gap-1.5">
@@ -357,10 +357,10 @@ export default function SubjectPomodoro() {
                                     </div>
                                     {completedCount > 0 && (
                                         <div className="mt-4">
-                                            <div className="h-2 bg-white/50 dark:bg-gray-800/50 rounded-full overflow-hidden">
+                                            <div className="h-2 bg-card/50/50 rounded-full overflow-hidden">
                                                 <div className="h-full bg-green-500 rounded-full transition-all duration-500" style={{ width: `${progress}%` }} />
                                             </div>
-                                            <p className="text-xs text-gray-500 mt-1">{progress}% complete</p>
+                                            <p className="text-xs text-muted-foreground mt-1">{progress}% complete</p>
                                         </div>
                                     )}
                                 </CardContent>
@@ -384,10 +384,10 @@ export default function SubjectPomodoro() {
                         <ArrowLeft className="h-5 w-5" />
                     </Button>
                     <div>
-                        <h1 className="text-2xl font-black text-gray-900 dark:text-white flex items-center gap-2">
+                        <h1 className="text-2xl font-black text-foreground flex items-center gap-2">
                             <span>{subjectConfig.icon}</span> {subjectConfig.label}
                         </h1>
-                        <p className="text-sm text-gray-500">Choose your study mode</p>
+                        <p className="text-sm text-muted-foreground">Choose your study mode</p>
                     </div>
                 </div>
 
@@ -404,12 +404,12 @@ export default function SubjectPomodoro() {
                                 onClick={() => handleModeSelect(mode.id)}
                             >
                                 <CardContent className="p-6 flex items-center gap-4">
-                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-white/60 dark:bg-gray-800/60 ${mode.color} shrink-0`}>
+                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-card/60/60 ${mode.color} shrink-0`}>
                                         <Icon className="w-6 h-6" />
                                     </div>
                                     <div className="flex-1 min-w-0">
                                         <h3 className={`text-lg font-bold ${mode.color}`}>{mode.label}</h3>
-                                        <p className="text-sm text-gray-500">{mode.description}</p>
+                                        <p className="text-sm text-muted-foreground">{mode.description}</p>
                                         {hasPlannerData && (
                                             <p className="text-xs text-indigo-500 mt-1 font-semibold">
                                                 📅 {todayPlannerChapters.length} chapter{todayPlannerChapters.length > 1 ? 's' : ''} scheduled today
@@ -444,11 +444,11 @@ export default function SubjectPomodoro() {
                             <ArrowLeft className="h-5 w-5" />
                         </Button>
                         <div>
-                            <h1 className="text-2xl font-black text-gray-900 dark:text-white flex items-center gap-2">
+                            <h1 className="text-2xl font-black text-foreground flex items-center gap-2">
                                 <Calendar className="w-6 h-6 text-indigo-500" />
                                 Planner Mode — Week {currentWeek}
                             </h1>
-                            <p className="text-sm text-gray-500">
+                            <p className="text-sm text-muted-foreground">
                                 Today is {dayNames[currentDayOfWeek]} • {subjectConfig.icon} {subjectConfig.label}
                             </p>
                         </div>
@@ -477,14 +477,14 @@ export default function SubjectPomodoro() {
                             {todayPlannerChapters.map(ch => {
                                 const isCompleted = polityCompleted.includes(ch.id);
                                 return (
-                                    <div key={ch.id} className="flex items-center gap-3 p-3 rounded-xl bg-white/70 dark:bg-gray-900/50 border border-indigo-100">
+                                    <div key={ch.id} className="flex items-center gap-3 p-3 rounded-xl bg-card/70/50 border border-indigo-100">
                                         <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-black shrink-0
                                             ${isCompleted ? 'bg-green-100 text-green-700' : 'bg-indigo-100 text-indigo-700'}`}>
                                             {ch.id}
                                         </div>
                                         <div className="flex-1 min-w-0">
-                                            <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 truncate">{ch.topic}</p>
-                                            <p className="text-[10px] text-gray-400">{ch.group}</p>
+                                            <p className="text-sm font-semibold text-foreground truncate">{ch.topic}</p>
+                                            <p className="text-[10px] text-muted-foreground">{ch.group}</p>
                                         </div>
                                         {isCompleted && <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" />}
                                     </div>
@@ -493,10 +493,10 @@ export default function SubjectPomodoro() {
                         </CardContent>
                     </Card>
                 ) : (
-                    <Card className="p-8 text-center bg-gray-50 dark:bg-gray-900 border-dashed border-gray-300">
-                        <Calendar className="w-10 h-10 text-gray-300 mx-auto mb-3" />
-                        <h3 className="text-base font-bold text-gray-600 dark:text-gray-400">No chapters scheduled today</h3>
-                        <p className="text-sm text-gray-400 mt-1">Switch to Independent Mode to pick your own chapters.</p>
+                    <Card className="p-8 text-center bg-muted border-dashed border-border">
+                        <Calendar className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
+                        <h3 className="text-base font-bold text-muted-foreground dark:text-muted-foreground">No chapters scheduled today</h3>
+                        <p className="text-sm text-muted-foreground mt-1">Switch to Independent Mode to pick your own chapters.</p>
                         <Button variant="outline" onClick={() => handleModeSelect('independent')} className="mt-4">
                             <Shuffle className="mr-2 h-4 w-4" /> Go Independent
                         </Button>
@@ -507,7 +507,7 @@ export default function SubjectPomodoro() {
                 {thisWeekSchedule && (
                     <Card>
                         <CardHeader>
-                            <CardTitle className="text-base flex items-center gap-2 text-gray-700">
+                            <CardTitle className="text-base flex items-center gap-2 text-muted-foreground">
                                 <Calendar className="w-4 h-4" />
                                 Week {currentWeek} Overview
                             </CardTitle>
@@ -520,9 +520,9 @@ export default function SubjectPomodoro() {
                                     const chapters = Array.isArray(dayContent) ? dayContent as ChapterSchedule[] : [];
 
                                     return (
-                                        <div key={dayKey} className={`p-3 rounded-xl border ${isToday ? 'border-indigo-300 bg-indigo-50/50' : 'border-gray-100 bg-gray-50/50 dark:bg-gray-900/50'}`}>
+                                        <div key={dayKey} className={`p-3 rounded-xl border ${isToday ? 'border-indigo-300 bg-indigo-50/50' : 'border-border bg-gray-50/50/50'}`}>
                                             <div className="flex items-center gap-2 mb-2">
-                                                <span className={`text-xs font-bold uppercase ${isToday ? 'text-indigo-600' : 'text-gray-500'}`}>
+                                                <span className={`text-xs font-bold uppercase ${isToday ? 'text-indigo-600' : 'text-muted-foreground'}`}>
                                                     {dayNames[idx + 1]}
                                                 </span>
                                                 {isToday && <Badge variant="secondary" className="bg-indigo-100 text-indigo-700 text-[10px] h-5">TODAY</Badge>}
@@ -530,13 +530,13 @@ export default function SubjectPomodoro() {
                                             {chapters.length > 0 ? (
                                                 <div className="space-y-1">
                                                     {chapters.map(ch => (
-                                                        <p key={ch.chapter} className="text-xs text-gray-600 dark:text-gray-400 truncate">
-                                                            <span className="font-bold text-gray-700 dark:text-gray-300">Ch {ch.chapter}:</span> {ch.topic}
+                                                        <p key={ch.chapter} className="text-xs text-muted-foreground dark:text-muted-foreground truncate">
+                                                            <span className="font-bold text-muted-foreground dark:text-muted-foreground">Ch {ch.chapter}:</span> {ch.topic}
                                                         </p>
                                                     ))}
                                                 </div>
                                             ) : (
-                                                <p className="text-xs text-gray-400 italic">No chapters</p>
+                                                <p className="text-xs text-muted-foreground italic">No chapters</p>
                                             )}
                                         </div>
                                     );
@@ -562,11 +562,11 @@ export default function SubjectPomodoro() {
                             <ArrowLeft className="h-5 w-5" />
                         </Button>
                         <div>
-                            <h1 className="text-2xl font-black text-gray-900 dark:text-white flex items-center gap-2">
+                            <h1 className="text-2xl font-black text-foreground flex items-center gap-2">
                                 <ListChecks className="w-6 h-6 text-emerald-500" />
                                 Custom Presets
                             </h1>
-                            <p className="text-sm text-gray-500">{subjectConfig.icon} {subjectConfig.label} — saved chapter sets</p>
+                            <p className="text-sm text-muted-foreground">{subjectConfig.icon} {subjectConfig.label} — saved chapter sets</p>
                         </div>
                     </div>
                     <Button
@@ -584,8 +584,8 @@ export default function SubjectPomodoro() {
                                 <CardContent className="p-4">
                                     <div className="flex items-center justify-between mb-3">
                                         <div>
-                                            <h3 className="font-bold text-gray-900 dark:text-white">{preset.name}</h3>
-                                            <p className="text-xs text-gray-400">
+                                            <h3 className="font-bold text-foreground">{preset.name}</h3>
+                                            <p className="text-xs text-muted-foreground">
                                                 {preset.chapters.length} chapters • Created {new Date(preset.createdAt).toLocaleDateString()}
                                             </p>
                                         </div>
@@ -609,7 +609,7 @@ export default function SubjectPomodoro() {
                                     </div>
                                     <div className="flex flex-wrap gap-1.5">
                                         {preset.chapters.map(ch => (
-                                            <Badge key={ch.id} variant="secondary" className="bg-gray-100 text-gray-600 text-[10px]">
+                                            <Badge key={ch.id} variant="secondary" className="bg-muted text-muted-foreground text-[10px]">
                                                 Ch {ch.id}: {ch.topic}
                                             </Badge>
                                         ))}
@@ -619,10 +619,10 @@ export default function SubjectPomodoro() {
                         ))}
                     </div>
                 ) : (
-                    <Card className="p-8 text-center bg-gray-50 dark:bg-gray-900 border-dashed border-gray-300">
-                        <ListChecks className="w-10 h-10 text-gray-300 mx-auto mb-3" />
-                        <h3 className="text-base font-bold text-gray-600 dark:text-gray-400">No custom presets yet</h3>
-                        <p className="text-sm text-gray-400 mt-1">Create a preset to save your favorite chapter combinations.</p>
+                    <Card className="p-8 text-center bg-muted border-dashed border-border">
+                        <ListChecks className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
+                        <h3 className="text-base font-bold text-muted-foreground dark:text-muted-foreground">No custom presets yet</h3>
+                        <p className="text-sm text-muted-foreground mt-1">Create a preset to save your favorite chapter combinations.</p>
                     </Card>
                 )}
             </div>
@@ -654,11 +654,11 @@ export default function SubjectPomodoro() {
                             <ArrowLeft className="h-5 w-5" />
                         </Button>
                         <div>
-                            <h1 className="text-2xl font-black text-gray-900 dark:text-white flex items-center gap-2">
+                            <h1 className="text-2xl font-black text-foreground flex items-center gap-2">
                                 <span>{subjectConfig.icon}</span>
                                 {isCreatingPreset ? 'Create Preset' : subjectConfig.label}
                             </h1>
-                            <p className="text-sm text-gray-500">
+                            <p className="text-sm text-muted-foreground">
                                 {isCreatingPreset ? 'Select chapters and name your preset' : 'Select up to 5 chapters for your session'}
                             </p>
                         </div>
@@ -703,14 +703,14 @@ export default function SubjectPomodoro() {
                 )}
 
                 <div className="relative">
-                    <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                    <Input placeholder="Search chapters..." className="pl-10 h-12 text-base bg-white dark:bg-gray-900 border-gray-200" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+                    <Search className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
+                    <Input placeholder="Search chapters..." className="pl-10 h-12 text-base bg-card border-border" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
                 </div>
 
                 <div className="space-y-6">
                     {Object.entries(filteredGroups).map(([group, chapters]) => (
                         <div key={group}>
-                            <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wide mb-3 flex items-center gap-2">
+                            <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wide mb-3 flex items-center gap-2">
                                 <div className="w-2 h-2 rounded-full bg-indigo-500" />
                                 {group}
                             </h3>
@@ -723,15 +723,15 @@ export default function SubjectPomodoro() {
                                     return (
                                         <div key={ch.chapter} onClick={() => !isDisabled && handleChapterToggle({ id: ch.chapter, topic: ch.topic, group: ch.group || '' })}
                                             className={`p-3 rounded-xl border-2 cursor-pointer transition-all flex items-center justify-between group
-                                                ${isSelected ? 'border-orange-500 bg-orange-50 dark:bg-orange-900/20 shadow-sm' : isDisabled ? 'border-gray-100 bg-gray-50 opacity-50 cursor-not-allowed' : 'border-gray-100 dark:border-gray-800 hover:border-indigo-300 hover:bg-indigo-50/50 bg-white dark:bg-gray-900'}`}>
+                                                ${isSelected ? 'border-orange-500 bg-orange-50 dark:bg-orange-900/20 shadow-sm' : isDisabled ? 'border-border bg-muted opacity-50 cursor-not-allowed' : 'border-border hover:border-indigo-300 hover:bg-indigo-50/50 bg-card'}`}>
                                             <div className="flex items-center gap-3 min-w-0">
                                                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-black shrink-0
-                                                    ${isSelected ? 'bg-orange-500 text-white' : isCompleted ? 'bg-green-100 text-green-700' : 'bg-gray-100 dark:bg-gray-800 text-gray-500'}`}>
+                                                    ${isSelected ? 'bg-orange-500 text-white' : isCompleted ? 'bg-green-100 text-green-700' : 'bg-muted text-muted-foreground'}`}>
                                                     {ch.chapter}
                                                 </div>
                                                 <div className="min-w-0">
-                                                    <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 truncate">{ch.topic}</p>
-                                                    <p className="text-[10px] text-gray-400">{ch.pages} pages • {ch.slots} slots</p>
+                                                    <p className="text-sm font-semibold text-foreground truncate">{ch.topic}</p>
+                                                    <p className="text-[10px] text-muted-foreground">{ch.pages} pages • {ch.slots} slots</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-center gap-2 shrink-0">

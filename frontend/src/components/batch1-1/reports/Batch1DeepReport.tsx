@@ -65,13 +65,13 @@ function Batch1DeepReportContent({ embedded = false }: { embedded?: boolean }) {
             {!embedded && (
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
                     <div>
-                        <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+                        <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
                             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/30">
                                 <BarChart3 className="h-6 w-6" />
                             </div>
                             Deep Report Center
                         </h1>
-                        <p className="text-gray-600 dark:text-gray-400 mt-1 ml-1">
+                        <p className="text-muted-foreground dark:text-muted-foreground mt-1 ml-1">
                             Centralized analytics for your Batch 1 journey
                         </p>
                     </div>
@@ -88,7 +88,7 @@ function Batch1DeepReportContent({ embedded = false }: { embedded?: boolean }) {
             <WeakTopicsAlert />
 
             <Tabs value={activeTab} onValueChange={handleTabChange} className="space-y-8">
-                <div className="sticky top-0 z-20 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl p-1 rounded-2xl border shadow-sm">
+                <div className="sticky top-0 z-20 bg-card/80/80 backdrop-blur-xl p-1 rounded-2xl border shadow-sm">
                     <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 h-auto p-1 gap-1 bg-transparent">
                         <TabsTrigger value="pomodoro" className="data-[state=active]:bg-orange-100 data-[state=active]:text-orange-700 py-3 rounded-xl flex items-center gap-2">
                             <Clock className="w-4 h-4" />
@@ -182,7 +182,7 @@ function CSATReport() {
 
     return (
         <div className="space-y-6">
-            <h2 className="text-xl font-bold text-gray-800 dark:text-white">CSAT Performance Analytics</h2>
+            <h2 className="text-xl font-bold text-foreground">CSAT Performance Analytics</h2>
             <Card className="max-w-md">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
@@ -227,7 +227,7 @@ function EveningReport() {
 
     return (
         <div className="space-y-6">
-            <h2 className="text-xl font-bold text-gray-800 dark:text-white">Evening Session Analytics</h2>
+            <h2 className="text-xl font-bold text-foreground">Evening Session Analytics</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Card>
                     <CardHeader>
@@ -278,7 +278,7 @@ function ActivityReport() {
         }, 0);
     }, []);
 
-    if (!stats) return <div className="p-8 text-center text-gray-500">Loading Activity Data...</div>;
+    if (!stats) return <div className="p-8 text-center text-muted-foreground">Loading Activity Data...</div>;
 
     return (
         <div className="space-y-6">
@@ -289,7 +289,7 @@ function ActivityReport() {
                             <Zap className="w-5 h-5" />
                             <span className="font-semibold">Total MCQs Solved</span>
                         </div>
-                        <div className="text-4xl font-bold text-gray-900">{stats.totalMCQsSolved}</div>
+                        <div className="text-4xl font-bold text-foreground">{stats.totalMCQsSolved}</div>
                         <p className="text-xs text-indigo-600/70 mt-2">All Sources (Evening, PYQ, Pomodoro, Chapter)</p>
                     </CardContent>
                 </Card>
@@ -300,7 +300,7 @@ function ActivityReport() {
                             <Trophy className="w-5 h-5" />
                             <span className="font-semibold">Accuracy Rate</span>
                         </div>
-                        <div className="text-4xl font-bold text-gray-900">
+                        <div className="text-4xl font-bold text-foreground">
                             {stats.totalMCQsSolved > 0
                                 ? Math.round((stats.totalCorrect / stats.totalMCQsSolved) * 100)
                                 : 0}%
@@ -315,7 +315,7 @@ function ActivityReport() {
                             <Brain className="w-5 h-5" />
                             <span className="font-semibold">Flashcards Reviewed</span>
                         </div>
-                        <div className="text-4xl font-bold text-gray-900">{stats.totalFlashcards}</div>
+                        <div className="text-4xl font-bold text-foreground">{stats.totalFlashcards}</div>
                         <p className="text-xs text-amber-600/70 mt-2">Concepts Reinforced</p>
                     </CardContent>
                 </Card>
@@ -330,15 +330,15 @@ function ActivityReport() {
                             <span className="font-semibold">Pomodoro MCQ Performance</span>
                         </div>
                         <div className="grid grid-cols-3 gap-3">
-                            <div className="text-center p-3 bg-white/80 rounded-xl">
+                            <div className="text-center p-3 bg-card/80 rounded-xl">
                                 <div className="text-2xl font-bold text-orange-700">{stats.pomodoroMCQs}</div>
                                 <div className="text-[10px] font-bold text-orange-500 uppercase">Questions</div>
                             </div>
-                            <div className="text-center p-3 bg-white/80 rounded-xl">
+                            <div className="text-center p-3 bg-card/80 rounded-xl">
                                 <div className="text-2xl font-bold text-green-700">{stats.pomodoroCorrect}</div>
                                 <div className="text-[10px] font-bold text-green-500 uppercase">Correct</div>
                             </div>
-                            <div className="text-center p-3 bg-white/80 rounded-xl">
+                            <div className="text-center p-3 bg-card/80 rounded-xl">
                                 <div className="text-2xl font-bold text-indigo-700">
                                     {stats.pomodoroMCQs > 0 ? Math.round((stats.pomodoroCorrect / stats.pomodoroMCQs) * 100) : 0}%
                                 </div>
@@ -358,7 +358,7 @@ function ActivityReport() {
                     <CardContent>
                         <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
                             {logs.map((log, i) => (
-                                <div key={i} className="flex items-start gap-3 p-3 rounded-lg border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40">
+                                <div key={i} className="flex items-start gap-3 p-3 rounded-lg border border-slate-100 bg-muted/40">
                                     <div className={`mt-1 p-1.5 rounded-full shrink-0 ${log.type === 'MCQ_EVENING' ? 'bg-indigo-100 text-indigo-600' :
                                         log.type === 'MCQ_PYQ' ? 'bg-blue-100 text-blue-600' :
                                             log.type === 'MCQ_POMODORO' ? 'bg-orange-100 text-orange-600' :
@@ -369,7 +369,7 @@ function ActivityReport() {
                                     </div>
                                     <div className="flex-1 min-w-0">
                                         <div className="flex justify-between items-start">
-                                            <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
+                                            <p className="text-sm font-medium text-foreground">
                                                 {log.type === 'MCQ_EVENING' ? 'Solved Evening MCQ' :
                                                     log.type === 'MCQ_PYQ' ? 'Solved PYQ' :
                                                         log.type === 'MCQ_SATURDAY' ? 'Saturday Test MCQ' :
@@ -378,11 +378,11 @@ function ActivityReport() {
                                                                     log.type === 'MCQ_CSAT' ? 'CSAT MCQ' :
                                                                         'Flashcard Review'}
                                             </p>
-                                            <span className="text-[10px] text-slate-400 whitespace-nowrap ml-2">
+                                            <span className="text-[10px] text-muted-foreground whitespace-nowrap ml-2">
                                                 {new Date(log.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                             </span>
                                         </div>
-                                        <p className="text-xs text-slate-500 mt-1 truncate">
+                                        <p className="text-xs text-muted-foreground mt-1 truncate">
                                             Topic: {log.details.topic || 'General'}
                                             {log.details.subtopic && ` • ${log.details.subtopic}`}
                                         </p>
@@ -395,7 +395,7 @@ function ActivityReport() {
                                                     {log.details.isCorrect ? 'Correct' : 'Incorrect'}
                                                 </span>
                                                 {log.details.confidence && (
-                                                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400">
+                                                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-muted text-muted-foreground dark:text-muted-foreground">
                                                         Confidence: {log.details.confidence}
                                                     </span>
                                                 )}
@@ -405,7 +405,7 @@ function ActivityReport() {
                                 </div>
                             ))}
                             {logs.length === 0 && (
-                                <div className="text-center py-8 text-gray-400 text-sm">
+                                <div className="text-center py-8 text-muted-foreground text-sm">
                                     No activity recorded yet. Start solving questions!
                                 </div>
                             )}
@@ -423,10 +423,10 @@ function ActivityReport() {
                             {Object.entries(stats.byTopic).sort((a, b) => (b[1] as number) - (a[1] as number)).slice(0, 8).map(([topic, count], i) => (
                                 <div key={i} className="space-y-1">
                                     <div className="flex justify-between text-xs font-medium">
-                                        <span className="text-slate-700 dark:text-slate-300">{topic}</span>
-                                        <span className="text-slate-500">{count} interactions</span>
+                                        <span className="text-muted-foreground">{topic}</span>
+                                        <span className="text-muted-foreground">{count} interactions</span>
                                     </div>
-                                    <div className="h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div className="h-2 bg-muted rounded-full overflow-hidden">
                                         <div
                                             className="h-full bg-indigo-500 rounded-full"
                                             style={{ width: `${Math.min(100, (count / (stats.totalMCQsSolved + stats.totalFlashcards || 1)) * 100)}%` }}
@@ -530,8 +530,8 @@ function SaturdayTestsReport() {
 
     if (scores.length === 0) {
         return (
-            <Card className="bg-gray-50 border-gray-200">
-                <CardContent className="p-12 text-center text-gray-500">
+            <Card className="bg-muted border-border">
+                <CardContent className="p-12 text-center text-muted-foreground">
                     <Trophy className="h-12 w-12 mx-auto mb-4 opacity-50" />
                     <h3 className="text-lg font-semibold mb-2">No Test Data Found</h3>
                     <p>Complete a Saturday Test to see your performance metrics here.</p>
@@ -554,7 +554,7 @@ function SaturdayTestsReport() {
                                 variant="ghost"
                                 size="icon"
                                 onClick={() => setSelectedReport(null)}
-                                className="absolute -top-4 -right-4 md:top-4 md:right-4 z-[60] text-white hover:bg-white/10 rounded-full"
+                                className="absolute -top-4 -right-4 md:top-4 md:right-4 z-[60] text-white hover:bg-card/10 rounded-full"
                             >
                                 <X className="h-6 w-6" />
                             </Button>
@@ -572,10 +572,10 @@ function SaturdayTestsReport() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {scores.map((score, idx) => (
                     <Card key={idx} className="overflow-hidden border-2 hover:border-indigo-400 transition-all shadow-md">
-                        <CardHeader className="bg-gray-50 dark:bg-gray-900/50 pb-4">
+                        <CardHeader className="bg-muted/50 pb-4">
                             <CardTitle className="flex justify-between items-center">
                                 <span>{score.specialTitle || `Week ${score.weekId}`}</span>
-                                <span className="text-[10px] md:text-xs font-normal text-gray-500">
+                                <span className="text-[10px] md:text-xs font-normal text-muted-foreground">
                                     {score.lastUpdated && new Date(score.lastUpdated).toLocaleDateString()}
                                 </span>
                             </CardTitle>
@@ -608,7 +608,7 @@ function SaturdayTestsReport() {
 
                             <div className="flex flex-col gap-2">
                                 <Button
-                                    className="w-full bg-slate-900 dark:bg-white dark:text-slate-900 hover:bg-slate-800 font-bold rounded-xl"
+                                    className="w-full bg-slate-900 dark:bg-card dark:text-foreground hover:bg-slate-800 font-bold rounded-xl"
                                     onClick={() => setSelectedReport(score.paper1Results)}
                                     disabled={!score.paper1Results || !score.isV2}
                                 >
@@ -616,7 +616,7 @@ function SaturdayTestsReport() {
                                     {score.isV2 ? 'View Paper 1 Report' : 'Detailed N/A'}
                                 </Button>
                                 <Button
-                                    className="w-full bg-slate-900 dark:bg-white dark:text-slate-900 hover:bg-slate-800 font-bold rounded-xl"
+                                    className="w-full bg-slate-900 dark:bg-card dark:text-foreground hover:bg-slate-800 font-bold rounded-xl"
                                     onClick={() => setSelectedReport(score.paper2Results)}
                                     disabled={!score.paper2Results || !score.isV2}
                                 >
@@ -917,40 +917,40 @@ function ChapterMCQReport() {
         <div className="space-y-8">
             {/* Subject Toggle */}
             <div className="flex justify-center">
-                <div className="inline-flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
+                <div className="inline-flex bg-muted p-1 rounded-xl">
                     <button
                         onClick={() => setSelectedSubject('polity')}
-                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'polity' ? 'bg-white dark:bg-black shadow text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
+                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'polity' ? 'bg-card dark:bg-black shadow text-foreground' : 'text-muted-foreground hover:text-foreground dark:hover:text-white'}`}
                     >
                         Polity
                     </button>
                     <button
                         onClick={() => setSelectedSubject('history')}
-                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'history' ? 'bg-white dark:bg-black shadow text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
+                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'history' ? 'bg-card dark:bg-black shadow text-foreground' : 'text-muted-foreground hover:text-foreground dark:hover:text-white'}`}
                     >
                         History
                     </button>
                     <button
                         onClick={() => setSelectedSubject('geography')}
-                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'geography' ? 'bg-white dark:bg-black shadow text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
+                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'geography' ? 'bg-card dark:bg-black shadow text-foreground' : 'text-muted-foreground hover:text-foreground dark:hover:text-white'}`}
                     >
                         Geography
                     </button>
                     <button
                         onClick={() => setSelectedSubject('economy')}
-                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'economy' ? 'bg-white dark:bg-black shadow text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
+                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'economy' ? 'bg-card dark:bg-black shadow text-foreground' : 'text-muted-foreground hover:text-foreground dark:hover:text-white'}`}
                     >
                         Economy
                     </button>
                     <button
                         onClick={() => setSelectedSubject('environment')}
-                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'environment' ? 'bg-white dark:bg-black shadow text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
+                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'environment' ? 'bg-card dark:bg-black shadow text-foreground' : 'text-muted-foreground hover:text-foreground dark:hover:text-white'}`}
                     >
                         Environment
                     </button>
                     <button
                         onClick={() => setSelectedSubject('scitech')}
-                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'scitech' ? 'bg-white dark:bg-black shadow text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
+                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'scitech' ? 'bg-card dark:bg-black shadow text-foreground' : 'text-muted-foreground hover:text-foreground dark:hover:text-white'}`}
                     >
                         Sci-Tech
                     </button>
@@ -984,7 +984,7 @@ function ChapterMCQReport() {
 
             {/* Level Performance */}
             <Card className="p-6">
-                <h3 className="font-bold text-lg mb-4 text-slate-800 flex items-center gap-2">
+                <h3 className="font-bold text-lg mb-4 text-foreground flex items-center gap-2">
                     <Target className="w-5 h-5 text-indigo-500" />
                     Level-wise Performance
                 </h3>
@@ -993,10 +993,10 @@ function ChapterMCQReport() {
                         const data = aggregatedStats.levelData[level];
                         const acc = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
                         return (
-                            <div key={level} className="p-4 bg-slate-50 rounded-xl text-center">
-                                <p className="text-xs font-bold text-slate-500 uppercase">Level {level}</p>
-                                <p className="text-2xl font-black text-slate-700">{acc}%</p>
-                                <p className="text-xs text-slate-400">{data.correct}/{data.total} correct</p>
+                            <div key={level} className="p-4 bg-muted rounded-xl text-center">
+                                <p className="text-xs font-bold text-muted-foreground uppercase">Level {level}</p>
+                                <p className="text-2xl font-black text-muted-foreground">{acc}%</p>
+                                <p className="text-xs text-muted-foreground">{data.correct}/{data.total} correct</p>
                             </div>
                         );
                     })}
@@ -1005,7 +1005,7 @@ function ChapterMCQReport() {
 
             {/* Confidence Analysis */}
             <Card className="p-6">
-                <h3 className="font-bold text-lg mb-4 text-slate-800 flex items-center gap-2">
+                <h3 className="font-bold text-lg mb-4 text-foreground flex items-center gap-2">
                     <Brain className="w-5 h-5 text-purple-500" />
                     Confidence Level Analysis
                 </h3>
@@ -1016,10 +1016,10 @@ function ChapterMCQReport() {
                             'sure': 'text-emerald-600 bg-emerald-50',
                             '50-50': 'text-orange-600 bg-orange-50',
                             'one-option': 'text-blue-600 bg-blue-50',
-                            'blind': 'text-slate-600 bg-slate-50',
+                            'blind': 'text-muted-foreground bg-muted',
                         };
                         return (
-                            <div key={level} className={`p-4 rounded-xl text-center ${colors[level] || 'bg-slate-50'}`}>
+                            <div key={level} className={`p-4 rounded-xl text-center ${colors[level] || 'bg-muted'}`}>
                                 <p className="text-xs font-bold uppercase">{level.replace('-', ' ')}</p>
                                 <p className="text-2xl font-black">{acc}%</p>
                                 <p className="text-xs opacity-70">{data.correct}/{data.total} correct</p>
@@ -1031,34 +1031,34 @@ function ChapterMCQReport() {
 
             {/* Chapter-by-Chapter Breakdown */}
             <Card className="p-6">
-                <h3 className="font-bold text-lg mb-4 text-slate-800 flex items-center gap-2">
+                <h3 className="font-bold text-lg mb-4 text-foreground flex items-center gap-2">
                     <FileBarChart className="w-5 h-5 text-cyan-500" />
                     Chapter Reports
                 </h3>
                 <div className="space-y-4 max-h-[600px] overflow-y-auto">
                     {filteredReports.map((chapter) => (
-                        <div key={`${chapter.chapterId}-${chapter.subject}`} className="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                        <div key={`${chapter.chapterId}-${chapter.subject}`} className="p-4 bg-muted rounded-xl border border-slate-100">
                             <div className="flex items-center justify-between mb-3">
-                                <h4 className="font-bold text-slate-800">
-                                    <span className="text-xs uppercase font-bold text-slate-400 block mb-0.5">{chapter.subject || 'Polity'}</span>
+                                <h4 className="font-bold text-foreground">
+                                    <span className="text-xs uppercase font-bold text-muted-foreground block mb-0.5">{chapter.subject || 'Polity'}</span>
                                     Chapter {chapter.chapterId}: {chapter.reports[0]?.chapterTitle || 'Unknown'}
                                 </h4>
-                                <span className="text-xs text-slate-500">{chapter.reports.length} attempt(s)</span>
+                                <span className="text-xs text-muted-foreground">{chapter.reports.length} attempt(s)</span>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                                 {chapter.reports.slice(0, 6).map((report, idx) => (
                                     <button
                                         key={idx}
                                         onClick={() => setSelectedReport(report)}
-                                        className="p-3 bg-white rounded-lg border border-slate-200 hover:border-violet-300 hover:bg-violet-50 transition-all text-left"
+                                        className="p-3 bg-card rounded-lg border border-border hover:border-violet-300 hover:bg-violet-50 transition-all text-left"
                                     >
                                         <div className="flex justify-between items-center mb-1">
-                                            <span className="text-sm font-medium text-slate-700">Level {report.levelId}</span>
+                                            <span className="text-sm font-medium text-muted-foreground">Level {report.levelId}</span>
                                             <span className={`text-sm font-bold ${report.percentage >= 50 ? 'text-green-600' : 'text-red-600'}`}>
                                                 {report.percentage}%
                                             </span>
                                         </div>
-                                        <div className="text-xs text-slate-400">
+                                        <div className="text-xs text-muted-foreground">
                                             {new Date(report.endTime).toLocaleDateString()} • {report.score}/{report.totalQuestions}
                                         </div>
                                     </button>
@@ -1102,11 +1102,11 @@ function ChapterReportDetail({ report }: { report: ChapterTestResult }) {
         <div className="space-y-6">
             {/* Header */}
             <div className="p-6 bg-gradient-to-br from-violet-100 to-indigo-100 dark:from-violet-900/30 dark:to-indigo-900/30 rounded-2xl border border-violet-200 dark:border-violet-800">
-                <h2 className="text-2xl font-black text-slate-800 dark:text-slate-100 mb-1">
+                <h2 className="text-2xl font-black text-foreground mb-1">
                     Chapter {report.chapterNumber}: {report.chapterTitle}
                 </h2>
-                <p className="text-slate-600 dark:text-slate-300">Level {report.levelId} • {report.levelTitle}</p>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                <p className="text-muted-foreground">Level {report.levelId} • {report.levelTitle}</p>
+                <p className="text-sm text-muted-foreground dark:text-muted-foreground mt-1">
                     Completed: {new Date(report.endTime).toLocaleString()}
                 </p>
             </div>
@@ -1136,10 +1136,10 @@ function ChapterReportDetail({ report }: { report: ChapterTestResult }) {
                 <h3 className="font-bold text-lg mb-4">Confidence Analysis</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {confidenceStats.map(stat => (
-                        <div key={stat.level} className="p-4 bg-slate-50 rounded-xl text-center">
-                            <p className="text-xs font-bold text-slate-500 uppercase">{stat.level}</p>
-                            <p className="text-2xl font-black text-slate-700">{stat.accuracy}%</p>
-                            <p className="text-xs text-slate-400">{stat.correct}/{stat.total}</p>
+                        <div key={stat.level} className="p-4 bg-muted rounded-xl text-center">
+                            <p className="text-xs font-bold text-muted-foreground uppercase">{stat.level}</p>
+                            <p className="text-2xl font-black text-muted-foreground">{stat.accuracy}%</p>
+                            <p className="text-xs text-muted-foreground">{stat.correct}/{stat.total}</p>
                         </div>
                     ))}
                 </div>
@@ -1172,8 +1172,8 @@ function ChapterReportDetail({ report }: { report: ChapterTestResult }) {
                                     {i + 1}
                                 </span>
                                 <div className="flex-1">
-                                    <p className="font-medium text-slate-800 leading-relaxed">{q.question}</p>
-                                    <div className="flex items-center gap-2 mt-1 text-xs text-slate-500">
+                                    <p className="font-medium text-foreground leading-relaxed">{q.question}</p>
+                                    <div className="flex items-center gap-2 mt-1 text-xs text-muted-foreground">
                                         <span className={`px-2 py-0.5 rounded-full ${q.isCorrect ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
                                             {q.isCorrect ? 'Correct' : 'Incorrect'}
                                         </span>
@@ -1192,7 +1192,7 @@ function ChapterReportDetail({ report }: { report: ChapterTestResult }) {
                                     let cls = "p-2 rounded-lg text-sm border ";
                                     if (isCorrect) cls += "bg-green-100 border-green-300 text-green-800 dark:bg-green-900/30 dark:border-green-700 dark:text-green-300";
                                     else if (isUserChoice) cls += "bg-red-100 border-red-300 text-red-800 dark:bg-red-900/30 dark:border-red-700 dark:text-red-300";
-                                    else cls += "bg-white border-slate-100 text-slate-500 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-400";
+                                    else cls += "bg-card border-slate-100 text-muted-foreground dark:text-muted-foreground";
 
                                     return (
                                         <div key={idx} className={cls}>

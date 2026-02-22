@@ -53,7 +53,7 @@ export default function TopicViewer({ topic, topicId }: TopicViewerProps) {
     }
 
     if (!displayTopic) {
-        return <div className="p-8 text-center text-gray-500">Topic not found.</div>;
+        return <div className="p-8 text-center text-muted-foreground">Topic not found.</div>;
     }
 
     const [expandedSections, setExpandedSections] = useState<string[]>(['concepts', 'ca']);
@@ -99,7 +99,7 @@ export default function TopicViewer({ topic, topicId }: TopicViewerProps) {
                     </Link>
 
                     <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xs px-2 py-0.5 rounded bg-white/20">
+                        <span className="text-xs px-2 py-0.5 rounded bg-card/20">
                             Topic {topic.id} • Module {topic.module}
                         </span>
                         {topic.priority === 'High' && (
@@ -107,7 +107,7 @@ export default function TopicViewer({ topic, topicId }: TopicViewerProps) {
                                 High Priority
                             </span>
                         )}
-                        <span className="text-xs px-2 py-0.5 rounded bg-white/10 flex items-center gap-1">
+                        <span className="text-xs px-2 py-0.5 rounded bg-card/10 flex items-center gap-1">
                             <Clock className="w-3 h-3" />
                             Updated {topic.lastUpdated}
                         </span>
@@ -133,20 +133,20 @@ export default function TopicViewer({ topic, topicId }: TopicViewerProps) {
                         </div>
                         <div className="space-y-4">
                             {topic.currentAffairs.map((ca) => (
-                                <div key={ca.id} className="bg-white dark:bg-[#111] rounded-lg p-4 shadow-sm">
+                                <div key={ca.id} className="bg-card dark:bg-[#111] rounded-lg p-4 shadow-sm">
                                     <div className="flex items-start justify-between mb-2">
-                                        <h4 className="font-semibold text-[#1F2937] dark:text-white">
+                                        <h4 className="font-semibold text-[#1F2937]">
                                             {ca.headline}
                                         </h4>
-                                        <span className="text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap ml-2">
+                                        <span className="text-xs text-muted-foreground dark:text-muted-foreground whitespace-nowrap ml-2">
                                             {ca.date}
                                         </span>
                                     </div>
-                                    <p className="text-sm text-[#374151] dark:text-gray-300 mb-3">
+                                    <p className="text-sm text-[#374151] dark:text-muted-foreground mb-3">
                                         {ca.teachingHook}
                                     </p>
                                     <div className="flex flex-wrap gap-2 text-xs">
-                                        <span className="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
+                                        <span className="px-2 py-1 bg-muted rounded text-muted-foreground dark:text-muted-foreground">
                                             Source: {ca.source}
                                         </span>
                                         {ca.caseReference && (
@@ -179,22 +179,22 @@ export default function TopicViewer({ topic, topicId }: TopicViewerProps) {
                         <div className="overflow-x-auto">
                             <table className="w-full text-sm">
                                 <thead>
-                                    <tr className="bg-gray-50 dark:bg-gray-800">
-                                        <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300 w-24">Article</th>
-                                        <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Title</th>
-                                        <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Description</th>
+                                    <tr className="bg-muted">
+                                        <th className="px-4 py-3 text-left font-semibold text-muted-foreground dark:text-muted-foreground w-24">Article</th>
+                                        <th className="px-4 py-3 text-left font-semibold text-muted-foreground dark:text-muted-foreground">Title</th>
+                                        <th className="px-4 py-3 text-left font-semibold text-muted-foreground dark:text-muted-foreground">Description</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {topic.coreArticles.map((article, idx) => (
-                                        <tr key={article.number} className={idx % 2 === 1 ? 'bg-gray-50/50 dark:bg-gray-800/50' : ''}>
+                                        <tr key={article.number} className={idx % 2 === 1 ? 'bg-gray-50/50/50' : ''}>
                                             <td className="px-4 py-3 font-mono font-bold text-blue-600 dark:text-blue-400">
                                                 Art. {article.number}
                                             </td>
-                                            <td className="px-4 py-3 font-medium text-[#1F2937] dark:text-white">
+                                            <td className="px-4 py-3 font-medium text-[#1F2937]">
                                                 {article.title}
                                             </td>
-                                            <td className="px-4 py-3 text-[#374151] dark:text-gray-300">
+                                            <td className="px-4 py-3 text-[#374151] dark:text-muted-foreground">
                                                 {article.description}
                                             </td>
                                         </tr>
@@ -215,15 +215,15 @@ export default function TopicViewer({ topic, topicId }: TopicViewerProps) {
                 >
                     <div className="space-y-4">
                         {topic.keyConcepts.map((concept, idx) => (
-                            <div key={idx} className="border-b border-gray-100 dark:border-gray-800 pb-4 last:border-0 last:pb-0">
-                                <h4 className="font-semibold text-[#1F2937] dark:text-white mb-2">
+                            <div key={idx} className="border-b border-border pb-4 last:border-0 last:pb-0">
+                                <h4 className="font-semibold text-[#1F2937] mb-2">
                                     {concept.term}
                                 </h4>
-                                <p className="text-[#374151] dark:text-gray-300 text-sm leading-relaxed">
+                                <p className="text-[#374151] dark:text-muted-foreground text-sm leading-relaxed">
                                     {concept.definition}
                                 </p>
                                 {concept.example && (
-                                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 italic">
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground mt-2 italic">
                                         Example: {concept.example}
                                     </p>
                                 )}
@@ -244,22 +244,22 @@ export default function TopicViewer({ topic, topicId }: TopicViewerProps) {
                         <div className="overflow-x-auto">
                             <table className="w-full text-sm">
                                 <thead>
-                                    <tr className="bg-gray-50 dark:bg-gray-800">
-                                        <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">
+                                    <tr className="bg-muted">
+                                        <th className="px-4 py-3 text-left font-semibold text-muted-foreground dark:text-muted-foreground">
                                             {topic.comparisonTable.columnAHeader}
                                         </th>
-                                        <th className="px-4 py-3 text-left font-semibold text-gray-700 dark:text-gray-300">
+                                        <th className="px-4 py-3 text-left font-semibold text-muted-foreground dark:text-muted-foreground">
                                             {topic.comparisonTable.columnBHeader}
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {topic.comparisonTable.rows.map((row, idx) => (
-                                        <tr key={idx} className={idx % 2 === 1 ? 'bg-gray-50/50 dark:bg-gray-800/50' : ''}>
-                                            <td className="px-4 py-3 font-medium text-[#1F2937] dark:text-white">
+                                        <tr key={idx} className={idx % 2 === 1 ? 'bg-gray-50/50/50' : ''}>
+                                            <td className="px-4 py-3 font-medium text-[#1F2937]">
                                                 {row.columnA}
                                             </td>
-                                            <td className="px-4 py-3 text-[#374151] dark:text-gray-300">
+                                            <td className="px-4 py-3 text-[#374151] dark:text-muted-foreground">
                                                 {row.columnB}
                                             </td>
                                         </tr>
@@ -282,7 +282,7 @@ export default function TopicViewer({ topic, topicId }: TopicViewerProps) {
                                 key={idx}
                                 className={`flex items-start gap-3 p-3 rounded-lg ${pointer.highlight
                                     ? 'bg-emerald-100 dark:bg-emerald-800/30 border-l-4 border-emerald-500'
-                                    : 'bg-white dark:bg-[#111]'
+                                    : 'bg-card dark:bg-[#111]'
                                     }`}
                             >
                                 <span className={`text-xs px-2 py-0.5 rounded font-medium ${pointer.category === 'Article' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300' :
@@ -290,11 +290,11 @@ export default function TopicViewer({ topic, topicId }: TopicViewerProps) {
                                         pointer.category === 'Case' ? 'bg-rose-100 text-rose-700 dark:bg-rose-900/50 dark:text-rose-300' :
                                             pointer.category === 'Year' ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300' :
                                                 pointer.category === 'Commission' ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-300' :
-                                                    'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300'
+                                                    'bg-muted text-muted-foreground dark:text-muted-foreground'
                                     }`}>
                                     {pointer.category}
                                 </span>
-                                <span className="text-sm text-[#374151] dark:text-gray-300 flex-1">
+                                <span className="text-sm text-[#374151] dark:text-muted-foreground flex-1">
                                     {pointer.fact}
                                 </span>
                             </div>
@@ -311,7 +311,7 @@ export default function TopicViewer({ topic, topicId }: TopicViewerProps) {
                                     <CheckCircle className="w-5 h-5" />
                                     Topic Completed
                                 </div>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                                <p className="text-muted-foreground dark:text-muted-foreground text-sm">
                                     Rate your confidence level for this topic.
                                 </p>
                                 <div className="w-full max-w-sm">
@@ -337,7 +337,7 @@ export default function TopicViewer({ topic, topicId }: TopicViewerProps) {
                 <TopicPYQWidget topicId={displayTopic.id} />
 
                 {/* Navigation */}
-                <div className="flex justify-between pt-6 border-t border-gray-200 dark:border-gray-800">
+                <div className="flex justify-between pt-6 border-t border-border">
                     {topic.id > 1 ? (
                         <Link
                             href={`/student/batch1/polity/topic/${topic.id - 1}`}
@@ -375,31 +375,31 @@ interface CollapsibleSectionProps {
 
 function CollapsibleSection({ title, icon, isExpanded, onToggle, count, children }: CollapsibleSectionProps) {
     return (
-        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+        <div className="bg-card dark:bg-[#111] rounded-2xl border border-border overflow-hidden">
             <button
                 onClick={onToggle}
-                className="w-full flex items-center justify-between p-5 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                className="w-full flex items-center justify-between p-5 hover:bg-muted dark:hover:bg-gray-800/50 transition-colors"
             >
                 <div className="flex items-center gap-3">
                     <div className="text-blue-600 dark:text-blue-400">
                         {icon}
                     </div>
-                    <h3 className="font-semibold text-[#1F2937] dark:text-white">
+                    <h3 className="font-semibold text-[#1F2937]">
                         {title}
                     </h3>
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground dark:text-muted-foreground">
                         {count}
                     </span>
                 </div>
                 {isExpanded ? (
-                    <ChevronUp className="w-5 h-5 text-gray-400" />
+                    <ChevronUp className="w-5 h-5 text-muted-foreground" />
                 ) : (
-                    <ChevronDown className="w-5 h-5 text-gray-400" />
+                    <ChevronDown className="w-5 h-5 text-muted-foreground" />
                 )}
             </button>
 
             {isExpanded && (
-                <div className="px-5 pb-5 border-t border-gray-100 dark:border-gray-800 pt-4">
+                <div className="px-5 pb-5 border-t border-border pt-4">
                     {children}
                 </div>
             )}

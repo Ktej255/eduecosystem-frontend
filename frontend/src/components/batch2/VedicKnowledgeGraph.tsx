@@ -185,7 +185,7 @@ export default function VedicKnowledgeGraph({ theme = "light" }: { theme?: "ligh
                 />
 
                 {/* Info Panel */}
-                <Panel position="bottom-center" className={`${isDark ? "!bg-slate-900/80 !border-white/10 !text-slate-400" : "!bg-amber-50/80 !border-amber-200/50 !text-amber-800/60"} !rounded-full !px-4 !py-2 !text-xs flex items-center gap-2`}>
+                <Panel position="bottom-center" className={`${isDark ? "!bg-slate-900/80 !border-white/10 !text-muted-foreground" : "!bg-amber-50/80 !border-amber-200/50 !text-amber-800/60"} !rounded-full !px-4 !py-2 !text-xs flex items-center gap-2`}>
                     <Move className="h-3 w-3" />
                     <span>Drag to pan • Scroll to zoom • Click node to open details</span>
                 </Panel>

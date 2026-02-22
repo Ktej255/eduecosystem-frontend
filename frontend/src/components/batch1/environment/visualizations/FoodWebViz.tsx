@@ -84,11 +84,11 @@ function TrophicNode({ species, isExtinct, onClick }: {
                     <div className={`p-2 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white shadow-2xl`}>
                         {isExtinct ? <AlertTriangle className="w-5 h-5 text-red-500" /> : <Icon className="w-5 h-5" style={{ color: species.color }} />}
                     </div>
-                    <span className={`text-[10px] font-black uppercase tracking-tighter whitespace-nowrap px-1 rounded ${isExtinct ? 'text-slate-500 line-through' : 'text-white bg-black/20'}`}>
+                    <span className={`text-[10px] font-black uppercase tracking-tighter whitespace-nowrap px-1 rounded ${isExtinct ? 'text-muted-foreground line-through' : 'text-white bg-black/20'}`}>
                         {species.name}
                     </span>
                     {!isExtinct && (
-                        <div className="text-[8px] font-mono text-slate-400">
+                        <div className="text-[8px] font-mono text-muted-foreground">
                             {species.type === 'producer' ? '100% E' : species.type === 'primary_consumer' ? '10% E' : species.type === 'secondary_consumer' ? '1% E' : 'Recycle'}
                         </div>
                     )}
@@ -174,7 +174,7 @@ export default function FoodWebViz() {
                             </span>
                             Interactive 3D Food Web
                         </CardTitle>
-                        <CardDescription className="text-slate-400">
+                        <CardDescription className="text-muted-foreground">
                             Simulate ecosystem collapse in a 3D environment.
                         </CardDescription>
                     </div>

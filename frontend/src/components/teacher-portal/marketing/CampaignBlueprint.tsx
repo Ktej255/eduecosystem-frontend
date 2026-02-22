@@ -83,7 +83,7 @@ export default function CampaignBlueprint() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto h-[600px]">
             {/* Control Panel */}
             <div className="lg:col-span-4 space-y-4">
-                <Card className="border-slate-200 dark:border-slate-800 bg-indigo-50/30 dark:bg-indigo-950/20">
+                <Card className="border-border bg-indigo-50/30 dark:bg-indigo-950/20">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2 text-lg">
                             <Rocket className="h-5 w-5 text-indigo-600" />
@@ -93,9 +93,9 @@ export default function CampaignBlueprint() {
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Select Launch Target</label>
+                            <label className="text-sm font-medium text-muted-foreground">Select Launch Target</label>
                             <Select value={selectedCourse} onValueChange={setSelectedCourse}>
-                                <SelectTrigger className="bg-white dark:bg-slate-900">
+                                <SelectTrigger className="bg-card">
                                     <SelectValue placeholder="Choose a course..." />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -127,18 +127,18 @@ export default function CampaignBlueprint() {
                 </Card>
 
                 {showPlan && (
-                    <Card className="border-slate-200 dark:border-slate-800 animate-in slide-in-from-left-4 duration-500">
+                    <Card className="border-border animate-in slide-in-from-left-4 duration-500">
                         <CardHeader className="pb-2">
-                            <CardTitle className="text-sm uppercase tracking-wider text-slate-500">Campaign Stats</CardTitle>
+                            <CardTitle className="text-sm uppercase tracking-wider text-muted-foreground">Campaign Stats</CardTitle>
                         </CardHeader>
                         <CardContent className="grid grid-cols-2 gap-4">
-                            <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg text-center">
-                                <span className="block text-2xl font-bold text-slate-700 dark:text-slate-200">7</span>
-                                <span className="text-xs text-slate-400">Days Duration</span>
+                            <div className="p-3 bg-muted rounded-lg text-center">
+                                <span className="block text-2xl font-bold text-muted-foreground">7</span>
+                                <span className="text-xs text-muted-foreground">Days Duration</span>
                             </div>
-                            <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg text-center">
-                                <span className="block text-2xl font-bold text-slate-700 dark:text-slate-200">4</span>
-                                <span className="text-xs text-slate-400">Touchpoints</span>
+                            <div className="p-3 bg-muted rounded-lg text-center">
+                                <span className="block text-2xl font-bold text-muted-foreground">4</span>
+                                <span className="text-xs text-muted-foreground">Touchpoints</span>
                             </div>
                         </CardContent>
                     </Card>
@@ -147,19 +147,19 @@ export default function CampaignBlueprint() {
 
             {/* Timeline View */}
             <div className="lg:col-span-8 h-full">
-                <Card className="h-full border-slate-200 dark:border-slate-800 flex flex-col">
-                    <CardHeader className="pb-4 border-b border-slate-100 dark:border-slate-800">
+                <Card className="h-full border-border flex flex-col">
+                    <CardHeader className="pb-4 border-b border-slate-100">
                         <div className="flex justify-between items-center">
-                            <CardTitle className="text-lg font-bold text-slate-800 dark:text-slate-100">
+                            <CardTitle className="text-lg font-bold text-foreground">
                                 {selectedCourse ? `${selectedCourse === 'geo-mod' ? 'Geography Module 2.0' : 'Campaign'} Blueprint` : 'Blueprint Preview'}
                             </CardTitle>
                             {showPlan && <Badge className="bg-green-100 text-green-700 hover:bg-green-200">Draft Ready</Badge>}
                         </div>
                     </CardHeader>
 
-                    <CardContent className="flex-1 p-0 overflow-hidden relative bg-slate-50/50 dark:bg-slate-950/50">
+                    <CardContent className="flex-1 p-0 overflow-hidden relative bg-slate-50/50/50">
                         {!showPlan ? (
-                            <div className="flex flex-col items-center justify-center h-full text-slate-400">
+                            <div className="flex flex-col items-center justify-center h-full text-muted-foreground">
                                 <Rocket className="h-16 w-16 mb-4 opacity-20" />
                                 <p>Select a course to generate your launch plan</p>
                             </div>
@@ -167,42 +167,42 @@ export default function CampaignBlueprint() {
                             <ScrollArea className="h-full">
                                 <div className="p-6 space-y-8 relative">
                                     {/* Timeline Line */}
-                                    <div className="absolute left-9 top-8 bottom-8 w-0.5 bg-slate-200 dark:bg-slate-800"></div>
+                                    <div className="absolute left-9 top-8 bottom-8 w-0.5 bg-slate-200"></div>
 
                                     {plan.map((step, index) => (
                                         <div key={index} className="relative flex gap-6 group">
                                             {/* Day Marker */}
                                             <div className="flex flex-col items-center z-10">
-                                                <div className="w-8 h-8 rounded-full bg-white dark:bg-slate-900 border-2 border-indigo-500 text-xs font-bold flex items-center justify-center text-indigo-600 shadow-sm">
+                                                <div className="w-8 h-8 rounded-full bg-card border-2 border-indigo-500 text-xs font-bold flex items-center justify-center text-indigo-600 shadow-sm">
                                                     D{step.day}
                                                 </div>
                                             </div>
 
                                             {/* Content Card */}
                                             <div className="flex-1">
-                                                <Card className="border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow">
-                                                    <CardHeader className="py-3 px-4 flex flex-row items-center justify-between space-y-0 bg-white dark:bg-slate-900 rounded-t-lg">
+                                                <Card className="border-border hover:shadow-md transition-shadow">
+                                                    <CardHeader className="py-3 px-4 flex flex-row items-center justify-between space-y-0 bg-card rounded-t-lg">
                                                         <div className="flex items-center gap-2">
                                                             {step.type === 'email' && <Mail className="h-4 w-4 text-blue-500" />}
                                                             {step.type === 'social' && <Share2 className="h-4 w-4 text-pink-500" />}
                                                             {step.type === 'event' && <PlayCircle className="h-4 w-4 text-red-500" />}
                                                             <h4 className="font-semibold text-sm">{step.title}</h4>
                                                         </div>
-                                                        <Badge variant="outline" className="text-[10px] font-normal text-slate-500">
+                                                        <Badge variant="outline" className="text-[10px] font-normal text-muted-foreground">
                                                             {step.status}
                                                         </Badge>
                                                     </CardHeader>
                                                     <Separator />
-                                                    <CardContent className="p-4 bg-slate-50/30 dark:bg-slate-900/30">
-                                                        <p className="text-xs text-slate-500 mb-3">{step.description}</p>
-                                                        <div className="bg-white dark:bg-slate-950 p-3 rounded border border-slate-100 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-300 relative group/code">
+                                                    <CardContent className="p-4 bg-slate-50/30/30">
+                                                        <p className="text-xs text-muted-foreground mb-3">{step.description}</p>
+                                                        <div className="bg-card p-3 rounded border border-slate-100 text-xs font-mono text-muted-foreground relative group/code">
                                                             <Button
                                                                 size="icon"
                                                                 variant="ghost"
                                                                 className="absolute top-1 right-1 h-6 w-6 opacity-0 group-hover/code:opacity-100 transition-opacity"
                                                                 onClick={() => navigator.clipboard.writeText(step.content)}
                                                             >
-                                                                <Copy className="h-3 w-3 text-slate-400" />
+                                                                <Copy className="h-3 w-3 text-muted-foreground" />
                                                             </Button>
                                                             <div className="whitespace-pre-wrap">{step.content}</div>
                                                         </div>

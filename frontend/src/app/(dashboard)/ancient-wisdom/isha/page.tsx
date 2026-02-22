@@ -14,7 +14,7 @@ export default function IshaPage() {
                 <div className="h-[80vh] flex items-center justify-center text-center">
                     <div>
                         <h1 className="text-4xl font-serif text-amber-500 mb-4">Isha Upanishad</h1>
-                        <p className="text-slate-400">The Secret of Perfect Action.</p>
+                        <p className="text-muted-foreground">The Secret of Perfect Action.</p>
                     </div>
                 </div>
             }>

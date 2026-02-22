@@ -120,13 +120,13 @@ export default function RevisionPortalPage() {
 
     if (selectedExam) {
         return (
-            <div className="min-h-screen bg-slate-50 dark:bg-[#050505]">
+            <div className="min-h-screen bg-muted dark:bg-[#050505]">
                 {/* Back Navigation */}
                 <div className="max-w-7xl mx-auto px-6 py-4">
                     <Button
                         variant="ghost"
                         onClick={() => setSelectedExam(null)}
-                        className="group text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                        className="group text-muted-foreground hover:text-foreground dark:text-muted-foreground dark:hover:text-white"
                     >
                         <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
                         Back to Global Hub
@@ -140,7 +140,7 @@ export default function RevisionPortalPage() {
     }
 
     return (
-        <div className="min-h-screen bg-white dark:bg-[#080808] text-slate-900 dark:text-slate-100 selection:bg-indigo-100 dark:selection:bg-indigo-900/40">
+        <div className="min-h-screen bg-card dark:bg-[#080808] text-foreground selection:bg-indigo-100 dark:selection:bg-indigo-900/40">
             {/* Ambient background glows */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none opacity-20 dark:opacity-30">
                 <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500 rounded-full blur-[120px]" />
@@ -160,7 +160,7 @@ export default function RevisionPortalPage() {
                             <Button
                                 variant="ghost"
                                 onClick={() => window.location.href = '/student/dashboard'}
-                                className="text-slate-400 hover:text-indigo-600"
+                                className="text-muted-foreground hover:text-indigo-600"
                             >
                                 <ArrowLeft className="w-5 h-5" />
                             </Button>
@@ -175,22 +175,22 @@ export default function RevisionPortalPage() {
 
                         {/* View Switcher */}
                         <div className="flex justify-center mb-8">
-                            <div className="inline-flex p-1 bg-slate-100 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
+                            <div className="inline-flex p-1 bg-muted rounded-2xl border border-border">
                                 <button
                                     onClick={() => setView('hub')}
-                                    className={`px-6 py-2 rounded-xl text-sm font-black transition-all flex items-center gap-2 ${view === 'hub' ? 'bg-white dark:bg-slate-800 shadow-md text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-700'}`}
+                                    className={`px-6 py-2 rounded-xl text-sm font-black transition-all flex items-center gap-2 ${view === 'hub' ? 'bg-card shadow-md text-foreground' : 'text-muted-foreground hover:text-muted-foreground'}`}
                                 >
                                     <LayoutDashboard className="w-4 h-4" /> Exam Hub
                                 </button>
                                 <button
                                     onClick={() => setView('reports')}
-                                    className={`px-6 py-2 rounded-xl text-sm font-black transition-all flex items-center gap-2 ${view === 'reports' ? 'bg-white dark:bg-slate-800 shadow-md text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-700'}`}
+                                    className={`px-6 py-2 rounded-xl text-sm font-black transition-all flex items-center gap-2 ${view === 'reports' ? 'bg-card shadow-md text-foreground' : 'text-muted-foreground hover:text-muted-foreground'}`}
                                 >
                                     <History className="w-4 h-4" /> Deep Reports
                                 </button>
                                 <button
                                     onClick={() => setView('garden')}
-                                    className={`px-6 py-2 rounded-xl text-sm font-black transition-all flex items-center gap-2 ${view === 'garden' ? 'bg-white dark:bg-slate-800 shadow-md text-emerald-600 dark:text-emerald-400' : 'text-slate-500 hover:text-emerald-600'}`}
+                                    className={`px-6 py-2 rounded-xl text-sm font-black transition-all flex items-center gap-2 ${view === 'garden' ? 'bg-card shadow-md text-emerald-600 dark:text-emerald-400' : 'text-muted-foreground hover:text-emerald-600'}`}
                                 >
                                     <Trees className="w-4 h-4" /> 3D Garden
                                 </button>
@@ -209,7 +209,7 @@ export default function RevisionPortalPage() {
                         >
                             {/* Filters & Search */}
                             <section className="mb-12">
-                                <div className="flex flex-col md:flex-row gap-6 items-center justify-between bg-slate-50 dark:bg-slate-900/40 p-2 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm backdrop-blur-xl">
+                                <div className="flex flex-col md:flex-row gap-6 items-center justify-between bg-muted/40 p-2 rounded-3xl border border-slate-100 shadow-sm backdrop-blur-xl">
                                     <div className="flex flex-wrap gap-2 p-1">
                                         {EXAM_CATEGORIES.map((cat) => (
                                             <button
@@ -217,7 +217,7 @@ export default function RevisionPortalPage() {
                                                 onClick={() => setActiveCategory(cat.id)}
                                                 className={`px-6 py-2.5 rounded-2xl text-sm font-bold transition-all ${activeCategory === cat.id
                                                     ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30'
-                                                    : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800'
+                                                    : 'text-muted-foreground hover:text-foreground dark:text-muted-foreground dark:hover:text-white hover:bg-card dark:hover:bg-slate-800'
                                                     }`}
                                             >
                                                 {cat.label}
@@ -225,12 +225,12 @@ export default function RevisionPortalPage() {
                                         ))}
                                     </div>
                                     <div className="relative w-full md:w-96 px-2 pb-2 md:pb-0">
-                                        <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                                        <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                                         <Input
                                             placeholder="Search by exam..."
                                             value={searchQuery}
                                             onChange={(e) => setSearchQuery(e.target.value)}
-                                            className="pl-12 pr-6 h-12 rounded-2xl bg-white dark:bg-slate-900 border-none shadow-inner focus-visible:ring-2 focus-visible:ring-indigo-500 font-medium"
+                                            className="pl-12 pr-6 h-12 rounded-2xl bg-card border-none shadow-inner focus-visible:ring-2 focus-visible:ring-indigo-500 font-medium"
                                         />
                                     </div>
                                 </div>
@@ -241,7 +241,7 @@ export default function RevisionPortalPage() {
                                     <Card
                                         key={exam.id}
                                         onClick={() => setSelectedExam(exam)}
-                                        className="group relative cursor-pointer overflow-hidden border-none bg-slate-50 dark:bg-slate-900/40 hover:bg-white dark:hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 rounded-[2rem]"
+                                        className="group relative cursor-pointer overflow-hidden border-none bg-muted/40 hover:bg-card dark:hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 rounded-[2rem]"
                                     >
                                         <CardContent className="p-8 relative z-10">
                                             <div className="flex justify-between items-start mb-6">
@@ -255,12 +255,12 @@ export default function RevisionPortalPage() {
                                                 )}
                                             </div>
                                             <div className="mb-2">
-                                                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 flex items-center gap-1 mb-1">
+                                                <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-1 mb-1">
                                                     <MapPin className="w-3 h-3" /> {exam.state}
                                                 </span>
                                                 <h3 className="text-2xl font-black tracking-tight">{exam.name}</h3>
                                             </div>
-                                            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 font-medium">
+                                            <p className="text-muted-foreground dark:text-muted-foreground text-sm leading-relaxed mb-8 font-medium">
                                                 {exam.description}
                                             </p>
                                             <div className="flex items-center text-indigo-600 dark:text-indigo-400 font-black text-sm group-hover:gap-2 transition-all">
@@ -273,7 +273,7 @@ export default function RevisionPortalPage() {
                                 {filteredExams.length === 0 && (
                                     <div className="col-span-full py-20 text-center">
                                         <h3 className="text-xl font-bold mb-2">No exams found</h3>
-                                        <p className="text-slate-500">Try searching for a different state or exam name.</p>
+                                        <p className="text-muted-foreground">Try searching for a different state or exam name.</p>
                                     </div>
                                 )}
                             </section>
@@ -300,7 +300,7 @@ export default function RevisionPortalPage() {
                 </AnimatePresence>
 
                 {/* Global Stats or Highlights */}
-                <footer className="mt-24 pt-12 border-t border-slate-100 dark:border-slate-800">
+                <footer className="mt-24 pt-12 border-t border-slate-100">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {[
                             { label: 'Active Students', value: '10K+' },
@@ -309,8 +309,8 @@ export default function RevisionPortalPage() {
                             { label: 'Retention Rate', value: '94%' },
                         ].map((stat, i) => (
                             <div key={i} className="text-center">
-                                <div className="text-3xl font-black text-slate-900 dark:text-white mb-1">{stat.value}</div>
-                                <div className="text-xs font-bold text-slate-500 uppercase tracking-widest">{stat.label}</div>
+                                <div className="text-3xl font-black text-foreground mb-1">{stat.value}</div>
+                                <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest">{stat.label}</div>
                             </div>
                         ))}
                     </div>

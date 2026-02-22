@@ -108,8 +108,8 @@ export default function ImmersivePomodoro({ onComplete, onBack }: { onComplete: 
             </Button>
 
             <div className="text-center space-y-4">
-                <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100">6-Hour Immersive Session</h1>
-                <p className="text-xl text-gray-600">Prepare for deep work. Eliminate distractions.</p>
+                <h1 className="text-4xl font-bold text-foreground">6-Hour Immersive Session</h1>
+                <p className="text-xl text-muted-foreground">Prepare for deep work. Eliminate distractions.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -117,7 +117,7 @@ export default function ImmersivePomodoro({ onComplete, onBack }: { onComplete: 
                     <Card key={hour} className="border-l-4 border-l-blue-500">
                         <CardContent className="p-4">
                             <h3 className="font-bold text-lg mb-2">Hour {hour}</h3>
-                            <ul className="text-sm text-gray-600 space-y-1">
+                            <ul className="text-sm text-muted-foreground space-y-1">
                                 <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-gray-400 rounded-full" /> 50m Deep Work</li>
                                 <li className="flex items-center gap-2 text-green-600"><div className="w-1.5 h-1.5 bg-green-400 rounded-full" /> 10m Break</li>
                             </ul>
@@ -140,10 +140,10 @@ export default function ImmersivePomodoro({ onComplete, onBack }: { onComplete: 
     const renderActiveSession = () => (
         <div className={cn(
             "flex flex-col items-center justify-center min-h-[80vh] transition-colors duration-500",
-            status === 'paused' ? "bg-gray-100 dark:bg-gray-900" : "bg-black text-white"
+            status === 'paused' ? "bg-muted" : "bg-black text-white"
         )}>
             <div className="absolute top-4 right-4 flex gap-2">
-                <Button variant="ghost" className="text-white hover:bg-white/10" onClick={toggleFullscreen}>
+                <Button variant="ghost" className="text-white hover:bg-card/10" onClick={toggleFullscreen}>
                     {isFullscreen ? <Minimize className="w-6 h-6" /> : <Maximize className="w-6 h-6" />}
                 </Button>
             </div>

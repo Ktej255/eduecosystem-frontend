@@ -348,7 +348,7 @@ export default function PomodoroSessionManager({
                         </div>
                         <div>
                             <h2 className="text-2xl font-bold">Start Pomodoro Session</h2>
-                            <p className="text-gray-500 mt-2">
+                            <p className="text-muted-foreground mt-2">
                                 {subjectName} • {targetHours} hour target
                             </p>
                         </div>
@@ -395,7 +395,7 @@ export default function PomodoroSessionManager({
                                     {currentPhase === 1 && ` of ${PHASE_1_CYCLES}`}
                                 </Badge>
                             </div>
-                            <div className="text-sm text-gray-500">
+                            <div className="text-sm text-muted-foreground">
                                 {formatDuration(totalElapsedMs)} / {targetHours}h
                             </div>
                         </div>
@@ -403,7 +403,7 @@ export default function PomodoroSessionManager({
                         {/* Overall Progress */}
                         <div className="space-y-2">
                             <div className="flex justify-between text-sm">
-                                <span className="text-gray-500">Overall Progress</span>
+                                <span className="text-muted-foreground">Overall Progress</span>
                                 <span className="font-medium">{Math.round(overallProgress)}%</span>
                             </div>
                             <Progress value={overallProgress} className="h-2" />
@@ -411,8 +411,8 @@ export default function PomodoroSessionManager({
 
                         {/* Topic Display */}
                         {selectedTopic && (
-                            <div className="flex items-center gap-2 p-3 rounded-lg bg-gray-100 dark:bg-gray-800">
-                                <BookOpen className="w-4 h-4 text-gray-500" />
+                            <div className="flex items-center gap-2 p-3 rounded-lg bg-muted">
+                                <BookOpen className="w-4 h-4 text-muted-foreground" />
                                 <span className="text-sm font-medium">{selectedTopic.name}</span>
                             </div>
                         )}
@@ -425,7 +425,7 @@ export default function PomodoroSessionManager({
 
                         {/* Next Step Preview */}
                         {sessionState !== "break" && (
-                            <div className="flex items-center gap-2 text-sm text-gray-500">
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
                                 <ChevronRight className="w-4 h-4" />
                                 <span>
                                     Next: {currentStepIndex === 0 ? "Record Explanation" : "Study Session"}
@@ -459,7 +459,7 @@ export default function PomodoroSessionManager({
                         {/* Topic */}
                         {selectedTopic && (
                             <div className="p-4 rounded-lg bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20">
-                                <p className="text-sm text-gray-500 mb-1">Explain what you learned about:</p>
+                                <p className="text-sm text-muted-foreground mb-1">Explain what you learned about:</p>
                                 <p className="font-semibold text-lg">{selectedTopic.name}</p>
                             </div>
                         )}
@@ -493,7 +493,7 @@ export default function PomodoroSessionManager({
                             <h2 className="text-2xl font-bold text-green-500">
                                 Session Complete! 🎉
                             </h2>
-                            <p className="text-gray-500 mt-2">
+                            <p className="text-muted-foreground mt-2">
                                 You studied for {formatDuration(totalElapsedMs)}
                             </p>
                         </div>

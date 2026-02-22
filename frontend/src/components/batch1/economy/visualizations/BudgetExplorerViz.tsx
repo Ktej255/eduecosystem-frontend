@@ -164,20 +164,20 @@ export default function BudgetExplorerViz() {
                             </div>
                             <h3 className="text-xl font-black uppercase tracking-tight">Fiscal Pulse 3D</h3>
                         </CardTitle>
-                        <CardDescription className="text-slate-400 font-medium">
+                        <CardDescription className="text-muted-foreground font-medium">
                             Volumetric analysis of the Union Budget (2024-25)
                         </CardDescription>
                     </div>
-                    <div className="flex bg-white/5 border border-white/10 p-1 rounded-xl">
+                    <div className="flex bg-card/5 border border-white/10 p-1 rounded-xl">
                         <button
                             onClick={() => { setMode('inflow'); setSelectedItem(null); }}
-                            className={`px-4 py-2 text-xs font-black rounded-lg transition-all uppercase tracking-widest ${mode === 'inflow' ? 'bg-indigo-500 text-white shadow-lg' : 'text-slate-500 hover:text-white'}`}
+                            className={`px-4 py-2 text-xs font-black rounded-lg transition-all uppercase tracking-widest ${mode === 'inflow' ? 'bg-indigo-500 text-white shadow-lg' : 'text-muted-foreground hover:text-white'}`}
                         >
                             Inflow
                         </button>
                         <button
                             onClick={() => { setMode('outflow'); setSelectedItem(null); }}
-                            className={`px-4 py-2 text-xs font-black rounded-lg transition-all uppercase tracking-widest ${mode === 'outflow' ? 'bg-indigo-500 text-white shadow-lg' : 'text-slate-500 hover:text-white'}`}
+                            className={`px-4 py-2 text-xs font-black rounded-lg transition-all uppercase tracking-widest ${mode === 'outflow' ? 'bg-indigo-500 text-white shadow-lg' : 'text-muted-foreground hover:text-white'}`}
                         >
                             Outflow
                         </button>
@@ -235,7 +235,7 @@ export default function BudgetExplorerViz() {
                             </p>
                         </div>
 
-                        <div className="bg-white/5 p-5 rounded-2xl border border-white/10 shadow-inner">
+                        <div className="bg-card/5 p-5 rounded-2xl border border-white/10 shadow-inner">
                             <h4 className="text-sm font-black mb-4 flex items-center gap-2 text-white uppercase tracking-tighter italic">
                                 <PieChart className="w-4 h-4 text-indigo-500" />
                                 {selectedItem ? selectedItem.name : 'Selection Required'}
@@ -244,15 +244,15 @@ export default function BudgetExplorerViz() {
                             {selectedItem ? (
                                 <div className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-500">
                                     <div className="flex items-end justify-between border-b border-white/5 pb-3">
-                                        <span className="text-xs text-slate-500 font-black uppercase tracking-widest">Budget Share</span>
+                                        <span className="text-xs text-muted-foreground font-black uppercase tracking-widest">Budget Share</span>
                                         <span className="text-3xl font-black text-indigo-400 italic">{selectedItem.size}p</span>
                                     </div>
-                                    <p className="text-xs text-slate-400 leading-relaxed font-bold">
+                                    <p className="text-xs text-muted-foreground leading-relaxed font-bold">
                                         For every ₹1 earned/spent by the Government, <span className="text-indigo-400">{selectedItem.size} paise</span> is accounted for by this category.
                                     </p>
                                 </div>
                             ) : (
-                                <div className="text-xs text-slate-500 py-6 text-center italic font-medium">
+                                <div className="text-xs text-muted-foreground py-6 text-center italic font-medium">
                                     Click on any fiscal pillar in the 3D space for granular details.
                                 </div>
                             )}
@@ -260,7 +260,7 @@ export default function BudgetExplorerViz() {
                     </div>
 
                     <div className="mt-auto pt-6 text-center">
-                        <p className="text-[9px] text-slate-500 uppercase font-black tracking-widest opacity-60">
+                        <p className="text-[9px] text-muted-foreground uppercase font-black tracking-widest opacity-60">
                             Union Budget Data | Educational Perspective
                         </p>
                     </div>

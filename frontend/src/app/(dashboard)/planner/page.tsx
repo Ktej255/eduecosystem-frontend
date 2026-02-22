@@ -93,7 +93,7 @@ export default function PlannerPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-white">Daily Planner</h1>
-          <p className="text-gray-400 mt-2">
+          <p className="text-muted-foreground mt-2">
             Your AI-optimized schedule for today
           </p>
         </div>
@@ -129,7 +129,7 @@ export default function PlannerPage() {
               </DialogHeader>
               <div className="space-y-4 mt-4">
                 <div>
-                  <label className="text-sm text-gray-400 mb-2 block">
+                  <label className="text-sm text-muted-foreground mb-2 block">
                     Task Title
                   </label>
                   <Input
@@ -142,7 +142,7 @@ export default function PlannerPage() {
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-gray-400 mb-2 block">
+                  <label className="text-sm text-muted-foreground mb-2 block">
                     Description
                   </label>
                   <Textarea
@@ -157,7 +157,7 @@ export default function PlannerPage() {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="text-sm text-gray-400 mb-2 block">
+                    <label className="text-sm text-muted-foreground mb-2 block">
                       Task Type
                     </label>
                     <Select
@@ -179,7 +179,7 @@ export default function PlannerPage() {
                     </Select>
                   </div>
                   <div>
-                    <label className="text-sm text-gray-400 mb-2 block">
+                    <label className="text-sm text-muted-foreground mb-2 block">
                       Duration (mins)
                     </label>
                     <Input
@@ -223,7 +223,7 @@ export default function PlannerPage() {
           {loading ? (
             <div className="text-white">Loading schedule...</div>
           ) : tasks.length === 0 ? (
-            <div className="p-8 border border-dashed border-gray-800 rounded-xl text-center text-gray-500">
+            <div className="p-8 border border-dashed border-gray-800 rounded-xl text-center text-muted-foreground">
               No tasks scheduled for today.
             </div>
           ) : (
@@ -241,7 +241,7 @@ export default function PlannerPage() {
                   className={`flex-shrink-0 transition-colors ${
                     task.is_completed
                       ? "text-green-500"
-                      : "text-gray-500 hover:text-cyan-400"
+                      : "text-muted-foreground hover:text-cyan-400"
                   }`}
                 >
                   {task.is_completed ? (
@@ -253,16 +253,16 @@ export default function PlannerPage() {
 
                 <div className="flex-1">
                   <h3
-                    className={`font-medium ${task.is_completed ? "text-gray-500 line-through" : "text-white"}`}
+                    className={`font-medium ${task.is_completed ? "text-muted-foreground line-through" : "text-white"}`}
                   >
                     {task.title}
                   </h3>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-muted-foreground">
                     {task.duration_minutes} mins • {task.task_type}
                   </p>
                 </div>
 
-                <div className="text-right text-sm text-gray-500">
+                <div className="text-right text-sm text-muted-foreground">
                   {new Date(task.scheduled_date).toLocaleTimeString([], {
                     hour: "2-digit",
                     minute: "2-digit",
@@ -278,7 +278,7 @@ export default function PlannerPage() {
           {/* Calendar Widget Placeholder */}
           <div className="p-6 bg-gray-900 rounded-xl border border-gray-800">
             <h3 className="font-bold text-white mb-4">Calendar</h3>
-            <div className="aspect-square bg-black/50 rounded-lg flex items-center justify-center text-gray-500">
+            <div className="aspect-square bg-black/50 rounded-lg flex items-center justify-center text-muted-foreground">
               [Calendar Component]
             </div>
           </div>
@@ -289,7 +289,7 @@ export default function PlannerPage() {
             <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
               <div className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 w-[45%]" />
             </div>
-            <p className="text-right text-sm text-gray-400 mt-2">
+            <p className="text-right text-sm text-muted-foreground mt-2">
               45% Completed
             </p>
           </div>

@@ -83,21 +83,21 @@ export function SmartBundleOffer() {
                                     <Timer className="w-3 h-3" />
                                     Limited Time Offer
                                 </div>
-                                <button onClick={() => setIsVisible(false)} className="text-gray-400 hover:text-white">
+                                <button onClick={() => setIsVisible(false)} className="text-muted-foreground hover:text-white">
                                     <X className="w-5 h-5" />
                                 </button>
                             </div>
 
                             <h3 className="text-2xl font-bold text-white mb-1">{offer.product.title}</h3>
                             <p className="text-purple-200 text-sm mb-4">{offer.reason}</p>
-                            <div className="text-gray-300 text-xs mb-4">{offer.product.description}</div>
+                            <div className="text-muted-foreground text-xs mb-4">{offer.product.description}</div>
 
                             <div className="flex items-center gap-4">
                                 <div className="flex items-baseline gap-2">
                                     <span className="text-3xl font-bold text-white">₹{offer.product.discounted_price}</span>
-                                    <span className="text-gray-400 line-through text-sm">₹{offer.product.original_price}</span>
+                                    <span className="text-muted-foreground line-through text-sm">₹{offer.product.original_price}</span>
                                 </div>
-                                <Button className="bg-white text-purple-900 hover:bg-gray-100 font-bold">
+                                <Button className="bg-card text-purple-900 hover:bg-muted font-bold">
                                     Unlock Bundle <ArrowRight className="w-4 h-4 ml-2" />
                                 </Button>
                             </div>

@@ -78,7 +78,7 @@ export default function AnnouncementsPage() {
 
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-6xl mx-auto">
-      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground">
         <ArrowLeft className="h-4 w-4 mr-1" />
         Back
       </Link>
@@ -86,11 +86,11 @@ export default function AnnouncementsPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
             <Bell className="h-8 w-8 text-purple-600" />
             Announcements
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-muted-foreground dark:text-muted-foreground mt-1">
             Create and manage announcements for your students
           </p>
         </div>
@@ -161,7 +161,7 @@ export default function AnnouncementsPage() {
             <p className="text-3xl font-bold text-green-600">
               {Math.round(announcements.reduce((sum, a) => sum + (a.readCount / a.totalRecipients), 0) / announcements.length * 100)}%
             </p>
-            <p className="text-sm text-gray-500">Avg Read Rate</p>
+            <p className="text-sm text-muted-foreground">Avg Read Rate</p>
           </CardContent>
         </Card>
         <Card>
@@ -169,7 +169,7 @@ export default function AnnouncementsPage() {
             <p className="text-3xl font-bold text-blue-600">
               {announcements.reduce((sum, a) => sum + a.readCount, 0)}
             </p>
-            <p className="text-sm text-gray-500">Total Reads</p>
+            <p className="text-sm text-muted-foreground">Total Reads</p>
           </CardContent>
         </Card>
         <Card>
@@ -177,7 +177,7 @@ export default function AnnouncementsPage() {
             <p className="text-3xl font-bold text-orange-600">
               {announcements.filter(a => a.type === 'urgent').length}
             </p>
-            <p className="text-sm text-gray-500">Urgent</p>
+            <p className="text-sm text-muted-foreground">Urgent</p>
           </CardContent>
         </Card>
       </div>
@@ -186,7 +186,7 @@ export default function AnnouncementsPage() {
       <Card>
         <CardContent className="p-4">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder="Search announcements..."
               className="pl-10"
@@ -203,16 +203,16 @@ export default function AnnouncementsPage() {
           <Card key={announcement.id} className="hover:shadow-lg transition-shadow">
             <CardContent className="p-5">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
                   {getTypeIcon(announcement.type)}
                 </div>
                 <div className="flex-1">
                   <div className="flex justify-between items-start">
                     <div>
-                      <h3 className="font-semibold text-lg text-gray-800 dark:text-gray-200">
+                      <h3 className="font-semibold text-lg text-foreground">
                         {announcement.title}
                       </h3>
-                      <p className="text-sm text-gray-500 mt-1">{announcement.message}</p>
+                      <p className="text-sm text-muted-foreground mt-1">{announcement.message}</p>
                     </div>
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
@@ -230,15 +230,15 @@ export default function AnnouncementsPage() {
                   </div>
                   <div className="flex items-center gap-4 mt-3 text-sm">
                     {getTypeBadge(announcement.type)}
-                    <span className="text-gray-500 flex items-center gap-1">
+                    <span className="text-muted-foreground flex items-center gap-1">
                       <Users className="h-4 w-4" />
                       {announcement.audience}
                     </span>
-                    <span className="text-gray-500 flex items-center gap-1">
+                    <span className="text-muted-foreground flex items-center gap-1">
                       <Calendar className="h-4 w-4" />
                       {announcement.sentDate}
                     </span>
-                    <span className="text-gray-500">
+                    <span className="text-muted-foreground">
                       {announcement.readCount}/{announcement.totalRecipients} read
                     </span>
                   </div>

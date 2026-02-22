@@ -57,7 +57,7 @@ export default function StudyHeatmap({ weeks = 12, showStats = true }: StudyHeat
         return (
             <Card className="animate-pulse">
                 <CardContent className="p-6">
-                    <div className="h-32 bg-gray-200 rounded"></div>
+                    <div className="h-32 bg-muted rounded"></div>
                 </CardContent>
             </Card>
         );
@@ -78,30 +78,30 @@ export default function StudyHeatmap({ weeks = 12, showStats = true }: StudyHeat
                 {/* Stats Row */}
                 {showStats && (
                     <div className="grid grid-cols-4 gap-3 mb-4">
-                        <div className="text-center p-2 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                            <div className="text-xl font-bold text-gray-800 dark:text-gray-200">
+                        <div className="text-center p-2 bg-muted rounded-lg">
+                            <div className="text-xl font-bold text-foreground">
                                 {formatStudyTime(data.totalStudyMinutes)}
                             </div>
-                            <div className="text-[10px] text-gray-500">Total Study</div>
+                            <div className="text-[10px] text-muted-foreground">Total Study</div>
                         </div>
-                        <div className="text-center p-2 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                        <div className="text-center p-2 bg-muted rounded-lg">
                             <div className="text-xl font-bold text-green-600">
                                 {data.totalDaysActive}
                             </div>
-                            <div className="text-[10px] text-gray-500">Days Active</div>
+                            <div className="text-[10px] text-muted-foreground">Days Active</div>
                         </div>
-                        <div className="text-center p-2 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                        <div className="text-center p-2 bg-muted rounded-lg">
                             <div className="text-xl font-bold text-orange-500 flex items-center justify-center gap-1">
                                 <Flame className="h-4 w-4" />
                                 {data.currentStreak}
                             </div>
-                            <div className="text-[10px] text-gray-500">Current Streak</div>
+                            <div className="text-[10px] text-muted-foreground">Current Streak</div>
                         </div>
-                        <div className="text-center p-2 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                        <div className="text-center p-2 bg-muted rounded-lg">
                             <div className="text-xl font-bold text-blue-600">
                                 {data.longestStreak}
                             </div>
-                            <div className="text-[10px] text-gray-500">Best Streak</div>
+                            <div className="text-[10px] text-muted-foreground">Best Streak</div>
                         </div>
                     </div>
                 )}
@@ -110,7 +110,7 @@ export default function StudyHeatmap({ weeks = 12, showStats = true }: StudyHeat
                 <div className="overflow-x-auto">
                     <div className="flex gap-1">
                         {/* Day labels */}
-                        <div className="flex flex-col gap-1 mr-2 text-[10px] text-gray-500">
+                        <div className="flex flex-col gap-1 mr-2 text-[10px] text-muted-foreground">
                             {dayLabels.map((day, i) => (
                                 <div key={day} className="h-3 flex items-center" style={{ visibility: i % 2 === 1 ? 'visible' : 'hidden' }}>
                                     {day}
@@ -137,15 +137,15 @@ export default function StudyHeatmap({ weeks = 12, showStats = true }: StudyHeat
 
                 {/* Hover tooltip */}
                 {hoveredDay && (
-                    <div className="mt-3 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm">
-                        <div className="font-medium text-gray-800 dark:text-gray-200 mb-1">
+                    <div className="mt-3 p-3 bg-muted rounded-lg text-sm">
+                        <div className="font-medium text-foreground mb-1">
                             {new Date(hoveredDay.date).toLocaleDateString('en-US', {
                                 weekday: 'long',
                                 month: 'short',
                                 day: 'numeric'
                             })}
                         </div>
-                        <div className="grid grid-cols-3 gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <div className="grid grid-cols-3 gap-2 text-xs text-muted-foreground dark:text-muted-foreground">
                             <div>
                                 <Clock className="h-3 w-3 inline mr-1" />
                                 {formatStudyTime(hoveredDay.studyMinutes)}
@@ -157,7 +157,7 @@ export default function StudyHeatmap({ weeks = 12, showStats = true }: StudyHeat
                 )}
 
                 {/* Legend */}
-                <div className="flex items-center justify-end gap-2 mt-4 text-xs text-gray-500">
+                <div className="flex items-center justify-end gap-2 mt-4 text-xs text-muted-foreground">
                     <span>Less</span>
                     <div className="flex gap-1">
                         {[0, 1, 2, 3, 4].map(level => (

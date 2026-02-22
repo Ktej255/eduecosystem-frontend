@@ -21,7 +21,7 @@ export default function VerdictOverlay({ data, onClose }: VerdictOverlayProps) {
             <Card className="bg-slate-900/95 backdrop-blur-xl border-slate-700 shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden relative border-t-4" style={{ borderTopColor: data.color }}>
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 text-slate-400 hover:text-white bg-slate-800/50 hover:bg-slate-700 rounded-full p-1.5 transition-colors z-10"
+                    className="absolute top-4 right-4 text-muted-foreground hover:text-white bg-slate-800/50 hover:bg-slate-700 rounded-full p-1.5 transition-colors z-10"
                 >
                     <X size={18} />
                 </button>
@@ -37,7 +37,7 @@ export default function VerdictOverlay({ data, onClose }: VerdictOverlayProps) {
                         <h2 className="text-3xl font-black text-white leading-tight mb-2">
                             {data.title}
                         </h2>
-                        <p className="text-sm font-mono text-slate-400 opacity-80">{data.citation}</p>
+                        <p className="text-sm font-mono text-muted-foreground opacity-80">{data.citation}</p>
                     </div>
 
                     <div className="px-6 pb-8 space-y-6 max-h-[70vh] overflow-y-auto custom-scrollbar">
@@ -75,7 +75,7 @@ export default function VerdictOverlay({ data, onClose }: VerdictOverlayProps) {
                                     <Gavel className="text-amber-500" size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-[10px] font-bold text-slate-500 uppercase">The Verdict</p>
+                                    <p className="text-[10px] font-bold text-muted-foreground uppercase">The Verdict</p>
                                     <p className="text-slate-200 font-medium leading-normal">{data.verdict}</p>
                                 </div>
                             </div>
@@ -85,7 +85,7 @@ export default function VerdictOverlay({ data, onClose }: VerdictOverlayProps) {
                                     <Scale className="text-cyan-500" size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-[10px] font-bold text-slate-500 uppercase">Constitutional Impact</p>
+                                    <p className="text-[10px] font-bold text-muted-foreground uppercase">Constitutional Impact</p>
                                     <p className="text-slate-200 font-medium leading-normal">{data.impact}</p>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@ export default function VerdictOverlay({ data, onClose }: VerdictOverlayProps) {
                                     <Users className="text-blue-500" size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-[10px] font-bold text-slate-500 uppercase">Bench Strength</p>
+                                    <p className="text-[10px] font-bold text-muted-foreground uppercase">Bench Strength</p>
                                     <p className="text-slate-200 font-medium leading-normal">{data.benchStrength} Judges</p>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@ export default function VerdictOverlay({ data, onClose }: VerdictOverlayProps) {
 
                         {/* Master Conclusion Button */}
                         <div className="pt-4">
-                            <button className="w-full py-3 bg-white text-slate-900 font-black text-xs uppercase tracking-widest rounded-lg hover:bg-slate-200 transition-all flex items-center justify-center gap-2">
+                            <button className="w-full py-3 bg-card text-foreground font-black text-xs uppercase tracking-widest rounded-lg hover:bg-slate-200 transition-all flex items-center justify-center gap-2">
                                 <BookOpen size={14} />
                                 Study Basic Structure Doctrine
                             </button>

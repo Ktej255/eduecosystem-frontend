@@ -100,7 +100,7 @@ export default function DailyBriefing() {
 
     if (questions.length === 0) return (
         <Card className="h-64 flex flex-col items-center justify-center">
-            <Newspaper className="h-10 w-10 text-gray-400 mb-2" />
+            <Newspaper className="h-10 w-10 text-muted-foreground mb-2" />
             <Button onClick={loadQuiz}>Start Daily News Quiz</Button>
         </Card>
     );
@@ -110,7 +110,7 @@ export default function DailyBriefing() {
             <CardContent className="h-64 flex flex-col items-center justify-center text-center">
                 <h3 className="text-2xl font-bold text-green-700 dark:text-green-400 mb-2">Quiz Complete!</h3>
                 <p className="text-4xl font-extrabold mb-4">{score} / {questions.length}</p>
-                <p className="text-sm text-gray-600 mb-6">Score recorded in your Activity Log.</p>
+                <p className="text-sm text-muted-foreground mb-6">Score recorded in your Activity Log.</p>
                 <Button onClick={() => window.location.reload()} variant="outline">Refresh Headlines</Button>
             </CardContent>
         </Card>
@@ -132,13 +132,13 @@ export default function DailyBriefing() {
             <CardContent className="pt-6 space-y-3">
                 <AnimatePresence mode="wait">
                     {q.options.map((opt, i) => {
-                        let btnClass = "justify-start text-left h-auto py-3 px-4 w-full border-2 hover:bg-gray-50 dark:hover:bg-gray-800";
+                        let btnClass = "justify-start text-left h-auto py-3 px-4 w-full border-2 hover:bg-muted dark:hover:bg-gray-800";
                         if (selectedOption !== null) {
                             if (i === q.correctIndex) btnClass = "border-green-500 bg-green-50 dark:bg-green-900/20 text-green-700 justify-start h-auto w-full"; // Correct
                             else if (i === selectedOption) btnClass = "border-red-500 bg-red-50 dark:bg-red-900/20 text-red-700 justify-start h-auto w-full"; // Wrong
-                            else btnClass = "border-gray-100 dark:border-gray-800 opacity-50 justify-start h-auto w-full";
+                            else btnClass = "border-border opacity-50 justify-start h-auto w-full";
                         } else {
-                            btnClass += " border-gray-100 dark:border-gray-700";
+                            btnClass += " border-border";
                         }
 
                         return (
@@ -150,7 +150,7 @@ export default function DailyBriefing() {
                                     disabled={selectedOption !== null}
                                 >
                                     <div className="flex items-center w-full">
-                                        <span className={`h-6 w-6 rounded-full flex items-center justify-center text-xs border mr-3 shrink-0 ${selectedOption === i || (selectedOption !== null && i === q.correctIndex) ? 'border-current' : 'border-gray-300'
+                                        <span className={`h-6 w-6 rounded-full flex items-center justify-center text-xs border mr-3 shrink-0 ${selectedOption === i || (selectedOption !== null && i === q.correctIndex) ? 'border-current' : 'border-border'
                                             }`}>
                                             {String.fromCharCode(65 + i)}
                                         </span>

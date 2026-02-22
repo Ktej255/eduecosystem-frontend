@@ -71,7 +71,7 @@ export default function AttentionTracker({
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center space-x-2">
           <Activity
-            className={`h-5 w-5 ${isTracking ? "text-green-500 animate-pulse" : "text-gray-500"}`}
+            className={`h-5 w-5 ${isTracking ? "text-green-500 animate-pulse" : "text-muted-foreground"}`}
           />
           <h3 className="font-bold text-white">Stealth Attention Tracker</h3>
         </div>
@@ -100,7 +100,7 @@ export default function AttentionTracker({
                 <p className="text-4xl font-bold text-white mt-2">
                   {Math.round(focusScore)}%
                 </p>
-                <p className="text-gray-400 text-xs mt-1">FOCUS SCORE</p>
+                <p className="text-muted-foreground text-xs mt-1">FOCUS SCORE</p>
               </div>
             </div>
             {/* Face mesh overlay simulation */}
@@ -108,7 +108,7 @@ export default function AttentionTracker({
             <div className="absolute top-1/2 left-1/2 w-32 h-32 -translate-x-1/2 -translate-y-1/2 border border-cyan-500/50 rounded-full pointer-events-none opacity-50" />
           </>
         ) : (
-          <div className="flex flex-col items-center justify-center h-full text-gray-500">
+          <div className="flex flex-col items-center justify-center h-full text-muted-foreground">
             <EyeOff className="h-12 w-12 mb-2" />
             <p>Camera Inactive</p>
           </div>
@@ -116,7 +116,7 @@ export default function AttentionTracker({
       </div>
 
       <div className="space-y-2">
-        <div className="flex justify-between text-xs text-gray-400">
+        <div className="flex justify-between text-xs text-muted-foreground">
           <span>Attention Span</span>
           <span>{isTracking ? "High" : "-"}</span>
         </div>

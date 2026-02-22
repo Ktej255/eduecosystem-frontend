@@ -75,7 +75,7 @@ export default function DownloadButton({ contentId, title, type, size = "15 MB" 
         <Button
             variant="outline"
             size="sm"
-            className="text-gray-500 hover:text-indigo-600 gap-1 h-7 text-xs border-dashed"
+            className="text-muted-foreground hover:text-indigo-600 gap-1 h-7 text-xs border-dashed"
             onClick={handleDownload}
             disabled={isDownloading}
         >

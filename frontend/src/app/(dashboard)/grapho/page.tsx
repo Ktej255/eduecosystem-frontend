@@ -83,7 +83,7 @@ export default function GraphologyPage() {
         <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
           ✍️ AI Handwriting Analysis
         </h1>
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
           Upload a sample of your handwriting to unlock personality insights and
           cognitive patterns
         </p>
@@ -104,11 +104,11 @@ export default function GraphologyPage() {
               className="border-2 border-dashed border-gray-700 rounded-xl p-12 text-center cursor-pointer hover:border-purple-500 transition-colors"
               onClick={() => document.getElementById("file-input")?.click()}
             >
-              <Upload className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+              <Upload className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
               <p className="text-white font-medium mb-2">
                 Drop your image here or click to browse
               </p>
-              <p className="text-gray-400 text-sm">
+              <p className="text-muted-foreground text-sm">
                 Supports JPG, PNG up to 10MB
               </p>
               <input
@@ -149,7 +149,7 @@ export default function GraphologyPage() {
                     setResult(null);
                   }}
                   variant="outline"
-                  className="border-gray-700 text-gray-400"
+                  className="border-gray-700 text-muted-foreground"
                 >
                   Clear
                 </Button>
@@ -173,8 +173,8 @@ export default function GraphologyPage() {
 
           {!result ? (
             <div className="flex flex-col items-center justify-center h-64 text-center">
-              <FileText className="h-20 w-20 text-gray-700 mb-4" />
-              <p className="text-gray-500">
+              <FileText className="h-20 w-20 text-muted-foreground mb-4" />
+              <p className="text-muted-foreground">
                 Upload and analyze a sample to see results
               </p>
             </div>
@@ -183,7 +183,7 @@ export default function GraphologyPage() {
               {/* Extracted Text */}
               {result.extracted_text && (
                 <div>
-                  <h4 className="text-sm font-semibold text-gray-400 mb-2 uppercase">
+                  <h4 className="text-sm font-semibold text-muted-foreground mb-2 uppercase">
                     Extracted Text
                   </h4>
                   <div className="p-4 bg-gray-800/50 rounded-lg border border-gray-700">
@@ -195,7 +195,7 @@ export default function GraphologyPage() {
               {/* Handwriting Features */}
               {result.features && (
                 <div>
-                  <h4 className="text-sm font-semibold text-gray-400 mb-3 uppercase">
+                  <h4 className="text-sm font-semibold text-muted-foreground mb-3 uppercase">
                     Handwriting Characteristics
                   </h4>
                   <div className="space-y-2">
@@ -221,7 +221,7 @@ export default function GraphologyPage() {
               {/* Personality Analysis */}
               {result.analysis && (
                 <div>
-                  <h4 className="text-sm font-semibold text-gray-400 mb-3 uppercase flex items-center">
+                  <h4 className="text-sm font-semibold text-muted-foreground mb-3 uppercase flex items-center">
                     <Sparkles className="mr-2 h-4 w-4 text-purple-400" />
                     Personality Insights
                   </h4>
@@ -272,7 +272,7 @@ export default function GraphologyPage() {
             </div>
             <div>
               <h4 className="text-white font-bold mb-2">Accurate Analysis</h4>
-              <p className="text-gray-400 text-sm">
+              <p className="text-muted-foreground text-sm">
                 Our AI-powered OCR extracts text with 95%+ accuracy and analyzes
                 20+ handwriting features
               </p>
@@ -289,7 +289,7 @@ export default function GraphologyPage() {
               <h4 className="text-white font-bold mb-2">
                 Personality Insights
               </h4>
-              <p className="text-gray-400 text-sm">
+              <p className="text-muted-foreground text-sm">
                 Discover cognitive patterns, learning styles, and personality
                 traits from your writing
               </p>
@@ -304,7 +304,7 @@ export default function GraphologyPage() {
             </div>
             <div>
               <h4 className="text-white font-bold mb-2">Track Progress</h4>
-              <p className="text-gray-400 text-sm">
+              <p className="text-muted-foreground text-sm">
                 Upload multiple samples over time to see how your writing and
                 traits evolve
               </p>

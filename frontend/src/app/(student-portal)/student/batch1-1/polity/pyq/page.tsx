@@ -17,11 +17,11 @@ export default function PolityPYQPage() {
                     <ArrowLeft className="h-5 w-5" />
                 </Button>
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100 flex items-center gap-2">
+                    <h1 className="text-2xl font-bold text-foreground flex items-center gap-2">
                         <BookOpen className="h-6 w-6 text-indigo-600" />
                         Polity PYQ Bank (2013-2023)
                     </h1>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm">
+                    <p className="text-muted-foreground dark:text-muted-foreground text-sm">
                         Practice previous year questions topic-wise or year-wise.
                     </p>
                 </div>

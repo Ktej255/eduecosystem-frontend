@@ -127,10 +127,10 @@ export const DrillStepWizard: React.FC<DrillStepWizardProps> = ({
 
                         <div className="relative">
                             <div className="absolute inset-0 flex items-center">
-                                <span className="w-full border-t border-slate-300" />
+                                <span className="w-full border-t border-border" />
                             </div>
                             <div className="relative flex justify-center text-xs uppercase">
-                                <span className="bg-slate-50 px-2 text-slate-500">Or</span>
+                                <span className="bg-muted px-2 text-muted-foreground">Or</span>
                             </div>
                         </div>
 
@@ -178,9 +178,9 @@ export const DrillStepWizard: React.FC<DrillStepWizardProps> = ({
                     />
                 )}
 
-                <Card className="p-4 bg-slate-50">
-                    <h4 className="font-semibold text-slate-700 mb-2">Session Info</h4>
-                    <div className="text-sm text-slate-600 space-y-1">
+                <Card className="p-4 bg-muted">
+                    <h4 className="font-semibold text-muted-foreground mb-2">Session Info</h4>
+                    <div className="text-sm text-muted-foreground space-y-1">
                         <div className="flex justify-between">
                             <span>Status:</span>
                             <span className="font-medium uppercase text-blue-600">{currentStep.replace("_", " ")}</span>
@@ -195,7 +195,7 @@ export const DrillStepWizard: React.FC<DrillStepWizardProps> = ({
                 </Card>
 
                 {/* Debug Skip Button (Dev only) */}
-                <Button variant="ghost" size="sm" onClick={advanceStep} className="w-full text-slate-400">
+                <Button variant="ghost" size="sm" onClick={advanceStep} className="w-full text-muted-foreground">
                     Skip Step (Dev) <ArrowRight className="w-3 h-3 ml-1" />
                 </Button>
             </div>

@@ -50,23 +50,23 @@ export default function FocusCorrelationChart() {
         fetchData();
     }, []);
 
-    if (loading) return <div className="h-64 flex items-center justify-center text-white/40">Analyzing focus patterns...</div>;
+    if (loading) return <div className="h-64 flex items-center justify-center text-muted-foreground/60">Analyzing focus patterns...</div>;
 
     return (
-        <div className={`p-6 rounded-2xl border border-white/5 ${MEDITATION_THEME.gradients.glassCard}`}>
+        <div className={`p-6 rounded-2xl border border-border bg-card transition-colors`}>
             <div className="flex justify-between items-center mb-8">
                 <div>
-                    <h3 className="text-xl font-serif text-white">Focus Correlation</h3>
-                    <p className="text-white/40 text-sm">Mindfulness Focus vs. Academic Output</p>
+                    <h3 className="text-xl font-serif text-foreground">Focus Correlation</h3>
+                    <p className="text-muted-foreground text-sm">Mindfulness Focus vs. Academic Output</p>
                 </div>
                 <div className="flex gap-4">
                     <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 rounded-full bg-indigo-500" />
-                        <span className="text-xs text-white/60">Focus Level</span>
+                        <div className="w-3 h-3 rounded-full bg-primary" />
+                        <span className="text-xs text-muted-foreground">Focus Level</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <div className="w-3 h-3 rounded-full bg-emerald-500" />
-                        <span className="text-xs text-white/60">Completions</span>
+                        <span className="text-xs text-muted-foreground">Completions</span>
                     </div>
                 </div>
             </div>
@@ -74,17 +74,17 @@ export default function FocusCorrelationChart() {
             <div className="h-80 w-full">
                 <ResponsiveContainer width="100%" height="100%">
                     <ComposedChart data={data}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#ffffff05" vertical={false} />
+                        <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" opacity={0.3} vertical={false} />
                         <XAxis
                             dataKey="date"
-                            stroke="#ffffff20"
+                            stroke="var(--muted-foreground)"
                             fontSize={12}
                             tickLine={false}
                             axisLine={false}
                         />
                         <YAxis
                             yAxisId="left"
-                            stroke="#ffffff20"
+                            stroke="var(--muted-foreground)"
                             fontSize={12}
                             tickLine={false}
                             axisLine={false}
@@ -93,35 +93,35 @@ export default function FocusCorrelationChart() {
                         <YAxis
                             yAxisId="right"
                             orientation="right"
-                            stroke="#ffffff20"
+                            stroke="var(--muted-foreground)"
                             fontSize={12}
                             tickLine={false}
                             axisLine={false}
                         />
                         <Tooltip
                             contentStyle={{
-                                backgroundColor: '#0f172a',
-                                border: '1px solid #ffffff10',
+                                backgroundColor: 'var(--card)',
+                                border: '1px solid var(--border)',
                                 borderRadius: '12px',
-                                color: '#fff'
+                                color: 'var(--foreground)'
                             }}
-                            itemStyle={{ fontSize: '12px' }}
+                            itemStyle={{ fontSize: '12px', color: 'var(--foreground)' }}
                         />
                         <Bar
                             yAxisId="right"
                             dataKey="chapters_completed"
-                            fill="#10b981"
+                            fill="var(--primary)"
                             radius={[4, 4, 0, 0]}
                             barSize={30}
-                            fillOpacity={0.6}
+                            fillOpacity={0.4}
                         />
                         <Line
                             yAxisId="left"
                             type="monotone"
                             dataKey="focus_score"
-                            stroke="#6366f1"
+                            stroke="var(--primary)"
                             strokeWidth={3}
-                            dot={{ fill: '#6366f1', strokeWidth: 2 }}
+                            dot={{ fill: 'var(--primary)', strokeWidth: 2, stroke: 'var(--card)' }}
                             activeDot={{ r: 6, strokeWidth: 0 }}
                         />
                     </ComposedChart>
@@ -129,19 +129,19 @@ export default function FocusCorrelationChart() {
             </div>
 
             <div className="mt-6 grid grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                <div className="p-4 rounded-xl bg-muted/30 border border-border">
                     <div className="flex items-center gap-2 mb-1">
-                        <Brain className="w-4 h-4 text-indigo-400" />
-                        <span className="text-xs text-white/40 uppercase tracking-wider font-bold">Peak Focus</span>
+                        <Brain className="w-4 h-4 text-primary" />
+                        <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-bold">Peak Focus</span>
                     </div>
-                    <p className="text-xl font-bold">8.4 / 10</p>
+                    <p className="text-xl font-bold text-foreground">8.4 / 10</p>
                 </div>
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                <div className="p-4 rounded-xl bg-muted/30 border border-border">
                     <div className="flex items-center gap-2 mb-1">
-                        <BookOpen className="w-4 h-4 text-emerald-400" />
-                        <span className="text-xs text-white/40 uppercase tracking-wider font-bold">Efficiency Boost</span>
+                        <BookOpen className="w-4 h-4 text-emerald-500" />
+                        <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-bold">Efficiency Boost</span>
                     </div>
-                    <p className="text-xl font-bold">+28%</p>
+                    <p className="text-xl font-bold text-foreground">+28%</p>
                 </div>
             </div>
         </div>

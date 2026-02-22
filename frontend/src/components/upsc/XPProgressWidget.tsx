@@ -21,7 +21,7 @@ export default function XPProgressWidget({ variant = 'full' }: { variant?: 'full
                     <Star className="w-4 h-4 text-yellow-300" />
                     <span className="font-bold text-sm">Lvl {level}</span>
                 </div>
-                <div className="w-20 h-2 bg-white/30 rounded-full overflow-hidden">
+                <div className="w-20 h-2 bg-card/30 rounded-full overflow-hidden">
                     <motion.div
                         className="h-full bg-yellow-400"
                         initial={{ width: 0 }}
@@ -43,7 +43,7 @@ export default function XPProgressWidget({ variant = 'full' }: { variant?: 'full
         <div className="bg-gradient-to-br from-purple-600 to-indigo-700 rounded-2xl p-6 text-white shadow-xl">
             <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                    <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-full bg-card/20 flex items-center justify-center">
                         <Star className="w-7 h-7 text-yellow-300" />
                     </div>
                     <div>
@@ -68,7 +68,7 @@ export default function XPProgressWidget({ variant = 'full' }: { variant?: 'full
                     <span>{xpInLevel} XP</span>
                     <span>{xpNeeded} XP</span>
                 </div>
-                <div className="h-3 bg-white/20 rounded-full overflow-hidden">
+                <div className="h-3 bg-card/20 rounded-full overflow-hidden">
                     <motion.div
                         className="h-full bg-gradient-to-r from-yellow-400 to-orange-400"
                         initial={{ width: 0 }}
@@ -80,17 +80,17 @@ export default function XPProgressWidget({ variant = 'full' }: { variant?: 'full
 
             {/* Stats Row */}
             <div className="grid grid-cols-3 gap-4 text-center">
-                <div className="bg-white/10 rounded-xl p-3">
+                <div className="bg-card/10 rounded-xl p-3">
                     <Zap className="w-5 h-5 mx-auto mb-1 text-yellow-300" />
                     <div className="text-lg font-bold">{xp}</div>
                     <div className="text-xs text-purple-200">Total XP</div>
                 </div>
-                <div className="bg-white/10 rounded-xl p-3">
+                <div className="bg-card/10 rounded-xl p-3">
                     <Flame className="w-5 h-5 mx-auto mb-1 text-orange-400" />
                     <div className="text-lg font-bold">{longestStreak}</div>
                     <div className="text-xs text-purple-200">Best Streak</div>
                 </div>
-                <div className="bg-white/10 rounded-xl p-3">
+                <div className="bg-card/10 rounded-xl p-3">
                     <TrendingUp className="w-5 h-5 mx-auto mb-1 text-green-400" />
                     <div className="text-lg font-bold">#{Math.max(1, 500 - Math.floor(xp / 20))}</div>
                     <div className="text-xs text-purple-200">Your Rank</div>

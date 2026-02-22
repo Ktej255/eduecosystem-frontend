@@ -352,22 +352,22 @@ export default function ProjectTimeline() {
                 </CardTitle>
             </CardHeader>
             <CardContent>
-                <div className="relative pl-8 border-l-2 border-gray-100 dark:border-gray-800 space-y-8 my-4">
+                <div className="relative pl-8 border-l-2 border-border space-y-8 my-4">
                     {milestones.map((milestone, index) => (
                         <div key={index} className="relative">
                             {/* Dot on line */}
-                            <div className={`absolute -left-[41px] p-1 rounded-full bg-white dark:bg-gray-950 border-2 ${milestone.status === 'completed' ? 'border-green-500 text-green-500' :
-                                milestone.status === 'in-progress' ? 'border-blue-500 text-blue-500' : 'border-gray-300 text-gray-300'
+                            <div className={`absolute -left-[41px] p-1 rounded-full bg-card border-2 ${milestone.status === 'completed' ? 'border-green-500 text-green-500' :
+                                milestone.status === 'in-progress' ? 'border-blue-500 text-blue-500' : 'border-border text-muted-foreground'
                                 }`}>
                                 {milestone.status === 'completed' ? <CheckCircle2 className="h-4 w-4" /> : <Circle className="h-4 w-4" />}
                             </div>
 
                             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
-                                <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">{milestone.title}</h3>
-                                <span className="text-sm font-medium text-gray-400 font-mono">{milestone.date}</span>
+                                <h3 className="text-lg font-bold text-foreground">{milestone.title}</h3>
+                                <span className="text-sm font-medium text-muted-foreground font-mono">{milestone.date}</span>
                             </div>
 
-                            <p className="text-gray-600 dark:text-gray-400 mb-2 max-w-2xl">{milestone.description}</p>
+                            <p className="text-muted-foreground dark:text-muted-foreground mb-2 max-w-2xl">{milestone.description}</p>
 
                             <div className="flex flex-wrap gap-2">
                                 {milestone.tags.map(tag => (

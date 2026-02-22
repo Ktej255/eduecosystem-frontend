@@ -140,7 +140,7 @@ export default function TutorialMode({
                                     <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
                                         <button
                                             onClick={toggleVideo}
-                                            className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/30 transition-colors"
+                                            className="w-16 h-16 rounded-full bg-card/20 backdrop-blur-sm flex items-center justify-center hover:bg-card/30 transition-colors"
                                         >
                                             {isVideoPlaying ? (
                                                 <Pause className="w-8 h-8 text-white" />
@@ -168,10 +168,10 @@ export default function TutorialMode({
                                 </>
                             ) : (
                                 // Placeholder when no video
-                                <div className="w-full h-full flex flex-col items-center justify-center text-gray-500">
+                                <div className="w-full h-full flex flex-col items-center justify-center text-muted-foreground">
                                     <Play className="w-16 h-16 mb-4 opacity-30" />
                                     <p className="text-lg">Tutorial video coming soon</p>
-                                    <p className="text-sm text-gray-600 mt-2">
+                                    <p className="text-sm text-muted-foreground mt-2">
                                         {process.description || "Learn this meditation technique"}
                                     </p>
                                 </div>
@@ -181,13 +181,13 @@ export default function TutorialMode({
                         {/* Process Description */}
                         {process.description && (
                             <div className="w-full max-w-3xl bg-neutral-900/50 rounded-xl p-4 mb-6">
-                                <p className="text-gray-300">{process.description}</p>
+                                <p className="text-muted-foreground">{process.description}</p>
                             </div>
                         )}
 
                         {/* Duration info */}
                         <div className="text-center mb-6">
-                            <p className="text-gray-400">
+                            <p className="text-muted-foreground">
                                 Duration: <span className="text-white font-medium">
                                     {Math.floor(process.duration_seconds / 60)} min {process.duration_seconds % 60 > 0 && `${process.duration_seconds % 60} sec`}
                                 </span>
@@ -199,7 +199,7 @@ export default function TutorialMode({
                             <Button
                                 variant="outline"
                                 onClick={() => setHasWatchedVideo(true)}
-                                className="border-gray-700 text-gray-400 hover:text-white"
+                                className="border-gray-700 text-muted-foreground hover:text-white"
                             >
                                 Skip Video
                             </Button>
@@ -263,7 +263,7 @@ export default function TutorialMode({
                         <h2 className="text-3xl font-bold text-white mb-2 text-center">
                             {process.name} Complete!
                         </h2>
-                        <p className="text-gray-400 mb-8 text-center max-w-md">
+                        <p className="text-muted-foreground mb-8 text-center max-w-md">
                             Great job practicing this technique. You'll perform this daily from now on.
                         </p>
 

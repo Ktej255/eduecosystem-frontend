@@ -99,7 +99,7 @@ export default function CreateBundlePage() {
       <div className="max-w-4xl mx-auto">
         <Button
           variant="ghost"
-          className="text-gray-400 mb-6 pl-0 hover:text-white"
+          className="text-muted-foreground mb-6 pl-0 hover:text-white"
           onClick={() => router.back()}
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
@@ -111,7 +111,7 @@ export default function CreateBundlePage() {
             <h1 className="text-3xl font-bold text-white mb-2">
               Create Course Bundle
             </h1>
-            <p className="text-gray-400">
+            <p className="text-muted-foreground">
               Group your courses together to offer better value
             </p>
           </div>
@@ -213,14 +213,14 @@ export default function CreateBundlePage() {
                           <h4 className="text-white font-medium">
                             {course.title}
                           </h4>
-                          <p className="text-sm text-gray-400">
+                          <p className="text-sm text-muted-foreground">
                             ₹{course.price}
                           </p>
                         </div>
                       </div>
                     ))}
                     {courses.length === 0 && (
-                      <p className="text-gray-400 text-center py-4">
+                      <p className="text-muted-foreground text-center py-4">
                         No courses found. Create some courses first.
                       </p>
                     )}
@@ -237,8 +237,8 @@ export default function CreateBundlePage() {
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>
-                    <Label className="text-gray-400">Total Value</Label>
-                    <div className="text-2xl font-bold text-gray-300 line-through decoration-gray-500">
+                    <Label className="text-muted-foreground">Total Value</Label>
+                    <div className="text-2xl font-bold text-muted-foreground line-through decoration-gray-500">
                       ₹{totalValue}
                     </div>
                   </div>
@@ -248,7 +248,7 @@ export default function CreateBundlePage() {
                       Bundle Price
                     </Label>
                     <div className="relative mt-2">
-                      <DollarSign className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
+                      <DollarSign className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
                       <Input
                         id="price"
                         type="number"

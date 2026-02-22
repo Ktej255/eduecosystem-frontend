@@ -16,7 +16,7 @@ interface ChiefMinisterModuleProps {
 // --- Design System: The State Captain (Keystone) ---
 
 const CaptainContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#ecfdf5] text-slate-900">
+    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#ecfdf5] text-foreground">
         {/* Nautical/Wheel Texture */}
         <div className="absolute inset-0 opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/black-scales.png')]"></div>
 
@@ -60,7 +60,7 @@ export default function ChiefMinisterModule({ onComplete, isCompleted }: ChiefMi
                         <h1 className="text-5xl md:text-7xl font-black text-emerald-900 font-serif mb-2">
                             CHIEF MINISTER
                         </h1>
-                        <p className="text-xl font-bold uppercase tracking-widest text-slate-600">
+                        <p className="text-xl font-bold uppercase tracking-widest text-muted-foreground">
                             "The State Captain"
                         </p>
                     </div>
@@ -79,7 +79,7 @@ export default function ChiefMinisterModule({ onComplete, isCompleted }: ChiefMi
                     {/* APPOINTMENT FLOWCHART */}
                     <CaptainCard title="Appointment (Art 164)" icon={Users} color="green">
                         <div className="space-y-4 text-sm font-sans">
-                            <div className="bg-white p-3 rounded border border-emerald-100 shadow-sm">
+                            <div className="bg-card p-3 rounded border border-emerald-100 shadow-sm">
                                 <strong>General Rule:</strong> Governor appoints leader of Majority Party.
                             </div>
 
@@ -89,7 +89,7 @@ export default function ChiefMinisterModule({ onComplete, isCompleted }: ChiefMi
                                 <div className="absolute -top-2 -right-2 bg-orange-500 text-white p-1 rounded-full"><Briefcase size={12} /></div>
                                 <strong>Hung Assembly?</strong>
                                 <p className="text-xs mt-1 text-orange-800">Governor's Discretion: Appoint leader of largest coalition.</p>
-                                <div className="mt-2 text-xs font-bold bg-white p-1 rounded inline-block">
+                                <div className="mt-2 text-xs font-bold bg-card p-1 rounded inline-block">
                                     Condition: Prove majority in 1 Month.
                                 </div>
                             </div>
@@ -105,8 +105,8 @@ export default function ChiefMinisterModule({ onComplete, isCompleted }: ChiefMi
 
                     {/* OATH LETTERHEAD */}
                     <CaptainCard title="Oath & Term" icon={FileCheck} color="blue">
-                        <div className="space-y-4 font-serif text-slate-700">
-                            <div className="border-b-2 border-slate-300 pb-2 mb-2 flex justify-between items-center text-xs uppercase tracking-widest">
+                        <div className="space-y-4 font-serif text-muted-foreground">
+                            <div className="border-b-2 border-border pb-2 mb-2 flex justify-between items-center text-xs uppercase tracking-widest">
                                 <span>Official State Letterhead</span>
                                 <BadgeCheck className="text-blue-600" />
                             </div>
@@ -116,11 +116,11 @@ export default function ChiefMinisterModule({ onComplete, isCompleted }: ChiefMi
                             <p>
                                 <strong>Content:</strong> Secrecy + Allegiance.
                             </p>
-                            <div className="bg-white p-3 rounded border border-blue-100 shadow-inner">
+                            <div className="bg-card p-3 rounded border border-blue-100 shadow-inner">
                                 <strong>Term:</strong> NOT Fixed.
                                 <br />
                                 <span className="text-sm italic">"Pleasure of Governor"</span>
-                                <div className="mt-2 text-xs bg-slate-100 p-1 rounded text-slate-500">
+                                <div className="mt-2 text-xs bg-muted p-1 rounded text-muted-foreground">
                                     *Cannot dismiss as long as he has majority.
                                 </div>
                             </div>
@@ -166,8 +166,8 @@ export default function ChiefMinisterModule({ onComplete, isCompleted }: ChiefMi
 
                             {/* Bridge Graphic */}
                             <div className="w-full h-4 bg-slate-300 rounded-full relative overflow-hidden">
-                                <div className="absolute top-0 left-0 h-full bg-slate-500 w-1/2"></div>
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-slate-600 rounded-full p-1">
+                                <div className="absolute top-0 left-0 h-full bg-muted-foreground w-1/2"></div>
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-card border-2 border-slate-600 rounded-full p-1">
                                     <User size={16} />
                                 </div>
                             </div>
@@ -195,18 +195,18 @@ export default function ChiefMinisterModule({ onComplete, isCompleted }: ChiefMi
                     <div className="h-px bg-blue-600 flex-1"></div>
                 </div>
 
-                <div className="bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                <div className="bg-card p-6 rounded-xl shadow-lg border border-border">
                     <div className="grid md:grid-cols-2 gap-8">
                         <div>
-                            <h3 className="font-bold text-lg mb-4 flex items-center gap-2 text-slate-700">
+                            <h3 className="font-bold text-lg mb-4 flex items-center gap-2 text-muted-foreground">
                                 <Building2 /> Member of Bodies
                             </h3>
                             <div className="space-y-3 font-mono text-sm">
-                                <div className="flex justify-between items-center bg-slate-50 p-2 rounded">
+                                <div className="flex justify-between items-center bg-muted p-2 rounded">
                                     <span>Inter-State Council</span>
                                     <span className="text-xs bg-slate-200 px-2 rounded">Member</span>
                                 </div>
-                                <div className="flex justify-between items-center bg-slate-50 p-2 rounded">
+                                <div className="flex justify-between items-center bg-muted p-2 rounded">
                                     <span>National Dev. Council</span>
                                     <span className="text-xs bg-slate-200 px-2 rounded">Member</span>
                                 </div>
@@ -214,28 +214,28 @@ export default function ChiefMinisterModule({ onComplete, isCompleted }: ChiefMi
                                     <span className="font-bold text-blue-800">Zonal Council</span>
                                     <span className="text-xs bg-blue-200 px-2 rounded text-blue-900 font-bold">Vice-Chairman*</span>
                                 </div>
-                                <div className="text-right text-xs text-slate-400 italic">*By rotation (1 Year)</div>
+                                <div className="text-right text-xs text-muted-foreground italic">*By rotation (1 Year)</div>
                             </div>
                         </div>
 
                         <div>
-                            <h3 className="font-bold text-lg mb-4 flex items-center gap-2 text-slate-700">
+                            <h3 className="font-bold text-lg mb-4 flex items-center gap-2 text-muted-foreground">
                                 <Users /> CM vs PM Mirror
                             </h3>
-                            <div className="flex items-center gap-4 bg-slate-100 p-4 rounded-lg border border-slate-300 justify-center">
+                            <div className="flex items-center gap-4 bg-muted p-4 rounded-lg border border-border justify-center">
                                 <div className="text-center">
                                     <User size={32} className="mx-auto text-blue-600" />
                                     <strong className="block">PM</strong>
                                     <span className="text-xs">Centre</span>
                                 </div>
-                                <ArrowRightLeft size={24} className="text-slate-400" />
+                                <ArrowRightLeft size={24} className="text-muted-foreground" />
                                 <div className="text-center">
                                     <User size={32} className="mx-auto text-emerald-600" />
                                     <strong className="block">CM</strong>
                                     <span className="text-xs">State</span>
                                 </div>
                             </div>
-                            <p className="text-center text-sm mt-4 text-slate-500 italic">
+                            <p className="text-center text-sm mt-4 text-muted-foreground italic">
                                 "Functions are identical, just scope differs."
                             </p>
                         </div>
@@ -251,7 +251,7 @@ export default function ChiefMinisterModule({ onComplete, isCompleted }: ChiefMi
                     </div>
                     <h3 className="text-xl font-bold font-serif mb-2 text-emerald-400">The S.R. Bommai Rule (1994)</h3>
                     <p className="font-mono text-sm mb-4">
-                        "Majority must be tested on the <span className="bg-white/20 px-1 rounded">Floor of the House</span>, not in Raj Bhavan."
+                        "Majority must be tested on the <span className="bg-card/20 px-1 rounded">Floor of the House</span>, not in Raj Bhavan."
                     </p>
 
                     <button
@@ -260,7 +260,7 @@ export default function ChiefMinisterModule({ onComplete, isCompleted }: ChiefMi
                         className={`
                              w-full py-3 rounded font-black uppercase tracking-widest transition-all
                             ${isCompleted
-                                ? 'bg-slate-700 text-slate-500 cursor-not-allowed'
+                                ? 'bg-slate-700 text-muted-foreground cursor-not-allowed'
                                 : 'bg-emerald-600 text-white hover:bg-emerald-500 active:scale-95'
                             }
                         `}

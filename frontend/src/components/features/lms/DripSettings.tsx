@@ -100,7 +100,7 @@ export function DripSettings({
     }
   };
 
-  if (loading) return <div className="text-gray-400">Loading settings...</div>;
+  if (loading) return <div className="text-muted-foreground">Loading settings...</div>;
 
   return (
     <div className="space-y-6 bg-gray-900 border border-gray-800 rounded-lg p-6">
@@ -113,7 +113,7 @@ export function DripSettings({
 
       <div className="space-y-4">
         <div>
-          <Label className="text-gray-300 mb-2 block">
+          <Label className="text-muted-foreground mb-2 block">
             When should this lesson unlock?
           </Label>
           <Select
@@ -138,9 +138,9 @@ export function DripSettings({
 
         {settings.unlock_type === "date" && (
           <div className="space-y-2 animate-in fade-in slide-in-from-top-2">
-            <Label className="text-gray-300">Unlock Date & Time</Label>
+            <Label className="text-muted-foreground">Unlock Date & Time</Label>
             <div className="flex items-center gap-2">
-              <Calendar className="h-4 w-4 text-gray-400" />
+              <Calendar className="h-4 w-4 text-muted-foreground" />
               <Input
                 type="datetime-local"
                 value={settings.unlock_date}
@@ -150,7 +150,7 @@ export function DripSettings({
                 className="bg-gray-800 border-gray-700 text-white"
               />
             </div>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-muted-foreground">
               Students will see a countdown until this date.
             </p>
           </div>
@@ -158,9 +158,9 @@ export function DripSettings({
 
         {settings.unlock_type === "after_days" && (
           <div className="space-y-2 animate-in fade-in slide-in-from-top-2">
-            <Label className="text-gray-300">Days After Enrollment</Label>
+            <Label className="text-muted-foreground">Days After Enrollment</Label>
             <div className="flex items-center gap-2">
-              <Clock className="h-4 w-4 text-gray-400" />
+              <Clock className="h-4 w-4 text-muted-foreground" />
               <Input
                 type="number"
                 min="0"
@@ -175,7 +175,7 @@ export function DripSettings({
                 placeholder="e.g. 7"
               />
             </div>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-muted-foreground">
               Lesson unlocks X days after the student enrolls in the course.
             </p>
           </div>
@@ -183,7 +183,7 @@ export function DripSettings({
 
         {settings.unlock_type === "sequence" && (
           <div className="space-y-2 animate-in fade-in slide-in-from-top-2">
-            <Label className="text-gray-300">Prerequisite Lesson</Label>
+            <Label className="text-muted-foreground">Prerequisite Lesson</Label>
             <Select
               value={settings.prerequisite_lesson_id?.toString()}
               onValueChange={(val) =>
@@ -201,7 +201,7 @@ export function DripSettings({
                 ))}
               </SelectContent>
             </Select>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-muted-foreground">
               This lesson will stay locked until the selected lesson is
               completed.
             </p>

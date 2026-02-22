@@ -37,7 +37,7 @@ export default function HandwrittenChapter10() {
     };
 
     return (
-        <div className="min-h-screen bg-[#f5e6d3] p-4 md:p-8 font-['Roboto_Slab',_serif] text-[#1a1a1a] selection:bg-red-200 overflow-x-hidden">
+        <div className="min-h-screen bg-paper p-4 md:p-8 font-['Roboto_Slab',_serif] text-paper-gray selection:bg-paper-red/20 overflow-x-hidden">
             <style jsx global>{`
                 @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Stardos+Stencil:wght@400;700&family=Roboto+Slab:wght@300;400;700&display=swap');
                 
@@ -50,9 +50,9 @@ export default function HandwrittenChapter10() {
                 }
 
                 .torn-paper {
-                    background-color: #fff;
+                    background-color: var(--paper-bg);
                     position: relative;
-                    box-shadow: 2px 4px 6px rgba(0,0,0,0.1);
+                    box-shadow: 2px 4px 6px var(--paper-border);
                 }
                 
                 .torn-paper::after {
@@ -62,8 +62,8 @@ export default function HandwrittenChapter10() {
                     left: 0;
                     width: 100%;
                     height: 20px;
-                    background: radial-gradient(circle, transparent 70%, #fff 70%) 0 0,
-                                radial-gradient(circle, transparent 70%, #fff 70%) 10px 10px;
+                    background: radial-gradient(circle, transparent 70%, var(--paper-bg) 70%) 0 0,
+                                radial-gradient(circle, transparent 70%, var(--paper-bg) 70%) 10px 10px;
                     background-size: 20px 20px;
                     transform: rotate(180deg);
                 }
@@ -74,15 +74,15 @@ export default function HandwrittenChapter10() {
             `}</style>
 
             {/* HEADER: THE BURNING FUSE */}
-            <header className="max-w-6xl mx-auto mb-16 text-center border-b-8 border-red-800 pb-8 relative pt-12">
+            <header className="max-w-6xl mx-auto mb-16 text-center border-b-8 border-paper-red pb-8 relative pt-12 text-inherit">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <Flame className="w-24 h-24 text-orange-600 animate-pulse fill-orange-500" />
+                    <Flame className="w-24 h-24 text-paper-orange animate-pulse fill-paper-orange/50" />
                 </div>
-                <h2 className="stencil-font text-2xl md:text-3xl tracking-widest uppercase mb-2 text-red-800 animate-bounce">{t.bonfireTitle}</h2>
-                <h1 className="header-font text-5xl md:text-8xl font-bold mb-6 uppercase tracking-tighter">
+                <h2 className="stencil-font text-2xl md:text-3xl tracking-widest uppercase mb-2 text-paper-red animate-bounce">{t.bonfireTitle}</h2>
+                <h1 className="header-font text-5xl md:text-8xl font-bold mb-6 uppercase tracking-tighter text-paper-gray">
                     {t.headerTitle}
                 </h1>
-                <p className="text-xl md:text-2xl font-bold italic text-slate-800">
+                <p className="text-xl md:text-2xl font-bold italic text-paper-gray opacity-80">
                     {t.headerSubtitle}
                 </p>
 
@@ -91,9 +91,9 @@ export default function HandwrittenChapter10() {
                     <div className="flex justify-center items-center min-w-[600px] gap-2 text-xs md:text-sm font-bold">
                         {t.timelineItems.map((item, idx) => (
                             <React.Fragment key={idx}>
-                                {idx > 0 && <div className="h-1 w-8 bg-red-400"></div>}
-                                <div className={`px-3 py-2 rounded shadow ${idx === 1 ? 'bg-red-600 text-white transform scale-110 shadow-lg' : idx === 3 ? 'bg-black text-white' : 'bg-slate-300'}`}>
-                                    <span className={`block text-[10px] uppercase ${idx === 1 ? 'text-red-200' : idx === 3 ? 'text-gray-400' : 'text-slate-500'}`}>{item.date}</span>
+                                {idx > 0 && <div className="h-1 w-8 bg-paper-red/30"></div>}
+                                <div className={`px-3 py-2 rounded shadow ${idx === 1 ? 'bg-paper-red text-paper-bg transform scale-110 shadow-lg' : idx === 3 ? 'bg-neutral-900 dark:bg-black text-white border border-paper-border/20' : 'bg-paper-border/10 text-paper-gray'}`}>
+                                    <span className={`block text-[10px] uppercase ${idx === 1 ? 'text-paper-bg/60' : idx === 3 ? 'text-gray-400' : 'text-paper-gray/40'}`}>{item.date}</span>
                                     {item.label}
                                 </div>
                             </React.Fragment>
@@ -108,44 +108,44 @@ export default function HandwrittenChapter10() {
                 <div className="lg:col-span-4 space-y-8">
 
                     {/* TRIGGER CARD */}
-                    <div className="torn-paper bg-red-50 p-6">
-                        <h3 className="header-font text-3xl font-bold mb-4 border-b-4 border-red-800 pb-2">{t.triggerTitle}</h3>
+                    <div className="torn-paper bg-paper-red/10 p-6 text-inherit">
+                        <h3 className="header-font text-3xl font-bold mb-4 border-b-4 border-paper-red pb-2 text-paper-red">{t.triggerTitle}</h3>
                         <div className="mb-4">
-                            <div className="text-sm font-bold uppercase text-red-800 flex items-center gap-2">
+                            <div className="text-sm font-bold uppercase text-paper-red flex items-center gap-2">
                                 <AlertTriangle className="w-4 h-4" /> {t.villainLabel}
                             </div>
-                            <p className="text-sm italic mt-1">{t.villainQuote}</p>
+                            <p className="text-sm italic mt-1 opacity-70">{t.villainQuote}</p>
                         </div>
                         <ul className="text-sm space-y-3">
                             <li className="flex items-start gap-2">
-                                <XCircle className="w-4 h-4 text-red-600 mt-0.5" />
+                                <XCircle className="w-4 h-4 text-paper-red mt-0.5" />
                                 <span><strong>{t.officialReason}</strong> {t.officialReasonText}</span>
                             </li>
                             <li className="flex items-start gap-2">
-                                <Target className="w-4 h-4 text-red-600 mt-0.5" />
+                                <Target className="w-4 h-4 text-paper-red mt-0.5" />
                                 <span><strong>{t.realReason}</strong> {t.realReasonText}</span>
                             </li>
                         </ul>
-                        <div className="mt-4 bg-black text-white p-3 text-center rounded">
+                        <div className="mt-4 bg-neutral-900 dark:bg-black text-white p-3 text-center rounded border border-white/10">
                             <div className="font-bold uppercase text-sm">{t.mourningDate}</div>
-                            <div className="text-xs">{t.mourningEvent}</div>
+                            <div className="text-xs opacity-70">{t.mourningEvent}</div>
                         </div>
                     </div>
 
                     {/* METHODS CARD */}
-                    <div className="torn-paper bg-orange-50 p-6">
-                        <h3 className="header-font text-3xl font-bold mb-4 border-b-4 border-orange-500 pb-2">{t.methodsTitle}</h3>
+                    <div className="torn-paper bg-paper-orange/10 p-6 text-inherit">
+                        <h3 className="header-font text-3xl font-bold mb-4 border-b-4 border-paper-orange pb-2 text-paper-orange">{t.methodsTitle}</h3>
                         <div className="grid grid-cols-2 gap-3 text-sm mb-4">
                             {t.methodCards.map((card, i) => (
-                                <div key={i} className="p-2 border border-orange-300 bg-white shadow-sm">
-                                    {iconMap[card.icon]}
+                                <div key={i} className="p-2 border border-paper-orange/20 bg-paper shadow-sm text-inherit">
+                                    <span className="text-paper-orange">{iconMap[card.icon]}</span>
                                     <strong>{card.bold}</strong>{card.text}
                                 </div>
                             ))}
                         </div>
 
-                        <div className="bg-white p-3 border-l-4 border-green-600 text-xs shadow-sm">
-                            <strong className="block mb-1 text-green-800 uppercase">{t.constructiveTitle}</strong>
+                        <div className="bg-paper p-3 border-l-4 border-paper-green text-xs shadow-sm text-inherit">
+                            <strong className="block mb-1 text-paper-green uppercase">{t.constructiveTitle}</strong>
                             <ul className="space-y-1">
                                 {t.constructiveItems.map((item, i) => (
                                     <li key={i}>{item.emoji} <strong>{item.bold}</strong>{item.text}</li>
@@ -155,18 +155,18 @@ export default function HandwrittenChapter10() {
                     </div>
 
                     {/* ORGANIZATION CARD */}
-                    <div className="torn-paper p-6 bg-white">
-                        <h3 className="header-font text-xl font-bold mb-3">{t.orgTitle}</h3>
+                    <div className="torn-paper p-6 bg-paper text-inherit">
+                        <h3 className="header-font text-xl font-bold mb-3 text-paper-gray">{t.orgTitle}</h3>
                         <div className="space-y-3 text-sm">
                             <p><strong>{t.samitiLabel}</strong>{t.samitiText}</p>
-                            <div className="bg-slate-100 p-3 border border-slate-300 rounded relative overflow-hidden">
-                                <div className="font-bold text-slate-800">{t.swadeshBandhabTitle}</div>
-                                <div className="text-xs italic">{t.swadeshBandhabPlace}</div>
-                                <div className="text-[10px] mt-1 text-slate-600">{t.swadeshBandhabNote}</div>
+                            <div className="bg-paper-border/10 p-3 border border-paper-border/20 rounded relative overflow-hidden text-inherit">
+                                <div className="font-bold text-paper-gray">{t.swadeshBandhabTitle}</div>
+                                <div className="text-xs italic opacity-70">{t.swadeshBandhabPlace}</div>
+                                <div className="text-[10px] mt-1 text-paper-gray opacity-50">{t.swadeshBandhabNote}</div>
                             </div>
-                            <div className="bg-slate-100 p-3 border border-slate-300 rounded">
-                                <div className="font-bold text-slate-800">{t.dawnTitle}</div>
-                                <div className="text-xs italic">{t.dawnLeader}</div>
+                            <div className="bg-paper-border/10 p-3 border border-paper-border/20 rounded text-inherit">
+                                <div className="font-bold text-paper-gray">{t.dawnTitle}</div>
+                                <div className="text-xs italic opacity-70">{t.dawnLeader}</div>
                             </div>
                         </div>
                     </div>
@@ -177,28 +177,28 @@ export default function HandwrittenChapter10() {
                 <div className="lg:col-span-5 space-y-8">
 
                     {/* LAL-BAL-PAL SECTION */}
-                    <div className="torn-paper p-8 relative overflow-hidden">
+                    <div className="torn-paper p-8 relative overflow-hidden text-inherit">
                         <div className="absolute top-0 right-0 p-4 opacity-5">
-                            <Users className="w-40 h-40" />
+                            <Users className="w-40 h-40 text-paper-gray" />
                         </div>
                         <div className="text-center mb-8">
-                            <h2 className="stencil-font text-5xl text-red-800 mb-1">{t.lalBalPalTitle}</h2>
-                            <p className="text-xs font-bold uppercase tracking-widest text-slate-500">{t.triumvirateLabel}</p>
+                            <h2 className="stencil-font text-5xl text-paper-red mb-1">{t.lalBalPalTitle}</h2>
+                            <p className="text-xs font-bold uppercase tracking-widest text-paper-gray opacity-40">{t.triumvirateLabel}</p>
                         </div>
 
                         <div className="space-y-6">
                             {t.leaders.map((leader, idx) => (
-                                <div key={idx} className={`flex gap-4 items-start border-l-4 border-${leader.color}-600 pl-4 bg-${leader.color}-50 p-3 rounded-r-lg`}>
+                                <div key={idx} className={`flex gap-4 items-start border-l-4 border-paper-${leader.color === 'blue' ? 'navy' : leader.color} pl-4 bg-paper-${leader.color === 'blue' ? 'navy' : leader.color}/10 p-3 rounded-r-lg text-inherit`}>
                                     <div className="text-3xl">{leader.emoji}</div>
                                     <div>
-                                        <h4 className="font-bold text-lg">{leader.name}</h4>
-                                        <p className={`text-xs font-bold text-${leader.color}-800 mb-1`}>{leader.region}</p>
-                                        {leader.quote && <p className="text-sm italic">{leader.quote}</p>}
-                                        {leader.tools && <p className="text-xs mt-1 text-slate-600">{leader.tools}</p>}
+                                        <h4 className="font-bold text-lg text-paper-gray">{leader.name}</h4>
+                                        <p className={`text-xs font-bold text-paper-${leader.color === 'blue' ? 'navy' : leader.color} mb-1`}>{leader.region}</p>
+                                        {leader.quote && <p className="text-sm italic opacity-80">{leader.quote}</p>}
+                                        {leader.tools && <p className="text-xs mt-1 text-paper-gray opacity-60">{leader.tools}</p>}
                                         {leader.extra && (
-                                            <div className="text-xs bg-white p-2 border border-green-200 mt-1 rounded">
+                                            <div className="text-xs bg-paper p-2 border border-paper-green/20 mt-1 rounded text-inherit">
                                                 <strong>{leader.extra.bold}</strong>{leader.extra.text}<br />
-                                                <em>Movement:</em> {leader.extra.movement}
+                                                <em className="opacity-60 text-paper-gray">Movement:</em> <span className="text-paper-green">{leader.extra.movement}</span>
                                             </div>
                                         )}
                                     </div>
@@ -208,21 +208,21 @@ export default function HandwrittenChapter10() {
                     </div>
 
                     {/* SURAT SPLIT INTERACTIVE */}
-                    <div className="torn-paper bg-slate-100 border-2 border-dashed border-slate-600 p-6 text-center group hover:bg-slate-200 transition-colors cursor-pointer"
+                    <div className="torn-paper bg-paper shadow-inner border-2 border-dashed border-paper-border/40 p-6 text-center group hover:bg-paper-border/5 transition-colors cursor-pointer text-inherit"
                         onClick={() => setSplitSide(prev => prev === 'moderates' ? 'extremists' : 'moderates')}>
                         <div className="flex items-center justify-center gap-3 mb-4">
-                            <Zap className="w-8 h-8 text-yellow-600 fill-yellow-500 animate-pulse" />
-                            <h3 className="stencil-font text-3xl uppercase text-slate-800">{t.splitTitle}</h3>
-                            <Zap className="w-8 h-8 text-yellow-600 fill-yellow-500 animate-pulse" />
+                            <Zap className="w-8 h-8 text-paper-orange fill-paper-orange/50 animate-pulse" />
+                            <h3 className="stencil-font text-3xl uppercase text-paper-gray">{t.splitTitle}</h3>
+                            <Zap className="w-8 h-8 text-paper-orange fill-paper-orange/50 animate-pulse" />
                         </div>
-                        <p className="text-xs text-slate-500 mb-6 bg-white inline-block px-2 py-1 rounded">{t.splitTap}</p>
+                        <p className="text-xs text-paper-gray/40 mb-6 bg-paper inline-block px-2 py-1 rounded">{t.splitTap}</p>
 
                         <div className="grid grid-cols-2 gap-4 text-left">
                             <motion.div
-                                className={`p-4 bg-white border-l-4 border-blue-800 shadow-sm ${splitSide === 'extremists' ? 'opacity-50' : 'opacity-100'}`}
+                                className={`p-4 bg-paper border-l-4 border-paper-navy shadow-sm ${splitSide === 'extremists' ? 'opacity-50' : 'opacity-100'}`}
                                 animate={{ scale: splitSide === 'moderates' ? 1.05 : 1 }}
                             >
-                                <strong className="text-blue-800 block mb-2">{t.moderatesTitle}</strong>
+                                <strong className="text-paper-navy block mb-2">{t.moderatesTitle}</strong>
                                 <ul className="text-xs space-y-1">
                                     {t.moderatesItems.map((item, i) => (
                                         <li key={i}><strong>{item.bold}</strong>{item.text}</li>
@@ -231,10 +231,10 @@ export default function HandwrittenChapter10() {
                             </motion.div>
 
                             <motion.div
-                                className={`p-4 bg-white border-l-4 border-red-800 shadow-sm ${splitSide === 'moderates' ? 'opacity-50' : 'opacity-100'}`}
+                                className={`p-4 bg-paper border-l-4 border-paper-red shadow-sm ${splitSide === 'moderates' ? 'opacity-50' : 'opacity-100'}`}
                                 animate={{ scale: splitSide === 'extremists' ? 1.05 : 1 }}
                             >
-                                <strong className="text-red-800 block mb-2">{t.extremistsTitle}</strong>
+                                <strong className="text-paper-red block mb-2">{t.extremistsTitle}</strong>
                                 <ul className="text-xs space-y-1">
                                     {t.extremistsItems.map((item, i) => (
                                         <li key={i}><strong>{item.bold}</strong>{item.text}</li>
@@ -243,7 +243,7 @@ export default function HandwrittenChapter10() {
                             </motion.div>
                         </div>
 
-                        <div className="mt-6 bg-black text-white p-2 text-xs font-bold uppercase tracking-widest">
+                        <div className="mt-6 bg-neutral-900 dark:bg-black text-white p-2 text-xs font-bold uppercase tracking-widest border border-white/10">
                             {t.splitResult}
                         </div>
                     </div>
@@ -254,35 +254,35 @@ export default function HandwrittenChapter10() {
                 <div className="lg:col-span-3 space-y-8">
 
                     {/* POLITICAL SHIFTS */}
-                    <div className="torn-paper bg-yellow-50 p-6">
-                        <h3 className="header-font text-2xl font-bold mb-4">{t.politicalTitle}</h3>
+                    <div className="torn-paper bg-paper-orange/10 p-6 text-inherit">
+                        <h3 className="header-font text-2xl font-bold mb-4 text-paper-orange">{t.politicalTitle}</h3>
 
-                        <div className="mb-4 border-b border-yellow-300 pb-3">
+                        <div className="mb-4 border-b border-paper-orange/20 pb-3">
                             <div className="flex items-center gap-2 mb-1">
-                                <Flag className="w-4 h-4 text-blue-800" />
-                                <h4 className="font-bold text-sm">{t.calcuttaTitle}</h4>
+                                <Flag className="w-4 h-4 text-paper-navy" />
+                                <h4 className="font-bold text-sm text-paper-navy">{t.calcuttaTitle}</h4>
                             </div>
-                            <p className="text-xs text-slate-700">{t.calcuttaText}</p>
+                            <p className="text-xs opacity-70">{t.calcuttaText}</p>
                         </div>
 
                         <div>
                             <div className="flex items-center gap-2 mb-1">
-                                <ShieldAlert className="w-4 h-4 text-green-800" />
-                                <h4 className="font-bold text-sm text-green-800">{t.leagueTitle}</h4>
+                                <ShieldAlert className="w-4 h-4 text-paper-green" />
+                                <h4 className="font-bold text-sm text-paper-green">{t.leagueTitle}</h4>
                             </div>
-                            <p className="text-xs text-slate-700">{t.leagueText}</p>
-                            <p className="text-[10px] italic mt-1 text-slate-500">{t.leagueGoal}</p>
+                            <p className="text-xs opacity-70">{t.leagueText}</p>
+                            <p className="text-[10px] italic mt-1 opacity-50">{t.leagueGoal}</p>
                         </div>
                     </div>
 
                     {/* NUANCE & EXCEPTIONS */}
-                    <div className="torn-paper bg-white border border-slate-200 p-6">
-                        <h3 className="header-font text-xl font-bold mb-3 text-slate-700">{t.nuanceTitle}</h3>
-                        <p className="text-xs mb-3 text-slate-600">
+                    <div className="torn-paper bg-paper border border-paper-border/10 p-6 text-inherit">
+                        <h3 className="header-font text-xl font-bold mb-3 text-paper-gray opacity-60">{t.nuanceTitle}</h3>
+                        <p className="text-xs mb-3">
                             <strong>{t.gapText}</strong>
                         </p>
-                        <div className="bg-green-50 p-3 border border-green-200 text-xs rounded">
-                            <strong className="block mb-1 text-green-900">{t.exceptionsTitle}</strong>
+                        <div className="bg-paper-green/10 p-3 border border-paper-green/20 text-xs rounded text-inherit">
+                            <strong className="block mb-1 text-paper-green">{t.exceptionsTitle}</strong>
                             <ul className="list-disc ml-4 space-y-1">
                                 {t.exceptions.map((item, i) => (
                                     <li key={i}><strong>{item.bold}</strong>{item.text}</li>
@@ -292,28 +292,28 @@ export default function HandwrittenChapter10() {
                     </div>
 
                     {/* IRON HAND & TERRORISM */}
-                    <div className="torn-paper bg-slate-900 text-slate-100 p-6">
-                        <h3 className="header-font text-2xl font-bold mb-4 text-red-500">{t.ironTitle}</h3>
+                    <div className="torn-paper bg-neutral-900 dark:bg-black text-slate-100 p-6 border border-white/10">
+                        <h3 className="header-font text-2xl font-bold mb-4 text-paper-red">{t.ironTitle}</h3>
                         <ul className="text-xs list-disc ml-4 space-y-2 mb-6 text-slate-300">
                             {t.ironItems.map((item, i) => (
                                 <li key={i}><strong>{item}</strong></li>
                             ))}
                         </ul>
 
-                        <div className="border-t border-slate-700 pt-4">
-                            <h4 className="stencil-font text-lg mb-2 text-yellow-500">{t.terrorTitle}</h4>
-                            <p className="text-xs italic mb-2">{t.terrorQuote}</p>
-                            <div className="text-xs font-mono bg-slate-800 p-2 rounded text-green-400">
+                        <div className="border-t border-white/10 pt-4 text-inherit">
+                            <h4 className="stencil-font text-lg mb-2 text-paper-orange">{t.terrorTitle}</h4>
+                            <p className="text-xs italic mb-2 opacity-70">{t.terrorQuote}</p>
+                            <div className="text-xs font-mono bg-card/5 p-2 rounded text-paper-green">
                                 {t.terrorJournals}
                             </div>
                         </div>
                     </div>
 
                     {/* FOLK REVIVAL */}
-                    <div className="torn-paper bg-pink-50 p-4 text-center">
-                        <BookOpen className="w-8 h-8 text-pink-600 mx-auto mb-2" />
-                        <p className="text-xs font-bold text-pink-900">{t.folkTitle}</p>
-                        <p className="text-[10px] text-pink-700">{t.folkText}</p>
+                    <div className="torn-paper bg-paper-purple/10 p-4 text-center text-inherit">
+                        <BookOpen className="w-8 h-8 text-paper-purple mx-auto mb-2" />
+                        <p className="text-xs font-bold text-paper-purple">{t.folkTitle}</p>
+                        <p className="text-[10px] opacity-70">{t.folkText}</p>
                     </div>
 
                 </div>

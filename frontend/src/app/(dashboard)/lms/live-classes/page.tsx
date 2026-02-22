@@ -20,7 +20,7 @@ export default function LiveClassesPage() {
       label: "Platform",
       render: (value: string) => (
         <div className="flex items-center gap-2">
-          <Video className="h-3 w-3 text-gray-500" />
+          <Video className="h-3 w-3 text-muted-foreground" />
           {value}
         </div>
       )
@@ -31,7 +31,7 @@ export default function LiveClassesPage() {
       render: (value: string) => (
         <Badge variant="outline" className={
           value === "upcoming" ? "border-green-500/50 text-green-500 bg-green-500/10" :
-            "border-gray-500/50 text-gray-500 bg-gray-500/10"
+            "border-gray-500/50 text-muted-foreground bg-muted-foreground/10"
         }>
           {value.charAt(0).toUpperCase() + value.slice(1)}
         </Badge>

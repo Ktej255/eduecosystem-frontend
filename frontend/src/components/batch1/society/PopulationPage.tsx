@@ -8,7 +8,7 @@ import DemographyViz from './visualizations/DemographyViz';
 
 export default function PopulationPage() {
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-black p-4 md:p-8 text-slate-900 dark:text-slate-100">
+        <div className="min-h-screen bg-muted dark:bg-black p-4 md:p-8 text-foreground">
             <div className="max-w-7xl mx-auto space-y-8">
                 <div className="flex items-center gap-4">
                     <Link href="/student/batch1/society">
@@ -21,7 +21,7 @@ export default function PopulationPage() {
                             <Users className="h-6 w-6 text-pink-600" />
                             Population & Associated Issues
                         </h1>
-                        <p className="text-sm text-slate-500">Demographic trends, dividend, and control measures.</p>
+                        <p className="text-sm text-muted-foreground">Demographic trends, dividend, and control measures.</p>
                     </div>
                 </div>
 

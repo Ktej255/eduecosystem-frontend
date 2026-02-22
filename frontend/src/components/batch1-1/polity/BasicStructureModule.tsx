@@ -67,7 +67,7 @@ const ConflictCard = ({ title, year, children, icon: Icon, winner }: { title: st
 };
 
 const PillarItem = ({ title, pyq }: { title: string, pyq?: boolean }) => (
-    <div className="bg-white/10 border border-blue-300/30 p-4 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-all flex items-center justify-between group">
+    <div className="bg-card/10 border border-blue-300/30 p-4 rounded-lg backdrop-blur-sm hover:bg-card/20 transition-all flex items-center justify-between group">
         <span className="font-serif text-blue-50 font-semibold">{title}</span>
         {pyq && <Badge variant="destructive" className="text-[10px] h-5 bg-red-600 hover:bg-red-700">PYQ</Badge>}
     </div>

@@ -80,36 +80,36 @@ export default function StudentSettingsPage() {
     if (!mounted) return null;
 
     return (
-        <div className="min-h-screen p-6 bg-gray-50 dark:bg-gray-950">
+        <div className="min-h-screen p-6 bg-muted">
             <div className="max-w-4xl mx-auto space-y-6">
                 {/* Header */}
                 <div className="mb-8">
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Settings</h1>
-                    <p className="text-gray-600 dark:text-gray-400 mt-2">
+                    <h1 className="text-3xl font-bold text-foreground">Settings</h1>
+                    <p className="text-muted-foreground dark:text-muted-foreground mt-2">
                         Manage your account preferences and settings
                     </p>
                 </div>
 
                 {/* Account Section */}
-                <Card className="p-6 bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                <Card className="p-6 bg-card border-border">
                     <div className="flex items-center gap-3 mb-6">
                         <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-900/30">
                             <User className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                         </div>
-                        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Account</h2>
+                        <h2 className="text-xl font-semibold text-foreground">Account</h2>
                     </div>
 
                     <div className="space-y-4">
-                        <div className="flex items-center justify-between p-4 rounded-lg bg-gray-50 dark:bg-gray-800/50">
+                        <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50">
                             <div>
-                                <p className="font-medium text-gray-900 dark:text-white">Email</p>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">{user?.email || "Not set"}</p>
+                                <p className="font-medium text-foreground">Email</p>
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">{user?.email || "Not set"}</p>
                             </div>
                         </div>
-                        <div className="flex items-center justify-between p-4 rounded-lg bg-gray-50 dark:bg-gray-800/50">
+                        <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50">
                             <div>
-                                <p className="font-medium text-gray-900 dark:text-white">Name</p>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">{user?.full_name || "Not set"}</p>
+                                <p className="font-medium text-foreground">Name</p>
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">{user?.full_name || "Not set"}</p>
                             </div>
                             <Link href="/student/profile">
                                 <Button variant="outline" size="sm">
@@ -121,7 +121,7 @@ export default function StudentSettingsPage() {
                 </Card>
 
                 {/* Appearance Section */}
-                <Card className="p-6 bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                <Card className="p-6 bg-card border-border">
                     <div className="flex items-center gap-3 mb-6">
                         <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-900/30">
                             {theme === 'dark' ? (
@@ -130,13 +130,13 @@ export default function StudentSettingsPage() {
                                 <Sun className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                             )}
                         </div>
-                        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Appearance</h2>
+                        <h2 className="text-xl font-semibold text-foreground">Appearance</h2>
                     </div>
 
-                    <div className="flex items-center justify-between p-4 rounded-lg bg-gray-50 dark:bg-gray-800/50">
+                    <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50">
                         <div>
-                            <p className="font-medium text-gray-900 dark:text-white">Dark Mode</p>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                            <p className="font-medium text-foreground">Dark Mode</p>
+                            <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                                 Toggle between light and dark themes
                             </p>
                         </div>
@@ -148,19 +148,19 @@ export default function StudentSettingsPage() {
                 </Card>
 
                 {/* Notifications Section */}
-                <Card className="p-6 bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                <Card className="p-6 bg-card border-border">
                     <div className="flex items-center gap-3 mb-6">
                         <div className="p-2 rounded-lg bg-orange-100 dark:bg-orange-900/30">
                             <Bell className="h-5 w-5 text-orange-600 dark:text-orange-400" />
                         </div>
-                        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Notifications</h2>
+                        <h2 className="text-xl font-semibold text-foreground">Notifications</h2>
                     </div>
 
                     <div className="space-y-4">
-                        <div className="flex items-center justify-between p-4 rounded-lg bg-gray-50 dark:bg-gray-800/50">
+                        <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50">
                             <div>
-                                <p className="font-medium text-gray-900 dark:text-white">Email Notifications</p>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">
+                                <p className="font-medium text-foreground">Email Notifications</p>
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                                     Receive updates via email
                                 </p>
                             </div>
@@ -171,10 +171,10 @@ export default function StudentSettingsPage() {
                                 }
                             />
                         </div>
-                        <div className="flex items-center justify-between p-4 rounded-lg bg-gray-50 dark:bg-gray-800/50">
+                        <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50">
                             <div>
-                                <p className="font-medium text-gray-900 dark:text-white">Daily Reminder</p>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">
+                                <p className="font-medium text-foreground">Daily Reminder</p>
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                                     Get reminded to complete daily activities
                                 </p>
                             </div>
@@ -185,10 +185,10 @@ export default function StudentSettingsPage() {
                                 }
                             />
                         </div>
-                        <div className="flex items-center justify-between p-4 rounded-lg bg-gray-50 dark:bg-gray-800/50">
+                        <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50">
                             <div>
-                                <p className="font-medium text-gray-900 dark:text-white">Streak Alerts</p>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">
+                                <p className="font-medium text-foreground">Streak Alerts</p>
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                                     Get notified before losing your streak
                                 </p>
                             </div>
@@ -211,17 +211,17 @@ export default function StudentSettingsPage() {
                 </Card>
 
                 {/* Security Section */}
-                <Card className="p-6 bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                <Card className="p-6 bg-card border-border">
                     <div className="flex items-center gap-3 mb-6">
                         <div className="p-2 rounded-lg bg-green-100 dark:bg-green-900/30">
                             <Lock className="h-5 w-5 text-green-600 dark:text-green-400" />
                         </div>
-                        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Security</h2>
+                        <h2 className="text-xl font-semibold text-foreground">Security</h2>
                     </div>
 
                     <form onSubmit={handleChangePassword} className="space-y-4">
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-medium text-muted-foreground dark:text-muted-foreground mb-2">
                                 Current Password
                             </label>
                             <div className="relative">
@@ -229,20 +229,20 @@ export default function StudentSettingsPage() {
                                     type={showCurrentPassword ? "text" : "password"}
                                     value={currentPassword}
                                     onChange={(e) => setCurrentPassword(e.target.value)}
-                                    className="pr-10 bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+                                    className="pr-10 bg-muted border-border"
                                     placeholder="Enter current password"
                                 />
                                 <button
                                     type="button"
                                     onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-muted-foreground"
                                 >
                                     {showCurrentPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                                 </button>
                             </div>
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-medium text-muted-foreground dark:text-muted-foreground mb-2">
                                 New Password
                             </label>
                             <div className="relative">
@@ -250,27 +250,27 @@ export default function StudentSettingsPage() {
                                     type={showNewPassword ? "text" : "password"}
                                     value={newPassword}
                                     onChange={(e) => setNewPassword(e.target.value)}
-                                    className="pr-10 bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+                                    className="pr-10 bg-muted border-border"
                                     placeholder="Enter new password"
                                 />
                                 <button
                                     type="button"
                                     onClick={() => setShowNewPassword(!showNewPassword)}
-                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-muted-foreground"
                                 >
                                     {showNewPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                                 </button>
                             </div>
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-medium text-muted-foreground dark:text-muted-foreground mb-2">
                                 Confirm New Password
                             </label>
                             <Input
                                 type="password"
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
-                                className="bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+                                className="bg-muted border-border"
                                 placeholder="Confirm new password"
                             />
                         </div>
@@ -285,7 +285,7 @@ export default function StudentSettingsPage() {
                         </Button>
                     </form>
 
-                    <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                    <div className="mt-6 pt-6 border-t border-border">
                         <Link href="/settings/2fa-setup">
                             <Button variant="outline" className="w-full justify-between">
                                 <span className="flex items-center gap-2">

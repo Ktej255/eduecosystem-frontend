@@ -105,7 +105,7 @@ export default function VoiceSearch({ onResult, onClose }: VoiceSearchProps) {
             <Button
                 variant="ghost"
                 size="icon"
-                className="absolute top-4 right-4 text-gray-400 hover:text-white"
+                className="absolute top-4 right-4 text-muted-foreground hover:text-white"
                 onClick={onClose}
             >
                 <X className="h-6 w-6" />
@@ -154,7 +154,7 @@ export default function VoiceSearch({ onResult, onClose }: VoiceSearchProps) {
                 {error ? (
                     <p className="text-red-400 text-sm">{error}</p>
                 ) : (
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-muted-foreground text-sm">
                         {isListening
                             ? "Say a name to search for a lead"
                             : "Preparing voice recognition..."}

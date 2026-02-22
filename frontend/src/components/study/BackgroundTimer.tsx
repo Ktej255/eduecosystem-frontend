@@ -161,12 +161,12 @@ export default function BackgroundTimer({
     if (!state?.isRunning) {
         return (
             <Card className={cn(
-                "border-dashed border-2 border-gray-300 dark:border-gray-700",
+                "border-dashed border-2 border-border",
                 className
             )}>
                 <CardContent className="p-6 text-center">
-                    <Clock className="w-12 h-12 mx-auto mb-4 text-gray-400" />
-                    <p className="text-gray-500 dark:text-gray-400">
+                    <Clock className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
+                    <p className="text-muted-foreground dark:text-muted-foreground">
                         No timer running
                     </p>
                     <Button
@@ -232,7 +232,7 @@ export default function BackgroundTimer({
                 {/* Header */}
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                        <div className={cn("p-2 rounded-full bg-white/10", sessionConfig?.color)}>
+                        <div className={cn("p-2 rounded-full bg-card/10", sessionConfig?.color)}>
                             {sessionConfig?.icon}
                         </div>
                         <div>
@@ -240,13 +240,13 @@ export default function BackgroundTimer({
                                 {sessionConfig?.label}
                             </p>
                             {state.topicName && (
-                                <p className="text-sm text-gray-600 dark:text-gray-300">
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                                     Topic: {state.topicName}
                                 </p>
                             )}
                         </div>
                     </div>
-                    <div className="text-right text-sm text-gray-500">
+                    <div className="text-right text-sm text-muted-foreground">
                         <p>Phase {state.phaseNumber}</p>
                         <p>Cycle {state.cycleNumber}</p>
                     </div>
@@ -271,9 +271,9 @@ export default function BackgroundTimer({
                 <div className="space-y-2">
                     <Progress
                         value={progress}
-                        className="h-3 bg-white/20"
+                        className="h-3 bg-card/20"
                     />
-                    <div className="flex justify-between text-xs text-gray-500">
+                    <div className="flex justify-between text-xs text-muted-foreground">
                         <span>Elapsed: {formatTime(elapsed)}</span>
                         <span>Total: {formatTime(state.duration)}</span>
                     </div>
@@ -316,7 +316,7 @@ export default function BackgroundTimer({
                         variant="ghost"
                         size="sm"
                         onClick={handlePreviewSound}
-                        className="text-gray-500"
+                        className="text-muted-foreground"
                     >
                         <Volume2 className="w-4 h-4 mr-2" />
                         Preview Alert Sound

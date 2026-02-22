@@ -17,7 +17,7 @@ interface RightsLiabilitiesModuleProps {
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="bg-[#f3f4f6] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-amber-100">
-        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white/50 rounded-3xl p-6 shadow-inner border-2 border-slate-200">
+        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-card/50 rounded-3xl p-6 shadow-inner border-2 border-border">
             {children}
         </div>
     </div>
@@ -28,7 +28,7 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
         <div className={`p-3 rounded-full ${color} text-white shadow-lg`}>
             <Icon size={24} />
         </div>
-        <h2 className={`text-2xl font-black uppercase tracking-tight text-slate-800`}>
+        <h2 className={`text-2xl font-black uppercase tracking-tight text-foreground`}>
             {title}
         </h2>
         <div className={`h-[2px] flex-1 bg-slate-800 opacity-20`}></div>
@@ -36,11 +36,11 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
 );
 
 const HandwrittenCard = ({ title, children, color = "border-slate-800", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
-        <h3 className={`text-xl font-black mb-4 flex items-center gap-2 text-slate-900`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+        <h3 className={`text-xl font-black mb-4 flex items-center gap-2 text-foreground`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-700 relative z-10 font-medium">
+        <div className="space-y-4 text-muted-foreground relative z-10 font-medium">
             {children}
         </div>
     </div>
@@ -54,8 +54,8 @@ export default function RightsLiabilitiesModule({ onComplete, isCompleted, chapt
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <div className="flex items-center gap-3 mb-4">
-                            <Badge className="bg-[#ca8a04] text-slate-900 px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
-                            <span className="text-slate-400 font-bold uppercase tracking-widest text-sm">Part XI: Working of the Constitution</span>
+                            <Badge className="bg-[#ca8a04] text-foreground px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
+                            <span className="text-muted-foreground font-bold uppercase tracking-widest text-sm">Part XI: Working of the Constitution</span>
                         </div>
                         <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
                             Rights & Liabilities <br />
@@ -77,7 +77,7 @@ export default function RightsLiabilitiesModule({ onComplete, isCompleted, chapt
             <div className="grid md:grid-cols-2 gap-8">
                 <HandwrittenCard title="Succession (Art 294-295)" color="border-[#ca8a04]">
                     <div className="flex items-center gap-4 mb-4">
-                        <Crown className="text-slate-400" size={32} />
+                        <Crown className="text-muted-foreground" size={32} />
                         <span className="text-2xl font-bold">→</span>
                         <div className="w-10 h-10 rounded-full bg-[#ca8a04] flex items-center justify-center text-white font-bold">
                             <Landmark size={20} />
@@ -86,8 +86,8 @@ export default function RightsLiabilitiesModule({ onComplete, isCompleted, chapt
                     <p className="text-sm font-bold">
                         All property, assets, rights, and liabilities users of the <span className="text-[#ca8a04]">Dominion of India (British)</span> devolved to the Union or the States.
                     </p>
-                    <div className="mt-4 p-3 bg-slate-50 border border-slate-200 rounded-xl">
-                        <h4 className="font-black text-slate-800 text-sm mb-2">High Yield Concepts:</h4>
+                    <div className="mt-4 p-3 bg-muted border border-border rounded-xl">
+                        <h4 className="font-black text-foreground text-sm mb-2">High Yield Concepts:</h4>
                         <ul className="text-xs space-y-2">
                             <li className="flex gap-2 items-start">
                                 <span className="bg-[#ca8a04] text-white px-1 rounded text-[10px]">Art 296</span>
@@ -120,7 +120,7 @@ export default function RightsLiabilitiesModule({ onComplete, isCompleted, chapt
             {/* PHASE 2: CONTRACTS */}
             <SectionHeader title="Phase 2: Contracts (Art 299)" icon={PenTool} color="bg-[#1e40af]" />
 
-            <div className="bg-white border-2 border-[#1e40af] rounded-2xl p-8 relative shadow-lg">
+            <div className="bg-card border-2 border-[#1e40af] rounded-2xl p-8 relative shadow-lg">
                 <div className="absolute -top-4 left-8 bg-[#1e40af] text-white px-4 py-1 rounded shadow text-sm font-bold">CRITICAL ART 299</div>
 
                 <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -139,10 +139,10 @@ export default function RightsLiabilitiesModule({ onComplete, isCompleted, chapt
                         </div>
                     </div>
 
-                    <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 text-center">
-                        <Shield size={48} className="mx-auto text-slate-400 mb-2" />
-                        <h4 className="font-black text-lg text-slate-800">Personal Immunity</h4>
-                        <p className="text-xs text-slate-500 font-bold italic mt-2">
+                    <div className="bg-muted p-6 rounded-xl border border-border text-center">
+                        <Shield size={48} className="mx-auto text-muted-foreground mb-2" />
+                        <h4 className="font-black text-lg text-foreground">Personal Immunity</h4>
+                        <p className="text-xs text-muted-foreground font-bold italic mt-2">
                             Neither President nor Governor is personally liable.
                         </p>
                         <div className="mt-4 bg-red-50 text-red-700 text-xs p-2 rounded font-bold border border-red-200">
@@ -158,9 +158,9 @@ export default function RightsLiabilitiesModule({ onComplete, isCompleted, chapt
             <div className="grid md:grid-cols-2 gap-8">
                 <HandwrittenCard title="Can you sue the Govt?" color="border-[#b91c1c]">
                     <div className="space-y-4">
-                        <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
-                            <span className="text-xs font-bold uppercase text-slate-400">Legal Name</span>
-                            <p className="font-bold text-slate-800">Union of India / State of XYZ</p>
+                        <div className="bg-muted p-3 rounded-lg border border-border">
+                            <span className="text-xs font-bold uppercase text-muted-foreground">Legal Name</span>
+                            <p className="font-bold text-foreground">Union of India / State of XYZ</p>
                         </div>
 
                         <div className="grid grid-cols-2 gap-2">
@@ -181,17 +181,17 @@ export default function RightsLiabilitiesModule({ onComplete, isCompleted, chapt
                         <Scale size={24} /> Vicarious Liability
                     </h3>
                     <div className="space-y-4">
-                        <div className="flex justify-between items-center bg-white p-3 rounded shadow-sm">
+                        <div className="flex justify-between items-center bg-card p-3 rounded shadow-sm">
                             <span className="font-bold text-sm">Sovereign Functions</span>
                             <span className="text-xs font-bold bg-green-100 text-green-800 px-2 py-1 rounded">NO Liability</span>
                         </div>
-                        <p className="text-xs text-right text-slate-500 italic pr-2">e.g. Defense, War (Kasturi Lal)</p>
+                        <p className="text-xs text-right text-muted-foreground italic pr-2">e.g. Defense, War (Kasturi Lal)</p>
 
-                        <div className="flex justify-between items-center bg-white p-3 rounded shadow-sm">
+                        <div className="flex justify-between items-center bg-card p-3 rounded shadow-sm">
                             <span className="font-bold text-sm">Non-Sovereign</span>
                             <span className="text-xs font-bold bg-red-100 text-red-800 px-2 py-1 rounded">GOVT IS LIABLE</span>
                         </div>
-                        <p className="text-xs text-right text-slate-500 italic pr-2">e.g. Transport, Trade (Vidhyawati)</p>
+                        <p className="text-xs text-right text-muted-foreground italic pr-2">e.g. Transport, Trade (Vidhyawati)</p>
                     </div>
                 </div>
             </div>

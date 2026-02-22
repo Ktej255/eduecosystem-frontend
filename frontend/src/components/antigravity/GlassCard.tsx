@@ -107,7 +107,7 @@ export function GlassCard({ task, onStartFocus, onComplete, isActive }: GlassCar
     const getCardStyle = () => {
         if (task.is_locked) return "opacity-40 pointer-events-none grayscale blur-[1px]";
         if (isActive) return "border-blue-500/50 shadow-[0_0_50px_rgba(59,130,246,0.15)] bg-blue-500/[0.03]";
-        return "border-white/10 hover:border-blue-400/30 hover:bg-white/[0.02]";
+        return "border-white/10 hover:border-blue-400/30 hover:bg-card/[0.02]";
     };
 
     const getBadgeStyle = () => {
@@ -169,8 +169,8 @@ export function GlassCard({ task, onStartFocus, onComplete, isActive }: GlassCar
 
             <div className="mb-8">
                 <div className="flex items-center gap-2 mb-2">
-                    <Clock size={14} className="text-gray-500" />
-                    <span className="text-gray-500 text-[10px] font-black tracking-widest uppercase">{localTask.time_label}</span>
+                    <Clock size={14} className="text-muted-foreground" />
+                    <span className="text-muted-foreground text-[10px] font-black tracking-widest uppercase">{localTask.time_label}</span>
                 </div>
                 <h3 className="text-2xl font-black text-white mb-1 group-hover:text-blue-400 transition-colors">{localTask.subject}</h3>
                 <div className="flex flex-wrap items-center gap-3">
@@ -196,7 +196,7 @@ export function GlassCard({ task, onStartFocus, onComplete, isActive }: GlassCar
                                 <Zap size={8} className={localTask.srs_stability > 20 ? "text-yellow-400" : "text-blue-400"} />
                                 <span className="text-[8px] font-black text-blue-300 uppercase tracking-tighter">{localTask.srs_stability.toFixed(1)}d</span>
                             </div>
-                            <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
+                            <div className="h-1 w-full bg-card/5 rounded-full overflow-hidden border border-white/5">
                                 <motion.div
                                     initial={{ width: 0 }}
                                     animate={{ width: `${Math.min(100, (localTask.srs_stability / 30) * 100)}%` }}
@@ -218,7 +218,7 @@ export function GlassCard({ task, onStartFocus, onComplete, isActive }: GlassCar
                 </div>
             </div>
 
-            <p className="text-gray-500 text-xs font-medium leading-relaxed mb-8 h-10 overflow-hidden line-clamp-2 italic">
+            <p className="text-muted-foreground text-xs font-medium leading-relaxed mb-8 h-10 overflow-hidden line-clamp-2 italic">
                 "{localTask.description}"
             </p>
 
@@ -236,7 +236,7 @@ export function GlassCard({ task, onStartFocus, onComplete, isActive }: GlassCar
                                 cx="28" cy="28" r="24"
                                 stroke="currentColor" strokeWidth="3"
                                 fill="transparent"
-                                className={`${timerRunning ? 'text-blue-400' : 'text-gray-600'} transition-all duration-1000 ease-linear`}
+                                className={`${timerRunning ? 'text-blue-400' : 'text-muted-foreground'} transition-all duration-1000 ease-linear`}
                                 strokeDasharray={2 * Math.PI * 24}
                                 strokeDashoffset={2 * Math.PI * 24 * (1 - progress / 100)}
                                 strokeLinecap="round"
@@ -248,13 +248,13 @@ export function GlassCard({ task, onStartFocus, onComplete, isActive }: GlassCar
                             />
                         </svg>
                         <div className="absolute flex flex-col items-center">
-                            <span className={`text-[10px] font-black ${timerRunning ? 'text-blue-400' : 'text-gray-500'}`}>
+                            <span className={`text-[10px] font-black ${timerRunning ? 'text-blue-400' : 'text-muted-foreground'}`}>
                                 {Math.floor(progress)}%
                             </span>
                         </div>
                     </div>
                     <div className="flex flex-col">
-                        <span className="text-[10px] font-black text-gray-600 uppercase tracking-tighter">Time Remaining</span>
+                        <span className="text-[10px] font-black text-muted-foreground uppercase tracking-tighter">Time Remaining</span>
                         <span className={`text-lg font-mono font-black ${timerRunning ? 'text-blue-400' : 'text-white'}`}>
                             {formatTime(timeLeft)}
                         </span>
@@ -293,7 +293,7 @@ export function GlassCard({ task, onStartFocus, onComplete, isActive }: GlassCar
                 ) : (
                     <div className="flex items-center gap-6">
                         {isActive && timerRunning && (
-                            <div className="flex gap-2 p-1.5 bg-white/5 rounded-2xl border border-white/10">
+                            <div className="flex gap-2 p-1.5 bg-card/5 rounded-2xl border border-white/10">
                                 {[
                                     { id: 'off', icon: <Volume2 size={12} />, label: "Silence" },
                                     { id: 'lofi', icon: <Music size={12} />, label: "Lofi Beats" },
@@ -304,7 +304,7 @@ export function GlassCard({ task, onStartFocus, onComplete, isActive }: GlassCar
                                         key={mode.id}
                                         onClick={() => setAmbience(mode.id as any)}
                                         title={mode.label}
-                                        className={`p-2 rounded-xl transition-all ${ambience === mode.id ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/30' : 'text-gray-500 hover:text-white hover:bg-white/5'}`}
+                                        className={`p-2 rounded-xl transition-all ${ambience === mode.id ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/30' : 'text-muted-foreground hover:text-white hover:bg-card/5'}`}
                                     >
                                         {mode.icon}
                                     </button>
@@ -318,7 +318,7 @@ export function GlassCard({ task, onStartFocus, onComplete, isActive }: GlassCar
                             }}
                             className={`p-4 rounded-3xl transition-all shadow-xl active:scale-90 ${timerRunning
                                 ? "bg-red-500/20 text-red-500 border border-red-500/50 shadow-red-500/10"
-                                : "bg-white text-black hover:shadow-white/20"
+                                : "bg-card text-black hover:shadow-white/20"
                                 }`}
                         >
                             {timerRunning ? <Pause size={24} fill="currentColor" /> : <Play size={24} fill="currentColor" />}
@@ -354,9 +354,9 @@ export function GlassCard({ task, onStartFocus, onComplete, isActive }: GlassCar
                                             { label: "Neural Recovery (Break)", time: "10 min", type: "break" },
                                             { label: "Assimilation (Pomodoro 2)", time: "Remaining", type: "focus" }
                                         ].map((step, idx) => (
-                                            <div key={idx} className="flex justify-between items-center bg-white/5 p-3 rounded-2xl border border-white/5">
-                                                <span className={`font-bold ${step.type === 'break' ? 'text-yellow-500/80' : 'text-gray-300'}`}>{step.label}</span>
-                                                <span className="text-[10px] font-black text-gray-500">{step.time}</span>
+                                            <div key={idx} className="flex justify-between items-center bg-card/5 p-3 rounded-2xl border border-white/5">
+                                                <span className={`font-bold ${step.type === 'break' ? 'text-yellow-500/80' : 'text-muted-foreground'}`}>{step.label}</span>
+                                                <span className="text-[10px] font-black text-muted-foreground">{step.time}</span>
                                             </div>
                                         ))}
                                     </div>

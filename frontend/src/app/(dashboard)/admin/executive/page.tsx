@@ -39,11 +39,11 @@ export default function ExecutiveDashboardPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
             <LayoutDashboard className="h-8 w-8 text-indigo-600" />
             Executive Dashboard
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-muted-foreground dark:text-muted-foreground mt-1">
             High-level overview of business performance
           </p>
         </div>
@@ -139,7 +139,7 @@ export default function ExecutiveDashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="h-64 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg flex items-center justify-center">
-              <div className="text-center text-gray-500">
+              <div className="text-center text-muted-foreground">
                 <BarChart3 className="h-12 w-12 mx-auto mb-2 opacity-50" />
                 <p>Revenue chart will be displayed here</p>
               </div>
@@ -156,7 +156,7 @@ export default function ExecutiveDashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="h-64 bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 rounded-lg flex items-center justify-center">
-              <div className="text-center text-gray-500">
+              <div className="text-center text-muted-foreground">
                 <PieChart className="h-12 w-12 mx-auto mb-2 opacity-50" />
                 <p>Distribution chart will be displayed here</p>
               </div>
@@ -174,7 +174,7 @@ export default function ExecutiveDashboardPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             {topCourses.map((course, idx) => (
-              <div key={idx} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <div key={idx} className="flex items-center justify-between p-3 bg-muted rounded-lg">
                 <div className="flex items-center gap-3">
                   <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold ${idx === 0 ? 'bg-yellow-500' : idx === 1 ? 'bg-gray-400' : 'bg-amber-700'
                     }`}>
@@ -182,7 +182,7 @@ export default function ExecutiveDashboardPage() {
                   </div>
                   <div>
                     <p className="font-medium">{course.name}</p>
-                    <p className="text-sm text-gray-500">{course.students} students</p>
+                    <p className="text-sm text-muted-foreground">{course.students} students</p>
                   </div>
                 </div>
                 <div className="text-right">
@@ -201,7 +201,7 @@ export default function ExecutiveDashboardPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             {recentActivity.map((activity, idx) => (
-              <div key={idx} className="flex items-start gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <div key={idx} className="flex items-start gap-3 p-3 bg-muted rounded-lg">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center ${activity.type === 'enrollment' ? 'bg-blue-100 text-blue-600' :
                     activity.type === 'completion' ? 'bg-green-100 text-green-600' :
                       'bg-yellow-100 text-yellow-600'
@@ -212,7 +212,7 @@ export default function ExecutiveDashboardPage() {
                 </div>
                 <div>
                   <p className="text-sm">{activity.message}</p>
-                  <p className="text-xs text-gray-500 mt-1">{activity.time}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{activity.time}</p>
                 </div>
               </div>
             ))}

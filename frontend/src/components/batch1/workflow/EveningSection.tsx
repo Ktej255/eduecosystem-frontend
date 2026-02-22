@@ -20,8 +20,8 @@ export default function EveningSection({ onBack }: { onBack: () => void }) {
             </Button>
 
             <div className="text-center space-y-4 mb-12">
-                <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Evening Revision</h1>
-                <p className="text-gray-600 dark:text-gray-400">Solidify your knowledge with active recall and practice.</p>
+                <h1 className="text-3xl font-bold text-foreground">Evening Revision</h1>
+                <p className="text-muted-foreground dark:text-muted-foreground">Solidify your knowledge with active recall and practice.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

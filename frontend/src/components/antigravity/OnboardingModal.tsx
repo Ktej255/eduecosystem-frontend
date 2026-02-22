@@ -40,14 +40,14 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
                                         <Sparkles className="text-yellow-400" size={16} />
                                         <span className="text-[10px] font-black tracking-[0.3em] text-blue-400 uppercase">Intelligence Briefing</span>
                                     </div>
-                                    <h2 className="text-3xl font-black text-white tracking-tighter">Welcome, Chitra <span className="italic text-gray-500">_</span></h2>
+                                    <h2 className="text-3xl font-black text-white tracking-tighter">Welcome, Chitra <span className="italic text-muted-foreground">_</span></h2>
                                 </div>
-                                <button onClick={onClose} className="p-2 rounded-full hover:bg-white/5 text-gray-500 hover:text-white transition-colors">
+                                <button onClick={onClose} className="p-2 rounded-full hover:bg-card/5 text-muted-foreground hover:text-white transition-colors">
                                     <X size={24} />
                                 </button>
                             </div>
 
-                            <div className="space-y-6 text-gray-400 text-sm font-medium leading-[1.6] mb-10">
+                            <div className="space-y-6 text-muted-foreground text-sm font-medium leading-[1.6] mb-10">
                                 <p>
                                     I've calibrated your roadmap to prevent information decay. While you attend live classes, I ensure your core subjects remain at <span className="text-white font-bold italic">Escape Velocity.</span>
                                 </p>
@@ -64,13 +64,13 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
                                             </div>
                                             <div>
                                                 <h4 className="text-white font-bold text-xs">{slot.title}</h4>
-                                                <span className="text-[10px] font-mono text-gray-600 uppercase tracking-widest">{slot.time}</span>
+                                                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest">{slot.time}</span>
                                             </div>
                                         </div>
                                     ))}
                                 </div>
 
-                                <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 italic text-center">
+                                <div className="p-4 rounded-2xl bg-card/[0.02] border border-white/5 italic text-center">
                                     <p className="text-xs">
                                         "Your only mission is to turn the <span className="text-red-500 font-black">RED</span> rings <span className="text-green-500 font-black text-sm">GREEN</span>."
                                     </p>
@@ -79,7 +79,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
 
                             <button
                                 onClick={onClose}
-                                className="group relative w-full py-5 rounded-[1.5rem] bg-white text-black font-black uppercase tracking-widest overflow-hidden transition-all active:scale-95"
+                                className="group relative w-full py-5 rounded-[1.5rem] bg-card text-black font-black uppercase tracking-widest overflow-hidden transition-all active:scale-95"
                             >
                                 <span className="relative z-10 flex items-center justify-center gap-2">
                                     Initiate Mission <Rocket size={20} />

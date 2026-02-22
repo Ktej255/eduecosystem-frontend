@@ -41,16 +41,16 @@ export default function TeacherUPSCResourcesPage() {
         <div className="p-8 max-w-7xl mx-auto space-y-8">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-3">
+                    <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
                         <FolderOpen className="w-8 h-8 text-orange-500" />
                         UPSC Resources
                     </h1>
-                    <p className="text-gray-500 mt-2">View status of PDFs, MCQs, and Flashcards for all chapters.</p>
+                    <p className="text-muted-foreground mt-2">View status of PDFs, MCQs, and Flashcards for all chapters.</p>
                 </div>
 
                 {/* Search */}
                 <div className="relative w-full md:w-64">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input
                         placeholder="Search chapters..."
                         value={searchQuery}
@@ -61,7 +61,7 @@ export default function TeacherUPSCResourcesPage() {
             </div>
 
             {/* Filters */}
-            <div className="bg-white dark:bg-[#111] p-4 rounded-lg border border-gray-200 dark:border-gray-800 flex flex-wrap gap-4 items-end">
+            <div className="bg-card dark:bg-[#111] p-4 rounded-lg border border-border flex flex-wrap gap-4 items-end">
                 <div className="space-y-2 min-w-[200px]">
                     <label className="text-sm font-medium">Subject</label>
                     <Select value={selectedSubject} onValueChange={(val) => {
@@ -101,7 +101,7 @@ export default function TeacherUPSCResourcesPage() {
 
                 <div className="flex-1 min-w-[200px]">
                     <div className="relative">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                         <Input
                             placeholder="Search chapters..."
                             value={searchQuery}
@@ -117,30 +117,30 @@ export default function TeacherUPSCResourcesPage() {
                 <CardHeader>
                     <CardTitle className="flex items-center justify-between">
                         <span>{activeBook?.title || "Select a Book"}</span>
-                        <span className="text-sm font-normal text-gray-500">{filteredChapters.length} Chapters Found</span>
+                        <span className="text-sm font-normal text-muted-foreground">{filteredChapters.length} Chapters Found</span>
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
                     {selectedBook ? (
-                        <div className="rounded-md border border-gray-200 dark:border-gray-800 overflow-hidden">
+                        <div className="rounded-md border border-border overflow-hidden">
                             <table className="w-full text-sm">
-                                <thead className="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+                                <thead className="bg-muted border-b border-border">
                                     <tr>
-                                        <th className="px-4 py-3 text-left font-medium text-gray-500">#</th>
-                                        <th className="px-4 py-3 text-left font-medium text-gray-500">Chapter Title</th>
-                                        <th className="px-4 py-3 text-center font-medium text-gray-500">PDF Notes</th>
-                                        <th className="px-4 py-3 text-center font-medium text-gray-500">MCQs</th>
-                                        <th className="px-4 py-3 text-center font-medium text-gray-500">Flashcards</th>
+                                        <th className="px-4 py-3 text-left font-medium text-muted-foreground">#</th>
+                                        <th className="px-4 py-3 text-left font-medium text-muted-foreground">Chapter Title</th>
+                                        <th className="px-4 py-3 text-center font-medium text-muted-foreground">PDF Notes</th>
+                                        <th className="px-4 py-3 text-center font-medium text-muted-foreground">MCQs</th>
+                                        <th className="px-4 py-3 text-center font-medium text-muted-foreground">Flashcards</th>
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
+                                <tbody className="divide-y divide-border dark:divide-gray-800">
                                     {filteredChapters.length > 0 ? (
                                         filteredChapters.map((chapter) => {
                                             const status = getResourceStatus(chapter);
                                             return (
-                                                <tr key={chapter.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/50">
-                                                    <td className="px-4 py-3 font-medium text-gray-500">{chapter.id}</td>
-                                                    <td className="px-4 py-3 font-medium text-gray-900 dark:text-gray-100">{chapter.title}</td>
+                                                <tr key={chapter.id} className="hover:bg-muted dark:hover:bg-gray-800/50">
+                                                    <td className="px-4 py-3 font-medium text-muted-foreground">{chapter.id}</td>
+                                                    <td className="px-4 py-3 font-medium text-foreground">{chapter.title}</td>
                                                     <td className="px-4 py-3">
                                                         <div className="flex justify-center">
                                                             {status.pdf ? (
@@ -148,7 +148,7 @@ export default function TeacherUPSCResourcesPage() {
                                                                     <CheckCircle className="w-3 h-3 mr-1" /> Active
                                                                 </span>
                                                             ) : (
-                                                                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-500">
+                                                                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground">
                                                                     Pending
                                                                 </span>
                                                             )}
@@ -161,7 +161,7 @@ export default function TeacherUPSCResourcesPage() {
                                                                     <BrainCircuit className="w-3 h-3 mr-1" /> Ready
                                                                 </span>
                                                             ) : (
-                                                                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-500">
+                                                                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground">
                                                                     Pending
                                                                 </span>
                                                             )}
@@ -174,7 +174,7 @@ export default function TeacherUPSCResourcesPage() {
                                                                     <CheckCircle className="w-3 h-3 mr-1" /> Ready
                                                                 </span>
                                                             ) : (
-                                                                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-500">
+                                                                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground">
                                                                     Pending
                                                                 </span>
                                                             )}
@@ -185,7 +185,7 @@ export default function TeacherUPSCResourcesPage() {
                                         })
                                     ) : (
                                         <tr>
-                                            <td colSpan={5} className="px-4 py-8 text-center text-gray-500">
+                                            <td colSpan={5} className="px-4 py-8 text-center text-muted-foreground">
                                                 No chapters found matching "{searchQuery}"
                                             </td>
                                         </tr>
@@ -194,7 +194,7 @@ export default function TeacherUPSCResourcesPage() {
                             </table>
                         </div>
                     ) : (
-                        <div className="text-center py-12 text-gray-500">
+                        <div className="text-center py-12 text-muted-foreground">
                             <BookOpen className="w-12 h-12 mx-auto mb-3 opacity-20" />
                             <p>Please select a subject and book to view resources.</p>
                         </div>

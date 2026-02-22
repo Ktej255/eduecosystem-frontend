@@ -50,9 +50,9 @@ export default function ReportsPage() {
             >
                 <div className="flex items-center gap-3 mb-2">
                     <BarChart3 className="w-8 h-8 text-indigo-600" />
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Progress Reports</h1>
+                    <h1 className="text-3xl font-bold text-foreground">Progress Reports</h1>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-muted-foreground dark:text-muted-foreground">
                     Track your UPSC preparation journey with detailed analytics.
                 </p>
             </motion.div>
@@ -63,44 +63,44 @@ export default function ReportsPage() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.1 }}
-                    className="bg-white dark:bg-[#111] p-5 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm"
+                    className="bg-card dark:bg-[#111] p-5 rounded-2xl border border-border shadow-sm"
                 >
                     <Clock className="w-5 h-5 text-blue-500 mb-2" />
-                    <p className="text-2xl font-bold text-gray-900 dark:text-white">31.1 hrs</p>
-                    <p className="text-xs text-gray-500">This Week</p>
+                    <p className="text-2xl font-bold text-foreground">31.1 hrs</p>
+                    <p className="text-xs text-muted-foreground">This Week</p>
                 </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.2 }}
-                    className="bg-white dark:bg-[#111] p-5 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm"
+                    className="bg-card dark:bg-[#111] p-5 rounded-2xl border border-border shadow-sm"
                 >
                     <Target className="w-5 h-5 text-emerald-500 mb-2" />
-                    <p className="text-2xl font-bold text-gray-900 dark:text-white">156</p>
-                    <p className="text-xs text-gray-500">MCQs Solved</p>
+                    <p className="text-2xl font-bold text-foreground">156</p>
+                    <p className="text-xs text-muted-foreground">MCQs Solved</p>
                 </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3 }}
-                    className="bg-white dark:bg-[#111] p-5 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm"
+                    className="bg-card dark:bg-[#111] p-5 rounded-2xl border border-border shadow-sm"
                 >
                     <Flame className="w-5 h-5 text-orange-500 mb-2" />
-                    <p className="text-2xl font-bold text-gray-900 dark:text-white">{streak}</p>
-                    <p className="text-xs text-gray-500">Day Streak</p>
+                    <p className="text-2xl font-bold text-foreground">{streak}</p>
+                    <p className="text-xs text-muted-foreground">Day Streak</p>
                 </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.4 }}
-                    className="bg-white dark:bg-[#111] p-5 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm"
+                    className="bg-card dark:bg-[#111] p-5 rounded-2xl border border-border shadow-sm"
                 >
                     <Star className="w-5 h-5 text-yellow-500 mb-2" />
-                    <p className="text-2xl font-bold text-gray-900 dark:text-white">{xp.toLocaleString()}</p>
-                    <p className="text-xs text-gray-500">Total XP</p>
+                    <p className="text-2xl font-bold text-foreground">{xp.toLocaleString()}</p>
+                    <p className="text-xs text-muted-foreground">Total XP</p>
                 </motion.div>
             </div>
 
@@ -111,10 +111,10 @@ export default function ReportsPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="lg:col-span-2 bg-white dark:bg-[#111] p-6 rounded-2xl border border-gray-200 dark:border-gray-800"
+                    className="lg:col-span-2 bg-card dark:bg-[#111] p-6 rounded-2xl border border-border"
                 >
                     <div className="flex items-center justify-between mb-6">
-                        <h3 className="font-bold text-gray-900 dark:text-white">Weekly Study Hours</h3>
+                        <h3 className="font-bold text-foreground">Weekly Study Hours</h3>
                         <span className="text-xs text-emerald-500 font-medium flex items-center gap-1">
                             <ArrowUpRight className="w-3 h-3" /> +12% vs last week
                         </span>
@@ -127,8 +127,8 @@ export default function ReportsPage() {
                                     className="w-full bg-gradient-to-t from-indigo-500 to-blue-400 rounded-t-lg transition-all hover:from-indigo-600 hover:to-blue-500"
                                     style={{ height: `${(d.hours / maxHours) * 100}%` }}
                                 />
-                                <p className="text-xs text-gray-500 mt-2">{d.day}</p>
-                                <p className="text-xs font-medium text-gray-700 dark:text-gray-300">{d.hours}h</p>
+                                <p className="text-xs text-muted-foreground mt-2">{d.day}</p>
+                                <p className="text-xs font-medium text-muted-foreground dark:text-muted-foreground">{d.hours}h</p>
                             </div>
                         ))}
                     </div>
@@ -139,17 +139,17 @@ export default function ReportsPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="bg-white dark:bg-[#111] p-6 rounded-2xl border border-gray-200 dark:border-gray-800"
+                    className="bg-card dark:bg-[#111] p-6 rounded-2xl border border-border"
                 >
-                    <h3 className="font-bold text-gray-900 dark:text-white mb-6">Subject Progress</h3>
+                    <h3 className="font-bold text-foreground mb-6">Subject Progress</h3>
                     <div className="space-y-4">
                         {SUBJECT_PROGRESS.map((subject) => (
                             <div key={subject.name}>
                                 <div className="flex justify-between mb-1">
-                                    <span className="text-sm text-gray-700 dark:text-gray-300">{subject.name}</span>
-                                    <span className="text-sm font-medium text-gray-900 dark:text-white">{subject.progress}%</span>
+                                    <span className="text-sm text-muted-foreground dark:text-muted-foreground">{subject.name}</span>
+                                    <span className="text-sm font-medium text-foreground">{subject.progress}%</span>
                                 </div>
-                                <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-2">
+                                <div className="w-full bg-muted rounded-full h-2">
                                     <div
                                         className={`${subject.color} h-2 rounded-full transition-all`}
                                         style={{ width: `${subject.progress}%` }}
@@ -166,10 +166,10 @@ export default function ReportsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="mt-6 bg-white dark:bg-[#111] p-6 rounded-2xl border border-gray-200 dark:border-gray-800"
+                className="mt-6 bg-card dark:bg-[#111] p-6 rounded-2xl border border-border"
             >
                 <div className="flex items-center justify-between mb-6">
-                    <h3 className="font-bold text-gray-900 dark:text-white">Recent Activity</h3>
+                    <h3 className="font-bold text-foreground">Recent Activity</h3>
                     <Link href="/student/batch1/analytics" className="text-xs text-indigo-600 font-medium flex items-center gap-1 hover:underline">
                         View All <ChevronRight className="w-3 h-3" />
                     </Link>
@@ -177,7 +177,7 @@ export default function ReportsPage() {
 
                 <div className="space-y-4">
                     {RECENT_ACTIVITIES.map((activity, i) => (
-                        <div key={i} className="flex items-center gap-4 p-3 bg-gray-50 dark:bg-[#0a0a0a] rounded-xl">
+                        <div key={i} className="flex items-center gap-4 p-3 bg-muted dark:bg-[#0a0a0a] rounded-xl">
                             <div className={`p-2 rounded-lg ${activity.type === 'mcq' ? 'bg-blue-100 text-blue-600' :
                                     activity.type === 'chapter' ? 'bg-amber-100 text-amber-600' :
                                         activity.type === 'flashcard' ? 'bg-purple-100 text-purple-600' :
@@ -189,12 +189,12 @@ export default function ReportsPage() {
                                 {activity.type === 'quiz' && <CheckCircle className="w-4 h-4" />}
                             </div>
                             <div className="flex-1">
-                                <p className="text-sm font-medium text-gray-900 dark:text-white">{activity.topic}</p>
-                                <p className="text-xs text-gray-500">{activity.subject}</p>
+                                <p className="text-sm font-medium text-foreground">{activity.topic}</p>
+                                <p className="text-xs text-muted-foreground">{activity.subject}</p>
                             </div>
                             <div className="text-right">
-                                <p className="text-sm font-bold text-gray-900 dark:text-white">{activity.score}</p>
-                                <p className="text-xs text-gray-400">{activity.time}</p>
+                                <p className="text-sm font-bold text-foreground">{activity.score}</p>
+                                <p className="text-xs text-muted-foreground">{activity.time}</p>
                             </div>
                         </div>
                     ))}

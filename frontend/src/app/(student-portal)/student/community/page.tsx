@@ -112,9 +112,9 @@ export default function CommunityPage() {
             >
                 <div className="flex items-center gap-3 mb-2">
                     <Users className="w-8 h-8 text-indigo-600" />
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Community Hub</h1>
+                    <h1 className="text-3xl font-bold text-foreground">Community Hub</h1>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-muted-foreground dark:text-muted-foreground">
                     Connect with fellow aspirants, share knowledge, and grow together.
                 </p>
             </motion.div>
@@ -122,13 +122,13 @@ export default function CommunityPage() {
             {/* Search & Tabs */}
             <div className="flex flex-col md:flex-row gap-4 mb-6">
                 <div className="relative flex-1">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <input
                         type="text"
                         placeholder="Search groups, people, or discussions..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111] text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-card dark:bg-[#111] text-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     />
                 </div>
                 <div className="flex gap-2 flex-wrap">
@@ -139,7 +139,7 @@ export default function CommunityPage() {
                             className={`px-4 py-2 rounded-xl font-medium capitalize transition-all flex items-center gap-2
                                 ${activeTab === tab
                                     ? 'bg-indigo-600 text-white'
-                                    : 'bg-white dark:bg-[#111] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800'
+                                    : 'bg-card dark:bg-[#111] text-muted-foreground dark:text-muted-foreground border border-border'
                                 }`}
                         >
                             {tab === 'messages' && <MessageCircle className="w-4 h-4" />}
@@ -159,7 +159,7 @@ export default function CommunityPage() {
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="bg-white dark:bg-[#111] p-4 rounded-2xl border border-gray-200 dark:border-gray-800"
+                                className="bg-card dark:bg-[#111] p-4 rounded-2xl border border-border"
                             >
                                 <div className="flex gap-3">
                                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">
@@ -171,7 +171,7 @@ export default function CommunityPage() {
                                         value={newPostContent}
                                         onChange={(e) => setNewPostContent(e.target.value)}
                                         onKeyDown={(e) => e.key === 'Enter' && handlePost()}
-                                        className="flex-1 bg-gray-50 dark:bg-[#0a0a0a] rounded-xl px-4 py-2 text-sm border border-gray-200 dark:border-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                        className="flex-1 bg-muted dark:bg-[#0a0a0a] rounded-xl px-4 py-2 text-sm border border-border focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                     />
                                     <button
                                         onClick={handlePost}
@@ -190,7 +190,7 @@ export default function CommunityPage() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: i * 0.1 }}
-                                    className="bg-white dark:bg-[#111] p-5 rounded-2xl border border-gray-200 dark:border-gray-800"
+                                    className="bg-card dark:bg-[#111] p-5 rounded-2xl border border-border"
                                 >
                                     <div className="flex items-start gap-3 mb-3">
                                         <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center text-xl">
@@ -198,19 +198,19 @@ export default function CommunityPage() {
                                         </div>
                                         <div className="flex-1">
                                             <div className="flex items-center gap-2">
-                                                <p className="font-bold text-gray-900 dark:text-white">{post.user}</p>
+                                                <p className="font-bold text-foreground">{post.user}</p>
                                                 {post.type === 'achievement' && <Trophy className="w-4 h-4 text-yellow-500" />}
                                                 {post.type === 'milestone' && <Flame className="w-4 h-4 text-orange-500" />}
                                                 {post.type === 'question' && <MessageSquare className="w-4 h-4 text-blue-500" />}
                                             </div>
-                                            <p className="text-xs text-gray-500">{post.time}</p>
+                                            <p className="text-xs text-muted-foreground">{post.time}</p>
                                         </div>
-                                        <button className="text-gray-400 hover:text-gray-600">
+                                        <button className="text-muted-foreground hover:text-muted-foreground">
                                             <MoreHorizontal className="w-5 h-5" />
                                         </button>
                                     </div>
-                                    <p className="text-gray-700 dark:text-gray-300 mb-4">{post.content}</p>
-                                    <div className="flex items-center gap-6 text-sm text-gray-500">
+                                    <p className="text-muted-foreground dark:text-muted-foreground mb-4">{post.content}</p>
+                                    <div className="flex items-center gap-6 text-sm text-muted-foreground">
                                         <button
                                             onClick={() => toggleLike(post.id)}
                                             className={`flex items-center gap-1 transition-colors ${post.isLikedByMe ? 'text-red-500 font-bold' : 'hover:text-red-500'}`}
@@ -245,25 +245,25 @@ export default function CommunityPage() {
                             animate={{ opacity: 1, y: 0 }}
                         >
                             {!selectedFriend ? (
-                                <div className="bg-white dark:bg-[#111] p-5 rounded-2xl border border-gray-200 dark:border-gray-800">
-                                    <h3 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                <div className="bg-card dark:bg-[#111] p-5 rounded-2xl border border-border">
+                                    <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                                         <MessageCircle className="w-5 h-5 text-indigo-600" />
                                         Messages
                                     </h3>
-                                    <p className="text-sm text-gray-500 mb-4">Select a friend to start chatting</p>
+                                    <p className="text-sm text-muted-foreground mb-4">Select a friend to start chatting</p>
                                     <div className="space-y-2">
                                         {MOCK_FRIENDS.map((friend) => (
                                             <button
                                                 key={friend.id}
                                                 onClick={() => setSelectedFriend(friend)}
-                                                className="w-full flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-[#0a0a0a] hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors"
+                                                className="w-full flex items-center gap-3 p-3 rounded-xl bg-muted dark:bg-[#0a0a0a] hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors"
                                             >
                                                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold">
                                                     {friend.full_name[0]}
                                                 </div>
                                                 <div className="flex-1 text-left">
-                                                    <p className="font-medium text-gray-900 dark:text-white">{friend.full_name}</p>
-                                                    <p className="text-xs text-gray-500">Tap to message</p>
+                                                    <p className="font-medium text-foreground">{friend.full_name}</p>
+                                                    <p className="text-xs text-muted-foreground">Tap to message</p>
                                                 </div>
                                                 <div className="w-2 h-2 rounded-full bg-green-500" />
                                             </button>
@@ -320,7 +320,7 @@ export default function CommunityPage() {
                         </div>
                         <button
                             onClick={() => setShowSuccessCard(true)}
-                            className="w-full py-2 bg-white/20 hover:bg-white/30 rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-2"
+                            className="w-full py-2 bg-card/20 hover:bg-card/30 rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-2"
                         >
                             <Share2 className="w-3 h-3" /> Share Progress Card
                         </button>
@@ -331,9 +331,9 @@ export default function CommunityPage() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="bg-white dark:bg-[#111] p-5 rounded-2xl border border-gray-200 dark:border-gray-800"
+                        className="bg-card dark:bg-[#111] p-5 rounded-2xl border border-border"
                     >
-                        <h3 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                        <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                             Online Aspirants
                         </h3>
@@ -345,8 +345,8 @@ export default function CommunityPage() {
                                         <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-white dark:border-[#111]" />
                                     </div>
                                     <div className="flex-1">
-                                        <p className="font-medium text-gray-900 dark:text-white">{presence.name}</p>
-                                        <p className="text-[10px] text-gray-500">{presence.status} • {presence.current_subject}</p>
+                                        <p className="font-medium text-foreground">{presence.name}</p>
+                                        <p className="text-[10px] text-muted-foreground">{presence.status} • {presence.current_subject}</p>
                                     </div>
                                     {presence.user_id !== user?.id && (
                                         <button
@@ -359,7 +359,7 @@ export default function CommunityPage() {
                                     )}
                                 </div>
                             )) : (
-                                <p className="text-xs text-gray-500 text-center">No one else in the library yet.</p>
+                                <p className="text-xs text-muted-foreground text-center">No one else in the library yet.</p>
                             )}
                         </div>
                     </motion.div>
@@ -371,19 +371,19 @@ export default function CommunityPage() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="bg-white dark:bg-[#111] p-5 rounded-2xl border border-gray-200 dark:border-gray-800"
+                        className="bg-card dark:bg-[#111] p-5 rounded-2xl border border-border"
                     >
-                        <h3 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                        <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                             <Bell className="w-4 h-4" /> Upcoming
                         </h3>
                         <div className="space-y-3 text-sm">
-                            <div className="p-3 bg-gray-50 dark:bg-[#0a0a0a] rounded-lg">
-                                <p className="font-medium text-gray-900 dark:text-white">Polity Quiz Night</p>
-                                <p className="text-xs text-gray-500">Tomorrow, 8 PM</p>
+                            <div className="p-3 bg-muted dark:bg-[#0a0a0a] rounded-lg">
+                                <p className="font-medium text-foreground">Polity Quiz Night</p>
+                                <p className="text-xs text-muted-foreground">Tomorrow, 8 PM</p>
                             </div>
-                            <div className="p-3 bg-gray-50 dark:bg-[#0a0a0a] rounded-lg">
-                                <p className="font-medium text-gray-900 dark:text-white">Weekly Mock Test</p>
-                                <p className="text-xs text-gray-500">Sunday, 10 AM</p>
+                            <div className="p-3 bg-muted dark:bg-[#0a0a0a] rounded-lg">
+                                <p className="font-medium text-foreground">Weekly Mock Test</p>
+                                <p className="text-xs text-muted-foreground">Sunday, 10 AM</p>
                             </div>
                         </div>
                     </motion.div>

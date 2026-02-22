@@ -63,33 +63,33 @@ export default function PYQTrendDashboard() {
                     <BarChart3 size={28} />
                     <h1 className="text-2xl font-bold">PYQ Trend Analysis</h1>
                 </div>
-                <p className="mt-3 text-slate-600">UPSC Polity Previous Year Questions - Pattern Analysis</p>
+                <p className="mt-3 text-muted-foreground">UPSC Polity Previous Year Questions - Pattern Analysis</p>
             </div>
 
             {/* QUICK STATS */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <Card className="bg-white border-2 border-indigo-100 shadow-md hover:shadow-lg transition-shadow">
+                <Card className="bg-card border-2 border-indigo-100 shadow-md hover:shadow-lg transition-shadow">
                     <CardContent className="pt-6 text-center">
                         <div className="text-4xl font-black text-indigo-600">{stats.totalQuestions}</div>
-                        <div className="text-sm text-slate-500 mt-1">Total PYQs</div>
+                        <div className="text-sm text-muted-foreground mt-1">Total PYQs</div>
                     </CardContent>
                 </Card>
-                <Card className="bg-white border-2 border-purple-100 shadow-md hover:shadow-lg transition-shadow">
+                <Card className="bg-card border-2 border-purple-100 shadow-md hover:shadow-lg transition-shadow">
                     <CardContent className="pt-6 text-center">
                         <div className="text-4xl font-black text-purple-600">{stats.chaptersWithPYQs}</div>
-                        <div className="text-sm text-slate-500 mt-1">Chapters Covered</div>
+                        <div className="text-sm text-muted-foreground mt-1">Chapters Covered</div>
                     </CardContent>
                 </Card>
-                <Card className="bg-white border-2 border-red-100 shadow-md hover:shadow-lg transition-shadow">
+                <Card className="bg-card border-2 border-red-100 shadow-md hover:shadow-lg transition-shadow">
                     <CardContent className="pt-6 text-center">
                         <div className="text-4xl font-black text-red-600">{stats.highFrequencyTopics}</div>
-                        <div className="text-sm text-slate-500 mt-1">High Yield Topics</div>
+                        <div className="text-sm text-muted-foreground mt-1">High Yield Topics</div>
                     </CardContent>
                 </Card>
-                <Card className="bg-white border-2 border-green-100 shadow-md hover:shadow-lg transition-shadow">
+                <Card className="bg-card border-2 border-green-100 shadow-md hover:shadow-lg transition-shadow">
                     <CardContent className="pt-6 text-center">
                         <div className="text-4xl font-black text-green-600">{stats.mostRecentYear}</div>
-                        <div className="text-sm text-slate-500 mt-1">Latest Year</div>
+                        <div className="text-sm text-muted-foreground mt-1">Latest Year</div>
                     </CardContent>
                 </Card>
             </div>
@@ -115,7 +115,7 @@ export default function PYQTrendDashboard() {
                                 ))}
                             </ul>
                         ) : (
-                            <p className="text-slate-500 text-sm italic">No topics with increasing trend</p>
+                            <p className="text-muted-foreground text-sm italic">No topics with increasing trend</p>
                         )}
                         <p className="mt-4 text-xs text-green-600 bg-green-100 p-2 rounded">
                             <strong>Focus Alert:</strong> These topics are being asked more frequently in recent years!
@@ -165,7 +165,7 @@ export default function PYQTrendDashboard() {
                                 ))}
                             </ul>
                         ) : (
-                            <p className="text-slate-500 text-sm italic">No topics with declining trend</p>
+                            <p className="text-muted-foreground text-sm italic">No topics with declining trend</p>
                         )}
                         <p className="mt-4 text-xs text-orange-600 bg-orange-100 p-2 rounded">
                             <strong>Lower Priority:</strong> Don't ignore, but focus less time here.
@@ -175,7 +175,7 @@ export default function PYQTrendDashboard() {
             </div>
 
             {/* YEAR-WISE DISTRIBUTION */}
-            <Card className="border-2 border-slate-200">
+            <Card className="border-2 border-border">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                         <Calendar size={20} className="text-indigo-600" />
@@ -198,7 +198,7 @@ export default function PYQTrendDashboard() {
             </Card>
 
             {/* CHAPTER-WISE BREAKDOWN */}
-            <Card className="border-2 border-slate-200">
+            <Card className="border-2 border-border">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                         <BookOpen size={20} className="text-purple-600" />
@@ -210,20 +210,20 @@ export default function PYQTrendDashboard() {
                         {chapters.sort((a, b) => b.questions.length - a.questions.length).map((chapter) => (
                             <div
                                 key={chapter.chapterId}
-                                className="flex items-center justify-between p-4 bg-white border-2 border-slate-100 rounded-xl hover:border-indigo-200 transition-colors"
+                                className="flex items-center justify-between p-4 bg-card border-2 border-slate-100 rounded-xl hover:border-indigo-200 transition-colors"
                             >
                                 <div className="flex items-center gap-4">
                                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold">
                                         {chapter.questions.length}
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-slate-800">{chapter.chapterTitle}</h4>
+                                        <h4 className="font-bold text-foreground">{chapter.chapterTitle}</h4>
                                         <div className="flex items-center gap-2 mt-1">
-                                            <span className="text-xs text-slate-500">
+                                            <span className="text-xs text-muted-foreground">
                                                 Last: {chapter.lastAskedYear}
                                             </span>
                                             <span className="text-slate-300">|</span>
-                                            <span className="text-xs text-slate-500">
+                                            <span className="text-xs text-muted-foreground">
                                                 Total: {chapter.totalPYQs} PYQs
                                             </span>
                                         </div>
@@ -256,20 +256,20 @@ export default function PYQTrendDashboard() {
                                     key={ch.id}
                                     className={`flex items-center gap-3 p-3 rounded-lg border-2 ${hasPYQs
                                             ? 'bg-green-50 border-green-200'
-                                            : 'bg-white border-slate-200'
+                                            : 'bg-card border-border'
                                         }`}
                                 >
                                     <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${hasPYQs
                                             ? 'bg-green-500 text-white'
-                                            : 'bg-slate-200 text-slate-600'
+                                            : 'bg-slate-200 text-muted-foreground'
                                         }`}>
                                         {idx + 1}
                                     </div>
                                     <div className="flex-1">
-                                        <span className={`font-medium ${hasPYQs ? 'text-green-800' : 'text-slate-700'}`}>
+                                        <span className={`font-medium ${hasPYQs ? 'text-green-800' : 'text-muted-foreground'}`}>
                                             {ch.title}
                                         </span>
-                                        <span className="text-xs text-slate-400 ml-2">~{ch.expectedPYQs} PYQs</span>
+                                        <span className="text-xs text-muted-foreground ml-2">~{ch.expectedPYQs} PYQs</span>
                                     </div>
                                     {hasPYQs && (
                                         <Trophy size={16} className="text-green-500" />
@@ -294,9 +294,9 @@ export default function PYQTrendDashboard() {
                 </CardHeader>
                 <CardContent>
                     <div className="grid md:grid-cols-2 gap-4">
-                        <div className="p-4 bg-white rounded-xl border border-amber-200">
+                        <div className="p-4 bg-card rounded-xl border border-amber-200">
                             <h4 className="font-bold text-amber-800 mb-2">🎯 Most Asked Topics</h4>
-                            <ol className="list-decimal list-inside space-y-1 text-sm text-slate-700">
+                            <ol className="list-decimal list-inside space-y-1 text-sm text-muted-foreground">
                                 <li>Fundamental Rights (Art 14-35)</li>
                                 <li>Parliament & Legislative Process</li>
                                 <li>Emergency Provisions</li>
@@ -304,9 +304,9 @@ export default function PYQTrendDashboard() {
                                 <li>Constitutional Amendments</li>
                             </ol>
                         </div>
-                        <div className="p-4 bg-white rounded-xl border border-amber-200">
+                        <div className="p-4 bg-card rounded-xl border border-amber-200">
                             <h4 className="font-bold text-amber-800 mb-2">⚠️ Common PYQ Traps</h4>
-                            <ul className="space-y-1 text-sm text-slate-700">
+                            <ul className="space-y-1 text-sm text-muted-foreground">
                                 <li>• MLCs don't vote in President election</li>
                                 <li>• Right to Strike is NOT a FR</li>
                                 <li>• 44th Amendment safeguards (Art 20, 21)</li>

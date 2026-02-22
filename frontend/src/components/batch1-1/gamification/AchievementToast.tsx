@@ -65,10 +65,10 @@ export default function AchievementToast({ achievement, onClose }: AchievementTo
                         </span>
                     </div>
 
-                    <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-2">
+                    <h2 className="text-2xl font-bold text-foreground mb-2">
                         {achievement.name}
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    <p className="text-muted-foreground dark:text-muted-foreground mb-4">
                         {achievement.description}
                     </p>
 

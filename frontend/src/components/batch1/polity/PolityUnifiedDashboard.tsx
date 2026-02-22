@@ -149,12 +149,12 @@ export default function PolityUnifiedDashboard() {
                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center text-red-600">
                     <AlertTriangle className="w-8 h-8" />
                 </div>
-                <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200">System Module Error</h2>
-                <p className="text-gray-600 dark:text-gray-400 max-w-md">
+                <h2 className="text-xl font-bold text-foreground">System Module Error</h2>
+                <p className="text-muted-foreground dark:text-muted-foreground max-w-md">
                     Some Polity modules failed to load correctly. This might be due to a deployment issue.
                     Please refresh the page.
                 </p>
-                <code className="bg-gray-100 p-2 rounded text-xs text-red-500">
+                <code className="bg-muted p-2 rounded text-xs text-red-500">
                     ErrorCodes: {typeof getTopicsByPart === 'function' ? 'OK' : 'ERR_TOPICS'} |
                     {typeof getPartColors === 'function' ? 'OK' : 'ERR_COLORS'}
                 </code>
@@ -167,13 +167,13 @@ export default function PolityUnifiedDashboard() {
             {/* Header */}
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+                    <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
                             <BookOpen className="h-6 w-6" />
                         </div>
                         Indian Polity
                     </h1>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1 ml-1">
+                    <p className="text-muted-foreground dark:text-muted-foreground mt-1 ml-1">
                         95 Topics • 11 Parts • Comprehensive Coverage
                     </p>
                 </div>
@@ -183,7 +183,7 @@ export default function PolityUnifiedDashboard() {
                     <Button
                         size="sm"
                         onClick={() => router.push('/student/batch1-1/polity/revision')}
-                        className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold border-2 border-slate-900 relative"
+                        className="bg-amber-500 hover:bg-amber-600 text-foreground font-bold border-2 border-slate-900 relative"
                     >
                         <Sparkles className="w-4 h-4 mr-2" /> Revision Suite
                         {srsDueCount > 0 && (
@@ -245,14 +245,14 @@ export default function PolityUnifiedDashboard() {
                             </div>
                         </div>
                     </div>
-                    <Progress value={overallProgress} className="h-2 bg-white/20" />
+                    <Progress value={overallProgress} className="h-2 bg-card/20" />
                 </CardContent>
             </Card>
 
             {/* Controls */}
-            <div className="flex flex-col md:flex-row gap-4 sticky top-20 z-10 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md p-2 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm">
+            <div className="flex flex-col md:flex-row gap-4 sticky top-20 z-10 bg-card/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md p-2 rounded-xl border border-border shadow-sm">
                 <div className="relative flex-1">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                         placeholder="Search topics (e.g. 'President', 'Article 21')..."
                         value={searchQuery}
@@ -286,7 +286,7 @@ export default function PolityUnifiedDashboard() {
                         Pending
                     </Button>
                 </div>
-                <div className="w-px h-8 bg-gray-200 dark:bg-gray-700 mx-2 hidden md:block" />
+                <div className="w-px h-8 bg-muted mx-2 hidden md:block" />
                 <div className="flex gap-1">
                     <Button
                         variant={viewMode === 'grid' ? 'default' : 'ghost'}
@@ -326,7 +326,7 @@ export default function PolityUnifiedDashboard() {
                                 onClick={() => togglePart(part.id)}
                                 className={`
                                     flex items-center justify-between p-4 rounded-xl cursor-pointer transition-all
-                                    bg-white dark:bg-[#111] border border-gray-200 dark:border-gray-800 hover:border-blue-300
+                                    bg-card dark:bg-[#111] border border-border hover:border-blue-300
                                     ${isExpanded ? 'shadow-md ring-1 ring-blue-500/20' : ''}
                                 `}
                             >
@@ -335,24 +335,24 @@ export default function PolityUnifiedDashboard() {
                                         {part.icon}
                                     </div>
                                     <div>
-                                        <h3 className="font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2">
+                                        <h3 className="font-bold text-foreground flex items-center gap-2">
                                             Part {part.number}: {part.title}
-                                            <Badge variant="secondary" className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-500">
+                                            <Badge variant="secondary" className="text-xs bg-muted text-muted-foreground">
                                                 {part.topicCount}
                                             </Badge>
                                         </h3>
-                                        <p className="text-xs text-gray-500">{part.description}</p>
+                                        <p className="text-xs text-muted-foreground">{part.description}</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-6">
                                     <div className="hidden md:block w-32">
                                         <div className="flex justify-between text-xs mb-1">
-                                            <span className="text-gray-500">Progress</span>
-                                            <span className="font-bold text-gray-700 dark:text-gray-300">{partCompleted}/{part.topicCount}</span>
+                                            <span className="text-muted-foreground">Progress</span>
+                                            <span className="font-bold text-muted-foreground dark:text-muted-foreground">{partCompleted}/{part.topicCount}</span>
                                         </div>
                                         <Progress value={(partCompleted / part.topicCount) * 100} className="h-1.5" />
                                     </div>
-                                    {isExpanded ? <ChevronDown className="w-5 h-5 text-gray-400" /> : <ChevronRight className="w-5 h-5 text-gray-400" />}
+                                    {isExpanded ? <ChevronDown className="w-5 h-5 text-muted-foreground" /> : <ChevronRight className="w-5 h-5 text-muted-foreground" />}
                                 </div>
                             </div>
 
@@ -371,10 +371,10 @@ export default function PolityUnifiedDashboard() {
                                             <div
                                                 key={topic.id}
                                                 className={`
-                                                    group relative bg-white dark:bg-[#111] rounded-xl border p-4 transition-all
+                                                    group relative bg-card dark:bg-[#111] rounded-xl border p-4 transition-all
                                                     ${isCompleted
                                                         ? 'border-green-200 dark:border-green-900/30 bg-green-50/50 dark:bg-green-900/10'
-                                                        : 'border-gray-200 dark:border-gray-800 hover:border-blue-400 hover:shadow-lg'
+                                                        : 'border-border hover:border-blue-400 hover:shadow-lg'
                                                     }
                                                 `}
                                             >
@@ -386,7 +386,7 @@ export default function PolityUnifiedDashboard() {
                                                             mt-0.5 w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all
                                                             ${isCompleted
                                                                 ? 'bg-green-500 border-green-500 text-white'
-                                                                : 'border-gray-300 dark:border-gray-600 hover:border-blue-400 text-transparent'
+                                                                : 'border-border hover:border-blue-400 text-transparent'
                                                             }
                                                         `}
                                                     >
@@ -394,7 +394,7 @@ export default function PolityUnifiedDashboard() {
                                                     </button>
                                                     <div className="flex-1">
                                                         <div className="flex items-center gap-2">
-                                                            <h4 className={`font-semibold text-sm ${isCompleted ? 'text-gray-500 line-through' : 'text-gray-800 dark:text-gray-200'}`}>
+                                                            <h4 className={`font-semibold text-sm ${isCompleted ? 'text-muted-foreground line-through' : 'text-foreground'}`}>
                                                                 {topic.title}
                                                             </h4>
                                                             {isNew && (
@@ -407,14 +407,14 @@ export default function PolityUnifiedDashboard() {
                                                                 </div>
                                                             )}
                                                         </div>
-                                                        <div className="text-[10px] text-gray-400 mt-0.5 font-mono">
+                                                        <div className="text-[10px] text-muted-foreground mt-0.5 font-mono">
                                                             Topic #{topic.id}
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 {/* 7-Icon Action Row */}
-                                                <div className="grid grid-cols-7 gap-1 pt-3 border-t border-gray-100 dark:border-gray-800">
+                                                <div className="grid grid-cols-7 gap-1 pt-3 border-t border-border">
 
                                                     {/* 1. Read */}
                                                     <button
@@ -422,10 +422,10 @@ export default function PolityUnifiedDashboard() {
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Read Chapter"
                                                     >
-                                                        <div className={`p-1.5 rounded-lg transition-colors ${topicProgress?.readDone ? 'bg-indigo-100 text-indigo-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-indigo-50 group-hover/btn:text-indigo-500'}`}>
+                                                        <div className={`p-1.5 rounded-lg transition-colors ${topicProgress?.readDone ? 'bg-indigo-100 text-indigo-600' : 'bg-muted text-muted-foreground group-hover/btn:bg-indigo-50 group-hover/btn:text-indigo-500'}`}>
                                                             <BookOpen className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className={`text-[8px] font-medium group-hover/btn:text-indigo-500 ${topicProgress?.readDone ? 'text-indigo-500' : 'text-gray-400'}`}>Read</span>
+                                                        <span className={`text-[8px] font-medium group-hover/btn:text-indigo-500 ${topicProgress?.readDone ? 'text-indigo-500' : 'text-muted-foreground'}`}>Read</span>
                                                     </button>
 
                                                     {/* 2. Flashcards */}
@@ -434,10 +434,10 @@ export default function PolityUnifiedDashboard() {
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Flashcards"
                                                     >
-                                                        <div className={`p-1.5 rounded-lg transition-colors ${topicProgress?.flashcardsDone ? 'bg-blue-100 text-blue-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-blue-50 group-hover/btn:text-blue-500'}`}>
+                                                        <div className={`p-1.5 rounded-lg transition-colors ${topicProgress?.flashcardsDone ? 'bg-blue-100 text-blue-600' : 'bg-muted text-muted-foreground group-hover/btn:bg-blue-50 group-hover/btn:text-blue-500'}`}>
                                                             <StickyNote className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className={`text-[8px] font-medium group-hover/btn:text-blue-500 ${topicProgress?.flashcardsDone ? 'text-blue-500' : 'text-gray-400'}`}>Cards</span>
+                                                        <span className={`text-[8px] font-medium group-hover/btn:text-blue-500 ${topicProgress?.flashcardsDone ? 'text-blue-500' : 'text-muted-foreground'}`}>Cards</span>
                                                     </button>
 
                                                     {/* 3. Level 1 */}
@@ -446,10 +446,10 @@ export default function PolityUnifiedDashboard() {
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Level 1 MCQs"
                                                     >
-                                                        <div className={`p-1.5 rounded-lg transition-colors ${topicProgress?.mcqsDone ? 'bg-green-100 text-green-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-green-50 group-hover/btn:text-green-500'}`}>
+                                                        <div className={`p-1.5 rounded-lg transition-colors ${topicProgress?.mcqsDone ? 'bg-green-100 text-green-600' : 'bg-muted text-muted-foreground group-hover/btn:bg-green-50 group-hover/btn:text-green-500'}`}>
                                                             <Target className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className={`text-[8px] font-medium group-hover/btn:text-green-500 ${topicProgress?.mcqsDone ? 'text-green-500' : 'text-gray-400'}`}>L1</span>
+                                                        <span className={`text-[8px] font-medium group-hover/btn:text-green-500 ${topicProgress?.mcqsDone ? 'text-green-500' : 'text-muted-foreground'}`}>L1</span>
                                                     </button>
 
                                                     {/* 4. Level 2 */}
@@ -458,10 +458,10 @@ export default function PolityUnifiedDashboard() {
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Level 2 MCQs (Pro)"
                                                     >
-                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-purple-50 group-hover/btn:text-purple-500 transition-colors">
+                                                        <div className="p-1.5 rounded-lg bg-muted text-muted-foreground group-hover/btn:bg-purple-50 group-hover/btn:text-purple-500 transition-colors">
                                                             <Target className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-purple-500">L2</span>
+                                                        <span className="text-[8px] font-medium text-muted-foreground group-hover/btn:text-purple-500">L2</span>
                                                     </button>
 
                                                     {/* 5. Level 3 */}
@@ -470,10 +470,10 @@ export default function PolityUnifiedDashboard() {
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Level 3 MCQs (Exam)"
                                                     >
-                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-red-50 group-hover/btn:text-red-500 transition-colors">
+                                                        <div className="p-1.5 rounded-lg bg-muted text-muted-foreground group-hover/btn:bg-red-50 group-hover/btn:text-red-500 transition-colors">
                                                             <Flame className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-red-500">L3</span>
+                                                        <span className="text-[8px] font-medium text-muted-foreground group-hover/btn:text-red-500">L3</span>
                                                     </button>
 
                                                     {/* 6. Current Affairs */}
@@ -482,10 +482,10 @@ export default function PolityUnifiedDashboard() {
                                                         className={`flex flex-col items-center gap-0.5 group/btn ${hasUpdates ? '' : 'opacity-40'}`}
                                                         title={hasUpdates ? "View Current Affairs" : "No Current Affairs for this chapter"}
                                                     >
-                                                        <div className={`p-1.5 rounded-lg transition-colors ${hasUpdates ? 'bg-amber-100 text-amber-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-400'} group-hover/btn:bg-amber-50 group-hover/btn:text-amber-600`}>
+                                                        <div className={`p-1.5 rounded-lg transition-colors ${hasUpdates ? 'bg-amber-100 text-amber-600' : 'bg-muted text-muted-foreground'} group-hover/btn:bg-amber-50 group-hover/btn:text-amber-600`}>
                                                             <Flame className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-amber-600">CA</span>
+                                                        <span className="text-[8px] font-medium text-muted-foreground group-hover/btn:text-amber-600">CA</span>
                                                     </button>
 
                                                     {/* 7. Report */}
@@ -494,10 +494,10 @@ export default function PolityUnifiedDashboard() {
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Topic Analytics"
                                                     >
-                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-orange-50 group-hover/btn:text-orange-500 transition-colors">
+                                                        <div className="p-1.5 rounded-lg bg-muted text-muted-foreground group-hover/btn:bg-orange-50 group-hover/btn:text-orange-500 transition-colors">
                                                             <BarChart2 className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-orange-500">Report</span>
+                                                        <span className="text-[8px] font-medium text-muted-foreground group-hover/btn:text-orange-500">Report</span>
                                                     </button>
                                                 </div>
                                             </div>

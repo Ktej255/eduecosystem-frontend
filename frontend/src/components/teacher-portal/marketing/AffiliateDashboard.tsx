@@ -98,7 +98,7 @@ export default function AffiliateDashboard() {
             case "active": return { color: "bg-green-100 text-green-700 border-green-200", icon: CheckCircle2 };
             case "pending": return { color: "bg-amber-100 text-amber-700 border-amber-200", icon: MoreHorizontal }; // Using generic icon for pending
             case "rejected": return { color: "bg-red-100 text-red-700 border-red-200", icon: XCircle };
-            default: return { color: "bg-slate-100", icon: MoreHorizontal };
+            default: return { color: "bg-muted", icon: MoreHorizontal };
         }
     };
 
@@ -111,15 +111,15 @@ export default function AffiliateDashboard() {
         <div className="space-y-6 max-w-6xl mx-auto">
             {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <Card className="border-slate-200 dark:border-slate-800 bg-indigo-50/50 dark:bg-indigo-950/20">
+                <Card className="border-border bg-indigo-50/50 dark:bg-indigo-950/20">
                     <CardContent className="p-6">
                         <div className="flex items-center justify-between mb-2">
-                            <span className="text-sm font-medium text-slate-500">Total Affiliate Revenue</span>
+                            <span className="text-sm font-medium text-muted-foreground">Total Affiliate Revenue</span>
                             <div className="h-8 w-8 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center">
                                 <DollarSign className="h-4 w-4 text-indigo-600" />
                             </div>
                         </div>
-                        <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">₹2,85,000</div>
+                        <div className="text-2xl font-bold text-foreground">₹2,85,000</div>
                         <div className="flex items-center text-xs text-green-600 mt-1">
                             <ArrowUpRight className="h-3 w-3 mr-1" />
                             +12% from last month
@@ -127,30 +127,30 @@ export default function AffiliateDashboard() {
                     </CardContent>
                 </Card>
 
-                <Card className="border-slate-200 dark:border-slate-800">
+                <Card className="border-border">
                     <CardContent className="p-6">
                         <div className="flex items-center justify-between mb-2">
-                            <span className="text-sm font-medium text-slate-500">Pending Commissions</span>
+                            <span className="text-sm font-medium text-muted-foreground">Pending Commissions</span>
                             <div className="h-8 w-8 rounded-full bg-amber-100 dark:bg-amber-900 flex items-center justify-center">
                                 <CreditCard className="h-4 w-4 text-amber-600" />
                             </div>
                         </div>
-                        <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">₹28,500</div>
-                        <div className="flex items-center text-xs text-slate-400 mt-1">
+                        <div className="text-2xl font-bold text-foreground">₹28,500</div>
+                        <div className="flex items-center text-xs text-muted-foreground mt-1">
                             Due in 5 days
                         </div>
                     </CardContent>
                 </Card>
 
-                <Card className="border-slate-200 dark:border-slate-800">
+                <Card className="border-border">
                     <CardContent className="p-6">
                         <div className="flex items-center justify-between mb-2">
-                            <span className="text-sm font-medium text-slate-500">Active Partners</span>
+                            <span className="text-sm font-medium text-muted-foreground">Active Partners</span>
                             <div className="h-8 w-8 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center">
                                 <Users className="h-4 w-4 text-green-600" />
                             </div>
                         </div>
-                        <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">24</div>
+                        <div className="text-2xl font-bold text-foreground">24</div>
                         <div className="flex items-center text-xs text-green-600 mt-1">
                             <ArrowUpRight className="h-3 w-3 mr-1" />
                             3 new this week
@@ -160,18 +160,18 @@ export default function AffiliateDashboard() {
             </div>
 
             {/* Main Table */}
-            <Card className="border-slate-200 dark:border-slate-800">
-                <CardHeader className="pb-4 border-b border-slate-100 dark:border-slate-800">
+            <Card className="border-border">
+                <CardHeader className="pb-4 border-b border-slate-100">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                         <div>
                             <CardTitle className="text-lg font-bold">Partner Management</CardTitle>
                             <CardDescription>Approve requests and track performance.</CardDescription>
                         </div>
                         <div className="relative w-full md:w-64">
-                            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-slate-400" />
+                            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                             <Input
                                 placeholder="Search partners..."
-                                className="pl-9 bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 focus-visible:ring-indigo-500"
+                                className="pl-9 bg-muted border-border focus-visible:ring-indigo-500"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                             />
@@ -181,7 +181,7 @@ export default function AffiliateDashboard() {
                 <CardContent className="p-0">
                     <div className="overflow-x-auto">
                         <table className="w-full text-sm text-left">
-                            <thead className="bg-slate-50 dark:bg-slate-900/50 text-slate-500 font-medium border-b border-slate-100 dark:border-slate-800">
+                            <thead className="bg-muted/50 text-muted-foreground font-medium border-b border-slate-100">
                                 <tr>
                                     <th className="px-6 py-4">Partner</th>
                                     <th className="px-6 py-4">Status</th>
@@ -196,16 +196,16 @@ export default function AffiliateDashboard() {
                                     const statusStyle = getStatusParams(affiliate.status);
 
                                     return (
-                                        <tr key={affiliate.id} className="hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors">
+                                        <tr key={affiliate.id} className="hover:bg-muted dark:hover:bg-slate-900/50 transition-colors">
                                             <td className="px-6 py-4">
                                                 <div className="flex items-center gap-3">
-                                                    <Avatar className="h-9 w-9 border border-slate-200">
+                                                    <Avatar className="h-9 w-9 border border-border">
                                                         <AvatarImage src={affiliate.avatar} />
                                                         <AvatarFallback className="bg-indigo-100 text-indigo-700 font-bold">{affiliate.name[0]}</AvatarFallback>
                                                     </Avatar>
                                                     <div>
-                                                        <div className="font-semibold text-slate-900 dark:text-slate-100">{affiliate.name}</div>
-                                                        <div className="text-xs text-slate-500">{affiliate.email}</div>
+                                                        <div className="font-semibold text-foreground">{affiliate.name}</div>
+                                                        <div className="text-xs text-muted-foreground">{affiliate.email}</div>
                                                     </div>
                                                 </div>
                                             </td>
@@ -215,10 +215,10 @@ export default function AffiliateDashboard() {
                                                     {affiliate.status}
                                                 </Badge>
                                             </td>
-                                            <td className="px-6 py-4 text-right font-medium text-slate-600 dark:text-slate-300">
+                                            <td className="px-6 py-4 text-right font-medium text-muted-foreground">
                                                 {affiliate.sales}
                                             </td>
-                                            <td className="px-6 py-4 text-right font-medium text-slate-600 dark:text-slate-300">
+                                            <td className="px-6 py-4 text-right font-medium text-muted-foreground">
                                                 {affiliate.revenue}
                                             </td>
                                             <td className="px-6 py-4 text-right font-bold text-green-600">
@@ -227,7 +227,7 @@ export default function AffiliateDashboard() {
                                             <td className="px-6 py-4 text-center">
                                                 <DropdownMenu>
                                                     <DropdownMenuTrigger asChild>
-                                                        <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-slate-600">
+                                                        <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-muted-foreground">
                                                             <MoreHorizontal className="h-4 w-4" />
                                                         </Button>
                                                     </DropdownMenuTrigger>

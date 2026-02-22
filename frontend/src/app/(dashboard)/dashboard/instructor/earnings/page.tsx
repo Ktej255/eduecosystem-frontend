@@ -153,7 +153,7 @@ export default function InstructorEarningsPage() {
                         <div className="font-medium">
                           ${payout.amount.toFixed(2)}
                         </div>
-                        <div className="text-sm text-gray-500">
+                        <div className="text-sm text-muted-foreground">
                           {format(new Date(payout.requested_at), "MMM d, yyyy")}
                         </div>
                       </div>
@@ -184,14 +184,14 @@ export default function InstructorEarningsPage() {
               <CardTitle>Payout Method</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="p-4 border rounded-lg bg-gray-50 flex items-center justify-between">
+              <div className="p-4 border rounded-lg bg-muted flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="h-10 w-10 bg-blue-600 rounded flex items-center justify-center text-white font-bold">
                     S
                   </div>
                   <div>
                     <div className="font-medium">Stripe Connect</div>
-                    <div className="text-sm text-gray-500">Connected</div>
+                    <div className="text-sm text-muted-foreground">Connected</div>
                   </div>
                 </div>
                 <Button variant="outline" size="sm">

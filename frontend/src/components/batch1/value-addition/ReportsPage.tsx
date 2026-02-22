@@ -28,10 +28,10 @@ export default function ReportsPage() {
                 </Link>
                 <div>
                     <h1 className="text-2xl font-bold flex items-center gap-2">
-                        <FileText className="h-6 w-6 text-slate-600" />
+                        <FileText className="h-6 w-6 text-muted-foreground" />
                         Reports & Indices
                     </h1>
-                    <p className="text-gray-500 text-sm">
+                    <p className="text-muted-foreground text-sm">
                         Critical data points for Mains answers and Prelims elimination.
                     </p>
                 </div>
@@ -40,14 +40,14 @@ export default function ReportsPage() {
             {/* Sections */}
             {Object.entries(sections).map(([category, reports]) => (
                 <div key={category} className="space-y-4">
-                    <h2 className="text-lg font-bold text-gray-700 dark:text-gray-300 border-b pb-2 flex items-center gap-2">
+                    <h2 className="text-lg font-bold text-muted-foreground dark:text-muted-foreground border-b pb-2 flex items-center gap-2">
                         {category === 'International' ? <Globe className="h-5 w-5 text-blue-500" /> : <Building className="h-5 w-5 text-orange-500" />}
                         {category} Reports
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {reports.map((report) => (
-                            <Card key={report.id} className="hover:shadow-md transition-shadow border-t-4 border-t-slate-400 bg-white dark:bg-gray-800">
+                            <Card key={report.id} className="hover:shadow-md transition-shadow border-t-4 border-t-slate-400 bg-card">
                                 <CardHeader className="pb-3">
                                     <div className="flex justify-between items-start mb-2">
                                         <Badge variant="secondary" className="text-xs">
@@ -59,23 +59,23 @@ export default function ReportsPage() {
                                             </Badge>
                                         )}
                                     </div>
-                                    <CardTitle className="text-lg text-gray-800 dark:text-gray-100 leading-snug">
+                                    <CardTitle className="text-lg text-foreground leading-snug">
                                         {report.title}
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 h-10 line-clamp-2">
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-4 h-10 line-clamp-2">
                                         {report.description}
                                     </p>
 
-                                    <div className="bg-slate-50 dark:bg-slate-900/50 p-3 rounded-lg">
-                                        <h4 className="text-xs font-bold text-slate-500 uppercase mb-2 flex items-center gap-1">
+                                    <div className="bg-muted/50 p-3 rounded-lg">
+                                        <h4 className="text-xs font-bold text-muted-foreground uppercase mb-2 flex items-center gap-1">
                                             <TrendingUp className="h-3 w-3" /> Key Findings
                                         </h4>
                                         <ul className="space-y-1">
                                             {report.keyFindings.map((finding, idx) => (
-                                                <li key={idx} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                                                    <span className="text-slate-400 mt-1.5 text-[10px]">●</span>
+                                                <li key={idx} className="text-sm text-muted-foreground dark:text-muted-foreground flex items-start gap-2">
+                                                    <span className="text-muted-foreground mt-1.5 text-[10px]">●</span>
                                                     {finding}
                                                 </li>
                                             ))}

@@ -53,7 +53,7 @@ export default function RecommendationsWidget() {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="text-gray-400">Loading recommendations...</div>
+          <div className="text-muted-foreground">Loading recommendations...</div>
         </CardContent>
       </Card>
     );
@@ -82,7 +82,7 @@ export default function RecommendationsWidget() {
             </Button>
           </Link>
         </div>
-        <p className="text-sm text-gray-400 mt-1">
+        <p className="text-sm text-muted-foreground mt-1">
           AI-powered personalized course suggestions
         </p>
       </CardHeader>
@@ -100,11 +100,11 @@ export default function RecommendationsWidget() {
                 </h4>
               </div>
 
-              <p className="text-sm text-gray-400 line-clamp-2 mb-3">
+              <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
                 {rec.description}
               </p>
 
-              <div className="flex items-center gap-2 text-xs text-gray-400 mb-3">
+              <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
                 <div className="flex items-center gap-1">
                   <Star className="h-3 w-3 text-yellow-400 fill-yellow-400" />
                   <span>{rec.rating.toFixed(1)}</span>
@@ -125,7 +125,7 @@ export default function RecommendationsWidget() {
                 <div className="text-sm text-purple-400 font-medium">
                   {rec.price > 0 ? `₹${rec.price}` : "Free"}
                 </div>
-                <div className="text-xs text-gray-500">{rec.reason}</div>
+                <div className="text-xs text-muted-foreground">{rec.reason}</div>
               </div>
             </div>
           ))}

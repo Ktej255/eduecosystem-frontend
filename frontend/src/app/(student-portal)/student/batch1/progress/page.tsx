@@ -151,7 +151,7 @@ export default function ProgressDashboard() {
         return (
             <div className="flex items-center justify-center h-96">
                 <Loader2 className="h-8 w-8 animate-spin text-indigo-600" />
-                <span className="ml-2 text-gray-600">Loading progress...</span>
+                <span className="ml-2 text-muted-foreground">Loading progress...</span>
             </div>
         );
     }
@@ -233,7 +233,7 @@ export default function ProgressDashboard() {
                             <div className="flex justify-between items-center">
                                 <div>
                                     <span className="font-medium">{month.month}</span>
-                                    <span className="text-sm text-gray-500 ml-2">
+                                    <span className="text-sm text-muted-foreground ml-2">
                                         {month.completed}/{month.total} sessions
                                     </span>
                                 </div>
@@ -241,7 +241,7 @@ export default function ProgressDashboard() {
                                     {month.avgScore > 0 ? (
                                         <span className="text-green-600 font-medium">{month.avgScore}% avg</span>
                                     ) : (
-                                        <span className="text-gray-400">Not started</span>
+                                        <span className="text-muted-foreground">Not started</span>
                                     )}
                                 </div>
                             </div>
@@ -278,7 +278,7 @@ export default function ProgressDashboard() {
                             </h4>
                             <div className="text-center">
                                 <div className="text-5xl font-bold text-emerald-600">{flashcardConfidence}%</div>
-                                <p className="text-sm text-gray-500 mt-1">
+                                <p className="text-sm text-muted-foreground mt-1">
                                     {totalFlashcardsKnown} of {totalFlashcards} cards mastered
                                 </p>
                             </div>
@@ -293,7 +293,7 @@ export default function ProgressDashboard() {
                             </h4>
                             <div className="text-center">
                                 <div className="text-5xl font-bold text-purple-600">{Math.round(avgQAScore)}%</div>
-                                <p className="text-sm text-gray-500 mt-1">
+                                <p className="text-sm text-muted-foreground mt-1">
                                     Average explanation accuracy
                                 </p>
                             </div>
@@ -310,7 +310,7 @@ export default function ProgressDashboard() {
                                     key={idx}
                                     className={`w-12 h-12 rounded-lg flex flex-col items-center justify-center text-xs ${day.flashcardsTotal > 0
                                         ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30'
-                                        : 'bg-gray-100 text-gray-400 dark:bg-gray-800'
+                                        : 'bg-muted text-muted-foreground'
                                         }`}
                                 >
                                     <span className="font-bold">D{day.day}</span>
@@ -322,7 +322,7 @@ export default function ProgressDashboard() {
                             {[4, 5, 6, 7, 8, 9, 10].map(day => (
                                 <div
                                     key={day}
-                                    className="w-12 h-12 rounded-lg flex items-center justify-center text-xs bg-gray-100 text-gray-400 dark:bg-gray-800"
+                                    className="w-12 h-12 rounded-lg flex items-center justify-center text-xs bg-muted text-muted-foreground"
                                 >
                                     D{day}
                                 </div>
@@ -356,13 +356,13 @@ export default function ProgressDashboard() {
                             <div className="text-3xl mb-2">📚</div>
                             <div className="font-medium text-sm">First CSAT Complete</div>
                         </div>
-                        <div className="text-center p-4 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200 opacity-50">
+                        <div className="text-center p-4 rounded-lg bg-muted border border-border opacity-50">
                             <div className="text-3xl mb-2">🎯</div>
-                            <div className="font-medium text-sm text-gray-400">90% Score</div>
+                            <div className="font-medium text-sm text-muted-foreground">90% Score</div>
                         </div>
-                        <div className="text-center p-4 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200 opacity-50">
+                        <div className="text-center p-4 rounded-lg bg-muted border border-border opacity-50">
                             <div className="text-3xl mb-2">⭐</div>
-                            <div className="font-medium text-sm text-gray-400">10 Sessions</div>
+                            <div className="font-medium text-sm text-muted-foreground">10 Sessions</div>
                         </div>
                     </div>
                 </CardContent>

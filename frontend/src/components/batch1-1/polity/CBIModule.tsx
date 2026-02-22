@@ -23,7 +23,7 @@ interface CBIModuleProps {
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="bg-[#f1f5f9] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-slate-200">
-        <div className="max-w-6xl mx-auto space-y-12 bg-white/70 rounded-[40px] p-6 shadow-2xl border-4 border-slate-900 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto space-y-12 bg-card/70 rounded-[40px] p-6 shadow-2xl border-4 border-slate-900 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#374151] via-[#a1824a] to-[#991b1b] opacity-60"></div>
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/notebook-dark.png')] opacity-5 pointer-events-none"></div>
             {children}
@@ -32,14 +32,14 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const DetectiveCard = ({ title, children, color = "border-[#374151]", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(55,65,81,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(55,65,81,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute top-0 right-0 p-2 opacity-5">
             <Fingerprint size={48} className={color.replace('border-', 'text-')} />
         </div>
         <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-700 relative z-10 font-bold">
+        <div className="space-y-4 text-muted-foreground relative z-10 font-bold">
             {children}
         </div>
     </div>
@@ -50,7 +50,7 @@ const PhaseHeader = ({ number, title, color }: { number: string, title: string, 
         <div className={`w-12 h-12 bg-slate-900 text-white rounded-lg flex items-center justify-center font-black text-xl shadow-xl rotate-1`}>
             {number}
         </div>
-        <h2 className={`text-2xl font-black uppercase tracking-tight text-slate-900`}>
+        <h2 className={`text-2xl font-black uppercase tracking-tight text-foreground`}>
             {title}
         </h2>
         <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
@@ -62,11 +62,11 @@ export default function CBIModule({ onComplete, isCompleted, chapterNumber = "65
         <ScrapbookContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#374151] border-4 border-slate-950 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(55,65,81,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-card/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-[#a1824a] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-slate-50 font-bold uppercase tracking-widest text-sm italic">Premier Investigating Agency</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
@@ -88,7 +88,7 @@ export default function CBIModule({ onComplete, isCompleted, chapterNumber = "65
             <div className="grid md:grid-cols-2 gap-8">
                 <DetectiveCard title="Evolution Trace [PYQ]" color="border-[#a1824a]">
                     <div className="space-y-4">
-                        <div className="p-4 bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl relative">
+                        <div className="p-4 bg-muted border-2 border-dashed border-border rounded-2xl relative">
                             <History className="absolute top-2 right-2 text-slate-200" size={32} />
                             <ul className="space-y-3">
                                 <li className="flex items-center gap-2 text-sm font-black italic">
@@ -97,7 +97,7 @@ export default function CBIModule({ onComplete, isCompleted, chapterNumber = "65
                                 <li className="p-2 bg-[#374151] text-white rounded-lg text-[10px] uppercase font-black text-center tracking-tighter">
                                     By Resolution of MHA (Home Affairs)
                                 </li>
-                                <li className="text-[11px] font-black italic text-slate-600">
+                                <li className="text-[11px] font-black italic text-muted-foreground">
                                     Now under: <span className="underline decoration-[#a1824a]">Ministry of Personnel.</span> [PYQ TRAP]
                                 </li>
                             </ul>
@@ -112,18 +112,18 @@ export default function CBIModule({ onComplete, isCompleted, chapterNumber = "65
 
                 <DetectiveCard title="Motto & Vision" color="border-[#374151]">
                     <div className="flex flex-col items-center justify-center h-full p-4 space-y-6">
-                        <div className="p-6 bg-slate-50 border-4 border-slate-900 rounded-3xl text-center shadow-2xl relative w-full group">
+                        <div className="p-6 bg-muted border-4 border-slate-900 rounded-3xl text-center shadow-2xl relative w-full group">
                             <div className="absolute inset-0 bg-slate-900 opacity-0 group-hover:opacity-5 transition-opacity"></div>
                             <h4 className="text-xs font-black uppercase tracking-widest text-[#a1824a] mb-2 font-sans">Motto</h4>
                             <p className="text-2xl font-black italic tracking-tighter italic">Industry, Impartiality, Integrity</p>
                         </div>
                         <div className="grid grid-cols-2 gap-4 w-full">
                             <div className="p-3 bg-slate-900 text-white rounded-2xl text-center">
-                                <p className="text-[10px] font-black uppercase text-slate-400">Jurisdiction</p>
+                                <p className="text-[10px] font-black uppercase text-muted-foreground">Jurisdiction</p>
                                 <p className="text-[11px] font-bold italic">Central Govt Employees & UTs.</p>
                             </div>
-                            <div className="p-3 bg-white border-2 border-slate-100 rounded-2xl text-center shadow-sm">
-                                <p className="text-[10px] font-black uppercase text-slate-400">Interpol</p>
+                            <div className="p-3 bg-card border-2 border-slate-100 rounded-2xl text-center shadow-sm">
+                                <p className="text-[10px] font-black uppercase text-muted-foreground">Interpol</p>
                                 <p className="text-[11px] font-bold italic">National Central Bureau of India.</p>
                             </div>
                         </div>
@@ -144,8 +144,8 @@ export default function CBIModule({ onComplete, isCompleted, chapterNumber = "65
                                 IPS Officer of DGP rank. Tenure FIXED for <span className="text-white underline font-black">2 Years</span>. [CVC Act Mandate]
                             </p>
                         </div>
-                        <div className="p-4 bg-white border-2 border-dashed border-slate-200 rounded-2xl">
-                            <h4 className="text-[10px] font-black uppercase text-slate-400 mb-2">Structure:</h4>
+                        <div className="p-4 bg-card border-2 border-dashed border-border rounded-2xl">
+                            <h4 className="text-[10px] font-black uppercase text-muted-foreground mb-2">Structure:</h4>
                             <ul className="text-[11px] font-black italic space-y-3">
                                 <li className="flex items-center gap-2"><BadgeCheck size={14} className="text-blue-600" /> Director (Inspector General of Police, DSPE)</li>
                                 <li className="flex items-center gap-2"><BadgeCheck size={14} className="text-blue-600" /> Special/Addl Directors</li>
@@ -169,13 +169,13 @@ export default function CBIModule({ onComplete, isCompleted, chapterNumber = "65
                                     <div className="w-10 h-10 bg-[#a1824a] text-white rounded-full flex items-center justify-center font-black shadow-lg border-2 border-white/20 select-none group-hover/item:rotate-12">{member.i}</div>
                                     <div>
                                         <p className="text-[11px] font-black uppercase tracking-tight">{member.t}</p>
-                                        <p className="text-[9px] font-bold text-slate-400 italic">{member.d}</p>
+                                        <p className="text-[9px] font-bold text-muted-foreground italic">{member.d}</p>
                                     </div>
                                 </div>
                             ))}
                         </div>
-                        <div className="mt-8 bg-white/5 p-3 rounded-xl border border-white/10">
-                            <p className="text-[10px] font-bold italic text-slate-400 leading-tight">CVC Act (2003) gave CBI Director a statutory tenure security.</p>
+                        <div className="mt-8 bg-card/5 p-3 rounded-xl border border-white/10">
+                            <p className="text-[10px] font-bold italic text-muted-foreground leading-tight">CVC Act (2003) gave CBI Director a statutory tenure security.</p>
                         </div>
                     </div>
                 </DetectiveCard>
@@ -188,7 +188,7 @@ export default function CBIModule({ onComplete, isCompleted, chapterNumber = "65
                 <div className="absolute top-0 right-0 p-4 opacity-10 rotate-12Scale transition-transform"><ShieldX size={150} /></div>
                 <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
                     <div className="text-center shrink-0">
-                        <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-2xl animate-pulse">
+                        <div className="w-24 h-24 bg-card rounded-full flex items-center justify-center shadow-2xl animate-pulse">
                             <ShieldX size={48} className="text-[#991b1b]" />
                         </div>
                         <p className="text-[10px] font-black mt-2 uppercase tracking-widest text-red-200">FEDERAL TRAP</p>
@@ -196,10 +196,10 @@ export default function CBIModule({ onComplete, isCompleted, chapterNumber = "65
                     <div className="space-y-4">
                         <h4 className="text-3xl font-black italic underline decoration-white">General Consent [CRITICAL]</h4>
                         <p className="text-lg font-bold italic leading-relaxed opacity-90">
-                            CBI <span className="text-black font-black bg-white px-1">CANNOT</span> investigate in a State without the State Govt's consent. Section 6 of DSPE Act. [PYQ]
+                            CBI <span className="text-black font-black bg-card px-1">CANNOT</span> investigate in a State without the State Govt's consent. Section 6 of DSPE Act. [PYQ]
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="p-3 bg-white/10 border border-white/20 rounded-xl">
+                            <div className="p-3 bg-card/10 border border-white/20 rounded-xl">
                                 <h5 className="text-[10px] font-black uppercase text-red-300 mb-1">General Consent:</h5>
                                 <p className="text-[11px] font-bold italic">Facilitates seamless investigation of Central Employees in States.</p>
                             </div>
@@ -214,9 +214,9 @@ export default function CBIModule({ onComplete, isCompleted, chapterNumber = "65
             </div>
 
             {/* COMPARISON: CAG vs CBI */}
-            <div className="bg-slate-50 border-4 border-slate-900 rounded-[30px] p-8 relative group overflow-hidden">
+            <div className="bg-muted border-4 border-slate-900 rounded-[30px] p-8 relative group overflow-hidden">
                 <div className="absolute inset-0 bg-slate-900 opacity-0 group-hover:opacity-5 transition-opacity"></div>
-                <h4 className="text-xl font-black italic text-slate-800 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                <h4 className="text-xl font-black italic text-foreground mb-6 flex items-center gap-2 uppercase tracking-tighter">
                     <ArrowRightLeft size={24} className="text-[#a1824a]" /> Functional Divisions
                 </h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -226,10 +226,10 @@ export default function CBIModule({ onComplete, isCompleted, chapterNumber = "65
                         { t: "Special Crimes", d: "Terrorism (Limited)", i: AlertTriangle },
                         { t: "Forensic", d: "Lab Investigations", i: Microscope }
                     ].map((div, i) => (
-                        <div key={i} className="flex flex-col items-center text-center p-3 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                            <div className="p-2 bg-slate-100 rounded-lg mb-2 text-slate-600"><div.i size={20} /></div>
+                        <div key={i} className="flex flex-col items-center text-center p-3 bg-card border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                            <div className="p-2 bg-muted rounded-lg mb-2 text-muted-foreground"><div.i size={20} /></div>
                             <p className="text-[10px] font-black uppercase tracking-tight">{div.t}</p>
-                            <p className="text-[8px] font-bold text-slate-400 italic leading-[1.1]">{div.d}</p>
+                            <p className="text-[8px] font-bold text-muted-foreground italic leading-[1.1]">{div.d}</p>
                         </div>
                     ))}
                 </div>
@@ -256,7 +256,7 @@ export default function CBIModule({ onComplete, isCompleted, chapterNumber = "65
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold italic tracking-widest text-[11px] uppercase underline decoration-[#991b1b]">Industry | Impartiality | Integrity</p>
+                <p className="mt-4 text-muted-foreground font-bold italic tracking-widest text-[11px] uppercase underline decoration-[#991b1b]">Industry | Impartiality | Integrity</p>
             </div>
         </ScrapbookContainer>
     );

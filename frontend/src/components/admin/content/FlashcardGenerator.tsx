@@ -203,7 +203,7 @@ export const ${varName}: Flashcard[] = ${JSON.stringify(cards.map(c => ({
                     </div>
 
                     {cards.length === 0 ? (
-                        <div className="border-2 border-dashed border-gray-200 rounded-lg p-12 text-center text-gray-400">
+                        <div className="border-2 border-dashed border-border rounded-lg p-12 text-center text-muted-foreground">
                             No cards generated yet. Start adding!
                         </div>
                     ) : (
@@ -217,12 +217,12 @@ export const ${varName}: Flashcard[] = ${JSON.stringify(cards.map(c => ({
                                             </Button>
                                         </div>
                                         <div>
-                                            <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Front</span>
+                                            <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Front</span>
                                             <p className="text-sm font-medium mt-1 line-clamp-3">{card.front}</p>
                                         </div>
                                         <div className="border-t pt-2">
-                                            <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Back</span>
-                                            <p className="text-sm text-gray-600 dark:text-gray-300 mt-1 line-clamp-3">{card.back}</p>
+                                            <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Back</span>
+                                            <p className="text-sm text-muted-foreground dark:text-muted-foreground mt-1 line-clamp-3">{card.back}</p>
                                         </div>
                                     </CardContent>
                                 </Card>

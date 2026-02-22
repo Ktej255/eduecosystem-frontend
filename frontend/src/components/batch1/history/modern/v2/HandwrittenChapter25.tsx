@@ -21,7 +21,7 @@ export default function HandwrittenChapter25() {
     const t = language === 'hi' ? ch25Translations.hi : ch25Translations.en;
 
     return (
-        <div className="min-h-screen bg-[#F5F5DC] font-sans text-gray-900 selection:bg-orange-200 overflow-x-hidden relative">
+        <div className="min-h-screen bg-paper font-sans text-paper-gray selection:bg-paper-orange/30 overflow-x-hidden relative">
             <style jsx global>{`
                 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Patrick+Hand&family=Reenie+Beanie&family=Special+Elite&display=swap');
                 
@@ -47,7 +47,7 @@ export default function HandwrittenChapter25() {
             <header className="max-w-4xl mx-auto pt-16 pb-12 text-center relative z-10">
                 <div className="relative inline-block">
                     <div className="absolute -inset-2 bg-orange-500 blur-xl opacity-20 transform rotate-2"></div>
-                    <div className="border-4 border-black p-6 bg-white transform -rotate-1 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="border-4 border-black p-6 bg-card transform -rotate-1 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
                         <div className="flex justify-between items-center border-b-2 border-black pb-2 mb-2">
                             <span className="type-font text-xs uppercase">{t.finalChapterLabel}</span>
                             <span className="type-font text-xs bg-black text-white px-2 tracking-widest">{t.year1947}</span>
@@ -66,7 +66,7 @@ export default function HandwrittenChapter25() {
                 <div className="space-y-12">
 
                     {/* PLAN BALKAN */}
-                    <div className="bg-white p-6 shadow-lg border-l-8 border-gray-400 rotate-1 text-gray-900">
+                    <div className="bg-card p-6 shadow-lg border-l-8 border-gray-400 rotate-1 text-gray-900">
                         <h2 className="marker-font text-2xl text-gray-500 mb-4 flex items-center gap-2">
                             <FileText className="w-6 h-6" /> {t.secretPlanTitle}
                         </h2>
@@ -102,7 +102,7 @@ export default function HandwrittenChapter25() {
                                 <li><strong>{t.princelyStates}</strong></li>
                             </ul>
 
-                            <div className="bg-white p-4 border border-blue-200 mt-4 shadow-sm">
+                            <div className="bg-card p-4 border border-blue-200 mt-4 shadow-sm">
                                 <strong className="type-font text-xs uppercase text-gray-500 block mb-1 font-bold">{t.boundaryCommissionTitle}</strong>
                                 <div className="flex items-center gap-2">
                                     <Scissors className="w-5 h-5 text-red-600" />
@@ -140,7 +140,7 @@ export default function HandwrittenChapter25() {
                 <div className="space-y-12">
 
                     {/* PARTITION HORROR */}
-                    <div className="bg-white p-1 shadow-[0_0_20px_rgba(0,0,0,0.1)] -rotate-1 text-gray-900">
+                    <div className="bg-card p-1 shadow-[0_0_20px_rgba(0,0,0,0.1)] -rotate-1 text-gray-900">
                         <div className="border-4 border-red-700 p-5 torn-paper bg-[#ffebee]">
                             <h2 className="marker-font text-3xl text-red-800 mb-4 flex items-center justify-between uppercase">
                                 <span>{t.theSurgeryTitle}</span>
@@ -163,7 +163,7 @@ export default function HandwrittenChapter25() {
                                     </div>
                                 </div>
 
-                                <div className="bg-white/50 p-3 border border-red-200 italic text-sm">
+                                <div className="bg-card/50 p-3 border border-red-200 italic text-sm">
                                     {t.punjabReality}
                                     <br />
                                     {t.bengalReality}
@@ -173,39 +173,39 @@ export default function HandwrittenChapter25() {
                     </div>
 
                     {/* INTEGRATION OF STATES */}
-                    <div className="bg-orange-50 p-6 border-l-8 border-orange-600 shadow-md text-gray-900">
-                        <h2 className="marker-font text-2xl text-orange-900 mb-4 flex items-center gap-2 uppercase">
-                            <MapIcon className="w-6 h-6" /> {t.statesIntegrationTitle}
+                    <div className="bg-paper-orange/10 p-6 border-l-8 border-paper-orange shadow-md text-inherit">
+                        <h2 className="marker-font text-2xl text-paper-orange mb-4 flex items-center gap-2 uppercase text-inherit">
+                            <MapIcon className="w-6 h-6 opacity-40" /> {t.statesIntegrationTitle}
                         </h2>
 
-                        <div className="hand-font text-lg space-y-4">
-                            <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center font-bold text-2xl">👷‍♂️</div>
-                                <div>
-                                    <strong className="block text-xl uppercase tracking-tighter">{t.patelMenonTitle}</strong>
-                                    <span className="text-sm opacity-80">{t.patelMenonDesc}</span>
+                        <div className="hand-font text-lg space-y-4 text-inherit">
+                            <div className="flex items-center gap-3 text-inherit">
+                                <div className="w-12 h-12 rounded-full bg-paper-border/20 flex items-center justify-center font-bold text-2xl opacity-60">👷‍♂️</div>
+                                <div className="text-inherit">
+                                    <strong className="block text-xl uppercase tracking-tighter text-inherit">{t.patelMenonTitle}</strong>
+                                    <span className="text-sm opacity-60 text-inherit">{t.patelMenonDesc}</span>
                                 </div>
                             </div>
 
-                            <div className="space-y-2">
-                                <strong className="block text-sm uppercase tracking-widest text-gray-500 font-bold">{t.troublemakersTitle}</strong>
-                                <ul className="text-sm pl-4 border-l-2 border-orange-300 space-y-2">
-                                    <li>❌ <strong>{t.junagadh}</strong> {t.junagadhDesc}</li>
-                                    <li>❌ <strong>{t.hyderabad}</strong> <span className="font-bold text-red-600">{t.operationPolo}</span> {t.hyderabadDesc}</li>
-                                    <li>❌ <strong>{t.kashmir}</strong> {t.kashmirDesc}</li>
+                            <div className="space-y-2 text-inherit opacity-80">
+                                <strong className="block text-sm uppercase tracking-widest text-paper-gray/40 font-bold text-inherit">{t.troublemakersTitle}</strong>
+                                <ul className="text-sm pl-4 border-l-2 border-paper-orange/30 space-y-2 text-inherit">
+                                    <li className="text-inherit">❌ <strong className="text-inherit">{t.junagadh}</strong> <span className="text-inherit opacity-80">{t.junagadhDesc}</span></li>
+                                    <li className="text-inherit">❌ <strong className="text-inherit">{t.hyderabad}</strong> <span className="font-bold text-paper-red">{t.operationPolo}</span> <span className="text-inherit opacity-80">{t.hyderabadDesc}</span></li>
+                                    <li className="text-inherit">❌ <strong className="text-inherit">{t.kashmir}</strong> <span className="text-inherit opacity-80">{t.kashmirDesc}</span></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
                     {/* DAWN OF FREEDOM */}
-                    <div className="bg-gradient-to-r from-orange-100 via-white to-green-100 p-8 shadow-xl text-center transform rotate-1 mt-8 pb-12 text-gray-900">
-                        <Flag className="w-12 h-12 mx-auto mb-4 text-blue-900" />
-                        <h2 className="marker-font text-4xl text-black mb-2 uppercase tracking-tight">{t.august15Header}</h2>
-                        <p className="scribble-font text-3xl text-gray-700 font-bold">
+                    <div className="bg-gradient-to-r from-paper-orange/20 via-paper to-paper-green/20 p-8 shadow-xl text-center transform rotate-1 mt-8 pb-12 text-inherit">
+                        <Flag className="w-12 h-12 mx-auto mb-4 text-paper-indigo opacity-40" />
+                        <h2 className="marker-font text-4xl text-paper-gray mb-2 uppercase tracking-tight text-inherit">{t.august15Header}</h2>
+                        <p className="scribble-font text-3xl text-paper-gray opacity-60 font-bold text-inherit">
                             {t.awakeQuote}
                         </p>
-                        <p className="type-font text-xs mt-4 uppercase font-bold tracking-widest">{t.firstCabinet}</p>
+                        <p className="type-font text-xs mt-4 uppercase font-bold tracking-widest text-paper-gray/40 text-inherit">{t.firstCabinet}</p>
                     </div>
 
                 </div>

@@ -152,7 +152,7 @@ export default function RiverSystemViz({ systemId = 'ganga' }: { systemId?: 'gan
                         </div>
                         <button
                             onClick={() => setSelectedNode(null)}
-                            className="p-1 rounded-full hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
+                            className="p-1 rounded-full hover:bg-card/10 text-muted-foreground hover:text-white transition-colors"
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -181,7 +181,7 @@ export default function RiverSystemViz({ systemId = 'ganga' }: { systemId?: 'gan
                     River Path
                 </div>
                 <div className="flex items-center gap-2 text-xs text-slate-300 bg-slate-900/50 px-3 py-1.5 rounded-full backdrop-blur-md border border-white/5">
-                    <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
+                    <div className="w-2 h-2 rounded-full bg-card shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
                     Confluence Point
                 </div>
             </div>

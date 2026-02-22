@@ -76,8 +76,8 @@ export default function CompleteOrder() {
                         <AlertTriangle className="h-6 w-6 text-yellow-600" />
                     </div>
                     <div>
-                        <h2 className="text-xl font-bold text-gray-900 dark:text-white">Order 80% Completed!</h2>
-                        <p className="text-gray-600 dark:text-gray-400">Your sample is uploaded. Confirm your analysis depth to finalize.</p>
+                        <h2 className="text-xl font-bold text-foreground">Order 80% Completed!</h2>
+                        <p className="text-muted-foreground dark:text-muted-foreground">Your sample is uploaded. Confirm your analysis depth to finalize.</p>
                     </div>
                 </div>
                 <div className="md:w-1/3 w-full">
@@ -102,7 +102,7 @@ export default function CompleteOrder() {
                         <CardContent>
                             <div className="flex flex-wrap gap-2">
                                 {freeTraits.map((t, i) => (
-                                    <span key={i} className="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs px-2 py-1 rounded-md border shadow-sm">
+                                    <span key={i} className="bg-card text-muted-foreground dark:text-muted-foreground text-xs px-2 py-1 rounded-md border shadow-sm">
                                         {t}
                                     </span>
                                 ))}
@@ -133,17 +133,17 @@ export default function CompleteOrder() {
                                         cursor-pointer p-4 rounded-xl border-2 transition-all duration-200 relative overflow-hidden
                                         ${selectedPremiumTraits.includes(trait.id)
                                             ? 'border-purple-600 bg-purple-50 dark:bg-purple-900/20 shadow-md transform scale-[1.02]'
-                                            : 'border-gray-200 hover:border-purple-300 bg-white dark:bg-gray-900'}
+                                            : 'border-border hover:border-purple-300 bg-card'}
                                     `}
                                 >
                                     <div className="flex justify-between items-start">
                                         <div>
-                                            <h4 className="font-bold text-gray-900 dark:text-white">{trait.name}</h4>
-                                            <p className="text-xs text-gray-500 mt-1">{trait.desc}</p>
+                                            <h4 className="font-bold text-foreground">{trait.name}</h4>
+                                            <p className="text-xs text-muted-foreground mt-1">{trait.desc}</p>
                                         </div>
                                         <div className={`
                                             w-5 h-5 rounded-full border flex items-center justify-center
-                                            ${selectedPremiumTraits.includes(trait.id) ? 'bg-purple-600 border-purple-600' : 'border-gray-300'}
+                                            ${selectedPremiumTraits.includes(trait.id) ? 'bg-purple-600 border-purple-600' : 'border-border'}
                                         `}>
                                             {selectedPremiumTraits.includes(trait.id) && <Check className="w-3 h-3 text-white" />}
                                         </div>
@@ -166,12 +166,12 @@ export default function CompleteOrder() {
                         <CardContent className="p-6 space-y-6">
                             <div className="space-y-3 pb-4 border-b">
                                 <div className="flex justify-between text-sm">
-                                    <span className="text-gray-600">Free Analysis</span>
+                                    <span className="text-muted-foreground">Free Analysis</span>
                                     <span className="font-medium text-green-600">FREE</span>
                                 </div>
                                 {selectedPremiumTraits.length > 0 && (
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-gray-600">Premium Traits ({selectedPremiumTraits.length})</span>
+                                        <span className="text-muted-foreground">Premium Traits ({selectedPremiumTraits.length})</span>
                                         <span className="font-medium">₹{selectedPremiumTraits.length * TRAIT_PRICE}</span>
                                     </div>
                                 )}
@@ -184,10 +184,10 @@ export default function CompleteOrder() {
                             </div>
 
                             <div className="flex justify-between items-end">
-                                <span className="text-lg font-bold text-gray-700">Total</span>
+                                <span className="text-lg font-bold text-muted-foreground">Total</span>
                                 <div className="text-right">
-                                    <div className="text-3xl font-extrabold text-gray-900 dark:text-white">₹{currentPrice}</div>
-                                    {isFullPackage && !couponApplied && <div className="text-xs text-gray-500 line-through">₹{premiumTraits.length * TRAIT_PRICE}</div>}
+                                    <div className="text-3xl font-extrabold text-foreground">₹{currentPrice}</div>
+                                    {isFullPackage && !couponApplied && <div className="text-xs text-muted-foreground line-through">₹{premiumTraits.length * TRAIT_PRICE}</div>}
                                 </div>
                             </div>
 
@@ -206,7 +206,7 @@ export default function CompleteOrder() {
                                 {currentPrice === 0 ? 'Get Free Report' : 'Pay & Get Report'}
                             </Button>
 
-                            <p className="text-xs text-center text-gray-400 mt-2">
+                            <p className="text-xs text-center text-muted-foreground mt-2">
                                 <Lock className="w-3 h-3 inline mr-1" />
                                 256-bit SSL Secure Payment
                             </p>
@@ -218,11 +218,11 @@ export default function CompleteOrder() {
             {/* COUPON POPUP */}
             {showCouponPopup && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in zoom-in-95 duration-200">
-                    <div className="bg-white dark:bg-gray-900 rounded-xl shadow-2xl max-w-sm w-full p-6 text-center relative border-2 border-dashed border-purple-400">
-                        <button onClick={() => setShowCouponPopup(false)} className="absolute top-2 right-2 text-gray-400 hover:text-gray-600">✕</button>
+                    <div className="bg-card rounded-xl shadow-2xl max-w-sm w-full p-6 text-center relative border-2 border-dashed border-purple-400">
+                        <button onClick={() => setShowCouponPopup(false)} className="absolute top-2 right-2 text-muted-foreground hover:text-muted-foreground">✕</button>
                         <Zap className="w-12 h-12 text-yellow-500 mx-auto mb-4 animate-bounce" />
                         <h3 className="text-2xl font-bold mb-2">First Time Special!</h3>
-                        <p className="text-gray-600 mb-6">Get the Complete Analysis Package (All Traits) for just ₹999 instead of ₹1599!</p>
+                        <p className="text-muted-foreground mb-6">Get the Complete Analysis Package (All Traits) for just ₹999 instead of ₹1599!</p>
                         <Button className="w-full bg-purple-600 font-bold" onClick={() => {
                             selectAllPremium();
                             setCouponApplied(true);

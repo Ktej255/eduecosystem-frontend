@@ -32,7 +32,7 @@ const TrendBadge = ({ trend }: { trend: 'increasing' | 'stable' | 'decreasing' }
     const config = {
         increasing: { icon: TrendingUp, color: "text-green-600", label: "Trending ↑" },
         stable: { icon: Target, color: "text-blue-600", label: "Stable" },
-        decreasing: { icon: History, color: "text-gray-500", label: "Declining ↓" },
+        decreasing: { icon: History, color: "text-muted-foreground", label: "Declining ↓" },
     };
     const Icon = config[trend].icon;
     return (
@@ -70,7 +70,7 @@ const QuestionCard = ({
     };
 
     return (
-        <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+        <div className="bg-card border-2 border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
             {/* Header */}
             <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
@@ -85,7 +85,7 @@ const QuestionCard = ({
                     </Badge>
                 </div>
                 {question.articleReference && (
-                    <span className="text-xs text-slate-500 font-bold italic">
+                    <span className="text-xs text-muted-foreground font-bold italic">
                         📜 {question.articleReference}
                     </span>
                 )}
@@ -105,14 +105,14 @@ const QuestionCard = ({
             )}
 
             {/* Question */}
-            <p className="text-slate-800 font-bold text-sm leading-relaxed mb-4 whitespace-pre-line">
+            <p className="text-foreground font-bold text-sm leading-relaxed mb-4 whitespace-pre-line">
                 {question.question}
             </p>
 
             {/* Options */}
             <div className="space-y-2">
                 {question.options.map((option, optIdx) => {
-                    let optionStyle = "bg-slate-50 border-slate-200 hover:bg-slate-100";
+                    let optionStyle = "bg-muted border-border hover:bg-muted";
 
                     if (isAnswered) {
                         if (optIdx === question.correctAnswer) {
@@ -120,7 +120,7 @@ const QuestionCard = ({
                         } else if (optIdx === selectedAnswer && !isCorrect) {
                             optionStyle = "bg-red-100 border-red-500 text-red-800";
                         } else {
-                            optionStyle = "bg-slate-50 border-slate-200 opacity-50";
+                            optionStyle = "bg-muted border-border opacity-50";
                         }
                     }
 
@@ -162,7 +162,7 @@ const QuestionCard = ({
                             </>
                         )}
                     </div>
-                    <p className="text-sm text-slate-700 leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                         {question.explanation}
                     </p>
 
@@ -181,7 +181,7 @@ const QuestionCard = ({
                     {question.tags.length > 0 && (
                         <div className="flex flex-wrap gap-1 mt-3">
                             {question.tags.map((tag, i) => (
-                                <Badge key={i} className="bg-white border text-slate-600 text-[10px]">
+                                <Badge key={i} className="bg-card border text-muted-foreground text-[10px]">
                                     #{tag}
                                 </Badge>
                             ))}
@@ -222,11 +222,11 @@ export default function ChapterPYQSection({ pyqData }: ChapterPYQSectionProps) {
 
                     {/* Stats Row */}
                     <div className="flex flex-wrap items-center gap-4">
-                        <div className="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-2">
+                        <div className="bg-card/20 backdrop-blur-sm rounded-xl px-4 py-2">
                             <span className="text-2xl font-black">{pyqData.totalPYQs}</span>
                             <span className="text-xs ml-1">Total PYQs</span>
                         </div>
-                        <div className="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-2">
+                        <div className="bg-card/20 backdrop-blur-sm rounded-xl px-4 py-2">
                             <span className="text-lg font-bold">📅 Last asked: {pyqData.lastAskedYear}</span>
                         </div>
                         <FrequencyBadge frequency={pyqData.frequency} />
@@ -235,7 +235,7 @@ export default function ChapterPYQSection({ pyqData }: ChapterPYQSectionProps) {
 
                     {/* Score Display */}
                     {score.total > 0 && (
-                        <div className="mt-4 bg-white/20 backdrop-blur-sm rounded-xl px-4 py-2 inline-flex items-center gap-2">
+                        <div className="mt-4 bg-card/20 backdrop-blur-sm rounded-xl px-4 py-2 inline-flex items-center gap-2">
                             <Award className="text-yellow-300" size={18} />
                             <span className="font-bold">
                                 Your Score: {score.correct}/{score.total} ({Math.round((score.correct / score.total) * 100)}%)
@@ -248,7 +248,7 @@ export default function ChapterPYQSection({ pyqData }: ChapterPYQSectionProps) {
             {/* Expand/Collapse Button */}
             <Button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="w-full mt-4 bg-slate-100 hover:bg-slate-200 text-slate-700 border-2 border-slate-300 py-6 rounded-xl font-bold"
+                className="w-full mt-4 bg-muted hover:bg-slate-200 text-muted-foreground border-2 border-border py-6 rounded-xl font-bold"
             >
                 {isExpanded ? (
                     <>
@@ -276,9 +276,9 @@ export default function ChapterPYQSection({ pyqData }: ChapterPYQSectionProps) {
                     ))}
 
                     {pyqData.questions.length < pyqData.totalPYQs && (
-                        <div className="text-center p-6 bg-slate-50 rounded-2xl border-2 border-dashed border-slate-300">
-                            <Clock className="mx-auto text-slate-400 mb-2" size={32} />
-                            <p className="text-slate-500 font-bold">
+                        <div className="text-center p-6 bg-muted rounded-2xl border-2 border-dashed border-border">
+                            <Clock className="mx-auto text-muted-foreground mb-2" size={32} />
+                            <p className="text-muted-foreground font-bold">
                                 {pyqData.totalPYQs - pyqData.questions.length} more questions coming soon!
                             </p>
                         </div>

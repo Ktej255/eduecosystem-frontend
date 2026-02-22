@@ -104,7 +104,7 @@ export default function MonitoringPage() {
               <Shield className="mr-3 h-8 w-8 text-cyan-500" />
               Exam Monitoring System
             </h1>
-            <p className="text-gray-400 mt-2">
+            <p className="text-muted-foreground mt-2">
               Secure environment for high-stakes assessments.
             </p>
           </div>
@@ -116,7 +116,7 @@ export default function MonitoringPage() {
             <h2 className="text-2xl font-bold text-white mb-4">
               Ready for Midterm Physics?
             </h2>
-            <p className="text-gray-400 mb-8">
+            <p className="text-muted-foreground mb-8">
               This exam is monitored. Switching tabs or exiting fullscreen will
               be logged as a violation. Ensure you have a stable internet
               connection.
@@ -165,14 +165,14 @@ export default function MonitoringPage() {
               </div>
             </div>
 
-            <div className="bg-white text-black p-12 rounded-xl min-h-[400px] shadow-2xl">
+            <div className="bg-card text-black p-12 rounded-xl min-h-[400px] shadow-2xl">
               <h2 className="text-2xl font-bold mb-6">Question 1 of 20</h2>
               <p className="text-lg mb-8">
                 Calculate the escape velocity of a projectile from the surface
                 of the Earth. Assume g = 9.8 m/s² and R = 6400 km.
               </p>
               <textarea
-                className="w-full h-40 p-4 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-cyan-500 outline-none"
+                className="w-full h-40 p-4 border border-border rounded-lg text-lg focus:ring-2 focus:ring-cyan-500 outline-none"
                 placeholder="Type your answer here..."
               />
               <div className="flex justify-end mt-6">
@@ -188,11 +188,11 @@ export default function MonitoringPage() {
             <h2 className="text-2xl font-bold text-white mb-2">
               Exam Submitted!
             </h2>
-            <p className="text-gray-400 mb-6">
+            <p className="text-muted-foreground mb-6">
               Your responses have been recorded.
             </p>
             <div className="bg-gray-800 p-4 rounded-lg inline-block mb-6">
-              <p className="text-gray-300">
+              <p className="text-muted-foreground">
                 Total Violations Recorded:{" "}
                 <span className="text-white font-bold">{violations}</span>
               </p>
@@ -213,7 +213,7 @@ export default function MonitoringPage() {
           <h3 className="font-bold text-white mb-4">Proctoring Status</h3>
           <div className="space-y-4">
             <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-400">Fullscreen</span>
+              <span className="text-muted-foreground">Fullscreen</span>
               <span
                 className={isFullscreen ? "text-green-500" : "text-red-500"}
               >
@@ -221,11 +221,11 @@ export default function MonitoringPage() {
               </span>
             </div>
             <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-400">Tab Focus</span>
+              <span className="text-muted-foreground">Tab Focus</span>
               <span className="text-green-500">Active</span>
             </div>
             <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-400">Webcam</span>
+              <span className="text-muted-foreground">Webcam</span>
               <span className="text-green-500">Connected</span>
             </div>
           </div>

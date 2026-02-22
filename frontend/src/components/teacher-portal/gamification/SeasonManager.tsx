@@ -32,7 +32,7 @@ export default function SeasonManager() {
     };
 
     return (
-        <Card className="h-full border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+        <Card className="h-full border-neutral-200 dark:border-neutral-800 bg-card dark:bg-neutral-900">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-indigo-600 dark:text-indigo-500">
                     <RefreshCw className="w-5 h-5" />

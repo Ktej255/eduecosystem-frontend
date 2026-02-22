@@ -77,10 +77,10 @@ export default function MeditationPage() {
         <div className="relative mx-auto w-64 h-64 rounded-full flex items-center justify-center bg-gradient-to-br from-emerald-900 to-black border-4 border-emerald-500/30 shadow-[0_0_50px_rgba(16,185,129,0.2)]">
           {isLocked ? (
             <div className="text-center space-y-4 animate-pulse">
-              <Lock className="h-16 w-16 text-gray-500 mx-auto" />
+              <Lock className="h-16 w-16 text-muted-foreground mx-auto" />
               <div>
-                <h2 className="text-xl font-bold text-gray-400">Locked</h2>
-                <p className="text-sm text-gray-600">
+                <h2 className="text-xl font-bold text-muted-foreground">Locked</h2>
+                <p className="text-sm text-muted-foreground">
                   Opens in {formatTime(timeLeft)}
                 </p>
               </div>
@@ -99,7 +99,7 @@ export default function MeditationPage() {
           <h1 className="text-3xl font-bold text-white">
             {isLocked ? "Patience, Seeker." : "Ready to Meditate?"}
           </h1>
-          <p className="text-gray-400">
+          <p className="text-muted-foreground">
             {isLocked
               ? "The mind needs discipline. Wait for the appointed hour (6 PM)."
               : "15 Minutes • Guided Visualization • Stress Relief"}
@@ -108,7 +108,7 @@ export default function MeditationPage() {
 
         {!isLocked && !isPlaying && (
           <div className="space-y-4">
-            <p className="text-gray-400 text-sm">
+            <p className="text-muted-foreground text-sm">
               How are you feeling right now?
             </p>
             <div className="flex justify-center space-x-4">

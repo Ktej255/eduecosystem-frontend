@@ -50,7 +50,7 @@ const HeroPreamble = () => (
                 </div>
             </div>
 
-            <div className="text-lg md:text-xl leading-relaxed text-slate-800 font-medium space-y-4 font-serif italic text-justify px-4 md:px-12">
+            <div className="text-lg md:text-xl leading-relaxed text-foreground font-medium space-y-4 font-serif italic text-justify px-4 md:px-12">
                 <p>
                     <strong className="text-3xl text-amber-900 block text-center mb-2 not-italic">WE, THE PEOPLE OF INDIA,</strong>
                     having solemnly resolved to constitute India into a
@@ -72,10 +72,10 @@ const HeroPreamble = () => (
     </div>
 );
 
-const LensCard = ({ title, icon: Icon, children, color = "bg-white", pyq = false }: { title: string, icon: any, children: React.ReactNode, color?: string, pyq?: boolean }) => (
-    <div className={`relative group ${color} border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}>
+const LensCard = ({ title, icon: Icon, children, color = "bg-card", pyq = false }: { title: string, icon: any, children: React.ReactNode, color?: string, pyq?: boolean }) => (
+    <div className={`relative group ${color} border border-border rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}>
         {/* Lens Effect Visual */}
-        <div className="absolute -top-6 left-6 bg-white p-2 rounded-full shadow-lg border border-slate-100 group-hover:scale-110 transition-transform">
+        <div className="absolute -top-6 left-6 bg-card p-2 rounded-full shadow-lg border border-slate-100 group-hover:scale-110 transition-transform">
             <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-2 rounded-full">
                 <Icon size={24} className="text-indigo-800" />
             </div>
@@ -91,10 +91,10 @@ const LensCard = ({ title, icon: Icon, children, color = "bg-white", pyq = false
             </div>
         )}
 
-        <h3 className="mt-6 text-xl font-bold text-slate-800 mb-3 font-serif border-b border-indigo-50 pb-2">
+        <h3 className="mt-6 text-xl font-bold text-foreground mb-3 font-serif border-b border-indigo-50 pb-2">
             {title}
         </h3>
-        <div className="text-sm text-slate-600 leading-relaxed font-sans">
+        <div className="text-sm text-muted-foreground leading-relaxed font-sans">
             {children}
         </div>
     </div>
@@ -143,9 +143,9 @@ export default function PreambleModule({ onComplete, isCompleted }: PreambleModu
                 {/* Ingredients Quadrant */}
                 <LensCard title="The 4 Ingredients" icon={Users}>
                     <div className="grid grid-cols-2 gap-2 text-xs">
-                        <div className="bg-slate-50 p-2 rounded border border-slate-100">
-                            <div className="font-bold text-slate-400 uppercase text-[10px]">Authority</div>
-                            <div className="font-bold text-slate-800">We, The People</div>
+                        <div className="bg-muted p-2 rounded border border-slate-100">
+                            <div className="font-bold text-muted-foreground uppercase text-[10px]">Authority</div>
+                            <div className="font-bold text-foreground">We, The People</div>
                         </div>
                         <div className="bg-amber-50 p-2 rounded border border-amber-100">
                             <div className="font-bold text-amber-400 uppercase text-[10px]">Nature</div>
@@ -155,9 +155,9 @@ export default function PreambleModule({ onComplete, isCompleted }: PreambleModu
                             <div className="font-bold text-blue-400 uppercase text-[10px]">Objectives</div>
                             <div className="font-bold text-blue-900">Justice, Liberty, Equality, Fraternity</div>
                         </div>
-                        <div className="bg-slate-50 p-2 rounded border border-slate-100">
-                            <div className="font-bold text-slate-400 uppercase text-[10px]">Date</div>
-                            <div className="font-bold text-slate-800">Nov 26, 1949</div>
+                        <div className="bg-muted p-2 rounded border border-slate-100">
+                            <div className="font-bold text-muted-foreground uppercase text-[10px]">Date</div>
+                            <div className="font-bold text-foreground">Nov 26, 1949</div>
                         </div>
                     </div>
                 </LensCard>
@@ -192,7 +192,7 @@ export default function PreambleModule({ onComplete, isCompleted }: PreambleModu
                         <Badge variant="outline" className="mb-1 text-[10px] border-amber-400 text-amber-700 bg-amber-50">Added by 42nd AA, 1976</Badge>
                     </div>
                     <p><strong>"Positive Secularism":</strong> All religions have same status and support.</p>
-                    <div className="mt-2 bg-slate-100 p-2 rounded text-xs">
+                    <div className="mt-2 bg-muted p-2 rounded text-xs">
                         <strong>Cases:</strong> S.R. Bommai (1994) - "Basic Structure".
                     </div>
                 </LensCard>
@@ -201,13 +201,13 @@ export default function PreambleModule({ onComplete, isCompleted }: PreambleModu
             <div className="grid md:grid-cols-2 gap-6 mt-6">
                 <LensCard title="Democratic" icon={Users}>
                     <p><strong>Type:</strong> Representative Parliamentary Democracy.</p>
-                    <div className="mt-2 text-xs text-slate-500">
+                    <div className="mt-2 text-xs text-muted-foreground">
                         <strong>Note:</strong> Tools of Direct Democracy (Referendum, Recall etc.) are NOT used in India.
                     </div>
                 </LensCard>
                 <LensCard title="Republic" icon={Landmark}>
                     <p><strong>Meaning:</strong> Head of State is <strong>ELECTED</strong> (President), not Hereditary (King).</p>
-                    <div className="mt-2 text-xs text-slate-500">
+                    <div className="mt-2 text-xs text-muted-foreground">
                         <strong>Implication:</strong> Political sovereignty in people, no privileged class.
                     </div>
                 </LensCard>
@@ -218,31 +218,31 @@ export default function PreambleModule({ onComplete, isCompleted }: PreambleModu
             <SectionHeading>Phase 3: Objectives & The Debate</SectionHeading>
 
             {/* Objectives List */}
-            <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-8">
+            <div className="bg-card rounded-xl shadow-sm border border-border p-6 mb-8">
                 <div className="grid md:grid-cols-4 gap-4">
-                    <div className="p-3 bg-slate-50 rounded text-center">
+                    <div className="p-3 bg-muted rounded text-center">
                         <Scale className="mx-auto mb-2 text-indigo-700" size={20} />
                         <div className="font-bold text-indigo-900 text-sm">JUSTICE</div>
-                        <div className="text-[10px] uppercase font-bold text-slate-400 mt-1">Russian Rev</div>
-                        <div className="text-xs text-slate-600 mt-1">Social, Econ, Pol</div>
+                        <div className="text-[10px] uppercase font-bold text-muted-foreground mt-1">Russian Rev</div>
+                        <div className="text-xs text-muted-foreground mt-1">Social, Econ, Pol</div>
                     </div>
-                    <div className="p-3 bg-slate-50 rounded text-center">
+                    <div className="p-3 bg-muted rounded text-center">
                         <Feather className="mx-auto mb-2 text-indigo-700" size={20} />
                         <div className="font-bold text-indigo-900 text-sm">LIBERTY</div>
-                        <div className="text-[10px] uppercase font-bold text-slate-400 mt-1">French Rev</div>
-                        <div className="text-xs text-slate-600 mt-1">Thought, Expr, Faith</div>
+                        <div className="text-[10px] uppercase font-bold text-muted-foreground mt-1">French Rev</div>
+                        <div className="text-xs text-muted-foreground mt-1">Thought, Expr, Faith</div>
                     </div>
-                    <div className="p-3 bg-slate-50 rounded text-center">
+                    <div className="p-3 bg-muted rounded text-center">
                         <Users className="mx-auto mb-2 text-indigo-700" size={20} />
                         <div className="font-bold text-indigo-900 text-sm">EQUALITY</div>
-                        <div className="text-[10px] uppercase font-bold text-slate-400 mt-1">French Rev</div>
-                        <div className="text-xs text-slate-600 mt-1">Status, Opportunity</div>
+                        <div className="text-[10px] uppercase font-bold text-muted-foreground mt-1">French Rev</div>
+                        <div className="text-xs text-muted-foreground mt-1">Status, Opportunity</div>
                     </div>
-                    <div className="p-3 bg-slate-50 rounded text-center">
+                    <div className="p-3 bg-muted rounded text-center">
                         <Heart className="mx-auto mb-2 text-indigo-700" size={20} />
                         <div className="font-bold text-indigo-900 text-sm">FRATERNITY</div>
-                        <div className="text-[10px] uppercase font-bold text-slate-400 mt-1">French Rev</div>
-                        <div className="text-xs text-slate-600 mt-1">Dignity, Unity</div>
+                        <div className="text-[10px] uppercase font-bold text-muted-foreground mt-1">French Rev</div>
+                        <div className="text-xs text-muted-foreground mt-1">Dignity, Unity</div>
                     </div>
                 </div>
             </div>
@@ -252,23 +252,23 @@ export default function PreambleModule({ onComplete, isCompleted }: PreambleModu
                 <LensCard title="Is it Part of Constitution?" icon={Gavel} pyq color="bg-red-50/30">
                     <div className="space-y-4 relative pl-4 border-l-2 border-red-200 custom-timeline">
                         <div className="relative">
-                            <div className="text-xs font-bold text-slate-400">1960</div>
+                            <div className="text-xs font-bold text-muted-foreground">1960</div>
                             <div className="font-bold text-red-800">Berubari Union Case</div>
                             <div className="text-xs text-red-600">SC: "NOT a part"</div>
                         </div>
                         <div className="relative">
                             <div className="absolute -left-[21px] top-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
-                            <div className="text-xs font-bold text-slate-400">1973</div>
+                            <div className="text-xs font-bold text-muted-foreground">1973</div>
                             <div className="font-bold text-green-800">Kesavananda Bharati</div>
                             <div className="text-xs text-green-700 font-bold">SC: "IS an integral part"</div>
                         </div>
                         <div className="relative">
-                            <div className="text-xs font-bold text-slate-400">1995</div>
-                            <div className="font-bold text-slate-800">LIC of India Case</div>
-                            <div className="text-xs text-slate-600">SC: "Integral part"</div>
+                            <div className="text-xs font-bold text-muted-foreground">1995</div>
+                            <div className="font-bold text-foreground">LIC of India Case</div>
+                            <div className="text-xs text-muted-foreground">SC: "Integral part"</div>
                         </div>
                     </div>
-                    <div className="mt-4 p-2 bg-white rounded border border-red-100 text-[10px] text-slate-500 italic">
+                    <div className="mt-4 p-2 bg-card rounded border border-red-100 text-[10px] text-muted-foreground italic">
                         <strong>Note:</strong> Non-Justiciable & Neither source of power nor prohibition.
                     </div>
                 </LensCard>
@@ -276,13 +276,13 @@ export default function PreambleModule({ onComplete, isCompleted }: PreambleModu
                 <LensCard title="Amenability (Art 368)" icon={CheckCircle2}>
                     <div className="text-center py-6">
                         <div className="text-4xl font-black text-green-600 mb-2">YES</div>
-                        <p className="text-sm font-bold text-slate-700">It can be amended.</p>
-                        <p className="text-xs text-slate-500 mt-1">Rule: Kesavananda Bharati Case (1973)</p>
+                        <p className="text-sm font-bold text-muted-foreground">It can be amended.</p>
+                        <p className="text-xs text-muted-foreground mt-1">Rule: Kesavananda Bharati Case (1973)</p>
                     </div>
                     <div className="bg-amber-100 text-amber-900 p-3 rounded text-xs font-bold text-center border border-amber-200">
                         Condition: Cannot alter "Basic Structure".
                     </div>
-                    <div className="text-center mt-4 text-xs text-slate-400">
+                    <div className="text-center mt-4 text-xs text-muted-foreground">
                         Amended only ONCE (42nd AA, 1976).
                     </div>
                 </LensCard>

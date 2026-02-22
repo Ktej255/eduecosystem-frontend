@@ -28,7 +28,7 @@ export default function AffiliatesPage() {
       render: (value: string) => (
         <Badge variant="outline" className={
           value === "active" ? "border-green-500/50 text-green-500 bg-green-500/10" :
-            "border-gray-500/50 text-gray-500 bg-gray-500/10"
+            "border-gray-500/50 text-muted-foreground bg-muted-foreground/10"
         }>
           {value.charAt(0).toUpperCase() + value.slice(1)}
         </Badge>

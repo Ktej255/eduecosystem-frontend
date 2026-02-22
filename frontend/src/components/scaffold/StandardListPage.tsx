@@ -73,10 +73,10 @@ export default function StandardListPage({
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <div>
                         <h1 className="text-3xl font-bold text-white mb-2">{title}</h1>
-                        <p className="text-gray-400">{description}</p>
+                        <p className="text-muted-foreground">{description}</p>
                     </div>
                     <div className="flex gap-3">
-                        <Button variant="outline" className="border-gray-800 text-gray-300">
+                        <Button variant="outline" className="border-gray-800 text-muted-foreground">
                             <Download className="mr-2 h-4 w-4" />
                             Export
                         </Button>
@@ -92,7 +92,7 @@ export default function StandardListPage({
                 {/* Filters */}
                 <div className="flex gap-4 items-center bg-gray-900/50 p-4 rounded-xl border border-gray-800">
                     <div className="relative flex-1 max-w-md">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                         <Input
                             placeholder="Search..."
                             value={search}
@@ -100,7 +100,7 @@ export default function StandardListPage({
                             className="pl-10 bg-gray-900 border-gray-700 text-white"
                         />
                     </div>
-                    <Button variant="outline" className="border-gray-700 text-gray-300">
+                    <Button variant="outline" className="border-gray-700 text-muted-foreground">
                         <Filter className="mr-2 h-4 w-4" />
                         Filter
                     </Button>
@@ -112,7 +112,7 @@ export default function StandardListPage({
                         <TableHeader>
                             <TableRow className="border-gray-800 hover:bg-gray-800/50">
                                 {columns.map((col) => (
-                                    <TableHead key={col.key} className="text-gray-400 font-medium">
+                                    <TableHead key={col.key} className="text-muted-foreground font-medium">
                                         {col.label}
                                     </TableHead>
                                 ))}
@@ -124,25 +124,25 @@ export default function StandardListPage({
                                 filteredData.map((row, i) => (
                                     <TableRow key={i} className="border-gray-800 hover:bg-gray-800/50">
                                         {columns.map((col) => (
-                                            <TableCell key={col.key} className="text-gray-300">
+                                            <TableCell key={col.key} className="text-muted-foreground">
                                                 {col.render ? col.render(row[col.key], row) : row[col.key]}
                                             </TableCell>
                                         ))}
                                         <TableCell className="text-right">
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
-                                                    <Button variant="ghost" className="h-8 w-8 p-0 text-gray-400 hover:text-white">
+                                                    <Button variant="ghost" className="h-8 w-8 p-0 text-muted-foreground hover:text-white">
                                                         <MoreVertical className="h-4 w-4" />
                                                     </Button>
                                                 </DropdownMenuTrigger>
                                                 <DropdownMenuContent align="end" className="bg-gray-900 border-gray-800">
                                                     {onView && (
-                                                        <DropdownMenuItem onClick={() => onView(row)} className="text-gray-300 focus:text-white focus:bg-gray-800">
+                                                        <DropdownMenuItem onClick={() => onView(row)} className="text-muted-foreground focus:text-white focus:bg-gray-800">
                                                             <Eye className="mr-2 h-4 w-4" /> View Details
                                                         </DropdownMenuItem>
                                                     )}
                                                     {onEdit && (
-                                                        <DropdownMenuItem onClick={() => onEdit(row)} className="text-gray-300 focus:text-white focus:bg-gray-800">
+                                                        <DropdownMenuItem onClick={() => onEdit(row)} className="text-muted-foreground focus:text-white focus:bg-gray-800">
                                                             <Edit className="mr-2 h-4 w-4" /> Edit
                                                         </DropdownMenuItem>
                                                     )}
@@ -158,7 +158,7 @@ export default function StandardListPage({
                                 ))
                             ) : (
                                 <TableRow>
-                                    <TableCell colSpan={columns.length + 1} className="h-24 text-center text-gray-500">
+                                    <TableCell colSpan={columns.length + 1} className="h-24 text-center text-muted-foreground">
                                         No results found.
                                     </TableCell>
                                 </TableRow>

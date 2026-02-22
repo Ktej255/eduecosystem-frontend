@@ -14,7 +14,7 @@ export default function EveningReport() {
                 </div>
             </CardHeader>
             <CardContent>
-                <p className="text-gray-500 text-center py-8">
+                <p className="text-muted-foreground text-center py-8">
                     Evening Session Analytics visualization coming soon.
                 </p>
             </CardContent>

@@ -74,14 +74,14 @@ export default function NudgeAction({ studentName = "Rohan Das", context, onClos
     };
 
     return (
-        <Card className="w-full max-w-md border-slate-200 dark:border-slate-800 shadow-lg mx-auto md:mx-0">
-            <CardHeader className="pb-3 bg-slate-50/50 dark:bg-slate-900/10 border-b border-slate-100 dark:border-slate-800">
+        <Card className="w-full max-w-md border-border shadow-lg mx-auto md:mx-0">
+            <CardHeader className="pb-3 bg-slate-50/50/10 border-b border-slate-100">
                 <div className="flex justify-between items-center">
-                    <CardTitle className="text-base font-bold flex items-center gap-2 text-slate-800 dark:text-slate-100">
+                    <CardTitle className="text-base font-bold flex items-center gap-2 text-foreground">
                         <Sparkles className="h-4 w-4 text-amber-500" />
                         Quick Nudge
                     </CardTitle>
-                    <Badge variant="outline" className="text-xs bg-white text-slate-500">
+                    <Badge variant="outline" className="text-xs bg-card text-muted-foreground">
                         To: {selectedStudent}
                     </Badge>
                 </div>
@@ -102,17 +102,17 @@ export default function NudgeAction({ studentName = "Rohan Das", context, onClos
 
                 {/* Templates Grid */}
                 <div>
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 block">Templates</span>
+                    <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2 block">Templates</span>
                     <div className="grid grid-cols-1 gap-2">
                         {templates.map((t) => (
                             <button
                                 key={t.id}
                                 onClick={() => handleTemplateSelect(t)}
                                 className={cn(
-                                    "text-left p-2 rounded-lg text-xs border transition-all hover:bg-slate-50",
+                                    "text-left p-2 rounded-lg text-xs border transition-all hover:bg-muted",
                                     message === t.text.replace("{name}", selectedStudent)
                                         ? "border-indigo-500 bg-indigo-50/50 text-indigo-700 font-medium"
-                                        : "border-slate-100 text-slate-600 hover:border-slate-200"
+                                        : "border-slate-100 text-muted-foreground hover:border-border"
                                 )}
                             >
                                 <span className={cn(
@@ -130,12 +130,12 @@ export default function NudgeAction({ studentName = "Rohan Das", context, onClos
                     <Textarea
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                        className="min-h-[100px] text-sm resize-none bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 focus-visible:ring-indigo-500"
+                        className="min-h-[100px] text-sm resize-none bg-muted border-border focus-visible:ring-indigo-500"
                     />
                     <Button
                         size="icon"
                         variant="ghost"
-                        className="absolute bottom-2 right-2 h-6 w-6 text-slate-400 hover:text-slate-600"
+                        className="absolute bottom-2 right-2 h-6 w-6 text-muted-foreground hover:text-muted-foreground"
                         onClick={() => navigator.clipboard.writeText(message)}
                     >
                         <Copy className="h-3 w-3" />

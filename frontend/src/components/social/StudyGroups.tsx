@@ -126,7 +126,7 @@ export default function StudyGroups() {
                   onChange={(e) => setIsPrivate(e.target.checked)}
                   className="rounded bg-gray-800 border-gray-700"
                 />
-                <label htmlFor="private" className="text-sm text-gray-300">
+                <label htmlFor="private" className="text-sm text-muted-foreground">
                   Private Group
                 </label>
               </div>
@@ -145,7 +145,7 @@ export default function StudyGroups() {
         {loading ? (
           <LoadingSkeleton variant="card" count={3} />
         ) : groups.length === 0 ? (
-          <p className="text-gray-400 text-center py-4">No groups joined</p>
+          <p className="text-muted-foreground text-center py-4">No groups joined</p>
         ) : (
           groups.map((group) => (
             <div
@@ -162,12 +162,12 @@ export default function StudyGroups() {
                   <Globe className="h-3 w-3 text-green-500" />
                 )}
               </div>
-              <p className="text-sm text-gray-400 line-clamp-2 mb-3">
+              <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
                 {group.description}
               </p>
 
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-xs text-gray-500">
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <Users className="h-3 w-3" />
                   <span>Members</span>
                 </div>

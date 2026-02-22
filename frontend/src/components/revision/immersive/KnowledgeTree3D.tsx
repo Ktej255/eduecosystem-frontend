@@ -233,7 +233,7 @@ export default function KnowledgeTree3D() {
         <div className="w-full h-[600px] bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl relative">
             <div className="absolute top-4 left-4 z-10 bg-black/50 backdrop-blur px-4 py-2 rounded-xl border border-white/10">
                 <h3 className="text-white font-bold text-lg">Knowledge Garden 3D</h3>
-                <p className="text-slate-400 text-xs uppercase tracking-widest">Interactive Retention Visualizer</p>
+                <p className="text-muted-foreground text-xs uppercase tracking-widest">Interactive Retention Visualizer</p>
                 {isUsingMockData && (
                     <span className="text-[10px] text-amber-500 block mt-1">*Demo Mode (Connect Learning History)</span>
                 )}

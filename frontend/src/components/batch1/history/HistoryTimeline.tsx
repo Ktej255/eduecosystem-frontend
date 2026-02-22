@@ -62,7 +62,7 @@ export default function HistoryTimeline({ config, onSelectTopic }: HistoryTimeli
                                 </div>
 
                                 {/* Card */}
-                                <div className="w-full bg-white dark:bg-neutral-900 p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm transition-all group-hover:shadow-md group-hover:-translate-y-1 group-hover:border-amber-500/50">
+                                <div className="w-full bg-card dark:bg-neutral-900 p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm transition-all group-hover:shadow-md group-hover:-translate-y-1 group-hover:border-amber-500/50">
                                     <h4 className="font-bold text-sm text-neutral-900 dark:text-neutral-100 mb-1 leading-tight">
                                         {topic.title}
                                     </h4>

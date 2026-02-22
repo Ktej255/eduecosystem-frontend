@@ -46,7 +46,7 @@ export default function ProductivityPage() {
             <div className="mb-8">
                 <Link
                     href="/student/batch1-1"
-                    className="inline-flex items-center text-sm text-gray-500 hover:text-indigo-600 mb-4 transition-colors"
+                    className="inline-flex items-center text-sm text-muted-foreground hover:text-indigo-600 mb-4 transition-colors"
                 >
                     <ArrowLeft className="mr-1 h-4 w-4" /> Back to Dashboard
                 </Link>
@@ -56,7 +56,7 @@ export default function ProductivityPage() {
                             <Zap className="h-8 w-8 text-orange-600 dark:text-orange-400" />
                             Productivity War Room
                         </h1>
-                        <p className="text-gray-600 dark:text-gray-400 mt-2">
+                        <p className="text-muted-foreground dark:text-muted-foreground mt-2">
                             Sharpen your mind with daily drills. Speed, Awareness, and Logic.
                         </p>
                     </div>

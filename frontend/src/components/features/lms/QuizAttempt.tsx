@@ -98,7 +98,7 @@ export function QuizAttempt({ quizId, onComplete }: QuizAttemptProps) {
         <div className="flex justify-between items-center mb-4">
           <div>
             <h2 className="text-2xl font-bold text-white">Quiz In Progress</h2>
-            <p className="text-gray-400">Attempt #{attempt?.attempt_number}</p>
+            <p className="text-muted-foreground">Attempt #{attempt?.attempt_number}</p>
           </div>
           {timeLeft !== null && (
             <div className="flex items-center gap-2 text-cyan-400">
@@ -111,7 +111,7 @@ export function QuizAttempt({ quizId, onComplete }: QuizAttemptProps) {
           )}
         </div>
         <Progress value={progress} className="h-2" />
-        <p className="text-sm text-gray-400 mt-2">
+        <p className="text-sm text-muted-foreground mt-2">
           Question {currentIndex + 1} of {questions.length}
         </p>
       </div>
@@ -132,14 +132,14 @@ export function QuizAttempt({ quizId, onComplete }: QuizAttemptProps) {
                 className={`w-full  text-left p-4 rounded-lg border-2 transition ${
                   isSelected
                     ? "border-cyan-500 bg-cyan-500/10 text-white"
-                    : "border-gray-700 hover:border-gray-600 bg-gray-800 text-gray-300"
+                    : "border-gray-700 hover:border-gray-600 bg-gray-800 text-muted-foreground"
                 }`}
               >
                 <div className="flex items-center gap-3">
                   {isSelected ? (
                     <CheckCircle className="h-5 w-5 text-cyan-500 flex-shrink-0" />
                   ) : (
-                    <Circle className="h-5 w-5 text-gray-600 flex-shrink-0" />
+                    <Circle className="h-5 w-5 text-muted-foreground flex-shrink-0" />
                   )}
                   <span>{option}</span>
                 </div>
@@ -184,7 +184,7 @@ export function QuizAttempt({ quizId, onComplete }: QuizAttemptProps) {
 
       {/* Answer Progress */}
       <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
-        <p className="text-sm text-gray-400 mb-3">Answer Progress</p>
+        <p className="text-sm text-muted-foreground mb-3">Answer Progress</p>
         <div className="grid grid-cols-10 gap-2">
           {questions.map((q, idx) => (
             <button
@@ -195,7 +195,7 @@ export function QuizAttempt({ quizId, onComplete }: QuizAttemptProps) {
                   ? "bg-cyan-600 text-white"
                   : idx === currentIndex
                     ? "bg-gray-700 border-2 border-cyan-500 text-white"
-                    : "bg-gray-800 text-gray-400"
+                    : "bg-gray-800 text-muted-foreground"
               }`}
             >
               {idx + 1}

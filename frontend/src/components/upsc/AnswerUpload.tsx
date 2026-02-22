@@ -55,7 +55,7 @@ export const AnswerUpload: React.FC<AnswerUploadProps> = ({
                 </Button>
             </div>
 
-            <Card className="p-4 bg-slate-50 border-dashed border-2 border-slate-300 min-h-[400px] flex flex-col items-center justify-center">
+            <Card className="p-4 bg-muted border-dashed border-2 border-border min-h-[400px] flex flex-col items-center justify-center">
                 {mode === "camera" ? (
                     image ? (
                         <div className="relative w-full max-w-md">
@@ -90,8 +90,8 @@ export const AnswerUpload: React.FC<AnswerUploadProps> = ({
                     )
                 ) : (
                     <div className="text-center p-8">
-                        <Upload className="w-12 h-12 text-slate-400 mx-auto mb-4" />
-                        <p className="text-slate-600 mb-4">Drag and drop your scanned answer here</p>
+                        <Upload className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+                        <p className="text-muted-foreground mb-4">Drag and drop your scanned answer here</p>
                         <input
                             type="file"
                             accept="image/*"

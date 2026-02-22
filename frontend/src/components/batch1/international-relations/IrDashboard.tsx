@@ -64,17 +64,17 @@ export default function IrDashboard() {
             </div>
 
             {/* View Toggle */}
-            <div className="flex justify-end border-b border-gray-200 dark:border-gray-800 pb-1">
+            <div className="flex justify-end border-b border-border pb-1">
                 <div className="flex gap-4">
                     <button
                         onClick={() => setViewMode('visual')}
-                        className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors ${viewMode === 'visual' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
+                        className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors ${viewMode === 'visual' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-muted-foreground hover:text-muted-foreground'}`}
                     >
                         Relations & Analytics
                     </button>
                     <button
                         onClick={() => setViewMode('syllabus')}
-                        className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors ${viewMode === 'syllabus' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
+                        className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors ${viewMode === 'syllabus' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-muted-foreground hover:text-muted-foreground'}`}
                     >
                         Syllabus & Modules
                     </button>
@@ -93,14 +93,14 @@ export default function IrDashboard() {
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
+                    <div className="bg-card dark:bg-[#111] rounded-2xl border border-border p-6">
                         <DiplomacyGraph />
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         {/* International Organizations */}
-                        <div className="lg:col-span-2 bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
-                            <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                        <div className="lg:col-span-2 bg-card dark:bg-[#111] rounded-2xl border border-border p-6">
+                            <h3 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
                                 <Globe2 className="w-5 h-5 text-indigo-600" />
                                 Key International Organizations
                             </h3>
@@ -114,13 +114,13 @@ export default function IrDashboard() {
                                         onClick={() => setSelectedOrg(org)}
                                         className={`p-4 rounded-xl border text-left transition-all hover:shadow-lg ${selectedOrg?.id === org.id
                                             ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20'
-                                            : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
+                                            : 'border-border hover:border-border'
                                             }`}
                                     >
                                         <div className={`w-10 h-10 ${org.color} rounded-lg flex items-center justify-center text-white font-bold text-sm mb-2`}>
                                             {org.name}
                                         </div>
-                                        <p className="text-xs text-gray-500 truncate">{org.fullName}</p>
+                                        <p className="text-xs text-muted-foreground truncate">{org.fullName}</p>
                                     </motion.button>
                                 ))}
                             </div>
@@ -130,22 +130,22 @@ export default function IrDashboard() {
                                 <motion.div
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    className="mt-4 p-4 bg-gray-50 dark:bg-[#0a0a0a] rounded-xl"
+                                    className="mt-4 p-4 bg-muted dark:bg-[#0a0a0a] rounded-xl"
                                 >
-                                    <h4 className="font-bold text-gray-900 dark:text-white">{selectedOrg.fullName}</h4>
+                                    <h4 className="font-bold text-foreground">{selectedOrg.fullName}</h4>
                                     <div className="grid grid-cols-3 gap-4 mt-3 text-sm">
                                         <div>
-                                            <p className="text-xs text-gray-500">HQ</p>
+                                            <p className="text-xs text-muted-foreground">HQ</p>
                                             <p className="font-medium flex items-center gap-1">
                                                 <MapPin className="w-3 h-3" /> {selectedOrg.hq}
                                             </p>
                                         </div>
                                         <div>
-                                            <p className="text-xs text-gray-500">Members</p>
+                                            <p className="text-xs text-muted-foreground">Members</p>
                                             <p className="font-medium">{selectedOrg.members}</p>
                                         </div>
                                         <div>
-                                            <p className="text-xs text-gray-500">India's Role</p>
+                                            <p className="text-xs text-muted-foreground">India's Role</p>
                                             <p className="font-medium text-indigo-600">{selectedOrg.indiaRole}</p>
                                         </div>
                                     </div>
@@ -154,8 +154,8 @@ export default function IrDashboard() {
                         </div>
 
                         {/* Bilateral Relations */}
-                        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
-                            <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                        <div className="bg-card dark:bg-[#111] rounded-2xl border border-border p-6">
+                            <h3 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
                                 <Handshake className="w-5 h-5 text-emerald-600" />
                                 Key Bilateral Ties
                             </h3>
@@ -166,17 +166,17 @@ export default function IrDashboard() {
                                         initial={{ opacity: 0, x: 20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: i * 0.1 }}
-                                        className="p-3 bg-gray-50 dark:bg-[#0a0a0a] rounded-xl"
+                                        className="p-3 bg-muted dark:bg-[#0a0a0a] rounded-xl"
                                     >
                                         <div className="flex items-center justify-between mb-2">
-                                            <span className="font-bold text-gray-900 dark:text-white">{rel.country}</span>
+                                            <span className="font-bold text-foreground">{rel.country}</span>
                                             <span className="text-xs px-2 py-1 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 rounded-full">
                                                 {rel.status}
                                             </span>
                                         </div>
                                         <div className="flex flex-wrap gap-1">
                                             {rel.agreements.map(a => (
-                                                <span key={a} className="text-xs px-2 py-0.5 bg-gray-200 dark:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
+                                                <span key={a} className="text-xs px-2 py-0.5 bg-muted rounded text-muted-foreground dark:text-muted-foreground">
                                                     {a}
                                                 </span>
                                             ))}
@@ -190,7 +190,7 @@ export default function IrDashboard() {
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in slide-in-from-bottom-4 duration-500">
                     {IR_SYLLABUS.map((topic) => (
-                        <div key={topic.id} className="group bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6 hover:border-indigo-300 transition-all hover:shadow-md">
+                        <div key={topic.id} className="group bg-card dark:bg-[#111] rounded-2xl border border-border p-6 hover:border-indigo-300 transition-all hover:shadow-md">
                             <div className="pb-3">
                                 <div className="flex justify-between items-start">
                                     <span className={`px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider ${topic.category === 'Bilateral' ? 'bg-emerald-100 text-emerald-700' :
@@ -199,26 +199,26 @@ export default function IrDashboard() {
                                         }`}>
                                         {topic.category}
                                     </span>
-                                    <span className="text-xs font-mono text-gray-400">{topic.days} Days</span>
+                                    <span className="text-xs font-mono text-muted-foreground">{topic.days} Days</span>
                                 </div>
-                                <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 transition-colors mt-2">
+                                <h3 className="text-lg font-bold text-foreground group-hover:text-indigo-600 transition-colors mt-2">
                                     {topic.title}
                                 </h3>
-                                <p className="text-sm text-gray-500 line-clamp-2 mt-1">
+                                <p className="text-sm text-muted-foreground line-clamp-2 mt-1">
                                     {topic.description}
                                 </p>
                             </div>
                             <div>
                                 <div className="space-y-2 mb-4">
                                     {topic.subtopics.slice(0, 3).map((sub, i) => (
-                                        <div key={i} className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                                        <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground dark:text-muted-foreground">
                                             <BookOpenCheck className="w-3 h-3 text-indigo-400" />
                                             <span className="truncate">{sub}</span>
                                         </div>
                                     ))}
                                 </div>
                                 <Link href={`/student/batch1/international-relations/${topic.id}`}>
-                                    <button className="w-full py-2 bg-gray-50 dark:bg-[#0a0a0a] hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors">
+                                    <button className="w-full py-2 bg-muted dark:bg-[#0a0a0a] hover:bg-muted dark:hover:bg-gray-800 text-muted-foreground dark:text-muted-foreground rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors">
                                         Start Module <ChevronRight className="w-4 h-4" />
                                     </button>
                                 </Link>
@@ -250,14 +250,14 @@ export default function IrDashboard() {
 
 function StatCard({ icon, label, value, color }: { icon: React.ReactNode, label: string, value: string, color: string }) {
     return (
-        <div className="bg-white dark:bg-[#111] p-5 rounded-2xl border border-gray-200 dark:border-gray-800">
+        <div className="bg-card dark:bg-[#111] p-5 rounded-2xl border border-border">
             <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-3 ${color.replace('text-', 'bg-').replace('-500', '-100')} dark:bg-opacity-20`}>
                 <div className={color}>
                     {icon}
                 </div>
             </div>
-            <p className="text-2xl font-bold text-gray-900 dark:text-white">{value}</p>
-            <p className="text-xs text-gray-500">{label}</p>
+            <p className="text-2xl font-bold text-foreground">{value}</p>
+            <p className="text-xs text-muted-foreground">{label}</p>
         </div>
     );
 }

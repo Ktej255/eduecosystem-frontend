@@ -19,7 +19,7 @@ interface NDMAModuleProps {
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="bg-[#fff7ed] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-orange-100 selection:text-orange-900">
-        <div className="max-w-5xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white rounded-3xl p-6 shadow-2xl border-4 border-slate-900 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-card rounded-3xl p-6 shadow-2xl border-4 border-slate-900 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-2 h-full bg-[#ea580c] opacity-10"></div>
             {children}
         </div>
@@ -27,11 +27,11 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const CrisisCard = ({ title, children, color = "border-slate-900", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[5px_5px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[5px_5px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-700 relative z-10 font-bold">
+        <div className="space-y-4 text-muted-foreground relative z-10 font-bold">
             {children}
         </div>
     </div>
@@ -54,11 +54,11 @@ export default function NDMAModule({ onComplete, isCompleted, chapterNumber = "6
         <ScrapbookContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#ea580c] border-4 border-orange-950 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(234,88,12,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-card/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-[#374151] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-orange-50 font-bold uppercase tracking-widest text-sm italic">The Crisis Manager</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
@@ -79,12 +79,12 @@ export default function NDMAModule({ onComplete, isCompleted, chapterNumber = "6
 
             <div className="grid md:grid-cols-2 gap-8">
                 <CrisisCard title="The DM Act (2005)" color="border-[#374151]">
-                    <div className="p-4 bg-slate-50 border-2 border-[#374151] rounded-2xl relative overflow-hidden">
+                    <div className="p-4 bg-muted border-2 border-[#374151] rounded-2xl relative overflow-hidden">
                         <Waves className="absolute -bottom-4 -right-4 text-slate-200" size={80} />
-                        <h4 className="font-black text-slate-700 flex items-center gap-2 uppercase text-xs mb-2">
+                        <h4 className="font-black text-muted-foreground flex items-center gap-2 uppercase text-xs mb-2">
                             <History size={18} /> The Tsunami Trigger
                         </h4>
-                        <p className="text-sm font-black text-slate-900 leading-relaxed italic">
+                        <p className="text-sm font-black text-foreground leading-relaxed italic">
                             Enacted after the 2004 Tsunami. Shifted focus from <span className="underline decoration-[#ea580c]">Relief</span> to <span className="text-[#16a34a]">Resilience</span>. [PYQ]
                         </p>
                     </div>
@@ -100,10 +100,10 @@ export default function NDMAModule({ onComplete, isCompleted, chapterNumber = "6
                             <UserCheck size={24} /> Chairperson: PM [PYQ]
                         </h4>
                         <ul className="space-y-2 text-[11px] font-black italic">
-                            <li className="flex items-center gap-2 bg-white/10 p-2 rounded">
+                            <li className="flex items-center gap-2 bg-card/10 p-2 rounded">
                                 <BadgeCheck size={14} className="text-[#16a34a]" /> Max 9 Members (Nominated by PM)
                             </li>
-                            <li className="flex items-center gap-2 bg-white/10 p-2 rounded border border-white/20">
+                            <li className="flex items-center gap-2 bg-card/10 p-2 rounded border border-white/20">
                                 <BadgeCheck size={14} className="text-[#16a34a]" /> Vice-Chair: Rank of Cabinet Minister
                             </li>
                         </ul>
@@ -114,7 +114,7 @@ export default function NDMAModule({ onComplete, isCompleted, chapterNumber = "6
             {/* PHASE 2: STATE & DISTRICT */}
             <PhaseHeader number="2" title="State & District (The Execution)" color="bg-[#16a34a]" />
 
-            <div className="relative p-8 bg-slate-50 border-4 border-slate-900 rounded-[3rem] shadow-2xl">
+            <div className="relative p-8 bg-muted border-4 border-slate-900 rounded-[3rem] shadow-2xl">
                 <div className="grid md:grid-cols-1 gap-12 text-center">
                     <div className="space-y-8 relative">
                         {/* PYRAMID VISUAL */}
@@ -145,8 +145,8 @@ export default function NDMAModule({ onComplete, isCompleted, chapterNumber = "6
                 <CrisisCard title="NEC (Executive Body)" color="border-[#374151]">
                     <div className="space-y-4">
                         <div className="p-4 bg-slate-900 text-white rounded-2xl relative">
-                            <Settings className="absolute top-2 right-2 text-slate-600" size={24} />
-                            <h4 className="text-xs font-black uppercase text-slate-400 mb-2 underline tracking-widest">Chairperson: [TRAP]</h4>
+                            <Settings className="absolute top-2 right-2 text-muted-foreground" size={24} />
+                            <h4 className="text-xs font-black uppercase text-muted-foreground mb-2 underline tracking-widest">Chairperson: [TRAP]</h4>
                             <p className="text-lg font-black italic shadow-sm text-yellow-400">Union Home Secretary</p>
                             <p className="text-[10px] font-bold text-slate-300 mt-2">Not the Home Minister. Assists NDMA. Secretaries of other ministries.</p>
                         </div>
@@ -159,7 +159,7 @@ export default function NDMAModule({ onComplete, isCompleted, chapterNumber = "6
                             <Heart className="text-red-500 fill-red-500" size={24} />
                             <p className="text-xs font-black uppercase text-blue-900 tracking-tight">Motto: Aapda Seva Sadaiv</p>
                         </div>
-                        <p className="text-[10px] font-bold italic leading-relaxed text-slate-600">
+                        <p className="text-[10px] font-bold italic leading-relaxed text-muted-foreground">
                             Specialized force. Headed by DG (IPS). Composed of personnel from BSF, CRPF, CISF, ITBP, etc.
                         </p>
                     </div>
@@ -175,11 +175,11 @@ export default function NDMAModule({ onComplete, isCompleted, chapterNumber = "6
                     <Shield size={28} /> The Fund Structure
                 </h4>
                 <div className="grid md:grid-cols-2 gap-8">
-                    <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
+                    <div className="flex items-center gap-4 bg-card/5 p-4 rounded-2xl border border-white/10">
                         <Badge className="bg-orange-600">NDRF</Badge>
                         <p className="text-xs font-bold italic">National Disaster <span className="text-orange-400">Response</span> Fund (Relief).</p>
                     </div>
-                    <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 relative">
+                    <div className="flex items-center gap-4 bg-card/5 p-4 rounded-2xl border border-white/10 relative">
                         <Badge className="bg-green-600">NDMF</Badge>
                         <p className="text-xs font-bold italic">National Disaster <span className="text-green-400">Mitigation</span> Fund (Prevention).</p>
                         <div className="absolute -top-3 -right-3 bg-red-600 p-1 text-[8px] font-black rotate-12">AUDITED BY CAG</div>
@@ -208,7 +208,7 @@ export default function NDMAModule({ onComplete, isCompleted, chapterNumber = "6
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold italic tracking-widest text-center">Aapda Seva Sadaiv • Sustained Service</p>
+                <p className="mt-4 text-muted-foreground font-bold italic tracking-widest text-center">Aapda Seva Sadaiv • Sustained Service</p>
             </div>
         </ScrapbookContainer>
     );

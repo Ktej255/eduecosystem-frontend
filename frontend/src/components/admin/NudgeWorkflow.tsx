@@ -95,7 +95,7 @@ export function NudgeWorkflow() {
         }
     };
 
-    if (loading) return <div className="p-8 text-center text-gray-500">Accessing Nudge Server...</div>;
+    if (loading) return <div className="p-8 text-center text-muted-foreground">Accessing Nudge Server...</div>;
 
     return (
         <div className="space-y-6">
@@ -105,7 +105,7 @@ export function NudgeWorkflow() {
                         <Zap className="text-orange-500 fill-orange-500" />
                         Smart Nudge Workflow Builder
                     </h2>
-                    <p className="text-sm text-gray-500">Automate student retention with behavior-based triggers.</p>
+                    <p className="text-sm text-muted-foreground">Automate student retention with behavior-based triggers.</p>
                 </div>
                 <div className="flex gap-2">
                     <Button variant="outline" size="sm" onClick={runEvaluation} className="gap-2">
@@ -133,7 +133,7 @@ export function NudgeWorkflow() {
                             <CardContent className="space-y-4">
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="space-y-2">
-                                        <label className="text-xs text-gray-500 font-bold uppercase">Rule Name</label>
+                                        <label className="text-xs text-muted-foreground font-bold uppercase">Rule Name</label>
                                         <Input
                                             placeholder="e.g., 3-Day Inactivity Nudge"
                                             className="bg-zinc-900 border-zinc-800"
@@ -142,7 +142,7 @@ export function NudgeWorkflow() {
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-xs text-gray-500 font-bold uppercase">Trigger Event</label>
+                                        <label className="text-xs text-muted-foreground font-bold uppercase">Trigger Event</label>
                                         <select
                                             className="w-full h-10 px-3 rounded-md bg-zinc-900 border-zinc-800 text-sm"
                                             value={newWorkflow.trigger_type}
@@ -156,7 +156,7 @@ export function NudgeWorkflow() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-xs text-gray-500 font-bold uppercase">Message Template (use {"{{name}}"})</label>
+                                    <label className="text-xs text-muted-foreground font-bold uppercase">Message Template (use {"{{name}}"})</label>
                                     <Input
                                         placeholder="We miss you, {{name}}! Back to Sadhana?"
                                         className="bg-zinc-900 border-zinc-800"
@@ -167,7 +167,7 @@ export function NudgeWorkflow() {
 
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="space-y-2">
-                                        <label className="text-xs text-gray-500 font-bold uppercase">Incentive Reward (Coins)</label>
+                                        <label className="text-xs text-muted-foreground font-bold uppercase">Incentive Reward (Coins)</label>
                                         <div className="relative">
                                             <Coins className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-orange-500" />
                                             <Input
@@ -178,7 +178,7 @@ export function NudgeWorkflow() {
                                             />
                                         </div>
                                     </div>
-                                    <div className="flex items-end gap-2 text-xs text-gray-400 pb-2">
+                                    <div className="flex items-end gap-2 text-xs text-muted-foreground pb-2">
                                         <AlertCircle className="w-4 h-4" /> Rule evaluated daily at midnight.
                                     </div>
                                 </div>
@@ -209,7 +209,7 @@ export function NudgeWorkflow() {
                                                     </Badge>
                                                 </div>
                                             </div>
-                                            <Badge className={w.is_active ? "bg-green-500/20 text-green-500 border-0" : "bg-zinc-800 text-gray-400 border-0"}>
+                                            <Badge className={w.is_active ? "bg-green-500/20 text-green-500 border-0" : "bg-zinc-800 text-muted-foreground border-0"}>
                                                 {w.is_active ? "Active" : "Paused"}
                                             </Badge>
                                         </div>
@@ -219,7 +219,7 @@ export function NudgeWorkflow() {
                                         </div>
 
                                         <div className="flex items-center justify-between mt-auto">
-                                            <div className="flex items-center gap-2 text-xs text-gray-500">
+                                            <div className="flex items-center gap-2 text-xs text-muted-foreground">
                                                 <Clock className="w-3 h-3" /> {new Date(w.created_at).toLocaleDateString()}
                                             </div>
                                             <div className="flex gap-2">
@@ -239,7 +239,7 @@ export function NudgeWorkflow() {
                         <CardContent className="p-0">
                             <table className="w-full text-sm">
                                 <thead>
-                                    <tr className="border-b border-zinc-800 text-[10px] text-gray-500 uppercase font-black tracking-widest">
+                                    <tr className="border-b border-zinc-800 text-[10px] text-muted-foreground uppercase font-black tracking-widest">
                                         <th className="p-4 text-left">Student</th>
                                         <th className="p-4 text-left">Rule Triggered</th>
                                         <th className="p-4 text-left">Action</th>
@@ -250,7 +250,7 @@ export function NudgeWorkflow() {
                                     {history.map((h) => (
                                         <tr key={h.id} className="hover:bg-zinc-900/30 transition-colors">
                                             <td className="p-4">
-                                                <div className="font-bold text-gray-300">{h.user_email}</div>
+                                                <div className="font-bold text-muted-foreground">{h.user_email}</div>
                                             </td>
                                             <td className="p-4 text-zinc-400">{h.workflow_name}</td>
                                             <td className="p-4">
@@ -258,14 +258,14 @@ export function NudgeWorkflow() {
                                                     {h.action}
                                                 </Badge>
                                             </td>
-                                            <td className="p-4 text-right text-xs text-gray-500">
+                                            <td className="p-4 text-right text-xs text-muted-foreground">
                                                 {new Date(h.sent_at).toLocaleString()}
                                             </td>
                                         </tr>
                                     ))}
                                     {history.length === 0 && (
                                         <tr>
-                                            <td colSpan={4} className="p-8 text-center text-gray-500 italic">No nudges sent yet.</td>
+                                            <td colSpan={4} className="p-8 text-center text-muted-foreground italic">No nudges sent yet.</td>
                                         </tr>
                                     )}
                                 </tbody>

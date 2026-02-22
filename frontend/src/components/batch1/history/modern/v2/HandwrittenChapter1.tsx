@@ -10,32 +10,33 @@ export default function HandwrittenChapter1() {
     const t = language === 'hi' ? ch1Translations.hi : ch1Translations.en;
 
     return (
-        <div className="min-h-screen bg-[#fdfbf7] p-4 md:p-8 font-['Kalam',_cursive] text-[#000080] selection:bg-yellow-200">
+        <div className="min-h-screen bg-paper p-4 md:p-8 font-['Kalam',_cursive] text-paper-navy selection:bg-yellow-200">
             <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Permanent+Marker&display=swap');
         
         .handwritten-paper {
-          background-image: repeating-linear-gradient(transparent, transparent 31px, #e5e5f7 31px, #e5e5f7 32px);
+          background-image: repeating-linear-gradient(transparent, transparent 31px, var(--paper-line) 31px, var(--paper-line) 32px);
           background-attachment: local;
         }
         
         .sticky-note {
           box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
           transform: rotate(-1deg);
+          border: 1px solid var(--paper-line);
         }
         
-        .sticky-note-pink { background-color: #ffefff; }
-        .sticky-note-yellow { background-color: #ffffe0; }
+        .sticky-note-pink { background-color: var(--sticky-pink); }
+        .sticky-note-yellow { background-color: var(--sticky-yellow); }
         
         .highlight {
-          background: linear-gradient(100deg, rgba(255,255,0,0) 0%, rgba(255,255,0,0.4) 3%, rgba(255,255,0,0.2) 100%);
+          background: linear-gradient(100deg, rgba(255,255,0,0) 0%, var(--highlight-yellow) 3%, var(--highlight-yellow) 100%);
           display: inline;
           padding: 0 4px;
         }
         
         .paper-border {
           border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-          border: 2px solid #333;
+          border: 2px solid var(--paper-border);
         }
 
         .ink-blot::after {
@@ -54,19 +55,19 @@ export default function HandwrittenChapter1() {
 
             {/* Hero Section: Mind Map */}
             <div className="max-w-5xl mx-auto mb-16 relative">
-                <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-[#CC0000] mb-2 ink-blot relative inline-block left-1/2 -translate-x-1/2">
+                <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-paper-red mb-2 ink-blot relative inline-block left-1/2 -translate-x-1/2">
                     {t.heroTitle}
                 </h1>
-                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-80">{t.heroSubtitle}</p>
+                <p className="text-center text-xl text-paper-gray mb-12 font-bold opacity-80">{t.heroSubtitle}</p>
 
                 {/* Simple CSS Mind Map visualization */}
                 <div className="flex flex-wrap justify-center gap-6 relative">
-                    <div className="bg-white p-6 paper-border border-2 border-dashed border-slate-400 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-40 h-40 flex items-center justify-center shadow-lg transform rotate-2">
+                    <div className="bg-paper p-6 paper-border border-2 border-dashed border-muted-foreground absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-40 h-40 flex items-center justify-center shadow-lg transform rotate-2">
                         <span className="text-2xl font-bold">{t.sourcesCenter}</span>
                     </div>
                     {/* Branches */}
                     {t.mindMapBranches.map((item, i) => (
-                        <div key={i} className={`p-4 bg-${i % 2 === 0 ? 'yellow' : 'pink'}-50 paper-border border shadow-sm w-48 text-center font-bold text-lg transform rotate-${(i * 45) % 10 - 5} m-4 mt-20`}>
+                        <div key={i} className={`p-4 ${i % 2 === 0 ? 'bg-sticky-yellow' : 'bg-sticky-pink'} paper-border border shadow-sm w-48 text-center font-bold text-lg transform rotate-${(i * 45) % 10 - 5} m-4 mt-20`}>
                             {item}
                         </div>
                     ))}
@@ -74,27 +75,27 @@ export default function HandwrittenChapter1() {
             </div>
 
             {/* SECTION 2: ARCHIVAL MATERIALS */}
-            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
+            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-paper relative">
                 <div className="absolute top-0 right-0 p-4 transform rotate-3">
-                    <span className="text-red-600 font-bold block border-2 border-red-600 p-1 rounded px-3 text-sm">{t.s2Important}</span>
+                    <span className="text-paper-red font-bold block border-2 border-paper-red p-1 rounded px-3 text-sm">{t.s2Important}</span>
                 </div>
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080]">{t.s2Title}</h2>
+                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-paper-navy">{t.s2Title}</h2>
                 <p className="text-lg leading-relaxed mb-4">
                     <span className="font-bold bg-yellow-200 px-1">{t.s2DefinitionLabel}</span> {t.s2Definition}
                 </p>
                 <ul className="list-disc pl-6 space-y-2 text-lg">
                     {t.s2Points.map((point, i) => (
                         <li key={i}>
-                            <strong className={i < 2 ? "text-[#CC0000]" : ""}>{point.bold}</strong> {point.text}
-                            {point.note && <span className="text-[#333] text-sm"> {point.note}</span>}
+                            <strong className={i < 2 ? "text-paper-red" : ""}>{point.bold}</strong> {point.text}
+                            {point.note && <span className="text-paper-gray text-sm opacity-80"> {point.note}</span>}
                         </li>
                     ))}
                 </ul>
 
                 {/* Published Archives */}
-                <div className="mt-8 bg-yellow-50 p-6 sticky-note border border-yellow-200 w-3/4 mx-auto relative">
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-red-800 opacity-20"></div>
-                    <h3 className="text-xl font-bold text-red-800 mb-2 border-b border-red-200 pb-1">{t.s2PublishedTitle}</h3>
+                <div className="mt-8 bg-sticky-yellow p-6 sticky-note border border-paper-border w-3/4 mx-auto relative">
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-paper-red opacity-10"></div>
+                    <h3 className="text-xl font-bold text-paper-red mb-2 border-b border-paper-border pb-1">{t.s2PublishedTitle}</h3>
                     <ul className="text-sm space-y-1">
                         {t.s2Published.map((item, i) => (
                             <li key={i}>• <strong>{item.bold}</strong> {item.text}</li>
@@ -105,11 +106,11 @@ export default function HandwrittenChapter1() {
 
             {/* SECTION 3: THE ARCHIVES OF INDIA */}
             <section className="max-w-6xl mx-auto mb-16">
-                <h2 className="text-3xl font-['Permanent_Marker'] text-center mb-8 text-[#000080]">{t.s3Title}</h2>
+                <h2 className="text-3xl font-['Permanent_Marker'] text-center mb-8 text-paper-navy">{t.s3Title}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {/* State Archives */}
-                    <div className="bg-white p-6 paper-border shadow-md transform -rotate-1">
-                        <h3 className="text-xl font-bold text-red-700 mb-4 border-b-2 border-dotted border-red-300">{t.s3StateTitle}</h3>
+                    <div className="bg-paper p-6 paper-border shadow-md transform -rotate-1">
+                        <h3 className="text-xl font-bold text-paper-red mb-4 border-b-2 border-dotted border-red-300">{t.s3StateTitle}</h3>
                         <ul className="space-y-3 text-sm">
                             {t.s3State.map((item, i) => (
                                 <li key={i}><strong>{item.bold}</strong> {item.text}</li>
@@ -118,8 +119,8 @@ export default function HandwrittenChapter1() {
                     </div>
 
                     {/* Presidencies */}
-                    <div className="bg-white p-6 paper-border shadow-md transform rotate-1">
-                        <h3 className="text-xl font-bold text-blue-700 mb-4 border-b-2 border-dotted border-blue-300">{t.s3PresidenciesTitle}</h3>
+                    <div className="bg-paper p-6 paper-border shadow-md transform rotate-1">
+                        <h3 className="text-xl font-bold text-paper-navy mb-4 border-b-2 border-dotted border-blue-300">{t.s3PresidenciesTitle}</h3>
                         <ul className="space-y-3 text-sm">
                             {t.s3Presidencies.map((item, i) => (
                                 <li key={i}><strong>{item.bold}</strong> {item.text}</li>
@@ -128,8 +129,8 @@ export default function HandwrittenChapter1() {
                     </div>
 
                     {/* European */}
-                    <div className="bg-white p-6 paper-border shadow-md transform -rotate-1">
-                        <h3 className="text-xl font-bold text-green-700 mb-4 border-b-2 border-dotted border-green-300">{t.s3EuropeanTitle}</h3>
+                    <div className="bg-paper p-6 paper-border shadow-md transform -rotate-1">
+                        <h3 className="text-xl font-bold text-accent-green mb-4 border-b-2 border-dotted border-green-300">{t.s3EuropeanTitle}</h3>
                         <ul className="space-y-3 text-sm">
                             {t.s3European.map((item, i) => (
                                 <li key={i}>
@@ -141,8 +142,8 @@ export default function HandwrittenChapter1() {
                     </div>
 
                     {/* Intermediate */}
-                    <div className="bg-orange-50 p-6 paper-border shadow-md transform rotate-2">
-                        <h3 className="text-xl font-bold text-orange-800 mb-4 border-b-2 border-dotted border-orange-300">{t.s3IntermediateTitle}</h3>
+                    <div className="bg-sticky-yellow p-6 paper-border shadow-md transform rotate-2">
+                        <h3 className="text-xl font-bold text-paper-red mb-4 border-b-2 border-dotted border-orange-300">{t.s3IntermediateTitle}</h3>
                         <p className="text-sm font-bold mb-2">{t.s3IntermediateSubtitle}</p>
                         <p className="text-xs italic">{t.s3IntermediateWhy}</p>
                         <p className="text-xs">{t.s3IntermediateAnswer}</p>
@@ -153,15 +154,15 @@ export default function HandwrittenChapter1() {
             {/* SECTION 4 & 5 Combined: Judicial, Private & Travelers */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
                 {/* SECTION 4 */}
-                <section className="bg-white paper-border p-6 relative">
+                <section className="bg-paper paper-border p-6 relative">
                     <h2 className="text-2xl font-['Permanent_Marker'] mb-4">{t.s4Title}</h2>
                     <div className="space-y-4">
-                        <div className="p-3 bg-slate-50 border-l-4 border-blue-900">
+                        <div className="p-3 bg-sticky-yellow/10 border-l-4 border-paper-navy">
                             <strong className="block text-lg">{t.s4JudicialTitle}</strong>
                             {t.s4JudicialText}
-                            <br /><span className="text-sm text-gray-600">{t.s4JudicialNote}</span>
+                            <br /><span className="text-sm text-paper-gray opacity-70">{t.s4JudicialNote}</span>
                         </div>
-                        <div className="p-3 bg-slate-50 border-l-4 border-green-900">
+                        <div className="p-3 bg-sticky-pink/10 border-l-4 border-accent-green">
                             <strong className="block text-lg">{t.s4PrivateTitle}</strong>
                             {t.s4PrivateText}
                             <br /><strong>UK:</strong> {t.s4PrivateUK}
@@ -171,16 +172,16 @@ export default function HandwrittenChapter1() {
                 </section>
 
                 {/* SECTION 5: Travelers */}
-                <section className="bg-white paper-border p-6 relative">
+                <section className="bg-paper paper-border p-6 relative">
                     <h2 className="text-2xl font-['Permanent_Marker'] mb-4">{t.s5Title}</h2>
                     <p className="mb-2 text-sm italic">{t.s5Subtitle}</p>
-                    <div className="border border-gray-300 rounded p-4 bg-[#f8f8f8]">
+                    <div className="border border-paper-border rounded p-4 bg-paper/50">
                         <ul className="grid grid-cols-1 gap-2 text-sm">
                             {t.s5Travelers.map((name, i) => (
                                 <li key={i}>• <strong>{name}</strong></li>
                             ))}
                             {t.s5ExtraTravelers.map((name, i) => (
-                                <li key={`extra-${i}`} className="text-blue-800 font-bold">• {name}</li>
+                                <li key={`extra-${i}`} className="text-paper-navy font-bold">• {name}</li>
                             ))}
                         </ul>
                     </div>
@@ -191,18 +192,18 @@ export default function HandwrittenChapter1() {
             <section className="max-w-5xl mx-auto mb-16">
                 <h2 className="text-3xl font-['Permanent_Marker']  mb-6 text-[#000080]">{t.s6Title}</h2>
 
-                <div className="overflow-x-auto paper-border p-2 bg-white">
+                <div className="overflow-x-auto paper-border p-2 bg-card">
                     <table className="w-full text-left text-sm md:text-base border-collapse">
                         <thead>
                             <tr className="border-b-2 border-black">
                                 {t.s6TableHeaders.map((header, i) => (
-                                    <th key={i} className="p-3 bg-slate-100">{header}</th>
+                                    <th key={i} className="p-3 bg-muted/30">{header}</th>
                                 ))}
                             </tr>
                         </thead>
                         <tbody>
                             {t.s6Newspapers.map((row, i) => (
-                                <tr key={i} className="border-b border-gray-300 hover:bg-yellow-50">
+                                <tr key={i} className="border-b border-paper-border hover:bg-sticky-yellow/30">
                                     <td className="p-3 font-bold">{row[0]}</td>
                                     <td className="p-3">{row[1]}</td>
                                     <td className="p-3 italic max-w-xs">{row[2]}</td>
@@ -214,9 +215,9 @@ export default function HandwrittenChapter1() {
 
                 {/* Revolutionary & Socialist */}
                 <div className="mt-8 flex flex-col md:flex-row gap-6 relative">
-                    <div className="w-full bg-red-50 paper-border p-6 relative">
-                        <div className="absolute -top-4 left-10 w-4 h-12 bg-gray-400 rounded-full opacity-50 transform rotate-12"></div>
-                        <h3 className="text-xl font-bold text-red-900 mb-4">{t.s6RevolutionTitle}</h3>
+                    <div className="w-full bg-sticky-pink/10 paper-border p-6 relative">
+                        <div className="absolute -top-4 left-10 w-4 h-12 bg-muted-foreground rounded-full opacity-50 transform rotate-12"></div>
+                        <h3 className="text-xl font-bold text-paper-red mb-4">{t.s6RevolutionTitle}</h3>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                             <div>
@@ -249,8 +250,8 @@ export default function HandwrittenChapter1() {
             </section>
 
             {/* SECTION 7: LITERATURE & PAINTING */}
-            <section className="bg-white paper-border p-8 max-w-4xl mx-auto mb-16 shadow-lg">
-                <h2 className="text-3xl font-['Permanent_Marker'] mb-8 text-[#000080] text-center">{t.s7Title}</h2>
+            <section className="bg-paper paper-border p-8 max-w-4xl mx-auto mb-16 shadow-lg">
+                <h2 className="text-3xl font-['Permanent_Marker'] mb-8 text-paper-navy text-center">{t.s7Title}</h2>
 
                 <div className="grid md:grid-cols-2 gap-12">
                     <div>
@@ -290,14 +291,14 @@ export default function HandwrittenChapter1() {
             {/* INTERACTIVE CHRONOLOGY TIMELINE */}
             <section className="max-w-3xl mx-auto relative mb-20 pl-8">
                 <h2 className="text-3xl font-['Permanent_Marker'] mb-10 text-center">{t.timelineTitle}</h2>
-                <div className="absolute left-8 top-20 bottom-0 w-1 bg-gradient-to-b from-blue-900 to-transparent"></div>
+                <div className="absolute left-8 top-20 bottom-0 w-1 bg-gradient-to-b from-paper-navy to-transparent"></div>
 
                 {t.timeline.map((item, i) => (
                     <div key={i} className="mb-8 relative pl-8">
-                        <div className="absolute left-6 top-2 w-5 h-5 bg-white border-4 border-blue-900 rounded-full transform -translate-x-1/2"></div>
-                        <div className="bg-white p-4 paper-border shadow-sm inline-block transform hover:scale-105 transition-transform duration-300">
-                            <span className="text-2xl font-bold text-red-600 font-['Permanent_Marker'] block">{item.year}</span>
-                            <span className="text-lg text-blue-900 font-bold">{item.event}</span>
+                        <div className="absolute left-6 top-2 w-5 h-5 bg-paper border-4 border-paper-navy rounded-full transform -translate-x-1/2"></div>
+                        <div className="bg-paper p-4 paper-border shadow-sm inline-block transform hover:scale-105 transition-transform duration-300">
+                            <span className="text-2xl font-bold text-paper-red font-['Permanent_Marker'] block">{item.year}</span>
+                            <span className="text-lg text-paper-navy font-bold">{item.event}</span>
                         </div>
                     </div>
                 ))}

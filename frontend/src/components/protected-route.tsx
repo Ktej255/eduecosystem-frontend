@@ -39,7 +39,7 @@ export default function ProtectedRoute({
       <div className="flex min-h-screen items-center justify-center bg-black">
         <div className="text-center">
           <div className="text-white text-xl mb-2">Loading...</div>
-          <div className="text-gray-400 text-sm">Please wait while we verify your session</div>
+          <div className="text-muted-foreground text-sm">Please wait while we verify your session</div>
         </div>
       </div>
     );
@@ -50,7 +50,7 @@ export default function ProtectedRoute({
       <div className="flex min-h-screen items-center justify-center bg-black">
         <div className="text-center">
           <div className="text-white text-xl mb-2">Session Check Failed</div>
-          <div className="text-gray-400 text-sm mb-4">Redirecting to login...</div>
+          <div className="text-muted-foreground text-sm mb-4">Redirecting to login...</div>
         </div>
       </div>
     );

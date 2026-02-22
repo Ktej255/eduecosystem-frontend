@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { KENA_INTRO_DATA } from "@/components/batch2/upanishads/data/kena-intro-data";
 import { BookOpen, Sparkles, MapPin, Feather, Quote, Brain, CheckCircle2 } from "lucide-react";
+import DOMPurify from "dompurify";
 
 // Define flexible section type to handle all possible properties
 interface KenaSection {
@@ -142,7 +143,7 @@ export default function KenaIntroMode({ lang }: { lang: "en" | "hi" }) {
                     <div key={i} className="bg-teal-500/5 border border-teal-500/20 rounded-2xl p-6 text-center hover:bg-teal-500/10 transition-all">
                         <div className="text-3xl mb-3">{obj.icon}</div>
                         <h4 className="text-teal-400 font-bold mb-1">{obj.label}</h4>
-                        <p className="text-xs text-slate-400">{obj.desc}</p>
+                        <p className="text-xs text-muted-foreground">{obj.desc}</p>
                     </div>
                 ))}
             </motion.div>
@@ -185,19 +186,19 @@ export default function KenaIntroMode({ lang }: { lang: "en" | "hi" }) {
                                         {block.heading}
                                     </h3>
                                     {block.text && (
-                                        <div className="text-cyan-100 mb-4 leading-relaxed" dangerouslySetInnerHTML={{ __html: block.text }} />
+                                        <div className="text-cyan-100 mb-4 leading-relaxed" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(block.text) }} />
                                     )}
                                     {block.points && (
                                         <ul className="space-y-3">
                                             {block.points.map((point, j) => (
-                                                <li key={j} className="text-cyan-200/80 text-sm leading-relaxed pl-3 border-l-2 border-teal-500/30" dangerouslySetInnerHTML={{ __html: point }} />
+                                                <li key={j} className="text-cyan-200/80 text-sm leading-relaxed pl-3 border-l-2 border-teal-500/30" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(point) }} />
                                             ))}
                                         </ul>
                                     )}
                                     {block.list && (
                                         <div className="space-y-3">
                                             {block.list.map((item, j) => (
-                                                <div key={j} className="bg-black/20 rounded-lg p-3 text-sm text-cyan-200" dangerouslySetInnerHTML={{ __html: item }} />
+                                                <div key={j} className="bg-black/20 rounded-lg p-3 text-sm text-cyan-200" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item) }} />
                                             ))}
                                         </div>
                                     )}
@@ -231,12 +232,12 @@ export default function KenaIntroMode({ lang }: { lang: "en" | "hi" }) {
                                                 </div>
                                             )}
                                             {item.meaning && (
-                                                <div className="text-cyan-200/80 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: item.meaning }} />
+                                                <div className="text-cyan-200/80 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.meaning) }} />
                                             )}
                                             {item.subPoints && (
                                                 <div className="space-y-3 mt-3">
                                                     {item.subPoints.map((sub, j) => (
-                                                        <div key={j} className="bg-black/20 rounded p-3 text-xs text-cyan-200" dangerouslySetInnerHTML={{ __html: sub }} />
+                                                        <div key={j} className="bg-black/20 rounded p-3 text-xs text-cyan-200" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(sub) }} />
                                                     ))}
                                                 </div>
                                             )}
@@ -308,7 +309,7 @@ export default function KenaIntroMode({ lang }: { lang: "en" | "hi" }) {
                             disabled={completedSections.has(section.id || idx.toString())}
                             className={`px-6 py-2 rounded-full font-medium text-sm flex items-center gap-2 transition-all ${completedSections.has(section.id || idx.toString())
                                 ? "bg-teal-500/20 text-teal-300 cursor-default"
-                                : "bg-teal-500 text-slate-900 hover:bg-teal-400 hover:scale-105"
+                                : "bg-teal-500 text-foreground hover:bg-teal-400 hover:scale-105"
                                 }`}
                         >
                             {completedSections.has(section.id || idx.toString()) ? (
@@ -351,7 +352,7 @@ export default function KenaIntroMode({ lang }: { lang: "en" | "hi" }) {
                     >
                         <Brain className="w-6 h-6" /> Start Immersive Study
                     </button>
-                    <button className="px-10 py-5 bg-white/5 text-teal-300 border border-teal-500/30 rounded-full font-bold text-lg hover:bg-white/10 transition-all">
+                    <button className="px-10 py-5 bg-card/5 text-teal-300 border border-teal-500/30 rounded-full font-bold text-lg hover:bg-card/10 transition-all">
                         Skip to All Mantras
                     </button>
                 </div>

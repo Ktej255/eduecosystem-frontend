@@ -113,7 +113,7 @@ export default function WritsWizard() {
                     </div>
                 ) : (
                     <div className="space-y-6 animate-in zoom-in">
-                        <div className="w-24 h-24 mx-auto bg-cyan-500 rounded-full flex items-center justify-center text-slate-900 mb-4">
+                        <div className="w-24 h-24 mx-auto bg-cyan-500 rounded-full flex items-center justify-center text-foreground mb-4">
                             {React.createElement(WRITS_INFO[result].icon, { size: 48 })}
                         </div>
                         <h2 className="text-5xl font-black text-cyan-400">{WRITS_INFO[result].title}</h2>

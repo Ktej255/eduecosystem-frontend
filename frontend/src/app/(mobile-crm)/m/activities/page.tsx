@@ -159,7 +159,7 @@ export default function ActivitiesPage() {
                     <CheckCircle className="h-10 w-10 text-emerald-400" />
                 </div>
                 <h2 className="text-xl font-bold text-white mb-2">Activity Logged!</h2>
-                <p className="text-gray-400">Redirecting to dashboard...</p>
+                <p className="text-muted-foreground">Redirecting to dashboard...</p>
             </div>
         );
     }
@@ -171,7 +171,7 @@ export default function ActivitiesPage() {
                 <>
                     <div className="text-center space-y-2">
                         <h2 className="text-xl font-bold text-white">Log Activity</h2>
-                        <p className="text-gray-400 text-sm">Select the type of activity to record</p>
+                        <p className="text-muted-foreground text-sm">Select the type of activity to record</p>
                     </div>
 
                     <div className="grid grid-cols-2 gap-3">
@@ -192,7 +192,7 @@ export default function ActivitiesPage() {
                                     </div>
                                     <div>
                                         <p className="font-semibold text-white">{type.label}</p>
-                                        <p className="text-xs text-gray-400 mt-1">{type.description}</p>
+                                        <p className="text-xs text-muted-foreground mt-1">{type.description}</p>
                                     </div>
                                 </CardContent>
                             </Card>
@@ -207,7 +207,7 @@ export default function ActivitiesPage() {
                             variant="ghost"
                             size="sm"
                             onClick={() => setSelectedType(null)}
-                            className="text-gray-400"
+                            className="text-muted-foreground"
                         >
                             ← Back
                         </Button>
@@ -219,20 +219,20 @@ export default function ActivitiesPage() {
                     {/* Location Card */}
                     <Card className="bg-gray-800/50 border-gray-700/50">
                         <CardHeader className="p-4 pb-2">
-                            <CardTitle className="text-sm text-gray-300 flex items-center gap-2">
+                            <CardTitle className="text-sm text-muted-foreground flex items-center gap-2">
                                 <MapPin className="h-4 w-4 text-blue-400" />
                                 Location
                             </CardTitle>
                         </CardHeader>
                         <CardContent className="p-4 pt-0">
                             {isLoadingLocation ? (
-                                <div className="flex items-center gap-2 text-gray-400">
+                                <div className="flex items-center gap-2 text-muted-foreground">
                                     <Loader2 className="h-4 w-4 animate-spin" />
                                     <span className="text-sm">Getting location...</span>
                                 </div>
                             ) : location ? (
                                 <div className="space-y-2">
-                                    <p className="text-sm text-gray-300">
+                                    <p className="text-sm text-muted-foreground">
                                         📍 {location.address || `${location.latitude.toFixed(4)}, ${location.longitude.toFixed(4)}`}
                                     </p>
                                     <Button
@@ -276,37 +276,37 @@ export default function ActivitiesPage() {
                     {/* Activity Details */}
                     <Card className="bg-gray-800/50 border-gray-700/50">
                         <CardHeader className="p-4 pb-2">
-                            <CardTitle className="text-sm text-gray-300">Activity Details</CardTitle>
+                            <CardTitle className="text-sm text-muted-foreground">Activity Details</CardTitle>
                         </CardHeader>
                         <CardContent className="p-4 pt-0 space-y-4">
                             <div>
-                                <label className="text-xs text-gray-500 mb-1 block">Title</label>
+                                <label className="text-xs text-muted-foreground mb-1 block">Title</label>
                                 <Input
                                     placeholder={`${selectedType.label} at...`}
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
-                                    className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-500"
+                                    className="bg-gray-700/50 border-gray-600 text-white placeholder:text-muted-foreground"
                                 />
                             </div>
 
                             <div>
-                                <label className="text-xs text-gray-500 mb-1 block">Duration (minutes)</label>
+                                <label className="text-xs text-muted-foreground mb-1 block">Duration (minutes)</label>
                                 <Input
                                     type="number"
                                     placeholder="30"
                                     value={duration}
                                     onChange={(e) => setDuration(e.target.value)}
-                                    className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-500"
+                                    className="bg-gray-700/50 border-gray-600 text-white placeholder:text-muted-foreground"
                                 />
                             </div>
 
                             <div>
-                                <label className="text-xs text-gray-500 mb-1 block">Notes</label>
+                                <label className="text-xs text-muted-foreground mb-1 block">Notes</label>
                                 <Textarea
                                     placeholder="Add notes about this activity..."
                                     value={notes}
                                     onChange={(e) => setNotes(e.target.value)}
-                                    className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-500 min-h-[100px] resize-none"
+                                    className="bg-gray-700/50 border-gray-600 text-white placeholder:text-muted-foreground min-h-[100px] resize-none"
                                 />
                             </div>
                         </CardContent>
@@ -317,7 +317,7 @@ export default function ActivitiesPage() {
                         <CardContent className="p-4">
                             <Button
                                 variant="ghost"
-                                className="w-full h-24 border-2 border-dashed border-gray-600 text-gray-400 hover:text-gray-300 hover:border-gray-500"
+                                className="w-full h-24 border-2 border-dashed border-gray-600 text-muted-foreground hover:text-muted-foreground hover:border-gray-500"
                             >
                                 <Camera className="h-6 w-6 mr-2" />
                                 Add Photo

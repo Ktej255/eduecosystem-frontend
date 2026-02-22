@@ -28,7 +28,7 @@ export function LockedLesson({
           <h3 className="text-xl font-bold text-white">
             Available on {date.toLocaleDateString()}
           </h3>
-          <p className="text-gray-400">
+          <p className="text-muted-foreground">
             This lesson is scheduled to unlock at {date.toLocaleTimeString()}
           </p>
         </div>
@@ -42,11 +42,11 @@ export function LockedLesson({
           <h3 className="text-xl font-bold text-white">
             Unlocks in {accessInfo.days_remaining} days
           </h3>
-          <p className="text-gray-400">
+          <p className="text-muted-foreground">
             This content is part of a scheduled learning path.
           </p>
           {accessInfo.unlock_date && (
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground">
               Available on{" "}
               {new Date(accessInfo.unlock_date).toLocaleDateString()}
             </p>
@@ -62,7 +62,7 @@ export function LockedLesson({
           <h3 className="text-xl font-bold text-white">
             Prerequisite Required
           </h3>
-          <p className="text-gray-400">
+          <p className="text-muted-foreground">
             You must complete the previous lesson to unlock this content.
           </p>
         </div>
@@ -72,9 +72,9 @@ export function LockedLesson({
     // Default fallback
     return (
       <div className="text-center space-y-2">
-        <Lock className="h-12 w-12 text-gray-500 mx-auto mb-4" />
+        <Lock className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
         <h3 className="text-xl font-bold text-white">Content Locked</h3>
-        <p className="text-gray-400">This lesson is currently not available.</p>
+        <p className="text-muted-foreground">This lesson is currently not available.</p>
       </div>
     );
   };
@@ -89,7 +89,7 @@ export function LockedLesson({
             <Button
               variant="outline"
               onClick={onBack}
-              className="border-gray-700 text-gray-300 hover:text-white hover:bg-gray-800"
+              className="border-gray-700 text-muted-foreground hover:text-white hover:bg-gray-800"
             >
               Back to Course
             </Button>

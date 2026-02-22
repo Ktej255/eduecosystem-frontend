@@ -76,9 +76,9 @@ export default function VersionHistory() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-[600px]">
             {/* Version List */}
             <div className="md:col-span-4 flex flex-col gap-4 h-full">
-                <Card className="h-full border-slate-200 dark:border-slate-800 flex flex-col">
-                    <CardHeader className="pb-3 border-b border-slate-100 dark:border-slate-800">
-                        <CardTitle className="text-sm font-bold uppercase tracking-wider text-slate-500 flex items-center gap-2">
+                <Card className="h-full border-border flex flex-col">
+                    <CardHeader className="pb-3 border-b border-slate-100">
+                        <CardTitle className="text-sm font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
                             <History className="h-4 w-4" />
                             Version Log
                         </CardTitle>
@@ -90,10 +90,10 @@ export default function VersionHistory() {
                                     key={ver.id}
                                     onClick={() => setSelectedVersion(ver)}
                                     className={cn(
-                                        "p-3 rounded-lg border cursor-pointer transition-all hover:bg-slate-50 dark:hover:bg-slate-800",
+                                        "p-3 rounded-lg border cursor-pointer transition-all hover:bg-muted dark:hover:bg-slate-800",
                                         selectedVersion.id === ver.id
                                             ? "border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 ring-1 ring-indigo-500/20"
-                                            : "border-transparent hover:border-slate-200"
+                                            : "border-transparent hover:border-border"
                                     )}
                                 >
                                     <div className="flex justify-between items-start mb-1">
@@ -103,13 +103,13 @@ export default function VersionHistory() {
                                             </Badge>
                                             {ver.isCurrent && <span className="text-[10px] text-green-600 font-medium flex items-center"><Check className="h-3 w-3 mr-0.5" /> Live</span>}
                                         </div>
-                                        <span className="text-[10px] text-slate-400">{ver.timestamp}</span>
+                                        <span className="text-[10px] text-muted-foreground">{ver.timestamp}</span>
                                     </div>
-                                    <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-300 font-medium mb-1">
+                                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground font-medium mb-1">
                                         <User className="h-3 w-3 text-indigo-500" />
                                         {ver.author}
                                     </div>
-                                    <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                                    <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
                                         {ver.changes}
                                     </p>
                                 </div>
@@ -121,15 +121,15 @@ export default function VersionHistory() {
 
             {/* Preview Panel */}
             <div className="md:col-span-8 flex flex-col gap-4 h-full">
-                <Card className="h-full border-slate-200 dark:border-slate-800 flex flex-col">
-                    <CardHeader className="pb-3 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+                <Card className="h-full border-border flex flex-col">
+                    <CardHeader className="pb-3 border-b border-slate-100 bg-slate-50/50/50">
                         <div className="flex justify-between items-center">
                             <div>
-                                <CardTitle className="text-base font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                                <CardTitle className="text-base font-bold text-foreground flex items-center gap-2">
                                     <FileText className="h-4 w-4 text-indigo-500" />
                                     {selectedVersion.version} - Preview
                                 </CardTitle>
-                                <p className="text-xs text-slate-500 mt-1 flex items-center gap-1">
+                                <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
                                     <Clock className="h-3 w-3" />
                                     Edited {selectedVersion.timestamp} by {selectedVersion.author}
                                 </p>
@@ -142,7 +142,7 @@ export default function VersionHistory() {
                             )}
                         </div>
                     </CardHeader>
-                    <CardContent className="p-0 flex-1 relative bg-white dark:bg-slate-950 overflow-hidden">
+                    <CardContent className="p-0 flex-1 relative bg-card overflow-hidden">
                         <ScrollArea className="h-full">
                             <div className="p-6">
                                 <div className="prose prose-sm dark:prose-invert max-w-none">

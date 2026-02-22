@@ -265,14 +265,14 @@ export default function AntiGravityPage() {
                             exit={{ scale: 0.9, opacity: 0, y: 50 }}
                             className="relative w-full max-w-6xl h-[85vh] bg-[#020617] rounded-[3rem] border border-white/10 shadow-[0_0_100px_rgba(139,92,246,0.15)] overflow-hidden flex flex-col"
                         >
-                            <div className="p-8 border-b border-white/5 flex justify-between items-center bg-white/5">
+                            <div className="p-8 border-b border-white/5 flex justify-between items-center bg-card/5">
                                 <div>
                                     <h2 className="text-3xl font-black text-white italic">COGNITIVE MASTERY MAP</h2>
                                     <p className="text-purple-400 text-[10px] font-black uppercase tracking-[0.3em]">Spatial Knowledge Distribution • Live Sync</p>
                                 </div>
                                 <button
                                     onClick={() => setShowMasteryMap(false)}
-                                    className="p-3 bg-white/5 hover:bg-white/10 rounded-2xl text-gray-400 hover:text-white transition-all"
+                                    className="p-3 bg-card/5 hover:bg-card/10 rounded-2xl text-muted-foreground hover:text-white transition-all"
                                 >
                                     <X size={24} />
                                 </button>
@@ -280,8 +280,8 @@ export default function AntiGravityPage() {
                             <div className="flex-1 p-6">
                                 <KnowledgeTree3D />
                             </div>
-                            <div className="p-6 bg-white/5 border-t border-white/5 flex justify-center">
-                                <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest">
+                            <div className="p-6 bg-card/5 border-t border-white/5 flex justify-center">
+                                <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">
                                     Click & Drag to Orbit • Scroll to Zoom • Nodes represent retention health
                                 </p>
                             </div>

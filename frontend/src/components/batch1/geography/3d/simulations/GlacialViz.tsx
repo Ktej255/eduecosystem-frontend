@@ -168,7 +168,7 @@ export default function GlacialViz() {
                         onClick={() => setStage(s.id as GlacialStage)}
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${stage === s.id
                             ? 'bg-cyan-600 text-white shadow-lg'
-                            : 'text-slate-400 hover:text-white hover:bg-white/10'
+                            : 'text-muted-foreground hover:text-white hover:bg-card/10'
                             }`}
                     >
                         {s.name.split('(')[0].trim()}

@@ -65,7 +65,7 @@ export function LiveClassQAPanel({
           Q&A
           <Badge
             variant="secondary"
-            className="ml-auto bg-gray-800 text-gray-400"
+            className="ml-auto bg-gray-800 text-muted-foreground"
           >
             {questions.length}
           </Badge>
@@ -74,7 +74,7 @@ export function LiveClassQAPanel({
 
       <CardContent className="flex-1 overflow-y-auto p-4 space-y-4">
         {sortedQuestions.length === 0 ? (
-          <div className="h-full flex flex-col items-center justify-center text-gray-500 space-y-2 min-h-[200px]">
+          <div className="h-full flex flex-col items-center justify-center text-muted-foreground space-y-2 min-h-[200px]">
             <MessageCircle className="h-8 w-8 opacity-20" />
             <p className="text-sm">No questions yet</p>
           </div>
@@ -90,7 +90,7 @@ export function LiveClassQAPanel({
                       <span className="text-xs font-medium text-cyan-400">
                         {q.student_name}
                       </span>
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-muted-foreground">
                         •{" "}
                         {new Date().toLocaleTimeString([], {
                           hour: "2-digit",
@@ -104,7 +104,7 @@ export function LiveClassQAPanel({
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="h-8 px-2 text-gray-400 hover:text-cyan-400 hover:bg-cyan-950/30"
+                      className="h-8 px-2 text-muted-foreground hover:text-cyan-400 hover:bg-cyan-950/30"
                       onClick={() => onUpvote(q.question_id)}
                     >
                       <ThumbsUp className="h-3 w-3 mr-1" />
@@ -123,7 +123,7 @@ export function LiveClassQAPanel({
                         Instructor Answer
                       </Badge>
                     </div>
-                    <p className="text-sm text-gray-300">{q.answer}</p>
+                    <p className="text-sm text-muted-foreground">{q.answer}</p>
                   </div>
                 )}
 
@@ -159,7 +159,7 @@ export function LiveClassQAPanel({
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="h-6 text-xs w-full text-gray-400 hover:text-cyan-400"
+                        className="h-6 text-xs w-full text-muted-foreground hover:text-cyan-400"
                         onClick={() => {
                           setAnsweringId(q.question_id);
                           setAnswerText("");
@@ -182,7 +182,7 @@ export function LiveClassQAPanel({
             value={newQuestion}
             onChange={(e) => setNewQuestion(e.target.value)}
             placeholder="Ask a question..."
-            className="bg-gray-800 border-gray-700 text-gray-200 placeholder:text-gray-500"
+            className="bg-gray-800 border-gray-700 text-gray-200 placeholder:text-muted-foreground"
             onKeyDown={(e) => e.key === "Enter" && handleAsk()}
           />
           <Button

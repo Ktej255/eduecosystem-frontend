@@ -11,22 +11,22 @@ export default function NeuroCanvasPage() {
                 <div>
                     <Link
                         href="/student/batch1-1"
-                        className="inline-flex items-center text-sm text-gray-500 hover:text-indigo-600 mb-2 transition-colors"
+                        className="inline-flex items-center text-sm text-muted-foreground hover:text-indigo-600 mb-2 transition-colors"
                     >
                         <ArrowLeft className="mr-1 h-4 w-4" /> Back to Dashboard
                     </Link>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+                    <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
                         <Feather className="h-8 w-8 text-indigo-500" />
                         Neuro-Canvas
                     </h1>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1 max-w-2xl">
+                    <p className="text-muted-foreground dark:text-muted-foreground mt-1 max-w-2xl">
                         A digital sanctuary for graphotherapy. Practice mindful strokes to improve focus, reduce stress, and retrain your neural pathways.
                     </p>
                 </div>
 
                 <div className="hidden md:block text-right">
                     <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">Current Session Goal</p>
-                    <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">15 mins</p>
+                    <p className="text-2xl font-bold text-foreground">15 mins</p>
                 </div>
             </div>
 

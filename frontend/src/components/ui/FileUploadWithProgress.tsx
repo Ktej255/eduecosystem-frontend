@@ -45,7 +45,7 @@ export const FileUploadWithProgress: React.FC<FileUploadWithProgressProps> = ({
       return <Image className="h-5 w-5 text-blue-400" />;
     if (file.type.startsWith("video/"))
       return <Video className="h-5 w-5 text-purple-400" />;
-    return <FileText className="h-5 w-5 text-gray-400" />;
+    return <FileText className="h-5 w-5 text-muted-foreground" />;
   };
 
   const formatFileSize = (bytes: number) => {
@@ -192,13 +192,13 @@ export const FileUploadWithProgress: React.FC<FileUploadWithProgressProps> = ({
       >
         <div className="flex flex-col items-center justify-center gap-4">
           <div className="p-4 bg-gray-800 rounded-full">
-            <Upload className="h-8 w-8 text-gray-400" />
+            <Upload className="h-8 w-8 text-muted-foreground" />
           </div>
           <div className="text-center">
             <p className="text-white font-medium mb-1">
               Drag and drop files here
             </p>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-muted-foreground">
               or click to browse (max {maxFileSize}MB per file)
             </p>
           </div>
@@ -222,7 +222,7 @@ export const FileUploadWithProgress: React.FC<FileUploadWithProgressProps> = ({
       {/* File List */}
       {files.length > 0 && (
         <div className="space-y-2">
-          <h4 className="text-sm font-medium text-gray-400">
+          <h4 className="text-sm font-medium text-muted-foreground">
             Uploading {files.length} file{files.length !== 1 ? "s" : ""}
           </h4>
           {files.map((fileProgress, index) => (
@@ -246,7 +246,7 @@ export const FileUploadWithProgress: React.FC<FileUploadWithProgressProps> = ({
                       )}
                       <button
                         onClick={() => removeFile(index)}
-                        className="text-gray-500 hover:text-white transition-colors"
+                        className="text-muted-foreground hover:text-white transition-colors"
                       >
                         <X className="h-4 w-4" />
                       </button>
@@ -259,7 +259,7 @@ export const FileUploadWithProgress: React.FC<FileUploadWithProgressProps> = ({
                         value={fileProgress.progress}
                         className="mb-2"
                       />
-                      <div className="flex justify-between text-xs text-gray-500">
+                      <div className="flex justify-between text-xs text-muted-foreground">
                         <span>{formatFileSize(fileProgress.file.size)}</span>
                         <span>{fileProgress.progress}%</span>
                       </div>

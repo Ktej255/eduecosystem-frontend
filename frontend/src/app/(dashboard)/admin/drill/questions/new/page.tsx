@@ -155,10 +155,10 @@ export default function NewQuestionPage() {
                     </Button>
                 </Link>
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                    <h1 className="text-3xl font-bold text-foreground">
                         Create New Question
                     </h1>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">
+                    <p className="text-muted-foreground dark:text-muted-foreground mt-1">
                         Add a new drill question with content and model answer
                     </p>
                 </div>
@@ -173,14 +173,14 @@ export default function NewQuestionPage() {
                     <CardContent className="space-y-4">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div>
-                                <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                                <label className="block text-sm font-medium mb-2 text-muted-foreground dark:text-muted-foreground">
                                     GS Paper *
                                 </label>
                                 <select
                                     required
                                     value={formData.gs_paper}
                                     onChange={(e) => setFormData({ ...formData, gs_paper: e.target.value })}
-                                    className="w-full px-3 py-2 border rounded-md bg-white dark:bg-gray-800"
+                                    className="w-full px-3 py-2 border rounded-md bg-card"
                                 >
                                     <option value="GS1">GS1</option>
                                     <option value="GS2">GS2</option>
@@ -189,7 +189,7 @@ export default function NewQuestionPage() {
                                 </select>
                             </div>
                             <div>
-                                <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                                <label className="block text-sm font-medium mb-2 text-muted-foreground dark:text-muted-foreground">
                                     Topic *
                                 </label>
                                 <Input
@@ -200,7 +200,7 @@ export default function NewQuestionPage() {
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                                <label className="block text-sm font-medium mb-2 text-muted-foreground dark:text-muted-foreground">
                                     Sub-topic
                                 </label>
                                 <Input
@@ -212,14 +212,14 @@ export default function NewQuestionPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                            <label className="block text-sm font-medium mb-2 text-muted-foreground dark:text-muted-foreground">
                                 Difficulty *
                             </label>
                             <select
                                 required
                                 value={formData.difficulty}
                                 onChange={(e) => setFormData({ ...formData, difficulty: e.target.value })}
-                                className="w-full px-3 py-2 border rounded-md bg-white dark:bg-gray-800"
+                                className="w-full px-3 py-2 border rounded-md bg-card"
                             >
                                 <option value="easy">Easy</option>
                                 <option value="medium">Medium</option>
@@ -228,7 +228,7 @@ export default function NewQuestionPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                            <label className="block text-sm font-medium mb-2 text-muted-foreground dark:text-muted-foreground">
                                 Question Text *
                             </label>
                             <Textarea
@@ -242,7 +242,7 @@ export default function NewQuestionPage() {
 
                         <div>
                             <div className="flex justify-between items-center mb-2">
-                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                <label className="block text-sm font-medium text-muted-foreground dark:text-muted-foreground">
                                     Key Points to Cover
                                 </label>
                                 <Button type="button" size="sm" onClick={addKeyPoint}>
@@ -284,7 +284,7 @@ export default function NewQuestionPage() {
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div>
-                            <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                            <label className="block text-sm font-medium mb-2 text-muted-foreground dark:text-muted-foreground">
                                 Content Title
                             </label>
                             <Input
@@ -299,7 +299,7 @@ export default function NewQuestionPage() {
 
                         <div>
                             <div className="flex justify-between items-center mb-2">
-                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                <label className="block text-sm font-medium text-muted-foreground dark:text-muted-foreground">
                                     Content Sections
                                 </label>
                                 <Button type="button" size="sm" onClick={addContentSection}>
@@ -308,9 +308,9 @@ export default function NewQuestionPage() {
                                 </Button>
                             </div>
                             {formData.content.sections.map((section, index) => (
-                                <div key={index} className="border p-4 rounded-md mb-4 bg-gray-50 dark:bg-gray-800">
+                                <div key={index} className="border p-4 rounded-md mb-4 bg-muted">
                                     <div className="flex justify-between items-center mb-2">
-                                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                                        <span className="text-sm font-medium text-muted-foreground dark:text-muted-foreground">
                                             Section {index + 1}
                                         </span>
                                         {formData.content.sections.length > 1 && (
@@ -363,7 +363,7 @@ export default function NewQuestionPage() {
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div>
-                            <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                            <label className="block text-sm font-medium mb-2 text-muted-foreground dark:text-muted-foreground">
                                 Answer Title
                             </label>
                             <Input
@@ -377,7 +377,7 @@ export default function NewQuestionPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                            <label className="block text-sm font-medium mb-2 text-muted-foreground dark:text-muted-foreground">
                                 Answer Text
                             </label>
                             <Textarea
@@ -393,7 +393,7 @@ export default function NewQuestionPage() {
 
                         <div>
                             <div className="flex justify-between items-center mb-2">
-                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                <label className="block text-sm font-medium text-muted-foreground dark:text-muted-foreground">
                                     Key Points
                                 </label>
                                 <Button type="button" size="sm" onClick={addModelAnswerKeyPoint}>

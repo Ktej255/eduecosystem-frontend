@@ -18,24 +18,24 @@ export default function MapViewer({ mapId, title, description, onClose }: MapVie
                 <div className="flex items-center gap-4">
                     <button
                         onClick={onClose}
-                        className="p-2 hover:bg-white/10 rounded-full text-white transition-colors"
+                        className="p-2 hover:bg-card/10 rounded-full text-white transition-colors"
                     >
                         <ArrowLeft className="w-5 h-5" />
                     </button>
                     <div>
                         <h2 className="text-white font-bold text-lg">{title}</h2>
-                        {description && <p className="text-slate-400 text-xs">{description}</p>}
+                        {description && <p className="text-muted-foreground text-xs">{description}</p>}
                     </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <button className="p-2 hover:bg-white/10 rounded-lg text-white" title="Zoom In">
+                    <button className="p-2 hover:bg-card/10 rounded-lg text-white" title="Zoom In">
                         <ZoomIn className="w-5 h-5" />
                     </button>
-                    <button className="p-2 hover:bg-white/10 rounded-lg text-white" title="Zoom Out">
+                    <button className="p-2 hover:bg-card/10 rounded-lg text-white" title="Zoom Out">
                         <ZoomOut className="w-5 h-5" />
                     </button>
-                    <button className="p-2 hover:bg-white/10 rounded-lg text-white" title="Fullscreen">
+                    <button className="p-2 hover:bg-card/10 rounded-lg text-white" title="Fullscreen">
                         <Maximize className="w-5 h-5" />
                     </button>
                 </div>
@@ -48,7 +48,7 @@ export default function MapViewer({ mapId, title, description, onClose }: MapVie
                         <MapIcon className="w-10 h-10 text-indigo-400" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">Interactive Map Loading...</h3>
-                    <p className="text-slate-400">
+                    <p className="text-muted-foreground">
                         High-resolution historical map for <span className="text-indigo-400">{mapId}</span> is being rendered.
                         (This is a placeholder for the actual interactive SVG/Leaflet map).
                     </p>

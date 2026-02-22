@@ -32,7 +32,7 @@ export default function QuizReviewsPage() {
     {
       key: "attempt",
       label: "Quiz ID",
-      render: (val: any) => <span className="text-gray-300">Quiz #{val?.quiz_id}</span>
+      render: (val: any) => <span className="text-muted-foreground">Quiz #{val?.quiz_id}</span>
     },
     {
       key: "percentage",

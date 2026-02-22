@@ -18,13 +18,13 @@ interface HistoryModuleProps {
 // --- Design System Components ---
 
 const Highlighter = ({ children, color = "bg-yellow-200" }: { children: React.ReactNode, color?: string }) => (
-    <span className={`${color} px-1 mx-0.5 inline-block transform -skew-x-2 rounded-sm shadow-sm decoration-clone font-bold text-slate-900 border-b border-black/10`}>
+    <span className={`${color} px-1 mx-0.5 inline-block transform -skew-x-2 rounded-sm shadow-sm decoration-clone font-bold text-foreground border-b border-black/10`}>
         {children}
     </span>
 );
 
 const Stamp = ({ children, type = "default" }: { children: React.ReactNode, type?: "default" | "red" | "royal" }) => {
-    let borderColor = "border-slate-800/60 text-slate-800";
+    let borderColor = "border-slate-800/60 text-foreground";
     if (type === "red") borderColor = "border-red-800/60 text-red-900";
     if (type === "royal") borderColor = "border-amber-700/60 text-amber-900 bg-amber-50";
 
@@ -42,7 +42,7 @@ const Stamp = ({ children, type = "default" }: { children: React.ReactNode, type
 
 const PaperCard = ({ children, className = "", rotate = 0 }: { children: React.ReactNode, className?: string, rotate?: number }) => (
     <div
-        className={`bg-[#fdfbf7] shadow-lg border border-gray-200 relative p-5 md:p-6 ${className} transition-transform hover:scale-[1.01] duration-300`}
+        className={`bg-[#fdfbf7] shadow-lg border border-border relative p-5 md:p-6 ${className} transition-transform hover:scale-[1.01] duration-300`}
         style={{
             transform: `rotate(${rotate}deg)`,
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E")`
@@ -59,7 +59,7 @@ const Bullet = () => (
 const TimelineNode = ({ side, children }: { side: "left" | "right", children: React.ReactNode }) => (
     <div className={`relative mb-8 w-full md:w-[48%] ${side === "left" ? "md:mr-auto md:text-right" : "md:ml-auto md:text-left"}`}>
         {/* Connector Line */}
-        <div className={`hidden md:block absolute top-8 ${side === "left" ? "-right-8 w-8" : "-left-8 w-8"} border-t-2 border-dashed border-gray-300`}></div>
+        <div className={`hidden md:block absolute top-8 ${side === "left" ? "-right-8 w-8" : "-left-8 w-8"} border-t-2 border-dashed border-border`}></div>
         {children}
     </div>
 );
@@ -80,10 +80,10 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                     </h1>
                     <div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-300/50 -rotate-1 skew-x-12 -z-0"></div>
                 </div>
-                <p className="text-slate-600 mt-2 font-bold text-lg">The Evolution of the Constitution</p>
+                <p className="text-muted-foreground mt-2 font-bold text-lg">The Evolution of the Constitution</p>
 
                 {/* Context Sticky Note */}
-                <div className="mt-6 mx-auto bg-yellow-200 p-3 shadow-md transform rotate-1 max-w-xs text-left text-xs text-slate-800 font-medium border-t-4 border-yellow-300/50">
+                <div className="mt-6 mx-auto bg-yellow-200 p-3 shadow-md transform rotate-1 max-w-xs text-left text-xs text-foreground font-medium border-t-4 border-yellow-300/50">
                     <p className="mb-1"><strong>1600:</strong> EIC comes as Traders (Queen Elizabeth I Charter).</p>
                     <p className="mb-1"><strong>1765:</strong> Diwani Rights → Territorial Power starts.</p>
                 </div>
@@ -107,13 +107,13 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                         <PaperCard rotate={-1}>
                             <div className="absolute -top-3 -right-3 transform rotate-6"><Stamp>Landmark</Stamp></div>
                             <h3 className="text-xl font-bold text-blue-900 mb-2">Regulating Act, 1773</h3>
-                            <ul className="text-sm text-slate-800 space-y-1">
+                            <ul className="text-sm text-foreground space-y-1">
                                 <li className="flex"><Bullet /><span>Gov Bengal → <Highlighter>Gov-Gen Bengal</Highlighter> (Warren Hastings)</span></li>
                                 <li className="flex"><Bullet /><span>Exec Council: <span className="font-bold">4 Members</span> (No separate Leg. Council)</span></li>
 
                                 <li className="flex"><Bullet /><span><span className="font-bold">Centralization:</span> Bombay/Madras Govs subordinate</span></li>
                                 <li className="flex"><Bullet /><span>SC at Calcutta (1774): 1 CJ + 3 Judges</span></li>
-                                <li className="flex mt-1 pt-1 border-t border-dashed border-gray-300"><span className="text-xs text-red-600 font-bold">Prohibited private trade & bribes.</span></li>
+                                <li className="flex mt-1 pt-1 border-t border-dashed border-border"><span className="text-xs text-red-600 font-bold">Prohibited private trade & bribes.</span></li>
                             </ul>
                         </PaperCard>
                         <div className={`hidden md:block ${doodleStyle} top-10 -left-12 rotate-12`}><Gavel size={32} /></div>
@@ -123,8 +123,8 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                     <TimelineNode side="right">
                         <PaperCard rotate={1} className="bg-[#f0f9ff] border-blue-200">
                             <h4 className="font-bold text-blue-900 mb-1">Amending Act of 1781</h4>
-                            <p className="text-xs text-slate-500 mb-2 italic">"Act of Settlement"</p>
-                            <ul className="text-xs text-slate-800 space-y-1">
+                            <p className="text-xs text-muted-foreground mb-2 italic">"Act of Settlement"</p>
+                            <ul className="text-xs text-foreground space-y-1">
                                 <li>• <span className="font-bold">Exempted:</span> GG & Council, Revenue matters from SC jurisdiction.</li>
                                 <li>• <span className="font-bold">Personal Law:</span> Hindus (Hindu Law), Muslims (Mohammedan Law).</li>
                             </ul>
@@ -145,7 +145,7 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                                     <span className="font-bold text-blue-900">Political</span><br />(Board of Control)
                                 </div>
                             </div>
-                            <p className="text-xs font-bold text-center bg-slate-100 p-1 rounded">Double Govt • "British Possessions"</p>
+                            <p className="text-xs font-bold text-center bg-muted p-1 rounded">Double Govt • "British Possessions"</p>
                         </PaperCard>
                     </TimelineNode>
 
@@ -163,9 +163,9 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
 
                             {/* 1793 */}
                             <PaperCard rotate={1} className="py-3">
-                                <h4 className="font-bold text-slate-800 text-sm mb-1">Charter Act 1793</h4>
-                                <p className="text-xs text-slate-700">• Monopoly: +20 Years</p>
-                                <p className="text-xs text-slate-700">• B.O.C paid from <span className="text-green-700 font-bold">Indian Revenues</span></p>
+                                <h4 className="font-bold text-foreground text-sm mb-1">Charter Act 1793</h4>
+                                <p className="text-xs text-muted-foreground">• Monopoly: +20 Years</p>
+                                <p className="text-xs text-muted-foreground">• B.O.C paid from <span className="text-green-700 font-bold">Indian Revenues</span></p>
                             </PaperCard>
                         </div>
                     </TimelineNode>
@@ -174,9 +174,9 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                     <TimelineNode side="left">
                         <PaperCard rotate={-1} className="py-3 bg-red-50 border-red-100">
                             <h4 className="font-bold text-red-900 text-lg mb-1">Charter Act 1813</h4>
-                            <p className="text-sm text-slate-800 font-bold underline decoration-red-300 mb-2">Monopoly ENDED*</p>
-                            <p className="text-xs text-slate-600 italic mb-2">*Except Tea & China</p>
-                            <ul className="text-xs text-slate-800 space-y-1">
+                            <p className="text-sm text-foreground font-bold underline decoration-red-300 mb-2">Monopoly ENDED*</p>
+                            <p className="text-xs text-muted-foreground italic mb-2">*Except Tea & China</p>
+                            <ul className="text-xs text-foreground space-y-1">
                                 <li className="flex gap-2"><BookOpen size={12} /> Western Education (1 Lakh)</li>
                                 <li className="flex gap-2"><Globe size={12} /> Christian Missionaries Allowed</li>
                                 <li>• Local Govts can impose Taxes.</li>
@@ -189,9 +189,9 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                         <PaperCard rotate={1}>
                             <h3 className="text-xl font-bold text-blue-900 mb-2">Charter Act 1833</h3>
                             <Stamp>Turning Point</Stamp>
-                            <div className="mt-2 space-y-1 text-sm text-slate-800">
+                            <div className="mt-2 space-y-1 text-sm text-foreground">
                                 <p>GG Bengal → <Highlighter>GG of INDIA</Highlighter></p>
-                                <p className="text-xs text-slate-500 italic mb-2">(Lord William Bentinck)</p>
+                                <p className="text-xs text-muted-foreground italic mb-2">(Lord William Bentinck)</p>
 
                                 <ul className="text-xs list-disc list-inside space-y-1">
                                     <li><span className="font-bold">Centralization Peak:</span> Bombay/Madras lost legislative power.</li>
@@ -206,20 +206,20 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                     {/* 1853 (Left) */}
                     <TimelineNode side="left">
                         <PaperCard rotate={-1}>
-                            <h3 className="text-xl font-bold text-slate-900 mb-2">Charter Act 1853</h3>
-                            <p className="text-xs text-slate-500 font-mono mb-2">The Last Charter</p>
+                            <h3 className="text-xl font-bold text-foreground mb-2">Charter Act 1853</h3>
+                            <p className="text-xs text-muted-foreground font-mono mb-2">The Last Charter</p>
 
-                            <div className="space-y-2 text-xs text-slate-800">
-                                <div className="p-2 bg-slate-100 rounded">
+                            <div className="space-y-2 text-xs text-foreground">
+                                <div className="p-2 bg-muted rounded">
                                     <p className="font-bold">Sep of Powers (Exec vs Leg)</p>
                                     <p>Central Leg. Council (Mini-Parliament)</p>
                                 </div>
 
                                 <p>• <span className="font-bold">Open Competition</span> (Macaulay Committee '54)</p>
 
-                                <div className="border-t pt-1 border-dashed border-slate-300">
+                                <div className="border-t pt-1 border-dashed border-border">
                                     <p className="font-bold">Local Representation introduced:</p>
-                                    <p className="text-[10px] text-slate-600">4 Members: Madras, Bombay, Bengal, Agra.</p>
+                                    <p className="text-[10px] text-muted-foreground">4 Members: Madras, Bombay, Bengal, Agra.</p>
                                 </div>
                             </div>
                         </PaperCard>
@@ -241,10 +241,10 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                             <div className="absolute -top-3 -right-3"><Stamp type="royal">Good Govt</Stamp></div>
                             <h3 className="text-xl font-bold text-amber-900 mb-2">Govt of India Act, 1858</h3>
                             <p className="text-xs text-amber-800/60 mb-2 italic">Post Sepoy Mutiny (1857)</p>
-                            <ul className="text-sm text-slate-800 space-y-2">
+                            <ul className="text-sm text-foreground space-y-2">
                                 <li className="flex gap-2 items-start"><Crown size={16} className="text-amber-700 mt-0.5" /> <span>Power to Crown (Her Majesty).</span></li>
                                 <li className="flex gap-2 items-start"><Users size={16} className="text-amber-700 mt-0.5" /> <span><Highlighter color="bg-amber-200">Viceroy</Highlighter> (Direct Rep) - Lord Canning.</span></li>
-                                <li className="flex gap-2 items-start"><Briefcase size={16} className="text-amber-700 mt-0.5" /> <span><span className="font-bold">Secretary of State (SoS)</span><br /><span className="text-xs text-slate-600">Member of British Cabinet + 15-member Council.</span></span></li>
+                                <li className="flex gap-2 items-start"><Briefcase size={16} className="text-amber-700 mt-0.5" /> <span><span className="font-bold">Secretary of State (SoS)</span><br /><span className="text-xs text-muted-foreground">Member of British Cabinet + 15-member Council.</span></span></li>
                             </ul>
                         </PaperCard>
                     </TimelineNode>
@@ -255,8 +255,8 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                             {/* 1861 */}
                             <PaperCard rotate={-1} className="py-3">
                                 <h4 className="font-bold text-blue-900 text-sm mb-1">Indian Councils Act 1861</h4>
-                                <p className="text-xs text-slate-700 font-bold mb-1">Decentralization Begins</p>
-                                <ul className="text-xs text-slate-600 list-disc list-inside space-y-1">
+                                <p className="text-xs text-muted-foreground font-bold mb-1">Decentralization Begins</p>
+                                <ul className="text-xs text-muted-foreground list-disc list-inside space-y-1">
                                     <li>Leg. powers restored to Bombay/Madras.</li>
                                     <li><span className="font-bold">Portfolio System</span> (Canning).</li>
                                     <li><span className="font-bold">Ordinance Power</span> (6 months).</li>
@@ -266,7 +266,7 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                             {/* 1892 */}
                             <PaperCard rotate={1} className="py-3">
                                 <h4 className="font-bold text-blue-900 text-sm mb-1">Indian Councils Act 1892</h4>
-                                <ul className="text-xs text-slate-600 list-disc list-inside">
+                                <ul className="text-xs text-muted-foreground list-disc list-inside">
                                     <li>Discussions on Budget (Limitied).</li>
                                     <li>Nomination by recommendation (University, Zamindars) = <span className="italic">Indirect Election.</span></li>
                                 </ul>
@@ -281,7 +281,7 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                                 <h3 className="text-xl font-bold text-red-900 mb-2">Act of 1909 (Morley-Minto)</h3>
                                 <Stamp type="red">Communal</Stamp>
                             </div>
-                            <div className="space-y-2 text-sm text-slate-800">
+                            <div className="space-y-2 text-sm text-foreground">
                                 <p>• Leg Council Size: 16 → 60</p>
                                 <div className="bg-red-100 p-2 rounded border border-red-200 text-red-900 text-xs shadow-inner">
                                     <span className="font-bold block mb-1">☠️ Separate Electorate</span>
@@ -306,19 +306,19 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                     {/* 1919 Montagu Chelmsford (Right) */}
                     <TimelineNode side="right">
                         <PaperCard rotate={1}>
-                            <h3 className="text-xl font-bold text-slate-900 mb-2">Govt of India Act, 1919</h3>
-                            <p className="text-xs text-slate-500 mb-2 italic">Montagu-Chelmsford Reforms</p>
+                            <h3 className="text-xl font-bold text-foreground mb-2">Govt of India Act, 1919</h3>
+                            <p className="text-xs text-muted-foreground mb-2 italic">Montagu-Chelmsford Reforms</p>
                             <div className="grid grid-cols-2 gap-2 text-xs mb-2">
-                                <div className="bg-slate-100 p-2 rounded">
+                                <div className="bg-muted p-2 rounded">
                                     <span className="font-bold block mb-1">Dyarchy (Prov)</span>
                                     Transferred vs Reserved Subjects.
                                 </div>
-                                <div className="bg-slate-100 p-2 rounded">
+                                <div className="bg-muted p-2 rounded">
                                     <span className="font-bold block mb-1">Bicameralism</span>
                                     Upper + Lower House (Direct Elections).
                                 </div>
                             </div>
-                            <ul className="text-xs space-y-1 list-disc list-inside text-slate-700">
+                            <ul className="text-xs space-y-1 list-disc list-inside text-muted-foreground">
                                 <li>Communal Electorate extended (Sikhs, Christians).</li>
                                 <li>High Commissioner for India (London).</li>
                                 <li>Public Service Commission (1926) recommended.</li>
@@ -328,7 +328,7 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
 
                     {/* Simon Commission Note (Left - Sticky) */}
                     <div className="mb-8 w-full md:w-[48%] md:mr-auto md:text-right relative">
-                        <div className="hidden md:block absolute top-8 -right-8 w-8 border-t-2 border-dashed border-gray-300"></div>
+                        <div className="hidden md:block absolute top-8 -right-8 w-8 border-t-2 border-dashed border-border"></div>
                         <div className="bg-yellow-100 p-3 shadow-md transform -rotate-1 text-left text-xs max-w-xs ml-auto border-l-4 border-yellow-400">
                             <p className="font-bold">Simon Commission (1927)</p>
                             <p>7 Members (All White) → Boycotted.</p>
@@ -341,24 +341,24 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
 
                     {/* 1935 The Blueprint (Left - MEGA NODE) */}
                     <TimelineNode side="left">
-                        <PaperCard rotate={0} className="border-4 border-double border-slate-200">
+                        <PaperCard rotate={0} className="border-4 border-double border-border">
                             <div className="absolute -top-3 -left-3 transform -rotate-12"><Stamp>Blueprint</Stamp></div>
-                            <h3 className="text-2xl font-bold text-slate-900 mb-2">Govt of India Act, 1935</h3>
-                            <p className="text-xs text-slate-500 mb-3">321 Sections, 10 Schedules.</p>
+                            <h3 className="text-2xl font-bold text-foreground mb-2">Govt of India Act, 1935</h3>
+                            <p className="text-xs text-muted-foreground mb-3">321 Sections, 10 Schedules.</p>
 
-                            <div className="space-y-3 text-sm text-slate-800">
+                            <div className="space-y-3 text-sm text-foreground">
                                 <div className="flex gap-2">
                                     <MapIcon size={16} className="text-blue-600 mt-1" />
                                     <div>
                                         <p className="font-bold">All-India Federation</p>
-                                        <p className="text-xs text-slate-500">Proposed (Princely states didn't join).</p>
+                                        <p className="text-xs text-muted-foreground">Proposed (Princely states didn't join).</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-2">
                                     <Scale size={16} className="text-purple-600 mt-1" />
                                     <div>
                                         <p className="font-bold">3 Lists (Fed, Prov, Concurrent)</p>
-                                        <p className="text-xs text-slate-500">Residuary Power → Viceroy.</p>
+                                        <p className="text-xs text-muted-foreground">Residuary Power → Viceroy.</p>
                                     </div>
                                 </div>
                                 <div className="bg-green-50 p-2 rounded border border-green-100">
@@ -379,24 +379,24 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                     <div className="relative mb-20 md:w-2/3 mx-auto text-center">
                         <PaperCard rotate={0} className="border-t-4 border-orange-500 bg-gradient-to-b from-orange-50 via-white to-green-50">
                             <Flag className="w-8 h-8 mx-auto text-blue-900 mb-2" />
-                            <h3 className="text-2xl font-bold text-slate-900 mb-1">Indian Independence Act, 1947</h3>
+                            <h3 className="text-2xl font-bold text-foreground mb-1">Indian Independence Act, 1947</h3>
                             <p className="text-sm font-bold text-blue-900 mb-4">August 15, 1947</p>
 
                             <div className="grid grid-cols-2 gap-4 text-left text-sm">
                                 <div>
-                                    <p className="font-bold text-slate-800">Partition (Mountbatten Plan)</p>
-                                    <p className="text-xs text-slate-600">India & Pakistan (Right to secede).</p>
+                                    <p className="font-bold text-foreground">Partition (Mountbatten Plan)</p>
+                                    <p className="text-xs text-muted-foreground">India & Pakistan (Right to secede).</p>
                                 </div>
                                 <div>
-                                    <p className="font-bold text-slate-800">Sovereignty</p>
-                                    <p className="text-xs text-slate-600">British Paramountcy Lapsed.</p>
+                                    <p className="font-bold text-foreground">Sovereignty</p>
+                                    <p className="text-xs text-muted-foreground">British Paramountcy Lapsed.</p>
                                 </div>
                             </div>
-                            <div className="mt-4 pt-4 border-t border-slate-200 text-xs text-slate-600 space-y-1">
+                            <div className="mt-4 pt-4 border-t border-border text-xs text-muted-foreground space-y-1">
                                 <p>• GG = Constitutional Head (On advice of Ministers).</p>
                                 <p>• Constituent Assembly → Sovereign Body.</p>
-                                <p className="font-bold text-slate-800">First GG (Free India): Lord Mountbatten</p>
-                                <p className="font-bold text-slate-800">First Indian GG: C. Rajagopalachari</p>
+                                <p className="font-bold text-foreground">First GG (Free India): Lord Mountbatten</p>
+                                <p className="font-bold text-foreground">First Indian GG: C. Rajagopalachari</p>
                             </div>
                         </PaperCard>
                     </div>
@@ -421,7 +421,7 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                                         <th className="pb-2">1935</th>
                                     </tr>
                                 </thead>
-                                <tbody className="text-slate-800 font-medium">
+                                <tbody className="text-foreground font-medium">
                                     <tr className="border-b border-amber-900/10">
                                         <td className="py-2 font-bold text-amber-900">Head</td>
                                         <td className="py-2">GG Bengal</td>

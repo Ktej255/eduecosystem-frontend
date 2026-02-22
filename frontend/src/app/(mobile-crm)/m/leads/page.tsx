@@ -39,7 +39,7 @@ const statusConfig: Record<string, { label: string; color: string }> = {
     CONTACTED: { label: "Contacted", color: "bg-purple-500/20 text-purple-400" },
     INTERESTED: { label: "Interested", color: "bg-amber-500/20 text-amber-400" },
     ENROLLED: { label: "Enrolled", color: "bg-emerald-500/20 text-emerald-400" },
-    CLOSED: { label: "Closed", color: "bg-gray-500/20 text-gray-400" },
+    CLOSED: { label: "Closed", color: "bg-muted-foreground/20 text-muted-foreground" },
     JUNK: { label: "Junk", color: "bg-red-500/20 text-red-400" },
 };
 
@@ -175,18 +175,18 @@ export default function LeadsPage() {
             <div className="sticky top-14 z-40 bg-gray-950 p-4 space-y-3 border-b border-gray-800">
                 <div className="flex items-center gap-2">
                     <div className="relative flex-1">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                         <Input
                             placeholder="Search leads..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="pl-9 pr-10 bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                            className="pl-9 pr-10 bg-gray-800/50 border-gray-700 text-white placeholder:text-muted-foreground"
                         />
                         {searchQuery && (
                             <Button
                                 variant="ghost"
                                 size="icon"
-                                className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8 text-gray-400 hover:text-white"
+                                className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8 text-muted-foreground hover:text-white"
                                 onClick={() => setSearchQuery("")}
                             >
                                 <X className="h-4 w-4" />
@@ -196,7 +196,7 @@ export default function LeadsPage() {
                     <Button
                         variant="ghost"
                         size="icon"
-                        className="h-10 w-10 bg-gray-800/50 text-gray-400 hover:text-white hover:bg-gray-700"
+                        className="h-10 w-10 bg-gray-800/50 text-muted-foreground hover:text-white hover:bg-gray-700"
                         onClick={() => setShowVoiceSearch(true)}
                     >
                         <Mic className="h-5 w-5" />
@@ -204,7 +204,7 @@ export default function LeadsPage() {
                     <Button
                         variant="ghost"
                         size="icon"
-                        className={`h-10 w-10 bg-gray-800/50 ${showFilters ? "text-emerald-400" : "text-gray-400"} hover:text-white hover:bg-gray-700`}
+                        className={`h-10 w-10 bg-gray-800/50 ${showFilters ? "text-emerald-400" : "text-muted-foreground"} hover:text-white hover:bg-gray-700`}
                         onClick={() => setShowFilters(!showFilters)}
                     >
                         <Filter className="h-5 w-5" />
@@ -220,7 +220,7 @@ export default function LeadsPage() {
                                 variant="outline"
                                 className={`cursor-pointer transition-colors ${selectedStatus === key
                                         ? config.color + " border-current"
-                                        : "border-gray-600 text-gray-400 hover:border-gray-500"
+                                        : "border-gray-600 text-muted-foreground hover:border-gray-500"
                                     }`}
                                 onClick={() =>
                                     setSelectedStatus(selectedStatus === key ? null : key)
@@ -241,7 +241,7 @@ export default function LeadsPage() {
                     </div>
                 ) : filteredLeads.length === 0 ? (
                     <div className="text-center py-12">
-                        <p className="text-gray-400">No leads found</p>
+                        <p className="text-muted-foreground">No leads found</p>
                     </div>
                 ) : (
                     filteredLeads.map((lead) => (
@@ -283,17 +283,17 @@ export default function LeadsPage() {
                                                         {statusConfig[lead.status]?.label || lead.status}
                                                     </Badge>
                                                 </div>
-                                                <p className="text-sm text-gray-400 truncate">
+                                                <p className="text-sm text-muted-foreground truncate">
                                                     {lead.email}
                                                 </p>
                                                 <div className="flex items-center gap-2 mt-1">
                                                     <Badge
                                                         variant="outline"
-                                                        className="text-xs bg-gray-700/50 text-gray-300 border-0"
+                                                        className="text-xs bg-gray-700/50 text-muted-foreground border-0"
                                                     >
                                                         {lead.source_primary || "Direct"}
                                                     </Badge>
-                                                    <span className="text-xs text-gray-500">
+                                                    <span className="text-xs text-muted-foreground">
                                                         Score: {Math.round(lead.intent_score * 100)}%
                                                     </span>
                                                 </div>

@@ -253,9 +253,9 @@ export default function WhatsAppBusinessPage() {
                         </span>
                     </Link>
                     <div className="hidden md:flex items-center gap-8">
-                        <a href="#features" className="text-gray-400 hover:text-white transition-colors">Features</a>
-                        <a href="#benefits" className="text-gray-400 hover:text-white transition-colors">Benefits</a>
-                        <a href="#comparison" className="text-gray-400 hover:text-white transition-colors">Why Meritto</a>
+                        <a href="#features" className="text-muted-foreground hover:text-white transition-colors">Features</a>
+                        <a href="#benefits" className="text-muted-foreground hover:text-white transition-colors">Benefits</a>
+                        <a href="#comparison" className="text-muted-foreground hover:text-white transition-colors">Why Meritto</a>
                     </div>
                     <Link
                         href="/dashboard"
@@ -304,7 +304,7 @@ export default function WhatsAppBusinessPage() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto"
+                            className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto"
                         >
                             Scale your student reach, reduce drop-offs, and convert faster with WhatsApp campaigns
                             and conversations, seamlessly powered by Meritto CRM.
@@ -324,7 +324,7 @@ export default function WhatsAppBusinessPage() {
                                 Start Free Trial
                                 <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
-                            <button className="px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl font-semibold text-lg hover:bg-white/10 transition-all flex items-center gap-2">
+                            <button className="px-8 py-4 bg-card/5 backdrop-blur-sm border border-white/10 rounded-2xl font-semibold text-lg hover:bg-card/10 transition-all flex items-center gap-2">
                                 <MessageIcon className="w-5 h-5" />
                                 Watch Demo
                             </button>
@@ -338,11 +338,11 @@ export default function WhatsAppBusinessPage() {
                             className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto"
                         >
                             {stats.map((stat, index) => (
-                                <div key={index} className="p-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+                                <div key={index} className="p-4 rounded-2xl bg-card/5 backdrop-blur-sm border border-white/10">
                                     <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
                                         <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                                     </div>
-                                    <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
+                                    <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
                                 </div>
                             ))}
                         </motion.div>
@@ -384,15 +384,15 @@ export default function WhatsAppBusinessPage() {
                                                     <p className="text-sm">Hi! I'm interested in the MBA program 🎓</p>
                                                     <span className="text-[10px] text-white/70 float-right mt-1">10:30 AM</span>
                                                 </div>
-                                                <div className="bg-white/10 rounded-2xl rounded-br-md p-3 max-w-[85%]">
+                                                <div className="bg-card/10 rounded-2xl rounded-br-md p-3 max-w-[85%]">
                                                     <p className="text-sm">Welcome! We'd love to help you explore our MBA program. 📚</p>
                                                     <span className="text-[10px] text-white/50 float-right mt-1">10:31 AM</span>
                                                 </div>
-                                                <div className="bg-white/10 rounded-2xl rounded-br-md p-3 max-w-[85%]">
+                                                <div className="bg-card/10 rounded-2xl rounded-br-md p-3 max-w-[85%]">
                                                     <p className="text-sm">Here's a quick form to get started:</p>
-                                                    <div className="mt-2 p-2 bg-white/10 rounded-xl">
+                                                    <div className="mt-2 p-2 bg-card/10 rounded-xl">
                                                         <div className="text-xs font-semibold text-green-400">📝 Apply Now</div>
-                                                        <div className="text-[10px] text-gray-400">Tap to fill application</div>
+                                                        <div className="text-[10px] text-muted-foreground">Tap to fill application</div>
                                                     </div>
                                                     <span className="text-[10px] text-white/50 float-right mt-1">10:31 AM</span>
                                                 </div>
@@ -428,7 +428,7 @@ export default function WhatsAppBusinessPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="text-xl text-gray-400 max-w-3xl mx-auto"
+                            className="text-xl text-muted-foreground max-w-3xl mx-auto"
                         >
                             With 98% open rates, rich-media messaging, and broadcast capabilities,
                             WhatsApp Business API connects you with students instantly and personally.
@@ -444,7 +444,7 @@ export default function WhatsAppBusinessPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="group relative p-6 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-green-500/30 transition-all duration-300 hover:bg-white/10"
+                                className="group relative p-6 rounded-3xl bg-card/5 backdrop-blur-sm border border-white/10 hover:border-green-500/30 transition-all duration-300 hover:bg-card/10"
                             >
                                 {/* Icon */}
                                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform`}>
@@ -455,14 +455,14 @@ export default function WhatsAppBusinessPage() {
                                 <h3 className="text-xl font-bold mb-3 group-hover:text-green-400 transition-colors">
                                     {feature.title}
                                 </h3>
-                                <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+                                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
                                     {feature.description}
                                 </p>
 
                                 {/* Benefits */}
                                 <ul className="space-y-2">
                                     {feature.benefits.map((benefit, i) => (
-                                        <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
+                                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
                                             <CheckIcon className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
                                             <span>{benefit}</span>
                                         </li>
@@ -498,7 +498,7 @@ export default function WhatsAppBusinessPage() {
                                 </span>
                                 {" "}from Every Conversation
                             </h2>
-                            <p className="text-lg text-gray-400 mb-8">
+                            <p className="text-lg text-muted-foreground mb-8">
                                 Move beyond vanity metrics. See how every WhatsApp campaign contributes to applications
                                 and enrollments. With Meritto CRM as the backbone, you can tie conversations directly
                                 to outcomes and know exactly what's driving results.
@@ -508,19 +508,19 @@ export default function WhatsAppBusinessPage() {
                                     <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
                                         <CheckIcon className="w-5 h-5 text-purple-400" />
                                     </div>
-                                    <span className="text-gray-300">Track movement from inquiry to enrollment with clear funnel visibility</span>
+                                    <span className="text-muted-foreground">Track movement from inquiry to enrollment with clear funnel visibility</span>
                                 </li>
                                 <li className="flex items-center gap-3">
                                     <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
                                         <CheckIcon className="w-5 h-5 text-purple-400" />
                                     </div>
-                                    <span className="text-gray-300">Use ROI insights to double down on what truly works</span>
+                                    <span className="text-muted-foreground">Use ROI insights to double down on what truly works</span>
                                 </li>
                                 <li className="flex items-center gap-3">
                                     <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
                                         <CheckIcon className="w-5 h-5 text-purple-400" />
                                     </div>
-                                    <span className="text-gray-300">Measure campaign effectiveness with real-time analytics</span>
+                                    <span className="text-muted-foreground">Measure campaign effectiveness with real-time analytics</span>
                                 </li>
                             </ul>
                         </motion.div>
@@ -532,65 +532,65 @@ export default function WhatsAppBusinessPage() {
                             viewport={{ once: true }}
                             className="relative"
                         >
-                            <div className="p-6 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10">
+                            <div className="p-6 rounded-3xl bg-card/5 backdrop-blur-sm border border-white/10">
                                 {/* Mini Dashboard */}
                                 <div className="grid grid-cols-2 gap-4 mb-6">
                                     <div className="p-4 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-500/5 border border-green-500/20">
-                                        <div className="text-xs text-gray-400 mb-1">Messages Sent</div>
+                                        <div className="text-xs text-muted-foreground mb-1">Messages Sent</div>
                                         <div className="text-2xl font-bold text-green-400">12,847</div>
                                         <div className="text-xs text-green-500 mt-1">↑ 24% vs last week</div>
                                     </div>
                                     <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-500/5 border border-purple-500/20">
-                                        <div className="text-xs text-gray-400 mb-1">Conversions</div>
+                                        <div className="text-xs text-muted-foreground mb-1">Conversions</div>
                                         <div className="text-2xl font-bold text-purple-400">2,463</div>
                                         <div className="text-xs text-purple-500 mt-1">↑ 18% vs last week</div>
                                     </div>
                                     <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-500/5 border border-blue-500/20">
-                                        <div className="text-xs text-gray-400 mb-1">Open Rate</div>
+                                        <div className="text-xs text-muted-foreground mb-1">Open Rate</div>
                                         <div className="text-2xl font-bold text-blue-400">98.2%</div>
                                         <div className="text-xs text-blue-500 mt-1">Industry leading</div>
                                     </div>
                                     <div className="p-4 rounded-2xl bg-gradient-to-br from-orange-500/20 to-orange-500/5 border border-orange-500/20">
-                                        <div className="text-xs text-gray-400 mb-1">Response Time</div>
+                                        <div className="text-xs text-muted-foreground mb-1">Response Time</div>
                                         <div className="text-2xl font-bold text-orange-400">2.3s</div>
                                         <div className="text-xs text-orange-500 mt-1">Avg with automation</div>
                                     </div>
                                 </div>
 
                                 {/* Simple Chart */}
-                                <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                                <div className="p-4 rounded-2xl bg-card/5 border border-white/10">
                                     <div className="flex items-center justify-between mb-4">
                                         <span className="text-sm font-medium">Enrollment Funnel</span>
-                                        <span className="text-xs text-gray-400">Last 30 days</span>
+                                        <span className="text-xs text-muted-foreground">Last 30 days</span>
                                     </div>
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-3">
-                                            <span className="text-xs w-20 text-gray-400">Inquiries</span>
-                                            <div className="flex-1 h-3 rounded-full bg-white/10 overflow-hidden">
+                                            <span className="text-xs w-20 text-muted-foreground">Inquiries</span>
+                                            <div className="flex-1 h-3 rounded-full bg-card/10 overflow-hidden">
                                                 <div className="h-full w-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full" />
                                             </div>
-                                            <span className="text-xs text-gray-300">12,847</span>
+                                            <span className="text-xs text-muted-foreground">12,847</span>
                                         </div>
                                         <div className="flex items-center gap-3">
-                                            <span className="text-xs w-20 text-gray-400">Engaged</span>
-                                            <div className="flex-1 h-3 rounded-full bg-white/10 overflow-hidden">
+                                            <span className="text-xs w-20 text-muted-foreground">Engaged</span>
+                                            <div className="flex-1 h-3 rounded-full bg-card/10 overflow-hidden">
                                                 <div className="h-full w-[75%] bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full" />
                                             </div>
-                                            <span className="text-xs text-gray-300">9,635</span>
+                                            <span className="text-xs text-muted-foreground">9,635</span>
                                         </div>
                                         <div className="flex items-center gap-3">
-                                            <span className="text-xs w-20 text-gray-400">Applied</span>
-                                            <div className="flex-1 h-3 rounded-full bg-white/10 overflow-hidden">
+                                            <span className="text-xs w-20 text-muted-foreground">Applied</span>
+                                            <div className="flex-1 h-3 rounded-full bg-card/10 overflow-hidden">
                                                 <div className="h-full w-[45%] bg-gradient-to-r from-purple-500 to-violet-500 rounded-full" />
                                             </div>
-                                            <span className="text-xs text-gray-300">5,782</span>
+                                            <span className="text-xs text-muted-foreground">5,782</span>
                                         </div>
                                         <div className="flex items-center gap-3">
-                                            <span className="text-xs w-20 text-gray-400">Enrolled</span>
-                                            <div className="flex-1 h-3 rounded-full bg-white/10 overflow-hidden">
+                                            <span className="text-xs w-20 text-muted-foreground">Enrolled</span>
+                                            <div className="flex-1 h-3 rounded-full bg-card/10 overflow-hidden">
                                                 <div className="h-full w-[20%] bg-gradient-to-r from-orange-500 to-red-500 rounded-full" />
                                             </div>
-                                            <span className="text-xs text-gray-300">2,463</span>
+                                            <span className="text-xs text-muted-foreground">2,463</span>
                                         </div>
                                     </div>
                                 </div>
@@ -623,7 +623,7 @@ export default function WhatsAppBusinessPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="text-xl text-gray-400"
+                            className="text-xl text-muted-foreground"
                         >
                             WhatsApp Business API for educational organizations
                         </motion.p>
@@ -638,12 +638,12 @@ export default function WhatsAppBusinessPage() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="group p-5 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-green-500/30 transition-all flex items-center gap-4"
+                                className="group p-5 rounded-2xl bg-card/5 backdrop-blur-sm border border-white/10 hover:border-green-500/30 transition-all flex items-center gap-4"
                             >
                                 <div className="text-3xl">{item.icon}</div>
                                 <div className="flex-1">
                                     <div className="font-semibold text-white mb-1">{item.aspect}</div>
-                                    <div className="text-gray-400 text-sm">{item.withMeritto}</div>
+                                    <div className="text-muted-foreground text-sm">{item.withMeritto}</div>
                                 </div>
                                 <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                     <CheckIcon className="w-6 h-6 text-green-400" />
@@ -680,7 +680,7 @@ export default function WhatsAppBusinessPage() {
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">
                                 Getting Started is Quick and Easy
                             </h2>
-                            <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-12">
+                            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
                                 As an official Meta Tech Partner, Meritto provides faster onboarding,
                                 secure green tick verification, and early access to new WhatsApp features.
                             </p>
@@ -688,12 +688,12 @@ export default function WhatsAppBusinessPage() {
                             {/* Partner Benefits */}
                             <div className="grid md:grid-cols-3 gap-6 mb-12">
                                 {partnerBenefits.map((benefit, index) => (
-                                    <div key={index} className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+                                    <div key={index} className="p-6 rounded-2xl bg-card/5 backdrop-blur-sm border border-white/10">
                                         <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mb-4 mx-auto">
                                             <CheckIcon className="w-6 h-6 text-white" />
                                         </div>
                                         <h3 className="font-semibold mb-2">{benefit.title}</h3>
-                                        <p className="text-sm text-gray-400">{benefit.description}</p>
+                                        <p className="text-sm text-muted-foreground">{benefit.description}</p>
                                     </div>
                                 ))}
                             </div>
@@ -720,12 +720,12 @@ export default function WhatsAppBusinessPage() {
                         </div>
                         <span className="font-bold text-lg">Meritto CRM</span>
                     </div>
-                    <div className="flex items-center gap-6 text-sm text-gray-400">
+                    <div className="flex items-center gap-6 text-sm text-muted-foreground">
                         <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
                         <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
                         <a href="#" className="hover:text-white transition-colors">Contact</a>
                     </div>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-muted-foreground">
                         © 2024 Meritto. All rights reserved.
                     </div>
                 </div>

@@ -98,18 +98,18 @@ export default function AdminMobileSidebar() {
 
     return (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger className="md:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
-                <Menu className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+            <SheetTrigger className="md:hidden p-2 hover:bg-muted dark:hover:bg-gray-800 rounded-lg transition-colors">
+                <Menu className="h-6 w-6 text-muted-foreground dark:text-muted-foreground" />
             </SheetTrigger>
-            <SheetContent side="left" className="p-0 w-[300px] bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800">
-                <SheetHeader className="p-4 border-b border-gray-200 dark:border-gray-800">
+            <SheetContent side="left" className="p-0 w-[300px] bg-card border-r border-border">
+                <SheetHeader className="p-4 border-b border-border">
                     <SheetTitle className="flex items-center gap-3">
                         <div className="h-10 w-10 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
                             <Shield className="h-5 w-5 text-white" />
                         </div>
                         <div>
-                            <h1 className="text-lg font-bold text-gray-900 dark:text-gray-100">Admin Portal</h1>
-                            <p className="text-gray-500 dark:text-gray-400 text-xs">System Management</p>
+                            <h1 className="text-lg font-bold text-foreground">Admin Portal</h1>
+                            <p className="text-muted-foreground dark:text-muted-foreground text-xs">System Management</p>
                         </div>
                     </SheetTitle>
                 </SheetHeader>
@@ -130,7 +130,7 @@ export default function AdminMobileSidebar() {
                                         onClick={() => toggleExpanded(item.name)}
                                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 min-h-[48px] ${groupActive
                                             ? "bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300"
-                                            : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200"
+                                            : "text-muted-foreground dark:text-muted-foreground hover:bg-muted dark:hover:bg-gray-800 active:bg-muted"
                                             }`}
                                     >
                                         <Icon className="h-5 w-5 shrink-0" />
@@ -154,7 +154,7 @@ export default function AdminMobileSidebar() {
                                                         onClick={() => setIsOpen(false)}
                                                         className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 min-h-[48px] ${isActive(child.href)
                                                             ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30"
-                                                            : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200"
+                                                            : "text-muted-foreground dark:text-muted-foreground hover:bg-muted dark:hover:bg-gray-800 active:bg-muted"
                                                             }`}
                                                     >
                                                         <ChildIcon className="h-4 w-4 shrink-0" />
@@ -175,7 +175,7 @@ export default function AdminMobileSidebar() {
                                 onClick={() => setIsOpen(false)}
                                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 min-h-[48px] ${itemActive
                                     ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30"
-                                    : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200"
+                                    : "text-muted-foreground dark:text-muted-foreground hover:bg-muted dark:hover:bg-gray-800 active:bg-muted"
                                     }`}
                             >
                                 <Icon className="h-5 w-5 shrink-0" />
@@ -186,9 +186,9 @@ export default function AdminMobileSidebar() {
                 </nav>
 
                 {/* Quick Access */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+                <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-border bg-card">
                     <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-lg p-4">
-                        <h3 className="font-semibold text-sm text-gray-900 dark:text-gray-100 mb-2">
+                        <h3 className="font-semibold text-sm text-foreground mb-2">
                             Quick Access
                         </h3>
                         <div className="space-y-2 text-sm">

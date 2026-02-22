@@ -78,7 +78,7 @@ export default function MyCoursesPage() {
             <h1 className="text-3xl font-bold text-white mb-2">
               My Learning Journey
             </h1>
-            <p className="text-gray-400">Continue where you left off</p>
+            <p className="text-muted-foreground">Continue where you left off</p>
           </div>
           <Link href="/lms/courses">
             <Button className="bg-cyan-600 hover:bg-cyan-500">
@@ -155,7 +155,7 @@ export default function MyCoursesPage() {
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
-                        <BookOpen className="h-16 w-16 text-gray-700" />
+                        <BookOpen className="h-16 w-16 text-muted-foreground" />
                       </div>
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -173,14 +173,14 @@ export default function MyCoursesPage() {
                       {enrollment.course.title}
                     </h3>
 
-                    <p className="text-gray-400 text-sm mb-4 line-clamp-2 flex-1">
+                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2 flex-1">
                       {enrollment.course.description}
                     </p>
 
                     {/* Progress */}
                     <div className="mb-4">
                       <div className="flex items-center justify-between text-sm mb-2">
-                        <span className="text-gray-400">Progress</span>
+                        <span className="text-muted-foreground">Progress</span>
                         <span className="text-cyan-400 font-medium">
                           {Math.round(enrollment.progress_percentage)}%
                         </span>
@@ -189,7 +189,7 @@ export default function MyCoursesPage() {
 
                     {/* Footer */}
                     <div className="flex items-center justify-between pt-4 border-t border-gray-800">
-                      <div className="flex items-center gap-2 text-xs text-gray-500">
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         <Clock className="h-3.5 w-3.5" />
                         <span>
                           Last accessed{" "}
@@ -214,11 +214,11 @@ export default function MyCoursesPage() {
           </div>
         ) : (
           <div className="bg-gray-900 rounded-xl border border-gray-800 p-12 text-center">
-            <BookOpen className="h-16 w-16 text-gray-700 mx-auto mb-4" />
+            <BookOpen className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-white mb-2">
               No courses yet
             </h3>
-            <p className="text-gray-400 mb-6">
+            <p className="text-muted-foreground mb-6">
               Start your learning journey by enrolling in a course
             </p>
             <Link href="/lms/courses">

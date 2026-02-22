@@ -27,7 +27,7 @@ const GSTContainer = ({ children }: { children: React.ReactNode }) => (
 
 const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any, color: string }) => (
     <div className="flex items-center gap-4 my-8">
-        <div className={`p-3 rounded-xl bg-white shadow-sm border-2 ${color}`}>
+        <div className={`p-3 rounded-xl bg-card shadow-sm border-2 ${color}`}>
             <Icon className={color.replace('border-', 'text-')} size={24} />
         </div>
         <h2 className={`text-2xl font-black uppercase tracking-tight ${color.replace('border-', 'text-')} font-['Kalam']`}>
@@ -38,13 +38,13 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
 );
 
 const GSTCard = ({ title, children, color = "border-purple-700", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute inset-x-0 top-0 h-1 bg-[repeating-linear-gradient(90deg,transparent,transparent_10px,#000_10px,#000_11px)] opacity-10"></div>
 
         <h3 className={`text-xl font-bold mb-4 flex items-center gap-2 font-['Kalam'] ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-700 relative z-10 font-medium">
+        <div className="space-y-4 text-muted-foreground relative z-10 font-medium">
             {children}
         </div>
     </div>
@@ -55,11 +55,11 @@ export default function GSTCouncilModule({ onComplete, isCompleted, chapterNumbe
         <GSTContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#7e22ce] border-4 border-slate-900 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(126,34,206,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-2xl"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-card/10 rounded-full -mr-32 -mt-32 blur-2xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-white text-purple-700 font-['Kalam'] px-4 py-1 text-lg">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <Badge className="bg-card text-purple-700 font-['Kalam'] px-4 py-1 text-lg">Chapter {chapterNumber}</Badge>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-purple-100 font-bold uppercase tracking-widest text-sm">Pinnacle of Cooperative Federalism</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 font-['Kalam'] leading-tight">
@@ -87,12 +87,12 @@ export default function GSTCouncilModule({ onComplete, isCompleted, chapterNumbe
                             </p>
                         </div>
                         <div className="grid grid-cols-2 gap-4">
-                            <div className="p-3 bg-slate-50 border rounded-lg text-center">
-                                <span className="block text-xs font-bold text-slate-400">QUORUM</span>
+                            <div className="p-3 bg-muted border rounded-lg text-center">
+                                <span className="block text-xs font-bold text-muted-foreground">QUORUM</span>
                                 <span className="text-2xl font-black text-purple-800">50%</span>
                             </div>
-                            <div className="p-3 bg-slate-50 border rounded-lg text-center">
-                                <span className="block text-xs font-bold text-slate-400">VETO POWER</span>
+                            <div className="p-3 bg-muted border rounded-lg text-center">
+                                <span className="block text-xs font-bold text-muted-foreground">VETO POWER</span>
                                 <span className="text-2xl font-black text-purple-800">Shared</span>
                             </div>
                         </div>
@@ -128,18 +128,18 @@ export default function GSTCouncilModule({ onComplete, isCompleted, chapterNumbe
                                 <Badge className="bg-blue-800">Centre</Badge>
                                 <span className="text-2xl font-black text-blue-900">1/3</span>
                             </div>
-                            <Plus size={24} className="text-slate-400" />
+                            <Plus size={24} className="text-muted-foreground" />
                             <div className="flex flex-col items-center">
                                 <Badge className="bg-orange-600">States</Badge>
                                 <span className="text-2xl font-black text-orange-900">2/3</span>
                             </div>
-                            <Minus className="text-slate-400 rotate-90" size={24} />
+                            <Minus className="text-muted-foreground rotate-90" size={24} />
                             <div className="flex flex-col items-center">
                                 <Badge className="bg-green-600">Decision</Badge>
                                 <span className="text-2xl font-black text-green-700">3/4</span>
                             </div>
                         </div>
-                        <p className="text-xs font-bold text-slate-500 uppercase tracking-tighter italic underline decoration-blue-300 underline-offset-4">
+                        <p className="text-xs font-bold text-muted-foreground uppercase tracking-tighter italic underline decoration-blue-300 underline-offset-4">
                             Majority of not less than 3/4th weight required. [PYQ]
                         </p>
                     </div>
@@ -189,10 +189,10 @@ export default function GSTCouncilModule({ onComplete, isCompleted, chapterNumbe
 
                 <GSTCard title="Special Provisions" color="border-slate-900">
                     <div className="flex flex-col items-center justify-center h-full">
-                        <div className="p-4 bg-slate-100 rounded-2xl border-2 border-slate-200 mb-4">
-                            <LandmarkIcon size={48} className="text-slate-600" />
+                        <div className="p-4 bg-muted rounded-2xl border-2 border-border mb-4">
+                            <LandmarkIcon size={48} className="text-muted-foreground" />
                         </div>
-                        <p className="text-xs text-center font-bold text-slate-600 italic">
+                        <p className="text-xs text-center font-bold text-muted-foreground italic">
                             Special focus on Himalayan and North-East states. Deciding taxes to be subsumed into GST.
                         </p>
                     </div>
@@ -217,7 +217,7 @@ export default function GSTCouncilModule({ onComplete, isCompleted, chapterNumbe
             </div>
 
             {/* COMPLETION BUTTON */}
-            <div className="mt-16 text-center border-t-2 border-dashed border-slate-200 pt-12 pb-12">
+            <div className="mt-16 text-center border-t-2 border-dashed border-border pt-12 pb-12">
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
@@ -237,18 +237,18 @@ export default function GSTCouncilModule({ onComplete, isCompleted, chapterNumbe
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold font-['Kalam']">Signed: One Nation, One Tax, One Council.</p>
+                <p className="mt-4 text-muted-foreground font-bold font-['Kalam']">Signed: One Nation, One Tax, One Council.</p>
             </div>
         </GSTContainer>
     );
 }
 
 const RefereeCard = ({ title, children, color = "border-blue-700", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <h3 className={`text-xl font-bold mb-4 flex items-center gap-2 font-['Kalam'] ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-700 relative z-10 font-medium text-xs">
+        <div className="space-y-4 text-muted-foreground relative z-10 font-medium text-xs">
             {children}
         </div>
     </div>

@@ -175,7 +175,7 @@ export default function CheckInPage() {
                         <h2 className="text-xl font-bold text-white">
                             {isCheckedIn ? "Checked In" : "Not Checked In"}
                         </h2>
-                        <p className="text-gray-400 text-sm mt-1">
+                        <p className="text-muted-foreground text-sm mt-1">
                             {isCheckedIn && checkInTime
                                 ? `Since ${checkInTime.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}`
                                 : "Start your work day by checking in"}
@@ -183,7 +183,7 @@ export default function CheckInPage() {
                     </div>
 
                     {/* Current Time */}
-                    <div className="flex items-center justify-center gap-2 text-gray-300">
+                    <div className="flex items-center justify-center gap-2 text-muted-foreground">
                         <Clock className="h-4 w-4" />
                         <span className="text-lg font-mono">
                             {currentTime.toLocaleTimeString("en-US", {
@@ -230,7 +230,7 @@ export default function CheckInPage() {
                         <div className="flex items-center justify-center py-8">
                             <div className="text-center space-y-3">
                                 <Loader2 className="h-8 w-8 animate-spin text-emerald-400 mx-auto" />
-                                <p className="text-sm text-gray-400">Getting your location...</p>
+                                <p className="text-sm text-muted-foreground">Getting your location...</p>
                             </div>
                         </div>
                     )}
@@ -242,7 +242,7 @@ export default function CheckInPage() {
                                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-blue-500/10" />
                                 <div className="text-center z-10">
                                     <MapPin className="h-8 w-8 text-emerald-400 mx-auto mb-2" />
-                                    <p className="text-xs text-gray-400">
+                                    <p className="text-xs text-muted-foreground">
                                         {location.latitude.toFixed(6)}, {location.longitude.toFixed(6)}
                                     </p>
                                 </div>
@@ -250,7 +250,7 @@ export default function CheckInPage() {
 
                             {/* Address */}
                             {location.address && (
-                                <p className="text-sm text-gray-300 leading-relaxed">
+                                <p className="text-sm text-muted-foreground leading-relaxed">
                                     📍 {location.address}
                                 </p>
                             )}
@@ -277,7 +277,7 @@ export default function CheckInPage() {
                         placeholder="Add any notes about your check-in..."
                         value={notes}
                         onChange={(e) => setNotes(e.target.value)}
-                        className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-500 min-h-[80px] resize-none"
+                        className="bg-gray-700/50 border-gray-600 text-white placeholder:text-muted-foreground min-h-[80px] resize-none"
                     />
                 </CardContent>
             </Card>

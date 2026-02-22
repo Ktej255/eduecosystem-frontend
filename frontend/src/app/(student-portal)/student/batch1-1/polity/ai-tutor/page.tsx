@@ -67,7 +67,7 @@ function AITutorContent() {
                     <Button
                         variant="ghost"
                         size="sm"
-                        className="text-slate-400 hover:text-white px-0 mb-4 hover:bg-transparent"
+                        className="text-muted-foreground hover:text-white px-0 mb-4 hover:bg-transparent"
                         onClick={() => router.back()}
                     >
                         <ChevronLeft className="w-4 h-4 mr-1" /> Back to Dashboard
@@ -76,7 +76,7 @@ function AITutorContent() {
                         <Scale className="w-5 h-5 text-cyan-500" />
                         Ask Dr. Ambedkar
                     </h1>
-                    <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                    <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
                         Your personal AI Constitutional Advisor. Trained on the Constitution of India, Laxmikanth, and DD Basu.
                     </p>
                 </div>
@@ -89,13 +89,13 @@ function AITutorContent() {
                             <span className="text-[10px] font-bold uppercase tracking-wider">Focused on Topic #{currentTopic.id}</span>
                         </div>
                         <p className="text-sm font-semibold text-cyan-200">{currentTopic.title}</p>
-                        <p className="text-[10px] text-slate-400 mt-1">Questions will be contextualized to this topic.</p>
+                        <p className="text-[10px] text-muted-foreground mt-1">Questions will be contextualized to this topic.</p>
                     </div>
                 )}
 
                 {/* Suggested Queries */}
                 <div className="space-y-2">
-                    <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
                         <MessageSquare className="w-3 h-3" />
                         {currentTopic ? 'Topic Questions' : 'Suggested Queries'}
                     </h3>
@@ -129,7 +129,7 @@ function AITutorContent() {
                         <History className="w-4 h-4" />
                         <span className="text-xs font-bold">Today in History</span>
                     </div>
-                    <p className="text-[10px] text-slate-400">
+                    <p className="text-[10px] text-muted-foreground">
                         On this day in 1949, the Constituent Assembly debated the language provisions (Part XVII).
                     </p>
                 </div>
@@ -138,14 +138,14 @@ function AITutorContent() {
             {/* Main Chat Area */}
             <main className="flex-1 flex flex-col relative">
                 <header className="h-14 border-b border-slate-800 flex items-center px-6 justify-between backdrop-blur-sm bg-slate-900/80 z-10">
-                    <span className="text-xs font-medium text-slate-500 flex items-center gap-2">
+                    <span className="text-xs font-medium text-muted-foreground flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                         {currentTopic ? `Context: ${currentTopic.title}` : 'Neural Network Online'}
                     </span>
                     <Button
                         variant="ghost"
                         size="sm"
-                        className="text-slate-400 hover:text-red-400 hover:bg-red-500/10"
+                        className="text-muted-foreground hover:text-red-400 hover:bg-red-500/10"
                         onClick={clearChat}
                         disabled={messages.length === 0}
                     >
@@ -167,7 +167,7 @@ function AITutorContent() {
 export default function AITutorPage() {
     return (
         <Suspense fallback={
-            <div className="flex h-screen bg-slate-950 items-center justify-center text-slate-400">
+            <div className="flex h-screen bg-slate-950 items-center justify-center text-muted-foreground">
                 <Scale className="w-8 h-8 animate-pulse mr-3" /> Loading Dr. Ambedkar...
             </div>
         }>

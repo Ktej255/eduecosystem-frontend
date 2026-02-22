@@ -78,10 +78,10 @@ const SchematicCard = ({ title, children, icon: Icon, pyq }: { title: string, ch
     <div className="bg-slate-900/50 border border-slate-700 p-4 rounded-lg hover:border-slate-500 transition-all group relative">
         {pyq && <Badge className="absolute -top-2 -right-2 bg-red-600 hover:bg-red-700 text-[10px]">PYQ</Badge>}
         <div className="flex items-start gap-3">
-            {Icon && <Icon size={20} className="text-slate-400 mt-1 group-hover:text-white transition-colors" />}
+            {Icon && <Icon size={20} className="text-muted-foreground mt-1 group-hover:text-white transition-colors" />}
             <div className="flex-1">
                 <h3 className="font-bold text-slate-200 mb-2 font-serif text-lg">{title}</h3>
-                <div className="text-sm text-slate-400 font-handwriting leading-relaxed space-y-2">
+                <div className="text-sm text-muted-foreground font-handwriting leading-relaxed space-y-2">
                     {children}
                 </div>
             </div>

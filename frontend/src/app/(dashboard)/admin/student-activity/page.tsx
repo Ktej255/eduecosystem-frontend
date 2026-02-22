@@ -146,11 +146,11 @@ export default function StudentActivityPage() {
             <div className="mb-8">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-3">
+                        <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
                             <Activity className="w-8 h-8 text-green-600" />
                             Student Activity Dashboard
                         </h1>
-                        <p className="text-gray-500 dark:text-gray-400 mt-2">
+                        <p className="text-muted-foreground dark:text-muted-foreground mt-2">
                             Real-time tracking of student Pomodoro usage, MCQs, and study time
                         </p>
                     </div>
@@ -168,8 +168,8 @@ export default function StudentActivityPage() {
                         <div className="flex items-center gap-3">
                             <Users className="w-8 h-8 text-blue-600" />
                             <div>
-                                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{totalStats.totalStudents}</p>
-                                <p className="text-sm text-gray-500">Total Students</p>
+                                <p className="text-2xl font-bold text-foreground">{totalStats.totalStudents}</p>
+                                <p className="text-sm text-muted-foreground">Total Students</p>
                             </div>
                         </div>
                     </CardContent>
@@ -180,8 +180,8 @@ export default function StudentActivityPage() {
                         <div className="flex items-center gap-3">
                             <CheckCircle2 className="w-8 h-8 text-green-600" />
                             <div>
-                                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{totalStats.activeToday}</p>
-                                <p className="text-sm text-gray-500">Active Users</p>
+                                <p className="text-2xl font-bold text-foreground">{totalStats.activeToday}</p>
+                                <p className="text-sm text-muted-foreground">Active Users</p>
                             </div>
                         </div>
                     </CardContent>
@@ -192,8 +192,8 @@ export default function StudentActivityPage() {
                         <div className="flex items-center gap-3">
                             <Timer className="w-8 h-8 text-purple-600" />
                             <div>
-                                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{totalStats.totalPomodoros}</p>
-                                <p className="text-sm text-gray-500">Pomodoro Sessions</p>
+                                <p className="text-2xl font-bold text-foreground">{totalStats.totalPomodoros}</p>
+                                <p className="text-sm text-muted-foreground">Pomodoro Sessions</p>
                             </div>
                         </div>
                     </CardContent>
@@ -204,8 +204,8 @@ export default function StudentActivityPage() {
                         <div className="flex items-center gap-3">
                             <BookOpen className="w-8 h-8 text-amber-600" />
                             <div>
-                                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{totalStats.totalMCQs}</p>
-                                <p className="text-sm text-gray-500">MCQs Completed</p>
+                                <p className="text-2xl font-bold text-foreground">{totalStats.totalMCQs}</p>
+                                <p className="text-sm text-muted-foreground">MCQs Completed</p>
                             </div>
                         </div>
                     </CardContent>
@@ -216,8 +216,8 @@ export default function StudentActivityPage() {
                         <div className="flex items-center gap-3">
                             <Clock className="w-8 h-8 text-rose-600" />
                             <div>
-                                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{totalStats.totalStudyHours}h</p>
-                                <p className="text-sm text-gray-500">Total Study Time</p>
+                                <p className="text-2xl font-bold text-foreground">{totalStats.totalStudyHours}h</p>
+                                <p className="text-sm text-muted-foreground">Total Study Time</p>
                             </div>
                         </div>
                     </CardContent>
@@ -227,7 +227,7 @@ export default function StudentActivityPage() {
             {/* Search */}
             <div className="mb-6 flex items-center gap-4">
                 <div className="relative flex-1 max-w-md">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input
                         type="text"
                         placeholder="Search by name or email..."
@@ -236,7 +236,7 @@ export default function StudentActivityPage() {
                         className="pl-10"
                     />
                 </div>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-muted-foreground">
                     Showing {filteredStudents.length} of {students.length} students
                 </p>
             </div>
@@ -256,10 +256,10 @@ export default function StudentActivityPage() {
                                 <CardContent className="p-5">
                                     <div className="flex items-start justify-between mb-4">
                                         <div>
-                                            <h3 className="font-semibold text-gray-900 dark:text-gray-100">
+                                            <h3 className="font-semibold text-foreground">
                                                 {student.full_name || "No Name"}
                                             </h3>
-                                            <p className="text-sm text-gray-500">{student.email}</p>
+                                            <p className="text-sm text-muted-foreground">{student.email}</p>
                                         </div>
                                         <div className="flex items-center gap-1">
                                             {student.is_active ? (
@@ -267,7 +267,7 @@ export default function StudentActivityPage() {
                                             ) : (
                                                 <span className="w-2 h-2 rounded-full bg-gray-400"></span>
                                             )}
-                                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                                            <ChevronRight className="w-4 h-4 text-muted-foreground" />
                                         </div>
                                     </div>
 
@@ -276,20 +276,20 @@ export default function StudentActivityPage() {
                                         <div className="p-2 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
                                             <div className="flex items-center gap-1.5">
                                                 <Timer className="w-4 h-4 text-purple-600" />
-                                                <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                                                <span className="text-sm font-medium text-foreground">
                                                     {student.pomodoro_sessions || 0}
                                                 </span>
                                             </div>
-                                            <p className="text-xs text-gray-500 mt-0.5">Pomodoros</p>
+                                            <p className="text-xs text-muted-foreground mt-0.5">Pomodoros</p>
                                         </div>
                                         <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                                             <div className="flex items-center gap-1.5">
                                                 <BookOpen className="w-4 h-4 text-blue-600" />
-                                                <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                                                <span className="text-sm font-medium text-foreground">
                                                     {student.mcqs_completed || 0}
                                                 </span>
                                             </div>
-                                            <p className="text-xs text-gray-500 mt-0.5">MCQs</p>
+                                            <p className="text-xs text-muted-foreground mt-0.5">MCQs</p>
                                         </div>
                                     </div>
                                 </CardContent>
@@ -307,7 +307,7 @@ export default function StudentActivityPage() {
                                     <CardTitle className="text-lg">Activity Timeline</CardTitle>
                                     <Button variant="ghost" size="sm" onClick={() => setSelectedStudent(null)}>Close</Button>
                                 </div>
-                                <p className="text-xs text-gray-500">{selectedStudent.full_name}</p>
+                                <p className="text-xs text-muted-foreground">{selectedStudent.full_name}</p>
                             </CardHeader>
                             <CardContent>
                                 {timelineLoading ? (
@@ -324,7 +324,7 @@ export default function StudentActivityPage() {
                                                     <span className="text-[10px] theme-text-secondary uppercase font-bold tracking-tighter">
                                                         {new Date(event.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                                     </span>
-                                                    <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                                                    <span className="text-sm font-medium text-foreground">
                                                         {event.action || event.details}
                                                     </span>
                                                     {event.type === 'STUDY_SESSION' && (
@@ -332,7 +332,7 @@ export default function StudentActivityPage() {
                                                             {Math.round(event.duration / 60)} min session
                                                         </span>
                                                     )}
-                                                    <span className="text-[10px] text-gray-500">
+                                                    <span className="text-[10px] text-muted-foreground">
                                                         {event.category}
                                                     </span>
                                                 </div>
@@ -340,7 +340,7 @@ export default function StudentActivityPage() {
                                         ))}
                                     </div>
                                 ) : (
-                                    <div className="text-center py-12 text-gray-500 border-2 border-dashed border-gray-100 dark:border-gray-800 rounded-xl">
+                                    <div className="text-center py-12 text-muted-foreground border-2 border-dashed border-border rounded-xl">
                                         <Clock className="w-8 h-8 mx-auto mb-2 opacity-20" />
                                         <p className="text-sm">No activity in last 24h</p>
                                     </div>
@@ -352,7 +352,7 @@ export default function StudentActivityPage() {
             </div>
 
             {filteredStudents.length === 0 && !selectedStudent && (
-                <div className="text-center py-12 text-gray-500">
+                <div className="text-center py-12 text-muted-foreground">
                     No students found. {search && "Try a different search term."}
                 </div>
             )}

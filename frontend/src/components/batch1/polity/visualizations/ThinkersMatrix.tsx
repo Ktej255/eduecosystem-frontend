@@ -84,7 +84,7 @@ export default function ThinkersMatrix() {
                     <Search className="absolute left-3 top-2.5 h-4 w-4 text-white/30" />
                     <Input
                         placeholder="Search concepts or names..."
-                        className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-white/20 h-10 rounded-xl focus-visible:ring-emerald-500/50"
+                        className="pl-10 bg-card/5 border-white/10 text-white placeholder:text-white/20 h-10 rounded-xl focus-visible:ring-emerald-500/50"
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
@@ -104,7 +104,7 @@ export default function ThinkersMatrix() {
                             <div className={`h-1.5 w-full ${thinker.color} opacity-50`} />
                             <CardContent className="p-6">
                                 <div className="flex justify-between items-start mb-4">
-                                    <div className={`p-2 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors`}>
+                                    <div className={`p-2 rounded-lg bg-card/5 group-hover:bg-card/10 transition-colors`}>
                                         <User className={`w-4 h-4 text-white/60`} />
                                     </div>
                                     <Badge variant="outline" className="text-[9px] uppercase font-black border-white/10 text-white/40">
@@ -119,7 +119,7 @@ export default function ThinkersMatrix() {
 
                                 <div className="flex flex-wrap gap-2">
                                     {thinker.tags.map(tag => (
-                                        <span key={tag} className="text-[9px] px-2 py-0.5 rounded-full bg-white/5 text-white/40 font-bold uppercase tracking-widest border border-white/5">
+                                        <span key={tag} className="text-[9px] px-2 py-0.5 rounded-full bg-card/5 text-white/40 font-bold uppercase tracking-widest border border-white/5">
                                             {tag}
                                         </span>
                                     ))}
@@ -159,7 +159,7 @@ export default function ThinkersMatrix() {
                                     <p className="text-white font-bold text-lg">{selectedThinker.concept}</p>
                                 </div>
 
-                                <div className="p-4 bg-white/5 rounded-2xl border border-white/10 italic text-white/60 leading-relaxed font-serif text-lg">
+                                <div className="p-4 bg-card/5 rounded-2xl border border-white/10 italic text-white/60 leading-relaxed font-serif text-lg">
                                     <Quote className="w-6 h-6 text-white/10 mb-2" />
                                     "{selectedThinker.quote}"
                                 </div>
@@ -174,7 +174,7 @@ export default function ThinkersMatrix() {
                                 <div className="flex justify-end pt-4">
                                     <button
                                         onClick={() => setSelectedThinker(null)}
-                                        className="px-6 py-2 bg-white text-black text-xs font-black uppercase tracking-widest rounded-xl hover:bg-slate-200 transition-colors"
+                                        className="px-6 py-2 bg-card text-black text-xs font-black uppercase tracking-widest rounded-xl hover:bg-slate-200 transition-colors"
                                     >
                                         Close Portal
                                     </button>

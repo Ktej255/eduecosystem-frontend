@@ -17,7 +17,7 @@ interface ForeignPolicyModuleProps {
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="bg-[#eff6ff] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-blue-100">
-        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white/50 rounded-3xl p-6 shadow-inner border-2 border-slate-200">
+        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-card/50 rounded-3xl p-6 shadow-inner border-2 border-border">
             {children}
         </div>
     </div>
@@ -28,7 +28,7 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
         <div className={`p-3 rounded-full ${color} text-white shadow-lg`}>
             <Icon size={24} />
         </div>
-        <h2 className={`text-2xl font-black uppercase tracking-tight text-slate-800`}>
+        <h2 className={`text-2xl font-black uppercase tracking-tight text-foreground`}>
             {title}
         </h2>
         <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
@@ -42,8 +42,8 @@ export default function ForeignPolicyModule({ onComplete, isCompleted, chapterNu
             <div className="relative bg-[#020617] border-4 border-slate-700 rounded-3xl p-8 md:p-12 shadow-2xl text-white overflow-hidden">
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#ca8a04] text-slate-900 px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
-                        <span className="text-slate-400 font-bold uppercase tracking-widest text-sm">Foreign Relations</span>
+                        <Badge className="bg-[#ca8a04] text-foreground px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
+                        <span className="text-muted-foreground font-bold uppercase tracking-widest text-sm">Foreign Relations</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
                         Foreign Policy <br />
@@ -66,7 +66,7 @@ export default function ForeignPolicyModule({ onComplete, isCompleted, chapterNu
                     <h3 className="font-black text-blue-900 mb-4 flex items-center gap-2">
                         <Scale size={20} /> Article 51 (DPSP)
                     </h3>
-                    <ul className="text-sm font-bold text-slate-700 space-y-2">
+                    <ul className="text-sm font-bold text-muted-foreground space-y-2">
                         <li>• International Peace & Security</li>
                         <li>• Just & Honorable Relations</li>
                         <li>• Respect for International Law</li>
@@ -74,12 +74,12 @@ export default function ForeignPolicyModule({ onComplete, isCompleted, chapterNu
                     </ul>
                 </div>
 
-                <div className="bg-white border-2 border-[#ca8a04] rounded-2xl p-6 shadow-md relative overflow-hidden">
+                <div className="bg-card border-2 border-[#ca8a04] rounded-2xl p-6 shadow-md relative overflow-hidden">
                     <div className="absolute top-0 right-0 bg-[#ca8a04] text-white px-3 py-1 text-xs font-bold rounded-bl">1954</div>
                     <h3 className="font-black text-yellow-700 mb-4 flex items-center gap-2">
                         <Handshake size={20} /> Panchsheel
                     </h3>
-                    <p className="text-xs font-bold text-slate-500 mb-2">India (Nehru) - China (Zhou Enlai)</p>
+                    <p className="text-xs font-bold text-muted-foreground mb-2">India (Nehru) - China (Zhou Enlai)</p>
                     <div className="bg-yellow-50 p-2 rounded text-xs font-bold text-yellow-800">
                         Mutual Respect • Non-Aggression • Non-Interference • Equality • Co-existence
                     </div>
@@ -90,27 +90,27 @@ export default function ForeignPolicyModule({ onComplete, isCompleted, chapterNu
             <SectionHeader title="Phase 2: Evolution of Doctrines" icon={Compass} color="bg-[#15803d]" />
 
             <div className="space-y-4">
-                <div className="bg-white p-4 rounded-xl border border-slate-200 flex items-center gap-4 hover:shadow-md transition-shadow">
-                    <div className="bg-slate-200 p-2 rounded text-slate-600 font-bold">NAM</div>
+                <div className="bg-card p-4 rounded-xl border border-border flex items-center gap-4 hover:shadow-md transition-shadow">
+                    <div className="bg-slate-200 p-2 rounded text-muted-foreground font-bold">NAM</div>
                     <div>
-                        <h4 className="font-black text-slate-800">Non-Alignment</h4>
-                        <p className="text-xs text-slate-500 font-bold">Independent Judgment (Not Neutrality).</p>
+                        <h4 className="font-black text-foreground">Non-Alignment</h4>
+                        <p className="text-xs text-muted-foreground font-bold">Independent Judgment (Not Neutrality).</p>
                     </div>
                 </div>
 
-                <div className="bg-white p-4 rounded-xl border border-slate-200 flex items-center gap-4 hover:shadow-md transition-shadow">
+                <div className="bg-card p-4 rounded-xl border border-border flex items-center gap-4 hover:shadow-md transition-shadow">
                     <div className="bg-blue-200 p-2 rounded text-blue-600 font-bold">1996</div>
                     <div>
-                        <h4 className="font-black text-slate-800">Gujral Doctrine</h4>
-                        <p className="text-xs text-slate-500 font-bold">Non-Reciprocity with neighbors (except Pakistan). "Give without asking."</p>
+                        <h4 className="font-black text-foreground">Gujral Doctrine</h4>
+                        <p className="text-xs text-muted-foreground font-bold">Non-Reciprocity with neighbors (except Pakistan). "Give without asking."</p>
                     </div>
                 </div>
 
-                <div className="bg-white p-4 rounded-xl border border-slate-200 flex items-center gap-4 hover:shadow-md transition-shadow">
+                <div className="bg-card p-4 rounded-xl border border-border flex items-center gap-4 hover:shadow-md transition-shadow">
                     <div className="bg-green-200 p-2 rounded text-green-600 font-bold">2014</div>
                     <div>
-                        <h4 className="font-black text-slate-800">Look East {'->'} Act East</h4>
-                        <p className="text-xs text-slate-500 font-bold">Economic + Security Cooperation with East Asia.</p>
+                        <h4 className="font-black text-foreground">Look East {'->'} Act East</h4>
+                        <p className="text-xs text-muted-foreground font-bold">Economic + Security Cooperation with East Asia.</p>
                     </div>
                 </div>
             </div>
@@ -123,7 +123,7 @@ export default function ForeignPolicyModule({ onComplete, isCompleted, chapterNu
                     <div className="flex flex-col items-center">
                         <Bomb size={64} className="text-red-500 mb-2" />
                         <h3 className="font-black text-2xl tracking-wider">NFU</h3>
-                        <p className="text-xs font-bold text-slate-400">NO FIRST USE</p>
+                        <p className="text-xs font-bold text-muted-foreground">NO FIRST USE</p>
                     </div>
                     <div className="flex-1 space-y-4">
                         <div className="bg-slate-800 p-3 rounded border border-slate-600">
@@ -142,7 +142,7 @@ export default function ForeignPolicyModule({ onComplete, isCompleted, chapterNu
                 <Button
                     onClick={onComplete}
                     disabled={isCompleted}
-                    className={`px-12 py-6 rounded-full text-xl font-black font-['Kalam'] transition-all transform hover:scale-105 ${isCompleted ? 'bg-slate-300 text-slate-500' : 'bg-[#1e40af] text-white hover:bg-blue-800'
+                    className={`px-12 py-6 rounded-full text-xl font-black font-['Kalam'] transition-all transform hover:scale-105 ${isCompleted ? 'bg-slate-300 text-muted-foreground' : 'bg-[#1e40af] text-white hover:bg-blue-800'
                         }`}
                 >
                     {isCompleted ? "Treaty Signed" : "Shake Hands"}

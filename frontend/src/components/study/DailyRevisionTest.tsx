@@ -226,7 +226,7 @@ export default function DailyRevisionTest({
 
                         <div>
                             <h2 className="text-xl font-bold">Daily Revision Test</h2>
-                            <p className="text-gray-500 mt-1">
+                            <p className="text-muted-foreground mt-1">
                                 Test your knowledge of today&apos;s topics
                             </p>
                         </div>
@@ -245,8 +245,8 @@ export default function DailyRevisionTest({
                         </div>
 
                         {topics.length > 0 && (
-                            <div className="text-left p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                                <p className="text-sm font-medium text-gray-500 mb-2">
+                            <div className="text-left p-4 bg-muted rounded-lg">
+                                <p className="text-sm font-medium text-muted-foreground mb-2">
                                     Topics Covered:
                                 </p>
                                 <div className="flex flex-wrap gap-2">
@@ -309,7 +309,7 @@ export default function DailyRevisionTest({
                                                 "flex items-center space-x-3 p-4 rounded-lg border-2 cursor-pointer transition-all",
                                                 answers[currentQuestionIndex] === index
                                                     ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
-                                                    : "border-gray-200 dark:border-gray-700 hover:border-gray-300"
+                                                    : "border-border hover:border-border"
                                             )}
                                             onClick={() => handleSelectAnswer(index)}
                                         >
@@ -396,7 +396,7 @@ export default function DailyRevisionTest({
                                             ? "Good Effort! 💪"
                                             : "Keep Practicing! 📚"}
                                 </h2>
-                                <p className="text-gray-500 mt-1">
+                                <p className="text-muted-foreground mt-1">
                                     Time taken: {testResult && formatTime(testResult.timeTaken)}
                                 </p>
                             </div>
@@ -409,21 +409,21 @@ export default function DailyRevisionTest({
                                 <p className="text-2xl font-bold text-green-600">
                                     {testResult?.correctAnswers}
                                 </p>
-                                <p className="text-sm text-gray-500">Correct</p>
+                                <p className="text-sm text-muted-foreground">Correct</p>
                             </div>
                             <div className="text-center p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
                                 <XCircle className="w-6 h-6 mx-auto text-red-500 mb-2" />
                                 <p className="text-2xl font-bold text-red-600">
                                     {testResult?.incorrectAnswers}
                                 </p>
-                                <p className="text-sm text-gray-500">Wrong</p>
+                                <p className="text-sm text-muted-foreground">Wrong</p>
                             </div>
-                            <div className="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                                <Clock className="w-6 h-6 mx-auto text-gray-500 mb-2" />
-                                <p className="text-2xl font-bold text-gray-600">
+                            <div className="text-center p-4 bg-muted rounded-lg">
+                                <Clock className="w-6 h-6 mx-auto text-muted-foreground mb-2" />
+                                <p className="text-2xl font-bold text-muted-foreground">
                                     {testResult?.skipped}
                                 </p>
-                                <p className="text-sm text-gray-500">Skipped</p>
+                                <p className="text-sm text-muted-foreground">Skipped</p>
                             </div>
                         </div>
 
@@ -488,7 +488,7 @@ export default function DailyRevisionTest({
                                                         ? "border-green-500 bg-green-50 dark:bg-green-900/20"
                                                         : isSelected
                                                             ? "border-red-500 bg-red-50 dark:bg-red-900/20"
-                                                            : "border-gray-200 dark:border-gray-700"
+                                                            : "border-border"
                                                 )}
                                             >
                                                 {isCorrect ? (
@@ -510,7 +510,7 @@ export default function DailyRevisionTest({
                                         <p className="text-sm font-medium text-blue-600 mb-1">
                                             Explanation:
                                         </p>
-                                        <p className="text-sm text-gray-700 dark:text-gray-300">
+                                        <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                                             {currentQuestion.explanation}
                                         </p>
                                     </div>

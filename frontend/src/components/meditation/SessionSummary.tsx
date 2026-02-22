@@ -91,7 +91,7 @@ export default function SessionSummary({
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
                     Session Complete!
                 </h1>
-                <p className="text-gray-400 text-lg">
+                <p className="text-muted-foreground text-lg">
                     Level {levelNumber} • Day {dayNumber}
                 </p>
             </motion.div>
@@ -131,7 +131,7 @@ export default function SessionSummary({
                             <stat.icon className={`w-6 h-6 ${stat.color}`} />
                         </div>
                         <div className="text-2xl font-bold text-white">{stat.value}</div>
-                        <div className="text-xs text-gray-500 uppercase tracking-wider">{stat.label}</div>
+                        <div className="text-xs text-muted-foreground uppercase tracking-wider">{stat.label}</div>
                     </motion.div>
                 ))}
             </motion.div>
@@ -143,10 +143,10 @@ export default function SessionSummary({
                 transition={{ delay: 0.8 }}
                 className="text-center mb-8 max-w-md"
             >
-                <p className="text-gray-400 italic">
+                <p className="text-muted-foreground italic">
                     "The mind is everything. What you think, you become."
                 </p>
-                <p className="text-gray-500 text-sm mt-1">— Buddha</p>
+                <p className="text-muted-foreground text-sm mt-1">— Buddha</p>
             </motion.div>
 
             {/* Action buttons */}
@@ -158,7 +158,7 @@ export default function SessionSummary({
             >
                 <Button
                     variant="outline"
-                    className="border-gray-700 text-gray-400 hover:text-white px-6"
+                    className="border-gray-700 text-muted-foreground hover:text-white px-6"
                 >
                     <Share2 className="w-4 h-4 mr-2" />
                     Share Progress

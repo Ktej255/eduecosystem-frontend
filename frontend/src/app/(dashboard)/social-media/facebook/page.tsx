@@ -38,7 +38,7 @@ export default function FacebookPage() {
 
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-5xl mx-auto">
-      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground">
         <ArrowLeft className="h-4 w-4 mr-1" />
         Back
       </Link>
@@ -46,13 +46,13 @@ export default function FacebookPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
             <div className="w-10 h-10 bg-[#1877F2] rounded-lg flex items-center justify-center">
               <FacebookIcon className="h-6 w-6 text-white" />
             </div>
             Facebook
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-muted-foreground dark:text-muted-foreground mt-1">
             Manage your Facebook page and ads
           </p>
         </div>
@@ -75,21 +75,21 @@ export default function FacebookPage() {
           <CardContent className="p-5">
             <Eye className="h-8 w-8 text-purple-500 mb-2" />
             <p className="text-2xl font-bold">{(stats.reach / 1000).toFixed(0)}K</p>
-            <p className="text-sm text-gray-500">Monthly Reach</p>
+            <p className="text-sm text-muted-foreground">Monthly Reach</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5">
             <ThumbsUp className="h-8 w-8 text-blue-500 mb-2" />
             <p className="text-2xl font-bold">{stats.engagement}%</p>
-            <p className="text-sm text-gray-500">Engagement</p>
+            <p className="text-sm text-muted-foreground">Engagement</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5">
             <Calendar className="h-8 w-8 text-green-500 mb-2" />
             <p className="text-2xl font-bold">{stats.posts}</p>
-            <p className="text-sm text-gray-500">Total Posts</p>
+            <p className="text-sm text-muted-foreground">Total Posts</p>
           </CardContent>
         </Card>
       </div>
@@ -105,9 +105,9 @@ export default function FacebookPage() {
         <CardContent>
           <div className="grid grid-cols-3 gap-4">
             {pageInsights.map((insight, idx) => (
-              <div key={idx} className="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <div key={idx} className="text-center p-4 bg-muted rounded-lg">
                 <p className="text-2xl font-bold">{insight.value}</p>
-                <p className="text-sm text-gray-500">{insight.label}</p>
+                <p className="text-sm text-muted-foreground">{insight.label}</p>
                 <p className={`text-sm mt-1 ${insight.change >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                   {insight.change >= 0 ? '↑' : '↓'} {Math.abs(insight.change)}%
                 </p>
@@ -126,17 +126,17 @@ export default function FacebookPage() {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <div className="flex items-center justify-between p-3 bg-muted rounded-lg">
             <div>
               <p className="font-medium">Auto-post announcements</p>
-              <p className="text-sm text-gray-500">Automatically share announcements to Facebook</p>
+              <p className="text-sm text-muted-foreground">Automatically share announcements to Facebook</p>
             </div>
             <Switch checked={autoPost} onCheckedChange={setAutoPost} />
           </div>
-          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <div className="flex items-center justify-between p-3 bg-muted rounded-lg">
             <div>
               <p className="font-medium">Connected Page</p>
-              <p className="text-sm text-gray-500">EduEcosystem - UPSC Preparation</p>
+              <p className="text-sm text-muted-foreground">EduEcosystem - UPSC Preparation</p>
             </div>
             <Button variant="outline" size="sm">
               <ExternalLink className="h-4 w-4 mr-2" />
@@ -153,14 +153,14 @@ export default function FacebookPage() {
         </CardHeader>
         <CardContent className="space-y-4">
           {recentPosts.map((post) => (
-            <div key={post.id} className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+            <div key={post.id} className="flex items-start gap-4 p-4 bg-muted rounded-lg">
               <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${post.type === 'video' ? 'bg-red-100 text-red-600' : 'bg-blue-100 text-blue-600'
                 }`}>
                 {post.type === 'video' ? <Video className="h-6 w-6" /> : <Image className="h-6 w-6" />}
               </div>
               <div className="flex-1">
                 <p className="font-medium">{post.content}</p>
-                <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
+                <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
                   <span className="flex items-center gap-1">
                     <ThumbsUp className="h-4 w-4" />
                     {post.likes}

@@ -46,15 +46,15 @@ export default function RevisionCalendar() {
     const totalDueNext7Days = upcomingSchedule.reduce((sum, d) => sum + d.count, 0);
 
     return (
-        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-100 dark:border-gray-800 p-6 shadow-sm h-full">
+        <div className="bg-card dark:bg-[#111] rounded-2xl border border-border p-6 shadow-sm h-full">
             <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-2">
                     <div className="p-2 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
                         <CalendarIcon className="w-5 h-5 text-indigo-600" />
                     </div>
                     <div>
-                        <h3 className="font-bold text-gray-900 dark:text-white">Revision Forecast</h3>
-                        <p className="text-xs text-gray-500">{totalDueNext7Days} items due this week</p>
+                        <h3 className="font-bold text-foreground">Revision Forecast</h3>
+                        <p className="text-xs text-muted-foreground">{totalDueNext7Days} items due this week</p>
                     </div>
                 </div>
                 <button className="text-xs font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-1">
@@ -65,7 +65,7 @@ export default function RevisionCalendar() {
             <div className="grid grid-cols-7 gap-2">
                 {upcomingSchedule.map((day, idx) => (
                     <div key={idx} className="flex flex-col items-center gap-2">
-                        <span className={`text-[10px] font-bold uppercase ${idx === 0 ? 'text-indigo-600' : 'text-gray-400'}`}>
+                        <span className={`text-[10px] font-bold uppercase ${idx === 0 ? 'text-indigo-600' : 'text-muted-foreground'}`}>
                             {day.dayName}
                         </span>
                         <div
@@ -83,7 +83,7 @@ export default function RevisionCalendar() {
                 ))}
             </div>
 
-            <div className="mt-6 flex items-center justify-between text-xs text-gray-400 bg-gray-50 dark:bg-gray-900/50 p-3 rounded-lg">
+            <div className="mt-6 flex items-center justify-between text-xs text-muted-foreground bg-muted/50 p-3 rounded-lg">
                 <div className="flex items-center gap-1">
                     <Clock className="w-3 h-3" />
                     <span>Est. Time: {Math.round(upcomingSchedule[0].count * 0.5)}m</span>

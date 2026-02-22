@@ -75,10 +75,10 @@ export default function AdminAnalyticsPage() {
             {/* Header */}
             <div className="flex justify-between items-center">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                    <h1 className="text-3xl font-bold text-foreground">
                         Student Analytics Dashboard
                     </h1>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">
+                    <p className="text-muted-foreground dark:text-muted-foreground mt-1">
                         Monitor student performance and drill completion
                     </p>
                 </div>
@@ -120,8 +120,8 @@ export default function AdminAnalyticsPage() {
                         <CardContent className="p-6">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <p className="text-sm text-gray-600 dark:text-gray-400">Total Students</p>
-                                    <p className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">Total Students</p>
+                                    <p className="text-3xl font-bold text-foreground">
                                         {analytics.total_students}
                                     </p>
                                 </div>
@@ -134,8 +134,8 @@ export default function AdminAnalyticsPage() {
                         <CardContent className="p-6">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <p className="text-sm text-gray-600 dark:text-gray-400">Total Drills</p>
-                                    <p className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">Total Drills</p>
+                                    <p className="text-3xl font-bold text-foreground">
                                         {analytics.total_drills}
                                     </p>
                                 </div>
@@ -148,8 +148,8 @@ export default function AdminAnalyticsPage() {
                         <CardContent className="p-6">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <p className="text-sm text-gray-600 dark:text-gray-400">Average Score</p>
-                                    <p className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">Average Score</p>
+                                    <p className="text-3xl font-bold text-foreground">
                                         {analytics.average_score.toFixed(1)}%
                                     </p>
                                 </div>
@@ -162,7 +162,7 @@ export default function AdminAnalyticsPage() {
                         <CardContent className="p-6">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <p className="text-sm text-gray-600 dark:text-gray-400">Avg Improvement</p>
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">Avg Improvement</p>
                                     <p className="text-3xl font-bold text-green-600">
                                         +{analytics.average_improvement.toFixed(1)}%
                                     </p>
@@ -187,20 +187,20 @@ export default function AdminAnalyticsPage() {
                         <table className="w-full">
                             <thead>
                                 <tr className="border-b">
-                                    <th className="text-left p-3 text-gray-700 dark:text-gray-300">Topic</th>
-                                    <th className="text-right p-3 text-gray-700 dark:text-gray-300">Attempts</th>
-                                    <th className="text-right p-3 text-gray-700 dark:text-gray-300">Avg Score</th>
-                                    <th className="text-right p-3 text-gray-700 dark:text-gray-300">Avg Improvement</th>
-                                    <th className="text-right p-3 text-gray-700 dark:text-gray-300">Status</th>
+                                    <th className="text-left p-3 text-muted-foreground dark:text-muted-foreground">Topic</th>
+                                    <th className="text-right p-3 text-muted-foreground dark:text-muted-foreground">Attempts</th>
+                                    <th className="text-right p-3 text-muted-foreground dark:text-muted-foreground">Avg Score</th>
+                                    <th className="text-right p-3 text-muted-foreground dark:text-muted-foreground">Avg Improvement</th>
+                                    <th className="text-right p-3 text-muted-foreground dark:text-muted-foreground">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {topicPerformance.map((topic, idx) => (
-                                    <tr key={idx} className="border-b hover:bg-gray-50 dark:hover:bg-gray-800">
-                                        <td className="p-3 text-gray-900 dark:text-gray-100 font-medium">
+                                    <tr key={idx} className="border-b hover:bg-muted dark:hover:bg-gray-800">
+                                        <td className="p-3 text-foreground font-medium">
                                             {topic.topic}
                                         </td>
-                                        <td className="p-3 text-right text-gray-700 dark:text-gray-300">
+                                        <td className="p-3 text-right text-muted-foreground dark:text-muted-foreground">
                                             {topic.total_attempts}
                                         </td>
                                         <td className="p-3 text-right">

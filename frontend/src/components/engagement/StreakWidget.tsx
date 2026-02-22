@@ -162,7 +162,7 @@ export default function StreakWidget({
                     </motion.div>
                     <div>
                         <h3 className="text-lg font-bold text-white">Your Streak</h3>
-                        <p className="text-sm text-gray-400">Keep the fire burning!</p>
+                        <p className="text-sm text-muted-foreground">Keep the fire burning!</p>
                     </div>
                 </div>
 
@@ -205,7 +205,7 @@ export default function StreakWidget({
                     >
                         {data.currentStreak}
                     </motion.div>
-                    <p className="text-xl text-gray-400 mt-2">
+                    <p className="text-xl text-muted-foreground mt-2">
                         {data.currentStreak === 1 ? "Day" : "Days"} in a row
                     </p>
                 </motion.div>
@@ -214,7 +214,7 @@ export default function StreakWidget({
             {/* Milestone Progress */}
             <div className="mb-6 relative z-10">
                 <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-2 text-sm text-gray-400">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Target className="w-4 h-4" />
                         Next Milestone: {milestone.next} Days
                     </div>
@@ -243,7 +243,7 @@ export default function StreakWidget({
                 >
                     <Trophy className="w-6 h-6 text-yellow-400 mx-auto mb-2" />
                     <p className="text-2xl font-bold text-white">{data.longestStreak}</p>
-                    <p className="text-xs text-gray-400">Longest Streak</p>
+                    <p className="text-xs text-muted-foreground">Longest Streak</p>
                 </motion.div>
 
                 <motion.div
@@ -252,7 +252,7 @@ export default function StreakWidget({
                 >
                     <Calendar className="w-6 h-6 text-green-400 mx-auto mb-2" />
                     <p className="text-2xl font-bold text-white">{data.totalActiveDays}</p>
-                    <p className="text-xs text-gray-400">Total Days</p>
+                    <p className="text-xs text-muted-foreground">Total Days</p>
                 </motion.div>
 
                 <motion.div
@@ -261,7 +261,7 @@ export default function StreakWidget({
                 >
                     <Coins className="w-6 h-6 text-amber-400 mx-auto mb-2" />
                     <p className="text-2xl font-bold text-white">{data.coinsEarned}</p>
-                    <p className="text-xs text-gray-400">Coins Earned</p>
+                    <p className="text-xs text-muted-foreground">Coins Earned</p>
 
                     {/* Coin pop animation */}
                     <AnimatePresence>
@@ -281,7 +281,7 @@ export default function StreakWidget({
 
             {/* Milestone Badges */}
             <div className="mt-6 pt-6 border-t border-neutral-800 relative z-10">
-                <p className="text-sm text-gray-400 mb-3">Milestones</p>
+                <p className="text-sm text-muted-foreground mb-3">Milestones</p>
                 <div className="flex items-center gap-4">
                     <MilestoneBadge
                         icon={Star}
@@ -326,9 +326,9 @@ function MilestoneBadge({
             `}
         >
             <IconComp
-                className={`w-6 h-6 ${achieved ? "text-amber-400" : "text-gray-600"}`}
+                className={`w-6 h-6 ${achieved ? "text-amber-400" : "text-muted-foreground"}`}
             />
-            <span className={`text-xs ${achieved ? "text-amber-400" : "text-gray-600"}`}>
+            <span className={`text-xs ${achieved ? "text-amber-400" : "text-muted-foreground"}`}>
                 {label}
             </span>
             {achieved && (

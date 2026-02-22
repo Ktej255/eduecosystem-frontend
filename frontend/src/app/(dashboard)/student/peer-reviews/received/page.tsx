@@ -41,7 +41,7 @@ export default function ReceivedPeerReviewsPage() {
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-500 mx-auto mb-4"></div>
-          <p className="text-gray-400">Loading reviews...</p>
+          <p className="text-muted-foreground">Loading reviews...</p>
         </div>
       </div>
     );
@@ -60,7 +60,7 @@ export default function ReceivedPeerReviewsPage() {
     <div className="container mx-auto p-6 max-w-5xl">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-white mb-2">Reviews Received</h1>
-        <p className="text-gray-400">
+        <p className="text-muted-foreground">
           See what your peers think about your work
         </p>
       </div>
@@ -74,7 +74,7 @@ export default function ReceivedPeerReviewsPage() {
                 <p className="text-3xl font-bold text-white">
                   {reviewedAssignments.length}
                 </p>
-                <p className="text-gray-400 mt-1">Reviews Received</p>
+                <p className="text-muted-foreground mt-1">Reviews Received</p>
               </div>
               <MessageSquare className="h-12 w-12 text-cyan-500" />
             </div>
@@ -91,7 +91,7 @@ export default function ReceivedPeerReviewsPage() {
                   </p>
                   <Star className="h-6 w-6 fill-yellow-500 text-yellow-500" />
                 </div>
-                <p className="text-gray-400 mt-1">Average Rating</p>
+                <p className="text-muted-foreground mt-1">Average Rating</p>
               </div>
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
@@ -100,7 +100,7 @@ export default function ReceivedPeerReviewsPage() {
                     className={`h-8 w-8 ${
                       i < Math.round(averageRating)
                         ? "fill-yellow-500 text-yellow-500"
-                        : "text-gray-600"
+                        : "text-muted-foreground"
                     }`}
                   />
                 ))}
@@ -143,7 +143,7 @@ export default function ReceivedPeerReviewsPage() {
               <CardContent className="space-y-4">
                 {/* Rating */}
                 <div className="flex items-center gap-2">
-                  <span className="text-gray-400 text-sm">Rating:</span>
+                  <span className="text-muted-foreground text-sm">Rating:</span>
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (
                       <Star
@@ -151,7 +151,7 @@ export default function ReceivedPeerReviewsPage() {
                         className={`h-4 w-4 ${
                           i < review.review.rating
                             ? "fill-yellow-500 text-yellow-500"
-                            : "text-gray-600"
+                            : "text-muted-foreground"
                         }`}
                       />
                     ))}
@@ -170,7 +170,7 @@ export default function ReceivedPeerReviewsPage() {
                         Strengths
                       </h4>
                     </div>
-                    <p className="text-gray-300 text-sm">
+                    <p className="text-muted-foreground text-sm">
                       {review.review.strengths}
                     </p>
                   </div>
@@ -185,7 +185,7 @@ export default function ReceivedPeerReviewsPage() {
                         Areas for Improvement
                       </h4>
                     </div>
-                    <p className="text-gray-300 text-sm">
+                    <p className="text-muted-foreground text-sm">
                       {review.review.improvements}
                     </p>
                   </div>
@@ -196,12 +196,12 @@ export default function ReceivedPeerReviewsPage() {
                   <h4 className="text-white font-semibold text-sm mb-2">
                     Overall Feedback
                   </h4>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-muted-foreground text-sm">
                     {review.review.feedback}
                   </p>
                 </div>
 
-                <div className="text-xs text-gray-500 pt-2 border-t border-gray-700">
+                <div className="text-xs text-muted-foreground pt-2 border-t border-gray-700">
                   Submitted on{" "}
                   {new Date(review.updated_at).toLocaleDateString()}
                 </div>
@@ -210,7 +210,7 @@ export default function ReceivedPeerReviewsPage() {
 
             {review.status === "pending" && (
               <CardContent>
-                <p className="text-gray-400 text-sm text-center py-4">
+                <p className="text-muted-foreground text-sm text-center py-4">
                   Waiting for peer to complete the review
                 </p>
               </CardContent>
@@ -223,11 +223,11 @@ export default function ReceivedPeerReviewsPage() {
       {reviews.length === 0 && (
         <Card className="bg-gray-800 border-gray-700">
           <CardContent className="py-12 text-center">
-            <MessageSquare className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+            <MessageSquare className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-white mb-2">
               No Reviews Yet
             </h3>
-            <p className="text-gray-400">
+            <p className="text-muted-foreground">
               You haven't received any peer reviews yet.
             </p>
           </CardContent>

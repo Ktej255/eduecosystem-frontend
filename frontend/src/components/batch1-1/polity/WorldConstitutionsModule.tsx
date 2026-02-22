@@ -31,7 +31,7 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const ComparisonCard = ({ title, country, icon, color, features }: { title: string, country: string, icon: React.ReactNode, color: string, features: { label: string, desc: string }[] }) => (
-    <div className={`bg-white border-2 ${color.replace('text-', 'border-')} rounded-2xl p-6 shadow-[5px_5px_0px_0px_rgba(0,0,0,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300`}>
+    <div className={`bg-card border-2 ${color.replace('text-', 'border-')} rounded-2xl p-6 shadow-[5px_5px_0px_0px_rgba(0,0,0,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300`}>
         <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
             {icon}
         </div>
@@ -40,7 +40,7 @@ const ComparisonCard = ({ title, country, icon, color, features }: { title: stri
                 {icon}
             </div>
             <div>
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block">{title}</span>
+                <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest block">{title}</span>
                 <h3 className={`text-2xl font-black ${color}`}>{country}</h3>
 
             </div>
@@ -48,9 +48,9 @@ const ComparisonCard = ({ title, country, icon, color, features }: { title: stri
 
         <div className="space-y-4">
             {features.map((feature, idx) => (
-                <div key={idx} className="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                    <p className="text-xs font-black text-slate-500 uppercase mb-1">{feature.label}</p>
-                    <p className="text-sm font-bold text-slate-800">{feature.desc}</p>
+                <div key={idx} className="bg-muted p-3 rounded-lg border border-slate-100">
+                    <p className="text-xs font-black text-muted-foreground uppercase mb-1">{feature.label}</p>
+                    <p className="text-sm font-bold text-foreground">{feature.desc}</p>
                 </div>
             ))}
         </div>
@@ -58,8 +58,8 @@ const ComparisonCard = ({ title, country, icon, color, features }: { title: stri
 );
 
 const VsBadge = () => (
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg border-4 border-slate-200">
-        <span className="font-black text-slate-400 text-xl block w-8 h-8 flex items-center justify-center">VS</span>
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 bg-card rounded-full p-2 shadow-lg border-4 border-border">
+        <span className="font-black text-muted-foreground text-xl block w-8 h-8 flex items-center justify-center">VS</span>
     </div>
 );
 
@@ -74,7 +74,7 @@ const PhaseHeader = ({ number, title, color, subtitle }: { number: string, title
             </h2>
             <div className={`h-[4px] flex-1 ${color} opacity-20 rounded-full`}></div>
         </div>
-        {subtitle && <p className="text-slate-500 font-bold italic ml-16 text-lg">{subtitle}</p>}
+        {subtitle && <p className="text-muted-foreground font-bold italic ml-16 text-lg">{subtitle}</p>}
     </div>
 );
 
@@ -88,8 +88,8 @@ export default function WorldConstitutionsModule({ onComplete, isCompleted, chap
 
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge variant="secondary" className="bg-white/10 text-white border-white/20">Chapter {chapterNumber}</Badge>
-                        <span className="text-slate-400 font-bold uppercase tracking-widest text-sm">Comparative Politics</span>
+                        <Badge variant="secondary" className="bg-card/10 text-white border-white/20">Chapter {chapterNumber}</Badge>
+                        <span className="text-muted-foreground font-bold uppercase tracking-widest text-sm">Comparative Politics</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
                         The Global <span className="text-blue-400">Grid</span>
@@ -99,7 +99,7 @@ export default function WorldConstitutionsModule({ onComplete, isCompleted, chap
                     </p>
                 </div>
                 <div className="absolute bottom-6 right-6 opacity-30">
-                    <Globe size={160} className="text-slate-600" />
+                    <Globe size={160} className="text-muted-foreground" />
                 </div>
             </div>
 
@@ -189,8 +189,8 @@ export default function WorldConstitutionsModule({ onComplete, isCompleted, chap
                         <Flag className="text-purple-600" />
                         <h4 className="font-black text-xl text-purple-800">France</h4>
                     </div>
-                    <p className="text-sm font-bold text-slate-700 mb-2">Semi-Presidential System</p>
-                    <p className="text-sm text-slate-600">Powerful President (Directly Elected) + Prime Minister.</p>
+                    <p className="text-sm font-bold text-muted-foreground mb-2">Semi-Presidential System</p>
+                    <p className="text-sm text-muted-foreground">Powerful President (Directly Elected) + Prime Minister.</p>
                     <Badge className="mt-4 bg-purple-200 text-purple-800">Admin Courts</Badge>
                 </div>
 
@@ -199,8 +199,8 @@ export default function WorldConstitutionsModule({ onComplete, isCompleted, chap
                         <Home className="text-pink-600" /> {/* Cherry Blossom metaphor */}
                         <h4 className="font-black text-xl text-pink-800">Japan</h4>
                     </div>
-                    <p className="text-sm font-bold text-slate-700 mb-2">Unitary State</p>
-                    <p className="text-sm text-slate-600">Constitutional Monarchy. Article 9: Renunciation of War.</p>
+                    <p className="text-sm font-bold text-muted-foreground mb-2">Unitary State</p>
+                    <p className="text-sm text-muted-foreground">Constitutional Monarchy. Article 9: Renunciation of War.</p>
                     <Badge className="mt-4 bg-pink-200 text-pink-800">Diet (Parliament)</Badge>
                 </div>
 
@@ -209,34 +209,34 @@ export default function WorldConstitutionsModule({ onComplete, isCompleted, chap
                         <Vote className="text-green-600" />
                         <h4 className="font-black text-xl text-green-800">Switzerland</h4>
                     </div>
-                    <p className="text-sm font-bold text-slate-700 mb-2">Direct Democracy</p>
-                    <p className="text-sm text-slate-600">Referendum, Initiative, Recall, Plebiscite.</p>
+                    <p className="text-sm font-bold text-muted-foreground mb-2">Direct Democracy</p>
+                    <p className="text-sm text-muted-foreground">Referendum, Initiative, Recall, Plebiscite.</p>
                     <Badge className="mt-4 bg-green-200 text-green-800">People Power</Badge>
                 </div>
             </div>
 
             {/* CRITIQUE SECTION */}
-            <div className="mt-12 bg-slate-100 border-l-8 border-slate-400 p-8 rounded-r-xl italic relative">
+            <div className="mt-12 bg-muted border-l-8 border-slate-400 p-8 rounded-r-xl italic relative">
                 <div className="absolute -left-4 -top-4 bg-slate-800 text-white p-2 rounded-full">
                     <Search size={24} />
                 </div>
-                <h4 className="font-black text-lg text-slate-800 mb-2">"Bag of Borrowing?"</h4>
-                <p className="text-slate-600 mb-4">India is often criticized for borrowing from other constitutions.</p>
+                <h4 className="font-black text-lg text-foreground mb-2">"Bag of Borrowing?"</h4>
+                <p className="text-muted-foreground mb-4">India is often criticized for borrowing from other constitutions.</p>
                 <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center border border-orange-200 overflow-hidden">
                         {/* Placeholder for Ambedkar Image or Icon */}
                         <span className="font-black text-orange-600">B.R.</span>
                     </div>
                     <div>
-                        <p className="font-bold text-slate-800">Dr. B.R. Ambedkar's Defense:</p>
-                        <p className="text-sm text-slate-600">"There is nothing to be ashamed of in borrowing. It involves no plagiarism. Nobody holds any patent rights in the fundamental ideas of a Constitution."</p>
+                        <p className="font-bold text-foreground">Dr. B.R. Ambedkar's Defense:</p>
+                        <p className="text-sm text-muted-foreground">"There is nothing to be ashamed of in borrowing. It involves no plagiarism. Nobody holds any patent rights in the fundamental ideas of a Constitution."</p>
                     </div>
                 </div>
             </div>
 
 
             {/* COMPLETION BUTTON */}
-            <div className="mt-16 text-center pt-8 pb-12 font-['Kalam'] border-t-4 border-slate-200 border-dashed">
+            <div className="mt-16 text-center pt-8 pb-12 font-['Kalam'] border-t-4 border-border border-dashed">
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
@@ -256,7 +256,7 @@ export default function WorldConstitutionsModule({ onComplete, isCompleted, chap
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold italic tracking-widest text-center uppercase">From UK to Japan • The Global Perspective</p>
+                <p className="mt-4 text-muted-foreground font-bold italic tracking-widest text-center uppercase">From UK to Japan • The Global Perspective</p>
             </div>
 
         </ScrapbookContainer>

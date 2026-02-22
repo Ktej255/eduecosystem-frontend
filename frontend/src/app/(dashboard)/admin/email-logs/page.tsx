@@ -139,7 +139,7 @@ export default function EmailLogsPage() {
 
   if (loading) {
     return (
-      <div className="p-8 text-center text-gray-400">Loading email logs...</div>
+      <div className="p-8 text-center text-muted-foreground">Loading email logs...</div>
     );
   }
 
@@ -147,7 +147,7 @@ export default function EmailLogsPage() {
     <div className="container mx-auto py-8 px-4">
       <div className="mb-8">
         <h1 className="text-3xl font-bold">Email Logs</h1>
-        <p className="text-gray-400 mt-2">
+        <p className="text-muted-foreground mt-2">
           View and monitor all email notifications sent from the platform
         </p>
       </div>
@@ -156,7 +156,7 @@ export default function EmailLogsPage() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
         <Card className="bg-gray-900 border-gray-800">
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium text-gray-400">
+            <CardTitle className="text-sm font-medium text-muted-foreground">
               Total Emails
             </CardTitle>
           </CardHeader>
@@ -215,7 +215,7 @@ export default function EmailLogsPage() {
             <div className="space-y-2">
               <Label htmlFor="search">Search</Label>
               <div className="relative">
-                <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-500" />
+                <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="search"
                   placeholder="Search emails, subjects, templates..."
@@ -274,14 +274,14 @@ export default function EmailLogsPage() {
                 >
                   <div className="flex-1 space-y-1">
                     <div className="flex items-center gap-2">
-                      <Mail className="w-4 h-4 text-gray-500" />
+                      <Mail className="w-4 h-4 text-muted-foreground" />
                       <span className="font-medium">{log.subject}</span>
                       <Badge className={statusConfig[log.status].className}>
                         <StatusIcon className="w-3 h-3 mr-1" />
                         {statusConfig[log.status].label}
                       </Badge>
                     </div>
-                    <div className="text-sm text-gray-400 space-y-1">
+                    <div className="text-sm text-muted-foreground space-y-1">
                       <p>
                         <strong>To:</strong> {log.recipient_email}
                       </p>
@@ -313,9 +313,9 @@ export default function EmailLogsPage() {
 
             {filteredLogs.length === 0 && (
               <div className="py-12 text-center">
-                <Mail className="w-12 h-12 mx-auto text-gray-600 mb-4" />
+                <Mail className="w-12 h-12 mx-auto text-muted-foreground mb-4" />
                 <h3 className="text-lg font-semibold mb-2">No emails found</h3>
-                <p className="text-gray-400">
+                <p className="text-muted-foreground">
                   {searchQuery || statusFilter !== "all" || userIdFilter
                     ? "Try adjusting your filters"
                     : "Email logs will appear here once emails are sent"}
@@ -398,13 +398,13 @@ export default function EmailLogsPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <Label className="text-sm font-semibold">Created At</Label>
-                  <p className="mt-1 text-sm text-gray-400">
+                  <p className="mt-1 text-sm text-muted-foreground">
                     {new Date(selectedLog.created_at).toLocaleString()}
                   </p>
                 </div>
                 <div>
                   <Label className="text-sm font-semibold">Sent At</Label>
-                  <p className="mt-1 text-sm text-gray-400">
+                  <p className="mt-1 text-sm text-muted-foreground">
                     {selectedLog.sent_at
                       ? new Date(selectedLog.sent_at).toLocaleString()
                       : "Not sent yet"}

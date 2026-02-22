@@ -40,10 +40,10 @@ export default function MeditationAnalytics() {
 
     if (isLoading || !analytics || !graphData) {
         return (
-            <div className="min-h-screen bg-neutral-950 flex items-center justify-center">
+            <div className="min-h-screen bg-background flex items-center justify-center transition-colors">
                 <div className="text-center">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-500 mx-auto mb-4"></div>
-                    <p className="text-gray-400">Loading your progress...</p>
+                    <p className="text-muted-foreground">Loading your progress...</p>
                 </div>
             </div>
         );
@@ -55,14 +55,14 @@ export default function MeditationAnalytics() {
         } else if (analytics.trend_direction === "declining") {
             return <TrendingDown className="w-5 h-5 text-red-400" />;
         } else {
-            return <Minus className="w-5 h-5 text-gray-400" />;
+            return <Minus className="w-5 h-5 text-muted-foreground" />;
         }
     };
 
     const getTrendColor = () => {
         if (analytics.trend_direction === "improving") return "text-green-400";
         if (analytics.trend_direction === "declining") return "text-red-400";
-        return "text-gray-400";
+        return "text-muted-foreground";
     };
 
     const getWellbeingColor = (score: number) => {
@@ -84,7 +84,7 @@ export default function MeditationAnalytics() {
     }));
 
     return (
-        <div className="min-h-screen bg-neutral-950 px-4 py-8">
+        <div className="min-h-screen bg-background px-4 py-8 transition-colors">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <motion.div
@@ -92,10 +92,10 @@ export default function MeditationAnalytics() {
                     animate={{ opacity: 1, y: 0 }}
                     className="mb-8"
                 >
-                    <h1 className="text-4xl font-bold text-white mb-2">
+                    <h1 className="text-4xl font-bold text-foreground mb-2">
                         Your Meditation Journey
                     </h1>
-                    <p className="text-gray-400">
+                    <p className="text-muted-foreground">
                         Track your mental wellbeing progress over time
                     </p>
                 </motion.div>
@@ -108,12 +108,12 @@ export default function MeditationAnalytics() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
                     >
-                        <Card className="bg-neutral-900/80 border-neutral-800 p-6">
+                        <Card className="bg-card/80 border-border p-6 shadow-xl backdrop-blur-sm">
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="p-2 rounded-lg bg-indigo-500/20">
                                     <Brain className="w-5 h-5 text-indigo-400" />
                                 </div>
-                                <span className="text-gray-400 text-sm font-medium">Wellbeing Score</span>
+                                <span className="text-muted-foreground text-sm font-medium">Wellbeing Score</span>
                             </div>
                             <div className={`text-4xl font-bold mb-2 ${getWellbeingColor(analytics.overall_wellbeing_score)}`}>
                                 {analytics.overall_wellbeing_score.toFixed(1)}
@@ -133,17 +133,17 @@ export default function MeditationAnalytics() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                     >
-                        <Card className="bg-neutral-900/80 border-neutral-800 p-6">
+                        <Card className="bg-card/80 border-border p-6 shadow-xl backdrop-blur-sm">
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="p-2 rounded-lg bg-purple-500/20">
                                     <Calendar className="w-5 h-5 text-purple-400" />
                                 </div>
-                                <span className="text-gray-400 text-sm font-medium">Total Sessions</span>
+                                <span className="text-muted-foreground text-sm font-medium">Total Sessions</span>
                             </div>
-                            <div className="text-4xl font-bold text-white mb-2">
+                            <div className="text-4xl font-bold text-foreground mb-2">
                                 {analytics.total_sessions}
                             </div>
-                            <span className="text-sm text-gray-500">
+                            <span className="text-sm text-muted-foreground">
                                 Sessions completed
                             </span>
                         </Card>
@@ -155,7 +155,7 @@ export default function MeditationAnalytics() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
                     >
-                        <Card className="bg-neutral-900/80 border-neutral-800 p-6">
+                        <Card className="bg-card/80 border-border p-6 shadow-xl backdrop-blur-sm">
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="p-2 rounded-lg bg-yellow-500/20">
                                     {analytics.best_time_of_day === "morning" ? (
@@ -164,12 +164,12 @@ export default function MeditationAnalytics() {
                                         <Moon className="w-5 h-5 text-yellow-400" />
                                     )}
                                 </div>
-                                <span className="text-gray-400 text-sm font-medium">Best Time</span>
+                                <span className="text-muted-foreground text-sm font-medium">Best Time</span>
                             </div>
-                            <div className="text-2xl font-bold text-white mb-2 capitalize">
+                            <div className="text-2xl font-bold text-foreground mb-2 capitalize">
                                 {analytics.best_time_of_day || "Not enough data"}
                             </div>
-                            <span className="text-sm text-gray-500">
+                            <span className="text-sm text-muted-foreground">
                                 Most effective for you
                             </span>
                         </Card>
@@ -181,17 +181,17 @@ export default function MeditationAnalytics() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
                     >
-                        <Card className="bg-neutral-900/80 border-neutral-800 p-6">
+                        <Card className="bg-card/80 border-border p-6 shadow-xl backdrop-blur-sm">
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="p-2 rounded-lg bg-green-500/20">
                                     <Sparkles className="w-5 h-5 text-green-400" />
                                 </div>
-                                <span className="text-gray-400 text-sm font-medium">Avg Improvement</span>
+                                <span className="text-muted-foreground text-sm font-medium">Avg Improvement</span>
                             </div>
                             <div className="text-4xl font-bold text-green-400 mb-2">
                                 +{((analytics.average_stress_improvement + analytics.average_anxiety_improvement + analytics.average_focus_improvement) / 3).toFixed(1)}
                             </div>
-                            <span className="text-sm text-gray-500">
+                            <span className="text-sm text-muted-foreground">
                                 Per session
                             </span>
                         </Card>
@@ -208,34 +208,34 @@ export default function MeditationAnalytics() {
                     <Card className="bg-neutral-900/80 border-neutral-800 p-6">
                         <div className="flex items-center gap-3 mb-4">
                             <Heart className="w-5 h-5 text-red-400" />
-                            <span className="text-white font-semibold">Stress Reduction</span>
+                            <span className="text-foreground font-semibold">Stress Reduction</span>
                         </div>
                         <div className="text-3xl font-bold text-red-400">
                             -{analytics.average_stress_improvement.toFixed(1)}
                         </div>
-                        <span className="text-sm text-gray-500">Average per session</span>
+                        <span className="text-sm text-muted-foreground">Average per session</span>
                     </Card>
 
                     <Card className="bg-neutral-900/80 border-neutral-800 p-6">
                         <div className="flex items-center gap-3 mb-4">
                             <Sparkles className="w-5 h-5 text-yellow-400" />
-                            <span className="text-white font-semibold">Anxiety Reduction</span>
+                            <span className="text-foreground font-semibold">Anxiety Reduction</span>
                         </div>
                         <div className="text-3xl font-bold text-yellow-400">
                             -{analytics.average_anxiety_improvement.toFixed(1)}
                         </div>
-                        <span className="text-sm text-gray-500">Average per session</span>
+                        <span className="text-sm text-muted-foreground">Average per session</span>
                     </Card>
 
                     <Card className="bg-neutral-900/80 border-neutral-800 p-6">
                         <div className="flex items-center gap-3 mb-4">
                             <FocusIcon className="w-5 h-5 text-blue-400" />
-                            <span className="text-white font-semibold">Focus Improvement</span>
+                            <span className="text-foreground font-semibold">Focus Improvement</span>
                         </div>
                         <div className="text-3xl font-bold text-blue-400">
                             +{analytics.average_focus_improvement.toFixed(1)}
                         </div>
-                        <span className="text-sm text-gray-500">Average per session</span>
+                        <span className="text-sm text-muted-foreground">Average per session</span>
                     </Card>
                 </motion.div>
 
@@ -257,8 +257,8 @@ export default function MeditationAnalytics() {
                                         key={days}
                                         onClick={() => setTimeRange(days)}
                                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${timeRange === days
-                                                ? 'bg-indigo-600 text-white'
-                                                : 'bg-neutral-800 text-gray-400 hover:bg-neutral-700'
+                                            ? 'bg-indigo-600 text-white'
+                                            : 'bg-neutral-800 text-muted-foreground hover:bg-neutral-700'
                                             }`}
                                     >
                                         {days}d
@@ -276,23 +276,24 @@ export default function MeditationAnalytics() {
                             <TabsContent value="improvement" className="h-[400px]">
                                 <ResponsiveContainer width="100%" height="100%">
                                     <RechartsLineChart data={chartData}>
-                                        <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                                        <XAxis dataKey="date" stroke="#888" />
-                                        <YAxis stroke="#888" />
+                                        <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
+                                        <XAxis dataKey="date" stroke="var(--muted-foreground)" axisLine={false} tickLine={false} fontSize={12} />
+                                        <YAxis stroke="var(--muted-foreground)" axisLine={false} tickLine={false} fontSize={12} />
                                         <Tooltip
                                             contentStyle={{
-                                                backgroundColor: '#1a1a1a',
-                                                border: '1px solid #333',
-                                                borderRadius: '8px'
+                                                backgroundColor: 'var(--card)',
+                                                border: '1px solid var(--border)',
+                                                borderRadius: '8px',
+                                                color: 'var(--foreground)'
                                             }}
                                         />
                                         <Legend />
                                         <Line
                                             type="monotone"
                                             dataKey="improvement"
-                                            stroke="#8b5cf6"
+                                            stroke="var(--primary)"
                                             strokeWidth={3}
-                                            dot={{ fill: '#8b5cf6', r: 4 }}
+                                            dot={{ fill: 'var(--primary)', r: 4, stroke: 'var(--card)', strokeWidth: 2 }}
                                             name="Improvement Score"
                                         />
                                     </RechartsLineChart>
@@ -302,14 +303,15 @@ export default function MeditationAnalytics() {
                             <TabsContent value="metrics" className="h-[400px]">
                                 <ResponsiveContainer width="100%" height="100%">
                                     <RechartsLineChart data={chartData}>
-                                        <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                                        <XAxis dataKey="date" stroke="#888" />
-                                        <YAxis stroke="#888" />
+                                        <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
+                                        <XAxis dataKey="date" stroke="var(--muted-foreground)" axisLine={false} tickLine={false} fontSize={12} />
+                                        <YAxis stroke="var(--muted-foreground)" axisLine={false} tickLine={false} fontSize={12} />
                                         <Tooltip
                                             contentStyle={{
-                                                backgroundColor: '#1a1a1a',
-                                                border: '1px solid #333',
-                                                borderRadius: '8px'
+                                                backgroundColor: 'var(--card)',
+                                                border: '1px solid var(--border)',
+                                                borderRadius: '8px',
+                                                color: 'var(--foreground)'
                                             }}
                                         />
                                         <Legend />

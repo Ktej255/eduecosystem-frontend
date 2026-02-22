@@ -24,7 +24,7 @@ export default function IntegrationsPage() {
 
     return (
         <div className="p-4 md:p-6 space-y-6 max-w-6xl mx-auto">
-            <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+            <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground">
                 <ArrowLeft className="h-4 w-4 mr-1" />
                 Back
             </Link>
@@ -32,17 +32,17 @@ export default function IntegrationsPage() {
             {/* Header */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
                         <Puzzle className="h-8 w-8 text-blue-600" />
                         Third Party Integrations
                     </h1>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">
+                    <p className="text-muted-foreground dark:text-muted-foreground mt-1">
                         Supercharge your platform by connecting with your favorite tools
                     </p>
                 </div>
                 <div className="flex gap-2 w-full md:w-auto">
                     <div className="relative flex-1 md:w-64">
-                        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
+                        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                         <Input placeholder="Search integrations..." className="pl-9" />
                     </div>
                     <Button variant="outline">
@@ -71,7 +71,7 @@ export default function IntegrationsPage() {
                     <Card key={tool.id} className="flex flex-col">
                         <CardHeader>
                             <div className="flex justify-between items-start">
-                                <div className="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                <div className="p-3 bg-muted rounded-lg">
                                     {tool.icon}
                                 </div>
                                 {tool.status === 'connected' && (
@@ -85,7 +85,7 @@ export default function IntegrationsPage() {
                             <CardDescription>{tool.category}</CardDescription>
                         </CardHeader>
                         <CardContent className="flex-1">
-                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                            <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                                 {tool.description}
                             </p>
                         </CardContent>

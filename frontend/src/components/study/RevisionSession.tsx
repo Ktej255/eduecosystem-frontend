@@ -137,7 +137,7 @@ export default function RevisionSession({
 
                         <div>
                             <h2 className="text-xl font-bold">Evening Revision Session</h2>
-                            <p className="text-gray-500 mt-1">
+                            <p className="text-muted-foreground mt-1">
                                 {isEvening
                                     ? "Perfect time for revision!"
                                     : "Start your 25-minute revision session"}
@@ -146,8 +146,8 @@ export default function RevisionSession({
 
                         {/* Classwork Summary */}
                         {classworkContent.length > 0 && (
-                            <div className="text-left p-4 bg-gray-50 dark:bg-gray-800 rounded-lg space-y-2">
-                                <p className="text-sm font-medium text-gray-500">
+                            <div className="text-left p-4 bg-muted rounded-lg space-y-2">
+                                <p className="text-sm font-medium text-muted-foreground">
                                     Today&apos;s Topics:
                                 </p>
                                 <ul className="space-y-1">
@@ -183,7 +183,7 @@ export default function RevisionSession({
                                 <Clock className="w-3 h-3 mr-1" />
                                 Revision Time
                             </Badge>
-                            <p className="text-sm text-gray-500">
+                            <p className="text-sm text-muted-foreground">
                                 Review today&apos;s classwork
                             </p>
                         </div>
@@ -192,7 +192,7 @@ export default function RevisionSession({
                         {classworkContent.length > 0 && (
                             <Card className="border-orange-200 dark:border-orange-900">
                                 <CardContent className="p-4">
-                                    <p className="text-sm font-medium text-gray-500 mb-3">
+                                    <p className="text-sm font-medium text-muted-foreground mb-3">
                                         Topics to Review:
                                     </p>
                                     <div className="space-y-2">
@@ -205,7 +205,7 @@ export default function RevisionSession({
                                                 <div>
                                                     <p className="font-medium">{item.topicName}</p>
                                                     {item.notes && (
-                                                        <p className="text-sm text-gray-500 mt-1">
+                                                        <p className="text-sm text-muted-foreground mt-1">
                                                             {item.notes}
                                                         </p>
                                                     )}
@@ -223,7 +223,7 @@ export default function RevisionSession({
                             onStateChange={handleTimerStateChange}
                         />
 
-                        <p className="text-center text-sm text-gray-500">
+                        <p className="text-center text-sm text-muted-foreground">
                             After the timer, you&apos;ll record what you learned
                         </p>
                     </div>
@@ -283,7 +283,7 @@ export default function RevisionSession({
                             <h2 className="text-xl font-bold text-green-500">
                                 Revision Complete! 🎉
                             </h2>
-                            <p className="text-gray-500 mt-1">
+                            <p className="text-muted-foreground mt-1">
                                 Great job reviewing today&apos;s content
                             </p>
                         </div>

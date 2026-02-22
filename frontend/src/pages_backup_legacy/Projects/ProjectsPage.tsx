@@ -53,13 +53,13 @@ export const ProjectsPage: React.FC = () => {
 
   const getStatusColor = (status: string) => {
     const colors = {
-      planning: "bg-gray-100 text-gray-800",
+      planning: "bg-muted text-foreground",
       in_progress: "bg-blue-100 text-blue-800",
       submitted: "bg-yellow-100 text-yellow-800",
       graded: "bg-purple-100 text-purple-800",
       completed: "bg-green-100 text-green-800",
     };
-    return colors[status as keyof typeof colors] || "bg-gray-100 text-gray-800";
+    return colors[status as keyof typeof colors] || "bg-muted text-foreground";
   };
 
   const getStatusIcon = (status: string) => {
@@ -90,10 +90,10 @@ export const ProjectsPage: React.FC = () => {
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-foreground">
             Collaborative Projects
           </h1>
-          <p className="mt-2 text-gray-600">Work together on course projects</p>
+          <p className="mt-2 text-muted-foreground">Work together on course projects</p>
         </div>
         <Link
           to="/projects/create"
@@ -107,19 +107,19 @@ export const ProjectsPage: React.FC = () => {
       {/* Search and Filters */}
       <div className="mb-6 flex flex-col sm:flex-row gap-4">
         <div className="flex-1 relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
           <input
             type="text"
             placeholder="Search projects..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            className="w-full pl-10 pr-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
           />
         </div>
         <select
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value)}
-          className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+          className="px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
         >
           <option value="all">All Status</option>
           <option value="planning">Planning</option>
@@ -133,11 +133,11 @@ export const ProjectsPage: React.FC = () => {
       {/* Projects List */}
       {filteredProjects.length === 0 ? (
         <div className="text-center py-12">
-          <Briefcase className="mx-auto h-12 w-12 text-gray-400" />
-          <h3 className="mt-2 text-sm font-medium text-gray-900">
+          <Briefcase className="mx-auto h-12 w-12 text-muted-foreground" />
+          <h3 className="mt-2 text-sm font-medium text-foreground">
             No projects found
           </h3>
-          <p className="mt-1 text-sm text-gray-500">
+          <p className="mt-1 text-sm text-muted-foreground">
             {searchQuery
               ? "Try adjusting your search"
               : "Get started by creating a new project"}
@@ -149,12 +149,12 @@ export const ProjectsPage: React.FC = () => {
             <Link
               key={project.id}
               to={`/projects/${project.id}`}
-              className="block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-200"
+              className="block bg-card rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 border border-border"
             >
               <div className="flex justify-between items-start">
                 <div className="flex-1">
                   <div className="flex items-center space-x-3 mb-2">
-                    <h3 className="text-xl font-semibold text-gray-900">
+                    <h3 className="text-xl font-semibold text-foreground">
                       {project.title}
                     </h3>
                     <span
@@ -166,10 +166,10 @@ export const ProjectsPage: React.FC = () => {
                       {project.status.replace("_", " ")}
                     </span>
                   </div>
-                  <p className="text-gray-600 mb-4 line-clamp-2">
+                  <p className="text-muted-foreground mb-4 line-clamp-2">
                     {project.description || "No description available"}
                   </p>
-                  <div className="flex items-center space-x-6 text-sm text-gray-500">
+                  <div className="flex items-center space-x-6 text-sm text-muted-foreground">
                     <span className="flex items-center">
                       <Users className="w-4 h-4 mr-1" />
                       Max team size: {project.max_team_size}

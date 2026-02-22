@@ -125,16 +125,16 @@ export default function LevelPurchaseModal({
                 {/* Close button */}
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 p-2 rounded-full hover:bg-white/50 transition-colors z-10"
+                    className="absolute top-4 right-4 p-2 rounded-full hover:bg-card/50 transition-colors z-10"
                     disabled={isProcessing}
                 >
-                    <X className="w-5 h-5 text-gray-600" />
+                    <X className="w-5 h-5 text-muted-foreground" />
                 </button>
 
                 {/* Header */}
                 <div className="relative p-8 pb-6 bg-gradient-to-br from-indigo-600 to-purple-600 text-white">
                     <div className="flex items-center gap-3 mb-2">
-                        <div className="p-3 bg-white/20 rounded-xl backdrop-blur-sm">
+                        <div className="p-3 bg-card/20 rounded-xl backdrop-blur-sm">
                             <Sparkles className="w-6 h-6" />
                         </div>
                         <div>
@@ -148,19 +148,19 @@ export default function LevelPurchaseModal({
                 {/* Content */}
                 <div className="p-8">
                     {/* Price */}
-                    <div className="mb-6 p-6 bg-white rounded-xl shadow-sm border border-indigo-100">
+                    <div className="mb-6 p-6 bg-card rounded-xl shadow-sm border border-indigo-100">
                         <div className="flex items-baseline justify-between">
                             <div>
-                                <p className="text-sm text-gray-600 mb-1">One-time payment</p>
+                                <p className="text-sm text-muted-foreground mb-1">One-time payment</p>
                                 <div className="flex items-baseline gap-2">
                                     <span className="text-4xl font-bold text-indigo-600">
                                         ₹{level.price}
                                     </span>
-                                    <span className="text-gray-500">/ {level.currency}</span>
+                                    <span className="text-muted-foreground">/ {level.currency}</span>
                                 </div>
                             </div>
                             <div className="text-right">
-                                <p className="text-xs text-gray-500">Lifetime access</p>
+                                <p className="text-xs text-muted-foreground">Lifetime access</p>
                                 <p className="text-sm font-semibold text-green-600">No subscription</p>
                             </div>
                         </div>
@@ -168,13 +168,13 @@ export default function LevelPurchaseModal({
 
                     {/* Features */}
                     <div className="mb-6">
-                        <h3 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
+                        <h3 className="text-sm font-semibold text-muted-foreground mb-3 flex items-center gap-2">
                             <Check className="w-4 h-4 text-green-500" />
                             What's included:
                         </h3>
                         <ul className="space-y-2">
                             {features.map((feature, index) => (
-                                <li key={index} className="flex items-start gap-2 text-sm text-gray-600">
+                                <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
                                     <Check className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
                                     <span>{feature}</span>
                                 </li>
@@ -219,7 +219,7 @@ export default function LevelPurchaseModal({
                         )}
                     </button>
 
-                    <p className="text-xs text-center text-gray-500 mt-4">
+                    <p className="text-xs text-center text-muted-foreground mt-4">
                         By purchasing, you agree to our terms and conditions
                     </p>
                 </div>

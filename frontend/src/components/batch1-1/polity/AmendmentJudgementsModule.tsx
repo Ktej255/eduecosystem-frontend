@@ -33,7 +33,7 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const RoundCard = ({ title, winner, icon, color, children, className = "" }: { title: string, winner: string, icon: React.ReactNode, color: string, children: React.ReactNode, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute top-0 right-0 p-2 opacity-10 translate-x-1/4 -translate-y-1/4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
             {icon}
         </div>
@@ -46,7 +46,7 @@ const RoundCard = ({ title, winner, icon, color, children, className = "" }: { t
             </Badge>
         </div>
 
-        <div className="space-y-4 text-slate-800 relative z-10 font-bold leading-relaxed">
+        <div className="space-y-4 text-foreground relative z-10 font-bold leading-relaxed">
             {children}
         </div>
     </div>
@@ -63,7 +63,7 @@ const PhaseHeader = ({ number, title, color, subtitle }: { number: string, title
             </h2>
             <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
         </div>
-        {subtitle && <p className="text-slate-500 font-bold italic ml-16">{subtitle}</p>}
+        {subtitle && <p className="text-muted-foreground font-bold italic ml-16">{subtitle}</p>}
     </div>
 );
 
@@ -72,11 +72,11 @@ export default function AmendmentJudgementsModule({ onComplete, isCompleted, cha
         <ScrapbookContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#c2410c] border-4 border-[#7c2d12] rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(194,65,12,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-card/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-[#7c2d12] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-orange-100 font-bold uppercase tracking-widest text-sm italic underline decoration-white">Amending Power</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
@@ -109,8 +109,8 @@ export default function AmendmentJudgementsModule({ onComplete, isCompleted, cha
                     className="bg-red-50"
                 >
                     <p className="text-sm">"Law" in Art 13 does <span className="underline">NOT</span> include Constitutional Amendments.</p>
-                    <div className="bg-white p-3 rounded-lg border border-red-200 mt-2">
-                        <p className="text-xs font-black text-slate-500 uppercase">Implication</p>
+                    <div className="bg-card p-3 rounded-lg border border-red-200 mt-2">
+                        <p className="text-xs font-black text-muted-foreground uppercase">Implication</p>
                         <p className="text-sm font-bold text-red-800">Parliament can amend Fundamental Rights easily.</p>
                     </div>
                 </RoundCard>
@@ -123,8 +123,8 @@ export default function AmendmentJudgementsModule({ onComplete, isCompleted, cha
                     className="bg-blue-50"
                 >
                     <p className="text-sm">"Law" in Art 13 <span className="underline">INCLUDES</span> Amendments.</p>
-                    <div className="bg-white p-3 rounded-lg border border-blue-200 mt-2">
-                        <p className="text-xs font-black text-slate-500 uppercase">Implication</p>
+                    <div className="bg-card p-3 rounded-lg border border-blue-200 mt-2">
+                        <p className="text-xs font-black text-muted-foreground uppercase">Implication</p>
                         <p className="text-sm font-bold text-blue-800">Parliament <span className="underline text-red-600">CANNOT</span> take away Fundamental Rights. (Prospective Overruling).</p>
                     </div>
                 </RoundCard>
@@ -144,19 +144,19 @@ export default function AmendmentJudgementsModule({ onComplete, isCompleted, cha
                     <div>
                         <h3 className="text-2xl font-black text-yellow-800 uppercase mb-4">The Verdict</h3>
                         <div className="space-y-4">
-                            <div className="bg-white p-4 rounded-xl border border-yellow-300 shadow-sm">
+                            <div className="bg-card p-4 rounded-xl border border-yellow-300 shadow-sm">
                                 <h5 className="font-black text-yellow-900">Parliament's Power?</h5>
-                                <p className="text-sm font-bold text-slate-700">Can amend ANY part of Constitution (including Preamble & FRs).</p>
+                                <p className="text-sm font-bold text-muted-foreground">Can amend ANY part of Constitution (including Preamble & FRs).</p>
                             </div>
-                            <div className="bg-white p-4 rounded-xl border border-red-300 shadow-sm">
+                            <div className="bg-card p-4 rounded-xl border border-red-300 shadow-sm">
                                 <h5 className="font-black text-red-900">The Limit?</h5>
-                                <p className="text-sm font-bold text-slate-700">Cannot destroy the <span className="text-lg underline decoration-wavy decoration-red-500">Basic Structure</span>.</p>
+                                <p className="text-sm font-bold text-muted-foreground">Cannot destroy the <span className="text-lg underline decoration-wavy decoration-red-500">Basic Structure</span>.</p>
                             </div>
                         </div>
                     </div>
                     <div className="flex flex-col items-center">
                         <Badge className="bg-green-600 text-xl py-2 px-6 mb-4">DRAW</Badge>
-                        <p className="text-center text-xs font-bold text-slate-600 max-w-xs italic">
+                        <p className="text-center text-xs font-bold text-muted-foreground max-w-xs italic">
                             "Parliament has power, but not unlimited power. Constitution is Supreme."
                         </p>
                     </div>
@@ -180,7 +180,7 @@ export default function AmendmentJudgementsModule({ onComplete, isCompleted, cha
                     className="bg-red-50"
                 >
                     <p className="text-sm font-bold text-red-900 mb-2">"Mini Constitution"</p>
-                    <p className="text-sm text-slate-800">Tried to give <span className="underline">Unlimited Power</span> to Parliament and bar Judicial Review (Art 368(4) & (5)).</p>
+                    <p className="text-sm text-foreground">Tried to give <span className="underline">Unlimited Power</span> to Parliament and bar Judicial Review (Art 368(4) & (5)).</p>
                 </RoundCard>
 
                 <RoundCard
@@ -191,7 +191,7 @@ export default function AmendmentJudgementsModule({ onComplete, isCompleted, cha
                     className="bg-green-50"
                 >
                     <p className="text-sm font-bold text-green-900 mb-2">"Judicial Review Restored"</p>
-                    <p className="text-sm text-slate-800">Struck down 42nd AA provisions. Held that <span className="underline">limited amending power</span> is itself a Basic Feature.</p>
+                    <p className="text-sm text-foreground">Struck down 42nd AA provisions. Held that <span className="underline">limited amending power</span> is itself a Basic Feature.</p>
                 </RoundCard>
             </div>
 
@@ -232,7 +232,7 @@ export default function AmendmentJudgementsModule({ onComplete, isCompleted, cha
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold italic tracking-widest text-center uppercase">Shankari Prasad • Golaknath • Minerva Mills.</p>
+                <p className="mt-4 text-muted-foreground font-bold italic tracking-widest text-center uppercase">Shankari Prasad • Golaknath • Minerva Mills.</p>
             </div>
         </ScrapbookContainer>
     );

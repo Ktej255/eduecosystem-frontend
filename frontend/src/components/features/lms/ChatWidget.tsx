@@ -147,7 +147,7 @@ export function ChatWidget({
             variant="ghost"
             size="sm"
             onClick={() => setIsMinimized(!isMinimized)}
-            className="text-gray-400 hover:text-white"
+            className="text-muted-foreground hover:text-white"
           >
             {isMinimized ? (
               <Maximize2 className="h-4 w-4" />
@@ -159,7 +159,7 @@ export function ChatWidget({
             variant="ghost"
             size="sm"
             onClick={() => setIsOpen(false)}
-            className="text-gray-400 hover:text-white"
+            className="text-muted-foreground hover:text-white"
           >
             <X className="h-4 w-4" />
           </Button>
@@ -172,7 +172,7 @@ export function ChatWidget({
           <ScrollArea className="flex-1 p-4">
             <div className="space-y-4">
               {messages.length === 0 && (
-                <div className="text-center text-gray-400 py-8">
+                <div className="text-center text-muted-foreground py-8">
                   <p className="mb-2">👋 Hi! I'm your AI learning assistant.</p>
                   <p className="text-sm">Ask me anything about your courses!</p>
                 </div>
@@ -198,13 +198,13 @@ export function ChatWidget({
                       <div className="flex gap-2 mt-2">
                         <button
                           onClick={() => handleFeedback(message.id, true)}
-                          className="text-gray-400 hover:text-green-500"
+                          className="text-muted-foreground hover:text-green-500"
                         >
                           <ThumbsUp className="h-3 w-3" />
                         </button>
                         <button
                           onClick={() => handleFeedback(message.id, false)}
-                          className="text-gray-400 hover:text-red-500"
+                          className="text-muted-foreground hover:text-red-500"
                         >
                           <ThumbsDown className="h-3 w-3" />
                         </button>
@@ -229,13 +229,13 @@ export function ChatWidget({
           {/* Suggestions */}
           {suggestions.length > 0 && (
             <div className="px-4 py-2 border-t border-gray-700">
-              <p className="text-xs text-gray-400 mb-2">Suggested questions:</p>
+              <p className="text-xs text-muted-foreground mb-2">Suggested questions:</p>
               <div className="flex flex-wrap gap-2">
                 {suggestions.map((suggestion, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleSuggestionClick(suggestion)}
-                    className="text-xs bg-gray-800 hover:bg-gray-700 text-gray-300 px-3 py-1 rounded-full transition"
+                    className="text-xs bg-gray-800 hover:bg-gray-700 text-muted-foreground px-3 py-1 rounded-full transition"
                   >
                     {suggestion}
                   </button>

@@ -44,7 +44,7 @@ export default function IndiaMapViz({ activeLayer }: IndiaMapVizProps) {
     };
 
     return (
-        <div className="relative w-full h-full bg-[#eef2f6] dark:bg-[#0f172a] rounded-xl overflow-hidden shadow-inner border border-slate-200 dark:border-slate-800">
+        <div className="relative w-full h-full bg-[#eef2f6] dark:bg-[#0f172a] rounded-xl overflow-hidden shadow-inner border border-border">
             {/* Grid Background */}
             <div className="absolute inset-0 opacity-10 pointer-events-none"
                 style={{ backgroundImage: 'radial-gradient(circle, #64748b 1px, transparent 1px)', backgroundSize: '20px 20px' }}
@@ -53,7 +53,7 @@ export default function IndiaMapViz({ activeLayer }: IndiaMapVizProps) {
             {/* India Approx Shape (Rough Polygon for Context) */}
             <svg className="absolute inset-0 w-full h-full opacity-10 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <path d="M 32,5 L 45,8 L 60,25 L 75,25 L 90,28 L 95,40 L 80,45 L 75,55 L 60,60 L 50,85 L 35,95 L 30,80 L 25,60 L 15,50 L 10,40 L 20,35 L 25,25 Z"
-                    fill="currentColor" className="text-slate-400" />
+                    fill="currentColor" className="text-muted-foreground" />
             </svg>
 
             {/* Points Layer */}
@@ -71,7 +71,7 @@ export default function IndiaMapViz({ activeLayer }: IndiaMapVizProps) {
                         {getIcon(loc.type)}
                     </div>
                     {/* Tooltip Label */}
-                    <span className="mt-1 text-[10px] font-bold bg-white/90 dark:bg-black/80 px-1.5 py-0.5 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none text-slate-800 dark:text-slate-200">
+                    <span className="mt-1 text-[10px] font-bold bg-card/90 dark:bg-black/80 px-1.5 py-0.5 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none text-foreground">
                         {loc.name}
                     </span>
                 </motion.div>
@@ -86,25 +86,25 @@ export default function IndiaMapViz({ activeLayer }: IndiaMapVizProps) {
                         exit={{ x: 300, opacity: 0 }}
                         className="absolute top-4 right-4 w-64 z-50"
                     >
-                        <Card className="p-4 shadow-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm border-slate-200 dark:border-slate-800">
+                        <Card className="p-4 shadow-2xl bg-card/95/95 backdrop-blur-sm border-border">
                             <div className="flex justify-between items-start mb-2">
                                 <h3 className="font-bold text-lg leading-tight">{selectedLoc.name}</h3>
-                                <button onClick={() => setSelectedLoc(null)} className="text-slate-400 hover:text-red-500">×</button>
+                                <button onClick={() => setSelectedLoc(null)} className="text-muted-foreground hover:text-red-500">×</button>
                             </div>
                             <div className="flex gap-2 mb-3">
                                 <span className={`text-[10px] uppercase font-bold px-1.5 py-0.5 rounded ${getColor(selectedLoc.type)} bg-opacity-10 text-opacity-100`}>
                                     {selectedLoc.type}
                                 </span>
-                                <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500">
+                                <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-muted text-muted-foreground">
                                     {selectedLoc.state}
                                 </span>
                             </div>
-                            <p className="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                            <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                                 {selectedLoc.description}
                             </p>
                             <div className="flex flex-wrap gap-1">
                                 {selectedLoc.tags.map(tag => (
-                                    <span key={tag} className="text-[10px] border border-slate-200 dark:border-slate-700 px-1.5 py-0.5 rounded text-slate-500">
+                                    <span key={tag} className="text-[10px] border border-border px-1.5 py-0.5 rounded text-muted-foreground">
                                         #{tag}
                                     </span>
                                 ))}

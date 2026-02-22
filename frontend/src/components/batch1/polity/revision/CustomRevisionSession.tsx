@@ -165,12 +165,12 @@ function CustomRevisionSessionContent() {
     if (chapterIds.length === 0) {
         return (
             <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-[#030303] dark:via-[#050510] dark:to-[#030303] flex items-center justify-center p-6">
-                <div className="bg-white dark:bg-[#111] rounded-3xl border border-gray-200 dark:border-gray-800 p-8 max-w-md w-full text-center shadow-xl">
+                <div className="bg-card dark:bg-[#111] rounded-3xl border border-border p-8 max-w-md w-full text-center shadow-xl">
                     <div className="w-16 h-16 rounded-2xl bg-red-100 dark:bg-red-900/30 flex items-center justify-center mx-auto mb-4">
                         <XCircle className="w-8 h-8 text-red-600" />
                     </div>
-                    <h1 className="text-xl font-black text-gray-900 dark:text-white mb-2">No Chapters Selected</h1>
-                    <p className="text-gray-500 mb-6">Please select chapters from the Revision Hub to start a custom session.</p>
+                    <h1 className="text-xl font-black text-foreground mb-2">No Chapters Selected</h1>
+                    <p className="text-muted-foreground mb-6">Please select chapters from the Revision Hub to start a custom session.</p>
                     <Link
                         href="/student/batch1/polity/revision"
                         className="inline-block bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-700 transition-colors"
@@ -190,13 +190,13 @@ function CustomRevisionSessionContent() {
 
         return (
             <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-[#030303] dark:via-[#050510] dark:to-[#030303] flex items-center justify-center p-6">
-                <div className="bg-white dark:bg-[#111] rounded-3xl border border-gray-200 dark:border-gray-800 p-8 max-w-md w-full text-center shadow-xl">
+                <div className="bg-card dark:bg-[#111] rounded-3xl border border-border p-8 max-w-md w-full text-center shadow-xl">
                     <div className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center mx-auto mb-4">
                         <Trophy className="w-10 h-10 text-white" />
                     </div>
-                    <h1 className="text-2xl font-black text-gray-900 dark:text-white mb-2">Session Complete!</h1>
-                    <p className="text-gray-500 mb-2">{selectedChapters.length} chapters reviewed</p>
-                    <p className="text-sm text-gray-400 mb-6">
+                    <h1 className="text-2xl font-black text-foreground mb-2">Session Complete!</h1>
+                    <p className="text-muted-foreground mb-2">{selectedChapters.length} chapters reviewed</p>
+                    <p className="text-sm text-muted-foreground mb-6">
                         {mode === 'flashcards' ? flashcards.length : mcqs.length} {mode === 'flashcards' ? 'flashcards' : 'MCQs'}
                     </p>
 
@@ -216,8 +216,8 @@ function CustomRevisionSessionContent() {
                     </div>
 
                     <div className="mb-8">
-                        <div className="text-5xl font-black text-gray-900 dark:text-white mb-2">{successRate}%</div>
-                        <div className="text-gray-500">Success Rate</div>
+                        <div className="text-5xl font-black text-foreground mb-2">{successRate}%</div>
+                        <div className="text-muted-foreground">Success Rate</div>
                     </div>
 
                     <div className="space-y-3">
@@ -230,7 +230,7 @@ function CustomRevisionSessionContent() {
                         </button>
                         <Link
                             href="/student/batch1/polity/revision"
-                            className="block w-full bg-gray-100 dark:bg-[#0a0a0a] text-gray-700 dark:text-gray-300 py-4 rounded-2xl font-bold hover:bg-gray-200 transition-all"
+                            className="block w-full bg-muted dark:bg-[#0a0a0a] text-muted-foreground dark:text-muted-foreground py-4 rounded-2xl font-bold hover:bg-muted transition-all"
                         >
                             Back to Revision Hub
                         </Link>
@@ -243,25 +243,25 @@ function CustomRevisionSessionContent() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-[#030303] dark:via-[#050510] dark:to-[#030303] pb-20">
             {/* Header */}
-            <div className="bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-800 sticky top-0 z-10">
+            <div className="bg-card dark:bg-[#0a0a0a] border-b border-border sticky top-0 z-10">
                 <div className="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
-                    <Link href="/student/batch1/polity/revision" className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors">
+                    <Link href="/student/batch1/polity/revision" className="flex items-center gap-2 text-muted-foreground hover:text-blue-600 transition-colors">
                         <ChevronLeft className="w-5 h-4" />
                         <span className="text-sm font-medium">Exit Session</span>
                     </Link>
                     <div className="text-center">
                         <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-600">Custom Session</span>
-                        <h1 className="text-sm font-bold text-gray-900 dark:text-white">{selectedChapters.length} Chapters</h1>
+                        <h1 className="text-sm font-bold text-foreground">{selectedChapters.length} Chapters</h1>
                     </div>
                     <div className="w-20" />
                 </div>
 
                 {/* Mode Toggle */}
                 <div className="max-w-4xl mx-auto px-4 pb-4">
-                    <div className="flex gap-2 p-1 bg-gray-100 dark:bg-[#0a0a0a] rounded-xl">
+                    <div className="flex gap-2 p-1 bg-muted dark:bg-[#0a0a0a] rounded-xl">
                         <button
                             onClick={() => { setMode('flashcards'); restartSession(); }}
-                            className={`flex-1 py-2 px-4 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors ${mode === 'flashcards' ? 'bg-white dark:bg-[#111] shadow text-indigo-600' : 'text-gray-500'
+                            className={`flex-1 py-2 px-4 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors ${mode === 'flashcards' ? 'bg-card dark:bg-[#111] shadow text-indigo-600' : 'text-muted-foreground'
                                 }`}
                         >
                             <Layers className="w-4 h-4" />
@@ -269,7 +269,7 @@ function CustomRevisionSessionContent() {
                         </button>
                         <button
                             onClick={() => { setMode('mcqs'); restartSession(); }}
-                            className={`flex-1 py-2 px-4 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors ${mode === 'mcqs' ? 'bg-white dark:bg-[#111] shadow text-indigo-600' : 'text-gray-500'
+                            className={`flex-1 py-2 px-4 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors ${mode === 'mcqs' ? 'bg-card dark:bg-[#111] shadow text-indigo-600' : 'text-muted-foreground'
                                 }`}
                         >
                             <Target className="w-4 h-4" />
@@ -283,7 +283,7 @@ function CustomRevisionSessionContent() {
                 {/* Progress */}
                 <div className="mb-6">
                     <div className="flex items-center justify-between text-sm mb-2">
-                        <span className="text-gray-500">
+                        <span className="text-muted-foreground">
                             {currentIdx + 1} of {mode === 'flashcards' ? flashcards.length : mcqs.length}
                         </span>
                         {mode === 'flashcards' && (
@@ -293,7 +293,7 @@ function CustomRevisionSessionContent() {
                             </div>
                         )}
                     </div>
-                    <div className="h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                    <div className="h-2 bg-muted rounded-full overflow-hidden">
                         <div
                             className="h-full bg-gradient-to-r from-indigo-600 to-purple-600 transition-all"
                             style={{ width: `${((currentIdx + 1) / (mode === 'flashcards' ? flashcards.length : mcqs.length)) * 100}%` }}
@@ -310,20 +310,20 @@ function CustomRevisionSessionContent() {
 
                         <div
                             onClick={() => setShowAnswer(!showAnswer)}
-                            className="bg-white dark:bg-[#111] rounded-3xl border border-gray-200 dark:border-gray-800 p-8 min-h-[300px] cursor-pointer shadow-xl flex flex-col items-center justify-center"
+                            className="bg-card dark:bg-[#111] rounded-3xl border border-border p-8 min-h-[300px] cursor-pointer shadow-xl flex flex-col items-center justify-center"
                         >
                             {!showAnswer ? (
                                 <>
-                                    <div className="text-sm text-gray-500 mb-4">QUESTION</div>
-                                    <div className="text-xl font-bold text-center text-gray-900 dark:text-white">
+                                    <div className="text-sm text-muted-foreground mb-4">QUESTION</div>
+                                    <div className="text-xl font-bold text-center text-foreground">
                                         {flashcards[currentIdx].question}
                                     </div>
-                                    <div className="mt-6 text-sm text-gray-400">Tap to reveal answer</div>
+                                    <div className="mt-6 text-sm text-muted-foreground">Tap to reveal answer</div>
                                 </>
                             ) : (
                                 <>
                                     <div className="text-sm text-emerald-500 mb-4">ANSWER</div>
-                                    <div className="text-lg text-gray-700 dark:text-gray-300 text-center">
+                                    <div className="text-lg text-muted-foreground dark:text-muted-foreground text-center">
                                         {flashcards[currentIdx].answer}
                                     </div>
                                 </>
@@ -358,8 +358,8 @@ function CustomRevisionSessionContent() {
                             {mcqs[currentIdx].chapterTitle}
                         </div>
 
-                        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-8 shadow-lg">
-                            <h3 className="text-xl font-bold mb-8 text-gray-900 dark:text-white">
+                        <div className="bg-card dark:bg-[#111] rounded-2xl border border-border p-8 shadow-lg">
+                            <h3 className="text-xl font-bold mb-8 text-foreground">
                                 {mcqs[currentIdx].question}
                             </h3>
 
@@ -370,10 +370,10 @@ function CustomRevisionSessionContent() {
                                         onClick={() => handleOptionSelect(oIdx)}
                                         className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center gap-3 ${answers[currentIdx] === oIdx
                                             ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300'
-                                            : 'border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700'
+                                            : 'border-border hover:border-border dark:hover:border-gray-700'
                                             }`}
                                     >
-                                        <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold ${answers[currentIdx] === oIdx ? 'bg-indigo-600 border-indigo-600 text-white' : 'border-gray-300 text-gray-400'
+                                        <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold ${answers[currentIdx] === oIdx ? 'bg-indigo-600 border-indigo-600 text-white' : 'border-border text-muted-foreground'
                                             }`}>
                                             {String.fromCharCode(65 + oIdx)}
                                         </div>
@@ -387,7 +387,7 @@ function CustomRevisionSessionContent() {
                             <button
                                 onClick={() => setCurrentIdx(prev => Math.max(0, prev - 1))}
                                 disabled={currentIdx === 0}
-                                className="text-sm font-medium text-gray-500 hover:text-gray-900 disabled:opacity-0"
+                                className="text-sm font-medium text-muted-foreground hover:text-foreground disabled:opacity-0"
                             >
                                 ← Previous
                             </button>

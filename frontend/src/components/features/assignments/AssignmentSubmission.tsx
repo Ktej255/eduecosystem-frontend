@@ -99,11 +99,11 @@ export function AssignmentSubmission({
               : "border-gray-700 bg-gray-800/50"
           }`}
         >
-          <Upload className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+          <Upload className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
           <p className="text-white mb-2">
             Drag and drop files here, or click to browse
           </p>
-          <p className="text-sm text-gray-400 mb-4">
+          <p className="text-sm text-muted-foreground mb-4">
             PDF, DOCX, images, ZIP files (max 50MB each)
           </p>
           <input
@@ -117,7 +117,7 @@ export function AssignmentSubmission({
           <Button
             onClick={() => document.getElementById("file-upload")?.click()}
             variant="outline"
-            className="border-gray-700 text-gray-300"
+            className="border-gray-700 text-muted-foreground"
           >
             Browse Files
           </Button>
@@ -137,7 +137,7 @@ export function AssignmentSubmission({
                 <FileIcon className="h-5 w-5 text-cyan-400" />
                 <div>
                   <p className="text-white text-sm">{file.name}</p>
-                  <p className="text-xs text-gray-400">
+                  <p className="text-xs text-muted-foreground">
                     {formatFileSize(file.file.size)}
                   </p>
                 </div>

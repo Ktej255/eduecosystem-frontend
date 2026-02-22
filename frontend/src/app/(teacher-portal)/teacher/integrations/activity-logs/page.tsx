@@ -62,7 +62,7 @@ export default function IntegrationLogsPage() {
 
     return (
         <div className="p-4 md:p-6 space-y-6 max-w-6xl mx-auto">
-            <Link href="/teacher/integrations/webhooks" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+            <Link href="/teacher/integrations/webhooks" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground">
                 <ArrowLeft className="h-4 w-4 mr-1" />
                 Back to Webhooks
             </Link>
@@ -70,11 +70,11 @@ export default function IntegrationLogsPage() {
             {/* Header */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
-                        <History className="h-8 w-8 text-gray-600" />
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
+                        <History className="h-8 w-8 text-muted-foreground" />
                         Integration Logs
                     </h1>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">
+                    <p className="text-muted-foreground dark:text-muted-foreground mt-1">
                         View processing history for APIs, webhooks, and integrations
                     </p>
                 </div>
@@ -91,7 +91,7 @@ export default function IntegrationLogsPage() {
                 <CardContent className="p-4">
                     <div className="flex flex-col md:flex-row gap-4">
                         <div className="relative flex-1">
-                            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
+                            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                             <Input placeholder="Search logs by event, ID, or details..." className="pl-9" />
                         </div>
                         <Select>
@@ -153,7 +153,7 @@ export default function IntegrationLogsPage() {
                                     </TableCell>
                                     <TableCell>
                                         <div className="font-medium">{log.event}</div>
-                                        <div className="text-xs text-gray-500 font-mono">{log.id}</div>
+                                        <div className="text-xs text-muted-foreground font-mono">{log.id}</div>
                                     </TableCell>
                                     <TableCell>
                                         <Badge variant="outline" className="flex items-center gap-1 w-fit">
@@ -166,7 +166,7 @@ export default function IntegrationLogsPage() {
                                     </TableCell>
                                     <TableCell>
                                         <div className="text-sm">{log.timestamp}</div>
-                                        <div className="text-xs text-gray-500 flex items-center gap-1">
+                                        <div className="text-xs text-muted-foreground flex items-center gap-1">
                                             <Clock className="h-3 w-3" />
                                             {log.latency}
                                         </div>

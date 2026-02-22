@@ -71,9 +71,9 @@ function FlashcardsContent() {
 
     if (loading) {
         return (
-            <div className="flex h-screen items-center justify-center bg-gray-50 dark:bg-black">
+            <div className="flex h-screen items-center justify-center bg-muted dark:bg-black">
                 <Loader2 className="h-8 w-8 animate-spin text-indigo-600" />
-                <span className="ml-2 text-slate-500 font-medium">Loading Revision Cards...</span>
+                <span className="ml-2 text-muted-foreground font-medium">Loading Revision Cards...</span>
             </div>
         );
     }
@@ -89,7 +89,7 @@ function FlashcardsContent() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a] pt-6">
+        <div className="min-h-screen bg-muted dark:bg-[#0a0a0a] pt-6">
             <GenericFlashcardSession
                 flashcards={flashcards}
                 title={`Chapter ${chapterParam} Revision`}

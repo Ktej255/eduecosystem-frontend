@@ -156,7 +156,7 @@ export default function EarningsPage() {
             <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent">
               Earnings Dashboard
             </h1>
-            <p className="text-gray-400 mt-2">
+            <p className="text-muted-foreground mt-2">
               Track your course sales and revenue
             </p>
           </div>
@@ -173,7 +173,7 @@ export default function EarningsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <Card className="bg-gradient-to-br from-cyan-900/30 to-gray-900 border-cyan-500/20">
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-400">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
                 Total Earnings
               </CardTitle>
             </CardHeader>
@@ -183,7 +183,7 @@ export default function EarningsPage() {
                   <div className="text-3xl font-bold text-white">
                     ₹{summary?.total_earnings.toLocaleString("en-IN")}
                   </div>
-                  <p className="text-xs text-gray-400 mt-1">All time</p>
+                  <p className="text-xs text-muted-foreground mt-1">All time</p>
                 </div>
                 <DollarSign className="h-8 w-8 text-cyan-400" />
               </div>
@@ -192,7 +192,7 @@ export default function EarningsPage() {
 
           <Card className="bg-gradient-to-br from-green-900/30 to-gray-900 border-green-500/20">
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-400">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
                 This Month
               </CardTitle>
             </CardHeader>
@@ -202,7 +202,7 @@ export default function EarningsPage() {
                   <div className="text-3xl font-bold text-white">
                     ₹{summary?.monthly_earnings.toLocaleString("en-IN")}
                   </div>
-                  <p className="text-xs text-gray-400 mt-1">Last 30 days</p>
+                  <p className="text-xs text-muted-foreground mt-1">Last 30 days</p>
                 </div>
                 <TrendingUp className="h-8 w-8 text-green-400" />
               </div>
@@ -211,7 +211,7 @@ export default function EarningsPage() {
 
           <Card className="bg-gradient-to-br from-purple-900/30 to-gray-900 border-purple-500/20">
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-400">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
                 Total Sales
               </CardTitle>
             </CardHeader>
@@ -221,7 +221,7 @@ export default function EarningsPage() {
                   <div className="text-3xl font-bold text-white">
                     {summary?.total_sales}
                   </div>
-                  <p className="text-xs text-gray-400 mt-1">All enrollments</p>
+                  <p className="text-xs text-muted-foreground mt-1">All enrollments</p>
                 </div>
                 <ShoppingBag className="h-8 w-8 text-purple-400" />
               </div>
@@ -230,7 +230,7 @@ export default function EarningsPage() {
 
           <Card className="bg-gradient-to-br  from-yellow-900/30 to-gray-900 border-yellow-500/20">
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-400">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
                 Monthly Sales
               </CardTitle>
             </CardHeader>
@@ -240,7 +240,7 @@ export default function EarningsPage() {
                   <div className="text-3xl font-bold text-white">
                     {summary?.monthly_sales}
                   </div>
-                  <p className="text-xs text-gray-400 mt-1">Last 30 days</p>
+                  <p className="text-xs text-muted-foreground mt-1">Last 30 days</p>
                 </div>
                 <Calendar className="h-8 w-8 text-yellow-400" />
               </div>
@@ -283,7 +283,7 @@ export default function EarningsPage() {
                 </LineChart>
               </ResponsiveContainer>
             ) : (
-              <div className="text-center text-gray-400 py-12">
+              <div className="text-center text-muted-foreground py-12">
                 No revenue data yet
               </div>
             )}
@@ -299,11 +299,11 @@ export default function EarningsPage() {
             <Table>
               <TableHeader>
                 <TableRow className="border-gray-800">
-                  <TableHead className="text-gray-400">Course</TableHead>
-                  <TableHead className="text-gray-400">Sales</TableHead>
-                  <TableHead className="text-gray-400">Revenue</TableHead>
-                  <TableHead className="text-gray-400">Avg Price</TableHead>
-                  <TableHead className="text-gray-400">Last Sale</TableHead>
+                  <TableHead className="text-muted-foreground">Course</TableHead>
+                  <TableHead className="text-muted-foreground">Sales</TableHead>
+                  <TableHead className="text-muted-foreground">Revenue</TableHead>
+                  <TableHead className="text-muted-foreground">Avg Price</TableHead>
+                  <TableHead className="text-muted-foreground">Last Sale</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -312,16 +312,16 @@ export default function EarningsPage() {
                     <TableCell className="text-white font-medium">
                       {course.course_title}
                     </TableCell>
-                    <TableCell className="text-gray-300">
+                    <TableCell className="text-muted-foreground">
                       {course.total_sales}
                     </TableCell>
                     <TableCell className="text-cyan-400 font-semibold">
                       ₹{course.total_revenue.toLocaleString("en-IN")}
                     </TableCell>
-                    <TableCell className="text-gray-300">
+                    <TableCell className="text-muted-foreground">
                       ₹{course.average_price.toLocaleString("en-IN")}
                     </TableCell>
-                    <TableCell className="text-gray-400 text-sm">
+                    <TableCell className="text-muted-foreground text-sm">
                       {course.last_sale_date
                         ? new Date(course.last_sale_date).toLocaleDateString()
                         : "-"}
@@ -331,7 +331,7 @@ export default function EarningsPage() {
               </TableBody>
             </Table>
             {courseSales.length === 0 && (
-              <div className="text-center text-gray-400 py-8">No sales yet</div>
+              <div className="text-center text-muted-foreground py-8">No sales yet</div>
             )}
           </CardContent>
         </Card>
@@ -343,7 +343,7 @@ export default function EarningsPage() {
               <CardTitle className="text-white">Recent Transactions</CardTitle>
               <div className="flex gap-3">
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
                     placeholder="Search..."
                     value={searchQuery}
@@ -371,30 +371,30 @@ export default function EarningsPage() {
             <Table>
               <TableHeader>
                 <TableRow className="border-gray-800">
-                  <TableHead className="text-gray-400">Date</TableHead>
-                  <TableHead className="text-gray-400">Course</TableHead>
-                  <TableHead className="text-gray-400">Student</TableHead>
-                  <TableHead className="text-gray-400">Amount</TableHead>
-                  <TableHead className="text-gray-400">Gateway</TableHead>
-                  <TableHead className="text-gray-400">Status</TableHead>
+                  <TableHead className="text-muted-foreground">Date</TableHead>
+                  <TableHead className="text-muted-foreground">Course</TableHead>
+                  <TableHead className="text-muted-foreground">Student</TableHead>
+                  <TableHead className="text-muted-foreground">Amount</TableHead>
+                  <TableHead className="text-muted-foreground">Gateway</TableHead>
+                  <TableHead className="text-muted-foreground">Status</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {filteredTransactions.map((tx) => (
                   <TableRow key={tx.id} className="border-gray-800">
-                    <TableCell className="text-gray-400 text-sm">
+                    <TableCell className="text-muted-foreground text-sm">
                       {new Date(tx.created_at).toLocaleDateString()}
                     </TableCell>
                     <TableCell className="text-white">
                       {tx.course_title}
                     </TableCell>
-                    <TableCell className="text-gray-300">
+                    <TableCell className="text-muted-foreground">
                       {tx.student_name}
                     </TableCell>
                     <TableCell className="text-cyan-400 font-semibold">
                       ₹{tx.amount.toLocaleString("en-IN")}
                     </TableCell>
-                    <TableCell className="text-gray-400 text-sm capitalize">
+                    <TableCell className="text-muted-foreground text-sm capitalize">
                       {tx.payment_provider}
                     </TableCell>
                     <TableCell>
@@ -415,7 +415,7 @@ export default function EarningsPage() {
               </TableBody>
             </Table>
             {filteredTransactions.length === 0 && (
-              <div className="text-center text-gray-400 py-8">
+              <div className="text-center text-muted-foreground py-8">
                 No transactions found
               </div>
             )}

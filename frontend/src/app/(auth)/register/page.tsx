@@ -48,7 +48,7 @@ export default function RegisterPage() {
           <h2 className="mt-6 text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
             Create Account
           </h2>
-          <p className="mt-2 text-sm text-gray-400">
+          <p className="mt-2 text-sm text-muted-foreground">
             Start your holistic learning journey
           </p>
         </div>
@@ -86,7 +86,7 @@ export default function RegisterPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-400 mb-2">
+              <label className="block text-sm font-medium text-muted-foreground mb-2">
                 I am a
               </label>
               <select
@@ -127,7 +127,7 @@ export default function RegisterPage() {
           </div>
         </form>
         <div className="text-center text-sm">
-          <span className="text-gray-400">Already have an account? </span>
+          <span className="text-muted-foreground">Already have an account? </span>
           <Link
             href="/login"
             className="font-medium text-cyan-400 hover:text-cyan-300"

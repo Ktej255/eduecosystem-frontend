@@ -24,7 +24,7 @@ export default function BeginnerRevisionDashboard() {
                         >
                             <BookOpen className="w-4 h-4" /> BEGINNER TRACK
                         </motion.div>
-                        <h1 className="text-3xl md:text-4xl font-display font-bold text-grapho-ink dark:text-white">
+                        <h1 className="text-3xl md:text-4xl font-display font-bold text-grapho-ink">
                             Foundations First
                         </h1>
                         <p className="text-neutral-600 dark:text-neutral-400 mt-1">
@@ -33,13 +33,13 @@ export default function BeginnerRevisionDashboard() {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <div className="bg-white dark:bg-neutral-800 p-4 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 flex items-center gap-3">
+                        <div className="bg-card dark:bg-neutral-800 p-4 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 flex items-center gap-3">
                             <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold">
                                 1
                             </div>
                             <div>
                                 <div className="text-xs text-neutral-500 uppercase font-bold">Current Level</div>
-                                <div className="font-bold text-grapho-ink dark:text-white">Basics</div>
+                                <div className="font-bold text-grapho-ink">Basics</div>
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@ export default function BeginnerRevisionDashboard() {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="bg-white dark:bg-neutral-800 rounded-2xl p-6 shadow-sm border border-neutral-200 dark:border-neutral-700"
+                        className="bg-card dark:bg-neutral-800 rounded-2xl p-6 shadow-sm border border-neutral-200 dark:border-neutral-700"
                     >
                         <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
                             <PlayCircle className="w-5 h-5 text-level-1-primary" />
@@ -67,7 +67,7 @@ export default function BeginnerRevisionDashboard() {
                                 </div>
                                 <div>
                                     <div className="text-xs font-bold text-blue-600 mb-1">HISTORY - ANCIENT INDIA</div>
-                                    <h3 className="font-bold text-grapho-ink dark:text-white leading-tight">Introduction to Indus Valley Civilization</h3>
+                                    <h3 className="font-bold text-grapho-ink leading-tight">Introduction to Indus Valley Civilization</h3>
                                     <div className="flex items-center gap-2 mt-2 text-xs text-neutral-500">
                                         <Clock className="w-3 h-3" /> 25 mins
                                     </div>
@@ -94,8 +94,8 @@ export default function BeginnerRevisionDashboard() {
                                     <span>Topic Coverage</span>
                                     <span>12%</span>
                                 </div>
-                                <div className="h-2 bg-white/20 rounded-full overflow-hidden">
-                                    <div className="h-full bg-white w-[12%] rounded-full" />
+                                <div className="h-2 bg-card/20 rounded-full overflow-hidden">
+                                    <div className="h-full bg-card w-[12%] rounded-full" />
                                 </div>
                             </div>
                             <div>
@@ -103,8 +103,8 @@ export default function BeginnerRevisionDashboard() {
                                     <span>Video Completion</span>
                                     <span>4/20</span>
                                 </div>
-                                <div className="h-2 bg-white/20 rounded-full overflow-hidden">
-                                    <div className="h-full bg-white w-[20%] rounded-full" />
+                                <div className="h-2 bg-card/20 rounded-full overflow-hidden">
+                                    <div className="h-full bg-card w-[20%] rounded-full" />
                                 </div>
                             </div>
                         </div>
@@ -113,7 +113,7 @@ export default function BeginnerRevisionDashboard() {
 
                 {/* Foundations Grid */}
                 <section>
-                    <h2 className="text-xl font-bold mb-4 text-grapho-ink dark:text-white">Essential Foundations</h2>
+                    <h2 className="text-xl font-bold mb-4 text-grapho-ink">Essential Foundations</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         {['History', 'Geography', 'Polity', 'Economics'].map((subj, i) => (
                             <motion.div
@@ -121,7 +121,7 @@ export default function BeginnerRevisionDashboard() {
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 + (i * 0.1) }}
-                                className="bg-white dark:bg-neutral-800 p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:shadow-md hover:border-level-1-primary transition-all cursor-pointer group"
+                                className="bg-card dark:bg-neutral-800 p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:shadow-md hover:border-level-1-primary transition-all cursor-pointer group"
                             >
                                 <div className="w-12 h-12 rounded-xl bg-neutral-100 dark:bg-neutral-700 mb-4 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
                                     {i === 0 ? '🏛️' : i === 1 ? '🌍' : i === 2 ? '⚖️' : '💰'}

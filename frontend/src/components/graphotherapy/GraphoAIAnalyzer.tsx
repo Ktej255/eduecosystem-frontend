@@ -168,7 +168,7 @@ export default function GraphoAIAnalyzer({ file, onClose }: GraphoAIAnalyzerProp
                                             </span>
                                             {m.status === 'good' && <CheckCircle className="w-4 h-4 text-green-500" />}
                                             {m.status === 'warning' && <AlertCircle className="w-4 h-4 text-yellow-500" />}
-                                            {m.status === 'neutral' && <CheckCircle className="w-4 h-4 text-gray-500" />}
+                                            {m.status === 'neutral' && <CheckCircle className="w-4 h-4 text-muted-foreground" />}
                                         </div>
                                     </div>
                                 ))}
@@ -181,7 +181,7 @@ export default function GraphoAIAnalyzer({ file, onClose }: GraphoAIAnalyzerProp
                                 </p>
                             </div>
 
-                            <Button onClick={onClose} className="w-full bg-white text-black hover:bg-neutral-200 font-bold">
+                            <Button onClick={onClose} className="w-full bg-card text-black hover:bg-neutral-200 font-bold">
                                 Continue
                             </Button>
                         </motion.div>

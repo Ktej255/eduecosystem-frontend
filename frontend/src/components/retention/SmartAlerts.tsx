@@ -71,7 +71,7 @@ export default function SmartAlerts({
                 animate={{ opacity: 1, scale: 1 }}
                 className="p-6 rounded-2xl bg-neutral-900/80 backdrop-blur-xl border border-neutral-800"
             >
-                <div className="flex items-center justify-center gap-3 text-gray-400">
+                <div className="flex items-center justify-center gap-3 text-muted-foreground">
                     <Brain className="w-6 h-6 text-green-400" />
                     <span className="text-lg">All caught up! Your knowledge is strong.</span>
                 </div>
@@ -160,7 +160,7 @@ export default function SmartAlerts({
                                         <h4 className="text-white font-medium">
                                             {alert.topicName}
                                         </h4>
-                                        <p className="text-sm text-gray-400 mt-0.5">
+                                        <p className="text-sm text-muted-foreground mt-0.5">
                                             {alert.message}
                                         </p>
                                         <div className="flex items-center gap-3 mt-2">
@@ -189,7 +189,7 @@ export default function SmartAlerts({
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                         onClick={() => onAction?.(alert.topicId)}
-                                        className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-sm font-medium flex items-center gap-1.5 transition-colors"
+                                        className="px-3 py-1.5 rounded-lg bg-card/10 hover:bg-card/20 text-white text-sm font-medium flex items-center gap-1.5 transition-colors"
                                     >
                                         <Zap className="w-3.5 h-3.5" />
                                         Review Now
@@ -200,7 +200,7 @@ export default function SmartAlerts({
                                             whileHover={{ scale: 1.1 }}
                                             whileTap={{ scale: 0.9 }}
                                             onClick={() => onDismiss(alert.id)}
-                                            className="p-1.5 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white transition-colors"
+                                            className="p-1.5 rounded-lg hover:bg-card/10 text-muted-foreground hover:text-white transition-colors"
                                         >
                                             <X className="w-4 h-4" />
                                         </motion.button>

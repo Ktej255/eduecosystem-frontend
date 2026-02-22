@@ -181,7 +181,7 @@ export default function GraphotherapyLandingPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 }}
-                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-amber-300 text-sm font-medium mb-8"
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/5 backdrop-blur-sm border border-white/10 text-amber-300 text-sm font-medium mb-8"
                             >
                                 <Sparkles className="w-4 h-4" />
                                 THE SCIENCE OF HANDWRITING THERAPY
@@ -192,12 +192,12 @@ export default function GraphotherapyLandingPage() {
                                 <span className="block bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">
                                     Neuron Pathways.
                                 </span>
-                                <span className="block mt-2 text-3xl sm:text-4xl lg:text-5xl font-light text-gray-300">
+                                <span className="block mt-2 text-3xl sm:text-4xl lg:text-5xl font-light text-muted-foreground">
                                     Redesign Your Destiny.
                                 </span>
                             </h1>
 
-                            <p className="text-lg sm:text-xl text-gray-300 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
+                            <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
                                 Every stroke you write is a signal to your brain. Change your handwriting,
                                 change your <span className="text-amber-400 font-semibold">personality</span>,
                                 change your <span className="text-teal-400 font-semibold">life</span>.
@@ -207,7 +207,7 @@ export default function GraphotherapyLandingPage() {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                                 <Button
                                     size="lg"
-                                    className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-gray-900 text-lg px-8 py-6 h-auto rounded-full shadow-xl shadow-amber-500/30 font-semibold btn-ink-hover group"
+                                    className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-foreground text-lg px-8 py-6 h-auto rounded-full shadow-xl shadow-amber-500/30 font-semibold btn-ink-hover group"
                                     onClick={() => setShowFreeAnalysisPopup(true)}
                                 >
                                     <span className="relative z-10 flex items-center gap-2">
@@ -218,7 +218,7 @@ export default function GraphotherapyLandingPage() {
                                 <Button
                                     variant="outline"
                                     size="lg"
-                                    className="border-2 border-white/30 text-white hover:bg-white/10 text-lg px-8 py-6 h-auto rounded-full backdrop-blur-sm"
+                                    className="border-2 border-white/30 text-white hover:bg-card/10 text-lg px-8 py-6 h-auto rounded-full backdrop-blur-sm"
                                 >
                                     <PlayCircle className="mr-2 h-5 w-5" />
                                     Watch Case Study
@@ -234,15 +234,15 @@ export default function GraphotherapyLandingPage() {
                             >
                                 <div className="text-center">
                                     <div className="text-3xl font-bold text-white">5000+</div>
-                                    <div className="text-sm text-gray-400">Students Transformed</div>
+                                    <div className="text-sm text-muted-foreground">Students Transformed</div>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-3xl font-bold text-amber-400">21 Days</div>
-                                    <div className="text-sm text-gray-400">To See Results</div>
+                                    <div className="text-sm text-muted-foreground">To See Results</div>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-3xl font-bold text-teal-400">4.9★</div>
-                                    <div className="text-sm text-gray-400">Student Rating</div>
+                                    <div className="text-sm text-muted-foreground">Student Rating</div>
                                 </div>
                             </motion.div>
                         </motion.div>
@@ -304,7 +304,7 @@ export default function GraphotherapyLandingPage() {
             </header>
 
             {/* ======================= WHY GRAPHOTHERAPY ======================= */}
-            <section className="py-24 bg-white">
+            <section className="py-24 bg-card">
                 <div className="container mx-auto px-4">
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
@@ -312,10 +312,10 @@ export default function GraphotherapyLandingPage() {
                         viewport={{ once: true }}
                         className="text-center max-w-3xl mx-auto mb-16"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                             Why <span className="text-amber-600">Graphotherapy</span>?
                         </h2>
-                        <p className="text-xl text-gray-600 leading-relaxed">
+                        <p className="text-xl text-muted-foreground leading-relaxed">
                             Your handwriting is actually <strong>"brain-writing"</strong>.
                             Every stroke comes from neural pathways in your brain.
                             By altering specific strokes, you send reverse signals that create
@@ -358,8 +358,8 @@ export default function GraphotherapyLandingPage() {
                                 <div className={`w-14 h-14 rounded-xl ${item.bg} border border-current/10 flex items-center justify-center mb-6 ${item.color}`}>
                                     <item.icon className="w-7 h-7" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                                <p className="text-gray-600">{item.description}</p>
+                                <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
+                                <p className="text-muted-foreground">{item.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -375,10 +375,10 @@ export default function GraphotherapyLandingPage() {
                         viewport={{ once: true }}
                         className="text-center max-w-3xl mx-auto mb-12"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                             See the <span className="text-amber-600">Transformation</span>
                         </h2>
-                        <p className="text-xl text-gray-600">
+                        <p className="text-xl text-muted-foreground">
                             Drag the slider to compare handwriting before and after Graphotherapy
                         </p>
                     </motion.div>
@@ -398,10 +398,10 @@ export default function GraphotherapyLandingPage() {
                         viewport={{ once: true }}
                         className="text-center max-w-3xl mx-auto mb-12"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                             Your <span className="bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">4-Level Journey</span>
                         </h2>
-                        <p className="text-xl text-gray-600">
+                        <p className="text-xl text-muted-foreground">
                             From awareness to mastery—a structured path to complete personality transformation.
                         </p>
                     </motion.div>
@@ -446,7 +446,7 @@ export default function GraphotherapyLandingPage() {
                         <h2 className="text-4xl md:text-5xl font-bold mb-6">
                             Real <span className="text-amber-400">Transformations</span>
                         </h2>
-                        <p className="text-xl text-gray-400">
+                        <p className="text-xl text-muted-foreground">
                             Hear from students who rewrote their stories
                         </p>
                     </motion.div>
@@ -459,7 +459,7 @@ export default function GraphotherapyLandingPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1 }}
-                                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
+                                className="bg-card/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
                             >
                                 <div className="flex gap-1 mb-4">
                                     {[...Array(testimonial.rating)].map((_, i) => (
@@ -467,12 +467,12 @@ export default function GraphotherapyLandingPage() {
                                     ))}
                                 </div>
                                 <Quote className="w-8 h-8 text-amber-400/50 mb-4" />
-                                <p className="text-gray-300 mb-6 leading-relaxed italic">
+                                <p className="text-muted-foreground mb-6 leading-relaxed italic">
                                     "{testimonial.quote}"
                                 </p>
                                 <div>
                                     <div className="font-semibold text-white">{testimonial.name}</div>
-                                    <div className="text-sm text-gray-500">{testimonial.role}</div>
+                                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
                                 </div>
                             </motion.div>
                         ))}
@@ -481,7 +481,7 @@ export default function GraphotherapyLandingPage() {
             </section>
 
             {/* ======================= FOOTER CTA ======================= */}
-            <section className="py-24 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-gray-900">
+            <section className="py-24 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-foreground">
                 <div className="container mx-auto px-4 text-center max-w-3xl">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
@@ -491,7 +491,7 @@ export default function GraphotherapyLandingPage() {
                         <h2 className="text-4xl md:text-5xl font-bold mb-6">
                             Ready to Transform?
                         </h2>
-                        <p className="text-xl text-gray-800 mb-10 max-w-2xl mx-auto">
+                        <p className="text-xl text-foreground mb-10 max-w-2xl mx-auto">
                             Join thousands of students who have rewritten their destiny.
                             Start with a free handwriting analysis today.
                         </p>
@@ -507,7 +507,7 @@ export default function GraphotherapyLandingPage() {
                             <Button
                                 variant="outline"
                                 size="lg"
-                                className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900/10 text-lg px-10 py-6 h-auto rounded-full font-semibold"
+                                className="border-2 border-gray-900 text-foreground hover:bg-gray-900/10 text-lg px-10 py-6 h-auto rounded-full font-semibold"
                                 onClick={() => document.getElementById('programs')?.scrollIntoView({ behavior: 'smooth' })}
                             >
                                 View Programs
@@ -527,14 +527,14 @@ export default function GraphotherapyLandingPage() {
                     <motion.div
                         initial={{ scale: 0.9, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
-                        className="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-8 relative overflow-hidden"
+                        className="bg-card rounded-3xl shadow-2xl max-w-lg w-full p-8 relative overflow-hidden"
                     >
                         {/* Gold accent bar */}
                         <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-500 to-yellow-500" />
 
                         <button
                             onClick={() => setShowFreeAnalysisPopup(false)}
-                            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl"
+                            className="absolute top-4 right-4 text-muted-foreground hover:text-muted-foreground text-2xl"
                         >
                             ×
                         </button>
@@ -548,18 +548,18 @@ export default function GraphotherapyLandingPage() {
                                 <PenTool className="h-10 w-10 text-amber-600" />
                             </motion.div>
 
-                            <h2 className="text-3xl font-bold text-gray-900">
+                            <h2 className="text-3xl font-bold text-foreground">
                                 Get Your Handwriting Analysis
                                 <span className="text-amber-600"> FREE!</span>
                             </h2>
 
-                            <p className="text-gray-600">
+                            <p className="text-muted-foreground">
                                 Discover what your handwriting reveals about your subconscious mind.
                                 Takes only 2 minutes!
                             </p>
 
                             <Button
-                                className="w-full h-14 text-lg bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-gray-900 shadow-lg font-bold rounded-xl"
+                                className="w-full h-14 text-lg bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-foreground shadow-lg font-bold rounded-xl"
                                 onClick={() => router.push('/graphotherapy/funnel')}
                             >
                                 Yes! Analyze My Handwriting
@@ -567,7 +567,7 @@ export default function GraphotherapyLandingPage() {
 
                             <button
                                 onClick={() => setShowFreeAnalysisPopup(false)}
-                                className="text-sm text-gray-400 underline hover:text-gray-600"
+                                className="text-sm text-muted-foreground underline hover:text-muted-foreground"
                             >
                                 No thanks, I'll pay full price later
                             </button>

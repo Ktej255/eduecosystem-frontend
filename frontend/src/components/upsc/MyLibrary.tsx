@@ -23,10 +23,10 @@ export default function MyLibrary() {
 
     if (myItems.length === 0) {
         return (
-            <div className="text-center py-10 bg-gray-50 dark:bg-[#111] rounded-xl border border-dashed border-gray-200 dark:border-gray-800">
-                <BookOpen className="w-10 h-10 mx-auto text-gray-300 mb-2" />
-                <h3 className="text-gray-500 font-medium">Your library is empty</h3>
-                <p className="text-xs text-gray-400">Purchased courses will appear here.</p>
+            <div className="text-center py-10 bg-muted dark:bg-[#111] rounded-xl border border-dashed border-border">
+                <BookOpen className="w-10 h-10 mx-auto text-muted-foreground mb-2" />
+                <h3 className="text-muted-foreground font-medium">Your library is empty</h3>
+                <p className="text-xs text-muted-foreground">Purchased courses will appear here.</p>
             </div>
         );
     }
@@ -40,23 +40,23 @@ export default function MyLibrary() {
 
             <div className="flex flex-col gap-3">
                 {myItems.map((item) => (
-                    <div key={item.uniqueId} className="bg-white dark:bg-[#111] border border-gray-200 dark:border-gray-800 rounded-xl p-3 flex gap-3 hover:shadow-md transition-shadow">
+                    <div key={item.uniqueId} className="bg-card dark:bg-[#111] border border-border rounded-xl p-3 flex gap-3 hover:shadow-md transition-shadow">
                         <div className={`w-12 h-12 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0 ${item.subject?.color?.split(' ')[0].replace('text-', 'bg-') || 'bg-gray-400'}`}>
                             {item.subject?.title.charAt(0)}
                         </div>
                         <div className="flex-1 min-w-0">
                             <div className="flex justify-between items-start">
-                                <h4 className="font-bold text-sm text-gray-900 dark:text-white truncate pr-2">
+                                <h4 className="font-bold text-sm text-foreground truncate pr-2">
                                     {item.subject?.title}
                                 </h4>
                                 <span className="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold flex items-center gap-1">
                                     <CheckCircle className="w-3 h-3" /> L{item.level}
                                 </span>
                             </div>
-                            <p className="text-xs text-gray-500 mb-2">Level {item.level} Module</p>
+                            <p className="text-xs text-muted-foreground mb-2">Level {item.level} Module</p>
 
                             <div className="mb-3">
-                                <div className="flex justify-between text-[10px] text-gray-500 mb-1">
+                                <div className="flex justify-between text-[10px] text-muted-foreground mb-1">
                                     <span>Progress</span>
                                     <span>0%</span>
                                 </div>

@@ -8,7 +8,7 @@ import BorderSecurityViz from './visualizations/BorderSecurityViz';
 
 export default function BorderManagementPage() {
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-black p-4 md:p-8 text-slate-900 dark:text-slate-100">
+        <div className="min-h-screen bg-muted dark:bg-black p-4 md:p-8 text-foreground">
             <div className="max-w-7xl mx-auto space-y-8">
                 {/* Header */}
                 <div className="flex items-center gap-4">
@@ -22,7 +22,7 @@ export default function BorderManagementPage() {
                             <ShieldAlert className="h-6 w-6 text-emerald-600" />
                             Border Management
                         </h1>
-                        <p className="text-sm text-slate-500">Comprehensive analysis of India's land and maritime borders.</p>
+                        <p className="text-sm text-muted-foreground">Comprehensive analysis of India's land and maritime borders.</p>
                     </div>
                 </div>
 
@@ -38,15 +38,15 @@ export default function BorderManagementPage() {
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose mt-8">
-                        <div className="p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                        <div className="p-6 bg-card rounded-xl border border-border">
                             <h4 className="font-bold mb-2">Comprehensive Integrated Border Management System (CIBMS)</h4>
-                            <p className="text-sm text-slate-600 dark:text-slate-400">
+                            <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                                 Use of technology (Sensors, Cameras, Radars) in difficult terrains where physical fencing is not possible.
                             </p>
                         </div>
-                        <div className="p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                        <div className="p-6 bg-card rounded-xl border border-border">
                             <h4 className="font-bold mb-2">Border Area Development Programme (BADP)</h4>
-                            <p className="text-sm text-slate-600 dark:text-slate-400">
+                            <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                                 Development of infrastructure in border villages to ensure socio-economic security and prevent out-migration.
                             </p>
                         </div>

@@ -207,14 +207,14 @@ const getStatusBadge = (status: string) => {
       );
     case "cancelled":
       return (
-        <span className="flex items-center gap-1 text-xs px-2.5 py-1 bg-gray-100 text-gray-700 rounded-full font-medium">
+        <span className="flex items-center gap-1 text-xs px-2.5 py-1 bg-muted text-muted-foreground rounded-full font-medium">
           <XCircle className="h-3 w-3" />
           Cancelled
         </span>
       );
     default:
       return (
-        <span className="text-xs px-2.5 py-1 bg-gray-100 text-gray-700 rounded-full">
+        <span className="text-xs px-2.5 py-1 bg-muted text-muted-foreground rounded-full">
           {status}
         </span>
       );
@@ -234,15 +234,15 @@ export default function WebinarsPage() {
       {/* Header */}
       <div className="flex justify-between items-start">
         <div>
-          <Link href="/admin" className="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1 mb-2">
+          <Link href="/admin" className="text-sm text-muted-foreground hover:text-muted-foreground flex items-center gap-1 mb-2">
             <ChevronLeft className="h-4 w-4" />
             Back to Dashboard
           </Link>
-          <h1 className="text-3xl font-bold text-gray-800 flex items-center gap-2">
+          <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
             <Video className="h-8 w-8 text-emerald-600" />
             Webinar Reports
           </h1>
-          <p className="text-gray-600 mt-1">View webinar attendance and engagement analytics</p>
+          <p className="text-muted-foreground mt-1">View webinar attendance and engagement analytics</p>
         </div>
         <div className="flex gap-2">
           <Select value={statusFilter} onValueChange={setStatusFilter}>
@@ -286,8 +286,8 @@ export default function WebinarsPage() {
                     <stat.icon className={`h-6 w-6 ${stat.color}`} />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-gray-800">{stat.value}</p>
-                    <p className="text-sm text-gray-500">{stat.label}</p>
+                    <p className="text-2xl font-bold text-foreground">{stat.value}</p>
+                    <p className="text-sm text-muted-foreground">{stat.label}</p>
                   </div>
                 </div>
                 {stat.trend && (
@@ -325,11 +325,11 @@ export default function WebinarsPage() {
           <div className="flex justify-center gap-6 mt-4">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded bg-blue-300" />
-              <span className="text-sm text-gray-600">Registered</span>
+              <span className="text-sm text-muted-foreground">Registered</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded bg-green-500" />
-              <span className="text-sm text-gray-600">Attended</span>
+              <span className="text-sm text-muted-foreground">Attended</span>
             </div>
           </div>
         </CardContent>
@@ -343,7 +343,7 @@ export default function WebinarsPage() {
               <Video className="h-5 w-5 text-emerald-600" />
               Webinar History
             </span>
-            <span className="text-sm font-normal text-gray-500">
+            <span className="text-sm font-normal text-muted-foreground">
               Showing {filteredWebinars.length} webinars
             </span>
           </CardTitle>
@@ -352,24 +352,24 @@ export default function WebinarsPage() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Webinar</th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Date & Time</th>
-                  <th className="text-center py-3 px-4 text-sm font-semibold text-gray-600">Registered</th>
-                  <th className="text-center py-3 px-4 text-sm font-semibold text-gray-600">Attended</th>
-                  <th className="text-center py-3 px-4 text-sm font-semibold text-gray-600">Peak Viewers</th>
-                  <th className="text-center py-3 px-4 text-sm font-semibold text-gray-600">Questions</th>
-                  <th className="text-center py-3 px-4 text-sm font-semibold text-gray-600">Status</th>
-                  <th className="text-center py-3 px-4 text-sm font-semibold text-gray-600">Actions</th>
+                <tr className="border-b border-border">
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-muted-foreground">Webinar</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-muted-foreground">Date & Time</th>
+                  <th className="text-center py-3 px-4 text-sm font-semibold text-muted-foreground">Registered</th>
+                  <th className="text-center py-3 px-4 text-sm font-semibold text-muted-foreground">Attended</th>
+                  <th className="text-center py-3 px-4 text-sm font-semibold text-muted-foreground">Peak Viewers</th>
+                  <th className="text-center py-3 px-4 text-sm font-semibold text-muted-foreground">Questions</th>
+                  <th className="text-center py-3 px-4 text-sm font-semibold text-muted-foreground">Status</th>
+                  <th className="text-center py-3 px-4 text-sm font-semibold text-muted-foreground">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredWebinars.map((webinar) => (
-                  <tr key={webinar.id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                  <tr key={webinar.id} className="border-b border-border hover:bg-muted transition-colors">
                     <td className="py-4 px-4">
                       <div>
-                        <p className="font-medium text-gray-800">{webinar.title}</p>
-                        <p className="text-xs text-gray-500 flex items-center gap-1">
+                        <p className="font-medium text-foreground">{webinar.title}</p>
+                        <p className="text-xs text-muted-foreground flex items-center gap-1">
                           <Mic className="h-3 w-3" />
                           {webinar.host}
                         </p>
@@ -377,30 +377,30 @@ export default function WebinarsPage() {
                     </td>
                     <td className="py-4 px-4">
                       <div>
-                        <p className="text-sm text-gray-800">{webinar.date}</p>
-                        <p className="text-xs text-gray-500">{webinar.time} • {webinar.duration}</p>
+                        <p className="text-sm text-foreground">{webinar.date}</p>
+                        <p className="text-xs text-muted-foreground">{webinar.time} • {webinar.duration}</p>
                       </div>
                     </td>
                     <td className="py-4 px-4 text-center">
-                      <span className="font-semibold text-gray-800">{webinar.registered}</span>
+                      <span className="font-semibold text-foreground">{webinar.registered}</span>
                     </td>
                     <td className="py-4 px-4 text-center">
                       {webinar.attended > 0 ? (
                         <div>
                           <span className="font-semibold text-green-600">{webinar.attended}</span>
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-muted-foreground">
                             {Math.round((webinar.attended / webinar.registered) * 100)}%
                           </p>
                         </div>
                       ) : (
-                        <span className="text-gray-400">-</span>
+                        <span className="text-muted-foreground">-</span>
                       )}
                     </td>
                     <td className="py-4 px-4 text-center">
                       {webinar.peakViewers > 0 ? (
-                        <span className="font-medium text-gray-700">{webinar.peakViewers}</span>
+                        <span className="font-medium text-muted-foreground">{webinar.peakViewers}</span>
                       ) : (
-                        <span className="text-gray-400">-</span>
+                        <span className="text-muted-foreground">-</span>
                       )}
                     </td>
                     <td className="py-4 px-4 text-center">
@@ -409,7 +409,7 @@ export default function WebinarsPage() {
                           {webinar.questions} Q&A
                         </span>
                       ) : (
-                        <span className="text-gray-400">-</span>
+                        <span className="text-muted-foreground">-</span>
                       )}
                     </td>
                     <td className="py-4 px-4 text-center">
@@ -454,9 +454,9 @@ export default function WebinarsPage() {
           {/* Empty State */}
           {filteredWebinars.length === 0 && (
             <div className="text-center py-12">
-              <Video className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-600 mb-2">No webinars found</h3>
-              <p className="text-gray-400">Try adjusting your filters</p>
+              <Video className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+              <h3 className="text-lg font-semibold text-muted-foreground mb-2">No webinars found</h3>
+              <p className="text-muted-foreground">Try adjusting your filters</p>
             </div>
           )}
         </CardContent>
@@ -467,7 +467,7 @@ export default function WebinarsPage() {
         <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
           <CardContent className="p-6">
             <div className="flex items-center gap-4">
-              <div className="p-4 bg-white rounded-xl shadow-sm">
+              <div className="p-4 bg-card rounded-xl shadow-sm">
                 <Timer className="h-8 w-8 text-blue-600" />
               </div>
               <div>
@@ -480,7 +480,7 @@ export default function WebinarsPage() {
         <Card className="bg-gradient-to-br from-green-50 to-green-100 border-green-200">
           <CardContent className="p-6">
             <div className="flex items-center gap-4">
-              <div className="p-4 bg-white rounded-xl shadow-sm">
+              <div className="p-4 bg-card rounded-xl shadow-sm">
                 <PlayCircle className="h-8 w-8 text-green-600" />
               </div>
               <div>
@@ -493,7 +493,7 @@ export default function WebinarsPage() {
         <Card className="bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200">
           <CardContent className="p-6">
             <div className="flex items-center gap-4">
-              <div className="p-4 bg-white rounded-xl shadow-sm">
+              <div className="p-4 bg-card rounded-xl shadow-sm">
                 <TrendingUp className="h-8 w-8 text-purple-600" />
               </div>
               <div>

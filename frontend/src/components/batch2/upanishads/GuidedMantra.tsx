@@ -90,7 +90,7 @@ export default function GuidedMantra({ onClose }: { onClose?: () => void }) {
                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-indigo-950/20 via-transparent to-transparent" />
             </div>
 
-            <button onClick={onClose} className="absolute top-8 right-8 text-slate-500 hover:text-white transition-colors z-[110]">
+            <button onClick={onClose} className="absolute top-8 right-8 text-muted-foreground hover:text-white transition-colors z-[110]">
                 <X className="w-8 h-8" />
             </button>
 
@@ -139,7 +139,7 @@ export default function GuidedMantra({ onClose }: { onClose?: () => void }) {
                     {/* Countdown / Progress */}
                     <div className="relative w-20 h-20 flex items-center justify-center">
                         <svg className="w-full h-full transform -rotate-90">
-                            <circle cx="40" cy="40" r="38" stroke="currentColor" strokeWidth="2" fill="transparent" className="text-slate-900" />
+                            <circle cx="40" cy="40" r="38" stroke="currentColor" strokeWidth="2" fill="transparent" className="text-foreground" />
                             <motion.circle
                                 cx="40" cy="40" r="38" stroke="currentColor" strokeWidth="4" fill="transparent"
                                 className="text-indigo-500"
@@ -154,7 +154,7 @@ export default function GuidedMantra({ onClose }: { onClose?: () => void }) {
                         <button
                             onClick={handlePrev}
                             disabled={currentStep === 0}
-                            className="p-4 rounded-full border border-white/10 text-slate-500 hover:text-white disabled:opacity-0 transition-all"
+                            className="p-4 rounded-full border border-white/10 text-muted-foreground hover:text-white disabled:opacity-0 transition-all"
                         >
                             <ChevronLeft className="w-8 h-8" />
                         </button>
@@ -170,7 +170,7 @@ export default function GuidedMantra({ onClose }: { onClose?: () => void }) {
 
                         <button
                             onClick={handleNext}
-                            className="p-4 rounded-full border border-white/10 text-slate-500 hover:text-white transition-all flex items-center gap-2"
+                            className="p-4 rounded-full border border-white/10 text-muted-foreground hover:text-white transition-all flex items-center gap-2"
                         >
                             <span className="font-black text-xs uppercase tracking-widest pl-2">Next</span>
                             <ChevronRight className="w-8 h-8" />

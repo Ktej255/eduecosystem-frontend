@@ -19,7 +19,7 @@ export default function LiveTestsPage() {
       label: "Duration",
       render: (value: string) => (
         <div className="flex items-center gap-2">
-          <Timer className="h-3 w-3 text-gray-500" />
+          <Timer className="h-3 w-3 text-muted-foreground" />
           {value}
         </div>
       )
@@ -31,7 +31,7 @@ export default function LiveTestsPage() {
       render: (value: string) => (
         <Badge variant="outline" className={
           value === "upcoming" ? "border-blue-500/50 text-blue-500 bg-blue-500/10" :
-            "border-gray-500/50 text-gray-500 bg-gray-500/10"
+            "border-gray-500/50 text-muted-foreground bg-muted-foreground/10"
         }>
           {value.charAt(0).toUpperCase() + value.slice(1)}
         </Badge>

@@ -233,14 +233,14 @@ const getStatusBadge = (status: string) => {
       );
     case "refunded":
       return (
-        <span className="flex items-center gap-1 text-xs px-2.5 py-1 bg-gray-100 text-gray-700 rounded-full font-medium">
+        <span className="flex items-center gap-1 text-xs px-2.5 py-1 bg-muted text-muted-foreground rounded-full font-medium">
           <RefreshCw className="h-3 w-3" />
           Refunded
         </span>
       );
     default:
       return (
-        <span className="text-xs px-2.5 py-1 bg-gray-100 text-gray-700 rounded-full">
+        <span className="text-xs px-2.5 py-1 bg-muted text-muted-foreground rounded-full">
           {status}
         </span>
       );
@@ -258,7 +258,7 @@ const getPaymentMethodIcon = (method: string) => {
     case "wallet":
       return <Wallet className="h-4 w-4 text-orange-600" />;
     default:
-      return <CreditCard className="h-4 w-4 text-gray-600" />;
+      return <CreditCard className="h-4 w-4 text-muted-foreground" />;
   }
 };
 
@@ -294,15 +294,15 @@ export default function TransactionsPage() {
       {/* Header */}
       <div className="flex justify-between items-start">
         <div>
-          <Link href="/admin" className="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1 mb-2">
+          <Link href="/admin" className="text-sm text-muted-foreground hover:text-muted-foreground flex items-center gap-1 mb-2">
             <ChevronLeft className="h-4 w-4" />
             Back to Dashboard
           </Link>
-          <h1 className="text-3xl font-bold text-gray-800 flex items-center gap-2">
+          <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
             <ArrowLeftRight className="h-8 w-8 text-emerald-600" />
             Transactions
           </h1>
-          <p className="text-gray-600 mt-1">View and manage all financial transactions</p>
+          <p className="text-muted-foreground mt-1">View and manage all financial transactions</p>
         </div>
         <div className="flex gap-2">
           <Button variant="outline">
@@ -327,8 +327,8 @@ export default function TransactionsPage() {
                     <stat.icon className={`h-6 w-6 ${stat.color}`} />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-gray-800">{stat.value}</p>
-                    <p className="text-sm text-gray-500">{stat.label}</p>
+                    <p className="text-2xl font-bold text-foreground">{stat.value}</p>
+                    <p className="text-sm text-muted-foreground">{stat.label}</p>
                   </div>
                 </div>
                 <div className="flex items-center text-sm text-green-600">
@@ -347,7 +347,7 @@ export default function TransactionsPage() {
           <div className="flex flex-col md:flex-row gap-4">
             {/* Search */}
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search by name, email, transaction ID..."
                 className="pl-10"
@@ -407,7 +407,7 @@ export default function TransactionsPage() {
         <CardHeader>
           <CardTitle className="flex items-center justify-between">
             <span>Recent Transactions</span>
-            <span className="text-sm font-normal text-gray-500">
+            <span className="text-sm font-normal text-muted-foreground">
               Showing {paginatedTransactions.length} of {filteredTransactions.length} transactions
             </span>
           </CardTitle>
@@ -416,44 +416,44 @@ export default function TransactionsPage() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Transaction</th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Student</th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Course</th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Method</th>
-                  <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">Amount</th>
-                  <th className="text-center py-3 px-4 text-sm font-semibold text-gray-600">Status</th>
-                  <th className="text-center py-3 px-4 text-sm font-semibold text-gray-600">Actions</th>
+                <tr className="border-b border-border">
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-muted-foreground">Transaction</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-muted-foreground">Student</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-muted-foreground">Course</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-muted-foreground">Method</th>
+                  <th className="text-right py-3 px-4 text-sm font-semibold text-muted-foreground">Amount</th>
+                  <th className="text-center py-3 px-4 text-sm font-semibold text-muted-foreground">Status</th>
+                  <th className="text-center py-3 px-4 text-sm font-semibold text-muted-foreground">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {paginatedTransactions.map((txn) => (
-                  <tr key={txn.id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                  <tr key={txn.id} className="border-b border-border hover:bg-muted transition-colors">
                     <td className="py-4 px-4">
                       <div>
-                        <p className="font-medium text-gray-800">{txn.id}</p>
-                        <p className="text-xs text-gray-500">{txn.date} • {txn.time}</p>
+                        <p className="font-medium text-foreground">{txn.id}</p>
+                        <p className="text-xs text-muted-foreground">{txn.date} • {txn.time}</p>
                       </div>
                     </td>
                     <td className="py-4 px-4">
                       <div>
-                        <p className="font-medium text-gray-800">{txn.student}</p>
-                        <p className="text-xs text-gray-500">{txn.email}</p>
+                        <p className="font-medium text-foreground">{txn.student}</p>
+                        <p className="text-xs text-muted-foreground">{txn.email}</p>
                       </div>
                     </td>
                     <td className="py-4 px-4">
-                      <p className="text-sm text-gray-700 max-w-[200px] truncate" title={txn.course}>
+                      <p className="text-sm text-muted-foreground max-w-[200px] truncate" title={txn.course}>
                         {txn.course}
                       </p>
                     </td>
                     <td className="py-4 px-4">
                       <div className="flex items-center gap-2">
                         {getPaymentMethodIcon(txn.method)}
-                        <span className="text-sm text-gray-700">{txn.method}</span>
+                        <span className="text-sm text-muted-foreground">{txn.method}</span>
                       </div>
                     </td>
                     <td className="py-4 px-4 text-right">
-                      <span className="font-semibold text-gray-800">₹{txn.amount.toLocaleString()}</span>
+                      <span className="font-semibold text-foreground">₹{txn.amount.toLocaleString()}</span>
                     </td>
                     <td className="py-4 px-4 text-center">
                       {getStatusBadge(txn.status)}
@@ -497,16 +497,16 @@ export default function TransactionsPage() {
           {/* Empty State */}
           {paginatedTransactions.length === 0 && (
             <div className="text-center py-12">
-              <ArrowLeftRight className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-600 mb-2">No transactions found</h3>
-              <p className="text-gray-400">Try adjusting your search or filters</p>
+              <ArrowLeftRight className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+              <h3 className="text-lg font-semibold text-muted-foreground mb-2">No transactions found</h3>
+              <p className="text-muted-foreground">Try adjusting your search or filters</p>
             </div>
           )}
 
           {/* Pagination */}
           {totalPages > 1 && (
             <div className="flex items-center justify-between mt-6 pt-4 border-t">
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-muted-foreground">
                 Page {currentPage} of {totalPages}
               </p>
               <div className="flex gap-2">

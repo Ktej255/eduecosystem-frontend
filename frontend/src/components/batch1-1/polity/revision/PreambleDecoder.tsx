@@ -31,10 +31,10 @@ export default function PreambleDecoder() {
 
                 <div className="grid lg:grid-cols-2 gap-12">
                     {/* The Text */}
-                    <div className="text-center md:text-left space-y-6 leading-loose text-lg md:text-xl text-slate-900 font-medium select-none">
+                    <div className="text-center md:text-left space-y-6 leading-loose text-lg md:text-xl text-foreground font-medium select-none">
                         <p className="uppercase font-bold tracking-widest text-2xl mb-6 text-center border-b-2 border-amber-900/20 pb-4">The Preamble</p>
 
-                        <div className="bg-white/50 p-6 rounded-xl shadow-inner border border-amber-100">
+                        <div className="bg-card/50 p-6 rounded-xl shadow-inner border border-amber-100">
                             <InteractiveWord text="We, THE PEOPLE" keyword="We, THE PEOPLE" onClick={setSelectedKeyword} active={selectedKeyword} /> OF INDIA, having solemnly resolved to constitute India into a <br className="hidden md:block" />
                             <InteractiveWord text=" SOVEREIGN " keyword="SOVEREIGN" onClick={setSelectedKeyword} active={selectedKeyword} />
                             <InteractiveWord text=" SOCIALIST " keyword="SOCIALIST" onClick={setSelectedKeyword} active={selectedKeyword} />
@@ -67,11 +67,11 @@ export default function PreambleDecoder() {
                                     </p>
                                 </div>
                             ) : (
-                                <div className="text-slate-500 space-y-4 relative z-10">
+                                <div className="text-muted-foreground space-y-4 relative z-10">
                                     <div className="bg-slate-800 p-4 rounded-full inline-block mb-2 group-hover:scale-110 transition-transform">
                                         <Sparkles size={32} className="text-amber-500 animate-pulse" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-slate-400">Preamble Decoder</h3>
+                                    <h3 className="text-xl font-bold text-muted-foreground">Preamble Decoder</h3>
                                     <p className="text-sm max-w-xs mx-auto">Tap any highlighted word on the left to reveal its constitutional significance.</p>
                                 </div>
                             )}

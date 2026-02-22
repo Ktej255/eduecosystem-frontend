@@ -9,9 +9,9 @@ import BudgetExplorerViz from './visualizations/BudgetExplorerViz';
 
 export default function BudgetPage() {
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-black">
+        <div className="min-h-screen bg-muted dark:bg-black">
             {/* Header */}
-            <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+            <div className="bg-card border-b border-border sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
                     <div className="flex items-center gap-4">
                         <Link href="/student/batch1/economy">
@@ -24,7 +24,7 @@ export default function BudgetPage() {
                                 <PieChart className="h-5 w-5 text-emerald-600" />
                                 Union Budget & Fiscal Policy
                             </h1>
-                            <p className="text-xs text-slate-500">Deficits, FRBM Act, and GST Council analysis.</p>
+                            <p className="text-xs text-muted-foreground">Deficits, FRBM Act, and GST Council analysis.</p>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@ export default function BudgetPage() {
                         <CardHeader>
                             <CardTitle>Key Concepts</CardTitle>
                         </CardHeader>
-                        <CardContent className="prose dark:prose-invert max-w-none text-sm text-slate-700 dark:text-slate-300">
+                        <CardContent className="prose dark:prose-invert max-w-none text-sm text-muted-foreground">
                             <h3>1. Types of Deficits</h3>
                             <ul>
                                 <li><strong>Fiscal Deficit:</strong> Total Expenditure - Total Income (excluding debt). Indicates total borrowing req.</li>

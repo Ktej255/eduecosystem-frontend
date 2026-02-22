@@ -43,7 +43,7 @@ export default function DashboardLayout({
   if (isStudentRoute) {
     return (
       <ProtectedRoute>
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+        <div className="min-h-screen bg-muted">
           <StudentHeader />
           <div className="flex">
             {/* Student Sidebar - Hidden on mobile, shown on md+ */}

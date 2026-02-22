@@ -139,7 +139,7 @@ export default function GenericRevisionDashboard({
                             </p>
                         </div>
                         {/* Streak Badge */}
-                        <div className="hidden md:flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
+                        <div className="hidden md:flex items-center gap-4 bg-card/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
                             <div className="flex items-center gap-2">
                                 <Flame className="w-8 h-8 text-orange-400" />
                                 <div>
@@ -147,7 +147,7 @@ export default function GenericRevisionDashboard({
                                     <div className="text-xs text-indigo-200">Day Streak</div>
                                 </div>
                             </div>
-                            <div className="h-12 w-px bg-white/20" />
+                            <div className="h-12 w-px bg-card/20" />
                             <div className="text-center">
                                 <div className="text-xl font-bold">{streak.totalDaysStudied}</div>
                                 <div className="text-xs text-indigo-200">Total Days</div>
@@ -160,15 +160,15 @@ export default function GenericRevisionDashboard({
             {/* Stats Grid */}
             <div className="max-w-6xl mx-auto px-6 -mt-12">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="bg-white dark:bg-[#111] rounded-2xl p-5 shadow-lg border border-gray-100 dark:border-gray-800">
+                    <div className="bg-card dark:bg-[#111] rounded-2xl p-5 shadow-lg border border-border">
                         <div className="flex items-center gap-3 mb-2">
                             <div className="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
                                 <BookOpen className="w-5 h-5 text-blue-600" />
                             </div>
-                            <span className="text-sm text-gray-500">Progress</span>
+                            <span className="text-sm text-muted-foreground">Progress</span>
                         </div>
-                        <div className="text-3xl font-black text-gray-900 dark:text-white">{stats.overallProgress}%</div>
-                        <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded-full mt-2 overflow-hidden">
+                        <div className="text-3xl font-black text-foreground">{stats.overallProgress}%</div>
+                        <div className="h-2 bg-muted rounded-full mt-2 overflow-hidden">
                             <div
                                 className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full transition-all"
                                 style={{ width: `${stats.overallProgress}%` }}
@@ -176,37 +176,37 @@ export default function GenericRevisionDashboard({
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-[#111] rounded-2xl p-5 shadow-lg border border-gray-100 dark:border-gray-800">
+                    <div className="bg-card dark:bg-[#111] rounded-2xl p-5 shadow-lg border border-border">
                         <div className="flex items-center gap-3 mb-2">
                             <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
                                 <CheckCircle2 className="w-5 h-5 text-emerald-600" />
                             </div>
-                            <span className="text-sm text-gray-500">Mastered</span>
+                            <span className="text-sm text-muted-foreground">Mastered</span>
                         </div>
-                        <div className="text-3xl font-black text-gray-900 dark:text-white">{stats.masteredChapters}</div>
-                        <div className="text-xs text-gray-500">of {stats.totalChapters} chapters</div>
+                        <div className="text-3xl font-black text-foreground">{stats.masteredChapters}</div>
+                        <div className="text-xs text-muted-foreground">of {stats.totalChapters} chapters</div>
                     </div>
 
-                    <div className="bg-white dark:bg-[#111] rounded-2xl p-5 shadow-lg border border-gray-100 dark:border-gray-800">
+                    <div className="bg-card dark:bg-[#111] rounded-2xl p-5 shadow-lg border border-border">
                         <div className="flex items-center gap-3 mb-2">
                             <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
                                 <Layers className="w-5 h-5 text-amber-600" />
                             </div>
-                            <span className="text-sm text-gray-500">Flashcards</span>
+                            <span className="text-sm text-muted-foreground">Flashcards</span>
                         </div>
-                        <div className="text-3xl font-black text-gray-900 dark:text-white">{stats.completedFlashcards}</div>
-                        <div className="text-xs text-gray-500">of {stats.totalFlashcards} completed</div>
+                        <div className="text-3xl font-black text-foreground">{stats.completedFlashcards}</div>
+                        <div className="text-xs text-muted-foreground">of {stats.totalFlashcards} completed</div>
                     </div>
 
-                    <div className="bg-white dark:bg-[#111] rounded-2xl p-5 shadow-lg border border-gray-100 dark:border-gray-800">
+                    <div className="bg-card dark:bg-[#111] rounded-2xl p-5 shadow-lg border border-border">
                         <div className="flex items-center gap-3 mb-2">
                             <div className="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
                                 <Target className="w-5 h-5 text-purple-600" />
                             </div>
-                            <span className="text-sm text-gray-500">MCQs</span>
+                            <span className="text-sm text-muted-foreground">MCQs</span>
                         </div>
-                        <div className="text-3xl font-black text-gray-900 dark:text-white">{stats.completedMcqs}</div>
-                        <div className="text-xs text-gray-500">of {stats.totalMcqs} attempted</div>
+                        <div className="text-3xl font-black text-foreground">{stats.completedMcqs}</div>
+                        <div className="text-xs text-muted-foreground">of {stats.totalMcqs} attempted</div>
                     </div>
                 </div>
             </div>
@@ -218,7 +218,7 @@ export default function GenericRevisionDashboard({
                         href={`${basePath}/srs`}
                         className="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center gap-4 group"
                     >
-                        <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <div className="w-12 h-12 rounded-xl bg-card/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                             <Brain className="w-6 h-6" />
                         </div>
                         <div className="text-left">
@@ -232,7 +232,7 @@ export default function GenericRevisionDashboard({
                         onClick={() => setShowCustomSession(!showCustomSession)}
                         className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center gap-4 group"
                     >
-                        <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <div className="w-12 h-12 rounded-xl bg-card/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                             <Sparkles className="w-6 h-6" />
                         </div>
                         <div className="text-left">
@@ -246,7 +246,7 @@ export default function GenericRevisionDashboard({
                         href={`${basePath}/quick`}
                         className="bg-gradient-to-r from-amber-500 to-orange-500 text-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center gap-4 group"
                     >
-                        <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <div className="w-12 h-12 rounded-xl bg-card/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                             <Zap className="w-6 h-6" />
                         </div>
                         <div className="text-left">
@@ -260,7 +260,7 @@ export default function GenericRevisionDashboard({
                         href={`${basePath}/facts`}
                         className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center gap-4 group"
                     >
-                        <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <div className="w-12 h-12 rounded-xl bg-card/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                             <BarChart3 className="w-6 h-6" />
                         </div>
                         <div className="text-left">
@@ -274,7 +274,7 @@ export default function GenericRevisionDashboard({
                         href={`${basePath}/weak`}
                         className="bg-gradient-to-r from-red-500 to-orange-500 text-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center gap-4 group"
                     >
-                        <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <div className="w-12 h-12 rounded-xl bg-card/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                             <TrendingDown className="w-6 h-6" />
                         </div>
                         <div className="text-left">
@@ -288,7 +288,7 @@ export default function GenericRevisionDashboard({
                         href={`${basePath}/voice`}
                         className="bg-gradient-to-r from-pink-500 to-rose-500 text-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center gap-4 group"
                     >
-                        <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <div className="w-12 h-12 rounded-xl bg-card/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                             <Mic className="w-6 h-6" />
                         </div>
                         <div className="text-left">
@@ -304,11 +304,11 @@ export default function GenericRevisionDashboard({
             {
                 showCustomSession && (
                     <div className="max-w-6xl mx-auto px-6 mt-6">
-                        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6 shadow-lg">
+                        <div className="bg-card dark:bg-[#111] rounded-2xl border border-border p-6 shadow-lg">
                             <div className="flex items-center justify-between mb-4">
                                 <h3 className="text-lg font-bold">Select Chapters for Custom Session</h3>
                                 <div className="flex items-center gap-2">
-                                    <span className="text-sm text-gray-500">{selectedChapters.length} selected</span>
+                                    <span className="text-sm text-muted-foreground">{selectedChapters.length} selected</span>
                                     {selectedChapters.length > 0 && (
                                         <button
                                             onClick={startCustomSession}
@@ -327,7 +327,7 @@ export default function GenericRevisionDashboard({
                                         onClick={() => toggleChapter(ch.id)}
                                         className={`p-3 rounded-xl text-left transition-all text-sm ${selectedChapters.includes(ch.id)
                                             ? 'bg-indigo-600 text-white'
-                                            : 'bg-gray-50 dark:bg-[#0a0a0a] text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#1a1a1a]'
+                                            : 'bg-muted dark:bg-[#0a0a0a] text-muted-foreground dark:text-muted-foreground hover:bg-muted dark:hover:bg-[#1a1a1a]'
                                             }`}
                                     >
                                         <div className="font-bold">Ch {ch.id}</div>
@@ -343,13 +343,13 @@ export default function GenericRevisionDashboard({
             {/* Filter Bar */}
             <div className="max-w-6xl mx-auto px-6 mt-8">
                 <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-white">All Chapters</h2>
+                    <h2 className="text-xl font-bold text-foreground">All Chapters</h2>
                     <div className="flex items-center gap-2">
-                        <Filter className="w-4 h-4 text-gray-500" />
+                        <Filter className="w-4 h-4 text-muted-foreground" />
                         <select
                             value={filterMode}
                             onChange={(e) => setFilterMode(e.target.value as any)}
-                            className="bg-white dark:bg-[#111] border border-gray-200 dark:border-gray-800 rounded-xl px-3 py-2 text-sm"
+                            className="bg-card dark:bg-[#111] border border-border rounded-xl px-3 py-2 text-sm"
                         >
                             <option value="all">All Chapters</option>
                             <option value="incomplete">In Progress</option>
@@ -371,12 +371,12 @@ export default function GenericRevisionDashboard({
                             <Link
                                 key={ch.id}
                                 href={`${basePath}/${ch.id}`}
-                                className="bg-white dark:bg-[#111] rounded-2xl border border-gray-100 dark:border-gray-800 p-5 hover:shadow-lg transition-all group"
+                                className="bg-card dark:bg-[#111] rounded-2xl border border-border p-5 hover:shadow-lg transition-all group"
                             >
                                 <div className="flex items-start justify-between mb-3">
                                     <div>
                                         <div className="text-xs font-bold text-indigo-600 mb-1">Chapter {ch.id}</div>
-                                        <div className="font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 transition-colors">
+                                        <div className="font-bold text-foreground group-hover:text-indigo-600 transition-colors">
                                             {ch.title}
                                         </div>
                                     </div>
@@ -390,10 +390,10 @@ export default function GenericRevisionDashboard({
                                 <div className="space-y-2">
                                     <div>
                                         <div className="flex items-center justify-between text-xs mb-1">
-                                            <span className="text-gray-500">Flashcards</span>
+                                            <span className="text-muted-foreground">Flashcards</span>
                                             <span className="font-medium">{flashcardPct}%</span>
                                         </div>
-                                        <div className="h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                                        <div className="h-1.5 bg-muted rounded-full overflow-hidden">
                                             <div
                                                 className="h-full bg-amber-500 rounded-full transition-all"
                                                 style={{ width: `${flashcardPct}%` }}
@@ -402,10 +402,10 @@ export default function GenericRevisionDashboard({
                                     </div>
                                     <div>
                                         <div className="flex items-center justify-between text-xs mb-1">
-                                            <span className="text-gray-500">MCQs</span>
+                                            <span className="text-muted-foreground">MCQs</span>
                                             <span className="font-medium">{mcqPct}%</span>
                                         </div>
-                                        <div className="h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                                        <div className="h-1.5 bg-muted rounded-full overflow-hidden">
                                             <div
                                                 className="h-full bg-purple-500 rounded-full transition-all"
                                                 style={{ width: `${mcqPct}%` }}
@@ -415,7 +415,7 @@ export default function GenericRevisionDashboard({
                                 </div>
 
                                 {p?.lastRevisedAt && (
-                                    <div className="mt-3 flex items-center gap-1 text-xs text-gray-400">
+                                    <div className="mt-3 flex items-center gap-1 text-xs text-muted-foreground">
                                         <Clock className="w-3 h-3" />
                                         Last: {new Date(p.lastRevisedAt).toLocaleDateString()}
                                     </div>

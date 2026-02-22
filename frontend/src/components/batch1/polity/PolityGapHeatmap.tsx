@@ -67,7 +67,7 @@ export default function PolityGapHeatmap({ gapData = [], onStartAudit }: PolityG
             case 'knowledge_gap': return 'bg-red-500 border-red-600 text-white';
             case 'logic_gap': return 'bg-amber-400 border-amber-500 text-black';
             case 'mastered': return 'bg-emerald-500 border-emerald-600 text-white';
-            default: return 'bg-gray-100 dark:bg-[#222] border-gray-200 dark:border-gray-800 text-gray-400';
+            default: return 'bg-muted dark:bg-[#222] border-border text-muted-foreground';
         }
     };
 
@@ -83,10 +83,10 @@ export default function PolityGapHeatmap({ gapData = [], onStartAudit }: PolityG
             <div className="flex-1">
                 <div className="flex items-center justify-between mb-6">
                     <div>
-                        <h2 className="text-2xl font-bold text-[#1F2937] dark:text-white">
+                        <h2 className="text-2xl font-bold text-[#1F2937]">
                             Cognitive Gap Heatmap
                         </h2>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm">
+                        <p className="text-muted-foreground dark:text-muted-foreground text-sm">
                             Visualise your preparation. Red blocks indicate failed Foundation tests.
                         </p>
                     </div>
@@ -110,20 +110,20 @@ export default function PolityGapHeatmap({ gapData = [], onStartAudit }: PolityG
                     })}
                     {/* Filler blocks for visual density */}
                     {Array.from({ length: 12 }).map((_, i) => (
-                        <div key={`fill-${i}`} className="aspect-square rounded-xl bg-gray-50 dark:bg-white/5 border border-dashed border-gray-200 dark:border-white/10 flex items-center justify-center opacity-30">
+                        <div key={`fill-${i}`} className="aspect-square rounded-xl bg-muted dark:bg-card/5 border border-dashed border-border dark:border-white/10 flex items-center justify-center opacity-30">
                             <span className="text-xs">{i + 23}</span>
                         </div>
                     ))}
                 </div>
 
                 <div className="flex items-center gap-6 mt-6">
-                    <div className="flex items-center gap-2 text-xs font-bold text-gray-500">
+                    <div className="flex items-center gap-2 text-xs font-bold text-muted-foreground">
                         <div className="w-3 h-3 rounded bg-red-500" /> Knowledge Gap
                     </div>
-                    <div className="flex items-center gap-2 text-xs font-bold text-gray-500">
+                    <div className="flex items-center gap-2 text-xs font-bold text-muted-foreground">
                         <div className="w-3 h-3 rounded bg-amber-400" /> Logic Gap
                     </div>
-                    <div className="flex items-center gap-2 text-xs font-bold text-gray-500">
+                    <div className="flex items-center gap-2 text-xs font-bold text-muted-foreground">
                         <div className="w-3 h-3 rounded bg-emerald-500" /> Exam Ready
                     </div>
                 </div>
@@ -131,29 +131,29 @@ export default function PolityGapHeatmap({ gapData = [], onStartAudit }: PolityG
 
             {/* GAP ANALYSIS PANEL */}
             <div className="w-full lg:w-96">
-                <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl h-full p-6 min-h-[400px]">
+                <div className="bg-card dark:bg-[#111] rounded-2xl border border-border shadow-xl h-full p-6 min-h-[400px]">
                     {!selectedChapter ? (
-                        <div className="h-full flex flex-col items-center justify-center text-center text-gray-400">
+                        <div className="h-full flex flex-col items-center justify-center text-center text-muted-foreground">
                             <BrainCircuit className="w-12 h-12 mb-4 opacity-50" />
                             <p>Select a block from the grid <br /> to analyze your gap.</p>
                         </div>
                     ) : (
                         <div className="animate-in fade-in slide-in-from-right-4 duration-300">
                             <div className="flex items-center justify-between mb-6">
-                                <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Chapter Analysis</span>
-                                <button onClick={() => setSelectedChapter(null)} className="text-gray-400 hover:text-black dark:hover:text-white">
+                                <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Chapter Analysis</span>
+                                <button onClick={() => setSelectedChapter(null)} className="text-muted-foreground hover:text-black dark:hover:text-white">
                                     <XCircle className="w-5 h-5" />
                                 </button>
                             </div>
 
                             <div className="mb-6">
-                                <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-1">
+                                <h3 className="text-2xl font-black text-foreground mb-1">
                                     Chapter {selectedChapter.id}
                                 </h3>
                                 <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase ${selectedChapter.status === 'knowledge_gap' ? 'bg-red-100 text-red-700' :
                                     selectedChapter.status === 'logic_gap' ? 'bg-amber-100 text-amber-700' :
                                         selectedChapter.status === 'mastered' ? 'bg-green-100 text-green-700' :
-                                            'bg-gray-100 text-gray-700'
+                                            'bg-muted text-muted-foreground'
                                     }`}>
                                     {selectedChapter.status === 'knowledge_gap' && <AlertTriangle className="w-3 h-3" />}
                                     {selectedChapter.status === 'mastered' && <CheckCircle className="w-3 h-3" />}
@@ -170,13 +170,13 @@ export default function PolityGapHeatmap({ gapData = [], onStartAudit }: PolityG
                                         </p>
                                         <button
                                             onClick={() => router.push(`/student/library/polity-book?page=${selectedChapter.gapDetails?.missingPage || 1}`)}
-                                            className="w-full bg-white dark:bg-black border border-red-200 dark:border-red-800 text-red-700 px-4 py-2 rounded-lg text-sm font-bold shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2"
+                                            className="w-full bg-card dark:bg-black border border-red-200 dark:border-red-800 text-red-700 px-4 py-2 rounded-lg text-sm font-bold shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2"
                                         >
                                             <BookOpen className="w-4 h-4" />
                                             Read Page {selectedChapter.gapDetails?.missingPage} (Laxmikanth)
                                         </button>
                                     </div>
-                                    <p className="text-xs text-center text-gray-400">
+                                    <p className="text-xs text-center text-muted-foreground">
                                         Recall accuracy: {selectedChapter.lastScore}% (Threshold: 85%)
                                     </p>
                                 </div>
@@ -219,7 +219,7 @@ export default function PolityGapHeatmap({ gapData = [], onStartAudit }: PolityG
                                     >
                                         Start Audit Test <ChevronRight className="w-4 h-4" />
                                     </button>
-                                    <p className="text-xs text-gray-500 mt-2">Time required: 15 mins</p>
+                                    <p className="text-xs text-muted-foreground mt-2">Time required: 15 mins</p>
                                 </div>
                             )}
                         </div>

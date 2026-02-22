@@ -48,7 +48,7 @@ export default function EmailSequencer() {
     };
 
     return (
-        <Card className="h-full border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+        <Card className="h-full border-neutral-200 dark:border-neutral-800 bg-card dark:bg-neutral-900">
             <CardHeader className="flex flex-row items-center justify-between">
                 <div>
                     <CardTitle className="flex items-center gap-2">
@@ -124,7 +124,7 @@ export default function EmailSequencer() {
                     </DialogContent>
                 </Dialog>
             </CardHeader>
-            <CardContent className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-xl min-h-[400px]">
+            <CardContent className="bg-muted/50 p-6 rounded-xl min-h-[400px]">
 
                 <div className="relative">
                     {/* Connecting Line */}
@@ -141,16 +141,16 @@ export default function EmailSequencer() {
                             >
                                 {/* Time delay Node */}
                                 <div className="flex flex-col items-center gap-1 mt-1">
-                                    <div className="w-12 h-12 rounded-full bg-white dark:bg-neutral-800 border-2 border-indigo-500 flex items-center justify-center shadow-sm z-10">
+                                    <div className="w-12 h-12 rounded-full bg-card dark:bg-neutral-800 border-2 border-indigo-500 flex items-center justify-center shadow-sm z-10">
                                         <Clock className="w-5 h-5 text-indigo-500" />
                                     </div>
-                                    <div className="text-[10px] font-bold text-neutral-400 bg-white dark:bg-neutral-900 px-1 py-0.5 rounded border">
+                                    <div className="text-[10px] font-bold text-neutral-400 bg-card dark:bg-neutral-900 px-1 py-0.5 rounded border">
                                         +{step.delayDays}d
                                     </div>
                                 </div>
 
                                 {/* Content Card */}
-                                <div className="flex-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl p-4 shadow-sm hover:shadow-md transition-all">
+                                <div className="flex-1 bg-card dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl p-4 shadow-sm hover:shadow-md transition-all">
                                     <div className="flex justify-between items-start mb-2">
                                         <div className="flex items-center gap-2">
                                             <GripVertical className="w-4 h-4 text-neutral-300" />

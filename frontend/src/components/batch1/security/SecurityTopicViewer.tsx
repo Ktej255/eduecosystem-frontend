@@ -37,7 +37,7 @@ export default function SecurityTopicViewer({ content }: SecurityTopicViewerProp
                 <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
                     <div className="flex items-center gap-4">
                         <Link href="/student/batch1/security">
-                            <Button variant="ghost" size="icon" className="hover:bg-slate-800 text-slate-400">
+                            <Button variant="ghost" size="icon" className="hover:bg-slate-800 text-muted-foreground">
                                 <ArrowLeft className="h-5 w-5" />
                             </Button>
                         </Link>
@@ -53,7 +53,7 @@ export default function SecurityTopicViewer({ content }: SecurityTopicViewerProp
                                     </Badge>
                                 )}
                             </div>
-                            <div className="flex items-center gap-3 text-[10px] text-slate-500 mt-1 uppercase tracking-widest font-black">
+                            <div className="flex items-center gap-3 text-[10px] text-muted-foreground mt-1 uppercase tracking-widest font-black">
                                 <span className="flex items-center gap-1">
                                     <Radar className="w-3 h-3 text-red-500 animate-pulse" />
                                     Security Level: Classified
@@ -82,7 +82,7 @@ export default function SecurityTopicViewer({ content }: SecurityTopicViewerProp
                         <h2 className="text-2xl font-bold mb-4">{content.description}</h2>
                         <div className="flex flex-wrap gap-2 pt-4">
                             {content.tags.map(tag => (
-                                <span key={tag} className="text-[10px] font-bold bg-slate-900 text-slate-400 px-2 py-0.5 rounded border border-slate-700">
+                                <span key={tag} className="text-[10px] font-bold bg-slate-900 text-muted-foreground px-2 py-0.5 rounded border border-slate-700">
                                     #{tag.toUpperCase()}
                                 </span>
                             ))}
@@ -108,7 +108,7 @@ export default function SecurityTopicViewer({ content }: SecurityTopicViewerProp
                         <h3 className="text-xl font-bold mb-2">
                             Cognitive Debriefing
                         </h3>
-                        <p className="text-slate-500 mb-8 max-w-md mx-auto text-sm">
+                        <p className="text-muted-foreground mb-8 max-w-md mx-auto text-sm">
                             Mark this intel as assimilated to update your performance DNA and schedule future retentions.
                         </p>
 

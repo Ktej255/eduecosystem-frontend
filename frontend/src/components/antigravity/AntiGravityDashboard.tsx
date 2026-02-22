@@ -135,7 +135,7 @@ export default function AntiGravityDashboard() {
 
             {/* Background Stars (Simple CSS implementation) */}
             <div className="fixed inset-0 pointer-events-none">
-                <div className="absolute top-[10%] left-[20%] w-1 h-1 bg-white rounded-full opacity-50 animate-pulse" />
+                <div className="absolute top-[10%] left-[20%] w-1 h-1 bg-card rounded-full opacity-50 animate-pulse" />
                 <div className="absolute top-[30%] left-[80%] w-2 h-2 bg-purple-400 rounded-full opacity-30 animate-ping" />
                 <div className="absolute top-[60%] left-[10%] w-1.5 h-1.5 bg-blue-400 rounded-full opacity-40" />
             </div>
@@ -152,7 +152,7 @@ export default function AntiGravityDashboard() {
                     <h1 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-purple-200">
                         {current_phase.name}
                     </h1>
-                    <p className="text-gray-400 mt-2 max-w-xl">
+                    <p className="text-muted-foreground mt-2 max-w-xl">
                         {current_phase.description} • <span className="text-purple-400 font-bold">Day {day_number_in_phase}</span>
                     </p>
                 </div>
@@ -167,7 +167,7 @@ export default function AntiGravityDashboard() {
                         <span className="text-xs text-emerald-300 font-bold uppercase tracking-wider">Orbit</span>
                         <div className="flex items-center gap-1">
                             <span className="text-xl font-black">{Math.round(daily_progress)}%</span>
-                            <Orbit className={`w-4 h-4 ${daily_progress >= 100 ? 'text-emerald-400 animate-spin' : 'text-gray-600'}`} />
+                            <Orbit className={`w-4 h-4 ${daily_progress >= 100 ? 'text-emerald-400 animate-spin' : 'text-muted-foreground'}`} />
                         </div>
                     </CosmicCard>
                 </div>
@@ -180,11 +180,11 @@ export default function AntiGravityDashboard() {
 
             {/* Exam Filter (Concept) */}
             <div className="max-w-7xl mx-auto px-6 mb-6 flex justify-end">
-                <div className="bg-white/5 border border-white/10 p-1 rounded-xl inline-flex gap-1">
+                <div className="bg-card/5 border border-white/10 p-1 rounded-xl inline-flex gap-1">
                     <button className="px-4 py-1.5 text-xs font-bold rounded-lg bg-purple-500 text-white shadow-lg shadow-purple-900/40 transition-all">
                         RAS Prelims
                     </button>
-                    <button className="px-4 py-1.5 text-xs font-bold rounded-lg text-gray-500 hover:text-white hover:bg-white/10 transition-all">
+                    <button className="px-4 py-1.5 text-xs font-bold rounded-lg text-muted-foreground hover:text-white hover:bg-card/10 transition-all">
                         Mains Only
                     </button>
                 </div>
@@ -212,7 +212,7 @@ export default function AntiGravityDashboard() {
                                     ${slot.is_completed
                                         ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-400'
                                         : slot.is_locked
-                                            ? 'bg-gray-800/50 border-gray-700 text-gray-500'
+                                            ? 'bg-gray-800/50 border-gray-700 text-muted-foreground'
                                             : 'bg-blue-500/20 border-blue-500/50 text-blue-400'
                                     }`}>
                                     {slot.is_locked ? <Lock className="w-5 h-5" /> :
@@ -232,15 +232,15 @@ export default function AntiGravityDashboard() {
                                             `}>
                                                 Slot {slot.slot_id}
                                             </span>
-                                            <span className="text-xs text-gray-400 font-mono">{slot.time_label}</span>
+                                            <span className="text-xs text-muted-foreground font-mono">{slot.time_label}</span>
                                         </div>
                                         {slot.is_locked && <span className="text-xs text-red-400 flex items-center gap-1"><Lock className="w-3 h-3" /> Locked</span>}
                                     </div>
 
                                     <h3 className="text-lg font-bold text-white mb-1 group-hover:text-purple-300 transition-colors">
-                                        {slot.subject}: <span className="font-normal text-gray-300">{slot.topic}</span>
+                                        {slot.subject}: <span className="font-normal text-muted-foreground">{slot.topic}</span>
                                     </h3>
-                                    <p className="text-sm text-gray-400 leading-relaxed mb-4">
+                                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                                         {slot.description}
                                     </p>
 
@@ -248,7 +248,7 @@ export default function AntiGravityDashboard() {
                                         <div className="flex items-center gap-3">
                                             <button
                                                 onClick={() => toggleSlot(slot)}
-                                                className="px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg text-sm font-bold transition-all flex items-center gap-2"
+                                                className="px-4 py-2 bg-card/10 hover:bg-card/20 border border-white/20 rounded-lg text-sm font-bold transition-all flex items-center gap-2"
                                             >
                                                 Mark Complete
                                             </button>
@@ -263,7 +263,7 @@ export default function AntiGravityDashboard() {
                                     {slot.is_completed && (
                                         <div className="text-sm text-emerald-400 font-bold flex items-center gap-2">
                                             <CheckCircle2 className="w-4 h-4" /> Mission Accomplished
-                                            <button onClick={() => toggleSlot(slot)} className="text-xs text-gray-600 hover:text-gray-400 underline ml-2">Undo</button>
+                                            <button onClick={() => toggleSlot(slot)} className="text-xs text-muted-foreground hover:text-muted-foreground underline ml-2">Undo</button>
                                         </div>
                                     )}
                                 </div>
@@ -279,18 +279,18 @@ export default function AntiGravityDashboard() {
                             <Flame className="w-6 h-6 text-orange-500" />
                             <h3 className="text-lg font-bold">Anti-Gravity State</h3>
                         </div>
-                        <p className="text-sm text-gray-400 mb-6">
+                        <p className="text-sm text-muted-foreground mb-6">
                             Maintain escape velocity. Missing 2 days in a row leads to orbital decay (Study Re-plan).
                         </p>
 
                         <div className="grid grid-cols-2 gap-4">
                             <div className="p-3 rounded-xl bg-black/20 border border-white/5 text-center">
-                                <div className="text-2xl font-black text-white">12 <span className="text-xs font-normal text-gray-500">hrs</span></div>
-                                <div className="text-[10px] text-gray-400 uppercase tracking-wider">Time Logged</div>
+                                <div className="text-2xl font-black text-white">12 <span className="text-xs font-normal text-muted-foreground">hrs</span></div>
+                                <div className="text-[10px] text-muted-foreground uppercase tracking-wider">Time Logged</div>
                             </div>
                             <div className="p-3 rounded-xl bg-black/20 border border-white/5 text-center">
-                                <div className="text-2xl font-black text-amber-500">5 <span className="text-xs font-normal text-gray-500">days</span></div>
-                                <div className="text-[10px] text-gray-400 uppercase tracking-wider">Streak</div>
+                                <div className="text-2xl font-black text-amber-500">5 <span className="text-xs font-normal text-muted-foreground">days</span></div>
+                                <div className="text-[10px] text-muted-foreground uppercase tracking-wider">Streak</div>
                             </div>
                         </div>
                     </CosmicCard>
@@ -300,7 +300,7 @@ export default function AntiGravityDashboard() {
                             <h3 className="text-lg font-bold">Sunday Test</h3>
                             <span className="text-xs font-bold bg-pink-500/20 text-pink-300 px-2 py-1 rounded">UPCOMING</span>
                         </div>
-                        <p className="text-sm text-gray-400 mb-4">
+                        <p className="text-sm text-muted-foreground mb-4">
                             Phase 1 Mock Test covering Physics & Reasoning logic.
                         </p>
                         <button
@@ -335,7 +335,7 @@ export default function AntiGravityDashboard() {
                                 <h3 className="text-lg font-bold">Inner Sanctum</h3>
                                 <div className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
                             </div>
-                            <p className="text-sm text-gray-400 mb-6">
+                            <p className="text-sm text-muted-foreground mb-6">
                                 Realign your focus. Access the void to recharge your mental cognitive load.
                             </p>
 

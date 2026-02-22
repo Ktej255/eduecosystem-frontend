@@ -322,7 +322,7 @@ export default function CycleMCQs({
     if (mcqs.length === 0) {
         return (
             <Card className="p-8 text-center">
-                <p className="text-gray-500">No MCQs available for selected subtopics.</p>
+                <p className="text-muted-foreground">No MCQs available for selected subtopics.</p>
                 <Button onClick={() => onComplete([])} className="mt-4">Continue</Button>
             </Card>
         );
@@ -330,7 +330,7 @@ export default function CycleMCQs({
 
     return (
         <div className="animate-in fade-in duration-300">
-            <Card className="bg-white dark:bg-gray-950 border-gray-200 dark:border-gray-800 shadow-xl overflow-hidden flex flex-col min-h-[600px] md:h-auto">
+            <Card className="bg-card border-border shadow-xl overflow-hidden flex flex-col min-h-[600px] md:h-auto">
                 {/* Header with persistent timer */}
                 <div className="bg-slate-900 text-white p-4 flex items-center justify-between shrink-0">
                     <div className="flex items-center gap-3">
@@ -339,13 +339,13 @@ export default function CycleMCQs({
                         </div>
                         <div>
                             <h3 className="font-bold text-sm text-white">Evening MCQ Challenge</h3>
-                            <p className="text-[10px] text-slate-400">Week {cycleNumber} Session</p>
+                            <p className="text-[10px] text-muted-foreground">Week {cycleNumber} Session</p>
                         </div>
                     </div>
 
                     <div className="flex items-center gap-6">
                         <div className="flex flex-col items-end">
-                            <span className="text-[10px] uppercase text-slate-400 font-bold">Time Remaining</span>
+                            <span className="text-[10px] uppercase text-muted-foreground font-bold">Time Remaining</span>
                             <div className={`flex items-center gap-2 text-xl font-mono font-bold ${timeLeft < 300 ? 'text-red-400 animate-pulse' : 'text-indigo-400'}`}>
                                 <Timer className="h-5 w-5" />
                                 {formatTime(timeLeft)}
@@ -353,7 +353,7 @@ export default function CycleMCQs({
                         </div>
                         <div className="h-10 w-[1px] bg-slate-800" />
                         <div className="flex flex-col items-end">
-                            <span className="text-[10px] uppercase text-slate-400 font-bold">Progress</span>
+                            <span className="text-[10px] uppercase text-muted-foreground font-bold">Progress</span>
                             <span className="text-xl font-bold text-white">{currentIndex + 1}<span className="text-slate-300 text-sm ml-1">/ {mcqs.length}</span></span>
                         </div>
                     </div>
@@ -361,7 +361,7 @@ export default function CycleMCQs({
 
                 <div className="p-4 md:p-6 flex-1 flex flex-col">
                     {/* Progress Bar */}
-                    <div className="h-1 bg-gray-100 dark:bg-gray-800 rounded-full mb-6 overflow-hidden shrink-0">
+                    <div className="h-1 bg-muted rounded-full mb-6 overflow-hidden shrink-0">
                         <div
                             className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300"
                             style={{ width: `${progress}%` }}
@@ -371,25 +371,25 @@ export default function CycleMCQs({
                     {/* Main Content Area - Single Column */}
                     <div className="flex-1 space-y-6 overflow-y-auto custom-scrollbar pb-6">
                         {/* Question Text */}
-                        <div className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-6 border border-slate-100 dark:border-slate-800">
+                        <div className="bg-muted/50 rounded-2xl p-6 border border-slate-100">
                             <span className="inline-block px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs font-bold mb-4">
                                 QUESTION {currentIndex + 1}
                             </span>
-                            <div className="text-lg md:text-xl font-medium text-slate-900 dark:text-slate-100 leading-relaxed space-y-3">
+                            <div className="text-lg md:text-xl font-medium text-foreground leading-relaxed space-y-3">
                                 {currentMCQ.question.split(/(\d+\.\s|(?:\(?[ivx]+\)?)\.\s|(?=Which of the|Select the correct answer))/g).map((part, i, arr) => {
                                     if (!part) return null;
 
                                     if (/^(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)$/.test(part)) {
                                         return <div key={i} className="flex gap-2">
                                             <span className="font-bold text-indigo-600 dark:text-indigo-400 shrink-0">{part}</span>
-                                            <span className="text-slate-800 dark:text-slate-200">{arr[i + 1]}</span>
+                                            <span className="text-foreground">{arr[i + 1]}</span>
                                         </div>;
                                     }
                                     if (i > 0 && /^(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)$/.test(arr[i - 1])) {
                                         return null;
                                     }
                                     const isTrailer = /^(Which of the|Select the correct answer)/.test(part);
-                                    return <div key={i} className={isTrailer ? "pt-2 border-t border-slate-100 dark:border-slate-800 text-base font-semibold text-slate-600 dark:text-slate-400" : ""}>
+                                    return <div key={i} className={isTrailer ? "pt-2 border-t border-slate-100 text-base font-semibold text-muted-foreground dark:text-muted-foreground" : ""}>
                                         {part}
                                     </div>;
                                 })}
@@ -406,14 +406,14 @@ export default function CycleMCQs({
                                         onClick={() => handleAnswerSelect(index)}
                                         className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center gap-4 group ${isSelected
                                             ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-500 ring-2 ring-indigo-500/10 shadow-md'
-                                            : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 hover:border-indigo-300 dark:hover:border-indigo-700 shadow-sm'
+                                            : 'bg-card border-border hover:border-indigo-300 dark:hover:border-indigo-700 shadow-sm'
                                             }`}
                                     >
-                                        <div className={`w-10 h-10 shrink-0 rounded-lg flex items-center justify-center font-bold transition-colors ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-400 group-hover:bg-indigo-100 group-hover:text-indigo-700'
+                                        <div className={`w-10 h-10 shrink-0 rounded-lg flex items-center justify-center font-bold transition-colors ${isSelected ? 'bg-indigo-600 text-white' : 'bg-muted text-muted-foreground dark:text-muted-foreground group-hover:bg-indigo-100 group-hover:text-indigo-700'
                                             }`}>
                                             {String.fromCharCode(65 + index)}
                                         </div>
-                                        <span className={`flex-1 text-base ${isSelected ? 'text-indigo-900 dark:text-indigo-100 font-bold' : 'text-slate-800 dark:text-slate-300 font-medium'}`}>
+                                        <span className={`flex-1 text-base ${isSelected ? 'text-indigo-900 dark:text-indigo-100 font-bold' : 'text-foreground font-medium'}`}>
                                             {option}
                                         </span>
                                     </button>
@@ -423,9 +423,9 @@ export default function CycleMCQs({
                     </div>
 
                     {/* Bottom Confidence Strip - Fixed or at bottom of flow */}
-                    <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 space-y-4 shrink-0">
+                    <div className="mt-6 pt-4 border-t border-slate-100 space-y-4 shrink-0">
                         <div className="flex items-center justify-between mb-2">
-                            <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                            <h4 className="text-sm font-bold text-foreground flex items-center gap-2">
                                 <Brain className="h-4 w-4 text-indigo-500" />
                                 Select Confidence
                             </h4>
@@ -438,11 +438,11 @@ export default function CycleMCQs({
                                 onClick={() => handleConfidenceSelect('sure')}
                                 className={`p-3 rounded-xl border-2 flex flex-col items-center justify-center gap-2 transition-all ${confidence === 'sure'
                                     ? 'bg-green-50 dark:bg-green-900/20 border-green-500 text-green-700 dark:text-green-300 font-bold shadow-sm'
-                                    : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-600 dark:text-slate-400 hover:border-green-300 hover:bg-green-50/50'
+                                    : 'bg-card border-border text-muted-foreground dark:text-muted-foreground hover:border-green-300 hover:bg-green-50/50'
                                     }`}
                             >
                                 <div className="flex items-center gap-2">
-                                    <CheckCircle2 className={`h-4 w-4 ${confidence === 'sure' ? 'text-green-600' : 'text-slate-400'}`} />
+                                    <CheckCircle2 className={`h-4 w-4 ${confidence === 'sure' ? 'text-green-600' : 'text-muted-foreground'}`} />
                                     <span>Sure Shot</span>
                                 </div>
                                 <span className="text-[10px] opacity-70">100% Certain</span>
@@ -453,11 +453,11 @@ export default function CycleMCQs({
                                 onClick={() => handleConfidenceSelect('50-50')}
                                 className={`p-3 rounded-xl border-2 flex flex-col items-center justify-center gap-2 transition-all ${confidence === '50-50'
                                     ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-500 text-amber-700 dark:text-amber-300 font-bold shadow-sm'
-                                    : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-600 dark:text-slate-400 hover:border-amber-300 hover:bg-amber-50/50'
+                                    : 'bg-card border-border text-muted-foreground dark:text-muted-foreground hover:border-amber-300 hover:bg-amber-50/50'
                                     }`}
                             >
                                 <div className="flex items-center gap-2">
-                                    <AlertCircle className={`h-4 w-4 ${confidence === '50-50' ? 'text-amber-600' : 'text-slate-400'}`} />
+                                    <AlertCircle className={`h-4 w-4 ${confidence === '50-50' ? 'text-amber-600' : 'text-muted-foreground'}`} />
                                     <span>50-50</span>
                                 </div>
                                 <span className="text-[10px] opacity-70">Confused b/w 2</span>
@@ -468,11 +468,11 @@ export default function CycleMCQs({
                                 onClick={() => handleConfidenceSelect('one-option')}
                                 className={`p-3 rounded-xl border-2 flex flex-col items-center justify-center gap-2 transition-all ${confidence === 'one-option'
                                     ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-500 text-blue-700 dark:text-blue-300 font-bold shadow-sm'
-                                    : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-600 dark:text-slate-400 hover:border-blue-300 hover:bg-blue-50/50'
+                                    : 'bg-card border-border text-muted-foreground dark:text-muted-foreground hover:border-blue-300 hover:bg-blue-50/50'
                                     }`}
                             >
                                 <div className="flex items-center gap-2">
-                                    <Target className={`h-4 w-4 ${confidence === 'one-option' ? 'text-blue-600' : 'text-slate-400'}`} />
+                                    <Target className={`h-4 w-4 ${confidence === 'one-option' ? 'text-blue-600' : 'text-muted-foreground'}`} />
                                     <span>One Option</span>
                                 </div>
                                 <span className="text-[10px] opacity-70">Eliminated others</span>
@@ -482,12 +482,12 @@ export default function CycleMCQs({
                             <button
                                 onClick={() => handleConfidenceSelect('blind')}
                                 className={`p-3 rounded-xl border-2 flex flex-col items-center justify-center gap-2 transition-all ${confidence === 'blind'
-                                    ? 'bg-slate-100 dark:bg-slate-800 border-slate-500 text-slate-900 dark:text-slate-100 font-bold shadow-sm'
-                                    : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-600 dark:text-slate-400 hover:border-slate-400 hover:bg-slate-50'
+                                    ? 'bg-muted border-slate-500 text-foreground font-bold shadow-sm'
+                                    : 'bg-card border-border text-muted-foreground dark:text-muted-foreground hover:border-slate-400 hover:bg-muted'
                                     }`}
                             >
                                 <div className="flex items-center gap-2">
-                                    <BookOpen className={`h-4 w-4 ${confidence === 'blind' ? 'text-slate-600' : 'text-slate-400'}`} />
+                                    <BookOpen className={`h-4 w-4 ${confidence === 'blind' ? 'text-muted-foreground' : 'text-muted-foreground'}`} />
                                     <span>Blind Guess</span>
                                 </div>
                                 <span className="text-[10px] opacity-70">No Idea</span>
@@ -498,11 +498,11 @@ export default function CycleMCQs({
                                 onClick={() => handleConfidenceSelect('other')}
                                 className={`p-3 rounded-xl border-2 flex flex-col items-center justify-center gap-2 transition-all ${confidence === 'other'
                                     ? 'bg-purple-50 dark:bg-purple-900/20 border-purple-500 text-purple-700 dark:text-purple-300 font-bold shadow-sm'
-                                    : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-600 dark:text-slate-400 hover:border-purple-300 hover:bg-purple-50/50'
+                                    : 'bg-card border-border text-muted-foreground dark:text-muted-foreground hover:border-purple-300 hover:bg-purple-50/50'
                                     }`}
                             >
                                 <div className="flex items-center gap-2">
-                                    <HelpCircle className={`h-4 w-4 ${confidence === 'other' ? 'text-purple-600' : 'text-slate-400'}`} />
+                                    <HelpCircle className={`h-4 w-4 ${confidence === 'other' ? 'text-purple-600' : 'text-muted-foreground'}`} />
                                     <span>Other</span>
                                 </div>
                                 <span className="text-[10px] opacity-70">Unspecified</span>
@@ -511,12 +511,12 @@ export default function CycleMCQs({
                     </div>
 
                     {/* Navigation Actions */}
-                    <div className="flex justify-between items-center mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 shrink-0">
+                    <div className="flex justify-between items-center mt-6 pt-4 border-t border-slate-100 shrink-0">
                         <Button
                             variant="outline"
                             onClick={handlePrevious}
                             disabled={currentIndex === 0}
-                            className="px-6 h-12 rounded-xl text-slate-600"
+                            className="px-6 h-12 rounded-xl text-muted-foreground"
                         >
                             <ArrowLeft className="mr-2 h-4 w-4" /> Previous
                         </Button>
@@ -527,7 +527,7 @@ export default function CycleMCQs({
                                     variant="ghost"
                                     onClick={onSkip}
                                     disabled={!canSkip}
-                                    className="text-slate-400 hover:text-indigo-600"
+                                    className="text-muted-foreground hover:text-indigo-600"
                                 >
                                     Skip Phase ({skipsRemaining})
                                 </Button>

@@ -27,7 +27,7 @@ export default function CreateUserPage() {
             <div className="mb-8">
                 <Link
                     href="/admin/users"
-                    className="inline-flex items-center text-sm text-gray-500 hover:text-indigo-600 mb-4 transition-colors"
+                    className="inline-flex items-center text-sm text-muted-foreground hover:text-indigo-600 mb-4 transition-colors"
                 >
                     <ArrowLeft className="mr-1 h-4 w-4" /> Back to Users
                 </Link>
@@ -35,7 +35,7 @@ export default function CreateUserPage() {
                     <UserPlus className="h-8 w-8 text-indigo-600" />
                     <h1 className="text-3xl font-bold">Create User</h1>
                 </div>
-                <p className="text-gray-600 mt-2">Add a new user to the platform.</p>
+                <p className="text-muted-foreground mt-2">Add a new user to the platform.</p>
             </div>
 
             <Card>

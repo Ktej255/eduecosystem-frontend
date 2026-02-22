@@ -61,16 +61,16 @@ export default function EconomyDashboard() {
             </div>
 
             {/* View Toggle */}
-            <div className="flex gap-4 border-b border-slate-200 dark:border-slate-800 pb-1">
+            <div className="flex gap-4 border-b border-border pb-1">
                 <button
                     onClick={() => setViewMode('sim')}
-                    className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors ${viewMode === 'sim' ? 'border-emerald-600 text-emerald-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+                    className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors ${viewMode === 'sim' ? 'border-emerald-600 text-emerald-600' : 'border-transparent text-muted-foreground hover:text-muted-foreground'}`}
                 >
                     Eco-Lab Hub
                 </button>
                 <button
                     onClick={() => setViewMode('syllabus')}
-                    className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors ${viewMode === 'syllabus' ? 'border-emerald-600 text-emerald-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+                    className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors ${viewMode === 'syllabus' ? 'border-emerald-600 text-emerald-600' : 'border-transparent text-muted-foreground hover:text-muted-foreground'}`}
                 >
                     Syllabus & Modules
                 </button>
@@ -80,9 +80,9 @@ export default function EconomyDashboard() {
                 {/* Sidebar Controls (Conditional based on viewMode) */}
                 <div className="lg:col-span-1 space-y-4">
                     {viewMode === 'sim' ? (
-                        <Card className="border-slate-200 dark:border-slate-800 shadow-sm">
+                        <Card className="border-border shadow-sm">
                             <CardHeader className="pb-3 px-4">
-                                <CardTitle className="text-sm font-bold uppercase tracking-wider text-slate-500">Eco-Lab Hub</CardTitle>
+                                <CardTitle className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Eco-Lab Hub</CardTitle>
                             </CardHeader>
                             <CardContent className="p-2 space-y-1">
                                 {VIZ_LIST.map((viz) => (
@@ -91,17 +91,17 @@ export default function EconomyDashboard() {
                                         onClick={() => setActiveViz(viz.id)}
                                         className={`w-full flex items-start gap-3 p-3 rounded-xl transition-all text-left ${activeViz === viz.id
                                             ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-100 dark:border-emerald-800'
-                                            : 'hover:bg-slate-50 dark:hover:bg-slate-800 border-transparent'
+                                            : 'hover:bg-muted dark:hover:bg-slate-800 border-transparent'
                                             } border`}
                                     >
-                                        <div className={`p-2 rounded-lg ${activeViz === viz.id ? 'bg-emerald-600 text-white shadow-md shadow-emerald-200' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}>
+                                        <div className={`p-2 rounded-lg ${activeViz === viz.id ? 'bg-emerald-600 text-white shadow-md shadow-emerald-200' : 'bg-muted text-muted-foreground'}`}>
                                             {viz.icon}
                                         </div>
                                         <div>
-                                            <h4 className={`text-sm font-bold ${activeViz === viz.id ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-700 dark:text-slate-300'}`}>
+                                            <h4 className={`text-sm font-bold ${activeViz === viz.id ? 'text-emerald-600 dark:text-emerald-400' : 'text-muted-foreground'}`}>
                                                 {viz.label}
                                             </h4>
-                                            <p className="text-[10px] text-slate-500 opacity-80 leading-tight mt-0.5">{viz.desc}</p>
+                                            <p className="text-[10px] text-muted-foreground opacity-80 leading-tight mt-0.5">{viz.desc}</p>
                                         </div>
                                     </button>
                                 ))}
@@ -134,7 +134,7 @@ export default function EconomyDashboard() {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
                                 transition={{ duration: 0.2 }}
-                                className="flex-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-xl"
+                                className="flex-1 bg-card border border-border rounded-2xl overflow-hidden shadow-xl"
                             >
                                 {VIZ_COMPONENTS[activeViz]?.()}
                             </motion.div>
@@ -146,9 +146,9 @@ export default function EconomyDashboard() {
                                     <CardHeader className="pb-3">
                                         <div className="flex justify-between items-start">
                                             <Badge variant="secondary" className="mb-2 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-400 border-emerald-100 dark:border-emerald-800">{topic.category}</Badge>
-                                            <span className="text-xs font-mono text-slate-400">{topic.days} Days</span>
+                                            <span className="text-xs font-mono text-muted-foreground">{topic.days} Days</span>
                                         </div>
-                                        <CardTitle className="text-lg text-slate-800 dark:text-slate-100 group-hover:text-emerald-600 transition-colors">
+                                        <CardTitle className="text-lg text-foreground group-hover:text-emerald-600 transition-colors">
                                             {topic.title}
                                         </CardTitle>
                                         <CardDescription className="line-clamp-2">
@@ -158,17 +158,17 @@ export default function EconomyDashboard() {
                                     <CardContent>
                                         <div className="space-y-2 mb-4">
                                             {topic.subtopics.slice(0, 3).map((sub, i) => (
-                                                <div key={i} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                                                <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground dark:text-muted-foreground">
                                                     <BookOpenCheck className="w-3 h-3 text-emerald-400" />
                                                     <span className="truncate">{sub}</span>
                                                 </div>
                                             ))}
                                             {topic.subtopics.length > 3 && (
-                                                <div className="text-xs text-slate-400 pl-5">+{topic.subtopics.length - 3} more</div>
+                                                <div className="text-xs text-muted-foreground pl-5">+{topic.subtopics.length - 3} more</div>
                                             )}
                                         </div>
                                         <Link href={`/student/batch1/economy/${topic.id}`}>
-                                            <button className="w-full py-2 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors">
+                                            <button className="w-full py-2 bg-muted hover:bg-muted dark:hover:bg-slate-700 text-muted-foreground rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors">
                                                 Start Module <ChevronRight className="w-4 h-4" />
                                             </button>
                                         </Link>
@@ -185,10 +185,10 @@ export default function EconomyDashboard() {
 
 function StatCard({ label, value, trend, icon }: { label: string, value: string, trend: string, icon: React.ReactNode }) {
     return (
-        <Card className="hover:shadow-md transition-shadow border-slate-200 dark:border-slate-800">
+        <Card className="hover:shadow-md transition-shadow border-border">
             <CardContent className="p-6">
                 <div className="flex items-center justify-between mb-4">
-                    <div className="p-2.5 bg-slate-50 dark:bg-slate-800 rounded-xl">
+                    <div className="p-2.5 bg-muted rounded-xl">
                         {icon}
                     </div>
                     {trend && (
@@ -199,7 +199,7 @@ function StatCard({ label, value, trend, icon }: { label: string, value: string,
                 </div>
                 <div>
                     <h3 className="text-2xl font-black tracking-tight mb-1">{value}</h3>
-                    <p className="text-xs font-medium text-slate-500 dark:text-gray-400 tracking-wide uppercase">{label}</p>
+                    <p className="text-xs font-medium text-muted-foreground dark:text-muted-foreground tracking-wide uppercase">{label}</p>
                 </div>
             </CardContent>
         </Card>

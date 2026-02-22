@@ -59,7 +59,7 @@ function Orbit({ radius, color, speed, label, type }: { radius: number, color: s
                 <Html position={[radius, 0.2, 0]} distanceFactor={8}>
                     <div className="bg-black/80 text-white text-[10px] px-2 py-1 rounded border border-white/20 whitespace-nowrap backdrop-blur-md">
                         <strong>{label}</strong>
-                        <div className="text-[8px] text-slate-400">{type}</div>
+                        <div className="text-[8px] text-muted-foreground">{type}</div>
                     </div>
                 </Html>
             </group>
@@ -103,7 +103,7 @@ export default function OrbitSimulation() {
                     <Satellite className="w-5 h-5 text-indigo-400" />
                     Orbital Mechanics
                 </h2>
-                <p className="text-slate-400 text-sm max-w-xs mt-1">
+                <p className="text-muted-foreground text-sm max-w-xs mt-1">
                     Comparing LEO, MEO, and GEO altitudes and velocities. Note how lower orbits require faster speeds.
                 </p>
             </div>
@@ -111,15 +111,15 @@ export default function OrbitSimulation() {
             <div className="absolute bottom-4 left-4 z-10 grid grid-cols-3 gap-2">
                 <div className="bg-slate-900/80 p-2 rounded border border-slate-700 text-center">
                     <div className="text-xs text-sky-400 font-bold">LEO</div>
-                    <div className="text-[10px] text-slate-400">Low Earth</div>
+                    <div className="text-[10px] text-muted-foreground">Low Earth</div>
                 </div>
                 <div className="bg-slate-900/80 p-2 rounded border border-slate-700 text-center">
                     <div className="text-xs text-green-400 font-bold">MEO</div>
-                    <div className="text-[10px] text-slate-400">Medium Earth</div>
+                    <div className="text-[10px] text-muted-foreground">Medium Earth</div>
                 </div>
                 <div className="bg-slate-900/80 p-2 rounded border border-slate-700 text-center">
                     <div className="text-xs text-amber-400 font-bold">GEO</div>
-                    <div className="text-[10px] text-slate-400">Geostationary</div>
+                    <div className="text-[10px] text-muted-foreground">Geostationary</div>
                 </div>
             </div>
         </div>

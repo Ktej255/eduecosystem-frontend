@@ -37,13 +37,13 @@ export default function ReportsPage() {
     return (
         <div className="space-y-8">
             <div>
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">my Reports</h1>
-                <p className="text-gray-500 mt-2">Access your deep psycho-analysis documents.</p>
+                <h1 className="text-3xl font-bold text-foreground">my Reports</h1>
+                <p className="text-muted-foreground mt-2">Access your deep psycho-analysis documents.</p>
             </div>
 
             <div className="grid grid-cols-1 gap-4">
                 {reports.map((report) => (
-                    <Card key={report.id} className={`flex items-center p-4 transition-all hover:bg-slate-50 ${report.status === "Locked" ? "opacity-60 border-dashed" : ""}`}>
+                    <Card key={report.id} className={`flex items-center p-4 transition-all hover:bg-muted ${report.status === "Locked" ? "opacity-60 border-dashed" : ""}`}>
                         <div className="flex-shrink-0 mr-6">
                             <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${report.type === "Level 3" ? "bg-red-100 text-red-600" :
                                     report.type === "Premium" ? "bg-purple-100 text-purple-600" :
@@ -55,11 +55,11 @@ export default function ReportsPage() {
 
                         <div className="flex-1">
                             <div className="flex items-center gap-2">
-                                <h3 className="font-bold text-lg text-gray-900">{report.title}</h3>
+                                <h3 className="font-bold text-lg text-foreground">{report.title}</h3>
                                 {report.type === "Premium" && <Badge variant="secondary" className="bg-purple-100 text-purple-700">Premium</Badge>}
                                 {report.type === "Level 3" && <Badge variant="outline" className="border-red-200 text-red-700">Advanced</Badge>}
                             </div>
-                            <p className="text-sm text-gray-500">Generated: {report.date}</p>
+                            <p className="text-sm text-muted-foreground">Generated: {report.date}</p>
                         </div>
 
                         <div className="flex items-center gap-4">

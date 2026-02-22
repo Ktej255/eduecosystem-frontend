@@ -84,11 +84,11 @@ export default function MarketplacePage() {
             {plans.map((plan) => (
               <div
                 key={plan.id}
-                className="border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow bg-white flex flex-col"
+                className="border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow bg-card flex flex-col"
               >
                 <div className="mb-4">
                   <h3 className="text-xl font-bold">{plan.name}</h3>
-                  <p className="text-sm text-gray-500 mt-1">
+                  <p className="text-sm text-muted-foreground mt-1">
                     {plan.description}
                   </p>
                 </div>
@@ -96,7 +96,7 @@ export default function MarketplacePage() {
                   <span className="text-3xl font-bold">
                     ${plan.monthly_price}
                   </span>
-                  <span className="text-gray-500">/month</span>
+                  <span className="text-muted-foreground">/month</span>
                   {plan.trial_days > 0 && (
                     <div className="text-sm text-green-600 font-medium mt-2">
                       {plan.trial_days}-day free trial

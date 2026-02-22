@@ -20,7 +20,7 @@ interface PresidentModuleProps {
 // --- Design System: The Presidential Seal (Royal Desk) ---
 
 const RoyalDeskContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#fcfbf7] text-slate-900">
+    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#fcfbf7] text-foreground">
         {/* Parchment Texture */}
         <div className="absolute inset-0 opacity-40 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/parchment.png')] mix-blend-multiply"></div>
         {/* Royal Watermark */}
@@ -98,7 +98,7 @@ export default function PresidentModule({ onComplete, isCompleted }: PresidentMo
             <div className="text-center relative py-10 mb-8">
                 <div className="inline-block relative">
                     <Crown size={64} className="text-purple-800 mx-auto mb-4 animate-bounce" />
-                    <div className="border-y-4 border-double border-purple-900 py-4 px-12 bg-white/50 backdrop-blur-sm">
+                    <div className="border-y-4 border-double border-purple-900 py-4 px-12 bg-card/50 backdrop-blur-sm">
                         <div className="flex items-center justify-center gap-2 text-purple-800 font-bold uppercase tracking-[0.3em] text-sm mb-2">
                             <Scale size={16} /> Part V (Art 52-78)
                         </div>
@@ -137,7 +137,7 @@ export default function PresidentModule({ onComplete, isCompleted }: PresidentMo
                                     <li>Nominated Members (Parliament/Assembly).</li>
                                     <li>Members of Legislative Councils (MLCs).</li>
                                 </ul>
-                                <div className="mt-2 text-xs text-red-700 italic bg-white/50 p-1 rounded">
+                                <div className="mt-2 text-xs text-red-700 italic bg-card/50 p-1 rounded">
                                     [PYQ Trap]: Nominated members don't vote in election, but DO vote in Impeachment!
                                 </div>
                             </div>
@@ -161,7 +161,7 @@ export default function PresidentModule({ onComplete, isCompleted }: PresidentMo
                                     <li>Initiated in <strong>EITHER</strong> House.</li>
                                     <li><strong>1/4th</strong> members must sign charges.</li>
                                     <li><strong>14 Days</strong> notice to President.</li>
-                                    <li className="bg-white/60 p-1 rounded border border-red-200">
+                                    <li className="bg-card/60 p-1 rounded border border-red-200">
                                         Passed by <strong>2/3rd of TOTAL Membership</strong> of both Houses separately. [PYQ]
                                     </li>
                                 </ol>
@@ -179,7 +179,7 @@ export default function PresidentModule({ onComplete, isCompleted }: PresidentMo
 
                         <div className="grid md:grid-cols-2 gap-8 font-handwriting text-lg">
                             <div>
-                                <h4 className="text-gray-400 text-sm uppercase mb-2">Value of 1 MLA Vote</h4>
+                                <h4 className="text-muted-foreground text-sm uppercase mb-2">Value of 1 MLA Vote</h4>
                                 <div className="text-2xl text-white mb-2">
                                     <span className="border-b-2 border-white inline-block px-2">Total Population of State</span><br />
                                     <div className="flex justify-center items-center gap-2">
@@ -192,14 +192,14 @@ export default function PresidentModule({ onComplete, isCompleted }: PresidentMo
                             </div>
 
                             <div>
-                                <h4 className="text-gray-400 text-sm uppercase mb-2">Value of 1 MP Vote</h4>
+                                <h4 className="text-muted-foreground text-sm uppercase mb-2">Value of 1 MP Vote</h4>
                                 <div className="text-2xl text-white mb-2">
                                     <span className="border-b-2 border-white inline-block px-2">Total Value of all MLAs</span><br />
                                     <span>Total Elected MPs</span>
                                 </div>
 
                                 <div className="mt-6 pt-4 border-t border-white/10">
-                                    <h4 className="text-gray-400 text-sm uppercase">Electoral Quota</h4>
+                                    <h4 className="text-muted-foreground text-sm uppercase">Electoral Quota</h4>
                                     <div className="text-xl">
                                         (Total Valid Votes / 2) + 1
                                     </div>
@@ -220,8 +220,8 @@ export default function PresidentModule({ onComplete, isCompleted }: PresidentMo
 
                 <div className="grid md:grid-cols-3 gap-6">
                     {/* VETO POWERS */}
-                    <div className="md:col-span-3 bg-white border-2 border-slate-200 p-8 shadow-inner relative overflow-hidden rounded-xl">
-                        <h3 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2 font-serif">
+                    <div className="md:col-span-3 bg-card border-2 border-border p-8 shadow-inner relative overflow-hidden rounded-xl">
+                        <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2 font-serif">
                             <Stamp size={24} /> Veto Powers (Art 111)
                         </h3>
 
@@ -239,17 +239,17 @@ export default function PresidentModule({ onComplete, isCompleted }: PresidentMo
                                 <StampMark label="RETURN" color="blue" rotation={10} />
                                 <h4 className="font-bold text-blue-900 mt-8 mb-2">Suspensive Veto</h4>
                                 <p className="text-sm text-blue-800">Return for reconsideration.</p>
-                                <p className="text-xs text-blue-600 mt-2 bg-white/50 p-1 border border-blue-200">
+                                <p className="text-xs text-blue-600 mt-2 bg-card/50 p-1 border border-blue-200">
                                     <strong>Override:</strong> Simple Majority makes it BINDING. [PYQ]
                                 </p>
                             </div>
 
                             {/* Pocket Veto */}
-                            <div className="p-6 border-2 border-slate-300 bg-slate-100 rounded-lg relative group hover:scale-105 transition-transform cursor-pointer">
+                            <div className="p-6 border-2 border-border bg-muted rounded-lg relative group hover:scale-105 transition-transform cursor-pointer">
                                 <StampMark label="PENDING..." color="green" rotation={0} />
-                                <h4 className="font-bold text-slate-900 mt-8 mb-2">Pocket Veto</h4>
-                                <p className="text-sm text-slate-800">No action. Indefinite delay.</p>
-                                <p className="text-xs text-slate-600 mt-2">Const: "No Time Limit". (Zail Singh, 1986).</p>
+                                <h4 className="font-bold text-foreground mt-8 mb-2">Pocket Veto</h4>
+                                <p className="text-sm text-foreground">No action. Indefinite delay.</p>
+                                <p className="text-xs text-muted-foreground mt-2">Const: "No Time Limit". (Zail Singh, 1986).</p>
                             </div>
                         </div>
                     </div>
@@ -280,18 +280,18 @@ export default function PresidentModule({ onComplete, isCompleted }: PresidentMo
                     <RoyalCard title="Pardoning (Art 72)" icon={Feather} color="black">
                         <ul className="space-y-3 text-sm">
                             <li className="flex justify-between border-b border-slate-700 pb-1">
-                                <span className="text-slate-400">Pardon</span>
+                                <span className="text-muted-foreground">Pardon</span>
                                 <span className="text-white font-bold">Absolves All</span>
                             </li>
                             <li className="flex justify-between border-b border-slate-700 pb-1">
-                                <span className="text-slate-400">Commutation</span>
+                                <span className="text-muted-foreground">Commutation</span>
                                 <span className="text-white font-bold">Death &rarr; Life</span>
                             </li>
                             <li className="flex justify-between border-b border-slate-700 pb-1">
-                                <span className="text-slate-400">Remission</span>
+                                <span className="text-muted-foreground">Remission</span>
                                 <span className="text-white font-bold">2yr &rarr; 1yr</span>
                             </li>
-                            <li className="flex justify-between items-center text-xs text-slate-500 pt-2">
+                            <li className="flex justify-between items-center text-xs text-muted-foreground pt-2">
                                 <span>Respite (Special Fact)</span>
                                 <span>Reprieve (Stay)</span>
                             </li>
@@ -310,7 +310,7 @@ export default function PresidentModule({ onComplete, isCompleted }: PresidentMo
                     <h2 className="text-3xl font-serif font-bold text-purple-200">Rubber Stamp or Head?</h2>
 
                     <div className="grid md:grid-cols-3 gap-8">
-                        <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-purple-500/30">
+                        <div className="bg-card/10 p-6 rounded-xl backdrop-blur-sm border border-purple-500/30">
                             <strong className="text-2xl block mb-2 text-purple-300">Art 53</strong>
                             Executive power vested in President.
                         </div>
@@ -319,7 +319,7 @@ export default function PresidentModule({ onComplete, isCompleted }: PresidentMo
                             <ArrowRight className="mx-auto text-purple-400 rotate-90 md:rotate-0" size={32} />
                         </div>
 
-                        <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-purple-500/30">
+                        <div className="bg-card/10 p-6 rounded-xl backdrop-blur-sm border border-purple-500/30">
                             <strong className="text-2xl block mb-2 text-purple-300">Art 74</strong>
                             Aid & Advise of Council of Ministers.
                         </div>
@@ -339,14 +339,14 @@ export default function PresidentModule({ onComplete, isCompleted }: PresidentMo
             </div>
 
             {/* FOOTER: VETO COMPARISON */}
-            <div className="mt-12 border-t-2 border-dashed border-slate-300 pt-8">
+            <div className="mt-12 border-t-2 border-dashed border-border pt-8">
 
                 {/* PYQ PRACTICE SECTION */}
                 <ChapterPYQSection pyqData={PRESIDENT_PYQS} />
-                <h3 className="text-center font-bold font-serif text-xl text-slate-700 mb-6 flex items-center justify-center gap-2">
+                <h3 className="text-center font-bold font-serif text-xl text-muted-foreground mb-6 flex items-center justify-center gap-2">
                     <Globe size={20} /> Veto Power Comparison
                 </h3>
-                <div className="max-w-3xl mx-auto bg-white border-2 border-slate-800 rounded-lg p-1 shadow-[4px_4px_0px_#000]">
+                <div className="max-w-3xl mx-auto bg-card border-2 border-slate-800 rounded-lg p-1 shadow-[4px_4px_0px_#000]">
                     <div className="grid grid-cols-2 text-center text-sm font-bold">
                         <div className="bg-blue-50 p-4 border-r-2 border-slate-800">
                             <span className="block text-lg mb-2 text-blue-900">🇺🇸 USA</span>

@@ -10,9 +10,9 @@ import { useMemo } from 'react';
 
 // Stub for missing Schedule View
 const PolityScheduleView = ({ isAdmin }: { isAdmin: boolean }) => (
-    <div className="p-8 text-center border-2 border-dashed border-gray-200 rounded-xl">
-        <h3 className="text-xl font-bold text-gray-500">Schedule View Updating...</h3>
-        <p className="text-gray-400">Please check the Main Dashboard for the latest schedule.</p>
+    <div className="p-8 text-center border-2 border-dashed border-border rounded-xl">
+        <h3 className="text-xl font-bold text-muted-foreground">Schedule View Updating...</h3>
+        <p className="text-muted-foreground">Please check the Main Dashboard for the latest schedule.</p>
     </div>
 );
 
@@ -273,12 +273,12 @@ export default function StorePolityEngine({ embedded = false }: { embedded?: boo
                         </p>
 
                         {/* ADAPTIVE LEVEL TABS */}
-                        <div className="flex flex-wrap gap-2 mt-8 bg-white/10 backdrop-blur p-1.5 rounded-xl border border-white/10 w-fit">
+                        <div className="flex flex-wrap gap-2 mt-8 bg-card/10 backdrop-blur p-1.5 rounded-xl border border-white/10 w-fit">
                             <button
                                 onClick={() => setAdaptiveLevel('level1')}
                                 className={`px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all ${adaptiveLevel === 'level1'
                                     ? 'bg-blue-500 text-white shadow-lg'
-                                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/5'
+                                    : 'text-muted-foreground dark:text-muted-foreground hover:bg-muted dark:hover:bg-card/5'
                                     }`}
                             >
                                 <BookOpen className="w-4 h-4" />
@@ -288,7 +288,7 @@ export default function StorePolityEngine({ embedded = false }: { embedded?: boo
                                 onClick={() => isLevel2Unlocked ? setAdaptiveLevel('level2') : handleUnlockRequest('level2')}
                                 className={`px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all ${adaptiveLevel === 'level2'
                                     ? 'bg-amber-500 text-white shadow-lg'
-                                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/5'
+                                    : 'text-muted-foreground dark:text-muted-foreground hover:bg-muted dark:hover:bg-card/5'
                                     } ${!isLevel2Unlocked && 'opacity-70'}`}
                             >
                                 <BrainCircuit className="w-4 h-4" />
@@ -298,7 +298,7 @@ export default function StorePolityEngine({ embedded = false }: { embedded?: boo
                                 onClick={() => isLevel3Unlocked ? setAdaptiveLevel('level3') : handleUnlockRequest('level3')}
                                 className={`px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all ${adaptiveLevel === 'level3'
                                     ? 'bg-red-600 text-white shadow-lg'
-                                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/5'
+                                    : 'text-muted-foreground dark:text-muted-foreground hover:bg-muted dark:hover:bg-card/5'
                                     } ${!isLevel3Unlocked && 'opacity-70'}`}
                             >
                                 <Target className="w-4 h-4" />
@@ -308,19 +308,19 @@ export default function StorePolityEngine({ embedded = false }: { embedded?: boo
 
 
                         {/* Stats Card */}
-                        <div className="bg-white dark:bg-[#111] p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl min-w-[280px] mt-8 hidden md:block absolute top-12 right-6 w-72">
+                        <div className="bg-card dark:bg-[#111] p-6 rounded-2xl border border-border shadow-xl min-w-[280px] mt-8 hidden md:block absolute top-12 right-6 w-72">
                             <div className="flex items-center justify-between mb-4">
-                                <h3 className="font-bold text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Overall Progress</h3>
+                                <h3 className="font-bold text-muted-foreground dark:text-muted-foreground text-xs uppercase tracking-wider">Overall Progress</h3>
                                 <TrendingUp className="w-4 h-4 text-green-500" />
                             </div>
                             <div className="flex items-end gap-2 mb-2">
-                                <span className="text-4xl font-black text-[#1F2937] dark:text-white">12%</span>
+                                <span className="text-4xl font-black text-[#1F2937]">12%</span>
                                 <span className="text-sm text-green-500 font-bold mb-1.5">+2.4%</span>
                             </div>
-                            <div className="w-full bg-gray-100 dark:bg-gray-800 h-2 rounded-full overflow-hidden">
+                            <div className="w-full bg-muted h-2 rounded-full overflow-hidden">
                                 <div className="bg-blue-500 h-full rounded-full" style={{ width: '12%' }}></div>
                             </div>
-                            <div className="mt-4 flex items-center justify-between text-xs text-gray-500">
+                            <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
                                 <span>32/280 Topics</span>
                                 <span>45h 20m spent</span>
                             </div>
@@ -335,7 +335,7 @@ export default function StorePolityEngine({ embedded = false }: { embedded?: boo
 
                         {/* Navigation Tabs */}
                         {!selectedModule && (
-                            <div className="flex items-center gap-1 mt-12 border-b border-gray-200 dark:border-gray-800">
+                            <div className="flex items-center gap-1 mt-12 border-b border-border">
                                 {[
                                     { id: 'map', label: 'Content Map', icon: PenTool },
                                     { id: 'topics', label: 'Adaptive Modules', icon: Book },
@@ -348,7 +348,7 @@ export default function StorePolityEngine({ embedded = false }: { embedded?: boo
                                         onClick={() => setView(tab.id as any)}
                                         className={`px-6 py-4 text-sm font-bold flex items-center gap-2 border-b-2 transition-all ${view === tab.id
                                             ? 'border-blue-500 text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-blue-900/20'
-                                            : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 hover:dark:text-gray-200'
+                                            : 'border-transparent text-muted-foreground hover:text-muted-foreground dark:text-muted-foreground hover:dark:text-gray-200'
                                             }`}
                                     >
                                         <tab.icon className="w-4 h-4" />
@@ -385,7 +385,7 @@ export default function StorePolityEngine({ embedded = false }: { embedded?: boo
                                 {/* AUDIT SIMULATOR OVERLAY */}
                                 {activeAuditChapter && (
                                     <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
-                                        <div className="bg-white dark:bg-[#0a0a0a] w-full max-w-4xl rounded-3xl max-h-[90vh] overflow-y-auto shadow-2xl">
+                                        <div className="bg-card dark:bg-[#0a0a0a] w-full max-w-4xl rounded-3xl max-h-[90vh] overflow-y-auto shadow-2xl">
                                             <PolityExamSimulator
                                                 title={`Chapter ${activeAuditChapter} Audit`}
                                                 description="Rapid Fire Audit. 5 Questions. Prove you read the book."
@@ -400,7 +400,7 @@ export default function StorePolityEngine({ embedded = false }: { embedded?: boo
                                 {/* Today's Target Widget - NEW */}
                                 {!embedded && todayTarget && (
                                     <div className="max-w-6xl mx-auto px-6 -mt-8 relative z-10">
-                                        <div className="bg-white dark:bg-[#111] rounded-3xl border border-blue-200 dark:border-blue-900 shadow-2xl p-6 flex flex-col md:flex-row items-center gap-6">
+                                        <div className="bg-card dark:bg-[#111] rounded-3xl border border-blue-200 dark:border-blue-900 shadow-2xl p-6 flex flex-col md:flex-row items-center gap-6">
                                             <div className="flex-shrink-0 w-20 h-20 bg-blue-100 dark:bg-blue-900/40 rounded-2xl flex flex-col items-center justify-center text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-800">
                                                 <span className="text-[10px] uppercase font-black opacity-60">Day</span>
                                                 <span className="text-3xl font-black">{todayTarget.day.substring(0, 3)}</span>
@@ -414,9 +414,9 @@ export default function StorePolityEngine({ embedded = false }: { embedded?: boo
                                                         }`}>
                                                         Today's {todayTarget.type}
                                                     </span>
-                                                    <span className="text-sm text-gray-500 font-medium">Week {todayTarget.week} Schedule</span>
+                                                    <span className="text-sm text-muted-foreground font-medium">Week {todayTarget.week} Schedule</span>
                                                 </div>
-                                                <h3 className="text-xl font-black text-gray-900 dark:text-white">
+                                                <h3 className="text-xl font-black text-foreground">
                                                     {todayTarget.type === 'MCQ'
                                                         ? (todayTarget.data as string[]).join(' • ')
                                                         : (todayTarget.data as any[]).length > 0
@@ -425,11 +425,11 @@ export default function StorePolityEngine({ embedded = false }: { embedded?: boo
                                                     }
                                                 </h3>
                                                 <div className="flex items-center gap-4 mt-2">
-                                                    <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                                                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                                                         <Clock className="w-3.5 h-3.5" /> {todayTarget.slots} Pomodoros
                                                     </div>
                                                     {todayTarget.type === 'Study' && (
-                                                        <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                                                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                                                             <Book className="w-3.5 h-3.5" /> {(todayTarget.data as any[]).reduce((s, c) => s + (c.pages || 0), 0)} pages
                                                         </div>
                                                     )}
@@ -451,19 +451,19 @@ export default function StorePolityEngine({ embedded = false }: { embedded?: boo
 
                                 {/* Tab Navigation for Syllabus List */}
                                 <div className="max-w-6xl mx-auto px-6 mt-12">
-                                    <div className="flex border-b border-gray-200 dark:border-gray-800">
+                                    <div className="flex border-b border-border">
                                         <button
                                             onClick={() => setView('topics')}
                                             className={`px-8 py-4 text-sm font-bold transition-all border-b-2 ${view === 'topics'
                                                 ? 'text-blue-600 border-blue-600'
-                                                : 'text-gray-500 border-transparent hover:text-gray-700'
+                                                : 'text-muted-foreground border-transparent hover:text-muted-foreground'
                                                 }`}
                                         >
                                             Detailed Syllabus (95 Topics)
                                         </button>
                                         <button
                                             onClick={() => setView('schedule')}
-                                            className={`px-8 py-4 text-sm font-bold transition-all border-b-2 flex items-center gap-2 text-gray-500 border-transparent hover:text-gray-700`}
+                                            className={`px-8 py-4 text-sm font-bold transition-all border-b-2 flex items-center gap-2 text-muted-foreground border-transparent hover:text-muted-foreground`}
                                         >
                                             <Clock className="w-4 h-4" />
                                             Full Schedule
@@ -476,18 +476,18 @@ export default function StorePolityEngine({ embedded = false }: { embedded?: boo
                                             <Link
                                                 key={topic.id}
                                                 href={`/student/batch1/polity/topic/${topic.id}`}
-                                                className="flex items-center gap-4 bg-white dark:bg-[#111] rounded-xl border border-gray-200 dark:border-gray-800 p-4 hover:shadow-lg hover:border-blue-500 transition-all"
+                                                className="flex items-center gap-4 bg-card dark:bg-[#111] rounded-xl border border-border p-4 hover:shadow-lg hover:border-blue-500 transition-all"
                                             >
                                                 <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-700 dark:text-blue-300 font-bold">
                                                     {topic.id}
                                                 </div>
                                                 <div className="flex-1">
-                                                    <div className="font-semibold text-[#1F2937] dark:text-white">{topic.title}</div>
-                                                    <div className="text-sm text-gray-500 dark:text-gray-400">
+                                                    <div className="font-semibold text-[#1F2937]">{topic.title}</div>
+                                                    <div className="text-sm text-muted-foreground dark:text-muted-foreground">
                                                         {topic.keyConcepts.length} concepts • {topic.currentAffairs.length} CA updates
                                                     </div>
                                                 </div>
-                                                <ChevronRight className="w-5 h-5 text-gray-400" />
+                                                <ChevronRight className="w-5 h-5 text-muted-foreground" />
                                             </Link>
                                         ))}
                                     </div>

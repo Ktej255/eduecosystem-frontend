@@ -159,7 +159,7 @@ export default function CreateCoursePage() {
           Back
         </Button>
         <h1 className="text-3xl font-bold mb-2">Create New Course</h1>
-        <p className="text-gray-400">
+        <p className="text-muted-foreground">
           Follow the steps below to create your course
         </p>
       </div>
@@ -175,7 +175,7 @@ export default function CreateCoursePage() {
                   ? "text-blue-500"
                   : step.id < currentStep
                     ? "text-green-500"
-                    : "text-gray-500"
+                    : "text-muted-foreground"
                 }`}
             >
               <div
@@ -183,7 +183,7 @@ export default function CreateCoursePage() {
                     ? "bg-blue-500 text-white"
                     : step.id < currentStep
                       ? "bg-green-500 text-white"
-                      : "bg-gray-700 text-gray-400"
+                      : "bg-gray-700 text-muted-foreground"
                   }`}
               >
                 {step.id < currentStep ? (
@@ -193,7 +193,7 @@ export default function CreateCoursePage() {
                 )}
               </div>
               <div className="text-sm font-medium text-center">{step.name}</div>
-              <div className="text-xs text-gray-500 text-center hidden sm:block">
+              <div className="text-xs text-muted-foreground text-center hidden sm:block">
                 {step.description}
               </div>
             </div>
@@ -314,7 +314,7 @@ export default function CreateCoursePage() {
                       placeholder="0.00"
                       className="bg-gray-800 border-gray-700"
                     />
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-muted-foreground">
                       Set to 0 for free course
                     </p>
                   </div>
@@ -374,11 +374,11 @@ export default function CreateCoursePage() {
                       </div>
                     ) : (
                       <>
-                        <Upload className="w-12 h-12 mx-auto mb-4 text-gray-500" />
-                        <p className="text-gray-400 mb-2">
+                        <Upload className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
+                        <p className="text-muted-foreground mb-2">
                           Click to upload or drag and drop
                         </p>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-muted-foreground">
                           PNG, JPG up to 5MB (Recommended: 1280x720)
                         </p>
                         <input
@@ -413,22 +413,22 @@ export default function CreateCoursePage() {
 
                   <div className="space-y-3">
                     <div>
-                      <Label className="text-gray-400">Title</Label>
+                      <Label className="text-muted-foreground">Title</Label>
                       <p className="text-lg font-medium">{formData.title}</p>
                     </div>
 
                     <div>
-                      <Label className="text-gray-400">Description</Label>
-                      <p className="text-gray-300">{formData.description}</p>
+                      <Label className="text-muted-foreground">Description</Label>
+                      <p className="text-muted-foreground">{formData.description}</p>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <Label className="text-gray-400">Level</Label>
+                        <Label className="text-muted-foreground">Level</Label>
                         <p className="capitalize">{formData.level}</p>
                       </div>
                       <div>
-                        <Label className="text-gray-400">Price</Label>
+                        <Label className="text-muted-foreground">Price</Label>
                         <p>
                           {formData.price === 0 ? "Free" : `$${formData.price}`}
                         </p>
@@ -437,7 +437,7 @@ export default function CreateCoursePage() {
 
                     {thumbnailPreview && (
                       <div>
-                        <Label className="text-gray-400">Thumbnail</Label>
+                        <Label className="text-muted-foreground">Thumbnail</Label>
                         <img
                           src={thumbnailPreview}
                           alt="Course thumbnail"

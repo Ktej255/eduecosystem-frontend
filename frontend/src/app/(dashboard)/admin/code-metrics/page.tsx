@@ -12,8 +12,8 @@ export default function CodeMetricsPage() {
                     <LayoutDashboard className="h-5 w-5" />
                 </div>
                 <div>
-                    <h1 className="text-3xl font-black text-gray-900 dark:text-gray-100 tracking-tight">System Metrics</h1>
-                    <p className="text-gray-500 text-sm">Deep dive into the EduEcosystem enterprise architecture.</p>
+                    <h1 className="text-3xl font-black text-foreground tracking-tight">System Metrics</h1>
+                    <p className="text-muted-foreground text-sm">Deep dive into the EduEcosystem enterprise architecture.</p>
                 </div>
             </div>
 

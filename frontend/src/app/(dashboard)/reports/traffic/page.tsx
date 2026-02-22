@@ -164,15 +164,15 @@ export default function TrafficPage() {
       {/* Header */}
       <div className="flex justify-between items-start">
         <div>
-          <Link href="/admin" className="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1 mb-2">
+          <Link href="/admin" className="text-sm text-muted-foreground hover:text-muted-foreground flex items-center gap-1 mb-2">
             <ChevronLeft className="h-4 w-4" />
             Back to Dashboard
           </Link>
-          <h1 className="text-3xl font-bold text-gray-800 flex items-center gap-2">
+          <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
             <MousePointerClick className="h-8 w-8 text-emerald-600" />
             Traffic Analytics
           </h1>
-          <p className="text-gray-600 mt-1">Monitor visitor traffic and engagement patterns</p>
+          <p className="text-muted-foreground mt-1">Monitor visitor traffic and engagement patterns</p>
         </div>
         <div className="flex gap-2">
           <Select value={dateRange} onValueChange={setDateRange}>
@@ -209,8 +209,8 @@ export default function TrafficPage() {
                     <stat.icon className={`h-6 w-6 ${stat.color}`} />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-gray-800">{stat.value}</p>
-                    <p className="text-sm text-gray-500">{stat.label}</p>
+                    <p className="text-2xl font-bold text-foreground">{stat.value}</p>
+                    <p className="text-sm text-muted-foreground">{stat.label}</p>
                   </div>
                 </div>
                 <div className={`flex items-center text-sm ${stat.trend === "up" ? "text-green-600" : "text-red-600"}`}>
@@ -297,18 +297,18 @@ export default function TrafficPage() {
                       <span style={{ color: source.color }}>{getSourceIcon(source.name)}</span>
                     </div>
                     <div>
-                      <p className="font-medium text-gray-800">{source.name}</p>
-                      <p className="text-xs text-gray-500">{source.visits.toLocaleString()} visits</p>
+                      <p className="font-medium text-foreground">{source.name}</p>
+                      <p className="text-xs text-muted-foreground">{source.visits.toLocaleString()} visits</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-24 h-2 bg-gray-100 rounded-full overflow-hidden">
+                    <div className="w-24 h-2 bg-muted rounded-full overflow-hidden">
                       <div
                         className="h-full rounded-full transition-all"
                         style={{ width: `${source.value}%`, backgroundColor: source.color }}
                       />
                     </div>
-                    <span className="text-sm font-medium text-gray-600 w-12 text-right">
+                    <span className="text-sm font-medium text-muted-foreground w-12 text-right">
                       {source.value}%
                     </span>
                   </div>
@@ -352,7 +352,7 @@ export default function TrafficPage() {
               {deviceData.map((device) => (
                 <div key={device.name} className="flex items-center gap-2">
                   <device.icon className="h-4 w-4" style={{ color: device.color }} />
-                  <span className="text-sm text-gray-600">{device.name}</span>
+                  <span className="text-sm text-muted-foreground">{device.name}</span>
                   <span className="text-sm font-bold" style={{ color: device.color }}>
                     {device.value}%
                   </span>
@@ -379,20 +379,20 @@ export default function TrafficPage() {
               {topPages.map((page, index) => (
                 <div
                   key={page.path}
-                  className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                  className="flex items-center justify-between p-3 bg-muted rounded-lg hover:bg-muted transition-colors"
                 >
                   <div className="flex items-center gap-3">
                     <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs font-bold">
                       {index + 1}
                     </span>
                     <div>
-                      <p className="font-medium text-gray-800 text-sm">{page.title}</p>
-                      <p className="text-xs text-gray-400">{page.path}</p>
+                      <p className="font-medium text-foreground text-sm">{page.title}</p>
+                      <p className="text-xs text-muted-foreground">{page.path}</p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="font-semibold text-gray-800">{page.views.toLocaleString()}</p>
-                    <p className="text-xs text-gray-500">{page.unique.toLocaleString()} unique</p>
+                    <p className="font-semibold text-foreground">{page.views.toLocaleString()}</p>
+                    <p className="text-xs text-muted-foreground">{page.unique.toLocaleString()} unique</p>
                   </div>
                 </div>
               ))}
@@ -414,7 +414,7 @@ export default function TrafficPage() {
               {geoData.map((geo) => (
                 <div
                   key={geo.country}
-                  className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                  className="flex items-center justify-between p-3 bg-muted rounded-lg"
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-lg">
@@ -424,16 +424,16 @@ export default function TrafficPage() {
                             geo.country === "UAE" ? "🇦🇪" :
                               geo.country === "Canada" ? "🇨🇦" : "🌍"}
                     </span>
-                    <span className="font-medium text-gray-800">{geo.country}</span>
+                    <span className="font-medium text-foreground">{geo.country}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="w-24 h-2 bg-muted rounded-full overflow-hidden">
                       <div
                         className="h-full bg-emerald-500 rounded-full"
                         style={{ width: `${geo.percentage}%` }}
                       />
                     </div>
-                    <span className="text-sm text-gray-600 w-16 text-right">
+                    <span className="text-sm text-muted-foreground w-16 text-right">
                       {geo.visits.toLocaleString()}
                     </span>
                     <span className="text-sm font-medium text-emerald-600 w-10 text-right">

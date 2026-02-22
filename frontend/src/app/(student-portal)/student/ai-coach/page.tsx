@@ -11,11 +11,11 @@ export default function AICoachPage() {
     return (
         <div className="container mx-auto py-8 max-w-5xl space-y-8">
             <div className="flex flex-col gap-2">
-                <h1 className="text-3xl font-bold text-slate-900 flex items-center gap-3">
+                <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
                     <BrainCircuit className="w-8 h-8 text-indigo-600" />
                     AI Learning Assistant
                 </h1>
-                <p className="text-slate-600 text-lg">
+                <p className="text-muted-foreground text-lg">
                     Your personal 24/7 UPSC tutor. Chat with the AI Coach to clear doubts or generate custom tests from your notes.
                 </p>
             </div>

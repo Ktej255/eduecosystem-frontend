@@ -54,7 +54,7 @@ export function PushNotificationManager() {
                     {permission === "granted" ? (
                         <Bell className="w-5 h-5 text-green-500" />
                     ) : (
-                        <BellOff className="w-5 h-5 text-gray-400" />
+                        <BellOff className="w-5 h-5 text-muted-foreground" />
                     )}
                     Nudge Notifications
                 </CardTitle>
@@ -66,7 +66,7 @@ export function PushNotificationManager() {
                 <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
                         <p className="text-sm font-medium text-gray-200">Browser Status</p>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-muted-foreground">
                             {permission === "granted"
                                 ? "Notifications are currently active."
                                 : permission === "denied"

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { SCIENCE_TECH_CONTENT, ScienceTopic } from "./data/ras-science-tech-data";
+import DOMPurify from "dompurify";
 
 interface RASScienceTechViewerProps {
     onExit: () => void;
@@ -149,7 +150,7 @@ function SectionCard({ section }: { section: ScienceTopic['sections'][0] }) {
                                             <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-2 shrink-0" />
                                             <span dangerouslySetInnerHTML={{
                                                 // Simple markdown-like bold parsing
-                                                __html: pt.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>')
+                                                __html: DOMPurify.sanitize(pt.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>'))
                                             }} />
                                         </li>
                                     ))}
@@ -168,7 +169,7 @@ function SectionCard({ section }: { section: ScienceTopic['sections'][0] }) {
                                             <li key={idx} className="text-neutral-400 text-sm flex gap-2">
                                                 <span className="text-neutral-600">•</span>
                                                 <span dangerouslySetInnerHTML={{
-                                                    __html: pt.replace(/\*\*(.*?)\*\*/g, '<strong class="text-neutral-200">$1</strong>')
+                                                    __html: DOMPurify.sanitize(pt.replace(/\*\*(.*?)\*\*/g, '<strong class="text-neutral-200">$1</strong>'))
                                                 }} />
                                             </li>
                                         ))}

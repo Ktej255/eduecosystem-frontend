@@ -52,12 +52,12 @@ const ComparisonRow = ({ aspect, col2, col3, col4, isPYQTrap, highlight = 'none'
             if (colName === 'col3') return 'bg-orange-50 font-bold text-orange-800';
             if (colName === 'col4') return 'bg-green-50 font-bold text-green-800';
         }
-        return 'text-slate-600';
+        return 'text-muted-foreground';
     };
 
     return (
-        <tr className={`border-b border-slate-200 hover:bg-slate-50 transition-colors ${isPYQTrap ? 'bg-red-50' : ''} ${className || ''}`}>
-            <td className="p-3 font-semibold text-slate-700 border-r border-slate-200 align-top">
+        <tr className={`border-b border-border hover:bg-muted transition-colors ${isPYQTrap ? 'bg-red-50' : ''} ${className || ''}`}>
+            <td className="p-3 font-semibold text-muted-foreground border-r border-border align-top">
                 <div className="flex items-center gap-2">
                     {aspect}
                     {isPYQTrap && (
@@ -84,7 +84,7 @@ const ComparisonTable = ({ data }: { data: ComparisonData }) => {
     const [isExpanded, setIsExpanded] = useState(true);
 
     return (
-        <Card className="border-2 border-slate-200 shadow-xl overflow-hidden mt-6">
+        <Card className="border-2 border-border shadow-xl overflow-hidden mt-6">
             <CardHeader className={`${data.headerBg} text-white`}>
                 <div className="flex items-center justify-between">
                     <CardTitle className="flex items-center gap-3 text-xl">
@@ -95,7 +95,7 @@ const ComparisonTable = ({ data }: { data: ComparisonData }) => {
                         variant="ghost"
                         size="sm"
                         onClick={() => setIsExpanded(!isExpanded)}
-                        className="text-white hover:bg-white/20"
+                        className="text-white hover:bg-card/20"
                     >
                         {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                     </Button>
@@ -110,8 +110,8 @@ const ComparisonTable = ({ data }: { data: ComparisonData }) => {
                     <div className="overflow-x-auto">
                         <table className="w-full border-collapse text-sm">
                             <thead>
-                                <tr className="bg-slate-100 border-b-2 border-slate-300">
-                                    <th className="p-3 text-left font-bold text-slate-700 border-r w-1/4">Aspect</th>
+                                <tr className="bg-muted border-b-2 border-border">
+                                    <th className="p-3 text-left font-bold text-muted-foreground border-r w-1/4">Aspect</th>
                                     {data.columns.map((col, idx) => (
                                         <th key={idx} className={`p-3 text-left font-bold ${col.className}`}>
                                             <div className="flex items-center gap-2">
@@ -292,7 +292,7 @@ const COMPARISON_DATA: ComparisonData[] = [
         headerText: "Different methods of amending the Indian Constitution",
         columns: [
             { title: "Requirement", className: "text-pink-700 bg-pink-50 w-[20%]" },
-            { title: "Example Subjects", className: "text-slate-700 bg-slate-50 w-[35%]" },
+            { title: "Example Subjects", className: "text-muted-foreground bg-muted w-[35%]" },
             { title: "Article 368?", className: "text-purple-700 bg-purple-50 w-[20%]" },
         ],
         rows: [
@@ -450,7 +450,7 @@ const COMPARISON_DATA: ComparisonData[] = [
         headerBg: "bg-gradient-to-r from-slate-700 to-gray-600",
         headerText: "Military Rule (Art 34) vs Constitutional Emergency (Art 352)",
         columns: [
-            { title: "Martial Law (Art 34)", className: "text-slate-800 bg-slate-100" },
+            { title: "Martial Law (Art 34)", className: "text-foreground bg-muted" },
             { title: "National Emergency (Art 352)", className: "text-red-800 bg-red-50" }
         ],
         rows: [
@@ -508,14 +508,14 @@ export default function SmartComparisonTables() {
                     <Scale size={28} />
                     <h1 className="text-2xl font-bold">Smart Comparison Tables</h1>
                 </div>
-                <p className="mt-3 text-slate-600">
+                <p className="mt-3 text-muted-foreground">
                     Essential UPSC Polity Comparisons • PYQ Traps Highlighted
                 </p>
             </div>
 
             {/* Tab Navigation */}
             <Tabs defaultValue="pres-gov" className="w-full">
-                <TabsList className="grid w-full grid-cols-7 bg-white border-2 border-slate-200 rounded-xl p-1 h-auto">
+                <TabsList className="grid w-full grid-cols-7 bg-card border-2 border-border rounded-xl p-1 h-auto">
                     <TabsTrigger value="pres-gov" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-orange-500 data-[state=active]:text-white p-2">
                         Pres vs Gov
                     </TabsTrigger>

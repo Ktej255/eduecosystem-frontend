@@ -190,7 +190,7 @@ export default function InteriorEarthViz() {
                             </span>
                             Interior of the Earth
                         </CardTitle>
-                        <CardDescription className="text-slate-400">
+                        <CardDescription className="text-muted-foreground">
                             Interactive 3D Layer Analysis
                         </CardDescription>
                     </div>
@@ -201,7 +201,7 @@ export default function InteriorEarthViz() {
                             </Badge>
                             <button
                                 onClick={() => setActiveLayer(null)}
-                                className="ml-2 text-slate-400 hover:text-white text-xs underline"
+                                className="ml-2 text-muted-foreground hover:text-white text-xs underline"
                             >
                                 Reset
                             </button>
@@ -228,15 +228,15 @@ export default function InteriorEarthViz() {
                             </h3>
                             <div className="space-y-3">
                                 <div>
-                                    <div className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Depth</div>
+                                    <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Depth</div>
                                     <div className="text-sm text-slate-200 font-mono">{LAYER_INFO[activeLayer].depth}</div>
                                 </div>
                                 <div>
-                                    <div className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Composition</div>
+                                    <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Composition</div>
                                     <div className="text-sm text-slate-200">{LAYER_INFO[activeLayer].composition}</div>
                                 </div>
                                 <div>
-                                    <div className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Temperature</div>
+                                    <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Temperature</div>
                                     <div className="text-sm text-slate-200">{LAYER_INFO[activeLayer].temp}</div>
                                 </div>
                             </div>

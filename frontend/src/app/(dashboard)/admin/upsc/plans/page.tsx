@@ -47,16 +47,16 @@ export default function PlansPage() {
 
             {/* Plans Grid */}
             {loading ? (
-                <div className="text-center py-12 text-gray-500">Loading plans...</div>
+                <div className="text-center py-12 text-muted-foreground">Loading plans...</div>
             ) : plans.length === 0 ? (
-                <div className="text-center py-12 bg-gray-50 rounded-2xl border border-dashed border-gray-300">
-                    <p className="text-gray-500 mb-4">No plans found. Generate one to get started.</p>
+                <div className="text-center py-12 bg-muted rounded-2xl border border-dashed border-border">
+                    <p className="text-muted-foreground mb-4">No plans found. Generate one to get started.</p>
                     <button onClick={() => setShowGenerateModal(true)} className="text-[var(--primary-blue)] font-medium hover:underline">Generate New Plan</button>
                 </div>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {plans.map((plan) => (
-                        <Link key={plan.id} href={`/admin/upsc/plans/${plan.id}`} className="group bg-white p-6 rounded-2xl shadow-sm border border-[var(--neutral-cool-grey)] hover:border-[var(--primary-blue)] transition-all hover:shadow-md">
+                        <Link key={plan.id} href={`/admin/upsc/plans/${plan.id}`} className="group bg-card p-6 rounded-2xl shadow-sm border border-[var(--neutral-cool-grey)] hover:border-[var(--primary-blue)] transition-all hover:shadow-md">
                             <div className="flex justify-between items-start mb-4">
                                 <div className="px-3 py-1 bg-[var(--primary-blue)]/10 text-[var(--primary-blue)] rounded-full text-xs font-bold uppercase">
                                     {plan.plan_type}
@@ -88,10 +88,10 @@ export default function PlansPage() {
             {/* Generate Modal */}
             {showGenerateModal && (
                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 backdrop-blur-sm">
-                    <div className="bg-white rounded-2xl p-8 w-full max-w-lg shadow-2xl animate-in fade-in zoom-in duration-200">
+                    <div className="bg-card rounded-2xl p-8 w-full max-w-lg shadow-2xl animate-in fade-in zoom-in duration-200">
                         <div className="flex justify-between items-center mb-6">
                             <h2 className="text-xl font-bold text-[var(--primary-indigo)]">Generate AI Plan</h2>
-                            <button onClick={() => setShowGenerateModal(false)} className="text-gray-400 hover:text-gray-600">✕</button>
+                            <button onClick={() => setShowGenerateModal(false)} className="text-muted-foreground hover:text-muted-foreground">✕</button>
                         </div>
 
                         <form onSubmit={(e) => {
@@ -114,7 +114,7 @@ export default function PlansPage() {
                             <div className="space-y-4">
                                 <div>
                                     <label className="block text-sm font-medium text-[var(--neutral-slate-grey)] mb-1">Select Batch</label>
-                                    <select name="batch_id" required className="w-full px-4 py-2 rounded-lg border border-[var(--neutral-cool-grey)] focus:border-[var(--primary-blue)] focus:ring-2 focus:ring-[var(--primary-blue)]/20 outline-none transition-all bg-white">
+                                    <select name="batch_id" required className="w-full px-4 py-2 rounded-lg border border-[var(--neutral-cool-grey)] focus:border-[var(--primary-blue)] focus:ring-2 focus:ring-[var(--primary-blue)]/20 outline-none transition-all bg-card">
                                         {batches.map(b => <option key={b.id} value={b.id}>{b.name}</option>)}
                                     </select>
                                 </div>
@@ -142,7 +142,7 @@ export default function PlansPage() {
                                 <button type="submit" className="w-full py-3 bg-[var(--primary-blue)] text-white rounded-xl font-medium hover:opacity-90 transition-opacity flex justify-center items-center gap-2">
                                     <span>✨</span> Generate Plan with Grok AI
                                 </button>
-                                <p className="text-xs text-center text-gray-400 mt-3">This may take up to 30 seconds.</p>
+                                <p className="text-xs text-center text-muted-foreground mt-3">This may take up to 30 seconds.</p>
                             </div>
                         </form>
                     </div>

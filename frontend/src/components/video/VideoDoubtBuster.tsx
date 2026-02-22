@@ -77,7 +77,7 @@ export function VideoDoubtBuster({ lessonId, segmentKey, transcript }: VideoDoub
                                 <Sparkles className="h-5 w-5 text-cyan-400" />
                                 <span className="font-bold text-white">Doubt-Buster AI</span>
                             </div>
-                            <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-white">
+                            <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="text-muted-foreground hover:text-white">
                                 <X className="h-4 w-4" />
                             </Button>
                         </div>

@@ -216,8 +216,8 @@ export default function AIDebugPage() {
             {/* Header */}
             <div className="flex justify-between items-center">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">AI Transparency Dashboard</h1>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">
+                    <h1 className="text-3xl font-bold text-foreground">AI Transparency Dashboard</h1>
+                    <p className="text-muted-foreground dark:text-muted-foreground mt-1">
                         Monitor and debug AI operations step-by-step
                     </p>
                 </div>
@@ -244,8 +244,8 @@ export default function AIDebugPage() {
                         <CardContent className="p-4">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">Total Sessions (7d)</p>
-                                    <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{stats.total_sessions}</p>
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">Total Sessions (7d)</p>
+                                    <p className="text-2xl font-bold text-foreground">{stats.total_sessions}</p>
                                 </div>
                                 <Activity className="h-8 w-8 text-blue-500" />
                             </div>
@@ -255,8 +255,8 @@ export default function AIDebugPage() {
                         <CardContent className="p-4">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">Total Tokens</p>
-                                    <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{stats.total_tokens.toLocaleString()}</p>
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">Total Tokens</p>
+                                    <p className="text-2xl font-bold text-foreground">{stats.total_tokens.toLocaleString()}</p>
                                 </div>
                                 <Cpu className="h-8 w-8 text-purple-500" />
                             </div>
@@ -266,8 +266,8 @@ export default function AIDebugPage() {
                         <CardContent className="p-4">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">Avg Duration</p>
-                                    <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{formatDuration(stats.avg_duration_ms)}</p>
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">Avg Duration</p>
+                                    <p className="text-2xl font-bold text-foreground">{formatDuration(stats.avg_duration_ms)}</p>
                                 </div>
                                 <Clock className="h-8 w-8 text-green-500" />
                             </div>
@@ -277,8 +277,8 @@ export default function AIDebugPage() {
                         <CardContent className="p-4">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">Error Rate</p>
-                                    <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">Error Rate</p>
+                                    <p className="text-2xl font-bold text-foreground">
                                         {stats.total_sessions > 0
                                             ? ((stats.error_count / stats.total_sessions) * 100).toFixed(1)
                                             : 0}%
@@ -294,7 +294,7 @@ export default function AIDebugPage() {
             {/* Search and Filter */}
             <div className="flex gap-4">
                 <div className="relative flex-1">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                         placeholder="Search sessions..."
                         value={searchTerm}
@@ -305,7 +305,7 @@ export default function AIDebugPage() {
                 <select
                     value={filterType}
                     onChange={(e) => setFilterType(e.target.value)}
-                    className="px-4 py-2 border rounded-lg bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
+                    className="px-4 py-2 border rounded-lg bg-card dark:bg-neutral-800 text-foreground"
                 >
                     <option value="all">All Types</option>
                     <option value="drill_evaluation">Drill Evaluation</option>
@@ -326,7 +326,7 @@ export default function AIDebugPage() {
                 </CardHeader>
                 <CardContent>
                     {filteredSessions.length === 0 ? (
-                        <div className="text-center py-8 text-gray-500">
+                        <div className="text-center py-8 text-muted-foreground">
                             No AI sessions found. Sessions will appear here when students use AI features.
                         </div>
                     ) : (
@@ -335,7 +335,7 @@ export default function AIDebugPage() {
                                 <div key={session.session_id} className="border rounded-lg">
                                     {/* Session Header */}
                                     <div
-                                        className="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-neutral-800"
+                                        className="flex items-center justify-between p-4 cursor-pointer hover:bg-muted dark:hover:bg-neutral-800"
                                         onClick={() => toggleSession(session.session_id)}
                                     >
                                         <div className="flex items-center gap-3">
@@ -345,10 +345,10 @@ export default function AIDebugPage() {
                                             }
                                             {getStatusIcon(session)}
                                             <div>
-                                                <div className="font-medium text-gray-900 dark:text-gray-100">
+                                                <div className="font-medium text-foreground">
                                                     {session.operation_type.replace(/_/g, " ").toUpperCase()}
                                                 </div>
-                                                <div className="text-sm text-gray-500 dark:text-gray-400">
+                                                <div className="text-sm text-muted-foreground dark:text-muted-foreground">
                                                     {session.session_id} • {formatDate(session.created_at)}
                                                 </div>
                                             </div>
@@ -357,10 +357,10 @@ export default function AIDebugPage() {
                                             <Badge variant={session.had_errors ? "destructive" : "secondary"}>
                                                 {session.total_steps} steps
                                             </Badge>
-                                            <span className="text-sm text-gray-500 dark:text-gray-400">
+                                            <span className="text-sm text-muted-foreground dark:text-muted-foreground">
                                                 {session.total_tokens} tokens
                                             </span>
-                                            <span className="text-sm text-gray-500 dark:text-gray-400">
+                                            <span className="text-sm text-muted-foreground dark:text-muted-foreground">
                                                 {formatDuration(session.total_duration_ms)}
                                             </span>
                                         </div>
@@ -368,18 +368,18 @@ export default function AIDebugPage() {
 
                                     {/* Expanded Steps */}
                                     {expandedSession === session.session_id && (
-                                        <div className="border-t bg-gray-50 dark:bg-neutral-900 p-4">
+                                        <div className="border-t bg-muted dark:bg-neutral-900 p-4">
                                             {sessionSteps[session.session_id] ? (
                                                 <div className="space-y-3">
                                                     {sessionSteps[session.session_id].map((step) => (
                                                         <div
                                                             key={step.step_number}
-                                                            className="bg-white dark:bg-neutral-800 rounded-lg p-4 border"
+                                                            className="bg-card dark:bg-neutral-800 rounded-lg p-4 border"
                                                         >
                                                             <div className="flex items-center justify-between mb-2">
                                                                 <div className="flex items-center gap-2">
                                                                     <Badge variant="outline">Step {step.step_number}</Badge>
-                                                                    <span className="font-medium text-gray-900 dark:text-gray-100">
+                                                                    <span className="font-medium text-foreground">
                                                                         {step.step_name.replace(/_/g, " ")}
                                                                     </span>
                                                                     {step.is_fallback && (
@@ -391,25 +391,25 @@ export default function AIDebugPage() {
                                                                         <Badge variant="destructive">Failed</Badge>
                                                                     )}
                                                                 </div>
-                                                                <div className="text-sm text-gray-500 dark:text-gray-400">
+                                                                <div className="text-sm text-muted-foreground dark:text-muted-foreground">
                                                                     {step.model_used} • {step.tokens_used} tokens • {formatDuration(step.duration_ms)}
                                                                 </div>
                                                             </div>
-                                                            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                                                            <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-2">
                                                                 {step.step_description}
                                                             </p>
 
                                                             {/* Input/Output Preview */}
                                                             <div className="grid grid-cols-2 gap-4 mt-3">
                                                                 <div>
-                                                                    <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">INPUT</p>
-                                                                    <pre className="text-xs bg-gray-100 dark:bg-neutral-700 p-2 rounded overflow-auto max-h-32">
+                                                                    <p className="text-xs font-medium text-muted-foreground dark:text-muted-foreground mb-1">INPUT</p>
+                                                                    <pre className="text-xs bg-muted dark:bg-neutral-700 p-2 rounded overflow-auto max-h-32">
                                                                         {step.input_summary || "No input"}
                                                                     </pre>
                                                                 </div>
                                                                 <div>
-                                                                    <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">OUTPUT</p>
-                                                                    <pre className="text-xs bg-gray-100 dark:bg-neutral-700 p-2 rounded overflow-auto max-h-32">
+                                                                    <p className="text-xs font-medium text-muted-foreground dark:text-muted-foreground mb-1">OUTPUT</p>
+                                                                    <pre className="text-xs bg-muted dark:bg-neutral-700 p-2 rounded overflow-auto max-h-32">
                                                                         {step.output_summary || "No output"}
                                                                     </pre>
                                                                 </div>
@@ -435,7 +435,7 @@ export default function AIDebugPage() {
                                                 </div>
                                             ) : (
                                                 <div className="flex items-center justify-center py-4">
-                                                    <RefreshCw className="h-5 w-5 animate-spin text-gray-400" />
+                                                    <RefreshCw className="h-5 w-5 animate-spin text-muted-foreground" />
                                                 </div>
                                             )}
                                         </div>

@@ -65,7 +65,7 @@ export default function UniversalQuestionBank({ initialSubject = 'history' }: Un
             {/* Header */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                 <div>
-                    <h1 className="text-3xl font-bold text-neutral-900 dark:text-white mb-2">Centralized Question Bank</h1>
+                    <h1 className="text-3xl font-bold text-neutral-900 mb-2">Centralized Question Bank</h1>
                     <p className="text-neutral-500">Standardized MCQ Archives across all subjects</p>
                 </div>
                 <div className="flex flex-col md:flex-row gap-4 w-full md:w-auto">
@@ -73,12 +73,12 @@ export default function UniversalQuestionBank({ initialSubject = 'history' }: Un
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" />
                         <Input
                             placeholder="Search chapters..."
-                            className="pl-10 rounded-xl w-full md:w-64 bg-white dark:bg-neutral-900"
+                            className="pl-10 rounded-xl w-full md:w-64 bg-card dark:bg-neutral-900"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
                     </div>
-                    <div className="flex items-center gap-2 bg-white dark:bg-neutral-900 p-1.5 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm">
+                    <div className="flex items-center gap-2 bg-card dark:bg-neutral-900 p-1.5 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm">
                         {SUBJECT_CONFIGS.map(sub => {
                             const Icon = sub.icon;
                             const isActive = selectedSubject === sub.id;
@@ -110,16 +110,16 @@ export default function UniversalQuestionBank({ initialSubject = 'history' }: Un
                         <p className="text-indigo-100 text-sm font-bold uppercase tracking-wider mb-1">Total Questions</p>
                         <h2 className="text-4xl font-black">{currentStats.totalQuestions}</h2>
                         <div className="mt-4 flex items-center gap-2 text-xs text-indigo-100">
-                            <Badge className="bg-white/20 text-white border-none">Active</Badge>
+                            <Badge className="bg-card/20 text-white border-none">Active</Badge>
                             <span>Across {currentStats.activeChapters} Digitized Chapters</span>
                         </div>
                     </CardContent>
                 </Card>
 
-                <Card className="bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 shadow-sm">
+                <Card className="bg-card dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 shadow-sm">
                     <CardContent className="p-6">
                         <p className="text-neutral-400 text-sm font-bold uppercase tracking-wider mb-1">Subject Coverage</p>
-                        <h2 className="text-3xl font-bold text-neutral-900 dark:text-white">
+                        <h2 className="text-3xl font-bold text-neutral-900">
                             {currentStats.totalChapters > 0 ? Math.round((currentStats.activeChapters / currentStats.totalChapters) * 100) : 0}%
                         </h2>
                         <div className="mt-4 w-full h-2 bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden">
@@ -131,10 +131,10 @@ export default function UniversalQuestionBank({ initialSubject = 'history' }: Un
                     </CardContent>
                 </Card>
 
-                <Card className="bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 shadow-sm">
+                <Card className="bg-card dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 shadow-sm">
                     <CardContent className="p-6">
                         <p className="text-neutral-400 text-sm font-bold uppercase tracking-wider mb-1">Standard Levels</p>
-                        <h2 className="text-3xl font-bold text-neutral-900 dark:text-white">Tiered Access</h2>
+                        <h2 className="text-3xl font-bold text-neutral-900">Tiered Access</h2>
                         <p className="text-xs text-neutral-500 mt-2">Level 1 (Core), Level 2 (Advanced), Level 3 (Exam Mode)</p>
                     </CardContent>
                 </Card>
@@ -143,7 +143,7 @@ export default function UniversalQuestionBank({ initialSubject = 'history' }: Un
             {/* Chapters Grid */}
             <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                    <h2 className="text-xl font-bold text-neutral-900 dark:text-white">Digitized Chapters ({activeChapters.length})</h2>
+                    <h2 className="text-xl font-bold text-neutral-900">Digitized Chapters ({activeChapters.length})</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -158,7 +158,7 @@ export default function UniversalQuestionBank({ initialSubject = 'history' }: Un
                                 </div>
 
                                 <div>
-                                    <h3 className="font-bold text-neutral-900 dark:text-white line-clamp-1">{chapter.title}</h3>
+                                    <h3 className="font-bold text-neutral-900 line-clamp-1">{chapter.title}</h3>
                                     <p className="text-xs text-neutral-500 flex items-center gap-1 mt-1">
                                         <FileText className="w-3 h-3" />
                                         {chapter.mcqCount} Questions Archived
@@ -212,9 +212,9 @@ export default function UniversalQuestionBank({ initialSubject = 'history' }: Un
                 </div>
 
                 {activeChapters.length === 0 && (
-                    <div className="py-20 text-center bg-white dark:bg-neutral-900 rounded-3xl border border-neutral-200 dark:border-neutral-800">
+                    <div className="py-20 text-center bg-card dark:bg-neutral-900 rounded-3xl border border-neutral-200 dark:border-neutral-800">
                         <Target className="w-12 h-12 text-neutral-200 mx-auto mb-4" />
-                        <h3 className="text-lg font-bold text-neutral-900 dark:text-white">No chapters found</h3>
+                        <h3 className="text-lg font-bold text-neutral-900">No chapters found</h3>
                         <p className="text-neutral-500">Try adjusting your search or subject filter.</p>
                     </div>
                 )}

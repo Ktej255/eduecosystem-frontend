@@ -93,7 +93,7 @@ export default function OralQuizManager({ subjectName, topics, onClose }: OralQu
                 animate={{ opacity: 1, scale: 1 }}
                 className="w-full max-w-lg"
             >
-                <Card className="border-indigo-100 dark:border-indigo-900 bg-white dark:bg-slate-900 shadow-2xl overflow-hidden">
+                <Card className="border-indigo-100 dark:border-indigo-900 bg-card shadow-2xl overflow-hidden">
                     <CardHeader className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6">
                         <div className="flex justify-between items-start">
                             <div className="space-y-1">
@@ -106,7 +106,7 @@ export default function OralQuizManager({ subjectName, topics, onClose }: OralQu
                             <Button
                                 variant="ghost"
                                 size="icon"
-                                className="text-white/70 hover:bg-white/20 hover:text-white -mr-2 -mt-2"
+                                className="text-white/70 hover:bg-card/20 hover:text-white -mr-2 -mt-2"
                                 onClick={onClose}
                             >
                                 <X className="w-5 h-5" />
@@ -123,7 +123,7 @@ export default function OralQuizManager({ subjectName, topics, onClose }: OralQu
                                     state === 'listening' ? "bg-red-100 text-red-600 ring-4 ring-red-200" :
                                         state === 'processing' ? "bg-amber-100 text-amber-600 animate-bounce" :
                                             state === 'feedback' ? (feedbackType === 'correct' ? "bg-green-100 text-green-600" : "bg-orange-100 text-orange-600") :
-                                                "bg-slate-100 text-slate-400"
+                                                "bg-muted text-muted-foreground"
                             )}>
                                 {state === 'asking' && <Volume2 className="w-10 h-10" />}
                                 {state === 'listening' && <Mic className="w-10 h-10" />}
@@ -136,28 +136,28 @@ export default function OralQuizManager({ subjectName, topics, onClose }: OralQu
                         <div className="text-center space-y-4">
                             {state === 'asking' && (
                                 <div className="space-y-2">
-                                    <h3 className="text-lg font-medium text-slate-700 dark:text-slate-200">Listening to Question...</h3>
-                                    <p className="text-slate-500 italic">"{currentQuestion}"</p>
+                                    <h3 className="text-lg font-medium text-muted-foreground">Listening to Question...</h3>
+                                    <p className="text-muted-foreground italic">"{currentQuestion}"</p>
                                     <TTSPlayer text={currentQuestion} autoPlay={true} onEnd={handleSpeechEnd} className="hidden" />
                                 </div>
                             )}
 
                             {state === 'listening' && (
                                 <div className="space-y-4">
-                                    <h3 className="text-lg font-medium text-slate-800 dark:text-slate-100">Your Turn To Speak</h3>
+                                    <h3 className="text-lg font-medium text-foreground">Your Turn To Speak</h3>
                                     <VoiceInput
                                         onTranscript={handleTranscript}
                                         isListening={true}
                                         className="scale-125"
                                     />
-                                    <p className="text-xs text-slate-400">Listening...</p>
+                                    <p className="text-xs text-muted-foreground">Listening...</p>
                                 </div>
                             )}
 
                             {state === 'processing' && (
                                 <div className="space-y-2">
-                                    <h3 className="text-lg font-medium text-slate-700">Evaluating Answer...</h3>
-                                    <p className="text-slate-500">"{userAnswer}"</p>
+                                    <h3 className="text-lg font-medium text-muted-foreground">Evaluating Answer...</h3>
+                                    <p className="text-muted-foreground">"{userAnswer}"</p>
                                 </div>
                             )}
 
@@ -166,21 +166,21 @@ export default function OralQuizManager({ subjectName, topics, onClose }: OralQu
                                     <h3 className={cn("text-lg font-bold", feedbackType === 'correct' ? "text-green-600" : "text-orange-600")}>
                                         {feedbackType === 'correct' ? "Correct!" : "Needs Improvement"}
                                     </h3>
-                                    <p className="text-slate-600 dark:text-slate-300">"{feedback}"</p>
+                                    <p className="text-muted-foreground">"{feedback}"</p>
                                     <TTSPlayer text={feedback} autoPlay={true} className="hidden" />
                                 </div>
                             )}
                         </div>
                     </CardContent>
 
-                    <CardFooter className="bg-slate-50 dark:bg-slate-950/50 p-4 flex justify-center">
+                    <CardFooter className="bg-muted/50 p-4 flex justify-center">
                         {state === 'feedback' && (
                             <Button onClick={nextQuestion} className="w-full max-w-xs bg-indigo-600 hover:bg-indigo-700 text-white">
                                 Next Question
                             </Button>
                         )}
                         {state === 'listening' && (
-                            <Button variant="ghost" onClick={() => setState('asking')} className="text-xs text-slate-400">
+                            <Button variant="ghost" onClick={() => setState('asking')} className="text-xs text-muted-foreground">
                                 Repeat Question
                             </Button>
                         )}

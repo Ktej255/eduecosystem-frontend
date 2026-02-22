@@ -82,7 +82,7 @@ export function KnowledgeTree({ progress = 0.5 }: { progress?: number }) {
         <div className="w-full h-[400px] rounded-xl overflow-hidden bg-gray-950 relative border border-gray-800 shadow-2xl">
             <div className="absolute top-4 left-4 z-10">
                 <h3 className="text-sm font-bold text-cyan-400 uppercase tracking-widest">Sadhana Tree</h3>
-                <p className="text-xs text-gray-500">Growth based on your progress</p>
+                <p className="text-xs text-muted-foreground">Growth based on your progress</p>
             </div>
 
             <Canvas dpr={[1, 2]}>

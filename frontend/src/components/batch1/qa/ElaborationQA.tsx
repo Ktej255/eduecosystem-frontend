@@ -359,10 +359,10 @@ export default function ElaborationQA({ cycleId, day, onClose }: ElaborationQAPr
                 </div>
 
                 <div>
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                    <h2 className="text-2xl font-bold text-foreground mb-2">
                         Q&A Session Complete! 🎉
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-muted-foreground dark:text-muted-foreground">
                         You explained {questions.length * 4} options across {questions.length} questions
                     </p>
                 </div>
@@ -371,8 +371,8 @@ export default function ElaborationQA({ cycleId, day, onClose }: ElaborationQAPr
                     <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20">
                         <CardContent className="p-6 text-center">
                             <div className="text-5xl font-bold text-blue-600 mb-2">{avgScore}%</div>
-                            <div className="text-gray-600">Average Understanding Score</div>
-                            <div className="text-sm text-gray-500 mt-2">
+                            <div className="text-muted-foreground">Average Understanding Score</div>
+                            <div className="text-sm text-muted-foreground mt-2">
                                 Total: {finalTotal} / {questions.length * 100} points
                             </div>
                         </CardContent>
@@ -410,7 +410,7 @@ export default function ElaborationQA({ cycleId, day, onClose }: ElaborationQAPr
                 <Button variant="ghost" size="sm" onClick={onClose}>
                     <ArrowLeft className="mr-2 h-4 w-4" /> Back
                 </Button>
-                <div className="text-sm text-gray-500">
+                <div className="text-sm text-muted-foreground">
                     Question {currentIndex + 1} of {questions.length}
                 </div>
             </div>
@@ -438,7 +438,7 @@ export default function ElaborationQA({ cycleId, day, onClose }: ElaborationQAPr
                             {currentQuestion.topic}
                         </span>
                     </div>
-                    <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                    <h2 className="text-xl font-semibold text-foreground">
                         {currentQuestion.question}
                     </h2>
                 </CardContent>
@@ -469,11 +469,11 @@ export default function ElaborationQA({ cycleId, day, onClose }: ElaborationQAPr
                                         ? 'bg-green-500 text-white'
                                         : recording.isAnalyzed
                                             ? 'bg-amber-500 text-white'
-                                            : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                                            : 'bg-muted text-muted-foreground dark:text-muted-foreground'
                                         }`}>
                                         {String.fromCharCode(65 + idx)}
                                     </span>
-                                    <span className="text-gray-800 dark:text-gray-200 pt-1 flex-1">
+                                    <span className="text-foreground pt-1 flex-1">
                                         {option}
                                     </span>
                                     {recording.isAnalyzed && recording.isCorrect && (
@@ -485,7 +485,7 @@ export default function ElaborationQA({ cycleId, day, onClose }: ElaborationQAPr
                                 </div>
 
                                 {/* Recording Controls */}
-                                <div className="flex items-center gap-3 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                                <div className="flex items-center gap-3 p-3 bg-muted rounded-lg">
                                     {!recording.audioUrl && !recording.isRecording && !recording.isAnalyzing && (
                                         <Button
                                             size="sm"
@@ -535,7 +535,7 @@ export default function ElaborationQA({ cycleId, day, onClose }: ElaborationQAPr
                                                 <Play className="h-4 w-4 mr-2" />
                                                 Play
                                             </Button>
-                                            <span className="text-sm text-gray-500">
+                                            <span className="text-sm text-muted-foreground">
                                                 {formatTime(recording.duration)}
                                             </span>
                                             {!recording.isAnalyzed && (
@@ -571,8 +571,8 @@ export default function ElaborationQA({ cycleId, day, onClose }: ElaborationQAPr
             </div>
 
             {/* Progress Summary */}
-            <div className="flex items-center justify-between p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                <div className="text-sm text-gray-600 dark:text-gray-400">
+            <div className="flex items-center justify-between p-4 bg-muted rounded-lg">
+                <div className="text-sm text-muted-foreground dark:text-muted-foreground">
                     Explained: {recordings.filter(r => r.isAnalyzed).length} / 4 options
                 </div>
                 {allAnalyzed && (
@@ -602,7 +602,7 @@ export default function ElaborationQA({ cycleId, day, onClose }: ElaborationQAPr
 
             {/* Helper Text */}
             {!allAnalyzed && (
-                <p className="text-center text-sm text-gray-500">
+                <p className="text-center text-sm text-muted-foreground">
                     <AlertCircle className="inline h-4 w-4 mr-1" />
                     Record your voice explanation for all 4 options to proceed
                 </p>

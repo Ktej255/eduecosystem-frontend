@@ -26,7 +26,7 @@ export default function MagazinesPage() {
                         <BookOpen className="h-6 w-6 text-yellow-600" />
                         Yojana & Kurukshetra
                     </h1>
-                    <p className="text-gray-500 text-sm">
+                    <p className="text-muted-foreground text-sm">
                         Monthly gist of key development journals.
                     </p>
                 </div>
@@ -36,7 +36,7 @@ export default function MagazinesPage() {
                 {magazines.map((mag, idx) => (
                     <Card key={idx} className="group hover:shadow-lg transition-all">
                         <CardContent className="p-0">
-                            <div className="h-40 bg-gray-100 flex items-center justify-center text-gray-400 font-bold text-2xl uppercase tracking-wider">
+                            <div className="h-40 bg-muted flex items-center justify-center text-muted-foreground font-bold text-2xl uppercase tracking-wider">
                                 COVER
                             </div>
                             <div className="p-4">
@@ -44,9 +44,9 @@ export default function MagazinesPage() {
                                     <span className={`text-xs font-bold px-2 py-1 rounded ${mag.type === 'Yojana' ? 'bg-orange-100 text-orange-700' : 'bg-green-100 text-green-700'}`}>
                                         {mag.type}
                                     </span>
-                                    <span className="text-xs text-gray-500">{mag.month}</span>
+                                    <span className="text-xs text-muted-foreground">{mag.month}</span>
                                 </div>
-                                <h3 className="font-bold text-lg text-gray-800 leading-tight mb-4">{mag.title}</h3>
+                                <h3 className="font-bold text-lg text-foreground leading-tight mb-4">{mag.title}</h3>
                                 <Button className="w-full gap-2" variant="outline">
                                     <Download className="h-4 w-4" /> Download Gist
                                 </Button>

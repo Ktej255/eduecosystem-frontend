@@ -27,7 +27,7 @@ const RefereeContainer = ({ children }: { children: React.ReactNode }) => (
 
 const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any, color: string }) => (
     <div className="flex items-center gap-4 my-8">
-        <div className={`p-3 rounded-xl bg-white shadow-sm border-2 ${color}`}>
+        <div className={`p-3 rounded-xl bg-card shadow-sm border-2 ${color}`}>
             <Icon className={color.replace('border-', 'text-')} size={24} />
         </div>
         <h2 className={`text-2xl font-black uppercase tracking-tight ${color.replace('border-', 'text-')} font-['Kalam']`}>
@@ -38,13 +38,13 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
 );
 
 const RefereeCard = ({ title, children, color = "border-blue-700", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 
         <h3 className={`text-xl font-bold mb-4 flex items-center gap-2 font-['Kalam'] ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-700 relative z-10 font-medium">
+        <div className="space-y-4 text-muted-foreground relative z-10 font-medium">
             {children}
         </div>
     </div>
@@ -54,7 +54,7 @@ export default function ElectionCommissionModule({ onComplete, isCompleted, chap
     return (
         <RefereeContainer>
             {/* HERO SECTION */}
-            <div className="relative bg-white border-4 border-blue-900 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(30,58,138,1)] overflow-hidden">
+            <div className="relative bg-card border-4 border-blue-900 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(30,58,138,1)] overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -mr-16 -mt-16 opacity-50"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
@@ -62,11 +62,11 @@ export default function ElectionCommissionModule({ onComplete, isCompleted, chap
                         <div className="h-[2px] w-12 bg-blue-900"></div>
                         <span className="text-blue-500 font-bold uppercase tracking-widest text-sm">The Umpire of Democracy</span>
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 font-['Kalam'] leading-tight">
+                    <h1 className="text-4xl md:text-6xl font-black text-foreground mb-6 font-['Kalam'] leading-tight">
                         Election Commission <br />
                         <span className="text-purple-700">Whistle & Cards</span>
                     </h1>
-                    <p className="text-xl text-slate-600 max-w-2xl leading-relaxed italic">
+                    <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed italic">
                         "The guardian of free and fair elections, ensuring the unbiased conduct of the democratic festival."
                     </p>
                 </div>
@@ -84,16 +84,16 @@ export default function ElectionCommissionModule({ onComplete, isCompleted, chap
                         Superintendence, direction, and control of elections to:
                     </p>
                     <ul className="grid grid-cols-2 gap-2 mt-4 text-sm font-bold">
-                        <li className="flex items-center gap-2 bg-slate-50 p-2 rounded-lg border border-slate-200">
+                        <li className="flex items-center gap-2 bg-muted p-2 rounded-lg border border-border">
                             <Landmark size={16} className="text-blue-700" /> Parliament
                         </li>
-                        <li className="flex items-center gap-2 bg-slate-50 p-2 rounded-lg border border-slate-200">
+                        <li className="flex items-center gap-2 bg-muted p-2 rounded-lg border border-border">
                             <Building2 size={16} className="text-blue-700" /> State Leg.
                         </li>
-                        <li className="flex items-center gap-2 bg-slate-50 p-2 rounded-lg border border-slate-200">
+                        <li className="flex items-center gap-2 bg-muted p-2 rounded-lg border border-border">
                             <UserCheck size={16} className="text-blue-700" /> President
                         </li>
-                        <li className="flex items-center gap-2 bg-slate-50 p-2 rounded-lg border border-slate-200">
+                        <li className="flex items-center gap-2 bg-muted p-2 rounded-lg border border-border">
                             <Users size={16} className="text-blue-700" /> Vice-Pres.
                         </li>
                     </ul>
@@ -124,7 +124,7 @@ export default function ElectionCommissionModule({ onComplete, isCompleted, chap
                             <span className="text-xs font-bold">3 Members (Vote Age 18)</span>
                         </div>
                         <div className="flex items-center gap-4">
-                            <div className="w-16 h-8 bg-slate-100 rounded flex items-center justify-center text-[10px] font-bold border border-slate-200">1993...</div>
+                            <div className="w-16 h-8 bg-muted rounded flex items-center justify-center text-[10px] font-bold border border-border">1993...</div>
                             <div className="flex-1 h-[2px] bg-slate-200 relative">
                                 <div className="absolute -top-1.5 right-0 w-3 h-3 rounded-full bg-green-700"></div>
                             </div>
@@ -160,7 +160,7 @@ export default function ElectionCommissionModule({ onComplete, isCompleted, chap
                             <Badge className="mt-2 bg-red-500/20 text-red-300 border-red-500/30">Less Protected</Badge>
                         </div>
                     </div>
-                    <p className="text-xs text-slate-500 italic mt-4">
+                    <p className="text-xs text-muted-foreground italic mt-4">
                         Note: Service conditions cannot be varied to disadvantage after appointment.
                     </p>
                 </RefereeCard>
@@ -232,7 +232,7 @@ export default function ElectionCommissionModule({ onComplete, isCompleted, chap
             </div>
 
             {/* VVPAT FOOTER */}
-            <div className="bg-white border-2 border-blue-900 rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-md">
+            <div className="bg-card border-2 border-blue-900 rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-md">
                 <div className="p-4 bg-blue-50 rounded-xl border-2 border-blue-200">
                     <Printer size={40} className="text-blue-700" />
                 </div>
@@ -241,14 +241,14 @@ export default function ElectionCommissionModule({ onComplete, isCompleted, chap
                         VVPAT Note
                         <Badge variant="outline" className="border-blue-700 text-blue-700">Since 2013</Badge>
                     </h5>
-                    <p className="text-sm text-slate-600 mt-1 leading-relaxed">
+                    <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
                         Voter Verifiable Paper Audit Trail allows the voter to verify that their vote was cast correctly. First used in <span className="font-bold">Nagaland (Noksen Assembly)</span>. In 2019 Lok Sabha, it was used in all seats.
                     </p>
                 </div>
             </div>
 
             {/* COMPLETION BUTTON */}
-            <div className="mt-16 text-center border-t-2 border-dashed border-slate-200 pt-12 pb-12">
+            <div className="mt-16 text-center border-t-2 border-dashed border-border pt-12 pb-12">
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
@@ -268,7 +268,7 @@ export default function ElectionCommissionModule({ onComplete, isCompleted, chap
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold font-['Kalam']">Signed: Guardian of the Ballot</p>
+                <p className="mt-4 text-muted-foreground font-bold font-['Kalam']">Signed: Guardian of the Ballot</p>
             </div>
         </RefereeContainer>
     );

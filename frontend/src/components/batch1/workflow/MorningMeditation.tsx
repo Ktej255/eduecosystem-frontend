@@ -91,7 +91,7 @@ export default function MorningMeditation({ onComplete, onBack }: { onComplete: 
                                     Join Live Session
                                 </Button>
                             </div>
-                            <p className="text-sm text-gray-500 max-w-xs mx-auto">
+                            <p className="text-sm text-muted-foreground max-w-xs mx-auto">
                                 {isLive ? "Live session is active (05:30 - 07:00 AM). Click to join Google Meet." : "Test the live session join functionality."}
                             </p>
                         </div>
@@ -110,7 +110,7 @@ export default function MorningMeditation({ onComplete, onBack }: { onComplete: 
                             <Button variant="outline" className="w-full max-w-md mx-auto" onClick={() => window.open("https://youtube.com/your-video-link", "_blank")}>
                                 <Play className="w-4 h-4 mr-2" /> Watch Recording
                             </Button>
-                            <p className="text-sm text-gray-500 max-w-xs mx-auto">
+                            <p className="text-sm text-muted-foreground max-w-xs mx-auto">
                                 {!isLive ? "You missed the live session. Please follow the recorded guidance." : "Test the recording functionality."}
                             </p>
                         </div>

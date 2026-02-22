@@ -85,14 +85,14 @@ export default function PriceCountdown({
         : 0;
 
     return (
-        <div className={`rounded-xl p-6 border-2 transition-all ${isExpired ? 'border-gray-200 bg-gray-50' : 'border-red-500 bg-red-50'}`}>
+        <div className={`rounded-xl p-6 border-2 transition-all ${isExpired ? 'border-border bg-muted' : 'border-red-500 bg-red-50'}`}>
             <div className="flex justify-between items-start mb-4">
                 <div>
-                    <p className="text-sm text-gray-500 mb-1">Special Launch Offer</p>
+                    <p className="text-sm text-muted-foreground mb-1">Special Launch Offer</p>
                     <div className="flex items-baseline gap-2">
-                        <span className="text-3xl font-bold text-gray-900">₹{currentPrice}</span>
+                        <span className="text-3xl font-bold text-foreground">₹{currentPrice}</span>
                         {basePrice > currentPrice && (
-                            <span className="text-lg text-gray-400 line-through">₹{basePrice}</span>
+                            <span className="text-lg text-muted-foreground line-through">₹{basePrice}</span>
                         )}
                         {discountPercent > 0 && (
                             <span className="bg-red-100 text-red-600 px-2 py-0.5 rounded text-sm font-bold">
@@ -125,14 +125,14 @@ export default function PriceCountdown({
             </button>
 
             {!isExpired && (
-                <p className="text-xs text-center text-gray-500 flex items-center justify-center gap-1">
+                <p className="text-xs text-center text-muted-foreground flex items-center justify-center gap-1">
                     <AlertTriangle className="w-3 h-3" />
                     Price will revert to ₹{expiredPrice} when timer ends
                 </p>
             )}
 
             {isExpired && (
-                <p className="text-xs text-center text-gray-500">
+                <p className="text-xs text-center text-muted-foreground">
                     Offer expired. You can still purchase at current price.
                 </p>
             )}

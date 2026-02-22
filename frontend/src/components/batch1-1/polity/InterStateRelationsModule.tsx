@@ -106,13 +106,13 @@ const InfoCard = ({ title, children, icon: Icon, pyq, badge, color = "slate" }: 
             )}
 
             <div className="flex items-start gap-3 mb-3">
-                {Icon && <Icon size={20} className="text-slate-400 mt-1 shrink-0 group-hover:text-white transition-colors" />}
+                {Icon && <Icon size={20} className="text-muted-foreground mt-1 shrink-0 group-hover:text-white transition-colors" />}
                 <div>
                     <h3 className="font-bold text-lg text-slate-100 font-serif leading-tight">{title}</h3>
                 </div>
             </div>
 
-            <div className="text-sm text-slate-400 font-handwriting leading-relaxed space-y-2 grow">
+            <div className="text-sm text-muted-foreground font-handwriting leading-relaxed space-y-2 grow">
                 {children}
             </div>
         </div>
@@ -128,8 +128,8 @@ const RiverFlow = ({ rivers }: { rivers: { name: string, states: string, highlig
 
                 <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
                     <span className={`font-bold ${r.highlight ? 'text-sky-300' : 'text-slate-300'}`}>{r.name}</span>
-                    <span className="hidden sm:inline text-slate-600">•</span>
-                    <span className="text-xs text-slate-500 font-mono">{r.states}</span>
+                    <span className="hidden sm:inline text-muted-foreground">•</span>
+                    <span className="text-xs text-muted-foreground font-mono">{r.states}</span>
                     {r.highlight && <BadgeVariant className="ml-2 bg-sky-700/50 text-[10px] text-sky-200 border-0">PYQ</BadgeVariant>}
                 </div>
             </div>
@@ -168,7 +168,7 @@ export default function InterStateRelationsModule({ onComplete, isCompleted }: I
                     <h1 className="text-4xl md:text-6xl font-black font-serif text-white tracking-tight mb-4">
                         The Cooperation Bridge
                     </h1>
-                    <p className="text-slate-400 max-w-2xl text-lg font-handwriting italic">
+                    <p className="text-muted-foreground max-w-2xl text-lg font-handwriting italic">
                         "Bridging the divide between states through adjudication and coordination."
                     </p>
                 </div>
@@ -188,12 +188,12 @@ export default function InterStateRelationsModule({ onComplete, isCompleted }: I
                                 <strong className="text-sky-300 block mb-1">The Critical Exclusion:</strong>
                                 <span className="text-sm">Parliament may provide that <strong>NEITHER Supreme Court NOR any other court</strong> shall exercise jurisdiction.</span>
                             </div>
-                            <p className="text-xs text-slate-500 mt-2 italic">Exception to Art 131 (Original Jurisdiction).</p>
+                            <p className="text-xs text-muted-foreground mt-2 italic">Exception to Art 131 (Original Jurisdiction).</p>
                         </InfoCard>
 
                         <InfoCard title="The Mechanism" icon={Briefcase} color="slate">
                             <p className="text-sm"><strong className="text-white">Inter-State Water Disputes Act (1956):</strong></p>
-                            <ul className="list-disc pl-4 space-y-1 text-xs mt-2 text-slate-400">
+                            <ul className="list-disc pl-4 space-y-1 text-xs mt-2 text-muted-foreground">
                                 <li>Central Govt sets up Ad-hoc Tribunal.</li>
                                 <li>Verdict is <strong>Final & Binding</strong>.</li>
                                 <li><span className="text-amber-400">Note:</span> SC barred, but can hear appeals via Art 136 (SLP).</li>
@@ -238,7 +238,7 @@ export default function InterStateRelationsModule({ onComplete, isCompleted }: I
                                 <span>Make recommendations for coordination.</span>
                             </div>
                         </div>
-                        <p className="mt-4 text-xs font-bold text-slate-500 uppercase">Nature: Advisory Body (Not Binding)</p>
+                        <p className="mt-4 text-xs font-bold text-muted-foreground uppercase">Nature: Advisory Body (Not Binding)</p>
                     </InfoCard>
 
                     {/* RIGHT: COMPOSITION */}
@@ -262,21 +262,21 @@ export default function InterStateRelationsModule({ onComplete, isCompleted }: I
 
                             <div className="grid grid-cols-2 gap-2">
                                 <div className="bg-slate-800/50 p-3 rounded border border-slate-700">
-                                    <span className="block text-xs text-slate-400">Members</span>
+                                    <span className="block text-xs text-muted-foreground">Members</span>
                                     <span className="font-bold text-sm">CMs of States</span>
                                 </div>
                                 <div className="bg-slate-800/50 p-3 rounded border border-slate-700">
-                                    <span className="block text-xs text-slate-400">Members</span>
+                                    <span className="block text-xs text-muted-foreground">Members</span>
                                     <span className="font-bold text-sm">CMs/Admins of UTs</span>
                                 </div>
                                 <div className="col-span-2 bg-slate-800/50 p-3 rounded border border-slate-700">
-                                    <span className="block text-xs text-slate-400">Nominated Members</span>
+                                    <span className="block text-xs text-muted-foreground">Nominated Members</span>
                                     <span className="font-bold text-sm">6 Central Cabinet Ministers</span>
                                 </div>
                             </div>
 
-                            <p className="text-xs text-slate-500 text-center mt-2">
-                                Standing Committee chaired by <strong className="text-slate-400">Union Home Minister</strong>.
+                            <p className="text-xs text-muted-foreground text-center mt-2">
+                                Standing Committee chaired by <strong className="text-muted-foreground">Union Home Minister</strong>.
                             </p>
                         </div>
                     </div>
@@ -284,13 +284,13 @@ export default function InterStateRelationsModule({ onComplete, isCompleted }: I
 
                 <div className="mt-4 bg-slate-900 border border-slate-800 p-4 rounded-lg flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <BadgeCheck className="text-slate-500" />
+                        <BadgeCheck className="text-muted-foreground" />
                         <div>
                             <h4 className="font-bold text-slate-300">Public Acts & Records (Art 261)</h4>
-                            <p className="text-xs text-slate-500">"Full Faith and Credit" to public acts/records throughout India.</p>
+                            <p className="text-xs text-muted-foreground">"Full Faith and Credit" to public acts/records throughout India.</p>
                         </div>
                     </div>
-                    <Badge variant="outline" className="border-slate-700 text-slate-400 font-mono text-[10px]">Civil &ne; Criminal</Badge>
+                    <Badge variant="outline" className="border-slate-700 text-muted-foreground font-mono text-[10px]">Civil &ne; Criminal</Badge>
                 </div>
             </SectionPanel>
 
@@ -308,17 +308,17 @@ export default function InterStateRelationsModule({ onComplete, isCompleted }: I
                     <InfoCard title="Composition" icon={Users} color="slate">
                         <div className="space-y-3">
                             <div>
-                                <span className="text-xs text-slate-500 uppercase font-bold">Chairman</span>
+                                <span className="text-xs text-muted-foreground uppercase font-bold">Chairman</span>
                                 <div className="font-bold text-emerald-400">Union Home Minister</div>
-                                <div className="text-[10px] text-slate-500">Common for all 5 zones. [PYQ]</div>
+                                <div className="text-[10px] text-muted-foreground">Common for all 5 zones. [PYQ]</div>
                             </div>
                             <div>
-                                <span className="text-xs text-slate-500 uppercase font-bold">Vice-Chairman</span>
+                                <span className="text-xs text-muted-foreground uppercase font-bold">Vice-Chairman</span>
                                 <div className="font-bold text-white">CMs (Rotation)</div>
-                                <div className="text-[10px] text-slate-500">Holds office for 1 year.</div>
+                                <div className="text-[10px] text-muted-foreground">Holds office for 1 year.</div>
                             </div>
                             <div>
-                                <span className="text-xs text-slate-500 uppercase font-bold">Members</span>
+                                <span className="text-xs text-muted-foreground uppercase font-bold">Members</span>
                                 <div className="text-sm text-slate-300">CM + 2 Ministers from each state.</div>
                             </div>
                         </div>
@@ -334,7 +334,7 @@ export default function InterStateRelationsModule({ onComplete, isCompleted }: I
                                     onMouseEnter={() => setActiveZone(z.name)}
                                     className={`
                                         p-2 rounded cursor-pointer transition-all flex justify-between items-center
-                                        ${activeZone === z.name ? 'bg-slate-800 border-l-2 border-emerald-500' : 'hover:bg-slate-800/50 text-slate-500'}
+                                        ${activeZone === z.name ? 'bg-slate-800 border-l-2 border-emerald-500' : 'hover:bg-slate-800/50 text-muted-foreground'}
                                     `}
                                 >
                                     <span className="text-sm font-bold">{z.name}</span>
@@ -348,7 +348,7 @@ export default function InterStateRelationsModule({ onComplete, isCompleted }: I
                 {/* DYNAMIC ZONE DISPLAY */}
                 <div className="mt-6 bg-slate-900/50 border border-slate-700 p-6 rounded-xl text-center animate-in fade-in zoom-in duration-300">
                     <h3 className="text-xl font-bold text-white mb-2">{activeZone} Zonal Council</h3>
-                    <p className="text-slate-400 text-sm">
+                    <p className="text-muted-foreground text-sm">
                         {zones.find(z => z.name === activeZone)?.states}
                     </p>
                 </div>
@@ -383,7 +383,7 @@ export default function InterStateRelationsModule({ onComplete, isCompleted }: I
                     <p className="text-lg text-slate-300 font-serif">
                         "Trade, commerce and intercourse throughout the territory of India shall be <span className="text-blue-400 font-bold">FREE</span>."
                     </p>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-xs text-muted-foreground">
                         Exception: Parliament can impose restrictions in public interest (Art 302).
                     </p>
                 </div>

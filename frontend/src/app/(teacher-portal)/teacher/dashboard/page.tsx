@@ -141,8 +141,8 @@ export default function TeacherDashboard() {
                                     <stat.icon className={`h-5 w-5 md:h-6 md:w-6 ${stat.color}`} />
                                 </div>
                                 <div>
-                                    <p className="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-200">{stat.value}</p>
-                                    <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400">{stat.label}</p>
+                                    <p className="text-xl md:text-2xl font-bold text-foreground">{stat.value}</p>
+                                    <p className="text-xs md:text-sm text-muted-foreground dark:text-muted-foreground">{stat.label}</p>
                                 </div>
                             </div>
                         </CardContent>
@@ -155,7 +155,7 @@ export default function TeacherDashboard() {
 
             {/* Strategic Oversight Section */}
             <div>
-                <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
+                <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                     <Shield className="w-5 h-5 text-blue-600" />
                     Strategic Oversight
                 </h2>
@@ -167,7 +167,7 @@ export default function TeacherDashboard() {
 
             {/* Quick Actions */}
             <div>
-                <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Quick Actions</h2>
+                <h2 className="text-xl font-semibold text-foreground mb-4">Quick Actions</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {quickActions.map((action) => (
                         <Link key={action.href} href={action.href}>
@@ -177,8 +177,8 @@ export default function TeacherDashboard() {
                                     <div className={`w-12 h-12 rounded-2xl bg-gradient-to-r ${action.color} text-white flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl transition-all`}>
                                         <action.icon className="h-6 w-6" />
                                     </div>
-                                    <h3 className="font-bold text-lg text-gray-800 dark:text-gray-100 mb-1 group-hover:text-indigo-600 transition-colors">{action.title}</h3>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{action.description}</p>
+                                    <h3 className="font-bold text-lg text-foreground mb-1 group-hover:text-indigo-600 transition-colors">{action.title}</h3>
+                                    <p className="text-sm text-muted-foreground dark:text-muted-foreground leading-relaxed">{action.description}</p>
                                 </CardContent>
                             </Card>
                         </Link>
@@ -205,29 +205,29 @@ export default function TeacherDashboard() {
                             </Link>
                         </CardHeader>
                         <CardContent className="p-0">
-                            <div className="divide-y divide-gray-100">
+                            <div className="divide-y divide-border">
                                 {students.slice(0, 5).map((student) => (
-                                    <div key={student.id} className="flex items-center justify-between p-3 hover:bg-gray-50 transition-colors">
+                                    <div key={student.id} className="flex items-center justify-between p-3 hover:bg-muted transition-colors">
                                         <div className="flex items-center gap-3">
                                             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold text-xs">
                                                 {student.full_name?.[0] || student.email[0].toUpperCase()}
                                             </div>
                                             <div>
-                                                <p className="font-medium text-sm text-gray-800 dark:text-gray-200 truncate max-w-[120px]">
+                                                <p className="font-medium text-sm text-foreground truncate max-w-[120px]">
                                                     {student.full_name || student.email.split('@')[0]}
                                                 </p>
-                                                <div className="flex items-center gap-1 text-[10px] text-gray-500">
+                                                <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
                                                     {student.is_batch1_authorized && <span className="text-purple-600">Batch 1</span>}
                                                     {student.is_batch1_authorized && student.is_ras_authorized && <span>•</span>}
                                                     {student.is_ras_authorized && <span className="text-orange-600">RAS</span>}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="text-xs font-medium text-gray-500">🔥 {student.streak_days}</div>
+                                        <div className="text-xs font-medium text-muted-foreground">🔥 {student.streak_days}</div>
                                     </div>
                                 ))}
                                 {students.length === 0 && (
-                                    <div className="text-center py-6 text-gray-400 text-sm">
+                                    <div className="text-center py-6 text-muted-foreground text-sm">
                                         No students enrolled yet
                                     </div>
                                 )}
@@ -239,24 +239,24 @@ export default function TeacherDashboard() {
                     <Card>
                         <CardHeader className="py-3">
                             <CardTitle className="flex items-center gap-2 text-base">
-                                <Clock className="h-4 w-4 text-gray-600" />
+                                <Clock className="h-4 w-4 text-muted-foreground" />
                                 Latest Actions
                             </CardTitle>
                         </CardHeader>
                         <CardContent className="p-0">
-                            <div className="divide-y divide-gray-100">
-                                <div className="p-3 text-sm flex gap-3 hover:bg-gray-50">
+                            <div className="divide-y divide-border">
+                                <div className="p-3 text-sm flex gap-3 hover:bg-muted">
                                     <CheckCircle2 className="h-4 w-4 text-green-600 mt-0.5" />
                                     <div>
                                         <p className="font-medium">Cycle 1 Content Live</p>
-                                        <p className="text-xs text-gray-500">2 hours ago</p>
+                                        <p className="text-xs text-muted-foreground">2 hours ago</p>
                                     </div>
                                 </div>
-                                <div className="p-3 text-sm flex gap-3 hover:bg-gray-50">
+                                <div className="p-3 text-sm flex gap-3 hover:bg-muted">
                                     <AlertCircle className="h-4 w-4 text-amber-600 mt-0.5" />
                                     <div>
                                         <p className="font-medium">Upload Reminder</p>
-                                        <p className="text-xs text-gray-500">Tomorrow's content due</p>
+                                        <p className="text-xs text-muted-foreground">Tomorrow's content due</p>
                                     </div>
                                 </div>
                             </div>

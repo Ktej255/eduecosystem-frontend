@@ -3,7 +3,7 @@ import CurrentAffairsCentral from '@/components/batch1/current-affairs/CurrentAf
 
 export default function CurrentAffairsPage() {
     return (
-        <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-slate-50">Loading Dashboard...</div>}>
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-muted">Loading Dashboard...</div>}>
             <CurrentAffairsCentral />
         </Suspense>
     );

@@ -81,10 +81,10 @@ export default function TeacherStudentsPage() {
                     </Button>
                 </Link>
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-200">
+                    <h1 className="text-2xl font-bold text-foreground">
                         👥 Student Management
                     </h1>
-                    <p className="text-gray-500 text-sm">View and manage enrolled students</p>
+                    <p className="text-muted-foreground text-sm">View and manage enrolled students</p>
                 </div>
             </div>
 
@@ -116,7 +116,7 @@ export default function TeacherStudentsPage() {
             {/* Filters */}
             <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
                 <div className="relative w-full md:w-64">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                         placeholder="Search students..."
                         className="pl-10"
@@ -157,16 +157,16 @@ export default function TeacherStudentsPage() {
                 <CardContent>
                     <div className="space-y-2">
                         {filteredStudents.map((student) => (
-                            <div key={student.id} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:shadow-sm transition">
+                            <div key={student.id} className="flex items-center justify-between p-4 bg-muted rounded-lg hover:shadow-sm transition">
                                 <div className="flex items-center gap-3">
                                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold">
                                         {student.full_name?.[0] || student.email[0].toUpperCase()}
                                     </div>
                                     <div>
-                                        <p className="font-semibold text-gray-800 dark:text-gray-200">
+                                        <p className="font-semibold text-foreground">
                                             {student.full_name || student.email.split('@')[0]}
                                         </p>
-                                        <p className="text-sm text-gray-500 flex items-center gap-1">
+                                        <p className="text-sm text-muted-foreground flex items-center gap-1">
                                             <Mail className="h-3 w-3" /> {student.email}
                                         </p>
                                     </div>
@@ -197,7 +197,7 @@ export default function TeacherStudentsPage() {
                             </div>
                         ))}
                         {filteredStudents.length === 0 && (
-                            <div className="text-center py-12 text-gray-500">
+                            <div className="text-center py-12 text-muted-foreground">
                                 <Users className="h-12 w-12 mx-auto mb-3 opacity-50" />
                                 <p>No students found</p>
                             </div>

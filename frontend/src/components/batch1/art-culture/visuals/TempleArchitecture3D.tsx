@@ -70,7 +70,7 @@ function Label({ name, position, description }: { name: string, position: [numbe
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
             >
-                <div className="w-1 h-8 bg-white/50 mb-1" />
+                <div className="w-1 h-8 bg-card/50 mb-1" />
                 <div className={`px-2 py-1 rounded-md text-[10px] whitespace-nowrap font-bold shadow-lg border ${hovered ? 'bg-amber-500 text-white border-white' : 'bg-black/50 text-amber-200 border-amber-900/50'}`}>
                     {name}
                 </div>

@@ -50,7 +50,7 @@ export default function MeditationLevelCard({
             <div className="relative z-10 flex justify-between items-start mb-6">
                 <div>
                     <div className="flex items-center gap-2 mb-2">
-                        <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-white/5 border border-white/10 text-white/70`}>
+                        <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-card/5 border border-white/10 text-white/70`}>
                             Level {level.id}
                         </span>
                         {isUnlocked && <Check className="w-4 h-4 text-emerald-500" />}

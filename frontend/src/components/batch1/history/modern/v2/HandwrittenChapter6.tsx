@@ -44,23 +44,23 @@ export default function HandwrittenChapter6() {
     const posterRotations = ["-rotate-2", "rotate-2", "-rotate-1"];
 
     return (
-        <div className="min-h-screen bg-[#fdf8f0] p-4 md:p-8 font-['Kalam',_cursive] text-[#4a3728] selection:bg-orange-200 overflow-x-hidden">
+        <div className="min-h-screen bg-paper p-4 md:p-8 font-['Kalam',_cursive] text-paper-gray selection:bg-paper-orange/20 overflow-x-hidden">
             <style jsx global>{`
                 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Permanent+Marker&family=Special+Elite&display=swap');
                 
                 .rebel-paper {
-                    background-color: #fdfaf6;
-                    border: 2px solid #8b4513;
-                    box-shadow: 10px 10px 0px rgba(139, 69, 19, 0.1);
+                    background-color: var(--paper-bg);
+                    border: 2px solid var(--paper-text-brown);
+                    box-shadow: 10px 10px 0px var(--paper-border);
                     position: relative;
                 }
 
                 .wanted-poster {
-                    background-color: #f4ece1;
-                    border: 2px solid #5d4037;
+                    background-color: var(--paper-bg);
+                    border: 2px solid var(--paper-text-brown);
                     padding: 20px;
                     text-align: center;
-                    box-shadow: 2px 5px 15px rgba(0,0,0,0.2);
+                    box-shadow: 2px 5px 15px var(--paper-border);
                     filter: sepia(0.2);
                 }
 
@@ -72,9 +72,9 @@ export default function HandwrittenChapter6() {
                     pointer-events: none;
                 }
 
-                .blood-red { color: #800000; }
-                .earth-brown { color: #8b4513; }
-                .forest-green { color: #228b22; }
+                .blood-red { color: var(--paper-text-red); }
+                .earth-brown { color: var(--paper-text-brown); }
+                .forest-green { color: var(--paper-text-green); }
 
                 .stencil-font {
                     font-family: 'Special Elite', cursive;
@@ -82,9 +82,10 @@ export default function HandwrittenChapter6() {
                 }
 
                 .marker-red {
-                    background-color: #fee2e2;
-                    border-bottom: 2px solid #ef4444;
+                    background-color: var(--sticky-pink);
+                    border-bottom: 2px solid var(--paper-text-red);
                     padding: 0 4px;
+                    color: initial;
                 }
 
                 .burnt-corner {
@@ -93,16 +94,18 @@ export default function HandwrittenChapter6() {
 
                 .paper-border {
                     border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-                    border: 2px solid #333;
+                    border: 2px solid var(--paper-border);
                 }
 
                 .body-handwritten {
                     font-family: 'Kalam', cursive;
                     line-height: 1.8;
+                    color: var(--paper-text-gray);
                 }
 
                 .marker-label {
                     font-family: 'Permanent Marker', cursive;
+                    color: var(--paper-text-gray);
                 }
             `}</style>
 
@@ -123,7 +126,7 @@ export default function HandwrittenChapter6() {
                     <p className="text-xl md:text-2xl earth-brown stencil-font font-bold opacity-80 uppercase tracking-widest italic">
                         {t.heroSubtitle}
                     </p>
-                    <div className="max-w-xl mx-auto mt-8 bg-white p-6 paper-border border-4 border-dashed border-red-900 transform rotate-1">
+                    <div className="max-w-xl mx-auto mt-8 bg-paper p-6 paper-border border-4 border-dashed border-paper-red transform rotate-1 text-inherit">
                         <p className="text-2xl leading-relaxed italic body-handwritten">
                             {t.heroQuote}
                         </p>
@@ -133,16 +136,16 @@ export default function HandwrittenChapter6() {
 
             {/* SECTION 1: THE CAUSES */}
             <div className="max-w-5xl mx-auto mb-20">
-                <div className="bg-[#4a3728] text-stone-100 p-8 transform -rotate-1 shadow-2xl relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-8 opacity-10">
+                <div className="bg-paper p-8 transform -rotate-1 shadow-2xl relative overflow-hidden border-2 border-paper-brown text-inherit">
+                    <div className="absolute top-0 right-0 p-8 opacity-5">
                         <AlertTriangle className="w-32 h-32" />
                     </div>
-                    <h2 className="text-3xl font-['Permanent_Marker'] text-orange-400 mb-8 uppercase tracking-widest outline-text">{t.causesTitle}</h2>
+                    <h2 className="text-3xl font-['Permanent_Marker'] text-paper-orange mb-8 uppercase tracking-widest outline-text">{t.causesTitle}</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 body-handwritten text-xl">
                         <div className="space-y-4">
                             {t.causes.slice(0, 2).map((c, i) => (
-                                <p key={i} className="border-l-4 border-orange-500 pl-4 py-1">
-                                    <span className="font-bold text-orange-300">{c.bold}</span>{c.text}
+                                <p key={i} className="border-l-4 border-paper-orange pl-4 py-1">
+                                    <span className="font-bold text-paper-orange opacity-80">{c.bold}</span>{c.text}
                                 </p>
                             ))}
                         </div>
@@ -170,7 +173,7 @@ export default function HandwrittenChapter6() {
                             <h3 className="stencil-font text-2xl mb-1">{t.reward}</h3>
                             <p className="text-xs uppercase font-bold mb-4">{uprising.subtitle}</p>
                             <h4 className={`text-2xl font-bold body-handwritten ${posterColors[idx].nameColor} mb-4 uppercase`}>{uprising.name}</h4>
-                            <div className="text-sm body-handwritten space-y-2 text-left bg-white/50 p-4 rounded border border-dashed border-stone-400">
+                            <div className="text-sm body-handwritten space-y-2 text-left bg-card/50 p-4 rounded border border-dashed border-stone-400">
                                 {uprising.details.map((d, i) => (
                                     <p key={i}>• <strong>{d.bold}</strong>{d.text}</p>
                                 ))}
@@ -187,7 +190,7 @@ export default function HandwrittenChapter6() {
                         <h3 className="stencil-font text-2xl text-amber-800 mb-1">{t.queenLabel}</h3>
                         <p className="text-xs uppercase font-bold mb-4">{t.queenSubtitle}</p>
                         <h4 className="text-2xl font-bold body-handwritten text-amber-900 mb-4">{t.queenName}</h4>
-                        <div className="text-sm body-handwritten space-y-2 text-left bg-white/50 p-4 rounded border border-dashed border-amber-400">
+                        <div className="text-sm body-handwritten space-y-2 text-left bg-card/50 p-4 rounded border border-dashed border-amber-400">
                             {t.queenDetails.map((d, i) => (
                                 <p key={i}>• <strong>{d.bold}</strong>{d.text}</p>
                             ))}
@@ -197,9 +200,9 @@ export default function HandwrittenChapter6() {
             </div>
 
             {/* SECTION 3: TRIBAL UPRISINGS */}
-            <div className="max-w-6xl mx-auto mb-20 p-10 bg-white paper-border border-4 border-slate-900 relative">
+            <div className="max-w-6xl mx-auto mb-20 p-10 bg-card paper-border border-4 border-slate-900 relative">
                 <div className="absolute top-4 right-8 opacity-10">
-                    <MapIcon className="w-24 h-24 text-slate-400" />
+                    <MapIcon className="w-24 h-24 text-muted-foreground" />
                 </div>
                 <h2 className="text-3xl font-['Permanent_Marker'] blood-red mb-12 flex items-center gap-3">
                     <Mountain className="w-8 h-8 forest-green" /> {t.tribalTitle}
@@ -281,7 +284,7 @@ export default function HandwrittenChapter6() {
 
                 <div className="space-y-8">
                     {/* Titu Mir */}
-                    <div className="bg-white p-8 paper-border border-2 border-dashed border-green-800 relative group overflow-hidden">
+                    <div className="bg-card p-8 paper-border border-2 border-dashed border-green-800 relative group overflow-hidden">
                         <div className="absolute -right-6 -bottom-6 opacity-5 group-hover:scale-110 transition-transform">
                             <Castle className="w-32 h-32" />
                         </div>
@@ -290,7 +293,7 @@ export default function HandwrittenChapter6() {
                     </div>
 
                     {/* Pagal Panthis */}
-                    <div className="bg-white p-6 paper-border border-2 border-stone-300">
+                    <div className="bg-card p-6 paper-border border-2 border-stone-300">
                         <h4 className="marker-label text-stone-600 mb-2">{t.pagalTitle}</h4>
                         <p className="body-handwritten text-lg italic">{t.pagalText}</p>
                     </div>
@@ -305,7 +308,7 @@ export default function HandwrittenChapter6() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                         {t.mutinies.map((m, i) => (
-                            <div key={i} className="bg-white/10 p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-colors cursor-help">
+                            <div key={i} className="bg-card/10 p-6 rounded-2xl border border-white/20 hover:bg-card/20 transition-colors cursor-help">
                                 <h4 className="font-bold text-orange-200 mb-2">{m.year}</h4>
                                 <p className="text-xs body-handwritten">{m.text}</p>
                             </div>

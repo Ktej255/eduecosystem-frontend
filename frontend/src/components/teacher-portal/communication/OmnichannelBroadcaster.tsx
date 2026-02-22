@@ -70,8 +70,8 @@ export default function OmnichannelBroadcaster() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-in fade-in duration-500">
             {/* Editor Panel */}
             <div className="lg:col-span-2 space-y-6">
-                <Card className="border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden">
-                    <CardHeader className="bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+                <Card className="border-border shadow-xl overflow-hidden">
+                    <CardHeader className="bg-muted border-b border-slate-100">
                         <div className="flex justify-between items-center">
                             <div>
                                 <CardTitle className="text-xl font-bold flex items-center gap-2">
@@ -85,9 +85,9 @@ export default function OmnichannelBroadcaster() {
                                     <button
                                         key={ch.id}
                                         onClick={() => toggleChannel(ch.id)}
-                                        className={`p-2 rounded-lg transition-all border ${selectedChannels.includes(ch.id) ? `${ch.bg} border-${ch.id === 'whatsapp' ? 'green' : ch.id === 'telegram' ? 'blue' : 'amber'}-500/50` : 'bg-slate-100 dark:bg-slate-800 border-transparent'}`}
+                                        className={`p-2 rounded-lg transition-all border ${selectedChannels.includes(ch.id) ? `${ch.bg} border-${ch.id === 'whatsapp' ? 'green' : ch.id === 'telegram' ? 'blue' : 'amber'}-500/50` : 'bg-muted border-transparent'}`}
                                     >
-                                        <ch.icon className={`w-4 h-4 ${selectedChannels.includes(ch.id) ? ch.color : 'text-slate-400'}`} />
+                                        <ch.icon className={`w-4 h-4 ${selectedChannels.includes(ch.id) ? ch.color : 'text-muted-foreground'}`} />
                                     </button>
                                 ))}
                             </div>
@@ -102,8 +102,8 @@ export default function OmnichannelBroadcaster() {
                                 onChange={(e) => setContent(e.target.value)}
                             />
 
-                            <div className="pt-6 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
-                                <div className="flex gap-2 text-xs font-bold text-slate-400 uppercase tracking-widest">
+                            <div className="pt-6 border-t border-slate-100 flex justify-between items-center">
+                                <div className="flex gap-2 text-xs font-bold text-muted-foreground uppercase tracking-widest">
                                     <span>Chars: {content.length}</span>
                                     <span>•</span>
                                     <span>Segments: {Math.ceil(content.length / 160)}</span>
@@ -131,14 +131,14 @@ export default function OmnichannelBroadcaster() {
 
             {/* Preview Box */}
             <div className="lg:col-span-1 space-y-4">
-                <h4 className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 px-1">Universal Preview</h4>
+                <h4 className="text-xs font-black uppercase tracking-[0.2em] text-muted-foreground px-1">Universal Preview</h4>
 
                 {/* Mobile Preview */}
-                <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[500px] w-[250px] shadow-2xl">
-                    <div className="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
-                    <div className="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
-                    <div className="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
-                    <div className="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
+                <div className="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[500px] w-[250px] shadow-2xl">
+                    <div className="h-[32px] w-[3px] bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
+                    <div className="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
+                    <div className="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
+                    <div className="h-[64px] w-[3px] bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
                     <div className="rounded-[2rem] overflow-hidden w-full h-full bg-slate-900 flex flex-col items-center justify-start py-8">
                         {/* Dynamic Notification Bubble */}
                         <AnimatePresence>
@@ -146,7 +146,7 @@ export default function OmnichannelBroadcaster() {
                                 <motion.div
                                     initial={{ y: -50, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
-                                    className="w-[90%] bg-white/10 backdrop-blur-md rounded-2xl p-3 border border-white/10"
+                                    className="w-[90%] bg-card/10 backdrop-blur-md rounded-2xl p-3 border border-white/10"
                                 >
                                     <div className="flex items-center gap-2 mb-1">
                                         <div className="w-4 h-4 bg-indigo-500 rounded-md flex items-center justify-center text-[8px] text-white">E</div>

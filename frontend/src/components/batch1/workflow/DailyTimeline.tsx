@@ -27,7 +27,7 @@ const TimelineNode = ({ title, description, time, icon, status, onClick, isLast 
             {!isLast && (
                 <div className={cn(
                     "absolute left-[24px] top-[60px] w-0.5 h-[calc(100%-20px)]",
-                    status === 'completed' ? "bg-green-500" : "bg-gray-200 dark:bg-gray-800"
+                    status === 'completed' ? "bg-green-500" : "bg-muted"
                 )} />
             )}
 
@@ -35,7 +35,7 @@ const TimelineNode = ({ title, description, time, icon, status, onClick, isLast 
                 "w-12 h-12 rounded-full flex items-center justify-center shrink-0 z-10 transition-all duration-300",
                 status === 'completed' ? "bg-green-100 text-green-600 border-2 border-green-500" :
                     status === 'active' ? "bg-blue-100 text-blue-600 border-2 border-blue-500 shadow-lg shadow-blue-200" :
-                        "bg-gray-100 text-gray-400 border-2 border-gray-200"
+                        "bg-muted text-muted-foreground border-2 border-border"
             )}>
                 {status === 'completed' ? <CheckCircle2 className="w-6 h-6" /> : icon}
             </div>
@@ -57,7 +57,7 @@ const TimelineNode = ({ title, description, time, icon, status, onClick, isLast 
                     <CardContent className="p-4 flex justify-between items-center">
                         <div>
                             <div className="flex items-center gap-3 mb-1">
-                                <span className="text-xs font-bold uppercase tracking-wider text-gray-500 bg-gray-100 px-2 py-0.5 rounded">
+                                <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground bg-muted px-2 py-0.5 rounded">
                                     {time}
                                 </span>
                                 {status === 'active' && (
@@ -67,10 +67,10 @@ const TimelineNode = ({ title, description, time, icon, status, onClick, isLast 
                                     </span>
                                 )}
                             </div>
-                            <h3 className="font-bold text-lg text-gray-800 dark:text-gray-100">{title}</h3>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">{description}</p>
+                            <h3 className="font-bold text-lg text-foreground">{title}</h3>
+                            <p className="text-sm text-muted-foreground dark:text-muted-foreground">{description}</p>
                         </div>
-                        <div className="text-gray-400">
+                        <div className="text-muted-foreground">
                             {status === 'locked' ? <Lock className="w-5 h-5" /> :
                                 status === 'completed' ? <Button variant="ghost" size="sm" className="text-green-600">Review</Button> :
                                     <Button size="sm" className="gap-2">Start <ArrowRight className="w-4 h-4" /></Button>}
@@ -133,7 +133,7 @@ export default function DailyTimeline({ onSelectStep, onOpenPlan, onOpenMap }: {
             <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
                 <div>
                     <h2 className="text-2xl font-bold">Today's Journey</h2>
-                    <p className="text-gray-500">Follow the path to complete your daily goals.</p>
+                    <p className="text-muted-foreground">Follow the path to complete your daily goals.</p>
                 </div>
                 <div className="flex gap-2">
                     <Button variant="outline" className="gap-2" onClick={onOpenMap}>

@@ -80,14 +80,14 @@ export default function ArticleMissingLinkGame({ onComplete }: { onComplete?: ()
     if (!currentQ || status === 'finished') {
         const percentage = Math.round((score / queue.length) * 100);
         return (
-            <div className="text-center p-8 bg-white rounded-3xl shadow-sm border border-slate-200">
+            <div className="text-center p-8 bg-card rounded-3xl shadow-sm border border-border">
                 <div className="mb-6 inline-block p-4 bg-yellow-100 rounded-full text-yellow-600">
                     <Trophy size={48} />
                 </div>
-                <h2 className="text-3xl font-black text-slate-800 mb-2">Level 2 Complete!</h2>
-                <p className="text-slate-500 mb-6">You scored {score} / {queue.length}</p>
+                <h2 className="text-3xl font-black text-foreground mb-2">Level 2 Complete!</h2>
+                <p className="text-muted-foreground mb-6">You scored {score} / {queue.length}</p>
 
-                <div className="w-full bg-slate-100 rounded-full h-4 mb-8 overflow-hidden">
+                <div className="w-full bg-muted rounded-full h-4 mb-8 overflow-hidden">
                     <div className={`h-full ${percentage >= 80 ? 'bg-green-500' : 'bg-blue-500'}`} style={{ width: `${percentage}%` }}></div>
                 </div>
 
@@ -101,16 +101,16 @@ export default function ArticleMissingLinkGame({ onComplete }: { onComplete?: ()
     return (
         <div className="max-w-2xl mx-auto space-y-8 font-['Calibri']">
             {/* Header */}
-            <div className="flex justify-between items-center text-sm font-bold text-slate-500">
+            <div className="flex justify-between items-center text-sm font-bold text-muted-foreground">
                 <span>Question {currentIndex + 1} / {queue.length}</span>
                 <span className="text-emerald-600">Score: {score}</span>
             </div>
             <Progress value={((currentIndex) / queue.length) * 100} className="h-2" />
 
             <Card className="border-2 border-slate-100 shadow-lg overflow-hidden">
-                <div className="bg-slate-50 p-6 border-b border-slate-100 text-center">
-                    <Badge variant="outline" className="mb-2 border-slate-300 text-slate-500">Article {currentQ.articleNumber}</Badge>
-                    <h3 className="text-2xl font-bold text-slate-800 leading-relaxed">
+                <div className="bg-muted p-6 border-b border-slate-100 text-center">
+                    <Badge variant="outline" className="mb-2 border-border text-muted-foreground">Article {currentQ.articleNumber}</Badge>
+                    <h3 className="text-2xl font-bold text-foreground leading-relaxed">
                         {currentQ.maskedProvision}
                     </h3>
                 </div>
@@ -159,7 +159,7 @@ export default function ArticleMissingLinkGame({ onComplete }: { onComplete?: ()
                                 variant="ghost"
                                 size="sm"
                                 onClick={() => setShowHint(!showHint)}
-                                className="text-slate-400 hover:text-yellow-600"
+                                className="text-muted-foreground hover:text-yellow-600"
                             >
                                 <HelpCircle className="mr-1 w-4 h-4" /> {showHint ? currentQ.mnemonic : 'Need a Hint?'}
                             </Button>

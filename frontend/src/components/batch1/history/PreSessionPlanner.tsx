@@ -160,7 +160,7 @@ export default function PreSessionPlanner({
                     initial={{ scale: 0.95, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.95, opacity: 0 }}
-                    className="w-full max-w-lg bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden"
+                    className="w-full max-w-lg bg-card dark:bg-zinc-900 rounded-2xl shadow-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden"
                 >
                     <div className="p-6 bg-gradient-to-br from-indigo-600 to-violet-700 text-white">
                         <h2 className="text-xl font-bold flex items-center gap-2">

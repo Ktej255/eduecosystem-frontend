@@ -84,7 +84,7 @@ export default function ParliamentViz() {
                     <Users className="w-6 h-6 text-amber-400" />
                     Lok Sabha (House of the People)
                 </h3>
-                <p className="text-slate-400 text-sm">Interactive Seating Arrangement</p>
+                <p className="text-muted-foreground text-sm">Interactive Seating Arrangement</p>
             </div>
 
             {/* Legend */}
@@ -137,7 +137,7 @@ export default function ParliamentViz() {
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="absolute bg-white text-slate-900 p-3 rounded-lg shadow-xl pointer-events-none z-50 text-center min-w-[150px]"
+                        className="absolute bg-card text-foreground p-3 rounded-lg shadow-xl pointer-events-none z-50 text-center min-w-[150px]"
                         style={{
                             left: `${hoveredSeat.x}%`,
                             top: `${hoveredSeat.y - 10}%`,
@@ -145,7 +145,7 @@ export default function ParliamentViz() {
                         }}
                     >
                         <div className="font-bold text-sm mb-1">{hoveredSeat.role}</div>
-                        <div className="text-xs text-slate-500 capitalize">{hoveredSeat.party} Bench</div>
+                        <div className="text-xs text-muted-foreground capitalize">{hoveredSeat.party} Bench</div>
                     </motion.div>
                 )}
             </div>
@@ -154,15 +154,15 @@ export default function ParliamentViz() {
             <div className="w-full bg-slate-800 p-4 flex justify-around items-center border-t border-slate-700 mt-auto">
                 <div className="text-center">
                     <div className="text-2xl font-bold text-green-500">272+</div>
-                    <div className="text-xs text-slate-400">Majority Mark</div>
+                    <div className="text-xs text-muted-foreground">Majority Mark</div>
                 </div>
                 <div className="text-center">
                     <div className="text-2xl font-bold text-white">543</div>
-                    <div className="text-xs text-slate-400">Total Strength</div>
+                    <div className="text-xs text-muted-foreground">Total Strength</div>
                 </div>
                 <div className="text-center">
                     <div className="text-2xl font-bold text-red-500">55</div>
-                    <div className="text-xs text-slate-400">Quorum (10%)</div>
+                    <div className="text-xs text-muted-foreground">Quorum (10%)</div>
                 </div>
             </div>
         </div>

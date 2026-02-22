@@ -76,7 +76,7 @@ export default function HistoryExaminersTrap({ traps = DEFAULT_TRAPS }: HistoryE
                 </div>
                 <div>
                     <h3 className="text-2xl font-black text-red-900 mb-2">Avoid the "History Date Trap"</h3>
-                    <p className="text-slate-600 font-medium leading-relaxed">
+                    <p className="text-muted-foreground font-medium leading-relaxed">
                         UPSC loves to test students on Chronological order of events and similar-sounding organizations. Here are the most commonly made mistakes - and how to beat them.
                     </p>
                 </div>
@@ -84,21 +84,21 @@ export default function HistoryExaminersTrap({ traps = DEFAULT_TRAPS }: HistoryE
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {traps.map((trap, idx) => (
-                    <div key={idx} className={`bg-white rounded-3xl border-2 ${trap.border} shadow-sm overflow-hidden flex flex-col group hover:shadow-xl transition-all duration-300`}>
+                    <div key={idx} className={`bg-card rounded-3xl border-2 ${trap.border} shadow-sm overflow-hidden flex flex-col group hover:shadow-xl transition-all duration-300`}>
                         <div className={`p-5 ${trap.bg} border-b ${trap.border} flex justify-between items-center`}>
-                            <h4 className="font-black text-slate-800">{trap.title}</h4>
+                            <h4 className="font-black text-foreground">{trap.title}</h4>
                             <Zap size={18} className={trap.color} />
                         </div>
 
                         <div className="p-6 space-y-6 flex-1">
-                            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">{trap.scenario}</p>
+                            <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">{trap.scenario}</p>
 
                             <div className="space-y-4">
                                 <div className="p-4 rounded-2xl bg-red-50/50 border border-red-100 flex gap-3 items-start">
                                     <XCircle className="text-red-500 shrink-0 mt-0.5" size={18} />
                                     <div>
                                         <p className="text-[10px] font-black text-red-400 uppercase">Common Error</p>
-                                        <p className="text-sm font-bold text-slate-700">{trap.wrongWay}</p>
+                                        <p className="text-sm font-bold text-muted-foreground">{trap.wrongWay}</p>
                                     </div>
                                 </div>
 
@@ -106,7 +106,7 @@ export default function HistoryExaminersTrap({ traps = DEFAULT_TRAPS }: HistoryE
                                     <CheckCircle2 className="text-emerald-600 shrink-0 mt-0.5" size={18} />
                                     <div>
                                         <p className="text-[10px] font-black text-emerald-500 uppercase">Correct Fact</p>
-                                        <p className="text-sm font-bold text-slate-800">{trap.rightWay}</p>
+                                        <p className="text-sm font-bold text-foreground">{trap.rightWay}</p>
                                     </div>
                                 </div>
                             </div>
@@ -115,12 +115,12 @@ export default function HistoryExaminersTrap({ traps = DEFAULT_TRAPS }: HistoryE
                                 <Lightbulb className="text-amber-600 shrink-0 mt-0.5" size={20} />
                                 <div>
                                     <p className="text-[10px] font-black text-amber-600 uppercase">Elimination Trick</p>
-                                    <p className="text-sm font-black text-slate-800 italic">{trap.trick}</p>
+                                    <p className="text-sm font-black text-foreground italic">{trap.trick}</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="p-4 bg-slate-50 border-t border-slate-100 flex justify-end">
+                        <div className="p-4 bg-muted border-t border-slate-100 flex justify-end">
                             <Button variant="ghost" size="sm" className="text-xs font-bold gap-1 group-hover:text-amber-700">
                                 Practice MCQs on this <ArrowRight size={14} />
                             </Button>
@@ -133,10 +133,10 @@ export default function HistoryExaminersTrap({ traps = DEFAULT_TRAPS }: HistoryE
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-amber-500/10 to-transparent"></div>
                 <GraduationCap size={48} className="mx-auto text-amber-400 mb-4 relative z-10" />
                 <h3 className="text-2xl font-black mb-2 relative z-10">Think Like an Examiner</h3>
-                <p className="text-slate-400 max-w-xl mx-auto font-medium mb-6 relative z-10">
+                <p className="text-muted-foreground max-w-xl mx-auto font-medium mb-6 relative z-10">
                     Always ask: "Is this fact similar to something else I've read?" Breaking the confusion early is the key to 100% accuracy in Prelims.
                 </p>
-                <Button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-8 rounded-2xl relative z-10 h-12">
+                <Button className="bg-amber-500 hover:bg-amber-600 text-foreground font-bold px-8 rounded-2xl relative z-10 h-12">
                     Take the Confusion Test
                 </Button>
             </div>

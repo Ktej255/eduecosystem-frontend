@@ -40,7 +40,7 @@ export default function PolityRevisionDashboard() {
         <div className="min-h-screen bg-[#fff7ed] font-['Kalam']">
             {/* Header */}
             <div className="bg-[#1e293b] text-white p-6 md:p-8 shadow-lg relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-card opacity-5 rounded-full transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative z-10">
                     <div>
                         <Button
@@ -65,7 +65,7 @@ export default function PolityRevisionDashboard() {
                 <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
 
                     {/* Navigation Tabs */}
-                    <div className="bg-white/80 backdrop-blur border-2 border-slate-200 p-2 rounded-2xl shadow-sm">
+                    <div className="bg-card/80 backdrop-blur border-2 border-border p-2 rounded-2xl shadow-sm">
                         <TabsList className="flex flex-wrap justify-start gap-2 h-auto bg-transparent p-0">
 
                             {/* --- LOGIC ENGINE FEATURES (NEW) --- */}
@@ -91,7 +91,7 @@ export default function PolityRevisionDashboard() {
                             <TabsTrigger value="smart-tables" className="px-4 py-2 rounded-xl data-[state=active]:bg-purple-600 data-[state=active]:text-white data-[state=active]:shadow-md font-bold flex items-center gap-2">
                                 <ArrowRightLeft size={16} /> Comparisons
                             </TabsTrigger>
-                            <TabsTrigger value="bodies" className="px-4 py-2 rounded-xl data-[state=active]:bg-amber-500 data-[state=active]:text-slate-900 font-bold flex items-center gap-2">
+                            <TabsTrigger value="bodies" className="px-4 py-2 rounded-xl data-[state=active]:bg-amber-500 data-[state=active]:text-foreground font-bold flex items-center gap-2">
                                 <Table size={16} /> Bodies Matrix
                             </TabsTrigger>
                             <TabsTrigger value="arcade" className="px-4 py-2 rounded-xl data-[state=active]:bg-indigo-600 data-[state=active]:text-white font-bold flex items-center gap-2">

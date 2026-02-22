@@ -60,7 +60,7 @@ export default function InteractiveFAQ({ lessonId, context }: FAQProps) {
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder="e.g., How does high inflation affect the Repo Rate?"
-                    className="h-14 pl-12 pr-32 bg-white/5 border-white/10 text-white rounded-2xl focus:ring-purple-500/50"
+                    className="h-14 pl-12 pr-32 bg-card/5 border-white/10 text-white rounded-2xl focus:ring-purple-500/50"
                 />
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/20" />
                 <Button
@@ -80,7 +80,7 @@ export default function InteractiveFAQ({ lessonId, context }: FAQProps) {
                             key={i}
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
-                            className="p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-white/10 transition-colors"
+                            className="p-5 rounded-2xl bg-card/5 border border-white/5 hover:border-white/10 transition-colors"
                         >
                             <div className="flex items-start gap-3 mb-3">
                                 <span className="text-xs font-bold text-white/30 uppercase mt-1">Q:</span>

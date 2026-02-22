@@ -29,7 +29,7 @@ export default function SocialPage() {
         {selectedFriend ? (
           <MessageThread currentUser={user} selectedFriend={selectedFriend} />
         ) : (
-          <div className="h-full bg-gray-900 rounded-lg border border-gray-800 flex flex-col items-center justify-center text-gray-400">
+          <div className="h-full bg-gray-900 rounded-lg border border-gray-800 flex flex-col items-center justify-center text-muted-foreground">
             <div className="p-4 bg-gray-800 rounded-full mb-4">
               <span className="text-4xl">👋</span>
             </div>

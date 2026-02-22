@@ -231,7 +231,7 @@ export default function VolcanoViz() {
                         onClick={() => setPhase(p.id as EruptionPhase)}
                         className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${phase === p.id
                             ? `bg-gradient-to-r ${phaseColors[p.id as EruptionPhase]} text-white shadow-lg`
-                            : 'bg-slate-800/80 text-slate-400 hover:bg-slate-700'
+                            : 'bg-slate-800/80 text-muted-foreground hover:bg-slate-700'
                             }`}
                     >
                         {p.name.split('(')[0].trim()}
@@ -244,7 +244,7 @@ export default function VolcanoViz() {
                 <h3 className={`text-lg font-bold bg-gradient-to-r ${phaseColors[phase]} bg-clip-text text-transparent mb-1`}>
                     {currentPhase?.name}
                 </h3>
-                <p className="text-slate-400 text-sm mb-2">{currentPhase?.description}</p>
+                <p className="text-muted-foreground text-sm mb-2">{currentPhase?.description}</p>
                 <p className="text-orange-300 text-xs">
                     Activity: {currentPhase?.activity}
                 </p>
@@ -253,7 +253,7 @@ export default function VolcanoViz() {
             {/* Title */}
             <div className="absolute top-16 left-4 text-white">
                 <h2 className="text-xl font-bold">Volcano Cross-Section</h2>
-                <p className="text-slate-400 text-sm">Interactive Eruption Phases</p>
+                <p className="text-muted-foreground text-sm">Interactive Eruption Phases</p>
             </div>
 
             {/* Volcano Types Legend */}
@@ -261,7 +261,7 @@ export default function VolcanoViz() {
                 <div className="text-white font-semibold mb-2">Volcano Types</div>
                 <div className="space-y-1">
                     {(volcanoData.volcanoTypes as Array<{ id: string; name: string; example: string }>).slice(0, 3).map((type) => (
-                        <div key={type.id} className="text-slate-400">
+                        <div key={type.id} className="text-muted-foreground">
                             <span className="text-white">{type.name}</span>: {type.example}
                         </div>
                     ))}

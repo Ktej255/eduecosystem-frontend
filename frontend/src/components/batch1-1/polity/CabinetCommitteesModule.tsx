@@ -11,12 +11,12 @@ interface CabinetCommitteesModuleProps {
 
 const CabinetCommitteesModule = ({ onComplete, isCompleted }: CabinetCommitteesModuleProps) => {
     return (
-        <div className="min-h-[50vh] flex flex-col items-center justify-center p-8 bg-slate-50 border-2 border-dashed border-slate-300 rounded-xl text-center">
+        <div className="min-h-[50vh] flex flex-col items-center justify-center p-8 bg-muted border-2 border-dashed border-border rounded-xl text-center">
             <div className="w-20 h-20 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mb-6">
                 <Users size={40} />
             </div>
-            <h2 className="text-2xl font-bold text-slate-800 mb-2">Chapter 21: Cabinet Committees</h2>
-            <p className="text-slate-600 max-w-md mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Chapter 21: Cabinet Committees</h2>
+            <p className="text-muted-foreground max-w-md mb-8">
                 The content for "Cabinet Committees" is currently being curated.
                 Please check back later for the "Kitchen Cabinet" updates!
             </p>

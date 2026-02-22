@@ -176,7 +176,7 @@ export default function TwoFactorSetupPage() {
           <CardContent className="space-y-6">
             {/* QR Code Display */}
             <div className="flex flex-col items-center space-y-4">
-              <div className="border-4 border-gray-200 rounded-lg p-4 bg-white">
+              <div className="border-4 border-border rounded-lg p-4 bg-card">
                 <img
                   src={`data:image/png;base64,${qrCode}`}
                   alt="2FA QR Code"

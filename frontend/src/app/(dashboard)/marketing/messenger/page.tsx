@@ -63,23 +63,23 @@ export default function MessengerPage() {
     <div className="h-[calc(100vh-100px)] flex flex-col">
       {/* Header */}
       <div className="p-4 border-b">
-        <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700 mb-2">
+        <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground mb-2">
           <ArrowLeft className="h-4 w-4 mr-1" />
           Back
         </Link>
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+        <h1 className="text-2xl font-bold text-foreground flex items-center gap-3">
           <MessageSquare className="h-7 w-7 text-blue-600" />
           Messenger
         </h1>
-        <p className="text-gray-500 text-sm">Manage direct messages with students</p>
+        <p className="text-muted-foreground text-sm">Manage direct messages with students</p>
       </div>
 
       <div className="flex flex-1 overflow-hidden">
         {/* Conversations Sidebar */}
-        <div className="w-80 border-r flex flex-col bg-white dark:bg-gray-800">
+        <div className="w-80 border-r flex flex-col bg-card">
           <div className="p-4">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search conversations..."
                 className="pl-10"
@@ -94,7 +94,7 @@ export default function MessengerPage() {
               <div
                 key={conv.id}
                 onClick={() => setSelectedConversation(conv)}
-                className={`p-4 border-b cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition ${selectedConversation?.id === conv.id ? 'bg-blue-50 dark:bg-blue-900/20 border-l-4 border-l-blue-500' : ''
+                className={`p-4 border-b cursor-pointer hover:bg-muted dark:hover:bg-gray-700 transition ${selectedConversation?.id === conv.id ? 'bg-blue-50 dark:bg-blue-900/20 border-l-4 border-l-blue-500' : ''
                   }`}
               >
                 <div className="flex items-start gap-3">
@@ -111,9 +111,9 @@ export default function MessengerPage() {
                   <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-center">
                       <span className="font-medium text-sm truncate">{conv.name}</span>
-                      <span className="text-xs text-gray-400">{conv.time}</span>
+                      <span className="text-xs text-muted-foreground">{conv.time}</span>
                     </div>
-                    <p className="text-sm text-gray-500 truncate">{conv.lastMessage}</p>
+                    <p className="text-sm text-muted-foreground truncate">{conv.lastMessage}</p>
                   </div>
                   {conv.unread > 0 && (
                     <Badge className="bg-blue-600 text-white text-xs">{conv.unread}</Badge>
@@ -125,11 +125,11 @@ export default function MessengerPage() {
         </div>
 
         {/* Chat Area */}
-        <div className="flex-1 flex flex-col bg-gray-50 dark:bg-gray-900">
+        <div className="flex-1 flex flex-col bg-muted">
           {selectedConversation ? (
             <>
               {/* Chat Header */}
-              <div className="p-4 bg-white dark:bg-gray-800 border-b flex items-center justify-between">
+              <div className="p-4 bg-card border-b flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <Avatar>
                     <AvatarFallback className="bg-blue-100 text-blue-600">
@@ -154,10 +154,10 @@ export default function MessengerPage() {
                   <div key={msg.id} className={`flex ${msg.isMe ? 'justify-end' : 'justify-start'}`}>
                     <div className={`max-w-[70%] rounded-2xl px-4 py-2 ${msg.isMe
                         ? 'bg-blue-600 text-white rounded-br-md'
-                        : 'bg-white dark:bg-gray-800 rounded-bl-md shadow-sm'
+                        : 'bg-card rounded-bl-md shadow-sm'
                       }`}>
                       <p className="text-sm">{msg.content}</p>
-                      <div className={`flex items-center justify-end gap-1 mt-1 ${msg.isMe ? 'text-blue-100' : 'text-gray-400'}`}>
+                      <div className={`flex items-center justify-end gap-1 mt-1 ${msg.isMe ? 'text-blue-100' : 'text-muted-foreground'}`}>
                         <span className="text-xs">{msg.time}</span>
                         {msg.isMe && (msg.read ? <CheckCheck className="h-3 w-3" /> : <Check className="h-3 w-3" />)}
                       </div>
@@ -167,7 +167,7 @@ export default function MessengerPage() {
               </div>
 
               {/* Message Input */}
-              <div className="p-4 bg-white dark:bg-gray-800 border-t">
+              <div className="p-4 bg-card border-t">
                 <div className="flex items-center gap-2">
                   <Button variant="ghost" size="sm"><Paperclip className="h-5 w-5" /></Button>
                   <Input
@@ -184,7 +184,7 @@ export default function MessengerPage() {
               </div>
             </>
           ) : (
-            <div className="flex-1 flex items-center justify-center text-gray-400">
+            <div className="flex-1 flex items-center justify-center text-muted-foreground">
               <div className="text-center">
                 <MessageSquare className="h-16 w-16 mx-auto mb-4 opacity-50" />
                 <p>Select a conversation to start messaging</p>

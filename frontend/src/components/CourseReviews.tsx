@@ -133,7 +133,7 @@ export default function CourseReviewsSection({
             key={star}
             className={`${size} ${star <= rating
                 ? "fill-yellow-500 text-yellow-500"
-                : "text-gray-600"
+                : "text-muted-foreground"
               } ${interactive ? "cursor-pointer hover:scale-110 transition-transform" : ""}`}
             onClick={
               interactive
@@ -147,7 +147,7 @@ export default function CourseReviewsSection({
   };
 
   if (loading) {
-    return <div className="text-gray-400">Loading reviews...</div>;
+    return <div className="text-muted-foreground">Loading reviews...</div>;
   }
 
   return (
@@ -163,7 +163,7 @@ export default function CourseReviewsSection({
                   {breakdown.average_rating.toFixed(1)}
                 </div>
                 {renderStars(Math.round(breakdown.average_rating))}
-                <div className="text-sm text-gray-400 mt-2">
+                <div className="text-sm text-muted-foreground mt-2">
                   Based on {breakdown.total_reviews} reviews
                 </div>
               </div>
@@ -186,7 +186,7 @@ export default function CourseReviewsSection({
                       }
                       className="flex-1 h-2"
                     />
-                    <span className="text-sm text-gray-400 w-12 text-right">
+                    <span className="text-sm text-muted-foreground w-12 text-right">
                       {
                         breakdown.ratings[
                         stars as keyof typeof breakdown.ratings
@@ -217,7 +217,7 @@ export default function CourseReviewsSection({
         {reviews.length === 0 ? (
           <Card className="bg-gray-900 border-gray-800">
             <CardContent className="p-12 text-center">
-              <p className="text-gray-400">
+              <p className="text-muted-foreground">
                 No reviews yet. Be the first to review this course!
               </p>
             </CardContent>
@@ -238,19 +238,19 @@ export default function CourseReviewsSection({
                         <div className="font-semibold">
                           {review.author_name || "Anonymous"}
                         </div>
-                        <div className="text-sm text-gray-400">
+                        <div className="text-sm text-muted-foreground">
                           {new Date(review.created_at).toLocaleDateString()}
                         </div>
                       </div>
                       {renderStars(review.rating)}
                     </div>
-                    <p className="text-gray-300 mb-3">
+                    <p className="text-muted-foreground mb-3">
                       {review.review_text || review.comment}
                     </p>
                     <button
                       className={`flex items-center gap-1 text-sm transition-colors ${review.has_found_helpful
                           ? "text-blue-500"
-                          : "text-gray-400 hover:text-blue-400"
+                          : "text-muted-foreground hover:text-blue-400"
                         }`}
                       onClick={() => handleHelpful(review.id)}
                     >

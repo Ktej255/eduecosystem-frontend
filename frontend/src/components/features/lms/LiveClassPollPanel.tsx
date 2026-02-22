@@ -120,7 +120,7 @@ export function LiveClassPollPanel({
                       variant="outline"
                       size="sm"
                       onClick={addOption}
-                      className="w-full border-dashed border-gray-600 text-gray-400 hover:text-white"
+                      className="w-full border-dashed border-gray-600 text-muted-foreground hover:text-white"
                     >
                       <Plus className="h-3 w-3 mr-1" /> Add Option
                     </Button>
@@ -202,7 +202,7 @@ export function LiveClassPollPanel({
             )}
           </div>
         ) : (
-          <div className="h-full flex flex-col items-center justify-center text-gray-500 space-y-2">
+          <div className="h-full flex flex-col items-center justify-center text-muted-foreground space-y-2">
             <BarChart2 className="h-8 w-8 opacity-20" />
             <p className="text-sm">No active polls</p>
           </div>

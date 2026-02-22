@@ -34,7 +34,7 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const CaseCard = ({ title, year, icon, color, children, className = "" }: { title: string, year: string, icon: React.ReactNode, color: string, children: React.ReactNode, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute top-0 right-0 p-2 opacity-10 translate-x-1/4 -translate-y-1/4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
             {icon}
         </div>
@@ -45,7 +45,7 @@ const CaseCard = ({ title, year, icon, color, children, className = "" }: { titl
             <Badge className="bg-slate-800 text-white font-mono">{year}</Badge>
         </div>
 
-        <div className="space-y-4 text-slate-800 relative z-10 font-bold leading-relaxed">
+        <div className="space-y-4 text-foreground relative z-10 font-bold leading-relaxed">
             {children}
         </div>
     </div>
@@ -62,7 +62,7 @@ const PhaseHeader = ({ number, title, color, subtitle }: { number: string, title
             </h2>
             <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
         </div>
-        {subtitle && <p className="text-slate-500 font-bold italic ml-16">{subtitle}</p>}
+        {subtitle && <p className="text-muted-foreground font-bold italic ml-16">{subtitle}</p>}
     </div>
 );
 
@@ -71,11 +71,11 @@ export default function LandmarkJudgementsModule({ onComplete, isCompleted, chap
         <ScrapbookContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#171717] border-4 border-[#000000] rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(23,23,23,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-card/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-[#404040] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-slate-300 font-bold uppercase tracking-widest text-sm italic underline decoration-white">Judicial History</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
@@ -108,8 +108,8 @@ export default function LandmarkJudgementsModule({ onComplete, isCompleted, chap
                     className="bg-yellow-50"
                 >
                     <p className="text-sm">"Procedure Established by Law" (Narrow). No Due Process.</p>
-                    <div className="bg-white p-3 rounded-lg border border-yellow-200 mt-2">
-                        <p className="text-xs font-black text-slate-500 uppercase">Verdict</p>
+                    <div className="bg-card p-3 rounded-lg border border-yellow-200 mt-2">
+                        <p className="text-xs font-black text-muted-foreground uppercase">Verdict</p>
                         <p className="text-sm font-bold text-yellow-800">Preventive Detention is valid. Art 19 & 21 are separate silos.</p>
                     </div>
                 </CaseCard>
@@ -122,8 +122,8 @@ export default function LandmarkJudgementsModule({ onComplete, isCompleted, chap
                     className="bg-blue-50"
                 >
                     <p className="text-sm">"Due Process of Law" (Broad). Golden Triangle (14, 19, 21).</p>
-                    <div className="bg-white p-3 rounded-lg border border-blue-200 mt-2">
-                        <p className="text-xs font-black text-slate-500 uppercase">Verdict</p>
+                    <div className="bg-card p-3 rounded-lg border border-blue-200 mt-2">
+                        <p className="text-xs font-black text-muted-foreground uppercase">Verdict</p>
                         <p className="text-sm font-bold text-blue-800">Passport impounding must be 'fair, just & reasonable'. Art 21 expanded.</p>
                     </div>
                 </CaseCard>
@@ -135,8 +135,8 @@ export default function LandmarkJudgementsModule({ onComplete, isCompleted, chap
                     color="border-green-600"
                     className="bg-green-50"
                 >
-                    <div className="bg-white p-3 rounded-lg border border-green-200 mt-2">
-                        <p className="text-xs font-black text-slate-500 uppercase">Verdict</p>
+                    <div className="bg-card p-3 rounded-lg border border-green-200 mt-2">
+                        <p className="text-xs font-black text-muted-foreground uppercase">Verdict</p>
                         <p className="text-sm font-bold text-green-800"><span className="underline">Right to Privacy</span> is a Fundamental Right under Article 21.</p>
                     </div>
                 </CaseCard>
@@ -155,17 +155,17 @@ export default function LandmarkJudgementsModule({ onComplete, isCompleted, chap
                 <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <h3 className="text-2xl font-black text-red-700 uppercase mb-4">Kesavananda Bharati (1973)</h3>
-                        <p className="font-bold text-slate-700 mb-4">The most important case in Indian history. Bench of 13 Judges (Largest). Ratio 7:6.</p>
+                        <p className="font-bold text-muted-foreground mb-4">The most important case in Indian history. Bench of 13 Judges (Largest). Ratio 7:6.</p>
                         <ul className="space-y-3 text-sm font-bold text-red-900">
                             <li className="flex items-center gap-2"><div className="w-2 h-2 bg-red-600 rounded-full" /> Parliament usually amend ANY part (including FRs).</li>
                             <li className="flex items-center gap-2"><div className="w-2 h-2 bg-red-600 rounded-full" /> BUT cannot alter the <span className="underline text-lg">Basic Structure</span>.</li>
                             <li className="flex items-center gap-2"><div className="w-2 h-2 bg-red-600 rounded-full" /> Judicial Review is part of Basic Structure.</li>
                         </ul>
                     </div>
-                    <div className="bg-white p-6 rounded-2xl shadow-xl rotate-2 border-2 border-red-200 flex flex-col items-center">
-                        <Hammer size={48} className="text-slate-800 mb-2" />
-                        <h4 className="font-black text-slate-800 uppercase text-center">Minerva Mills (1980)</h4>
-                        <p className="text-xs font-bold text-center text-slate-600 mt-2">
+                    <div className="bg-card p-6 rounded-2xl shadow-xl rotate-2 border-2 border-red-200 flex flex-col items-center">
+                        <Hammer size={48} className="text-foreground mb-2" />
+                        <h4 className="font-black text-foreground uppercase text-center">Minerva Mills (1980)</h4>
+                        <p className="text-xs font-bold text-center text-muted-foreground mt-2">
                             "Constitution is founded on the bedrock of balance between Part III (FR) and Part IV (DPSP)."
                         </p>
                     </div>
@@ -184,13 +184,13 @@ export default function LandmarkJudgementsModule({ onComplete, isCompleted, chap
                 <CaseCard
                     title="SR Bommai Case"
                     year="1994"
-                    icon={<Landmark size={120} className="text-slate-600" />}
+                    icon={<Landmark size={120} className="text-muted-foreground" />}
                     color="border-slate-600"
-                    className="bg-slate-50"
+                    className="bg-muted"
                 >
-                    <p className="text-sm font-bold text-slate-700 mb-4">Guidelines for imposing President's Rule (Art 356).</p>
+                    <p className="text-sm font-bold text-muted-foreground mb-4">Guidelines for imposing President's Rule (Art 356).</p>
                     <ul className="list-disc pl-4 space-y-2 text-sm">
-                        <li><span className="text-slate-900 font-black">Federalism</span> is Basic Structure.</li>
+                        <li><span className="text-foreground font-black">Federalism</span> is Basic Structure.</li>
                         <li>Floor Test is the <span className="underline">only</span> way to test majority.</li>
                         <li>Assembly can only be dissolved <span className="underline">after</span> Parliament approval.</li>
                     </ul>
@@ -213,7 +213,7 @@ export default function LandmarkJudgementsModule({ onComplete, isCompleted, chap
             </div>
 
             {/* FOOTER: RECENT CASES */}
-            <div className="mt-8 p-8 bg-slate-100 text-slate-800 rounded-[2rem] border-4 border-slate-300 relative overflow-hidden flex flex-col items-center text-center shadow-lg">
+            <div className="mt-8 p-8 bg-muted text-foreground rounded-[2rem] border-4 border-border relative overflow-hidden flex flex-col items-center text-center shadow-lg">
                 <Flame className="text-orange-500 mb-4" size={48} />
                 <h4 className="text-2xl font-black uppercase mb-2">Modern Shifts</h4>
                 <div className="flex flex-wrap justify-center gap-4 mt-2">
@@ -244,7 +244,7 @@ export default function LandmarkJudgementsModule({ onComplete, isCompleted, chap
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold italic tracking-widest text-center uppercase">Kesavananda • Basic Structure • Bommai.</p>
+                <p className="mt-4 text-muted-foreground font-bold italic tracking-widest text-center uppercase">Kesavananda • Basic Structure • Bommai.</p>
             </div>
         </ScrapbookContainer>
     );

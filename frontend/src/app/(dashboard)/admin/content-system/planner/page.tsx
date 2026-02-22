@@ -16,24 +16,24 @@ export default function PlannerGeneratorPage() {
                     </Button>
                 </Link>
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                    <h1 className="text-2xl font-bold text-foreground">
                         Weekly Planner Generator
                     </h1>
-                    <p className="text-gray-500">
+                    <p className="text-muted-foreground">
                         Configure weekly schedules and chapter mappings
                     </p>
                 </div>
             </div>
 
-            <Card className="border-dashed border-2 border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
+            <Card className="border-dashed border-2 border-border bg-muted/50">
                 <CardContent className="py-12 flex flex-col items-center justify-center text-center">
                     <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-4">
                         <Calendar className="w-8 h-8 text-blue-600" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                    <h3 className="text-xl font-bold text-foreground mb-2">
                         Planner Generator Coming Soon
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400 max-w-md mb-6">
+                    <p className="text-muted-foreground dark:text-muted-foreground max-w-md mb-6">
                         This tool will allow you to drag-and-drop chapters into weekly slots and auto-calculate Pomodoro sessions.
                     </p>
                     <Button disabled>

@@ -138,7 +138,7 @@ export function VideoPlayer({
               variant="ghost"
               size="icon"
               onClick={togglePlay}
-              className="text-white hover:bg-white/20"
+              className="text-white hover:bg-card/20"
             >
               {playing ? (
                 <Pause className="w-5 h-5" />
@@ -152,7 +152,7 @@ export function VideoPlayer({
                 variant="ghost"
                 size="icon"
                 onClick={() => setMuted(!muted)}
-                className="text-white hover:bg-white/20"
+                className="text-white hover:bg-card/20"
               >
                 {muted || volume === 0 ? (
                   <VolumeX className="w-5 h-5" />
@@ -174,7 +174,7 @@ export function VideoPlayer({
               </div>
             </div>
 
-            <span className="text-sm text-gray-300 font-mono">
+            <span className="text-sm text-muted-foreground font-mono">
               {formatTime(currentTime)} / {formatTime(duration)}
             </span>
           </div>
@@ -183,7 +183,7 @@ export function VideoPlayer({
             <Button
               variant="ghost"
               size="icon"
-              className="text-white hover:bg-white/20"
+              className="text-white hover:bg-card/20"
             >
               <Settings className="w-5 h-5" />
             </Button>
@@ -191,7 +191,7 @@ export function VideoPlayer({
               variant="ghost"
               size="icon"
               onClick={() => videoRef.current?.requestFullscreen()}
-              className="text-white hover:bg-white/20"
+              className="text-white hover:bg-card/20"
             >
               <Maximize className="w-5 h-5" />
             </Button>

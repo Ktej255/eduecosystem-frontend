@@ -256,7 +256,7 @@ export default function AIChatWidget() {
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-2xl transition-all duration-300 ${isOpen
-                    ? "bg-gray-800 text-gray-300 scale-90"
+                    ? "bg-gray-800 text-muted-foreground scale-90"
                     : "bg-gradient-to-br from-emerald-500 to-teal-600 text-white hover:scale-110 hover:shadow-emerald-500/25"
                     }`}
             >
@@ -282,7 +282,7 @@ export default function AIChatWidget() {
                     <div className="bg-gradient-to-r from-emerald-600 to-teal-600 p-4">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
-                                <div className="p-2 bg-white/20 rounded-full">
+                                <div className="p-2 bg-card/20 rounded-full">
                                     <Sparkles className="h-5 w-5 text-white" />
                                 </div>
                                 <div>
@@ -294,7 +294,7 @@ export default function AIChatWidget() {
                                 <button
                                     onClick={clearHistory}
                                     title="Clear chat history"
-                                    className="p-1.5 hover:bg-white/20 rounded-full transition-colors"
+                                    className="p-1.5 hover:bg-card/20 rounded-full transition-colors"
                                 >
                                     <Trash2 className="h-4 w-4 text-white/70" />
                                 </button>
@@ -345,13 +345,13 @@ export default function AIChatWidget() {
                     {/* Quick Actions */}
                     {messages.length <= 1 && (
                         <div className="px-4 pb-2">
-                            <p className="text-xs text-gray-500 mb-2">Quick actions:</p>
+                            <p className="text-xs text-muted-foreground mb-2">Quick actions:</p>
                             <div className="flex flex-wrap gap-2">
                                 {getQuickActions().map((action, i) => (
                                     <button
                                         key={i}
                                         onClick={() => handleQuickAction(action)}
-                                        className="flex items-center gap-1 px-3 py-1.5 bg-gray-800 hover:bg-gray-700 rounded-full text-xs text-gray-300 transition-colors"
+                                        className="flex items-center gap-1 px-3 py-1.5 bg-gray-800 hover:bg-gray-700 rounded-full text-xs text-muted-foreground transition-colors"
                                     >
                                         {action.icon}
                                         {action.label}

@@ -16,8 +16,8 @@ export default function BorderSecurityViz() {
     const [activeBorder, setActiveBorder] = useState(BORDERS[0]);
 
     return (
-        <Card className="p-6 bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800">
-            <h3 className="text-lg font-bold mb-4 text-slate-800 dark:text-slate-200">Border Management & Challenges</h3>
+        <Card className="p-6 bg-muted border-border">
+            <h3 className="text-lg font-bold mb-4 text-foreground">Border Management & Challenges</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Visual Representation (Abstract Map/List) */}
@@ -25,19 +25,19 @@ export default function BorderSecurityViz() {
                     {BORDERS.map((border) => (
                         <motion.div
                             key={border.id}
-                            className={`p-4 rounded-xl cursor-pointer border-l-4 transition-all ${activeBorder.id === border.id ? 'bg-white dark:bg-slate-800 shadow-md border-l-indigo-500' : 'bg-transparent border-l-transparent hover:bg-slate-100 dark:hover:bg-slate-800/50'}`}
+                            className={`p-4 rounded-xl cursor-pointer border-l-4 transition-all ${activeBorder.id === border.id ? 'bg-card shadow-md border-l-indigo-500' : 'bg-transparent border-l-transparent hover:bg-muted dark:hover:bg-slate-800/50'}`}
                             onClick={() => setActiveBorder(border)}
                             whileHover={{ scale: 1.02 }}
                         >
                             <div className="flex justify-between items-center">
-                                <span className="font-bold text-slate-700 dark:text-slate-300">{border.name}</span>
-                                <span className="text-xs font-mono bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">{border.length}</span>
+                                <span className="font-bold text-muted-foreground">{border.name}</span>
+                                <span className="text-xs font-mono bg-slate-200 px-2 py-0.5 rounded text-muted-foreground dark:text-muted-foreground">{border.length}</span>
                             </div>
                             {activeBorder.id === border.id && (
                                 <motion.div
                                     initial={{ opacity: 0, height: 0 }}
                                     animate={{ opacity: 1, height: 'auto' }}
-                                    className="mt-2 text-xs text-slate-500"
+                                    className="mt-2 text-xs text-muted-foreground"
                                 >
                                     <div className="flex gap-2 flex-wrap mt-2">
                                         {border.issues.map(issue => (
@@ -56,11 +56,11 @@ export default function BorderSecurityViz() {
                 <div className="bg-slate-900 text-white rounded-xl p-6 relative overflow-hidden">
                     <div className={`absolute top-0 right-0 w-32 h-32 ${activeBorder.color} opacity-20 blur-3xl rounded-full`} />
                     <h4 className="text-xl font-bold mb-1">{activeBorder.name}</h4>
-                    <p className="text-slate-400 text-sm mb-6">Border Length: {activeBorder.length}</p>
+                    <p className="text-muted-foreground text-sm mb-6">Border Length: {activeBorder.length}</p>
 
                     <div className="space-y-4">
                         <div>
-                            <h5 className="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Key Challenges</h5>
+                            <h5 className="text-xs uppercase tracking-widest text-muted-foreground font-bold mb-2">Key Challenges</h5>
                             <ul className="space-y-2">
                                 {activeBorder.issues.map(issue => (
                                     <li key={issue} className="flex items-center gap-2 text-sm">

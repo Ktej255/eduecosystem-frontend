@@ -100,7 +100,7 @@ function CurrentAffairsCentralContent() {
             case 'Economy': return 'bg-emerald-100 text-emerald-800 border-emerald-200';
             case 'Environment': return 'bg-green-100 text-green-800 border-green-200';
             case 'Science': return 'bg-blue-100 text-blue-800 border-blue-200';
-            default: return 'bg-slate-100 text-slate-800 border-slate-200';
+            default: return 'bg-muted text-foreground border-border';
         }
     };
 
@@ -114,29 +114,29 @@ function CurrentAffairsCentralContent() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans">
+        <div className="min-h-screen bg-muted p-4 md:p-8 font-sans">
             {/* Header */}
             <div className="max-w-7xl mx-auto mb-8">
-                <Button variant="ghost" className="mb-4 pl-0 hover:bg-transparent hover:text-slate-600" onClick={handleBack}>
+                <Button variant="ghost" className="mb-4 pl-0 hover:bg-transparent hover:text-muted-foreground" onClick={handleBack}>
                     <ArrowLeft className="mr-2 h-5 w-5" /> Back to {selectedSubject !== 'All' ? selectedSubject : 'Dashboard'}
                 </Button>
 
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <div>
-                        <h1 className="text-3xl font-black text-slate-900 tracking-tight">Current Affairs Hub</h1>
-                        <p className="text-slate-500 mt-1">Stay updated with exam-relevant news and analysis.</p>
+                        <h1 className="text-3xl font-black text-foreground tracking-tight">Current Affairs Hub</h1>
+                        <p className="text-muted-foreground mt-1">Stay updated with exam-relevant news and analysis.</p>
                     </div>
                 </div>
             </div>
 
             {/* Filters Bar */}
-            <div className="max-w-7xl mx-auto bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-8 sticky top-4 z-10">
+            <div className="max-w-7xl mx-auto bg-card p-4 rounded-2xl shadow-sm border border-border mb-8 sticky top-4 z-10">
                 <div className="flex flex-col md:flex-row gap-4">
                     <div className="relative flex-1">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                         <Input
                             placeholder="Search topics, headlines..."
-                            className="pl-10 bg-slate-50 border-slate-200"
+                            className="pl-10 bg-muted border-border"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
@@ -166,7 +166,7 @@ function CurrentAffairsCentralContent() {
                             <SelectItem value="All">All Chapters</SelectItem>
                             {getChapterOptions().map(ch => (
                                 <SelectItem key={ch.id} value={ch.id.toString()}>
-                                    <span className="font-mono text-xs text-slate-400 mr-2">#{ch.id}</span>
+                                    <span className="font-mono text-xs text-muted-foreground mr-2">#{ch.id}</span>
                                     {ch.title}
                                 </SelectItem>
                             ))}
@@ -195,27 +195,27 @@ function CurrentAffairsCentralContent() {
                             key={item.id}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col group"
+                            className="bg-card rounded-xl border border-border overflow-hidden hover:shadow-md transition-shadow flex flex-col group"
                         >
                             <div className="p-6 flex-1">
                                 <div className="flex justify-between items-start mb-4">
                                     <Badge variant="outline" className={`${getSubjectColor(item.subject)} border`}>
                                         {item.subject}
                                     </Badge>
-                                    <span className="text-xs font-semibold text-slate-400 flex items-center">
+                                    <span className="text-xs font-semibold text-muted-foreground flex items-center">
                                         <Calendar className="h-3 w-3 mr-1" />
                                         {item.date}
                                     </span>
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2 leading-tight group-hover:text-blue-700 transition-colors">
+                                <h3 className="text-xl font-bold text-foreground mb-2 leading-tight group-hover:text-blue-700 transition-colors">
                                     {item.title}
                                 </h3>
-                                <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                                <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
                                     {item.description}
                                 </p>
                                 <div className="flex flex-wrap gap-2">
                                     {item.tags.map(tag => (
-                                        <span key={tag} className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-md font-medium">
+                                        <span key={tag} className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded-md font-medium">
                                             #{tag}
                                         </span>
                                     ))}
@@ -226,7 +226,7 @@ function CurrentAffairsCentralContent() {
                                     )}
                                 </div>
                             </div>
-                            <div className="p-4 bg-slate-50 border-t border-slate-100 flex justify-end">
+                            <div className="p-4 bg-muted border-t border-slate-100 flex justify-end">
                                 {item.chapter && item.subject === 'History' ? (
                                     <Button
                                         variant="default"
@@ -238,7 +238,7 @@ function CurrentAffairsCentralContent() {
                                         Attempt in L3 Drill
                                     </Button>
                                 ) : (
-                                    <Button variant="ghost" disabled size="sm" className="text-xs text-slate-400">
+                                    <Button variant="ghost" disabled size="sm" className="text-xs text-muted-foreground">
                                         No Drill Link
                                     </Button>
                                 )}
@@ -246,7 +246,7 @@ function CurrentAffairsCentralContent() {
                         </motion.div>
                     ))
                 ) : (
-                    <div className="col-span-full py-12 text-center text-slate-500">
+                    <div className="col-span-full py-12 text-center text-muted-foreground">
                         <BookOpen className="h-12 w-12 mx-auto mb-3 opacity-20" />
                         <p>No current affairs found matching your filters.</p>
                         <Button variant="link" onClick={() => { setSelectedSubject('All'); setSelectedMonth('All'); setSelectedChapter('All'); setSearchQuery(''); }}>

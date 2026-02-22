@@ -33,7 +33,7 @@ export default function EthicsTopicViewer({ content }: EthicsTopicViewerProps) {
     return (
         <div className="min-h-screen bg-stone-50 dark:bg-stone-950">
             {/* Header - Amber/Official Theme */}
-            <div className="bg-white dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 sticky top-0 z-50">
+            <div className="bg-card dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
                     <div className="flex items-center gap-4">
                         <Link href="/student/batch1/ethics">

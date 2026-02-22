@@ -10,18 +10,18 @@ export default function HandwrittenChapter29() {
     const t = language === 'hi' ? ch29Translations.hi : ch29Translations.en;
 
     return (
-        <div className="min-h-screen bg-[#fdfbf7] p-4 md:p-8 font-['Kalam',_cursive] text-[#000080] selection:bg-yellow-200">
+        <div className="min-h-screen bg-paper p-4 md:p-8 font-['Kalam',_cursive] text-paper-indigo selection:bg-paper-orange/30">
             <style jsx global>{`
                 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Permanent+Marker&display=swap');
                 
                 .handwritten-paper {
-                    background-image: repeating-linear-gradient(transparent, transparent 31px, #e5e5f7 31px, #e5e5f7 32px);
+                    background-image: repeating-linear-gradient(transparent, transparent 31px, var(--paper-border) 31px, var(--paper-border) 32px);
                     background-attachment: local;
                 }
                 
                 .paper-border {
                     border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-                    border: 2px solid #333;
+                    border: 2px solid var(--paper-gray);
                 }
 
                 .highlight {
@@ -44,107 +44,107 @@ export default function HandwrittenChapter29() {
                 }
             `}</style>
 
-            <div className="max-w-5xl mx-auto mb-16 relative pt-12 text-gray-900">
-                <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-[#CC0000] mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase leading-tight">
+            <div className="max-w-5xl mx-auto mb-16 relative pt-12 text-inherit">
+                <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-paper-red mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase leading-tight">
                     {t.headerTitle}
                 </h1>
-                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline uppercase">{t.studyNotesLabel}</p>
+                <p className="text-center text-xl text-paper-gray mb-12 font-bold opacity-70 italic underline uppercase">{t.studyNotesLabel}</p>
             </div>
 
             {/* CASTE MOVEMENTS */}
-            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative text-gray-900">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2 uppercase">{t.casteMovementsTitle}</h2>
+            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-paper relative text-inherit">
+                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-paper-indigo border-b-2 border-paper-border pb-2 uppercase">{t.casteMovementsTitle}</h2>
                 <div className="space-y-6">
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.satnamiTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.satnamiTitle}</h3>
                         <ul className="space-y-2">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.satnamiDesc1}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.satnamiDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.satnamiDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.satnamiDesc2}</span></li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.sndpTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.sndpTitle}</h3>
                         <ul className="space-y-2">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.sndpDesc1}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span className="font-bold underline text-red-900">{t.sndpSlogan}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.sndpDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.sndpDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span className="font-bold underline text-paper-red">{t.sndpSlogan}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.sndpDesc2}</span></li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.justicePartyTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.justicePartyTitle}</h3>
                         <ul className="space-y-2">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.justicePartyDesc1}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.justicePartyDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.justicePartyDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.justicePartyDesc2}</span></li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.selfRespectTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.selfRespectTitle}</h3>
                         <ul className="space-y-3">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.selfRespectDesc1}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.selfRespectDesc2}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.selfRespectDesc3}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.selfRespectDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.selfRespectDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.selfRespectDesc3}</span></li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.mahadSatyagrahaTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.mahadSatyagrahaTitle}</h3>
                         <ul className="space-y-3">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.mahadSatyagrahaDesc1}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.mahadSatyagrahaDesc2}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.mahadSatyagrahaDesc3}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.mahadSatyagrahaDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.mahadSatyagrahaDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.mahadSatyagrahaDesc3}</span></li>
                         </ul>
                     </div>
                 </div>
             </section>
 
             {/* WOMEN'S REFORM SECTION */}
-            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative text-gray-900">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2 uppercase">{t.womenReformTitle}</h2>
+            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-paper relative text-inherit">
+                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-paper-indigo border-b-2 border-paper-border pb-2 uppercase">{t.womenReformTitle}</h2>
                 <div className="space-y-6">
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.keyLeadersTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.keyLeadersTitle}</h3>
                         <ul className="space-y-3">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.panditaRamabai}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.savitribaiPhule}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.dkKarve}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.panditaRamabai}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.savitribaiPhule}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.dkKarve}</span></li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.organizationsTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.organizationsTitle}</h3>
                         <ul className="space-y-2">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.aiwcDesc}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.aiwcDesc}</span></li>
                         </ul>
                     </div>
                 </div>
             </section>
 
             {/* WESTERN INDIA SECTION */}
-            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative text-gray-900">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2 uppercase">{t.westernIndiaTitle}</h2>
+            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-paper relative text-inherit">
+                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-paper-indigo border-b-2 border-paper-border pb-2 uppercase">{t.westernIndiaTitle}</h2>
                 <div className="space-y-6">
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.youngBombayTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.youngBombayTitle}</h3>
                         <ul className="space-y-2">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.youngBombayDesc}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.youngBombayDesc}</span></li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.paramahansaMandaliTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.paramahansaMandaliTitle}</h3>
                         <ul className="space-y-2">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.paramahansaMandaliDesc1}</span></li>
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.paramahansaMandaliDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.paramahansaMandaliDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.paramahansaMandaliDesc2}</span></li>
                         </ul>
                     </div>
 
-                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.lokhitawadiTitle}</h3>
+                    <div className="bg-paper-orange/10 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-paper-red mb-2 uppercase tracking-tight">{t.lokhitawadiTitle}</h3>
                         <ul className="space-y-2">
-                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.lokhitawadiDesc}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-paper-gray/40 mt-1">→</span><span>{t.lokhitawadiDesc}</span></li>
                         </ul>
                     </div>
                 </div>

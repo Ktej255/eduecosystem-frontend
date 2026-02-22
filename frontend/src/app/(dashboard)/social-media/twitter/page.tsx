@@ -40,7 +40,7 @@ export default function TwitterPage() {
 
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-5xl mx-auto">
-      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground">
         <ArrowLeft className="h-4 w-4 mr-1" />
         Back
       </Link>
@@ -48,13 +48,13 @@ export default function TwitterPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
             <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
               <Twitter className="h-5 w-5 text-white" />
             </div>
             X (Twitter)
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-muted-foreground dark:text-muted-foreground mt-1">
             Manage your X (Twitter) presence and interactions
           </p>
         </div>
@@ -68,7 +68,7 @@ export default function TwitterPage() {
       <Card>
         <CardContent className="p-5">
           <div className="flex gap-4">
-            <div className="w-10 h-10 bg-gray-200 rounded-full flex-shrink-0" />
+            <div className="w-10 h-10 bg-muted rounded-full flex-shrink-0" />
             <div className="flex-1 space-y-3">
               <Textarea placeholder="What is happening?!" className="resize-none border-0 shadow-none p-0 focus-visible:ring-0 text-lg min-h-[50px]" />
               <div className="flex justify-between items-center border-t pt-3">
@@ -95,21 +95,21 @@ export default function TwitterPage() {
           <CardContent className="p-5">
             <BarChart3 className="h-8 w-8 text-blue-500 mb-2" />
             <p className="text-2xl font-bold">{(stats.impressions / 1000).toFixed(0)}K</p>
-            <p className="text-sm text-gray-500">Impressions</p>
+            <p className="text-sm text-muted-foreground">Impressions</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5">
             <MessageSquare className="h-8 w-8 text-purple-500 mb-2" />
             <p className="text-2xl font-bold">{stats.tweets}</p>
-            <p className="text-sm text-gray-500">Total Tweets</p>
+            <p className="text-sm text-muted-foreground">Total Tweets</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5">
             <AtSign className="h-8 w-8 text-green-500 mb-2" />
             <p className="text-2xl font-bold">{stats.following}</p>
-            <p className="text-sm text-gray-500">Following</p>
+            <p className="text-sm text-muted-foreground">Following</p>
           </CardContent>
         </Card>
       </div>
@@ -122,9 +122,9 @@ export default function TwitterPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             {recentTweets.map((tweet) => (
-              <div key={tweet.id} className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <div key={tweet.id} className="p-4 bg-muted rounded-lg">
                 <p className="mb-3">{tweet.content}</p>
-                <div className="flex items-center justify-between text-sm text-gray-500">
+                <div className="flex items-center justify-between text-sm text-muted-foreground">
                   <div className="flex items-center gap-4">
                     <span className="flex items-center gap-1 hover:text-red-500 cursor-pointer transition">
                       <Heart className="h-4 w-4" /> {tweet.likes}
@@ -156,7 +156,7 @@ export default function TwitterPage() {
               {trends.map((trend, idx) => (
                 <div key={idx} className="flex justify-between items-center">
                   <span className="font-medium text-blue-600">{trend.topic}</span>
-                  <span className="text-sm text-gray-500">{trend.tweets} posts</span>
+                  <span className="text-sm text-muted-foreground">{trend.tweets} posts</span>
                 </div>
               ))}
             </CardContent>
@@ -173,7 +173,7 @@ export default function TwitterPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="font-medium text-sm">Auto-tweet updates</p>
-                  <p className="text-xs text-gray-500">Share new content automatically</p>
+                  <p className="text-xs text-muted-foreground">Share new content automatically</p>
                 </div>
                 <Switch checked={autoTweet} onCheckedChange={setAutoTweet} />
               </div>

@@ -262,7 +262,7 @@ export default function UpanishadMasterPortal() {
                     Recommended Study Sequence
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-white/60 rounded-lg p-4 border border-amber-200">
+                    <div className="bg-card/60 rounded-lg p-4 border border-amber-200">
                         <div className="flex items-center gap-2 text-green-700 font-semibold mb-2">
                             <Sparkles className="w-4 h-4" /> Beginner (Start Here)
                         </div>
@@ -275,7 +275,7 @@ export default function UpanishadMasterPortal() {
                             ))}
                         </div>
                     </div>
-                    <div className="bg-white/60 rounded-lg p-4 border border-amber-200">
+                    <div className="bg-card/60 rounded-lg p-4 border border-amber-200">
                         <div className="flex items-center gap-2 text-blue-700 font-semibold mb-2">
                             <BookOpen className="w-4 h-4" /> Intermediate
                         </div>
@@ -288,7 +288,7 @@ export default function UpanishadMasterPortal() {
                             ))}
                         </div>
                     </div>
-                    <div className="bg-white/60 rounded-lg p-4 border border-amber-200">
+                    <div className="bg-card/60 rounded-lg p-4 border border-amber-200">
                         <div className="flex items-center gap-2 text-purple-700 font-semibold mb-2">
                             <GraduationCap className="w-4 h-4" /> Advanced
                         </div>
@@ -324,19 +324,19 @@ export default function UpanishadMasterPortal() {
                     }}
                 >
                     <Background variant={BackgroundVariant.Dots} gap={30} size={1.5} color="rgba(0, 0, 0, 0.05)" />
-                    <Controls className="!bg-white/90 !border-gray-200 !rounded-lg !shadow-lg" />
+                    <Controls className="!bg-card/90 !border-border !rounded-lg !shadow-lg" />
 
-                    <Panel position="top-left" className="!bg-white/95 !rounded-lg !px-4 !py-3 !border !border-gray-200 !shadow-md !m-3">
-                        <div className="flex items-center gap-3 text-gray-700">
+                    <Panel position="top-left" className="!bg-card/95 !rounded-lg !px-4 !py-3 !border !border-border !shadow-md !m-3">
+                        <div className="flex items-center gap-3 text-muted-foreground">
                             <LayoutGrid className="w-5 h-5 text-amber-600" />
                             <div>
                                 <div className="font-bold text-lg">{ALL_108_UPANISHADS.length} Upaniṣads</div>
-                                <div className="text-xs text-gray-500">Grouped by Veda • Click to explore</div>
+                                <div className="text-xs text-muted-foreground">Grouped by Veda • Click to explore</div>
                             </div>
                         </div>
                     </Panel>
 
-                    <Panel position="bottom-center" className="!bg-white/95 !rounded-full !px-5 !py-2 !border !border-gray-200 !shadow-md !text-sm !text-gray-600">
+                    <Panel position="bottom-center" className="!bg-card/95 !rounded-full !px-5 !py-2 !border !border-border !shadow-md !text-sm !text-muted-foreground">
                         🖱️ Drag to pan • Scroll to zoom • Click nodes to study
                     </Panel>
                 </ReactFlow>

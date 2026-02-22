@@ -91,7 +91,7 @@ export default function MathSprint() {
                             <Timer className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
                         </div>
                         <h3 className="text-2xl font-bold">Mental Math Sprint</h3>
-                        <p className="text-gray-500 text-sm max-w-[200px] mx-auto">None stop arithmetic for 60 seconds.</p>
+                        <p className="text-muted-foreground text-sm max-w-[200px] mx-auto">None stop arithmetic for 60 seconds.</p>
                         <Button onClick={startGame} className="bg-indigo-600 hover:bg-indigo-700 text-white w-full">
                             <Play className="h-4 w-4 mr-2" /> Start Sprint
                         </Button>
@@ -106,7 +106,7 @@ export default function MathSprint() {
                         <div className="text-5xl font-black text-indigo-600 dark:text-indigo-400 my-4">
                             {score}
                         </div>
-                        <p className="text-gray-500 text-sm">Problems Solved</p>
+                        <p className="text-muted-foreground text-sm">Problems Solved</p>
                         <Button onClick={startGame} variant="outline" className="w-full">
                             <RotateCcw className="h-4 w-4 mr-2" /> Play Again
                         </Button>
@@ -114,12 +114,12 @@ export default function MathSprint() {
                 ) : (
                     // Gameplay
                     <div className="w-full max-w-[240px] space-y-6">
-                        <div className="flex justify-between items-center text-sm font-medium text-gray-400 uppercase tracking-widest">
+                        <div className="flex justify-between items-center text-sm font-medium text-muted-foreground uppercase tracking-widest">
                             <span>Time: {timeLeft}s</span>
                             <span>Score: {score}</span>
                         </div>
 
-                        <div className="text-5xl font-mono font-bold text-gray-800 dark:text-gray-100 tracking-wider">
+                        <div className="text-5xl font-mono font-bold text-foreground tracking-wider">
                             {problem.text}
                         </div>
 
@@ -133,7 +133,7 @@ export default function MathSprint() {
                                 placeholder="?"
                             />
                         </form>
-                        <p className="text-xs text-gray-400">Press Enter to Submit</p>
+                        <p className="text-xs text-muted-foreground">Press Enter to Submit</p>
                     </div>
                 )}
             </CardContent>

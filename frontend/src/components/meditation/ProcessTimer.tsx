@@ -160,7 +160,7 @@ export default function ProcessTimer({
                     >
                         {formatTime(remainingSeconds)}
                     </motion.span>
-                    <span className="text-sm text-gray-400 mt-2">
+                    <span className="text-sm text-muted-foreground mt-2">
                         {isPaused ? "PAUSED" : "REMAINING"}
                     </span>
                 </div>
@@ -186,7 +186,7 @@ export default function ProcessTimer({
             </div>
 
             {/* Process counter */}
-            <p className="text-gray-400 mt-4">
+            <p className="text-muted-foreground mt-4">
                 Process {processIndex + 1} of {totalProcesses}
             </p>
         </div>

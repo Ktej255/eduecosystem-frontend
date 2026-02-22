@@ -99,7 +99,7 @@ export default function PriorityInbox() {
             case 'high': return "border-rose-200 bg-rose-50 text-rose-700";
             case 'medium': return "border-amber-200 bg-amber-50 text-amber-700";
             case 'low': return "border-blue-200 bg-blue-50 text-blue-700";
-            default: return "border-gray-200 bg-gray-50 text-gray-700";
+            default: return "border-border bg-muted text-muted-foreground";
         }
     };
 
@@ -111,7 +111,7 @@ export default function PriorityInbox() {
             case 'whatsapp': return <MessageSquare className="h-4 w-4 text-green-500" />;
             case 'telegram': return <Smartphone className="h-4 w-4 text-blue-500" />;
             case 'email': return <Mail className="h-4 w-4 text-amber-500" />;
-            default: return <MessageSquare className="h-4 w-4 text-slate-400" />;
+            default: return <MessageSquare className="h-4 w-4 text-muted-foreground" />;
         }
     };
 
@@ -159,10 +159,10 @@ export default function PriorityInbox() {
                     </CardTitle>
                     <div className="flex gap-2">
                         <div className="relative hidden md:block w-48">
-                            <Search className="absolute left-2 top-2.5 h-3.5 w-3.5 text-gray-400" />
-                            <Input placeholder="Search..." className="h-8 pl-8 text-xs bg-gray-50 border-gray-200" />
+                            <Search className="absolute left-2 top-2.5 h-3.5 w-3.5 text-muted-foreground" />
+                            <Input placeholder="Search..." className="h-8 pl-8 text-xs bg-muted border-border" />
                         </div>
-                        <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-400">
+                        <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground">
                             <MoreHorizontal className="h-4 w-4" />
                         </Button>
                     </div>
@@ -170,29 +170,29 @@ export default function PriorityInbox() {
             </CardHeader>
             <CardContent className="p-0">
                 <Tabs defaultValue="all" onValueChange={setActiveTab} className="w-full">
-                    <div className="px-4 border-b border-gray-100">
+                    <div className="px-4 border-b border-border">
                         <TabsList className="bg-transparent h-10 p-0 space-x-4">
                             <TabsTrigger
                                 value="all"
-                                className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-emerald-500 rounded-none px-2 pb-2 text-gray-500"
+                                className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-emerald-500 rounded-none px-2 pb-2 text-muted-foreground"
                             >
                                 All Items
                             </TabsTrigger>
                             <TabsTrigger
                                 value="query"
-                                className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-blue-500 rounded-none px-2 pb-2 text-gray-500"
+                                className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-blue-500 rounded-none px-2 pb-2 text-muted-foreground"
                             >
                                 Queries
                             </TabsTrigger>
                             <TabsTrigger
                                 value="review"
-                                className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-emerald-500 rounded-none px-2 pb-2 text-gray-500"
+                                className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-emerald-500 rounded-none px-2 pb-2 text-muted-foreground"
                             >
                                 Reviews
                             </TabsTrigger>
                             <TabsTrigger
                                 value="alert"
-                                className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-red-500 rounded-none px-2 pb-2 text-gray-500"
+                                className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-red-500 rounded-none px-2 pb-2 text-muted-foreground"
                             >
                                 Alerts
                             </TabsTrigger>
@@ -201,7 +201,7 @@ export default function PriorityInbox() {
 
                     <div className="max-h-[400px] overflow-y-auto scrollbar-thin">
                         {filteredItems.length === 0 ? (
-                            <div className="p-8 text-center text-gray-400">
+                            <div className="p-8 text-center text-muted-foreground">
                                 <Check className="h-10 w-10 mx-auto mb-2 opacity-20" />
                                 <p>All caught up! No pending items.</p>
                             </div>
@@ -233,24 +233,24 @@ export default function PriorityInbox() {
                                                 <div className="flex justify-between items-start mb-1">
                                                     <h4 className={cn(
                                                         "text-sm font-semibold truncate pr-4",
-                                                        !item.isRead ? "text-gray-900" : "text-gray-600"
+                                                        !item.isRead ? "text-foreground" : "text-muted-foreground"
                                                     )}>
                                                         {item.title}
                                                     </h4>
-                                                    <span className="flex items-center text-xs text-gray-400 whitespace-nowrap">
+                                                    <span className="flex items-center text-xs text-muted-foreground whitespace-nowrap">
                                                         <Clock className="h-3 w-3 mr-1" />
                                                         {item.timestamp}
                                                     </span>
                                                 </div>
-                                                <p className="text-sm text-gray-500 line-clamp-2 mb-2">
+                                                <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
                                                     {item.description}
                                                 </p>
                                                 <div className="flex items-center gap-2">
                                                     <Badge variant="outline" className={cn("text-[10px] px-1.5 py-0 h-5 font-normal", getPriorityColor(item.priority))}>
                                                         {item.priority} priority
                                                     </Badge>
-                                                    <span className="text-xs text-gray-400">•</span>
-                                                    <span className="text-xs font-medium text-gray-600">{item.author}</span>
+                                                    <span className="text-xs text-muted-foreground">•</span>
+                                                    <span className="text-xs font-medium text-muted-foreground">{item.author}</span>
                                                 </div>
                                             </div>
 
@@ -268,7 +268,7 @@ export default function PriorityInbox() {
                                                 <Button
                                                     variant="ghost"
                                                     size="icon"
-                                                    className="h-7 w-7 text-gray-400 hover:text-red-500 hover:bg-red-50"
+                                                    className="h-7 w-7 text-muted-foreground hover:text-red-500 hover:bg-red-50"
                                                     onClick={() => dismissItem(item.id)}
                                                     title="Dismiss"
                                                 >

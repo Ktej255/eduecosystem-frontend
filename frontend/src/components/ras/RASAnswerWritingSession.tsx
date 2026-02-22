@@ -70,12 +70,12 @@ export default function RASAnswerWritingSession({ onClose }: { onClose: () => vo
             {/* Left Panel: Question & Context */}
             <div className="w-full md:w-1/3 bg-slate-900 border-r border-white/10 p-6 md:p-8 flex flex-col">
                 <div className="flex items-center justify-between mb-8">
-                    <button onClick={onClose} className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
+                    <button onClick={onClose} className="flex items-center gap-2 text-muted-foreground hover:text-white transition-colors">
                         <ChevronLeft className="w-4 h-4" /> Back
                     </button>
                     <button
                         onClick={() => setLang(lang === "en" ? "hi" : "en")}
-                        className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-amber-500 hover:bg-white/10"
+                        className="flex items-center gap-2 px-3 py-1 rounded-full bg-card/5 border border-white/10 text-xs font-bold text-amber-500 hover:bg-card/10"
                     >
                         <Globe className="w-3 h-3" /> {lang === "en" ? "EN" : "HI"}
                     </button>
@@ -103,8 +103,8 @@ export default function RASAnswerWritingSession({ onClose }: { onClose: () => vo
                     <div className={`p-6 rounded-2xl border transition-all ${isActive ? "bg-amber-500/10 border-amber-500/50" : "bg-slate-800 border-white/5"
                         }`}>
                         <div className="flex items-center justify-between mb-2">
-                            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">Time Remaining</span>
-                            <Timer className={`w-4 h-4 ${isActive ? "text-amber-500 animate-pulse" : "text-slate-500"}`} />
+                            <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Time Remaining</span>
+                            <Timer className={`w-4 h-4 ${isActive ? "text-amber-500 animate-pulse" : "text-muted-foreground"}`} />
                         </div>
                         <div className="text-4xl font-black text-white tabular-nums">
                             {formatTime(timeLeft)}
@@ -113,7 +113,7 @@ export default function RASAnswerWritingSession({ onClose }: { onClose: () => vo
                             {!isActive ? (
                                 <button
                                     onClick={() => setIsActive(true)}
-                                    className="px-4 py-2 rounded-lg bg-amber-500 text-slate-900 text-sm font-bold w-full hover:bg-amber-400 transition-colors"
+                                    className="px-4 py-2 rounded-lg bg-amber-500 text-foreground text-sm font-bold w-full hover:bg-amber-400 transition-colors"
                                 >
                                     Start Timer
                                 </button>
@@ -155,14 +155,14 @@ export default function RASAnswerWritingSession({ onClose }: { onClose: () => vo
 
                 {/* Navigation (Bottom Left) */}
                 <div className="mt-auto pt-6 flex items-center justify-between border-t border-white/5">
-                    <button onClick={handlePrev} disabled={currentQIndex === 0} className="p-2 rounded-lg hover:bg-white/5 disabled:opacity-0">
-                        <ChevronLeft className="w-6 h-6 text-slate-400" />
+                    <button onClick={handlePrev} disabled={currentQIndex === 0} className="p-2 rounded-lg hover:bg-card/5 disabled:opacity-0">
+                        <ChevronLeft className="w-6 h-6 text-muted-foreground" />
                     </button>
-                    <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                    <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
                         Q{currentQIndex + 1} of {RAS_MAINS_QUESTIONS.length}
                     </span>
-                    <button onClick={handleNext} disabled={currentQIndex === RAS_MAINS_QUESTIONS.length - 1} className="p-2 rounded-lg hover:bg-white/5 disabled:opacity-0">
-                        <ChevronRight className="w-6 h-6 text-slate-400" />
+                    <button onClick={handleNext} disabled={currentQIndex === RAS_MAINS_QUESTIONS.length - 1} className="p-2 rounded-lg hover:bg-card/5 disabled:opacity-0">
+                        <ChevronRight className="w-6 h-6 text-muted-foreground" />
                     </button>
                 </div>
             </div>
@@ -180,8 +180,8 @@ export default function RASAnswerWritingSession({ onClose }: { onClose: () => vo
                         <button
                             onClick={() => setMode(mode === "writing" ? "review" : "writing")}
                             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-all ${mode === "review"
-                                    ? "bg-emerald-500 text-slate-900 shadow-lg shadow-emerald-500/20"
-                                    : "bg-white/5 text-slate-400 border border-white/10 hover:text-white"
+                                    ? "bg-emerald-500 text-foreground shadow-lg shadow-emerald-500/20"
+                                    : "bg-card/5 text-muted-foreground border border-white/10 hover:text-white"
                                 }`}
                         >
                             {mode === "writing" ? (
@@ -199,7 +199,7 @@ export default function RASAnswerWritingSession({ onClose }: { onClose: () => vo
 
                 <div className="flex-1 relative">
                     <textarea
-                        className="w-full h-full bg-slate-900/50 border border-white/10 rounded-xl p-6 text-lg text-slate-200 leading-8 resize-none focus:outline-none focus:border-indigo-500/50 transition-colors placeholder:text-slate-700 font-serif"
+                        className="w-full h-full bg-slate-900/50 border border-white/10 rounded-xl p-6 text-lg text-slate-200 leading-8 resize-none focus:outline-none focus:border-indigo-500/50 transition-colors placeholder:text-muted-foreground font-serif"
                         placeholder="Start typing your answer here..."
                         value={answer}
                         onChange={(e) => setAnswer(e.target.value)}
@@ -207,7 +207,7 @@ export default function RASAnswerWritingSession({ onClose }: { onClose: () => vo
                     />
 
                     {/* Word Count Indicator */}
-                    <div className="absolute bottom-4 right-4 px-3 py-1 rounded-full bg-slate-900 border border-white/10 text-xs font-bold text-slate-500">
+                    <div className="absolute bottom-4 right-4 px-3 py-1 rounded-full bg-slate-900 border border-white/10 text-xs font-bold text-muted-foreground">
                         {answer.split(/\s+/).filter(w => w.length > 0).length} Words
                     </div>
                 </div>

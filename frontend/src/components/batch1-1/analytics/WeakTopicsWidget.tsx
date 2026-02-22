@@ -47,9 +47,9 @@ export default function WeakTopicsWidget({ compact = false, onTopicClick }: Weak
         return (
             <Card className="animate-pulse">
                 <CardContent className="p-6">
-                    <div className="h-4 bg-gray-200 rounded w-1/2 mb-4"></div>
-                    <div className="h-8 bg-gray-200 rounded mb-2"></div>
-                    <div className="h-8 bg-gray-200 rounded"></div>
+                    <div className="h-4 bg-muted rounded w-1/2 mb-4"></div>
+                    <div className="h-8 bg-muted rounded mb-2"></div>
+                    <div className="h-8 bg-muted rounded"></div>
                 </CardContent>
             </Card>
         );
@@ -57,11 +57,11 @@ export default function WeakTopicsWidget({ compact = false, onTopicClick }: Weak
 
     if (!analysis || analysis.totalTopicsAnalyzed === 0) {
         return (
-            <Card className="bg-gray-50 dark:bg-gray-900">
+            <Card className="bg-muted">
                 <CardContent className="p-6 text-center">
-                    <BookOpen className="h-12 w-12 mx-auto mb-4 text-gray-400" />
-                    <h3 className="font-semibold text-gray-600 mb-2">No Data Yet</h3>
-                    <p className="text-sm text-gray-500">
+                    <BookOpen className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
+                    <h3 className="font-semibold text-muted-foreground mb-2">No Data Yet</h3>
+                    <p className="text-sm text-muted-foreground">
                         Complete some MCQs to see your weak topics analysis
                     </p>
                 </CardContent>
@@ -74,7 +74,7 @@ export default function WeakTopicsWidget({ compact = false, onTopicClick }: Weak
         return (
             <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    <span className="text-sm font-medium text-muted-foreground dark:text-muted-foreground">
                         Weak Topics
                     </span>
                     <Badge variant="outline" className="text-xs">
@@ -87,7 +87,7 @@ export default function WeakTopicsWidget({ compact = false, onTopicClick }: Weak
                         className="flex items-center justify-between p-2 bg-red-50 dark:bg-red-900/20 rounded-lg cursor-pointer hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors"
                         onClick={() => onTopicClick?.(topic.topicId)}
                     >
-                        <span className="text-xs font-medium text-gray-700 dark:text-gray-300 truncate flex-1">
+                        <span className="text-xs font-medium text-muted-foreground dark:text-muted-foreground truncate flex-1">
                             {topic.topicName}
                         </span>
                         <span className="text-xs font-bold text-red-600 ml-2">
@@ -116,22 +116,22 @@ export default function WeakTopicsWidget({ compact = false, onTopicClick }: Weak
                 <div className="grid grid-cols-3 gap-4 mb-6">
                     <div className="text-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                         <div className="text-2xl font-bold text-blue-600">{analysis.overallAccuracy}%</div>
-                        <div className="text-xs text-gray-500">Overall Accuracy</div>
+                        <div className="text-xs text-muted-foreground">Overall Accuracy</div>
                     </div>
                     <div className="text-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
                         <div className="text-2xl font-bold text-red-600">{analysis.weakTopics.length}</div>
-                        <div className="text-xs text-gray-500">Weak Topics</div>
+                        <div className="text-xs text-muted-foreground">Weak Topics</div>
                     </div>
                     <div className="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
                         <div className="text-2xl font-bold text-green-600">{analysis.strongTopics.length}</div>
-                        <div className="text-xs text-gray-500">Mastered</div>
+                        <div className="text-xs text-muted-foreground">Mastered</div>
                     </div>
                 </div>
 
                 {/* Weak Topics List */}
                 {analysis.weakTopics.length > 0 && (
                     <div className="mb-6">
-                        <h4 className="font-semibold text-sm text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
+                        <h4 className="font-semibold text-sm text-muted-foreground dark:text-muted-foreground mb-3 flex items-center gap-2">
                             <TrendingDown className="h-4 w-4 text-red-500" />
                             Needs Improvement
                         </h4>
@@ -139,12 +139,12 @@ export default function WeakTopicsWidget({ compact = false, onTopicClick }: Weak
                             {analysis.weakTopics.slice(0, 5).map(topic => (
                                 <div
                                     key={topic.topicId}
-                                    className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-colors"
+                                    className="flex items-center gap-3 p-3 bg-muted rounded-lg hover:bg-muted dark:hover:bg-gray-700 cursor-pointer transition-colors"
                                     onClick={() => onTopicClick?.(topic.topicId)}
                                 >
                                     <div className="flex-1">
                                         <div className="flex items-center justify-between mb-1">
-                                            <span className="font-medium text-sm text-gray-800 dark:text-gray-200">
+                                            <span className="font-medium text-sm text-foreground">
                                                 {topic.topicName}
                                             </span>
                                             <Badge className={`text-xs ${getPriorityColor(topic.practiceRecommendation)}`}>
@@ -153,7 +153,7 @@ export default function WeakTopicsWidget({ compact = false, onTopicClick }: Weak
                                         </div>
                                         <Progress value={topic.accuracy} className="h-2" />
                                         <div className="flex items-center justify-between mt-1">
-                                            <span className="text-[10px] text-gray-500">
+                                            <span className="text-[10px] text-muted-foreground">
                                                 {topic.totalAttempts} attempts
                                             </span>
                                             <span className="text-[10px] text-orange-600 font-medium">
@@ -161,7 +161,7 @@ export default function WeakTopicsWidget({ compact = false, onTopicClick }: Weak
                                             </span>
                                         </div>
                                     </div>
-                                    <ChevronRight className="h-4 w-4 text-gray-400" />
+                                    <ChevronRight className="h-4 w-4 text-muted-foreground" />
                                 </div>
                             ))}
                         </div>
@@ -171,7 +171,7 @@ export default function WeakTopicsWidget({ compact = false, onTopicClick }: Weak
                 {/* Strong Topics Preview */}
                 {analysis.strongTopics.length > 0 && (
                     <div>
-                        <h4 className="font-semibold text-sm text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
+                        <h4 className="font-semibold text-sm text-muted-foreground dark:text-muted-foreground mb-3 flex items-center gap-2">
                             <TrendingUp className="h-4 w-4 text-green-500" />
                             Strong Areas
                         </h4>

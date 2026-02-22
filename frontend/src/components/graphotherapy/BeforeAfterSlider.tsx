@@ -104,7 +104,7 @@ export default function BeforeAfterSlider({
                                 fill="none"
                             />
                         </svg>
-                        <p className="mt-6 text-lg font-medium text-gray-600 text-center">
+                        <p className="mt-6 text-lg font-medium text-muted-foreground text-center">
                             Irregular strokes • Low t-bars • Incomplete loops
                         </p>
                     </div>
@@ -177,13 +177,13 @@ export default function BeforeAfterSlider({
 
             {/* Slider Handle */}
             <div
-                className="absolute top-0 bottom-0 w-1 bg-white shadow-lg cursor-ew-resize z-10"
+                className="absolute top-0 bottom-0 w-1 bg-card shadow-lg cursor-ew-resize z-10"
                 style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
                 onMouseDown={handleMouseDown}
                 onTouchStart={handleMouseDown}
             >
                 {/* Handle Circle */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center border-2 border-amber-400">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-card rounded-full shadow-xl flex items-center justify-center border-2 border-amber-400">
                     <div className="flex gap-0.5">
                         <div className="w-0.5 h-4 bg-amber-500 rounded-full" />
                         <div className="w-0.5 h-4 bg-amber-500 rounded-full" />

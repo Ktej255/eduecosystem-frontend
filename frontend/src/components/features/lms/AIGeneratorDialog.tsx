@@ -91,7 +91,7 @@ export function AIGeneratorDialog({
             <Sparkles className="h-5 w-5 text-cyan-400" />
             AI Course Generator
           </DialogTitle>
-          <DialogDescription className="text-gray-400">
+          <DialogDescription className="text-muted-foreground">
             Let AI create a comprehensive course outline for you in seconds
           </DialogDescription>
         </DialogHeader>
@@ -188,7 +188,7 @@ export function AIGeneratorDialog({
               }
               className="w-full"
             />
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-muted-foreground mt-1">
               AI will generate {formData.module_count} modules with 3-5 lessons
               each
             </p>
@@ -274,7 +274,7 @@ export function OutlinePreview({
         <h4 className="text-2xl font-bold text-white mb-2">
           {outline.course_title}
         </h4>
-        <p className="text-gray-300">{outline.course_description}</p>
+        <p className="text-muted-foreground">{outline.course_description}</p>
       </div>
 
       {/* Modules */}
@@ -289,7 +289,7 @@ export function OutlinePreview({
                 <h5 className="font-semibold text-white mb-1">
                   {module.title}
                 </h5>
-                <p className="text-sm text-gray-400">{module.description}</p>
+                <p className="text-sm text-muted-foreground">{module.description}</p>
               </div>
             </div>
 
@@ -301,11 +301,11 @@ export function OutlinePreview({
                   className="flex items-center gap-3 text-sm"
                 >
                   <div className="w-1 h-1 rounded-full bg-gray-600"></div>
-                  <span className="text-gray-300">{lesson.title}</span>
-                  <Badge className="text-xs bg-gray-700/50 text-gray-400 border-0">
+                  <span className="text-muted-foreground">{lesson.title}</span>
+                  <Badge className="text-xs bg-gray-700/50 text-muted-foreground border-0">
                     {lesson.type}
                   </Badge>
-                  <span className="text-gray-500 text-xs">
+                  <span className="text-muted-foreground text-xs">
                     {lesson.duration_minutes} min
                   </span>
                 </div>

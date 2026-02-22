@@ -402,7 +402,7 @@ export default function DevelopmentHistoryPage() {
             "DevOps": "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
             "Graphotherapy": "bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200"
         };
-        return colors[batch] || "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200";
+        return colors[batch] || "bg-muted text-foreground";
     };
 
     return (
@@ -411,11 +411,11 @@ export default function DevelopmentHistoryPage() {
             <div className="mb-8">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-3">
+                        <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
                             <Calendar className="w-8 h-8 text-indigo-600" />
                             Development History
                         </h1>
-                        <p className="text-gray-500 dark:text-gray-400 mt-2">
+                        <p className="text-muted-foreground dark:text-muted-foreground mt-2">
                             Track all development activities from the last 2 months
                         </p>
                     </div>
@@ -438,7 +438,7 @@ export default function DevelopmentHistoryPage() {
                     <CardContent className="space-y-4">
                         <div className="grid grid-cols-2 gap-4">
                             <div>
-                                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Title</label>
+                                <label className="text-sm font-medium text-muted-foreground dark:text-muted-foreground">Title</label>
                                 <Input
                                     value={newEntry.title}
                                     onChange={(e) => setNewEntry({ ...newEntry, title: e.target.value })}
@@ -446,7 +446,7 @@ export default function DevelopmentHistoryPage() {
                                 />
                             </div>
                             <div>
-                                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Batch/Area</label>
+                                <label className="text-sm font-medium text-muted-foreground dark:text-muted-foreground">Batch/Area</label>
                                 <Input
                                     value={newEntry.batch}
                                     onChange={(e) => setNewEntry({ ...newEntry, batch: e.target.value })}
@@ -455,7 +455,7 @@ export default function DevelopmentHistoryPage() {
                             </div>
                         </div>
                         <div>
-                            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
+                            <label className="text-sm font-medium text-muted-foreground dark:text-muted-foreground">Description</label>
                             <Textarea
                                 value={newEntry.description}
                                 onChange={(e) => setNewEntry({ ...newEntry, description: e.target.value })}
@@ -464,7 +464,7 @@ export default function DevelopmentHistoryPage() {
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div>
-                                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Features (one per line)</label>
+                                <label className="text-sm font-medium text-muted-foreground dark:text-muted-foreground">Features (one per line)</label>
                                 <Textarea
                                     value={newEntry.features}
                                     onChange={(e) => setNewEntry({ ...newEntry, features: e.target.value })}
@@ -473,7 +473,7 @@ export default function DevelopmentHistoryPage() {
                                 />
                             </div>
                             <div>
-                                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Challenges (one per line)</label>
+                                <label className="text-sm font-medium text-muted-foreground dark:text-muted-foreground">Challenges (one per line)</label>
                                 <Textarea
                                     value={newEntry.challenges}
                                     onChange={(e) => setNewEntry({ ...newEntry, challenges: e.target.value })}
@@ -493,11 +493,11 @@ export default function DevelopmentHistoryPage() {
             {/* Filters */}
             <div className="mb-6 flex flex-wrap gap-4 items-center">
                 <div className="flex items-center gap-2">
-                    <Filter className="w-4 h-4 text-gray-500" />
+                    <Filter className="w-4 h-4 text-muted-foreground" />
                     <select
                         value={filterBatch}
                         onChange={(e) => setFilterBatch(e.target.value)}
-                        className="px-3 py-2 border rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                        className="px-3 py-2 border rounded-lg bg-card text-foreground"
                     >
                         {batches.map(batch => (
                             <option key={batch} value={batch}>
@@ -507,7 +507,7 @@ export default function DevelopmentHistoryPage() {
                     </select>
                 </div>
                 <div className="flex items-center gap-2">
-                    <span className="text-sm text-gray-500">From:</span>
+                    <span className="text-sm text-muted-foreground">From:</span>
                     <Input
                         type="date"
                         value={dateRange.start}
@@ -516,7 +516,7 @@ export default function DevelopmentHistoryPage() {
                     />
                 </div>
                 <div className="flex items-center gap-2">
-                    <span className="text-sm text-gray-500">To:</span>
+                    <span className="text-sm text-muted-foreground">To:</span>
                     <Input
                         type="date"
                         value={dateRange.end}
@@ -536,8 +536,8 @@ export default function DevelopmentHistoryPage() {
                     <div className="flex items-center gap-3">
                         <Clock className="w-8 h-8 text-blue-600" />
                         <div>
-                            <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{filteredLogs.length}</p>
-                            <p className="text-sm text-gray-500">Total Entries</p>
+                            <p className="text-2xl font-bold text-foreground">{filteredLogs.length}</p>
+                            <p className="text-sm text-muted-foreground">Total Entries</p>
                         </div>
                     </div>
                 </Card>
@@ -545,10 +545,10 @@ export default function DevelopmentHistoryPage() {
                     <div className="flex items-center gap-3">
                         <Sparkles className="w-8 h-8 text-green-600" />
                         <div>
-                            <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                            <p className="text-2xl font-bold text-foreground">
                                 {filteredLogs.reduce((acc, log) => acc + log.features.length, 0)}
                             </p>
-                            <p className="text-sm text-gray-500">Features Added</p>
+                            <p className="text-sm text-muted-foreground">Features Added</p>
                         </div>
                     </div>
                 </Card>
@@ -556,10 +556,10 @@ export default function DevelopmentHistoryPage() {
                     <div className="flex items-center gap-3">
                         <AlertTriangle className="w-8 h-8 text-amber-600" />
                         <div>
-                            <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                            <p className="text-2xl font-bold text-foreground">
                                 {filteredLogs.reduce((acc, log) => acc + log.challenges.length, 0)}
                             </p>
-                            <p className="text-sm text-gray-500">Challenges Resolved</p>
+                            <p className="text-sm text-muted-foreground">Challenges Resolved</p>
                         </div>
                     </div>
                 </Card>
@@ -567,10 +567,10 @@ export default function DevelopmentHistoryPage() {
                     <div className="flex items-center gap-3">
                         <CheckCircle2 className="w-8 h-8 text-purple-600" />
                         <div>
-                            <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                            <p className="text-2xl font-bold text-foreground">
                                 {new Set(filteredLogs.map(l => l.batch)).size}
                             </p>
-                            <p className="text-sm text-gray-500">Areas Worked On</p>
+                            <p className="text-sm text-muted-foreground">Areas Worked On</p>
                         </div>
                     </div>
                 </Card>
@@ -582,7 +582,7 @@ export default function DevelopmentHistoryPage() {
                     <Card key={log.id} className="relative overflow-hidden">
                         {/* Timeline connector */}
                         {index < filteredLogs.length - 1 && (
-                            <div className="absolute left-8 top-full w-0.5 h-4 bg-gray-200 dark:bg-gray-700 z-10" />
+                            <div className="absolute left-8 top-full w-0.5 h-4 bg-muted z-10" />
                         )}
 
                         <CardContent className="p-6">
@@ -597,7 +597,7 @@ export default function DevelopmentHistoryPage() {
                                 <div className="flex-1">
                                     <div className="flex items-start justify-between">
                                         <div>
-                                            <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                                            <h3 className="text-xl font-semibold text-foreground">
                                                 {log.title}
                                             </h3>
                                             <span className={`inline-block mt-2 px-3 py-1 rounded-full text-xs font-medium ${getBatchColor(log.batch)}`}>
@@ -606,17 +606,17 @@ export default function DevelopmentHistoryPage() {
                                         </div>
                                         <button
                                             onClick={() => toggleExpanded(log.id)}
-                                            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                                            className="p-2 hover:bg-muted dark:hover:bg-gray-800 rounded-lg transition-colors"
                                         >
                                             {expandedItems.has(log.id) ? (
-                                                <ChevronDown className="w-5 h-5 text-gray-500" />
+                                                <ChevronDown className="w-5 h-5 text-muted-foreground" />
                                             ) : (
-                                                <ChevronRight className="w-5 h-5 text-gray-500" />
+                                                <ChevronRight className="w-5 h-5 text-muted-foreground" />
                                             )}
                                         </button>
                                     </div>
 
-                                    <p className="text-gray-600 dark:text-gray-400 mt-3">
+                                    <p className="text-muted-foreground dark:text-muted-foreground mt-3">
                                         {log.description}
                                     </p>
 
@@ -631,7 +631,7 @@ export default function DevelopmentHistoryPage() {
                                                     </h4>
                                                     <ul className="space-y-1">
                                                         {log.features.map((feature, i) => (
-                                                            <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
+                                                            <li key={i} className="text-sm text-muted-foreground dark:text-muted-foreground flex items-start gap-2">
                                                                 <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
                                                                 {feature}
                                                             </li>
@@ -649,7 +649,7 @@ export default function DevelopmentHistoryPage() {
                                                     </h4>
                                                     <ul className="space-y-1">
                                                         {log.challenges.map((challenge, i) => (
-                                                            <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
+                                                            <li key={i} className="text-sm text-muted-foreground dark:text-muted-foreground flex items-start gap-2">
                                                                 <AlertTriangle className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                                                                 {challenge}
                                                             </li>

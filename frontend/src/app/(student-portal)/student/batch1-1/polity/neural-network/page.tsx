@@ -47,7 +47,7 @@ export default function PolityNeuralNetworkPage() {
                 <div className="flex items-center gap-4">
                     <Link href="/student/batch1-1/polity">
                         <Button variant="ghost" size="sm" className={`
-              ${mode === 'EMERGENCY' ? 'text-red-300 hover:text-red-100' : 'text-slate-400 hover:text-white'}
+              ${mode === 'EMERGENCY' ? 'text-red-300 hover:text-red-100' : 'text-muted-foreground hover:text-white'}
             `}>
                             ← Back
                         </Button>

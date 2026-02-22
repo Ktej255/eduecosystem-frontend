@@ -41,7 +41,7 @@ export default function TopicDetailView({ node, onBack }: TopicDetailViewProps) 
 
 
     return (
-        <div className="w-full animate-in slide-in-from-right duration-500 bg-white dark:bg-[#0a0a0a] min-h-[600px] rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 flex flex-col">
+        <div className="w-full animate-in slide-in-from-right duration-500 bg-card dark:bg-[#0a0a0a] min-h-[600px] rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 flex flex-col">
             {/* Header / Hero */}
             <div className="h-48 bg-gradient-to-r from-emerald-900 via-teal-900 to-cyan-900 relative p-6 flex flex-col justify-end">
                 <button
@@ -63,19 +63,19 @@ export default function TopicDetailView({ node, onBack }: TopicDetailViewProps) 
             <div className="flex border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-black/50">
                 <button
                     onClick={() => setActiveTab('overview')}
-                    className={`px-6 py-4 text-sm font-bold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'overview' ? 'border-emerald-500 text-emerald-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
+                    className={`px-6 py-4 text-sm font-bold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'overview' ? 'border-emerald-500 text-emerald-600' : 'border-transparent text-muted-foreground hover:text-muted-foreground'}`}
                 >
                     <BookOpen className="w-4 h-4" /> Concept Map
                 </button>
                 <button
                     onClick={() => setActiveTab('flashcards')}
-                    className={`px-6 py-4 text-sm font-bold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'flashcards' ? 'border-emerald-500 text-emerald-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
+                    className={`px-6 py-4 text-sm font-bold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'flashcards' ? 'border-emerald-500 text-emerald-600' : 'border-transparent text-muted-foreground hover:text-muted-foreground'}`}
                 >
                     <BrainCircuit className="w-4 h-4" /> Flashcards
                 </button>
                 <button
                     onClick={() => setActiveTab('quiz')}
-                    className={`px-6 py-4 text-sm font-bold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'quiz' ? 'border-emerald-500 text-emerald-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
+                    className={`px-6 py-4 text-sm font-bold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'quiz' ? 'border-emerald-500 text-emerald-600' : 'border-transparent text-muted-foreground hover:text-muted-foreground'}`}
                 >
                     <CheckCircle className="w-4 h-4" /> Check Understanding
                 </button>
@@ -102,7 +102,7 @@ export default function TopicDetailView({ node, onBack }: TopicDetailViewProps) 
                             <div className="space-y-12">
                                 {content.sections.map((section) => (
                                     <div key={section.id} className="animate-in fade-in slide-in-from-bottom-4 duration-700">
-                                        <h2 className="text-2xl font-bold text-neutral-900 dark:text-white mb-6 border-l-4 border-emerald-500 pl-4">
+                                        <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-emerald-500 pl-4">
                                             {section.title}
                                         </h2>
                                         <div className="space-y-6">

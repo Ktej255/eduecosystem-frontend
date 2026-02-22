@@ -80,7 +80,7 @@ export function LiveClassCard({
         return (
           <Badge
             variant="secondary"
-            className="bg-gray-500/10 text-gray-400 border border-gray-500/20"
+            className="bg-muted-foreground/10 text-muted-foreground border border-gray-500/20"
           >
             Completed
           </Badge>
@@ -108,7 +108,7 @@ export function LiveClassCard({
                 {getStatusBadge()}
               </div>
               {liveClass.description && (
-                <p className="text-sm text-gray-400 line-clamp-2 mb-4 h-10">
+                <p className="text-sm text-muted-foreground line-clamp-2 mb-4 h-10">
                   {liveClass.description}
                 </p>
               )}
@@ -116,7 +116,7 @@ export function LiveClassCard({
           </div>
 
           <div className="space-y-3 mb-6">
-            <div className="flex items-center gap-2 text-sm text-gray-300">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Calendar className="h-4 w-4 text-cyan-400" />
               <span>
                 {scheduledDate.toLocaleString("en-US", {
@@ -129,11 +129,11 @@ export function LiveClassCard({
                 })}
               </span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-gray-300">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Clock className="h-4 w-4 text-cyan-400" />
               <span>{liveClass.duration_minutes} minutes</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-gray-300">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Video className="h-4 w-4 text-cyan-400" />
               <span className="capitalize">{liveClass.platform}</span>
             </div>
@@ -155,7 +155,7 @@ export function LiveClassCard({
             {isUpcoming && !isLive && (
               <Button
                 variant="outline"
-                className="flex-1 border-gray-700 text-gray-300 bg-gray-800/50 cursor-not-allowed opacity-70"
+                className="flex-1 border-gray-700 text-muted-foreground bg-gray-800/50 cursor-not-allowed opacity-70"
                 disabled
               >
                 <Calendar className="mr-2 h-4 w-4" />
@@ -178,7 +178,7 @@ export function LiveClassCard({
             {isPast && !liveClass.recording_available && (
               <Button
                 variant="outline"
-                className="flex-1 border-gray-700 text-gray-400 bg-gray-800/50 cursor-not-allowed"
+                className="flex-1 border-gray-700 text-muted-foreground bg-gray-800/50 cursor-not-allowed"
                 disabled
               >
                 <CheckCircle className="mr-2 h-4 w-4" />

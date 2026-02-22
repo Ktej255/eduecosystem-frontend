@@ -22,7 +22,7 @@ interface AntiDefectionModuleProps {
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="bg-[#ecfdf5] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-emerald-100 selection:text-emerald-950">
-        <div className="max-w-5xl mx-auto space-y-12 bg-white rounded-3xl p-6 shadow-2xl border-4 border-emerald-800 relative overflow-hidden bg-[url('https://www.transparenttextures.com/patterns/white-diamond-dark.png')]">
+        <div className="max-w-5xl mx-auto space-y-12 bg-card rounded-3xl p-6 shadow-2xl border-4 border-emerald-800 relative overflow-hidden bg-[url('https://www.transparenttextures.com/patterns/white-diamond-dark.png')]">
             <div className="absolute top-0 right-0 w-full h-2 bg-[#10b981] opacity-30"></div>
             {children}
         </div>
@@ -30,14 +30,14 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const ChainCard = ({ title, children, color = "border-emerald-800", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[5px_5px_0px_0px_rgba(16,185,129,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[5px_5px_0px_0px_rgba(16,185,129,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute top-0 right-0 p-2 opacity-5 translate-x-1/4 -translate-y-1/4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
             <Link2 size={64} className={color.replace('border-', 'text-')} />
         </div>
         <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-800 relative z-10 font-bold">
+        <div className="space-y-4 text-foreground relative z-10 font-bold">
             {children}
         </div>
     </div>
@@ -60,11 +60,11 @@ export default function AntiDefectionModule({ onComplete, isCompleted, chapterNu
         <ScrapbookContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#10b981] border-4 border-emerald-950 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(16,185,129,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-card/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-[#065f46] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-emerald-50 font-bold uppercase tracking-widest text-sm italic">Curbing Political Opportunism</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
@@ -90,7 +90,7 @@ export default function AntiDefectionModule({ onComplete, isCompleted, chapterNu
                         <h4 className="font-black text-emerald-700 flex items-center gap-2 uppercase text-xs mb-4">
                             Origin Story
                         </h4>
-                        <p className="text-sm font-black text-slate-900 leading-relaxed italic mb-4">
+                        <p className="text-sm font-black text-foreground leading-relaxed italic mb-4">
                             Added in 1985 to stop <span className="text-xl text-emerald-600 underline">Aaya Ram Gaya Ram</span> politics. [PYQ]
                         </p>
                         <ul className="text-[10px] font-black italic space-y-2">
@@ -109,11 +109,11 @@ export default function AntiDefectionModule({ onComplete, isCompleted, chapterNu
                         <AlertTriangle className="text-emerald-400" size={24} />
                         <h4 className="text-xs font-black uppercase text-emerald-300 mb-2 font-sans underline">Disqualification Triggered If:</h4>
                         <div className="space-y-3">
-                            <div className="p-3 bg-white/10 rounded-2xl border border-white/20">
+                            <div className="p-3 bg-card/10 rounded-2xl border border-white/20">
                                 <p className="text-[10px] font-black uppercase text-emerald-100">Voluntary Resignation: [PYQ]</p>
                                 <p className="text-[10px] font-bold italic opacity-80 mt-1">Gives up membership of his political party voluntarily.</p>
                             </div>
-                            <div className="p-3 bg-white/10 rounded-2xl border border-white/20">
+                            <div className="p-3 bg-card/10 rounded-2xl border border-white/20">
                                 <p className="text-[10px] font-black uppercase text-emerald-100">Defying the Whip: [PYQ]</p>
                                 <p className="text-[10px] font-bold italic opacity-80 mt-1">Votes or abstains against party direction without condonation (within 15 days).</p>
                             </div>
@@ -132,18 +132,18 @@ export default function AntiDefectionModule({ onComplete, isCompleted, chapterNu
                         Specific High-Yield Rules [PYQ]
                     </h4>
                     <div className="grid md:grid-cols-2 gap-8 text-left">
-                        <div className="p-6 bg-white border-2 border-emerald-900 rounded-3xl shadow-sm relative group hover:scale-105 transition-transform">
+                        <div className="p-6 bg-card border-2 border-emerald-900 rounded-3xl shadow-sm relative group hover:scale-105 transition-transform">
                             <Badge className="absolute -top-3 left-4 bg-emerald-600">INDEPENDENTS</Badge>
-                            <p className="text-xs font-black italic text-slate-600 leading-relaxed mt-2">
+                            <p className="text-xs font-black italic text-muted-foreground leading-relaxed mt-2">
                                 DQ if he <span className="text-emerald-600 underline">JOINS</span> any political party after election. [PYQ]
                             </p>
                         </div>
-                        <div className="p-6 bg-white border-2 border-slate-900 rounded-3xl shadow-sm relative group hover:scale-105 transition-transform">
+                        <div className="p-6 bg-card border-2 border-slate-900 rounded-3xl shadow-sm relative group hover:scale-105 transition-transform">
                             <Badge className="absolute -top-3 left-4 bg-slate-900">NOMINATED</Badge>
-                            <p className="text-xs font-black italic text-slate-600 leading-relaxed mt-2">
+                            <p className="text-xs font-black italic text-muted-foreground leading-relaxed mt-2">
                                 DQ if he joins a party <span className="text-emerald-600 underline">AFTER 6 MONTHS</span> of taking seat. [PYQ]
                             </p>
-                            <p className="text-[8px] font-bold text-slate-400 mt-2 italic shadow-sm">Allowed if joined within 6 months.</p>
+                            <p className="text-[8px] font-bold text-muted-foreground mt-2 italic shadow-sm">Allowed if joined within 6 months.</p>
                         </div>
                     </div>
                     <div className="inline-block p-4 bg-emerald-900 text-white rounded-2xl shadow-lg rotate-1">
@@ -166,7 +166,7 @@ export default function AntiDefectionModule({ onComplete, isCompleted, chapterNu
                         <p className="text-xs font-bold leading-relaxed mb-4">
                             No DQ if <span className="text-emerald-700 underline font-black">2/3rd members</span> of a party agree to a merger. [PYQ]
                         </p>
-                        <div className="p-3 bg-white rounded-xl border-2 border-emerald-600 shadow-sm relative">
+                        <div className="p-3 bg-card rounded-xl border-2 border-emerald-600 shadow-sm relative">
                             <div className="absolute top-0 right-0 bg-red-600 text-white p-1 text-[8px] font-black rotate-12">DELETED</div>
                             <p className="text-[10px] font-black italic">The "Split" provision (1/3rd) was removed by the 91st AA (2003). [PYQ]</p>
                         </div>
@@ -178,10 +178,10 @@ export default function AntiDefectionModule({ onComplete, isCompleted, chapterNu
                         <Gavel className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-20 transition-opacity" size={150} />
                         <h4 className="text-sm font-black text-red-700 mb-4 italic underline decoration-red-200 decoration-4">The Verdict [PYQ]</h4>
                         <div className="space-y-4">
-                            <p className="text-[10px] font-bold text-slate-700 leading-relaxed italic">
+                            <p className="text-[10px] font-bold text-muted-foreground leading-relaxed italic">
                                 SC UPHELD the law but declared that the Presiding Officer's decision is subject to <span className="text-red-700 underline font-black">JUDICIAL REVIEW</span>.
                             </p>
-                            <div className="p-3 bg-white rounded-xl border border-red-200 text-center">
+                            <div className="p-3 bg-card rounded-xl border border-red-200 text-center">
                                 <p className="text-[10px] font-black italic text-red-900">Acting as a Tribunal while deciding DQ. [PYQ]</p>
                             </div>
                         </div>
@@ -193,7 +193,7 @@ export default function AntiDefectionModule({ onComplete, isCompleted, chapterNu
             <div className="mt-8 p-10 bg-slate-900 border-4 border border-emerald-950 rounded-[3rem] relative overflow-hidden shadow-2xl group">
                 <div className="absolute top-0 right-0 p-4 opacity-10 rotate-12 group-hover:opacity-30 transition-opacity"><Zap size={150} className="text-white" /></div>
                 <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
-                    <div className="p-8 bg-white text-emerald-900 rounded-[2.5rem] border-4 border-emerald-400 shadow-[20px_20px_0px_0px_rgba(0,0,0,0.5)] rotate-3 group-hover:rotate-0 transition-transform">
+                    <div className="p-8 bg-card text-emerald-900 rounded-[2.5rem] border-4 border-emerald-400 shadow-[20px_20px_0px_0px_rgba(0,0,0,0.5)] rotate-3 group-hover:rotate-0 transition-transform">
                         <ShieldCheck size={64} />
                     </div>
                     <div className="space-y-4 text-white">
@@ -201,7 +201,7 @@ export default function AntiDefectionModule({ onComplete, isCompleted, chapterNu
                             Political Integrity
                         </h4>
                         <p className="text-lg font-bold opacity-90 italic leading-relaxed max-w-xl">
-                            The 10th Schedule is the <span className="bg-emerald-400 text-slate-900 px-2 rounded font-black italic shadow-inner">Stability Anchor</span> of our democracy. It ensures that the party system remains the primary vehicle of public mandate.
+                            The 10th Schedule is the <span className="bg-emerald-400 text-foreground px-2 rounded font-black italic shadow-inner">Stability Anchor</span> of our democracy. It ensures that the party system remains the primary vehicle of public mandate.
                         </p>
                     </div>
                 </div>
@@ -228,7 +228,7 @@ export default function AntiDefectionModule({ onComplete, isCompleted, chapterNu
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold italic tracking-widest text-center">Tenth Schedule • 52nd Amendment • Political Stability.</p>
+                <p className="mt-4 text-muted-foreground font-bold italic tracking-widest text-center">Tenth Schedule • 52nd Amendment • Political Stability.</p>
             </div>
         </ScrapbookContainer>
     );

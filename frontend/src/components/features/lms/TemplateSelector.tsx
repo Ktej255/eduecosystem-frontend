@@ -68,13 +68,13 @@ export function TemplateSelector({
         </DialogHeader>
 
         {loading ? (
-          <div className="text-center py-8 text-gray-400">
+          <div className="text-center py-8 text-muted-foreground">
             Loading templates...
           </div>
         ) : (
           <div className="space-y-6">
             {templates.length === 0 ? (
-              <p className="text-center text-gray-400 py-8">
+              <p className="text-center text-muted-foreground py-8">
                 No templates available
               </p>
             ) : (
@@ -94,7 +94,7 @@ export function TemplateSelector({
               <Button
                 variant="outline"
                 onClick={onClose}
-                className="border-gray-700 text-gray-300"
+                className="border-gray-700 text-muted-foreground"
               >
                 Cancel
               </Button>

@@ -169,7 +169,7 @@ export const ProjectDetailPage: React.FC = () => {
   if (!project) {
     return (
       <div className="text-center py-12">
-        <p className="text-gray-500">Project not found</p>
+        <p className="text-muted-foreground">Project not found</p>
       </div>
     );
   }
@@ -177,14 +177,14 @@ export const ProjectDetailPage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Project Header */}
-      <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+      <div className="bg-card rounded-lg shadow-md p-6 mb-6">
         <div className="flex justify-between items-start">
           <div className="flex-1">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            <h1 className="text-3xl font-bold text-foreground mb-2">
               {project.title}
             </h1>
-            <p className="text-gray-600 mb-4">{project.description}</p>
-            <div className="flex items-center space-x-6 text-sm text-gray-500">
+            <p className="text-muted-foreground mb-4">{project.description}</p>
+            <div className="flex items-center space-x-6 text-sm text-muted-foreground">
               <span className="flex items-center">
                 <Clock className="w-4 h-4 mr-1" />
                 Due: {new Date(project.deadline).toLocaleDateString()}
@@ -249,11 +249,11 @@ export const ProjectDetailPage: React.FC = () => {
       {/* Submission Form Modal */}
       {showSubmissionForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-full max-w-md">
+          <div className="bg-card rounded-lg p-6 w-full max-w-md">
             <h3 className="text-lg font-semibold mb-4">Submit Project</h3>
             <form onSubmit={handleSubmitProject}>
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   File URL
                 </label>
                 <input
@@ -265,12 +265,12 @@ export const ProjectDetailPage: React.FC = () => {
                       file_url: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-indigo-500"
                   required
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Description
                 </label>
                 <textarea
@@ -281,7 +281,7 @@ export const ProjectDetailPage: React.FC = () => {
                       description: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-indigo-500"
                   rows={3}
                   required
                 />
@@ -290,7 +290,7 @@ export const ProjectDetailPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setShowSubmissionForm(false)}
-                  className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+                  className="px-4 py-2 border border-border rounded-lg hover:bg-muted"
                 >
                   Cancel
                 </button>
@@ -307,14 +307,14 @@ export const ProjectDetailPage: React.FC = () => {
       )}
 
       {/* Tabs */}
-      <div className="border-b border-gray-200 mb-6">
+      <div className="border-b border-border mb-6">
         <nav className="-mb-px flex space-x-8">
           <button
             onClick={() => setActiveTab("overview")}
             className={`py-4 px-1 border-b-2 font-medium text-sm ${
               activeTab === "overview"
                 ? "border-indigo-500 text-indigo-600"
-                : "border-transparent text-gray-500 hover:text-gray-700"
+                : "border-transparent text-muted-foreground hover:text-muted-foreground"
             }`}
           >
             <FileText className="w-5 h-5 inline mr-2" />
@@ -325,7 +325,7 @@ export const ProjectDetailPage: React.FC = () => {
             className={`py-4 px-1 border-b-2 font-medium text-sm ${
               activeTab === "teams"
                 ? "border-indigo-500 text-indigo-600"
-                : "border-transparent text-gray-500 hover:text-gray-700"
+                : "border-transparent text-muted-foreground hover:text-muted-foreground"
             }`}
           >
             <Users className="w-5 h-5 inline mr-2" />
@@ -336,7 +336,7 @@ export const ProjectDetailPage: React.FC = () => {
             className={`py-4 px-1 border-b-2 font-medium text-sm ${
               activeTab === "milestones"
                 ? "border-indigo-500 text-indigo-600"
-                : "border-transparent text-gray-500 hover:text-gray-700"
+                : "border-transparent text-muted-foreground hover:text-muted-foreground"
             }`}
           >
             <Target className="w-5 h-5 inline mr-2" />
@@ -349,9 +349,9 @@ export const ProjectDetailPage: React.FC = () => {
       {activeTab === "teams" && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {teams.map((team) => (
-            <div key={team.id} className="bg-white rounded-lg shadow-md p-6">
+            <div key={team.id} className="bg-card rounded-lg shadow-md p-6">
               <div className="flex justify-between items-start mb-4">
-                <h3 className="text-lg font-semibold text-gray-900">
+                <h3 className="text-lg font-semibold text-foreground">
                   {team.name}
                 </h3>
                 {!userTeam && team.members.length < project.max_team_size && (
@@ -370,7 +370,7 @@ export const ProjectDetailPage: React.FC = () => {
                     key={member.id}
                     className="flex items-center space-x-2 text-sm"
                   >
-                    <span className="text-gray-700">
+                    <span className="text-muted-foreground">
                       {member.user.full_name}
                     </span>
                     {member.role === "leader" && (
@@ -382,14 +382,14 @@ export const ProjectDetailPage: React.FC = () => {
                 ))}
               </div>
               {team.submission && (
-                <div className="mt-4 pt-4 border-t border-gray-200">
+                <div className="mt-4 pt-4 border-t border-border">
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-green-700 flex items-center">
                       <CheckCircle className="w-4 h-4 mr-1" />
                       Submitted
                     </span>
                     {team.submission.grade && (
-                      <span className="font-medium text-gray-900">
+                      <span className="font-medium text-foreground">
                         <Award className="w-4 h-4 inline mr-1" />
                         {team.submission.grade}%
                       </span>
@@ -407,7 +407,7 @@ export const ProjectDetailPage: React.FC = () => {
           {milestones.map((milestone) => (
             <div
               key={milestone.id}
-              className="bg-white rounded-lg shadow-md p-6"
+              className="bg-card rounded-lg shadow-md p-6"
             >
               <div className="flex items-start justify-between">
                 <div className="flex items-start space-x-3">
@@ -415,20 +415,20 @@ export const ProjectDetailPage: React.FC = () => {
                     type="checkbox"
                     checked={milestone.is_completed}
                     readOnly
-                    className="mt-1 h-5 w-5 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                    className="mt-1 h-5 w-5 text-indigo-600 focus:ring-indigo-500 border-border rounded"
                   />
                   <div>
                     <h3
-                      className={`font-medium ${milestone.is_completed ? "line-through text-gray-500" : "text-gray-900"}`}
+                      className={`font-medium ${milestone.is_completed ? "line-through text-muted-foreground" : "text-foreground"}`}
                     >
                       {milestone.title}
                     </h3>
-                    <p className="text-sm text-gray-600 mt-1">
+                    <p className="text-sm text-muted-foreground mt-1">
                       {milestone.description}
                     </p>
                   </div>
                 </div>
-                <span className="text-sm text-gray-500">
+                <span className="text-sm text-muted-foreground">
                   {new Date(milestone.due_date).toLocaleDateString()}
                 </span>
               </div>
@@ -438,17 +438,17 @@ export const ProjectDetailPage: React.FC = () => {
       )}
 
       {activeTab === "overview" && (
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-card rounded-lg shadow-md p-6">
           <h3 className="text-lg font-semibold mb-4">Project Details</h3>
           <dl className="space-y-4">
             <div>
-              <dt className="text-sm font-medium text-gray-500">Description</dt>
-              <dd className="mt-1 text-sm text-gray-900">
+              <dt className="text-sm font-medium text-muted-foreground">Description</dt>
+              <dd className="mt-1 text-sm text-foreground">
                 {project.description}
               </dd>
             </div>
             <div>
-              <dt className="text-sm font-medium text-gray-500">Status</dt>
+              <dt className="text-sm font-medium text-muted-foreground">Status</dt>
               <dd className="mt-1">
                 <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
                   {project.status.replace("_", " ")}
@@ -456,8 +456,8 @@ export const ProjectDetailPage: React.FC = () => {
               </dd>
             </div>
             <div>
-              <dt className="text-sm font-medium text-gray-500">Teams</dt>
-              <dd className="mt-1 text-sm text-gray-900">
+              <dt className="text-sm font-medium text-muted-foreground">Teams</dt>
+              <dd className="mt-1 text-sm text-foreground">
                 {teams.length} teams formed
               </dd>
             </div>

@@ -46,7 +46,7 @@ export default function WisdomCard({
                     <span className={`px-3 py-1 rounded-full text-xs font-medium bg-${colorTheme}-500/10 text-${colorTheme}-200 border border-${colorTheme}-500/20`}>
                         {level}
                     </span>
-                    {locked && <Lock className="w-5 h-5 text-slate-400" />}
+                    {locked && <Lock className="w-5 h-5 text-muted-foreground" />}
                 </div>
 
                 {/* Content */}
@@ -56,7 +56,7 @@ export default function WisdomCard({
                         <h3 className="text-xl font-bold text-white font-serif tracking-wide">{title}</h3>
                     </div>
 
-                    <p className="text-sm text-slate-400 font-medium uppercase tracking-wider">{subtitle}</p>
+                    <p className="text-sm text-muted-foreground font-medium uppercase tracking-wider">{subtitle}</p>
 
                     <p className="text-sm text-slate-300 leading-relaxed font-light">
                         {description}

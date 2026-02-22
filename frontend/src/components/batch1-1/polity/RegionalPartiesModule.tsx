@@ -37,14 +37,14 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const BalanceCard = ({ title, children, color = "border-[#eab308]", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[5px_5px_0px_0px_rgba(234,179,8,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[5px_5px_0px_0px_rgba(234,179,8,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute top-0 right-0 p-2 opacity-10 translate-x-1/4 -translate-y-1/4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
             <Scale size={64} className={color.replace('border-', 'text-')} />
         </div>
         <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-800 relative z-10 font-bold">
+        <div className="space-y-4 text-foreground relative z-10 font-bold">
             {children}
         </div>
     </div>
@@ -67,11 +67,11 @@ export default function RegionalPartiesModule({ onComplete, isCompleted, chapter
         <ScrapbookContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#ca8a04] border-4 border-[#854d0e] rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(202,138,4,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-card/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-[#854d0e] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-yellow-100 font-bold uppercase tracking-widest text-sm italic underline decoration-white">The Kingmaker's Balance</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
@@ -95,7 +95,7 @@ export default function RegionalPartiesModule({ onComplete, isCompleted, chapter
                     <div className="p-5 bg-yellow-50 border-x-4 border-[#ca8a04] rounded-3xl relative overflow-hidden group">
                         <Fingerprint className="absolute top-0 right-0 p-2 opacity-10 text-[#ca8a04]" size={40} />
                         <h4 className="font-black text-[#ca8a04] uppercase text-xs mb-4 underline decoration-yellow-400 decoration-2 underline-offset-4">The Identity Profile</h4>
-                        <ul className="space-y-3 text-[10px] uppercase text-slate-700">
+                        <ul className="space-y-3 text-[10px] uppercase text-muted-foreground">
                             <li className="flex items-center gap-2"><ArrowRight size={14} className="text-[#ca8a04]" /> Region Specific base (State-limited).</li>
                             <li className="flex items-center gap-2"><ArrowRight size={14} className="text-[#ca8a04]" /> Focus on local culture, language, or caste.</li>
                             <li className="flex items-center gap-2"><ArrowRight size={14} className="text-[#ca8a04]" /> Resistance against "National Homogenization".</li>
@@ -108,19 +108,19 @@ export default function RegionalPartiesModule({ onComplete, isCompleted, chapter
                     <Layers className="absolute top-2 right-2 text-[#ca8a04] opacity-20" size={80} />
                     <h4 className="text-xl italic text-white mb-6 uppercase underline decoration-yellow-500">The 4 Types [PYQ]</h4>
                     <div className="grid grid-cols-2 gap-4 text-[10px] font-black uppercase">
-                        <div className="p-3 bg-white/5 rounded-xl border border-white/10">
+                        <div className="p-3 bg-card/5 rounded-xl border border-white/10">
                             <h6 className="text-[#ca8a04] mb-1 italic">Cultural/Ethnic</h6>
                             <p className="opacity-70">DMK, Shiv Sena, NC.</p>
                         </div>
-                        <div className="p-3 bg-white/5 rounded-xl border border-white/10">
+                        <div className="p-3 bg-card/5 rounded-xl border border-white/10">
                             <h6 className="text-[#ca8a04] mb-1 italic">Statehood Demand</h6>
                             <p className="opacity-70">TRS/BRS, JMM.</p>
                         </div>
-                        <div className="p-3 bg-white/5 rounded-xl border border-white/10">
+                        <div className="p-3 bg-card/5 rounded-xl border border-white/10">
                             <h6 className="text-[#ca8a04] mb-1 italic">National Split</h6>
                             <p className="opacity-70">TMC, YSRCP, SP.</p>
                         </div>
-                        <div className="p-3 bg-white/5 rounded-xl border border-white/10">
+                        <div className="p-3 bg-card/5 rounded-xl border border-white/10">
                             <h6 className="text-[#ca8a04] mb-1 italic">Leader Centric</h6>
                             <p className="opacity-70">LJP, Jana Sena.</p>
                         </div>
@@ -136,15 +136,15 @@ export default function RegionalPartiesModule({ onComplete, isCompleted, chapter
                 <div className="max-w-4xl mx-auto space-y-12 relative z-10">
                     <div className="flex flex-col md:flex-row items-center gap-8">
                         <div className="flex-1 space-y-6">
-                            <div className="p-6 bg-white border-2 border-blue-800 rounded-3xl shadow-sm">
+                            <div className="p-6 bg-card border-2 border-blue-800 rounded-3xl shadow-sm">
                                 <h5 className="font-black text-blue-900 mb-2 uppercase flex items-center gap-2"><Clock size={20} /> 1967: The First Blow</h5>
-                                <p className="text-sm font-bold text-slate-600 leading-relaxed italic">
+                                <p className="text-sm font-bold text-muted-foreground leading-relaxed italic">
                                     The first major end to Congress dominance; regional parties formed govts in <span className="text-blue-700 underline">8 States</span>.
                                 </p>
                             </div>
-                            <div className="p-6 bg-white border-2 border-blue-800 rounded-3xl shadow-sm">
+                            <div className="p-6 bg-card border-2 border-blue-800 rounded-3xl shadow-sm">
                                 <h5 className="font-black text-blue-900 mb-2 uppercase flex items-center gap-2"><Handshake size={20} /> 1990s: Era of Kingmakers</h5>
-                                <p className="text-sm font-bold text-slate-600 leading-relaxed italic">
+                                <p className="text-sm font-bold text-muted-foreground leading-relaxed italic">
                                     The "Era of Coalitions" (1989-2014). Regional parties became essential for any National Party to form a majority.
                                 </p>
                             </div>
@@ -216,7 +216,7 @@ export default function RegionalPartiesModule({ onComplete, isCompleted, chapter
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold italic tracking-widest text-center uppercase">Local Aspirations • Multi-Party Era • Federalism.</p>
+                <p className="mt-4 text-muted-foreground font-bold italic tracking-widest text-center uppercase">Local Aspirations • Multi-Party Era • Federalism.</p>
             </div>
         </ScrapbookContainer>
     );

@@ -132,22 +132,22 @@ export default function AdminSidebar({ isCollapsed, onToggle }: AdminSidebarProp
 
     return (
         <aside
-            className={`fixed left-0 top-16 h-[calc(100vh-4rem)] bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 overflow-y-auto transition-all duration-300 ease-in-out z-40 ${showExpanded ? "w-64" : "w-20"
+            className={`fixed left-0 top-16 h-[calc(100vh-4rem)] bg-card border-r border-border overflow-y-auto transition-all duration-300 ease-in-out z-40 ${showExpanded ? "w-64" : "w-20"
                 }`}
             onMouseEnter={() => isCollapsed && setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             {/* Toggle Button */}
-            <div className="p-4 border-b border-gray-200 dark:border-gray-800">
+            <div className="p-4 border-b border-border">
                 <button
                     onClick={onToggle}
-                    className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors w-full flex items-center justify-center"
+                    className="p-2 rounded-lg hover:bg-muted dark:hover:bg-gray-800 transition-colors w-full flex items-center justify-center"
                     title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
                 >
                     {isCollapsed ? (
-                        <Menu className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+                        <Menu className="h-5 w-5 text-muted-foreground dark:text-muted-foreground" />
                     ) : (
-                        <X className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+                        <X className="h-5 w-5 text-muted-foreground dark:text-muted-foreground" />
                     )}
                 </button>
             </div>
@@ -168,7 +168,7 @@ export default function AdminSidebar({ isCollapsed, onToggle }: AdminSidebarProp
                                     onClick={() => toggleExpanded(item.name)}
                                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${groupActive
                                         ? "bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300"
-                                        : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                        : "text-muted-foreground dark:text-muted-foreground hover:bg-muted dark:hover:bg-gray-800"
                                         } ${!showExpanded ? "justify-center px-2" : ""}`}
                                     title={!showExpanded ? item.name : ""}
                                 >
@@ -196,7 +196,7 @@ export default function AdminSidebar({ isCollapsed, onToggle }: AdminSidebarProp
                                                     href={child.href}
                                                     className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-200 ${isActive(child.href)
                                                         ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30"
-                                                        : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                                        : "text-muted-foreground dark:text-muted-foreground hover:bg-muted dark:hover:bg-gray-800"
                                                         }`}
                                                 >
                                                     <ChildIcon className="h-4 w-4 shrink-0" />
@@ -216,7 +216,7 @@ export default function AdminSidebar({ isCollapsed, onToggle }: AdminSidebarProp
                             href={item.href!}
                             className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 overflow-hidden ${itemActive
                                 ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30"
-                                : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                : "text-muted-foreground dark:text-muted-foreground hover:bg-muted dark:hover:bg-gray-800"
                                 } ${!showExpanded ? "justify-center px-2" : ""}`}
                             title={!showExpanded ? item.name : ""}
                         >
@@ -234,9 +234,9 @@ export default function AdminSidebar({ isCollapsed, onToggle }: AdminSidebarProp
 
             {/* Quick Access Section */}
             {showExpanded && (
-                <div className="p-4 mt-4 border-t border-gray-200 dark:border-gray-800">
+                <div className="p-4 mt-4 border-t border-border">
                     <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-lg p-4">
-                        <h3 className="font-semibold text-sm text-gray-900 dark:text-gray-100 mb-2">
+                        <h3 className="font-semibold text-sm text-foreground mb-2">
                             Quick Access
                         </h3>
                         <div className="space-y-2 text-sm">

@@ -84,7 +84,7 @@ export default function ShadowModePage() {
         <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
           7-Day Shadow Mode
         </h1>
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
           Deep focus sessions to build unbreakable concentration. Complete 7
           days to unlock massive rewards.
         </p>
@@ -98,7 +98,7 @@ export default function ShadowModePage() {
               <Target className="h-6 w-6 text-purple-400" />
             </div>
             <div>
-              <p className="text-gray-400 text-sm">Days Completed</p>
+              <p className="text-muted-foreground text-sm">Days Completed</p>
               <p className="text-3xl font-bold text-white">
                 {progress?.completed_days || 0}/7
               </p>
@@ -112,7 +112,7 @@ export default function ShadowModePage() {
               <Clock className="h-6 w-6 text-blue-400" />
             </div>
             <div>
-              <p className="text-gray-400 text-sm">Total Time</p>
+              <p className="text-muted-foreground text-sm">Total Time</p>
               <p className="text-3xl font-bold text-white">
                 {progress?.total_minutes || 0}m
               </p>
@@ -126,7 +126,7 @@ export default function ShadowModePage() {
               <TrendingUp className="h-6 w-6 text-green-400" />
             </div>
             <div>
-              <p className="text-gray-400 text-sm">Avg Focus Score</p>
+              <p className="text-muted-foreground text-sm">Avg Focus Score</p>
               <p className="text-3xl font-bold text-white">
                 {progress?.avg_focus_score || 0}
               </p>
@@ -182,14 +182,14 @@ export default function ShadowModePage() {
               <h3 className="text-2xl font-bold text-white mb-2">
                 Day {activeSession.day_number} in Progress
               </h3>
-              <p className="text-gray-400">
+              <p className="text-muted-foreground">
                 Stay focused and complete your goals!
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="text-sm text-gray-400">Goals Completed</label>
+                <label className="text-sm text-muted-foreground">Goals Completed</label>
                 <Input
                   type="number"
                   value={completedGoals}
@@ -199,13 +199,13 @@ export default function ShadowModePage() {
                   max={activeSession.total_goals}
                   className="bg-gray-800 border-gray-700 text-white mt-2"
                 />
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-muted-foreground mt-1">
                   Out of {activeSession.total_goals} goals
                 </p>
               </div>
 
               <div>
-                <label className="text-sm text-gray-400">
+                <label className="text-sm text-muted-foreground">
                   Focus Score (1-10)
                 </label>
                 <Input
@@ -238,13 +238,13 @@ export default function ShadowModePage() {
               <h3 className="text-2xl font-bold text-white mb-2">
                 Start Your Focus Session
               </h3>
-              <p className="text-gray-400">
+              <p className="text-muted-foreground">
                 Set your goals and enter shadow mode
               </p>
             </div>
 
             <div className="max-w-xs mx-auto">
-              <label className="text-sm text-gray-400">Number of Goals</label>
+              <label className="text-sm text-muted-foreground">Number of Goals</label>
               <Input
                 type="number"
                 value={goalsInput}
@@ -281,7 +281,7 @@ export default function ShadowModePage() {
                   <p className="text-white font-medium">
                     Day {session.day_number}
                   </p>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-muted-foreground">
                     {session.goals_completed}/{session.total_goals} goals
                     completed
                   </p>

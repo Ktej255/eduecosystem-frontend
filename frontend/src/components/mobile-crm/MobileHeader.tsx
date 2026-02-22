@@ -28,7 +28,7 @@ export default function MobileHeader({
                         <Button
                             variant="ghost"
                             size="icon"
-                            className="h-9 w-9 text-gray-300 hover:text-white hover:bg-gray-800"
+                            className="h-9 w-9 text-muted-foreground hover:text-white hover:bg-gray-800"
                             onClick={() => router.back()}
                         >
                             <ArrowLeft className="h-5 w-5" />
@@ -51,7 +51,7 @@ export default function MobileHeader({
                         <Button
                             variant="ghost"
                             size="icon"
-                            className="h-9 w-9 text-gray-300 hover:text-white hover:bg-gray-800"
+                            className="h-9 w-9 text-muted-foreground hover:text-white hover:bg-gray-800"
                             onClick={onSearch}
                         >
                             <Search className="h-5 w-5" />
@@ -60,7 +60,7 @@ export default function MobileHeader({
                     <Button
                         variant="ghost"
                         size="icon"
-                        className="h-9 w-9 text-gray-300 hover:text-white hover:bg-gray-800 relative"
+                        className="h-9 w-9 text-muted-foreground hover:text-white hover:bg-gray-800 relative"
                     >
                         <Bell className="h-5 w-5" />
                         <span className="absolute top-1.5 right-1.5 h-2 w-2 bg-red-500 rounded-full" />

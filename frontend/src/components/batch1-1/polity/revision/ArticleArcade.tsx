@@ -113,7 +113,7 @@ export default function ArticleArcade() {
                             <h2 className="text-2xl md:text-4xl font-black text-white leading-tight">
                                 {currentQuestion.description}
                             </h2>
-                            <p className="text-slate-400 font-bold text-lg">Which Article is this?</p>
+                            <p className="text-muted-foreground font-bold text-lg">Which Article is this?</p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

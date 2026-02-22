@@ -23,7 +23,7 @@ export default function GenericSecurityPage({ topicId }: { topicId: string }) {
                         <ShieldAlert className="h-10 w-10 text-red-600" />
                     </div>
                     <h2 className="text-2xl font-bold mb-4">{formatTitle(topicId)}</h2>
-                    <p className="text-slate-500 mb-8 font-mono text-sm">
+                    <p className="text-muted-foreground mb-8 font-mono text-sm">
                         [CLASSIFIED] Intelligence gathering in progress.
                         Briefing not yet authorized for this sector.
                     </p>

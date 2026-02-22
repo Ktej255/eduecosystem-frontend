@@ -247,7 +247,7 @@ export default function RASMCQTestSession({ onExit }: RASMCQTestSessionProps) {
 
                 <Button
                     onClick={handleNext}
-                    className="bg-white text-black hover:bg-neutral-200 font-bold px-8"
+                    className="bg-card text-black hover:bg-neutral-200 font-bold px-8"
                 >
                     {currentIndex === totalQuestions - 1 ? "Finish & Submit" : "Next Question"} <ChevronRight className="w-4 h-4 ml-2" />
                 </Button>

@@ -134,29 +134,29 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
 
     // COLORS
     const COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#a855f7'];
-    const colorsMap: Record<string, string> = { 'emerald': 'text-emerald-400', 'blue': 'text-blue-400', 'purple': 'text-purple-400', 'amber': 'text-amber-400', 'slate': 'text-slate-400' };
+    const colorsMap: Record<string, string> = { 'emerald': 'text-emerald-400', 'blue': 'text-blue-400', 'purple': 'text-purple-400', 'amber': 'text-amber-400', 'slate': 'text-muted-foreground' };
 
     return (
-        <div className="min-h-screen bg-[#020617] text-slate-100 p-6 font-sans pb-20">
+        <div className="min-h-screen bg-background text-foreground p-6 font-sans pb-20 transition-colors">
             <div className="max-w-7xl mx-auto">
 
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                     <div className="flex items-center gap-4">
-                        <Button variant="ghost" size="icon" onClick={onBack} className="rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:text-white">
+                        <Button variant="ghost" size="icon" onClick={onBack} className="rounded-full bg-card border border-border text-muted-foreground hover:text-foreground">
                             <ArrowLeft className="w-5 h-5" />
                         </Button>
                         <div>
                             <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
                                 Performance Dashboard
                             </h1>
-                            <p className="text-slate-500 font-medium">Deep analysis for {results.testTitle}</p>
+                            <p className="text-muted-foreground font-medium">Deep analysis for {results.testTitle}</p>
                         </div>
                     </div>
                     <div className="flex gap-3">
                         <Button
                             variant="outline"
-                            className="bg-slate-900/50 border-slate-800 text-slate-300 hover:bg-slate-800"
+                            className="bg-card/50 border-border text-foreground hover:bg-accent"
                             onClick={() => document.getElementById('question-review')?.scrollIntoView({ behavior: 'smooth' })}
                         >
                             <Search className="w-4 h-4 mr-2" /> Review Questions
@@ -164,7 +164,7 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                         {onRetake && (
                             <Button
                                 onClick={onRetake}
-                                className="bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20"
+                                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20"
                             >
                                 Retake Test
                             </Button>
@@ -180,14 +180,14 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                         { label: 'Time Taken', value: `${Math.floor(totalTimeTaken / 60)}m ${totalTimeTaken % 60}s`, sub: 'Speed vs Accuracy', icon: Clock, color: 'purple' },
                         { label: 'Correct Qs', value: stats.correct, sub: `In ${stats.answered} attempts`, icon: CheckCircle2, color: 'amber' },
                     ].map((item, i) => (
-                        <Card key={i} className="p-6 bg-slate-900/40 border-slate-800/80 backdrop-blur-md relative overflow-hidden group">
+                        <Card key={i} className="p-6 bg-card/40 border-border backdrop-blur-md relative overflow-hidden group">
                             <div className={`absolute top-0 right-0 w-24 h-24 bg-${item.color}-500/5 blur-[40px] group-hover:bg-${item.color}-500/10 transition-all`} />
                             <div className="flex justify-between items-start mb-2">
-                                <span className="text-xs font-semibold text-slate-500 uppercase tracking-widest">{item.label}</span>
-                                <item.icon className={`w-5 h-5 ${colorsMap[item.color] || 'text-slate-400'}/80`} />
+                                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">{item.label}</span>
+                                <item.icon className={`w-5 h-5 ${colorsMap[item.color] || 'text-muted-foreground'}/80`} />
                             </div>
-                            <div className="text-3xl font-bold text-white mb-1">{item.value}</div>
-                            <div className="text-[10px] text-slate-500 font-mono tracking-tighter">{item.sub}</div>
+                            <div className="text-3xl font-bold text-foreground mb-1">{item.value}</div>
+                            <div className="text-[10px] text-muted-foreground font-mono tracking-tighter">{item.sub}</div>
                         </Card>
                     ))}
                 </div>
@@ -200,7 +200,7 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                 <Brain className="w-5 h-5 text-blue-400" />
                                 Chapter Analysis (Accuracy %)
                             </h3>
-                            <div className="text-xs text-slate-500 italic">Visualizing Retention Strengths</div>
+                            <div className="text-xs text-muted-foreground italic">Visualizing Retention Strengths</div>
                         </div>
                         <div className="h-[400px] w-full">
                             <ResponsiveContainer width="100%" height="100%">
@@ -209,18 +209,18 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                     data={chapterData.sort((a, b) => b.accuracy - a.accuracy)}
                                     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                                 >
-                                    <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke="#334155" />
+                                    <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke="var(--border)" />
                                     <XAxis type="number" domain={[0, 100]} hide />
                                     <YAxis
                                         dataKey="name"
                                         type="category"
                                         width={120}
-                                        tick={{ fill: '#94a3b8', fontSize: 11 }}
+                                        tick={{ fill: 'var(--muted-foreground)', fontSize: 11 }}
                                         interval={0}
                                     />
                                     <Tooltip
-                                        cursor={{ fill: '#1e293b' }}
-                                        contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', color: '#f8fafc' }}
+                                        cursor={{ fill: 'var(--muted)', opacity: 0.2 }}
+                                        contentStyle={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)', color: 'var(--foreground)' }}
                                     />
                                     <Bar dataKey="accuracy" barSize={12} radius={[0, 4, 4, 0]}>
                                         {chapterData.map((entry, index) => (
@@ -240,23 +240,23 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                         </h3>
 
                         <div className="space-y-6 flex-grow">
-                            <div className="p-4 rounded-xl bg-slate-800/30 border border-slate-800">
+                            <div className="p-4 rounded-xl bg-muted/30 border border-border">
                                 <div className="flex justify-between text-sm mb-2">
-                                    <span className="text-emerald-400 flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4" /> Correct</span>
-                                    <span className="font-bold text-slate-200">{stats.correct}</span>
+                                    <span className="text-emerald-500 dark:text-emerald-400 flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4" /> Correct</span>
+                                    <span className="font-bold text-foreground">{stats.correct}</span>
                                 </div>
                                 <div className="flex justify-between text-sm mb-2">
-                                    <span className="text-red-400 flex items-center gap-1.5"><XCircle className="w-4 h-4" /> Incorrect</span>
-                                    <span className="font-bold text-slate-200">{stats.incorrect}</span>
+                                    <span className="text-red-500 dark:text-red-400 flex items-center gap-1.5"><XCircle className="w-4 h-4" /> Incorrect</span>
+                                    <span className="font-bold text-foreground">{stats.incorrect}</span>
                                 </div>
                                 <div className="flex justify-between text-sm">
-                                    <span className="text-slate-400 flex items-center gap-1.5"><HelpCircle className="w-4 h-4" /> Skipper</span>
-                                    <span className="font-bold text-slate-200">{stats.unattempted}</span>
+                                    <span className="text-muted-foreground flex items-center gap-1.5"><HelpCircle className="w-4 h-4" /> Skipper</span>
+                                    <span className="font-bold text-foreground">{stats.unattempted}</span>
                                 </div>
                             </div>
 
                             <div className="space-y-4">
-                                <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-widest">Efficiency Feedback</h4>
+                                <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">Efficiency Feedback</h4>
                                 <div className="p-4 rounded-xl bg-slate-800/30 border border-slate-800">
                                     <p className="text-sm text-slate-300 leading-relaxed italic">
                                         {stats.score && parseFloat(stats.score) > 100
@@ -294,12 +294,12 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                         <div className="h-[300px] w-full">
                             <ResponsiveContainer width="100%" height="100%">
                                 <BarChart data={confidenceData} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
-                                    <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" vertical={false} />
-                                    <XAxis dataKey="level" tick={{ fill: '#64748b', fontSize: 12 }} axisLine={false} tickLine={false} />
-                                    <YAxis tick={{ fill: '#64748b', fontSize: 12 }} axisLine={false} tickLine={false} />
+                                    <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
+                                    <XAxis dataKey="level" tick={{ fill: 'var(--muted-foreground)', fontSize: 12 }} axisLine={false} tickLine={false} />
+                                    <YAxis tick={{ fill: 'var(--muted-foreground)', fontSize: 12 }} axisLine={false} tickLine={false} />
                                     <Tooltip
-                                        cursor={{ fill: '#0f172a' }}
-                                        contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '8px' }}
+                                        cursor={{ fill: 'var(--muted)', opacity: 0.2 }}
+                                        contentStyle={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)', borderRadius: '8px' }}
                                     />
                                     <Bar dataKey="accuracy" radius={[6, 6, 0, 0]} barSize={40}>
                                         {confidenceData.map((entry, index) => (
@@ -319,14 +319,14 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                         <div className="h-[300px] w-full">
                             <ResponsiveContainer width="100%" height="100%">
                                 <BarChart data={confidenceData} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
-                                    <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" vertical={false} />
-                                    <XAxis dataKey="level" tick={{ fill: '#64748b', fontSize: 12 }} axisLine={false} tickLine={false} />
-                                    <YAxis tick={{ fill: '#64748b', fontSize: 12 }} axisLine={false} tickLine={false} unit="s" />
+                                    <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
+                                    <XAxis dataKey="level" tick={{ fill: 'var(--muted-foreground)', fontSize: 12 }} axisLine={false} tickLine={false} />
+                                    <YAxis tick={{ fill: 'var(--muted-foreground)', fontSize: 12 }} axisLine={false} tickLine={false} unit="s" />
                                     <Tooltip
-                                        cursor={{ fill: '#0f172a' }}
-                                        contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '8px' }}
+                                        cursor={{ fill: 'var(--muted)', opacity: 0.2 }}
+                                        contentStyle={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)', borderRadius: '8px' }}
                                     />
-                                    <Bar dataKey="avgTime" fill="#3b82f6" radius={[6, 6, 0, 0]} barSize={40} fillOpacity={0.4} stroke="#3b82f6" />
+                                    <Bar dataKey="avgTime" fill="var(--primary)" radius={[6, 6, 0, 0]} barSize={40} fillOpacity={0.4} stroke="var(--primary)" />
                                 </BarChart>
                             </ResponsiveContainer>
                         </div>
@@ -334,26 +334,26 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                 </div>
 
                 {/* Gap Analysis Table */}
-                <Card className="p-8 bg-slate-900/40 border-slate-800/80 backdrop-blur-md">
+                <Card className="p-8 bg-card/40 border-border backdrop-blur-md">
                     <h3 className="text-lg font-semibold mb-8 flex items-center gap-2">
-                        <Zap className="w-5 h-5 text-red-400" />
+                        <Zap className="w-5 h-5 text-red-500" />
                         Gap Analysis (Weakest Subtopics)
                     </h3>
                     <div className="overflow-x-auto">
                         <table className="w-full text-left">
                             <thead>
-                                <tr className="border-b border-slate-800 text-xs text-slate-500 uppercase tracking-widest">
+                                <tr className="border-b border-border text-xs text-muted-foreground uppercase tracking-widest">
                                     <th className="pb-4 font-semibold">Subject Area</th>
                                     <th className="pb-4 font-semibold">Subtopic</th>
                                     <th className="pb-4 font-semibold">Stability</th>
                                     <th className="pb-4 font-semibold">Recommendation</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-slate-800/50">
+                            <tbody className="divide-y divide-border/50">
                                 {questions.filter(q => !q.isCorrect && q.userAnswer !== null).slice(0, 5).map((q, i) => (
-                                    <tr key={i} className="group hover:bg-slate-800/20 transition-all">
-                                        <td className="py-4 text-sm font-medium text-slate-300">{q.chapter || "General"}</td>
-                                        <td className="py-4 text-sm text-slate-400">{q.subtopic || "N/A"}</td>
+                                    <tr key={i} className="group hover:bg-accent/20 transition-all">
+                                        <td className="py-4 text-sm font-medium text-foreground">{q.chapter || "General"}</td>
+                                        <td className="py-4 text-sm text-muted-foreground">{q.subtopic || "N/A"}</td>
                                         <td className="py-4">
                                             <div className="flex items-center gap-2">
                                                 <div className="w-16 h-1.5 bg-slate-800 rounded-full overflow-hidden">
@@ -382,15 +382,15 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                 </Card>
 
                 {/* Detailed Subtopic Analysis Table */}
-                <Card className="p-8 bg-slate-900/40 border-slate-800/80 backdrop-blur-md mb-8">
+                <Card className="p-8 bg-card/40 border-border backdrop-blur-md mb-8">
                     <h3 className="text-lg font-semibold mb-8 flex items-center gap-2">
-                        <ZoomIn className="w-5 h-5 text-teal-400" />
+                        <ZoomIn className="w-5 h-5 text-teal-500" />
                         Detailed Subtopic Breakdown
                     </h3>
                     <div className="overflow-x-auto max-h-[400px]">
                         <table className="w-full text-left border-collapse">
-                            <thead className="sticky top-0 bg-[#020617] z-10">
-                                <tr className="border-b border-slate-800 text-xs text-slate-500 uppercase tracking-widest">
+                            <thead className="sticky top-0 bg-background z-10">
+                                <tr className="border-b border-border text-xs text-muted-foreground uppercase tracking-widest">
                                     <th className="pb-4 pl-4 font-semibold">Chapter</th>
                                     <th className="pb-4 font-semibold">Subtopic</th>
                                     <th className="pb-4 text-center font-semibold">Q Count</th>
@@ -398,7 +398,7 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                     <th className="pb-4 text-right pr-4 font-semibold">Status</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-slate-800/50">
+                            <tbody className="divide-y divide-border/50">
 
                                 {Object.values(questions.reduce<Record<string, SubtopicStats>>((acc, q) => {
                                     const key = `${q.chapter}-${q.subtopic}`;
@@ -411,8 +411,8 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                     return (
                                         <tr key={i} className="group hover:bg-slate-800/20 transition-all">
                                             <td className="py-3 pl-4 text-sm font-medium text-slate-300">{item.chapter}</td>
-                                            <td className="py-3 text-sm text-slate-400">{item.subtopic}</td>
-                                            <td className="py-3 text-center text-sm text-slate-500">{item.total}</td>
+                                            <td className="py-3 text-sm text-muted-foreground">{item.subtopic}</td>
+                                            <td className="py-3 text-center text-sm text-muted-foreground">{item.total}</td>
                                             <td className="py-3 text-center">
                                                 <span className={`font-mono font-bold ${acc >= 75 ? 'text-emerald-400' : acc >= 40 ? 'text-amber-400' : 'text-red-400'}`}>
                                                     {acc}%
@@ -435,7 +435,7 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                 </Card>
 
                 {/* Detailed Question Review Section */}
-                <Card id="question-review" className="p-8 bg-slate-900/40 border-slate-800/80 backdrop-blur-md">
+                <Card id="question-review" className="p-8 bg-card/40 border-border backdrop-blur-md">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                         <h3 className="text-xl font-bold flex items-center gap-2">
                             <Search className="w-6 h-6 text-blue-400" />
@@ -448,7 +448,7 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                     variant="ghost"
                                     size="sm"
                                     onClick={() => setFilter(f as 'all' | 'correct' | 'incorrect' | 'unattempted')}
-                                    className={`capitalize rounded-full px-4 ${filter === f ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' : 'text-slate-500 hover:text-slate-300'}`}
+                                    className={`capitalize rounded-full px-4 ${filter === f ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' : 'text-muted-foreground hover:text-slate-300'}`}
                                 >
                                     {f}
                                 </Button>
@@ -465,14 +465,14 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                 return true;
                             })
                             .map((q) => (
-                                <div key={q.id} className="p-6 rounded-2xl bg-slate-800/20 border border-slate-800/50 hover:border-slate-700/80 transition-all group">
+                                <div key={q.id} className="p-6 rounded-2xl bg-accent/10 border border-border/50 hover:border-primary/30 transition-all group">
                                     <div className="flex justify-between items-start mb-4">
                                         <div className="flex items-center gap-3">
-                                            <span className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-sm font-bold text-slate-400 group-hover:border-blue-500/30 group-hover:text-blue-400 transition-colors">
+                                            <span className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-sm font-bold text-muted-foreground group-hover:border-blue-500/30 group-hover:text-blue-400 transition-colors">
                                                 {q.id}
                                             </span>
                                             <div>
-                                                <div className="text-[10px] text-slate-500 font-mono uppercase tracking-widest leading-none mb-1">
+                                                <div className="text-[10px] text-muted-foreground font-mono uppercase tracking-widest leading-none mb-1">
                                                     {q.chapter} • {q.subtopic}
                                                 </div>
                                                 <div className="flex items-center gap-2">
@@ -481,7 +481,7 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                                             <CheckCircle2 className="w-3 h-3" /> CORRECT
                                                         </span>
                                                     ) : q.userAnswer === null ? (
-                                                        <span className="flex items-center gap-1 text-[10px] font-bold text-slate-400">
+                                                        <span className="flex items-center gap-1 text-[10px] font-bold text-muted-foreground">
                                                             <HelpCircle className="w-3 h-3" /> SKIPPED
                                                         </span>
                                                     ) : (
@@ -490,14 +490,14 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                                         </span>
                                                     )}
                                                     <span className="w-1 h-1 rounded-full bg-slate-800" />
-                                                    <span className="text-[10px] font-mono text-slate-500 uppercase">{q.confidence || 'No Confidence Set'}</span>
+                                                    <span className="text-[10px] font-mono text-muted-foreground uppercase">{q.confidence || 'No Confidence Set'}</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="text-xs text-slate-600 font-mono">{q.timeSpent}s spent</div>
+                                        <div className="text-xs text-muted-foreground font-mono">{q.timeSpent}s spent</div>
                                     </div>
 
-                                    <h4 className="text-base font-medium text-slate-200 mb-6 leading-relaxed">
+                                    <h4 className="text-base font-medium text-foreground mb-6 leading-relaxed">
                                         {q.question}
                                     </h4>
 
@@ -506,23 +506,23 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                             const isUserChoice = q.userAnswer === i;
                                             const isCorrectChoice = q.correctAnswer === i;
 
-                                            let borderClass = "border-slate-800/50 bg-slate-900/20";
+                                            let borderClass = "border-border/50 bg-card/20";
                                             let icon = null;
-                                            let textClass = "text-slate-400";
+                                            let textClass = "text-muted-foreground";
 
                                             if (isCorrectChoice) {
                                                 borderClass = "border-emerald-500/30 bg-emerald-500/5";
-                                                textClass = "text-emerald-400 font-medium";
+                                                textClass = "text-emerald-500 dark:text-emerald-400 font-medium";
                                                 icon = <CheckCircle2 className="w-4 h-4 ml-auto" />;
                                             } else if (isUserChoice && !q.isCorrect) {
                                                 borderClass = "border-red-500/30 bg-red-500/5";
-                                                textClass = "text-red-400 font-medium";
+                                                textClass = "text-red-500 dark:text-red-400 font-medium";
                                                 icon = <XCircle className="w-4 h-4 ml-auto" />;
                                             }
 
                                             return (
                                                 <div key={i} className={`flex items-center px-4 py-3 rounded-xl border text-sm ${borderClass} ${textClass}`}>
-                                                    <span className="w-6 h-6 rounded-lg bg-slate-900/50 flex items-center justify-center mr-3 text-xs font-bold font-mono">
+                                                    <span className="w-6 h-6 rounded-lg bg-background/50 flex items-center justify-center mr-3 text-xs font-bold font-mono">
                                                         {String.fromCharCode(65 + i)}
                                                     </span>
                                                     {opt}
@@ -532,11 +532,11 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                         })}
                                     </div>
 
-                                    <div className="p-5 rounded-xl bg-blue-500/5 border border-blue-500/10">
-                                        <div className="flex items-center gap-2 text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">
+                                    <div className="p-5 rounded-xl bg-primary/5 border border-primary/10">
+                                        <div className="flex items-center gap-2 text-xs font-bold text-primary uppercase tracking-widest mb-2">
                                             <Zap className="w-4 h-4" /> Comprehensive Explanation
                                         </div>
-                                        <p className="text-sm text-slate-300 leading-relaxed whitespace-pre-wrap">
+                                        <p className="text-sm text-foreground/80 leading-relaxed whitespace-pre-wrap">
                                             {q.explanation}
                                         </p>
                                     </div>

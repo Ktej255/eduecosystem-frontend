@@ -25,7 +25,7 @@ const DraggableFact = ({ fact }: { fact: CommitteeFact }) => {
             style={style}
             {...listeners}
             {...attributes}
-            className="bg-white p-4 rounded-lg border-2 border-stone-200 shadow-sm cursor-grab active:cursor-grabbing hover:shadow-md hover:border-stone-400 hover:scale-105 transition-all w-full touch-none z-50 mb-3"
+            className="bg-card p-4 rounded-lg border-2 border-stone-200 shadow-sm cursor-grab active:cursor-grabbing hover:shadow-md hover:border-stone-400 hover:scale-105 transition-all w-full touch-none z-50 mb-3"
         >
             <div className="flex gap-3 items-start">
                 <GripVertical className="text-stone-300 shrink-0 mt-1" size={20} />
@@ -62,7 +62,7 @@ const DroppableBucket = ({ type, items }: { type: CommitteeType, items: Committe
                     key={item.id}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="bg-white/80 backdrop-blur p-2 rounded shadow-sm text-xs font-bold border-l-4 border-stone-800"
+                    className="bg-card/80 backdrop-blur p-2 rounded shadow-sm text-xs font-bold border-l-4 border-stone-800"
                 >
                     {item.text}
                 </motion.div>
@@ -153,7 +153,7 @@ export default function CommitteeShuffler() {
                     </div>
 
                     {/* Fact Pool Area */}
-                    <div className="bg-white rounded-xl border-dashed border-4 border-stone-300 p-6 min-h-[160px] relative">
+                    <div className="bg-card rounded-xl border-dashed border-4 border-stone-300 p-6 min-h-[160px] relative">
                         <div className="absolute -top-3 left-4 bg-stone-200 px-3 py-1 rounded text-xs font-black text-stone-600 uppercase">
                             Fact Deck ({pendingFacts.length} remaining)
                         </div>

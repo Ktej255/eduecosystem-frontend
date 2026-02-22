@@ -42,52 +42,54 @@ export default function HandwrittenChapter7() {
     const [activeMatchup, setActiveMatchup] = useState(0);
 
     const matchupColors = [
-        { color: "border-red-900", bg: "bg-red-50" },
-        { color: "border-orange-800", bg: "bg-orange-50" },
-        { color: "border-amber-800", bg: "bg-amber-50" },
-        { color: "border-rose-900", bg: "bg-rose-50" },
-        { color: "border-stone-800", bg: "bg-stone-50" },
-        { color: "border-slate-800", bg: "bg-slate-50" },
-        { color: "border-emerald-900", bg: "bg-emerald-50" },
-        { color: "border-indigo-900", bg: "bg-indigo-50" },
+        { color: "border-paper-red", bg: "bg-paper-red/10" },
+        { color: "border-paper-orange", bg: "bg-paper-orange/10" },
+        { color: "border-paper-orange/80", bg: "bg-paper-orange/5" },
+        { color: "border-paper-red/80", bg: "bg-paper-red/5" },
+        { color: "border-paper-gray", bg: "bg-paper-gray/10" },
+        { color: "border-paper-gray/80", bg: "bg-paper-gray/5" },
+        { color: "border-paper-green", bg: "bg-paper-green/10" },
+        { color: "border-paper-navy", bg: "bg-paper-navy/10" },
     ];
 
-    const historianColors = ["border-orange-400", "border-blue-400", "border-green-400"];
-    const historianHovers = ["group-hover:text-orange-300", "group-hover:text-blue-300", "group-hover:text-green-300"];
+    const historianColors = ["border-paper-orange", "border-paper-navy/40", "border-paper-green"];
+    const historianHovers = ["group-hover:text-paper-orange", "group-hover:text-paper-navy/60", "group-hover:text-paper-green"];
 
     return (
-        <div className="min-h-screen bg-[#f3f4f6] p-4 md:p-8 font-['Kalam',_cursive] text-slate-900 selection:bg-red-200 overflow-x-hidden">
+        <div className="min-h-screen bg-paper p-4 md:p-8 font-['Kalam',_cursive] text-paper-gray selection:bg-paper-red/20 overflow-x-hidden">
             <style jsx global>{`
                 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Permanent+Marker&family=Special+Elite&family=Cutive+Mono&display=swap');
                 
                 .scorched-paper {
-                    background-color: #fdfaf6;
-                    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                    background-color: var(--paper-bg);
+                    box-shadow: 0 0 20px var(--paper-border);
                     position: relative;
                 }
 
                 .telegram-strip {
-                    background-color: #fff9c4;
+                    background-color: var(--sticky-yellow);
                     font-family: 'Special Elite', cursive;
-                    border: 1px solid #d4d4d4;
-                    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+                    border: 1px solid var(--paper-border);
+                    box-shadow: 2px 2px 5px var(--paper-border);
                     transform: rotate(-0.5deg);
+                    color: initial;
                 }
 
                 .blood-stain {
                     position: absolute;
                     width: 150px;
                     height: 150px;
-                    background: radial-gradient(circle, rgba(139,0,0,0.15) 0%, rgba(139,0,0,0.05) 50%, transparent 70%);
+                    background: radial-gradient(circle, var(--paper-text-red) 15%, var(--paper-text-red) 5%, transparent 70%);
                     border-radius: 50%;
                     pointer-events: none;
                     filter: blur(5px);
+                    opacity: 0.1;
                 }
 
                 .stamp-top-secret {
                     font-family: 'Permanent Marker', cursive;
-                    color: #8B0000;
-                    border: 5px solid #8B0000;
+                    color: var(--paper-text-red);
+                    border: 5px solid var(--paper-text-red);
                     padding: 4px 12px;
                     text-transform: uppercase;
                     transform: rotate(-15deg);
@@ -96,8 +98,8 @@ export default function HandwrittenChapter7() {
 
                 .stamp-intercepted {
                     font-family: 'Permanent Marker', cursive;
-                    color: #2F4F4F;
-                    border: 5px solid #2F4F4F;
+                    color: var(--paper-text-gray);
+                    border: 5px solid var(--paper-text-gray);
                     padding: 4px 12px;
                     text-transform: uppercase;
                     transform: rotate(10deg);
@@ -109,8 +111,8 @@ export default function HandwrittenChapter7() {
                     letter-spacing: -1px;
                 }
 
-                .gunpowder-grey { color: #2F4F4F; }
-                .revolution-red { color: #8B0000; }
+                .gunpowder-grey { color: var(--paper-text-gray); opacity: 0.8; }
+                .revolution-red { color: var(--paper-text-red); }
 
                 .grid-of-grievances {
                     display: grid;
@@ -119,24 +121,27 @@ export default function HandwrittenChapter7() {
                 }
 
                 .marker-yellow {
-                    background-color: #fef08a;
+                    background-color: var(--sticky-yellow);
                     padding: 0 4px;
                     border-radius: 2px;
                     font-weight: bold;
+                    color: initial;
                 }
 
                 .paper-border {
                     border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-                    border: 2px solid #333;
+                    border: 2px solid var(--paper-border);
                 }
 
                 .body-handwritten {
                     font-family: 'Kalam', cursive;
                     line-height: 1.8;
+                    color: var(--paper-text-gray);
                 }
 
                 .marker-label {
                     font-family: 'Permanent Marker', cursive;
+                    color: var(--paper-text-gray);
                 }
 
                 .lotus-bullet::before {
@@ -169,7 +174,7 @@ export default function HandwrittenChapter7() {
                 </motion.div>
 
                 <div className="mt-16 max-w-2xl mx-auto telegram-strip p-6 text-xl leading-relaxed">
-                    <div className="flex justify-between items-center mb-4 text-xs font-bold text-slate-400">
+                    <div className="flex justify-between items-center mb-4 text-xs font-bold text-muted-foreground">
                         <span>{t.telegramHeader}</span>
                         <span>{t.telegramDate}</span>
                     </div>
@@ -184,18 +189,18 @@ export default function HandwrittenChapter7() {
                     <AlertCircle className="w-10 h-10 revolution-red" /> {t.causesTitle}
                 </h2>
 
-                <div className="grid-of-grievances">
+                <div className="grid-of-grievances text-inherit">
                     {/* ECONOMIC */}
-                    <Card className="scorched-paper p-6 border-4 border-slate-900 transform -rotate-1 hover:rotate-0 transition-transform">
-                        <h3 className="text-2xl font-['Permanent_Marker'] revolution-red mb-4 border-b-2 border-slate-100 pb-2 flex items-center gap-2">
+                    <Card className="scorched-paper p-6 border-4 border-paper-border transform -rotate-1 hover:rotate-0 transition-transform text-inherit">
+                        <h3 className="text-2xl font-['Permanent_Marker'] revolution-red mb-4 border-b-2 border-paper-border/10 pb-2 flex items-center gap-2">
                             <span className="text-3xl">💰</span> {t.economicTitle}
                         </h3>
                         <p className="body-handwritten text-lg leading-snug">{t.economicText}</p>
                     </Card>
 
                     {/* POLITICAL */}
-                    <Card className="scorched-paper p-6 border-4 border-slate-900 transform rotate-1">
-                        <h3 className="text-2xl font-['Permanent_Marker'] revolution-red mb-4 border-b-2 border-slate-100 pb-2 flex items-center gap-2">
+                    <Card className="scorched-paper p-6 border-4 border-paper-border transform rotate-1 text-inherit">
+                        <h3 className="text-2xl font-['Permanent_Marker'] revolution-red mb-4 border-b-2 border-paper-border/10 pb-2 flex items-center gap-2">
                             <span className="text-3xl">👑</span> {t.politicalTitle}
                         </h3>
                         <ul className="body-handwritten text-lg space-y-2">
@@ -206,8 +211,8 @@ export default function HandwrittenChapter7() {
                     </Card>
 
                     {/* SOCIO-RELIGIOUS */}
-                    <Card className="scorched-paper p-6 border-4 border-slate-900 transform -rotate-1">
-                        <h3 className="text-2xl font-['Permanent_Marker'] revolution-red mb-4 border-b-2 border-slate-100 pb-2 flex items-center gap-2">
+                    <Card className="scorched-paper p-6 border-4 border-paper-border transform -rotate-1 text-inherit">
+                        <h3 className="text-2xl font-['Permanent_Marker'] revolution-red mb-4 border-b-2 border-paper-border/10 pb-2 flex items-center gap-2">
                             <span className="text-3xl">🕉️</span> {t.religiousTitle}
                         </h3>
                         <p className="body-handwritten text-lg leading-snug">
@@ -217,8 +222,8 @@ export default function HandwrittenChapter7() {
                     </Card>
 
                     {/* MILITARY */}
-                    <Card className="scorched-paper p-6 border-4 border-slate-900 transform rotate-1">
-                        <h3 className="text-2xl font-['Permanent_Marker'] revolution-red mb-4 border-b-2 border-slate-100 pb-2 flex items-center gap-2">
+                    <Card className="scorched-paper p-6 border-4 border-paper-border transform rotate-1 text-inherit">
+                        <h3 className="text-2xl font-['Permanent_Marker'] revolution-red mb-4 border-b-2 border-paper-border/10 pb-2 flex items-center gap-2">
                             <span className="text-3xl">⚔️</span> {t.militaryTitle}
                         </h3>
                         <p className="body-handwritten text-lg leading-snug">
@@ -228,12 +233,12 @@ export default function HandwrittenChapter7() {
                 </div>
 
                 {/* IMMEDIATE CAUSE */}
-                <div className="max-w-4xl mx-auto mt-12 bg-white p-8 paper-border border-4 border-dashed border-red-800 relative shadow-2xl overflow-hidden">
+                <div className="max-w-4xl mx-auto mt-12 bg-paper p-8 paper-border border-4 border-dashed border-paper-red relative shadow-2xl overflow-hidden text-inherit">
                     <div className="absolute top-0 right-0 p-8 opacity-10 rotate-12">
-                        <Flame className="w-32 h-32" />
+                        <Flame className="w-32 h-32 text-paper-red" />
                     </div>
                     <div className="absolute top-2 left-2 stamp-intercepted">{t.sparkStamp}</div>
-                    <h3 className="text-3xl font-['Permanent_Marker'] mb-4 text-center revolution-red underline decoration-red-200 decoration-8 underline-offset-8 uppercase">{t.sparkTitle}</h3>
+                    <h3 className="text-3xl font-['Permanent_Marker'] mb-4 text-center revolution-red underline decoration-paper-red/20 decoration-8 underline-offset-8 uppercase">{t.sparkTitle}</h3>
                     <div className="flex flex-col md:flex-row gap-8 items-center mt-8">
                         <div className="text-7xl">🔫</div>
                         <div className="body-handwritten text-xl leading-relaxed">
@@ -336,9 +341,9 @@ export default function HandwrittenChapter7() {
                                     <Target className="w-6 h-6" /> {t.suppressorLabel}
                                 </h4>
                                 <p className="text-2xl font-bold">{t.matchups[activeMatchup].british}</p>
-                                <div className="mt-8 p-4 bg-white/50 border border-slate-200 rounded-xl relative">
-                                    <div className="absolute -top-3 -right-3"><Grave className="w-8 h-8 text-slate-400" /></div>
-                                    <h5 className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mb-2">{t.finalOutcome}</h5>
+                                <div className="mt-8 p-4 bg-card/50 border border-border rounded-xl relative">
+                                    <div className="absolute -top-3 -right-3"><Grave className="w-8 h-8 text-muted-foreground" /></div>
+                                    <h5 className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground mb-2">{t.finalOutcome}</h5>
                                     <p className="text-sm italic">{t.matchups[activeMatchup].fate}</p>
                                 </div>
                             </div>
@@ -347,7 +352,7 @@ export default function HandwrittenChapter7() {
                         {activeMatchup === 3 && (
                             <div className="mt-12 text-center">
                                 <p className="text-2xl revolution-red font-bold animate-pulse">{t.jhansiQuote}</p>
-                                <p className="text-sm italic text-slate-500 mt-2">{t.jhansiQuoteBy}</p>
+                                <p className="text-sm italic text-muted-foreground mt-2">{t.jhansiQuoteBy}</p>
                             </div>
                         )}
                     </motion.div>
@@ -379,7 +384,7 @@ export default function HandwrittenChapter7() {
                         <Lock className="w-10 h-10" /> {t.failedTitle}
                     </h2>
 
-                    <div className="bg-white p-8 paper-border border-4 border-slate-900 shadow-xl relative overflow-hidden transform -rotate-1">
+                    <div className="bg-card p-8 paper-border border-4 border-slate-900 shadow-xl relative overflow-hidden transform -rotate-1">
                         <div className="absolute top-2 right-2 stamp-intercepted text-[10px]">{t.loyalistsStamp}</div>
                         <h4 className="text-2xl font-['Permanent_Marker'] mb-6 underline decoration-slate-200">{t.loyalistsTitle}</h4>
                         <p className="body-handwritten text-xl leading-relaxed mb-6">{t.loyalistsText}</p>
@@ -388,12 +393,12 @@ export default function HandwrittenChapter7() {
                         </blockquote>
                     </div>
 
-                    <div className="bg-white p-8 paper-border border-4 border-slate-900 shadow-xl relative overflow-hidden transform rotate-1">
+                    <div className="bg-card p-8 paper-border border-4 border-slate-900 shadow-xl relative overflow-hidden transform rotate-1">
                         <h4 className="text-2xl font-['Permanent_Marker'] mb-6 underline decoration-slate-200">{t.splitTitle}</h4>
                         <p className="body-handwritten text-xl leading-relaxed mb-4">
                             <strong>{t.splitLabel}</strong> {t.splitText}
                         </p>
-                        <div className="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                        <div className="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                             {t.splitBullets.map((b, i) => (
                                 <span key={i} className="chapati-bullet">{b}</span>
                             ))}
@@ -411,7 +416,7 @@ export default function HandwrittenChapter7() {
                         {t.unityQuote}
                         <br /><span className="text-sm opacity-60 font-sans">{t.unityQuoteBy}</span>
                     </p>
-                    <div className="text-left space-y-4 body-handwritten text-lg bg-white/5 p-6 rounded-3xl border border-white/10">
+                    <div className="text-left space-y-4 body-handwritten text-lg bg-card/5 p-6 rounded-3xl border border-white/10">
                         {t.unityPoints.map((pt, i) => (
                             <p key={i}>• {pt}</p>
                         ))}
@@ -427,7 +432,7 @@ export default function HandwrittenChapter7() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     {/* ACT OF 1858 */}
-                    <div className="bg-white p-10 paper-border border-l-8 border-l-slate-900 shadow-2xl relative">
+                    <div className="bg-card p-10 paper-border border-l-8 border-l-slate-900 shadow-2xl relative">
                         <div className="absolute top-2 right-2 text-6xl opacity-10 font-bold">1858</div>
                         <h3 className="text-2xl font-['Permanent_Marker'] mb-6">{t.actTitle}</h3>
                         <div className="space-y-4 body-handwritten text-xl">
@@ -440,7 +445,7 @@ export default function HandwrittenChapter7() {
                             </div>
                         </div>
                         <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
-                            <span className="text-[10px] font-bold text-slate-400 uppercase">{t.queensProc}</span>
+                            <span className="text-[10px] font-bold text-muted-foreground uppercase">{t.queensProc}</span>
                             <span className="bg-slate-900 text-white px-3 py-1 rounded-lg text-xs font-bold">{t.queensProcDate}</span>
                         </div>
                     </div>
@@ -451,12 +456,12 @@ export default function HandwrittenChapter7() {
                             <div className="absolute -right-4 -top-4 stamp-intercepted rotate-12">{t.peelStamp}</div>
                             <h4 className="text-2xl font-bold revolution-red mb-4 flex gap-2"><Globe className="w-6 h-6" /> {t.armyTitle}</h4>
                             <div className="grid grid-cols-2 gap-4 text-center mb-6">
-                                <div className="p-4 bg-white border border-red-100 rounded-xl">
-                                    <p className="text-[10px] uppercase font-bold text-slate-400 mb-1">{t.bengalRatio}</p>
+                                <div className="p-4 bg-card border border-red-100 rounded-xl">
+                                    <p className="text-[10px] uppercase font-bold text-muted-foreground mb-1">{t.bengalRatio}</p>
                                     <p className="text-2xl font-black revolution-red">1 : 2</p>
                                 </div>
-                                <div className="p-4 bg-white border border-red-100 rounded-xl">
-                                    <p className="text-[10px] uppercase font-bold text-slate-400 mb-1">{t.madrasRatio}</p>
+                                <div className="p-4 bg-card border border-red-100 rounded-xl">
+                                    <p className="text-[10px] uppercase font-bold text-muted-foreground mb-1">{t.madrasRatio}</p>
                                     <p className="text-2xl font-black revolution-red">1 : 3</p>
                                 </div>
                             </div>
@@ -464,11 +469,11 @@ export default function HandwrittenChapter7() {
                         </div>
 
                         <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-white p-4 paper-border border-2 border-slate-200">
+                            <div className="bg-card p-4 paper-border border-2 border-border">
                                 <h5 className="font-bold text-sm mb-2 border-b">{t.act1861Title}</h5>
                                 <p className="text-xs body-handwritten italic">{t.act1861Text}</p>
                             </div>
-                            <div className="bg-white p-4 paper-border border-2 border-slate-200">
+                            <div className="bg-card p-4 paper-border border-2 border-border">
                                 <h5 className="font-bold text-sm mb-2 border-b">{t.whiteMutiny}</h5>
                                 <p className="text-xs body-handwritten">{t.whiteMutinyText}</p>
                             </div>
@@ -485,7 +490,7 @@ export default function HandwrittenChapter7() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white body-handwritten">
                         {t.historians.map((h, i) => (
-                            <div key={i} className={`bg-white/5 p-6 border-l-4 ${historianColors[i]} hover:bg-white/10 transition-all group`}>
+                            <div key={i} className={`bg-card/5 p-6 border-l-4 ${historianColors[i]} hover:bg-card/10 transition-all group`}>
                                 <p className={`text-lg font-bold ${historianHovers[i]}`}>{h.name}</p>
                                 <p className="text-xs italic mb-4">{h.book}</p>
                                 <p className="text-sm border-t border-white/10 pt-4">{h.view}</p>
@@ -506,7 +511,7 @@ export default function HandwrittenChapter7() {
 
             {/* FOOTER */}
             <footer className="max-w-5xl mx-auto pb-24 px-4 text-center">
-                <div className="bg-white p-12 paper-border border-4 border-dashed border-slate-300 relative shadow-inner">
+                <div className="bg-card p-12 paper-border border-4 border-dashed border-slate-300 relative shadow-inner">
                     <h4 className="text-2xl font-['Permanent_Marker'] mb-8 flex justify-center items-center gap-3">
                         <Grave className="w-6 h-6" /> {t.tragicTitle} <Grave className="w-6 h-6" />
                     </h4>

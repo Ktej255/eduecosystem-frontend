@@ -86,7 +86,7 @@ export default function TwoFactorSetup() {
                         <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-full w-16 h-16 mx-auto flex items-center justify-center">
                             <Smartphone className="w-8 h-8 text-blue-600 dark:text-blue-400" />
                         </div>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                        <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                             Add an extra layer of security to your account. You'll need an authenticator app to complete setup.
                         </p>
                         <Button onClick={startSetup} disabled={loading} className="w-full">
@@ -99,7 +99,7 @@ export default function TwoFactorSetup() {
                 {step === "scan" && (
                     <div className="space-y-4 text-center">
                         <p className="text-sm font-medium">1. Scan this QR Code with your app</p>
-                        <div className="flex justify-center border p-2 rounded-lg bg-white w-fit mx-auto">
+                        <div className="flex justify-center border p-2 rounded-lg bg-card w-fit mx-auto">
                             {qrCode && <img src={qrCode} alt="2FA QR Code" className="w-48 h-48" />}
                         </div>
                         <div className="space-y-2">
@@ -124,7 +124,7 @@ export default function TwoFactorSetup() {
                     <div className="text-center space-y-4 py-6">
                         <CheckCircle className="w-16 h-16 text-green-500 mx-auto" />
                         <h3 className="text-xl font-bold">You're Secured!</h3>
-                        <p className="text-gray-500">
+                        <p className="text-muted-foreground">
                             Two-factor authentication is now enabled on your account.
                         </p>
                         <Button variant="outline" onClick={() => setStep("initial")} className="w-full">

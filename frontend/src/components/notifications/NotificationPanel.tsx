@@ -56,9 +56,9 @@ export default function NotificationPanel({ onClose }: NotificationPanelProps) {
   };
 
   return (
-    <div className="w-96 bg-white dark:bg-gray-900 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700">
+    <div className="w-96 bg-card rounded-lg shadow-xl border border-border">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+      <div className="flex items-center justify-between p-4 border-b border-border">
         <h3 className="font-semibold text-lg">Notifications</h3>
         {notifications.some((n) => !n.is_read) && (
           <button
@@ -74,9 +74,9 @@ export default function NotificationPanel({ onClose }: NotificationPanelProps) {
       {/* Notification List */}
       <div className="max-h-96 overflow-y-auto">
         {loading ? (
-          <div className="p-8 text-center text-gray-500">Loading...</div>
+          <div className="p-8 text-center text-muted-foreground">Loading...</div>
         ) : notifications.length === 0 ? (
-          <div className="p-8 text-center text-gray-500">
+          <div className="p-8 text-center text-muted-foreground">
             No notifications yet
           </div>
         ) : (
@@ -98,7 +98,7 @@ export default function NotificationPanel({ onClose }: NotificationPanelProps) {
 
       {/* Footer */}
       {notifications.length > 0 && (
-        <div className="p-3 border-t border-gray-200 dark:border-gray-700 text-center">
+        <div className="p-3 border-t border-border text-center">
           <a
             href="/dashboard/notifications"
             className="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400"

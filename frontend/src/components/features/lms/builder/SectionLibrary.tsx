@@ -86,15 +86,15 @@ export function SectionLibrary() {
             className="w-full flex items-start gap-3 p-3 rounded-lg border border-gray-800 hover:border-cyan-500 hover:bg-gray-800 transition text-left group"
           >
             <div className="p-2 rounded-lg bg-gray-800 group-hover:bg-cyan-500/10">
-              <section.icon className="h-5 w-5 text-gray-400 group-hover:text-cyan-500" />
+              <section.icon className="h-5 w-5 text-muted-foreground group-hover:text-cyan-500" />
             </div>
             <div className="flex-1 min-w-0">
               <div className="font-medium text-white text-sm">
                 {section.label}
               </div>
-              <div className="text-xs text-gray-500">{section.desc}</div>
+              <div className="text-xs text-muted-foreground">{section.desc}</div>
             </div>
-            <Plus className="h-4 w-4 text-gray-600 group-hover:text-cyan-500 flex-shrink-0 opacity-0 group-hover:opacity-100 transition" />
+            <Plus className="h-4 w-4 text-muted-foreground group-hover:text-cyan-500 flex-shrink-0 opacity-0 group-hover:opacity-100 transition" />
           </button>
         ))}
       </div>

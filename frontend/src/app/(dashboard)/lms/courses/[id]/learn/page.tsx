@@ -24,6 +24,7 @@ import CourseReviewsSection from "@/components/CourseReviews";
 import { FlashcardDeck } from "@/components/video/FlashcardDeck";
 import { VideoDoubtBuster } from "@/components/video/VideoDoubtBuster";
 import { VideoAINotes } from "@/components/video/VideoAINotes";
+import DOMPurify from "dompurify";
 
 interface Lesson {
   id: number;
@@ -190,17 +191,16 @@ export default function CourseLearningPage() {
             <div
               className="prose prose-invert max-w-none"
               dangerouslySetInnerHTML={{
-                __html:
-                  currentLesson.content?.markdown
-                    ?.replace(/\n/g, "<br/>")
-                    ?.replace(
-                      /# (.*)/g,
-                      '<h1 class="text-3xl font-bold text-white mb-4">$1</h1>',
-                    )
-                    ?.replace(
-                      /## (.*)/g,
-                      '<h2 class="text-2xl font-bold text-white mb-3">$1</h2>',
-                    ) || "Content not available",
+                __html: DOMPurify.sanitize(currentLesson.content?.markdown
+                  ?.replace(/\n/g, "<br/>")
+                  ?.replace(
+                    /# (.*)/g,
+                    '<h1 class="text-3xl font-bold text-white mb-4">$1</h1>',
+                  )
+                  ?.replace(
+                    /## (.*)/g,
+                    '<h2 class="text-2xl font-bold text-white mb-3">$1</h2>',
+                  ) || "Content not available"),
               }}
             />
           </div>

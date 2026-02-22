@@ -103,7 +103,7 @@ export default function HistoryMainsPractice({ config }: HistoryMainsPracticePro
                         </h2>
                         <p className="text-blue-200 text-lg">Practice daily answer writing for History. Focus on structure, flow, and keywords.</p>
                     </div>
-                    <div className="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/20 text-center min-w-[120px]">
+                    <div className="bg-card/10 backdrop-blur rounded-xl p-4 border border-white/20 text-center min-w-[120px]">
                         <div className="text-3xl font-bold">{topicsWithMains.reduce((acc, t) => acc + (t.mainsQuestions?.length || 0), 0)}</div>
                         <div className="text-sm text-blue-200">Total Questions</div>
                     </div>
@@ -112,7 +112,7 @@ export default function HistoryMainsPractice({ config }: HistoryMainsPracticePro
 
             <div className="space-y-6">
                 {topicsWithMains.map(topic => (
-                    <div key={topic.id} className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 overflow-hidden shadow-sm">
+                    <div key={topic.id} className="bg-card dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 overflow-hidden shadow-sm">
                         <div className="p-4 bg-neutral-50 dark:bg-neutral-800/50 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
                             <h3 className="font-bold text-neutral-800 dark:text-neutral-200 flex items-center gap-2">
                                 <span className="bg-amber-100 text-amber-700 px-2 py-1 rounded text-xs">Topic {topic.id}</span>
@@ -132,7 +132,7 @@ export default function HistoryMainsPractice({ config }: HistoryMainsPracticePro
                                 const error = evaluationError[q.id];
 
                                 return (
-                                    <div key={q.id} className="p-0 transition-colors bg-white dark:bg-neutral-900">
+                                    <div key={q.id} className="p-0 transition-colors bg-card dark:bg-neutral-900">
                                         {/* Question Header */}
                                         <div
                                             className="p-5 cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-800/30 flex items-start gap-4"
@@ -174,7 +174,7 @@ export default function HistoryMainsPractice({ config }: HistoryMainsPracticePro
                                             <div className="px-5 pb-6 pt-2 bg-neutral-50/50 dark:bg-neutral-900/50 space-y-4">
                                                 <Textarea
                                                     placeholder="Start writing your answer here... Structure: Intro (2 lines), Body (Points), Conclusion (2 lines)"
-                                                    className="min-h-[200px] bg-white dark:bg-black border-neutral-300 dark:border-neutral-700 resize-y"
+                                                    className="min-h-[200px] bg-card dark:bg-black border-neutral-300 dark:border-neutral-700 resize-y"
                                                     value={answers[q.id] || ''}
                                                     onChange={(e) => setAnswers({ ...answers, [q.id]: e.target.value })}
                                                 />
@@ -243,7 +243,7 @@ export default function HistoryMainsPractice({ config }: HistoryMainsPracticePro
 
                                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                             {evaluation.strengths.length > 0 && (
-                                                                <div className="bg-white/50 dark:bg-black/20 p-3 rounded-lg">
+                                                                <div className="bg-card/50 dark:bg-black/20 p-3 rounded-lg">
                                                                     <h5 className="text-xs font-bold uppercase text-green-700 dark:text-green-300 mb-2 flex items-center gap-1">
                                                                         <ThumbsUp className="w-3 h-3" /> Strengths
                                                                     </h5>
@@ -253,7 +253,7 @@ export default function HistoryMainsPractice({ config }: HistoryMainsPracticePro
                                                                 </div>
                                                             )}
                                                             {evaluation.improvements.length > 0 && (
-                                                                <div className="bg-white/50 dark:bg-black/20 p-3 rounded-lg">
+                                                                <div className="bg-card/50 dark:bg-black/20 p-3 rounded-lg">
                                                                     <h5 className="text-xs font-bold uppercase text-amber-700 dark:text-amber-300 mb-2 flex items-center gap-1">
                                                                         <AlertTriangle className="w-3 h-3" /> Improvements
                                                                     </h5>

@@ -76,7 +76,7 @@ export default function VirtualLibrary() {
     }, []);
 
     return (
-        <Card className="border-indigo-100 dark:border-indigo-900 shadow-sm bg-white dark:bg-gray-900">
+        <Card className="border-indigo-100 dark:border-indigo-900 shadow-sm bg-card">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
                     <div className="h-3 w-3 rounded-full bg-green-500 animate-pulse" />
@@ -93,14 +93,14 @@ export default function VirtualLibrary() {
                                 key={user.user_id}
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
-                                className="flex flex-col items-center p-3 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 relative group"
+                                className="flex flex-col items-center p-3 rounded-xl bg-muted border border-border relative group"
                             >
                                 <div className="relative">
-                                    <Avatar className="h-12 w-12 border-2 border-white dark:border-gray-700 shadow-sm">
+                                    <Avatar className="h-12 w-12 border-2 border-white shadow-sm">
                                         <AvatarImage src={user.avatar} />
                                         <AvatarFallback>{user.name[0]}</AvatarFallback>
                                     </Avatar>
-                                    <div className={`absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-white dark:border-gray-800 ${user.status === 'focusing' ? 'bg-green-500' : 'bg-amber-500'
+                                    <div className={`absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-white ${user.status === 'focusing' ? 'bg-green-500' : 'bg-amber-500'
                                         }`} />
                                 </div>
 
@@ -108,7 +108,7 @@ export default function VirtualLibrary() {
                                     {user.name}
                                 </span>
 
-                                <span className="text-[10px] text-gray-500 flex items-center gap-1 mt-1">
+                                <span className="text-[10px] text-muted-foreground flex items-center gap-1 mt-1">
                                     {user.status === 'focusing' ? <BookOpen className="h-3 w-3" /> : <Coffee className="h-3 w-3" />}
                                     {user.current_subject}
                                 </span>

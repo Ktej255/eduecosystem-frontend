@@ -85,13 +85,13 @@ export default function MoodTracker() {
                     <CardContent>
                         {todayMood ? (
                             <div className="text-center py-6">
-                                <p className="text-gray-500 mb-2">You logged for today:</p>
+                                <p className="text-muted-foreground mb-2">You logged for today:</p>
                                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300 font-bold text-lg">
                                     {MOOD_OPTIONS.find(m => m.value === todayMood)?.label}
                                 </div>
                                 <Button
                                     variant="link"
-                                    className="text-xs text-gray-400 block mx-auto mt-2"
+                                    className="text-xs text-muted-foreground block mx-auto mt-2"
                                     onClick={() => setTodayMood(null)}
                                 >
                                     Change Log
@@ -118,19 +118,19 @@ export default function MoodTracker() {
                 <Card>
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
-                            <CalendarIcon className="h-5 w-5 text-gray-500" />
+                            <CalendarIcon className="h-5 w-5 text-muted-foreground" />
                             Mood Trends
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="grid grid-cols-2 gap-4">
-                            <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl text-center">
-                                <div className="text-2xl font-bold text-gray-700 dark:text-gray-200">{entries.length}</div>
-                                <div className="text-xs text-gray-400 uppercase font-bold">Days Logged</div>
+                            <div className="p-4 bg-muted rounded-xl text-center">
+                                <div className="text-2xl font-bold text-muted-foreground">{entries.length}</div>
+                                <div className="text-xs text-muted-foreground uppercase font-bold">Days Logged</div>
                             </div>
-                            <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl text-center">
+                            <div className="p-4 bg-muted rounded-xl text-center">
                                 <div className="text-2xl font-bold text-indigo-600">{getAverageMood()}/5</div>
-                                <div className="text-xs text-gray-400 uppercase font-bold">Avg Mood</div>
+                                <div className="text-xs text-muted-foreground uppercase font-bold">Avg Mood</div>
                             </div>
                         </div>
                     </CardContent>

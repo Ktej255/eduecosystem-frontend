@@ -55,11 +55,11 @@ export function RASHeatmap({ data, startDate }: RASHeatmapProps) {
     }, [days]);
 
     const getIntensity = (count: number) => {
-        if (count === 0) return "bg-white/5 border border-white/5";
+        if (count === 0) return "bg-card/5 border border-white/5";
         if (count === 1) return "bg-green-900/40 border border-green-800/50";
         if (count === 2) return "bg-green-700/60 border border-green-600/50";
         if (count >= 3) return "bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.4)] border border-green-400";
-        return "bg-white/5";
+        return "bg-card/5";
     };
 
     const monthLabels = useMemo(() => {
@@ -85,7 +85,7 @@ export function RASHeatmap({ data, startDate }: RASHeatmapProps) {
 
             <div className="relative overflow-x-auto pb-2">
                 {/* Month Labels */}
-                <div className="flex text-xs text-gray-500 mb-2 pl-8 relative h-4">
+                <div className="flex text-xs text-muted-foreground mb-2 pl-8 relative h-4">
                     {monthLabels.map((label, i) => (
                         <div key={i} className="absolute" style={{ left: `${label.index * 16}px` }}> {/* Approx width of col + gap */}
                             {label.text}
@@ -95,7 +95,7 @@ export function RASHeatmap({ data, startDate }: RASHeatmapProps) {
 
                 <div className="flex gap-1">
                     {/* Day Labels */}
-                    <div className="flex flex-col gap-1 mr-2 pt-0.5 text-[10px] text-gray-600 font-mono">
+                    <div className="flex flex-col gap-1 mr-2 pt-0.5 text-[10px] text-muted-foreground font-mono">
                         <div className="h-3">Sun</div>
                         <div className="h-3">Mon</div>
                         <div className="h-3">Tue</div>
@@ -129,9 +129,9 @@ export function RASHeatmap({ data, startDate }: RASHeatmapProps) {
                 )}
             </div>
 
-            <div className="flex justify-end items-center gap-2 mt-4 text-[10px] text-gray-500">
+            <div className="flex justify-end items-center gap-2 mt-4 text-[10px] text-muted-foreground">
                 <span>Less</span>
-                <div className="w-2 h-2 rounded-sm bg-white/5" />
+                <div className="w-2 h-2 rounded-sm bg-card/5" />
                 <div className="w-2 h-2 rounded-sm bg-green-900/40" />
                 <div className="w-2 h-2 rounded-sm bg-green-700/60" />
                 <div className="w-2 h-2 rounded-sm bg-green-500" />

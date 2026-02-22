@@ -248,7 +248,7 @@ export default function MockTestCenter() {
                 >
                     <button
                         onClick={() => router.back()}
-                        className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white mb-4"
+                        className="flex items-center gap-2 text-muted-foreground dark:text-muted-foreground hover:text-foreground dark:hover:text-white mb-4"
                     >
                         <ArrowLeft className="w-4 h-4" /> Back
                     </button>
@@ -257,8 +257,8 @@ export default function MockTestCenter() {
                             <Brain className="w-8 h-8 text-white" />
                         </div>
                         <div>
-                            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Mock Test Center</h1>
-                            <p className="text-gray-600 dark:text-gray-400">Simulate real UPSC Prelims exam conditions</p>
+                            <h1 className="text-3xl font-bold text-foreground">Mock Test Center</h1>
+                            <p className="text-muted-foreground dark:text-muted-foreground">Simulate real UPSC Prelims exam conditions</p>
                         </div>
                     </div>
                 </motion.div>
@@ -270,7 +270,7 @@ export default function MockTestCenter() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.1 }}
-                            className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6 hover:border-indigo-500/50 transition-all cursor-pointer group"
+                            className="bg-card dark:bg-[#111] rounded-2xl border border-border p-6 hover:border-indigo-500/50 transition-all cursor-pointer group"
                             onClick={() => startTest(test)}
                         >
                             <div className="flex items-start justify-between mb-4">
@@ -285,14 +285,14 @@ export default function MockTestCenter() {
                                 </span>
                             </div>
 
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 transition-colors">
+                            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-indigo-600 transition-colors">
                                 {test.title}
                             </h3>
-                            <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                            <p className="text-muted-foreground dark:text-muted-foreground text-sm mb-4">
                                 {test.description}
                             </p>
 
-                            <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                                 <span className="flex items-center gap-1">
                                     <BookOpen className="w-4 h-4" /> {test.questions} Qs
                                 </span>
@@ -303,7 +303,7 @@ export default function MockTestCenter() {
 
                             <div className="flex flex-wrap gap-2 mb-4">
                                 {test.subjects.map(sub => (
-                                    <span key={sub} className="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs text-gray-600 dark:text-gray-400">
+                                    <span key={sub} className="px-2 py-1 bg-muted rounded text-xs text-muted-foreground dark:text-muted-foreground">
                                         {sub}
                                     </span>
                                 ))}
@@ -326,36 +326,36 @@ export default function MockTestCenter() {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="max-w-2xl w-full bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-8"
+                    className="max-w-2xl w-full bg-card dark:bg-[#111] rounded-2xl border border-border p-8"
                 >
                     <div className="text-center mb-8">
                         <div className="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
                             <AlertCircle className="w-8 h-8 text-indigo-600" />
                         </div>
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{selectedTest.title}</h2>
-                        <p className="text-gray-600 dark:text-gray-400">Read the instructions carefully before starting</p>
+                        <h2 className="text-2xl font-bold text-foreground mb-2">{selectedTest.title}</h2>
+                        <p className="text-muted-foreground dark:text-muted-foreground">Read the instructions carefully before starting</p>
                     </div>
 
                     <div className="space-y-4 mb-8">
-                        <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-900 rounded-xl">
+                        <div className="flex items-start gap-3 p-4 bg-muted rounded-xl">
                             <Clock className="w-5 h-5 text-indigo-600 mt-0.5" />
                             <div>
-                                <p className="font-medium text-gray-900 dark:text-white">Time Limit</p>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">{selectedTest.duration} minutes for {questions.length} questions</p>
+                                <p className="font-medium text-foreground">Time Limit</p>
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">{selectedTest.duration} minutes for {questions.length} questions</p>
                             </div>
                         </div>
-                        <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-900 rounded-xl">
+                        <div className="flex items-start gap-3 p-4 bg-muted rounded-xl">
                             <Target className="w-5 h-5 text-green-600 mt-0.5" />
                             <div>
-                                <p className="font-medium text-gray-900 dark:text-white">Marking Scheme</p>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">+2 for correct, -0.67 for wrong (UPSC pattern)</p>
+                                <p className="font-medium text-foreground">Marking Scheme</p>
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">+2 for correct, -0.67 for wrong (UPSC pattern)</p>
                             </div>
                         </div>
-                        <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-900 rounded-xl">
+                        <div className="flex items-start gap-3 p-4 bg-muted rounded-xl">
                             <Flag className="w-5 h-5 text-amber-600 mt-0.5" />
                             <div>
-                                <p className="font-medium text-gray-900 dark:text-white">Flag Questions</p>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">Mark questions for review before submitting</p>
+                                <p className="font-medium text-foreground">Flag Questions</p>
+                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">Mark questions for review before submitting</p>
                             </div>
                         </div>
                     </div>
@@ -363,7 +363,7 @@ export default function MockTestCenter() {
                     <div className="flex gap-4">
                         <button
                             onClick={() => setTestState('selection')}
-                            className="flex-1 py-3 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-xl font-medium hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
+                            className="flex-1 py-3 border border-border text-muted-foreground dark:text-muted-foreground rounded-xl font-medium hover:bg-muted dark:hover:bg-gray-900 transition-colors"
                         >
                             Go Back
                         </button>
@@ -386,12 +386,12 @@ export default function MockTestCenter() {
         const timeWarning = timeRemaining < 300; // 5 min warning
 
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a] flex flex-col">
+            <div className="min-h-screen bg-muted dark:bg-[#0a0a0a] flex flex-col">
                 {/* Header */}
-                <div className="bg-white dark:bg-[#111] border-b border-gray-200 dark:border-gray-800 px-4 py-3 sticky top-0 z-50">
+                <div className="bg-card dark:bg-[#111] border-b border-border px-4 py-3 sticky top-0 z-50">
                     <div className="max-w-6xl mx-auto flex items-center justify-between">
                         <div className="flex items-center gap-4">
-                            <span className="font-bold text-gray-900 dark:text-white">
+                            <span className="font-bold text-foreground">
                                 Q {currentQuestion + 1}/{questions.length}
                             </span>
                             <span className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium">
@@ -400,7 +400,7 @@ export default function MockTestCenter() {
                         </div>
                         <div className={`flex items-center gap-2 px-4 py-2 rounded-xl font-mono font-bold ${timeWarning
                                 ? 'bg-red-100 dark:bg-red-900/30 text-red-600 animate-pulse'
-                                : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white'
+                                : 'bg-muted text-foreground'
                             }`}>
                             <Timer className="w-4 h-4" />
                             {formatTime(timeRemaining)}
@@ -416,17 +416,17 @@ export default function MockTestCenter() {
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
-                            className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6"
+                            className="bg-card dark:bg-[#111] rounded-2xl border border-border p-6"
                         >
                             <div className="flex items-start justify-between mb-6">
-                                <p className="text-lg text-gray-900 dark:text-white font-medium leading-relaxed">
+                                <p className="text-lg text-foreground font-medium leading-relaxed">
                                     {q.question}
                                 </p>
                                 <button
                                     onClick={toggleFlag}
                                     className={`p-2 rounded-lg transition-colors ${answer?.flagged
                                             ? 'bg-amber-100 text-amber-600'
-                                            : 'bg-gray-100 dark:bg-gray-800 text-gray-400 hover:text-amber-600'
+                                            : 'bg-muted text-muted-foreground hover:text-amber-600'
                                         }`}
                                 >
                                     <Flag className="w-5 h-5" />
@@ -440,17 +440,17 @@ export default function MockTestCenter() {
                                         onClick={() => handleAnswer(i)}
                                         className={`w-full p-4 rounded-xl border-2 text-left transition-all ${answer?.selected === i
                                                 ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-900/20'
-                                                : 'border-gray-200 dark:border-gray-700 hover:border-indigo-300'
+                                                : 'border-border hover:border-indigo-300'
                                             }`}
                                     >
                                         <div className="flex items-center gap-3">
                                             <span className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${answer?.selected === i
                                                     ? 'bg-indigo-600 text-white'
-                                                    : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
+                                                    : 'bg-muted text-muted-foreground dark:text-muted-foreground'
                                                 }`}>
                                                 {String.fromCharCode(65 + i)}
                                             </span>
-                                            <span className="text-gray-900 dark:text-white">{option}</span>
+                                            <span className="text-foreground">{option}</span>
                                         </div>
                                     </button>
                                 ))}
@@ -463,7 +463,7 @@ export default function MockTestCenter() {
                         <button
                             onClick={() => setCurrentQuestion(prev => Math.max(0, prev - 1))}
                             disabled={currentQuestion === 0}
-                            className="px-6 py-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl font-medium disabled:opacity-50"
+                            className="px-6 py-3 bg-muted text-muted-foreground dark:text-muted-foreground rounded-xl font-medium disabled:opacity-50"
                         >
                             Previous
                         </button>
@@ -486,8 +486,8 @@ export default function MockTestCenter() {
                     </div>
 
                     {/* Question Palette */}
-                    <div className="mt-8 bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-4">
-                        <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-3">Question Palette</p>
+                    <div className="mt-8 bg-card dark:bg-[#111] rounded-2xl border border-border p-4">
+                        <p className="text-sm font-medium text-muted-foreground dark:text-muted-foreground mb-3">Question Palette</p>
                         <div className="flex flex-wrap gap-2">
                             {questions.map((_, i) => (
                                 <button
@@ -499,14 +499,14 @@ export default function MockTestCenter() {
                                                 ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400'
                                                 : answers[i]?.flagged
                                                     ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400'
-                                                    : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
+                                                    : 'bg-muted text-muted-foreground dark:text-muted-foreground'
                                         }`}
                                 >
                                     {i + 1}
                                 </button>
                             ))}
                         </div>
-                        <div className="flex gap-4 mt-4 text-xs text-gray-500">
+                        <div className="flex gap-4 mt-4 text-xs text-muted-foreground">
                             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-green-500" /> Answered</span>
                             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-amber-500" /> Flagged</span>
                             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-gray-300" /> Not Visited</span>
@@ -527,14 +527,14 @@ export default function MockTestCenter() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-8 mb-6"
+                        className="bg-card dark:bg-[#111] rounded-2xl border border-border p-8 mb-6"
                     >
                         <div className="text-center mb-8">
                             <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <Trophy className="w-10 h-10 text-white" />
                             </div>
-                            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Test Completed!</h2>
-                            <p className="text-gray-600 dark:text-gray-400">{selectedTest?.title}</p>
+                            <h2 className="text-3xl font-bold text-foreground mb-2">Test Completed!</h2>
+                            <p className="text-muted-foreground dark:text-muted-foreground">{selectedTest?.title}</p>
                         </div>
 
                         {/* Score Summary */}
@@ -549,10 +549,10 @@ export default function MockTestCenter() {
                                 <p className="text-2xl font-bold text-red-700 dark:text-red-400">{results.wrong}</p>
                                 <p className="text-xs text-red-600">Wrong</p>
                             </div>
-                            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-xl text-center">
-                                <AlertCircle className="w-6 h-6 text-gray-600 mx-auto mb-2" />
-                                <p className="text-2xl font-bold text-gray-700 dark:text-gray-300">{results.unattempted}</p>
-                                <p className="text-xs text-gray-600">Unattempted</p>
+                            <div className="bg-muted p-4 rounded-xl text-center">
+                                <AlertCircle className="w-6 h-6 text-muted-foreground mx-auto mb-2" />
+                                <p className="text-2xl font-bold text-muted-foreground dark:text-muted-foreground">{results.unattempted}</p>
+                                <p className="text-xs text-muted-foreground">Unattempted</p>
                             </div>
                             <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-xl text-center">
                                 <Award className="w-6 h-6 text-indigo-600 mx-auto mb-2" />
@@ -564,10 +564,10 @@ export default function MockTestCenter() {
                         {/* Percentage Bar */}
                         <div className="mb-8">
                             <div className="flex justify-between text-sm mb-2">
-                                <span className="text-gray-600 dark:text-gray-400">Accuracy</span>
-                                <span className="font-bold text-gray-900 dark:text-white">{results.percentage.toFixed(1)}%</span>
+                                <span className="text-muted-foreground dark:text-muted-foreground">Accuracy</span>
+                                <span className="font-bold text-foreground">{results.percentage.toFixed(1)}%</span>
                             </div>
-                            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                            <div className="h-4 bg-muted rounded-full overflow-hidden">
                                 <motion.div
                                     initial={{ width: 0 }}
                                     animate={{ width: `${results.percentage}%` }}
@@ -581,20 +581,20 @@ export default function MockTestCenter() {
 
                         {/* Subject Breakdown */}
                         <div className="mb-8">
-                            <h3 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                                 <BarChart2 className="w-5 h-5" /> Subject-wise Performance
                             </h3>
                             <div className="space-y-3">
                                 {Object.entries(results.subjectStats).map(([subject, stats]) => (
                                     <div key={subject} className="flex items-center gap-4">
-                                        <span className="w-24 text-sm text-gray-600 dark:text-gray-400">{subject}</span>
-                                        <div className="flex-1 h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                        <span className="w-24 text-sm text-muted-foreground dark:text-muted-foreground">{subject}</span>
+                                        <div className="flex-1 h-3 bg-muted rounded-full overflow-hidden">
                                             <div
                                                 className="h-full bg-indigo-600 rounded-full"
                                                 style={{ width: `${(stats.correct / stats.total) * 100}%` }}
                                             />
                                         </div>
-                                        <span className="text-sm font-medium text-gray-900 dark:text-white w-16 text-right">
+                                        <span className="text-sm font-medium text-foreground w-16 text-right">
                                             {stats.correct}/{stats.total}
                                         </span>
                                     </div>
@@ -626,13 +626,13 @@ export default function MockTestCenter() {
     // Review Screen
     if (testState === 'review') {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a] p-4 md:p-8">
+            <div className="min-h-screen bg-muted dark:bg-[#0a0a0a] p-4 md:p-8">
                 <div className="max-w-4xl mx-auto">
                     <div className="flex items-center justify-between mb-6">
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Review Answers</h2>
+                        <h2 className="text-2xl font-bold text-foreground">Review Answers</h2>
                         <button
                             onClick={() => setTestState('results')}
-                            className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-xl text-gray-700 dark:text-gray-300"
+                            className="px-4 py-2 bg-muted rounded-xl text-muted-foreground dark:text-muted-foreground"
                         >
                             Back to Results
                         </button>
@@ -644,14 +644,14 @@ export default function MockTestCenter() {
                             const isCorrect = answer?.selected === q.correct;
 
                             return (
-                                <div key={q.id} className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
+                                <div key={q.id} className="bg-card dark:bg-[#111] rounded-2xl border border-border p-6">
                                     <div className="flex items-start justify-between mb-4">
                                         <div className="flex items-center gap-2">
-                                            <span className="text-sm font-medium text-gray-500">Q{i + 1}</span>
-                                            <span className="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs">{q.subject}</span>
+                                            <span className="text-sm font-medium text-muted-foreground">Q{i + 1}</span>
+                                            <span className="px-2 py-1 bg-muted rounded text-xs">{q.subject}</span>
                                         </div>
                                         {answer?.selected === null ? (
-                                            <span className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">Unattempted</span>
+                                            <span className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-xs font-medium">Unattempted</span>
                                         ) : isCorrect ? (
                                             <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium flex items-center gap-1">
                                                 <CheckCircle className="w-3 h-3" /> Correct
@@ -663,7 +663,7 @@ export default function MockTestCenter() {
                                         )}
                                     </div>
 
-                                    <p className="text-gray-900 dark:text-white font-medium mb-4">{q.question}</p>
+                                    <p className="text-foreground font-medium mb-4">{q.question}</p>
 
                                     <div className="space-y-2 mb-4">
                                         {q.options.map((option, j) => (
@@ -673,7 +673,7 @@ export default function MockTestCenter() {
                                                         ? 'border-green-500 bg-green-50 dark:bg-green-900/20'
                                                         : answer?.selected === j
                                                             ? 'border-red-500 bg-red-50 dark:bg-red-900/20'
-                                                            : 'border-gray-200 dark:border-gray-700'
+                                                            : 'border-border'
                                                     }`}
                                             >
                                                 <span className="text-sm">{String.fromCharCode(65 + j)}. {option}</span>

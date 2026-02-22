@@ -124,9 +124,9 @@ export default function YouTubePreview({ value, onChange, existingUrl }: YouTube
 
             {/* Placeholder when no video */}
             {!videoId && (
-                <div className="aspect-video rounded-lg bg-gray-100 dark:bg-gray-800 flex flex-col items-center justify-center">
-                    <Youtube className="h-16 w-16 text-gray-300 dark:text-gray-600 mb-2" />
-                    <p className="text-sm text-gray-400">Enter a valid YouTube URL to preview</p>
+                <div className="aspect-video rounded-lg bg-muted flex flex-col items-center justify-center">
+                    <Youtube className="h-16 w-16 text-muted-foreground dark:text-muted-foreground mb-2" />
+                    <p className="text-sm text-muted-foreground">Enter a valid YouTube URL to preview</p>
                 </div>
             )}
         </div>

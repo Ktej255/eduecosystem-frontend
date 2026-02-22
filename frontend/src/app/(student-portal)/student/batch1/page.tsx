@@ -48,7 +48,7 @@ export default function Batch1Hub() {
         { id: 'environment', label: 'Environment', icon: Leaf, color: 'text-green-600' },
         { id: 'science', label: 'S&T', icon: Atom, color: 'text-violet-600' },
         { id: 'art', label: 'Art', icon: Palette, color: 'text-pink-600' },
-        { id: 'ethics', label: 'Ethics', icon: BrainCircuit, color: 'text-slate-600' },
+        { id: 'ethics', label: 'Ethics', icon: BrainCircuit, color: 'text-muted-foreground' },
         { id: 'ir', label: 'IR', icon: (props: any) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M2.05 12h20" /><path d="M12 2.05v20" /><path d="m4.93 4.93 14.14 14.14" /><path d="m19.07 4.93-14.14 14.14" /></svg>, color: 'text-indigo-500' },
         { id: 'security', label: 'Security', icon: (props: any) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" /></svg>, color: 'text-red-600' },
         { id: 'society', label: 'Society', icon: (props: any) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>, color: 'text-pink-600' },
@@ -56,16 +56,16 @@ export default function Batch1Hub() {
     ];
 
     return (
-        <div className="min-h-screen bg-white dark:bg-[#0a0a0a]">
+        <div className="min-h-screen bg-card dark:bg-[#0a0a0a]">
             {/* Sticky Tab Bar */}
-            <div className="sticky top-0 z-40 bg-white/80 dark:bg-[#111]/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+            <div className="sticky top-0 z-40 bg-card/80 dark:bg-[#111]/80 backdrop-blur-md border-b border-border">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-3">
-                        <div className="pr-4 border-r border-gray-200 dark:border-gray-700 mr-2 flex items-center gap-2 hidden md:flex">
-                            <div className="w-8 h-8 bg-black dark:bg-white rounded-lg flex items-center justify-center">
+                        <div className="pr-4 border-r border-border mr-2 flex items-center gap-2 hidden md:flex">
+                            <div className="w-8 h-8 bg-black dark:bg-card rounded-lg flex items-center justify-center">
                                 <span className="font-bold text-white dark:text-black">B1</span>
                             </div>
-                            <span className="font-bold text-gray-900 dark:text-white">Batch 1</span>
+                            <span className="font-bold text-foreground">Batch 1</span>
                         </div>
 
                         {tabs.map((tab) => {
@@ -78,8 +78,8 @@ export default function Batch1Hub() {
                                     className={`
                                         flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold transition-all whitespace-nowrap shrink-0
                                         ${isActive
-                                            ? 'bg-gray-900 dark:bg-white text-white dark:text-black shadow-md transform scale-105'
-                                            : 'text-gray-500 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+                                            ? 'bg-gray-900 dark:bg-card text-white dark:text-black shadow-md transform scale-105'
+                                            : 'text-muted-foreground hover:text-foreground dark:hover:text-gray-200 hover:bg-muted dark:hover:bg-gray-800'
                                         }
                                     `}
                                 >

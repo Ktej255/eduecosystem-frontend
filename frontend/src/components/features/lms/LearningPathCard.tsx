@@ -45,7 +45,7 @@ export function LearningPathCard({
       case "advanced":
         return "bg-red-500/10 text-red-400";
       default:
-        return "bg-gray-500/10 text-gray-400";
+        return "bg-muted-foreground/10 text-muted-foreground";
     }
   };
 
@@ -98,7 +98,7 @@ export function LearningPathCard({
 
           {/* Description */}
           {path.description && (
-            <p className="text-sm text-gray-400 mb-4 line-clamp-2">
+            <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
               {path.description}
             </p>
           )}
@@ -107,7 +107,7 @@ export function LearningPathCard({
           {showProgress && enrollment && (
             <div className="mb-4">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs text-gray-400">Progress</span>
+                <span className="text-xs text-muted-foreground">Progress</span>
                 <span className="text-xs text-cyan-400">
                   {Math.round(enrollment.progress_percentage)}%
                 </span>
@@ -116,7 +116,7 @@ export function LearningPathCard({
                 value={enrollment.progress_percentage}
                 className="h-2"
               />
-              <p className="text-xs text-gray-400 mt-1">
+              <p className="text-xs text-muted-foreground mt-1">
                 {enrollment.completed_courses} of {enrollment.total_courses}{" "}
                 courses completed
               </p>
@@ -125,7 +125,7 @@ export function LearningPathCard({
 
           {/* Metadata */}
           <div className="mt-auto space-y-2">
-            <div className="flex items-center gap-4 text-xs text-gray-400">
+            <div className="flex items-center gap-4 text-xs text-muted-foreground">
               <div className="flex items-center gap-1">
                 <BookOpen className="h-3 w-3 text-cyan-400" />
                 <span>{courseCount} courses</span>
@@ -140,7 +140,7 @@ export function LearningPathCard({
 
             {path.total_enrollments !== undefined &&
               path.total_enrollments > 0 && (
-                <div className="flex items-center gap-1 text-xs text-gray-400">
+                <div className="flex items-center gap-1 text-xs text-muted-foreground">
                   <Users className="h-3 w-3 text-cyan-400" />
                   <span>{path.total_enrollments} enrolled</span>
                 </div>

@@ -16,7 +16,7 @@ interface NationalIntegrationModuleProps {
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="bg-[#fff7ed] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-orange-100">
-        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white/50 rounded-3xl p-6 shadow-inner border-2 border-slate-200">
+        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-card/50 rounded-3xl p-6 shadow-inner border-2 border-border">
             {children}
         </div>
     </div>
@@ -27,7 +27,7 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
         <div className={`p-3 rounded-full ${color} text-white shadow-lg`}>
             <Icon size={24} />
         </div>
-        <h2 className={`text-2xl font-black uppercase tracking-tight text-slate-800`}>
+        <h2 className={`text-2xl font-black uppercase tracking-tight text-foreground`}>
             {title}
         </h2>
         <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
@@ -39,14 +39,14 @@ export default function NationalIntegrationModule({ onComplete, isCompleted, cha
         <ScrapbookContainer>
             {/* HERO */}
             <div className="relative bg-gradient-to-r from-orange-500 via-white to-green-600 p-1 rounded-3xl shadow-2xl">
-                <div className="bg-white rounded-[20px] p-8 md:p-12 overflow-hidden relative">
+                <div className="bg-card rounded-[20px] p-8 md:p-12 overflow-hidden relative">
                     <div className="relative z-10 text-center">
                         <Badge className="bg-slate-900 text-white px-4 py-1 text-lg font-bold mb-4">Chapter {chapterNumber}</Badge>
-                        <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight text-slate-900">
+                        <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight text-foreground">
                             National Integration <br />
                             <span className="text-orange-600">The Jigsaw Puzzle</span>
                         </h1>
-                        <p className="text-xl text-slate-500 italic">
+                        <p className="text-xl text-muted-foreground italic">
                             "The 4 Horsemen vs The Council. Holding the Map together."
                         </p>
                     </div>
@@ -71,8 +71,8 @@ export default function NationalIntegrationModule({ onComplete, isCompleted, cha
                 ))}
             </div>
 
-            <div className="mt-6 bg-white border-2 border-slate-200 p-4 rounded-xl flex items-center justify-between">
-                <span className="font-black text-slate-700 flex items-center gap-2"><Shield size={18} /> Constitutional Safeguards:</span>
+            <div className="mt-6 bg-card border-2 border-border p-4 rounded-xl flex items-center justify-between">
+                <span className="font-black text-muted-foreground flex items-center gap-2"><Shield size={18} /> Constitutional Safeguards:</span>
                 <div className="flex gap-2">
                     <Badge variant="outline">Preamble</Badge>
                     <Badge variant="outline">Art 51A (Duties)</Badge>
@@ -87,16 +87,16 @@ export default function NationalIntegrationModule({ onComplete, isCompleted, cha
                 <div className="absolute -top-3 left-4 bg-blue-600 text-white px-3 py-1 text-xs font-bold rounded shadow">Extra-Constitutional Body</div>
 
                 <div className="text-center mb-8">
-                    <div className="inline-block p-4 bg-white rounded-full shadow-md mb-2">
+                    <div className="inline-block p-4 bg-card rounded-full shadow-md mb-2">
                         <Users size={40} className="text-blue-600" />
                     </div>
                     <h3 className="font-black text-xl text-blue-900">Chairman: The Prime Minister</h3>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-4 text-center text-xs font-bold text-blue-800">
-                    <div className="bg-white p-3 rounded shadow-sm">Home Minister</div>
-                    <div className="bg-white p-3 rounded shadow-sm">Chief Ministers</div>
-                    <div className="bg-white p-3 rounded shadow-sm">Leaders of Opposition</div>
+                    <div className="bg-card p-3 rounded shadow-sm">Home Minister</div>
+                    <div className="bg-card p-3 rounded shadow-sm">Chief Ministers</div>
+                    <div className="bg-card p-3 rounded shadow-sm">Leaders of Opposition</div>
                 </div>
             </div>
 
@@ -109,13 +109,13 @@ export default function NationalIntegrationModule({ onComplete, isCompleted, cha
                     <p className="text-sm font-bold text-green-700">Under Ministry of Home Affairs.</p>
                     <p className="text-xs text-green-600 mt-2 italic">Promotes Communal Harmony.</p>
                 </div>
-                <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 text-center relative">
+                <div className="bg-card border-2 border-border rounded-2xl p-6 text-center relative">
                     <div className="absolute top-2 right-2 opacity-20"><Globe size={24} /></div>
-                    <h3 className="font-black text-slate-800 mb-1">Son of the Soil</h3>
+                    <h3 className="font-black text-foreground mb-1">Son of the Soil</h3>
                     <div className="text-xs font-bold text-red-600 bg-red-50 p-2 rounded mt-2">
                         Violates Article 16
                     </div>
-                    <p className="text-[10px] text-slate-400 mt-1">(Except Parliment Laws under Art 16(3))</p>
+                    <p className="text-[10px] text-muted-foreground mt-1">(Except Parliment Laws under Art 16(3))</p>
                 </div>
             </div>
 
@@ -123,7 +123,7 @@ export default function NationalIntegrationModule({ onComplete, isCompleted, cha
                 <Button
                     onClick={onComplete}
                     disabled={isCompleted}
-                    className={`px-12 py-6 rounded-full text-xl font-black font-['Kalam'] transition-all transform hover:scale-105 ${isCompleted ? 'bg-slate-300 text-slate-500' : 'bg-orange-600 text-white hover:bg-orange-700'
+                    className={`px-12 py-6 rounded-full text-xl font-black font-['Kalam'] transition-all transform hover:scale-105 ${isCompleted ? 'bg-slate-300 text-muted-foreground' : 'bg-orange-600 text-white hover:bg-orange-700'
                         }`}
                 >
                     {isCompleted ? "India United!" : "Clamp the Map"}

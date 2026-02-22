@@ -89,7 +89,7 @@ export default function InstructorAnalyticsPage() {
     return (
       <div className="container mx-auto py-8 px-4">
         <div className="flex items-center justify-center min-h-[400px]">
-          <div className="text-gray-400">Loading analytics...</div>
+          <div className="text-muted-foreground">Loading analytics...</div>
         </div>
       </div>
     );
@@ -98,7 +98,7 @@ export default function InstructorAnalyticsPage() {
   if (!data) {
     return (
       <div className="container mx-auto py-8 px-4">
-        <div className="text-center text-gray-400">
+        <div className="text-center text-muted-foreground">
           No analytics data available
         </div>
       </div>
@@ -119,7 +119,7 @@ export default function InstructorAnalyticsPage() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-3xl font-bold mb-2">Analytics Dashboard</h1>
-          <p className="text-gray-400">Track your teaching performance</p>
+          <p className="text-muted-foreground">Track your teaching performance</p>
         </div>
         <Select value={timeRange} onValueChange={setTimeRange}>
           <SelectTrigger className="w-48 bg-gray-900 border-gray-800">
@@ -145,7 +145,7 @@ export default function InstructorAnalyticsPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{overview.total_students}</div>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-muted-foreground mt-1">
               {overview.active_students} active this month
             </p>
           </CardContent>
@@ -160,7 +160,7 @@ export default function InstructorAnalyticsPage() {
             <div className="text-2xl font-bold">
               ${overview.total_revenue.toFixed(2)}
             </div>
-            <p className="text-xs text-gray-500 mt-1">From all courses</p>
+            <p className="text-xs text-muted-foreground mt-1">From all courses</p>
           </CardContent>
         </Card>
 
@@ -175,7 +175,7 @@ export default function InstructorAnalyticsPage() {
             <div className="text-2xl font-bold">
               {overview.avg_rating.toFixed(1)}
             </div>
-            <p className="text-xs text-gray-500 mt-1">Across all courses</p>
+            <p className="text-xs text-muted-foreground mt-1">Across all courses</p>
           </CardContent>
         </Card>
 
@@ -186,7 +186,7 @@ export default function InstructorAnalyticsPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{overview.total_courses}</div>
-            <p className="text-xs text-gray-500 mt-1">Published courses</p>
+            <p className="text-xs text-muted-foreground mt-1">Published courses</p>
           </CardContent>
         </Card>
 
@@ -201,7 +201,7 @@ export default function InstructorAnalyticsPage() {
             <div className="text-2xl font-bold">
               {overview.completion_rate}%
             </div>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-muted-foreground mt-1">
               Students finishing courses
             </p>
           </CardContent>
@@ -214,7 +214,7 @@ export default function InstructorAnalyticsPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">+12%</div>
-            <p className="text-xs text-gray-500 mt-1">vs last period</p>
+            <p className="text-xs text-muted-foreground mt-1">vs last period</p>
           </CardContent>
         </Card>
       </div>
@@ -336,7 +336,7 @@ export default function InstructorAnalyticsPage() {
                     </div>
                     <div>
                       <div className="font-medium">{course.title}</div>
-                      <div className="text-sm text-gray-400">
+                      <div className="text-sm text-muted-foreground">
                         {course.students} students • {course.rating.toFixed(1)}{" "}
                         ⭐
                       </div>
@@ -346,7 +346,7 @@ export default function InstructorAnalyticsPage() {
                     <div className="font-bold text-green-400">
                       ${course.revenue.toFixed(0)}
                     </div>
-                    <div className="text-xs text-gray-500">revenue</div>
+                    <div className="text-xs text-muted-foreground">revenue</div>
                   </div>
                 </div>
               ))}

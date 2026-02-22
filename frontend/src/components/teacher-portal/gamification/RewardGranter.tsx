@@ -50,7 +50,7 @@ export default function RewardGranter() {
     };
 
     return (
-        <Card className="h-full border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+        <Card className="h-full border-neutral-200 dark:border-neutral-800 bg-card dark:bg-neutral-900">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-amber-600 dark:text-amber-500">
                     <Gift className="w-5 h-5" />
@@ -77,7 +77,7 @@ export default function RewardGranter() {
                     </div>
                     {/* Dropdown Results */}
                     {searchQuery && !selectedStudent && filteredStudents.length > 0 && (
-                        <div className="absolute top-full left-0 w-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-md shadow-lg z-10 mt-1 max-h-40 overflow-y-auto">
+                        <div className="absolute top-full left-0 w-full bg-card dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-md shadow-lg z-10 mt-1 max-h-40 overflow-y-auto">
                             {filteredStudents.map(student => (
                                 <div
                                     key={student.id}

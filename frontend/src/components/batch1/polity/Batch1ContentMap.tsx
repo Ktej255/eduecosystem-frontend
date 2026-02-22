@@ -44,11 +44,11 @@ export default function Batch1ContentMap({ onBack }: { onBack?: () => void }) {
             {/* Header */}
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div>
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
+                    <h2 className="text-3xl font-bold text-foreground flex items-center gap-2">
                         <CalendarDays className="h-8 w-8 text-blue-600" />
                         Syllabus Tracker & Content Map
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">
+                    <p className="text-muted-foreground dark:text-muted-foreground mt-1">
                         Track your daily progress. content availability, and revision status.
                     </p>
                 </div>
@@ -66,7 +66,7 @@ export default function Batch1ContentMap({ onBack }: { onBack?: () => void }) {
             </div>
 
             {/* Legend */}
-            <div className="flex flex-wrap gap-4 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800">
+            <div className="flex flex-wrap gap-4 p-4 bg-muted rounded-lg border border-border">
                 <div className="flex items-center gap-2 text-sm font-medium">
                     <Badge variant="outline" className="bg-pink-100 text-pink-700 border-pink-200">FC</Badge>
                     <span>Flashcards</span>
@@ -79,7 +79,7 @@ export default function Batch1ContentMap({ onBack }: { onBack?: () => void }) {
                     <Badge variant="outline" className="bg-amber-100 text-amber-700 border-amber-200">CSAT</Badge>
                     <span>CSAT</span>
                 </div>
-                <div className="ml-auto flex items-center gap-2 text-sm text-gray-500">
+                <div className="ml-auto flex items-center gap-2 text-sm text-muted-foreground">
                     <CheckCircle2 className="h-4 w-4 text-green-500" /> Completed
                     <Circle className="h-4 w-4 ml-2" /> Pending
                 </div>
@@ -99,7 +99,7 @@ export default function Batch1ContentMap({ onBack }: { onBack?: () => void }) {
                             viewport={{ once: true }}
                             transition={{ duration: 0.3, delay: Math.min(day * 0.05, 0.5) }}
                         >
-                            <Card className={`h-full hover:shadow-lg transition-all duration-300 border-2 ${status.hasContent ? 'border-gray-200 dark:border-gray-800 hover:border-blue-400' : 'border-dashed border-gray-200 opacity-60'}`}>
+                            <Card className={`h-full hover:shadow-lg transition-all duration-300 border-2 ${status.hasContent ? 'border-border hover:border-blue-400' : 'border-dashed border-border opacity-60'}`}>
                                 <CardHeader className="pb-3">
                                     <div className="flex justify-between items-start">
                                         <Badge variant={status.hasContent ? "default" : "secondary"} className="mb-2">
@@ -111,7 +111,7 @@ export default function Batch1ContentMap({ onBack }: { onBack?: () => void }) {
                                             </Button>
                                         </Link>
                                     </div>
-                                    <CardTitle className="text-lg font-bold text-gray-800 dark:text-gray-200 line-clamp-1">
+                                    <CardTitle className="text-lg font-bold text-foreground line-clamp-1">
                                         {status.topic}
                                     </CardTitle>
                                 </CardHeader>
@@ -124,7 +124,7 @@ export default function Batch1ContentMap({ onBack }: { onBack?: () => void }) {
                                                     <Layers className="h-3 w-3" /> {status.flashcardCount} Cards
                                                 </Badge>
                                             ) : (
-                                                <span className="text-xs text-gray-400 flex items-center gap-1 opacity-50">
+                                                <span className="text-xs text-muted-foreground flex items-center gap-1 opacity-50">
                                                     <Layers className="h-3 w-3" /> No FC
                                                 </span>
                                             )}
@@ -134,7 +134,7 @@ export default function Batch1ContentMap({ onBack }: { onBack?: () => void }) {
                                                     <Brain className="h-3 w-3" /> {status.mcqCount} Qs
                                                 </Badge>
                                             ) : (
-                                                <span className="text-xs text-gray-400 flex items-center gap-1 opacity-50">
+                                                <span className="text-xs text-muted-foreground flex items-center gap-1 opacity-50">
                                                     <Brain className="h-3 w-3" /> No Test
                                                 </span>
                                             )}
@@ -153,7 +153,7 @@ export default function Batch1ContentMap({ onBack }: { onBack?: () => void }) {
                 })}
             </div>
 
-            <div className="text-center p-8 text-gray-500">
+            <div className="text-center p-8 text-muted-foreground">
                 <p>More content is being added daily!</p>
             </div>
         </div>

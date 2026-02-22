@@ -73,7 +73,7 @@ export default function LearningGroupsPage() {
             <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
               Learning Groups
             </h1>
-            <p className="text-gray-400 mt-1">Connect and learn together</p>
+            <p className="text-muted-foreground mt-1">Connect and learn together</p>
           </div>
         </div>
         <Button
@@ -102,9 +102,9 @@ export default function LearningGroupsPage() {
       {/* Groups Grid */}
       {groups.length === 0 ? (
         <Card className="bg-gray-900 border-gray-800 p-12 text-center">
-          <Users className="h-16 w-16 text-gray-700 mx-auto mb-4" />
+          <Users className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
           <h3 className="text-xl font-bold text-white mb-2">No groups yet</h3>
-          <p className="text-gray-400 mb-4">
+          <p className="text-muted-foreground mb-4">
             Be the first to create a learning group!
           </p>
           <Button onClick={() => setShowCreateModal(true)}>
@@ -125,11 +125,11 @@ export default function LearningGroupsPage() {
                   ) : (
                     <Lock className="h-5 w-5 text-yellow-400" />
                   )}
-                  <span className="text-xs text-gray-400 uppercase">
+                  <span className="text-xs text-muted-foreground uppercase">
                     {group.group_type}
                   </span>
                 </div>
-                <div className="flex items-center gap-1 text-gray-400">
+                <div className="flex items-center gap-1 text-muted-foreground">
                   <Users className="h-4 w-4" />
                   <span className="text-sm">{group.member_count}</span>
                 </div>
@@ -138,7 +138,7 @@ export default function LearningGroupsPage() {
               <h3 className="text-xl font-bold text-white mb-2">
                 {group.name}
               </h3>
-              <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+              <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                 {group.description}
               </p>
 

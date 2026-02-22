@@ -70,9 +70,9 @@ export default function RecommendedForYou({
   if (recommendations.length === 0) {
     return (
       <div className="text-center py-12">
-        <BookOpen className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-        <p className="text-gray-400">No recommendations available yet</p>
-        <p className="text-gray-500 text-sm mt-2">
+        <BookOpen className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
+        <p className="text-muted-foreground">No recommendations available yet</p>
+        <p className="text-muted-foreground text-sm mt-2">
           Enroll in courses to get personalized recommendations
         </p>
       </div>
@@ -101,12 +101,12 @@ export default function RecommendedForYou({
           </h3>
 
           {/* Course Description */}
-          <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+          <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
             {course.description}
           </p>
 
           {/* Course Meta */}
-          <div className="flex items-center gap-4 text-sm text-gray-400 mb-3">
+          <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
             <div className="flex items-center gap-1">
               <Star className="w-4 h-4 text-yellow-500" />
               <span>{course.rating.toFixed(1)}</span>
@@ -119,7 +119,7 @@ export default function RecommendedForYou({
 
           {/* Recommendation Reason */}
           <div className="bg-gray-900 rounded px-3 py-2 mb-3">
-            <p className="text-xs text-gray-300">{course.reason}</p>
+            <p className="text-xs text-muted-foreground">{course.reason}</p>
           </div>
 
           {/* Category & Level */}

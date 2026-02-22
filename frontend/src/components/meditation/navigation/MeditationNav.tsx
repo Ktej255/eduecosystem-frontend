@@ -60,19 +60,19 @@ export default function MeditationNav({
                             variant="ghost"
                             size="icon"
                             onClick={onStatsClick}
-                            className="text-white/60 hover:text-emerald-400 hover:bg-white/5 rounded-full transition-all"
+                            className="text-white/60 hover:text-emerald-400 hover:bg-card/5 rounded-full transition-all"
                             title="View Statistics"
                         >
                             <BarChart2 className="w-5 h-5" />
                         </Button>
 
-                        <div className="h-6 w-px bg-white/10 mx-1" />
+                        <div className="h-6 w-px bg-card/10 mx-1" />
 
                         <Button
                             variant="ghost"
                             size="icon"
                             onClick={onSettingsClick}
-                            className="text-white/60 hover:text-white hover:bg-white/5 rounded-full transition-all"
+                            className="text-white/60 hover:text-white hover:bg-card/5 rounded-full transition-all"
                             title="Settings"
                         >
                             <Settings className="w-5 h-5" />

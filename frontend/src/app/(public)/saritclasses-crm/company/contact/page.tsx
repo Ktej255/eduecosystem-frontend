@@ -15,9 +15,9 @@ import {
 
 export default function ContactPage() {
     return (
-        <div className="min-h-screen bg-white dark:bg-slate-950">
+        <div className="min-h-screen bg-card">
             {/* Header */}
-            <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+            <header className="fixed top-0 left-0 right-0 z-50 bg-card/80/80 backdrop-blur-md border-b border-border">
                 <nav className="collexo-container flex items-center justify-between px-6 py-4">
                     <Link href="/saritclasses-crm" className="flex items-center gap-2">
                         <div className="w-10 h-10 rounded-xl collexo-gradient flex items-center justify-center">
@@ -27,7 +27,7 @@ export default function ContactPage() {
                     </Link>
                     <Link
                         href="/saritclasses-crm"
-                        className="flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                        className="flex items-center gap-2 text-muted-foreground dark:text-muted-foreground hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                     >
                         <ArrowLeft className="w-4 h-4" />
                         Back to Home
@@ -42,7 +42,7 @@ export default function ContactPage() {
 
                 <div className="collexo-container relative z-10 px-6">
                     <div className="text-center max-w-4xl mx-auto">
-                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+                        <div className="inline-flex items-center gap-2 bg-card/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
                             <MessageSquare className="w-4 h-4 text-indigo-400" />
                             <span className="text-white/90 text-sm font-medium">Contact Us</span>
                         </div>
@@ -62,22 +62,22 @@ export default function ContactPage() {
             </section>
 
             {/* Contact Form & Info */}
-            <section className="collexo-section bg-white dark:bg-slate-950 -mt-20">
+            <section className="collexo-section bg-card -mt-20">
                 <div className="collexo-container relative z-20">
                     <div className="grid lg:grid-cols-2 gap-12">
                         {/* Contact Info */}
                         <div className="space-y-8">
                             <div className="collexo-card p-8">
-                                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Get in Touch</h2>
+                                <h2 className="text-2xl font-bold text-foreground mb-6">Get in Touch</h2>
                                 <div className="space-y-6">
                                     <div className="flex items-start gap-4">
                                         <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center flex-shrink-0">
                                             <Mail className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                                         </div>
                                         <div>
-                                            <h3 className="font-semibold text-slate-900 dark:text-white">Email</h3>
-                                            <p className="text-slate-600 dark:text-slate-400">hello@saritclasses.com</p>
-                                            <p className="text-slate-600 dark:text-slate-400">support@saritclasses.com</p>
+                                            <h3 className="font-semibold text-foreground">Email</h3>
+                                            <p className="text-muted-foreground dark:text-muted-foreground">hello@saritclasses.com</p>
+                                            <p className="text-muted-foreground dark:text-muted-foreground">support@saritclasses.com</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-4">
@@ -85,9 +85,9 @@ export default function ContactPage() {
                                             <Phone className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                                         </div>
                                         <div>
-                                            <h3 className="font-semibold text-slate-900 dark:text-white">Phone</h3>
-                                            <p className="text-slate-600 dark:text-slate-400">+91 98765 43210</p>
-                                            <p className="text-slate-600 dark:text-slate-400">Mon-Fri (9am - 7pm IST)</p>
+                                            <h3 className="font-semibold text-foreground">Phone</h3>
+                                            <p className="text-muted-foreground dark:text-muted-foreground">+91 98765 43210</p>
+                                            <p className="text-muted-foreground dark:text-muted-foreground">Mon-Fri (9am - 7pm IST)</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-4">
@@ -95,8 +95,8 @@ export default function ContactPage() {
                                             <MapPin className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                                         </div>
                                         <div>
-                                            <h3 className="font-semibold text-slate-900 dark:text-white">Headquarters</h3>
-                                            <p className="text-slate-600 dark:text-slate-400">
+                                            <h3 className="font-semibold text-foreground">Headquarters</h3>
+                                            <p className="text-muted-foreground dark:text-muted-foreground">
                                                 123, Tech Park, Sector 4<br />
                                                 Bangalore, Karnataka 560102<br />
                                                 India
@@ -109,25 +109,25 @@ export default function ContactPage() {
 
                         {/* Contact Form */}
                         <div className="collexo-card p-8">
-                            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Send us a Message</h2>
+                            <h2 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h2>
                             <form className="space-y-4">
                                 <div className="grid md:grid-cols-2 gap-4">
                                     <div>
-                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">First Name</label>
-                                        <input type="text" className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none transition-all" />
+                                        <label className="block text-sm font-medium text-muted-foreground mb-1">First Name</label>
+                                        <input type="text" className="w-full px-4 py-2 rounded-lg border border-border bg-card text-foreground focus:ring-2 focus:ring-indigo-500 outline-none transition-all" />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Last Name</label>
-                                        <input type="text" className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none transition-all" />
+                                        <label className="block text-sm font-medium text-muted-foreground mb-1">Last Name</label>
+                                        <input type="text" className="w-full px-4 py-2 rounded-lg border border-border bg-card text-foreground focus:ring-2 focus:ring-indigo-500 outline-none transition-all" />
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Email</label>
-                                    <input type="email" className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none transition-all" />
+                                    <label className="block text-sm font-medium text-muted-foreground mb-1">Email</label>
+                                    <input type="email" className="w-full px-4 py-2 rounded-lg border border-border bg-card text-foreground focus:ring-2 focus:ring-indigo-500 outline-none transition-all" />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Message</label>
-                                    <textarea rows={4} className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none transition-all" />
+                                    <label className="block text-sm font-medium text-muted-foreground mb-1">Message</label>
+                                    <textarea rows={4} className="w-full px-4 py-2 rounded-lg border border-border bg-card text-foreground focus:ring-2 focus:ring-indigo-500 outline-none transition-all" />
                                 </div>
                                 <button className="collexo-btn-primary w-full justify-center">
                                     Send Message

@@ -231,7 +231,7 @@ function QuizGeneratorTab() {
                           className={`p-2 rounded text-sm ${
                             opt === q.correct_answer
                               ? "bg-green-100 border border-green-300"
-                              : "bg-gray-50"
+                              : "bg-muted"
                           }`}
                         >
                           {opt}
@@ -248,10 +248,10 @@ function QuizGeneratorTab() {
                   </div>
 
                   <div className="flex gap-2 text-xs text-muted-foreground">
-                    <span className="px-2 py-1 bg-gray-100 rounded">
+                    <span className="px-2 py-1 bg-muted rounded">
                       {q.bloom_level}
                     </span>
-                    <span className="px-2 py-1 bg-gray-100 rounded">
+                    <span className="px-2 py-1 bg-muted rounded">
                       {q.points || 1} point{q.points !== 1 ? "s" : ""}
                     </span>
                   </div>
@@ -630,7 +630,7 @@ function ContentAnalyzerTab() {
               <div className="space-y-2">
                 <h4 className="font-semibold">Additional Metrics</h4>
                 <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div className="p-2 bg-gray-50 rounded">
+                  <div className="p-2 bg-muted rounded">
                     <span className="text-muted-foreground">Reading Time:</span>
                     <span className="ml-2 font-semibold">
                       {analysis.estimated_reading_time} min

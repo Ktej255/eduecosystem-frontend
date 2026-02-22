@@ -79,9 +79,9 @@ export default function DiscountEngine() {
     const getStatusColor = (status: string) => {
         switch (status) {
             case "active": return "bg-green-100 text-green-700 border-green-200";
-            case "expired": return "bg-slate-100 text-slate-500 border-slate-200";
+            case "expired": return "bg-muted text-muted-foreground border-border";
             case "depleted": return "bg-orange-100 text-orange-700 border-orange-200";
-            default: return "bg-slate-100";
+            default: return "bg-muted";
         }
     };
 
@@ -115,22 +115,22 @@ export default function DiscountEngine() {
             <Card className="border-indigo-100 bg-gradient-to-r from-indigo-50 to-white dark:from-indigo-950/20 dark:to-slate-900 dark:border-indigo-900">
                 <CardContent className="p-4 flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                        <div className="p-3 bg-white dark:bg-slate-900 rounded-full shadow-sm border border-indigo-100 dark:border-indigo-900">
-                            <Zap className={cn("h-6 w-6", autopilotEnabled ? "text-amber-500 fill-amber-500" : "text-slate-400")} />
+                        <div className="p-3 bg-card rounded-full shadow-sm border border-indigo-100 dark:border-indigo-900">
+                            <Zap className={cn("h-6 w-6", autopilotEnabled ? "text-amber-500 fill-amber-500" : "text-muted-foreground")} />
                         </div>
                         <div>
-                            <h3 className="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                            <h3 className="font-bold text-foreground flex items-center gap-2">
                                 Revenue Autopilot
                                 {autopilotEnabled && <Badge className="bg-amber-100 text-amber-700 hover:bg-amber-200 border-amber-200">Active</Badge>}
                             </h3>
-                            <p className="text-xs text-slate-500">
+                            <p className="text-xs text-muted-foreground">
                                 Automatically trigger flash sales when daily revenue drops below target.
                             </p>
                         </div>
                     </div>
                     <div className="flex items-center gap-4">
                         <div className="hidden md:block text-right">
-                            <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Daily Trend</div>
+                            <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Daily Trend</div>
                             <div className={cn("text-lg font-bold flex items-center gap-1 justify-end", revenueStatus === "critical" ? "text-red-500" : "text-green-600")}>
                                 {revenueStatus === "critical" ? <TrendingDown className="h-4 w-4" /> : <Activity className="h-4 w-4" />}
                                 {revenueStatus === "critical" ? "-15% Target" : "On Track"}
@@ -142,14 +142,14 @@ export default function DiscountEngine() {
 
                 {/* Emergency Action Panel (Visible only when Autopilot is ON) */}
                 {autopilotEnabled && (
-                    <div className="border-t border-indigo-100 dark:border-indigo-900 p-4 bg-white/50 dark:bg-slate-950/50">
+                    <div className="border-t border-indigo-100 dark:border-indigo-900 p-4 bg-card/50/50">
                         {revenueStatus === "critical" ? (
                             <div className="flex items-center justify-between animate-in slide-in-from-top-2 duration-300">
                                 <div className="flex items-start gap-3">
                                     <div className="h-2 w-2 mt-2 rounded-full bg-red-500 animate-pulse" />
                                     <div>
                                         <p className="text-sm font-semibold text-red-600">Revenue Alert Detected</p>
-                                        <p className="text-xs text-slate-500">Daily goal missed by 15%. AI Suggests a 24-hour flash sale.</p>
+                                        <p className="text-xs text-muted-foreground">Daily goal missed by 15%. AI Suggests a 24-hour flash sale.</p>
                                     </div>
                                 </div>
                                 <Button size="sm" onClick={activateEmergencyBoost} className="bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-100 dark:shadow-none animate-pulse">
@@ -158,8 +158,8 @@ export default function DiscountEngine() {
                             </div>
                         ) : (
                             <div className="flex items-center justify-between">
-                                <p className="text-xs text-slate-400 italic">Monitoring revenue streams...</p>
-                                <Button variant="ghost" size="sm" className="text-xs text-slate-400" onClick={simulateRevenueDrop}>
+                                <p className="text-xs text-muted-foreground italic">Monitoring revenue streams...</p>
+                                <Button variant="ghost" size="sm" className="text-xs text-muted-foreground" onClick={simulateRevenueDrop}>
                                     (Simulate Drop)
                                 </Button>
                             </div>
@@ -168,8 +168,8 @@ export default function DiscountEngine() {
                 )}
             </Card>
 
-            <Card className="col-span-1 border-slate-200 dark:border-slate-800">
-                <CardHeader className="flex flex-row items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+            <Card className="col-span-1 border-border">
+                <CardHeader className="flex flex-row items-center justify-between pb-4 border-b border-slate-100">
                     <div>
                         <CardTitle className="text-lg font-bold flex items-center gap-2">
                             <Ticket className="h-5 w-5 text-indigo-500" />
@@ -203,7 +203,7 @@ export default function DiscountEngine() {
                                             className="uppercase font-mono tracking-wider pl-9"
                                             maxLength={10}
                                         />
-                                        <Ticket className="h-4 w-4 absolute left-3 top-2.5 text-slate-400" />
+                                        <Ticket className="h-4 w-4 absolute left-3 top-2.5 text-muted-foreground" />
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
@@ -231,9 +231,9 @@ export default function DiscountEngine() {
                                                 className="pl-8"
                                             />
                                             {discountType === 'percentage' ? (
-                                                <Percent className="h-3 w-3 absolute left-3 top-3 text-slate-400" />
+                                                <Percent className="h-3 w-3 absolute left-3 top-3 text-muted-foreground" />
                                             ) : (
-                                                <span className="absolute left-3 top-2.5 text-slate-400 text-sm">₹</span>
+                                                <span className="absolute left-3 top-2.5 text-muted-foreground text-sm">₹</span>
                                             )}
                                         </div>
                                     </div>
@@ -271,24 +271,24 @@ export default function DiscountEngine() {
                 <CardContent className="p-0">
                     <div className="divide-y divide-slate-100 dark:divide-slate-800">
                         {coupons.map((coupon) => (
-                            <div key={coupon.id} className="p-4 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors group">
+                            <div key={coupon.id} className="p-4 flex items-center justify-between hover:bg-muted dark:hover:bg-slate-900/50 transition-colors group">
                                 <div className="flex items-center gap-3">
-                                    <div className="h-10 w-10 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center text-slate-500">
+                                    <div className="h-10 w-10 bg-muted rounded-lg flex items-center justify-center text-muted-foreground">
                                         <Ticket className="h-5 w-5" />
                                     </div>
                                     <div>
                                         <div className="flex items-center gap-2">
-                                            <h4 className="font-bold text-slate-800 dark:text-slate-100 font-mono tracking-wide">{coupon.code}</h4>
+                                            <h4 className="font-bold text-foreground font-mono tracking-wide">{coupon.code}</h4>
                                             <Button
                                                 size="icon"
                                                 variant="ghost"
                                                 className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity"
                                                 onClick={() => navigator.clipboard.writeText(coupon.code)}
                                             >
-                                                <Copy className="h-3 w-3 text-slate-400" />
+                                                <Copy className="h-3 w-3 text-muted-foreground" />
                                             </Button>
                                         </div>
-                                        <div className="flex items-center gap-3 mt-1 text-xs text-slate-500">
+                                        <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
                                             <span className={cn("font-medium", coupon.type === 'percentage' ? "text-indigo-600" : "text-green-600")}>
                                                 {coupon.type === 'percentage' ? `${coupon.value}% OFF` : `₹${coupon.value} OFF`}
                                             </span>
@@ -305,7 +305,7 @@ export default function DiscountEngine() {
                                     <Badge variant="outline" className={cn("border capitalize", getStatusColor(coupon.status))}>
                                         {coupon.status}
                                     </Badge>
-                                    <span className="text-[10px] text-slate-400 flex items-center gap-1">
+                                    <span className="text-[10px] text-muted-foreground flex items-center gap-1">
                                         <Calendar className="h-3 w-3" />
                                         {coupon.expiry}
                                     </span>

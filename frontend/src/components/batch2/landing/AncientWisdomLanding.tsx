@@ -79,7 +79,7 @@ export default function AncientWisdomLanding() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="text-xl md:text-2xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed"
+                        className="text-xl md:text-2xl text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed"
                     >
                         A scientifically sequenced journey from <span className="text-amber-400">confusion to clarity</span> using the timeless wisdom of the Upanishads & Gita.
                     </motion.p>
@@ -102,7 +102,7 @@ export default function AncientWisdomLanding() {
                 <div className="flex items-center justify-between mb-12">
                     <div>
                         <h2 className="text-3xl font-bold text-white font-serif">The Cosmic Library</h2>
-                        <p className="text-slate-400 mt-2">Select a text to begin your study.</p>
+                        <p className="text-muted-foreground mt-2">Select a text to begin your study.</p>
                     </div>
                     <button className="hidden md:flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors">
                         <span>View Full Curriculum</span>
@@ -157,7 +157,7 @@ export default function AncientWisdomLanding() {
             <section className="py-20 px-4 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
                 <div className="lg:col-span-2 space-y-8">
                     <h2 className="text-3xl font-bold text-white font-serif">Your Evolution</h2>
-                    <p className="text-slate-400 max-w-2xl leading-relaxed">
+                    <p className="text-muted-foreground max-w-2xl leading-relaxed">
                         As you journey through the Upanishads, you will notice shifts in your perception, energy, and mental clarity. Use the tracker to monitor your alignment with the higher teachings.
                     </p>
 
@@ -166,12 +166,12 @@ export default function AncientWisdomLanding() {
                         <div className="p-6 rounded-2xl bg-amber-500/5 border border-amber-500/20">
                             <h4 className="text-amber-400 font-bold mb-2">Current Focus</h4>
                             <p className="text-white text-lg">Foundation: The Vitality Phase</p>
-                            <p className="text-sm text-slate-500 mt-1">Focusing on physical discipline and breath awareness.</p>
+                            <p className="text-sm text-muted-foreground mt-1">Focusing on physical discipline and breath awareness.</p>
                         </div>
                         <div className="p-6 rounded-2xl bg-indigo-500/5 border border-indigo-500/20">
                             <h4 className="text-indigo-400 font-bold mb-2">Next Milestone</h4>
                             <p className="text-white text-lg">Level 1: The Clarity Phase</p>
-                            <p className="text-sm text-slate-500 mt-1">Unwavering focus and emotional equilibrium.</p>
+                            <p className="text-sm text-muted-foreground mt-1">Unwavering focus and emotional equilibrium.</p>
                         </div>
                     </div>
                 </div>
@@ -194,7 +194,7 @@ export default function AncientWisdomLanding() {
             <section className="py-20 px-4 max-w-7xl mx-auto">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold text-white font-serif mb-4">Explore the Connections</h2>
-                    <p className="text-slate-400 max-w-2xl mx-auto">
+                    <p className="text-muted-foreground max-w-2xl mx-auto">
                         See how concepts link together. From Karma to Bio-Memory, explore the vast interconnected web of Vedic psychology.
                     </p>
                 </div>

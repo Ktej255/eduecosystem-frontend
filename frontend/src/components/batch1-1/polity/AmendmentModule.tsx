@@ -17,7 +17,7 @@ interface AmendmentModuleProps {
 // --- Design System: The Constitutional Toolkit ---
 
 const WorkshopContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="bg-[#e2e8f0] min-h-screen p-4 md:p-8 font-sans selection:bg-slate-300 selection:text-slate-900 relative">
+    <div className="bg-[#e2e8f0] min-h-screen p-4 md:p-8 font-sans selection:bg-slate-300 selection:text-foreground relative">
         {/* Workshop Table Texture */}
         <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(45deg,#000_25%,transparent_25%,transparent_75%,#000_75%,#000),linear-gradient(45deg,#000_25%,transparent_25%,transparent_75%,#000_75%,#000)] bg-[length:20px_20px] bg-[position:0_0,10px_10px] pointer-events-none"></div>
         <div className="max-w-6xl mx-auto space-y-12 relative z-10">
@@ -42,7 +42,7 @@ const ToolCard = ({ title, children, icon: Icon, color = "slate", type = "Manual
         green: "border-green-500 bg-green-50/50",
         orange: "border-orange-500 bg-orange-50/50",
         red: "border-red-500 bg-red-50/50",
-        slate: "border-slate-400 bg-white"
+        slate: "border-slate-400 bg-card"
     };
 
     const headerColors = {
@@ -59,14 +59,14 @@ const ToolCard = ({ title, children, icon: Icon, color = "slate", type = "Manual
             </div>
             <div className="p-6 pt-8">
                 <div className="flex items-start justify-between mb-4 border-b border-black/5 pb-2">
-                    <h3 className="font-bold text-xl text-slate-800 leading-tight">{title}</h3>
+                    <h3 className="font-bold text-xl text-foreground leading-tight">{title}</h3>
                     {Icon && (
-                        <div className={`p-2 rounded-lg bg-white shadow-sm border ${color === 'slate' ? 'border-slate-200' : `border-${color}-200`}`}>
+                        <div className={`p-2 rounded-lg bg-card shadow-sm border ${color === 'slate' ? 'border-border' : `border-${color}-200`}`}>
                             <Icon size={24} className={`text-${color}-600`} />
                         </div>
                     )}
                 </div>
-                <div className="text-sm space-y-3 font-handwriting text-slate-700 leading-relaxed">
+                <div className="text-sm space-y-3 font-handwriting text-muted-foreground leading-relaxed">
                     {children}
                 </div>
             </div>
@@ -102,40 +102,40 @@ export default function AmendmentModule({ onComplete, isCompleted }: AmendmentMo
             <SectionHeader title="Phase 1: The Procedure (Art 368)" icon={FileCog} />
             <div className="grid md:grid-cols-2 gap-8">
                 {/* Left: Initiation */}
-                <div className="bg-white p-6 rounded-xl border-2 border-slate-300 shadow-sm relative">
+                <div className="bg-card p-6 rounded-xl border-2 border-border shadow-sm relative">
                     <div className="absolute -left-3 top-6 bg-slate-800 text-white p-2 rounded-r shadow-md">
                         <ArrowRight size={20} />
                     </div>
-                    <h3 className="text-xl font-bold text-slate-800 mb-6 pl-6 flex items-center gap-2">
+                    <h3 className="text-xl font-bold text-foreground mb-6 pl-6 flex items-center gap-2">
                         Starting the Engine
                     </h3>
                     <div className="space-y-4 text-sm font-handwriting pl-6">
                         <div className="grid grid-cols-[100px_1fr] gap-2 items-center border-b border-slate-100 pb-2">
-                            <span className="font-bold text-slate-900">Introduction:</span>
+                            <span className="font-bold text-foreground">Introduction:</span>
                             <span>EITHER House (LS or RS). <span className="text-red-500 font-bold text-xs ml-1 block md:inline">[State Leg: NO ❌]</span></span>
                         </div>
                         <div className="grid grid-cols-[100px_1fr] gap-2 items-center border-b border-slate-100 pb-2">
-                            <span className="font-bold text-slate-900">Mover:</span>
+                            <span className="font-bold text-foreground">Mover:</span>
                             <span>Minister OR Private Member.</span>
                         </div>
                         <div className="grid grid-cols-[100px_1fr] gap-2 items-center">
-                            <span className="font-bold text-slate-900">Permission:</span>
+                            <span className="font-bold text-foreground">Permission:</span>
                             <span><strong>NO</strong> prior permission of President needed. <Badge variant="outline" className="border-red-200 text-red-600 text-[10px]">PYQ</Badge></span>
                         </div>
                     </div>
                 </div>
 
                 {/* Right: Passage */}
-                <div className="bg-slate-50 p-6 rounded-xl border-2 border-dashed border-slate-400 relative">
-                    <h3 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                <div className="bg-muted p-6 rounded-xl border-2 border-dashed border-slate-400 relative">
+                    <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
                         <CheckCircle2 className="text-green-600" /> The Passage
                     </h3>
                     <div className="space-y-4 text-sm font-handwriting">
-                        <div className="bg-white p-3 rounded border border-slate-200 shadow-sm">
+                        <div className="bg-card p-3 rounded border border-border shadow-sm">
                             <strong>Majority:</strong> Must be passed in <u>EACH House separately</u> by Special Majority.
                         </div>
                         <div className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
-                            <strong>Deadlock:</strong> No Joint Sitting provision. If one House disagrees, bill dies. <Badge variant="outline" className="bg-white border-red-200 text-red-600 text-[10px] ml-1">PYQ</Badge>
+                            <strong>Deadlock:</strong> No Joint Sitting provision. If one House disagrees, bill dies. <Badge variant="outline" className="bg-card border-red-200 text-red-600 text-[10px] ml-1">PYQ</Badge>
                         </div>
                         <div className="bg-blue-50 p-3 rounded border border-blue-200 text-blue-900">
                             <strong>President's Role:</strong> MUST give assent. Cannot withhold/return. <br />
@@ -154,7 +154,7 @@ export default function AmendmentModule({ onComplete, isCompleted }: AmendmentMo
                     <p className="text-xs uppercase font-bold text-green-700 mb-2 tracking-wider">Outside Art 368</p>
                     <p className="mb-4"><strong>Requirement:</strong> &gt;50% of members present and voting. (Like ordinary law).</p>
 
-                    <div className="bg-white/50 p-3 rounded border border-green-200">
+                    <div className="bg-card/50 p-3 rounded border border-green-200">
                         <div className="font-bold text-green-900 mb-2 text-xs uppercase">Scope (Examples)</div>
                         <ul className="list-disc pl-4 space-y-1 text-xs">
                             <li>New States (Art 2, 3)</li>
@@ -173,7 +173,7 @@ export default function AmendmentModule({ onComplete, isCompleted }: AmendmentMo
                         50% of Total + 2/3rds of Present & Voting
                     </div>
 
-                    <div className="bg-white/50 p-3 rounded border border-orange-200">
+                    <div className="bg-card/50 p-3 rounded border border-orange-200">
                         <div className="font-bold text-orange-900 mb-2 text-xs uppercase">Scope</div>
                         <ul className="list-disc pl-4 space-y-1 text-xs">
                             <li>Fundamental Rights (Part III)</li>
@@ -190,7 +190,7 @@ export default function AmendmentModule({ onComplete, isCompleted }: AmendmentMo
                         Special Majority (Parl) + Ratification by 50% States (Simple)
                     </div>
 
-                    <div className="bg-white/50 p-3 rounded border border-red-200">
+                    <div className="bg-card/50 p-3 rounded border border-red-200">
                         <div className="font-bold text-red-900 mb-2 text-xs uppercase">Scope (Federal Provisions)</div>
                         <ul className="list-disc pl-4 space-y-1 text-xs">
                             <li>Election of President</li>
@@ -208,7 +208,7 @@ export default function AmendmentModule({ onComplete, isCompleted }: AmendmentMo
             <SectionHeader title="Phase 3: Criticism & Basic Structure" icon={ShieldAlert} />
             <div className="grid md:grid-cols-2 gap-8">
                 {/* Left: Criticism */}
-                <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-slate-500">
+                <div className="bg-card p-6 rounded-lg shadow-sm border-l-4 border-slate-500">
                     <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
                         <AlertTriangle size={18} className="text-yellow-500" /> Flaws in Procedure
                     </h3>
@@ -237,21 +237,21 @@ export default function AmendmentModule({ onComplete, isCompleted }: AmendmentMo
                     <p className="text-sm opacity-90 mb-4 font-serif">
                         "Parliament can amend any part (including FRs) BUT cannot alter the <strong>Basic Structure</strong>."
                     </p>
-                    <div className="bg-white/10 p-3 rounded text-xs border border-white/20">
+                    <div className="bg-card/10 p-3 rounded text-xs border border-white/20">
                         <strong>Note:</strong> 'Basic Structure' is NOT defined in the Constitution.
                     </div>
                 </div>
             </div>
 
             {/* FOOTER */}
-            <div className="mt-12 bg-white rounded-xl p-8 border-4 border-double border-slate-300 shadow-xl text-center">
+            <div className="mt-12 bg-card rounded-xl p-8 border-4 border-double border-border shadow-xl text-center">
                 <div className="flex justify-center mb-4">
-                    <div className="bg-slate-100 p-3 rounded-full text-slate-700">
+                    <div className="bg-muted p-3 rounded-full text-muted-foreground">
                         <Hammer size={32} />
                     </div>
                 </div>
                 <h3 className="text-xl font-bold mb-2">"Balance between Flexibility and Rigidity"</h3>
-                <p className="text-slate-500 text-sm max-w-md mx-auto mb-8 font-serif italic">
+                <p className="text-muted-foreground text-sm max-w-md mx-auto mb-8 font-serif italic">
                     "If you make any Constitution rigid and permanent, you stop a nation's growth." <br /> - J.L. Nehru
                 </p>
 

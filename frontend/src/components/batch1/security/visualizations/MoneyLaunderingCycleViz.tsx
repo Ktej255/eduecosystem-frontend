@@ -38,15 +38,15 @@ export default function MoneyLaunderingCycleViz() {
     const [activeStage, setActiveStage] = useState(0);
 
     return (
-        <div className="bg-white dark:bg-[#0a0a0a] rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-lg">
-            <h3 className="text-lg font-bold mb-6 text-center text-slate-900 dark:text-white flex items-center justify-center gap-2">
+        <div className="bg-card dark:bg-[#0a0a0a] rounded-xl border border-border p-6 shadow-lg">
+            <h3 className="text-lg font-bold mb-6 text-center text-foreground flex items-center justify-center gap-2">
                 <RefreshCw className="w-5 h-5 text-indigo-500" />
                 Cycle of Money Laundering
             </h3>
 
             {/* Circular/Linear Flow */}
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 relative">
-                <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-100 dark:bg-slate-800 -z-0 -translate-y-1/2" />
+                <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-muted -z-0 -translate-y-1/2" />
 
                 {STAGES.map((stage, index) => (
                     <React.Fragment key={stage.id}>
@@ -58,12 +58,12 @@ export default function MoneyLaunderingCycleViz() {
                             <div className={`w-16 h-16 rounded-full flex items-center justify-center border-4 transition-all duration-300 shadow-xl
                                 ${activeStage === index
                                     ? `${stage.color} text-white border-white dark:border-[#111]`
-                                    : 'bg-white dark:bg-slate-900 text-slate-400 border-slate-200 dark:border-slate-800'
+                                    : 'bg-card text-muted-foreground border-border'
                                 }`}>
                                 {stage.icon}
                             </div>
                             <div className="mt-4 text-center">
-                                <h4 className={`font-bold transition-colors ${activeStage === index ? stage.textColor : 'text-slate-500'}`}>
+                                <h4 className={`font-bold transition-colors ${activeStage === index ? stage.textColor : 'text-muted-foreground'}`}>
                                     {stage.title}
                                 </h4>
                             </div>
@@ -76,7 +76,7 @@ export default function MoneyLaunderingCycleViz() {
             </div>
 
             {/* Details Panel */}
-            <div className={`rounded-xl p-6 ${STAGES[activeStage].color} bg-opacity-10 border border-slate-200 dark:border-slate-800`}>
+            <div className={`rounded-xl p-6 ${STAGES[activeStage].color} bg-opacity-10 border border-border`}>
                 <div className="flex items-start gap-4">
                     <div className={`p-3 rounded-lg ${STAGES[activeStage].color} text-white shadow-lg`}>
                         {STAGES[activeStage].icon}
@@ -85,15 +85,15 @@ export default function MoneyLaunderingCycleViz() {
                         <h4 className={`text-lg font-bold ${STAGES[activeStage].textColor} mb-1`}>
                             {STAGES[activeStage].title}
                         </h4>
-                        <p className="text-slate-700 dark:text-slate-300 text-sm mb-4">
+                        <p className="text-muted-foreground text-sm mb-4">
                             {STAGES[activeStage].desc}
                         </p>
 
-                        <div className="bg-white dark:bg-black/20 rounded-lg p-3">
-                            <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Common Techniques</p>
+                        <div className="bg-card dark:bg-black/20 rounded-lg p-3">
+                            <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">Common Techniques</p>
                             <div className="flex flex-wrap gap-2">
                                 {STAGES[activeStage].examples.map(ex => (
-                                    <span key={ex} className="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs rounded-md border border-slate-200 dark:border-slate-700">
+                                    <span key={ex} className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-md border border-border">
                                         {ex}
                                     </span>
                                 ))}

@@ -39,10 +39,10 @@ export default function FunnelWizard() {
         return (
             <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <div className="text-center space-y-4">
-                    <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white">
+                    <h1 className="text-4xl font-extrabold text-foreground">
                         Wait! Watch This First...
                     </h1>
-                    <p className="text-xl text-gray-600 dark:text-gray-300">
+                    <p className="text-xl text-muted-foreground dark:text-muted-foreground">
                         Understanding how this 2-minute analysis works.
                     </p>
                 </div>
@@ -73,7 +73,7 @@ export default function FunnelWizard() {
                     <div className="space-y-2 text-center">
                         <FileText className="w-12 h-12 text-purple-600 mx-auto" />
                         <h2 className="text-2xl font-bold">Who are we analyzing?</h2>
-                        <p className="text-gray-500">We need these details to send your personalized report.</p>
+                        <p className="text-muted-foreground">We need these details to send your personalized report.</p>
                     </div>
 
                     <div className="space-y-4">
@@ -158,14 +158,14 @@ export default function FunnelWizard() {
                     </p>
                 </div>
 
-                <Card className="border-2 border-dashed border-gray-300 bg-gray-50 dark:bg-gray-900/50">
+                <Card className="border-2 border-dashed border-border bg-muted/50">
                     <CardContent className="p-8 text-center space-y-4">
-                        <h4 className="font-serif text-2xl italic text-gray-700 dark:text-gray-300 leading-relaxed">
+                        <h4 className="font-serif text-2xl italic text-muted-foreground dark:text-muted-foreground leading-relaxed">
                             "The quick brown fox jumps over the lazy dog. I am writing this to understand myself better.
                             My handwriting is a reflection of my mind, and I am ready to change my strokes to change my life.
                             Success is waiting for me."
                         </h4>
-                        <p className="text-sm text-gray-400 mt-4 uppercase tracking-widest">
+                        <p className="text-sm text-muted-foreground mt-4 uppercase tracking-widest">
                             (Write this at least 3-4 times on the pages)
                         </p>
                     </CardContent>
@@ -191,7 +191,7 @@ export default function FunnelWizard() {
 
                     <div>
                         <h2 className="text-2xl font-bold mb-2">Upload Your Samples</h2>
-                        <p className="text-gray-500">Take clear photos of your 4 pages and upload them here.</p>
+                        <p className="text-muted-foreground">Take clear photos of your 4 pages and upload them here.</p>
                     </div>
 
                     <label
@@ -216,7 +216,7 @@ export default function FunnelWizard() {
                                 <span className="block text-sm font-semibold text-green-600">
                                     {uploadedFiles.length} file(s) selected
                                 </span>
-                                <span className="block text-xs text-gray-500">
+                                <span className="block text-xs text-muted-foreground">
                                     {uploadedFiles.map(f => f.name).join(', ')}
                                 </span>
                             </div>
@@ -226,7 +226,7 @@ export default function FunnelWizard() {
                                 <span className="mt-2 block text-sm font-semibold text-blue-600">
                                     Click to upload photos
                                 </span>
-                                <span className="mt-1 block text-xs text-gray-500">
+                                <span className="mt-1 block text-xs text-muted-foreground">
                                     JPG, PNG up to 10MB
                                 </span>
                             </>

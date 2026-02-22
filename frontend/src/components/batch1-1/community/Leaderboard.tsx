@@ -69,31 +69,31 @@ export default function Leaderboard() {
             </CardHeader>
             <CardContent className="p-0">
                 {loading ? (
-                    <div className="p-4 text-center text-sm text-gray-500">Loading ranks...</div>
+                    <div className="p-4 text-center text-sm text-muted-foreground">Loading ranks...</div>
                 ) : (
-                    <div className="divide-y divide-gray-100 dark:divide-gray-800">
+                    <div className="divide-y divide-border dark:divide-gray-800">
                         {entries.map((entry, index) => (
                             <motion.div
                                 key={entry.user_id}
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0, transition: { delay: index * 0.1 } }}
-                                className="flex items-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                                className="flex items-center p-4 hover:bg-muted dark:hover:bg-gray-800/50 transition-colors"
                             >
                                 <div className={`flex-shrink-0 w-8 h-8 flex items-center justify-center font-bold rounded-full mr-4 ${entry.rank === 1 ? 'bg-yellow-100 text-yellow-600' :
-                                    entry.rank === 2 ? 'bg-gray-100 text-gray-600' :
+                                    entry.rank === 2 ? 'bg-muted text-muted-foreground' :
                                         entry.rank === 3 ? 'bg-orange-100 text-orange-600' :
-                                            'text-gray-400'
+                                            'text-muted-foreground'
                                     }`}>
                                     {entry.rank}
                                 </div>
 
-                                <Avatar className="h-10 w-10 border border-gray-100">
+                                <Avatar className="h-10 w-10 border border-border">
                                     <AvatarImage src={entry.avatar} />
                                     <AvatarFallback>{entry.name[0]}</AvatarFallback>
                                 </Avatar>
 
                                 <div className="ml-3 flex-1 min-w-0">
-                                    <p className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">
+                                    <p className="text-sm font-medium text-foreground truncate">
                                         {entry.name}
                                     </p>
                                     <div className="flex items-center gap-3 mt-0.5">

@@ -81,7 +81,7 @@ export default function CreateCoursePage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-bold text-white mb-2">Create New Course</h1>
-            <p className="text-gray-400">Use our AI-powered tools to create engaging courses quickly</p>
+            <p className="text-muted-foreground">Use our AI-powered tools to create engaging courses quickly</p>
           </div>
           <Button variant="outline" className="border-gray-800 text-white hover:bg-gray-900">
             <LayoutTemplate className="mr-2 h-4 w-4" />
@@ -97,7 +97,7 @@ export default function CreateCoursePage() {
                 <div
                   className={cn(
                     "flex items-center gap-3 cursor-pointer",
-                    step === s.id ? "text-cyan-400" : step > s.id ? "text-green-500" : "text-gray-500"
+                    step === s.id ? "text-cyan-400" : step > s.id ? "text-green-500" : "text-muted-foreground"
                   )}
                   onClick={() => step > s.id && setStep(s.id)}
                 >
@@ -125,7 +125,7 @@ export default function CreateCoursePage() {
             <div className="max-w-3xl">
               <div className="mb-8">
                 <h2 className="text-xl font-bold text-white mb-2">Course Information</h2>
-                <p className="text-gray-400">Start with a course title, and our AI will draft the rest for you.</p>
+                <p className="text-muted-foreground">Start with a course title, and our AI will draft the rest for you.</p>
               </div>
 
               <div className="space-y-6">
@@ -155,7 +155,7 @@ export default function CreateCoursePage() {
                 <Wand2 className="h-8 w-8 text-cyan-400" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Outline Generator</h3>
-              <p className="text-gray-400 mb-6">Let AI structure your course based on the title.</p>
+              <p className="text-muted-foreground mb-6">Let AI structure your course based on the title.</p>
               <Button className="bg-cyan-600 hover:bg-cyan-500">
                 Generate Outline
               </Button>
@@ -164,7 +164,7 @@ export default function CreateCoursePage() {
 
           {/* Placeholder for other steps */}
           {(step === 3 || step === 4) && (
-            <div className="text-center py-12 text-gray-500">
+            <div className="text-center py-12 text-muted-foreground">
               Step {step} content coming soon...
             </div>
           )}

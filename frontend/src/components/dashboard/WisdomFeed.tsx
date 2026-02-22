@@ -85,26 +85,26 @@ export function WisdomFeed() {
                                     <div className="flex-1">
                                         <div className="flex items-center justify-between mb-1">
                                             <h3 className="font-bold text-sm">{post.author}</h3>
-                                            <span className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">{post.category}</span>
+                                            <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">{post.category}</span>
                                         </div>
-                                        <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                                        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                                             {post.content}
                                         </p>
                                         <div className="flex items-center justify-between">
                                             <div className="flex gap-4">
                                                 <button
                                                     onClick={() => handleResonate(post.id)}
-                                                    className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-cyan-400 transition-colors group"
+                                                    className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-cyan-400 transition-colors group"
                                                 >
                                                     <Sparkles className="w-4 h-4 group-hover:scale-110 transition-transform" />
                                                     <span>{post.resonance} Resonance</span>
                                                 </button>
-                                                <button className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors">
+                                                <button className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors">
                                                     <MessageSquare className="w-4 h-4" />
                                                     <span>Reply</span>
                                                 </button>
                                             </div>
-                                            <span className="text-[10px] text-gray-600 font-medium">{post.timestamp}</span>
+                                            <span className="text-[10px] text-muted-foreground font-medium">{post.timestamp}</span>
                                         </div>
                                     </div>
                                 </div>

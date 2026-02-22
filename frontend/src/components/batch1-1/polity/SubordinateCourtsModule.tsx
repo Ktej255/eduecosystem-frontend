@@ -16,7 +16,7 @@ interface SubordinateCourtsModuleProps {
 // --- Design System: The Foundation (Judicial Pyramid) ---
 
 const FoundationContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#f5f5f4] text-slate-900">
+    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#f5f5f4] text-foreground">
         {/* Stone/Pyramid Texture */}
         <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
 
@@ -78,7 +78,7 @@ export default function SubordinateCourtsModule({ onComplete, isCompleted }: Sub
                     {/* DISTRICT JUDGES */}
                     <StoneCard title="District Judges (Art 233)" icon={Gavel} color="brown">
                         <div className="space-y-3 text-sm">
-                            <div className="flex justify-between items-center bg-white/50 p-2 rounded">
+                            <div className="flex justify-between items-center bg-card/50 p-2 rounded">
                                 <span>Appointed By</span>
                                 <span className="font-bold">Governor</span>
                             </div>
@@ -98,7 +98,7 @@ export default function SubordinateCourtsModule({ onComplete, isCompleted }: Sub
                     {/* OTHER JUDGES */}
                     <StoneCard title="Other Judges (Art 234)" icon={UserPlus} color="brown">
                         <div className="space-y-3 text-sm">
-                            <div className="flex justify-between items-center bg-white/50 p-2 rounded">
+                            <div className="flex justify-between items-center bg-card/50 p-2 rounded">
                                 <span>Appointed By</span>
                                 <span className="font-bold">Governor</span>
                             </div>
@@ -123,17 +123,17 @@ export default function SubordinateCourtsModule({ onComplete, isCompleted }: Sub
                     <div className="h-px bg-[#78350f] flex-1 opacity-50"></div>
                 </div>
 
-                <div className="bg-white p-6 rounded-xl shadow-xl border border-stone-200">
+                <div className="bg-card p-6 rounded-xl shadow-xl border border-stone-200">
                     <div className="flex justify-center mb-6 gap-4">
                         <button
                             onClick={() => setActiveSide("civil")}
-                            className={`px-6 py-2 rounded-full font-bold transition-all ${activeSide === 'civil' ? 'bg-blue-600 text-white shadow-lg scale-105' : 'bg-slate-100 text-slate-400'}`}
+                            className={`px-6 py-2 rounded-full font-bold transition-all ${activeSide === 'civil' ? 'bg-blue-600 text-white shadow-lg scale-105' : 'bg-muted text-muted-foreground'}`}
                         >
                             Civil Side
                         </button>
                         <button
                             onClick={() => setActiveSide("criminal")}
-                            className={`px-6 py-2 rounded-full font-bold transition-all ${activeSide === 'criminal' ? 'bg-red-600 text-white shadow-lg scale-105' : 'bg-slate-100 text-slate-400'}`}
+                            className={`px-6 py-2 rounded-full font-bold transition-all ${activeSide === 'criminal' ? 'bg-red-600 text-white shadow-lg scale-105' : 'bg-muted text-muted-foreground'}`}
                         >
                             Criminal Side
                         </button>
@@ -154,7 +154,7 @@ export default function SubordinateCourtsModule({ onComplete, isCompleted }: Sub
                         <ArrowDown size={24} className="text-slate-300" />
 
                         {/* MIDDLE LEVEL */}
-                        <div className={`w-64 p-3 rounded-lg text-center border shadow-sm ${activeSide === 'civil' ? 'bg-white border-blue-100 text-blue-800' : 'bg-white border-red-100 text-red-800'}`}>
+                        <div className={`w-64 p-3 rounded-lg text-center border shadow-sm ${activeSide === 'civil' ? 'bg-card border-blue-100 text-blue-800' : 'bg-card border-red-100 text-red-800'}`}>
                             <strong className="block">
                                 {activeSide === 'civil' ? 'Subordinate Judge' : 'Chief Judicial Magistrate'}
                             </strong>
@@ -166,7 +166,7 @@ export default function SubordinateCourtsModule({ onComplete, isCompleted }: Sub
                         <ArrowDown size={24} className="text-slate-300" />
 
                         {/* LOWER LEVEL */}
-                        <div className={`w-64 p-3 rounded-lg text-center border shadow-sm ${activeSide === 'civil' ? 'bg-slate-50 border-blue-50 text-blue-700' : 'bg-slate-50 border-red-50 text-red-700'}`}>
+                        <div className={`w-64 p-3 rounded-lg text-center border shadow-sm ${activeSide === 'civil' ? 'bg-muted border-blue-50 text-blue-700' : 'bg-muted border-red-50 text-red-700'}`}>
                             <strong className="block">
                                 {activeSide === 'civil' ? 'Munsiff Court' : 'Judicial Magistrate (I / II)'}
                             </strong>
@@ -190,17 +190,17 @@ export default function SubordinateCourtsModule({ onComplete, isCompleted }: Sub
                     {/* STATUTORY STATUS */}
                     <StoneCard title="Lok Adalat (1987)" icon={Handshake} color="green">
                         <div className="space-y-3 font-mono text-sm">
-                            <div className="bg-white p-2 rounded border border-green-200">
+                            <div className="bg-card p-2 rounded border border-green-200">
                                 <strong>Act:</strong> Legal Services Authorities Act, 1987.
                             </div>
-                            <div className="bg-white p-2 rounded border border-green-200">
+                            <div className="bg-card p-2 rounded border border-green-200">
                                 <strong>Goal:</strong> Free Legal Aid (Art 39A) + Speed.
                             </div>
                             <div className="p-3 bg-green-100 rounded text-green-900 border border-green-300 flex items-center gap-2">
                                 <Gavel size={16} className="text-green-700 decoration-slash" />
                                 <span className="font-bold">NO APPEAL lies against award.</span>
                             </div>
-                            <p className="text-xs text-center text-slate-500 italic">
+                            <p className="text-xs text-center text-muted-foreground italic">
                                 "Decision is Final & Binding (Deemed Decree)."
                             </p>
                         </div>
@@ -212,11 +212,11 @@ export default function SubordinateCourtsModule({ onComplete, isCompleted }: Sub
                             <p className="font-bold text-blue-900 border-b border-blue-200 pb-1">
                                 For Public Utility Services:
                             </p>
-                            <ul className="grid grid-cols-2 gap-2 text-xs text-slate-600">
-                                <li className="bg-white p-1 rounded">Transport</li>
-                                <li className="bg-white p-1 rounded">Postal</li>
-                                <li className="bg-white p-1 rounded">Power</li>
-                                <li className="bg-white p-1 rounded">Hospital</li>
+                            <ul className="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
+                                <li className="bg-card p-1 rounded">Transport</li>
+                                <li className="bg-card p-1 rounded">Postal</li>
+                                <li className="bg-card p-1 rounded">Power</li>
+                                <li className="bg-card p-1 rounded">Hospital</li>
                             </ul>
                             <div className="bg-blue-100 p-2 rounded text-blue-900 text-xs">
                                 <strong>Super Power:</strong> Can decide case on merit if no settlement reached.

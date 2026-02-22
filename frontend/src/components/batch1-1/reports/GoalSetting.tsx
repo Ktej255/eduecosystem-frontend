@@ -103,7 +103,7 @@ export default function GoalSetting({ subject }: GoalSettingProps) {
                                 type="number"
                                 value={targetInput}
                                 onChange={(e) => setTargetInput(e.target.value)}
-                                className="bg-white dark:bg-black"
+                                className="bg-card dark:bg-black"
                             />
                             <Button onClick={handleSaveGoal} >Set Goal</Button>
                         </div>
@@ -141,7 +141,7 @@ export default function GoalSetting({ subject }: GoalSettingProps) {
             <CardContent>
                 <div className="space-y-2">
                     <div className="flex justify-between text-sm mb-2">
-                        <span className="font-medium text-gray-700 dark:text-gray-300">{currentProgress} / {goal.targetQuestions} Solved</span>
+                        <span className="font-medium text-muted-foreground dark:text-muted-foreground">{currentProgress} / {goal.targetQuestions} Solved</span>
                         <span className="font-bold text-indigo-600 dark:text-indigo-400">{progressPercentage}%</span>
                     </div>
                     <Progress value={progressPercentage} className="h-3 bg-indigo-100 dark:bg-indigo-950" />

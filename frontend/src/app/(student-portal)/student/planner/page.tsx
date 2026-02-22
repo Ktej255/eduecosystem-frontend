@@ -85,9 +85,9 @@ const monthlySchedules = {
             { date: 17, topic: "Sci & Tech Day 2", subtitle: "", gs: "GS3", color: "bg-cyan-100 dark:bg-cyan-900/30" },
             { date: 18, topic: "Sci & Tech Day 3", subtitle: "", gs: "GS3", color: "bg-cyan-100 dark:bg-cyan-900/30" },
             { date: 19, topic: "MOCK TEST -03 (Major TEST)", subtitle: "", gs: "", color: "bg-purple-100 dark:bg-purple-900/30" },
-            { date: 20, topic: "Holiday", subtitle: "", gs: "", color: "bg-gray-100 dark:bg-gray-800" },
-            { date: 21, topic: "Holiday", subtitle: "", gs: "", color: "bg-gray-100 dark:bg-gray-800" },
-            { date: 22, topic: "Holiday", subtitle: "", gs: "", color: "bg-gray-100 dark:bg-gray-800" },
+            { date: 20, topic: "Holiday", subtitle: "", gs: "", color: "bg-muted" },
+            { date: 21, topic: "Holiday", subtitle: "", gs: "", color: "bg-muted" },
+            { date: 22, topic: "Holiday", subtitle: "", gs: "", color: "bg-muted" },
             { date: 26, topic: "Test -01 (Eco + Envir + DM)", subtitle: "", gs: "", color: "bg-purple-100 dark:bg-purple-900/30" },
             { date: 27, topic: "Test -02 (Agriculture + Internal Security)", subtitle: "", gs: "", color: "bg-purple-100 dark:bg-purple-900/30" },
             { date: 28, topic: "Break", subtitle: "", gs: "", color: "bg-blue-400 dark:bg-blue-700" },
@@ -382,8 +382,8 @@ export default function PlannerPage() {
             {/* Header */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Batch 01 - Study Planner</h1>
-                    <p className="text-gray-700 dark:text-gray-300">Progressive unlock system - Complete each day to unlock the next</p>
+                    <h1 className="text-3xl font-bold text-foreground mb-2">Batch 01 - Study Planner</h1>
+                    <p className="text-muted-foreground dark:text-muted-foreground">Progressive unlock system - Complete each day to unlock the next</p>
                 </div>
                 <div className="flex gap-2 flex-wrap">
                     <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 text-sm font-medium">GS1</span>
@@ -414,7 +414,7 @@ export default function PlannerPage() {
                             <span className="ml-2 w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
                         )}
                         {month.status === "locked" && (
-                            <Lock className="ml-2 h-4 w-4 text-gray-400" />
+                            <Lock className="ml-2 h-4 w-4 text-muted-foreground" />
                         )}
                     </Button>
                 ))}
@@ -433,7 +433,7 @@ export default function PlannerPage() {
                         Ongoing
                     </span>
                 ) : (
-                    <span className="px-4 py-2 rounded-lg bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300 font-semibold flex items-center gap-2">
+                    <span className="px-4 py-2 rounded-lg bg-muted text-foreground/30 dark:text-muted-foreground font-semibold flex items-center gap-2">
                         <Lock className="h-5 w-5" />
                         Locked - Complete previous months first
                     </span>
@@ -485,13 +485,13 @@ export default function PlannerPage() {
                                 <div className={`h-full ${day.color} rounded-lg p-1 md:p-2 ${isUnlocked ? 'hover:ring-2 hover:ring-primary cursor-pointer' : 'opacity-50 cursor-not-allowed'} transition-all flex flex-col justify-between relative`}>
                                     {!isUnlocked && (
                                         <div className="absolute inset-0 flex items-center justify-center bg-black/20 rounded-lg">
-                                            <Lock className="h-6 w-6 text-gray-600 dark:text-gray-400" />
+                                            <Lock className="h-6 w-6 text-muted-foreground dark:text-muted-foreground" />
                                         </div>
                                     )}
                                     <div className="flex justify-between items-start">
                                         <span className="text-xs md:text-sm font-bold">{day.date}</span>
                                         {day.gs && (
-                                            <span className="text-[8px] md:text-[10px] font-bold px-1 py-0.5 rounded bg-white/50 dark:bg-black/30">
+                                            <span className="text-[8px] md:text-[10px] font-bold px-1 py-0.5 rounded bg-card/50 dark:bg-black/30">
                                                 {day.gs}
                                             </span>
                                         )}

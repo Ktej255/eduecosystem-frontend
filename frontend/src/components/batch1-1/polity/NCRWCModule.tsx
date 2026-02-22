@@ -17,7 +17,7 @@ interface NCRWCModuleProps {
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="bg-[#f8fafc] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-slate-200">
-        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white/50 rounded-3xl p-6 shadow-inner border-2 border-slate-200">
+        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-card/50 rounded-3xl p-6 shadow-inner border-2 border-border">
             {children}
         </div>
     </div>
@@ -28,7 +28,7 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
         <div className={`p-3 rounded-full ${color} text-white shadow-lg`}>
             <Icon size={24} />
         </div>
-        <h2 className={`text-2xl font-black uppercase tracking-tight text-slate-800`}>
+        <h2 className={`text-2xl font-black uppercase tracking-tight text-foreground`}>
             {title}
         </h2>
         <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
@@ -42,7 +42,7 @@ export default function NCRWCModule({ onComplete, isCompleted, chapterNumber = "
             <div className="relative bg-[#1e3a8a] border-4 border-blue-900 rounded-3xl p-8 md:p-12 shadow-2xl text-white overflow-hidden">
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-white text-blue-900 px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
+                        <Badge className="bg-card text-blue-900 px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
                         <span className="text-blue-200 font-bold uppercase tracking-widest text-sm">Working of Constitution</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
@@ -62,10 +62,10 @@ export default function NCRWCModule({ onComplete, isCompleted, chapterNumber = "
             <SectionHeader title="Phase 1: The Mandate (2000-2002)" icon={Scroll} color="bg-[#1d4ed8]" />
 
             <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-white border-2 border-blue-200 rounded-2xl p-6 shadow-md">
+                <div className="bg-card border-2 border-blue-200 rounded-2xl p-6 shadow-md">
                     <h3 className="font-black text-blue-800 mb-2">The Setup</h3>
-                    <p className="font-bold text-slate-700">Chairman: Justice M.N. Venkatachaliah.</p>
-                    <p className="text-xs text-slate-500 mt-1">Reviewing 50 years of performance.</p>
+                    <p className="font-bold text-muted-foreground">Chairman: Justice M.N. Venkatachaliah.</p>
+                    <p className="text-xs text-muted-foreground mt-1">Reviewing 50 years of performance.</p>
                 </div>
 
                 <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-6 shadow-md relative">
@@ -82,36 +82,36 @@ export default function NCRWCModule({ onComplete, isCompleted, chapterNumber = "
             <SectionHeader title="Phase 2: Key Reforms" icon={CheckSquare} color="bg-[#15803d]" />
 
             <div className="space-y-6">
-                <div className="bg-white p-6 rounded-xl border border-dashed border-green-500 shadow-sm">
+                <div className="bg-card p-6 rounded-xl border border-dashed border-green-500 shadow-sm">
                     <h4 className="font-black text-lg text-green-800 mb-2">1. Constructive Vote of No Confidence</h4>
-                    <p className="text-sm font-bold text-slate-600">
+                    <p className="text-sm font-bold text-muted-foreground">
                         Can only oust PM if a <span className="text-green-600">Successor</span> is named simultaneously. (German Model).
                     </p>
                 </div>
 
-                <div className="bg-white p-6 rounded-xl border border-dashed border-green-500 shadow-sm">
+                <div className="bg-card p-6 rounded-xl border border-dashed border-green-500 shadow-sm">
                     <h4 className="font-black text-lg text-green-800 mb-2">2. Judicial Commission</h4>
-                    <p className="text-sm font-bold text-slate-600">
+                    <p className="text-sm font-bold text-muted-foreground">
                         Replace Collegium with National Judicial Commission. (Attempted via NJAC).
                     </p>
                 </div>
 
-                <div className="bg-white p-6 rounded-xl border border-dashed border-green-500 shadow-sm">
+                <div className="bg-card p-6 rounded-xl border border-dashed border-green-500 shadow-sm">
                     <h4 className="font-black text-lg text-green-800 mb-2">3. Governor's Appointment</h4>
-                    <p className="text-sm font-bold text-slate-600">
+                    <p className="text-sm font-bold text-muted-foreground">
                         Committee: PM + Home Min + Speaker + CM.
                     </p>
                 </div>
             </div>
 
             {/* FOOTER */}
-            <div className="mt-8 bg-slate-100 p-6 rounded-2xl flex items-center gap-4">
-                <div className="p-3 bg-white rounded-full shadow text-blue-600">
+            <div className="mt-8 bg-muted p-6 rounded-2xl flex items-center gap-4">
+                <div className="p-3 bg-card rounded-full shadow text-blue-600">
                     <BookOpen size={24} />
                 </div>
                 <div>
-                    <h4 className="font-black text-lg text-slate-800">The Legacy</h4>
-                    <p className="text-sm font-bold text-slate-500">
+                    <h4 className="font-black text-lg text-foreground">The Legacy</h4>
+                    <p className="text-sm font-bold text-muted-foreground">
                         Shaped RTI, Anti-Defection 91st AA, and Judicial Reform debates.
                     </p>
                 </div>
@@ -121,7 +121,7 @@ export default function NCRWCModule({ onComplete, isCompleted, chapterNumber = "
                 <Button
                     onClick={onComplete}
                     disabled={isCompleted}
-                    className={`px-12 py-6 rounded-full text-xl font-black font-['Kalam'] transition-all transform hover:scale-105 ${isCompleted ? 'bg-slate-300 text-slate-500' : 'bg-[#1e3a8a] text-white hover:bg-blue-800'
+                    className={`px-12 py-6 rounded-full text-xl font-black font-['Kalam'] transition-all transform hover:scale-105 ${isCompleted ? 'bg-slate-300 text-muted-foreground' : 'bg-[#1e3a8a] text-white hover:bg-blue-800'
                         }`}
                 >
                     {isCompleted ? "Audit Complete" : "Submit Report"}

@@ -11,9 +11,9 @@ import ReactMarkdown from 'react-markdown';
 
 export default function BiodiversityPage() {
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-black">
+        <div className="min-h-screen bg-muted dark:bg-black">
             {/* Header */}
-            <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+            <div className="bg-card border-b border-border sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
                     <div className="flex items-center gap-4">
                         <Link href="/student/batch1/environment">
@@ -26,7 +26,7 @@ export default function BiodiversityPage() {
                                 <Sprout className="h-5 w-5 text-emerald-600" />
                                 {BIODIVERSITY_CONTENT.title}
                             </h1>
-                            <p className="text-xs text-slate-500">{BIODIVERSITY_CONTENT.description}</p>
+                            <p className="text-xs text-muted-foreground">{BIODIVERSITY_CONTENT.description}</p>
                         </div>
                     </div>
                 </div>
@@ -48,11 +48,11 @@ export default function BiodiversityPage() {
                     <div className="md:col-span-1 space-y-4">
                         <Card className="sticky top-24">
                             <CardHeader>
-                                <CardTitle className="text-sm uppercase tracking-wider text-slate-500">Key Topics</CardTitle>
+                                <CardTitle className="text-sm uppercase tracking-wider text-muted-foreground">Key Topics</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-2 p-4 pt-0">
                                 {BIODIVERSITY_CONTENT.sections.map(sec => (
-                                    <a key={sec.id} href={`#${sec.id}`} className="block text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 p-2 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors">
+                                    <a key={sec.id} href={`#${sec.id}`} className="block text-sm font-medium text-muted-foreground hover:text-emerald-600 dark:hover:text-emerald-400 p-2 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors">
                                         {sec.title}
                                     </a>
                                 ))}
@@ -71,7 +71,7 @@ export default function BiodiversityPage() {
                                             {sec.title}
                                         </CardTitle>
                                     </CardHeader>
-                                    <CardContent className="p-6 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
+                                    <CardContent className="p-6 prose dark:prose-invert max-w-none text-muted-foreground">
                                         <ReactMarkdown>{sec.content}</ReactMarkdown>
                                     </CardContent>
                                 </Card>

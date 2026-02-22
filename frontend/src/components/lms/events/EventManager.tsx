@@ -35,7 +35,7 @@ export default function EventManager() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-full">
             {/* Calendar & List (Left) */}
-            <Card className="md:col-span-1 border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+            <Card className="md:col-span-1 border-neutral-200 dark:border-neutral-800 bg-card dark:bg-neutral-900">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                         <CalendarIcon className="w-5 h-5 text-indigo-500" />
@@ -54,7 +54,7 @@ export default function EventManager() {
                             <div key={event.id} className="bg-neutral-50 dark:bg-neutral-800 p-3 rounded-lg border border-neutral-100 dark:border-neutral-700">
                                 <div className="flex justify-between items-start mb-1">
                                     <span className="font-bold text-sm text-indigo-600 dark:text-indigo-400">{event.date} • {event.time}</span>
-                                    <span className="text-[10px] uppercase tracking-wider font-bold bg-white dark:bg-black px-2 py-0.5 rounded border">{event.type}</span>
+                                    <span className="text-[10px] uppercase tracking-wider font-bold bg-card dark:bg-black px-2 py-0.5 rounded border">{event.type}</span>
                                 </div>
                                 <h4 className="font-medium text-sm mb-2">{event.title}</h4>
                                 <div className="flex items-center gap-1 text-xs text-neutral-500">
@@ -67,7 +67,7 @@ export default function EventManager() {
             </Card>
 
             {/* Scheduler Form (Right) */}
-            <Card className="md:col-span-2 border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+            <Card className="md:col-span-2 border-neutral-200 dark:border-neutral-800 bg-card dark:bg-neutral-900">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2 text-rose-500">
                         <Video className="w-5 h-5" />

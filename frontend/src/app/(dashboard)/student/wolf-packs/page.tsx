@@ -36,7 +36,7 @@ export default function WolfPackHallPage() {
         return (
             <div className="flex flex-col items-center justify-center min-h-[60vh] text-cyan-500">
                 <Loader2 className="h-12 w-12 animate-spin mb-4" />
-                <p className="text-gray-400 font-medium">Entering the Pack Hall...</p>
+                <p className="text-muted-foreground font-medium">Entering the Pack Hall...</p>
             </div>
         );
     }
@@ -49,15 +49,15 @@ export default function WolfPackHallPage() {
                         <Shield className="h-8 w-8 text-cyan-500" />
                         <h1 className="text-4xl font-black text-white">Wolf Pack Hall</h1>
                     </div>
-                    <p className="text-gray-400 text-lg">Strength in numbers. Conquer the leaderboard with your pack.</p>
+                    <p className="text-muted-foreground text-lg">Strength in numbers. Conquer the leaderboard with your pack.</p>
                 </div>
             </div>
 
             {!myPack ? (
                 <div className="bg-gray-900 border border-gray-800 rounded-3xl p-12 text-center max-w-2xl mx-auto shadow-2xl">
-                    <Users className="h-16 w-16 text-gray-700 mx-auto mb-6" />
+                    <Users className="h-16 w-16 text-muted-foreground mx-auto mb-6" />
                     <h2 className="text-2xl font-bold text-white mb-4">You haven't joined a pack yet</h2>
-                    <p className="text-gray-400 mb-8">Join a study group to be sorted into a Wolf Pack and start competing for glory!</p>
+                    <p className="text-muted-foreground mb-8">Join a study group to be sorted into a Wolf Pack and start competing for glory!</p>
                     {/* Link to study groups or auto-suggest */}
                 </div>
             ) : (
@@ -84,7 +84,7 @@ export default function WolfPackHallPage() {
                                         <Trophy className="h-5 w-5 text-amber-500" />
                                         Next Cycle: Weekly Reset
                                     </h3>
-                                    <p className="text-sm text-gray-400">The Weekly House Championship ends in 3 days. The winning pack earns the <span className="text-cyan-400 font-bold">Resilience Badge</span> and 10,000 bonus coins shared among active members!</p>
+                                    <p className="text-sm text-muted-foreground">The Weekly House Championship ends in 3 days. The winning pack earns the <span className="text-cyan-400 font-bold">Resilience Badge</span> and 10,000 bonus coins shared among active members!</p>
                                 </div>
 
                                 <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6">
@@ -92,15 +92,15 @@ export default function WolfPackHallPage() {
                                     <ul className="space-y-4 text-sm">
                                         <li className="flex gap-3">
                                             <div className="h-5 w-5 rounded-full bg-cyan-600 flex-shrink-0 flex items-center justify-center text-[10px] font-bold">1</div>
-                                            <p className="text-gray-400">Complete lessons and quizzes to earn <span className="text-white font-bold">Learning Coins</span>.</p>
+                                            <p className="text-muted-foreground">Complete lessons and quizzes to earn <span className="text-white font-bold">Learning Coins</span>.</p>
                                         </li>
                                         <li className="flex gap-3">
                                             <div className="h-5 w-5 rounded-full bg-cyan-600 flex-shrink-0 flex items-center justify-center text-[10px] font-bold">2</div>
-                                            <p className="text-gray-400">Your coins are automatically added to your <span className="text-white font-bold">Pack Points</span>.</p>
+                                            <p className="text-muted-foreground">Your coins are automatically added to your <span className="text-white font-bold">Pack Points</span>.</p>
                                         </li>
                                         <li className="flex gap-3">
                                             <div className="h-5 w-5 rounded-full bg-cyan-600 flex-shrink-0 flex items-center justify-center text-[10px] font-bold">3</div>
-                                            <p className="text-gray-400">Climb the ranks to unlock exclusive badges and <span className="text-white font-bold">House Privileges</span>.</p>
+                                            <p className="text-muted-foreground">Climb the ranks to unlock exclusive badges and <span className="text-white font-bold">House Privileges</span>.</p>
                                         </li>
                                     </ul>
                                 </div>

@@ -40,11 +40,11 @@ export default function AchievementsPage() {
                     <ArrowLeft className="h-5 w-5" />
                 </Button>
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100 flex items-center gap-2">
+                    <h1 className="text-2xl font-bold text-foreground flex items-center gap-2">
                         <Trophy className="h-6 w-6 text-yellow-500" />
                         Achievements Gallery
                     </h1>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm">
+                    <p className="text-muted-foreground dark:text-muted-foreground text-sm">
                         Track your milestones and earned badges.
                     </p>
                 </div>
@@ -66,9 +66,9 @@ export default function AchievementsPage() {
 
             {/* Unlocked Badges */}
             <section className="space-y-4">
-                <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200">Unlocked Badges</h2>
+                <h2 className="text-xl font-bold text-foreground">Unlocked Badges</h2>
                 {unlocked.length === 0 ? (
-                    <div className="p-8 text-center text-gray-500 italic bg-gray-50 rounded-xl border border-dashed">
+                    <div className="p-8 text-center text-muted-foreground italic bg-muted rounded-xl border border-dashed">
                         No badges earned yet. Start studying to unlock!
                     </div>
                 ) : (
@@ -80,10 +80,10 @@ export default function AchievementsPage() {
                                         {achievement.icon}
                                     </div>
                                     <div className="space-y-1">
-                                        <h3 className="font-bold text-sm text-gray-800 dark:text-gray-100">
+                                        <h3 className="font-bold text-sm text-foreground">
                                             {achievement.name}
                                         </h3>
-                                        <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
+                                        <p className="text-xs text-muted-foreground dark:text-muted-foreground line-clamp-2">
                                             {achievement.description}
                                         </p>
                                     </div>
@@ -99,23 +99,23 @@ export default function AchievementsPage() {
 
             {/* In Progress */}
             <section className="space-y-4">
-                <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200">In Progress</h2>
+                <h2 className="text-xl font-bold text-foreground">In Progress</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {inProgress.map(item => {
                         const percent = Math.min(100, Math.round((item.progress / item.max) * 100));
                         return (
-                            <Card key={item.id} className="bg-white dark:bg-gray-800">
+                            <Card key={item.id} className="bg-card">
                                 <CardContent className="p-4 flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-2xl grayscale opacity-50">
+                                    <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center text-2xl grayscale opacity-50">
                                         {item.icon}
                                     </div>
                                     <div className="flex-1 space-y-2">
                                         <div className="flex justify-between">
                                             <h3 className="font-medium text-sm">{item.name}</h3>
-                                            <span className="text-xs text-gray-500">{item.progress} / {item.max}</span>
+                                            <span className="text-xs text-muted-foreground">{item.progress} / {item.max}</span>
                                         </div>
                                         <Progress value={percent} className="h-2" />
-                                        <p className="text-xs text-gray-500">{item.description}</p>
+                                        <p className="text-xs text-muted-foreground">{item.description}</p>
                                     </div>
                                 </CardContent>
                             </Card>

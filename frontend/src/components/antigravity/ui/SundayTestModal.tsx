@@ -70,32 +70,32 @@ export default function SundayTestModal({ testId, questions, onClose }: Props) {
                     </div>
 
                     <h2 className="text-3xl font-bold text-white mb-2">{result.feedback}</h2>
-                    <p className="text-gray-400 mb-8">Test ID: {testId}</p>
+                    <p className="text-muted-foreground mb-8">Test ID: {testId}</p>
 
                     <div className="grid grid-cols-2 gap-4 mb-8">
                         <div className="p-4 rounded-xl bg-black/30 border border-white/5">
-                            <div className="text-gray-400 text-xs uppercase tracking-wider">Score</div>
-                            <div className="text-3xl font-black text-white">{result.score} <span className="text-sm text-gray-500">/ {result.total_marks}</span></div>
+                            <div className="text-muted-foreground text-xs uppercase tracking-wider">Score</div>
+                            <div className="text-3xl font-black text-white">{result.score} <span className="text-sm text-muted-foreground">/ {result.total_marks}</span></div>
                         </div>
                         <div className="p-4 rounded-xl bg-black/30 border border-white/5">
-                            <div className="text-gray-400 text-xs uppercase tracking-wider">Percentage</div>
+                            <div className="text-muted-foreground text-xs uppercase tracking-wider">Percentage</div>
                             <div className={`text-3xl font-black ${result.percentage >= 50 ? 'text-emerald-400' : 'text-red-400'}`}>
                                 {result.percentage}%
                             </div>
                         </div>
                         <div className="p-4 rounded-xl bg-black/30 border border-white/5">
-                            <div className="text-gray-400 text-xs uppercase tracking-wider">Correct</div>
+                            <div className="text-muted-foreground text-xs uppercase tracking-wider">Correct</div>
                             <div className="text-xl font-bold text-emerald-400">{result.correct_count}</div>
                         </div>
                         <div className="p-4 rounded-xl bg-black/30 border border-white/5">
-                            <div className="text-gray-400 text-xs uppercase tracking-wider">Wrong</div>
+                            <div className="text-muted-foreground text-xs uppercase tracking-wider">Wrong</div>
                             <div className="text-xl font-bold text-red-400">{result.wrong_count}</div>
                         </div>
                     </div>
 
                     <button
                         onClick={onClose}
-                        className="w-full py-3 bg-white text-black font-bold rounded-xl hover:bg-gray-100 transition-colors"
+                        className="w-full py-3 bg-card text-black font-bold rounded-xl hover:bg-muted transition-colors"
                     >
                         Return to Dashboard
                     </button>
@@ -113,9 +113,9 @@ export default function SundayTestModal({ testId, questions, onClose }: Props) {
                 <div className="p-6 border-b border-gray-800 flex items-center justify-between bg-[#111]">
                     <div>
                         <h2 className="text-xl font-bold text-white">Sunday Mock Test</h2>
-                        <p className="text-sm text-gray-400">Question {currentQIndex + 1} of {questions.length}</p>
+                        <p className="text-sm text-muted-foreground">Question {currentQIndex + 1} of {questions.length}</p>
                     </div>
-                    <button onClick={onClose} className="p-2 hover:bg-gray-800 rounded-full transition-colors text-gray-400">
+                    <button onClick={onClose} className="p-2 hover:bg-gray-800 rounded-full transition-colors text-muted-foreground">
                         <X className="w-5 h-5" />
                     </button>
                 </div>
@@ -137,13 +137,13 @@ export default function SundayTestModal({ testId, questions, onClose }: Props) {
                                 className={`w-full p-4 text-left rounded-xl border transition-all flex items-center gap-4 group
                                     ${answers[currentQ.id] === idx
                                         ? 'bg-purple-600 border-purple-500 text-white shadow-lg shadow-purple-900/20'
-                                        : 'bg-gray-900/50 border-gray-800 text-gray-300 hover:border-gray-600 hover:bg-gray-800'
+                                        : 'bg-gray-900/50 border-gray-800 text-muted-foreground hover:border-gray-600 hover:bg-gray-800'
                                     }`}
                             >
                                 <div className={`w-6 h-6 rounded-full border flex items-center justify-center shrink-0 
-                                    ${answers[currentQ.id] === idx ? 'border-white bg-white/20' : 'border-gray-600 group-hover:border-gray-400'}
+                                    ${answers[currentQ.id] === idx ? 'border-white bg-card/20' : 'border-gray-600 group-hover:border-gray-400'}
                                 `}>
-                                    {answers[currentQ.id] === idx && <div className="w-2.5 h-2.5 bg-white rounded-full" />}
+                                    {answers[currentQ.id] === idx && <div className="w-2.5 h-2.5 bg-card rounded-full" />}
                                 </div>
                                 <span className="font-medium">{opt}</span>
                             </button>
@@ -156,7 +156,7 @@ export default function SundayTestModal({ testId, questions, onClose }: Props) {
                     <button
                         onClick={() => setCurrentQIndex(prev => Math.max(0, prev - 1))}
                         disabled={currentQIndex === 0}
-                        className="px-6 py-2 text-gray-400 font-medium hover:text-white disabled:opacity-30 disabled:hover:text-gray-400"
+                        className="px-6 py-2 text-muted-foreground font-medium hover:text-white disabled:opacity-30 disabled:hover:text-muted-foreground"
                     >
                         Previous
                     </button>
@@ -172,7 +172,7 @@ export default function SundayTestModal({ testId, questions, onClose }: Props) {
                     ) : (
                         <button
                             onClick={() => setCurrentQIndex(prev => Math.min(questions.length - 1, prev + 1))}
-                            className="px-8 py-3 bg-white text-black font-bold rounded-xl hover:bg-gray-200 transition-colors flex items-center gap-2"
+                            className="px-8 py-3 bg-card text-black font-bold rounded-xl hover:bg-muted transition-colors flex items-center gap-2"
                         >
                             Next <ChevronRight className="w-4 h-4" />
                         </button>

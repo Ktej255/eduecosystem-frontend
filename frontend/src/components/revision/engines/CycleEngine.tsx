@@ -134,11 +134,11 @@ export default function CycleEngine({ onComplete, durationMinutes = 25, subjectI
                             >
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <div className="text-center text-white p-12">
-                                        <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-md group-hover:scale-110 transition-transform cursor-pointer" onClick={() => setIsActive(!isActive)}>
+                                        <div className="w-24 h-24 bg-card/10 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-md group-hover:scale-110 transition-transform cursor-pointer" onClick={() => setIsActive(!isActive)}>
                                             {isActive ? <Pause className="w-10 h-10 fill-white" /> : <Play className="w-10 h-10 fill-white ml-2" />}
                                         </div>
                                         <h3 className="text-2xl font-black mb-2">Fundamental Rights: Article 14-18</h3>
-                                        <p className="text-slate-400 font-medium tracking-wide uppercase text-xs">Conceptual Clarity Video • 25 Minutes</p>
+                                        <p className="text-muted-foreground font-medium tracking-wide uppercase text-xs">Conceptual Clarity Video • 25 Minutes</p>
                                     </div>
                                 </div>
 
@@ -146,9 +146,9 @@ export default function CycleEngine({ onComplete, durationMinutes = 25, subjectI
                                 <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
                                     <div className="flex items-center justify-between mb-2">
                                         <span className="text-white font-mono text-sm">{formatTime(durationMinutes * 60 - timeLeft)}</span>
-                                        <span className="text-slate-400 font-mono text-sm">{formatTime(timeLeft)}</span>
+                                        <span className="text-muted-foreground font-mono text-sm">{formatTime(timeLeft)}</span>
                                     </div>
-                                    <Progress value={100 - progress} className="h-1.5 bg-white/20" color="bg-indigo-500" />
+                                    <Progress value={100 - progress} className="h-1.5 bg-card/20" color="bg-indigo-500" />
                                 </div>
                             </motion.div>
                         )}
@@ -158,7 +158,7 @@ export default function CycleEngine({ onComplete, durationMinutes = 25, subjectI
                                 key="recall"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="bg-white dark:bg-slate-900 rounded-[3rem] p-12 shadow-2xl border border-slate-100 dark:border-slate-800 text-center"
+                                className="bg-card rounded-[3rem] p-12 shadow-2xl border border-slate-100 text-center"
                             >
                                 <div className="w-24 h-24 bg-rose-100 dark:bg-rose-900/30 rounded-full flex items-center justify-center mx-auto mb-8 relative">
                                     <Mic className={`w-10 h-10 text-rose-600 ${isRecording ? 'animate-pulse' : ''}`} />
@@ -170,17 +170,17 @@ export default function CycleEngine({ onComplete, durationMinutes = 25, subjectI
                                     )}
                                 </div>
                                 <h2 className="text-4xl font-black mb-4">Verbal Recall Session</h2>
-                                <p className="text-slate-500 dark:text-slate-400 max-w-lg mx-auto mb-12 font-medium">
+                                <p className="text-muted-foreground dark:text-muted-foreground max-w-lg mx-auto mb-12 font-medium">
                                     Explain the core concepts you just watched. Verbalizing helps "lock in" the neuro-pathways of understanding.
                                 </p>
 
-                                <div className="bg-slate-50 dark:bg-slate-950 p-8 rounded-3xl mb-8 min-h-[150px] border border-slate-100 dark:border-slate-800 text-left">
+                                <div className="bg-muted p-8 rounded-3xl mb-8 min-h-[150px] border border-slate-100 text-left">
                                     {recallTranscript ? (
-                                        <p className="text-lg font-medium leading-relaxed italic text-slate-700 dark:text-slate-300">
+                                        <p className="text-lg font-medium leading-relaxed italic text-muted-foreground">
                                             "{recallTranscript}"
                                         </p>
                                     ) : (
-                                        <p className="text-slate-400 italic text-center py-8">Your explanation will appear here as you speak...</p>
+                                        <p className="text-muted-foreground italic text-center py-8">Your explanation will appear here as you speak...</p>
                                     )}
                                 </div>
 
@@ -195,7 +195,7 @@ export default function CycleEngine({ onComplete, durationMinutes = 25, subjectI
                                                 startListening();
                                             }
                                         }}
-                                        className={`h-16 px-10 rounded-2xl font-black transition-all ${isListening ? 'bg-rose-600 text-white animate-pulse' : 'bg-slate-900 dark:bg-white dark:text-slate-900'
+                                        className={`h-16 px-10 rounded-2xl font-black transition-all ${isListening ? 'bg-rose-600 text-white animate-pulse' : 'bg-slate-900 dark:bg-card dark:text-foreground'
                                             }`}
                                     >
                                         {isListening ? 'Stop Recording' : 'Start Explaining'}
@@ -225,7 +225,7 @@ export default function CycleEngine({ onComplete, durationMinutes = 25, subjectI
                                     </Badge>
                                 </div>
 
-                                <Card className="border-none bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-xl overflow-hidden">
+                                <Card className="border-none bg-card rounded-[2.5rem] shadow-xl overflow-hidden">
                                     <CardContent className="p-12">
                                         <h3 className="text-2xl font-bold mb-10 leading-snug">
                                             Which of the following Fundamental Rights provides for the "Abolition of Untouchability"?
@@ -252,7 +252,7 @@ export default function CycleEngine({ onComplete, durationMinutes = 25, subjectI
                                                         // Finalize after one demo question for this version
                                                         handlePhaseComplete();
                                                     }}
-                                                    className="w-full p-6 text-left rounded-2xl border-2 border-slate-100 dark:border-slate-800 hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/20 transition-all font-bold flex justify-between group"
+                                                    className="w-full p-6 text-left rounded-2xl border-2 border-slate-100 hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/20 transition-all font-bold flex justify-between group"
                                                 >
                                                     {opt}
                                                     <ChevronRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
@@ -262,8 +262,8 @@ export default function CycleEngine({ onComplete, durationMinutes = 25, subjectI
                                     </CardContent>
                                 </Card>
 
-                                <div className="flex justify-between items-center bg-slate-100 dark:bg-slate-800/50 p-6 rounded-[2rem]">
-                                    <p className="text-sm font-bold text-slate-500">Correct answers give 2X XP during Cycle Loops</p>
+                                <div className="flex justify-between items-center bg-muted/50 p-6 rounded-[2rem]">
+                                    <p className="text-sm font-bold text-muted-foreground">Correct answers give 2X XP during Cycle Loops</p>
                                     <Button className="rounded-xl font-bold bg-indigo-600">Submit Answer</Button>
                                 </div>
                             </motion.div>
@@ -287,22 +287,22 @@ export default function CycleEngine({ onComplete, durationMinutes = 25, subjectI
                                     <span className="opacity-80">Progress</span>
                                     <span>{Math.round(100 - progress)}%</span>
                                 </div>
-                                <Progress value={100 - progress} className="h-1 bg-white/20" />
+                                <Progress value={100 - progress} className="h-1 bg-card/20" />
                             </div>
                         </CardContent>
                     </Card>
 
-                    <Card className="border-none bg-white dark:bg-slate-900 rounded-[2rem] shadow-lg border border-slate-100 dark:border-slate-800">
+                    <Card className="border-none bg-card rounded-[2rem] shadow-lg border border-slate-100">
                         <CardContent className="p-8">
-                            <h4 className="font-black text-xs uppercase tracking-widest text-slate-400 mb-6">Pipeline</h4>
+                            <h4 className="font-black text-xs uppercase tracking-widest text-muted-foreground mb-6">Pipeline</h4>
                             <div className="space-y-6">
                                 {[
                                     { phase: 'video', label: 'Watch Context', active: phase === 'video', done: phase !== 'video' },
                                     { phase: 'recall', label: 'Verbal Recall', active: phase === 'recall', done: phase === 'mcq' },
                                     { phase: 'mcq', label: 'Retention Test', active: phase === 'mcq', done: false },
                                 ].map((step, i) => (
-                                    <div key={i} className={`flex items-center gap-4 ${step.active ? 'text-indigo-600' : step.done ? 'text-emerald-500' : 'text-slate-400'}`}>
-                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 transition-colors ${step.active ? 'border-indigo-600 bg-indigo-50' : step.done ? 'border-emerald-500 bg-emerald-50' : 'border-slate-200 bg-transparent'
+                                    <div key={i} className={`flex items-center gap-4 ${step.active ? 'text-indigo-600' : step.done ? 'text-emerald-500' : 'text-muted-foreground'}`}>
+                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 transition-colors ${step.active ? 'border-indigo-600 bg-indigo-50' : step.done ? 'border-emerald-500 bg-emerald-50' : 'border-border bg-transparent'
                                             }`}>
                                             {step.done ? <CheckCircle className="w-4 h-4" /> : <span className="text-xs font-bold">{i + 1}</span>}
                                         </div>
@@ -317,7 +317,7 @@ export default function CycleEngine({ onComplete, durationMinutes = 25, subjectI
                     <Card className="border-none bg-slate-900 text-white rounded-[2rem] overflow-hidden p-8">
                         <BrainCircuit className="w-8 h-8 text-indigo-400 mb-4" />
                         <h4 className="font-black text-lg mb-2 leading-tight">Adaptive Focus</h4>
-                        <p className="text-slate-400 text-xs leading-relaxed font-medium">
+                        <p className="text-muted-foreground text-xs leading-relaxed font-medium">
                             Based on your previous speed, Article 17 has been prioritized for this cycle. Retention velocity is 1.2x.
                         </p>
                     </Card>

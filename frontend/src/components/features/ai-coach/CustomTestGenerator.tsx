@@ -97,7 +97,7 @@ export default function CustomTestGenerator() {
                         const isCorrect = answers[idx] === q.correct_option_id;
                         const isSelected = !!answers[idx];
 
-                        let borderClass = "border-slate-200";
+                        let borderClass = "border-border";
                         if (showResults) {
                             borderClass = isCorrect ? "border-green-500 bg-green-50" : "border-red-200 bg-red-50";
                         }
@@ -143,11 +143,11 @@ export default function CustomTestGenerator() {
                                     </RadioGroup>
 
                                     {showResults && (
-                                        <div className="mt-4 p-4 bg-white/60 rounded-lg border border-slate-200 text-sm">
-                                            <p className="font-semibold flex items-center gap-2 mb-1 text-slate-800">
+                                        <div className="mt-4 p-4 bg-card/60 rounded-lg border border-border text-sm">
+                                            <p className="font-semibold flex items-center gap-2 mb-1 text-foreground">
                                                 <AlertCircle className="w-4 h-4" /> Explanation:
                                             </p>
-                                            <p className="text-slate-600 leading-relaxed">{q.explanation}</p>
+                                            <p className="text-muted-foreground leading-relaxed">{q.explanation}</p>
                                         </div>
                                     )}
                                 </CardContent>
@@ -190,7 +190,7 @@ export default function CustomTestGenerator() {
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                 />
-                <div className="flex justify-between items-center text-sm text-slate-500">
+                <div className="flex justify-between items-center text-sm text-muted-foreground">
                     <span>Minimum 50 characters</span>
                     <span>{notes.length} chars</span>
                 </div>

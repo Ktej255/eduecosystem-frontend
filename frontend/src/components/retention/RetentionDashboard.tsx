@@ -168,7 +168,7 @@ export default function RetentionDashboard() {
                             <h1 className="text-3xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
                                 Retention Dashboard
                             </h1>
-                            <p className="text-gray-400 mt-1">
+                            <p className="text-muted-foreground mt-1">
                                 {stats.topicsLearned > 0
                                     ? `Tracking ${stats.topicsLearned} topics • ${stats.criticalCount} need attention`
                                     : "Start learning topics to see your retention data"}
@@ -201,7 +201,7 @@ export default function RetentionDashboard() {
                     <h2 className="text-2xl font-bold text-white mb-3">
                         No Topics Tracked Yet
                     </h2>
-                    <p className="text-gray-400 text-center max-w-md mb-6">
+                    <p className="text-muted-foreground text-center max-w-md mb-6">
                         Start learning any subject — when you rate your confidence
                         after reading a topic, it will automatically appear here
                         with live retention tracking.
@@ -263,7 +263,7 @@ export default function RetentionDashboard() {
                             >
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-gray-400 text-sm">
+                                        <p className="text-muted-foreground text-sm">
                                             {stat.label}
                                         </p>
                                         <p className="text-3xl font-bold text-white mt-1">
@@ -390,7 +390,7 @@ export default function RetentionDashboard() {
                                 ) : (
                                     <div className="p-6 rounded-2xl bg-neutral-900/80 border border-neutral-800 text-center">
                                         <Brain className="w-10 h-10 text-indigo-400 mx-auto mb-3" />
-                                        <p className="text-gray-400 text-sm">
+                                        <p className="text-muted-foreground text-sm">
                                             Complete more topics to see retention predictions
                                         </p>
                                     </div>

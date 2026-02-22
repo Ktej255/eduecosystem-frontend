@@ -85,7 +85,7 @@ export default function LoginPage() {
             <h2 className="mt-6 text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
               Two-Factor Authentication
             </h2>
-            <p className="mt-2 text-sm text-gray-400">
+            <p className="mt-2 text-sm text-muted-foreground">
               Enter the code from your authenticator app
             </p>
           </div>
@@ -108,7 +108,7 @@ export default function LoginPage() {
           <h2 className="mt-6 text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
             Welcome Back
           </h2>
-          <p className="mt-2 text-sm text-gray-400">
+          <p className="mt-2 text-sm text-muted-foreground">
             Sign in to your holistic learning account
           </p>
         </div>
@@ -136,7 +136,7 @@ export default function LoginPage() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-white transition-colors"
               >
                 {showPassword ? (
                   <EyeOff className="h-4 w-4" />
@@ -170,7 +170,7 @@ export default function LoginPage() {
           </div>
         </form>
         <div className="text-center text-sm">
-          <span className="text-gray-400">Don't have an account? </span>
+          <span className="text-muted-foreground">Don't have an account? </span>
           <Link
             href="/register"
             className="font-medium text-cyan-400 hover:text-cyan-300"

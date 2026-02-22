@@ -53,7 +53,7 @@ export default function AmendmentTimeline() {
                                     ${amend.significance === 'High' ? 'bg-orange-600' : 'bg-amber-400'}
                                 `}></div>
 
-                                <div className="bg-white p-6 rounded-2xl border-2 border-orange-100 shadow-sm hover:shadow-md transition-shadow group">
+                                <div className="bg-card p-6 rounded-2xl border-2 border-orange-100 shadow-sm hover:shadow-md transition-shadow group">
                                     <div className="flex justify-between items-start mb-2">
                                         <div className="flex items-center gap-3">
                                             <span className="text-3xl font-black text-orange-900">{amend.number}</span>
@@ -67,7 +67,7 @@ export default function AmendmentTimeline() {
                                             </Badge>
                                         )}
                                     </div>
-                                    <p className="text-slate-700 font-serif leading-relaxed text-lg">
+                                    <p className="text-muted-foreground font-serif leading-relaxed text-lg">
                                         {amend.description}
                                     </p>
                                     <div className="mt-4 pt-4 border-t border-orange-50 flex items-center justify-end opacity-0 group-hover:opacity-100 transition-opacity">

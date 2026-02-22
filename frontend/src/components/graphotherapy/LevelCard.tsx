@@ -103,7 +103,7 @@ export default function LevelCard({
                     <Star className="w-4 h-4" fill="currentColor" />
                     Level {level}
                 </div>
-                <div className="flex items-center gap-1 text-sm text-gray-500">
+                <div className="flex items-center gap-1 text-sm text-muted-foreground">
                     <Clock className="w-4 h-4" />
                     {duration}
                 </div>
@@ -120,7 +120,7 @@ export default function LevelCard({
             </div>
 
             {/* Description */}
-            <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+            <p className="text-muted-foreground dark:text-muted-foreground mb-6 leading-relaxed">
                 {description}
             </p>
 
@@ -136,7 +136,7 @@ export default function LevelCard({
                         className="flex items-start gap-3"
                     >
                         <CheckCircle2 className={`w-5 h-5 ${theme.accent} shrink-0 mt-0.5`} />
-                        <span className="text-sm text-gray-700 dark:text-gray-300">{feature}</span>
+                        <span className="text-sm text-muted-foreground dark:text-muted-foreground">{feature}</span>
                     </motion.li>
                 ))}
             </ul>
@@ -145,7 +145,7 @@ export default function LevelCard({
             <div className="mt-auto">
                 <div className="flex items-baseline gap-2 mb-4">
                     <span className={`text-4xl font-bold ${theme.accent}`}>₹{price}</span>
-                    <span className="text-gray-500 text-sm">/ program</span>
+                    <span className="text-muted-foreground text-sm">/ program</span>
                 </div>
 
                 <Button

@@ -96,8 +96,8 @@ export default function Batch1ManagerPage() {
         <div className="p-6 max-w-7xl mx-auto space-y-6">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Batch 1 Content Manager</h1>
-                    <p className="text-gray-500 dark:text-gray-400">Manage daily videos and AI-driven content</p>
+                    <h1 className="text-3xl font-bold text-foreground">Batch 1 Content Manager</h1>
+                    <p className="text-muted-foreground dark:text-muted-foreground">Manage daily videos and AI-driven content</p>
                 </div>
 
                 <div className="flex gap-2">
@@ -161,7 +161,7 @@ export default function Batch1ManagerPage() {
                                     onClick={() => { setActiveSegment(idx); setVideoFile(null); }}
                                     className={`w-full text-left p-4 rounded-xl border transition-all ${idx === activeSegment
                                         ? "border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 ring-1 ring-indigo-500"
-                                        : "border-gray-200 dark:border-gray-800 hover:bg-gray-50"
+                                        : "border-border hover:bg-muted"
                                         }`}
                                 >
                                     <div className="flex justify-between items-start mb-1">
@@ -207,7 +207,7 @@ export default function Batch1ManagerPage() {
 
                             <div className="space-y-2">
                                 <label className="text-sm font-medium">Video Upload</label>
-                                <div className="border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg p-6 text-center hover:border-indigo-500 transition-colors">
+                                <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-indigo-500 transition-colors">
                                     <input
                                         type="file"
                                         accept="video/*"
@@ -216,16 +216,16 @@ export default function Batch1ManagerPage() {
                                         id="video-upload-input"
                                     />
                                     <label htmlFor="video-upload-input" className="cursor-pointer">
-                                        <VideoIcon className="w-8 h-8 mx-auto text-gray-400 mb-2" />
+                                        <VideoIcon className="w-8 h-8 mx-auto text-muted-foreground mb-2" />
                                         {videoFile ? (
                                             <p className="text-sm text-green-600 font-medium">{videoFile.name}</p>
                                         ) : (
-                                            <p className="text-sm text-gray-500">Click to select or drag video file</p>
+                                            <p className="text-sm text-muted-foreground">Click to select or drag video file</p>
                                         )}
                                     </label>
                                 </div>
                                 {content.segments[activeSegment]?.video_url && !videoFile && (
-                                    <div className="mt-2 text-sm text-gray-500 flex items-center gap-2">
+                                    <div className="mt-2 text-sm text-muted-foreground flex items-center gap-2">
                                         <VideoIcon className="w-4 h-4" />
                                         Current Video: <a href={content.segments[activeSegment].video_url} target="_blank" className="text-indigo-600 hover:underline">View Video</a>
                                     </div>

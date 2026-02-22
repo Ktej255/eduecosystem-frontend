@@ -167,7 +167,7 @@ export default function AIAvatarsPage() {
                     ? "bg-blue-600 text-white"
                     : step.id < currentStep
                       ? "bg-green-600 text-white"
-                      : "bg-gray-700 text-gray-400"
+                      : "bg-gray-700 text-muted-foreground"
                     }`}
                 >
                   {step.id < currentStep ? <Check className="w-4 h-4" /> : step.id}
@@ -177,7 +177,7 @@ export default function AIAvatarsPage() {
                     ? "text-blue-400 font-medium"
                     : step.id < currentStep
                       ? "text-green-400"
-                      : "text-gray-500"
+                      : "text-muted-foreground"
                     }`}
                 >
                   {step.label}
@@ -195,7 +195,7 @@ export default function AIAvatarsPage() {
           <div>
             <div className="text-center mb-10">
               <h1 className="text-4xl font-bold mb-3">What would your AI avatar do?</h1>
-              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                 AI avatars can do many things. Choose the one that you want it to do right
                 now. Don't worry, you can always create multiple avatars to do more things.
               </p>
@@ -225,7 +225,7 @@ export default function AIAvatarsPage() {
                         </div>
                         <div className="flex-1">
                           <h3 className="text-xl font-semibold mb-2">{purpose.title}</h3>
-                          <p className="text-gray-400">{purpose.description}</p>
+                          <p className="text-muted-foreground">{purpose.description}</p>
                         </div>
                         {selectedPurpose === purpose.id && (
                           <div className="text-blue-600">
@@ -246,7 +246,7 @@ export default function AIAvatarsPage() {
           <div>
             <div className="text-center mb-10">
               <h1 className="text-4xl font-bold mb-3">Feed your AI's brain</h1>
-              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                 Upload documents, add URLs, or provide instructions to train your AI avatar
                 with your knowledge and expertise.
               </p>
@@ -260,11 +260,11 @@ export default function AIAvatarsPage() {
                     <FileText className="w-5 h-5 text-blue-400" />
                     <Label className="text-lg font-semibold">Upload Documents</Label>
                   </div>
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p className="text-muted-foreground text-sm mb-4">
                     PDFs, Word docs, text files, or any learning materials
                   </p>
                   <div className="border-2 border-dashed border-gray-700 rounded-lg p-8 text-center hover:border-blue-600 transition-colors">
-                    <Upload className="w-12 h-12 text-gray-500 mx-auto mb-3" />
+                    <Upload className="w-12 h-12 text-muted-foreground mx-auto mb-3" />
                     <input
                       type="file"
                       multiple
@@ -277,7 +277,7 @@ export default function AIAvatarsPage() {
                       <span className="text-blue-400 hover:text-blue-300">
                         Click to upload
                       </span>
-                      <span className="text-gray-500"> or drag and drop</span>
+                      <span className="text-muted-foreground"> or drag and drop</span>
                     </label>
                   </div>
                   {knowledgeBase.documents.length > 0 && (
@@ -309,7 +309,7 @@ export default function AIAvatarsPage() {
                     <LinkIcon className="w-5 h-5 text-blue-400" />
                     <Label className="text-lg font-semibold">Website URLs</Label>
                   </div>
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p className="text-muted-foreground text-sm mb-4">
                     Add URLs to web pages you want your AI to learn from (one per line)
                   </p>
                   <Textarea
@@ -331,7 +331,7 @@ export default function AIAvatarsPage() {
                     <Sparkles className="w-5 h-5 text-blue-400" />
                     <Label className="text-lg font-semibold">Special Instructions</Label>
                   </div>
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p className="text-muted-foreground text-sm mb-4">
                     Any specific guidelines or context for your AI avatar
                   </p>
                   <Textarea
@@ -357,7 +357,7 @@ export default function AIAvatarsPage() {
           <div>
             <div className="text-center mb-10">
               <h1 className="text-4xl font-bold mb-3">Finishing touches</h1>
-              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                 Customize your AI avatar's personality and communication style
               </p>
             </div>
@@ -472,7 +472,7 @@ export default function AIAvatarsPage() {
             variant="ghost"
             size="lg"
             disabled={currentStep === 1}
-            className="text-gray-400 hover:text-white"
+            className="text-muted-foreground hover:text-white"
           >
             <ArrowLeft className="mr-2 w-5 h-5" />
             Back

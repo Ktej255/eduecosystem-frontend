@@ -32,8 +32,8 @@ export function SkillsMatrix({ data }: SkillsMatrixProps) {
             </CardHeader>
             <CardContent>
                 <div className="overflow-x-auto">
-                    <table className="w-full text-sm text-left text-gray-400">
-                        <thead className="text-xs uppercase bg-gray-800 text-gray-300">
+                    <table className="w-full text-sm text-left text-muted-foreground">
+                        <thead className="text-xs uppercase bg-gray-800 text-muted-foreground">
                             <tr>
                                 <th scope="col" className="px-6 py-3">Employee</th>
                                 <th scope="col" className="px-6 py-3 text-center">Polity</th>
@@ -67,7 +67,7 @@ export function SkillsMatrix({ data }: SkillsMatrixProps) {
                         </tbody>
                     </table>
                     {data.length === 0 && (
-                        <div className="text-center py-8 text-gray-600 italic">No employee data found.</div>
+                        <div className="text-center py-8 text-muted-foreground italic">No employee data found.</div>
                     )}
                 </div>
             </CardContent>

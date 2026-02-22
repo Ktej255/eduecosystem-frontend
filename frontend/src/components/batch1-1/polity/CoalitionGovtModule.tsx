@@ -35,14 +35,14 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const PuzzleCard = ({ title, icon, color, children, className = "" }: { title: string, icon: React.ReactNode, color: string, children: React.ReactNode, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+    <div className={`bg-card border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute top-0 right-0 p-2 opacity-10 translate-x-1/4 -translate-y-1/4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
             {icon}
         </div>
         <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-800 relative z-10 font-bold leading-relaxed">
+        <div className="space-y-4 text-foreground relative z-10 font-bold leading-relaxed">
             {children}
         </div>
     </div>
@@ -59,7 +59,7 @@ const PhaseHeader = ({ number, title, color, subtitle }: { number: string, title
             </h2>
             <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
         </div>
-        {subtitle && <p className="text-slate-500 font-bold italic ml-16">{subtitle}</p>}
+        {subtitle && <p className="text-muted-foreground font-bold italic ml-16">{subtitle}</p>}
     </div>
 );
 
@@ -68,11 +68,11 @@ export default function CoalitionGovtModule({ onComplete, isCompleted, chapterNu
         <ScrapbookContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#2563eb] border-4 border-[#1e40af] rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(37,99,235,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-card/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <Badge className="bg-[#1e40af] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
-                        <div className="h-[2px] w-12 bg-white/30"></div>
+                        <div className="h-[2px] w-12 bg-card/30"></div>
                         <span className="text-blue-100 font-bold uppercase tracking-widest text-sm italic underline decoration-white">Era of Alliances</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
@@ -99,14 +99,14 @@ export default function CoalitionGovtModule({ onComplete, isCompleted, chapterNu
             <div className="grid md:grid-cols-2 gap-8">
                 <PuzzleCard
                     title="What is a Coalition?"
-                    icon={<Handshake size={120} className="text-slate-600" />}
+                    icon={<Handshake size={120} className="text-muted-foreground" />}
                     color="border-slate-600"
-                    className="bg-slate-50"
+                    className="bg-muted"
                 >
                     <p className="text-sm">A temporary alliance of distinct parties to form a government. Ideology takes a back seat.</p>
-                    <div className="bg-white p-4 rounded-xl border-l-4 border-slate-600 shadow-sm mt-4">
-                        <h5 className="font-black text-slate-700 uppercase mb-2">Common Minimum Programme (CMP)</h5>
-                        <p className="text-xs font-bold text-slate-600">A document outlining agenda, shelving controversial issues. [PYQ]</p>
+                    <div className="bg-card p-4 rounded-xl border-l-4 border-slate-600 shadow-sm mt-4">
+                        <h5 className="font-black text-muted-foreground uppercase mb-2">Common Minimum Programme (CMP)</h5>
+                        <p className="text-xs font-bold text-muted-foreground">A document outlining agenda, shelving controversial issues. [PYQ]</p>
                     </div>
                 </PuzzleCard>
 
@@ -116,7 +116,7 @@ export default function CoalitionGovtModule({ onComplete, isCompleted, chapterNu
                     color="border-orange-600"
                     className="bg-orange-50"
                 >
-                    <ul className="list-disc pl-4 space-y-2 text-sm text-slate-800 font-bold">
+                    <ul className="list-disc pl-4 space-y-2 text-sm text-foreground font-bold">
                         <li><span className="text-orange-700">Instability:</span> Prone to collapse (e.g., V.P. Singh, 13-day Vajpayee govt).</li>
                         <li><span className="text-orange-700">Super-PMs:</span> Regional leaders dictating terms to PM.</li>
                         <li><span className="text-orange-700">Steering Committee:</span> Extra-constitutional coordination body (e.g., NAC).</li>
@@ -173,11 +173,11 @@ export default function CoalitionGovtModule({ onComplete, isCompleted, chapterNu
                 <div className="relative z-10 space-y-6">
                     <div className="flex items-center gap-4">
                         <Badge className="bg-purple-600 text-lg">1947-67</Badge>
-                        <p className="font-bold text-slate-700">Congress System (One Party Dominance).</p>
+                        <p className="font-bold text-muted-foreground">Congress System (One Party Dominance).</p>
                     </div>
                     <div className="flex items-center gap-4">
                         <Badge className="bg-purple-600 text-lg">1977</Badge>
-                        <p className="font-bold text-slate-700">First Coalition at Centre (Janata Party). [PYQ]</p>
+                        <p className="font-bold text-muted-foreground">First Coalition at Centre (Janata Party). [PYQ]</p>
                     </div>
                     <div className="flex items-center gap-4">
                         <Badge variant="outline" className="border-purple-600 text-purple-700 text-lg">1989-2014</Badge>
@@ -185,15 +185,15 @@ export default function CoalitionGovtModule({ onComplete, isCompleted, chapterNu
                     </div>
                     <div className="flex items-center gap-4">
                         <Badge className="bg-purple-600 text-lg">2024+</Badge>
-                        <p className="font-bold text-slate-700">Return to Coalition Dependence (BJP reliance on TDP/JD(U)).</p>
+                        <p className="font-bold text-muted-foreground">Return to Coalition Dependence (BJP reliance on TDP/JD(U)).</p>
                     </div>
                 </div>
             </div>
 
             {/* FOOTER: TYPES OF COALITIONS */}
-            <div className="mt-8 p-8 bg-white border-4 border-slate-200 rounded-[2rem] relative overflow-hidden flex flex-col items-center text-center shadow-lg">
-                <GitMerge className="text-slate-400 mb-4" size={48} />
-                <h4 className="text-2xl font-black uppercase mb-4 text-slate-600">Types of Coalitions</h4>
+            <div className="mt-8 p-8 bg-card border-4 border-border rounded-[2rem] relative overflow-hidden flex flex-col items-center text-center shadow-lg">
+                <GitMerge className="text-muted-foreground mb-4" size={48} />
+                <h4 className="text-2xl font-black uppercase mb-4 text-muted-foreground">Types of Coalitions</h4>
                 <div className="flex flex-wrap justify-center gap-6">
                     <Badge className="bg-green-600 text-lg py-2 px-6">Pre-Poll (More Stable)</Badge>
                     <Badge className="bg-red-600 text-lg py-2 px-6">Post-Poll (Opportunistic)</Badge>
@@ -221,7 +221,7 @@ export default function CoalitionGovtModule({ onComplete, isCompleted, chapterNu
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold italic tracking-widest text-center uppercase">CMP • Steering Committee • Stability.</p>
+                <p className="mt-4 text-muted-foreground font-bold italic tracking-widest text-center uppercase">CMP • Steering Committee • Stability.</p>
             </div>
         </ScrapbookContainer>
     );

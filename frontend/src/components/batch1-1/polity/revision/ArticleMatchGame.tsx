@@ -69,21 +69,21 @@ export default function ArticleMatchGame({ onComplete }: { onComplete?: () => vo
                 {/* Header */}
                 <div className="flex justify-between items-center mb-8">
                     <div>
-                        <h2 className="text-2xl font-bold text-slate-800">Match the Articles</h2>
-                        <p className="text-slate-500">Drag the Article Number to its correct Provision.</p>
+                        <h2 className="text-2xl font-bold text-foreground">Match the Articles</h2>
+                        <p className="text-muted-foreground">Drag the Article Number to its correct Provision.</p>
                     </div>
                     <div className="text-right">
                         <div className="text-3xl font-black text-blue-600 font-mono">
                             {Object.keys(matches).length} / 5
                         </div>
-                        <span className="text-xs text-slate-400 uppercase tracking-wider font-bold">Matches</span>
+                        <span className="text-xs text-muted-foreground uppercase tracking-wider font-bold">Matches</span>
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
                     {/* Draggable Articles Source */}
-                    <div className="bg-slate-50 p-6 rounded-2xl border border-dashed border-slate-300 min-h-[400px]">
-                        <h3 className="text-sm font-bold text-slate-400 uppercase mb-4 tracking-wider flex items-center gap-2">
+                    <div className="bg-muted p-6 rounded-2xl border border-dashed border-border min-h-[400px]">
+                        <h3 className="text-sm font-bold text-muted-foreground uppercase mb-4 tracking-wider flex items-center gap-2">
                             Article Numbers
                         </h3>
                         <div className="space-y-4">
@@ -106,7 +106,7 @@ export default function ArticleMatchGame({ onComplete }: { onComplete?: () => vo
 
                     {/* Droppable Provisions Target */}
                     <div className="space-y-4">
-                        <h3 className="text-sm font-bold text-slate-400 uppercase mb-4 tracking-wider">
+                        <h3 className="text-sm font-bold text-muted-foreground uppercase mb-4 tracking-wider">
                             Provisions
                         </h3>
                         {provisions.map((item) => (
@@ -125,14 +125,14 @@ export default function ArticleMatchGame({ onComplete }: { onComplete?: () => vo
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            className="absolute inset-0 bg-white/90 backdrop-blur-sm z-50 flex items-center justify-center rounded-3xl"
+                            className="absolute inset-0 bg-card/90 backdrop-blur-sm z-50 flex items-center justify-center rounded-3xl"
                         >
-                            <div className="text-center p-8 bg-white shadow-2xl rounded-3xl border border-slate-100 ring-4 ring-blue-50">
+                            <div className="text-center p-8 bg-card shadow-2xl rounded-3xl border border-slate-100 ring-4 ring-blue-50">
                                 <div className="inline-block p-4 bg-yellow-100 rounded-full text-yellow-600 mb-4">
                                     <Trophy size={48} />
                                 </div>
-                                <h2 className="text-4xl font-black text-slate-800 mb-2">Perfect Score!</h2>
-                                <p className="text-slate-500 mb-6">You really know your Constitution.</p>
+                                <h2 className="text-4xl font-black text-foreground mb-2">Perfect Score!</h2>
+                                <p className="text-muted-foreground mb-6">You really know your Constitution.</p>
                                 <Button size="lg" onClick={resetGame} className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 rounded-full">
                                     <RotateCcw className="mr-2" /> Play Again
                                 </Button>
@@ -166,8 +166,8 @@ function DraggableArticle({ id }: { id: string }) {
     } : undefined;
 
     return (
-        <div ref={setNodeRef} style={style} {...listeners} {...attributes} className="bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 shadow-sm rounded-xl p-4 cursor-grab active:cursor-grabbing transition-colors flex items-center justify-between group">
-            <span className="font-bold text-slate-700 group-hover:text-blue-700 text-lg">Article {id}</span>
+        <div ref={setNodeRef} style={style} {...listeners} {...attributes} className="bg-card hover:bg-blue-50 border border-border hover:border-blue-300 shadow-sm rounded-xl p-4 cursor-grab active:cursor-grabbing transition-colors flex items-center justify-between group">
+            <span className="font-bold text-muted-foreground group-hover:text-blue-700 text-lg">Article {id}</span>
             <span className="text-slate-300 group-hover:text-blue-300">::</span>
         </div>
     );
@@ -190,11 +190,11 @@ function DroppableProvision({ id, matchedArticle }: { id: string, matchedArticle
                     ? 'border-green-500 bg-green-50'
                     : isOver
                         ? 'border-blue-500 bg-blue-50 ring-2 ring-blue-200'
-                        : 'border-slate-200 bg-white'
+                        : 'border-border bg-card'
                 }
             `}
         >
-            <div className={`flex-1 text-sm font-medium ${matchedArticle ? 'text-green-800' : 'text-slate-700'}`}>
+            <div className={`flex-1 text-sm font-medium ${matchedArticle ? 'text-green-800' : 'text-muted-foreground'}`}>
                 {id}
             </div>
 
@@ -209,7 +209,7 @@ function DroppableProvision({ id, matchedArticle }: { id: string, matchedArticle
             )}
 
             {!matchedArticle && (
-                <div className="ml-4 w-12 h-12 rounded-lg border-2 border-dashed border-slate-200 flex items-center justify-center text-slate-300 text-xs font-bold bg-slate-50">
+                <div className="ml-4 w-12 h-12 rounded-lg border-2 border-dashed border-border flex items-center justify-center text-slate-300 text-xs font-bold bg-muted">
                     DROP
                 </div>
             )}

@@ -15,11 +15,11 @@ export default function ArtCultureDashboard() {
             {/* Header Content */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
+                    <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
                         <Palette className="h-8 w-8 text-rose-600" />
                         Art & Culture Hub
                     </h1>
-                    <p className="text-gray-500 dark:text-gray-400">Deep dive into India's vast cultural and artistic heritage.</p>
+                    <p className="text-muted-foreground dark:text-muted-foreground">Deep dive into India's vast cultural and artistic heritage.</p>
                 </div>
                 <div className="flex gap-3">
                     <Link href="/student/batch1/art-culture/schedule">
@@ -67,7 +67,7 @@ export default function ArtCultureDashboard() {
 
             {/* Syllabus Overview (Secondary) */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <Card className="md:col-span-2 border-gray-100 dark:border-gray-800">
+                <Card className="md:col-span-2 border-border">
                     <CardHeader>
                         <CardTitle className="text-xl font-bold">Visual Arts Syllabus</CardTitle>
                         <CardDescription>Architecture, Painting, and Sculpture through the ages.</CardDescription>
@@ -80,13 +80,13 @@ export default function ArtCultureDashboard() {
                                 { id: '3', title: 'Indo-Islamic Art', desc: 'Delhi Sultanate and Mughal Architectural Excellence.' }
                             ].map((era, i) => (
                                 <Link key={i} href={`/student/batch1/art-culture/${era.id}`}>
-                                    <div className="flex items-start gap-4 p-4 rounded-xl border border-gray-50 dark:border-gray-800 hover:bg-rose-50 dark:hover:bg-rose-900/10 transition-all group mb-2 cursor-pointer">
+                                    <div className="flex items-start gap-4 p-4 rounded-xl border border-gray-50 hover:bg-rose-50 dark:hover:bg-rose-900/10 transition-all group mb-2 cursor-pointer">
                                         <div className="w-2 h-10 bg-rose-500 rounded-full group-hover:bg-rose-600 transition-colors" />
                                         <div>
-                                            <h4 className="font-bold text-gray-900 dark:text-white group-hover:text-rose-600 transition-colors">{era.title}</h4>
-                                            <p className="text-sm text-gray-500">{era.desc}</p>
+                                            <h4 className="font-bold text-foreground group-hover:text-rose-600 transition-colors">{era.title}</h4>
+                                            <p className="text-sm text-muted-foreground">{era.desc}</p>
                                         </div>
-                                        <ChevronRight className="ml-auto w-5 h-5 text-gray-300 group-hover:text-rose-500" />
+                                        <ChevronRight className="ml-auto w-5 h-5 text-muted-foreground group-hover:text-rose-500" />
                                     </div>
                                 </Link>
                             ))}
@@ -121,13 +121,13 @@ function StatCard({ label, value, color, icon }: { label: string, value: string,
         <Card className="overflow-hidden">
             <CardContent className="p-6">
                 <div className="flex items-center justify-between mb-4">
-                    <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                    <div className="p-2 bg-muted rounded-lg">
                         <div className={color}>{icon}</div>
                     </div>
                 </div>
                 <div>
                     <h3 className={`text-2xl font-bold mb-1`}>{value}</h3>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase tracking-widest">{label}</p>
+                    <p className="text-xs text-muted-foreground dark:text-muted-foreground font-bold uppercase tracking-widest">{label}</p>
                 </div>
             </CardContent>
         </Card>

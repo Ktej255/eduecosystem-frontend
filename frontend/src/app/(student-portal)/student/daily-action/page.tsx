@@ -172,10 +172,10 @@ export default function DailyActionPage() {
         <div className="space-y-6">
             {/* Header */}
             <div>
-                <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
+                <h1 className="text-3xl font-bold text-foreground mb-2">
                     Daily Action
                 </h1>
-                <p className="text-slate-600 dark:text-slate-400">
+                <p className="text-muted-foreground dark:text-muted-foreground">
                     {new Date().toLocaleDateString("en-US", {
                         weekday: "long",
                         year: "numeric",
@@ -190,7 +190,7 @@ export default function DailyActionPage() {
                 <CardHeader>
                     <CardTitle className="flex items-center justify-between">
                         <span>Today's Tasks</span>
-                        <span className="text-sm font-normal text-slate-500 dark:text-slate-400">
+                        <span className="text-sm font-normal text-muted-foreground dark:text-muted-foreground">
                             {data?.tasks_completed} of {data?.total_tasks} completed
                         </span>
                     </CardTitle>
@@ -200,7 +200,7 @@ export default function DailyActionPage() {
                         {data?.tasks.map((task) => (
                             <div
                                 key={task.id}
-                                className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-neutral-800"
+                                className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted dark:hover:bg-neutral-800"
                             >
                                 <Checkbox
                                     checked={task.completed}
@@ -209,8 +209,8 @@ export default function DailyActionPage() {
                                 />
                                 <span
                                     className={`flex-1 ${task.completed
-                                        ? "text-slate-500 line-through dark:text-slate-500"
-                                        : "text-slate-900 dark:text-white"
+                                        ? "text-muted-foreground line-through dark:text-muted-foreground"
+                                        : "text-foreground"
                                         }`}
                                 >
                                     {task.title}
@@ -224,7 +224,7 @@ export default function DailyActionPage() {
                                 value={newTask}
                                 onChange={(e) => setNewTask(e.target.value)}
                                 placeholder="Add a new task..."
-                                className="flex-1 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:outline-none focus:border-primary px-2 py-1"
+                                className="flex-1 bg-transparent border-b border-border focus:outline-none focus:border-primary px-2 py-1"
                             />
                             <Button type="submit" size="sm" variant="ghost">Add</Button>
                         </form>
@@ -241,11 +241,11 @@ export default function DailyActionPage() {
                     <div className="space-y-4">
                         {/* Days Header */}
                         <div className="grid grid-cols-8 gap-2 mb-2">
-                            <div className="text-xs font-medium text-slate-600 dark:text-slate-400"></div>
+                            <div className="text-xs font-medium text-muted-foreground dark:text-muted-foreground"></div>
                             {last7Days.map((day) => (
                                 <div
                                     key={day.date}
-                                    className="text-xs font-medium text-slate-600 dark:text-slate-400 text-center"
+                                    className="text-xs font-medium text-muted-foreground dark:text-muted-foreground text-center"
                                 >
                                     {day.label}
                                 </div>
@@ -255,7 +255,7 @@ export default function DailyActionPage() {
                         {/* Habits */}
                         {data?.habits.map((habit) => (
                             <div key={habit.id} className="grid grid-cols-8 gap-2">
-                                <div className="text-sm font-medium text-slate-900 dark:text-white flex items-center">
+                                <div className="text-sm font-medium text-foreground flex items-center">
                                     {habit.name}
                                 </div>
                                 {last7Days.map((day) => {
@@ -295,7 +295,7 @@ export default function DailyActionPage() {
                         onChange={(e) => setReflection(e.target.value)}
                         placeholder="What did you learn today? What are you grateful for?"
                         rows={4}
-                        className="mb-4 bg-slate-900 text-white border-slate-800 placeholder:text-slate-400 focus-visible:ring-slate-700"
+                        className="mb-4 bg-slate-900 text-white border-slate-800 placeholder:text-muted-foreground focus-visible:ring-slate-700"
                     />
                     <Button onClick={handleSaveReflection}>Save Entry</Button>
                 </CardContent>
@@ -305,27 +305,27 @@ export default function DailyActionPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <CardTitle className="text-sm font-medium text-slate-600 dark:text-slate-400">
+                        <CardTitle className="text-sm font-medium text-muted-foreground dark:text-muted-foreground">
                             Current Streak
                         </CardTitle>
                         <Target className="h-4 w-4 text-orange-600" />
                     </CardHeader>
                     <CardContent>
                         <div className="text-2xl font-bold">🔥 {data?.streak_days || 0} days</div>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Keep going!</p>
+                        <p className="text-xs text-muted-foreground dark:text-muted-foreground mt-1">Keep going!</p>
                     </CardContent>
                 </Card>
 
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <CardTitle className="text-sm font-medium text-gray-600">
+                        <CardTitle className="text-sm font-medium text-muted-foreground">
                             Completion Rate
                         </CardTitle>
                         <Calendar className="h-4 w-4 text-green-600" />
                     </CardHeader>
                     <CardContent>
                         <div className="text-2xl font-bold">{data?.completion_rate || 0}%</div>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Today's tasks</p>
+                        <p className="text-xs text-muted-foreground dark:text-muted-foreground mt-1">Today's tasks</p>
                     </CardContent>
                 </Card>
             </div>

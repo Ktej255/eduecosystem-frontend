@@ -50,7 +50,7 @@ export default function WebsitePagesPage() {
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-6xl mx-auto">
       {/* Back Button */}
-      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground">
         <ArrowLeft className="h-4 w-4 mr-1" />
         Back
       </Link>
@@ -58,11 +58,11 @@ export default function WebsitePagesPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
             <Globe className="h-8 w-8 text-cyan-600" />
             Website Pages
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-muted-foreground dark:text-muted-foreground mt-1">
             Manage your website content pages
           </p>
         </div>
@@ -76,7 +76,7 @@ export default function WebsitePagesPage() {
       <Card>
         <CardContent className="p-4">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder="Search pages..."
               className="pl-10"
@@ -98,8 +98,8 @@ export default function WebsitePagesPage() {
                     {page.icon}
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200">{page.title}</h3>
-                    <p className="text-sm text-gray-500">{page.slug}</p>
+                    <h3 className="font-semibold text-foreground">{page.title}</h3>
+                    <p className="text-sm text-muted-foreground">{page.slug}</p>
                   </div>
                 </div>
                 <DropdownMenu>
@@ -143,7 +143,7 @@ export default function WebsitePagesPage() {
                     Draft
                   </Badge>
                 )}
-                <span className="text-xs text-gray-400">Updated {page.lastUpdated}</span>
+                <span className="text-xs text-muted-foreground">Updated {page.lastUpdated}</span>
               </div>
             </CardContent>
           </Card>
@@ -153,8 +153,8 @@ export default function WebsitePagesPage() {
       {/* Empty State */}
       {filteredPages.length === 0 && (
         <div className="text-center py-12">
-          <FileText className="h-12 w-12 mx-auto text-gray-300 mb-3" />
-          <p className="text-gray-500">No pages found</p>
+          <FileText className="h-12 w-12 mx-auto text-muted-foreground mb-3" />
+          <p className="text-muted-foreground">No pages found</p>
           <Button className="mt-4" variant="outline">
             <Plus className="h-4 w-4 mr-2" />
             Create Your First Page

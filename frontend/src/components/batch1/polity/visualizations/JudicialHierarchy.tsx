@@ -219,7 +219,7 @@ export default function JudicialHierarchy() {
 
                     <div className="space-y-4">
                         <div>
-                            <h4 className="text-[10px] uppercase font-black tracking-widest text-slate-500 mb-3 flex items-center gap-2">
+                            <h4 className="text-[10px] uppercase font-black tracking-widest text-muted-foreground mb-3 flex items-center gap-2">
                                 <Sparkles className="w-3 h-3 text-indigo-400" />
                                 Jurisdiction Scope
                             </h4>
@@ -235,14 +235,14 @@ export default function JudicialHierarchy() {
                                 <Info className={`w-4 h-4 ${selectedLevel.color}`} />
                                 <h4 className="text-xs font-black uppercase tracking-widest">UPSC Quick Facts</h4>
                             </div>
-                            <p className="text-xs text-slate-400 leading-relaxed font-medium">
+                            <p className="text-xs text-muted-foreground leading-relaxed font-medium">
                                 {selectedLevel.upscTip}
                             </p>
                         </div>
                     </div>
 
                     <div className="pt-6 mt-auto">
-                        <p className="text-[9px] text-slate-500 uppercase font-black tracking-widest text-center px-4 leading-relaxed group">
+                        <p className="text-[9px] text-muted-foreground uppercase font-black tracking-widest text-center px-4 leading-relaxed group">
                             India has an <span className="text-indigo-400 group-hover:text-amber-400 transition-colors">"Integrated"</span> Judiciary system.
                         </p>
                     </div>

@@ -59,7 +59,7 @@ export default function AITutorPage() {
                     <Mic className="w-8 h-8 text-cyan-500" />
                     Voice of Wisdom AI Tutor
                 </h1>
-                <p className="text-gray-400">
+                <p className="text-muted-foreground">
                     Master your voice, pronunciation, and confidence with real-time AI feedback.
                 </p>
             </div>
@@ -83,7 +83,7 @@ export default function AITutorPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold">{topic.title}</h3>
-                                    <p className="text-xs text-gray-400">{topic.description}</p>
+                                    <p className="text-xs text-muted-foreground">{topic.description}</p>
                                 </div>
                             </CardContent>
                         </Card>
@@ -95,7 +95,7 @@ export default function AITutorPage() {
                     <Card className="bg-gradient-to-br from-gray-900 to-black border-gray-800">
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2">
-                                <Quote className="w-5 h-5 text-gray-500" />
+                                <Quote className="w-5 h-5 text-muted-foreground" />
                                 Practice Prompt
                             </CardTitle>
                             <CardDescription>

@@ -68,7 +68,7 @@ export function QuickRecallModal({ isOpen, onClose, topic, topicId, onResult }: 
                                     </div>
                                     <h2 className="text-3xl font-black text-white">{topic}</h2>
                                 </div>
-                                <button onClick={onClose} className="p-2 hover:bg-white/5 rounded-full text-gray-400">
+                                <button onClick={onClose} className="p-2 hover:bg-card/5 rounded-full text-muted-foreground">
                                     <X size={24} />
                                 </button>
                             </div>
@@ -80,9 +80,9 @@ export function QuickRecallModal({ isOpen, onClose, topic, topicId, onResult }: 
                                             value={recallText}
                                             onChange={(e) => setRecallText(e.target.value)}
                                             placeholder="Write everything you remember about this topic... (Bullet points, concepts, or short paragraphs)"
-                                            className="w-full h-64 bg-white/[0.03] border border-white/10 rounded-3xl p-6 text-white placeholder:text-gray-600 focus:outline-none focus:border-purple-500/50 transition-all resize-none text-lg font-medium leading-relaxed"
+                                            className="w-full h-64 bg-card/[0.03] border border-white/10 rounded-3xl p-6 text-white placeholder:text-muted-foreground focus:outline-none focus:border-purple-500/50 transition-all resize-none text-lg font-medium leading-relaxed"
                                         />
-                                        <div className="absolute bottom-6 right-6 flex items-center gap-2 text-[10px] font-black text-gray-600 uppercase">
+                                        <div className="absolute bottom-6 right-6 flex items-center gap-2 text-[10px] font-black text-muted-foreground uppercase">
                                             <span>Press CMD + Enter to Submit</span>
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@ export function QuickRecallModal({ isOpen, onClose, topic, topicId, onResult }: 
                                     <button
                                         onClick={handleSubmit}
                                         disabled={isSubmitting || !recallText.trim()}
-                                        className="w-full py-5 bg-white text-black rounded-3xl font-black uppercase tracking-widest hover:bg-purple-400 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                                        className="w-full py-5 bg-card text-black rounded-3xl font-black uppercase tracking-widest hover:bg-purple-400 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
                                     >
                                         {isSubmitting ? (
                                             <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
@@ -122,8 +122,8 @@ export function QuickRecallModal({ isOpen, onClose, topic, topicId, onResult }: 
                                         </div>
                                     </div>
 
-                                    <div className="p-8 bg-white/[0.03] border border-white/10 rounded-3xl">
-                                        <h4 className="text-xs font-black uppercase tracking-widest text-gray-500 mb-4 flex items-center gap-2">
+                                    <div className="p-8 bg-card/[0.03] border border-white/10 rounded-3xl">
+                                        <h4 className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-4 flex items-center gap-2">
                                             <Brain size={14} /> AI Analysis & Feedback
                                         </h4>
                                         <p className="text-lg text-gray-200 leading-relaxed font-medium italic">"{result.feedback}"</p>
@@ -135,7 +135,7 @@ export function QuickRecallModal({ isOpen, onClose, topic, topicId, onResult }: 
                                             </div>
                                             <button
                                                 onClick={onClose}
-                                                className="px-6 py-2 bg-white/5 hover:bg-white/10 text-white text-xs font-black uppercase tracking-widest rounded-xl transition-all"
+                                                className="px-6 py-2 bg-card/5 hover:bg-card/10 text-white text-xs font-black uppercase tracking-widest rounded-xl transition-all"
                                             >
                                                 Continue Journey
                                             </button>

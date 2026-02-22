@@ -80,11 +80,11 @@ export function AssignmentSubmit({
         <h2 className="text-2xl font-bold text-white mb-2">
           {assignment.title}
         </h2>
-        <p className="text-gray-400 mb-4">{assignment.description}</p>
+        <p className="text-muted-foreground mb-4">{assignment.description}</p>
 
         {assignment.instructions && (
           <div className="bg-gray-800 rounded-lg p-4 mb-4">
-            <p className="text-sm text-gray-400 mb-2">Instructions:</p>
+            <p className="text-sm text-muted-foreground mb-2">Instructions:</p>
             <p className="text-white whitespace-pre-wrap">
               {assignment.instructions}
             </p>
@@ -92,7 +92,7 @@ export function AssignmentSubmit({
         )}
 
         <div className="flex items-center gap-4 text-sm">
-          <div className="flex items-center gap-2 text-gray-400">
+          <div className="flex items-center gap-2 text-muted-foreground">
             <Trophy className="h-4 w-4" />
             <span>Max Score: {assignment.max_score}</span>
           </div>
@@ -103,7 +103,7 @@ export function AssignmentSubmit({
                   ? "text-red-400"
                   : daysUntilDue && daysUntilDue <= 3
                     ? "text-yellow-400"
-                    : "text-gray-400"
+                    : "text-muted-foreground"
               }`}
             >
               <Clock className="h-4 w-4" />
@@ -126,7 +126,7 @@ export function AssignmentSubmit({
             <CheckCircle className="h-5 w-5" />
             <span className="font-semibold">Submitted</span>
           </div>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-muted-foreground">
             Submitted on:{" "}
             {new Date(existingSubmission.submitted_at).toLocaleString()}
           </p>
@@ -136,7 +136,7 @@ export function AssignmentSubmit({
                 Score: {existingSubmission.score}/{assignment.max_score}
               </p>
               {existingSubmission.feedback && (
-                <p className="text-gray-300 mt-2">
+                <p className="text-muted-foreground mt-2">
                   {existingSubmission.feedback}
                 </p>
               )}
@@ -154,7 +154,7 @@ export function AssignmentSubmit({
 
           {assignment.submission_type === "text" && (
             <div>
-              <label className="block text-sm font-medium text-gray-400 mb-2">
+              <label className="block text-sm font-medium text-muted-foreground mb-2">
                 <FileText className="inline h-4 w-4 mr-2" />
                 Your Answer
               </label>
@@ -170,7 +170,7 @@ export function AssignmentSubmit({
 
           {assignment.submission_type === "url" && (
             <div>
-              <label className="block text-sm font-medium text-gray-400 mb-2">
+              <label className="block text-sm font-medium text-muted-foreground mb-2">
                 <LinkIcon className="inline h-4 w-4 mr-2" />
                 Submission URL
               </label>
@@ -186,7 +186,7 @@ export function AssignmentSubmit({
 
           {assignment.submission_type === "file" && (
             <div>
-              <label className="block text-sm font-medium text-gray-400 mb-2">
+              <label className="block text-sm font-medium text-muted-foreground mb-2">
                 <Upload className="inline h-4 w-4 mr-2" />
                 Upload File
               </label>
@@ -197,7 +197,7 @@ export function AssignmentSubmit({
                 placeholder="File URL (upload to cloud first)"
                 className="bg-gray-800 border-gray-700 text-white"
               />
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-muted-foreground mt-1">
                 Upload your file to a cloud service and paste the URL here
               </p>
             </div>

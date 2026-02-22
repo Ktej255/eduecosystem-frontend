@@ -57,14 +57,14 @@ export default function TerraLabLayout({
                 {/* Sidebar Header */}
                 <div className="p-4 border-b border-white/10 bg-black/20 backdrop-blur-md">
                     <Link href="/student/batch1">
-                        <Button variant="ghost" size="sm" className="mb-4 text-gray-400 hover:text-white -ml-2">
+                        <Button variant="ghost" size="sm" className="mb-4 text-muted-foreground hover:text-white -ml-2">
                             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Dashboard
                         </Button>
                     </Link>
                     <h1 className="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 uppercase tracking-widest">
                         Terra-Lab
                     </h1>
-                    <p className="text-xs text-gray-500 mt-1 font-mono">Build 2.0 • Spatial Learning</p>
+                    <p className="text-xs text-muted-foreground mt-1 font-mono">Build 2.0 • Spatial Learning</p>
                 </div>
 
                 {/* Module Selector */}
@@ -74,8 +74,8 @@ export default function TerraLabLayout({
                             key={mod.id}
                             onClick={() => onModuleChange(mod.id)}
                             className={`flex-1 p-2 rounded-lg flex justify-center items-center transition-all ${activeModuleId === mod.id
-                                ? 'bg-white/10 text-white shadow-inner'
-                                : 'text-gray-500 hover:text-gray-300 hover:bg-white/5'
+                                ? 'bg-card/10 text-white shadow-inner'
+                                : 'text-muted-foreground hover:text-muted-foreground hover:bg-card/5'
                                 }`}
                             title={mod.title}
                         >
@@ -87,11 +87,11 @@ export default function TerraLabLayout({
                 {/* Search */}
                 <div className="p-4 border-b border-white/5">
                     <div className="relative">
-                        <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-500" />
+                        <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
                         <input
                             type="text"
                             placeholder="Search topics..."
-                            className="w-full bg-black/20 border border-white/10 rounded-full py-2 pl-9 pr-4 text-sm text-gray-300 focus:outline-none focus:border-white/30 transition-colors"
+                            className="w-full bg-black/20 border border-white/10 rounded-full py-2 pl-9 pr-4 text-sm text-muted-foreground focus:outline-none focus:border-white/30 transition-colors"
                         />
                     </div>
                 </div>
@@ -111,13 +111,13 @@ export default function TerraLabLayout({
                                 <div key={topic.id} className="space-y-1">
                                     <button
                                         onClick={() => toggleTopic(topic.id)}
-                                        className="w-full flex items-center justify-between p-2 rounded hover:bg-white/5 text-gray-300 text-sm font-medium transition-colors text-left group"
+                                        className="w-full flex items-center justify-between p-2 rounded hover:bg-card/5 text-muted-foreground text-sm font-medium transition-colors text-left group"
                                     >
                                         <span className="group-hover:text-white transition-colors">{topic.title}</span>
                                         {expandedTopics[topic.id] ? (
-                                            <ChevronDown className="h-4 w-4 text-gray-500" />
+                                            <ChevronDown className="h-4 w-4 text-muted-foreground" />
                                         ) : (
-                                            <ChevronRight className="h-4 w-4 text-gray-500" />
+                                            <ChevronRight className="h-4 w-4 text-muted-foreground" />
                                         )}
                                     </button>
 
@@ -129,8 +129,8 @@ export default function TerraLabLayout({
                                                     key={micro.id}
                                                     onClick={() => onSelectTopic(micro)}
                                                     className={`w-full flex items-center gap-3 p-2 rounded text-xs transition-colors text-left ${selectedTopic?.id === micro.id
-                                                        ? 'bg-white/10 text-white'
-                                                        : 'text-gray-500 hover:text-gray-300 hover:bg-white/5'
+                                                        ? 'bg-card/10 text-white'
+                                                        : 'text-muted-foreground hover:text-muted-foreground hover:bg-card/5'
                                                         }`}
                                                 >
                                                     {micro.status === 'locked' && <Lock className="h-3 w-3 shrink-0 opacity-50" />}
@@ -149,12 +149,12 @@ export default function TerraLabLayout({
 
                 {/* Footer User Stats */}
                 <div className="p-4 border-t border-white/10 bg-black/20">
-                    <div className="flex justify-between items-center text-xs text-gray-400 mb-2">
+                    <div className="flex justify-between items-center text-xs text-muted-foreground mb-2">
                         <span>Progress</span>
                         <span>12%</span>
                     </div>
                     <div className="h-1 bg-gray-800 rounded-full overflow-hidden">
-                        <div className="h-full w-[12%] bg-white rounded-full" />
+                        <div className="h-full w-[12%] bg-card rounded-full" />
                     </div>
                 </div>
             </div>
@@ -170,14 +170,14 @@ export default function TerraLabLayout({
                     <div className="pointer-events-auto bg-black/50 backdrop-blur-md rounded-lg p-1 border border-white/10 flex gap-1">
                         <button
                             onClick={() => onViewModeChange('map')}
-                            className={`px-3 py-1.5 rounded flex items-center gap-2 text-sm font-medium transition-all ${viewMode === 'map' ? 'bg-white/20 text-white shadow' : 'text-gray-400 hover:text-white'
+                            className={`px-3 py-1.5 rounded flex items-center gap-2 text-sm font-medium transition-all ${viewMode === 'map' ? 'bg-card/20 text-white shadow' : 'text-muted-foreground hover:text-white'
                                 }`}
                         >
                             <MapIcon className="w-4 h-4" /> 3D Map
                         </button>
                         <button
                             onClick={() => onViewModeChange('list')}
-                            className={`px-3 py-1.5 rounded flex items-center gap-2 text-sm font-medium transition-all ${viewMode === 'list' ? 'bg-white/20 text-white shadow' : 'text-gray-400 hover:text-white'
+                            className={`px-3 py-1.5 rounded flex items-center gap-2 text-sm font-medium transition-all ${viewMode === 'list' ? 'bg-card/20 text-white shadow' : 'text-muted-foreground hover:text-white'
                                 }`}
                         >
                             <List className="w-4 h-4" /> Syllabus

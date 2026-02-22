@@ -119,7 +119,7 @@ export default function CouponsPage() {
             <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-green-200 to-emerald-200 bg-clip-text text-transparent">
               Coupon Management
             </h1>
-            <p className="text-gray-400 mt-2">
+            <p className="text-muted-foreground mt-2">
               Create and manage discount codes
             </p>
           </div>
@@ -141,7 +141,7 @@ export default function CouponsPage() {
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <Label className="text-gray-300">Coupon Code *</Label>
+                  <Label className="text-muted-foreground">Coupon Code *</Label>
                   <Input
                     value={code}
                     onChange={(e) => setCode(e.target.value.toUpperCase())}
@@ -151,7 +151,7 @@ export default function CouponsPage() {
                 </div>
 
                 <div>
-                  <Label className="text-gray-300">Description</Label>
+                  <Label className="text-muted-foreground">Description</Label>
                   <Input
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
@@ -161,7 +161,7 @@ export default function CouponsPage() {
                 </div>
 
                 <div>
-                  <Label className="text-gray-300">Discount Type *</Label>
+                  <Label className="text-muted-foreground">Discount Type *</Label>
                   <Select value={discountType} onValueChange={setDiscountType}>
                     <SelectTrigger className="bg-gray-800 border-gray-700 text-white mt-1">
                       <SelectValue />
@@ -174,7 +174,7 @@ export default function CouponsPage() {
                 </div>
 
                 <div>
-                  <Label className="text-gray-300">
+                  <Label className="text-muted-foreground">
                     Discount Value *{" "}
                     {discountType === "percentage" ? "(%)" : "(₹)"}
                   </Label>
@@ -188,7 +188,7 @@ export default function CouponsPage() {
                 </div>
 
                 <div>
-                  <Label className="text-gray-300">
+                  <Label className="text-muted-foreground">
                     Usage Limit (Optional)
                   </Label>
                   <Input
@@ -201,7 +201,7 @@ export default function CouponsPage() {
                 </div>
 
                 <div>
-                  <Label className="text-gray-300">
+                  <Label className="text-muted-foreground">
                     Valid Until (Optional)
                   </Label>
                   <Input
@@ -230,11 +230,11 @@ export default function CouponsPage() {
           </CardHeader>
           <CardContent>
             {loading ? (
-              <div className="text-gray-400">Loading...</div>
+              <div className="text-muted-foreground">Loading...</div>
             ) : coupons.length === 0 ? (
               <div className="text-center py-12">
-                <Ticket className="h-16 w-16 text-gray-600 mx-auto mb-4" />
-                <p className="text-gray-400">
+                <Ticket className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+                <p className="text-muted-foreground">
                   No coupons yet. Create your first one!
                 </p>
               </div>
@@ -242,12 +242,12 @@ export default function CouponsPage() {
               <Table>
                 <TableHeader>
                   <TableRow className="border-gray-800">
-                    <TableHead className="text-gray-400">Code</TableHead>
-                    <TableHead className="text-gray-400">Discount</TableHead>
-                    <TableHead className="text-gray-400">Usage</TableHead>
-                    <TableHead className="text-gray-400">Valid Until</TableHead>
-                    <TableHead className="text-gray-400">Status</TableHead>
-                    <TableHead className="text-gray-400">Actions</TableHead>
+                    <TableHead className="text-muted-foreground">Code</TableHead>
+                    <TableHead className="text-muted-foreground">Discount</TableHead>
+                    <TableHead className="text-muted-foreground">Usage</TableHead>
+                    <TableHead className="text-muted-foreground">Valid Until</TableHead>
+                    <TableHead className="text-muted-foreground">Status</TableHead>
+                    <TableHead className="text-muted-foreground">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -261,10 +261,10 @@ export default function CouponsPage() {
                           ? `${coupon.discount_value}%`
                           : `₹${coupon.discount_value}`}
                       </TableCell>
-                      <TableCell className="text-gray-300">
+                      <TableCell className="text-muted-foreground">
                         {coupon.usage_count} / {coupon.usage_limit || "∞"}
                       </TableCell>
-                      <TableCell className="text-gray-400 text-sm">
+                      <TableCell className="text-muted-foreground text-sm">
                         {coupon.valid_until
                           ? new Date(coupon.valid_until).toLocaleDateString()
                           : "No expiration"}
@@ -274,7 +274,7 @@ export default function CouponsPage() {
                           className={
                             coupon.is_active
                               ? "bg-green-500/20 text-green-400"
-                              : "bg-gray-500/20 text-gray-400"
+                              : "bg-muted-foreground/20 text-muted-foreground"
                           }
                         >
                           {coupon.is_active ? "Active" : "Inactive"}

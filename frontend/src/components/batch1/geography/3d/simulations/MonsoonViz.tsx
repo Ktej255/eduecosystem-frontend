@@ -287,7 +287,7 @@ export default function MonsoonViz() {
             {/* UI Controls */}
             <div className="absolute top-4 left-4 z-10">
                 <h1 className="text-2xl font-bold text-white mb-1">Indian Monsoon System</h1>
-                <p className="text-slate-400 text-sm">Seasonal Wind Reversal & ITCZ Shift</p>
+                <p className="text-muted-foreground text-sm">Seasonal Wind Reversal & ITCZ Shift</p>
             </div>
 
             {/* Season Toggles */}
@@ -298,7 +298,7 @@ export default function MonsoonViz() {
                         onClick={() => handlePhaseChange(phase.id)}
                         className={`px-4 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2 ${activePhaseId === phase.id
                             ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30'
-                            : 'hover:bg-white/10 text-slate-400'
+                            : 'hover:bg-card/10 text-muted-foreground'
                             }`}
                     >
                         {phase.id === 'winter' && <Wind className="w-4 h-4" />}
@@ -329,7 +329,7 @@ export default function MonsoonViz() {
                 </ul>
 
                 <div className="pt-4 border-t border-white/10">
-                    <div className="flex justify-between items-center text-xs text-slate-500">
+                    <div className="flex justify-between items-center text-xs text-muted-foreground">
                         <span>ITCZ Position</span>
                         <span className="text-white font-mono">{activePhase.itczPosition}° N</span>
                     </div>

@@ -37,13 +37,13 @@ const HandHeading = ({ children, className = "" }: { children: React.ReactNode, 
 );
 
 const HandText = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
-    <div className={`text-slate-700 leading-tight ${className}`} style={{ fontFamily: 'var(--font-kalam)' }}>
+    <div className={`text-muted-foreground leading-tight ${className}`} style={{ fontFamily: 'var(--font-kalam)' }}>
         {children}
     </div>
 );
 
 const ArchitectCard = ({ children, className = "", color = "bg-[#fdfbf7]" }: { children: React.ReactNode, className?: string, color?: string }) => (
-    <div className={`${color} border-2 border-slate-200 rounded-xl p-5 shadow-md relative overflow-hidden ${className}`}>
+    <div className={`${color} border-2 border-border rounded-xl p-5 shadow-md relative overflow-hidden ${className}`}>
         {/* Paper Texture overlay */}
         <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/aged-paper.png')] pointer-events-none"></div>
         <div className="relative z-10">
@@ -78,7 +78,7 @@ const SectionDivider = ({ title }: { title: string }) => (
             <div className="w-full border-t-2 border-indigo-100"></div>
         </div>
         <div className="relative bg-[#f0f4f8] px-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-indigo-400 bg-white px-3 py-1 rounded-full border border-indigo-100 shadow-sm">
+            <span className="text-xs font-bold uppercase tracking-widest text-indigo-400 bg-card px-3 py-1 rounded-full border border-indigo-100 shadow-sm">
                 {title}
             </span>
         </div>
@@ -119,21 +119,21 @@ export default function MakingConstitutionModuleV2({ onComplete, isCompleted }: 
                             <li className="flex gap-3 items-start">
                                 <div className="mt-1 bg-indigo-100 p-1 rounded text-indigo-700 font-bold text-xs min-w-[50px] text-center">1934</div>
                                 <div>
-                                    <span className="font-bold text-slate-800">M.N. Roy</span>
+                                    <span className="font-bold text-foreground">M.N. Roy</span>
                                     <p className="text-sm opacity-80 leading-tight">Pioneer of Communist Movement. First to propose the idea.</p>
                                 </div>
                             </li>
                             <li className="flex gap-3 items-start">
                                 <div className="mt-1 bg-indigo-100 p-1 rounded text-indigo-700 font-bold text-xs min-w-[50px] text-center">1935</div>
                                 <div>
-                                    <span className="font-bold text-slate-800">INC Official Demand</span>
+                                    <span className="font-bold text-foreground">INC Official Demand</span>
                                     <p className="text-sm opacity-80 leading-tight">First official demand for a Constituent Assembly.</p>
                                 </div>
                             </li>
                             <li className="flex gap-3 items-start">
                                 <div className="mt-1 bg-indigo-100 p-1 rounded text-indigo-700 font-bold text-xs min-w-[50px] text-center">1938</div>
                                 <div>
-                                    <span className="font-bold text-slate-800">Nehru's Declaration</span>
+                                    <span className="font-bold text-foreground">Nehru's Declaration</span>
                                     <p className="text-sm opacity-80 leading-tight">"Framed ... without outside interference by an Assembly elected on adult franchise."</p>
                                 </div>
                             </li>
@@ -169,12 +169,12 @@ export default function MakingConstitutionModuleV2({ onComplete, isCompleted }: 
                         <h4 className="text-sm uppercase tracking-widest font-bold text-blue-800 mb-4">Total Strength</h4>
                         <div className="text-6xl font-black text-blue-900 mb-2 font-sans tracking-tighter">389</div>
                         <div className="flex justify-center gap-1 mb-4">
-                            <div className="bg-white px-3 py-1 rounded shadow-sm border border-blue-100">
+                            <div className="bg-card px-3 py-1 rounded shadow-sm border border-blue-100">
                                 <div className="text-xl font-bold text-indigo-700">296</div>
                                 <div className="text-[10px] uppercase font-bold text-indigo-400">British India</div>
                             </div>
-                            <div className="flex items-center text-slate-400">+</div>
-                            <div className="bg-white px-3 py-1 rounded shadow-sm border border-blue-100">
+                            <div className="flex items-center text-muted-foreground">+</div>
+                            <div className="bg-card px-3 py-1 rounded shadow-sm border border-blue-100">
                                 <div className="text-xl font-bold text-amber-700">93</div>
                                 <div className="text-[10px] uppercase font-bold text-amber-400">Princely</div>
                             </div>
@@ -185,15 +185,15 @@ export default function MakingConstitutionModuleV2({ onComplete, isCompleted }: 
                     <ArchitectCard className="md:col-span-3">
                         <HandHeading>Election Method</HandHeading>
                         <div className="grid grid-cols-2 gap-4 mt-4">
-                            <div className="p-3 bg-slate-100 rounded-lg">
-                                <div className="font-bold text-slate-800 mb-1">British India</div>
+                            <div className="p-3 bg-muted rounded-lg">
+                                <div className="font-bold text-foreground mb-1">British India</div>
                                 <div className="text-sm font-bold text-indigo-600">Indirect Election</div>
                                 <p className="text-xs opacity-70 leading-tight mt-1">
                                     By Provincial Assemblies (Single Transferable Vote).
                                 </p>
                             </div>
-                            <div className="p-3 bg-slate-100 rounded-lg">
-                                <div className="font-bold text-slate-800 mb-1">Princely States</div>
+                            <div className="p-3 bg-muted rounded-lg">
+                                <div className="font-bold text-foreground mb-1">Princely States</div>
                                 <div className="text-sm font-bold text-amber-600">Nominated</div>
                                 <p className="text-xs opacity-70 leading-tight mt-1">
                                     By Heads of Princely States.
@@ -216,7 +216,7 @@ export default function MakingConstitutionModuleV2({ onComplete, isCompleted }: 
                         <HandHeading>First Meeting</HandHeading>
                         <div className="space-y-4 mt-4">
                             <div className="flex items-center gap-3">
-                                <Users className="text-slate-400" size={18} />
+                                <Users className="text-muted-foreground" size={18} />
                                 <div>
                                     <span className="font-bold">211 Members</span>
                                     <span className="text-xs ml-2 opacity-60">(Muslim League Boycotted)</span>
@@ -226,7 +226,7 @@ export default function MakingConstitutionModuleV2({ onComplete, isCompleted }: 
                                 <Crown className="text-amber-500 mt-1" size={18} />
                                 <div>
                                     <span className="font-bold text-lg block">Dr. Sachchidanand Sinha</span>
-                                    <span className="text-sm badge bg-slate-100 px-2 py-0.5 rounded">Temporary President</span>
+                                    <span className="text-sm badge bg-muted px-2 py-0.5 rounded">Temporary President</span>
                                     <div className="text-xs opacity-60 mt-0.5">Oldest Member (French Practice)</div>
                                 </div>
                             </div>
@@ -283,18 +283,18 @@ export default function MakingConstitutionModuleV2({ onComplete, isCompleted }: 
                 <ArchitectCard className="mt-4 border-dashed border-2 border-indigo-300">
                     <HandHeading className="text-center">Changes by Independence Act 1947</HandHeading>
                     <div className="grid md:grid-cols-3 gap-4 mt-4 text-center">
-                        <div className="p-3 bg-white shadow-sm rounded-lg">
+                        <div className="p-3 bg-card shadow-sm rounded-lg">
                             <div className="font-bold text-lg text-indigo-700 mb-1">1. Sovereign</div>
                             <div className="text-xs">Could abrogate any British law.</div>
                         </div>
-                        <div className="p-3 bg-white shadow-sm rounded-lg">
+                        <div className="p-3 bg-card shadow-sm rounded-lg">
                             <div className="font-bold text-lg text-indigo-700 mb-1">2. Legislative</div>
                             <div className="text-xs">
                                 Did double duty.<br />
                                 <span className="opacity-70">Const? Dr. Prasad. Legis? G.V. Mavalankar.</span>
                             </div>
                         </div>
-                        <div className="p-3 bg-white shadow-sm rounded-lg">
+                        <div className="p-3 bg-card shadow-sm rounded-lg">
                             <div className="font-bold text-lg text-indigo-700 mb-1">3. Reduced</div>
                             <div className="text-xs">389 → 299<br />(Muslim League Withdrew)</div>
                         </div>
@@ -332,7 +332,7 @@ export default function MakingConstitutionModuleV2({ onComplete, isCompleted }: 
                     <ArchitectCard>
                         <HandHeading>Dr. Rajendra Prasad</HandHeading>
                         <div className="h-full flex flex-col justify-center">
-                            <ul className="space-y-2 text-sm font-bold text-slate-700">
+                            <ul className="space-y-2 text-sm font-bold text-muted-foreground">
                                 <li className="flex items-center gap-2">
                                     <CheckCircle2 size={16} className="text-green-600" /> Rules of Procedure
                                 </li>
@@ -353,7 +353,7 @@ export default function MakingConstitutionModuleV2({ onComplete, isCompleted }: 
 
                         <div className="space-y-4">
                             <div className="bg-slate-700/50 p-2 rounded border border-slate-600">
-                                <div className="text-xs uppercase text-slate-400 font-bold">Chairman</div>
+                                <div className="text-xs uppercase text-muted-foreground font-bold">Chairman</div>
                                 <div className="text-lg font-bold text-white">Dr. B.R. Ambedkar</div>
                             </div>
                             <div className="grid grid-cols-2 gap-2 text-xs">
@@ -394,7 +394,7 @@ export default function MakingConstitutionModuleV2({ onComplete, isCompleted }: 
                         <Badge className="bg-slate-800 mb-2">Adoption</Badge>
                         <HandHeading>Nov 26, 1949</HandHeading>
                         <div className="text-sm italic opacity-80 mb-3">"Adopted, Enacted and gave to ourselves"</div>
-                        <ul className="text-xs space-y-1 bg-slate-100 p-2 rounded">
+                        <ul className="text-xs space-y-1 bg-muted p-2 rounded">
                             <li><strong>Result:</strong> Constitution Day</li>
                             <li><strong>Active:</strong> Citizenship, Elections, Prov. Parliament.</li>
                         </ul>
@@ -404,7 +404,7 @@ export default function MakingConstitutionModuleV2({ onComplete, isCompleted }: 
                         <Badge className="bg-orange-600 mb-2 hover:bg-orange-700">Commencement</Badge>
                         <HandHeading className="text-orange-900">Jan 26, 1950</HandHeading>
                         <div className="text-sm italic opacity-80 mb-3">Republic Day</div>
-                        <div className="text-xs bg-white p-2 rounded border border-orange-100 text-orange-800">
+                        <div className="text-xs bg-card p-2 rounded border border-orange-100 text-orange-800">
                             <strong>Why?</strong> Anniversary of Purna Swaraj (1930).
                             <br />
                             <strong>Repealed:</strong> Independence Act 1947.
@@ -424,21 +424,21 @@ export default function MakingConstitutionModuleV2({ onComplete, isCompleted }: 
                             <div className="flex items-center gap-3 border-b border-slate-100 pb-2">
                                 <span className="text-2xl">🇮🇳</span>
                                 <div>
-                                    <div className="font-bold text-slate-800">National Flag</div>
+                                    <div className="font-bold text-foreground">National Flag</div>
                                     <div className="text-xs opacity-70">Adopted: July 22, 1947</div>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3 border-b border-slate-100 pb-2">
                                 <Music className="text-indigo-600" size={24} />
                                 <div>
-                                    <div className="font-bold text-slate-800">Anthem & Song</div>
+                                    <div className="font-bold text-foreground">Anthem & Song</div>
                                     <div className="text-xs opacity-70">Adopted: Jan 24, 1950</div>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
                                 <span className="text-2xl">🤵</span>
                                 <div>
-                                    <div className="font-bold text-slate-800">First President</div>
+                                    <div className="font-bold text-foreground">First President</div>
                                     <div className="text-xs opacity-70">Dr. Rajendra Prasad (Jan 24, 1950)</div>
                                 </div>
                             </div>
@@ -453,7 +453,7 @@ export default function MakingConstitutionModuleV2({ onComplete, isCompleted }: 
                         </div>
                         <div className="mt-2 space-y-2">
                             <div className="text-sm font-bold text-blue-900">May 1949: Ratified Membership</div>
-                            <div className="text-xs bg-white p-2 rounded border border-blue-100 text-blue-800 leading-tight">
+                            <div className="text-xs bg-card p-2 rounded border border-blue-100 text-blue-800 leading-tight">
                                 <strong>Significance:</strong> Accepted British King/Queen as "Symbolic Head". India remained a Sovereign Republic.
                             </div>
                         </div>
@@ -513,17 +513,17 @@ export default function MakingConstitutionModuleV2({ onComplete, isCompleted }: 
 
                 {/* --- ROW 9: TRIVIA MOSAIC --- */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4">
-                    <div className="bg-white p-3 rounded-lg shadow-sm text-center border border-slate-200">
+                    <div className="bg-card p-3 rounded-lg shadow-sm text-center border border-border">
                         <div className="text-2xl mb-1">🐘</div>
                         <div className="text-xs font-bold uppercase">Symbol</div>
                         <div className="text-sm font-bold text-indigo-800">Elephant</div>
                     </div>
-                    <div className="bg-white p-3 rounded-lg shadow-sm text-center border border-slate-200">
+                    <div className="bg-card p-3 rounded-lg shadow-sm text-center border border-border">
                         <div className="text-2xl mb-1">✍️</div>
                         <div className="text-xs font-bold uppercase">Calligrapher</div>
                         <div className="text-[10px] font-bold leading-tight">Prem Behari Narain Raizada</div>
                     </div>
-                    <div className="bg-white p-3 rounded-lg shadow-sm text-center border border-slate-200">
+                    <div className="bg-card p-3 rounded-lg shadow-sm text-center border border-border">
                         <div className="text-2xl mb-1">🎨</div>
                         <div className="text-xs font-bold uppercase">Artist</div>
                         <div className="text-sm font-bold text-pink-700">Nand Lal Bose</div>

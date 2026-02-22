@@ -63,7 +63,7 @@ export default function AnalyticsPage() {
         <h1 className="text-4xl font-bold text-white mb-2">
           Analytics Dashboard
         </h1>
-        <p className="text-gray-400">
+        <p className="text-muted-foreground">
           Detailed platform analytics and insights
         </p>
       </div>
@@ -73,7 +73,7 @@ export default function AnalyticsPage() {
         <Card className="bg-gradient-to-br from-blue-900/30 to-blue-700/20 border-blue-500/30 p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Total Users</p>
+              <p className="text-muted-foreground text-sm">Total Users</p>
               <p className="text-3xl font-bold text-white">
                 {stats?.users?.total || 0}
               </p>
@@ -88,7 +88,7 @@ export default function AnalyticsPage() {
         <Card className="bg-gradient-to-br from-purple-900/30 to-purple-700/20 border-purple-500/30 p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Submissions</p>
+              <p className="text-muted-foreground text-sm">Submissions</p>
               <p className="text-3xl font-bold text-white">
                 {stats?.content?.submissions || 0}
               </p>
@@ -101,7 +101,7 @@ export default function AnalyticsPage() {
         <Card className="bg-gradient-to-br from-green-900/30 to-green-700/20 border-green-500/30 p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Active Users</p>
+              <p className="text-muted-foreground text-sm">Active Users</p>
               <p className="text-3xl font-bold text-white">
                 {stats?.users?.active || 0}
               </p>
@@ -114,7 +114,7 @@ export default function AnalyticsPage() {
         <Card className="bg-gradient-to-br from-orange-900/30 to-orange-700/20 border-orange-500/30 p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Avg Engagement</p>
+              <p className="text-muted-foreground text-sm">Avg Engagement</p>
               <p className="text-3xl font-bold text-white">85%</p>
               <p className="text-green-400 text-sm mt-1">+3% from last week</p>
             </div>

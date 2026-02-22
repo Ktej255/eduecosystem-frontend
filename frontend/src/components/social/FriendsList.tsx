@@ -76,7 +76,7 @@ export default function FriendsList({ onSelectFriend }: FriendsListProps) {
         {loading ? (
           <LoadingSkeleton variant="list" count={5} />
         ) : friends.length === 0 ? (
-          <p className="text-gray-400 text-center py-4">No friends yet</p>
+          <p className="text-muted-foreground text-center py-4">No friends yet</p>
         ) : (
           friends.map((friend) => (
             <div
@@ -94,13 +94,13 @@ export default function FriendsList({ onSelectFriend }: FriendsListProps) {
                   <p className="text-sm font-medium text-white">
                     {friend.full_name}
                   </p>
-                  <p className="text-xs text-gray-400">Online</p>
+                  <p className="text-xs text-muted-foreground">Online</p>
                 </div>
               </div>
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-gray-400 hover:text-white"
+                className="text-muted-foreground hover:text-white"
               >
                 <MessageCircle className="h-4 w-4" />
               </Button>

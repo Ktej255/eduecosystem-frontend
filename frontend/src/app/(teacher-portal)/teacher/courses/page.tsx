@@ -97,11 +97,11 @@ export default function MyCoursesPage() {
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-3xl font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+                    <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
                         <GraduationCap className="h-8 w-8 text-emerald-600" />
                         My Courses
                     </h1>
-                    <p className="text-slate-600 dark:text-slate-400 mt-1">
+                    <p className="text-muted-foreground dark:text-muted-foreground mt-1">
                         Create, manage, and track all your courses.
                     </p>
                 </div>
@@ -111,14 +111,14 @@ export default function MyCoursesPage() {
             {/* Stats Cards */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {courseStats.map((stat) => (
-                    <Card key={stat.label} className="border-slate-200 dark:border-slate-800">
+                    <Card key={stat.label} className="border-border">
                         <CardContent className="p-4 flex items-center gap-3">
                             <div className={`${stat.bgColor} p-2.5 rounded-lg`}>
                                 <stat.icon className={`h-5 w-5 ${stat.color}`} />
                             </div>
                             <div>
-                                <p className="text-2xl font-bold text-slate-800 dark:text-slate-100">{stat.value}</p>
-                                <p className="text-xs text-slate-500">{stat.label}</p>
+                                <p className="text-2xl font-bold text-foreground">{stat.value}</p>
+                                <p className="text-xs text-muted-foreground">{stat.label}</p>
                             </div>
                         </CardContent>
                     </Card>
@@ -129,7 +129,7 @@ export default function MyCoursesPage() {
             {loading ? (
                 <div className="flex justify-center items-center py-20">
                     <Loader2 className="h-8 w-8 animate-spin text-emerald-600" />
-                    <span className="ml-3 text-slate-500">Loading courses...</span>
+                    <span className="ml-3 text-muted-foreground">Loading courses...</span>
                 </div>
             ) : error ? (
                 <Card className="border-red-200 bg-red-50 dark:bg-red-950/20 dark:border-red-800">
@@ -144,18 +144,18 @@ export default function MyCoursesPage() {
                     </CardContent>
                 </Card>
             ) : courses.length === 0 ? (
-                <Card className="border-dashed border-2 border-slate-300 dark:border-slate-700">
+                <Card className="border-dashed border-2 border-border">
                     <CardContent className="p-12 flex flex-col items-center justify-center text-center">
-                        <BookOpen className="h-12 w-12 text-slate-400 mb-4" />
-                        <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-300 mb-2">No courses yet</h3>
-                        <p className="text-slate-500 mb-4">Get started by creating your first course. Our wizard will guide you through the process.</p>
+                        <BookOpen className="h-12 w-12 text-muted-foreground mb-4" />
+                        <h3 className="text-lg font-semibold text-muted-foreground mb-2">No courses yet</h3>
+                        <p className="text-muted-foreground mb-4">Get started by creating your first course. Our wizard will guide you through the process.</p>
                         <CourseCreationWizard onCourseCreated={fetchCourses} />
                     </CardContent>
                 </Card>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {courses.map((course) => (
-                        <Card key={course.id} className="border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all duration-300 group overflow-hidden">
+                        <Card key={course.id} className="border-border hover:shadow-lg transition-all duration-300 group overflow-hidden">
                             {/* Course Thumbnail / Header */}
                             <div className="h-36 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center relative overflow-hidden">
                                 <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all" />
@@ -166,19 +166,19 @@ export default function MyCoursesPage() {
                             </div>
 
                             <CardContent className="p-4">
-                                <h3 className="font-bold text-slate-800 dark:text-slate-100 line-clamp-2 mb-1">
+                                <h3 className="font-bold text-foreground line-clamp-2 mb-1">
                                     {course.title || "Untitled Course"}
                                 </h3>
-                                <p className="text-sm text-slate-500 line-clamp-2 mb-3">
+                                <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
                                     {course.description || "No description yet."}
                                 </p>
 
-                                <div className="flex items-center gap-4 text-xs text-slate-500">
+                                <div className="flex items-center gap-4 text-xs text-muted-foreground">
                                     <div className="flex items-center gap-1">
                                         <Users className="h-3.5 w-3.5" />
                                         <span>{course.total_enrollments || 0} students</span>
                                     </div>
-                                    <div className="flex items-center gap-1 font-semibold text-slate-700 dark:text-slate-300">
+                                    <div className="flex items-center gap-1 font-semibold text-muted-foreground">
                                         ₹{course.price || 0}
                                     </div>
                                     {course.level && (

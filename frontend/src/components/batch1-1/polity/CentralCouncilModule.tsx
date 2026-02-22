@@ -15,7 +15,7 @@ interface CentralCouncilModuleProps {
 // --- Design System: The Orbits of Power (Solar System) ---
 
 const OrbitContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#faf5ff] text-slate-900">
+    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#faf5ff] text-foreground">
         {/* Orbit Lines Background */}
         <div className="absolute inset-0 pointer-events-none opacity-20">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-purple-400 rounded-full"></div>
@@ -56,7 +56,7 @@ export default function CentralCouncilModule({ onComplete, isCompleted }: Centra
                     <div className="animate-[spin_10s_linear_infinite] absolute -top-12 -left-12 text-purple-200">
                         <Orbit size={120} />
                     </div>
-                    <div className="bg-white border-4 border-purple-900 p-8 rounded-full shadow-2xl relative">
+                    <div className="bg-card border-4 border-purple-900 p-8 rounded-full shadow-2xl relative">
                         <h1 className="text-4xl md:text-5xl font-black text-purple-900 font-serif mb-2">
                             Central Council
                         </h1>
@@ -79,7 +79,7 @@ export default function CentralCouncilModule({ onComplete, isCompleted }: Centra
                     {/* ART 74: AID & ADVICE */}
                     <SketchCard title="Art 74: Aid & Advice" icon={FileText} color="purple">
                         <div className="space-y-4 text-sm font-handwriting">
-                            <div className="bg-white/50 p-3 rounded border border-purple-200 indent-4 italic">
+                            <div className="bg-card/50 p-3 rounded border border-purple-200 indent-4 italic">
                                 "There shall be a Council of Ministers with PM at the head."
                             </div>
 
@@ -116,7 +116,7 @@ export default function CentralCouncilModule({ onComplete, isCompleted }: Centra
                             <li className="bg-yellow-100 p-2 rounded border border-yellow-400 text-yellow-900">
                                 <strong className="block mb-1">91st AA (2003) Size Limit:</strong>
                                 Total ministers (incl PM) shall NOT exceed <strong className="text-red-600">15%</strong> of Lok Sabha strength. [PYQ]
-                                <div className="text-xs mt-1 text-slate-500">(Minimum 12 - mostly for states).</div>
+                                <div className="text-xs mt-1 text-muted-foreground">(Minimum 12 - mostly for states).</div>
                             </li>
                             <li className="flex gap-2 items-start text-red-600">
                                 <AlertTriangle size={16} className="mt-0.5 shrink-0" />
@@ -139,7 +139,7 @@ export default function CentralCouncilModule({ onComplete, isCompleted }: Centra
                     {/* COLLECTIVE RESPONSIBILITY */}
                     <div className="relative group">
                         <div className="absolute -inset-1 bg-blue-100 rounded-xl transform rotate-1 transition-transform group-hover:rotate-0"></div>
-                        <div className="relative bg-white border-2 border-blue-500 p-6 rounded-xl shadow-lg">
+                        <div className="relative bg-card border-2 border-blue-500 p-6 rounded-xl shadow-lg">
                             <h3 className="text-xl font-bold text-blue-900 flex items-center gap-2 mb-4 font-serif">
                                 <Users size={24} /> Collective Responsibility
                             </h3>
@@ -160,7 +160,7 @@ export default function CentralCouncilModule({ onComplete, isCompleted }: Centra
                     {/* INDIVIDUAL RESPONSIBILITY */}
                     <div className="relative group">
                         <div className="absolute -inset-1 bg-pink-100 rounded-xl transform -rotate-1 transition-transform group-hover:rotate-0"></div>
-                        <div className="relative bg-white border-2 border-pink-500 p-6 rounded-xl shadow-lg">
+                        <div className="relative bg-card border-2 border-pink-500 p-6 rounded-xl shadow-lg">
                             <h3 className="text-xl font-bold text-pink-900 flex items-center gap-2 mb-4 font-serif">
                                 <User size={24} /> Individual Responsibility
                             </h3>
@@ -205,19 +205,19 @@ export default function CentralCouncilModule({ onComplete, isCompleted }: Centra
                     </div>
 
                     {/* EXPLANATION CARDS (Floating) */}
-                    <div className="absolute top-0 left-0 md:bg-white/10 p-4 rounded-lg backdrop-blur-sm max-w-xs border border-white/20 z-30">
+                    <div className="absolute top-0 left-0 md:bg-card/10 p-4 rounded-lg backdrop-blur-sm max-w-xs border border-white/20 z-30">
                         <strong className="text-purple-300 block mb-1">Inner Ring: Cabinet</strong>
                         <p className="text-xs text-slate-300">Heads important ministries (Home, Def, Fin). Crucial decision makers.</p>
                     </div>
 
-                    <div className="absolute bottom-0 right-0 md:bg-white/10 p-4 rounded-lg backdrop-blur-sm max-w-xs border border-white/20 z-30">
+                    <div className="absolute bottom-0 right-0 md:bg-card/10 p-4 rounded-lg backdrop-blur-sm max-w-xs border border-white/20 z-30">
                         <strong className="text-indigo-300 block mb-1">Outer Ring: Council</strong>
                         <p className="text-xs text-slate-300">MoS (Ind. Charge), MoS (Attached), Deputy Ministers. Larger body (60-70).</p>
                     </div>
                 </div>
 
                 {/* COMPARISON TABLE */}
-                <div className="mt-12 bg-white/5 p-6 rounded-xl border border-white/10 max-w-3xl mx-auto">
+                <div className="mt-12 bg-card/5 p-6 rounded-xl border border-white/10 max-w-3xl mx-auto">
                     <h3 className="text-center font-bold text-xl mb-4 border-b border-white/20 pb-2">Cabinet vs Council [Napkin Sketch]</h3>
                     <div className="grid grid-cols-2 gap-8 text-sm font-handwriting">
                         <div>
@@ -266,7 +266,7 @@ export default function CentralCouncilModule({ onComplete, isCompleted }: Centra
                             px-8 py-3 rounded-full font-bold shadow-lg transition-all text-lg
                             ${isCompleted
                                 ? 'bg-purple-600 text-white'
-                                : 'bg-white text-purple-900 border-2 border-purple-600 hover:bg-purple-50'
+                                : 'bg-card text-purple-900 border-2 border-purple-600 hover:bg-purple-50'
                             }
                         `}
                     >

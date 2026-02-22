@@ -22,7 +22,7 @@ interface FundamentalRightsModuleProps {
 // --- Design System: The Bill of Rights Vault ---
 
 const VaultContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="bg-[#1e293b] min-h-screen p-4 md:p-8 font-sans text-slate-100 selection:bg-amber-300 selection:text-slate-900">
+    <div className="bg-[#1e293b] min-h-screen p-4 md:p-8 font-sans text-slate-100 selection:bg-amber-300 selection:text-foreground">
         <div className="max-w-7xl mx-auto space-y-10">
             {children}
         </div>
@@ -41,7 +41,7 @@ const CaseFileCard = ({ title, icon: Icon, children, color = "blue", badge }: { 
     };
 
     const iconColors: any = {
-        slate: "text-slate-400",
+        slate: "text-muted-foreground",
         blue: "text-blue-400",
         green: "text-green-400",
         red: "text-red-400",
@@ -72,7 +72,7 @@ const CaseFileCard = ({ title, icon: Icon, children, color = "blue", badge }: { 
 
 const SectionHeader = ({ title, icon: Icon, color = "text-slate-200" }: { title: string, icon: any, color?: string }) => (
     <div className="flex items-center gap-2 mb-6 mt-10 first:mt-0">
-        <div className={`p-2 rounded bg-white/5 border border-white/10 ${color}`}>
+        <div className={`p-2 rounded bg-card/5 border border-white/10 ${color}`}>
             <Icon size={20} />
         </div>
         <h2 className={`text-xl font-bold uppercase tracking-widest ${color}`}>{title}</h2>
@@ -96,7 +96,7 @@ export default function FundamentalRightsModule({ onComplete, isCompleted }: Fun
                         <h1 className="text-4xl md:text-6xl font-black text-white mb-2 font-serif text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-600">
                             THE VAULT OF RIGHTS
                         </h1>
-                        <p className="text-slate-400 text-lg font-mono">
+                        <p className="text-muted-foreground text-lg font-mono">
                             The "Magna Carta" of India. Justiciable. Essential.
                         </p>
                     </div>
@@ -104,7 +104,7 @@ export default function FundamentalRightsModule({ onComplete, isCompleted }: Fun
             </div>
 
             {/* PHASE 1: DEFINITION & SHIELD (12-13) */}
-            <SectionHeader title="Phase 1: The Shield" icon={Shield} color="text-slate-400" />
+            <SectionHeader title="Phase 1: The Shield" icon={Shield} color="text-muted-foreground" />
             <div className="grid md:grid-cols-2 gap-6">
                 <CaseFileCard title="Article 12: State" icon={Building2} color="slate" badge="Definition">
                     <p><strong>Why?</strong> FRs are claims AGAINST the State.</p>
@@ -125,16 +125,16 @@ export default function FundamentalRightsModule({ onComplete, isCompleted }: Fun
                     </div>
                     <div className="grid grid-cols-2 gap-4 text-xs">
                         <div>
-                            <div className="font-bold text-slate-400 mb-1">"Law" Includes</div>
-                            <ul className="list-disc pl-3 text-slate-500 space-y-1">
+                            <div className="font-bold text-muted-foreground mb-1">"Law" Includes</div>
+                            <ul className="list-disc pl-3 text-muted-foreground space-y-1">
                                 <li>Acts, Ordinances</li>
                                 <li>Orders, Bye-laws</li>
                                 <li>Custom/Usage</li>
                             </ul>
                         </div>
                         <div>
-                            <div className="font-bold text-slate-400 mb-1">Amendment?</div>
-                            <p className="text-slate-500"><strong>Kesavananda Case (1973):</strong> YES, challengeable if violates <strong>Basic Structure</strong>.</p>
+                            <div className="font-bold text-muted-foreground mb-1">Amendment?</div>
+                            <p className="text-muted-foreground"><strong>Kesavananda Case (1973):</strong> YES, challengeable if violates <strong>Basic Structure</strong>.</p>
                         </div>
                     </div>
                 </CaseFileCard>
@@ -226,14 +226,14 @@ export default function FundamentalRightsModule({ onComplete, isCompleted }: Fun
                                 </div>
                             ))}
                         </div>
-                        <div className="mt-4 text-[10px] text-slate-400 text-center italic">
+                        <div className="mt-4 text-[10px] text-muted-foreground text-center italic">
                             Right to Property (19(1)(f)) deleted by 44th AA.
                         </div>
                     </CaseFileCard>
                 </div>
                 <CaseFileCard title="Reasonable Restrictions" icon={Lock} color="green" badge="Not Absolute">
                     <p className="text-xs mb-2">Grounds for restriction:</p>
-                    <ul className="text-[10px] grid grid-cols-2 gap-1 text-slate-400">
+                    <ul className="text-[10px] grid grid-cols-2 gap-1 text-muted-foreground">
                         <li>Sovereignty</li>
                         <li>Integrity</li>
                         <li>Security</li>
@@ -399,7 +399,7 @@ export default function FundamentalRightsModule({ onComplete, isCompleted }: Fun
 
             {/* FOOTER */}
             <div className="mt-12 text-center pb-8 border-t border-slate-800 pt-8">
-                <div className="flex justify-center gap-6 mb-6 text-sm text-slate-500 font-mono">
+                <div className="flex justify-center gap-6 mb-6 text-sm text-muted-foreground font-mono">
                     <span>Foreigners: 14, 20-21A, 22-28</span>
                     <span>Property: Art 300-A (Legal)</span>
                 </div>

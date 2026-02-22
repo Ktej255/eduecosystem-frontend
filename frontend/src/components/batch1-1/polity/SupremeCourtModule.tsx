@@ -16,7 +16,7 @@ interface SupremeCourtModuleProps {
 // --- Design System: The Temple of Justice (Marble & Gold) ---
 
 const TempleContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#f5f5f4] text-slate-900">
+    <div className="min-h-screen p-4 md:p-8 font-sans relative overflow-hidden bg-[#f5f5f4] text-foreground">
         {/* Marble Texture */}
         <div className="absolute inset-0 opacity-40 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/white-marble.png')]"></div>
 
@@ -30,13 +30,13 @@ const TempleContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const MarbleCard = ({ children, title, icon: Icon, className = "" }: { children: React.ReactNode, title: string, icon?: any, className?: string }) => (
-    <div className={`bg-white p-6 rounded-xl shadow-[0_10px_30px_-10px_rgba(0,0,0,0.3)] border border-slate-200 relative overflow-hidden ${className}`}>
+    <div className={`bg-card p-6 rounded-xl shadow-[0_10px_30px_-10px_rgba(0,0,0,0.3)] border border-border relative overflow-hidden ${className}`}>
         {/* Top Gold Bar */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-400"></div>
 
         <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
             {Icon && <div className="bg-slate-900 text-yellow-400 p-2 rounded-full"><Icon size={20} /></div>}
-            <h3 className="text-xl font-bold font-serif text-slate-800 uppercase tracking-widest">{title}</h3>
+            <h3 className="text-xl font-bold font-serif text-foreground uppercase tracking-widest">{title}</h3>
         </div>
         {children}
     </div>
@@ -49,9 +49,9 @@ const LawTimelineItem = ({ year, title, desc, active = false }: { year: string, 
             <div className="w-0.5 flex-1 bg-slate-200 my-1"></div>
         </div>
         <div>
-            <span className={`text-xs font-bold px-2 py-0.5 rounded ${active ? "bg-yellow-100 text-yellow-800" : "bg-slate-100 text-slate-500"}`}>{year}</span>
-            <h4 className={`font-bold mt-1 ${active ? "text-slate-900" : "text-slate-600"}`}>{title}</h4>
-            <p className="text-sm font-handwriting text-slate-500 leading-tight mt-1">{desc}</p>
+            <span className={`text-xs font-bold px-2 py-0.5 rounded ${active ? "bg-yellow-100 text-yellow-800" : "bg-muted text-muted-foreground"}`}>{year}</span>
+            <h4 className={`font-bold mt-1 ${active ? "text-foreground" : "text-muted-foreground"}`}>{title}</h4>
+            <p className="text-sm font-handwriting text-muted-foreground leading-tight mt-1">{desc}</p>
         </div>
     </div>
 );
@@ -63,14 +63,14 @@ export default function SupremeCourtModule({ onComplete, isCompleted }: SupremeC
             <div className="text-center py-12 relative flex flex-col items-center">
                 <div className="mb-6 relative">
                     <div className="absolute -top-10 -left-10 text-slate-200 opacity-50"><Landmark size={120} /></div>
-                    <Scale size={80} className="text-slate-900 relative z-10" strokeWidth={1.5} />
+                    <Scale size={80} className="text-foreground relative z-10" strokeWidth={1.5} />
                 </div>
-                <h1 className="text-5xl md:text-7xl font-black text-slate-900 font-serif mb-2 tracking-widest">
+                <h1 className="text-5xl md:text-7xl font-black text-foreground font-serif mb-2 tracking-widest">
                     SUPREME COURT
                 </h1>
                 <div className="flex items-center gap-4 justify-center">
                     <div className="h-[1px] w-12 bg-slate-400"></div>
-                    <span className="text-xl font-handwriting italic text-slate-600">"Guardian of the Constitution"</span>
+                    <span className="text-xl font-handwriting italic text-muted-foreground">"Guardian of the Constitution"</span>
                     <div className="h-[1px] w-12 bg-slate-400"></div>
                 </div>
             </div>
@@ -87,15 +87,15 @@ export default function SupremeCourtModule({ onComplete, isCompleted }: SupremeC
                     {/* BENCH STRENGTH */}
                     <MarbleCard title="Organization (Art 124)" icon={Users}>
                         <div className="grid grid-cols-2 gap-4 text-center">
-                            <div className="p-4 bg-slate-50 rounded border border-slate-200">
-                                <span className="block text-xs text-slate-400 font-bold uppercase">Original (1950)</span>
-                                <strong className="text-3xl font-serif text-slate-700">1 + 7</strong>
-                                <span className="block text-xs text-slate-500">(8 Judges)</span>
+                            <div className="p-4 bg-muted rounded border border-border">
+                                <span className="block text-xs text-muted-foreground font-bold uppercase">Original (1950)</span>
+                                <strong className="text-3xl font-serif text-muted-foreground">1 + 7</strong>
+                                <span className="block text-xs text-muted-foreground">(8 Judges)</span>
                             </div>
                             <div className="p-4 bg-yellow-50 rounded border border-yellow-200">
                                 <span className="block text-xs text-yellow-600 font-bold uppercase">Current (2019)</span>
-                                <strong className="text-3xl font-serif text-slate-900">1 + 33</strong>
-                                <span className="block text-xs text-slate-500">(34 Judges)</span>
+                                <strong className="text-3xl font-serif text-foreground">1 + 33</strong>
+                                <span className="block text-xs text-muted-foreground">(34 Judges)</span>
                             </div>
                         </div>
                         <div className="mt-4 text-center text-sm font-handwriting">
@@ -112,11 +112,11 @@ export default function SupremeCourtModule({ onComplete, isCompleted }: SupremeC
                             </li>
                             <li className="flex items-center gap-2">
                                 <CheckCircle2 size={16} className="text-green-600" />
-                                <span>Judge of HC for 5 Years. <span className="font-bold text-slate-400">OR</span></span>
+                                <span>Judge of HC for 5 Years. <span className="font-bold text-muted-foreground">OR</span></span>
                             </li>
                             <li className="flex items-center gap-2">
                                 <CheckCircle2 size={16} className="text-green-600" />
-                                <span>Advocate of HC for 10 Years. <span className="font-bold text-slate-400">OR</span></span>
+                                <span>Advocate of HC for 10 Years. <span className="font-bold text-muted-foreground">OR</span></span>
                             </li>
                             <li className="flex items-center gap-2">
                                 <CheckCircle2 size={16} className="text-green-600" />
@@ -200,7 +200,7 @@ export default function SupremeCourtModule({ onComplete, isCompleted }: SupremeC
                     </div>
 
                     {/* INDEPENDENCE SHIELD */}
-                    <div className="bg-white/5 p-6 rounded-xl border border-white/10 flex flex-col items-center text-center">
+                    <div className="bg-card/5 p-6 rounded-xl border border-white/10 flex flex-col items-center text-center">
                         <Shield size={64} className="text-yellow-400 mb-4" />
                         <h3 className="text-xl font-bold mb-4 font-serif text-yellow-200">The Independence Shield</h3>
                         <ul className="space-y-3 font-handwriting text-sm text-slate-300 w-full text-left">
@@ -237,14 +237,14 @@ export default function SupremeCourtModule({ onComplete, isCompleted }: SupremeC
                     {/* ORIGINAL */}
                     <MarbleCard title="Original (Art 131)" icon={MapIcon}>
                         <div className="text-sm font-handwriting space-y-3">
-                            <p className="font-bold text-center bg-slate-100 p-2 rounded">Federal Disputes</p>
+                            <p className="font-bold text-center bg-muted p-2 rounded">Federal Disputes</p>
                             <ul className="list-disc pl-4 space-y-1">
                                 <li>Centre vs State.</li>
                                 <li>State vs State.</li>
                             </ul>
                             <div className="mt-4 border-t pt-2">
                                 <strong className="text-red-600 flex items-center gap-1 text-xs uppercase"><XCircle size={12} /> Exclusions (Trap)</strong>
-                                <ul className="text-xs text-slate-500 list-disc pl-4 mt-1">
+                                <ul className="text-xs text-muted-foreground list-disc pl-4 mt-1">
                                     <li>Inter-State Water Disputes.</li>
                                     <li>Finance Commission matters.</li>
                                     <li>Commercial disputes.</li>
@@ -260,7 +260,7 @@ export default function SupremeCourtModule({ onComplete, isCompleted }: SupremeC
                             <div className="text-center py-2">
                                 Habeas Corpus, Mandamus, Quo Warranto, Certiorari, Prohibition.
                             </div>
-                            <div className="mt-2 bg-slate-50 p-2 rounded border border-slate-200 text-xs">
+                            <div className="mt-2 bg-muted p-2 rounded border border-border text-xs">
                                 <strong>vs High Court (Art 226):</strong><br />
                                 SC can issue writs ONLY for Fundamental Rights. HC is Wider ("Any other purpose").
                             </div>
@@ -273,7 +273,7 @@ export default function SupremeCourtModule({ onComplete, isCompleted }: SupremeC
                             <p className="font-bold text-center bg-blue-50 p-2 rounded text-blue-800">President seeks Opinion</p>
 
                             <div className="flex justify-center my-2">
-                                <Phone size={32} className="text-slate-400" />
+                                <Phone size={32} className="text-muted-foreground" />
                             </div>
 
                             <ul className="text-left space-y-2 text-xs">
@@ -297,11 +297,11 @@ export default function SupremeCourtModule({ onComplete, isCompleted }: SupremeC
             {/* FOOTER: CURATIVE PETITION */}
             <div className="mt-16 text-center">
                 <div className="inline-block bg-slate-900 p-1 rounded-2xl shadow-2xl">
-                    <div className="bg-white rounded-xl p-8 max-w-2xl border-4 border-double border-slate-300">
+                    <div className="bg-card rounded-xl p-8 max-w-2xl border-4 border-double border-border">
                         <h3 className="text-xl font-bold font-serif mb-4 flex justify-center items-center gap-2">
-                            <BookOpen className="text-slate-900" /> The Curative Petition
+                            <BookOpen className="text-foreground" /> The Curative Petition
                         </h3>
-                        <p className="font-handwriting text-slate-600 mb-4">
+                        <p className="font-handwriting text-muted-foreground mb-4">
                             "The Final Door". Rupa Ashok Hurra Case (2002).<br />
                             Second review of judgment to prevent miscarriage of justice.
                         </p>

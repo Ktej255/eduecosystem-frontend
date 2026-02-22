@@ -24,14 +24,14 @@ export default function GenericEconomyPage({ topicId }: { topicId: string }) {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-black p-8 flex flex-col items-center justify-center">
+        <div className="min-h-screen bg-muted dark:bg-black p-8 flex flex-col items-center justify-center">
             <div className="max-w-md w-full text-center space-y-6">
                 <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mx-auto">
                     <TrendingUp className="h-10 w-10 text-emerald-600" />
                 </div>
-                <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100">{formatTitle(topicId)}</h1>
-                <div className="bg-white dark:bg-slate-900 p-4 rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm">
-                    <p className="text-slate-500">
+                <h1 className="text-3xl font-bold text-foreground">{formatTitle(topicId)}</h1>
+                <div className="bg-card p-4 rounded-lg border border-border shadow-sm">
+                    <p className="text-muted-foreground">
                         Detailed notes and simulations for this Economy module are under development.
                     </p>
                 </div>

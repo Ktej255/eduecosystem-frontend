@@ -195,7 +195,7 @@ export default function MarketplacePage() {
               <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent">
                 Course Marketplace
               </h1>
-              <p className="text-gray-300 mt-2 text-lg">
+              <p className="text-muted-foreground mt-2 text-lg">
                 Discover and enroll in courses from expert instructors
               </p>
             </div>
@@ -207,25 +207,25 @@ export default function MarketplacePage() {
               <div className="text-2xl font-bold text-cyan-400">
                 {courses.length}+
               </div>
-              <div className="text-gray-400 text-sm">Courses Available</div>
+              <div className="text-muted-foreground text-sm">Courses Available</div>
             </div>
             <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800">
               <div className="text-2xl font-bold text-green-400">
                 {courses.filter((c) => c.price === 0).length}
               </div>
-              <div className="text-gray-400 text-sm">Free Courses</div>
+              <div className="text-muted-foreground text-sm">Free Courses</div>
             </div>
             <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800">
               <div className="text-2xl font-bold text-purple-400">
                 {categories.length}
               </div>
-              <div className="text-gray-400 text-sm">Categories</div>
+              <div className="text-muted-foreground text-sm">Categories</div>
             </div>
             <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800">
               <div className="text-2xl font-bold text-yellow-400">
                 {courses.reduce((sum, c) => sum + c.total_enrollments, 0)}+
               </div>
-              <div className="text-gray-400 text-sm">Total Enrollments</div>
+              <div className="text-muted-foreground text-sm">Total Enrollments</div>
             </div>
           </div>
         </div>
@@ -249,7 +249,7 @@ export default function MarketplacePage() {
                 variant="ghost"
                 size="sm"
                 onClick={clearFilters}
-                className="text-gray-400 hover:text-white"
+                className="text-muted-foreground hover:text-white"
               >
                 <X className="h-4 w-4 mr-2" />
                 Clear All
@@ -260,11 +260,11 @@ export default function MarketplacePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
             {/* Search */}
             <div className="lg:col-span-2">
-              <label className="text-xs font-medium text-gray-400 mb-1.5 block">
+              <label className="text-xs font-medium text-muted-foreground mb-1.5 block">
                 Search
               </label>
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   type="text"
                   placeholder="Search courses..."
@@ -279,7 +279,7 @@ export default function MarketplacePage() {
 
             {/* Category */}
             <div>
-              <label className="text-xs font-medium text-gray-400 mb-1.5 block">
+              <label className="text-xs font-medium text-muted-foreground mb-1.5 block">
                 Category
               </label>
               <Select
@@ -302,7 +302,7 @@ export default function MarketplacePage() {
 
             {/* Level */}
             <div>
-              <label className="text-xs font-medium text-gray-400 mb-1.5 block">
+              <label className="text-xs font-medium text-muted-foreground mb-1.5 block">
                 Level
               </label>
               <Select value={selectedLevel} onValueChange={setSelectedLevel}>
@@ -321,7 +321,7 @@ export default function MarketplacePage() {
 
             {/* Sort */}
             <div>
-              <label className="text-xs font-medium text-gray-400 mb-1.5 block">
+              <label className="text-xs font-medium text-muted-foreground mb-1.5 block">
                 Sort By
               </label>
               <Select value={selectedSort} onValueChange={setSelectedSort}>
@@ -343,7 +343,7 @@ export default function MarketplacePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             {/* Price Range */}
             <div>
-              <label className="text-xs font-medium text-gray-400 mb-1.5 block">
+              <label className="text-xs font-medium text-muted-foreground mb-1.5 block">
                 Price Range
               </label>
               <Select
@@ -365,7 +365,7 @@ export default function MarketplacePage() {
 
             {/* Rating */}
             <div>
-              <label className="text-xs font-medium text-gray-400 mb-1.5 block">
+              <label className="text-xs font-medium text-muted-foreground mb-1.5 block">
                 Minimum Rating
               </label>
               <Select value={selectedRating} onValueChange={setSelectedRating}>
@@ -388,7 +388,7 @@ export default function MarketplacePage() {
       {/* Course Grid */}
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-6">
-          <p className="text-gray-400">
+          <p className="text-muted-foreground">
             {loading ? "Loading..." : `${courses.length} courses found`}
           </p>
         </div>
@@ -425,7 +425,7 @@ export default function MarketplacePage() {
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
-                        <Award className="h-16 w-16 text-gray-700" />
+                        <Award className="h-16 w-16 text-muted-foreground" />
                       </div>
                     )}
                     {course.price === 0 && (
@@ -443,12 +443,12 @@ export default function MarketplacePage() {
                       </h3>
                     </div>
 
-                    <p className="text-sm text-gray-400 line-clamp-2 mb-3">
+                    <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
                       {course.description}
                     </p>
 
                     {/* Stats */}
-                    <div className="flex items-center gap-4 text-xs text-gray-400 mb-3">
+                    <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
                       <div className="flex items-center gap-1">
                         <Star className="h-3 w-3 text-yellow-400 fill-yellow-400" />
                         <span>{course.average_rating.toFixed(1)}</span>
@@ -493,11 +493,11 @@ export default function MarketplacePage() {
           </div>
         ) : (
           <div className="text-center py-20 bg-gray-900/50 rounded-3xl border border-gray-800 border-dashed">
-            <Search className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+            <Search className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-white mb-2">
               No courses found
             </h3>
-            <p className="text-gray-400 mb-6">
+            <p className="text-muted-foreground mb-6">
               Try adjusting your filters or search terms
             </p>
             <Button

@@ -43,7 +43,7 @@ export default function OrgDashboardPage() {
                     <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-500">
                         {data.org_name}
                     </h1>
-                    <p className="text-gray-400">Corporate Training Portal</p>
+                    <p className="text-muted-foreground">Corporate Training Portal</p>
                 </div>
                 <Button className="bg-blue-600 hover:bg-blue-500">Invite Employees</Button>
             </div>
@@ -97,7 +97,7 @@ function KPICard({ title, value, icon: Icon, color }: any) {
         <Card className="bg-gray-900 border-gray-800">
             <CardContent className="p-6 flex items-center justify-between">
                 <div>
-                    <p className="text-sm text-gray-400">{title}</p>
+                    <p className="text-sm text-muted-foreground">{title}</p>
                     <h3 className="text-2xl font-bold text-gray-100">{value}</h3>
                 </div>
                 <div className={`p-3 rounded-full bg-gray-800 ${color}`}>

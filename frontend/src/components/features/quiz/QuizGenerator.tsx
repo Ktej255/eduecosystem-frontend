@@ -129,7 +129,7 @@ export function QuizGenerator({
         variant="outline"
         disabled
         title="Save quiz first to generate from bank"
-        className="opacity-50 cursor-not-allowed border-gray-700 text-gray-400"
+        className="opacity-50 cursor-not-allowed border-gray-700 text-muted-foreground"
       >
         <Wand2 className="mr-2 h-4 w-4" />
         Generate from Bank
@@ -151,7 +151,7 @@ export function QuizGenerator({
       <DialogContent className="sm:max-w-[600px] bg-gray-900 border-gray-800 text-white">
         <DialogHeader>
           <DialogTitle>Generate Quiz Questions</DialogTitle>
-          <DialogDescription className="text-gray-400">
+          <DialogDescription className="text-muted-foreground">
             Randomly select questions from your question banks.
           </DialogDescription>
         </DialogHeader>
@@ -165,7 +165,7 @@ export function QuizGenerator({
               <div className="grid gap-3 flex-1">
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1">
-                    <Label className="text-xs text-gray-400">
+                    <Label className="text-xs text-muted-foreground">
                       Question Bank
                     </Label>
                     <Select
@@ -187,7 +187,7 @@ export function QuizGenerator({
                     </Select>
                   </div>
                   <div className="space-y-1">
-                    <Label className="text-xs text-gray-400">Difficulty</Label>
+                    <Label className="text-xs text-muted-foreground">Difficulty</Label>
                     <Select
                       value={pool.difficulty_filter}
                       onValueChange={(val) =>
@@ -208,7 +208,7 @@ export function QuizGenerator({
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="space-y-1 flex-1">
-                    <Label className="text-xs text-gray-400">Count</Label>
+                    <Label className="text-xs text-muted-foreground">Count</Label>
                     <Input
                       type="number"
                       min={1}
@@ -228,7 +228,7 @@ export function QuizGenerator({
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-gray-500 hover:text-red-400 mt-6"
+                className="text-muted-foreground hover:text-red-400 mt-6"
                 onClick={() => handleRemovePool(index)}
                 disabled={pools.length === 1}
               >

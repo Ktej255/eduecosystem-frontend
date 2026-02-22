@@ -56,10 +56,10 @@ export default function QuestionBankDashboard() {
         <div className="space-y-8 animate-in fade-in duration-500">
             {/* Header Section */}
             <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 to-slate-800 p-8 text-white shadow-xl">
-                <div className="absolute top-0 right-0 p-32 bg-white/5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
+                <div className="absolute top-0 right-0 p-32 bg-card/5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <div className="p-2 bg-white/10 rounded-lg backdrop-blur-sm">
+                        <div className="p-2 bg-card/10 rounded-lg backdrop-blur-sm">
                             <Brain className="w-6 h-6 text-emerald-400" />
                         </div>
                         <Badge variant="outline" className="text-emerald-400 border-emerald-400/30">
@@ -67,7 +67,7 @@ export default function QuestionBankDashboard() {
                         </Badge>
                     </div>
                     <h2 className="text-3xl font-black mb-2 tracking-tight">The Question Bank</h2>
-                    <p className="text-slate-400 max-w-2xl">
+                    <p className="text-muted-foreground max-w-2xl">
                         A comprehensive repository of {stats.total} high-yield MCQs across all history eras.
                         Master the content through targeted drill sessions.
                     </p>
@@ -80,8 +80,8 @@ export default function QuestionBankDashboard() {
                     <CardContent className="p-6">
                         <div className="flex justify-between items-start">
                             <div>
-                                <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">Total Questions</p>
-                                <h3 className="text-3xl font-black text-gray-900 dark:text-gray-100 mt-1">{stats.total}</h3>
+                                <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Total Questions</p>
+                                <h3 className="text-3xl font-black text-foreground mt-1">{stats.total}</h3>
                             </div>
                             <Trophy className="w-5 h-5 text-emerald-500 opacity-80" />
                         </div>
@@ -92,8 +92,8 @@ export default function QuestionBankDashboard() {
                         <CardContent className="p-6">
                             <div className="flex justify-between items-start">
                                 <div>
-                                    <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">{cat.name}</p>
-                                    <h3 className="text-3xl font-black text-gray-900 dark:text-gray-100 mt-1">{cat.count}</h3>
+                                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">{cat.name}</p>
+                                    <h3 className="text-3xl font-black text-foreground mt-1">{cat.count}</h3>
                                 </div>
                                 <div className={`p-1.5 rounded-md ${cat.bg}`}>
                                     <BookOpen className={`w-4 h-4 ${cat.color}`} />
@@ -105,9 +105,9 @@ export default function QuestionBankDashboard() {
             </div>
 
             {/* Search & Filter Bar */}
-            <div className="flex flex-col md:flex-row gap-4 bg-white dark:bg-gray-900 p-4 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm sticky top-4 z-20">
+            <div className="flex flex-col md:flex-row gap-4 bg-card p-4 rounded-xl border border-border shadow-sm sticky top-4 z-20">
                 <div className="flex-1 relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input
                         placeholder="Search questions by keyword..."
                         className="pl-10"
@@ -170,7 +170,7 @@ export default function QuestionBankDashboard() {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mt-2">
+                                <div className="flex items-center justify-between text-xs text-muted-foreground dark:text-muted-foreground mt-2">
                                     <div className="flex items-center gap-1">
                                         <BookOpen className="w-3 h-3" />
                                         <span className="capitalize">{q.section}</span>
@@ -181,7 +181,7 @@ export default function QuestionBankDashboard() {
                                     </div>
                                 </div>
                                 <Button
-                                    className="w-full mt-4 bg-gray-50 hover:bg-indigo-50 text-gray-600 hover:text-indigo-600 border border-gray-200 hover:border-indigo-200 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-indigo-900/20"
+                                    className="w-full mt-4 bg-muted hover:bg-indigo-50 text-muted-foreground hover:text-indigo-600 border border-border hover:border-indigo-200 dark:hover:bg-indigo-900/20"
                                     variant="outline"
                                     onClick={() => router.push(`/student/batch1/history/mcq?chapter=${q.chapterId}&section=${q.section}`)}
                                 >
@@ -192,7 +192,7 @@ export default function QuestionBankDashboard() {
                         </Card>
                     ))
                 ) : (
-                    <div className="col-span-full text-center py-20 text-gray-400">
+                    <div className="col-span-full text-center py-20 text-muted-foreground">
                         <Brain className="w-12 h-12 mx-auto mb-4 opacity-20" />
                         <p>No questions found matching your filters.</p>
                     </div>
@@ -201,7 +201,7 @@ export default function QuestionBankDashboard() {
 
             {filteredQuestions.length > displayLimit && (
                 <div className="text-center pt-8 pb-12">
-                    <p className="text-sm text-gray-500 italic mb-4">Showing {displayLimit} of {filteredQuestions.length} matching questions.</p>
+                    <p className="text-sm text-muted-foreground italic mb-4">Showing {displayLimit} of {filteredQuestions.length} matching questions.</p>
                     <Button
                         onClick={() => setDisplayLimit(prev => prev + 200)}
                         variant="default"

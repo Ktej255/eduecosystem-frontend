@@ -68,34 +68,34 @@ export default function ReadingMaterial({ subtopicIds, onComplete, dayId }: Read
                             <BookOpen className="h-6 w-6 text-indigo-600" />
                             <CardTitle>Reading Material</CardTitle>
                         </div>
-                        <span className="text-sm text-gray-500">
+                        <span className="text-sm text-muted-foreground">
                             Page {page + 1} of {materials.length}
                         </span>
                     </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                    <div className="min-h-[300px] bg-gray-50 dark:bg-gray-900 rounded-lg p-6 border border-gray-100 dark:border-gray-800 flex flex-col justify-center items-center text-center">
-                        <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
+                    <div className="min-h-[300px] bg-muted rounded-lg p-6 border border-border flex flex-col justify-center items-center text-center">
+                        <h3 className="text-xl font-bold text-foreground mb-4">
                             {currentMaterial.title}
                         </h3>
 
                         {currentMaterial.type === 'text' && (
-                            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
+                            <p className="text-lg text-muted-foreground dark:text-muted-foreground leading-relaxed max-w-2xl">
                                 {currentMaterial.content}
                             </p>
                         )}
 
                         {currentMaterial.type === 'image' && (
                             <div className="flex flex-col items-center">
-                                <ImageIcon className="h-12 w-12 text-gray-400 mb-2" />
-                                <p className="text-gray-500">Image content would be displayed here</p>
+                                <ImageIcon className="h-12 w-12 text-muted-foreground mb-2" />
+                                <p className="text-muted-foreground">Image content would be displayed here</p>
                             </div>
                         )}
                     </div>
 
                     <div className="flex justify-end items-center gap-4">
                         {!canProceed && (
-                            <span className="text-xs text-gray-400 flex items-center gap-1">
+                            <span className="text-xs text-muted-foreground flex items-center gap-1">
                                 <CheckCircle2 className="h-3 w-3" />
                                 Reading... {timeLeft}s
                             </span>

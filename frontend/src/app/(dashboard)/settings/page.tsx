@@ -278,7 +278,7 @@ export default function SettingsPage() {
 
   if (loading) {
     return (
-      <div className="p-8 text-center text-gray-400">Loading settings...</div>
+      <div className="p-8 text-center text-muted-foreground">Loading settings...</div>
     );
   }
 
@@ -332,7 +332,7 @@ export default function SettingsPage() {
                       disabled={uploading}
                     />
                   </Label>
-                  <p className="text-sm text-gray-400 mt-2">
+                  <p className="text-sm text-muted-foreground mt-2">
                     JPG, GIF or PNG. Max size of 2MB.
                   </p>
                 </div>
@@ -473,7 +473,7 @@ export default function SettingsPage() {
                         <FormLabel>Current Password</FormLabel>
                         <FormControl>
                           <div className="relative">
-                            <Lock className="absolute left-3 top-2.5 h-4 w-4 text-gray-500" />
+                            <Lock className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
                             <Input
                               type="password"
                               {...field}
@@ -493,7 +493,7 @@ export default function SettingsPage() {
                         <FormLabel>New Password</FormLabel>
                         <FormControl>
                           <div className="relative">
-                            <Lock className="absolute left-3 top-2.5 h-4 w-4 text-gray-500" />
+                            <Lock className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
                             <Input
                               type="password"
                               {...field}
@@ -513,7 +513,7 @@ export default function SettingsPage() {
                         <FormLabel>Confirm New Password</FormLabel>
                         <FormControl>
                           <div className="relative">
-                            <Lock className="absolute left-3 top-2.5 h-4 w-4 text-gray-500" />
+                            <Lock className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
                             <Input
                               type="password"
                               {...field}
@@ -911,10 +911,10 @@ function TwoFactorAuthSection() {
         {setupData && (
           <div className="space-y-4 border-t border-gray-800 pt-4">
             <h3 className="text-lg font-medium text-white">Scan QR Code</h3>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-muted-foreground">
               Open your authenticator app (Google Authenticator, Authy, etc.) and scan this code.
             </p>
-            <div className="flex justify-center p-4 bg-white rounded-lg w-fit mx-auto">
+            <div className="flex justify-center p-4 bg-card rounded-lg w-fit mx-auto">
               <img src={`data:image/png;base64,${setupData.qr_code}`} alt="2FA QR Code" className="w-48 h-48" />
             </div>
             <div className="space-y-2">
@@ -945,7 +945,7 @@ function TwoFactorAuthSection() {
           <div className="space-y-4 border-t border-gray-800 pt-4">
             <div className="space-y-2">
               <Label className="text-red-400">Disable 2FA</Label>
-              <p className="text-sm text-gray-400 mb-2">
+              <p className="text-sm text-muted-foreground mb-2">
                 Enter a code from your authenticator app to confirm disabling 2FA.
               </p>
               <div className="flex gap-2">

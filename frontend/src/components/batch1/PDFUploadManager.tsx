@@ -141,7 +141,7 @@ export default function PDFUploadManager({ onFilesChange, existingPdfs = [] }: P
                     border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all
                     ${isDragging
                         ? "border-purple-500 bg-purple-50 dark:bg-purple-900/20"
-                        : "border-gray-300 dark:border-gray-700 hover:border-purple-400"
+                        : "border-border hover:border-purple-400"
                     }
                 `}
             >
@@ -153,11 +153,11 @@ export default function PDFUploadManager({ onFilesChange, existingPdfs = [] }: P
                     className="hidden"
                     onChange={(e) => handleFileSelect(e.target.files)}
                 />
-                <Upload className={`h-10 w-10 mx-auto mb-3 ${isDragging ? "text-purple-500" : "text-gray-400"}`} />
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <Upload className={`h-10 w-10 mx-auto mb-3 ${isDragging ? "text-purple-500" : "text-muted-foreground"}`} />
+                <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                     <span className="font-semibold text-purple-600">Click to upload</span> or drag and drop
                 </p>
-                <p className="text-xs text-gray-500 mt-1">PDF files only • Multiple files allowed</p>
+                <p className="text-xs text-muted-foreground mt-1">PDF files only • Multiple files allowed</p>
             </div>
 
             {/* PDF List */}
@@ -174,11 +174,11 @@ export default function PDFUploadManager({ onFilesChange, existingPdfs = [] }: P
                                     onDragEnd={handleRowDragEnd}
                                     className={`
                                         flex items-center gap-3 p-3 cursor-move transition-all
-                                        ${draggedItem === index ? "opacity-50 bg-purple-50 dark:bg-purple-900/20" : "hover:bg-gray-50 dark:hover:bg-gray-800"}
+                                        ${draggedItem === index ? "opacity-50 bg-purple-50 dark:bg-purple-900/20" : "hover:bg-muted dark:hover:bg-gray-800"}
                                     `}
                                 >
                                     {/* Drag Handle */}
-                                    <GripVertical className="h-5 w-5 text-gray-400 flex-shrink-0" />
+                                    <GripVertical className="h-5 w-5 text-muted-foreground flex-shrink-0" />
 
                                     {/* Order Number */}
                                     <div className="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center flex-shrink-0">
@@ -194,7 +194,7 @@ export default function PDFUploadManager({ onFilesChange, existingPdfs = [] }: P
                                     </div>
 
                                     {/* File Size */}
-                                    <span className="text-xs text-gray-500 flex-shrink-0">
+                                    <span className="text-xs text-muted-foreground flex-shrink-0">
                                         {formatFileSize(pdf.size)}
                                     </span>
 
@@ -233,7 +233,7 @@ export default function PDFUploadManager({ onFilesChange, existingPdfs = [] }: P
 
             {/* Summary */}
             {pdfFiles.length > 0 && (
-                <div className="flex items-center justify-between text-sm text-gray-500">
+                <div className="flex items-center justify-between text-sm text-muted-foreground">
                     <span>{pdfFiles.length} PDF{pdfFiles.length !== 1 ? "s" : ""} ready</span>
                     <span className="text-xs">Drag to reorder • PDFs will be shown in sequence to students</span>
                 </div>

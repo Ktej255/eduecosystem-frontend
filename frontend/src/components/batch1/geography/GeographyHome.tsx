@@ -214,9 +214,9 @@ export default function GeographyHome({ initialModuleId = 'geomorphology', initi
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-black font-sans">
+        <div className="min-h-screen bg-muted dark:bg-black font-sans">
             {/* Header */}
-            <header className="sticky top-0 z-50 w-full border-b bg-white/95 dark:bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+            <header className="sticky top-0 z-50 w-full border-b bg-card/95 dark:bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-card/60">
                 <div className="container flex h-16 items-center justify-between">
                     <div className="flex items-center gap-2 font-bold text-xl tracking-tight">
                         <div className="p-2 bg-blue-600 rounded-xl text-white">
@@ -227,7 +227,7 @@ export default function GeographyHome({ initialModuleId = 'geomorphology', initi
                         </span>
                     </div>
 
-                    <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-900 p-1 rounded-lg border border-slate-200 dark:border-slate-800">
+                    <div className="flex items-center gap-1 bg-muted p-1 rounded-lg border border-border">
                         <Button
                             variant={view === 'dashboard' ? 'secondary' : 'ghost'}
                             size="sm"
@@ -306,7 +306,7 @@ export default function GeographyHome({ initialModuleId = 'geomorphology', initi
                                     onClick={() => setActiveModuleId(module.id)}
                                     className={`w-full text-left px-4 py-3 rounded-xl transition-all font-medium text-sm flex items-center gap-3 ${activeModuleId === module.id
                                         ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20'
-                                        : 'hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400'
+                                        : 'hover:bg-muted dark:hover:bg-slate-800 text-muted-foreground dark:text-muted-foreground'
                                         }`}
                                 >
                                     <div className="w-2 h-2 rounded-full" style={{ backgroundColor: module.color }} />
@@ -316,7 +316,7 @@ export default function GeographyHome({ initialModuleId = 'geomorphology', initi
                         </div>
 
                         {/* Syllabus List */}
-                        <div className="flex-1 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950">
+                        <div className="flex-1 rounded-2xl overflow-hidden border border-border bg-slate-950">
                             <SyllabusListView
                                 activeModuleId={activeModuleId}
                                 onSelectTopic={handleStartLearning}
@@ -326,7 +326,7 @@ export default function GeographyHome({ initialModuleId = 'geomorphology', initi
                 )}
 
                 {view === 'globe' && (
-                    <div className="h-[calc(100vh-8rem)] rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl relative">
+                    <div className="h-[calc(100vh-8rem)] rounded-2xl overflow-hidden border border-border shadow-2xl relative">
                         <GeographyGlobe
                             activeModuleId={activeModuleId}
                             onSelectTopic={handleStartLearning}
@@ -339,7 +339,7 @@ export default function GeographyHome({ initialModuleId = 'geomorphology', initi
                 )}
 
                 {view === 'lesson' && lessonContent && (
-                    <div className="fixed inset-0 z-50 bg-white dark:bg-black">
+                    <div className="fixed inset-0 z-50 bg-card dark:bg-black">
                         <LessonView
                             content={lessonContent}
                             onClose={() => setView('syllabus')}

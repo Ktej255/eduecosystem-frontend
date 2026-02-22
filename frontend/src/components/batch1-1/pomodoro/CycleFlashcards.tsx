@@ -203,7 +203,7 @@ export default function CycleFlashcards({
 
     if (!flashcards || flashcards.length === 0) {
         return (
-            <Card className="p-8 text-center text-gray-500">
+            <Card className="p-8 text-center text-muted-foreground">
                 <p>No flashcards available for selected subtopics.</p>
                 <Button onClick={() => onComplete(0)} className="mt-4">Continue</Button>
             </Card>
@@ -224,7 +224,7 @@ export default function CycleFlashcards({
                         </div>
                         <div className="flex items-center gap-4">
                             <div className="flex items-center gap-2">
-                                <Label htmlFor="voice-mode" className="text-xs font-medium text-gray-600 dark:text-gray-400">
+                                <Label htmlFor="voice-mode" className="text-xs font-medium text-muted-foreground dark:text-muted-foreground">
                                     Voice Mode
                                 </Label>
                                 <Switch
@@ -234,7 +234,7 @@ export default function CycleFlashcards({
                                 />
                             </div>
                             <div className="flex items-center gap-2">
-                                <Label htmlFor="srs-mode" className="text-xs font-medium text-gray-600 dark:text-gray-400">
+                                <Label htmlFor="srs-mode" className="text-xs font-medium text-muted-foreground dark:text-muted-foreground">
                                     SRS
                                 </Label>
                                 <Switch
@@ -278,12 +278,12 @@ export default function CycleFlashcards({
                             >
                                 <div className={`relative w-full h-full transition-transform duration-500 preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
                                     {/* Front (Question) */}
-                                    <div className={`absolute inset-0 bg-white dark:bg-gray-900 rounded-2xl border-2 border-amber-200 dark:border-amber-800 p-6 shadow-lg backface-hidden flex flex-col ${isFlipped ? 'invisible' : ''}`}>
+                                    <div className={`absolute inset-0 bg-card rounded-2xl border-2 border-amber-200 dark:border-amber-800 p-6 shadow-lg backface-hidden flex flex-col ${isFlipped ? 'invisible' : ''}`}>
                                         <span className="text-xs font-bold text-amber-500 uppercase tracking-wider mb-2">
                                             Question
                                         </span>
                                         <div className="flex-1 flex items-center justify-center text-center">
-                                            <p className="text-lg font-medium text-gray-800 dark:text-gray-200">
+                                            <p className="text-lg font-medium text-foreground">
                                                 {getFront(currentCard)}
                                             </p>
                                         </div>
@@ -298,7 +298,7 @@ export default function CycleFlashcards({
                                             Answer
                                         </span>
                                         <div className="flex-1 overflow-y-auto custom-scrollbar">
-                                            <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-wrap">
+                                            <p className="text-base text-muted-foreground dark:text-muted-foreground leading-relaxed whitespace-pre-wrap">
                                                 {getBack(currentCard)}
                                             </p>
                                         </div>
@@ -314,28 +314,28 @@ export default function CycleFlashcards({
                                 <div className="grid grid-cols-4 gap-2 mt-4 mb-4 animate-in fade-in slide-in-from-bottom-2">
                                     <Button
                                         variant="outline"
-                                        className="bg-white border-red-200 hover:bg-red-50 text-red-700 dark:bg-gray-800 dark:border-red-800 dark:hover:bg-red-900/20"
+                                        className="bg-card border-red-200 hover:bg-red-50 text-red-700 dark:border-red-800 dark:hover:bg-red-900/20"
                                         onClick={(e) => { e.stopPropagation(); handleRate('again'); }}
                                     >
                                         Again
                                     </Button>
                                     <Button
                                         variant="outline"
-                                        className="bg-white border-amber-200 hover:bg-amber-50 text-amber-700 dark:bg-gray-800 dark:border-amber-800 dark:hover:bg-amber-900/20"
+                                        className="bg-card border-amber-200 hover:bg-amber-50 text-amber-700 dark:border-amber-800 dark:hover:bg-amber-900/20"
                                         onClick={(e) => { e.stopPropagation(); handleRate('hard'); }}
                                     >
                                         Hard
                                     </Button>
                                     <Button
                                         variant="outline"
-                                        className="bg-white border-blue-200 hover:bg-blue-50 text-blue-700 dark:bg-gray-800 dark:border-blue-800 dark:hover:bg-blue-900/20"
+                                        className="bg-card border-blue-200 hover:bg-blue-50 text-blue-700 dark:border-blue-800 dark:hover:bg-blue-900/20"
                                         onClick={(e) => { e.stopPropagation(); handleRate('good'); }}
                                     >
                                         Good
                                     </Button>
                                     <Button
                                         variant="outline"
-                                        className="bg-white border-green-200 hover:bg-green-50 text-green-700 dark:bg-gray-800 dark:border-green-800 dark:hover:bg-green-900/20"
+                                        className="bg-card border-green-200 hover:bg-green-50 text-green-700 dark:border-green-800 dark:hover:bg-green-900/20"
                                         onClick={(e) => { e.stopPropagation(); handleRate('easy'); }}
                                     >
                                         Easy
@@ -369,7 +369,7 @@ export default function CycleFlashcards({
 
                                 <div className="flex items-center gap-2">
                                     <CheckCircle2 className="h-4 w-4 text-green-500" />
-                                    <span className="text-sm text-gray-600 dark:text-gray-400">
+                                    <span className="text-sm text-muted-foreground dark:text-muted-foreground">
                                         {viewedCards.size} reviewed
                                     </span>
                                 </div>

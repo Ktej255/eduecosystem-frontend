@@ -131,7 +131,7 @@ const mobileRoutes: Route[] = [
         label: "Settings",
         icon: Settings,
         href: "/teacher/settings",
-        color: "text-gray-400",
+        color: "text-muted-foreground",
     },
 ];
 

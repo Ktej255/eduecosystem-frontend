@@ -31,7 +31,7 @@ export default function LinkedInPage() {
 
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-5xl mx-auto">
-      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+      <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground">
         <ArrowLeft className="h-4 w-4 mr-1" />
         Back
       </Link>
@@ -39,13 +39,13 @@ export default function LinkedInPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
             <div className="w-10 h-10 bg-[#0A66C2] rounded-lg flex items-center justify-center">
               <Linkedin className="h-6 w-6 text-white" />
             </div>
             LinkedIn
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-muted-foreground dark:text-muted-foreground mt-1">
             Manage your LinkedIn integration and posts
           </p>
         </div>
@@ -77,21 +77,21 @@ export default function LinkedInPage() {
           <CardContent className="p-5">
             <Share2 className="h-8 w-8 text-blue-500 mb-2" />
             <p className="text-2xl font-bold">{stats.connections}</p>
-            <p className="text-sm text-gray-500">Connections</p>
+            <p className="text-sm text-muted-foreground">Connections</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5">
             <BarChart3 className="h-8 w-8 text-purple-500 mb-2" />
             <p className="text-2xl font-bold">{stats.posts}</p>
-            <p className="text-sm text-gray-500">Posts</p>
+            <p className="text-sm text-muted-foreground">Posts</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5">
             <Eye className="h-8 w-8 text-green-500 mb-2" />
             <p className="text-2xl font-bold">{(stats.impressions / 1000).toFixed(0)}K</p>
-            <p className="text-sm text-gray-500">Impressions</p>
+            <p className="text-sm text-muted-foreground">Impressions</p>
           </CardContent>
         </Card>
       </div>
@@ -105,17 +105,17 @@ export default function LinkedInPage() {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <div className="flex items-center justify-between p-3 bg-muted rounded-lg">
             <div>
               <p className="font-medium">Auto-post blog articles</p>
-              <p className="text-sm text-gray-500">Automatically share new blog posts to LinkedIn</p>
+              <p className="text-sm text-muted-foreground">Automatically share new blog posts to LinkedIn</p>
             </div>
             <Switch checked={autoPost} onCheckedChange={setAutoPost} />
           </div>
-          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <div className="flex items-center justify-between p-3 bg-muted rounded-lg">
             <div>
               <p className="font-medium">Connected Account</p>
-              <p className="text-sm text-gray-500">eduecosystem@company.com</p>
+              <p className="text-sm text-muted-foreground">eduecosystem@company.com</p>
             </div>
             <Button variant="outline" size="sm">
               <RefreshCw className="h-4 w-4 mr-2" />
@@ -133,12 +133,12 @@ export default function LinkedInPage() {
         </CardHeader>
         <CardContent className="space-y-4">
           {recentPosts.map((post) => (
-            <div key={post.id} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+            <div key={post.id} className="flex items-center justify-between p-4 bg-muted rounded-lg">
               <div className="flex-1">
                 <h4 className="font-medium">{post.title}</h4>
-                <p className="text-sm text-gray-500">{post.date}</p>
+                <p className="text-sm text-muted-foreground">{post.date}</p>
               </div>
-              <div className="flex items-center gap-4 text-sm text-gray-500">
+              <div className="flex items-center gap-4 text-sm text-muted-foreground">
                 <span className="flex items-center gap-1">
                   <ThumbsUp className="h-4 w-4" />
                   {post.likes}

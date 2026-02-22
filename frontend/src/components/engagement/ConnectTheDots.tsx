@@ -113,7 +113,7 @@ export default function ConnectTheDots({
                                 animate={{ x: [0, 5, 0] }}
                                 transition={{ duration: 1.5, repeat: Infinity }}
                             >
-                                <ArrowRight className="w-5 h-5 text-gray-500" />
+                                <ArrowRight className="w-5 h-5 text-muted-foreground" />
                             </motion.div>
 
                             <motion.div
@@ -127,7 +127,7 @@ export default function ConnectTheDots({
                         {/* Select previous topic */}
                         {previousTopics.length > 1 && (
                             <div className="flex items-center gap-2 justify-center">
-                                <p className="text-xs text-gray-500">Connect with:</p>
+                                <p className="text-xs text-muted-foreground">Connect with:</p>
                                 {previousTopics.map((topic) => (
                                     <button
                                         key={topic}
@@ -136,7 +136,7 @@ export default function ConnectTheDots({
                                             px-3 py-1 rounded-full text-xs transition-all
                                             ${selectedPrevious === topic
                                                 ? "bg-indigo-500/30 text-indigo-400 border border-indigo-500/50"
-                                                : "bg-neutral-800 text-gray-400 hover:bg-neutral-700"
+                                                : "bg-neutral-800 text-muted-foreground hover:bg-neutral-700"
                                             }
                                         `}
                                     >
@@ -150,7 +150,7 @@ export default function ConnectTheDots({
                         <div className="p-4 rounded-xl bg-neutral-800/50 border border-neutral-700">
                             <div className="flex items-start gap-2">
                                 <Lightbulb className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                                <p className="text-gray-300 text-sm leading-relaxed">
+                                <p className="text-muted-foreground text-sm leading-relaxed">
                                     {currentPrompt}
                                 </p>
                             </div>
@@ -166,7 +166,7 @@ export default function ConnectTheDots({
                                         text-white placeholder-gray-500 resize-none focus:outline-none 
                                         focus:border-purple-500 transition-colors"
                             />
-                            <div className="absolute bottom-3 right-3 text-xs text-gray-500">
+                            <div className="absolute bottom-3 right-3 text-xs text-muted-foreground">
                                 {connection.length}/150
                             </div>
                         </div>
@@ -182,7 +182,7 @@ export default function ConnectTheDots({
                                     flex-1 py-3 rounded-xl font-medium flex items-center justify-center gap-2 transition-all
                                     ${connection.trim().length >= 10
                                         ? "bg-purple-600 hover:bg-purple-500 text-white"
-                                        : "bg-neutral-800 text-gray-500 cursor-not-allowed"
+                                        : "bg-neutral-800 text-muted-foreground cursor-not-allowed"
                                     }
                                 `}
                             >
@@ -194,7 +194,7 @@ export default function ConnectTheDots({
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 onClick={onSkip}
-                                className="px-4 py-3 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-gray-400 transition-colors"
+                                className="px-4 py-3 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-muted-foreground transition-colors"
                             >
                                 Skip
                             </motion.button>
@@ -218,7 +218,7 @@ export default function ConnectTheDots({
                         <h4 className="text-xl font-bold text-white mb-2">
                             Connection Made!
                         </h4>
-                        <p className="text-gray-400 mb-4">
+                        <p className="text-muted-foreground mb-4">
                             You're building a web of knowledge
                         </p>
 

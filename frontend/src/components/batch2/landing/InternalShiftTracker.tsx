@@ -30,11 +30,11 @@ export default function InternalShiftTracker() {
                         <Target className="w-5 h-5 text-amber-500" />
                         Internal Shift Tracker
                     </h3>
-                    <p className="text-sm text-slate-400">Tracking your journey of transformation.</p>
+                    <p className="text-sm text-muted-foreground">Tracking your journey of transformation.</p>
                 </div>
                 <div className="text-right">
                     <span className="text-2xl font-bold text-amber-500">{Math.round(progress)}%</span>
-                    <p className="text-[10px] uppercase tracking-widest text-slate-500">Alignment</p>
+                    <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Alignment</p>
                 </div>
             </div>
 
@@ -48,15 +48,15 @@ export default function InternalShiftTracker() {
 
             <div className="space-y-4">
                 {SHIFT_GOALS.map((goal) => (
-                    <div key={goal.id} className="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors group">
-                        <div className={`mt-0.5 ${goal.completed ? "text-emerald-500" : "text-slate-600"}`}>
+                    <div key={goal.id} className="flex items-start gap-4 p-3 rounded-xl hover:bg-card/5 transition-colors group">
+                        <div className={`mt-0.5 ${goal.completed ? "text-emerald-500" : "text-muted-foreground"}`}>
                             {goal.completed ? <CheckCircle2 className="w-5 h-5" /> : <Circle className="w-5 h-5" />}
                         </div>
                         <div>
-                            <p className={`text-sm font-medium ${goal.completed ? "text-slate-200" : "text-slate-500"}`}>
+                            <p className={`text-sm font-medium ${goal.completed ? "text-slate-200" : "text-muted-foreground"}`}>
                                 {goal.label}
                             </p>
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-500 border border-slate-700 mt-1 inline-block">
+                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-muted-foreground border border-slate-700 mt-1 inline-block">
                                 {goal.phase}
                             </span>
                         </div>
@@ -65,7 +65,7 @@ export default function InternalShiftTracker() {
             </div>
 
             <div className="mt-8 pt-6 border-t border-white/5">
-                <button className="w-full py-3 bg-white/5 hover:bg-white/10 text-white rounded-xl text-sm font-medium transition-all">
+                <button className="w-full py-3 bg-card/5 hover:bg-card/10 text-white rounded-xl text-sm font-medium transition-all">
                     Log Today's Experience
                 </button>
             </div>

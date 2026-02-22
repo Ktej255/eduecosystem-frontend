@@ -91,7 +91,7 @@ export default function AdminPerformancePage() {
                         <Activity className="h-8 w-8 text-emerald-600" />
                         Performance Monitor
                     </h1>
-                    <p className="text-gray-500 mt-1">Core Web Vitals and API health tracking</p>
+                    <p className="text-muted-foreground mt-1">Core Web Vitals and API health tracking</p>
                 </div>
                 <Button
                     onClick={refreshData}
@@ -113,7 +113,7 @@ export default function AdminPerformancePage() {
                     <Card>
                         <CardContent className="pt-6">
                             <div className="flex items-center justify-between mb-2">
-                                <span className="text-xs text-gray-500 font-bold uppercase">LCP</span>
+                                <span className="text-xs text-muted-foreground font-bold uppercase">LCP</span>
                                 <Badge className={cn("text-[10px]", getVitalStatus('lcp', webVitals.lcp).status === 'good' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-amber-500/20 text-amber-400')}>
                                     {getVitalStatus('lcp', webVitals.lcp).status.replace('-', ' ')}
                                 </Badge>
@@ -121,43 +121,43 @@ export default function AdminPerformancePage() {
                             <p className={cn("text-3xl font-black", getVitalStatus('lcp', webVitals.lcp).color)}>
                                 {webVitals.lcp.toFixed(1)}s
                             </p>
-                            <p className="text-[10px] text-gray-500 mt-1">Largest Contentful Paint</p>
+                            <p className="text-[10px] text-muted-foreground mt-1">Largest Contentful Paint</p>
                         </CardContent>
                     </Card>
                     <Card>
                         <CardContent className="pt-6">
                             <div className="flex items-center justify-between mb-2">
-                                <span className="text-xs text-gray-500 font-bold uppercase">FID</span>
+                                <span className="text-xs text-muted-foreground font-bold uppercase">FID</span>
                                 <Badge className="bg-emerald-500/20 text-emerald-400 text-[10px]">good</Badge>
                             </div>
                             <p className={cn("text-3xl font-black", getVitalStatus('fid', webVitals.fid).color)}>
                                 {webVitals.fid}ms
                             </p>
-                            <p className="text-[10px] text-gray-500 mt-1">First Input Delay</p>
+                            <p className="text-[10px] text-muted-foreground mt-1">First Input Delay</p>
                         </CardContent>
                     </Card>
                     <Card>
                         <CardContent className="pt-6">
                             <div className="flex items-center justify-between mb-2">
-                                <span className="text-xs text-gray-500 font-bold uppercase">CLS</span>
+                                <span className="text-xs text-muted-foreground font-bold uppercase">CLS</span>
                                 <Badge className="bg-emerald-500/20 text-emerald-400 text-[10px]">good</Badge>
                             </div>
                             <p className={cn("text-3xl font-black", getVitalStatus('cls', webVitals.cls).color)}>
                                 {webVitals.cls.toFixed(3)}
                             </p>
-                            <p className="text-[10px] text-gray-500 mt-1">Cumulative Layout Shift</p>
+                            <p className="text-[10px] text-muted-foreground mt-1">Cumulative Layout Shift</p>
                         </CardContent>
                     </Card>
                     <Card>
                         <CardContent className="pt-6">
                             <div className="flex items-center justify-between mb-2">
-                                <span className="text-xs text-gray-500 font-bold uppercase">TTFB</span>
+                                <span className="text-xs text-muted-foreground font-bold uppercase">TTFB</span>
                                 <Badge className="bg-emerald-500/20 text-emerald-400 text-[10px]">good</Badge>
                             </div>
                             <p className={cn("text-3xl font-black", getVitalStatus('ttfb', webVitals.ttfb).color)}>
                                 {webVitals.ttfb}ms
                             </p>
-                            <p className="text-[10px] text-gray-500 mt-1">Time to First Byte</p>
+                            <p className="text-[10px] text-muted-foreground mt-1">Time to First Byte</p>
                         </CardContent>
                     </Card>
                 </div>
@@ -203,9 +203,9 @@ export default function AdminPerformancePage() {
                             {errorsByEndpoint.map((ep) => {
                                 const errorRate = (ep.errors / (ep.errors + ep.success)) * 100
                                 return (
-                                    <div key={ep.endpoint} className="p-3 bg-gray-50 dark:bg-gray-900 rounded-xl">
+                                    <div key={ep.endpoint} className="p-3 bg-muted rounded-xl">
                                         <div className="flex items-center justify-between mb-2">
-                                            <code className="text-xs font-mono text-gray-600 dark:text-gray-400">{ep.endpoint}</code>
+                                            <code className="text-xs font-mono text-muted-foreground dark:text-muted-foreground">{ep.endpoint}</code>
                                             <span className={cn(
                                                 "text-xs font-bold",
                                                 errorRate < 0.5 ? "text-emerald-500" : errorRate < 1 ? "text-amber-500" : "text-red-500"
@@ -213,7 +213,7 @@ export default function AdminPerformancePage() {
                                                 {errorRate.toFixed(2)}%
                                             </span>
                                         </div>
-                                        <div className="h-1.5 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                                        <div className="h-1.5 bg-muted rounded-full overflow-hidden">
                                             <div
                                                 className={cn(
                                                     "h-full",
@@ -246,12 +246,12 @@ export default function AdminPerformancePage() {
                             { label: 'API Server', status: 'healthy', latency: '45ms' },
                             { label: 'CDN', status: 'healthy', latency: '8ms' },
                         ].map((service) => (
-                            <div key={service.label} className="p-4 bg-gray-50 dark:bg-gray-900 rounded-xl">
+                            <div key={service.label} className="p-4 bg-muted rounded-xl">
                                 <div className="flex items-center gap-2 mb-2">
                                     <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                                     <span className="text-sm font-medium">{service.label}</span>
                                 </div>
-                                <p className="text-xs text-gray-500">Latency: {service.latency}</p>
+                                <p className="text-xs text-muted-foreground">Latency: {service.latency}</p>
                             </div>
                         ))}
                     </div>

@@ -40,7 +40,7 @@ export default function EarthEvolutionPage() {
             <div className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Navigation Sidebar */}
                 <div className="md:col-span-1 space-y-4">
-                    <Card className="sticky top-24 bg-white dark:bg-stone-900 border-stone-200 dark:border-stone-800">
+                    <Card className="sticky top-24 bg-card dark:bg-stone-900 border-stone-200 dark:border-stone-800">
                         <CardHeader>
                             <CardTitle className="text-sm uppercase tracking-wider text-stone-400">Timeline</CardTitle>
                         </CardHeader>

@@ -37,9 +37,9 @@ export default function EconomyTopicViewer({ content, mcqs, flashcards, visualiz
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-black">
+        <div className="min-h-screen bg-muted dark:bg-black">
             {/* Header */}
-            <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+            <div className="bg-card border-b border-border sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
                     <div className="flex items-center gap-4">
                         <Link href="/student/batch1/economy">
@@ -49,7 +49,7 @@ export default function EconomyTopicViewer({ content, mcqs, flashcards, visualiz
                         </Link>
                         <div>
                             <div className="flex items-center gap-2">
-                                <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+                                <h1 className="text-xl font-bold text-foreground">
                                     {content.title}
                                 </h1>
                                 {isCompleted && (
@@ -59,7 +59,7 @@ export default function EconomyTopicViewer({ content, mcqs, flashcards, visualiz
                                     </Badge>
                                 )}
                             </div>
-                            <div className="flex items-center gap-3 text-xs text-slate-500 mt-1">
+                            <div className="flex items-center gap-3 text-xs text-muted-foreground mt-1">
                                 <span className="flex items-center gap-1">
                                     <Clock className="w-3 h-3" />
                                     {content.readTime || '15 mins'}
@@ -94,7 +94,7 @@ export default function EconomyTopicViewer({ content, mcqs, flashcards, visualiz
                         <div className="sticky top-24 space-y-4">
                             <Card>
                                 <CardHeader className="pb-2">
-                                    <CardTitle className="text-xs uppercase tracking-wider text-slate-500 font-bold">In this Chapter</CardTitle>
+                                    <CardTitle className="text-xs uppercase tracking-wider text-muted-foreground font-bold">In this Chapter</CardTitle>
                                 </CardHeader>
                                 <CardContent className="space-y-1 p-2">
                                     {content.sections?.map((sec, idx) => (
@@ -107,7 +107,7 @@ export default function EconomyTopicViewer({ content, mcqs, flashcards, visualiz
                                             }}
                                             className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors ${activeSection === sec.heading
                                                 ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300'
-                                                : 'text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800'
+                                                : 'text-muted-foreground hover:bg-muted dark:text-muted-foreground dark:hover:bg-slate-800'
                                                 }`}
                                         >
                                             {sec.heading}
@@ -159,13 +159,13 @@ export default function EconomyTopicViewer({ content, mcqs, flashcards, visualiz
                                 style={{ animationDelay: `${idx * 100}ms` }}
                             >
                                 <Card className="overflow-hidden border-t-4 border-t-indigo-500 shadow-sm hover:shadow-md transition-shadow">
-                                    <CardHeader className="bg-slate-50 dark:bg-slate-900/50 pb-3 border-b border-slate-100 dark:border-slate-800">
-                                        <CardTitle className="flex items-center gap-2 text-lg text-slate-800 dark:text-slate-100">
+                                    <CardHeader className="bg-muted/50 pb-3 border-b border-slate-100">
+                                        <CardTitle className="flex items-center gap-2 text-lg text-foreground">
                                             <BookOpen className="h-5 w-5 text-indigo-500" />
                                             {sec.heading}
                                         </CardTitle>
                                     </CardHeader>
-                                    <CardContent className="p-6 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
+                                    <CardContent className="p-6 prose dark:prose-invert max-w-none text-muted-foreground">
                                         <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(sec.content) }} />
                                     </CardContent>
                                 </Card>
@@ -202,7 +202,7 @@ export default function EconomyTopicViewer({ content, mcqs, flashcards, visualiz
                                             <CheckCircle className="w-5 h-5" />
                                             Chapter Completed!
                                         </div>
-                                        <p className="text-slate-500 text-sm">Great job! Time to practice.</p>
+                                        <p className="text-muted-foreground text-sm">Great job! Time to practice.</p>
                                         <ConfidencePoll chapterId={content.id} />
                                     </div>
                                 )}

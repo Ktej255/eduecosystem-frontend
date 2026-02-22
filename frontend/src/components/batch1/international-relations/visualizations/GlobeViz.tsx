@@ -224,7 +224,7 @@ export default function GlobeViz() {
                             </span>
                             Geopolitics 3D
                         </CardTitle>
-                        <CardDescription className="text-slate-400">
+                        <CardDescription className="text-muted-foreground">
                             Interactive Alliance Mapper
                         </CardDescription>
                     </div>
@@ -240,7 +240,7 @@ export default function GlobeViz() {
                             className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-all flex items-center gap-2 w-24
                                 ${activeAlliance === alliance
                                     ? 'bg-slate-100/10 border-white/40 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)]'
-                                    : 'bg-black/50 border-white/10 text-slate-400 hover:bg-white/10'
+                                    : 'bg-black/50 border-white/10 text-muted-foreground hover:bg-card/10'
                                 }`}
                         >
                             <div className="w-2 h-2 rounded-full" style={{ backgroundColor: ALLIANCES[alliance as keyof typeof ALLIANCES].color }} />
@@ -260,7 +260,7 @@ export default function GlobeViz() {
                                 {activeAlliance === 'NATO' && "North Atlantic Treaty Org. India is NOT a member but engages strategically."}
                             </>
                         ) : (
-                            <span className="flex items-center gap-2 text-slate-500">
+                            <span className="flex items-center gap-2 text-muted-foreground">
                                 <Navigation className="w-4 h-4" />
                                 Select an alliance to visualize strategic depth.
                             </span>

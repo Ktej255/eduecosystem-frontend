@@ -120,7 +120,7 @@ export default function VisualGeographyPage() {
             <header className="p-6 border-b border-white/10 flex items-center justify-between bg-slate-900/50 backdrop-blur-md sticky top-0 z-10">
                 <button
                     onClick={() => router.push('/student/upsc/geography?level=1')} // Go back to store/level view
-                    className="flex items-center text-sm text-slate-400 hover:text-white transition-colors"
+                    className="flex items-center text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                     <ArrowLeft className="w-4 h-4 mr-2" />
                     Back to Geography Module
@@ -141,7 +141,7 @@ export default function VisualGeographyPage() {
                         <p className="text-xl text-slate-300 leading-relaxed mb-8">
                             Go beyond static textbooks. Interact with tectonic plates, visualize river courses, and explore landform formation in our high-fidelity simulation engine.
                         </p>
-                        <button className="bg-white text-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-slate-200 transition-colors flex items-center gap-2">
+                        <button className="bg-card text-foreground px-8 py-4 rounded-xl font-bold hover:bg-slate-200 transition-colors flex items-center gap-2">
                             <Play className="w-5 h-5 fill-current" />
                             Start Full Globe Tour
                         </button>
@@ -183,7 +183,7 @@ export default function VisualGeographyPage() {
                                 <module.icon className="w-7 h-7 text-white" />
                             </div>
                             <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-300 transition-colors">{module.title}</h3>
-                            <p className="text-sm text-slate-400 leading-relaxed mb-6">
+                            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                                 {module.description}
                             </p>
                             <div className="flex items-center text-xs font-bold text-indigo-400 uppercase tracking-wider">

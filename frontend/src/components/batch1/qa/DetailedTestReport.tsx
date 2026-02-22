@@ -79,10 +79,10 @@ interface DetailedTestReportProps {
 }
 
 const CONFIDENCE_LABELS: Record<number, { label: string; emoji: string; color: string }> = {
-    1: { label: "100% Sure", emoji: "✅", color: "text-green-600" },
-    2: { label: "50-50", emoji: "🤔", color: "text-yellow-600" },
-    3: { label: "One Known", emoji: "💡", color: "text-orange-600" },
-    4: { label: "Blind Guess", emoji: "🎲", color: "text-red-600" },
+    1: { label: "100% Sure", emoji: "✅", color: "text-emerald-600 dark:text-emerald-400" },
+    2: { label: "50-50", emoji: "🤔", color: "text-amber-600 dark:text-amber-400" },
+    3: { label: "One Known", emoji: "💡", color: "text-orange-600 dark:text-orange-400" },
+    4: { label: "Blind Guess", emoji: "🎲", color: "text-destructive" },
 };
 
 export default function DetailedTestReport({ testResult, mcqs, history, onClose }: DetailedTestReportProps) {
@@ -233,37 +233,37 @@ export default function DetailedTestReport({ testResult, mcqs, history, onClose 
                         Copy Summary
                     </Button>
                 </div>
-                <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                <h2 className="text-xl font-bold text-foreground">
                     📊 Detailed Test Report
                 </h2>
-                <div className="text-sm text-gray-500">
+                <div className="text-sm text-muted-foreground">
                     {new Date(testResult.timestamp).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
                 </div>
             </div>
 
             {/* Score Overview */}
-            <Card className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
+            <Card className="bg-primary text-primary-foreground shadow-lg">
                 <CardContent className="p-6">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                         <div>
-                            <Trophy className="h-8 w-8 mx-auto mb-2 text-yellow-300" />
+                            <Trophy className="h-8 w-8 mx-auto mb-2 text-primary-foreground/80" />
                             <p className="text-3xl font-bold">{testResult.score}</p>
-                            <p className="text-xs text-white/80">Total Score</p>
+                            <p className="text-xs opacity-80">Total Score</p>
                         </div>
                         <div>
-                            <CheckCircle2 className="h-8 w-8 mx-auto mb-2 text-green-300" />
+                            <CheckCircle2 className="h-8 w-8 mx-auto mb-2 text-primary-foreground/80" />
                             <p className="text-3xl font-bold">{testResult.correct_count}</p>
-                            <p className="text-xs text-white/80">Correct</p>
+                            <p className="text-xs opacity-80">Correct</p>
                         </div>
                         <div>
-                            <XCircle className="h-8 w-8 mx-auto mb-2 text-red-300" />
+                            <XCircle className="h-8 w-8 mx-auto mb-2 text-primary-foreground/80" />
                             <p className="text-3xl font-bold">{testResult.incorrect_count}</p>
-                            <p className="text-xs text-white/80">Incorrect</p>
+                            <p className="text-xs opacity-80">Incorrect</p>
                         </div>
                         <div>
-                            <Target className="h-8 w-8 mx-auto mb-2 text-blue-300" />
+                            <Target className="h-8 w-8 mx-auto mb-2 text-primary-foreground/80" />
                             <p className="text-3xl font-bold">{scorePercent}%</p>
-                            <p className="text-xs text-white/80">Accuracy</p>
+                            <p className="text-xs opacity-80">Accuracy</p>
                         </div>
                     </div>
                 </CardContent>
@@ -286,13 +286,13 @@ export default function DetailedTestReport({ testResult, mcqs, history, onClose 
                             const isGood = data.accuracy >= expectedAccuracy;
 
                             return (
-                                <div key={conf} className="p-4 rounded-lg border bg-gray-50 dark:bg-gray-800">
+                                <div key={conf} className="p-4 rounded-lg border bg-muted">
                                     <div className="flex items-center justify-between mb-2">
                                         <span className="text-lg">{meta.emoji}</span>
                                         <span className={`text-xs font-medium ${meta.color}`}>{meta.label}</span>
                                     </div>
                                     <p className="text-2xl font-bold">{data.accuracy}%</p>
-                                    <p className="text-xs text-gray-500">{data.correct}/{data.total} correct</p>
+                                    <p className="text-xs text-muted-foreground">{data.correct}/{data.total} correct</p>
                                     <div className="mt-2 flex items-center gap-1 text-xs">
                                         {isGood ? (
                                             <><TrendingUp className="h-3 w-3 text-green-500" /> <span className="text-green-600">Good judgment</span></>
@@ -328,19 +328,19 @@ export default function DetailedTestReport({ testResult, mcqs, history, onClose 
                 <CardContent>
                     <div className="space-y-4">
                         {topicAnalysis.map((topic, idx) => (
-                            <div key={idx} className="p-3 rounded-lg border bg-gray-50 dark:bg-gray-800">
-                                <div className="flex items-center justify-between mb-2">
-                                    <span className="font-medium">{topic.name}</span>
-                                    <span className={`text-sm font-bold ${topic.accuracy >= 60 ? 'text-green-600' : topic.accuracy >= 40 ? 'text-yellow-600' : 'text-red-600'}`}>
+                            <div key={idx} className="p-3 rounded-lg border bg-muted">
+                                <div className="flex justify-between text-sm mb-2">
+                                    <span className="font-medium text-foreground">{topic.name}</span>
+                                    <span className={`text-sm font-bold ${topic.accuracy >= 60 ? 'text-emerald-600 dark:text-emerald-400' : topic.accuracy >= 40 ? 'text-amber-500' : 'text-destructive'}`}>
                                         {topic.accuracy}%
                                     </span>
                                 </div>
                                 <Progress value={topic.accuracy} className="h-2 mb-2" />
-                                <div className="flex justify-between text-xs text-gray-500">
+                                <div className="flex justify-between text-xs text-muted-foreground">
                                     <span>{topic.total} questions</span>
-                                    <span className="text-green-600">{topic.correct} ✓</span>
-                                    <span className="text-red-600">{topic.incorrect} ✗</span>
-                                    {topic.unanswered > 0 && <span className="text-gray-400">{topic.unanswered} skipped</span>}
+                                    <span className="text-emerald-600 dark:text-emerald-400">{topic.correct} ✓</span>
+                                    <span className="text-destructive">{topic.incorrect} ✗</span>
+                                    {topic.unanswered > 0 && <span>{topic.unanswered} skipped</span>}
                                 </div>
                             </div>
                         ))}
@@ -360,24 +360,27 @@ export default function DetailedTestReport({ testResult, mcqs, history, onClose 
                     <CardContent className="h-[250px] w-full">
                         <ResponsiveContainer width="100%" height="100%">
                             <LineChart data={history}>
-                                <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
+                                <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" opacity={0.5} />
                                 <XAxis
                                     dataKey="date"
                                     tickFormatter={(str) => new Date(str).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
-                                    style={{ fontSize: 10 }}
+                                    style={{ fontSize: 10, fill: 'var(--muted-foreground)' }}
+                                    axisLine={false}
+                                    tickLine={false}
                                 />
-                                <YAxis domain={[0, 100]} style={{ fontSize: 10 }} />
+                                <YAxis domain={[0, 100]} style={{ fontSize: 10, fill: 'var(--muted-foreground)' }} axisLine={false} tickLine={false} />
                                 <Tooltip
                                     labelFormatter={(d) => new Date(d).toLocaleDateString()}
                                     formatter={(val: number | any) => [`${val}%`, 'Accuracy']}
+                                    contentStyle={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)', borderRadius: '8px', color: 'var(--foreground)' }}
                                 />
-                                <ReferenceLine y={scorePercent} stroke="green" strokeDasharray="3 3" label="Current" />
+                                <ReferenceLine y={scorePercent} stroke="var(--primary)" strokeDasharray="3 3" label={{ value: 'Current', fill: 'var(--primary)', fontSize: 10 }} />
                                 <Line
                                     type="monotone"
                                     dataKey="accuracy"
-                                    stroke="#8884d8"
-                                    strokeWidth={2}
-                                    dot={{ r: 4 }}
+                                    stroke="var(--primary)"
+                                    strokeWidth={3}
+                                    dot={{ r: 4, fill: 'var(--primary)', strokeWidth: 2, stroke: 'var(--card)' }}
                                     activeDot={{ r: 6 }}
                                 />
                             </LineChart>
@@ -425,41 +428,41 @@ export default function DetailedTestReport({ testResult, mcqs, history, onClose 
 
                             return (
                                 <div key={idx} className={`p-4 rounded-lg border ${ans.isCorrect
-                                    ? "bg-green-50/50 border-green-100 dark:bg-green-900/10 dark:border-green-800"
-                                    : "bg-red-50/50 border-red-100 dark:bg-red-900/10 dark:border-red-800"
+                                    ? "bg-emerald-500/5 border-emerald-500/20"
+                                    : "bg-destructive/5 border-destructive/20"
                                     }`}>
                                     <div className="flex justify-between items-start mb-2">
-                                        <span className="font-semibold text-sm text-gray-500">Q{idx + 1}</span>
+                                        <span className="font-semibold text-sm text-muted-foreground">Q{idx + 1}</span>
                                         <div className="flex items-center gap-2">
                                             <button
                                                 onClick={() => toggleBookmark(ans.qId)}
-                                                className={`p-1.5 rounded-full transition-colors ${markedQuestions.includes(ans.qId) ? 'text-amber-500 bg-amber-100 dark:bg-amber-900/30' : 'text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'}`}
+                                                className={`p-1.5 rounded-full transition-colors ${markedQuestions.includes(ans.qId) ? 'text-amber-500 bg-amber-100 dark:bg-amber-900/30' : 'text-muted-foreground hover:bg-muted dark:hover:bg-gray-800'}`}
                                                 title="Mark for Spaced Repetition"
                                             >
                                                 <Bookmark className={`w-4 h-4 ${markedQuestions.includes(ans.qId) ? 'fill-amber-500' : ''}`} />
                                             </button>
 
                                             {ans.confidence && CONFIDENCE_LABELS[ans.confidence] && (
-                                                <span className={`text-xs px-2 py-0.5 rounded-full bg-white dark:bg-black border ${CONFIDENCE_LABELS[ans.confidence].color} border-current`}>
+                                                <span className={`text-xs px-2 py-0.5 rounded-full bg-card dark:bg-black border ${CONFIDENCE_LABELS[ans.confidence].color} border-current`}>
                                                     {CONFIDENCE_LABELS[ans.confidence].emoji} {CONFIDENCE_LABELS[ans.confidence].label}
                                                 </span>
                                             )}
                                             {ans.timeSpentSeconds && (
-                                                <span className="text-xs text-gray-400 flex items-center gap-1">
+                                                <span className="text-xs text-muted-foreground flex items-center gap-1">
                                                     <Timer className="w-3 h-3" /> {ans.timeSpentSeconds}s
                                                 </span>
                                             )}
                                         </div>
                                     </div>
-                                    <p className="font-medium text-gray-900 dark:text-gray-100 mb-3">{mcq.question}</p>
+                                    <p className="font-medium text-foreground mb-3">{mcq.question}</p>
 
-                                    <div className="space-y-2 pl-4 border-l-2 border-gray-200 dark:border-gray-800">
+                                    <div className="space-y-2 pl-4 border-l-2 border-border">
                                         {mcq.options.map((opt, oIdx) => (
                                             <div key={oIdx} className={`text-sm p-2 rounded ${oIdx === mcq.correctAnswer
                                                 ? "bg-green-100 dark:bg-green-900/40 text-green-900 dark:text-green-100 font-medium"
                                                 : oIdx === ans.answer && !ans.isCorrect
                                                     ? "bg-red-100 dark:bg-red-900/40 text-red-900 dark:text-red-100 line-through decoration-red-500"
-                                                    : "text-gray-600 dark:text-gray-400"
+                                                    : "text-muted-foreground dark:text-muted-foreground"
                                                 }`}>
                                                 {String.fromCharCode(65 + oIdx)}. {opt}
                                                 {oIdx === mcq.correctAnswer && <span className="ml-2 text-green-600">✓</span>}
@@ -469,8 +472,8 @@ export default function DetailedTestReport({ testResult, mcqs, history, onClose 
                                     </div>
 
                                     {mcq.explanation && (
-                                        <div className="mt-3 text-xs bg-blue-50 dark:bg-blue-900/20 p-3 rounded text-blue-800 dark:text-blue-300">
-                                            <span className="font-bold">Explanation:</span> {mcq.explanation}
+                                        <div className="mt-3 text-xs bg-primary/5 p-3 rounded border border-primary/10 text-foreground/80">
+                                            <span className="font-bold text-primary mr-1">Explanation:</span> {mcq.explanation}
                                         </div>
                                     )}
                                 </div>
@@ -490,7 +493,7 @@ export default function DetailedTestReport({ testResult, mcqs, history, onClose 
                 <CardContent>
                     {weakTopics.length > 0 ? (
                         <div className="space-y-3">
-                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                            <p className="text-sm text-muted-foreground dark:text-muted-foreground">
                                 Focus on these topics for improvement:
                             </p>
                             {weakTopics.map((topic, idx) => (
@@ -521,7 +524,7 @@ export default function DetailedTestReport({ testResult, mcqs, history, onClose 
 
                     {strongTopics.length > 0 && (
                         <div className="mt-4">
-                            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Your strong areas:</p>
+                            <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-2">Your strong areas:</p>
                             <div className="flex flex-wrap gap-2">
                                 {strongTopics.map((topic, idx) => (
                                     <span key={idx} className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm">
