@@ -3,7 +3,7 @@
 import React, { useEffect, useState, Suspense } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, Highlighter, Share2, ZoomIn, ZoomOut, Pencil, FileText } from 'lucide-react';
+import { ArrowLeft, BookOpen, Highlighter, Share2, ZoomIn, ZoomOut, Pencil, FileText, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { MODERN_HISTORY_CONTENT } from '@/components/batch1/history/data/modern/content-registry';
 import { MEDIEVAL_CONTENT_MAP } from '@/components/batch1/history/data/medieval/content-registry';
@@ -233,18 +233,42 @@ function HistoryReadContent() {
         <div className="min-h-screen bg-[#fdfbf7] text-gray-900 font-[family-name:var(--font-kalam)] selection:bg-yellow-200">
             {/* Top Navigation Bar */}
             <div className="sticky top-0 z-50 bg-[#fdfbf7]/90 backdrop-blur-sm border-b border-gray-200 px-4 py-3 shadow-sm font-sans">
-                <div className="max-w-4xl mx-auto flex justify-between items-center">
-                    <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => router.push(`/student/batch1/history?tab=dashboard&section=${section}`)}
-                        className="text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-                    >
-                        <ArrowLeft className="w-5 h-5 mr-1" /> Back to Dashboard
-                    </Button>
+                <div className="max-w-6xl mx-auto flex justify-between items-center">
+                    <div className="flex items-center gap-2">
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => router.push(`/student/batch1/history?tab=dashboard&section=${section}`)}
+                            className="text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                        >
+                            <ArrowLeft className="w-5 h-5 mr-1" /> <span className="hidden sm:inline">Back</span>
+                        </Button>
 
+                        {/* Top Navigation Arrows */}
+                        <div className="flex items-center bg-gray-100 rounded-full p-0.5 border border-gray-300">
+                            <button
+                                onClick={handlePrevious}
+                                disabled={parseInt(chapterId) <= 1}
+                                className="flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-bold transition-all hover:bg-white hover:shadow-sm text-gray-600 hover:text-gray-900 disabled:opacity-40 disabled:cursor-not-allowed"
+                            >
+                                <ChevronLeft className="w-3.5 h-3.5" />
+                                <span className="hidden md:inline">Ch {parseInt(chapterId) - 1}</span>
+                            </button>
+                            <span className="px-2 py-1 text-xs font-bold text-gray-900 bg-white rounded-full shadow-sm min-w-[44px] text-center">
+                                Ch {chapterId}
+                            </span>
+                            <button
+                                onClick={handleNext}
+                                disabled={parseInt(chapterId) >= 39}
+                                className="flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-bold transition-all hover:bg-white hover:shadow-sm text-gray-600 hover:text-gray-900 disabled:opacity-40 disabled:cursor-not-allowed"
+                            >
+                                <span className="hidden md:inline">Ch {parseInt(chapterId) + 1}</span>
+                                <ChevronRight className="w-3.5 h-3.5" />
+                            </button>
+                        </div>
+                    </div>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2 md:gap-4">
                         {/* Language Toggle */}
                         <div className="flex items-center bg-gray-100 rounded-full p-1 border border-gray-300">
                             <button
@@ -263,7 +287,7 @@ function HistoryReadContent() {
 
                         {/* Toggle Switch */}
                         {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39'].includes(chapterId) && section === 'modern' && (
-                            <div className="flex items-center bg-gray-100 rounded-full p-1 border border-gray-300">
+                            <div className="hidden sm:flex items-center bg-gray-100 rounded-full p-1 border border-gray-300">
                                 <button
                                     onClick={() => setVersion('v1')}
                                     className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${version === 'v1' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-900'}`}
@@ -274,14 +298,10 @@ function HistoryReadContent() {
                                     onClick={() => setVersion('v2')}
                                     className={`px-3 py-1 rounded-full text-xs font-bold transition-all flex items-center gap-1 ${version === 'v2' ? 'bg-white shadow-sm text-purple-600' : 'text-gray-500 hover:text-gray-900'}`}
                                 >
-                                    <Pencil className="w-3 h-3" /> Note Mode
+                                    <Pencil className="w-3 h-3" /> Notes
                                 </button>
                             </div>
                         )}
-
-                        <div className="hidden sm:block">
-                            <h1 className="text-lg font-bold text-gray-900 truncate max-w-[200px]">Chapter {chapterId}</h1>
-                        </div>
 
                         <div className="flex gap-1">
                             <Button variant="ghost" size="icon" onClick={() => setFontSize(Math.max(14, fontSize - 2))}>
@@ -296,7 +316,7 @@ function HistoryReadContent() {
             </div>
 
             {/* Main Content Area */}
-            <div className="max-w-3xl mx-auto px-6 py-12">
+            <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-12">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -346,7 +366,7 @@ function HistoryReadContent() {
                 </motion.div>
 
                 {/* Completion Section */}
-                <div className="mt-8 max-w-2xl mx-auto">
+                <div className="mt-8">
                     {isCompleted ? (
                         <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-2xl p-6 text-center animate-in zoom-in duration-300">
                             <div className="flex flex-col items-center gap-4">
