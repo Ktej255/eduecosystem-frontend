@@ -89,27 +89,37 @@ const DUMMY_ALERTS = [
 export default function RetentionDashboard() {
     const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [stats, setStats] = useState<any>(null);
+    const [stats, setStats] = useState<any>({
+        avgRetention: 0,
+        topicsLearned: 0,
+        criticalCount: 0,
+        streak: 0,
+    });
     const [curveData, setCurveData] = useState<any>(null);
 
     useEffect(() => {
-        const realStats = getStudentStats();
-        const progress = getLearningProgress();
+        try {
+            const realStats = getStudentStats();
+            const progress = getLearningProgress();
 
-        // Find a topic to display in the curve (first completed topic or random)
-        const firstTopic = progress.completedChapters?.[0] || "economy-banking";
-        const curve = getDecayCurvePoints(firstTopic);
+            // Find a topic to display in the curve (first completed topic or random)
+            const completedChapters = progress?.completedChapters || [];
+            const firstTopic = completedChapters[0] || "economy-banking";
+            const curve = getDecayCurvePoints(firstTopic);
 
-        setStats({
-            avgRetention: 0.85, // Placeholder for calculated avg
-            topicsLearned: progress.completedChapters.length,
-            criticalCount: 0, // Placeholder
-            streak: realStats.overallStreak,
-        });
-        setCurveData({
-            topicName: firstTopic.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
-            ...curve
-        });
+            setStats({
+                avgRetention: 0.85, // Placeholder for calculated avg
+                topicsLearned: completedChapters.length,
+                criticalCount: 0, // Placeholder
+                streak: realStats?.overallStreak || 0,
+            });
+            setCurveData({
+                topicName: firstTopic.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+                ...curve
+            });
+        } catch (err) {
+            console.error("RetentionDashboard: Error loading stats", err);
+        }
         setIsLoading(false);
     }, []);
 
