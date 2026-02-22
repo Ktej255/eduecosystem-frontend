@@ -55,12 +55,10 @@ node_modules/
 *.pem
 
 # debug
->>>>>>> f7ef26777e58b10aa369faaa02bc152f8aec6780
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
-<<<<<<< HEAD
 .next/
 out/
 .cache/
@@ -135,10 +133,6 @@ amplify-ssr-root/
 amplify-static-deploy/
 test-deploy/
 build_temp*/
-=======
-
-# env files (can opt-in for committing if needed)
-.env*
 
 # vercel
 .vercel
@@ -146,4 +140,3 @@ build_temp*/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
->>>>>>> f7ef26777e58b10aa369faaa02bc152f8aec6780

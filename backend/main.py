@@ -12,6 +12,9 @@ import sys
 
 from fastapi import Request
 from fastapi.responses import JSONResponse
+from slowapi.errors import RateLimitExceeded
+from slowapi import _rate_limit_exceeded_handler
+from app.middleware.rate_limit import limiter
 
 logger = logging.getLogger(__name__)
 
@@ -109,6 +112,10 @@ else:
         openapi_url=f"{API_V1_STR}/openapi.json",
         lifespan=lifespan,
     )
+
+# Rate Limiting setup
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 # CORS Origins — single source of truth from settings + any extras
 all_cors_origins = list(set(BACKEND_CORS_ORIGINS if BACKEND_CORS_ORIGINS else []))
@@ -281,6 +288,7 @@ def api_status():
     """API status endpoint."""
     return {
         "api_version": "v1",
+        "app_version": APP_VERSION,
         "status": "operational",
         "environment": os.getenv("ENVIRONMENT", "production")
     }

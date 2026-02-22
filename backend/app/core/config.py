@@ -9,7 +9,6 @@ class Settings(BaseSettings):
     ENVIRONMENT: str = os.getenv(
         "ENVIRONMENT", "development"
     )  # development, staging, production
-    VERSION: str = os.getenv("VERSION", "2.0.0")
     LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
     DEBUG: bool = os.getenv("DEBUG", "false").lower() == "true"
 
@@ -52,6 +51,28 @@ class Settings(BaseSettings):
             raise ValueError(
                 "CRITICAL: SECRET_KEY environment variable must be set in production. "
                 "Generate one with: python -c \"import secrets; print(secrets.token_urlsafe(32))\""
+            )
+        return v
+
+    @field_validator("FIRST_SUPERUSER")
+    @classmethod
+    def validate_first_superuser(cls, v: str, info) -> str:
+        """Prevent using default superuser email in production."""
+        environment = info.data.get("ENVIRONMENT", "development")
+        if environment == "production" and v == "ktej255@gmail.com":
+            raise ValueError(
+                "CRITICAL: FIRST_SUPERUSER email must be changed from default in production."
+            )
+        return v
+
+    @field_validator("FIRST_SUPERUSER_PASSWORD")
+    @classmethod
+    def validate_first_superuser_password(cls, v: str, info) -> str:
+        """Prevent using default superuser password in production."""
+        environment = info.data.get("ENVIRONMENT", "development")
+        if environment == "production" and (not v or v == "CHANGE_ME_IN_PRODUCTION"):
+            raise ValueError(
+                "CRITICAL: FIRST_SUPERUSER_PASSWORD must be changed from default in production."
             )
         return v
 
