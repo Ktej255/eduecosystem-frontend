@@ -19,8 +19,13 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useLanguageStore } from '@/lib/language-store';
+import { ch14Translations } from './translations/ch14';
 
 export default function HandwrittenChapter14() {
+    const { language } = useLanguageStore();
+    const t = language === 'hi' ? ch14Translations.hi : ch14Translations.en;
+
     return (
         <div className="min-h-screen bg-[#f5f5dc] p-4 md:p-8 font-['Merriweather',_serif] text-gray-900 selection:bg-orange-200 overflow-x-hidden relative">
             <style jsx global>{`
@@ -79,14 +84,14 @@ export default function HandwrittenChapter14() {
                     <div className="w-8 h-8 rounded-full border-4 border-orange-500"></div>
                 </div>
                 <h1 className="stencil-font text-5xl md:text-7xl font-bold uppercase tracking-wider mb-2 text-gray-900">
-                    THE GREAT BOYCOTT
+                    {t.headerTitle}
                 </h1>
                 <p className="typewriter-font text-xl font-bold bg-black text-white inline-block px-4 py-1 transform -rotate-1">
-                    "Swaraj in One Year"
+                    {t.headerQuote}
                 </p>
                 <div className="mt-4 flex justify-center gap-6 text-sm font-bold uppercase">
-                    <span className="flex items-center gap-1"><Flag className="w-4 h-4" /> Non-Cooperation</span>
-                    <span className="flex items-center gap-1"><Moon className="w-4 h-4" /> Khilafat</span>
+                    <span className="flex items-center gap-1"><Flag className="w-4 h-4" /> {t.nonCoop}</span>
+                    <span className="flex items-center gap-1"><Moon className="w-4 h-4" /> {t.khilafat}</span>
                 </div>
             </header>
 
@@ -97,22 +102,22 @@ export default function HandwrittenChapter14() {
 
                     {/* TWIN CAUSES */}
                     <div className="unity-card p-6 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 bg-red-100 text-red-800 px-2 py-1 text-[10px] font-bold border-l border-b border-red-300">WHY NOW?</div>
-                        <h3 className="stencil-font text-2xl font-bold mb-4 uppercase">The Twin Wrongs</h3>
+                        <div className="absolute top-0 right-0 bg-red-100 text-red-800 px-2 py-1 text-[10px] font-bold border-l border-b border-red-300">{t.whyNow}</div>
+                        <h3 className="stencil-font text-2xl font-bold mb-4 uppercase">{t.twinTitle}</h3>
 
                         <div className="space-y-4">
                             <div className="bg-red-50 p-3 border-l-4 border-red-600">
-                                <h4 className="font-bold text-sm uppercase text-red-900">1. Punjab Wrong</h4>
-                                <p className="text-xs mt-1">Jallianwala Bagh Massacre & Hunter Committee Whitewash.</p>
+                                <h4 className="font-bold text-sm uppercase text-red-900">{t.punjabWrong}</h4>
+                                <p className="text-xs mt-1">{t.punjabText}</p>
                             </div>
 
                             <div className="bg-green-50 p-3 border-l-4 border-green-700">
-                                <h4 className="font-bold text-sm uppercase text-green-900">2. Khilafat Wrong</h4>
-                                <p className="text-xs mt-1">Mistreatment of Ottoman Sultan (Khalifa) after WWI.</p>
+                                <h4 className="font-bold text-sm uppercase text-green-900">{t.khilafatWrong}</h4>
+                                <p className="text-xs mt-1">{t.khilafatText}</p>
                                 <div className="mt-2 text-xs bg-white p-2 border border-green-200">
-                                    <strong>Khilafat Day:</strong> Oct 17, 1919 (Start Date)<br />
-                                    <strong>Leaders:</strong> Ali Brothers, Maulana Azad, Hakim Ajmal Khan.<br />
-                                    <strong>Gandhi:</strong> "Golden opportunity for unity."
+                                    <strong>{t.khilafatDay}</strong>{t.khilafatDayText}<br />
+                                    <strong>{t.khilafatLeaders}</strong>{t.khilafatLeadersText}<br />
+                                    <strong>{t.gandhiQuote}</strong>{t.gandhiQuoteText}
                                 </div>
                             </div>
                         </div>
@@ -121,35 +126,40 @@ export default function HandwrittenChapter14() {
                     {/* SESSIONS: TALE OF TWO CITIES */}
                     <div className="unity-card p-0">
                         <div className="p-4 bg-gray-800 text-white text-center font-bold uppercase stencil-font">
-                            A Tale of Two Sessions (1920)
+                            {t.sessionsTitle}
                         </div>
                         <div className="grid grid-cols-2 text-sm">
                             <div className="p-4 border-r border-gray-300 bg-gray-50">
-                                <h4 className="font-bold text-lg mb-1">Calcutta (Sept)</h4>
-                                <p className="text-xs italic mb-2">Special Session</p>
+                                <h4 className="font-bold text-lg mb-1">{t.calcutta}</h4>
+                                <p className="text-xs italic mb-2">{t.calcuttaNote}</p>
                                 <ul className="text-xs space-y-2 list-disc ml-4">
-                                    <li><strong>Prez:</strong> Lala Lajpat Rai.</li>
-                                    <li><strong>Action:</strong> Gandhi moved NCM resolution.</li>
-                                    <li><strong>Opposed by:</strong> C.R. Das.</li>
+                                    {t.calcuttaItems.map((item, i) => (
+                                        <li key={i}><strong>{item.bold}</strong>{item.text}</li>
+                                    ))}
                                 </ul>
                             </div>
                             <div className="p-4 bg-orange-50">
-                                <h4 className="font-bold text-lg mb-1 text-orange-900">Nagpur (Dec)</h4>
-                                <p className="text-xs italic mb-2">Annual Session</p>
+                                <h4 className="font-bold text-lg mb-1 text-orange-900">{t.nagpur}</h4>
+                                <p className="text-xs italic mb-2">{t.nagpurNote}</p>
                                 <ul className="text-xs space-y-2 list-disc ml-4">
-                                    <li><strong>Prez:</strong> C. Vijayaraghavachariar.</li>
-                                    <li><strong>Twist:</strong> C.R. Das moved resolution!</li>
-                                    <li><strong>Goal:</strong> "Swaraj within Empire if possible..."</li>
+                                    {t.nagpurItems.map((item, i) => (
+                                        <li key={i}><strong>{item.bold}</strong>{item.text}</li>
+                                    ))}
                                 </ul>
                             </div>
                         </div>
                         <div className="p-4 border-t border-gray-300 bg-blue-50">
-                            <strong className="text-blue-900 uppercase text-xs block mb-2">New Constitution (Nagpur)</strong>
+                            <strong className="text-blue-900 uppercase text-xs block mb-2">{t.newConst}</strong>
                             <ul className="text-xs grid grid-cols-2 gap-2">
-                                <li className="flex items-center gap-1"><Users className="w-3 h-3" /> CWC (15 members)</li>
-                                <li className="flex items-center gap-1"><MapPin className="w-3 h-3" /> Linguistic Provinces</li>
-                                <li className="flex items-center gap-1">💰 Fee: 4 Annas</li>
-                                <li className="flex items-center gap-1">🚪 Exits: Jinnah, Besant, Pal</li>
+                                {t.constItems.map((item, i) => (
+                                    <li key={i} className="flex items-center gap-1">
+                                        {item.icon === 'users' && <Users className="w-3 h-3" />}
+                                        {item.icon === 'map' && <MapPin className="w-3 h-3" />}
+                                        {item.icon === 'money' && '💰'}
+                                        {item.icon === 'exit' && '🚪'}
+                                        {' '}{item.text}
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>
@@ -157,38 +167,36 @@ export default function HandwrittenChapter14() {
                     {/* THE PROGRAM */}
                     <div className="unity-card p-6 bg-white relative">
                         <h3 className="stencil-font text-2xl font-bold mb-4 uppercase flex items-center gap-2">
-                            The Program <Flame className="w-5 h-5 text-orange-600" />
+                            {t.programTitle} <Flame className="w-5 h-5 text-orange-600" />
                         </h3>
 
                         <div className="grid grid-cols-2 gap-4 mb-4">
                             <div className="border border-red-200 p-3 bg-red-50/50">
-                                <h4 className="font-bold text-red-800 text-sm uppercase mb-2 border-b border-red-200 pb-1">Boycott (Negative)</h4>
+                                <h4 className="font-bold text-red-800 text-sm uppercase mb-2 border-b border-red-200 pb-1">{t.boycottTitle}</h4>
                                 <ul className="text-xs space-y-1 list-disc ml-4 text-gray-700">
-                                    <li>Govt Schools/Colleges.</li>
-                                    <li>Law Courts.</li>
-                                    <li>Legislative Councils.</li>
-                                    <li>Foreign Cloth (Bonfires).</li>
-                                    <li>Titles & Honors.</li>
+                                    {t.boycottItems.map((item, i) => (
+                                        <li key={i}>{item}</li>
+                                    ))}
                                 </ul>
                             </div>
                             <div className="border border-green-200 p-3 bg-green-50/50">
-                                <h4 className="font-bold text-green-800 text-sm uppercase mb-2 border-b border-green-200 pb-1">Constructive (Positive)</h4>
+                                <h4 className="font-bold text-green-800 text-sm uppercase mb-2 border-b border-green-200 pb-1">{t.constructiveTitle}</h4>
                                 <ul className="text-xs space-y-1 list-disc ml-4 text-gray-700">
-                                    <li>National Schools (Jamia, Vidyapiths).</li>
-                                    <li>Hindu-Muslim Unity.</li>
-                                    <li>Removal of Untouchability.</li>
-                                    <li><strong>Tilak Swaraj Fund</strong> (1 Crore).</li>
+                                    {t.constructiveItems.map((item, i) => (
+                                        <li key={i}>{item}</li>
+                                    ))}
+                                    <li><strong>{t.tilakFund}</strong>{t.tilakFundNote}</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div className="bg-gray-100 p-3 text-xs border border-gray-300">
                             <div className="flex justify-between items-center mb-1">
-                                <strong className="uppercase">Workers United</strong>
-                                <span className="text-[10px] font-bold bg-black text-white px-1">AITUC (1920)</span>
+                                <strong className="uppercase">{t.workersTitle}</strong>
+                                <span className="text-[10px] font-bold bg-black text-white px-1">{t.aitucTag}</span>
                             </div>
-                            <p>Founded Oct 1920, Bombay. First Prez: <strong>Lala Lajpat Rai</strong>.</p>
-                            <p className="italic text-gray-600 mt-1">"Imperialism and Militarism are twin children of Capitalism."</p>
+                            <p>{t.aitucText}<strong>{t.aitucPrez}</strong>.</p>
+                            <p className="italic text-gray-600 mt-1">{t.aitucQuote}</p>
                         </div>
                     </div>
 
@@ -200,62 +208,51 @@ export default function HandwrittenChapter14() {
                     {/* THE SPREAD */}
                     <div className="unity-card p-6">
                         <h3 className="stencil-font text-xl font-bold mb-4 uppercase border-b-2 border-gray-800 pb-2">
-                            The Mass Surge
+                            {t.surgeTitle}
                         </h3>
 
                         <div className="space-y-4">
                             <div className="flex gap-4">
                                 <div className="flex-1 bg-yellow-50 p-3 border border-yellow-200">
-                                    <h4 className="font-bold text-sm text-yellow-900 mb-1">Students & Schools</h4>
+                                    <h4 className="font-bold text-sm text-yellow-900 mb-1">{t.studentsTitle}</h4>
                                     <ul className="text-[10px] space-y-1 text-gray-700">
-                                        <li><strong>Subhash Bose:</strong> Principal, National College Calcutta.</li>
-                                        <li><strong>New Unis:</strong> Jamia Millia, Bihar/Gujarat/Kashi Vidyapiths.</li>
+                                        {t.studentsItems.map((item, i) => (
+                                            <li key={i}><strong>{item.bold}</strong>{item.text}</li>
+                                        ))}
                                     </ul>
                                 </div>
                                 <div className="flex-1 bg-blue-50 p-3 border border-blue-200">
-                                    <h4 className="font-bold text-sm text-blue-900 mb-1">Lawyers Quit</h4>
-                                    <p className="text-[10px] leading-tight text-gray-700">
-                                        Motilal Nehru, C.R. Das, Patel, Rajagopalachari, Kitchlew gave up practice.
-                                    </p>
+                                    <h4 className="font-bold text-sm text-blue-900 mb-1">{t.lawyersTitle}</h4>
+                                    <p className="text-[10px] leading-tight text-gray-700">{t.lawyersText}</p>
                                 </div>
                             </div>
 
                             <div className="border-l-4 border-purple-500 pl-3 py-1">
-                                <h4 className="font-bold text-sm text-purple-900">Women's Awakening</h4>
-                                <p className="text-xs text-gray-600"><strong>Basanti Devi</strong> (Wife of C.R. Das) arrested. Sparked outrage.</p>
+                                <h4 className="font-bold text-sm text-purple-900">{t.womenTitle}</h4>
+                                <p className="text-xs text-gray-600"><strong>{t.womenText}</strong>{t.womenNote}</p>
                             </div>
 
                             <div className="bg-black text-white p-3 text-center">
-                                <h4 className="font-bold text-sm uppercase">🚫 Prince of Wales Visit (Nov 1921)</h4>
-                                <p className="text-xs opacity-80">Met with Black Flags and "Ghost Cities".</p>
-                                <p className="text-[10px] italic mt-1 text-gray-400 opacity-60">(Duke of Connaught boycotted earlier in 1921)</p>
+                                <h4 className="font-bold text-sm uppercase">{t.princeTitle}</h4>
+                                <p className="text-xs opacity-80">{t.princeText}</p>
+                                <p className="text-[10px] italic mt-1 text-gray-400 opacity-60">{t.princeNote}</p>
                             </div>
                         </div>
                     </div>
 
                     {/* REGIONAL FIRES MAP */}
                     <div className="bg-[#e0e0e0] p-4 text-xs font-mono border-2 border-dashed border-gray-500 rounded relative">
-                        <div className="absolute -top-3 left-4 bg-gray-500 text-white px-2 py-1 text-[10px] font-bold uppercase">Regional Fires</div>
+                        <div className="absolute -top-3 left-4 bg-gray-500 text-white px-2 py-1 text-[10px] font-bold uppercase">{t.regionalTag}</div>
                         <div className="grid grid-cols-2 gap-2 mt-2">
-                            <div className="bg-white p-2 shadow-sm">
-                                <strong className="text-red-700 block">🔥 Moplah (Kerala)</strong>
-                                <span className="text-[10px] text-gray-600">Anti-Jenmi turned Communal. Wagon Tragedy.</span>
-                            </div>
-                            <div className="bg-white p-2 shadow-sm">
-                                <strong className="text-orange-700 block">🚩 Akali (Punjab)</strong>
-                                <span className="text-[10px] text-gray-600">Liberate Gurdwaras. Nankana Massacre.</span>
-                            </div>
-                            <div className="bg-white p-2 shadow-sm">
-                                <strong className="text-green-700 block">🌾 Eka (UP)</strong>
-                                <span className="text-[10px] text-gray-600">Madari Pasi. Unity Oath (Hole with water).</span>
-                            </div>
-                            <div className="bg-white p-2 shadow-sm">
-                                <strong className="text-blue-700 block">🚜 Bijolia (Raj)</strong>
-                                <span className="text-[10px] text-gray-600">Vijay Singh Pathik. Anti-Feudal.</span>
-                            </div>
+                            {t.fires.map((fire, i) => (
+                                <div key={i} className="bg-white p-2 shadow-sm">
+                                    <strong className={`text-${fire.color}-700 block`}>{fire.emoji} {fire.name}</strong>
+                                    <span className="text-[10px] text-gray-600">{fire.text}</span>
+                                </div>
+                            ))}
                             <div className="col-span-2 bg-white p-2 shadow-sm text-center">
-                                <strong className="text-indigo-700 block">⛺ Chirala-Perala (Andhra)</strong>
-                                <span className="text-[10px] text-gray-600">T. Prakasam. Evacuated town to avoid tax.</span>
+                                <strong className={`text-${t.chirala.color}-700 block`}>{t.chirala.emoji} {t.chirala.name}</strong>
+                                <span className="text-[10px] text-gray-600">{t.chirala.text}</span>
                             </div>
                         </div>
                     </div>
@@ -263,27 +260,27 @@ export default function HandwrittenChapter14() {
                     {/* SUDDEN END & AFTERMATH */}
                     <div className="unity-card p-6 border-red-900 border-2 bg-white">
                         <h3 className="stencil-font text-2xl font-bold mb-4 uppercase text-red-900 flex items-center gap-2">
-                            The Sudden End <XCircle className="w-6 h-6" />
+                            {t.endTitle} <XCircle className="w-6 h-6" />
                         </h3>
 
                         <div className="mb-4 bg-red-100 p-3 border-l-4 border-red-900">
                             <div className="flex justify-between items-baseline mb-1">
-                                <h4 className="font-bold text-red-900 text-sm">CHAURI CHAURA</h4>
-                                <span className="text-[10px] font-bold">Feb 5, 1922</span>
+                                <h4 className="font-bold text-red-900 text-sm">{t.chauriChaura}</h4>
+                                <span className="text-[10px] font-bold">{t.chauriDate}</span>
                             </div>
-                            <p className="text-xs text-red-800">Mob burned police station. 22 policemen died.</p>
+                            <p className="text-xs text-red-800">{t.chauriText}</p>
                             <div className="mt-2 text-xs bg-white p-2 border border-red-200 text-center font-bold">
-                                Gandhi withdrew movement (Bardoli Resolution, Feb 12)
+                                {t.bardoli}
                             </div>
-                            <p className="text-[10px] italic mt-1 text-center text-gray-600">Planned "No-Tax" in Bardoli cancelled.</p>
+                            <p className="text-[10px] italic mt-1 text-center text-gray-600">{t.bardoliNote}</p>
                         </div>
 
                         <div className="grid grid-cols-2 gap-4 text-xs mb-4">
                             <div className="p-2 border border-gray-200">
-                                <strong>Subhash Bose:</strong> "National Calamity."
+                                <strong>{t.boseQuote}</strong>{t.boseQuoteText}
                             </div>
                             <div className="p-2 border border-gray-200">
-                                <strong>Motilal Nehru:</strong> "Why punish Kanyakumari for Gorakhpur?"
+                                <strong>{t.motilalQuote}</strong>{t.motilalQuoteText}
                             </div>
                         </div>
 
@@ -291,15 +288,15 @@ export default function HandwrittenChapter14() {
                             <div className="flex items-start gap-2">
                                 <Gavel className="w-4 h-4 text-gray-700 mt-1" />
                                 <div>
-                                    <h4 className="font-bold text-sm">The Great Trial (March 1922)</h4>
-                                    <p className="text-xs text-gray-600">Judge Broomfield. Gandhi pleaded guilty. 6 Years Jail.</p>
+                                    <h4 className="font-bold text-sm">{t.trialTitle}</h4>
+                                    <p className="text-xs text-gray-600">{t.trialText}</p>
                                 </div>
                             </div>
 
                             <div className="bg-gray-100 p-2 text-center text-xs">
-                                <strong>Dec 1922: Gaya Session Split</strong>
+                                <strong>{t.gayaSplit}</strong>
                                 <br />
-                                <span className="text-[10px]">C.R. Das (Swaraj Party) vs No-Changers (Patel/Rajendra).</span>
+                                <span className="text-[10px]">{t.gayaSplitText}</span>
                             </div>
                         </div>
                     </div>
@@ -310,9 +307,8 @@ export default function HandwrittenChapter14() {
 
             {/* HASRAT MOHANI NOTE */}
             <div className="max-w-4xl mx-auto mt-8 text-center opacity-60 text-xs font-mono">
-                Radical Voice: <strong>Hasrat Mohani</strong> demanded 'Purna Swaraj' in 1921 (Ahmedabad). Gandhi rejected it (then).
+                {t.footerText}<strong>{t.hasrat}</strong>{t.hasratText}
             </div>
         </div>
     );
 }
-

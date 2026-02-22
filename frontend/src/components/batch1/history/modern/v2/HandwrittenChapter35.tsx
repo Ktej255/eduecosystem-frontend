@@ -2,8 +2,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguageStore } from '@/lib/language-store';
+import { ch35 } from './translations/ch35';
 
 export default function HandwrittenChapter35() {
+    const { language } = useLanguageStore();
+    const t = ch35[language as keyof typeof ch35] || ch35.en;
+
     return (
         <div className="min-h-screen bg-[#fdfbf7] p-4 md:p-8 font-['Kalam',_cursive] text-[#000080] selection:bg-yellow-200">
             <style jsx global>{`
@@ -41,68 +46,33 @@ export default function HandwrittenChapter35() {
 
             <div className="max-w-5xl mx-auto mb-16 relative pt-12">
                 <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-[#CC0000] mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase">
-                    Independence and Partition (1945-1947)
+                    {t.title}
                 </h1>
-                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline">Study Notes - Chapter 35</p>
+                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline">{t.subtitle}</p>
             </div>
 
-            
-            <section key={0} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">The Post-War Upsurge</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Simla Conference (1945)</span>: The breakdown of the Wavell Plan marked the beginning of the end.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">INA Trials (Nov 1945)</span>: The trial of INA officers (Sahgal, Dhillon, Shan Nawaz) at the Red Fort triggered massive public protests, uniting all communities. The motto &quot;Lal Qile se aayi aawaz, Sahgal Dhillon Shah Nawaz&quot; became famous.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">RIN Mutiny (Feb 1946)</span>: Ratings of <span className="font-bold highlight">HMIS Talwar</span> in Bombay went on strike against racial discrimination and poor food. It spread to other ships and establishments. The mutineers hoisted the flags of Congress, League, and the Communist Party together. Sardar Patel and Jinnah persuaded them to surrender.</p></div>
-                </div>
-            </section>
-
-            <section key={1} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Cabinet Mission (1946)</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Members</span>: <span className="font-bold highlight">Pethick-Lawrence</span> (Sec. of State), <span className="font-bold highlight">Stafford Cripps</span>, and <span className="font-bold highlight">A.V. Alexander</span>.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Proposals</span>:</p></div>
-<p className="text-lg leading-relaxed">1.  **Rejection of Pakistan**: A sovereign Pakistan was rejected as unviable.</p>
-<p className="text-lg leading-relaxed">2.  **Union of India**: A weak center controlling Defense, Foreign Affairs, and Communications.</p>
-<p className="text-lg leading-relaxed">3.  **Grouping**: Provinces were to be divided into three sections:</p>
-<p className="text-lg leading-relaxed">- **Section A**: Madras, Bombay, UP, Bihar, CP, Orissa (Hindu majority).</p>
-<p className="text-lg leading-relaxed">- **Section B**: Punjab, NWFP, Sindh (Muslim majority).</p>
-<p className="text-lg leading-relaxed">- **Section C**: Bengal and Assam (Muslim majority).</p>
-<p className="text-lg leading-relaxed">4.  **Constituent Assembly**: To be elected by provincial assemblies.</p>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Outcome</span>: Both Congress and League accepted it initially but differed on the interpretation of &quot;Grouping&quot; (Compulsory vs Optional).</p></div>
-                </div>
-            </section>
-
-            <section key={2} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Direct Action and Interim Government</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Direct Action Day (Aug 16, 1946)</span>: After the collapse of the Cabinet Mission plan, Jinnah called for &quot;Direct Action&quot; to achieve Pakistan. This led to the <span className="font-bold highlight">Great Calcutta Killings</span>.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Interim Government (Sept 2, 1946)</span>: Formed by <span className="font-bold highlight">Jawaharlal Nehru</span>. The Muslim League initially stayed out but joined later (Oct 1946) only to obstruct the working of the government. <span className="font-bold highlight">Liaquat Ali Khan</span> became the Finance Member.</p></div>
-                </div>
-            </section>
-
-            <section key={3} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Mountbatten Plan and Independence</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Attlee's Declaration (Feb 20, 1947)</span>: PM Clement Attlee announced that the British would leave India by <span className="font-bold highlight">June 1948</span>. Lord <span className="font-bold highlight">Mountbatten</span> replaced Wavell as Viceroy.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Mountbatten Plan (June 3, 1947)</span>:</p></div>
-<p className="text-lg leading-relaxed">- Acceptance of Partition.</p>
-<p className="text-lg leading-relaxed">- Integration of Princely States.</p>
-<p className="text-lg leading-relaxed">- Boundary Commissions (Radcliffe Line) to be set up.</p>
-<p className="text-lg leading-relaxed">- Date of Independence advanced to **August 15, 1947**.</p>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Indian Independence Act, 1947</span>: Passed by the British Parliament, ratified the Mountbatten Plan.</p></div>
-                </div>
-            </section>
-
-            <section key={4} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Partition</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Radcliffe Line</span>: Sir Cyril Radcliffe chaired the boundary commissions for Punjab and Bengal.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Agony of Partition</span>: The joy of independence was marred by the horrific violence of partition and massive displacement of people.</p></div>
-                </div>
-            </section>
+            {t.sections.map((section, sIdx) => (
+                <section key={sIdx} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
+                    <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">{section.title}</h2>
+                    <div className="space-y-6">
+                        {section.content && (section.content as any[]).map((item: any, iIdx: number) => (
+                            <div key={iIdx} className="flex gap-2 items-start text-lg">
+                                <span className="text-[#CC0000] mt-1">•</span>
+                                <p>
+                                    {item.highlight && <span className="font-bold highlight">{item.highlight}</span>}
+                                    {item.text}
+                                </p>
+                            </div>
+                        ))}
+                        {(section as any).footer && (section as any).footer.map((f: string, fIdx: number) => (
+                            <p key={fIdx} className="text-lg leading-relaxed">{f}</p>
+                        ))}
+                    </div>
+                </section>
+            ))}
 
             <div className="text-center font-['Just_Another_Hand'] text-2xl opacity-40 mt-20 mb-10 italic">
-                ~ End of Handwritten Notes ~
+                {t.end}
             </div>
         </div>
     );

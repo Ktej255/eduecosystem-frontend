@@ -21,8 +21,28 @@ import {
 } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useLanguageStore } from '@/lib/language-store';
+import { ch6Translations } from './translations/ch6';
+
+function Castle({ className }: { className?: string }) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+            <path d="M22 20v-9l-4-4V3L14 7l-4-4-4 4-4-4v4L2 11v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2Z" /><path d="M12 11V7" /><path d="M15 11V8" /><path d="M9 11V8" /><path d="M11 22v-4a1 1 0 0 1 1-1h0a1 1 0 0 1 1 1v4" /><path d="M16 11V8" /><path d="M8 11V8" />
+        </svg>
+    );
+}
 
 export default function HandwrittenChapter6() {
+    const { language } = useLanguageStore();
+    const t = language === 'hi' ? ch6Translations.hi : ch6Translations.en;
+
+    const posterColors = [
+        { gradient: "from-red-600", nameColor: "text-red-900" },
+        { gradient: "from-orange-600", nameColor: "text-orange-900" },
+        { gradient: "from-blue-600", nameColor: "text-blue-900" },
+    ];
+    const posterRotations = ["-rotate-2", "rotate-2", "-rotate-1"];
+
     return (
         <div className="min-h-screen bg-[#fdf8f0] p-4 md:p-8 font-['Kalam',_cursive] text-[#4a3728] selection:bg-orange-200 overflow-x-hidden">
             <style jsx global>{`
@@ -70,6 +90,20 @@ export default function HandwrittenChapter6() {
                 .burnt-corner {
                     clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
                 }
+
+                .paper-border {
+                    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+                    border: 2px solid #333;
+                }
+
+                .body-handwritten {
+                    font-family: 'Kalam', cursive;
+                    line-height: 1.8;
+                }
+
+                .marker-label {
+                    font-family: 'Permanent Marker', cursive;
+                }
             `}</style>
 
             <div className="muddy-texture"></div>
@@ -84,14 +118,14 @@ export default function HandwrittenChapter6() {
                         <Flame className="w-20 h-20 text-orange-700 animate-pulse" />
                     </div>
                     <h1 className="text-4xl md:text-8xl font-['Permanent_Marker'] blood-red mb-2 tracking-tighter uppercase">
-                        PEOPLE'S RESISTANCE
+                        {t.heroTitle}
                     </h1>
                     <p className="text-xl md:text-2xl earth-brown stencil-font font-bold opacity-80 uppercase tracking-widest italic">
-                        --- The Sparks Before the 1857 Fire ---
+                        {t.heroSubtitle}
                     </p>
                     <div className="max-w-xl mx-auto mt-8 bg-white p-6 paper-border border-4 border-dashed border-red-900 transform rotate-1">
                         <p className="text-2xl leading-relaxed italic body-handwritten">
-                            "Resistance was not an accident; it was a continuous stream of defiance against the colonial theft of land, faith, and forests."
+                            {t.heroQuote}
                         </p>
                     </div>
                 </motion.div>
@@ -103,96 +137,72 @@ export default function HandwrittenChapter6() {
                     <div className="absolute top-0 right-0 p-8 opacity-10">
                         <AlertTriangle className="w-32 h-32" />
                     </div>
-                    <h2 className="text-3xl font-['Permanent_Marker'] text-orange-400 mb-8 uppercase tracking-widest outline-text">WHY THEY FOUGHT?</h2>
+                    <h2 className="text-3xl font-['Permanent_Marker'] text-orange-400 mb-8 uppercase tracking-widest outline-text">{t.causesTitle}</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 body-handwritten text-xl">
                         <div className="space-y-4">
-                            <p className="border-l-4 border-orange-500 pl-4 py-1">
-                                <span className="font-bold text-orange-300">Colonial Plunder:</span> High revenue, eviction of peasants, destruction of local industry.
-                            </p>
-                            <p className="border-l-4 border-orange-500 pl-4 py-1">
-                                <span className="font-bold text-orange-300">Tribal Grief:</span> Loss of forest rights, entry of <span className="underline italic">Dikus</span> (outsiders/moneylenders).
-                            </p>
+                            {t.causes.slice(0, 2).map((c, i) => (
+                                <p key={i} className="border-l-4 border-orange-500 pl-4 py-1">
+                                    <span className="font-bold text-orange-300">{c.bold}</span>{c.text}
+                                </p>
+                            ))}
                         </div>
                         <div className="space-y-4">
-                            <p className="border-l-4 border-orange-500 pl-4 py-1">
-                                <span className="font-bold text-orange-300">Religious Interference:</span> Attacks on customs (Sati ban, Widows, Missionaries).
-                            </p>
-                            <p className="border-l-4 border-orange-500 pl-4 py-1">
-                                <span className="font-bold text-orange-300">Administrative Decay:</span> Displaced local leaders and disbanded native armies.
-                            </p>
+                            {t.causes.slice(2).map((c, i) => (
+                                <p key={i} className="border-l-4 border-orange-500 pl-4 py-1">
+                                    <span className="font-bold text-orange-300">{c.bold}</span>{c.text}
+                                </p>
+                            ))}
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* SECTION 2: CIVIL UPRISINGS (Horizontal Scroll) */}
+            {/* SECTION 2: CIVIL UPRISINGS */}
             <div className="max-w-7xl mx-auto mb-24 px-4">
                 <h2 className="text-3xl font-['Permanent_Marker'] earth-brown mb-10 flex items-center gap-3">
-                    <Crosshair className="w-8 h-8 blood-red" /> CIVIL UPRISINGS (THE LEADERS)
+                    <Crosshair className="w-8 h-8 blood-red" /> {t.civilTitle}
                 </h2>
 
                 <div className="flex flex-wrap justify-center gap-10">
-                    {/* Sanyasi */}
-                    <div className="wanted-poster w-72 transform -rotate-2 hover:rotate-0 transition-transform">
-                        <div className="w-full h-1 bg-gradient-to-r from-red-600 to-transparent mb-4"></div>
-                        <h3 className="stencil-font text-2xl mb-1">REWARD</h3>
-                        <p className="text-xs uppercase font-bold mb-4">Capture of Fakir/Sanyasi Leaders</p>
-                        <h4 className="text-2xl font-bold body-handwritten text-red-900 mb-4 uppercase">Manju Shah & Musa Shah</h4>
-                        <div className="text-sm body-handwritten space-y-2 text-left bg-white/50 p-4 rounded border border-dashed border-stone-400">
-                            <p>• <strong>Region:</strong> Bengal/Bihar (1763-1800)</p>
-                            <p>• <strong>Cause:</strong> Ban on pilgrims.</p>
-                            <p>• <strong>Legacy:</strong> Bankim's <em>Anandamath</em>.</p>
+                    {t.uprisings.map((uprising, idx) => (
+                        <div key={idx} className={`wanted-poster w-72 transform ${posterRotations[idx]} hover:rotate-0 transition-transform`}>
+                            <div className={`w-full h-1 bg-gradient-to-r ${posterColors[idx].gradient} to-transparent mb-4`}></div>
+                            <h3 className="stencil-font text-2xl mb-1">{t.reward}</h3>
+                            <p className="text-xs uppercase font-bold mb-4">{uprising.subtitle}</p>
+                            <h4 className={`text-2xl font-bold body-handwritten ${posterColors[idx].nameColor} mb-4 uppercase`}>{uprising.name}</h4>
+                            <div className="text-sm body-handwritten space-y-2 text-left bg-white/50 p-4 rounded border border-dashed border-stone-400">
+                                {uprising.details.map((d, i) => (
+                                    <p key={i}>• <strong>{d.bold}</strong>{d.text}</p>
+                                ))}
+                                {uprising.extraQuote && (
+                                    <p className="text-red-700 italic">{uprising.extraQuote}</p>
+                                )}
+                            </div>
                         </div>
-                    </div>
+                    ))}
 
-                    {/* Paika */}
-                    <div className="wanted-poster w-72 transform rotate-2 hover:rotate-0 transition-transform">
-                        <div className="w-full h-1 bg-gradient-to-r from-orange-600 to-transparent mb-4"></div>
-                        <h3 className="stencil-font text-2xl mb-1">REWARD</h3>
-                        <p className="text-xs uppercase font-bold mb-4">For Information on the General</p>
-                        <h4 className="text-2xl font-bold body-handwritten text-orange-900 mb-4">BAKSHI JAGABANDHU</h4>
-                        <div className="text-sm body-handwritten space-y-2 text-left bg-white/50 p-4 rounded border border-dashed border-stone-400">
-                            <p>• <strong>Region:</strong> Odisha (1817)</p>
-                            <p>• <strong>Who:</strong> Paikas (Landed Militia).</p>
-                            <p>• <strong>Status:</strong> Often called the First War.</p>
-                        </div>
-                    </div>
-
-                    {/* Velu Thampi */}
-                    <div className="wanted-poster w-72 transform -rotate-1 hover:rotate-0 transition-transform">
-                        <div className="w-full h-1 bg-gradient-to-r from-blue-600 to-transparent mb-4"></div>
-                        <h3 className="stencil-font text-2xl mb-1">REWARD</h3>
-                        <p className="text-xs uppercase font-bold mb-4">For the Rebel Diwan</p>
-                        <h4 className="text-2xl font-bold body-handwritten text-blue-900 mb-4 uppercase">VELU THAMPI</h4>
-                        <div className="text-sm body-handwritten space-y-2 text-left bg-white/50 p-4 rounded border border-dashed border-stone-400">
-                            <p>• <strong>Region:</strong> Travancore (1808)</p>
-                            <p>• <strong>Manifesto:</strong> Kundara Proclamation.</p>
-                            <p className="text-red-700 italic">"Suicide before Capture."</p>
-                        </div>
-                    </div>
-
-                    {/* Kittur Chennamma */}
+                    {/* Kittur Chennamma - Special */}
                     <div className="wanted-poster w-72 transform rotate-3 hover:rotate-0 transition-transform border-4 border-amber-600 bg-amber-50">
                         <div className="w-full h-1 bg-amber-600 mb-4"></div>
-                        <h3 className="stencil-font text-2xl text-amber-800 mb-1">THE QUEEN HERSELF</h3>
-                        <p className="text-xs uppercase font-bold mb-4">Legacy of Resistance</p>
-                        <h4 className="text-2xl font-bold body-handwritten text-amber-900 mb-4">KITTUR CHENNAMMA</h4>
+                        <h3 className="stencil-font text-2xl text-amber-800 mb-1">{t.queenLabel}</h3>
+                        <p className="text-xs uppercase font-bold mb-4">{t.queenSubtitle}</p>
+                        <h4 className="text-2xl font-bold body-handwritten text-amber-900 mb-4">{t.queenName}</h4>
                         <div className="text-sm body-handwritten space-y-2 text-left bg-white/50 p-4 rounded border border-dashed border-amber-400">
-                            <p>• <strong>Region:</strong> Karnataka (1824)</p>
-                            <p>• <strong>Cause:</strong> Inheritance issue.</p>
-                            <p>• <strong>Hero:</strong> Rayanna (Guerilla fighter).</p>
+                            {t.queenDetails.map((d, i) => (
+                                <p key={i}>• <strong>{d.bold}</strong>{d.text}</p>
+                            ))}
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* SECTION 3: TRIBAL UPRISINGS (Map Layout) */}
+            {/* SECTION 3: TRIBAL UPRISINGS */}
             <div className="max-w-6xl mx-auto mb-20 p-10 bg-white paper-border border-4 border-slate-900 relative">
                 <div className="absolute top-4 right-8 opacity-10">
                     <MapIcon className="w-24 h-24 text-slate-400" />
                 </div>
                 <h2 className="text-3xl font-['Permanent_Marker'] blood-red mb-12 flex items-center gap-3">
-                    <Mountain className="w-8 h-8 forest-green" /> TRIBAL REVOLTS (BOWS vs MUSKETS)
+                    <Mountain className="w-8 h-8 forest-green" /> {t.tribalTitle}
                 </h2>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -201,25 +211,21 @@ export default function HandwrittenChapter6() {
                         <div className="relative pl-8">
                             <div className="absolute left-0 top-0 w-2 h-full bg-orange-700 opacity-20"></div>
                             <h4 className="text-2xl font-bold earth-brown flex items-center gap-2">
-                                <Zap className="w-5 h-5 text-orange-600" /> THE SANTHAL HOOL (1855-56)
+                                <Zap className="w-5 h-5 text-orange-600" /> {t.santhalTitle}
                             </h4>
-                            <p className="body-handwritten text-lg leading-snug mb-2">
-                                Region: <strong>Rajmahal Hills (Daman-i-Koh)</strong>. Leaders: <strong>Sidhu & Kanhu</strong>.
-                            </p>
-                            <p className="text-sm italic opacity-70">Against Dikus & Zamindars. 15,000 Santhals martyred.</p>
+                            <p className="body-handwritten text-lg leading-snug mb-2">{t.santhalText}</p>
+                            <p className="text-sm italic opacity-70">{t.santhalNote}</p>
                         </div>
 
                         {/* Khond */}
                         <div className="relative pl-8">
                             <div className="absolute left-0 top-0 w-2 h-full bg-red-700 opacity-20"></div>
                             <h4 className="text-2xl font-bold earth-brown flex items-center gap-2">
-                                <Skull className="w-5 h-5 text-red-600" /> KHOND UPRISING (1837-56)
+                                <Skull className="w-5 h-5 text-red-600" /> {t.khondTitle}
                             </h4>
-                            <p className="body-handwritten text-lg leading-snug mb-2">
-                                Region: Odisha. Leader: <strong>Chakra Bisoi</strong>.
-                            </p>
+                            <p className="body-handwritten text-lg leading-snug mb-2">{t.khondText}</p>
                             <p className="text-sm bg-red-50 p-2 rounded border border-red-100 text-red-900">
-                                <strong>Cause:</strong> British ban on <span className="font-bold">"Mariah" (Human Sacrifice)</span> + New taxes.
+                                <strong>{t.khondCause}</strong>
                             </p>
                         </div>
                     </div>
@@ -229,28 +235,26 @@ export default function HandwrittenChapter6() {
                         <div className="relative pl-8">
                             <div className="absolute left-0 top-0 w-2 h-full bg-blue-700 opacity-20"></div>
                             <h4 className="text-2xl font-bold earth-brown flex items-center gap-2">
-                                <Trees className="w-5 h-5 forest-green" /> KOLS & EARLY MUNDAS (1820-37)
+                                <Trees className="w-5 h-5 forest-green" /> {t.kolsTitle}
                             </h4>
-                            <p className="body-handwritten text-lg leading-snug mb-2">
-                                Region: Chotanagpur. Leaders: <strong>Buddho Bhagat</strong>.
-                            </p>
-                            <p className="text-sm italic opacity-70">Resented land transfer to outsiders. Singhbhum was the epicenter.</p>
+                            <p className="body-handwritten text-lg leading-snug mb-2">{t.kolsText}</p>
+                            <p className="text-sm italic opacity-70">{t.kolsNote}</p>
                         </div>
 
                         {/* North-East */}
                         <div className="relative pl-8">
                             <div className="absolute left-0 top-0 w-2 h-full bg-green-700 opacity-20"></div>
                             <h4 className="text-2xl font-bold forest-green flex items-center gap-2">
-                                <Flag className="w-5 h-5 text-green-700" /> NORTH-EAST BRAMBLE
+                                <Flag className="w-5 h-5 text-green-700" /> {t.neTitle}
                             </h4>
                             <div className="space-y-4 body-handwritten text-lg">
                                 <div>
-                                    <p className="font-bold">Khasi Uprising (1829):</p>
-                                    <p className="text-sm">Leader: <strong>Tirat Singh</strong>. Cause: Road construction by British through hills.</p>
+                                    <p className="font-bold">{t.khasiTitle}</p>
+                                    <p className="text-sm">{t.khasiText}</p>
                                 </div>
                                 <div>
-                                    <p className="font-bold">Ahoms (1828):</p>
-                                    <p className="text-sm">Leader: <strong>Gomdhar Konwar</strong>. Refused to accept British presence after Burmese War.</p>
+                                    <p className="font-bold">{t.ahomTitle}</p>
+                                    <p className="text-sm">{t.ahomText}</p>
                                 </div>
                             </div>
                         </div>
@@ -262,15 +266,15 @@ export default function HandwrittenChapter6() {
             <div className="max-w-6xl mx-auto mb-20 grid grid-cols-1 md:grid-cols-2 gap-12">
                 <Card className="bg-[#fffefe] p-8 paper-border border-4 border-stone-800 shadow-lg relative transform rotate-1">
                     <div className="absolute top-0 right-0 p-4 opacity-10 rotate-12"><Zap className="w-16 h-16" /></div>
-                    <h3 className="marker-label text-2xl mb-6 flex items-center gap-2 text-stone-700 underline decoration-orange-400">THE WAHABI & KUKA WEB</h3>
+                    <h3 className="marker-label text-2xl mb-6 flex items-center gap-2 text-stone-700 underline decoration-orange-400">{t.wahabiTitle}</h3>
                     <div className="body-handwritten text-xl space-y-6">
                         <div className="border-l-4 border-stone-300 pl-4">
-                            <p className="font-bold">Wahabi Movement:</p>
-                            <p className="text-sm">Syed Ahmed (Rae Bareli). HQ: <strong>Sithana</strong>. Most organized pre-1857 network. Aimed for Dar-ul-Islam.</p>
+                            <p className="font-bold">{t.wahabiLabel}</p>
+                            <p className="text-sm">{t.wahabiText}</p>
                         </div>
                         <div className="border-l-4 border-stone-300 pl-4">
-                            <p className="font-bold">Kuka Movement (Punjab):</p>
-                            <p className="text-sm">Founder: Jawahar Mal. Leader: <strong>Ram Singh</strong>. Preached Swadeshi & Non-cooperation long before Gandhi.</p>
+                            <p className="font-bold">{t.kukaLabel}</p>
+                            <p className="text-sm">{t.kukaText}</p>
                         </div>
                     </div>
                 </Card>
@@ -281,55 +285,42 @@ export default function HandwrittenChapter6() {
                         <div className="absolute -right-6 -bottom-6 opacity-5 group-hover:scale-110 transition-transform">
                             <Castle className="w-32 h-32" />
                         </div>
-                        <h4 className="marker-label text-green-900 border-b border-green-100 mb-4 pb-2">TITU MIR'S BAMBOO FORT (1831)</h4>
-                        <p className="body-handwritten text-lg leading-relaxed">
-                            Mir Nithar Ali built <strong>Bans-er-Killa</strong>. Fought Hindu landlords (beard tax) & Indigo planters. Narkelberia Uprising base.
-                        </p>
+                        <h4 className="marker-label text-green-900 border-b border-green-100 mb-4 pb-2">{t.tituTitle}</h4>
+                        <p className="body-handwritten text-lg leading-relaxed">{t.tituText}</p>
                     </div>
 
                     {/* Pagal Panthis */}
                     <div className="bg-white p-6 paper-border border-2 border-stone-300">
-                        <h4 className="marker-label text-stone-600 mb-2">PAGAL PANTHIS (Garo Tribes)</h4>
-                        <p className="body-handwritten text-lg italic">
-                            "God made the land, so no one should pay rent." — Karam Shah & Tipu. Base: Mymensingh.
-                        </p>
+                        <h4 className="marker-label text-stone-600 mb-2">{t.pagalTitle}</h4>
+                        <p className="body-handwritten text-lg italic">{t.pagalText}</p>
                     </div>
                 </div>
             </div>
 
-            {/* SECTION 5: MUTINIES BEFORE THE GREAT REVOLT (The Sepoy Prelude) */}
+            {/* SECTION 5: MUTINIES BEFORE THE GREAT REVOLT */}
             <section className="max-w-6xl mx-auto mb-20">
                 <div className="bg-red-900 text-white p-10 rounded-[60px] relative overflow-hidden shadow-2xl">
                     <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
-                    <h2 className="text-3xl font-['Permanent_Marker'] mb-12 text-center text-orange-400">THE SEPOY PRELUDE (MUTINIES BEFORE 1857)</h2>
+                    <h2 className="text-3xl font-['Permanent_Marker'] mb-12 text-center text-orange-400">{t.sepoyTitle}</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-                        <div className="bg-white/10 p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-colors cursor-help">
-                            <h4 className="font-bold text-orange-200 mb-2">1764 (Buxar)</h4>
-                            <p className="text-xs body-handwritten">Sepoys refused to fight fellow Indians. 24 blown from guns.</p>
-                        </div>
-                        <div className="bg-white/10 p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-colors cursor-help">
-                            <h4 className="font-bold text-orange-200 mb-2">1806 (Vellore)</h4>
-                            <p className="text-xs body-handwritten">Against dress codes (Leonine turban/cockade). Brutally crushed.</p>
-                        </div>
-                        <div className="bg-white/10 p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-colors cursor-help">
-                            <h4 className="font-bold text-orange-200 mb-2">1824 (Barrackpore)</h4>
-                            <p className="text-xs body-handwritten">Refused to go to Burma across "Black Water" (Sea). Regiment disbanded.</p>
-                        </div>
-                        <div className="bg-white/10 p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-colors cursor-help">
-                            <h4 className="font-bold text-orange-200 mb-2">1844 (Ferozepur)</h4>
-                            <p className="text-xs body-handwritten">Mutiny over withdrawal of <strong>Bhatta</strong> (Foreign service pay) in Sindh.</p>
-                        </div>
+                        {t.mutinies.map((m, i) => (
+                            <div key={i} className="bg-white/10 p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-colors cursor-help">
+                                <h4 className="font-bold text-orange-200 mb-2">{m.year}</h4>
+                                <p className="text-xs body-handwritten">{m.text}</p>
+                            </div>
+                        ))}
                     </div>
 
                     <div className="mt-12 pt-8 border-t border-white/10 flex flex-col items-center">
-                        <p className="body-handwritten text-xl italic text-red-200">"1857 was not the first. It was the climax."</p>
+                        <p className="body-handwritten text-xl italic text-red-200">{t.sepoyQuote}</p>
                         <div className="mt-8 flex gap-4 text-xs font-bold uppercase tracking-widest text-orange-500 opacity-60">
-                            <span>Marudu Pandian Confederacy</span>
-                            <span>•</span>
-                            <span>Surat Salt Agitation (1844)</span>
-                            <span>•</span>
-                            <span>Gadkari Revolt (1844)</span>
+                            {t.sepoyExtra.map((item, i) => (
+                                <React.Fragment key={i}>
+                                    {i > 0 && <span>•</span>}
+                                    <span>{item}</span>
+                                </React.Fragment>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -337,17 +328,9 @@ export default function HandwrittenChapter6() {
 
             <footer className="text-center pb-20">
                 <Quote className="w-8 h-8 mx-auto text-stone-300 mb-4" />
-                <p className="marker-label text-stone-400 uppercase text-xs tracking-[0.6em] font-bold">--- The Wild Resistance Ends Here ---</p>
-                <p className="body-handwritten italic text-stone-400 text-sm mt-4 italic">Next Station: 1857 - The Great Explosion</p>
+                <p className="marker-label text-stone-400 uppercase text-xs tracking-[0.6em] font-bold">{t.footerText}</p>
+                <p className="body-handwritten italic text-stone-400 text-sm mt-4">{t.footerNext}</p>
             </footer>
         </div>
-    );
-}
-
-function Castle({ className }: { className?: string }) {
-    return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-            <path d="M22 20v-9l-4-4V3L14 7l-4-4-4 4-4-4v4L2 11v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2Z" /><path d="M12 11V7" /><path d="M15 11V8" /><path d="M9 11V8" /><path d="M11 22v-4a1 1 0 0 1 1-1h0a1 1 0 0 1 1 1v4" /><path d="M16 11V8" /><path d="M8 11V8" />
-        </svg>
     );
 }

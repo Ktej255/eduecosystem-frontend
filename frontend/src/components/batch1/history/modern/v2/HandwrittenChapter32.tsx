@@ -2,8 +2,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguageStore } from '@/lib/language-store';
+import { ch32 } from './translations/ch32';
 
 export default function HandwrittenChapter32() {
+    const { language } = useLanguageStore();
+    const t = ch32[language as keyof typeof ch32] || ch32.en;
+
     return (
         <div className="min-h-screen bg-[#fdfbf7] p-4 md:p-8 font-['Kalam',_cursive] text-[#000080] selection:bg-yellow-200">
             <style jsx global>{`
@@ -41,87 +46,48 @@ export default function HandwrittenChapter32() {
 
             <div className="max-w-5xl mx-auto mb-16 relative pt-12">
                 <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-[#CC0000] mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase">
-                    Congress Rule in Provinces
+                    {t.title}
                 </h1>
-                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline">Study Notes - Chapter 32</p>
+                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline">{t.subtitle}</p>
             </div>
 
-            
-            <section key={0} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Formation of Ministries</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Elections of 1937</span>: Held under the <span className="font-bold highlight">Government of India Act, 1935</span>.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Results</span>: The Congress swept the polls, winning absolute majorities in 5 provinces (Madras, United Provinces, Central Provinces, Bihar, and Orissa) and emerging as the largest party in 4 others (Bombay, Bengal, Assam, NWFP).</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Ministry Formation</span>: After an initial standoff over the &quot;Governor's Discretionary Powers&quot; (resolved by a Viceroy's assurance), Congress formed ministries in <span className="font-bold highlight">8 provinces</span> (later including Assam and NWFP).</p></div>
-<p className="text-lg leading-relaxed">- **Madras**: **C. Rajagopalachari** (Premier).</p>
-<p className="text-lg leading-relaxed">- **Bombay**: **B.G. Kher**.</p>
-<p className="text-lg leading-relaxed">- **United Provinces**: **G.B. Pant**.</p>
-<p className="text-lg leading-relaxed">- **Bihar**: **Srikrishna Sinha**.</p>
-                </div>
-            </section>
+            {t.sections.map((section, sIdx) => (
+                <section key={sIdx} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
+                    <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">{section.title}</h2>
+                    <div className="space-y-6">
+                        {section.content && (section.content as any[]).map((item: any, iIdx: number) => (
+                            <div key={iIdx} className="flex gap-2 items-start text-lg">
+                                <span className="text-[#CC0000] mt-1">•</span>
+                                <p>
+                                    {item.highlight && <span className="font-bold highlight">{item.highlight}</span>}
+                                    {item.text}
+                                </p>
+                            </div>
+                        ))}
 
-            <section key={1} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Key Achievements</h2>
-                <div className="space-y-6">
-                    
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">1. Civil Liberties</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Repeal of Emergency Laws</span>: The ministries repealed the Public Safety Acts and the Press Emergency Acts.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Release of Prisoners</span>: Thousands of political prisoners were released, including the revolutionaries of the Kakori and other cases. The ban on many organizations (except the CPI in some provinces) was lifted.</span></li>
-                            </ul>
-                        </div>
+                        {section.cards && section.cards.map((card, cIdx) => (
+                            <div key={cIdx} className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                                <h3 className="text-xl font-bold text-red-800 mb-2">{card.title}</h3>
+                                <ul className="space-y-2">
+                                    {card.items.map((li, lIdx) => (
+                                        <li key={lIdx} className="flex gap-2 items-start text-lg">
+                                            <span className="text-slate-400 mt-1">→</span>
+                                            <span>{li}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
 
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">2. Agrarian Reforms</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Tenancy Acts</span>: Legislation was passed to protect tenants from eviction and to regulate rents (e.g., in Bihar and UP).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Debt Relief</span>: Measures were taken to reduce the burden of debt on the peasantry.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Constraints</span>: Radical land reforms were not possible due to the lack of financial autonomy and the need to maintain unity against the British (avoiding total alienation of the landlord class).</span></li>
-                            </ul>
-                        </div>
-
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">3. Social Welfare</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Prohibition</span>: Madras under Rajaji was the first to introduce prohibition (ban on liquor).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Temple Entry</span>: Steps were taken to open temples to Dalits (Harijans).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Education</span>: The <span className="font-bold">Wardha Scheme of Basic Education</span> (Nai Talim), proposed by Gandhi, was introduced.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Planning</span>: The <span className="font-bold">National Planning Committee</span> (1938) was set up under Congress President Subhash Chandra Bose, with <span className="font-bold">Jawaharlal Nehru</span> as its Chairman.</span></li>
-                            </ul>
-                        </div>
-                </div>
-            </section>
-
-            <section key={2} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Challenges and Criticisms</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Labor</span>: The ministries faced strikes and labor unrest. The <span className="font-bold highlight">Bombay Trades Disputes Act (1938)</span> suppressed strikes and was opposed by labor leaders.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Muslim Mass Contact Programme</span>: Nehru's attempt to reach out to Muslim masses failed to counter the growing influence of the Muslim League.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Pirpur Committee Report</span> (1938): Identify alleged atrocities against Muslims under Congress rule (mostly exaggerated or fabricated), utilized by Jinnah to mobilize support.</p></div>
-                </div>
-            </section>
-
-            <section key={3} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Tripuri Crisis (1939)</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Subhash Chandra Bose</span> defeated Gandhi's candidate, <span className="font-bold highlight">Pattabhi Sitaramayya</span>, for the Congress Presidency.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Govind Ballabh Pant Resolution</span>: Required Bose to form his working committee in accordance with Gandhi's wishes.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Outcome</span>: Bose resigned and formed the <span className="font-bold highlight">Forward Bloc</span> within the Congress. <span className="font-bold highlight">Rajendra Prasad</span> became the new President.</p></div>
-                </div>
-            </section>
-
-            <section key={4} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Resignation (1939)</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Cause</span>: The Viceroy, Lord Linlithgow, declared India a party to World War II without consulting the Indian people.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Protest</span>: The Congress ministries resigned in <span className="font-bold highlight">October-November 1939</span>.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Day of Deliverance</span>: Jinnah and the Muslim League celebrated <span className="font-bold highlight">December 22, 1939</span>, as the &quot;Day of Deliverance&quot; from &quot;Congress Tyranny.&quot;</p></div>
-                </div>
-            </section>
+                        {section.footer && section.footer.map((f, fIdx) => (
+                            <p key={fIdx} className="text-lg leading-relaxed">{f}</p>
+                        ))}
+                    </div>
+                </section>
+            ))}
 
             <div className="text-center font-['Just_Another_Hand'] text-2xl opacity-40 mt-20 mb-10 italic">
-                ~ End of Handwritten Notes ~
+                {t.end}
             </div>
         </div>
     );

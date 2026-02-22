@@ -20,16 +20,14 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useLanguageStore } from '@/lib/language-store';
+import { ch11Translations } from './translations/ch11';
 
 export default function HandwrittenChapter11() {
-    const [decoded, setDecoded] = useState<string | null>(null);
+    const { language } = useLanguageStore();
+    const t = language === 'hi' ? ch11Translations.hi : ch11Translations.en;
 
-    const secretSocieties = [
-        { name: "Abhinav Bharat", region: "Maharashtra", leader: "V.D. Savarkar" },
-        { name: "Anushilan Samiti", region: "Bengal", leader: "Promotha Mitter" },
-        { name: "Ghadar Party", region: "San Francisco", leader: "Lala Har Dayal" },
-        { name: "Berlin Committee", region: "Germany", leader: "Virendranath C." },
-    ];
+    const [decoded, setDecoded] = useState<string | null>(null);
 
     return (
         <div className="min-h-screen bg-[#1a1a1a] p-4 md:p-8 font-['Courier_Prime',_monospace] text-gray-200 selection:bg-red-900 overflow-x-hidden relative">
@@ -85,14 +83,14 @@ export default function HandwrittenChapter11() {
                     className="inline-block relative"
                 >
                     <div className="absolute -top-6 -left-12 transform -rotate-12 border-4 border-red-600 text-red-600 px-4 py-1 text-xl font-bold uppercase marker-font opacity-80">
-                        Classified
+                        {t.classified}
                     </div>
                     <h1 className="typewriter-font text-5xl md:text-7xl font-bold mb-4 text-gray-100 tracking-tighter">
-                        THE UNDERGROUND
+                        {t.headerTitle}
                     </h1>
                     <div className="flex items-center justify-center gap-4 text-red-500 font-bold tracking-widest uppercase">
                         <Siren className="w-6 h-6 animate-pulse" />
-                        <span>Phase I: 1907 - 1917</span>
+                        <span>{t.headerPhase}</span>
                         <Siren className="w-6 h-6 animate-pulse" />
                     </div>
                 </motion.div>
@@ -106,23 +104,23 @@ export default function HandwrittenChapter11() {
                     {/* MANIFESTO CARD */}
                     <div className="folder-paper p-6 transform rotate-1 relative">
                         <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-red-800 shadow-md"></div>
-                        <h3 className="marker-font text-2xl text-red-900 mb-2">MODUS OPERANDI</h3>
-                        <p className="text-sm font-bold mb-4 font-serif italic">"Force must be stopped by force."</p>
+                        <h3 className="marker-font text-2xl text-red-900 mb-2">{t.modusTitle}</h3>
+                        <p className="text-sm font-bold mb-4 font-serif italic">{t.modusQuote}</p>
 
                         <div className="space-y-3 text-sm">
                             <div className="flex items-start gap-2">
                                 <Bomb className="w-4 h-4 mt-1 text-slate-800" />
-                                <span><strong>Strategy:</strong> Individual heroic actions to remove fear of jail. Not a mass movement yet.</span>
+                                <span><strong>{t.strategyBold}</strong>{t.strategyText}</span>
                             </div>
                             <div className="flex items-start gap-2">
                                 <Scroll className="w-4 h-4 mt-1 text-slate-800" />
-                                <span><strong>Bible:</strong> <em>Bandi Jivan</em> by Sachin Sanyal.</span>
+                                <span><strong>{t.bibleBold}</strong>{t.bibleText}</span>
                             </div>
                             <div className="bg-red-100 p-2 border border-red-300 relative mt-2">
-                                <div className="absolute -right-2 -top-2 bg-red-600 text-white text-[10px] px-1 font-bold">FUNDING</div>
-                                <strong>Swadeshi Dacoities:</strong>
+                                <div className="absolute -right-2 -top-2 bg-red-600 text-white text-[10px] px-1 font-bold">{t.fundingLabel}</div>
+                                <strong>{t.fundingBold}</strong>
                                 <br />
-                                <span className="text-xs">Ex: Barrah Dacoity (1908) by Pulin Das. Boat robbery in broad daylight.</span>
+                                <span className="text-xs">{t.fundingText}</span>
                             </div>
                         </div>
                     </div>
@@ -130,48 +128,49 @@ export default function HandwrittenChapter11() {
                     {/* DOMESTIC MAP BOARD */}
                     <div className="corkboard p-6 rounded-lg relative min-h-[500px]">
                         <h3 className="typewriter-font text-xl text-orange-100 mb-6 border-b border-orange-100/30 pb-2 flex items-center gap-2">
-                            <MapPin className="w-5 h-5" /> DOMESTIC CELLS
+                            <MapPin className="w-5 h-5" /> {t.domesticTitle}
                         </h3>
 
                         <div className="space-y-6">
                             {/* MAHARASHTRA */}
                             <div className="bg-white/90 text-slate-900 p-3 rounded shadow-lg relative transform -rotate-1 hover:scale-105 transition-transform">
                                 <div className="absolute -left-2 top-2 w-2 h-2 rounded-full bg-red-600"></div>
-                                <h4 className="font-bold text-sm uppercase text-red-800">Maharashtra (The Spark)</h4>
+                                <h4 className="font-bold text-sm uppercase text-red-800">{t.maharashtraTitle}</h4>
                                 <ul className="text-xs space-y-1 mt-1">
-                                    <li><strong>1897:</strong> Chapekar Bros killed Rand (Plague Comm.).</li>
-                                    <li><strong>1909:</strong> Nasik Conspiracy (Jackson killed).</li>
-                                    <li><strong>Org:</strong> Abhinav Bharat (Savarkar).</li>
+                                    {t.maharashtraItems.map((item, i) => (
+                                        <li key={i}><strong>{item.bold}</strong>{item.text}</li>
+                                    ))}
                                 </ul>
                             </div>
 
                             {/* BENGAL */}
                             <div className="bg-white/90 text-slate-900 p-3 rounded shadow-lg relative transform rotate-2 hover:scale-105 transition-transform ml-4">
                                 <div className="absolute -left-2 top-2 w-2 h-2 rounded-full bg-red-600"></div>
-                                <h4 className="font-bold text-sm uppercase text-red-800">Bengal (The Hotbed)</h4>
+                                <h4 className="font-bold text-sm uppercase text-red-800">{t.bengalTitle}</h4>
                                 <ul className="text-xs space-y-1 mt-1">
-                                    <li><strong>1908:</strong> Alipore Bomb Case (Khudiram Bose).</li>
-                                    <li><strong>Defense:</strong> C.R. Das saved Aurobindo.</li>
-                                    <li><strong>Hero:</strong> Bagha Jatin (Battle of Balasore, 1915).</li>
+                                    {t.bengalItems.map((item, i) => (
+                                        <li key={i}><strong>{item.bold}</strong>{item.text}</li>
+                                    ))}
                                 </ul>
                             </div>
 
                             {/* DELHI/PUNJAB */}
                             <div className="bg-white/90 text-slate-900 p-3 rounded shadow-lg relative transform -rotate-1 hover:scale-105 transition-transform">
                                 <div className="absolute -left-2 top-2 w-2 h-2 rounded-full bg-red-600"></div>
-                                <h4 className="font-bold text-sm uppercase text-red-800">Delhi Conspiracy (1912)</h4>
-                                <p className="text-xs mt-1">Bomb thrown at Viceroy Hardinge.</p>
+                                <h4 className="font-bold text-sm uppercase text-red-800">{t.delhiTitle}</h4>
+                                <p className="text-xs mt-1">{t.delhiText}</p>
                                 <div className="flex gap-2 mt-1">
-                                    <Badge variant="destructive" className="text-[10px]">Rashbehari: Escaped</Badge>
-                                    <Badge variant="outline" className="text-[10px] border-slate-600">Basanta: Hanged</Badge>
+                                    {t.delhiBadges.map((b, i) => (
+                                        <Badge key={i} variant={b.variant as any} className="text-[10px]">{b.text}</Badge>
+                                    ))}
                                 </div>
                             </div>
 
                             {/* MADRAS */}
                             <div className="bg-white/90 text-slate-900 p-3 rounded shadow-lg relative transform rotate-1 hover:scale-105 transition-transform ml-8">
                                 <div className="absolute -left-2 top-2 w-2 h-2 rounded-full bg-red-600"></div>
-                                <h4 className="font-bold text-sm uppercase text-red-800">Madras (Maniyachi)</h4>
-                                <p className="text-xs mt-1"><strong>1911:</strong> Vanchinathan killed Collector Ashe.</p>
+                                <h4 className="font-bold text-sm uppercase text-red-800">{t.madrasTitle}</h4>
+                                <p className="text-xs mt-1"><strong>{t.madrasText}</strong></p>
                             </div>
                         </div>
                     </div>
@@ -183,31 +182,32 @@ export default function HandwrittenChapter11() {
 
                     {/* GHADAR POSTER */}
                     <div className="folder-paper p-8 text-center relative overflow-hidden border-4 border-double border-slate-800">
-                        <div className="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-4 py-1 rotate-45 transform translate-x-4 translate-y-4">SEDITIOUS</div>
+                        <div className="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-4 py-1 rotate-45 transform translate-x-4 translate-y-4">{t.ghadarSeditious}</div>
 
-                        <h2 className="typewriter-font text-5xl font-black mb-2 tracking-tighter text-red-900">GHADAR</h2>
-                        <p className="text-sm font-bold uppercase tracking-widest text-slate-600 mb-6">San Francisco | 1913</p>
+                        <h2 className="typewriter-font text-5xl font-black mb-2 tracking-tighter text-red-900">{t.ghadarTitle}</h2>
+                        <p className="text-sm font-bold uppercase tracking-widest text-slate-600 mb-6">{t.ghadarPlace}</p>
 
                         <div className="grid grid-cols-2 gap-4 text-left text-xs mb-6">
                             <div className="border p-2 border-slate-400">
-                                <strong>HQ:</strong> Yugantar Ashram
+                                <strong>{t.ghadarHQ}</strong>{t.ghadarHQVal}
                             </div>
                             <div className="border p-2 border-slate-400">
-                                <strong>Journal:</strong> "Angrezi Raj Ka Dushman"
+                                <strong>{t.ghadarJournal}</strong>{t.ghadarJournalVal}
                             </div>
                         </div>
 
                         <div className="bg-slate-800 text-white p-4 rounded relative">
-                            <div className="absolute -top-3 left-4 bg-yellow-500 text-black px-2 text-[10px] font-bold">KEY OPERATIVES</div>
+                            <div className="absolute -top-3 left-4 bg-yellow-500 text-black px-2 text-[10px] font-bold">{t.ghadarOperatives}</div>
                             <ul className="text-sm space-y-1">
-                                <li>• Lala Har Dayal (Intellectual)</li>
-                                <li>• Sohan Singh Bhakna (President)</li>
-                                <li>• <span className="text-yellow-400 font-bold">Kartar Singh Sarabha</span> (Young hero)</li>
+                                {t.ghadarMembers.map((m, i) => (
+                                    <li key={i}>• {m}</li>
+                                ))}
+                                <li>• <span className="text-yellow-400 font-bold">{t.ghadarHero}</span>{t.ghadarHeroRole}</li>
                             </ul>
                         </div>
 
                         <div className="mt-4 bg-red-100 p-2 text-xs border border-red-300 text-red-900">
-                            <strong>FAILURE (Feb 1915):</strong> Betrayed by traitor <u>Kirpal Singh</u>.
+                            <strong>{t.ghadarFailure}</strong>{t.ghadarTraitor}
                         </div>
                     </div>
 
@@ -216,15 +216,14 @@ export default function HandwrittenChapter11() {
                         <div className="flex items-center gap-4 mb-4 border-b border-blue-200 pb-2">
                             <Ship className="w-10 h-10 text-blue-900" />
                             <div>
-                                <h3 className="font-bold text-xl text-blue-900">KOMAGATA MARU (1914)</h3>
-                                <p className="text-xs italic">The Voyage of Doom</p>
+                                <h3 className="font-bold text-xl text-blue-900">{t.komagataTitle}</h3>
+                                <p className="text-xs italic">{t.komagataSubtitle}</p>
                             </div>
                         </div>
                         <ul className="text-sm space-y-2 list-disc ml-4 text-slate-800">
-                            <li><strong>Ship:</strong> <em>Guru Nanak Jahaz</em> (hired by Gurdit Singh).</li>
-                            <li><strong>Route:</strong> Singapore → Vancouver (Denied) → Calcutta.</li>
-                            <li><strong>Aid:</strong> <strong>Shore Committee</strong> formed in Canada.</li>
-                            <li><strong>Result:</strong> Police firing at Budge Budge. 18 dead. Inflamed Ghadar uprising.</li>
+                            {t.komagataItems.map((item, i) => (
+                                <li key={i}><strong>{item.bold}</strong>{item.text}</li>
+                            ))}
                         </ul>
                     </div>
 
@@ -233,17 +232,17 @@ export default function HandwrittenChapter11() {
                         <div className="absolute top-4 right-4 text-slate-500">
                             <Globe className="w-12 h-12 opacity-20" />
                         </div>
-                        <h3 className="typewriter-font text-xl text-yellow-500 mb-4">INTERNATIONAL PLOTS</h3>
+                        <h3 className="typewriter-font text-xl text-yellow-500 mb-4">{t.intlTitle}</h3>
 
                         <div className="space-y-4 text-sm">
                             <div className="border-l-2 border-yellow-500 pl-4">
-                                <strong className="text-yellow-200">The Zimmerman Plan (Berlin)</strong>
-                                <p className="text-xs mt-1 text-slate-400">Weapons from Germany during WWI. Led by Virendranath Chattopadhyaya (Sarojini Naidu's brother).</p>
+                                <strong className="text-yellow-200">{t.zimTitle}</strong>
+                                <p className="text-xs mt-1 text-slate-400">{t.zimText}</p>
                             </div>
 
                             <div className="border-l-2 border-green-500 pl-4">
-                                <strong className="text-green-300">Provisional Govt (Kabul, 1915)</strong>
-                                <p className="text-xs mt-1 text-slate-400">First Govt-in-Exile. President: Raja Mahendra Pratap. PM: Barkatullah.</p>
+                                <strong className="text-green-300">{t.kabulTitle}</strong>
+                                <p className="text-xs mt-1 text-slate-400">{t.kabulText}</p>
                             </div>
                         </div>
                     </div>
@@ -256,34 +255,33 @@ export default function HandwrittenChapter11() {
                     {/* KHUDIRAM WANTED POSTER */}
                     <div className="bg-[#e3dcd2] p-4 text-center border-4 border-slate-900 shadow-xl relative">
                         <div className="border-b-2 border-slate-900 mb-2 pb-1">
-                            <h4 className="font-black text-3xl uppercase tracking-tighter scale-y-125">WANTED</h4>
-                            <p className="text-xs font-bold uppercase">Dead or Alive</p>
+                            <h4 className="font-black text-3xl uppercase tracking-tighter scale-y-125">{t.wantedTitle}</h4>
+                            <p className="text-xs font-bold uppercase">{t.deadOrAlive}</p>
                         </div>
                         <div className="w-24 h-24 bg-slate-300 mx-auto mb-2 grayscale flex items-center justify-center border-2 border-slate-500">
                             <Skull className="w-12 h-12 opacity-50" />
                         </div>
-                        <h3 className="font-bold text-xl uppercase">Khudiram Bose</h3>
-                        <p className="text-xs font-mono mt-1">Age: 18</p>
-                        <p className="text-xs font-mono">Crime: Muzaffarpur Bomb</p>
+                        <h3 className="font-bold text-xl uppercase">{t.khudiramName}</h3>
+                        <p className="text-xs font-mono mt-1">{t.khudiramAge}</p>
+                        <p className="text-xs font-mono">{t.khudiramCrime}</p>
                         <div className="mt-2 transform -rotate-12 border-2 border-red-700 text-red-700 font-bold px-2 py-1 inline-block text-xl opacity-80">
-                            HANGED
+                            {t.khudiramFate}
                         </div>
                     </div>
 
                     {/* RASHBEHARI ESCAPED */}
                     <div className="bg-[#e3dcd2] p-4 text-center border-4 border-slate-900 shadow-xl relative">
                         <div className="border-b-2 border-slate-900 mb-2 pb-1">
-                            <h4 className="font-black text-3xl uppercase tracking-tighter scale-y-125 text-slate-600">ESCAPED</h4>
+                            <h4 className="font-black text-3xl uppercase tracking-tighter scale-y-125 text-slate-600">{t.escapedTitle}</h4>
                         </div>
                         <div className="w-24 h-24 bg-slate-300 mx-auto mb-2 grayscale flex items-center justify-center border-2 border-slate-500">
                             <UserUnknown className="w-12 h-12 opacity-50" />
                         </div>
-                        <h3 className="font-bold text-xl uppercase">Rashbehari Bose</h3>
+                        <h3 className="font-bold text-xl uppercase">{t.rashbehariName}</h3>
                         <div className="text-left text-xs mt-2 space-y-1 font-mono bg-white p-2 border border-slate-400">
-                            <p><strong>Alias:</strong> P.N. Tagore</p>
-                            <p><strong>Location:</strong> Japan</p>
-                            <p><strong>Wife:</strong> Toshiko Soma</p>
-                            <p><strong>Legacy:</strong> INA Founder</p>
+                            {t.rashbehariDetails.map((d, i) => (
+                                <p key={i}><strong>{d.bold}</strong>{d.text}</p>
+                            ))}
                         </div>
                     </div>
 
@@ -292,23 +290,22 @@ export default function HandwrittenChapter11() {
                         <div className="absolute -top-2 -right-2 transform rotate-12">
                             <Stamp className="w-8 h-8 text-yellow-600" />
                         </div>
-                        <h4 className="font-bold text-sm uppercase text-yellow-800 mb-2">Silk Letter Conspiracy</h4>
-                        <p className="text-xs text-slate-700 mb-2">
-                            Secret messages written on yellow silk cloth.
-                        </p>
+                        <h4 className="font-bold text-sm uppercase text-yellow-800 mb-2">{t.silkTitle}</h4>
+                        <p className="text-xs text-slate-700 mb-2">{t.silkText}</p>
                         <div className="text-[10px] bg-yellow-200 p-1 rounded font-mono">
-                            LEADERS: Maulana Mahmud Hasan & Ubaidullah Sindhi.
+                            {t.silkLeaders}
                         </div>
                     </div>
 
                     {/* AFTERMATH */}
                     <div className="bg-red-900 text-red-100 p-4 border-l-4 border-red-500">
                         <h4 className="font-bold text-sm uppercase mb-2 flex items-center gap-2">
-                            <FileWarning className="w-4 h-4" /> The Aftermath
+                            <FileWarning className="w-4 h-4" /> {t.aftermathTitle}
                         </h4>
                         <ul className="text-xs space-y-2">
-                            <li><strong>Defense of India Act (1915):</strong> Precursor to Rowlatt. Detention without trial.</li>
-                            <li><strong>Rowlatt Committee (1918):</strong> Appointed to investigate "sedition".</li>
+                            {t.aftermathItems.map((item, i) => (
+                                <li key={i}><strong>{item.bold}</strong>{item.text}</li>
+                            ))}
                         </ul>
                     </div>
                 </div>

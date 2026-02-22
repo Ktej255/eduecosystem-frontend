@@ -13,8 +13,13 @@ import {
     Star
 } from 'lucide-react';
 import { Badge } from "@/components/ui/badge";
+import { useLanguageStore } from '@/lib/language-store';
+import { ch23Translations } from './translations/ch23';
 
 export default function HandwrittenChapter23() {
+    const { language } = useLanguageStore();
+    const t = language === 'hi' ? ch23Translations.hi : ch23Translations.en;
+
     return (
         <div className="min-h-screen bg-[#F5F5DC] font-sans text-gray-900 selection:bg-red-900 overflow-x-hidden relative">
             <style jsx global>{`
@@ -43,18 +48,18 @@ export default function HandwrittenChapter23() {
                 <div className="border-4 border-black border-dashed p-6 transform -rotate-1 bg-white/40 backdrop-blur-sm">
                     <div className="flex justify-center items-center gap-4 mb-2">
                         <Flag className="w-8 h-8 text-orange-600" />
-                        <span className="marker-font text-2xl tracking-widest uppercase">1942</span>
+                        <span className="marker-font text-2xl tracking-widest uppercase">{t.headerYear}</span>
                         <Mic2 className="w-8 h-8 text-green-600" />
                     </div>
                     <h1 className="marker-font text-5xl md:text-7xl font-bold uppercase tracking-widest text-[#b71c1c] mb-2 drop-shadow-md">
-                        QUIT INDIA
+                        {t.headerTitle}
                     </h1>
                     <div className="flex justify-center gap-4 text-sm font-bold uppercase tracking-widest text-black hand-font">
-                        <span>Do or Die</span>
+                        <span>{t.doOrDie}</span>
                         <span>•</span>
-                        <span>Leaderless Revolt</span>
+                        <span>{t.leaderlessRevolt}</span>
                         <span>•</span>
-                        <span>INA Rises</span>
+                        <span>{t.inaRises}</span>
                     </div>
                 </div>
             </header>
@@ -69,40 +74,40 @@ export default function HandwrittenChapter23() {
                         <div className="absolute -inset-1 bg-gradient-to-r from-orange-600 to-red-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
                         <div className="relative bg-[#fff3e0] p-6 border-2 border-orange-800 shadow-xl rounded-sm">
                             <h2 className="marker-font text-3xl text-orange-900 mb-4 flex items-center gap-2">
-                                <Flame className="w-6 h-6" /> The Storm (Aug 1942)
+                                <Flame className="w-6 h-6" /> {t.stormTitle}
                             </h2>
 
                             <div className="hand-font text-xl space-y-4">
                                 <div className="bg-white/60 p-4 border-l-4 border-red-600">
-                                    <strong className="block text-red-800 text-2xl mb-1">Why Now?</strong>
-                                    <ul className="list-disc pl-5 space-y-1">
-                                        <li>Cripps Mission Failed (No hope left).</li>
-                                        <li>Japanese knocking on North-East doors.</li>
-                                        <li><strong>"Scorched Earth" Policy:</strong> British burnt boats/rice in Bengal!</li>
-                                        <li>High Inflation (Salt/Rice unaffordable).</li>
+                                    <strong className="block text-red-800 text-2xl mb-1">{t.whyNowLabel}</strong>
+                                    <ul className="list-disc pl-5 space-y-1 text-gray-800">
+                                        <li>{t.reasonCripps}</li>
+                                        <li>{t.reasonJapan}</li>
+                                        <li>{t.reasonScorched}</li>
+                                        <li>{t.reasonInflation}</li>
                                     </ul>
                                 </div>
 
                                 <div className="flex items-center gap-4 bg-orange-100 p-3 rounded-lg border border-orange-300">
                                     <div className="text-4xl">🗓️</div>
-                                    <div>
-                                        <div className="font-bold">Aug 8: Gowalia Tank (Bombay)</div>
-                                        <div className="text-sm">Resolution Ratified. Gandhi speaks.</div>
+                                    <div className="text-gray-900">
+                                        <div className="font-bold">{t.gowaliaTankDate}</div>
+                                        <div className="text-sm">{t.gowaliaTankDesc}</div>
                                     </div>
                                 </div>
 
                                 <div className="bg-black text-white p-4 rotate-1 shadow-lg text-center">
-                                    <p className="scribble-font text-3xl text-yellow-300">"Here is a mantra... DO OR DIE!"</p>
-                                    <p className="text-xs uppercase tracking-widest mt-1">- Mahatma Gandhi</p>
+                                    <p className="scribble-font text-3xl text-yellow-300">{t.mantraQuote}</p>
+                                    <p className="text-xs uppercase tracking-widest mt-1">{t.gandhiSignature}</p>
                                 </div>
 
-                                <div className="bg-red-100 p-3 border border-red-300 text-sm">
-                                    <strong>Aug 9 (Zero Hour):</strong> All leaders arrested before sunrise! The movement became <span className="font-bold text-red-800 uppercase">Leaderless</span>.
+                                <div className="bg-red-100 p-3 border border-red-300 text-sm text-gray-900">
+                                    <strong>{t.zeroHourTitle}</strong> {t.zeroHourDesc}
                                 </div>
                             </div>
 
                             <div className="absolute -right-4 top-10 rotate-12 bg-yellow-300 text-black px-3 py-1 text-xs font-bold shadow-md scribble-font text-lg">
-                                Aruna Asaf Ali hoisted the flag!
+                                {t.arunaLabel}
                             </div>
                         </div>
                     </div>
@@ -110,35 +115,35 @@ export default function HandwrittenChapter23() {
                     {/* PARALLEL GOVERNMENTS */}
                     <div className="bg-white p-6 border-4 border-double border-gray-800 shadow-lg relative">
                         <h2 className="marker-font text-3xl text-gray-800 mb-6 underline decoration-wavy decoration-emerald-500">
-                            Parallel Govts (Prati Sarkar)
+                            {t.parallelGovtsTitle}
                         </h2>
 
-                        <div className="grid gap-6 hand-font text-lg">
+                        <div className="grid gap-6 hand-font text-lg text-gray-900">
                             {/* Ballia */}
                             <div className="bg-emerald-50 p-4 border border-emerald-200">
-                                <h3 className="font-bold text-xl text-emerald-900">1. Ballia (UP)</h3>
-                                <p><strong>Chittu Pandey</strong> (Tuphani Baba). Released prisoners. Lasted 1 week.</p>
+                                <h3 className="font-bold text-xl text-emerald-900">{t.balliaTitle}</h3>
+                                <p>{t.balliaDesc}</p>
                             </div>
 
                             {/* Tamluk */}
                             <div className="bg-emerald-50 p-4 border border-emerald-200 relative">
-                                <h3 className="font-bold text-xl text-emerald-900">2. Tamluk (Bengal)</h3>
-                                <p><strong>"Jatiya Sarkar"</strong> (Dec '42 - Sept '44).</p>
+                                <h3 className="font-bold text-xl text-emerald-900">{t.tamlukTitle}</h3>
+                                <p>{t.tamlukDesc}</p>
                                 <ul className="list-disc pl-5 text-sm mt-1">
-                                    <li>Hurricane Relief.</li>
-                                    <li><strong>Vidyut Vahinis</strong> (Lightning Armies).</li>
-                                    <li>Matangini Hazra (73yo) martyred.</li>
+                                    <li>{t.tamlukRelief}</li>
+                                    <li>{t.tamlukVahinis}</li>
+                                    <li>{t.tamlukMartyr}</li>
                                 </ul>
                             </div>
 
                             {/* Satara */}
-                            <div className="bg-emerald-50 p-4 border border-emerald-200">
-                                <h3 className="font-bold text-xl text-emerald-900">3. Satara (Maharashtra)</h3>
-                                <div className="absolute top-2 right-2 bg-yellow-400 text-xs px-2 py-1 font-bold rounded">LONGEST LASTING</div>
-                                <p><strong>Nana Patil, Y.B. Chavan</strong>.</p>
+                            <div className="bg-emerald-50 p-4 border border-emerald-200 relative">
+                                <h3 className="font-bold text-xl text-emerald-900">{t.sataraTitle}</h3>
+                                <div className="absolute top-2 right-2 bg-yellow-400 text-xs px-2 py-1 font-bold rounded">{t.longestLasting}</div>
+                                <p>{t.sataraLeaders}</p>
                                 <ul className="list-disc pl-5 text-sm mt-1">
-                                    <li>Nyayadan Mandals (People's Courts).</li>
-                                    <li>Gandhi Marriages (No caste/dowry).</li>
+                                    <li>{t.sataraCourts}</li>
+                                    <li>{t.sataraMarriages}</li>
                                 </ul>
                             </div>
                         </div>
@@ -152,27 +157,27 @@ export default function HandwrittenChapter23() {
                     {/* FAMINE & POLITICS */}
                     <div className="bg-[#e0e0e0] p-6 border-l-8 border-black shadow-2xl">
                         <h2 className="marker-font text-2xl text-black mb-4 flex items-center gap-2">
-                            <XCircle className="w-6 h-6" /> The Dark Consensus
+                            <XCircle className="w-6 h-6" /> {t.darkConsensusTitle}
                         </h2>
 
-                        <div className="space-y-4 hand-font">
+                        <div className="space-y-4 hand-font text-gray-900">
                             {/* Famine */}
                             <div className="bg-white p-4 text-gray-800">
-                                <strong className="block text-xl border-b border-gray-300 pb-1 mb-2">Bengal Famine (1943)</strong>
-                                <p className="text-lg">1.5 - 3 Million Deaths.</p>
-                                <p className="text-sm italic text-red-700">Man-made tragedy (Rice exports, Army diversion, Denial policy).</p>
-                                <div className="text-xs bg-gray-100 mt-2 p-1"><strong>Woodhead Commission (1945)</strong> blamed mismanagement.</div>
+                                <strong className="block text-xl border-b border-gray-300 pb-1 mb-2">{t.bengalFamineTitle}</strong>
+                                <p className="text-lg">{t.famineDeaths}</p>
+                                <p className="text-sm italic text-red-700">{t.famineTragedy}</p>
+                                <div className="text-xs bg-gray-100 mt-2 p-1"><strong>{t.woodheadCommission}</strong></div>
                             </div>
 
                             {/* Formulas */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
                                 <div className="bg-blue-50 p-3 border border-blue-200">
-                                    <strong className="block text-blue-900">C.R. Formula (1944)</strong>
-                                    Proposed Plebiscite in NW/NE. Jinnah rejected (wanted *only* Muslims to vote).
+                                    <strong className="block text-blue-900">{t.crFormulaTitle}</strong>
+                                    {t.crFormulaDesc}
                                 </div>
                                 <div className="bg-purple-50 p-3 border border-purple-200">
-                                    <strong className="block text-purple-900">Wavell Plan (1945)</strong>
-                                    Shimla Conference. Parity (Caste Hindu = Muslim). Jinnah used "Virtual Veto".
+                                    <strong className="block text-purple-900">{t.wavellPlanTitle}</strong>
+                                    {t.wavellPlanDesc}
                                 </div>
                             </div>
                         </div>
@@ -183,53 +188,53 @@ export default function HandwrittenChapter23() {
                         <div className="absolute -top-4 -left-4 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold animate-pulse">
                             INA
                         </div>
-                        <h2 className="marker-font text-3xl text-orange-800 mb-4 text-right">
-                            AZAD HIND FAUJ
+                        <h2 className="marker-font text-3xl text-orange-800 mb-4 text-right uppercase">
+                            {t.inaSagaTitle}
                         </h2>
 
-                        <div className="hand-font space-y-5">
+                        <div className="hand-font space-y-5 text-gray-900">
                             <div className="flex border-b border-orange-200 pb-4">
-                                <div className="w-1/3 font-bold text-orange-900 text-lg">Phase 1</div>
-                                <div className="w-2/3">Capt. Mohan Singh (Malaya, 1942). Collapsed.</div>
+                                <div className="w-1/3 font-bold text-orange-900 text-lg">{t.phase1Label}</div>
+                                <div className="w-2/3">{t.phase1Desc}</div>
                             </div>
 
                             <div className="flex border-b border-orange-200 pb-4">
-                                <div className="w-1/3 font-bold text-orange-900 text-lg">Phase 2</div>
+                                <div className="w-1/3 font-bold text-orange-900 text-lg">{t.phase2Label}</div>
                                 <div className="w-2/3">
-                                    <span className="text-xl font-bold bg-orange-100 px-2">Subhas Chandra Bose</span>
-                                    <p className="text-sm mt-1">Arrived Singapore (July '43). Formed Provisional Govt (Oct 21, '43).</p>
+                                    <span className="text-xl font-bold bg-orange-100 px-2">{t.phase2Name}</span>
+                                    <p className="text-sm mt-1">{t.phase2Desc}</p>
                                 </div>
                             </div>
 
                             <div className="bg-orange-600 text-white p-4 rounded-tl-xl rounded-br-xl shadow-lg">
                                 <div className="flex justify-between items-center mb-2">
-                                    <span className="stamp-font text-xs">WAR CRY</span>
+                                    <span className="stamp-font text-xs">{t.warCryLabel}</span>
                                     <Star className="w-5 h-5 fill-current" />
                                 </div>
-                                <p className="marker-font text-4xl text-center">"CHALO DELHI!"</p>
+                                <p className="marker-font text-4xl text-center">{t.chaloDelhi}</p>
                             </div>
 
                             <div className="grid grid-cols-2 gap-2 text-xs">
                                 <div className="bg-white p-2 border border-orange-100">
-                                    <strong>Moirang (Manipur):</strong> First Flag Hoisting on mainland (April 14, 1944, Col. Shaukat Malik).
+                                    <strong>{t.moirangTitle}</strong> {t.moirangDesc}
                                 </div>
                                 <div className="bg-white p-2 border border-orange-100">
-                                    <strong>Islands:</strong> Andaman → Shahid. Nicobar → Swaraj.
+                                    <strong>{t.islandsTitle}</strong> {t.islandsDesc}
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     {/* GAP ANALYSIS NOTE */}
-                    <div className="bg-yellow-100 p-4 rotate-1 border border-yellow-300 shadow-sm">
+                    <div className="bg-yellow-100 p-4 rotate-1 border border-yellow-300 shadow-sm text-gray-900">
                         <div className="flex items-center gap-2 mb-2">
                             <AlertTriangle className="w-5 h-5 text-yellow-700" />
-                            <h3 className="scribble-font text-2xl font-bold">Confidential Notes</h3>
+                            <h3 className="scribble-font text-2xl font-bold">{t.confidentialNotesTitle}</h3>
                         </div>
                         <ul className="hand-font text-sm space-y-2">
-                            <li><strong>"Ziauddin":</strong> Bose's alias during escape (1941).</li>
-                            <li><strong>CPI:</strong> Supported British ("People's War"). Did NOT join Quit India.</li>
-                            <li><strong>Loyalty Erosion:</strong> Police/Bureaucracy started sympathizing. This scared the British most!</li>
+                            <li>{t.ziauddinNote}</li>
+                            <li>{t.cpiNote}</li>
+                            <li>{t.loyaltyErosionNote}</li>
                         </ul>
                     </div>
 

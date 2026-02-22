@@ -2,8 +2,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguageStore } from '@/lib/language-store';
+import { ch33 } from './translations/ch33';
 
 export default function HandwrittenChapter33() {
+    const { language } = useLanguageStore();
+    const t = ch33[language as keyof typeof ch33] || ch33.en;
+
     return (
         <div className="min-h-screen bg-[#fdfbf7] p-4 md:p-8 font-['Kalam',_cursive] text-[#000080] selection:bg-yellow-200">
             <style jsx global>{`
@@ -41,79 +46,34 @@ export default function HandwrittenChapter33() {
 
             <div className="max-w-5xl mx-auto mb-16 relative pt-12">
                 <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-[#CC0000] mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase">
-                    National Movement: 1939-1941
+                    {t.title}
                 </h1>
-                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline">Study Notes - Chapter 33</p>
+                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline">{t.subtitle}</p>
             </div>
 
-            
-            <section key={0} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">World War II and Congress Stance</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">September 1939</span>: Germany invaded Poland, starting WWII. Britain declared India a party to the war without consulting Indian opinion.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Congress Response</span>:</p></div>
-<p className="text-lg leading-relaxed">- The Congress Working Committee (CWC) condemned Fascism and Nazism but stated that India could not fight for democracy while being denied it herself.</p>
-<p className="text-lg leading-relaxed">- **Demand**: The Congress demanded that Britain declare its **War Aims** and promise independence after the war.</p>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Government Response</span>: Viceroy Linlithgow's statement (October 1939) was vague and offered only a &quot;consultative group.&quot;</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Resignation</span>: In protest, Congress ministries in the provinces resigned (Oct-Nov 1939).</p></div>
-                </div>
-            </section>
-
-            <section key={1} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">The Pakistan Resolution (1940)</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Lahore Session (Muslim League)</span>: Presided over by <span className="font-bold highlight">Jinnah</span>.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">The Resolution</span>: Drafted by <span className="font-bold highlight">Sikandar Hayat Khan</span> and moved by <span className="font-bold highlight">Fazlul Huq</span>. It demanded that geographically contiguous units in the North-West and East, where Muslims were a majority, should be grouped to constitute &quot;Independent States&quot; in which the constituent units would be autonomous and sovereign.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Significance</span>: It officially adopted the &quot;Two-Nation Theory&quot; and the demand for Pakistan (though the word &quot;Pakistan&quot; was not in the resolution).</p></div>
-                </div>
-            </section>
-
-            <section key={2} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">The August Offer (1940)</h2>
-                <div className="space-y-6">
-                    <p className="text-lg leading-relaxed">To win Indian support for the war, the Viceroy announced the **August Offer**:</p>
-<p className="text-lg leading-relaxed">1.  **Dominion Status** as the objective for India (post-war).</p>
-<p className="text-lg leading-relaxed">2.  **Expansion of Viceroy's Executive Council** to include more Indians.</p>
-<p className="text-lg leading-relaxed">3.  **War Advisory Council** to be set up.</p>
-<p className="text-lg leading-relaxed">4.  **Veto to Minorities**: No future constitution would be adopted without the consent of minorities (giving Jinnah a veto).</p>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Reaction</span>:</p></div>
-<p className="text-lg leading-relaxed">- **Congress**: Rejected it. Nehru said, &quot;Dominion status is dead as a doornail.&quot;</p>
-<p className="text-lg leading-relaxed">- **Muslim League**: Welcomed the veto but rejected the offer because it didn't explicitly concede Pakistan.</p>
-                </div>
-            </section>
-
-            <section key={3} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Individual Satyagraha (1940-1941)</h2>
-                <div className="space-y-6">
-                    <p className="text-lg leading-relaxed">Gandhi launched the **Individual Satyagraha** to affirm the right to free speech and to protest against the war effort without embarrassing the British during their &quot;life and death struggle.&quot;</p>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Aims</span>: To show that nationalist patience was not weakness and to preach against the war.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">The Satyagrahis</span>:</p></div>
-<p className="text-lg leading-relaxed">- **First Satyagrahi**: **Acharya Vinoba Bhave**.</p>
-<p className="text-lg leading-relaxed">- **Second Satyagrahi**: **Jawaharlal Nehru**.</p>
-<p className="text-lg leading-relaxed">- **Third Satyagrahi**: **Brahma Datt**.</p>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Delhi Chalo</span>: The movement was also known as the &quot;Delhi Chalo&quot; movement.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Suspension</span>: Suspended in late 1941 as the war situation deteriorated (Japanese threat).</p></div>
-                </div>
-            </section>
-
-            <section key={4} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Subhash Chandra Bose and the INA</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Escape</span>: Bose escaped from house arrest in Calcutta in January 1941 and reached Berlin via Kabul and Moscow.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Free India Legion</span>: He organized the *Free India Legion* with Indian POWs in Germany and began broadcasting on *Azad Hind Radio*.</p></div>
-                </div>
-            </section>
-
-            <section key={5} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Changing Situation (1941)</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Japanese Advance</span>: Japan joined the Axis powers and advanced rapidly in Southeast Asia, threatening India's borders.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">US and Chinese Pressure</span>: FDR (USA) and Chiang Kai-Shek (China) pressured Churchill to solve the Indian deadlock, leading to the <span className="font-bold highlight">Cripps Mission</span> (1942).</p></div>
-                </div>
-            </section>
+            {t.sections.map((section, sIdx) => (
+                <section key={sIdx} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
+                    <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">{section.title}</h2>
+                    <div className="space-y-6">
+                        {section.text && <p className="text-lg leading-relaxed">{section.text}</p>}
+                        {section.content && (section.content as any[]).map((item: any, iIdx: number) => (
+                            <div key={iIdx} className="flex gap-2 items-start text-lg">
+                                <span className="text-[#CC0000] mt-1">•</span>
+                                <p>
+                                    {item.highlight && <span className="font-bold highlight">{item.highlight}</span>}
+                                    {item.text}
+                                </p>
+                            </div>
+                        ))}
+                        {(section as any).footer && (section as any).footer.map((f: string, fIdx: number) => (
+                            <p key={fIdx} className="text-lg leading-relaxed">{f}</p>
+                        ))}
+                    </div>
+                </section>
+            ))}
 
             <div className="text-center font-['Just_Another_Hand'] text-2xl opacity-40 mt-20 mb-10 italic">
-                ~ End of Handwritten Notes ~
+                {t.end}
             </div>
         </div>
     );

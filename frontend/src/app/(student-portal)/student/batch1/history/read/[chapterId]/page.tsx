@@ -3,7 +3,7 @@
 import React, { useEffect, useState, Suspense } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, Highlighter, Share2, ZoomIn, ZoomOut, Pencil, FileText, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ZoomIn, ZoomOut, Pencil, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { MODERN_HISTORY_CONTENT } from '@/components/batch1/history/data/modern/content-registry';
 import { MEDIEVAL_CONTENT_MAP } from '@/components/batch1/history/data/medieval/content-registry';
@@ -14,45 +14,50 @@ import { CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { useLanguageStore } from '@/lib/language-store';
 
-import HandwrittenChapter1 from '@/components/batch1/history/modern/v2/HandwrittenChapter1';
-import HandwrittenChapter2 from '@/components/batch1/history/modern/v2/HandwrittenChapter2';
-import HandwrittenChapter3 from '@/components/batch1/history/modern/v2/HandwrittenChapter3';
-import HandwrittenChapter4 from '@/components/batch1/history/modern/v2/HandwrittenChapter4';
-import HandwrittenChapter5 from '@/components/batch1/history/modern/v2/HandwrittenChapter5';
-import HandwrittenChapter6 from '@/components/batch1/history/modern/v2/HandwrittenChapter6';
-import HandwrittenChapter7 from '@/components/batch1/history/modern/v2/HandwrittenChapter7';
-import HandwrittenChapter8 from '@/components/batch1/history/modern/v2/HandwrittenChapter8';
-import HandwrittenChapter9 from '@/components/batch1/history/modern/v2/HandwrittenChapter9';
-import HandwrittenChapter10 from '@/components/batch1/history/modern/v2/HandwrittenChapter10';
-import HandwrittenChapter11 from '@/components/batch1/history/modern/v2/HandwrittenChapter11';
-import HandwrittenChapter12 from '@/components/batch1/history/modern/v2/HandwrittenChapter12';
-import HandwrittenChapter13 from '@/components/batch1/history/modern/v2/HandwrittenChapter13';
-import HandwrittenChapter14 from '@/components/batch1/history/modern/v2/HandwrittenChapter14';
-import HandwrittenChapter15 from '@/components/batch1/history/modern/v2/HandwrittenChapter15';
-import HandwrittenChapter16 from '@/components/batch1/history/modern/v2/HandwrittenChapter16';
-import HandwrittenChapter17 from '@/components/batch1/history/modern/v2/HandwrittenChapter17';
-import HandwrittenChapter18 from '@/components/batch1/history/modern/v2/HandwrittenChapter18';
-import HandwrittenChapter19 from '@/components/batch1/history/modern/v2/HandwrittenChapter19';
-import HandwrittenChapter20 from '@/components/batch1/history/modern/v2/HandwrittenChapter20';
-import HandwrittenChapter21 from '@/components/batch1/history/modern/v2/HandwrittenChapter21';
-import HandwrittenChapter22 from '@/components/batch1/history/modern/v2/HandwrittenChapter22';
-import HandwrittenChapter23 from '@/components/batch1/history/modern/v2/HandwrittenChapter23';
-import HandwrittenChapter24 from '@/components/batch1/history/modern/v2/HandwrittenChapter24';
-import HandwrittenChapter25 from '@/components/batch1/history/modern/v2/HandwrittenChapter25';
-import HandwrittenChapter26 from '@/components/batch1/history/modern/v2/HandwrittenChapter26';
-import HandwrittenChapter27 from '@/components/batch1/history/modern/v2/HandwrittenChapter27';
-import HandwrittenChapter28 from '@/components/batch1/history/modern/v2/HandwrittenChapter28';
-import HandwrittenChapter29 from '@/components/batch1/history/modern/v2/HandwrittenChapter29';
-import HandwrittenChapter30 from '@/components/batch1/history/modern/v2/HandwrittenChapter30';
-import HandwrittenChapter31 from '@/components/batch1/history/modern/v2/HandwrittenChapter31';
-import HandwrittenChapter32 from '@/components/batch1/history/modern/v2/HandwrittenChapter32';
-import HandwrittenChapter33 from '@/components/batch1/history/modern/v2/HandwrittenChapter33';
-import HandwrittenChapter34 from '@/components/batch1/history/modern/v2/HandwrittenChapter34';
-import HandwrittenChapter35 from '@/components/batch1/history/modern/v2/HandwrittenChapter35';
-import HandwrittenChapter36 from '@/components/batch1/history/modern/v2/HandwrittenChapter36';
-import HandwrittenChapter37 from '@/components/batch1/history/modern/v2/HandwrittenChapter37';
-import HandwrittenChapter38 from '@/components/batch1/history/modern/v2/HandwrittenChapter38';
-import HandwrittenChapter39 from '@/components/batch1/history/modern/v2/HandwrittenChapter39';
+import dynamic from 'next/dynamic';
+
+const HandwrittenChapter1 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter1'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter2 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter2'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter3 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter3'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter4 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter4'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter5 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter5'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter6 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter6'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter7 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter7'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter8 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter8'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter9 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter9'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter10 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter10'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter11 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter11'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter12 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter12'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter13 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter13'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter14 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter14'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter15 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter15'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter16 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter16'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter17 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter17'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter18 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter18'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter19 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter19'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter20 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter20'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter21 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter21'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter22 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter22'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter23 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter23'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter24 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter24'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter25 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter25'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter26 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter26'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter27 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter27'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter28 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter28'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter29 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter29'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter30 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter30'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter31 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter31'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter32 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter32'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter33 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter33'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter34 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter34'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter35 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter35'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter36 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter36'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter37 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter37'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter38 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter38'), { loading: () => <div>Loading Chapter...</div> });
+const HandwrittenChapter39 = dynamic(() => import('@/components/batch1/history/modern/v2/HandwrittenChapter39'), { loading: () => <div>Loading Chapter...</div> });
+
+import { ALL_MODERN_TRANSLATIONS } from '@/components/batch1/history/modern/v2/translations';
+import ClassicHindiContent from '@/components/batch1/history/modern/v2/ClassicHindiContent';
 
 function HistoryReadContent() {
     const params = useParams();
@@ -75,7 +80,7 @@ function HistoryReadContent() {
         // Default to Modern
         const modernData = MODERN_HISTORY_CONTENT[chapterId] || MODERN_HISTORY_CONTENT[String(chapterId)];
         if (typeof modernData === 'object' && modernData !== null && 'content' in modernData) {
-            content = (modernData as any).content;
+            content = (modernData as { content: string }).content;
         } else {
             content = modernData as string;
         }
@@ -347,16 +352,23 @@ function HistoryReadContent() {
                             {/* Content */}
                             <div className="md:pl-8 relative z-10">
                                 {language === 'hi' ? (
-                                    <div className="flex flex-col items-center justify-center h-64 text-center">
-                                        <p className="text-xl font-bold text-orange-600 mb-2">{t('coming_soon_hindi')}</p>
-                                        <p className="text-gray-500">We are working on translating this chapter.</p>
-                                        <button
-                                            onClick={() => setLanguage('en')}
-                                            className="mt-4 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 font-medium"
-                                        >
-                                            Switch to English
-                                        </button>
-                                    </div>
+                                    ALL_MODERN_TRANSLATIONS[chapterId] ? (
+                                        <ClassicHindiContent
+                                            data={ALL_MODERN_TRANSLATIONS[chapterId].hi}
+                                            fontSize={fontSize}
+                                        />
+                                    ) : (
+                                        <div className="flex flex-col items-center justify-center h-64 text-center">
+                                            <p className="text-xl font-bold text-orange-600 mb-2">{t('coming_soon_hindi')}</p>
+                                            <p className="text-gray-500">We are working on translating this chapter.</p>
+                                            <button
+                                                onClick={() => setLanguage('en')}
+                                                className="mt-4 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 font-medium"
+                                            >
+                                                Switch to English
+                                            </button>
+                                        </div>
+                                    )
                                 ) : (
                                     content && renderContent(content)
                                 )}

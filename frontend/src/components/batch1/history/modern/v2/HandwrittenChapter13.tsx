@@ -18,8 +18,13 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useLanguageStore } from '@/lib/language-store';
+import { ch13Translations } from './translations/ch13';
 
 export default function HandwrittenChapter13() {
+    const { language } = useLanguageStore();
+    const t = language === 'hi' ? ch13Translations.hi : ch13Translations.en;
+
     return (
         <div className="min-h-screen bg-[#fcfbf7] p-4 md:p-8 font-['Merriweather',_serif] text-gray-900 selection:bg-indigo-200 overflow-x-hidden relative">
             <style jsx global>{`
@@ -72,14 +77,17 @@ export default function HandwrittenChapter13() {
                     <div className="w-12 h-12 border-4 border-indigo-900 rounded-full border-t-transparent"></div>
                 </div>
 
-                <h2 className="handwritten-font text-3xl text-gray-500 mb-2 transform -rotate-2">My Experiment with Truth</h2>
-                <h1 className="caveat-font text-6xl md:text-7xl font-bold mb-4 text-indigo-900 leading-tight">THE ARRIVAL</h1>
-                <p className="text-xl md:text-2xl text-gray-700 italic font-serif">"Go to the villages. That is where India lives."</p>
+                <h2 className="handwritten-font text-3xl text-gray-500 mb-2 transform -rotate-2">{t.diaryTitle}</h2>
+                <h1 className="caveat-font text-6xl md:text-7xl font-bold mb-4 text-indigo-900 leading-tight">{t.headerTitle}</h1>
+                <p className="text-xl md:text-2xl text-gray-700 italic font-serif">{t.headerQuote}</p>
 
                 <div className="mt-8 flex justify-center flex-wrap gap-4 text-xs font-bold uppercase tracking-widest">
-                    <span className="bg-gray-200 px-3 py-1 rounded-full border border-gray-400">1915: Return</span>
-                    <span className="bg-indigo-100 px-3 py-1 rounded-full text-indigo-900 border border-indigo-200">1917: Champaran</span>
-                    <span className="bg-red-100 px-3 py-1 rounded-full text-red-900 border border-red-200">1919: Jallianwala</span>
+                    {t.timelinePills.map((pill, i) => (
+                        <span key={i} className={`px-3 py-1 rounded-full border ${pill.style === 'gray' ? 'bg-gray-200 border-gray-400' :
+                                pill.style === 'indigo' ? 'bg-indigo-100 text-indigo-900 border-indigo-200' :
+                                    'bg-red-100 text-red-900 border-red-200'
+                            }`}>{pill.text}</span>
+                    ))}
                 </div>
             </header>
 
@@ -92,91 +100,85 @@ export default function HandwrittenChapter13() {
                     <div className="khadi-card p-6 border-l-4 border-indigo-500 relative">
                         <div className="flex items-center gap-4 mb-4">
                             <Footprints className="w-8 h-8 text-indigo-700" />
-                            <h3 className="text-2xl font-bold indigo-ink font-serif">The Return (Jan 9, 1915)</h3>
+                            <h3 className="text-2xl font-bold indigo-ink font-serif">{t.returnTitle}</h3>
                         </div>
-                        <p className="text-sm mb-4">Celebrated as <strong>Pravasi Bharatiya Divas</strong>.</p>
+                        <p className="text-sm mb-4">Celebrated as <strong>{t.returnPravasi}</strong>.</p>
 
                         <div className="bg-gray-50 p-4 border border-gray-200 mb-4 text-sm rounded italic text-gray-700">
-                            "Spend one year with open ears and closed mouth." <br />
-                            <span className="text-xs font-bold not-italic mt-1 block">– G.K. Gokhale (Political Guru)</span>
+                            {t.gokhaleQuote} <br />
+                            <span className="text-xs font-bold not-italic mt-1 block">{t.gokhaleBy}</span>
                         </div>
 
                         <div className="space-y-3 text-sm">
                             <div className="flex items-start gap-2">
                                 <div className="min-w-[4px] h-[4px] bg-indigo-500 rounded-full mt-2"></div>
-                                <span><strong>Ashrams:</strong> Kochrab (1915) → Sabarmati (1917). Base for Khadi & Truth.</span>
+                                <span><strong>{t.ashramsBold}</strong>{t.ashramsText}</span>
                             </div>
                             <div className="bg-indigo-50 p-3 border border-indigo-200 relative mt-2 rounded">
-                                <span className="absolute -top-2 -right-2 bg-indigo-600 text-white text-[10px] px-2 py-0.5 rounded font-bold">DEBUT</span>
-                                <h4 className="font-bold text-indigo-900">BHU Speech (Feb 1916)</h4>
-                                <p className="text-xs mt-1">First public appearance. Scolded princes for wearing jewelry while millions starved.</p>
+                                <span className="absolute -top-2 -right-2 bg-indigo-600 text-white text-[10px] px-2 py-0.5 rounded font-bold">{t.debutTag}</span>
+                                <h4 className="font-bold text-indigo-900">{t.bhuTitle}</h4>
+                                <p className="text-xs mt-1">{t.bhuText}</p>
                             </div>
                         </div>
                     </div>
 
                     {/* IDEOLOGY CONCEPT CARD */}
                     <div className="khadi-card p-6 bg-[#fcfcfc]">
-                        <h3 className="caveat-font text-3xl font-bold mb-4 text-center">The Weapon: Satyagraha</h3>
+                        <h3 className="caveat-font text-3xl font-bold mb-4 text-center">{t.ideologyTitle}</h3>
                         <div className="grid grid-cols-2 gap-4 text-sm text-center">
-                            <div className="p-3 bg-yellow-50 border border-yellow-200 rounded">
-                                <strong className="block mb-1 text-yellow-900">Satya (Truth)</strong>
-                                <span className="text-xs">Living the truth.</span>
-                            </div>
-                            <div className="p-3 bg-green-50 border border-green-200 rounded">
-                                <strong className="block mb-1 text-green-900">Ahimsa</strong>
-                                <span className="text-xs">Weapon of the strong.</span>
-                            </div>
-                            <div className="p-3 bg-blue-50 border border-blue-200 rounded">
-                                <strong className="block mb-1 text-blue-900">Sarvodaya</strong>
-                                <span className="text-xs">Welfare of all (Ruskin).</span>
-                            </div>
-                            <div className="p-3 bg-gray-50 border border-gray-200 rounded">
-                                <strong className="block mb-1 text-gray-900">Satyagraha</strong>
-                                <span className="text-xs">Holding onto Truth.</span>
-                            </div>
+                            {t.ideologyConcepts.map((c, i) => (
+                                <div key={i} className={`p-3 bg-${c.color}-50 border border-${c.color}-200 rounded`}>
+                                    <strong className={`block mb-1 text-${c.color}-900`}>{c.name}</strong>
+                                    <span className="text-xs">{c.desc}</span>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
                     {/* EARLY TRIO (CAKE) */}
                     <div className="khadi-card p-0 overflow-hidden border-t-4 border-yellow-700">
                         <div className="bg-yellow-700 text-white p-3 text-center font-bold tracking-widest uppercase">
-                            The Early Experiments (C-A-K-E)
+                            {t.cakeTitle}
                         </div>
 
                         <div className="p-6 space-y-6">
                             {/* CHAMPARAN */}
                             <div className="relative pl-6 border-l-2 border-indigo-300">
                                 <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-2 border-white"></div>
-                                <h4 className="font-bold text-xl text-indigo-900">1. Champaran (1917)</h4>
-                                <div className="text-[10px] font-bold uppercase text-indigo-500 mb-2">First Civil Disobedience</div>
+                                <h4 className="font-bold text-xl text-indigo-900">{t.champaran.title}</h4>
+                                <div className="text-[10px] font-bold uppercase text-indigo-500 mb-2">{t.champaran.tag}</div>
                                 <ul className="text-sm space-y-1 text-gray-700">
-                                    <li><strong>Issue:</strong> Tinkathia (Indigo on 3/20th land).</li>
-                                    <li><strong>Invited by:</strong> Rajkumar Shukla.</li>
-                                    <li><strong>Lieutenants:</strong> Rajendra Prasad, J.B. Kripalani.</li>
-                                    <li><strong>Outcome:</strong> <span className="bg-green-100 px-1 font-bold text-green-800">25% Refund</span>. Tagore gave title "Mahatma".</li>
+                                    {t.champaran.items.map((item, i) => (
+                                        <li key={i}><strong>{item.bold}</strong>{item.text}</li>
+                                    ))}
+                                    <li><strong>{t.champaran.outcomeBold}</strong> <span className="bg-green-100 px-1 font-bold text-green-800">{t.champaran.outcomeHighlight}</span>{t.champaran.outcomeText}</li>
                                 </ul>
                             </div>
 
                             {/* AHMEDABAD */}
                             <div className="relative pl-6 border-l-2 border-yellow-400">
                                 <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-yellow-600 border-2 border-white"></div>
-                                <h4 className="font-bold text-xl text-yellow-900">2. Ahmedabad (1918)</h4>
-                                <div className="text-[10px] font-bold uppercase text-yellow-600 mb-2">First Hunger Strike</div>
+                                <h4 className="font-bold text-xl text-yellow-900">{t.ahmedabad.title}</h4>
+                                <div className="text-[10px] font-bold uppercase text-yellow-600 mb-2">{t.ahmedabad.tag}</div>
                                 <ul className="text-sm space-y-1 text-gray-700">
-                                    <li><strong>Issue:</strong> Plague Bonus (50% vs 20%).</li>
-                                    <li><strong>Key Ally:</strong> <span className="font-bold">Anusuya Sarabhai</span> (Sister of mill owner).</li>
-                                    <li><strong>Result:</strong> 35% Hike Agreed.</li>
+                                    {t.ahmedabad.items.map((item, i) => (
+                                        <li key={i}><strong>{item.bold}</strong>{item.text}</li>
+                                    ))}
+                                    <li><strong>{t.ahmedabad.allyBold}</strong> <span className="font-bold">{t.ahmedabad.allyName}</span>{t.ahmedabad.allyNote}</li>
+                                    <li><strong>{t.ahmedabad.resultBold}</strong>{t.ahmedabad.resultText}</li>
                                 </ul>
                             </div>
 
                             {/* KHEDA */}
                             <div className="relative pl-6 border-l-2 border-green-600">
                                 <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-green-700 border-2 border-white"></div>
-                                <h4 className="font-bold text-xl text-green-900">3. Kheda (1918)</h4>
-                                <div className="text-[10px] font-bold uppercase text-green-600 mb-2">First Non-Cooperation</div>
+                                <h4 className="font-bold text-xl text-green-900">{t.kheda.title}</h4>
+                                <div className="text-[10px] font-bold uppercase text-green-600 mb-2">{t.kheda.tag}</div>
                                 <ul className="text-sm space-y-1 text-gray-700">
-                                    <li><strong>Issue:</strong> Revenue suspension denied despite crop failure.</li>
-                                    <li><strong>Leaders:</strong> <span className="font-bold">Sardar Patel</span> & Indulal Yagnik.</li>
+                                    {t.kheda.items.map((item, i) => (
+                                        <li key={i}><strong>{item.bold}</strong>{item.text}</li>
+                                    ))}
+                                    <li><strong>{t.kheda.leadersBold}</strong> <span className="font-bold">{t.kheda.leadersName}</span>{t.kheda.leadersText}</li>
                                 </ul>
                             </div>
                         </div>
@@ -193,75 +195,75 @@ export default function HandwrittenChapter13() {
                         <div className="absolute -top-10 -right-10 w-40 h-40 bg-red-900/10 rounded-full blur-xl pointer-events-none"></div>
 
                         <h3 className="text-3xl font-bold mb-6 text-red-900 uppercase flex items-center gap-2">
-                            The Turning Point (1919)
+                            {t.turningTitle}
                         </h3>
 
                         <div className="bg-gray-100 p-4 mb-6 border-l-4 border-black relative shadow-inner">
                             <h4 className="font-bold text-sm uppercase flex justify-between items-center">
-                                The Black Act (Rowlatt)
+                                {t.blackAct}
                                 <AlertTriangle className="w-4 h-4 text-red-600" />
                             </h4>
-                            <p className="text-xs italic mt-1 text-gray-600">"No Dalil, No Vakil, No Appeal." (Arrest without trial)</p>
+                            <p className="text-xs italic mt-1 text-gray-600">{t.blackActQuote}</p>
 
                             <div className="mt-3 pt-3 border-t border-gray-300">
-                                <p className="text-xs"><strong>Response:</strong> Rowlatt Satyagraha (<span className="font-bold">April 6, 1919</span>).</p>
-                                <p className="text-xs mt-1">First Mass Strike (Hartal). Org by <span className="font-bold text-indigo-800">Satyagraha Sabha</span>.</p>
+                                <p className="text-xs"><strong>{t.responseBold}</strong>{t.responseText}<span className="font-bold">{t.responseDate}</span>{t.responseEnd}</p>
+                                <p className="text-xs mt-1">{t.strikeText}<span className="font-bold text-indigo-800">{t.satyagrahaSabha}</span>.</p>
                                 <p className="text-[10px] mt-2 text-red-600 font-bold bg-white px-1 inline-block border border-red-200">
-                                    "Himalayan Miscalculation" (Called off after violence)
+                                    {t.himalayanText}
                                 </p>
                             </div>
                         </div>
 
                         <div className="bg-red-50 p-5 border border-red-300 relative rounded-sm">
-                            <h4 className="font-bold text-xl text-red-900 mb-1">Jallianwala Bagh Massacre</h4>
+                            <h4 className="font-bold text-xl text-red-900 mb-1">{t.massacreTitle}</h4>
                             <div className="text-[10px] font-bold uppercase mb-3 text-red-700 tracking-wider">
-                                April 13, 1919 (Baisakhi) | Amritsar
+                                {t.massacreDate}
                             </div>
 
                             <ul className="text-sm space-y-2 mb-4 text-gray-800">
-                                <li><strong>Trigger:</strong> Arrest of <span className="font-bold">Dr. Satyapal & Saifuddin Kitchlew</span>.</li>
-                                <li><strong>Villain:</strong> General Dyer (Fired 1650 rounds).</li>
-                                <li><strong>Result:</strong> 1000+ Dead.</li>
+                                {t.massacreItems.map((item, i) => (
+                                    <li key={i}><strong>{item.bold}</strong>{item.text}</li>
+                                ))}
                             </ul>
 
                             <div className="text-xs border-t border-red-200 pt-3 flex gap-4">
                                 <div>
-                                    <strong>Renunciations:</strong><br />
-                                    Tagore (Knighthood)<br />
-                                    Gandhi (Kaiser-i-Hind)
+                                    <strong>{t.renunciations}</strong><br />
+                                    {t.tagoreRenounce}<br />
+                                    {t.gandhiRenounce}
                                 </div>
                             </div>
                         </div>
 
                         <div className="mt-4 bg-black text-white p-3 text-center text-xs rounded shadow">
-                            <span className="font-bold text-red-500 uppercase tracking-widest">Justice Retired</span>
+                            <span className="font-bold text-red-500 uppercase tracking-widest">{t.justiceRetired}</span>
                             <br />
-                            <strong>Udham Singh</strong> (Ram Mohammad Singh Azad) shot Michael O'Dwyer in London (1940).
+                            <strong>{t.udhamSingh}</strong>{t.udhamAlias}
                         </div>
                     </div>
 
                     {/* AFTERMATH & MEDIA */}
                     <div className="khadi-card p-6 bg-[#f8f8f8]">
-                        <h3 className="text-xl font-bold mb-4 uppercase text-gray-700 border-b border-gray-300 pb-2">The Aftermath</h3>
+                        <h3 className="text-xl font-bold mb-4 uppercase text-gray-700 border-b border-gray-300 pb-2">{t.aftermathTitle}</h3>
 
                         <div className="space-y-4">
                             <div className="text-sm">
-                                <strong className="text-blue-800 block mb-1">Official Inquiry: Hunter Commission</strong>
+                                <strong className="text-blue-800 block mb-1">{t.hunterTitle}</strong>
                                 <ul className="text-xs list-disc ml-4 text-gray-600 space-y-1">
-                                    <li><strong>Indian Members:</strong> Chimanlal Setalvad, Jagat Narayan, Sultan Ahmed.</li>
-                                    <li><strong>Verdict:</strong> Condemned action, but no penalty. Whitewash.</li>
+                                    <li><strong>{t.hunterMembers}</strong>{t.hunterMembersText}</li>
+                                    <li><strong>{t.hunterVerdict}</strong>{t.hunterVerdictText}</li>
                                 </ul>
                             </div>
 
                             <div className="text-sm border-t border-gray-200 pt-2">
-                                <strong className="text-indigo-800 block mb-1">Congress Inquiry</strong>
-                                <p className="text-xs text-gray-600 ml-4">Motilal Nehru, C.R. Das, Gandhi. (Demanded punishment).</p>
+                                <strong className="text-indigo-800 block mb-1">{t.congressInquiry}</strong>
+                                <p className="text-xs text-gray-600 ml-4">{t.congressInquiryText}</p>
                             </div>
 
                             <div className="bg-yellow-50 p-3 border border-yellow-200 rounded mt-2">
-                                <h4 className="font-bold text-sm uppercase text-yellow-900">Law of the Land: 1919 Act</h4>
-                                <p className="text-xs mt-1"><strong>Montagu-Chelmsford Reforms:</strong> Introduced <span className="font-bold bg-yellow-200 px-1">Dyarchy</span> in Provinces.</p>
-                                <p className="text-[10px] italic mt-1 text-gray-500">(Transferred Subjects: Ministers vs Reserved Subjects: Governor)</p>
+                                <h4 className="font-bold text-sm uppercase text-yellow-900">{t.actTitle}</h4>
+                                <p className="text-xs mt-1"><strong>{t.montaguBold}</strong>{t.montaguText}<span className="font-bold bg-yellow-200 px-1">{t.dyarchy}</span>{t.dyarchyText}</p>
+                                <p className="text-[10px] italic mt-1 text-gray-500">{t.dyarchyNote}</p>
                             </div>
                         </div>
                     </div>
@@ -270,15 +272,15 @@ export default function HandwrittenChapter13() {
                     <div className="grid grid-cols-2 gap-4">
                         <div className="khadi-card p-4 text-center">
                             <Megaphone className="w-6 h-6 mx-auto text-gray-600 mb-2" />
-                            <h4 className="font-bold text-sm uppercase">Journals</h4>
-                            <p className="text-xs mt-1"><em>Young India</em> (English)</p>
-                            <p className="text-xs"><em>Navajivan</em> (Gujarati)</p>
+                            <h4 className="font-bold text-sm uppercase">{t.journalsTitle}</h4>
+                            <p className="text-xs mt-1"><em>{t.youngIndia}</em>{t.youngIndiaLang}</p>
+                            <p className="text-xs"><em>{t.navajivan}</em>{t.navajivanLang}</p>
                         </div>
                         <div className="khadi-card p-4 text-center">
                             <Users className="w-6 h-6 mx-auto text-gray-600 mb-2" />
-                            <h4 className="font-bold text-sm uppercase">Key Associate</h4>
-                            <p className="text-xs mt-1 font-bold">Sarojini Naidu</p>
-                            <p className="text-[10px]">First woman leader to join Rowlatt Satyagraha.</p>
+                            <h4 className="font-bold text-sm uppercase">{t.keyAssociate}</h4>
+                            <p className="text-xs mt-1 font-bold">{t.sarojiniName}</p>
+                            <p className="text-[10px]">{t.sarojiniNote}</p>
                         </div>
                     </div>
 

@@ -2,8 +2,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguageStore } from '@/lib/language-store';
+import { ch30Translations } from './translations/ch30';
 
 export default function HandwrittenChapter30() {
+    const { language } = useLanguageStore();
+    const t = language === 'hi' ? ch30Translations.hi : ch30Translations.en;
+
     return (
         <div className="min-h-screen bg-[#fdfbf7] p-4 md:p-8 font-['Kalam',_cursive] text-[#000080] selection:bg-yellow-200">
             <style jsx global>{`
@@ -39,140 +44,139 @@ export default function HandwrittenChapter30() {
                 }
             `}</style>
 
-            <div className="max-w-5xl mx-auto mb-16 relative pt-12">
-                <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-[#CC0000] mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase">
-                    Peasant Movements 1857-1947
+            <div className="max-w-5xl mx-auto mb-16 relative pt-12 text-gray-900">
+                <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-[#CC0000] mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase leading-tight">
+                    {t.headerTitle}
                 </h1>
-                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline">Study Notes - Chapter 30</p>
+                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline uppercase">{t.studyNotesLabel}</p>
             </div>
 
-            
-            <section key={0} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Early Movements (1857-1900)</h2>
+            {/* EARLY MOVEMENTS */}
+            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative text-gray-900">
+                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2 uppercase">{t.earlyMovementsTitle}</h2>
                 <div className="space-y-6">
-                    
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Indigo Revolt (1859-60)</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Region</span>: Bengal.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Cause</span>: European planters forced peasants to grow indigo instead of food crops at unremunerative prices.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Outcome</span>: The Indigo Commission (1860) ruled that planters could not force ryots to grow indigo.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Significance</span>: Massive support from Bengali intelligentsia (e.g., *Nil Darpan* play by Dinabandhu Mitra).</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.indigoRevoltTitle}</h3>
+                        <ul className="space-y-3">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.regionLabel}</strong>{t.indigoRevoltDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.causeLabel}</strong>{t.indigoRevoltDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.outcomeLabel}</strong>{t.indigoRevoltDesc3}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.significanceLabel}</strong>{t.indigoRevoltDesc4}</span></li>
+                        </ul>
+                    </div>
 
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Pabna Agrarian Leagues (1870s-80s)</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Region</span>: Bengal (Yusufshahi Pargana).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Cause</span>: Zamindars' attempts to increase rent beyond legal limits and prevent tenants from acquiring occupancy rights.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Outcome</span>: Bengal Tenancy Act (1885).</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.pabnaTitle}</h3>
+                        <ul className="space-y-3">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.regionLabel}</strong>{t.pabnaDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.causeLabel}</strong>{t.pabnaDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.outcomeLabel}</strong>{t.pabnaDesc3}</span></li>
+                        </ul>
+                    </div>
 
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Deccan Riots (1875)</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Region</span>: Maharashtra (Pune, Ahmednagar).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Cause</span>: Exploitation by Marwari and Gujarati moneylenders; ryots attacked debt bonds.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Outcome</span>: Deccan Agriculturists Relief Act (1879).</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.deccanRiotsTitle}</h3>
+                        <ul className="space-y-3">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.regionLabel}</strong>{t.deccanRiotsDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.causeLabel}</strong>{t.deccanRiotsDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.outcomeLabel}</strong>{t.deccanRiotsDesc3}</span></li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
-            <section key={1} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">20th Century Movements (Gandhian Phase)</h2>
+            {/* 20th CENTURY MOVEMENTS */}
+            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative text-gray-900">
+                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2 uppercase">{t.twentiethCenturyTitle}</h2>
                 <div className="space-y-6">
-                    
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Champaran Satyagraha (1917)</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Region</span>: Bihar.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Cause</span>: *Tinkathia* system (forced indigo cultivation on 3/20th of land).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Leader</span>: <span className="font-bold">Mahatma Gandhi</span> (invited by Rajkumar Shukla).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Outcome</span>: Tinkathia abolished; illegal dues refunded.</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.champaranTitle}</h3>
+                        <ul className="space-y-3">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.regionLabel}</strong>{t.champaranDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.causeLabel}</strong>{t.champaranDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.leaderLabel}</strong>{t.champaranDesc3}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.outcomeLabel}</strong>{t.champaranDesc4}</span></li>
+                        </ul>
+                    </div>
 
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Kheda Satyagraha (1918)</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Region</span>: Gujarat.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Cause</span>: Crops failed, but government refused to remit land revenue.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Leaders</span>: Gandhi, <span className="font-bold">Vallabhbhai Patel</span>.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Outcome</span>: Revenue collection suspended for the poor.</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.khedaTitle}</h3>
+                        <ul className="space-y-3">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.regionLabel}</strong>{t.khedaDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.causeLabel}</strong>{t.khedaDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.leadersLabel}</strong>{t.khedaDesc3}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.outcomeLabel}</strong>{t.khedaDesc4}</span></li>
+                        </ul>
+                    </div>
 
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Moplah Rebellion (1921)</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Region</span>: Malabar (Kerala).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Cause</span>: Oppression by Jenmi landlords (Hindus) and British government; merged with Khilafat movement.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Nature</span>: Initially anti-British/anti-landlord, later took communal overtones.</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.moplahTitle}</h3>
+                        <ul className="space-y-3">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.regionLabel}</strong>{t.moplahDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.causeLabel}</strong>{t.moplahDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.natureLabel}</strong>{t.moplahDesc3}</span></li>
+                        </ul>
+                    </div>
 
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Bardoli Satyagraha (1928)</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Region</span>: Gujarat.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Cause</span>: Unjust hike in land revenue (22%).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Leader</span>: <span className="font-bold">Vallabhbhai Patel</span> (earned the title &quot;Sardar&quot; here).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Outcome</span>: Revenue hike reduced to 6.03%.</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.bardoliTitle}</h3>
+                        <ul className="space-y-3">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.regionLabel}</strong>{t.bardoliDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.causeLabel}</strong>{t.bardoliDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.leaderLabel}</strong>{t.bardoliDesc3}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.outcomeLabel}</strong>{t.bardoliDesc4}</span></li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
-            <section key={2} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Late Colonial Movements (1930s-40s)</h2>
+            {/* LATE COLONIAL MOVEMENTS */}
+            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative text-gray-900">
+                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2 uppercase">{t.lateColonialTitle}</h2>
                 <div className="space-y-6">
-                    
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">All India Kisan Sabha (AIKS)</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>Founded in <span className="font-bold">1936</span> at Lucknow.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">President</span>: <span className="font-bold">Swami Sahajanand Saraswati</span>.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Secretary</span>: N.G. Ranga.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Goal</span>: Abolition of Zamindari and reduction of land revenue.</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.aiksTitle}</h3>
+                        <ul className="space-y-3">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.aiksDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.presidentLabel}</strong>{t.aiksDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.secretaryLabel}</strong>{t.aiksDesc3}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.goalLabel}</strong>{t.aiksDesc4}</span></li>
+                        </ul>
+                    </div>
 
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Tebhaga Movement (1946)</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Region</span>: Bengal.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Cause</span>: Sharecroppers (*Bargadars*) demanded reduction of rent from 1/2 to 1/3 of produce.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Slogan</span>: &quot;Tebhaga Chai&quot; (We want two-thirds).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Led by</span>: Communist Party of India / Kisan Sabha.</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.tebhagaTitle}</h3>
+                        <ul className="space-y-3">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.regionLabel}</strong>{t.tebhagaDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.causeLabel}</strong>{t.tebhagaDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.sloganLabel}</strong><span className="font-bold underline text-red-900">{t.tebhagaDesc3}</span></span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.ledByLabel}</strong>{t.tebhagaDesc4}</span></li>
+                        </ul>
+                    </div>
 
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Telangana Movement (1946-51)</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Region</span>: Hyderabad State.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Cause</span>: Oppression by Deshmukhs/Jagirdars and forced labor (*Vethi*).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Significance</span>: Largest armed peasant guerrilla struggle; forced land reforms.</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.telanganaTitle}</h3>
+                        <ul className="space-y-3">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.regionLabel}</strong>{t.telanganaDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.causeLabel}</strong>{t.telanganaDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.telanganaDesc3}</span></li>
+                        </ul>
+                    </div>
 
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Eka Movement (1921)</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Region</span>: United Provinces (Awadh).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Cause</span>: High rents and oppression by Thikadars.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Leader</span>: <span className="font-bold">Madari Pasi</span>.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Oath</span>: Not to pay more than recorded rent.</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.ekaTitle}</h3>
+                        <ul className="space-y-3">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.regionLabel}</strong>{t.ekaDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.causeLabel}</strong>{t.ekaDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.leaderLabel}</strong>{t.ekaDesc3}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><strong className="uppercase text-xs mr-1">{t.oathLabel}</strong>{t.ekaDesc4}</span></li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
             <div className="text-center font-['Just_Another_Hand'] text-2xl opacity-40 mt-20 mb-10 italic">
-                ~ End of Handwritten Notes ~
+                {t.endOfNotes}
             </div>
         </div>
     );

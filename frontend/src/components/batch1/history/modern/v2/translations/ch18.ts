@@ -1,0 +1,152 @@
+// Chapter 18: GOI Act 1935 & WWII (1935-1940) — Hindi Translation
+
+export const ch18Translations = {
+    en: {
+        // Header
+        headerTitle: "The Blueprint",
+        architectureTitle: "Architecture of Swaraj",
+        actOf1935: "ACT OF 1935",
+        elections1937: "1937 ELECTIONS",
+        ministries: "MINISTRIES",
+
+        // GOI Act 1935
+        longestActTitle: "The Longest Act (1935)",
+        nehruQuote: "\"A machine with all brakes and no engine.\" - Nehru",
+        jinnahQuote: "\"Thoroughly rotten, fundamentally bad...\" - Jinnah",
+        federalPart: "Federal Part (Failed)",
+        federalDesc: "All India Federation proposed (Provinces + Princes).",
+        federalNote: "Never happened (Princes refused).",
+        provincialPart: "Provincial Part (Success)",
+        provincialDesc: "Autonomy: Dyarchy abolished. Provinces given independent power.",
+        federalCourtTitle: "Federal Court (1937)",
+        federalCourtDesc: "Established in Delhi. First CJ: Sir Maurice Gwyer.",
+        federalCourtNote: "Precursor to Supreme Court (1950).",
+
+        // Mandate 1937
+        mandateTitle: "The Mandate (1937)",
+        congressTitle: "CONGRESS",
+        congressSeats: "711",
+        congressWonDesc: "Seats Won (out of 1161)",
+        congressNote: "Formed Ministries in 8 Provinces. (Swept General Seats)",
+        leagueTitle: "LEAGUE",
+        leagueSeats: "109",
+        leagueWonDesc: "Seats Won (out of 482)",
+        leagueNote: "Failed in Muslim-majority provinces too! (Punjab -> Unionists, Bengal -> KPP)",
+        massContactTitle: "Failed Strategy: Muslim Mass Contact Programme",
+        massContactDesc: "Launched by Nehru (1937) to bypass League. Failed due to lack of activists.",
+        unionistParty: "Unionist Party (Sikandar Hayat Khan)",
+        krishakPraja: "Krishak Praja Party (Fazlul Haq)",
+        punjab: "Punjab",
+        bengal: "Bengal",
+
+        // Rule
+        monthsOfRuleTitle: "28 Months of Rule",
+        madrasPremier: "Madras Premier",
+        bombayPremier: "Bombay Premier",
+        unitedProvinces: "United Provinces",
+        biharPremier: "Bihar Premier",
+        reformsTitle: "Reforms & Achievements",
+        civilLiberties: "Civil Liberties: Released prisoners, Press restrictions removed.",
+        agrarian: "Agrarian: Tenancy Acts (Bihar, UP). (Faizpur Village Session influence).",
+        labor: "Labor: Trade Disputes Act (Bombay).",
+        educationTitle: "Education & Planning",
+        wardhaScheme: "Wardha Scheme (1937): Basic Education (Zakir Hussain Committee). Nai Talim.",
+        nationalPlanning: "National Planning Committee (1938): Set up by Bose (Prez), Chaired by Nehru.",
+        vidyaMandir: "Vidya Mandir Scheme: Central Provinces (R.S. Shukla).",
+        leagueAttackTitle: "The League's Attack",
+        pirpurReport: "Pirpur Committee Report (1938): Accused Congress of \"atrocities\". Exaggerated but effective for Pakistan propaganda.",
+
+        // Tripuri Crisis
+        tripuriCrisisTitle: "The Tripuri Crisis (1939)",
+        bose: "Bose",
+        boseVotes: "1580 Votes",
+        vs: "VS",
+        pattabhi: "Pattabhi",
+        pattabhiVotes: "1377 Votes",
+        gandhiQuotePattabhi: "\"Pattabhi's defeat is my defeat.\" - Gandhi",
+        outcomeTitle: "Outcome:",
+        outcomeDesc: "Working Comm. resigned. Bose resigned (April 1939). Formed Forward Bloc. Rajendra Prasad became President.",
+
+        // Resignation
+        resignationTitle: "The Resignation",
+        resignationDate: "October 22, 1939",
+        resignationCause: "Cause: Linlithgow declared India at war (WWII) without consulting ministries.",
+        resignationOffer: "Offer: \"Consultative Committee\".",
+        resignationGandhi: "Gandhi: \"Congress asked for bread and got a stone.\"",
+        deliveranceDay: "Dec 22, 1939: Jinnah celebrates \"Day of Deliverance\"",
+    },
+    hi: {
+        // Header
+        headerTitle: "ब्लूप्रिंट (नीली रूपरेखा)",
+        architectureTitle: "स्वराज की वास्तुकला",
+        actOf1935: "1935 का अधिनियम",
+        elections1937: "1937 के चुनाव",
+        ministries: "मंत्रिमंडल",
+
+        // GOI Act 1935
+        longestActTitle: "सबसे लंबा अधिनियम (1935)",
+        nehruQuote: "\"ऐसी कार जिसमें केवल ब्रेक हों और इंजन न हो।\" - नेहरू",
+        jinnahQuote: "\"पूरी तरह से सड़ा हुआ, मौलिक रूप से खराब...\" - जिन्ना",
+        federalPart: "संघीय हिस्सा (विफल)",
+        federalDesc: "अखिल भारतीय महासंघ का प्रस्ताव (प्रांत + रियासतें)।",
+        federalNote: "कभी नहीं हुआ (रियासतों ने मना कर दिया)।",
+        provincialPart: "प्रांतीय हिस्सा (सफल)",
+        provincialDesc: "स्वायत्तता: द्वैध शासन समाप्त। प्रांतों को स्वतंत्र अधिकार दिए गए।",
+        federalCourtTitle: "संघीय न्यायालय (1937)",
+        federalCourtDesc: "दिल्ली में स्थापित। प्रथम मुख्य न्यायाधीश: सर मॉरिस ग्वायर।",
+        federalCourtNote: "सुप्रीम कोर्ट (1950) का अग्रदूत।",
+
+        // Mandate 1937
+        mandateTitle: "जनादेश (1937)",
+        congressTitle: "कांग्रेस",
+        congressSeats: "711",
+        congressWonDesc: "जीती गई सीटें (1161 में से)",
+        congressNote: "8 प्रांतों में सरकार बनाई। (सामान्य सीटों पर जीत)",
+        leagueTitle: "लीग",
+        leagueSeats: "109",
+        leagueWonDesc: "जीती गई सीटें (482 में से)",
+        leagueNote: "मुस्लिम बहुल प्रांतों में भी विफल! (पंजाब -> यूनियनिस्ट, बंगाल -> KPP)",
+        massContactTitle: "विफल रणनीति: मुस्लिम जनसंपर्क कार्यक्रम",
+        massContactDesc: "नेहरू (1937) द्वारा लीग को दरकिनार करने के लिए शुरू किया गया। कार्यकर्ताओं की कमी के कारण विफल।",
+        unionistParty: "यूनियनिस्ट पार्टी (सिकंदर हयात खान)",
+        krishakPraja: "कृषक प्रजा पार्टी (फजलुल हक)",
+        punjab: "पंजाब",
+        bengal: "बंगाल",
+
+        // Rule
+        monthsOfRuleTitle: "शासन के 28 महीने",
+        madrasPremier: "मद्रास के प्रधानमंत्री",
+        bombayPremier: "बॉम्बे के प्रधानमंत्री",
+        unitedProvinces: "संयुक्त प्रांत",
+        biharPremier: "बिहार के प्रधानमंत्री",
+        reformsTitle: "सुधार और उपलब्धियां",
+        civilLiberties: "नागरिक स्वतंत्रताएं: कैदियों की रिहाई, प्रेस प्रतिबंध हटाए गए।",
+        agrarian: "कृषि: टेनेंसी एक्ट्स (बिहार, यूपी)। (फैजपुर ग्राम अधिवेशन का प्रभाव)।",
+        labor: "श्रम: ट्रेड डिस्प्यूट्स एक्ट (बॉम्बे)।",
+        educationTitle: "शिक्षा और योजना",
+        wardhaScheme: "वर्धा योजना (1937): बुनियादी शिक्षा (जाकिर हुसैन समिति)। नई तालीम।",
+        nationalPlanning: "राष्ट्रीय योजना समिति (1938): बोस (अध्यक्ष) द्वारा स्थापित, नेहरू की अध्यक्षता में।",
+        vidyaMandir: "विद्या मंदिर योजना: मध्य प्रांत (आर.एस. शुक्ल)।",
+        leagueAttackTitle: "लीग का हमला",
+        pirpurReport: "पीरपुर समिति रिपोर्ट (1938): कांग्रेस पर \"अत्याचारों\" का आरोप लगाया। पाकिस्तान प्रचार के लिए बढ़ा-चढ़ाकर पेश किया गया लेकिन प्रभावी रहा।",
+
+        // Tripuri Crisis
+        tripuriCrisisTitle: "त्रिपुरी संकट (1939)",
+        bose: "बोस",
+        boseVotes: "1580 वोट",
+        vs: "बनाम",
+        pattabhi: "पट्टाभी",
+        pattabhiVotes: "1377 वोट",
+        gandhiQuotePattabhi: "\"पट्टाभी की हार मेरी हार है।\" - गांधी",
+        outcomeTitle: "परिणाम:",
+        outcomeDesc: "कार्यकारिणी समिति ने इस्तीफा दे दिया। बोस ने इस्तीफा दे दिया (अप्रैल 1939)। फॉरवर्ड ब्लॉक का गठन किया। राजेंद्र प्रसाद अध्यक्ष बने।",
+
+        // Resignation
+        resignationTitle: "त्यागपत्र",
+        resignationDate: "22 अक्टूबर, 1939",
+        resignationCause: "कारण: लिनलिथगो ने मंत्रिमंडलों से परामर्श किए बिना भारत के युद्ध (WWII) में शामिल होने की घोषणा की।",
+        resignationOffer: "प्रस्ताव: \"परामर्शदात्री समिति\"।",
+        resignationGandhi: "गांधी: \"कांग्रेस ने रोटी मांगी और उसे पत्थर मिला।\"",
+        deliveranceDay: "22 दिसंबर, 1939: जिन्ना ने \"मुक्ति दिवस\" मनाया",
+    }
+};

@@ -2,8 +2,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguageStore } from '@/lib/language-store';
+import { ch36 } from './translations/ch36';
 
 export default function HandwrittenChapter36() {
+    const { language } = useLanguageStore();
+    const t = ch36[language as keyof typeof ch36] || ch36.en;
+
     return (
         <div className="min-h-screen bg-[#fdfbf7] p-4 md:p-8 font-['Kalam',_cursive] text-[#000080] selection:bg-yellow-200">
             <style jsx global>{`
@@ -41,55 +46,33 @@ export default function HandwrittenChapter36() {
 
             <div className="max-w-5xl mx-auto mb-16 relative pt-12">
                 <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-[#CC0000] mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase">
-                    Chapter 36
+                    {t.title}
                 </h1>
-                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline">Study Notes - Chapter 36</p>
+                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline">{t.subtitle}</p>
             </div>
 
-            
-            <section key={0} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">1. Foundations of Foreign Policy</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Anti-Imperialism & Anti-Colonialism:</span> India actively supported decolonization movements in Asia and Africa (e.g., Indonesia, Ghana).</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Asian Solidarity:</span> Even before independence, Nehru convened the <span className="font-bold highlight">Asian Relations Conference (March 1947)</span> in New Delhi to assert Asian unity.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">The Commonwealth:</span> India decided to remain in the Commonwealth, redefining it as an association of free and equal nations, a pragmatic move for economic and defense ties.</p></div>
-                </div>
-            </section>
-
-            <section key={1} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">2. The Policy of Non-Alignment (NAM)</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Context:</span> The world was divided into two hostile blocs led by the <span className="font-bold highlight">USA (Capitalist)</span> and <span className="font-bold highlight">USSR (Communist)</span>.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Core Principle:</span> Nehru refused to join either military alliance (NATO/SEATO or Warsaw Pact), choosing instead to judge international issues on their merit.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Panchsheel (1954):</span> The <span className="font-bold highlight">Five Principles of Peaceful Coexistence</span> were signed with China:</p></div>
-<p className="text-lg leading-relaxed">1.  Mutual respect for territorial integrity and sovereignty.</p>
-<p className="text-lg leading-relaxed">2.  Mutual non-aggression.</p>
-<p className="text-lg leading-relaxed">3.  Mutual non-interference in internal affairs.</p>
-<p className="text-lg leading-relaxed">4.  Equality and mutual benefit.</p>
-<p className="text-lg leading-relaxed">5.  Peaceful coexistence.</p>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">NAM Summit (1961):</span> Founded in Belgrade by <span className="font-bold highlight">Nehru, Tito (Yugoslavia), Nasser (Egypt), Sukarno (Indonesia), and Nkrumah (Ghana)</span> to champion peace and disarmament.</p></div>
-                </div>
-            </section>
-
-            <section key={2} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">3. Relations with Neighbors</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Pakistan:</span> Relations were strained from the start due to the <span className="font-bold highlight">Partition</span> carnage and the <span className="font-bold highlight">Kashmir conflict (1947-48)</span>. The <span className="font-bold highlight">Indus Waters Treaty (1960)</span>, mediated by the World Bank, was a rare success.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">China:</span> Initial friendship (*Hindi-Chini Bhai-Bhai*) soured over the <span className="font-bold highlight">Tibetan Uprising (1959)</span> (India gave asylum to the Dalai Lama) and border disputes. This culminated in the <span className="font-bold highlight">1962 China War</span>, a humiliating military defeat for India which exposed gaps in defense preparedness.</p></div>
-                </div>
-            </section>
-
-            <section key={3} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">4. Key Challenges</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p>The <span className="font-bold highlight">Cold War</span> pressure: Both superpowers tried to woo or coerce India.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Goa Liberation (1961):</span> When diplomacy failed, the Indian Army liberated Goa from Portuguese rule (Operation Vijay).</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p>By 1964, Nehru's foreign policy faced criticism for being too idealistic (*Panchsheel*) in a realist world, especially after the 1962 setback. However, <span className="font-bold highlight">Non-Alignment</span> established India's independent voice on the global stage.</p></div>
-                </div>
-            </section>
+            {t.sections.map((section, sIdx) => (
+                <section key={sIdx} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
+                    <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">{section.title}</h2>
+                    <div className="space-y-6">
+                        {section.content && (section.content as any[]).map((item: any, iIdx: number) => (
+                            <div key={iIdx} className="flex gap-2 items-start text-lg">
+                                <span className="text-[#CC0000] mt-1">•</span>
+                                <p>
+                                    {item.highlight && <span className="font-bold highlight">{item.highlight}</span>}
+                                    {item.text}
+                                </p>
+                            </div>
+                        ))}
+                        {(section as any).footer && (section as any).footer.map((f: string, fIdx: number) => (
+                            <p key={fIdx} className="text-lg leading-relaxed">{f}</p>
+                        ))}
+                    </div>
+                </section>
+            ))}
 
             <div className="text-center font-['Just_Another_Hand'] text-2xl opacity-40 mt-20 mb-10 italic">
-                ~ End of Handwritten Notes ~
+                {t.end}
             </div>
         </div>
     );

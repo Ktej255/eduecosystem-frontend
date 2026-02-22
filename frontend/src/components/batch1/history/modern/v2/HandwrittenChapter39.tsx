@@ -2,8 +2,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguageStore } from '@/lib/language-store';
+import { ch39 } from './translations/ch39';
 
 export default function HandwrittenChapter39() {
+    const { language } = useLanguageStore();
+    const t = ch39[language as keyof typeof ch39] || ch39.en;
+
     return (
         <div className="min-h-screen bg-[#fdfbf7] p-4 md:p-8 font-['Kalam',_cursive] text-[#000080] selection:bg-yellow-200">
             <style jsx global>{`
@@ -41,54 +46,33 @@ export default function HandwrittenChapter39() {
 
             <div className="max-w-5xl mx-auto mb-16 relative pt-12">
                 <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-[#CC0000] mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase">
-                    Chapter 39
+                    {t.title}
                 </h1>
-                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline">Study Notes - Chapter 39</p>
+                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline">{t.subtitle}</p>
             </div>
 
-            
-            <section key={0} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">1. After Nehru, Who?</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p>Upon Nehru's death in May 1964, Congress President <span className="font-bold highlight">K. Kamraj</span> engineered a consensus.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Lal Bahadur Shastri</span>, a man of great integrity and simplicity, became the second Prime Minister.</p></div>
-                </div>
-            </section>
-
-            <section key={1} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">2. Shastri's Tenure (1964-66)</h2>
-                <div className="space-y-6">
-                    <p className="text-lg leading-relaxed">Shastri faced two massive crises:</p>
-<p className="text-lg leading-relaxed">1.  **Food Shortage:** India faced a near-famine situation. Shastri promoted the **Green Revolution** (high-yield seeds) and the **White Revolution** (Amul/Dairy). He famously gave the slogan **&quot;Jai Jawan, Jai Kisan&quot;** to boost the morale of soldiers and farmers.</p>
-<p className="text-lg leading-relaxed">2.  **War with Pakistan (1965):**</p>
-<p className="text-lg leading-relaxed">- Pakistan launched **Operation Gibraltar** (infiltration in Kashmir) expecting a local uprising.</p>
-<p className="text-lg leading-relaxed">- Shastri ordered the Indian Army to open a new front across the international border towards **Lahore**.</p>
-<p className="text-lg leading-relaxed">- Key Battles: **Battle of Asal Uttar** (tank battle).</p>
-<p className="text-lg leading-relaxed">- Result: India defended its territory successfully.</p>
-                </div>
-            </section>
-
-            <section key={2} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">3. The Tashkent Declaration (1966)</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p>A peace treaty mediated by the <span className="font-bold highlight">USSR</span> in Tashkent (Uzbekistan).</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p>Signed by Shastri and Pak President <span className="font-bold highlight">Ayub Khan</span>.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p>Both sides agreed to withdraw to pre-war positions (India returned the strategic <span className="font-bold highlight">Haji Pir Pass</span>).</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p><span className="font-bold highlight">Tragedy:</span> Hours after signing, Shastri died of a heart attack in Tashkent on Jan 11, 1966.</p></div>
-                </div>
-            </section>
-
-            <section key={3} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">4. Second Succession</h2>
-                <div className="space-y-6">
-                    <div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p>After Shastri's death, there was a contest for leadership between <span className="font-bold highlight">Morarji Desai</span> and <span className="font-bold highlight">Indira Gandhi</span> (Nehru's daughter).</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p>The &quot;Syndicate&quot; (party bosses) backed Indira, thinking she would be pliable. She defeated Morarji to become the <span className="font-bold highlight">third Prime Minister</span> in 1966.</p></div>
-<div className="flex gap-2 items-start text-lg"><span className="text-[#CC0000] mt-1">•</span><p>This marked the beginning of a new, turbulent era in Indian politics leading up to the 1967 elections.</p></div>
-                </div>
-            </section>
+            {t.sections.map((section, sIdx) => (
+                <section key={sIdx} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
+                    <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">{section.title}</h2>
+                    <div className="space-y-6">
+                        {section.content && (section.content as any[]).map((item: any, iIdx: number) => (
+                            <div key={iIdx} className="flex gap-2 items-start text-lg">
+                                <span className="text-[#CC0000] mt-1">•</span>
+                                <p>
+                                    {item.highlight && <span className="font-bold highlight">{item.highlight}</span>}
+                                    {item.text}
+                                </p>
+                            </div>
+                        ))}
+                        {(section as any).footer && (section as any).footer.map((f: string, fIdx: number) => (
+                            <p key={fIdx} className="text-lg leading-relaxed">{f}</p>
+                        ))}
+                    </div>
+                </section>
+            ))}
 
             <div className="text-center font-['Just_Another_Hand'] text-2xl opacity-40 mt-20 mb-10 italic">
-                ~ End of Handwritten Notes ~
+                {t.end}
             </div>
         </div>
     );

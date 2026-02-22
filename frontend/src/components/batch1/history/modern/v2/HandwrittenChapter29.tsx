@@ -2,8 +2,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguageStore } from '@/lib/language-store';
+import { ch29Translations } from './translations/ch29';
 
 export default function HandwrittenChapter29() {
+    const { language } = useLanguageStore();
+    const t = language === 'hi' ? ch29Translations.hi : ch29Translations.en;
+
     return (
         <div className="min-h-screen bg-[#fdfbf7] p-4 md:p-8 font-['Kalam',_cursive] text-[#000080] selection:bg-yellow-200">
             <style jsx global>{`
@@ -39,115 +44,114 @@ export default function HandwrittenChapter29() {
                 }
             `}</style>
 
-            <div className="max-w-5xl mx-auto mb-16 relative pt-12">
-                <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-[#CC0000] mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase">
-                    Social and Religious Reform Movements: Specific
+            <div className="max-w-5xl mx-auto mb-16 relative pt-12 text-gray-900">
+                <h1 className="text-center text-4xl md:text-6xl font-['Permanent_Marker'] text-[#CC0000] mb-4 ink-blot-title relative inline-block left-1/2 -translate-x-1/2 uppercase leading-tight">
+                    {t.headerTitle}
                 </h1>
-                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline">Study Notes - Chapter 29</p>
+                <p className="text-center text-xl text-[#333] mb-12 font-bold opacity-70 italic underline uppercase">{t.studyNotesLabel}</p>
             </div>
 
-            
-            <section key={0} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Caste Movements</h2>
+            {/* CASTE MOVEMENTS */}
+            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative text-gray-900">
+                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2 uppercase">{t.casteMovementsTitle}</h2>
                 <div className="space-y-6">
-                    
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Satnami Movement (Chhattisgarh)</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>Founded by <span className="font-bold">Ghasidas</span>.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>Worked among the leather workers (Chamars) to improve their social status.</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.satnamiTitle}</h3>
+                        <ul className="space-y-2">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.satnamiDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.satnamiDesc2}</span></li>
+                        </ul>
+                    </div>
 
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Shri Narayana Dharma Paripalana Yogam (SNDP)</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>Founded by <span className="font-bold">Sri Narayana Guru</span> (Kerala, 1903) for the Ezhavas (toddy tappers).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Slogan</span>: &quot;One Caste, One Religion, One God for Mankind&quot;.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>Opened temples for lower castes (Aravippuram Movement).</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.sndpTitle}</h3>
+                        <ul className="space-y-2">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.sndpDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span className="font-bold underline text-red-900">{t.sndpSlogan}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.sndpDesc2}</span></li>
+                        </ul>
+                    </div>
 
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Justice Party (Madras)</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>Founded by <span className="font-bold">C.N. Mudaliar</span>, <span className="font-bold">T.M. Nair</span>, and <span className="font-bold">P. Tyagaraya Chetty</span> (1916).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>Represented non-Brahmins (intermediate castes) seeking government jobs and representation.</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.justicePartyTitle}</h3>
+                        <ul className="space-y-2">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.justicePartyDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.justicePartyDesc2}</span></li>
+                        </ul>
+                    </div>
 
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Self-Respect Movement (Tamil Nadu)</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>Founded by <span className="font-bold">E.V. Ramaswamy Naicker (Periyar)</span> (1925).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>Radical movement against Brahmin domination and the caste system.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>Advocated atheism, women's rights, and self-respect marriages (without Brahmin priests).</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.selfRespectTitle}</h3>
+                        <ul className="space-y-3">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.selfRespectDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.selfRespectDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.selfRespectDesc3}</span></li>
+                        </ul>
+                    </div>
 
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Mahad Satyagraha (Maharashtra)</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>Led by <span className="font-bold">Dr. B.R. Ambedkar</span> (1927).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>Asserted the right of Dalits to use water from the public tank at Mahad.</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>Ambedkar also burned the *Manusmriti* as a symbol of caste oppression.</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.mahadSatyagrahaTitle}</h3>
+                        <ul className="space-y-3">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.mahadSatyagrahaDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.mahadSatyagrahaDesc2}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.mahadSatyagrahaDesc3}</span></li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
-            <section key={1} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Women's Reform Movements</h2>
+            {/* WOMEN'S REFORM SECTION */}
+            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative text-gray-900">
+                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2 uppercase">{t.womenReformTitle}</h2>
                 <div className="space-y-6">
-                    
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Key Leaders</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Pandita Ramabai</span>: Founded the *Arya Mahila Samaj* and *Sharada Sadan* (for widows).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">Savitribai Phule</span>: Started the first school for girls in Pune (1848).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">D.K. Karve</span>: Founded the first Women's University in Bombay (SNDT) and the Widow Remarriage Association.</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.keyLeadersTitle}</h3>
+                        <ul className="space-y-3">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.panditaRamabai}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.savitribaiPhule}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.dkKarve}</span></li>
+                        </ul>
+                    </div>
 
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Organizations</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span><span className="font-bold">All India Women's Conference (AIWC)</span>: Founded in 1927 by Margaret Cousins. Promoted women's education and social welfare.</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.organizationsTitle}</h3>
+                        <ul className="space-y-2">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.aiwcDesc}</span></li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
-            <section key={2} className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative">
-                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2">Western India Reforms</h2>
+            {/* WESTERN INDIA SECTION */}
+            <section className="max-w-4xl mx-auto mb-12 handwritten-paper p-8 paper-border bg-white relative text-gray-900">
+                <h2 className="text-3xl font-bold font-['Permanent_Marker'] mb-6 text-[#000080] border-b-2 border-slate-100 pb-2 uppercase">{t.westernIndiaTitle}</h2>
                 <div className="space-y-6">
-                    
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Young Bombay Movement</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>Intellectual trend inspired by the Young Bengal Movement.</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.youngBombayTitle}</h3>
+                        <ul className="space-y-2">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.youngBombayDesc}</span></li>
+                        </ul>
+                    </div>
 
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Paramahansa Mandali</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>Founded by <span className="font-bold">Dadoba Pandurang</span> and others (1849).</span></li>
-<li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>A secret society that worked for the abolition of caste and idolatry.</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.paramahansaMandaliTitle}</h3>
+                        <ul className="space-y-2">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.paramahansaMandaliDesc1}</span></li>
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.paramahansaMandaliDesc2}</span></li>
+                        </ul>
+                    </div>
 
-                        <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-2">Gopal Hari Deshmukh ('Lokhitawadi')</h3>
-                            <ul className="space-y-2">
-                                <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>Advocated for rationalism and criticized blind adherence to tradition in his *Shatapatre*.</span></li>
-                            </ul>
-                        </div>
+                    <div className="bg-yellow-50/30 p-4 paper-border border shadow-sm">
+                        <h3 className="text-xl font-bold text-red-800 mb-2 uppercase tracking-tight">{t.lokhitawadiTitle}</h3>
+                        <ul className="space-y-2">
+                            <li className="flex gap-2 items-start"><span className="text-slate-400 mt-1">→</span><span>{t.lokhitawadiDesc}</span></li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
             <div className="text-center font-['Just_Another_Hand'] text-2xl opacity-40 mt-20 mb-10 italic">
-                ~ End of Handwritten Notes ~
+                {t.endOfNotes}
             </div>
         </div>
     );
