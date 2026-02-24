@@ -1,0 +1,293 @@
+export type SadhanaLevel = 'Preliminary' | 'Novice' | 'Intermediate' | 'Adept';
+export type StudentArchetype = 'Hopper' | 'Prisoner' | 'Discoverer';
+export type BhaktiTier = 'External' | 'Internal' | 'Universal';
+
+export interface SadhanaMantra {
+    id: string;
+    name: string;
+    text: string;
+    pronunciation?: string;
+    translation?: string;
+    viniyoga?: string;
+    nyasa?: string[];
+}
+
+export interface SadhanaPath {
+    id: string;
+    name: string;
+    description: string;
+    goal: string;
+    durationDays: number;
+    mandatoryPrerequisites: string[];
+    clothing: string;
+    direction: string[];
+    beads: string;
+    setup: string[];
+    rituals: {
+        level: SadhanaLevel;
+        mantraCount: number;
+        dailyRounds: number;
+    }[];
+}
+
+export interface SkillMetadata {
+    id: string;
+    name: string;
+    category: 'Evergreen' | 'Mid-term' | 'Immediate';
+    description: string;
+    maturityLogic: {
+        sapling: string;
+        tree: string;
+        orchard: string;
+    };
+}
+
+export interface SkillProgress {
+    skillId: string;
+    maturity: 'Sapling' | 'Tree' | 'Orchard';
+    points: number;
+    lastPracticed: string | null;
+}
+
+export interface SadhanaProgress {
+    activeSadhanaId: string | null;
+    currentCounts: Record<string, number>; // id -> count
+    sriSuktamPrepStreak: number;
+    lastSriSuktamActivity: string | null;
+    sankalpaResets: number;
+    archetype: StudentArchetype;
+    bhaktiTier: BhaktiTier;
+    skills: SkillProgress[];
+    journalEntries: number;
+    consistencyScore: number;
+}
+
+export const DEFAULT_SADHANA_PROGRESS: SadhanaProgress = {
+    activeSadhanaId: null,
+    currentCounts: {},
+    sriSuktamPrepStreak: 0,
+    lastSriSuktamActivity: null,
+    sankalpaResets: 0,
+    archetype: 'Hopper',
+    bhaktiTier: 'External',
+    skills: [],
+    journalEntries: 0,
+    consistencyScore: 0
+};
+
+export const CORE_SADHANAS: SadhanaPath[] = [
+    {
+        id: 'ganesha',
+        name: 'Ganesha Sadhana',
+        description: 'Mandatory preliminary practice to remove obstacles and align energy.',
+        goal: '1.25 Lakh chants',
+        durationDays: 30,
+        mandatoryPrerequisites: [],
+        clothing: 'Yellow',
+        direction: ['East', 'North'],
+        beads: 'Rudraksha or Sandalwood',
+        setup: ['Brass lamp', 'Ghee', 'Yellow cloth on blanket'],
+        rituals: [
+            { level: 'Preliminary', mantraCount: 125000, dailyRounds: 40 }
+        ]
+    },
+    {
+        id: 'guru',
+        name: 'Guru Sadhana',
+        description: 'Practice to awaken the inner guide and align with the lineage.',
+        goal: '1.25 Lakh chants',
+        durationDays: 30,
+        mandatoryPrerequisites: ['ganesha'],
+        clothing: 'White',
+        direction: ['North', 'NE'],
+        beads: 'Rudraksha or Sandalwood',
+        setup: ['Silver or Brass lamp', 'Ghee', 'White cloth on blanket'],
+        rituals: [
+            { level: 'Preliminary', mantraCount: 125000, dailyRounds: 40 }
+        ]
+    },
+    {
+        id: 'gayatri',
+        name: 'Gayatri Sadhana',
+        description: 'The supreme wisdom practice for mental clarity and spiritual light.',
+        goal: 'Tiered progression',
+        durationDays: 40,
+        mandatoryPrerequisites: ['ganesha'],
+        clothing: 'Red, Yellow, or White',
+        direction: ['East'],
+        beads: 'Rudraksha',
+        setup: ['Brass or Earthen lamp', 'Sesame or Ghee oil'],
+        rituals: [
+            { level: 'Novice', mantraCount: 125000, dailyRounds: 32 },
+            { level: 'Intermediate', mantraCount: 2400000, dailyRounds: 32 },
+            { level: 'Adept', mantraCount: 3200000, dailyRounds: 32 }
+        ]
+    },
+    {
+        id: 'sri-suktam',
+        name: 'Sri Suktam Sadhana',
+        description: 'Intensive discipline for prosperity and cosmic abundance.',
+        goal: '960-day prep + 16-night ritual',
+        durationDays: 16,
+        mandatoryPrerequisites: ['ganesha', '960-day-discipline'],
+        clothing: 'Red',
+        direction: ['East', 'North'],
+        beads: 'Rudraksha or Kamal Gatta',
+        setup: ['Any metal or earthen lamp', 'Red cloth on blanket'],
+        rituals: [
+            { level: 'Adept', mantraCount: 0, dailyRounds: 0 } // Logic handled by 16-night engine
+        ]
+    }
+];
+
+export const SKILLS_METADATA: SkillMetadata[] = [
+    // ===== EVERGREEN (1-12) — Lifelong Foundational Core =====
+    {
+        id: 'dharana', name: 'Dharana', category: 'Evergreen', description: 'Unwavering Concentration',
+        maturityLogic: { sapling: '30 days focus tracking', tree: '6 months low-drift sessions', orchard: 'Effortless one-pointedness' }
+    },
+    {
+        id: 'satya', name: 'Satya', category: 'Evergreen', description: 'Truthful Integrity',
+        maturityLogic: { sapling: 'Daily honesty journal', tree: 'Alignment across thought, word, deed', orchard: 'Involuntary truthfulness' }
+    },
+    {
+        id: 'ahimsa', name: 'Ahimsa', category: 'Evergreen', description: 'Non-Violent Conduct',
+        maturityLogic: { sapling: '30-day verbal awareness', tree: 'Mental harmlessness', orchard: 'Universal compassion embodied' }
+    },
+    {
+        id: 'bhakti', name: 'Bhakti', category: 'Evergreen', description: 'Devotional Surrender',
+        maturityLogic: { sapling: 'Daily prayer consistency', tree: 'Personal deity relationship', orchard: 'Spontaneous devotion' }
+    },
+    {
+        id: 'vairagya', name: 'Vairagya', category: 'Evergreen', description: 'Detachment',
+        maturityLogic: { sapling: 'Outcome awareness practice', tree: 'Equanimity in setbacks', orchard: 'Unruffled engagement' }
+    },
+    {
+        id: 'atma-bodha', name: 'Atma-Bodha', category: 'Evergreen', description: 'Self-Inquiry',
+        maturityLogic: { sapling: 'Weekly self-inquiry journal', tree: 'Identity beyond roles', orchard: 'Stable self-knowing' }
+    },
+    {
+        id: 'mauna', name: 'Mauna', category: 'Evergreen', description: 'The Power of Silence',
+        maturityLogic: { sapling: '1-hour daily silence', tree: 'Half-day silent practice', orchard: 'Verbal energy mastery' }
+    },
+    {
+        id: 'tapas', name: 'Tapas', category: 'Evergreen', description: 'Self-Discipline',
+        maturityLogic: { sapling: '30-day austerity streak', tree: 'Voluntary discomfort embraced', orchard: 'Ichha-shakti mastery' }
+    },
+    {
+        id: 'prana-vidya', name: 'Prana-Vidya', category: 'Evergreen', description: 'Breath Mastery',
+        maturityLogic: { sapling: 'Daily pranayama practice', tree: 'Nadi Shodhana mastery', orchard: 'Breath-mind integration' }
+    },
+    {
+        id: 'kshama', name: 'Kshama', category: 'Evergreen', description: 'Radical Forgiveness',
+        maturityLogic: { sapling: 'Forgiveness journaling', tree: 'Release of resentment', orchard: 'Emotional lightness' }
+    },
+    {
+        id: 'daya', name: 'Daya', category: 'Evergreen', description: 'Universal Compassion',
+        maturityLogic: { sapling: 'Daily acts of kindness', tree: 'Oneness realization', orchard: 'Seeing self in all beings' }
+    },
+    {
+        id: 'santosha', name: 'Santosha', category: 'Evergreen', description: 'Resilient Contentment',
+        maturityLogic: { sapling: 'Gratitude practice', tree: 'Joy independent of outcomes', orchard: 'Unshakeable equanimity' }
+    },
+
+    // ===== MID-TERM (13-24) — Strategic Growth (1-2 Years) =====
+    {
+        id: 'mantra-phonetics', name: 'Mantra Phonetics', category: 'Mid-term', description: 'Shabda Yoga — Precision in Sanskrit sounds',
+        maturityLogic: { sapling: 'Learn 5 vocal zones', tree: 'AI pronunciation score > 85%', orchard: 'Neuro-acoustic precision' }
+    },
+    {
+        id: 'ritual-design', name: 'Ritual Design', category: 'Mid-term', description: 'Yajnic Thinking — Structuring life as sacred offering',
+        maturityLogic: { sapling: 'Daily routine as ritual', tree: 'Full-day Yajna structure', orchard: 'Effortless sacred living' }
+    },
+    {
+        id: 'energy-anatomy', name: 'Energy Anatomy', category: 'Mid-term', description: 'Chakra Mastery',
+        maturityLogic: { sapling: 'Learn 7 chakra model', tree: 'Subtle body awareness', orchard: 'Energy center influence' }
+    },
+    {
+        id: 'circadian-synching', name: 'Circadian Synching', category: 'Mid-term', description: 'Dinacharya — Aligning with solar/lunar cycles',
+        maturityLogic: { sapling: 'Brahma Muhurta wake-up', tree: 'Full lunar alignment', orchard: 'Metabolic rhythm mastery' }
+    },
+    {
+        id: 'knowledge-graphing', name: 'Knowledge Graphing', category: 'Mid-term', description: 'Jnana Yoga — Connecting ancient and modern wisdom',
+        maturityLogic: { sapling: 'Cross-reference 10 topics', tree: 'Build personal knowledge graph', orchard: 'Integrated worldview' }
+    },
+    {
+        id: 'habit-architecture', name: 'Habit Architecture', category: 'Mid-term', description: 'Samskaras — Overwriting neural patterns',
+        maturityLogic: { sapling: 'Identify 3 old patterns', tree: 'Replace with divine associations', orchard: 'Conscious samskara mastery' }
+    },
+    {
+        id: 'memory-palaces', name: 'Memory Palaces', category: 'Mid-term', description: 'Mnemonics for scriptural retention',
+        maturityLogic: { sapling: 'Build first memory palace', tree: 'Retain 100+ verses', orchard: 'Instant recall on demand' }
+    },
+    {
+        id: 'emotional-intelligence', name: 'Emotional Intelligence', category: 'Mid-term', description: 'Rasa — Mastering the nine emotional tropes',
+        maturityLogic: { sapling: 'Name all 9 Navarasa', tree: 'Emotional self-regulation', orchard: 'Balanced stable living' }
+    },
+    {
+        id: 'dialectical-reasoning', name: 'Dialectical Reasoning', category: 'Mid-term', description: 'Nyaya — Logic and epistemology',
+        maturityLogic: { sapling: 'Study Nyaya basics', tree: 'Defend worldview logically', orchard: 'Epistemological mastery' }
+    },
+    {
+        id: 'community-stewardship', name: 'Community Stewardship', category: 'Mid-term', description: 'Satsang — Contributing to the Sangha',
+        maturityLogic: { sapling: 'Join a Satsang group', tree: 'Organize community events', orchard: 'Sangha leadership' }
+    },
+    {
+        id: 'sanskrit-literacy', name: 'Sanskrit Literacy', category: 'Mid-term', description: 'Bhasha — Reading primary source texts',
+        maturityLogic: { sapling: 'Learn Devanagari script', tree: 'Read basic shlokas', orchard: 'Read without translation' }
+    },
+    {
+        id: 'mentorship', name: 'Mentorship', category: 'Mid-term', description: 'Parampara — Receptive student, responsible guide',
+        maturityLogic: { sapling: 'Find a mentor/mentee', tree: 'Active teaching practice', orchard: 'Lineage transmission' }
+    },
+
+    // ===== IMMEDIATE (25-36) — Actionable Right Now =====
+    {
+        id: 'digital-mala', name: 'Digital Mala Proficiency', category: 'Immediate', description: 'Mastery across all 4 chanting modes',
+        maturityLogic: { sapling: 'Complete 1 round each mode', tree: 'Daily multi-mode practice', orchard: 'Seamless mode switching' }
+    },
+    {
+        id: 'schedule-rigor', name: 'Schedule Rigor', category: 'Immediate', description: '40-minute daily Sadhana slot execution',
+        maturityLogic: { sapling: '7-day streak', tree: '30-day streak', orchard: '90-day unbroken streak' }
+    },
+    {
+        id: 'archetype-detection', name: 'Archetype Detection', category: 'Immediate', description: 'Using AI to identify your current state',
+        maturityLogic: { sapling: 'First archetype scan', tree: 'Track archetype shifts over 30 days', orchard: 'Stable Discoverer archetype' }
+    },
+    {
+        id: 'sankalpa-management', name: 'Sankalpa Management', category: 'Immediate', description: 'Making, signing, and honoring commitments',
+        maturityLogic: { sapling: 'First Sankalpa signed', tree: 'Complete a 30-day vow', orchard: 'Zero resets in 90 days' }
+    },
+    {
+        id: 'mudra-precision', name: 'Mudra Precision', category: 'Immediate', description: 'Correct execution of 7 core mudras',
+        maturityLogic: { sapling: 'Learn 3 basic mudras', tree: 'Master all 7 core mudras', orchard: 'Pre/post-japa mudra flow' }
+    },
+    {
+        id: 'nyasa-body-mapping', name: 'Nyasa', category: 'Immediate', description: 'Body Mapping — Projecting matrika letters',
+        maturityLogic: { sapling: 'Learn head-to-toe sequence', tree: 'Perform with eyes closed', orchard: 'Automatic consecration' }
+    },
+    {
+        id: 'ritual-setup', name: 'Ritual Setup', category: 'Immediate', description: 'Patrasadana — 5-pot arrangement mastery',
+        maturityLogic: { sapling: 'Set up altar once', tree: 'Sub-2-minute setup', orchard: 'Intuitive sacred space' }
+    },
+    {
+        id: 'dietary-discipline', name: 'Dietary Discipline', category: 'Immediate', description: 'Sattvic Input — Havishya-anna and rock-salt diet',
+        maturityLogic: { sapling: '3-day sattvic trial', tree: '30-day dietary shift', orchard: 'Effortless sattvic lifestyle' }
+    },
+    {
+        id: 'portal-navigation', name: 'Portal Navigation', category: 'Immediate', description: 'Switching between Sadhana and Academic modes',
+        maturityLogic: { sapling: 'Use both portals in 1 day', tree: 'Seamless context switching', orchard: 'Integrated study-ritual flow' }
+    },
+    {
+        id: 'visualization-dhyana', name: 'Visualization', category: 'Immediate', description: 'Dhyana — Stable mental imagery during Japa',
+        maturityLogic: { sapling: '1-minute stable image', tree: '5-minute sustained visualization', orchard: 'Spontaneous deity appearance' }
+    },
+    {
+        id: 'journal-practice', name: 'Journal Practice', category: 'Immediate', description: 'Documenting inner experiences and insights',
+        maturityLogic: { sapling: 'First 7 entries', tree: '30-day daily journal', orchard: 'Automatic self-reflection habit' }
+    },
+    {
+        id: 'ai-agent-collab', name: 'AI Agent Collaboration', category: 'Immediate', description: 'Interacting with Antigravity for real-time guidance',
+        maturityLogic: { sapling: 'First AI guidance session', tree: 'Weekly AI check-ins', orchard: 'AI-integrated ritual flow' }
+    },
+];

@@ -100,6 +100,47 @@ export const CURRENT_AFFAIRS_DATA: CurrentAffairItem[] = [
         tags: ['Space', 'ISRO', 'Solar Mission'],
         chapter: 8 // Space Technology
     },
+    // CHAPTER 1: Sources for the History of Modern India
+    {
+        id: '95',
+        title: 'Central Vista Project & National Archives Digitisation',
+        description: 'The National Archives of India (NAI) is undergoing massive digitisation under the Central Vista project. NAI is an attached office under the Ministry of Culture, preserving crucial records like the "Home Political" series.',
+        subject: 'History',
+        date: '2024-02-15',
+        month: 'February',
+        tags: ['NAI', 'Central Vista', 'Archives'],
+        chapter: 1
+    },
+    {
+        id: '96',
+        title: 'Renaming of NMML to Prime Ministers’ Museum and Library (PMML)',
+        description: 'The Nehru Memorial Museum and Library (NMML) has been renamed to the Prime Ministers’ Museum and Library (PMML) Society, housing papers of eminent INC leaders and non-official archives.',
+        subject: 'History',
+        date: '2023-08-14',
+        month: 'August',
+        tags: ['PMML', 'NMML', 'Archives'],
+        chapter: 1
+    },
+    {
+        id: '97',
+        title: 'Digitisation of Pre-Independence Judicial Records',
+        description: 'The Supreme Court of India is leading a push to digitise pre-independence judicial records, including those from the Mayor’s Courts and the Supreme Court of Bengal.',
+        subject: 'History',
+        date: '2024-01-20',
+        month: 'January',
+        tags: ['Judicial Archives', 'Supreme Court', 'Digitisation'],
+        chapter: 1
+    },
+    {
+        id: '98',
+        title: 'Centenary of the 1920s Reforms Office Records',
+        description: 'The Reforms Office records (1920–1937) at the National Archives are gaining renewed researcher interest as major 1920s historical events reach their centenaries.',
+        subject: 'History',
+        date: '2024-03-01',
+        month: 'March',
+        tags: ['Reforms Office', 'Constitutional History', 'Centenary'],
+        chapter: 1
+    },
     // CHAPTER 4: Expansion & Consolidation
     {
         "id": '9',

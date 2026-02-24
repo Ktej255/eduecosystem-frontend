@@ -5,6 +5,8 @@
  * Uses localStorage for persistence across sessions and page refreshes.
  */
 
+import { SadhanaProgress, DEFAULT_SADHANA_PROGRESS } from '../components/batch2/sadhana/data/sadhana-data';
+
 // Storage keys
 const STORAGE_KEYS = {
     LEARNING_PROGRESS: 'edueco_learning_progress',
@@ -100,6 +102,7 @@ export interface LearningProgress {
     solvedQuestions?: string[]; // ["hist-mod-001", "hist-anc-005"]
     subjectMastery: SubjectMastery;
     studyHabits: StudyHabits;
+    sadhana: SadhanaProgress;
 }
 
 export interface SubjectMastery {
@@ -310,6 +313,7 @@ const DEFAULT_PROGRESS: LearningProgress = {
         totalStudyTime: 0,
     },
     solvedQuestions: [],
+    sadhana: DEFAULT_SADHANA_PROGRESS,
 };
 
 // ... existing code ...
