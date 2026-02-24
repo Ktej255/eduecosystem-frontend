@@ -155,21 +155,20 @@ export default function Batch2Page() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                    <UpanishadProgressSequence />
-                </>
+                            <UpanishadProgressSequence />
+                        </>
                     )}
 
-                {activeTab === "mission" && (
-                    <SelfStudyMissions />
-                )}
+                    {activeTab === "mission" && (
+                        <SelfStudyMissions />
+                    )}
 
-                {activeTab === "summary" && (
-                    <BatchSummary />
-                )}
-            </motion.div>
-        </div>
+                    {activeTab === "summary" && (
+                        <BatchSummary />
+                    )}
+                </motion.div>
+            </div>
         </div >
     );
 }
