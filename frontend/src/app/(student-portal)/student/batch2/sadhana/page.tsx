@@ -2,11 +2,11 @@
 
 import dynamic from 'next/dynamic';
 
-const SadhanaDashboard = dynamic(
-    () => import('@/components/batch2/sadhana/SadhanaDashboard'),
+const SadhanaJourneyView = dynamic(
+    () => import('@/components/batch2/sadhana/SadhanaJourneyView'),
     { ssr: false }
 );
 
 export default function SadhanaPage() {
-    return <SadhanaDashboard />;
+    return <SadhanaJourneyView />;
 }

@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Flame, CheckCircle2, Circle, ArrowRight, ArrowLeft, Wind, Droplets, Sparkles, BookOpen } from 'lucide-react';
 
 interface YajnaStep {
     id: number;
@@ -57,142 +59,208 @@ const YAJNA_STEPS: YajnaStep[] = [
     { id: 36, phase: 'Closing', name: 'Prasad', instruction: 'Consume consecrated food. Share with family.', duration: '5 min' },
 ];
 
-const PHASE_COLORS: Record<string, string> = {
-    'Purification': 'border-sky-500/50 bg-sky-500/5',
-    'Invocation': 'border-amber-500/50 bg-amber-500/5',
-    'Core Practice': 'border-red-500/50 bg-red-500/5',
-    'Closing': 'border-emerald-500/50 bg-emerald-500/5',
+const PHASE_COLORS: Record<string, { bg: string, text: string, border: string, iconColor: string }> = {
+    'Purification': { bg: 'bg-sky-50', text: 'text-sky-900', border: 'border-sky-200', iconColor: 'text-sky-500' },
+    'Invocation': { bg: 'bg-amber-50', text: 'text-amber-900', border: 'border-amber-200', iconColor: 'text-amber-500' },
+    'Core Practice': { bg: 'bg-rose-50', text: 'text-rose-900', border: 'border-rose-200', iconColor: 'text-rose-500' },
+    'Closing': { bg: 'bg-emerald-50', text: 'text-emerald-900', border: 'border-emerald-200', iconColor: 'text-emerald-500' },
 };
 
-const PHASE_TEXT_COLORS: Record<string, string> = {
-    'Purification': 'text-sky-400',
-    'Invocation': 'text-amber-400',
-    'Core Practice': 'text-red-400',
-    'Closing': 'text-emerald-400',
+const PHASE_ICONS: Record<string, React.FC<any>> = {
+    'Purification': Droplets,
+    'Invocation': Wind,
+    'Core Practice': Flame,
+    'Closing': Sparkles,
 };
 
-const YajnaRitualEngine: React.FC = () => {
-    const [currentStep, setCurrentStep] = useState(0);
+export default function YajnaRitualEngine() {
+    const [currentStepIndex, setCurrentStepIndex] = useState(0);
     const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());
 
-    const step = YAJNA_STEPS[currentStep];
-    const phaseSteps = YAJNA_STEPS.filter(s => s.phase === step.phase);
-    const progressPercent = ((currentStep + 1) / YAJNA_STEPS.length) * 100;
+    const step = YAJNA_STEPS[currentStepIndex];
+    const progressPercent = ((completedSteps.size) / YAJNA_STEPS.length) * 100;
+    const isCompleted = completedSteps.has(step.id);
+    const PhaseIcon = PHASE_ICONS[step.phase];
+    const colors = PHASE_COLORS[step.phase];
 
     const markComplete = () => {
-        setCompletedSteps(prev => new Set([...prev, currentStep]));
-        if (currentStep < YAJNA_STEPS.length - 1) {
-            setCurrentStep(currentStep + 1);
+        setCompletedSteps(prev => new Set([...prev, step.id]));
+        if (currentStepIndex < YAJNA_STEPS.length - 1) {
+            setTimeout(() => setCurrentStepIndex(currentStepIndex + 1), 300);
         }
     };
 
-    const goToStep = (idx: number) => setCurrentStep(idx);
+    const goToPrev = () => setCurrentStepIndex(Math.max(0, currentStepIndex - 1));
 
     return (
-        <div className="bg-slate-950 text-white p-6 rounded-3xl border border-slate-800 max-w-lg mx-auto">
-            {/* Header */}
-            <div className="text-center mb-4">
-                <h2 className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-amber-500">
-                    Yajna Ritual Engine
-                </h2>
-                <p className="text-[11px] text-slate-500 mt-1">36-Step Purushcharana Procedure</p>
-            </div>
-
-            {/* Global Progress Bar */}
-            <div className="mb-6">
-                <div className="flex justify-between text-[10px] text-slate-500 mb-1 font-mono">
-                    <span>Step {currentStep + 1} of {YAJNA_STEPS.length}</span>
-                    <span>{Math.round(progressPercent)}%</span>
+        <div className="max-w-4xl mx-auto py-8">
+            <div className="text-center mb-10">
+                <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-amber-200 shadow-sm">
+                    <Flame className="w-8 h-8 text-amber-600" />
                 </div>
-                <div className="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden">
-                    <div
-                        className="h-full bg-gradient-to-r from-amber-500 to-red-500 transition-all duration-500"
-                        style={{ width: `${progressPercent}%` }}
-                    />
+                <h1 className="text-4xl font-serif font-bold text-amber-950 mb-3">Yajna Wizard</h1>
+                <p className="text-amber-800/80 max-w-xl mx-auto text-lg leading-relaxed mb-6">
+                    The 36-Step Purushcharana Engine. Follow this interactive guide to perfectly execute a formal invocation.
+                </p>
+
+                {/* Progress Bar */}
+                <div className="max-w-xl mx-auto">
+                    <div className="flex justify-between text-xs font-bold uppercase tracking-wider text-amber-800/60 mb-2">
+                        <span>Purity & Focus</span>
+                        <span>{Math.round(progressPercent)}%</span>
+                    </div>
+                    <div className="w-full h-2 bg-amber-100 rounded-full overflow-hidden border border-amber-200/50">
+                        <div
+                            className="h-full bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-700 ease-out"
+                            style={{ width: `${progressPercent}%` }}
+                        />
+                    </div>
                 </div>
             </div>
 
-            {/* Phase Indicator */}
-            <div className="flex gap-1 mb-6">
-                {['Purification', 'Invocation', 'Core Practice', 'Closing'].map(phase => (
-                    <div
-                        key={phase}
-                        className={`flex-1 py-1.5 text-[9px] font-bold uppercase text-center rounded-lg transition-all ${step.phase === phase
-                                ? `${PHASE_COLORS[phase]} border ${PHASE_TEXT_COLORS[phase]}`
-                                : 'bg-slate-900/50 text-slate-700'
-                            }`}
-                    >
-                        {phase}
-                    </div>
-                ))}
-            </div>
+            <div className="grid lg:grid-cols-12 gap-8 items-start relative max-w-5xl mx-auto">
 
-            {/* Current Step Card */}
-            <div className={`p-6 rounded-2xl border ${PHASE_COLORS[step.phase]} mb-4`}>
-                <div className="flex justify-between items-start mb-3">
-                    <div>
-                        <span className={`text-[10px] font-bold uppercase ${PHASE_TEXT_COLORS[step.phase]}`}>
-                            Step {step.id}
-                        </span>
-                        <h3 className="text-xl font-bold text-white mt-1">{step.name}</h3>
+                {/* Left Sidebar: Phases Map */}
+                <div className="hidden lg:block lg:col-span-4 sticky top-8">
+                    <div className="bg-card rounded-3xl p-6 border border-amber-200 shadow-sm">
+                        <h3 className="font-serif font-bold text-amber-950 text-xl mb-6">Ritual Phases</h3>
+                        <div className="space-y-4">
+                            {['Purification', 'Invocation', 'Core Practice', 'Closing'].map((phaseName, idx) => {
+                                const Icon = PHASE_ICONS[phaseName];
+                                const isActive = step.phase === phaseName;
+                                const phaseSteps = YAJNA_STEPS.filter(s => s.phase === phaseName);
+                                const phaseCompletedSteps = phaseSteps.filter(s => completedSteps.has(s.id)).length;
+                                const isPhaseComplete = phaseCompletedSteps === phaseSteps.length;
+
+                                return (
+                                    <div key={phaseName} className={`flex items-start gap-4 p-3 rounded-2xl transition-all ${isActive ? 'bg-amber-50 border border-amber-200 shadow-sm' : 'opacity-60'}`}>
+                                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${isActive ? 'bg-amber-200' : 'bg-stone-100'}`}>
+                                            <Icon className={`w-5 h-5 ${isActive ? 'text-amber-700' : 'text-stone-400'}`} />
+                                        </div>
+                                        <div className="flex-1">
+                                            <div className="flex items-center justify-between">
+                                                <h4 className={`font-bold ${isActive ? 'text-amber-950' : 'text-stone-700'}`}>{phaseName}</h4>
+                                                {isPhaseComplete && <CheckCircle2 className="w-4 h-4 text-emerald-500" />}
+                                            </div>
+                                            <div className="w-full bg-stone-200 h-1.5 rounded-full mt-2 overflow-hidden">
+                                                <div
+                                                    className={`h-full ${isPhaseComplete ? 'bg-emerald-400' : 'bg-amber-400'}`}
+                                                    style={{ width: `${(phaseCompletedSteps / phaseSteps.length) * 100}%` }}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </div>
                     </div>
-                    {step.duration && (
-                        <span className="text-[10px] bg-slate-800 px-2 py-1 rounded-lg text-slate-400 font-mono">
-                            ⏱ {step.duration}
-                        </span>
-                    )}
                 </div>
 
-                <p className="text-sm text-slate-300 leading-relaxed">{step.instruction}</p>
+                {/* Right Area: Interactive Step Card */}
+                <div className="lg:col-span-8">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={step.id}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.3 }}
+                            className={`rounded-[2rem] p-8 md:p-12 border-2 shadow-sm relative overflow-hidden ${colors.bg} ${colors.border}`}
+                        >
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-white/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
 
-                {step.mantra && (
-                    <div className="mt-4 p-3 bg-slate-900/50 rounded-xl border border-slate-800">
-                        <div className="text-[10px] text-slate-500 uppercase mb-1">Mantra</div>
-                        <p className="text-amber-200 font-serif text-lg">{step.mantra}</p>
+                            <div className="relative z-10">
+                                <div className="flex items-center gap-3 mb-6">
+                                    <div className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest ${colors.text} bg-white/50 backdrop-blur-sm border ${colors.border}`}>
+                                        Step {step.id} of 36
+                                    </div>
+                                    {step.duration && (
+                                        <div className="flex items-center gap-1.5 text-xs font-bold text-stone-500 bg-white/50 px-3 py-1.5 rounded-full border border-white/60">
+                                            ⏱ {step.duration}
+                                        </div>
+                                    )}
+                                </div>
+
+                                <h2 className={`text-3xl md:text-4xl font-serif font-bold mb-6 ${colors.text}`}>
+                                    {step.name}
+                                </h2>
+
+                                <div className="space-y-6 mb-10">
+                                    <div className="flex gap-4 items-start">
+                                        <div className={`mt-1 bg-white p-2 rounded-xl shadow-sm border ${colors.border}`}>
+                                            <BookOpen className={`w-5 h-5 ${colors.iconColor}`} />
+                                        </div>
+                                        <p className="text-lg text-stone-700 leading-relaxed font-medium">
+                                            {step.instruction}
+                                        </p>
+                                    </div>
+
+                                    {step.mantra && (
+                                        <div className="bg-white/60 backdrop-blur border border-white p-6 rounded-2xl shadow-sm">
+                                            <div className="text-[10px] uppercase tracking-widest font-bold text-amber-800/50 mb-2">Mantra</div>
+                                            <p className="text-2xl font-serif text-amber-900 leading-relaxed">{step.mantra}</p>
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Controls */}
+                                <div className="flex items-center gap-4 pt-8 border-t border-black/5">
+                                    <button
+                                        onClick={goToPrev}
+                                        disabled={currentStepIndex === 0}
+                                        className="p-4 rounded-2xl bg-white border border-black/5 text-stone-500 disabled:opacity-30 hover:bg-stone-50 transition-colors shadow-sm"
+                                    >
+                                        <ArrowLeft className="w-5 h-5" />
+                                    </button>
+
+                                    <button
+                                        onClick={markComplete}
+                                        className={`flex-1 flex items-center justify-center gap-3 p-4 rounded-2xl font-bold transition-all shadow-sm ${isCompleted
+                                                ? 'bg-white border-2 border-emerald-400 text-emerald-600'
+                                                : `bg-white border-2 border-transparent text-stone-800 hover:border-${colors.border.split('-')[1]}-300 hover:shadow-md`
+                                            }`}
+                                    >
+                                        {isCompleted ? (
+                                            <>
+                                                <CheckCircle2 className="w-5 h-5" />
+                                                <span>Completed. Continue.</span>
+                                                <ArrowRight className="w-5 h-5" />
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Circle className="w-5 h-5" />
+                                                <span>Mark as Performed</span>
+                                            </>
+                                        )}
+                                    </button>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+
+                    {/* Desktop Step Map Map */}
+                    <div className="mt-8 bg-card border border-amber-200 rounded-3xl p-6 overflow-x-auto shadow-sm hide-scrollbar">
+                        <div className="flex gap-2 w-max mx-auto px-4">
+                            {YAJNA_STEPS.map((s, idx) => (
+                                <button
+                                    key={s.id}
+                                    onClick={() => setCurrentStepIndex(idx)}
+                                    title={s.name}
+                                    className={`w-8 h-8 rounded-xl text-xs font-bold font-mono transition-all flex items-center justify-center shrink-0 ${idx === currentStepIndex
+                                            ? 'bg-amber-600 text-white shadow-md scale-110'
+                                            : completedSteps.has(s.id)
+                                                ? 'bg-emerald-100 text-emerald-700 border border-emerald-200'
+                                                : 'bg-stone-100 text-stone-400 hover:bg-stone-200'
+                                        }`}
+                                >
+                                    {s.id}
+                                </button>
+                            ))}
+                        </div>
                     </div>
-                )}
-            </div>
 
-            {/* Navigation */}
-            <div className="flex gap-3">
-                <button
-                    onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
-                    disabled={currentStep === 0}
-                    className="flex-1 py-3 rounded-xl bg-slate-900 text-slate-400 text-sm font-semibold disabled:opacity-30 hover:bg-slate-800 transition-colors"
-                >
-                    ← Previous
-                </button>
-                <button
-                    onClick={markComplete}
-                    className={`flex-2 py-3 px-8 rounded-xl text-sm font-bold transition-all ${completedSteps.has(currentStep)
-                            ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
-                            : 'bg-gradient-to-r from-amber-500 to-red-500 text-white hover:shadow-[0_0_20px_rgba(245,158,11,0.3)]'
-                        }`}
-                >
-                    {completedSteps.has(currentStep) ? '✓ Done' : currentStep === YAJNA_STEPS.length - 1 ? 'Complete 🙏' : 'Next Step →'}
-                </button>
-            </div>
-
-            {/* Step Overview (mini-map) */}
-            <div className="mt-6 flex flex-wrap gap-1 justify-center">
-                {YAJNA_STEPS.map((s, i) => (
-                    <button
-                        key={i}
-                        onClick={() => goToStep(i)}
-                        title={s.name}
-                        className={`w-4 h-4 rounded-sm text-[7px] font-mono flex items-center justify-center transition-all ${i === currentStep
-                                ? 'bg-amber-500 text-black font-bold scale-125'
-                                : completedSteps.has(i)
-                                    ? 'bg-emerald-500/30 text-emerald-400'
-                                    : 'bg-slate-900 text-slate-600 hover:bg-slate-800'
-                            }`}
-                    >
-                        {i + 1}
-                    </button>
-                ))}
+                </div>
             </div>
         </div>
     );
-};
-
-export default YajnaRitualEngine;
+}
