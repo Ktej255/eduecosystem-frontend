@@ -14,49 +14,49 @@ interface YajnaStep {
 }
 
 const YAJNA_STEPS: YajnaStep[] = [
-    // Purification (1-6)
-    { id: 1, phase: 'Purification', name: 'Bathe & Prepare', instruction: 'Take a purifying bath. Wear clean clothes appropriate for your Sadhana.', duration: '5 min' },
-    { id: 2, phase: 'Purification', name: 'Enter Sacred Space', instruction: 'Face your designated direction. Lay your seat (Asana) and arrange the 5 ritual pots (Patrasadana).', duration: '2 min' },
-    { id: 3, phase: 'Purification', name: 'Achamana', instruction: 'Take 3 sips of purified water from the Achamana pot. Recite the names of Vishnu.', mantra: 'ॐ केशवाय नमः, ॐ नारायणाय नमः, ॐ माधवाय नमः', duration: '1 min' },
-    { id: 4, phase: 'Purification', name: 'Sankalpa', instruction: 'State your vow aloud. Be specific: deity, mantra count, duration, and purpose.', duration: '2 min' },
-    { id: 5, phase: 'Purification', name: 'Pranayama', instruction: 'Perform 3 rounds of Nadi Shodhana (alternate nostril breathing) to calm the mind.', duration: '3 min' },
-    { id: 6, phase: 'Purification', name: 'Light the Lamp', instruction: 'Light the brass/earthen lamp with ghee. Place it to your left side.', duration: '1 min' },
+    // Phase 1 — Purification (Steps 1-6)
+    { id: 1, phase: 'Purification', name: 'Snana (Bathe)', instruction: 'Take a purifying bath. Chant your main mantra while bathing to consecrate the body.', duration: '5 min' },
+    { id: 2, phase: 'Purification', name: 'Vastra (Fresh Clothes)', instruction: 'Wear clean clothes appropriate for your Sadhana. Red (Devi), White/Yellow (Devata), White (neutral).', duration: '1 min' },
+    { id: 3, phase: 'Purification', name: 'Enter Sanctum (Astra)', instruction: 'Enter your sacred space. Chant the Astra mantra for protection. Lay your seat (Asana).', mantra: 'ॐ अस्त्राय फट्', duration: '1 min' },
+    { id: 4, phase: 'Purification', name: 'Prokshana (Sprinkle)', instruction: 'Sprinkle purified water around the space to consecrate the ground.', duration: '30 sec' },
+    { id: 5, phase: 'Purification', name: 'Achamana', instruction: 'Take 3 sips of purified water from the Achamana pot. Wash hands (Prakshalana).', mantra: 'ॐ केशवाय स्वाहा, ॐ नारायणाय स्वाहा, ॐ माधवाय स्वाहा', duration: '1 min' },
+    { id: 6, phase: 'Purification', name: 'Deepa Prajvalana (Light Lamp)', instruction: 'Light the brass/earthen lamp with ghee or sesame oil. Cotton wick. Place to your left.', duration: '1 min' },
 
-    // Invocation (7-22)
-    { id: 7, phase: 'Invocation', name: 'Invoke Ganesha', instruction: 'Chant the Ganapati mantra to remove obstacles from the practice.', mantra: 'ॐ गणानां त्वा गणपतिं...', duration: '1 min' },
-    { id: 8, phase: 'Invocation', name: 'Guru Vandana', instruction: 'Bow to the lineage of gurus. Visualize your guru\'s face and seek blessings.', duration: '1 min' },
-    { id: 9, phase: 'Invocation', name: 'Avahana (Invite)', instruction: 'Invoke presence of the deity using the Avahana mudra. Visualize them arriving.', duration: '1 min' },
-    { id: 10, phase: 'Invocation', name: 'Sthapana (Establish)', instruction: 'Establish the deity\'s presence in your space using the Sthapana mudra.', duration: '30 sec' },
-    { id: 11, phase: 'Invocation', name: 'Sannidhana (Nearness)', instruction: 'Feel the deity come closer. Use the Sannidhana mudra.', duration: '30 sec' },
-    { id: 12, phase: 'Invocation', name: 'Sambodhana (Awareness)', instruction: 'Awaken the deity\'s awareness towards you. Sambodhana mudra.', duration: '30 sec' },
-    { id: 13, phase: 'Invocation', name: 'Sammukhikaran (Face)', instruction: 'Turn the deity to face you directly. Sammukhikaran mudra.', duration: '30 sec' },
-    { id: 14, phase: 'Invocation', name: 'Sakalikaran (Whole)', instruction: 'Make the deity\'s presence complete and whole. Sakalikaran mudra.', duration: '30 sec' },
-    { id: 15, phase: 'Invocation', name: 'Avagunthana (Protect)', instruction: 'Create a protective shell around the sacred space. Avagunthana mudra.', duration: '30 sec' },
-    { id: 16, phase: 'Invocation', name: 'Amartikaran (Immortalize)', instruction: 'Fix the deity\'s presence permanently for the session. Amartikaran mudra.', duration: '30 sec' },
-    { id: 17, phase: 'Invocation', name: 'Paramikaran (Supreme)', instruction: 'Elevate the deity\'s presence to its supreme form. Paramikaran mudra.', duration: '30 sec' },
-    { id: 18, phase: 'Invocation', name: 'Nyasa (Body Map)', instruction: 'Touch each body part while placing the Matrika letters, consecrating the body.', duration: '3 min' },
-    { id: 19, phase: 'Invocation', name: 'Dhyana (Meditate)', instruction: 'Meditate on the deity\'s form as described in the Dhyana Shloka.', duration: '3 min' },
-    { id: 20, phase: 'Invocation', name: 'Offer Arghya', instruction: 'Offer fragrant water from the Arghya pot.', duration: '30 sec' },
-    { id: 21, phase: 'Invocation', name: 'Offer Padyam', instruction: 'Offer washing water from the Padyam pot.', duration: '30 sec' },
-    { id: 22, phase: 'Invocation', name: 'Offer Tarpana', instruction: 'Pour libations from the Tarpana pot.', duration: '30 sec' },
+    // Phase 2 — Invocation (Steps 7-22)
+    { id: 7, phase: 'Invocation', name: 'Ganesha Dhyana', instruction: 'Meditate on Lord Ganesha. Visualize his form to remove all obstacles from practice.', mantra: 'ॐ गणानां त्वा गणपतिं हवामहे...', duration: '1 min' },
+    { id: 8, phase: 'Invocation', name: '3 Ganesha Mudras', instruction: 'Perform the three hand-gestures dedicated to Ganapati to invoke his blessings.', duration: '30 sec' },
+    { id: 9, phase: 'Invocation', name: 'Svastivachana', instruction: 'Recite auspicious benediction. Seek blessings for an obstacle-free practice.', mantra: 'ॐ स्वस्ति न इन्द्रो वृद्धश्रवाः...', duration: '1 min' },
+    { id: 10, phase: 'Invocation', name: 'Guru Dhyana', instruction: 'Bow to the lineage of gurus. Visualize your guru\'s face at the crown chakra.', mantra: 'गुरुर्ब्रह्मा गुरुर्विष्णुः गुरुर्देवो महेश्वरः', duration: '1 min' },
+    { id: 11, phase: 'Invocation', name: 'Guru Mantra Japa', instruction: 'Chant the Guru mantra 11, 21, or 108 times as per your capacity.', duration: '3-5 min' },
+    { id: 12, phase: 'Invocation', name: 'Siddha Pranam', instruction: 'Pay obeisance to the Siddha saints of the tradition. Mental prostration.', duration: '30 sec' },
+    { id: 13, phase: 'Invocation', name: 'Ishta Dhyana', instruction: 'Meditate on your chosen deity (Ishta Devata). Visualize their form vividly.', duration: '2 min' },
+    { id: 14, phase: 'Invocation', name: 'Ishta Mantra Japa', instruction: 'Chant your Ishta mantra 11, 21, or 31 times as a preliminary offering.', duration: '2 min' },
+    { id: 15, phase: 'Invocation', name: 'Prithvi Pooja', instruction: 'Draw a triangle on the ground with sandalwood paste. Place a flower in the center.', duration: '1 min' },
+    { id: 16, phase: 'Invocation', name: 'Sankalpa (Day 1 Only)', instruction: 'State your vow aloud: deity name, mantra, total count, duration, and goal. Made only on Day 1; breaking it means restart.', duration: '2 min' },
+    { id: 17, phase: 'Invocation', name: 'Mantra Pranayama', instruction: 'Perform 3 rounds of breathing with mantra: Inhale (Puraka) → Hold (Kumbhaka) → Exhale (Rechaka).', duration: '2 min' },
+    { id: 18, phase: 'Invocation', name: 'Viniyoga (Application)', instruction: 'State the application: "This mantra\'s Rishi is ___, Chanda is ___, Devata is ___, Bija is ___, Shakti is ___, Kilaka is ___."', duration: '1 min' },
+    { id: 19, phase: 'Invocation', name: 'Kara Shuddhi (Hand Purification)', instruction: 'Purify the hands by touching each finger while chanting the Bija syllables.', duration: '1 min' },
+    { id: 20, phase: 'Invocation', name: 'Nyasa (Body Consecration)', instruction: 'Touch each body part while placing the 50 Matrika letters. Sequence: Rishi Nyasa → Kara Nyasa → Anga Nyasa.', duration: '3 min' },
+    { id: 21, phase: 'Invocation', name: 'Preliminary Japa (16×)', instruction: 'Chant your main mantra 16 times as a warm-up to attune the mind.', duration: '1 min' },
+    { id: 22, phase: 'Invocation', name: 'Preliminary Mudras', instruction: 'Perform the set of preliminary mudras specific to your Sadhana (e.g. 24 Gayatri mudras).', duration: '2 min' },
 
-    // Core Practice (23-27)
-    { id: 23, phase: 'Core Practice', name: '🔥 Main Japa', instruction: 'BEGIN YOUR MANTRA CHANTING. Focus singularly on the deity and the sound vibration.', duration: '20-40 min' },
-    { id: 24, phase: 'Core Practice', name: 'Post-Japa Mudras', instruction: 'Perform the 8 post-japa mudras to seal the energy generated.', duration: '2 min' },
-    { id: 25, phase: 'Core Practice', name: 'Ajapa Japa', instruction: 'Sit in silence. Let the mantra chant itself internally.', duration: '3-5 min' },
-    { id: 26, phase: 'Core Practice', name: 'Offerings (Upchara)', instruction: 'Present flowers, incense, and light to the deity.', duration: '2 min' },
-    { id: 27, phase: 'Core Practice', name: 'Aarti', instruction: 'Perform the lamp circular offering.', duration: '2 min' },
+    // Phase 3 — Core Practice (Steps 23-27)
+    { id: 23, phase: 'Core Practice', name: 'Shodashopchara (Offerings)', instruction: 'Present the 16 (or 10 or 5) formal offerings to the deity: seat, arghya, padya, achamana, bath, clothes, ornaments, perfume, flowers, incense, lamp, food, betel, eulogy, namaskara, circumambulation.', duration: '5 min' },
+    { id: 24, phase: 'Core Practice', name: 'Mantra Samskara', instruction: 'If first day: perform the 10 Samskaras to infuse life in the mantra (Janana through Apyayana).', duration: '5 min' },
+    { id: 25, phase: 'Core Practice', name: 'Mantra Dhyana', instruction: 'Visualize the mantra\'s form. See each syllable as a living, luminous energy.', duration: '2 min' },
+    { id: 26, phase: 'Core Practice', name: '🔥 Moola Mantra Japa', instruction: 'BEGIN YOUR MAIN CHANTING. Focus singularly on the deity and the sound vibration. This is the heart of the practice.', duration: '20-60 min' },
+    { id: 27, phase: 'Core Practice', name: 'Post-Japa Mudras', instruction: 'Perform Anjali mudra + Nirvana mudra to seal the energy generated during japa.', duration: '2 min' },
 
-    // Closing (28-36)
-    { id: 28, phase: 'Closing', name: 'Samarpana (Offer)', instruction: 'Mentally surrender all fruits of the practice to the Divine. "I claim nothing."', duration: '1 min' },
-    { id: 29, phase: 'Closing', name: 'Kshama Prarthana', instruction: 'Ask forgiveness for any errors committed during the practice.', mantra: 'मन्त्रहीनं क्रियाहीनं...', duration: '1 min' },
-    { id: 30, phase: 'Closing', name: 'Fire Offering (Ahuti)', instruction: 'If performing Yajna: light the Kunda fire. Offer ghee with each "Svaha".', mantra: 'स्वाहा', duration: '10-15 min' },
-    { id: 31, phase: 'Closing', name: 'Tarpana (10%)', instruction: 'Offer water libations equal to 10% of your Japa count.', duration: '5 min' },
-    { id: 32, phase: 'Closing', name: 'Marjana (1%)', instruction: 'Sprinkle sanctified water for purification — 1% of Japa count.', duration: '2 min' },
-    { id: 33, phase: 'Closing', name: 'Brahmana Bhojana', instruction: 'Feed or donate to worthy recipients. Acts of charity after practice.', duration: 'Variable' },
-    { id: 34, phase: 'Closing', name: 'Surya Arghya', instruction: 'Offer water to the Sun if performing morning practice.', duration: '1 min' },
-    { id: 35, phase: 'Closing', name: 'Visarjana', instruction: 'Release the deity presence with gratitude. "Please return to your abode."', duration: '1 min' },
-    { id: 36, phase: 'Closing', name: 'Prasad', instruction: 'Consume consecrated food. Share with family.', duration: '5 min' },
+    // Phase 4 — Closing (Steps 28-36)
+    { id: 28, phase: 'Closing', name: 'Japa Samarpana', instruction: 'Offer the fruits of japa to the deity. Left hand = feminine deity, right = masculine. Place beads at deity\'s feet.', duration: '1 min' },
+    { id: 29, phase: 'Closing', name: 'Visarjana (Release)', instruction: 'Release the deity\'s invoked presence with gratitude. "Please return to your abode."', duration: '1 min' },
+    { id: 30, phase: 'Closing', name: 'Kshama Prarthana (Forgiveness)', instruction: 'Ask forgiveness for any errors — in mantra, gesture, thought, or omission.', mantra: 'मन्त्रहीनं क्रियाहीनं भक्तिहीनं सुरेश्वर।\nयत्पूजितं मया देव परिपूर्णं तदस्तु मे॥', duration: '1 min' },
+    { id: 31, phase: 'Closing', name: '🔥 Yajna (Fire Offering)', instruction: 'Light the Havan Kunda. Offer ghee-soaked samagri with each "Svaha". Count = 10% of Japa.', mantra: 'स्वाहा', duration: '10-15 min' },
+    { id: 32, phase: 'Closing', name: 'Tarpana (Libations)', instruction: 'Pour water libations. Count = 10% of Yajna (= 1% of Japa). Satisfy devas, rishis, and pitrs.', duration: '5 min' },
+    { id: 33, phase: 'Closing', name: 'Marjana (Coronation)', instruction: 'Sprinkle sanctified water for abhishekam. Count = 10% of Tarpana (= 0.1% of Japa).', duration: '2 min' },
+    { id: 34, phase: 'Closing', name: 'Brahmana Bhojana (Charity)', instruction: 'Feed or donate to worthy recipients. Count = 10% of Marjana. Acts of selfless giving.', duration: 'Variable' },
+    { id: 35, phase: 'Closing', name: 'Kshama Prarthana II', instruction: 'A second round of asking forgiveness. Bow in humility. Express gratitude.', duration: '1 min' },
+    { id: 36, phase: 'Closing', name: 'Surya Arghya', instruction: 'Offer water to the Sun if performing morning practice. Face East, pour water through fingers.', duration: '1 min' },
 ];
 
 const PHASE_COLORS: Record<string, { bg: string, text: string, border: string, iconColor: string }> = {
@@ -71,6 +71,68 @@ const PHASE_ICONS: Record<string, React.FC<any>> = {
     'Invocation': Wind,
     'Core Practice': Flame,
     'Closing': Sparkles,
+};
+
+const InteractiveHavanKund = () => {
+    const [flare, setFlare] = useState(false);
+    const [ahutis, setAhutis] = useState(0);
+
+    const handleOffer = () => {
+        setFlare(true);
+        setAhutis(a => a + 1);
+        if (typeof navigator !== 'undefined' && 'vibrate' in navigator) navigator.vibrate(20);
+        setTimeout(() => setFlare(false), 500);
+    };
+
+    return (
+        <div className="relative w-full h-80 flex flex-col items-center justify-center my-8 bg-amber-950/5 rounded-3xl border border-amber-900/10 shadow-inner">
+            {/* The Fire Pit SVG */}
+            <div className="relative w-56 h-56 cursor-pointer group" onClick={handleOffer}>
+                <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-2xl">
+                    {/* Outer bricks - Isometric */}
+                    <polygon points="10,50 50,30 90,50 50,70" fill="#a44810" stroke="#71320b" strokeWidth="1" />
+                    <polygon points="10,50 50,70 50,90 10,70" fill="#71320b" stroke="#522408" strokeWidth="1" />
+                    <polygon points="90,50 50,70 50,90 90,70" fill="#8c3d0d" stroke="#522408" strokeWidth="1" />
+
+                    {/* Inner pit */}
+                    <polygon points="20,50 50,35 80,50 50,65" fill="#2d1000" />
+                </svg>
+
+                {/* Fire Animation */}
+                <motion.div
+                    className="absolute inset-0 flex items-center justify-center mt-[-3rem] pointer-events-none"
+                    animate={flare ? { scale: 1.5, y: -15 } : { scale: [1, 1.05, 1], y: [0, -3, 0] }}
+                    transition={flare ? { duration: 0.4 } : { duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                    <Flame className="w-32 h-32 text-orange-500 fill-orange-500 opacity-90 drop-shadow-[0_0_25px_rgba(245,158,11,0.8)]" />
+                    <Flame className="w-20 h-20 text-amber-300 fill-amber-300 absolute mt-6 blur-md opacity-80" />
+                    <Flame className="w-12 h-12 text-white fill-white absolute mt-12 blur-sm opacity-60" />
+                </motion.div>
+
+                {/* Offering Drop Animation */}
+                <AnimatePresence>
+                    {flare && (
+                        <motion.div
+                            initial={{ opacity: 1, y: -60, scale: 1 }}
+                            animate={{ opacity: 0, y: 10, scale: 0.5 }}
+                            exit={{ opacity: 0 }}
+                            className="absolute inset-0 flex items-center justify-center mt-[-4rem] pointer-events-none"
+                        >
+                            <Droplets className="w-8 h-8 text-amber-200 fill-amber-300 drop-shadow-md" />
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
+
+            <button
+                onClick={handleOffer}
+                className="mt-6 px-8 py-4 bg-gradient-to-b from-orange-400 to-orange-600 text-white rounded-2xl font-bold font-serif text-lg tracking-wide shadow-[0_10px_20px_rgba(234,88,12,0.3)] hover:shadow-[0_15px_25px_rgba(234,88,12,0.4)] hover:-translate-y-1 transition-all active:scale-95 flex items-center gap-3 border border-orange-300"
+            >
+                Offer Ahuti (स्वाहा)
+                <span className="bg-orange-800/40 px-3 py-1 rounded-lg text-amber-100 text-sm">{ahutis}</span>
+            </button>
+        </div>
+    );
 };
 
 export default function YajnaRitualEngine() {
@@ -195,6 +257,8 @@ export default function YajnaRitualEngine() {
                                         </p>
                                     </div>
 
+                                    {step.id === 30 && <InteractiveHavanKund />}
+
                                     {step.mantra && (
                                         <div className="bg-white/60 backdrop-blur border border-white p-6 rounded-2xl shadow-sm">
                                             <div className="text-[10px] uppercase tracking-widest font-bold text-amber-800/50 mb-2">Mantra</div>
@@ -216,8 +280,8 @@ export default function YajnaRitualEngine() {
                                     <button
                                         onClick={markComplete}
                                         className={`flex-1 flex items-center justify-center gap-3 p-4 rounded-2xl font-bold transition-all shadow-sm ${isCompleted
-                                                ? 'bg-white border-2 border-emerald-400 text-emerald-600'
-                                                : `bg-white border-2 border-transparent text-stone-800 hover:border-${colors.border.split('-')[1]}-300 hover:shadow-md`
+                                            ? 'bg-white border-2 border-emerald-400 text-emerald-600'
+                                            : `bg-white border-2 border-transparent text-stone-800 hover:border-${colors.border.split('-')[1]}-300 hover:shadow-md`
                                             }`}
                                     >
                                         {isCompleted ? (
@@ -247,10 +311,10 @@ export default function YajnaRitualEngine() {
                                     onClick={() => setCurrentStepIndex(idx)}
                                     title={s.name}
                                     className={`w-8 h-8 rounded-xl text-xs font-bold font-mono transition-all flex items-center justify-center shrink-0 ${idx === currentStepIndex
-                                            ? 'bg-amber-600 text-white shadow-md scale-110'
-                                            : completedSteps.has(s.id)
-                                                ? 'bg-emerald-100 text-emerald-700 border border-emerald-200'
-                                                : 'bg-stone-100 text-stone-400 hover:bg-stone-200'
+                                        ? 'bg-amber-600 text-white shadow-md scale-110'
+                                        : completedSteps.has(s.id)
+                                            ? 'bg-emerald-100 text-emerald-700 border border-emerald-200'
+                                            : 'bg-stone-100 text-stone-400 hover:bg-stone-200'
                                         }`}
                                 >
                                     {s.id}

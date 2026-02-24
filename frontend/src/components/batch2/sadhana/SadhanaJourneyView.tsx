@@ -1,16 +1,81 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles, BookOpen, Star, Lock, ArrowRight, Flame, Calculator, Fingerprint, Activity } from "lucide-react";
+import { Sparkles, BookOpen, Star, Lock, ArrowRight, Flame, Calculator, Fingerprint, Activity, Hand, Compass, Clock, Shield, Play, Droplets } from "lucide-react";
 import Link from "next/link";
 import { useSadhanaProgress } from "./hooks/useSadhanaProgress";
 
-const FOUNDATION_CHAPTERS = [
-    { id: 1, title: "The Origin of Mantras", desc: "Shiva's Mahatandava and the 70 million sounds.", duration: "10 mins", unlocked: true },
-    { id: 2, title: "Mantra Sadhana", desc: "Inheriting sonic energy from previous masters.", duration: "15 mins", unlocked: true },
-    { id: 3, title: "Do Mantras Work?", desc: "The author's 45th sadhana account.", duration: "12 mins", unlocked: true },
-    { id: 4, title: "Devotion and Faith", desc: "The 16 Critical Factors for Siddhi.", duration: "20 mins", unlocked: false },
-    { id: 5, title: "Initiation", desc: "The 4 Pillars of Sadhana & Types of Gurus.", duration: "18 mins", unlocked: false },
+interface ChapterEntry {
+    id: number;
+    title: string;
+    desc: string;
+    duration: string;
+    unlocked: boolean;
+}
+
+interface JourneyPhase {
+    name: string;
+    subtitle: string;
+    chapters: ChapterEntry[];
+}
+
+const JOURNEY_PHASES: JourneyPhase[] = [
+    {
+        name: "Phase 1: The Foundation",
+        subtitle: "Understanding before practice begins.",
+        chapters: [
+            { id: 1, title: "The Origin of Mantras", desc: "Shiva's Mahatandava and the 70 million sounds.", duration: "10 min", unlocked: true },
+            { id: 2, title: "Mantra Sadhana", desc: "Inheriting sonic energy from previous masters.", duration: "15 min", unlocked: true },
+            { id: 3, title: "Do Mantras Work?", desc: "The author's 45th sadhana account.", duration: "12 min", unlocked: true },
+            { id: 4, title: "Devotion and Faith", desc: "The 16 Critical Factors for Siddhi.", duration: "20 min", unlocked: true },
+            { id: 5, title: "Initiation", desc: "The 4 Pillars & Types of Gurus.", duration: "18 min", unlocked: true },
+            { id: 6, title: "Tenets of Discipleship", desc: "10 guidelines and the story of Totakacharya.", duration: "12 min", unlocked: true },
+            { id: 7, title: "Daily Duties of an Adept", desc: "9 daily steps, 10 Dos, 10 Don'ts.", duration: "15 min", unlocked: true },
+            { id: 8, title: "Six Limbs of a Mantra", desc: "Shadanga — the 6 structural components.", duration: "10 min", unlocked: true },
+            { id: 9, title: "Selecting the Right Mantra", desc: "Kula-Akula Chakra element matching.", duration: "15 min", unlocked: true },
+            { id: 10, title: "Exceptions", desc: "10 categories exempted from strict rules.", duration: "10 min", unlocked: true },
+            { id: 11, title: "Flaws in Mantras", desc: "50 important flaws, 6 most common.", duration: "18 min", unlocked: true },
+            { id: 12, title: "Correcting Flaws", desc: "The 5-step purification process.", duration: "12 min", unlocked: true },
+            { id: 13, title: "Infusing Life in a Mantra", desc: "The 10 Samskaras of consecration.", duration: "20 min", unlocked: true },
+            { id: 14, title: "How to Chant Your Mantra", desc: "4 types of Japa: Vachika to Ajapa.", duration: "15 min", unlocked: true },
+            { id: 15, title: "Hurdles in Invocation", desc: "Fear, impatience, and how to overcome.", duration: "12 min", unlocked: true },
+        ]
+    },
+    {
+        name: "Phase 2: The Practices",
+        subtitle: "Mastering the rituals of invocation.",
+        chapters: [
+            { id: 16, title: "Invoking the Deity", desc: "9-step pre-japa invocation flow.", duration: "20 min", unlocked: false },
+            { id: 17, title: "Nyasa", desc: "Body consecration with 50 Sanskrit letters.", duration: "18 min", unlocked: false },
+            { id: 18, title: "Hand Locks (Mudras)", desc: "7 core mudras and finger-element map.", duration: "15 min", unlocked: false },
+            { id: 19, title: "Purushcharana", desc: "The complete 36-step sadhana engine.", duration: "30 min", unlocked: false },
+        ]
+    },
+    {
+        name: "Phase 3: The Sadhanas",
+        subtitle: "Individual deity-specific practices.",
+        chapters: [
+            { id: 20, title: "Ganesha Sadhana", desc: "1.25L chants, obstacle removal.", duration: "15 min", unlocked: false },
+            { id: 21, title: "Guru Sadhana", desc: "Inner guide awakening, 30-day practice.", duration: "15 min", unlocked: false },
+            { id: 22, title: "Gayatri Sadhana", desc: "3-tier wisdom practice (40 days to 36 months).", duration: "20 min", unlocked: false },
+            { id: 23, title: "Sri Suktam Sadhana", desc: "960-day discipline + 16-night ritual.", duration: "25 min", unlocked: false },
+            { id: 24, title: "Rites of Atonement", desc: "Prayashchitta — 11 methods of expiation.", duration: "12 min", unlocked: false },
+            { id: 25, title: "How to Make Fire Offerings", desc: "Complete Yajna procedure and Kunda setup.", duration: "20 min", unlocked: false },
+        ]
+    },
+    {
+        name: "Phase 4: Detailed Notes",
+        subtitle: "Reference appendices and compatibility science.",
+        chapters: [
+            { id: 26, title: "Types of Mantras", desc: "Classifications and their applications.", duration: "10 min", unlocked: false },
+            { id: 27, title: "Flaws in a Mantra (Detailed)", desc: "44 additional flaws with remedies.", duration: "15 min", unlocked: false },
+            { id: 28, title: "16 Samskaras of Sanatana Dharma", desc: "Life-cycle ceremonies from birth to death.", duration: "18 min", unlocked: false },
+            { id: 29, title: "16 Aspects of Mantra Sadhana", desc: "Critical factors for successful practice.", duration: "15 min", unlocked: false },
+            { id: 30, title: "Vedic Meters (Chanda)", desc: "Poetic structures governing mantra rhythm.", duration: "12 min", unlocked: false },
+            { id: 31, title: "Arrangement of Pots", desc: "Patrasadana — the 5-vessel system.", duration: "8 min", unlocked: false },
+            { id: 32, title: "Mantra Compatibility", desc: "Zodiac & Creditor-Debtor algorithms.", duration: "15 min", unlocked: false },
+        ]
+    }
 ];
 
 const SADHANA_TOOLS = [
@@ -38,6 +103,51 @@ const SADHANA_TOOLS = [
         desc: "Interactive 36-step Purushcharana engine.",
         icon: Flame,
         href: "/student/batch2/sadhana/tools/yajna",
+        color: "bg-orange-100 text-orange-700 border-orange-200",
+        iconBg: "bg-orange-500",
+    },
+    {
+        id: "mudras",
+        title: "Mudra Guide",
+        desc: "Interactive 7-mudra reference with finger-element mapping.",
+        icon: Hand,
+        href: "/student/batch2/sadhana/tools/mudras",
+        color: "bg-violet-100 text-violet-700 border-violet-200",
+        iconBg: "bg-violet-500",
+    },
+    {
+        id: "dinacharya",
+        title: "Dinacharya",
+        desc: "Daily routine tracker — 9 steps, 10 Dos, 10 Don'ts.",
+        icon: Clock,
+        href: "/student/batch2/sadhana/tools/dinacharya",
+        color: "bg-cyan-100 text-cyan-700 border-cyan-200",
+        iconBg: "bg-cyan-500",
+    },
+    {
+        id: "session",
+        title: "Session Timer",
+        desc: "Guided ritual timer with phase flow and streak heatmap.",
+        icon: Play,
+        href: "/student/batch2/sadhana/tools/session",
+        color: "bg-amber-100 text-amber-700 border-amber-200",
+        iconBg: "bg-amber-500",
+    },
+    {
+        id: "patrasadana",
+        title: "Patrasadana",
+        desc: "Interactive 5-pot sacred arrangement guide.",
+        icon: Droplets,
+        href: "/student/batch2/sadhana/tools/patrasadana",
+        color: "bg-teal-100 text-teal-700 border-teal-200",
+        iconBg: "bg-teal-500",
+    },
+    {
+        id: "sankalpa",
+        title: "Sankalpa Vow",
+        desc: "Sacred commitment ceremony with atonement flow.",
+        icon: Shield,
+        href: "/student/batch2/sadhana/sankalpa",
         color: "bg-orange-100 text-orange-700 border-orange-200",
         iconBg: "bg-orange-500",
     },
@@ -90,46 +200,59 @@ export default function SadhanaJourneyView() {
 
                     {/* Left Column: The Narrative Journey */}
                     <div className="lg:col-span-7 xl:col-span-8 space-y-8">
-                        <div className="bg-card rounded-2xl p-6 sm:p-8 shadow-sm border border-amber-100">
-                            <div className="mb-8">
-                                <h2 className="text-2xl font-serif font-bold text-amber-950 flex items-center gap-3">
-                                    <BookOpen className="w-6 h-6 text-amber-600" />
-                                    Phase 1: The Foundation
-                                </h2>
-                                <p className="text-amber-700/80 mt-2">
-                                    Aspirants must build understanding before any practice begins.
-                                </p>
-                            </div>
+                        {JOURNEY_PHASES.map((phase, phaseIdx) => (
+                            <div key={phase.name} className="bg-card rounded-2xl p-6 sm:p-8 shadow-sm border border-amber-100">
+                                <div className="mb-8">
+                                    <h2 className="text-2xl font-serif font-bold text-amber-950 flex items-center gap-3">
+                                        <BookOpen className="w-6 h-6 text-amber-600" />
+                                        {phase.name}
+                                    </h2>
+                                    <p className="text-amber-700/80 mt-2">
+                                        {phase.subtitle}
+                                    </p>
+                                </div>
 
-                            <div className="space-y-4 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-amber-200 before:to-transparent">
-                                {FOUNDATION_CHAPTERS.map((chapter, index) => (
-                                    <motion.div
-                                        key={chapter.id}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: index * 0.1 }}
-                                        className={`relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active`}
-                                    >
-                                        <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#FDF8F0] bg-amber-100 text-amber-600 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 transition-colors">
-                                            {chapter.unlocked ? (
-                                                <span className="font-bold text-sm">{chapter.id}</span>
-                                            ) : (
-                                                <Lock className="w-4 h-4 text-amber-400" />
-                                            )}
-                                        </div>
-
-                                        <div className={`w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border ${chapter.unlocked ? 'bg-white border-amber-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all cursor-pointer' : 'bg-stone-50 border-stone-100 opacity-60'}`}>
-                                            <div className="flex items-center justify-between mb-1">
-                                                <span className={`text-xs font-bold uppercase tracking-wider ${chapter.unlocked ? 'text-amber-600' : 'text-stone-400'}`}>Chapter {chapter.id}</span>
-                                                <span className="text-xs font-medium text-stone-500">{chapter.duration}</span>
+                                <div className="space-y-4 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-amber-200 before:to-transparent">
+                                    {phase.chapters.map((chapter, index) => (
+                                        <motion.div
+                                            key={chapter.id}
+                                            initial={{ opacity: 0, x: -20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: index * 0.05 }}
+                                            className={`relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active`}
+                                        >
+                                            <div className={`flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#FDF8F0] shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 transition-colors ${chapter.unlocked ? 'bg-amber-100 text-amber-600' : 'bg-stone-100 text-stone-400'}`}>
+                                                {chapter.unlocked ? (
+                                                    <span className="font-bold text-sm">{chapter.id}</span>
+                                                ) : (
+                                                    <Lock className="w-4 h-4" />
+                                                )}
                                             </div>
-                                            <h3 className={`font-bold text-lg mb-1 leading-tight ${chapter.unlocked ? 'text-amber-950' : 'text-stone-700'}`}>{chapter.title}</h3>
-                                            <p className="text-stone-600 text-sm leading-relaxed">{chapter.desc}</p>
-                                        </div>
-                                    </motion.div>
-                                ))}
+
+                                            {chapter.unlocked ? (
+                                                <Link href={`/student/batch2/sadhana/step/${chapter.id}`} className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border bg-white border-amber-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all cursor-pointer block">
+                                                    <div className="flex items-center justify-between mb-1">
+                                                        <span className="text-xs font-bold uppercase tracking-wider text-amber-600">Step {chapter.id}</span>
+                                                        <span className="text-xs font-medium text-stone-500">{chapter.duration}</span>
+                                                    </div>
+                                                    <h3 className="font-bold text-lg mb-1 leading-tight text-amber-950">{chapter.title}</h3>
+                                                    <p className="text-stone-600 text-sm leading-relaxed">{chapter.desc}</p>
+                                                </Link>
+                                            ) : (
+                                                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border bg-stone-50 border-stone-100 opacity-60">
+                                                    <div className="flex items-center justify-between mb-1">
+                                                        <span className="text-xs font-bold uppercase tracking-wider text-stone-400">Step {chapter.id}</span>
+                                                        <span className="text-xs font-medium text-stone-500">{chapter.duration}</span>
+                                                    </div>
+                                                    <h3 className="font-bold text-lg mb-1 leading-tight text-stone-700">{chapter.title}</h3>
+                                                    <p className="text-stone-600 text-sm leading-relaxed">{chapter.desc}</p>
+                                                </div>
+                                            )}
+                                        </motion.div>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
+                        ))}
                     </div>
 
                     {/* Right Column: Portal of Sadhanas (Functional Tools) */}

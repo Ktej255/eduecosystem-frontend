@@ -80,50 +80,55 @@ const LotusVisualizer: React.FC<LotusVisualizerProps> = ({ skills }) => {
 
                     <circle cx="125" cy="125" r="12" className="fill-amber-950 stroke-amber-700" strokeWidth="1" />
 
-                    {rings.map((ring, ringIdx) => (
-                        <g key={ring.name}>
-                            {[...Array(12)].map((_, petalIdx) => {
-                                const angle = petalIdx * 30 + (ringIdx * 15);
-                                const skillId = `${ring.name.toLowerCase()}-${petalIdx}`;
-                                const skillProgress = skills.find(s => s.skillId === skillId);
-                                const isSelected = selectedSkillId === skillId;
+                    {rings.map((ring, ringIdx) => {
+                        // Get the actual skills for this ring's category
+                        const ringSkills = SKILLS_METADATA.filter(s => s.category === ring.name);
 
-                                let opacity = "0.15";
-                                let strokeWidth = "1";
-                                let filter = "";
-                                let strokeColor = "currentColor";
+                        return (
+                            <g key={ring.name}>
+                                {ringSkills.map((skill, petalIdx) => {
+                                    const angle = petalIdx * (360 / ringSkills.length) + (ringIdx * 15);
+                                    const skillId = skill.id;
+                                    const skillProgress = skills.find(s => s.skillId === skillId);
+                                    const isSelected = selectedSkillId === skillId;
 
-                                if (skillProgress?.maturity === 'Sapling') opacity = "0.4";
-                                if (skillProgress?.maturity === 'Tree') opacity = "0.7";
-                                if (skillProgress?.maturity === 'Orchard') {
-                                    opacity = "1";
-                                    filter = `url(#glow-${ring.classObj.glow})`;
-                                    strokeWidth = "1.5";
-                                }
+                                    let opacity = "0.15";
+                                    let strokeWidth = "1";
+                                    let filter = "";
+                                    let strokeColor = "currentColor";
 
-                                if (isSelected) {
-                                    strokeWidth = "2.5";
-                                    filter = `url(#glow-${ring.classObj.glow})`;
-                                    strokeColor = "#ffffff";
-                                    opacity = "1";
-                                }
+                                    if (skillProgress?.maturity === 'Sapling') opacity = "0.4";
+                                    if (skillProgress?.maturity === 'Tree') opacity = "0.7";
+                                    if (skillProgress?.maturity === 'Orchard') {
+                                        opacity = "1";
+                                        filter = `url(#glow-${ring.classObj.glow})`;
+                                        strokeWidth = "1.5";
+                                    }
 
-                                return (
-                                    <path
-                                        key={petalIdx}
-                                        d={getPetalPath(125, 125, ring.radius, angle, ring.size)}
-                                        className={`${ring.classObj.color} transition-all duration-300 cursor-pointer hover:opacity-100 origin-center`}
-                                        style={{ stroke: strokeColor }}
-                                        fill="currentColor"
-                                        fillOpacity={opacity}
-                                        strokeWidth={strokeWidth}
-                                        filter={filter}
-                                        onClick={() => setSelectedSkillId(isSelected ? null : skillId)}
-                                    />
-                                );
-                            })}
-                        </g>
-                    ))}
+                                    if (isSelected) {
+                                        strokeWidth = "2.5";
+                                        filter = `url(#glow-${ring.classObj.glow})`;
+                                        strokeColor = "#ffffff";
+                                        opacity = "1";
+                                    }
+
+                                    return (
+                                        <path
+                                            key={skillId}
+                                            d={getPetalPath(125, 125, ring.radius, angle, ring.size)}
+                                            className={`${ring.classObj.color} transition-all duration-300 cursor-pointer hover:opacity-100 origin-center`}
+                                            style={{ stroke: strokeColor }}
+                                            fill="currentColor"
+                                            fillOpacity={opacity}
+                                            strokeWidth={strokeWidth}
+                                            filter={filter}
+                                            onClick={() => setSelectedSkillId(isSelected ? null : skillId)}
+                                        />
+                                    );
+                                })}
+                            </g>
+                        );
+                    })}
                 </svg>
 
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-amber-200 text-[10px] sm:text-xs font-bold font-serif uppercase tracking-widest pointer-events-none mt-px">

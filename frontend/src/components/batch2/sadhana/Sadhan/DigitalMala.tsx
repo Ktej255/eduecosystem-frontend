@@ -123,7 +123,7 @@ export default function DigitalMala() {
         setSessionTime(0);
     };
 
-    const progressPercent = (count / BEAD_COUNT) * 100;
+
     const formatTime = (seconds: number) => {
         const m = Math.floor(seconds / 60);
         const s = seconds % 60;
@@ -151,8 +151,8 @@ export default function DigitalMala() {
                                 key={m}
                                 onClick={() => { setMode(m); setIsActive(false); }}
                                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${isSelected
-                                        ? 'bg-amber-600 text-white shadow-md'
-                                        : 'text-amber-800/60 hover:text-amber-900 hover:bg-amber-50'
+                                    ? 'bg-amber-600 text-white shadow-md'
+                                    : 'text-amber-800/60 hover:text-amber-900 hover:bg-amber-50'
                                     }`}
                                 title={config.desc}
                             >
@@ -194,36 +194,58 @@ export default function DigitalMala() {
                             onClick={() => mode === 'ajapa' ? setIsActive(!isActive) : handleTap()}
                             whileTap={mode !== 'ajapa' ? { scale: 0.95 } : {}}
                         >
-                            {/* SVG Progress Ring */}
-                            <svg className="w-72 h-72 md:w-96 md:h-96 -rotate-90 drop-shadow-xl" viewBox="0 0 120 120">
-                                <circle cx="60" cy="60" r="54" fill="none" className="stroke-amber-200" strokeWidth="2" />
-                                <circle
-                                    cx="60" cy="60" r="54"
-                                    fill="transparent"
-                                    stroke="url(#mala-gradient)"
-                                    strokeWidth="4"
-                                    strokeLinecap="round"
-                                    strokeDasharray={`${2 * Math.PI * 54}`}
-                                    strokeDashoffset={`${2 * Math.PI * 54 * (1 - progressPercent / 100)}`}
-                                    className="transition-all duration-300"
-                                />
-                                <defs>
-                                    <linearGradient id="mala-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stopColor="#f59e0b" />
-                                        <stop offset="100%" stopColor="#ea580c" />
-                                    </linearGradient>
-                                </defs>
+                            {/* SVG Process Ring with 108 Beads */}
+                            <svg className="w-72 h-72 md:w-96 md:h-96 drop-shadow-xl z-20" viewBox="0 0 120 120">
+                                <circle cx="60" cy="60" r="54" fill="none" className="stroke-amber-100" strokeWidth="0.5" />
+
+                                {/* 108 Beads + 1 Meru (Guru Bead) */}
+                                {Array.from({ length: 108 }).map((_, i) => {
+                                    // Start at top (-PI/2) and go clockwise
+                                    const angle = (i * 2 * Math.PI) / 108 - Math.PI / 2;
+                                    const cx = 60 + 54 * Math.cos(angle);
+                                    const cy = 60 + 54 * Math.sin(angle);
+                                    const isPassed = i < count;
+                                    const isCurrent = i === count;
+
+                                    // Add glow to current bead
+                                    return (
+                                        <g key={i}>
+                                            {isCurrent && (
+                                                <circle cx={cx} cy={cy} r="4.5" fill="rgba(245, 158, 11, 0.4)" className="animate-pulse" />
+                                            )}
+                                            <circle
+                                                cx={cx}
+                                                cy={cy}
+                                                r={isCurrent ? 2.5 : 2}
+                                                fill={isPassed ? '#ea580c' : isCurrent ? '#f59e0b' : '#fef3c7'}
+                                                stroke={isPassed ? '#9a3412' : '#f5bc51'}
+                                                strokeWidth="0.5"
+                                                className="transition-all duration-300"
+                                            />
+                                        </g>
+                                    );
+                                })}
+
+                                {/* The Meru (Guru Bead) at the top, slightly protruding */}
+                                <path d="M 60 4 L 63 0 L 57 0 Z" fill="#9a3412" stroke="#ea580c" strokeWidth="0.5" />
+                                <circle cx="60" cy="5" r="3" fill="#ea580c" stroke="#9a3412" strokeWidth="0.5" />
                             </svg>
 
-                            {/* Center Counter */}
-                            <div className="absolute inset-0 flex flex-col items-center justify-center rounded-full bg-gradient-to-br from-card to-amber-50/50 shadow-inner m-8 border border-amber-100/50 backdrop-blur-sm group-hover:border-amber-300 transition-colors">
-                                <div ref={pulseRef} className="absolute inset-0 rounded-full border-2 border-amber-400 opacity-0 bg-amber-400/10" />
+                            {/* Center Counter & Immersive Effects */}
+                            <div className="absolute inset-0 flex flex-col items-center justify-center rounded-full bg-gradient-to-br from-card to-amber-50/50 shadow-inner m-8 border border-amber-200 backdrop-blur-md group-hover:border-amber-400 group-hover:shadow-[0_0_30px_rgba(245,158,11,0.2)] transition-all z-10 overflow-hidden">
 
-                                <span className="text-7xl font-serif font-bold text-amber-600 tracking-tighter drop-shadow-sm">
+                                <div ref={pulseRef} className="absolute inset-0 rounded-full border-2 border-amber-400 opacity-0 bg-amber-400/20" />
+
+                                {/* Floating "Om" effect for visual immersion - triggered by ping-once class via ref resetting */}
+                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-active:opacity-100 group-active:scale-150 group-active:-translate-y-4 transition-all duration-500 pointer-events-none text-amber-200/40 text-8xl font-serif">
+                                    ॐ
+                                </div>
+
+                                <span className="text-7xl font-serif font-bold text-amber-700 tracking-tighter drop-shadow-sm relative z-20">
                                     {count}
                                 </span>
-                                <span className="text-amber-800/50 uppercase tracking-[0.2em] text-xs mt-2 font-bold">
-                                    {mode === 'ajapa' ? (isActive ? 'Pause' : 'Start') : 'Tap or SpacebaR'}
+                                <span className="text-amber-800/60 uppercase tracking-[0.2em] text-xs mt-2 font-bold relative z-20">
+                                    {mode === 'ajapa' ? (isActive ? 'Pause' : 'Start') : 'Tap Area'}
                                 </span>
                             </div>
                         </motion.div>
