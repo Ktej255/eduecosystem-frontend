@@ -558,11 +558,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
   },
   {
     "id": 38,
-    "question": "Consider the following regarding the 'All India Muslim League' founded in 1906:
-  1. It was founded in Dacca under the leadership of Nawab Salimullah and Aga Khan.
-2. It strongly supported the Swadeshi and Boycott movement.
-3. Its primary objective was to promote loyalty to the British government and protect Muslim political rights.
-How many of the above statements are correct? ",
+    "question": "Consider the following regarding the 'All India Muslim League' founded in 1906:\n\n1. It was founded in Dacca under the leadership of Nawab Salimullah and Aga Khan.\n2. It strongly supported the Swadeshi and Boycott movement.\n3. Its primary objective was to promote loyalty to the British government and protect Muslim political rights.\nHow many of the above statements are correct? ",
         "options": [
       "Only one",
       "Only two",
@@ -622,10 +618,7 @@ How many of the above statements are correct? ",
   },
   {
     "id": 42,
-    "question": "Consider the following statements about Bal Gangadhar Tilak during the Era of Militant Nationalism:
-  Statement - I: He was the first leader to recognize that the Indian National Movement must be based on a broad social base of the masses.
-    Statement - II: He successfully organized the Ganapati and Shivaji festivals to bridge the gap between the educated elite and the common people.
-Which one of the following is correct in respect of the above statements ? ",
+    "question": "Consider the following statements about Bal Gangadhar Tilak during the Era of Militant Nationalism:\n\nStatement - I: He was the first leader to recognize that the Indian National Movement must be based on a broad social base of the masses.\nStatement - II: He successfully organized the Ganapati and Shivaji festivals to bridge the gap between the educated elite and the common people.\nWhich one of the following is correct in respect of the above statements ? ",
         "options": [
     "Both Statement-I and Statement-II are correct",
     "Statement-I is correct but Statement-II is incorrect",
@@ -640,11 +633,7 @@ Which one of the following is correct in respect of the above statements ? ",
 },
 {
   "id": 43,
-    "question": "In the field of literature, the Swadeshi Movement was characterized by a surge in patriotic writings. Which of the following is correctly matched?
-  1. Amar Sonar Bangla — Rabindranath Tagore
-  2. Vande Mataram — Bankim Chandra Chatterjee(Used as the anthem of the movement)
-  3. Swadeshi Geethangal — Subramania Bharati
-How many of the above pairs are correctly matched ? ",
+    "question": "In the field of literature, the Swadeshi Movement was characterized by a surge in patriotic writings. Which of the following is correctly matched?\n\n1. Amar Sonar Bangla — Rabindranath Tagore\n2. Vande Mataram — Bankim Chandra Chatterjee(Used as the anthem of the movement)\n3. Swadeshi Geethangal — Subramania Bharati\nHow many of the above pairs are correctly matched ? ",
         "options": [
     "Only one",
     "Only two",
@@ -959,12 +948,7 @@ How many of the above pairs are correctly matched ? ",
 },
 {
   "id": 64,
-    "question": "Consider the following pairs of Swadeshi-era Samitis and their leaders:
-  1. Swadesh Bandhab Samiti — Ashwini Kumar Datta
-  2. Anushilan Samiti(Dacca) — Pulin Das
-  3. Anti - Circular Society — Sachindra Prasad Bose
-  4. Dawn Society — Satish Chandra Mukherjee
-How many of the above pairs are correctly matched ? ",
+    "question": "Consider the following pairs of Swadeshi-era Samitis and their leaders:\n\n1. Swadesh Bandhab Samiti — Ashwini Kumar Datta\n2. Anushilan Samiti(Dacca) — Pulin Das\n3. Anti - Circular Society — Sachindra Prasad Bose\n4. Dawn Society — Satish Chandra Mukherjee\nHow many of the above pairs are correctly matched ? ",
         "options": [
     "Only one pair",
     "Only two pairs",
