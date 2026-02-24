@@ -136,31 +136,40 @@ export default function Batch2Page() {
                                         </div>
                                     </div>
                                     <div className="flex flex-col items-end gap-2 relative z-10">
-                                        <Link href="/student/batch2/upanishads/kena">
-                                            <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white rounded-xl px-8 shadow-lg shadow-amber-600/20 font-bold">
-                                                Resume Journey
-                                            </Button>
-                                        </Link>
-                                        <div className="flex items-center gap-2 text-xs font-bold text-amber-800/60 uppercase tracking-tighter">
+                                        <div className="flex items-center gap-3">
+                                            <Link href="/student/batch2/upanishads/kena">
+                                                <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white rounded-xl px-6 shadow-lg shadow-amber-600/20 font-bold">
+                                                    Resume Journey
+                                                </Button>
+                                            </Link>
+                                            <Link href="/student/batch2/sadhana">
+                                                <Button size="lg" variant="outline" className="border-amber-400 text-amber-800 hover:bg-amber-50 rounded-xl px-6 font-bold shadow-sm">
+                                                    <Sparkles className="w-4 h-4 mr-2" />
+                                                    Enter Sadhana Portal
+                                                </Button>
+                                            </Link>
+                                        </div>
+                                        <div className="flex items-center gap-2 text-xs font-bold text-amber-800/60 uppercase tracking-tighter mt-1">
                                             Next: Kena Upanishad <ArrowRight className="w-3 h-3" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <UpanishadProgressSequence />
-                        </>
+                    <UpanishadProgressSequence />
+                </>
                     )}
 
-                    {activeTab === "mission" && (
-                        <SelfStudyMissions />
-                    )}
+                {activeTab === "mission" && (
+                    <SelfStudyMissions />
+                )}
 
-                    {activeTab === "summary" && (
-                        <BatchSummary />
-                    )}
-                </motion.div>
-            </div>
+                {activeTab === "summary" && (
+                    <BatchSummary />
+                )}
+            </motion.div>
         </div>
+        </div >
     );
 }
