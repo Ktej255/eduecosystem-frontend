@@ -29,6 +29,11 @@ import { getKathaShlokaImage } from "@/components/batch2/upanishads/data/katha-i
 import KathaResearchReport from "@/components/batch2/upanishads/KathaResearchReport";
 import SadhanaTimer from "@/components/batch2/shared/SadhanaTimer";
 import ExperienceReport from "@/components/batch2/shared/ExperienceReport";
+import { useBatch2UI } from "@/components/batch2/context/Batch2UIContext";
+import { TranceToggle } from "@/components/batch2/context/TranceToggle";
+import { KathaImmersiveExperience } from "@/components/batch2/upanishads/KathaImmersiveExperience";
+import { useBatch2Events } from "@/components/batch2/hooks/useBatch2Events";
+
 
 // ==========================================
 // KATHA OVERVIEW COMPONENT
@@ -416,13 +421,20 @@ export default function KathaLayout() {
     const [activeTab, setActiveTab] = useState<"overview" | "research" | "valli1" | "valli2" | "valli3" | "valli4" | "valli5" | "valli6">("overview");
     const [isPlaying, setIsPlaying] = useState(false);
     const [sadhanaActive, setSadhanaActive] = useState(false);
+    const { logEvent } = useBatch2Events();
+
     const [reportActive, setReportActive] = useState(false);
+    const { mode } = useBatch2UI();
 
     // Expose control to sub-components via window for simplicity
     React.useEffect(() => {
-        (window as any).showSadhanaTimer = () => setSadhanaActive(true);
+        (window as any).showSadhanaTimer = () => {
+            logEvent("upanishad_session_started", { module: "Katha Upanishad" });
+            setSadhanaActive(true);
+        };
         (window as any).showExperienceReport = () => setReportActive(true);
-    }, []);
+    }, [logEvent]);
+
 
     // Get data for each valli
     const valli1Data = getKathaByValli(1);
@@ -431,6 +443,10 @@ export default function KathaLayout() {
     const valli4Data = getKathaByValli(4);
     const valli5Data = getKathaByValli(5);
     const valli6Data = getKathaByValli(6);
+
+    if (mode === 'immersive') {
+        return <KathaImmersiveExperience lang={lang} />;
+    }
 
     return (
         <div className="min-h-screen bg-slate-950 text-amber-50 font-sans selection:bg-amber-500/30 selection:text-amber-200">
@@ -548,6 +564,11 @@ export default function KathaLayout() {
                     </div>
                 </div>
             </nav>
+
+            {/* Trance Toggle Floating UI */}
+            <div className="fixed bottom-6 right-6 z-50">
+                <TranceToggle />
+            </div>
 
             {/* Scroll Progress */}
             <div className="h-1 bg-slate-950">
@@ -679,7 +700,12 @@ export default function KathaLayout() {
                                 <SadhanaTimer
                                     title="Katha: Secret of the Self"
                                     duration={300}
-                                    onComplete={() => {
+                                    onComplete={(data) => {
+                                        logEvent("upanishad_session_completed", {
+                                            module: "Katha Upanishad",
+                                            duration: Math.ceil((data?.timeSpent || 300) / 60),
+                                            data: { upanishadKey: "katha" }
+                                        });
                                         setSadhanaActive(false);
                                         setReportActive(true);
                                     }}

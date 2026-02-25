@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Compass, Info, Droplets, Flame as FlameIcon } from 'lucide-react';
+import { Compass, Info, Droplets, Flame as FlameIcon, CheckCircle2 } from 'lucide-react';
+import { useBatch2Events } from '../../hooks/useBatch2Events';
 
 interface Pot {
     id: string;
@@ -34,11 +35,23 @@ const SADHANA_DIRECTIONS: { name: string; directions: string[]; color: string }[
 ];
 
 export default function PatrasadanaSetup() {
+    const { logEvent } = useBatch2Events();
     const [selectedPot, setSelectedPot] = useState<Pot | null>(null);
     const [selectedSadhana, setSelectedSadhana] = useState(0);
+    const [isConfirmed, setIsConfirmed] = useState(false);
+
     const direction = SADHANA_DIRECTIONS[selectedSadhana];
     const primaryDirection = direction.directions[0];
     const rotation = DIRECTIONS[primaryDirection] || 0;
+
+    const handleConfirm = () => {
+        setIsConfirmed(true);
+        logEvent('patrasadana_checked', {
+            module: 'Patrasadana',
+            data: { sadhana: direction.name, direction: primaryDirection }
+        });
+        setTimeout(() => setIsConfirmed(false), 3000);
+    };
 
     return (
         <div className="max-w-5xl mx-auto py-8 px-4">
@@ -63,8 +76,8 @@ export default function PatrasadanaSetup() {
                                 key={s.name}
                                 onClick={() => setSelectedSadhana(idx)}
                                 className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${selectedSadhana === idx
-                                        ? 'bg-amber-600 text-white shadow-sm'
-                                        : 'bg-white text-amber-700 border border-amber-200 hover:bg-amber-50'
+                                    ? 'bg-amber-600 text-white shadow-sm'
+                                    : 'bg-white text-amber-700 border border-amber-200 hover:bg-amber-50'
                                     }`}
                             >
                                 {s.name}
@@ -208,6 +221,28 @@ export default function PatrasadanaSetup() {
                             ))}
                         </div>
                     </div>
+
+                    {/* Confirmation Button */}
+                    <button
+                        onClick={handleConfirm}
+                        disabled={isConfirmed}
+                        className={`w-full py-4 rounded-2xl font-bold uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-3 shadow-lg ${isConfirmed
+                            ? 'bg-emerald-500 text-white shadow-emerald-500/20'
+                            : 'bg-amber-600 text-white hover:bg-amber-700 shadow-amber-600/20 active:scale-95'
+                            }`}
+                    >
+                        {isConfirmed ? (
+                            <>
+                                <CheckCircle2 className="w-5 h-5 animate-bounce" />
+                                Alignment Confirmed
+                            </>
+                        ) : (
+                            <>
+                                <Compass className="w-5 h-5" />
+                                Confirm Sacred Alignment
+                            </>
+                        )}
+                    </button>
                 </div>
             </div>
         </div>

@@ -291,3 +291,16 @@ export const SKILLS_METADATA: SkillMetadata[] = [
         maturityLogic: { sapling: 'First AI guidance session', tree: 'Weekly AI check-ins', orchard: 'AI-integrated ritual flow' }
     },
 ];
+export const PRAYASHCHITTA_METHODS = [
+    { id: 'japa', name: 'Extra Japa', desc: 'Recite the mantra 1008 times as immediate correction.', severity: 'Moderate', icon: 'BookOpen' },
+    { id: 'homa', name: 'Mental Homa', desc: 'Perform 108 fire offerings (internal visualization).', severity: 'Moderate', icon: 'Flame' },
+    { id: 'tarpana', name: 'Water Libation', desc: 'Offer water to the Sun 108 times with the mantra.', severity: 'Light', icon: 'Shield' },
+    { id: 'marjana', name: 'Purification', desc: 'Sprinkling sacred water over self while chanting.', severity: 'Light', icon: 'CheckCircle2' },
+    { id: 'dana', name: 'Dana (Charity)', desc: 'Donate 10% of your daily income to a spiritual cause.', severity: 'Moderate', icon: 'Shield' },
+    { id: 'mauna', name: 'Mauna (Silence)', desc: 'Maintain 24 hours of total, unbroken silence.', severity: 'Severe', icon: 'Shield' },
+    { id: 'upavasa', name: 'Upavasa (Fasting)', desc: 'Perform a 24-hour water-only fast.', severity: 'Severe', icon: 'Shield' },
+    { id: 'asana', name: 'Asana Tapas', desc: 'Hold a single meditative posture for 2 hours.', severity: 'Severe', icon: 'Shield' },
+    { id: 'krichhra', name: 'Severe Penance', desc: 'Sleep on the floor and eat only once for 3 days.', severity: 'Extreme', icon: 'AlertTriangle' },
+    { id: 'seva', name: 'Seva (Service)', desc: 'Perform 4 hours of selfless service at a temple or NGO.', severity: 'Moderate', icon: 'Shield' },
+    { id: 'repentance', name: 'Paschattapa', desc: 'Genuine heart-felt repentance before the Divine.', severity: 'Light', icon: 'Flame' },
+];

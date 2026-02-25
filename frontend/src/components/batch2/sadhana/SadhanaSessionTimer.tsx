@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Pause, Square, Clock, Flame, BookOpen, CheckCircle2, ChevronRight, RotateCcw, Zap } from 'lucide-react';
+import { useBatch2Events } from '../hooks/useBatch2Events';
+import ExperienceReport from '@/components/batch2/shared/ExperienceReport';
 
 type SessionPhase = 'pre' | 'purification' | 'invocation' | 'core' | 'closing' | 'complete';
 
@@ -35,6 +37,7 @@ interface SessionLog {
 }
 
 export default function SadhanaSessionTimer() {
+    const { getEventsByType, logEvent } = useBatch2Events();
     const [isRunning, setIsRunning] = useState(false);
     const [elapsed, setElapsed] = useState(0);
     const [currentPhase, setCurrentPhase] = useState<SessionPhase>('pre');
@@ -42,16 +45,11 @@ export default function SadhanaSessionTimer() {
     const [completedPhases, setCompletedPhases] = useState<Set<SessionPhase>>(new Set());
     const [checklist, setChecklist] = useState<Set<number>>(new Set());
     const [japaRounds, setJapaRounds] = useState(0);
-    const [sessionLogs, setSessionLogs] = useState<SessionLog[]>([]);
+    const [showReport, setShowReport] = useState(false);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-    // Load logs from localStorage
-    useEffect(() => {
-        try {
-            const stored = localStorage.getItem('sadhana-session-logs');
-            if (stored) setSessionLogs(JSON.parse(stored));
-        } catch { }
-    }, []);
+    // Get session logs from central events
+    const sessionEvents = useMemo(() => getEventsByType("sadhana_session_done"), [getEventsByType]);
 
     // Timer logic
     useEffect(() => {
@@ -91,16 +89,16 @@ export default function SadhanaSessionTimer() {
 
             if (nextPhase === 'complete') {
                 setIsRunning(false);
-                // Save session log
-                const log: SessionLog = {
-                    date: new Date().toISOString(),
-                    totalSeconds: elapsed,
-                    phasesCompleted: [...completedPhases, currentPhase],
-                    japaRounds,
-                };
-                const newLogs = [log, ...sessionLogs].slice(0, 30);
-                setSessionLogs(newLogs);
-                try { localStorage.setItem('sadhana-session-logs', JSON.stringify(newLogs)); } catch { }
+                // Save session log centrally
+                logEvent("sadhana_session_done", {
+                    module: "Sadhana Session",
+                    duration: Math.ceil(elapsed / 60),
+                    data: {
+                        totalSeconds: elapsed,
+                        phasesCompleted: [...completedPhases, currentPhase],
+                        japaRounds,
+                    }
+                });
             }
         }
     };
@@ -128,7 +126,7 @@ export default function SadhanaSessionTimer() {
 
     // Streak calculation
     const today = new Date().toDateString();
-    const uniqueDays = new Set(sessionLogs.map(l => new Date(l.date).toDateString()));
+    const uniqueDays = new Set(sessionEvents.map(l => new Date(l.timestamp).toDateString()));
     const hasToday = uniqueDays.has(today);
 
     // Last 7 days heatmap
@@ -136,12 +134,12 @@ export default function SadhanaSessionTimer() {
         const d = new Date();
         d.setDate(d.getDate() - (6 - i));
         const dateStr = d.toDateString();
-        const dayLogs = sessionLogs.filter(l => new Date(l.date).toDateString() === dateStr);
+        const dayLogs = sessionEvents.filter(l => new Date(l.timestamp).toDateString() === dateStr);
         return {
             day: d.toLocaleDateString('en-IN', { weekday: 'short' }),
             date: d.getDate(),
             count: dayLogs.length,
-            totalMinutes: Math.round(dayLogs.reduce((sum, l) => sum + l.totalSeconds, 0) / 60),
+            totalMinutes: Math.round(dayLogs.reduce((sum, l) => sum + (l.data?.totalSeconds || 0), 0) / 60),
         };
     });
 
@@ -163,8 +161,8 @@ export default function SadhanaSessionTimer() {
                     {PHASE_CONFIG.filter(p => p.id !== 'complete').map((phase, idx) => (
                         <React.Fragment key={phase.id}>
                             <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold transition-all ${completedPhases.has(phase.id) ? 'bg-emerald-500' :
-                                    currentPhase === phase.id ? `${phase.color} ring-4 ring-offset-2 ring-amber-300` :
-                                        'bg-stone-200'
+                                currentPhase === phase.id ? `${phase.color} ring-4 ring-offset-2 ring-amber-300` :
+                                    'bg-stone-200'
                                 }`}>
                                 {completedPhases.has(phase.id) ? '✓' : idx + 1}
                             </div>
@@ -295,6 +293,12 @@ export default function SadhanaSessionTimer() {
                             <div className="text-xs text-stone-500 uppercase tracking-wider">Phases</div>
                         </div>
                     </div>
+                    <button
+                        onClick={() => setShowReport(true)}
+                        className="mt-6 px-6 py-3 bg-amber-100 text-amber-800 rounded-2xl font-bold hover:bg-amber-200 flex items-center justify-center gap-2 mx-auto w-full md:w-auto transition-colors"
+                    >
+                        <BookOpen className="w-5 h-5" /> Log Experience
+                    </button>
                 </motion.div>
             )}
 
@@ -306,8 +310,8 @@ export default function SadhanaSessionTimer() {
                         <div key={idx} className="text-center">
                             <div className="text-[10px] text-stone-400 uppercase mb-1">{day.day}</div>
                             <div className={`w-full aspect-square rounded-lg flex items-center justify-center text-xs font-bold transition-all ${day.count > 0
-                                    ? day.totalMinutes >= 30 ? 'bg-emerald-500 text-white' : 'bg-emerald-200 text-emerald-800'
-                                    : 'bg-stone-100 text-stone-300'
+                                ? day.totalMinutes >= 30 ? 'bg-emerald-500 text-white' : 'bg-emerald-200 text-emerald-800'
+                                : 'bg-stone-100 text-stone-300'
                                 }`}>
                                 {day.count > 0 ? `${day.totalMinutes}m` : '—'}
                             </div>
@@ -319,6 +323,24 @@ export default function SadhanaSessionTimer() {
                     <span>{hasToday ? '✅ Today completed' : '⏳ Pending today'}</span>
                 </div>
             </div>
+
+            <AnimatePresence>
+                {showReport && (
+                    <ExperienceReport
+                        isOpen={showReport}
+                        onClose={() => setShowReport(false)}
+                        onSubmit={(data) => {
+                            logEvent("journal_entry_saved", {
+                                module: "Sadhana Session",
+                                text: data.text,
+                                gunas: data.gunas,
+                            });
+                            setShowReport(false);
+                        }}
+                        title="Sadhana Session Reflection"
+                    />
+                )}
+            </AnimatePresence>
         </div>
     );
 }

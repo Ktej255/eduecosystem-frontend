@@ -1,9 +1,15 @@
 "use client";
 
-import React from "react";
-import { Play, Clock, Wind, Zap, Brain, Activity, Heart, Eye } from "lucide-react";
+import React, { useState } from "react";
+import { Play, Clock, Wind, Zap, Brain, Activity, Heart, Eye, X } from "lucide-react";
+import { SadhanaTimerImmersive } from "@/components/batch2/shared/SadhanaTimerImmersive";
+import { useBatch2Events } from "@/components/batch2/hooks/useBatch2Events";
+import { AnimatePresence } from "framer-motion";
 
 export default function MeditationPage() {
+    const [selectedMeditation, setSelectedMeditation] = useState<any | null>(null);
+    const { logEvent } = useBatch2Events();
+
     // 12 Authentic Vedic/Yogic Meditation Processes (Placeholders for accurate slide content)
     const meditations = [
         {
@@ -148,7 +154,10 @@ export default function MeditationPage() {
                                         </span>
                                     </div>
 
-                                    <button className="w-8 h-8 rounded-full bg-[#6366F1] flex items-center justify-center text-white hover:bg-[#818CF8] transition-colors shadow-lg shadow-indigo-500/30">
+                                    <button
+                                        onClick={() => setSelectedMeditation(m)}
+                                        className="w-8 h-8 rounded-full bg-[#6366F1] flex items-center justify-center text-white hover:bg-[#818CF8] transition-colors shadow-lg shadow-indigo-500/30"
+                                    >
                                         <Play className="w-3.5 h-3.5 ml-0.5" />
                                     </button>
                                 </div>
@@ -156,6 +165,34 @@ export default function MeditationPage() {
                         </div>
                     ))}
                 </div>
+                {/* Immersive Timer Overlay */}
+                <AnimatePresence>
+                    {selectedMeditation && (
+                        <div className="fixed inset-0 z-50">
+                            <SadhanaTimerImmersive
+                                title={selectedMeditation.title}
+                                duration={parseInt(selectedMeditation.duration) * 60}
+                                onComplete={(data) => {
+                                    logEvent('sadhana_session_done', {
+                                        module: 'meditation_grid',
+                                        data: {
+                                            dhyanaType: selectedMeditation.title,
+                                            durationSeconds: data.timeSpent,
+                                            soundUsed: data.soundUsed
+                                        }
+                                    });
+                                    setSelectedMeditation(null);
+                                }}
+                            />
+                            <button
+                                onClick={() => setSelectedMeditation(null)}
+                                className="absolute top-6 right-6 z-[110] text-white/50 hover:text-white p-2"
+                            >
+                                <X className="w-6 h-6" />
+                            </button>
+                        </div>
+                    )}
+                </AnimatePresence>
             </div>
         </div>
     );

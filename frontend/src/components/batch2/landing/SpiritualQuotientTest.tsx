@@ -4,6 +4,10 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, ArrowRight, Brain, Zap, Heart } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useBatch2UI } from "@/components/batch2/context/Batch2UIContext";
+import { SpiritualQuotientTestImmersive } from "./SpiritualQuotientTestImmersive";
+import { useSadhanaProgress } from "@/components/batch2/sadhana/hooks/useSadhanaProgress";
+import { useBatch2Events } from "@/components/batch2/hooks/useBatch2Events";
 
 interface Question {
     id: number;
@@ -61,6 +65,9 @@ export default function SpiritualQuotientTest({ onComplete }: { onComplete?: (ph
     const [answers, setAnswers] = useState<string[]>([]); // Storing Gunas
     const [showResult, setShowResult] = useState(false);
     const router = useRouter();
+    const { mode } = useBatch2UI();
+    const { updateSadhanaProgress } = useSadhanaProgress();
+    const { logEvent } = useBatch2Events();
 
     const handleStart = () => setIsOpen(true);
     const handleClose = () => {
@@ -84,9 +91,18 @@ export default function SpiritualQuotientTest({ onComplete }: { onComplete?: (ph
             }, {});
 
             let suggestedPhase = 1;
-            if (counts.sattva >= 3) suggestedPhase = 4;
-            else if (counts.sattva >= 2 || counts.rajas >= 3) suggestedPhase = 3;
-            else if (counts.rajas >= 2) suggestedPhase = 2;
+            let dominantGuna = 'tamas';
+            let archetype: 'Prisoner' | 'Hopper' | 'Discoverer' = 'Prisoner';
+
+            if (counts.sattva >= 3) { suggestedPhase = 4; dominantGuna = 'sattva'; archetype = 'Discoverer'; }
+            else if (counts.sattva >= 2 || counts.rajas >= 3) { suggestedPhase = 3; dominantGuna = 'rajas'; archetype = 'Hopper'; }
+            else if (counts.rajas >= 2) { suggestedPhase = 2; dominantGuna = 'rajas'; archetype = 'Hopper'; }
+
+            updateSadhanaProgress({ archetype });
+            logEvent('sq_test_completed', {
+                module: 'SQ Test',
+                data: { dominantGuna, archetype, mode: 'classic' }
+            });
 
             if (onComplete) onComplete(suggestedPhase);
         }
@@ -129,6 +145,10 @@ export default function SpiritualQuotientTest({ onComplete }: { onComplete?: (ph
     };
 
     const result = showResult ? calculateResult() : null;
+
+    if (mode === 'immersive') {
+        return <SpiritualQuotientTestImmersive onComplete={onComplete} />;
+    }
 
     return (
         <>

@@ -1,51 +1,25 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import { BookOpen, CheckCircle, Clock, Sparkles, Scroll, ArrowRight } from "lucide-react";
 import Link from "next/link";
-
-interface SessionData {
-    upanishadKey: string;
-    upanishadName: string;
-    mantra: string;
-    completedAt: string;
-    duration: number;  // in minutes
-    reflections?: string;
-}
+import { useBatch2Events } from "../hooks/useBatch2Events";
 
 export default function JourneyRecap({ onClose }: { onClose?: () => void }) {
-    const [sessions, setSessions] = useState<SessionData[]>([]);
-    const [loading, setLoading] = useState(true);
+    const { getEventsByType } = useBatch2Events();
 
-    useEffect(() => {
-        // Load session history from localStorage
-        const loadSessions = () => {
-            try {
-                const stored = localStorage.getItem("ancientWisdomSessions");
-                if (stored) {
-                    setSessions(JSON.parse(stored));
-                } else {
-                    // Demo data if no sessions found
-                    setSessions([
-                        {
-                            upanishadKey: "kena",
-                            upanishadName: "Kena Upanishad",
-                            mantra: "Mantra 1",
-                            completedAt: new Date().toISOString(),
-                            duration: 15,
-                            reflections: "Experienced stillness in the gap between thoughts."
-                        }
-                    ]);
-                }
-            } catch (e) {
-                console.error("Failed to load sessions", e);
-            }
-            setLoading(false);
-        };
-
-        loadSessions();
-    }, []);
+    const sessions = useMemo(() => {
+        const events = getEventsByType("upanishad_session_completed");
+        return events.map(event => ({
+            upanishadKey: event.data?.upanishadKey || "unknown",
+            upanishadName: event.module || "Upanishad Session",
+            mantra: event.data?.mantra || "Session Completed",
+            completedAt: event.timestamp,
+            duration: event.duration || 0,
+            reflections: event.text
+        }));
+    }, [getEventsByType]);
 
     const formatDate = (isoString: string) => {
         return new Date(isoString).toLocaleDateString("en-IN", {
@@ -56,14 +30,6 @@ export default function JourneyRecap({ onClose }: { onClose?: () => void }) {
     };
 
     const totalMinutes = sessions.reduce((sum, s) => sum + s.duration, 0);
-
-    if (loading) {
-        return (
-            <div className="flex items-center justify-center h-64">
-                <div className="animate-spin rounded-full h-8 w-8 border-2 border-amber-500 border-t-transparent" />
-            </div>
-        );
-    }
 
     return (
         <div className="w-full py-12 px-4" id="journey-recap">

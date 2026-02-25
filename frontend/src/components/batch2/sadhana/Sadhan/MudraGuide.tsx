@@ -3,6 +3,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Hand, Info, ChevronRight } from 'lucide-react';
+import { useBatch2UI } from "@/components/batch2/context/Batch2UIContext";
+import { TranceToggle } from "@/components/batch2/context/TranceToggle";
+import { MudraGuideImmersive } from './MudraGuideImmersive';
 
 interface Mudra {
     id: string;
@@ -35,9 +38,21 @@ const FINGER_ELEMENTS = [
 
 export default function MudraGuide() {
     const [selectedMudra, setSelectedMudra] = useState<Mudra | null>(null);
+    const { mode } = useBatch2UI();
+
+    if (mode === 'immersive') {
+        return (
+            <div className="relative w-full h-[600px] rounded-3xl overflow-hidden shadow-2xl bg-black">
+                <MudraGuideImmersive />
+                <div className="absolute top-6 right-6 z-50">
+                    <TranceToggle />
+                </div>
+            </div>
+        );
+    }
 
     return (
-        <div className="max-w-5xl mx-auto py-8 px-4">
+        <div className="max-w-5xl mx-auto py-8 px-4 relative">
             {/* Header */}
             <div className="text-center mb-10">
                 <div className="w-16 h-16 bg-violet-100 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-violet-200 shadow-sm">
@@ -75,8 +90,8 @@ export default function MudraGuide() {
                         key={mudra.id}
                         onClick={() => setSelectedMudra(selectedMudra?.id === mudra.id ? null : mudra)}
                         className={`text-left p-5 rounded-2xl border-2 transition-all hover:shadow-md ${selectedMudra?.id === mudra.id
-                                ? 'bg-violet-50 border-violet-300 shadow-sm'
-                                : 'bg-white border-amber-100 hover:border-amber-300'
+                            ? 'bg-violet-50 border-violet-300 shadow-sm'
+                            : 'bg-white border-amber-100 hover:border-amber-300'
                             }`}
                         whileHover={{ y: -2 }}
                     >
@@ -142,6 +157,11 @@ export default function MudraGuide() {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            {/* Trance Toggle */}
+            <div className="fixed bottom-6 right-6 z-50">
+                <TranceToggle />
+            </div>
         </div>
     );
 }

@@ -3,6 +3,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Flame, CheckCircle2, Circle, ArrowRight, ArrowLeft, Wind, Droplets, Sparkles, BookOpen } from 'lucide-react';
+import { useBatch2UI } from '@/components/batch2/context/Batch2UIContext';
+import { TranceToggle } from '@/components/batch2/context/TranceToggle';
+import { YajnaImmersiveExperience } from '@/components/batch2/sadhana/Sadhan/YajnaImmersiveExperience';
+
+import { NyasaImmersive } from './NyasaImmersive';
 
 interface YajnaStep {
     id: number;
@@ -139,6 +144,8 @@ export default function YajnaRitualEngine() {
     const [currentStepIndex, setCurrentStepIndex] = useState(0);
     const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());
 
+    const { mode } = useBatch2UI();
+
     const step = YAJNA_STEPS[currentStepIndex];
     const progressPercent = ((completedSteps.size) / YAJNA_STEPS.length) * 100;
     const isCompleted = completedSteps.has(step.id);
@@ -154,9 +161,18 @@ export default function YajnaRitualEngine() {
 
     const goToPrev = () => setCurrentStepIndex(Math.max(0, currentStepIndex - 1));
 
+    if (mode === 'immersive') {
+        return <YajnaImmersiveExperience />;
+    }
+
     return (
-        <div className="max-w-4xl mx-auto py-8">
-            <div className="text-center mb-10">
+        <div className="max-w-4xl mx-auto py-8 relative">
+            {/* Global Toggle for Ritual Engine */}
+            <div className="absolute top-0 right-0 z-50">
+                <TranceToggle />
+            </div>
+
+            <div className="text-center mb-10 mt-8 md:mt-0">
                 <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-amber-200 shadow-sm">
                     <Flame className="w-8 h-8 text-amber-600" />
                 </div>
@@ -257,7 +273,8 @@ export default function YajnaRitualEngine() {
                                         </p>
                                     </div>
 
-                                    {step.id === 30 && <InteractiveHavanKund />}
+                                    {step.id === 20 && <div className="mt-8 scale-90 -mx-8"><NyasaImmersive /></div>}
+                                    {step.id === 31 && <InteractiveHavanKund />}
 
                                     {step.mantra && (
                                         <div className="bg-white/60 backdrop-blur border border-white p-6 rounded-2xl shadow-sm">

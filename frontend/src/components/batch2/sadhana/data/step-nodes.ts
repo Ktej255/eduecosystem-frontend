@@ -255,5 +255,230 @@ export const STEP_VISUAL_DATA: Record<number, StepData> = {
             { id: 'e3-5', source: '3', target: '5', animated: true, style: { stroke: '#fbbf24', strokeWidth: 2 } },
             { id: 'e4-5', source: '4', target: '5', animated: true, style: { stroke: '#fbbf24', strokeWidth: 2 } },
         ]
+    },
+    16: {
+        stepId: 16,
+        title: { en: "Invoking the Deity", hi: "देवता का आह्वान" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "Pre-Japa Flow", titleHi: "जप-पूर्व प्रवाह", descEn: "The 9-step sequence to prepare the subtle body.", descHi: "सूक्ष्म शरीर को तैयार करने के लिए 9-चरणीय अनुक्रम।" } },
+            { id: '2', type: 'custom', position: { x: 0, y: 150 }, data: { titleEn: "Achamana & Marjana", titleHi: "आचमन और मार्जन", descEn: "Internal and external purification with water.", descHi: "जल से आंतरिक और बाहरी शुद्धिकरण।" } },
+            { id: '3', type: 'custom', position: { x: 500, y: 150 }, data: { titleEn: "Pranayama", titleHi: "प्राणायाम", descEn: "Regulating life force to still the mind.", descHi: "मन को स्थिर करने के लिए प्राण शक्ति का नियमन।" } },
+            { id: '4', type: 'custom', position: { x: 250, y: 300 }, data: { titleEn: "Dhyana (Meditation)", titleHi: "ध्यान", descEn: "Mental visualization of the deity's form.", descHi: "देवता के स्वरूप का मानसिक चित्रण।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e1-3', source: '1', target: '3', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e2-4', source: '2', target: '4', animated: true, style: { stroke: '#fbbf24', strokeWidth: 2 } },
+            { id: 'e3-4', source: '3', target: '4', animated: true, style: { stroke: '#fbbf24', strokeWidth: 2 } },
+        ]
+    },
+    17: {
+        stepId: 17,
+        title: { en: "Nyasa", hi: "न्यास" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "Body Consecration", titleHi: "अंग-न्यास", descEn: "Placing mantra energy into specific body parts.", descHi: "शरीर के विशिष्ट अंगों में मंत्र ऊर्जा स्थापित करना।" } },
+            { id: '2', type: 'custom', position: { x: 0, y: 150 }, data: { titleEn: "Kara Nyasa", titleHi: "कर न्यास", descEn: "Consecrating the fingers and palms.", descHi: "अंगुलियों और हथेलियों का पवित्रीकरण।" } },
+            { id: '3', type: 'custom', position: { x: 500, y: 150 }, data: { titleEn: "Anga Nyasa", titleHi: "अंग न्यास", descEn: "Consecrating the heart, head, and eyes.", descHi: "हृदय, सिर और आँखों का पवित्रीकरण।" } },
+            { id: '4', type: 'custom', position: { x: 250, y: 300 }, data: { titleEn: "Matrika Nyasa", titleHi: "मात्रिक न्यास", descEn: "Placing 50 letters across the entire physical frame.", descHi: "संपूर्ण शरीर पर 50 अक्षरों की स्थापना।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e1-3', source: '1', target: '3', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e2-4', source: '2', target: '4', animated: true, style: { stroke: '#fbbf24', strokeWidth: 2 } },
+            { id: 'e3-4', source: '3', target: '4', animated: true, style: { stroke: '#fbbf24', strokeWidth: 2 } },
+        ]
+    },
+    18: {
+        stepId: 18,
+        title: { en: "Hand Locks (Mudras)", hi: "मुद्राएं" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "Esoteric Mudras", titleHi: "गुप्त मुद्राएं", descEn: "Geometrical configurations of the hands.", descHi: "हाथों की ज्यामितीय आकृतियाँ।" } },
+            { id: '2', type: 'custom', position: { x: 0, y: 150 }, data: { titleEn: "Avahani Mudra", titleHi: "आवाहनी मुद्रा", descEn: "The invitation lock to call the deity.", descHi: "देवता का आह्वान करने के लिए मुद्रा।" } },
+            { id: '3', type: 'custom', position: { x: 250, y: 150 }, data: { titleEn: "Dhenu Mudra", titleHi: "धेनु मुद्रा", descEn: "The 'Cow' lock for providing immortality.", descHi: "अमृत प्रदान करने के लिए 'धेनु' मुद्रा।" } },
+            { id: '4', type: 'custom', position: { x: 500, y: 150 }, data: { titleEn: "Yoni Mudra", titleHi: "योनि मुद्रा", descEn: "The lock of ultimate cosmic stillness.", descHi: "परम लौकिक स्थिरता की मुद्रा।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e1-3', source: '1', target: '3', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e1-4', source: '1', target: '4', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+        ]
+    },
+    19: {
+        stepId: 19,
+        title: { en: "Purushcharana", hi: "पुरश्चरण" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "The Complete Engine", titleHi: "पूर्ण पुरश्चरण", descEn: "The five integral parts of an intensive sadhana.", descHi: "गहन साधना के पांच अभिन्न अंग।" } },
+            { id: '2', type: 'custom', position: { x: 0, y: 150 }, data: { titleEn: "Japa", titleHi: "जप", descEn: "Repetition of the mantra for the required count.", descHi: "आवश्यक संख्या तक मंत्र का जप।" } },
+            { id: '3', type: 'custom', position: { x: 250, y: 150 }, data: { titleEn: "Homa", titleHi: "होम", descEn: "1/10th of Japa count offered in fire.", descHi: "जप संख्या का 1/10 वां हिस्सा हवन में आहुति।" } },
+            { id: '4', type: 'custom', position: { x: 500, y: 150 }, data: { titleEn: "Tarpana", titleHi: "तर्पण", descEn: "1/10th of Homa offered as libation.", descHi: "होम का 1/10 वां हिस्सा तर्पण।" } },
+            { id: '5', type: 'custom', position: { x: 250, y: 300 }, data: { titleEn: "Bhojana", titleHi: "भोजन", descEn: "Feeding practitioners to seal the siddhi.", descHi: "सिद्धि को पुख्ता करने के लिए साधकों को भोजन कराना।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e1-3', source: '1', target: '3', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e1-4', source: '1', target: '4', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e2-5', source: '2', target: '5', animated: true, style: { stroke: '#fbbf24', strokeWidth: 2 } },
+            { id: 'e3-5', source: '3', target: '5', animated: true, style: { stroke: '#fbbf24', strokeWidth: 2 } },
+            { id: 'e4-5', source: '4', target: '5', animated: true, style: { stroke: '#fbbf24', strokeWidth: 2 } },
+        ]
+    },
+    20: {
+        stepId: 20,
+        title: { en: "Ganesha Sadhana", hi: "गणेश साधना" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "Removing Obstacles", titleHi: "विघ्नहर्ता", descEn: "Primary practice before any other path.", descHi: "किसी भी अन्य यात्रा से पहले प्राथमिक साधना।" } },
+            { id: '2', type: 'custom', position: { x: 250, y: 150 }, data: { titleEn: "1.25 Lakh Chants", titleHi: "सवा लाख जप", descEn: "The standard count to awaken Ganapathi's power.", descHi: "गणपति की शक्ति जागृत करने के लिए मानक संख्या।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', animated: true, style: { stroke: '#fbbf24', strokeWidth: 2 } },
+        ]
+    },
+    21: {
+        stepId: 21,
+        title: { en: "Guru Sadhana", hi: "गुरु साधना" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "Lineage Alignment", titleHi: "गुरु-परंपरा", descEn: "Connecting to the stream of ancient wisdom.", descHi: "प्राचीन ज्ञान की धारा से जुड़ना।" } },
+            { id: '2', type: 'custom', position: { x: 250, y: 150 }, data: { titleEn: "Inner Guide Awakening", titleHi: "आंतरिक गुरु", descEn: "Manifesting the guru's presence within the heart.", descHi: "हृदय में गुरु की उपस्थिति को प्रकट करना।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', animated: true, style: { stroke: '#fbbf24', strokeWidth: 2 } },
+        ]
+    },
+    22: {
+        stepId: 22,
+        title: { en: "Gayatri Sadhana", hi: "गायत्री साधना" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "Supreme Wisdom", titleHi: "परम मेधा", descEn: "Mother of the Vedas; practice for pure intellect.", descHi: "वेदों की माता; शुद्ध बुद्धि के लिए साधना।" } },
+            { id: '2', type: 'custom', position: { x: 250, y: 150 }, data: { titleEn: "3-Tier Progress", titleHi: "3-चरणीय प्रगति", descEn: "From 40 days to a 3-year intensive purushcharana.", descHi: "40 दिनों से लेकर 3 साल के गहन पुरश्चरण तक।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', animated: true, style: { stroke: '#fbbf24', strokeWidth: 2 } },
+        ]
+    },
+    23: {
+        stepId: 23,
+        title: { en: "Sri Suktam Sadhana", hi: "श्री सूक्त साधना" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "Cosmic Abundance", titleHi: "लक्ष्मी प्राकट्य", descEn: "Invoking the creative energy of the universe.", descHi: "ब्रह्मांड की रचनात्मक ऊर्जा का आह्वान।" } },
+            { id: '2', type: 'custom', position: { x: 0, y: 150 }, data: { titleEn: "960-Day Discipline", titleHi: "960-दिनीय अनुशासन", descEn: "The preparation required for the final ritual.", descHi: "अंतिम अनुष्ठान के लिए आवश्यक तैयारी।" } },
+            { id: '3', type: 'custom', position: { x: 500, y: 150 }, data: { titleEn: "16-Night Ritual", titleHi: "16-रात्रिकालीन अनुष्ठान", descEn: "The high-intensity finish of the Sri Suktam path.", descHi: "श्री सूक्त मार्ग की उच्च-तीव्रता वाली पूर्णता।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e1-3', source: '1', target: '3', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+        ]
+    },
+    24: {
+        stepId: 24,
+        title: { en: "Rites of Atonement", hi: "प्रायश्चित" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "Restoring Flow", titleHi: "सकल शोधन", descEn: "What to do when a sadhana is broken.", descHi: "साधना खंडित होने पर क्या करें।" } },
+            { id: '2', type: 'custom', position: { x: 250, y: 150 }, data: { titleEn: "11 Methods", titleHi: "11 विधियाँ", descEn: "Varying degrees of expiation depending on the lapse.", descHi: "त्रुटि के आधार पर प्रायश्चित के विभिन्न स्तर।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', animated: true, style: { stroke: '#fbbf24', strokeWidth: 2 } },
+        ]
+    },
+    25: {
+        stepId: 25,
+        title: { en: "How to Make Fire Offerings", hi: "यज्ञ विधि" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "Agni Yoga", titleHi: "अग्नि योग", descEn: "The technology of fire sacrifice.", descHi: "अग्नि यज्ञ की तकनीक।" } },
+            { id: '2', type: 'custom', position: { x: 0, y: 150 }, data: { titleEn: "Kunda Setup", titleHi: "कुण्ड निर्माण", descEn: "Geometrical alignment of the fire pit.", descHi: "अग्नि कुंड का ज्यामितीय विन्यास।" } },
+            { id: '3', type: 'custom', position: { x: 500, y: 150 }, data: { titleEn: "Samit & Ghrutam", titleHi: "समिधा और घृत", descEn: "The fuel and offerings for the sacred flame.", descHi: "पवित्र अग्नि के लिए ईंधन और आहुति।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e1-3', source: '1', target: '3', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+        ]
+    },
+    26: {
+        stepId: 26,
+        title: { en: "Types of Mantras", hi: "मंत्रों के प्रकार" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "Functional Categories", titleHi: "मंत्र वर्गीकरण", descEn: "Classification by effect and nature.", descHi: "प्रभाव और प्रकृति के आधार पर वर्गीकरण।" } },
+            { id: '2', type: 'custom', position: { x: 0, y: 150 }, data: { titleEn: "Sattvic", titleHi: "सात्विक", descEn: "For liberation and self-realization.", descHi: "मुक्ति और आत्म-साक्षात्कार के लिए।" } },
+            { id: '3', type: 'custom', position: { x: 250, y: 150 }, data: { titleEn: "Rajasic", titleHi: "राजसिक", descEn: "For worldly prosperity and protection.", descHi: "सांसारिक समृद्धि और रक्षा के लिए।" } },
+            { id: '4', type: 'custom', position: { x: 500, y: 150 }, data: { titleEn: "Tamasic", titleHi: "तामसिक", descEn: "For conquering enemies and obstacles.", descHi: "शत्रुओं और बाधाओं पर विजय पाने के लिए।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e1-3', source: '1', target: '3', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e1-4', source: '1', target: '4', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+        ]
+    },
+    27: {
+        stepId: 27,
+        title: { en: "Flaws in a Mantra (Detailed)", hi: "मंत्र दोष (विस्तृत)" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "The 50 Blockages", titleHi: "50 अवरोध", descEn: "A deep dive into why mantras fail.", descHi: "मंत्र क्यों विफल होते हैं, इसका गहरा विश्लेषण।" } },
+            { id: '2', type: 'custom', position: { x: 250, y: 150 }, data: { titleEn: "Subtle Distortions", titleHi: "सूक्ष्म विकृतियाँ", descEn: "How incorrect vowels or meters create friction.", descHi: "गलत स्वर या छंद कैसे घर्षण पैदा करते हैं।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', animated: true, style: { stroke: '#fbbf24', strokeWidth: 2 } },
+        ]
+    },
+    28: {
+        stepId: 28,
+        title: { en: "16 Samskaras", hi: "16 संस्कार" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "Life Consecration", titleHi: "जीवन संस्कार", descEn: "The 16 rites of the Sanatana lifecycle.", descHi: "सनातन जीवन चक्र के 16 संस्कार।" } },
+            { id: '2', type: 'custom', position: { x: 0, y: 150 }, data: { titleEn: "Janma (Birth)", titleHi: "जन्म", descEn: "Welcoming the soul into the physical body.", descHi: "आत्मा का भौतिक शरीर में स्वागत।" } },
+            { id: '3', type: 'custom', position: { x: 250, y: 150 }, data: { titleEn: "Upanayana (Initiation)", titleHi: "उपनयन", descEn: "Awakening the quest for knowledge.", descHi: "ज्ञान की खोज को जागृत करना।" } },
+            { id: '4', type: 'custom', position: { x: 500, y: 150 }, data: { titleEn: "Antyeshti (Transition)", titleHi: "अन्त्येष्टि", descEn: "The final offering of the body to fire.", descHi: "अग्नि को शरीर की अंतिम आहुति।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e1-3', source: '1', target: '3', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e1-4', source: '1', target: '4', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+        ]
+    },
+    29: {
+        stepId: 29,
+        title: { en: "16 Aspects of Sadhana", hi: "साधना के 16 पहलू" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "Master Checklist", titleHi: "सफलता कारक", descEn: "Factors determining the speed of attainment.", descHi: "सिद्धि की गति निर्धारित करने वाले कारक।" } },
+            { id: '2', type: 'custom', position: { x: 250, y: 150 }, data: { titleEn: "Shraddha & Virya", titleHi: "श्रद्धा और वीर्य", descEn: "The fuel of unshakeable faith and stamina.", descHi: "अटूट विश्वास और सहनशक्ति का ईंधन।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', animated: true, style: { stroke: '#fbbf24', strokeWidth: 2 } },
+        ]
+    },
+    30: {
+        stepId: 30,
+        title: { en: "Vedic Meters (Chanda)", hi: "छंद शास्त्र" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "Sacred Prosody", titleHi: "छंद संरचना", descEn: "The rhythm governing cosmic vibration.", descHi: "लौकिक कंपन को नियंत्रित करने वाली लय।" } },
+            { id: '2', type: 'custom', position: { x: 0, y: 150 }, data: { titleEn: "Anushtubh", titleHi: "अनुष्टुप", descEn: "The 8-8-8-8 syllable common meter.", descHi: "8-8-8-8 अक्षरों का सामान्य छंद।" } },
+            { id: '3', type: 'custom', position: { x: 500, y: 150 }, data: { titleEn: "Trishtubh", titleHi: "त्रिष्टुप", descEn: "The 11-syllable rhythmic meter.", descHi: "11-अक्षरों वाला लयबद्ध छंद।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e1-3', source: '1', target: '3', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+        ]
+    },
+    31: {
+        stepId: 31,
+        title: { en: "Arrangement of Pots", hi: "पात्रसादन" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "Sacred Arrangement", titleHi: "पात्र विन्यास", descEn: "Precise placement of ritual vessels.", descHi: "अनुष्ठान पात्रों का सटीक विन्यास।" } },
+            { id: '2', type: 'custom', position: { x: 250, y: 150 }, data: { titleEn: "5-Pot System", titleHi: "पंच-पात्र", descEn: "Arghya, Padya, Achamana, Snana, Punarachimana.", descHi: "अर्घ्य, पाद्य, आचमन, स्नान, पुनराचमन।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', animated: true, style: { stroke: '#fbbf24', strokeWidth: 2 } },
+        ]
+    },
+    32: {
+        stepId: 32,
+        title: { en: "Mantra Compatibility", hi: "मंत्र अनुकूलता" },
+        nodes: [
+            { id: '1', type: 'custom', position: { x: 250, y: 0 }, data: { titleEn: "Vedic Science", titleHi: "मंत्र विज्ञान", descEn: "The logic of sound-practitioner matching.", descHi: "ध्वनि-साधक मिलान का तर्क।" } },
+            { id: '2', type: 'custom', position: { x: 0, y: 150 }, data: { titleEn: "Zodiac Match", hi: "राशि मिलान", descEn: "Alignment with celestial birth traits.", descHi: "आकाशीय जन्म लक्षणों के साथ संरेखण।" } },
+            { id: '3', type: 'custom', position: { x: 500, y: 150 }, data: { titleEn: "Debt Algorithm", hi: "ऋण-शोधन", descEn: "Ensuring the mantra doesn't drain energy.", descHi: "यह सुनिश्चित करना कि मंत्र ऊर्जा का क्षय न करे।" } },
+        ],
+        edges: [
+            { id: 'e1-2', source: '1', target: '2', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+            { id: 'e1-3', source: '1', target: '3', type: 'smoothstep', style: { stroke: '#fbbf24', strokeWidth: 1.5 } },
+        ]
     }
 };

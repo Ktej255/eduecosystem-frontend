@@ -4,6 +4,12 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Volume2, VolumeX, Pause, Play, Activity, CheckCircle2, RotateCcw } from 'lucide-react';
 import { useSadhanaProgress } from '../hooks/useSadhanaProgress';
+import { useBatch2UI } from '@/components/batch2/context/Batch2UIContext';
+import { TranceToggle } from '@/components/batch2/context/TranceToggle';
+import { DigitalMalaImmersive } from '@/components/batch2/sadhana/Sadhan/DigitalMalaImmersive';
+import { useBatch2Events } from '../../hooks/useBatch2Events';
+import { DHYANA_DATA } from '../data/dhyana-data';
+import PreJapaDhyana from './PreJapaDhyana';
 
 type MalaMode = 'vachika' | 'upanshu' | 'mansika' | 'ajapa';
 
@@ -17,7 +23,9 @@ const MODE_CONFIG: Record<MalaMode, { label: string; desc: string; icon: React.F
 };
 
 export default function DigitalMala() {
-    const { incrementCount } = useSadhanaProgress();
+    const { progress, incrementCount } = useSadhanaProgress();
+    const { mode: uiMode } = useBatch2UI(); // Rename to avoid conflict with mala mode
+    const { logEvent } = useBatch2Events();
 
     const [mode, setMode] = useState<MalaMode>('vachika');
     const [count, setCount] = useState(0);
@@ -27,6 +35,7 @@ export default function DigitalMala() {
     const [lastTapTime, setLastTapTime] = useState<number>(0);
     const [sessionTime, setSessionTime] = useState(0); // in seconds
     const [isComplete, setIsComplete] = useState(false);
+    const [showDhyana, setShowDhyana] = useState(true);
 
     const pulseRef = useRef<HTMLDivElement>(null);
 
@@ -78,6 +87,7 @@ export default function DigitalMala() {
                     navigator.vibrate([100, 50, 100]); // Completion pattern
                 }
                 setIsComplete(true);
+                logEvent("mala_round_done", { module: "Digital Mala", data: { mode, duration: Math.ceil(sessionTime / 60) } });
                 return BEAD_COUNT;
             }
 
@@ -94,7 +104,7 @@ export default function DigitalMala() {
             void pulseRef.current.offsetWidth;
             pulseRef.current.classList.add('animate-ping-once');
         }
-    }, [mode, lastTapTime, isComplete, incrementCount, triggerHaptic, playBeep]);
+    }, [mode, lastTapTime, isComplete, incrementCount, triggerHaptic, playBeep, logEvent, sessionTime]);
 
     // Ajapa Auto-chant
     useEffect(() => {
@@ -130,11 +140,27 @@ export default function DigitalMala() {
         return `${m}:${s.toString().padStart(2, '0')}`;
     };
 
+    if (showDhyana) {
+        return <PreJapaDhyana
+            deityId={progress.activeSadhanaId || "ganesha"}
+            onComplete={() => setShowDhyana(false)}
+        />;
+    }
+
+    if (uiMode === 'immersive') {
+        return <DigitalMalaImmersive />;
+    }
+
     return (
-        <div className="max-w-4xl mx-auto min-h-[80vh] flex flex-col justify-between py-8">
+        <div className="max-w-4xl mx-auto min-h-[80vh] flex flex-col justify-between py-8 relative">
+
+            {/* Global Toggle for Digital Mala */}
+            <div className="absolute top-0 right-0 z-50">
+                <TranceToggle />
+            </div>
 
             {/* Header / Mode Selector */}
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12 mt-12 md:mt-0">
                 <div>
                     <h1 className="text-3xl font-serif font-bold text-amber-950">Digital Mala</h1>
                     <p className="text-amber-800/70 text-sm mt-1">
@@ -244,7 +270,12 @@ export default function DigitalMala() {
                                 <span className="text-7xl font-serif font-bold text-amber-700 tracking-tighter drop-shadow-sm relative z-20">
                                     {count}
                                 </span>
-                                <span className="text-amber-800/60 uppercase tracking-[0.2em] text-xs mt-2 font-bold relative z-20">
+                                <div className="max-w-[200px] text-center px-4 mt-2 mb-1 relative z-20">
+                                    <p className="text-[10px] font-serif font-bold text-amber-900/60 leading-tight">
+                                        {DHYANA_DATA[(progress.activeSadhanaId || "ganesha") as keyof typeof DHYANA_DATA]?.mantra || "Om"}
+                                    </p>
+                                </div>
+                                <span className="text-amber-800/60 uppercase tracking-[0.2em] text-[10px] font-black relative z-20">
                                     {mode === 'ajapa' ? (isActive ? 'Pause' : 'Start') : 'Tap Area'}
                                 </span>
                             </div>

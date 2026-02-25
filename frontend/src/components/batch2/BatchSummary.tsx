@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { Calendar, TrendingUp, Award, Clock, Feather, Sparkles } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useBatch2Events } from "./hooks/useBatch2Events";
 
 export default function BatchSummary() {
-    const [logs, setLogs] = useState<any[]>([]);
+    const { events } = useBatch2Events();
 
-    useEffect(() => {
-        const savedLogs = JSON.parse(localStorage.getItem("ancient_wisdom_logs") || "[]");
-        setLogs(savedLogs);
-    }, []);
+    // Filter to only events that have text (journal entries) or gunas (SQ tests) to show in the logs
+    const logs = events.filter(e => e.text || e.gunas);
 
     const monthlyStats = [
         { month: "January", year: "2026", focus: "Upanishadic Wisdom", progress: 85, color: "bg-amber-500" },
@@ -93,7 +92,7 @@ export default function BatchSummary() {
                                         </div>
                                         <div className="flex items-center justify-between mb-2">
                                             <span className="text-[10px] font-black uppercase tracking-widest text-amber-600">
-                                                {log.module} • {log.type}
+                                                {log.module || "General"} • {log.type.replace(/_/g, " ")}
                                             </span>
                                             <span className="text-[10px] text-muted-foreground font-medium">
                                                 {new Date(log.timestamp).toLocaleDateString()}

@@ -11,6 +11,10 @@ import { Sparkles } from "lucide-react";
 import SadhanaTimer from "@/components/batch2/shared/SadhanaTimer";
 import ExperienceReport from "@/components/batch2/shared/ExperienceReport";
 import KenaMantra1 from "@/components/batch2/upanishads/KenaMantra1";
+import { useBatch2UI } from "@/components/batch2/context/Batch2UIContext";
+import { TranceToggle } from "@/components/batch2/context/TranceToggle";
+import { KenaImmersiveExperience } from "@/components/batch2/upanishads/KenaImmersiveExperience";
+import { useBatch2Events } from "@/components/batch2/hooks/useBatch2Events";
 
 // Split data
 const philosophyData = kenaData.filter(d => d.section === "Philosophy").map(d => ({
@@ -440,22 +444,52 @@ export default function KenaLayout() {
     const [activeTab, setActiveTab] = useState<"introduction" | "philosophy" | "story">("introduction");
     const [isPlaying, setIsPlaying] = useState(false);
     const [isPremium, setIsPremium] = useState(false); // Default to free
+    const { logEvent } = useBatch2Events();
+
     const [sadhanaActive, setSadhanaActive] = useState(false);
     const [reportActive, setReportActive] = useState(false);
     const [guidedActive, setGuidedActive] = useState(false);
 
+    // Get Global UI Mode
+    const { mode } = useBatch2UI();
+
     // Expose control to sub-components via window for simplicity (since components are in same file)
     useEffect(() => {
-        (window as any).showSadhanaTimer = () => setSadhanaActive(true);
+        (window as any).showSadhanaTimer = () => {
+            logEvent("upanishad_session_started", { module: "Kena Upanishad" });
+            setSadhanaActive(true);
+        };
         (window as any).showExperienceReport = () => setReportActive(true);
         (window as any).showGuidedMantra = () => setGuidedActive(true);
-    }, []);
+    }, [logEvent]);
+
 
     const TABS = [
         { id: "introduction", label: lang === "en" ? "Introduction" : "परिचय", icon: <Sparkles className="w-4 h-4" /> },
         { id: "philosophy", label: lang === "en" ? "The Philosophy" : "दर्शन", icon: <BookOpen className="w-4 h-4" /> },
         { id: "story", label: lang === "en" ? "The Yaksha Story" : "यक्ष कथा", icon: <Drama className="w-4 h-4" /> },
     ];
+
+    // If Immersive Mode is Active, Hijack the Entire Screen
+    if (mode === 'immersive') {
+        return (
+            <div className="relative w-full min-h-screen bg-black">
+                {/* Float the Toggle over the immersive view so they can escape */}
+                <div className="absolute top-6 right-6 z-[200]">
+                    <TranceToggle />
+                </div>
+                <div className="absolute top-6 left-6 z-[200]">
+                    <button
+                        onClick={() => router.push("/student/batch2/upanishads")}
+                        className="flex items-center gap-2 text-teal-500/50 hover:text-teal-400 transition-colors uppercase tracking-[0.3em] font-black text-[10px]"
+                    >
+                        <ArrowLeft className="w-4 h-4" /> Exit
+                    </button>
+                </div>
+                <KenaImmersiveExperience lang={lang} />
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-cyan-950 text-cyan-50 font-sans selection:bg-teal-500/30 selection:text-teal-200">
@@ -519,7 +553,11 @@ export default function KenaLayout() {
                         <span className="font-bold text-sm tracking-tight hidden sm:block">Back to Portal</span>
                     </button>
 
-                    <div className="flex bg-black/40 rounded-2xl p-1 shadow-inner border border-white/5">
+                    <div className="absolute left-1/2 -translate-x-1/2">
+                        <TranceToggle />
+                    </div>
+
+                    <div className="hidden lg:flex bg-black/40 rounded-2xl p-1 shadow-inner border border-white/5">
                         {TABS.map((tab) => (
                             <button
                                 key={tab.id}
@@ -659,10 +697,15 @@ export default function KenaLayout() {
                                 title="Kena Mantra 1: Self-Inquiry"
                                 duration={300}
                                 onComplete={(data) => {
-                                    console.log("Sadhana Complete:", data);
+                                    logEvent("upanishad_session_completed", {
+                                        module: "Kena Upanishad",
+                                        duration: Math.ceil((data?.timeSpent || 300) / 60),
+                                        data: { upanishadKey: "kena" }
+                                    });
                                     setSadhanaActive(false);
                                     setReportActive(true);
                                 }}
+
                             />
                         </motion.div>
                     </div>

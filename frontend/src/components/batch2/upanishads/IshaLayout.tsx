@@ -8,6 +8,11 @@ import { ISHA_METADATA, ISHA_UPANISHAD } from "@/components/batch2/upanishads/da
 import { getShlokaImage } from "@/components/batch2/upanishads/data/isha-images";
 import SadhanaTimer from "@/components/batch2/shared/SadhanaTimer";
 import ExperienceReport from "@/components/batch2/shared/ExperienceReport";
+import { useBatch2UI } from "@/components/batch2/context/Batch2UIContext";
+import { TranceToggle } from "@/components/batch2/context/TranceToggle";
+import { IshaImmersiveExperience } from "@/components/batch2/upanishads/IshaImmersiveExperience";
+import { useBatch2Events } from "@/components/batch2/hooks/useBatch2Events";
+
 
 // Split data by sections defined in data file
 const foundationData = ISHA_UPANISHAD.filter(d => d.section === "Foundation");
@@ -492,13 +497,24 @@ export default function IshaLayout() {
     const [activeTab, setActiveTab] = useState<"summary" | "foundation" | "philosophy" | "knowledge" | "prayer">("summary");
     const [isPlaying, setIsPlaying] = useState(false);
     const [sadhanaActive, setSadhanaActive] = useState(false);
+    const { logEvent } = useBatch2Events();
+
     const [reportActive, setReportActive] = useState(false);
+    const { mode } = useBatch2UI();
 
     // Expose control to sub-components via window for simplicity
     useEffect(() => {
-        (window as any).showSadhanaTimer = () => setSadhanaActive(true);
+        (window as any).showSadhanaTimer = () => {
+            logEvent("upanishad_session_started", { module: "Isha Upanishad" });
+            setSadhanaActive(true);
+        };
         (window as any).showExperienceReport = () => setReportActive(true);
-    }, []);
+    }, [logEvent]);
+
+
+    if (mode === 'immersive') {
+        return <IshaImmersiveExperience lang={lang} />;
+    }
 
     return (
         <div className="min-h-screen bg-slate-950 text-amber-50 font-sans selection:bg-amber-500/30 selection:text-amber-200">
@@ -603,6 +619,11 @@ export default function IshaLayout() {
                 </div>
             </nav>
 
+            {/* Trance Toggle Floating UI */}
+            <div className="fixed bottom-6 right-6 z-50">
+                <TranceToggle />
+            </div>
+
             {/* Scroll Progress */}
             <div className="h-1 bg-amber-950">
                 <motion.div
@@ -706,7 +727,12 @@ export default function IshaLayout() {
                                 <SadhanaTimer
                                     title="Isha: Oneness Contemplation"
                                     duration={300}
-                                    onComplete={() => {
+                                    onComplete={(data) => {
+                                        logEvent("upanishad_session_completed", {
+                                            module: "Isha Upanishad",
+                                            duration: Math.ceil((data?.timeSpent || 300) / 60),
+                                            data: { upanishadKey: "isa" }
+                                        });
                                         setSadhanaActive(false);
                                         setReportActive(true);
                                     }}

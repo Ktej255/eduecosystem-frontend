@@ -11,8 +11,12 @@ import { ALL_108_UPANISHADS } from "@/components/batch2/upanishads/upanishads-10
 import UpanishadProgressSequence from "@/components/batch2/UpanishadProgressSequence";
 import SelfStudyMissions from "@/components/batch2/SelfStudyMissions";
 import BatchSummary from "@/components/batch2/BatchSummary";
+import { useSadhanaProgress } from "@/components/batch2/sadhana/hooks/useSadhanaProgress";
+import { ShieldAlert, Trophy, Compass } from "lucide-react";
 
 export default function Batch2Page() {
+    const { progress } = useSadhanaProgress();
+    const { archetype, sankalpaResets } = progress;
     const [activeTab, setActiveTab] = useState("progress");
 
     const tabs = [
@@ -116,41 +120,65 @@ export default function Batch2Page() {
 
                             {/* Progress Banner (Progress View) */}
                             <div className="mb-8">
-                                <div className="flex items-center justify-between bg-card/80 backdrop-blur-md rounded-2xl border-2 border-amber-200 p-6 shadow-xl max-w-4xl mx-auto relative overflow-hidden group">
+                                <div className="flex flex-col md:flex-row items-center justify-between bg-card/80 backdrop-blur-md rounded-2xl border-2 border-amber-200 p-6 shadow-xl max-w-4xl mx-auto relative overflow-hidden group gap-6">
                                     <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                                         <Sparkles className="w-20 h-20 text-amber-600" />
                                     </div>
-                                    <div className="flex items-center gap-5 relative z-10">
-                                        <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-orange-500/20">
-                                            <Zap className="w-8 h-8" />
+
+                                    {/* Archetype Recommendation Overlay */}
+                                    <div className="flex items-center gap-5 relative z-10 w-full md:w-auto">
+                                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-white shadow-lg ${archetype === 'Discoverer' ? 'bg-gradient-to-br from-emerald-400 to-teal-500 shadow-emerald-500/20' :
+                                            archetype === 'Hopper' ? 'bg-gradient-to-br from-amber-400 to-orange-500 shadow-orange-500/20' :
+                                                'bg-gradient-to-br from-blue-400 to-indigo-500 shadow-indigo-500/20'
+                                            }`}>
+                                            {archetype === 'Discoverer' && <Trophy className="w-8 h-8" />}
+                                            {archetype === 'Hopper' && <ShieldAlert className="w-8 h-8" />}
+                                            {archetype === 'Prisoner' && <Compass className="w-8 h-8" />}
                                         </div>
                                         <div>
                                             <div className="flex items-center gap-2 mb-1">
-                                                <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-black uppercase tracking-widest rounded-md border border-emerald-200">
-                                                    Phase 1: Vitality (Prana)
+                                                <span className={`px-2 py-0.5 text-[10px] font-black uppercase tracking-widest rounded-md border ${archetype === 'Discoverer' ? 'bg-emerald-100 text-emerald-700 border-emerald-200' :
+                                                    archetype === 'Hopper' ? 'bg-amber-100 text-amber-700 border-amber-200' :
+                                                        'bg-blue-100 text-blue-700 border-blue-200'
+                                                    }`}>
+                                                    {archetype} Path
                                                 </span>
-                                                <span className="text-amber-600 font-bold text-xs">Day 4 of 21</span>
+                                                {archetype === 'Hopper' && sankalpaResets > 0 && (
+                                                    <span className="text-rose-600 font-bold text-xs flex items-center gap-1">
+                                                        <ShieldAlert className="w-3 h-3" /> {sankalpaResets} Resets
+                                                    </span>
+                                                )}
                                             </div>
-                                            <h2 className="text-2xl font-bold text-amber-950 font-serif">Today's Focus: Īśā Upaniṣad</h2>
-                                            <p className="text-amber-700 font-medium">Verses 1-4 • Mastering the Life-Force</p>
+                                            <h2 className="text-xl font-bold text-amber-950 font-serif">
+                                                {archetype === 'Discoverer' ? "The Advanced Frontier" :
+                                                    archetype === 'Hopper' ? "The Path of Commitment" :
+                                                        "Foundation of Wisdom"}
+                                            </h2>
+                                            <p className="text-amber-700 text-sm font-medium">
+                                                {archetype === 'Discoverer' ? "You are ready for deep non-dual inquiry." :
+                                                    archetype === 'Hopper' ? "Focus on completing one full 40-day cycle." :
+                                                        "Build stability with daily preliminary chants."}
+                                            </p>
                                         </div>
                                     </div>
-                                    <div className="flex flex-col items-end gap-2 relative z-10">
-                                        <div className="flex items-center gap-3">
-                                            <Link href="/student/batch2/upanishads/kena">
-                                                <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white rounded-xl px-6 shadow-lg shadow-amber-600/20 font-bold">
-                                                    Resume Journey
+
+                                    <div className="flex flex-col items-center md:items-end gap-3 relative z-10 w-full md:w-auto">
+                                        <div className="flex items-center gap-3 w-full md:w-auto">
+                                            <Link href={archetype === 'Discoverer' ? "/student/batch2/upanishads/mandukya" : "/student/batch2/upanishads/isha"} className="flex-1 md:flex-none">
+                                                <Button size="lg" className="w-full bg-amber-600 hover:bg-amber-700 text-white rounded-xl px-6 shadow-lg shadow-amber-600/20 font-bold">
+                                                    {archetype === 'Discoverer' ? "Enter Deep Study" : "Resume Journey"}
                                                 </Button>
                                             </Link>
-                                            <Link href="/student/batch2/sadhana">
-                                                <Button size="lg" variant="outline" className="border-amber-400 text-amber-800 hover:bg-amber-50 rounded-xl px-6 font-bold shadow-sm">
-                                                    <Sparkles className="w-4 h-4 mr-2" />
-                                                    Enter Sadhana Portal
+                                            <Link href="/student/batch2/sadhana" className="flex-1 md:flex-none">
+                                                <Button size="lg" variant="outline" className="w-full border-amber-400 text-amber-800 hover:bg-amber-50 rounded-xl px-6 font-bold shadow-sm">
+                                                    Portal
                                                 </Button>
                                             </Link>
                                         </div>
-                                        <div className="flex items-center gap-2 text-xs font-bold text-amber-800/60 uppercase tracking-tighter mt-1">
-                                            Next: Kena Upanishad <ArrowRight className="w-3 h-3" />
+                                        <div className="text-[10px] font-bold text-amber-800/60 uppercase tracking-widest">
+                                            {archetype === 'Hopper' && sankalpaResets >= 3 ? "Recommendation: Avoid new Sankalpas for 7 days" :
+                                                archetype === 'Discoverer' ? "Next: Brahma Sutras Introduction" :
+                                                    "Next: Kena Upanishad Section 1"}
                                         </div>
                                     </div>
                                 </div>

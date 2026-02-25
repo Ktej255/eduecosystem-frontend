@@ -5,8 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SkillProgress, SKILLS_METADATA, SkillMetadata } from '../data/sadhana-data';
 import { X, Info, Target, Compass, Flame } from 'lucide-react';
 
+import { useSadhanaSkillTracker } from '../../hooks/useSadhanaSkillTracker';
+
 interface LotusVisualizerProps {
-    skills: SkillProgress[];
+    // Deprecated static prop
 }
 
 const CATEGORY_STYLES = {
@@ -15,7 +17,8 @@ const CATEGORY_STYLES = {
     'Evergreen': { color: 'text-amber-500', bg: 'bg-amber-50', border: 'border-amber-200', glow: 'amber' },
 };
 
-const LotusVisualizer: React.FC<LotusVisualizerProps> = ({ skills }) => {
+const LotusVisualizer: React.FC<LotusVisualizerProps> = ({ }) => {
+    const { skillProgress: skills } = useSadhanaSkillTracker();
     const [selectedSkillId, setSelectedSkillId] = useState<string | null>(null);
 
     const selectedSkillMeta = selectedSkillId ? SKILLS_METADATA.find(s => s.id === selectedSkillId) : null;

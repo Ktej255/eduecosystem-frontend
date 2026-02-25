@@ -29,77 +29,79 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/contexts/auth-context";
+import { useBatch2Events } from "./hooks/useBatch2Events";
 
-// Research content categories with colors
+
+// Batch 2 Context Categories
 const CATEGORIES = {
-    technology: { label: "Technology", color: "from-blue-500 to-cyan-500", bg: "bg-blue-500", icon: Zap },
-    health: { label: "Health & Wellness", color: "from-green-500 to-emerald-500", bg: "bg-green-500", icon: Sparkles },
-    philosophy: { label: "Philosophy", color: "from-purple-500 to-violet-500", bg: "bg-purple-500", icon: BookOpen },
-    science: { label: "Science", color: "from-orange-500 to-amber-500", bg: "bg-orange-500", icon: Lightbulb },
-    spirituality: { label: "Spirituality", color: "from-amber-500 to-yellow-500", bg: "bg-amber-500", icon: Star },
+    sruti: { label: "Sruti (Upanishads)", color: "from-amber-500 to-yellow-500", bg: "bg-amber-500", icon: Star },
+    sadhana: { label: "Sadhana (Practice)", color: "from-blue-500 to-cyan-500", bg: "bg-blue-500", icon: Zap },
+    dharma: { label: "Dharma (Action)", color: "from-orange-500 to-amber-500", bg: "bg-orange-500", icon: Flame },
+    yoga: { label: "Yoga (Integration)", color: "from-purple-500 to-violet-500", bg: "bg-purple-500", icon: Lightbulb },
+    smriti: { label: "Smriti (Text)", color: "from-green-500 to-emerald-500", bg: "bg-green-500", icon: BookOpen },
 };
 
-// Sample research content
+// Authentic Batch 2 specific content
 const researchContent = [
     {
-        id: "r1",
-        title: "The Future of AI in Education",
-        description: "Explore how artificial intelligence is transforming the way we learn and teach",
-        category: "technology",
-        type: "podcast",
-        duration: "28 min",
-        thumbnail: "🤖",
+        id: "m1",
+        title: "The Architecture of Om (Mandukya)",
+        description: "Analyze the four states of consciousness mapping A-U-M to Waking, Dreaming, Deep Sleep, and Turiya.",
+        category: "sruti",
+        type: "reading",
+        duration: "15 min",
+        thumbnail: "🕉️",
         isNew: true,
         isFeatured: true,
         aiScore: null,
     },
     {
-        id: "r2",
-        title: "Mindfulness & Mental Clarity",
-        description: "Ancient techniques for modern stress relief and enhanced focus",
-        category: "health",
-        type: "video",
-        duration: "15 min",
-        thumbnail: "🧘",
+        id: "m2",
+        title: "The Fire of Death (Katha)",
+        description: "Reflect on Nachiketa's dialogue with Yama. What must die for wisdom to be born?",
+        category: "sruti",
+        type: "podcast",
+        duration: "25 min",
+        thumbnail: "🔥",
         isNew: true,
         isFeatured: false,
         aiScore: 85,
     },
     {
-        id: "r3",
-        title: "Quantum Physics & Consciousness",
-        description: "Where science meets spirituality in the quantum realm",
-        category: "science",
-        type: "reading",
-        duration: "12 pages",
-        thumbnail: "⚛️",
-        isNew: false,
-        isFeatured: false,
-        aiScore: 72,
-    },
-    {
-        id: "r4",
-        title: "The Art of Strategic Thinking",
-        description: "Lessons from ancient wisdom applied to modern decision making",
-        category: "philosophy",
-        type: "podcast",
-        duration: "35 min",
-        thumbnail: "🎯",
+        id: "m3",
+        title: "Mastering the Breath (Pranayama)",
+        description: "Explore the physiological and subtle mechanics of Resonance breathing (5.5s in, 5.5s out).",
+        category: "sadhana",
+        type: "video",
+        duration: "20 min",
+        thumbnail: "🌬️",
         isNew: false,
         isFeatured: true,
-        aiScore: 90,
+        aiScore: 92,
     },
     {
-        id: "r5",
-        title: "Pranayama: Science of Breath",
-        description: "Transform your energy through controlled breathing techniques",
-        category: "spirituality",
-        type: "video",
-        duration: "22 min",
-        thumbnail: "🌬️",
+        id: "m4",
+        title: "The Inner Light (Isha)",
+        description: "Reconciling the tension between dynamic action in the world and profound inner stillness.",
+        category: "dharma",
+        type: "reading",
+        duration: "10 pages",
+        thumbnail: "👁️",
         isNew: false,
         isFeatured: false,
         aiScore: null,
+    },
+    {
+        id: "m5",
+        title: "The Silent Witness (Sakshi Bhava)",
+        description: "Practice separating your awareness from the erratic stream of your thoughts.",
+        category: "yoga",
+        type: "podcast",
+        duration: "30 min",
+        thumbnail: "🧘",
+        isNew: false,
+        isFeatured: false,
+        aiScore: 88,
     },
 ];
 
@@ -122,6 +124,9 @@ export default function SelfStudyMissions() {
     const [activeCategory, setActiveCategory] = useState<string>("all");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submissionMode, setSubmissionMode] = useState<"voice" | "written" | null>(null);
+    const [reflection, setReflection] = useState("");
+    const { logEvent } = useBatch2Events();
+
 
     const featuredContent = researchContent.find(c => c.isFeatured && c.isNew) || researchContent[0];
     const filteredContent = activeCategory === "all"
@@ -448,6 +453,20 @@ export default function SelfStudyMissions() {
                                     {selectedContent.type === "podcast" ? "Listen Now" :
                                         selectedContent.type === "video" ? "Watch Now" : "Start Reading"}
                                 </Button>
+                                <Button
+                                    onClick={() => {
+                                        logEvent("upanishad_session_started", {
+                                            module: selectedContent.title,
+                                            data: { category: selectedContent.category, type: selectedContent.type }
+                                        });
+                                        // Normally this would open the content viewer, but here we just log it as "consumed" for now
+                                        alert("Learning context active. Please read/watch and then provide your reflection below.");
+                                    }}
+                                    className="w-full h-14 text-lg bg-orange-600 hover:bg-orange-500 text-white shadow-xl"
+                                >
+                                    Log Attendance
+                                </Button>
+
 
                                 {/* Divider */}
                                 <div className="border-t border-border" />
@@ -537,14 +556,34 @@ export default function SelfStudyMissions() {
                                                     <textarea
                                                         className="w-full h-32 p-4 border-2 border-border rounded-2xl resize-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-transparent"
                                                         placeholder="Share your thoughts, key learnings, and reflections..."
+                                                        value={reflection}
+                                                        onChange={(e) => setReflection(e.target.value)}
                                                     />
+
                                                 </div>
                                             )}
 
-                                            <Button className="w-full mt-4 h-12 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700">
+                                            <Button
+                                                onClick={() => {
+                                                    if (!reflection.trim()) return;
+                                                    logEvent("journal_entry_saved", {
+                                                        module: selectedContent.title,
+                                                        text: reflection,
+                                                        data: { category: selectedContent.category }
+                                                    });
+                                                    setIsSubmitting(true);
+                                                    setTimeout(() => {
+                                                        setIsSubmitting(false);
+                                                        setSelectedContent(null);
+                                                        setReflection("");
+                                                    }, 1500);
+                                                }}
+                                                className="w-full mt-4 h-12 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700"
+                                            >
                                                 <Send className="w-5 h-5 mr-2" />
                                                 Submit for AI Analysis
                                             </Button>
+
                                         </motion.div>
                                     )}
                                 </div>

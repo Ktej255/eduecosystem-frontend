@@ -3,6 +3,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, Pause, RotateCcw, Volume2, VolumeX, Sparkles, Wind, Settings2 } from "lucide-react";
+import { useBatch2UI } from "@/components/batch2/context/Batch2UIContext";
+import { TranceToggle } from "@/components/batch2/context/TranceToggle";
+import { SadhanaTimerImmersive } from "./SadhanaTimerImmersive";
 
 interface SadhanaTimerProps {
     duration?: number; // in seconds
@@ -39,6 +42,7 @@ export default function SadhanaTimer({ duration = 300, title = "Upanishadic Cont
     const [selectedBreath, setSelectedBreath] = useState(BREATH_MODES[0]);
     const [phaseIndex, setPhaseIndex] = useState(0);
     const [breathPhase, setBreathPhase] = useState<"inhale" | "hold" | "exhale" | "hold_empty">("inhale");
+    const { mode } = useBatch2UI();
 
     const timerRef = useRef<NodeJS.Timeout | null>(null);
     const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -196,6 +200,17 @@ export default function SadhanaTimer({ duration = 300, title = "Upanishadic Cont
         }
     };
 
+    if (mode === 'immersive') {
+        return (
+            <div className="relative w-full max-w-lg mx-auto h-[600px] rounded-[2.5rem] overflow-hidden bg-black shadow-2xl">
+                <SadhanaTimerImmersive duration={duration} title={title} onComplete={onComplete} />
+                <div className="absolute top-6 right-6 z-50">
+                    <TranceToggle />
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="bg-slate-950/80 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-[0_0_100px_rgba(245,158,11,0.05)] text-center relative overflow-hidden max-w-lg mx-auto">
             {/* Background glow */}
@@ -342,6 +357,11 @@ export default function SadhanaTimer({ duration = 300, title = "Upanishadic Cont
                         </p>
                     </div>
                 </motion.div>
+            </div>
+
+            {/* Trance Toggle */}
+            <div className="absolute bottom-6 right-6 z-50">
+                <TranceToggle />
             </div>
         </div>
     );

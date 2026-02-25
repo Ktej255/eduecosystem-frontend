@@ -105,6 +105,7 @@ export function useSadhanaProgress() {
 
     return {
         progress,
+        updateSadhanaProgress,
         incrementCount,
         signSankalpa,
         resetSankalpa,

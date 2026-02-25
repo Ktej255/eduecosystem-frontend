@@ -6,6 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { X, Sparkles, Brain, Flame, Droplets, CheckCircle2, Loader2 } from "lucide-react";
 import { useAuth } from "@/contexts/auth-context";
 import { ThemeProvider } from "@/components/theme-provider";
+import { useBatch2Events } from "../hooks/useBatch2Events";
+
 
 interface ExperienceReportProps {
     isOpen: boolean;
@@ -26,6 +28,8 @@ export default function ExperienceReport({ isOpen, onClose, onSubmit, title = "P
     const [isComplete, setIsComplete] = useState(false);
     const [aiInsight, setAiInsight] = useState<{ insight: string; state: string; score: number } | null>(null);
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
+    const { logEvent } = useBatch2Events();
+
 
     const SENSATION_TAGS = [
         "Silence", "Expansion", "Heat", "Tingling",
@@ -85,6 +89,15 @@ export default function ExperienceReport({ isOpen, onClose, onSubmit, title = "P
             };
             const existingLogs = JSON.parse(localStorage.getItem("ancient_wisdom_logs") || "[]");
             localStorage.setItem("ancient_wisdom_logs", JSON.stringify([newLog, ...existingLogs]));
+
+            // Phase 9 Wiring: Log to central event stream
+            logEvent("journal_entry_saved", {
+                module: title,
+                text: reflections,
+                gunas: gunas,
+                data: { tags: selectedTags }
+            });
+
 
             // Close after delay if successful
             setTimeout(() => {

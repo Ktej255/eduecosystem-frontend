@@ -6,18 +6,41 @@ import { Lock, CheckCircle2, Star, Sparkles, ArrowRight, ArrowLeft, ArrowDown } 
 import { PEDAGOGICAL_UPANISHADS, VEDA_COLORS } from "./upanishads/upanishads-108-data";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/contexts/auth-context";
+import { useBatch2Events } from "./hooks/useBatch2Events";
 
 interface UpanishadProgressSequenceProps {
     currentUpanishadId?: string;
 }
 
 export default function UpanishadProgressSequence({
-    currentUpanishadId = "isa"
+    currentUpanishadId: propCurrentId
 }: UpanishadProgressSequenceProps) {
     const { user } = useAuth();
     const isMasterId = user?.email === "ktej255@gmail.com";
+    const { getEventsByType } = useBatch2Events();
 
-    const currentIndex = PEDAGOGICAL_UPANISHADS.findIndex(u => u.id === currentUpanishadId);
+    let computedCurrentId = "isa"; // Default starting point
+    const completedEvents = getEventsByType("upanishad_session_completed");
+
+    if (completedEvents.length > 0) {
+        let maxIndex = -1;
+        completedEvents.forEach(event => {
+            const upaId = event.data?.upanishadKey;
+            const idx = PEDAGOGICAL_UPANISHADS.findIndex(u => u.id === upaId);
+            if (idx > maxIndex) maxIndex = idx;
+        });
+
+        // Progress to the NEXT upanishad in the sequence
+        const nextIndex = maxIndex + 1;
+        if (nextIndex < PEDAGOGICAL_UPANISHADS.length) {
+            computedCurrentId = PEDAGOGICAL_UPANISHADS[nextIndex].id;
+        } else {
+            computedCurrentId = PEDAGOGICAL_UPANISHADS[maxIndex].id;
+        }
+    }
+
+    const effectiveCurrentId = propCurrentId || computedCurrentId;
+    const currentIndex = PEDAGOGICAL_UPANISHADS.findIndex(u => u.id === effectiveCurrentId);
 
     const getUpanishadStatus = (index: number): "completed" | "in-progress" | "next-up" | "locked" => {
         if (isMasterId) {

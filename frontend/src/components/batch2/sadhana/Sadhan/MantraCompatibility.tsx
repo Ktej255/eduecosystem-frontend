@@ -4,6 +4,9 @@ import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Flame, Droplets, Wind, Mountain, Sparkles, Scale, ArrowRight, Activity, Moon } from 'lucide-react';
 import { getZodiacSign, getZodiacCompatibility, getRinniResult, getElement, getElementCompatibility, CompatibilityLevel } from './MantraCompatibilityLogic';
+import { useBatch2UI } from "@/components/batch2/context/Batch2UIContext";
+import { TranceToggle } from "@/components/batch2/context/TranceToggle";
+import { MantraCompatibilityImmersive } from './MantraCompatibilityImmersive';
 
 const LEVEL_COLORS: Record<CompatibilityLevel, string> = {
     'Excellent': 'text-emerald-500 bg-emerald-50 border-emerald-200',
@@ -24,6 +27,7 @@ export default function MantraCompatibility() {
     const [name, setName] = useState('');
     const [mantra, setMantra] = useState('');
     const [isCalculating, setIsCalculating] = useState(false);
+    const { mode } = useBatch2UI();
 
     const results = useMemo(() => {
         if (!name || !mantra || isCalculating) return null;
@@ -43,7 +47,7 @@ export default function MantraCompatibility() {
 
         return {
             zodiac: { nameSign: nZod?.sign, mantraSign: mZod?.sign, ...zodCompat },
-            element: { nameEl, mantraEl: mEl, ...elementCompat },
+            element: { nameEl: nEl, mantraEl: mEl, ...elementCompat },
             rinni: rinniCompat
         };
     }, [name, mantra, isCalculating]);
@@ -55,8 +59,19 @@ export default function MantraCompatibility() {
         setTimeout(() => setIsCalculating(false), 800); // Fake delay for calculation feel
     };
 
+    if (mode === 'immersive') {
+        return (
+            <div className="relative w-full h-[600px] rounded-3xl overflow-hidden bg-black shadow-2xl">
+                <MantraCompatibilityImmersive />
+                <div className="absolute bottom-6 right-6 z-50">
+                    <TranceToggle />
+                </div>
+            </div>
+        );
+    }
+
     return (
-        <div className="max-w-4xl mx-auto py-8">
+        <div className="max-w-4xl mx-auto py-8 relative">
             <div className="text-center mb-10">
                 <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-amber-200 shadow-sm">
                     <Scale className="w-8 h-8 text-amber-600" />
@@ -180,6 +195,11 @@ export default function MantraCompatibility() {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            {/* Trance Toggle Floating UI */}
+            <div className="fixed bottom-6 right-6 z-50">
+                <TranceToggle />
+            </div>
         </div>
     );
 }

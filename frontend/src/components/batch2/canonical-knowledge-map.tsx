@@ -3,6 +3,9 @@
 import React, { useState, useRef, useCallback, useMemo, useEffect } from "react";
 import { ZoomIn, ZoomOut, RotateCcw, Move, Maximize2, ExternalLink, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useBatch2UI } from "@/components/batch2/context/Batch2UIContext";
+import { TranceToggle } from "@/components/batch2/context/TranceToggle";
+import { CanonicalKnowledgeMapImmersive } from "@/components/batch2/canonical-knowledge-map-immersive";
 
 // ==========================================
 // TYPE DEFINITIONS
@@ -576,6 +579,7 @@ export default function CanonicalKnowledgeMap() {
     const [hoveredNode, setHoveredNode] = useState<string | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLDivElement>(null);
+    const { mode } = useBatch2UI();
 
     // Inject CSS
     useEffect(() => {
@@ -726,6 +730,10 @@ export default function CanonicalKnowledgeMap() {
         );
     }
 
+    if (mode === 'immersive') {
+        return <CanonicalKnowledgeMapImmersive />;
+    }
+
     return (
         <div
             ref={containerRef}
@@ -737,6 +745,11 @@ export default function CanonicalKnowledgeMap() {
             onMouseLeave={handleMouseUp}
         // onWheel handled by native listener
         >
+            {/* Global UI Toggle */}
+            <div className="absolute top-4 left-4 z-40">
+                <TranceToggle />
+            </div>
+
             {/* Zoom Controls */}
             <div className="absolute top-4 right-4 z-30 flex flex-col gap-2 bg-amber-50/95 backdrop-blur-sm rounded-lg p-2 border border-amber-300/50 shadow-md">
                 <Button

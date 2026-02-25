@@ -4,9 +4,14 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SKILLS_METADATA, SkillProgress } from '../data/sadhana-data';
 import { ChevronDown, ChevronUp, Target, Compass, Flame } from 'lucide-react';
+import { useBatch2UI } from "@/components/batch2/context/Batch2UIContext";
+import { TranceToggle } from "@/components/batch2/context/TranceToggle";
+import { SkillsExplorerImmersive } from './SkillsExplorerImmersive';
+
+import { useSadhanaSkillTracker } from "../../hooks/useSadhanaSkillTracker";
 
 interface SkillsExplorerProps {
-    skillProgress: SkillProgress[];
+    // Deprecated static prop
 }
 
 const CATEGORY_STYLES = {
@@ -21,15 +26,28 @@ const MATURITY_ICONS = {
     'Orchard': '🌺',
 };
 
-export default function SkillsExplorer({ skillProgress }: SkillsExplorerProps) {
+export default function SkillsExplorer({ }: SkillsExplorerProps) {
+    const { skillProgress } = useSadhanaSkillTracker();
     const [filter, setFilter] = useState<'All' | 'Evergreen' | 'Mid-term' | 'Immediate'>('All');
     const [expandedSkill, setExpandedSkill] = useState<string | null>(null);
+    const { mode } = useBatch2UI();
 
     const filteredSkills = filter === 'All'
         ? SKILLS_METADATA
         : SKILLS_METADATA.filter(s => s.category === filter);
 
     const getProgress = (skillId: string) => skillProgress.find(s => s.skillId === skillId);
+
+    if (mode === 'immersive') {
+        return (
+            <div className="relative w-full h-full min-h-[600px] flex rounded-3xl overflow-hidden bg-black border border-white/10 shadow-2xl">
+                <SkillsExplorerImmersive />
+                <div className="absolute bottom-6 right-6 z-50">
+                    <TranceToggle />
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="w-full max-w-4xl mx-auto flex flex-col h-full max-h-[700px]">
@@ -44,8 +62,8 @@ export default function SkillsExplorer({ skillProgress }: SkillsExplorerProps) {
                             key={cat}
                             onClick={() => setFilter(cat)}
                             className={`flex-1 py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center gap-2 ${isSelected
-                                    ? 'bg-white text-amber-900 shadow-sm border border-amber-200'
-                                    : 'text-amber-700/60 hover:text-amber-900 hover:bg-amber-100/50'
+                                ? 'bg-white text-amber-900 shadow-sm border border-amber-200'
+                                : 'text-amber-700/60 hover:text-amber-900 hover:bg-amber-100/50'
                                 }`}
                         >
                             {cat} <span className={`px-2 py-0.5 rounded-full text-[10px] ${isSelected ? 'bg-amber-100 text-amber-800' : 'bg-black/5'}`}>{count}</span>
@@ -142,6 +160,11 @@ export default function SkillsExplorer({ skillProgress }: SkillsExplorerProps) {
                     border-radius: 20px;
                 }
             `}</style>
+
+            {/* Trance Toggle Note: placed here for the standard UI, optionally styled differently */}
+            <div className="absolute bottom-6 right-6 z-50">
+                <TranceToggle />
+            </div>
         </div>
     );
 }

@@ -54,24 +54,40 @@ const PHASES = [
 
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
+import { useBatch2UI } from "@/components/batch2/context/Batch2UIContext";
+import { TranceToggle } from "@/components/batch2/context/TranceToggle";
+import { TransformationRoadmapImmersive } from "./TransformationRoadmapImmersive";
+import { useBatch2Events } from "@/components/batch2/hooks/useBatch2Events";
+import { useMemo } from "react";
 
 export default function TransformationRoadmap({ suggestedPhaseId }: { suggestedPhaseId?: number }) {
-    const [completedPhases, setCompletedPhases] = useState<number[]>([]);
-    const [currentPhase, setCurrentPhase] = useState<number>(1); // Default: Phase 1 (Kena)
+    const { mode } = useBatch2UI();
+    const { getEventsByType } = useBatch2Events();
 
-    useEffect(() => {
-        // Read progress from localStorage
-        const savedProgress = localStorage.getItem("ancientWisdomProgress");
-        if (savedProgress) {
-            try {
-                const progress = JSON.parse(savedProgress);
-                if (progress.completedPhases) setCompletedPhases(progress.completedPhases);
-                if (progress.currentPhase) setCurrentPhase(progress.currentPhase);
-            } catch (e) {
-                console.error("Failed to parse progress", e);
+    const { completedPhases } = useMemo(() => {
+        const completed: number[] = [];
+        const sessions = getEventsByType('upanishad_session_completed');
+        const completedKeys = sessions.map(e => e.data?.upanishadKey);
+
+        PHASES.forEach(p => {
+            if (completedKeys.includes(p.upanishadKey)) {
+                completed.push(p.id);
             }
-        }
-    }, []);
+        });
+
+        return { completedPhases: completed };
+    }, [getEventsByType]);
+
+    if (mode === 'immersive') {
+        return (
+            <div className="relative w-full h-[800px] overflow-hidden bg-black shadow-2xl">
+                <TransformationRoadmapImmersive suggestedPhaseId={suggestedPhaseId} />
+                <div className="absolute top-6 right-6 z-50">
+                    <TranceToggle />
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="w-full py-12 relative" id="roadmap">
