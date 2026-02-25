@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Eye } from "lucide-react";
+import { Sparkles, Eye, X } from "lucide-react";
 import { ISHA_UPANISHAD } from "@/components/batch2/upanishads/data/isha-shlokas";
 import { getShlokaImage } from "@/components/batch2/upanishads/data/isha-images";
 
 // 100x UI for Isha Upanishad
-export function IshaImmersiveExperience({ lang }: { lang: "en" | "hi" }) {
+export function IshaImmersiveExperience({ lang, onClose }: { lang: "en" | "hi", onClose?: () => void }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isRevealed, setIsRevealed] = useState(false);
 
@@ -19,15 +19,23 @@ export function IshaImmersiveExperience({ lang }: { lang: "en" | "hi" }) {
     // Keyboard navigation
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.code === "Escape" && onClose) {
+                onClose();
+            }
             if (e.code === "Space") {
                 e.preventDefault();
-                setIsRevealed(true);
-            }
-            if (e.code === "ArrowRight" || e.key === "Enter") {
-                if (isRevealed) {
-                    setCurrentIndex(prev => Math.min(shlokas.length - 1, prev + 1));
-                    setIsRevealed(false);
+                if (!isRevealed) {
+                    setIsRevealed(true);
+                } else {
+                    if (currentIndex < shlokas.length - 1) {
+                        setCurrentIndex(prev => Math.min(prev + 1, ISHA_UPANISHAD.length - 1));
+                        setIsRevealed(false);
+                    }
                 }
+            }
+            if (e.code === "ArrowRight") {
+                setCurrentIndex(prev => Math.min(prev + 1, ISHA_UPANISHAD.length - 1));
+                setIsRevealed(false);
             }
             if (e.code === "ArrowLeft") {
                 setCurrentIndex(prev => Math.max(0, prev - 1));
@@ -39,12 +47,21 @@ export function IshaImmersiveExperience({ lang }: { lang: "en" | "hi" }) {
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
         };
-    }, [isRevealed, shlokas.length]);
+    }, [isRevealed, shlokas.length, onClose]);
 
     if (!shloka) return null;
 
     return (
         <div className="fixed inset-0 bg-black z-[100] overflow-hidden flex flex-col font-sans select-none">
+            {onClose && (
+                <button
+                    onClick={onClose}
+                    className="absolute top-6 right-6 z-50 p-3 rounded-full bg-white/5 hover:bg-white/20 text-white/50 hover:text-white transition-all backdrop-blur-md border border-white/10"
+                >
+                    <X className="w-6 h-6" />
+                </button>
+            )}
+
             {/* Immersive Background - Isha focuses on High Contrast Gold/Black */}
             <div className="absolute inset-0 z-0">
                 {image ? (
@@ -156,7 +173,7 @@ export function IshaImmersiveExperience({ lang }: { lang: "en" | "hi" }) {
                                                 }}
                                                 className="mt-8 text-amber-600 hover:text-amber-400 text-[10px] font-black uppercase tracking-[0.4em] transition-colors"
                                             >
-                                                Press <kbd className="font-mono bg-amber-950/50 px-2 py-1 rounded mx-1 text-amber-500/80">ENTER</kbd> to Continue the Journey
+                                                Press <kbd className="font-mono bg-amber-950/50 px-2 py-1 rounded mx-1 text-amber-500/80">SPACE</kbd> to See Inward
                                             </motion.button>
                                         ) : (
                                             <motion.div

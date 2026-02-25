@@ -95,7 +95,7 @@ const LotusVisualizer: React.FC<LotusVisualizerProps> = ({ }) => {
                                     const skillProgress = skills.find(s => s.skillId === skillId);
                                     const isSelected = selectedSkillId === skillId;
 
-                                    let opacity = "0.15";
+                                    let opacity = "0.2";
                                     let strokeWidth = "1";
                                     let filter = "";
                                     let strokeColor = "currentColor";
@@ -116,17 +116,20 @@ const LotusVisualizer: React.FC<LotusVisualizerProps> = ({ }) => {
                                     }
 
                                     return (
-                                        <path
-                                            key={skillId}
-                                            d={getPetalPath(125, 125, ring.radius, angle, ring.size)}
-                                            className={`${ring.classObj.color} transition-all duration-300 cursor-pointer hover:opacity-100 origin-center`}
-                                            style={{ stroke: strokeColor }}
-                                            fill="currentColor"
-                                            fillOpacity={opacity}
-                                            strokeWidth={strokeWidth}
-                                            filter={filter}
-                                            onClick={() => setSelectedSkillId(isSelected ? null : skillId)}
-                                        />
+                                        <g key={skillId}>
+                                            <path
+                                                d={getPetalPath(125, 125, ring.radius, angle, ring.size)}
+                                                className={`${ring.classObj.color} transition-all duration-300 cursor-pointer hover:opacity-100 origin-center`}
+                                                style={{ stroke: strokeColor }}
+                                                fill="currentColor"
+                                                fillOpacity={opacity}
+                                                strokeWidth={strokeWidth}
+                                                filter={filter}
+                                                onClick={() => setSelectedSkillId(isSelected ? null : skillId)}
+                                            >
+                                                <title>{skill.name}</title>
+                                            </path>
+                                        </g>
                                     );
                                 })}
                             </g>

@@ -54,32 +54,32 @@ function PhilosophyStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: b
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4 }}
-                className="bg-cyan-900/40 rounded-2xl border border-teal-500/30 overflow-hidden shadow-2xl backdrop-blur-sm"
+                className="bg-cyan-900/40 rounded-2xl border border-[var(--sp-border)] overflow-hidden shadow-2xl backdrop-blur-sm"
             >
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                     {/* Text Column */}
                     <div className="p-6 md:p-10 space-y-6">
                         <div className="flex items-center justify-between">
-                            <span className="px-5 py-2 bg-teal-500/20 text-teal-300 rounded-full text-sm font-bold tracking-wide uppercase">
+                            <span className="px-5 py-2 bg-teal-500/20 text-[var(--sp-text-lo)] rounded-full text-sm font-bold tracking-wide uppercase">
                                 Mantra {shloka.id}
                             </span>
                             <span className="text-cyan-400 font-medium tracking-tight">Kena Upanishad</span>
                         </div>
 
                         {/* Sanskrit */}
-                        <div className="bg-cyan-950/60 rounded-xl p-6 border border-teal-500/30 shadow-inner">
-                            <p className="text-2xl md:text-3xl text-teal-50 text-center leading-relaxed font-serif" style={{ fontFamily: "'Noto Sans Devanagari', serif" }}>
+                        <div className="bg-cyan-950/60 rounded-xl p-6 border border-[var(--sp-border)] shadow-inner">
+                            <p className="text-2xl md:text-3xl text-[var(--sp-text-hi)] text-center leading-relaxed font-serif" style={{ fontFamily: "'Noto Sans Devanagari', serif" }}>
                                 {shloka.sanskrit}
                             </p>
-                            <p className="mt-4 text-teal-400/80 text-sm text-center italic tracking-wide">
+                            <p className="mt-4 text-[var(--sp-text-lo)] text-sm text-center italic tracking-wide">
                                 {shloka.transliteration}
                             </p>
                         </div>
 
                         {/* Meanings */}
                         <div className="space-y-5">
-                            <div className="bg-teal-900/20 rounded-xl p-5 border border-teal-500/20">
-                                <h4 className="text-teal-400 font-bold mb-3 flex items-center gap-2">
+                            <div className="bg-[var(--sp-surface)] rounded-xl p-5 border border-[var(--sp-border)]">
+                                <h4 className="text-[var(--sp-text-lo)] font-bold mb-3 flex items-center gap-2">
                                     <BookOpen className="w-4 h-4" />
                                     {lang === "en" ? "Translation" : "अनुवाद"}
                                 </h4>
@@ -106,16 +106,16 @@ function PhilosophyStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: b
                                         initial={{ opacity: 0, scale: 0.95 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.95 }}
-                                        className="bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-xl p-6 border border-amber-400/40 shadow-lg relative overflow-hidden"
+                                        className="bg-gradient-to-br from-[var(--sp-gold)]/20 to-[var(--sp-bg)]/20 rounded-xl p-6 border border-[var(--sp-border)] shadow-lg relative overflow-hidden"
                                     >
                                         <div className="absolute top-0 right-0 p-2">
-                                            <button onClick={() => setShowReflection(false)} className="text-amber-200/50 hover:text-amber-200">✕</button>
+                                            <button onClick={() => setShowReflection(false)} className="text-[var(--sp-text-hi)] hover:text-[var(--sp-text-hi)]">✕</button>
                                         </div>
-                                        <h4 className="text-amber-200 font-bold mb-3 flex items-center gap-2">
+                                        <h4 className="text-[var(--sp-text-hi)] font-bold mb-3 flex items-center gap-2">
                                             <span className="text-xl">🧘</span>
                                             {lang === "en" ? "Contemplation" : "चिंतन"}
                                         </h4>
-                                        <p className="text-amber-50 text-lg leading-relaxed font-medium italic">
+                                        <p className="text-[var(--sp-text-hi)] text-lg leading-relaxed font-medium italic">
                                             {shloka.reflection}
                                         </p>
                                     </motion.div>
@@ -124,8 +124,8 @@ function PhilosophyStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: b
 
                             {/* Sarit's Insight - Only for Premium */}
                             {isPremium ? (
-                                <div className="bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xl p-6 border border-teal-400/40 shadow-lg">
-                                    <h4 className="text-teal-200 font-bold mb-3 flex items-center gap-2">
+                                <div className="bg-gradient-to-br from-[var(--sp-gold)]/20 to-cyan-500/20 rounded-xl p-6 border border-[var(--sp-border)] shadow-lg">
+                                    <h4 className="text-[var(--sp-text-hi)] font-bold mb-3 flex items-center gap-2">
                                         <span className="text-xl">💡</span>
                                         {lang === "en" ? "Sarit's Insight" : "सरल बोध"}
                                     </h4>
@@ -134,9 +134,9 @@ function PhilosophyStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: b
                                     </p>
                                 </div>
                             ) : (
-                                <div className="bg-slate-900/60 rounded-xl p-6 border border-slate-700/50 relative overflow-hidden group">
-                                    <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <button className="bg-amber-500 text-black px-4 py-2 rounded-lg font-bold flex items-center gap-2 shadow-xl hover:bg-amber-400">
+                                <div className="bg-[var(--sp-surface)]/60 rounded-xl p-6 border border-[var(--sp-border)]/50 relative overflow-hidden group">
+                                    <div className="absolute inset-0 bg-[var(--sp-bg)]/40 backdrop-blur-[2px] z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <button className="bg-amber-500 text-black px-4 py-2 rounded-lg font-bold flex items-center gap-2 shadow-xl hover:bg-[#1a1a33]">
                                             <Zap className="w-4 h-4 fill-current" /> Unlock Insights
                                         </button>
                                     </div>
@@ -154,19 +154,19 @@ function PhilosophyStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: b
                             <div className="grid grid-cols-3 gap-4 mt-6">
                                 <button
                                     onClick={() => (window as any).showSadhanaTimer && (window as any).showSadhanaTimer()}
-                                    className="bg-indigo-600/20 hover:bg-indigo-600/30 border border-indigo-500/30 rounded-xl p-4 text-indigo-300 font-bold text-xs flex flex-col items-center justify-center gap-2 transition-all"
+                                    className="bg-indigo-600/20 hover:bg-[#1a1a33] border border-[var(--sp-border)] rounded-xl p-4 text-[var(--sp-text-lo)] font-bold text-xs flex flex-col items-center justify-center gap-2 transition-all"
                                 >
                                     <Wind className="w-4 h-4" /> Start Sadhana
                                 </button>
                                 <button
                                     onClick={() => (window as any).showGuidedMantra && (window as any).showGuidedMantra()}
-                                    className="bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/30 rounded-xl p-4 text-purple-300 font-bold text-xs flex flex-col items-center justify-center gap-2 transition-all"
+                                    className="bg-purple-600/20 hover:bg-[#1a1a33] border border-[var(--sp-border)] rounded-xl p-4 text-[var(--sp-text-lo)] font-bold text-xs flex flex-col items-center justify-center gap-2 transition-all"
                                 >
                                     <Volume2 className="w-4 h-4" /> Guided Mode
                                 </button>
                                 <button
                                     onClick={() => (window as any).showExperienceReport && (window as any).showExperienceReport()}
-                                    className="bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 rounded-xl p-4 text-emerald-300 font-bold text-xs flex flex-col items-center justify-center gap-2 transition-all"
+                                    className="bg-emerald-600/20 hover:bg-[#1a1a33] border border-[var(--sp-border)] rounded-xl p-4 text-[var(--sp-text-lo)] font-bold text-xs flex flex-col items-center justify-center gap-2 transition-all"
                                 >
                                     <Feather className="w-4 h-4" /> Log Experience
                                 </button>
@@ -176,7 +176,7 @@ function PhilosophyStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: b
 
                     {/* Image Column */}
                     <div className="relative bg-cyan-950/80 flex items-center justify-center min-h-[450px] overflow-hidden group">
-                        <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-transparent z-0" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-[var(--sp-gold)]/5 to-transparent z-0" />
                         {image ? (
                             <motion.img
                                 src={image}
@@ -187,10 +187,10 @@ function PhilosophyStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: b
                             />
                         ) : (
                             <div className="text-center space-y-4 relative z-10">
-                                <div className="w-24 h-24 bg-teal-500/10 rounded-full flex items-center justify-center mx-auto mb-2 border border-teal-500/20">
+                                <div className="w-24 h-24 bg-teal-500/10 rounded-full flex items-center justify-center mx-auto mb-2 border border-[var(--sp-border)]">
                                     <span className="text-5xl opacity-40">🧠</span>
                                 </div>
-                                <p className="text-teal-500/50 font-medium">Visualizing Mantra {shloka.id}...</p>
+                                <p className="text-[var(--sp-text-hi)]0/50 font-medium">Visualizing Mantra {shloka.id}...</p>
                             </div>
                         )}
                     </div>
@@ -203,7 +203,7 @@ function PhilosophyStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: b
                     <button
                         onClick={() => setCurrentIndex(prev => Math.max(0, prev - 1))}
                         disabled={currentIndex === 0}
-                        className="w-12 h-12 flex items-center justify-center bg-cyan-800/50 text-teal-300 rounded-full border border-teal-500/30 hover:bg-teal-500 hover:text-white transition-all disabled:opacity-20"
+                        className="w-12 h-12 flex items-center justify-center bg-cyan-800/50 text-[var(--sp-text-lo)] rounded-full border border-[var(--sp-border)] hover:bg-[#1a1a33] hover:text-white transition-all disabled:opacity-20"
                     >
                         <ChevronLeft className="w-6 h-6" />
                     </button>
@@ -214,8 +214,8 @@ function PhilosophyStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: b
                                 key={i}
                                 onClick={() => setCurrentIndex(i)}
                                 className={`w-8 h-8 rounded-full text-xs font-bold transition-all border ${i === currentIndex
-                                    ? "bg-teal-500 border-teal-400 text-white scale-110 shadow-lg shadow-teal-500/40"
-                                    : "bg-cyan-900/40 border-teal-500/20 text-teal-600 hover:border-teal-500"
+                                    ? "bg-teal-500 border-[var(--sp-border)] text-white scale-110 shadow-lg shadow-teal-500/40"
+                                    : "bg-cyan-900/40 border-[var(--sp-border)] text-[var(--sp-gold)] hover:border-[var(--sp-border)]"
                                     }`}
                             >
                                 {i + 1}
@@ -226,12 +226,12 @@ function PhilosophyStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: b
                     <button
                         onClick={() => setCurrentIndex(prev => Math.min(philosophyData.length - 1, prev + 1))}
                         disabled={currentIndex === philosophyData.length - 1}
-                        className="w-12 h-12 flex items-center justify-center bg-cyan-800/50 text-teal-300 rounded-full border border-teal-500/30 hover:bg-teal-500 hover:text-white transition-all disabled:opacity-20"
+                        className="w-12 h-12 flex items-center justify-center bg-cyan-800/50 text-[var(--sp-text-lo)] rounded-full border border-[var(--sp-border)] hover:bg-[#1a1a33] hover:text-white transition-all disabled:opacity-20"
                     >
                         <ChevronRight className="w-6 h-6" />
                     </button>
                 </div>
-                <p className="text-teal-500/50 text-sm font-medium">
+                <p className="text-[var(--sp-text-hi)]0/50 text-sm font-medium">
                     Showing {currentIndex + 1} of {philosophyData.length} Mantras in Inquiry & Paradox
                 </p>
             </div>
@@ -250,15 +250,15 @@ function StoryStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: boolea
 
     if (!isPremium) {
         return (
-            <div className="min-h-[500px] flex flex-col items-center justify-center p-8 bg-cyan-900/20 rounded-3xl border border-teal-500/20 text-center space-y-6">
-                <div className="w-20 h-20 bg-amber-500/20 rounded-full flex items-center justify-center border border-amber-500/40">
-                    <Drama className="w-10 h-10 text-amber-500" />
+            <div className="min-h-[500px] flex flex-col items-center justify-center p-8 bg-cyan-900/20 rounded-3xl border border-[var(--sp-border)] text-center space-y-6">
+                <div className="w-20 h-20 bg-amber-500/20 rounded-full flex items-center justify-center border border-[var(--sp-border)]">
+                    <Drama className="w-10 h-10 text-[var(--sp-text-hi)]0" />
                 </div>
                 <div className="space-y-2 max-w-md">
                     <h2 className="text-2xl font-bold text-white">The Yaksha Story</h2>
                     <p className="text-muted-foreground">Join Agni, Vayu, and Indra on their quest to identify the mysterious Spirit. This visual storytelling experience is exclusive to Premium seekers.</p>
                 </div>
-                <button className="bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-teal-500/20 hover:scale-105 transition-transform">
+                <button className="bg-gradient-to-r from-[var(--sp-gold)] to-cyan-500 text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-teal-500/20 hover:scale-105 transition-transform">
                     Unlock Premium Wisdom
                 </button>
             </div>
@@ -295,7 +295,7 @@ function StoryStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: boolea
                             <div
                                 className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-black transition-all duration-300 border-2 ${i === currentIndex
                                     ? "bg-teal-500 border-white text-white scale-125 shadow-xl shadow-teal-500/30"
-                                    : "bg-cyan-900 border-teal-500/30 text-teal-700 hover:border-teal-500"
+                                    : "bg-cyan-900 border-[var(--sp-border)] text-[var(--sp-gold)] hover:border-[var(--sp-border)]"
                                     }`}
                             >
                                 {s.id}
@@ -316,7 +316,7 @@ function StoryStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: boolea
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                    className="bg-cyan-900/40 rounded-3xl border border-teal-500/30 overflow-hidden shadow-2xl backdrop-blur-md"
+                    className="bg-cyan-900/40 rounded-3xl border border-[var(--sp-border)] overflow-hidden shadow-2xl backdrop-blur-md"
                 >
                     <div className="grid grid-cols-1 lg:grid-cols-2">
                         {/* Story Content */}
@@ -325,16 +325,16 @@ function StoryStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: boolea
                                 <div className="w-14 h-14 bg-teal-500 text-white rounded-2xl flex items-center justify-center text-2xl font-black shadow-lg">
                                     {shloka.id}
                                 </div>
-                                <div className="h-full border-l-2 border-teal-500/20 pl-4">
+                                <div className="h-full border-l-2 border-[var(--sp-border)] pl-4">
                                     <h3 className="text-3xl font-bold text-white tracking-tight leading-tight">
                                         {lang === "en" ? (shloka.theme || "The Revelation") : (shloka.theme || "रहस्योद्घाटन")}
                                     </h3>
-                                    <p className="text-teal-400 font-medium text-sm">Chapter 3 & 4: The Yaksha Allegory</p>
+                                    <p className="text-[var(--sp-text-lo)] font-medium text-sm">Chapter 3 & 4: The Yaksha Allegory</p>
                                 </div>
                             </div>
 
                             {/* Main Story Text */}
-                            <div className="bg-cyan-950/40 rounded-2xl p-6 border border-teal-500/20">
+                            <div className="bg-cyan-950/40 rounded-2xl p-6 border border-[var(--sp-border)]">
                                 <p className="text-xl text-cyan-50 leading-relaxed font-medium">
                                     {lang === "en" ? shloka.english : shloka.hindi}
                                 </p>
@@ -345,32 +345,32 @@ function StoryStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: boolea
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.95 }}
-                                className="bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-xl p-6 border border-amber-400/40 shadow-lg relative overflow-hidden"
+                                className="bg-gradient-to-br from-[var(--sp-gold)]/20 to-[var(--sp-bg)]/20 rounded-xl p-6 border border-[var(--sp-border)] shadow-lg relative overflow-hidden"
                             >
-                                <h4 className="text-amber-200 font-bold mb-3 flex items-center gap-2">
+                                <h4 className="text-[var(--sp-text-hi)] font-bold mb-3 flex items-center gap-2">
                                     <span className="text-xl">🧘</span>
                                     {lang === "en" ? "Contemplation" : "चिंतन"}
                                 </h4>
-                                <p className="text-amber-50 text-lg leading-relaxed font-medium italic">
+                                <p className="text-[var(--sp-text-hi)] text-lg leading-relaxed font-medium italic">
                                     {shloka.reflection}
                                 </p>
                             </motion.div>
 
                             {/* Simplified Section */}
                             <div className="space-y-4">
-                                <div className="flex items-center gap-2 text-teal-400">
+                                <div className="flex items-center gap-2 text-[var(--sp-text-lo)]">
                                     <span className="text-2xl">💡</span>
                                     <span className="uppercase text-xs font-black tracking-widest tracking-widest">Master Key</span>
                                 </div>
-                                <p className="text-xl text-teal-100/90 leading-relaxed italic pl-9 border-l-2 border-teal-500/30">
+                                <p className="text-xl text-[var(--sp-text-hi)] leading-relaxed italic pl-9 border-l-2 border-[var(--sp-border)]">
                                     {lang === "en" ? shloka.simpleExplanation : shloka.simpleExplanationHindi}
                                 </p>
                             </div>
                         </div>
 
                         {/* Interactive Visual */}
-                        <div className="relative bg-black/20 flex flex-col items-center justify-center min-h-[500px] border-l border-teal-500/10">
-                            <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-teal-500/40 to-transparent" />
+                        <div className="relative bg-[var(--sp-bg)]/20 flex flex-col items-center justify-center min-h-[500px] border-l border-[var(--sp-border)]">
+                            <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[var(--sp-gold)]/40 to-transparent" />
 
                             {/* Placeholder for Dynamic Art */}
                             <div className="relative z-10 text-center p-8">
@@ -389,7 +389,7 @@ function StoryStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: boolea
                                     {shloka.id >= 28 && shloka.id <= 32 && "⚡"}
                                     {shloka.id >= 33 && shloka.id <= 34 && "🕉️"}
                                 </motion.div>
-                                <p className="text-teal-400 text-sm font-bold tracking-widest uppercase mb-2">Scene Description</p>
+                                <p className="text-[var(--sp-text-lo)] text-sm font-bold tracking-widest uppercase mb-2">Scene Description</p>
                                 <p className="text-cyan-100/70 max-w-xs mx-auto italic leading-relaxed">
                                     {shloka.nanoBananaPrompt}
                                 </p>
@@ -400,18 +400,18 @@ function StoryStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: boolea
             </AnimatePresence>
 
             {/* Quick Controls */}
-            <div className="flex justify-between items-center bg-cyan-900/40 p-4 rounded-2xl border border-teal-500/20">
+            <div className="flex justify-between items-center bg-cyan-900/40 p-4 rounded-2xl border border-[var(--sp-border)]">
                 <button
                     onClick={() => setCurrentIndex(prev => Math.max(0, prev - 1))}
                     disabled={currentIndex === 0}
-                    className="flex items-center gap-3 px-6 py-3 bg-cyan-950 text-teal-400 rounded-xl hover:bg-teal-500 hover:text-white transition-all disabled:opacity-10 border border-teal-500/20"
+                    className="flex items-center gap-3 px-6 py-3 bg-cyan-950 text-[var(--sp-text-lo)] rounded-xl hover:bg-[#1a1a33] hover:text-white transition-all disabled:opacity-10 border border-[var(--sp-border)]"
                 >
                     <ChevronLeft className="w-5 h-5" />
                     <span className="font-bold">Previous Phase</span>
                 </button>
 
                 <div className="hidden md:flex items-center gap-3">
-                    <span className="text-teal-500/50 font-bold text-xs uppercase tracking-tighter">Progress</span>
+                    <span className="text-[var(--sp-text-hi)]0/50 font-bold text-xs uppercase tracking-tighter">Progress</span>
                     <div className="h-1.5 w-64 bg-cyan-950 rounded-full overflow-hidden">
                         <motion.div
                             className="h-full bg-teal-500"
@@ -419,13 +419,13 @@ function StoryStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: boolea
                             animate={{ width: `${((currentIndex + 1) / storyData.length) * 100}%` }}
                         />
                     </div>
-                    <span className="text-teal-400 font-black text-sm">{currentIndex + 1}/{storyData.length}</span>
+                    <span className="text-[var(--sp-text-lo)] font-black text-sm">{currentIndex + 1}/{storyData.length}</span>
                 </div>
 
                 <button
                     onClick={() => setCurrentIndex(prev => Math.min(storyData.length - 1, prev + 1))}
                     disabled={currentIndex === storyData.length - 1}
-                    className="flex items-center gap-3 px-6 py-3 bg-teal-600 text-white rounded-xl hover:bg-teal-500 transition-all disabled:opacity-10 shadow-lg shadow-teal-500/20"
+                    className="flex items-center gap-3 px-6 py-3 bg-teal-600 text-white rounded-xl hover:bg-[#1a1a33] transition-all disabled:opacity-10 shadow-lg shadow-teal-500/20"
                 >
                     <span className="font-bold">Next Event</span>
                     <ChevronRight className="w-5 h-5" />
@@ -451,7 +451,7 @@ export default function KenaLayout() {
     const [guidedActive, setGuidedActive] = useState(false);
 
     // Get Global UI Mode
-    const { mode } = useBatch2UI();
+    const { mode, setMode } = useBatch2UI();
 
     // Expose control to sub-components via window for simplicity (since components are in same file)
     useEffect(() => {
@@ -473,7 +473,7 @@ export default function KenaLayout() {
     // If Immersive Mode is Active, Hijack the Entire Screen
     if (mode === 'immersive') {
         return (
-            <div className="relative w-full min-h-screen bg-black">
+            <div className="relative w-full min-h-screen bg-[var(--sp-bg)]">
                 {/* Float the Toggle over the immersive view so they can escape */}
                 <div className="absolute top-6 right-6 z-[200]">
                     <TranceToggle />
@@ -481,18 +481,18 @@ export default function KenaLayout() {
                 <div className="absolute top-6 left-6 z-[200]">
                     <button
                         onClick={() => router.push("/student/batch2/upanishads")}
-                        className="flex items-center gap-2 text-teal-500/50 hover:text-teal-400 transition-colors uppercase tracking-[0.3em] font-black text-[10px]"
+                        className="flex items-center gap-2 text-[var(--sp-text-hi)]0/50 hover:text-[var(--sp-text-lo)] transition-colors uppercase tracking-[0.3em] font-black text-[10px]"
                     >
                         <ArrowLeft className="w-4 h-4" /> Exit
                     </button>
                 </div>
-                <KenaImmersiveExperience lang={lang} />
+                <KenaImmersiveExperience lang={lang} onClose={() => setMode('classic')} />
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-cyan-950 text-cyan-50 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        <div className="min-h-screen bg-cyan-950 text-cyan-50 font-sans selection:bg-teal-500/30 selection:text-[var(--sp-text-hi)]">
             {/* Hero Section */}
             <section
                 className="relative h-[60vh] md:h-[50vh] overflow-hidden"
@@ -524,14 +524,14 @@ export default function KenaLayout() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.5 }}
-                            className="inline-block px-4 py-1.5 bg-teal-500/20 text-teal-400 rounded-full text-xs font-black tracking-widest uppercase mb-6 border border-teal-500/30 backdrop-blur-md"
+                            className="inline-block px-4 py-1.5 bg-teal-500/20 text-[var(--sp-text-lo)] rounded-full text-xs font-black tracking-widest uppercase mb-6 border border-[var(--sp-border)] backdrop-blur-md"
                         >
                             Sama Veda • {lang === "en" ? "Music & Flow" : "सामवेद"}
                         </motion.span>
                         <h1 className="text-5xl md:text-8xl font-serif font-bold text-white mb-6 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] tracking-tight">
                             {lang === "en" ? "Kena Upanishad" : "केनोपनिषद्"}
                         </h1>
-                        <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-xl md:text-3xl text-teal-300 drop-shadow-lg">
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-xl md:text-3xl text-[var(--sp-text-lo)] drop-shadow-lg">
                             <span className="font-light italic">"{lang === "en" ? "By Whom?" : "किसके द्वारा?"}"</span>
                             <span className="hidden md:block w-2 h-2 bg-teal-500 rounded-full" />
                             <span className="font-bold tracking-tight">{lang === "en" ? "Science of Perception" : "ज्ञानेन्द्रियों का विज्ञान"}</span>
@@ -545,9 +545,9 @@ export default function KenaLayout() {
                 <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
                     <button
                         onClick={() => router.push("/student/batch2/upanishads")}
-                        className="flex items-center gap-3 text-teal-500 hover:text-teal-400 transition-all group"
+                        className="flex items-center gap-3 text-[var(--sp-text-hi)]0 hover:text-[var(--sp-text-lo)] transition-all group"
                     >
-                        <div className="w-10 h-10 rounded-full bg-cyan-900/50 flex items-center justify-center border border-teal-500/20 group-hover:bg-teal-500 group-hover:text-white transition-all">
+                        <div className="w-10 h-10 rounded-full bg-cyan-900/50 flex items-center justify-center border border-[var(--sp-border)] group-hover:bg-[#1a1a33] group-hover:text-white transition-all">
                             <ArrowLeft className="w-5 h-5" />
                         </div>
                         <span className="font-bold text-sm tracking-tight hidden sm:block">Back to Portal</span>
@@ -557,14 +557,14 @@ export default function KenaLayout() {
                         <TranceToggle />
                     </div>
 
-                    <div className="hidden lg:flex bg-black/40 rounded-2xl p-1 shadow-inner border border-white/5">
+                    <div className="hidden lg:flex bg-[var(--sp-bg)]/40 rounded-2xl p-1 shadow-inner border border-white/5">
                         {TABS.map((tab) => (
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id as any)}
                                 className={`flex items-center gap-3 px-6 py-2.5 rounded-xl text-sm font-bold transition-all relative ${activeTab === tab.id
                                     ? "bg-teal-600 text-white shadow-lg"
-                                    : "text-teal-500 hover:text-teal-300"
+                                    : "text-[var(--sp-text-hi)]0 hover:text-[var(--sp-text-lo)]"
                                     }`}
                             >
                                 {tab.icon}
@@ -576,7 +576,7 @@ export default function KenaLayout() {
                                 </span>
                                 {(tab.id === "story") && !isPremium && (
                                     <span className="absolute -top-1 -right-1">
-                                        <Zap className="w-3 h-3 text-amber-400 fill-current" />
+                                        <Zap className="w-3 h-3 text-[var(--sp-text-lo)] fill-current" />
                                     </span>
                                 )}
                             </button>
@@ -587,14 +587,14 @@ export default function KenaLayout() {
                         <div className="flex bg-cyan-900/50 rounded-xl p-1 border border-white/5">
                             <button
                                 onClick={() => setLang("en")}
-                                className={`px-4 py-1.5 rounded-lg text-xs font-black transition-all ${lang === "en" ? "bg-teal-500 text-white shadow-md" : "text-teal-600 hover:text-teal-400"
+                                className={`px-4 py-1.5 rounded-lg text-xs font-black transition-all ${lang === "en" ? "bg-teal-500 text-white shadow-md" : "text-[var(--sp-gold)] hover:text-[var(--sp-text-lo)]"
                                     }`}
                             >
                                 EN
                             </button>
                             <button
                                 onClick={() => setLang("hi")}
-                                className={`px-4 py-1.5 rounded-lg text-xs font-black transition-all ${lang === "hi" ? "bg-teal-500 text-white shadow-md" : "text-teal-600 hover:text-teal-400"
+                                className={`px-4 py-1.5 rounded-lg text-xs font-black transition-all ${lang === "hi" ? "bg-teal-500 text-white shadow-md" : "text-[var(--sp-gold)] hover:text-[var(--sp-text-lo)]"
                                     }`}
                             >
                                 हि
@@ -602,7 +602,7 @@ export default function KenaLayout() {
                         </div>
                         <button
                             onClick={() => setIsPlaying(!isPlaying)}
-                            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isPlaying ? "bg-teal-500 text-white shadow-lg shadow-teal-500/20" : "bg-cyan-900/50 text-teal-600 hover:text-teal-400"
+                            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isPlaying ? "bg-teal-500 text-white shadow-lg shadow-teal-500/20" : "bg-cyan-900/50 text-[var(--sp-gold)] hover:text-[var(--sp-text-lo)]"
                                 }`}
                         >
                             {isPlaying ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
@@ -644,7 +644,7 @@ export default function KenaLayout() {
             </main>
 
             {/* Premium Divider */}
-            <div className="h-px w-full bg-gradient-to-r from-transparent via-teal-500/30 to-transparent" />
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-[var(--sp-surface)]0/30 to-transparent" />
 
             {/* Final Footer Reveal */}
             <footer className="bg-cyan-950 py-20 relative overflow-hidden">
@@ -655,10 +655,10 @@ export default function KenaLayout() {
                         className="space-y-4"
                     >
                         <div className="w-12 h-1 w-full bg-teal-500/20 mx-auto rounded-full" />
-                        <p className="text-2xl md:text-3xl font-serif text-teal-50 tracking-wider">
+                        <p className="text-2xl md:text-3xl font-serif text-[var(--sp-text-hi)] tracking-wider">
                             तपः दमो कर्मेति प्रतिष्ठा वेदाः सर्वाङ्गानि सत्यमायतनम् ॥
                         </p>
-                        <p className="text-teal-300 font-medium italic opacity-70">
+                        <p className="text-[var(--sp-text-lo)] font-medium italic opacity-70">
                             {lang === "en"
                                 ? "Austerity, restraint, and work are its foundational feet."
                                 : "तपस्या, संयम और कर्म इसके आधार हैं।"}
@@ -666,7 +666,7 @@ export default function KenaLayout() {
                     </motion.div>
 
                     <div className="pt-10">
-                        <p className="text-teal-500/30 text-[10px] tracking-[0.5em] uppercase font-black">
+                        <p className="text-[var(--sp-text-hi)]0/30 text-[10px] tracking-[0.5em] uppercase font-black">
                             Sarit Classes Digital Upanishad Module • © 2025
                         </p>
                     </div>
@@ -684,7 +684,7 @@ export default function KenaLayout() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="absolute inset-0 bg-black/60 backdrop-blur-md"
+                            className="absolute inset-0 bg-[var(--sp-bg)]/60 backdrop-blur-md"
                             onClick={() => setSadhanaActive(false)}
                         />
                         <motion.div

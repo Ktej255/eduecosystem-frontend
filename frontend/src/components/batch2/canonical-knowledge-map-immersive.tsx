@@ -10,12 +10,21 @@ import * as THREE from 'three';
 // Dynamic import with SSR disabled for the 3D graph (requires browser APIs)
 const ForceGraph3D = dynamic(() => import("react-force-graph-3d"), { ssr: false });
 
+const GUIDED_PATH = [
+    { id: "upanishads", title: "1. The Core" },
+    { id: "principal-upanishads", title: "2. The 10 Texts" },
+    { id: "bhagavad-gita", title: "3. The Divine Song" },
+    { id: "brahma-sutra", title: "4. The Synthesis" },
+    { id: "darshanas", title: "5. Six Systems" }
+];
+
 export function CanonicalKnowledgeMapImmersive() {
     const { mode } = useBatch2UI();
-    const [graphData, setGraphData] = useState({ nodes: [], links: [] });
+    const [graphData, setGraphData] = useState<{ nodes: any[], links: any[] }>({ nodes: [], links: [] });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [hoverNode, setHoverNode] = useState<any | null>(null);
+    const [isGuidedMode, setIsGuidedMode] = useState(false);
     const fgRef = useRef<any>();
 
     useEffect(() => {
@@ -117,6 +126,34 @@ export function CanonicalKnowledgeMapImmersive() {
             <div className="absolute top-10 left-10 z-40 pointer-events-none mix-blend-screen opacity-50">
                 <h1 className="text-5xl font-serif text-amber-500 font-bold mb-2 blur-[1px]">Neural Web of Dharma</h1>
                 <p className="text-amber-200/60 uppercase tracking-[0.4em] text-xs font-mono ml-1">3D Canonical Topology</p>
+            </div>
+
+            {/* Guided Path Overlay */}
+            <div className="absolute top-36 left-10 z-50">
+                <button
+                    onClick={() => setIsGuidedMode(!isGuidedMode)}
+                    className={`px-4 py-2 rounded-full border text-[10px] font-black uppercase tracking-widest transition-all ${isGuidedMode ? 'bg-amber-500 text-black border-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.5)]' : 'bg-black/50 text-amber-500/70 border-amber-500/30 hover:text-amber-400 hover:border-amber-400'}`}
+                >
+                    {isGuidedMode ? "Exit Guided Path" : "Guided Path Mode"}
+                </button>
+
+                {isGuidedMode && (
+                    <div className="mt-6 space-y-3 w-64 pointer-events-auto">
+                        {GUIDED_PATH.map((step) => {
+                            const node = graphData.nodes.find(n => n.id === step.id);
+                            return (
+                                <button
+                                    key={step.id}
+                                    onClick={() => node && handleNodeClick(node)}
+                                    className="w-full text-left p-4 rounded-xl bg-black/60 backdrop-blur-md border border-white/5 hover:border-amber-500/50 hover:bg-white/5 transition-all group"
+                                >
+                                    <div className="text-amber-500/50 group-hover:text-amber-400 text-[9px] font-black tracking-widest uppercase mb-1">{step.title}</div>
+                                    <div className="text-white text-sm font-bold opacity-80 group-hover:opacity-100">{node ? node.label : "Loading..."}</div>
+                                </button>
+                            );
+                        })}
+                    </div>
+                )}
             </div>
 
             {/* Hover Info Panel */}

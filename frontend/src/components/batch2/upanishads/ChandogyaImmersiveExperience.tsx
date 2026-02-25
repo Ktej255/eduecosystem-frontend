@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, ChevronLeft, Volume2, Info, Ear, Waves, Droplets, Leaf } from "lucide-react";
+import { ChevronRight, ChevronLeft, Volume2, Info, Ear, Waves, Droplets, Leaf, X } from "lucide-react";
 import { CHANDOGYA_SHLOKAS } from "./data/chandogya-shlokas";
 import { cn } from "@/lib/utils";
 
@@ -18,7 +18,7 @@ const CHANDOGYA_THEMES = {
     }
 };
 
-export function ChandogyaImmersiveExperience({ lang = "en" }: { lang?: "en" | "hi" }) {
+export function ChandogyaImmersiveExperience({ lang = "en", onClose }: { lang?: "en" | "hi", onClose?: () => void }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isRevealed, setIsRevealed] = useState(false);
     const [showWordMeanings, setShowWordMeanings] = useState(false);
@@ -45,11 +45,18 @@ export function ChandogyaImmersiveExperience({ lang = "en" }: { lang?: "en" | "h
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.code === "Escape" && onClose) {
+                onClose();
+            }
             if (e.code === "Space") {
                 e.preventDefault();
-                setIsRevealed(true);
+                if (!isRevealed) {
+                    setIsRevealed(true);
+                } else {
+                    handleNext();
+                }
             }
-            if (e.code === "ArrowRight" || e.code === "Enter") {
+            if (e.code === "ArrowRight") {
                 handleNext();
             }
             if (e.code === "ArrowLeft") {
@@ -61,12 +68,21 @@ export function ChandogyaImmersiveExperience({ lang = "en" }: { lang?: "en" | "h
         };
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [currentIndex]);
+    }, [currentIndex, onClose]);
 
     if (!shloka) return null;
 
     return (
         <div className="fixed inset-0 bg-black z-[100] overflow-hidden flex flex-col font-sans select-none">
+            {onClose && (
+                <button
+                    onClick={onClose}
+                    className="absolute top-6 right-6 z-50 p-3 rounded-full bg-white/5 hover:bg-white/20 text-white/50 hover:text-white transition-all backdrop-blur-md border border-white/10"
+                >
+                    <X className="w-6 h-6" />
+                </button>
+            )}
+
             {/* Sonic Wave Background Layer */}
             <div className="absolute inset-0 z-0 flex items-center justify-center">
                 <motion.div
@@ -265,7 +281,7 @@ export function ChandogyaImmersiveExperience({ lang = "en" }: { lang?: "en" | "h
 
                                         {/* Continue Hint (Desktop Only) */}
                                         <div className="hidden md:block opacity-20 text-[9px] uppercase tracking-[0.6em] font-black text-center mt-6">
-                                            Press Enter to Continue the Instruction
+                                            Press Arrow Right to Continue the Instruction
                                         </div>
                                     </motion.div>
                                 )}

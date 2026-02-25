@@ -104,6 +104,7 @@ export default function VedicKnowledgeGraph({ theme = "light" }: { theme?: "ligh
                         style: n.style,
                         listItems: n.listItems,
                         url: n.url,
+                        isStart: n.id === "upanishads"
                     },
                 }));
 

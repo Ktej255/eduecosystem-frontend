@@ -1,10 +1,24 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+
 @plugin "@tailwindcss/typography";
 
 /* Enable dark mode with class-based selector for Tailwind 4 */
 @variant dark (&:where(.dark, .dark *));
 
 :root {
+  --font-devanagari: 'Noto Sans Devanagari', serif;
+
+  /* Sadhana Portal V5 Palette */
+  --sp-bg: #0d0d1a;
+  --sp-surface: #161628;
+  --sp-border: #2a2a4a;
+  --sp-gold: #c4a35a;
+  --sp-rose: #d97b8a;
+  --sp-teal: #3ab8b8;
+  --sp-text-hi: #f0e6cc;
+  --sp-text-lo: #8b7d6b;
+
   /* Primary Palette */
   --primary-blue: #2667FF;
   --primary-indigo: #1C1E4A;

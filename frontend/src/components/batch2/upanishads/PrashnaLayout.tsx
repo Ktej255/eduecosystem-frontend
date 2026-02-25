@@ -41,42 +41,42 @@ function PrashnaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveT
             title: lang === "en" ? "Source of Life" : "जीवन का स्रोत",
             desc: lang === "en" ? "Kabandhi asks: Where do all beings come from?" : "सभी प्राणी कहाँ से आते हैं?",
             icon: Sprout,
-            color: "from-emerald-400 to-green-500",
+            color: "from-[var(--sp-gold)] to-green-500",
             tab: "q1"
         },
         {
             title: lang === "en" ? "Nature of Prana" : "प्राण का स्वरूप",
             desc: lang === "en" ? "How is Prana supreme over all elements?" : "प्राण सभी तत्वों पर श्रेष्ठ कैसे है?",
             icon: Wind,
-            color: "from-teal-400 to-cyan-500",
+            color: "from-[var(--sp-gold)] to-cyan-500",
             tab: "q2"
         },
         {
             title: lang === "en" ? "Origin of Prana" : "प्राण की उत्पत्ति",
             desc: lang === "en" ? "Where is Prana born and how does it enter?" : "प्राण कहाँ से उत्पन्न होता है?",
             icon: Sparkles,
-            color: "from-blue-400 to-indigo-500",
+            color: "from-[var(--sp-gold)] to-[var(--sp-bg)]",
             tab: "q3"
         },
         {
             title: lang === "en" ? "Sleep & Dreams" : "नींद और सपने",
             desc: lang === "en" ? "Who sleeps? Who dreams? Who is happy?" : "कौन सोता है? कौन सपना देखता है?",
             icon: Moon,
-            color: "from-violet-400 to-purple-500",
+            color: "from-violet-400 to-[var(--sp-bg)]",
             tab: "q4"
         },
         {
             title: lang === "en" ? "Meditation on OM" : "ओम ध्यान",
             desc: lang === "en" ? "What world is won by Om?" : "ओम के ध्यान से क्या प्राप्त होता है?",
             icon: Zap,
-            color: "from-amber-400 to-orange-500",
+            color: "from-[var(--sp-gold)] to-[var(--sp-bg)]",
             tab: "q5"
         },
         {
             title: lang === "en" ? "The Purusha" : "षोडशकल पुरुष",
             desc: lang === "en" ? "The Person with sixteen parts." : "सोलह कलाओं वाला पुरुष।",
             icon: User,
-            color: "from-rose-400 to-red-500",
+            color: "from-[var(--sp-gold)] to-[var(--sp-bg)]",
             tab: "q6"
         }
     ];
@@ -84,21 +84,21 @@ function PrashnaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveT
     return (
         <div className="space-y-16">
             <div className="text-center max-w-3xl mx-auto space-y-4">
-                <h2 className="text-4xl md:text-5xl font-serif font-bold text-teal-100 italic">
+                <h2 className="text-4xl md:text-5xl font-serif font-bold text-[var(--sp-text-hi)] italic">
                     {lang === "en" ? "The Science of Life Force" : "प्रश्नोपनिषद्"}
                 </h2>
-                <p className="text-teal-400/70 leading-relaxed text-lg">
+                <p className="text-[var(--sp-text-lo)] leading-relaxed text-lg">
                     {lang === "en"
                         ? "Six seekers approach the Sage Pippalada with specific questions about the origin of life, the nature of Prana, and the mechanics of consciousness. It is a systematic inquiry into the unseen drivers of the body."
                         : "छह साधक ऋषि पिप्पलाद के पास जीवन की उत्पत्ति, प्राण के स्वरूप और चेतना की क्रियाविधि के बारे में विशिष्ट प्रश्न लेकर पहुँचते हैं।"}
                 </p>
             </div>
 
-            <div className="bg-gradient-to-r from-teal-500/20 to-blue-500/20 rounded-[2.5rem] p-12 border border-teal-500/30 text-center relative overflow-hidden group">
-                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-teal-400 via-transparent to-transparent pointer-events-none" />
-                <p className="text-teal-500/60 text-sm uppercase tracking-[0.3em] font-black mb-6">The Prana Declaration</p>
-                <h3 className="text-5xl md:text-7xl font-serif text-teal-50 mb-6 drop-shadow-2xl font-bold">प्राणस्येदं वशे सर्वम्</h3>
-                <p className="text-2xl md:text-3xl text-teal-400/80 italic font-light">
+            <div className="bg-gradient-to-r from-[var(--sp-gold)]/20 to-[var(--sp-bg)]/20 rounded-[2.5rem] p-12 border border-[var(--sp-border)] text-center relative overflow-hidden group">
+                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[var(--sp-gold)] via-transparent to-transparent pointer-events-none" />
+                <p className="text-[var(--sp-text-hi)]0/60 text-sm uppercase tracking-[0.3em] font-black mb-6">The Prana Declaration</p>
+                <h3 className="text-5xl md:text-7xl font-serif text-[var(--sp-text-hi)] mb-6 drop-shadow-2xl font-bold">प्राणस्येदं वशे सर्वम्</h3>
+                <p className="text-2xl md:text-3xl text-[var(--sp-text-lo)] italic font-light">
                     {lang === "en" ? "\"Everything in the three worlds is under the control of Prana.\"" : "\"तीनों लोकों में जो कुछ भी है, वह सब प्राण के वश में है।\""}
                 </p>
             </div>
@@ -110,7 +110,7 @@ function PrashnaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveT
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.1 }}
-                        className="bg-slate-900 border border-teal-500/20 rounded-3xl p-8 hover:bg-slate-800 transition-all cursor-pointer group relative overflow-hidden"
+                        className="bg-[var(--sp-surface)] border border-[var(--sp-border)] rounded-3xl p-8 hover:bg-slate-800 transition-all cursor-pointer group relative overflow-hidden"
                         onClick={() => setActiveTab(q.tab as any)}
                     >
                         <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${q.color} opacity-5 blur-2xl group-hover:opacity-10 transition-opacity`} />
@@ -118,7 +118,7 @@ function PrashnaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveT
                             <q.icon className="w-7 h-7 text-white" />
                         </div>
                         <h3 className="text-xl font-bold text-white mb-2">{q.title}</h3>
-                        <p className="text-teal-200/60 text-sm leading-relaxed">{q.desc}</p>
+                        <p className="text-[var(--sp-text-hi)] text-sm leading-relaxed">{q.desc}</p>
                     </motion.div>
                 ))}
             </div>
@@ -139,54 +139,54 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
     return (
         <div className="space-y-8">
             <div className="text-center mb-10">
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-teal-100 mb-2">{title}</h2>
-                <p className="text-teal-400/60 font-medium tracking-widest uppercase text-xs">{subtitle}</p>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[var(--sp-text-hi)] mb-2">{title}</h2>
+                <p className="text-[var(--sp-text-lo)] font-medium tracking-widest uppercase text-xs">{subtitle}</p>
             </div>
 
             <motion.div
                 key={shloka.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-slate-900 rounded-[2.5rem] border border-teal-500/30 overflow-hidden shadow-2xl"
+                className="bg-[var(--sp-surface)] rounded-[2.5rem] border border-[var(--sp-border)] overflow-hidden shadow-2xl"
             >
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                     <div className="p-8 md:p-12 space-y-10">
                         <div className="flex items-center gap-4">
-                            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-blue-500 flex items-center justify-center text-2xl font-black text-white shadow-lg">
+                            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--sp-gold)] to-[var(--sp-bg)] flex items-center justify-center text-2xl font-black text-white shadow-lg">
                                 {shloka.verse}
                             </div>
                             <div>
                                 <h3 className="text-2xl font-bold text-white tracking-tight">{shloka.theme || "Verse"}</h3>
-                                <p className="text-teal-400/60 text-xs font-bold uppercase tracking-widest">Question {shloka.prashna} • Verse {shloka.verse}</p>
+                                <p className="text-[var(--sp-text-lo)] text-xs font-bold uppercase tracking-widest">Question {shloka.prashna} • Verse {shloka.verse}</p>
                             </div>
                         </div>
 
-                        <div className="bg-slate-950/60 rounded-3xl p-10 border border-teal-500/20 shadow-inner">
-                            <p className="text-3xl md:text-3xl text-teal-50 text-center leading-relaxed font-serif" style={{ fontFamily: "'Noto Sans Devanagari', serif" }}>
+                        <div className="bg-[var(--sp-surface)]/60 rounded-3xl p-10 border border-[var(--sp-border)] shadow-inner">
+                            <p className="text-3xl md:text-3xl text-[var(--sp-text-hi)] text-center leading-relaxed font-serif" style={{ fontFamily: "'Noto Sans Devanagari', serif" }}>
                                 {shloka.sanskrit}
                             </p>
                         </div>
 
                         <div className="space-y-8">
-                            <div className="bg-teal-900/10 rounded-2xl p-6 border border-teal-500/10">
-                                <h4 className="text-teal-400 font-bold mb-4 flex items-center gap-2 text-sm uppercase tracking-widest">
+                            <div className="bg-[var(--sp-surface)] rounded-2xl p-6 border border-[var(--sp-border)]">
+                                <h4 className="text-[var(--sp-text-lo)] font-bold mb-4 flex items-center gap-2 text-sm uppercase tracking-widest">
                                     <Languages className="w-4 h-4" />
                                     {lang === "en" ? "Translation" : "अनुवाद"}
                                 </h4>
-                                <p className="text-teal-50 text-xl leading-relaxed italic font-light">
+                                <p className="text-[var(--sp-text-hi)] text-xl leading-relaxed italic font-light">
                                     {lang === "en" ? shloka.english : shloka.hindi}
                                 </p>
                             </div>
 
-                            <div className="bg-gradient-to-br from-teal-500/20 to-blue-500/20 rounded-2xl p-8 border border-teal-400/40 shadow-xl relative overflow-hidden group">
+                            <div className="bg-gradient-to-br from-[var(--sp-gold)]/20 to-[var(--sp-bg)]/20 rounded-2xl p-8 border border-[var(--sp-border)] shadow-xl relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                                    <Sparkles className="w-12 h-12 text-teal-400" />
+                                    <Sparkles className="w-12 h-12 text-[var(--sp-text-lo)]" />
                                 </div>
-                                <h4 className="text-teal-200 font-black mb-4 flex items-center gap-3">
+                                <h4 className="text-[var(--sp-text-hi)] font-black mb-4 flex items-center gap-3">
                                     <span className="bg-teal-500 text-slate-950 w-8 h-8 rounded-lg flex items-center justify-center text-lg">💡</span>
                                     {lang === "en" ? "THE ESSENCE" : "सार"}
                                 </h4>
-                                <p className="text-teal-50 text-xl leading-relaxed font-medium">
+                                <p className="text-[var(--sp-text-hi)] text-xl leading-relaxed font-medium">
                                     {lang === "en" ? shloka.simpleExplanation : shloka.simpleExplanationHindi}
                                 </p>
                             </div>
@@ -194,14 +194,14 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                             <div className="flex flex-wrap gap-4">
                                 <button
                                     onClick={() => (window as any).showSadhanaTimer && (window as any).showSadhanaTimer()}
-                                    className="flex-1 bg-teal-600/20 hover:bg-teal-600/30 border border-teal-500/30 rounded-2xl p-6 text-teal-200 font-bold text-lg flex items-center justify-center gap-3 transition-all group"
+                                    className="flex-1 bg-teal-600/20 hover:bg-[#1a1a33] border border-[var(--sp-border)] rounded-2xl p-6 text-[var(--sp-text-hi)] font-bold text-lg flex items-center justify-center gap-3 transition-all group"
                                 >
-                                    <Zap className="w-6 h-6 text-teal-400 group-hover:scale-125 transition-transform" />
+                                    <Zap className="w-6 h-6 text-[var(--sp-text-lo)] group-hover:scale-125 transition-transform" />
                                     Start Sadhana
                                 </button>
                                 <button
                                     onClick={() => (window as any).showExperienceReport && (window as any).showExperienceReport()}
-                                    className="flex-1 bg-slate-800/50 hover:bg-slate-800 border border-teal-500/10 rounded-2xl p-6 text-teal-400/80 font-bold text-lg flex items-center justify-center gap-3 transition-all"
+                                    className="flex-1 bg-slate-800/50 hover:bg-slate-800 border border-[var(--sp-border)] rounded-2xl p-6 text-[var(--sp-text-lo)] font-bold text-lg flex items-center justify-center gap-3 transition-all"
                                 >
                                     <Feather className="w-6 h-6" />
                                     Log Experience
@@ -210,7 +210,7 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                         </div>
                     </div>
 
-                    <div className="relative bg-black min-h-[500px] lg:min-h-full overflow-hidden border-l border-teal-500/10 hidden lg:flex items-center justify-center">
+                    <div className="relative bg-[var(--sp-bg)] min-h-[500px] lg:min-h-full overflow-hidden border-l border-[var(--sp-border)] hidden lg:flex items-center justify-center">
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(20,184,166,0.1)_0%,transparent_70%)] pointer-events-none" />
                         {image ? (
                             <motion.img
@@ -221,11 +221,11 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                                 animate={{ scale: 1 }}
                             />
                         ) : (
-                            <div className="text-center p-12 text-teal-500/20 font-serif italic text-2xl">
+                            <div className="text-center p-12 text-[var(--sp-text-hi)]0/20 font-serif italic text-2xl">
                                 {shloka.nanoBananaPrompt}
                             </div>
                         )}
-                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 px-6 py-2 bg-black/60 rounded-full border border-teal-500/30 backdrop-blur-md text-xs font-black text-teal-400 uppercase tracking-widest">
+                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 px-6 py-2 bg-[var(--sp-bg)]/60 rounded-full border border-[var(--sp-border)] backdrop-blur-md text-xs font-black text-[var(--sp-text-lo)] uppercase tracking-widest">
                             Contemplative Visual
                         </div>
                     </div>
@@ -236,16 +236,16 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                 <button
                     onClick={() => setCurrentIndex(prev => Math.max(0, prev - 1))}
                     disabled={currentIndex === 0}
-                    className="w-16 h-16 flex items-center justify-center bg-slate-900 text-teal-400 rounded-full border border-teal-500/30 hover:bg-teal-500 hover:text-white transition-all disabled:opacity-20"
+                    className="w-16 h-16 flex items-center justify-center bg-[var(--sp-surface)] text-[var(--sp-text-lo)] rounded-full border border-[var(--sp-border)] hover:bg-[#1a1a33] hover:text-white transition-all disabled:opacity-20"
                 >
                     <ChevronLeft className="w-8 h-8" />
                 </button>
-                <div className="flex bg-slate-900/50 p-2 rounded-full border border-teal-500/20 gap-2 overflow-x-auto no-scrollbar max-w-xs md:max-w-none">
+                <div className="flex bg-[var(--sp-surface)]/50 p-2 rounded-full border border-[var(--sp-border)] gap-2 overflow-x-auto no-scrollbar max-w-xs md:max-w-none">
                     {data.map((_, i) => (
                         <button
                             key={i}
                             onClick={() => setCurrentIndex(i)}
-                            className={`w-10 h-10 rounded-full text-sm font-black transition-all ${i === currentIndex ? 'bg-teal-500 text-slate-950' : 'text-teal-500/40 hover:text-teal-400'}`}
+                            className={`w-10 h-10 rounded-full text-sm font-black transition-all ${i === currentIndex ? 'bg-teal-500 text-slate-950' : 'text-[var(--sp-text-hi)]0/40 hover:text-[var(--sp-text-lo)]'}`}
                         >
                             {i + 1}
                         </button>
@@ -254,7 +254,7 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                 <button
                     onClick={() => setCurrentIndex(prev => Math.min(data.length - 1, prev + 1))}
                     disabled={currentIndex === data.length - 1}
-                    className="w-16 h-16 flex items-center justify-center bg-slate-900 text-teal-400 rounded-full border border-teal-500/30 hover:bg-teal-500 hover:text-white transition-all disabled:opacity-20"
+                    className="w-16 h-16 flex items-center justify-center bg-[var(--sp-surface)] text-[var(--sp-text-lo)] rounded-full border border-[var(--sp-border)] hover:bg-[#1a1a33] hover:text-white transition-all disabled:opacity-20"
                 >
                     <ChevronRight className="w-8 h-8" />
                 </button>
@@ -274,7 +274,7 @@ export default function PrashnaLayout() {
     const [reportActive, setReportActive] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
     const { logEvent } = useBatch2Events();
-    const { mode } = useBatch2UI();
+    const { mode, setMode } = useBatch2UI();
 
     useEffect(() => {
         (window as any).showSadhanaTimer = () => {
@@ -297,28 +297,28 @@ export default function PrashnaLayout() {
 
     if (mode === 'immersive') {
         return (
-            <div className="relative w-full min-h-screen bg-black">
+            <div className="relative w-full min-h-screen bg-[var(--sp-bg)]">
                 <div className="absolute top-6 right-6 z-[200]">
                     <TranceToggle />
                 </div>
                 <div className="absolute top-6 left-6 z-[200]">
                     <button
                         onClick={() => router.push("/student/batch2/upanishads")}
-                        className="flex items-center gap-2 text-teal-500/50 hover:text-teal-400 transition-colors uppercase tracking-[0.3em] font-black text-[10px]"
+                        className="flex items-center gap-2 text-[var(--sp-text-hi)]0/50 hover:text-[var(--sp-text-lo)] transition-colors uppercase tracking-[0.3em] font-black text-[10px]"
                     >
                         <ArrowLeft className="w-4 h-4" /> Exit
                     </button>
                 </div>
-                <PrashnaImmersiveExperience lang={lang} />
+                <PrashnaImmersiveExperience lang={lang} onClose={() => setMode('classic')} />
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white selection:bg-teal-500/30 selection:text-teal-200">
+        <div className="min-h-screen bg-[var(--sp-surface)] text-white selection:bg-teal-500/30 selection:text-[var(--sp-text-hi)]">
 
             <header className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-teal-950/40 via-slate-950/80 to-slate-950" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[var(--sp-gold)]/40 via-slate-950/80 to-slate-950" />
 
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                     <motion.div
@@ -331,14 +331,14 @@ export default function PrashnaLayout() {
 
                 <div className="relative z-10 text-center px-6 max-w-5xl">
                     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="space-y-8">
-                        <span className="inline-block px-6 py-2 bg-teal-500/10 text-teal-400 rounded-full text-[10px] font-black tracking-[0.5em] uppercase border border-teal-500/20 backdrop-blur-md">
+                        <span className="inline-block px-6 py-2 bg-teal-500/10 text-[var(--sp-text-lo)] rounded-full text-[10px] font-black tracking-[0.5em] uppercase border border-[var(--sp-border)] backdrop-blur-md">
                             Atharva Veda • The Upanishad of Questions
                         </span>
-                        <h1 className="text-7xl md:text-[10rem] font-serif font-bold text-transparent bg-clip-text bg-gradient-to-b from-teal-100 to-teal-700 leading-none tracking-tighter">
+                        <h1 className="text-7xl md:text-[10rem] font-serif font-bold text-transparent bg-clip-text bg-gradient-to-b from-[var(--sp-gold)] to-[var(--sp-bg)] leading-none tracking-tighter">
                             {lang === "en" ? "Prashna" : "प्रश्न"}
                         </h1>
                         <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-8">
-                            <div className="flex items-center gap-3 text-teal-200/60 font-medium text-xl md:text-2xl">
+                            <div className="flex items-center gap-3 text-[var(--sp-text-hi)] font-medium text-xl md:text-2xl">
                                 <span className="italic">Six Enquiries into Life</span>
                                 <div className="w-2 h-2 rounded-full bg-teal-500 shadow-[0_0_10px_rgba(20,184,166,0.5)]" />
                                 <span>The Secret of Prana</span>
@@ -348,24 +348,24 @@ export default function PrashnaLayout() {
                 </div>
             </header>
 
-            <nav className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-2xl border-b border-teal-900/20 px-6 py-4">
+            <nav className="sticky top-0 z-50 bg-[var(--sp-surface)]/90 backdrop-blur-2xl border-b border-[var(--sp-border)] px-6 py-4">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     <div className="flex items-center gap-6">
-                        <button onClick={() => router.push("/student/batch2/upanishads")} className="p-3 text-teal-500 hover:bg-teal-500/10 rounded-xl transition-all border border-teal-500/20">
+                        <button onClick={() => router.push("/student/batch2/upanishads")} className="p-3 text-[var(--sp-text-hi)]0 hover:bg-[#1a1a33] rounded-xl transition-all border border-[var(--sp-border)]">
                             <ArrowLeft className="w-5 h-5" />
                         </button>
                         <div className="hidden sm:block">
                             <h2 className="text-lg font-bold text-white leading-tight">Prashna</h2>
-                            <p className="text-teal-600/60 text-[10px] font-black uppercase tracking-widest">{lang === "en" ? "Adhyaropa-Apavada" : "छह महान प्रश्न"}</p>
+                            <p className="text-[var(--sp-gold)]/60 text-[10px] font-black uppercase tracking-widest">{lang === "en" ? "Adhyaropa-Apavada" : "छह महान प्रश्न"}</p>
                         </div>
                     </div>
 
-                    <div className="flex bg-slate-900/80 rounded-[1.25rem] p-1.5 border border-white/5 shadow-2xl overflow-x-auto no-scrollbar max-w-[50%] md:max-w-none">
+                    <div className="flex bg-[var(--sp-surface)]/80 rounded-[1.25rem] p-1.5 border border-white/5 shadow-2xl overflow-x-auto no-scrollbar max-w-[50%] md:max-w-none">
                         {tabs.map((tab) => (
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id as any)}
-                                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-black transition-all ${activeTab === tab.id ? "bg-teal-50 text-slate-950 shadow-lg" : "text-teal-600 hover:text-teal-400"}`}
+                                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-black transition-all ${activeTab === tab.id ? "bg-teal-50 text-slate-950 shadow-lg" : "text-[var(--sp-gold)] hover:text-[var(--sp-text-lo)]"}`}
                             >
                                 <tab.icon className="w-4 h-4" />
                                 <span className="hidden md:inline uppercase tracking-widest">{tab.label}</span>
@@ -374,12 +374,12 @@ export default function PrashnaLayout() {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <div className="flex bg-slate-900/50 rounded-xl p-1 border border-white/5">
+                        <div className="flex bg-[var(--sp-surface)]/50 rounded-xl p-1 border border-white/5">
                             {(["en", "hi"] as const).map((l) => (
                                 <button
                                     key={l}
                                     onClick={() => setLang(l)}
-                                    className={`px-4 py-1.5 rounded-lg text-xs font-black transition-all ${lang === l ? "bg-teal-500 text-slate-950" : "text-teal-600 hover:text-teal-400"}`}
+                                    className={`px-4 py-1.5 rounded-lg text-xs font-black transition-all ${lang === l ? "bg-teal-500 text-slate-950" : "text-[var(--sp-gold)] hover:text-[var(--sp-text-lo)]"}`}
                                 >
                                     {l.toUpperCase()}
                                 </button>
@@ -405,13 +405,13 @@ export default function PrashnaLayout() {
                 </AnimatePresence>
             </main>
 
-            <footer className="group bg-slate-950 py-32 text-center border-t border-teal-900/10 relative overflow-hidden">
+            <footer className="group bg-[var(--sp-surface)] py-32 text-center border-t border-[var(--sp-border)] relative overflow-hidden">
                 <div className="relative z-10 space-y-8">
-                    <p className="text-4xl md:text-6xl font-serif text-teal-50 leading-tight">ॐ शान्तिः शान्तिः शान्तिः</p>
-                    <p className="text-teal-400/60 italic text-xl max-w-2xl mx-auto">
+                    <p className="text-4xl md:text-6xl font-serif text-[var(--sp-text-hi)] leading-tight">ॐ शान्तिः शान्तिः शान्तिः</p>
+                    <p className="text-[var(--sp-text-lo)] italic text-xl max-w-2xl mx-auto">
                         {lang === "en" ? "May Prana bestow upon us Shri (Wealth) and Prajna (Wisdom)." : "प्राण हमें श्री और प्रज्ञा प्रदान करें।"}
                     </p>
-                    <p className="text-teal-500/40 text-[10px] font-black uppercase tracking-[0.4em] mt-12">— Prashna Upanishad —</p>
+                    <p className="text-[var(--sp-text-hi)]0/40 text-[10px] font-black uppercase tracking-[0.4em] mt-12">— Prashna Upanishad —</p>
                 </div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(20,184,166,0.03)_0%,transparent_70%)]" />
             </footer>
@@ -419,7 +419,7 @@ export default function PrashnaLayout() {
             <AnimatePresence>
                 {sadhanaActive && (
                     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-black/60 backdrop-blur-md" onClick={() => setSadhanaActive(false)} />
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-[var(--sp-bg)]/60 backdrop-blur-md" onClick={() => setSadhanaActive(false)} />
                         <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} className="relative z-10 w-full max-w-xl">
                             <SadhanaTimer
                                 title="Prashna: Prana Contemplation"

@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { SKILLS_METADATA, SkillProgress } from '../data/sadhana-data';
-import { ChevronDown, ChevronUp, Target, Compass, Flame } from 'lucide-react';
+import { Compass, Flame, Target, ChevronDown, ChevronUp, Brain, Sprout } from 'lucide-react';
 import { useBatch2UI } from "@/components/batch2/context/Batch2UIContext";
 import { TranceToggle } from "@/components/batch2/context/TranceToggle";
 import { SkillsExplorerImmersive } from './SkillsExplorerImmersive';
+import { SkillDetailDrawer } from './SkillDetailDrawer';
 
 import { useSadhanaSkillTracker } from "../../hooks/useSadhanaSkillTracker";
 
@@ -100,48 +101,10 @@ export default function SkillsExplorer({ }: SkillsExplorerProps) {
                                         {skill.description}
                                     </p>
                                 </div>
-                                <div className="shrink-0 text-stone-400 mt-2">
-                                    {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+                                <div className="shrink-0 text-[var(--sp-text-lo)] mt-2">
+                                    <ChevronDown className="w-5 h-5 -rotate-90 opacity-50 group-hover:opacity-100 transition-opacity" />
                                 </div>
                             </button>
-
-                            <AnimatePresence>
-                                {isExpanded && (
-                                    <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: 'auto', opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        className="overflow-hidden"
-                                    >
-                                        <div className="px-5 pb-5 pt-2 border-t border-black/5 ml-16">
-                                            <h4 className="text-xs font-bold uppercase tracking-widest text-stone-400 mb-4">Progression Logic</h4>
-                                            <div className="space-y-3">
-                                                <div className="flex gap-3">
-                                                    <span className="text-lg opacity-80">🌱</span>
-                                                    <div>
-                                                        <div className="text-xs font-bold text-stone-800 uppercase tracking-wide">Sapling <span className="text-stone-400 font-normal lowercase ml-1">(Just beginning)</span></div>
-                                                        <p className="text-sm text-stone-600 mt-0.5">{skill.maturityLogic.sapling}</p>
-                                                    </div>
-                                                </div>
-                                                <div className="flex gap-3">
-                                                    <span className="text-lg opacity-80">🌳</span>
-                                                    <div>
-                                                        <div className="text-xs font-bold text-stone-800 uppercase tracking-wide">Tree <span className="text-stone-400 font-normal lowercase ml-1">(Steady practice)</span></div>
-                                                        <p className="text-sm text-stone-600 mt-0.5">{skill.maturityLogic.tree}</p>
-                                                    </div>
-                                                </div>
-                                                <div className="flex gap-3">
-                                                    <span className="text-lg opacity-80">🌺</span>
-                                                    <div>
-                                                        <div className="text-xs font-bold text-stone-800 uppercase tracking-wide">Orchard <span className="text-stone-400 font-normal lowercase ml-1">(Mastered trait)</span></div>
-                                                        <p className="text-sm text-stone-600 mt-0.5">{skill.maturityLogic.orchard}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
                         </div>
                     );
                 })}
@@ -165,6 +128,12 @@ export default function SkillsExplorer({ }: SkillsExplorerProps) {
             <div className="absolute bottom-6 right-6 z-50">
                 <TranceToggle />
             </div>
+
+            {/* Slide-in Detail Drawer */}
+            <SkillDetailDrawer
+                skillId={expandedSkill}
+                onClose={() => setExpandedSkill(null)}
+            />
         </div>
     );
 }

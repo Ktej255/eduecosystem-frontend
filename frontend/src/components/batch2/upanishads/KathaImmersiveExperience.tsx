@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Eye } from "lucide-react";
+import { Sparkles, Eye, X } from "lucide-react";
 import { kathaData } from "@/components/batch2/upanishads/data/katha-shlokas";
 import { getKathaShlokaImage } from "@/components/batch2/upanishads/data/katha-images";
 
 // 100x UI for Katha Upanishad
-export function KathaImmersiveExperience({ lang }: { lang: "en" | "hi" }) {
+export function KathaImmersiveExperience({ lang, onClose }: { lang: "en" | "hi", onClose?: () => void }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isRevealed, setIsRevealed] = useState(false);
 
@@ -28,13 +28,23 @@ export function KathaImmersiveExperience({ lang }: { lang: "en" | "hi" }) {
     // Keyboard navigation
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.code === "Escape" && onClose) {
+                onClose();
+            }
             if (e.code === "Space") {
                 e.preventDefault();
-                setIsRevealed(true);
+                if (!isRevealed) {
+                    setIsRevealed(true);
+                } else {
+                    if (currentIndex < displayShlokas.length - 1) {
+                        setCurrentIndex(prev => Math.min(prev + 1, kathaData.length - 1));
+                        setIsRevealed(false);
+                    }
+                }
             }
-            if (e.code === "ArrowRight" || e.key === "Enter") {
+            if (e.code === "ArrowRight") {
                 if (isRevealed) {
-                    setCurrentIndex(prev => Math.min(displayShlokas.length - 1, prev + 1));
+                    setCurrentIndex(prev => Math.min(prev + 1, kathaData.length - 1));
                     setIsRevealed(false);
                 }
             }
@@ -48,12 +58,20 @@ export function KathaImmersiveExperience({ lang }: { lang: "en" | "hi" }) {
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
         };
-    }, [isRevealed, displayShlokas.length]);
+    }, [isRevealed, displayShlokas.length, kathaData.length, onClose]);
 
     if (!shloka) return null;
 
     return (
-        <div className="fixed inset-0 bg-black z-[100] overflow-hidden flex flex-col font-sans select-none">
+        <div className="fixed inset-0 bg-black z-[100] font-sans select-none overflow-hidden">
+            {onClose && (
+                <button
+                    onClick={onClose}
+                    className="absolute top-6 right-6 z-50 p-3 rounded-full bg-white/5 hover:bg-white/20 text-white/50 hover:text-white transition-all backdrop-blur-md border border-white/10"
+                >
+                    <X className="w-6 h-6" />
+                </button>
+            )}
             {/* Immersive Background - Katha focuses on Dark/Fire/Ember aesthetics */}
             <div className="absolute inset-0 z-0">
                 {image ? (
@@ -167,7 +185,7 @@ export function KathaImmersiveExperience({ lang }: { lang: "en" | "hi" }) {
                                                 }}
                                                 className="mt-8 text-red-500 hover:text-red-400 text-[10px] font-black uppercase tracking-[0.4em] transition-colors"
                                             >
-                                                Press <kbd className="font-mono bg-red-950 px-2 py-1 rounded mx-1 text-red-600">ENTER</kbd> to Face Death
+                                                Press <kbd className="font-mono bg-red-950 px-2 py-1 rounded mx-1 text-red-600">ARROW RIGHT</kbd> to Progress
                                             </motion.button>
                                         ) : (
                                             <motion.div

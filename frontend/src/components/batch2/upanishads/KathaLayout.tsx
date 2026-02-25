@@ -46,7 +46,7 @@ function KathaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveTab
                 ? "Nachiketa questions his father's empty sacrifice and is cursed to meet Death."
                 : "नचिकेता अपने पिता के खोखले यज्ञ पर सवाल उठाता है और मृत्यु से मिलने का शाप मिलता है।",
             icon: User,
-            color: "from-amber-400 to-orange-500",
+            color: "from-[var(--sp-gold)] to-[var(--sp-bg)]",
             vallis: "1.1"
         },
         {
@@ -55,7 +55,7 @@ function KathaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveTab
                 ? "Yama offers three boons. The third—the secret of death—becomes immortal wisdom."
                 : "यम तीन वरदान प्रदान करते हैं। तीसरा—मृत्यु का रहस्य—अमर ज्ञान बन जाता है।",
             icon: Gift,
-            color: "from-purple-400 to-indigo-500",
+            color: "from-[var(--sp-gold)] to-[var(--sp-bg)]",
             vallis: "1.2-1.3"
         },
         {
@@ -64,7 +64,7 @@ function KathaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveTab
                 ? "The famous metaphor: Body is chariot, Atman is passenger, Mind is reins."
                 : "प्रसिद्ध रूपक: शरीर रथ है, आत्मा यात्री है, मन लगाम है।",
             icon: Crown,
-            color: "from-teal-400 to-cyan-500",
+            color: "from-[var(--sp-gold)] to-cyan-500",
             vallis: "2.1"
         },
         {
@@ -73,7 +73,7 @@ function KathaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveTab
                 ? "The eternal Self beyond birth and death. 'He who knows this becomes immortal.'"
                 : "जन्म और मृत्यु से परे शाश्वत आत्मा। 'जो इसे जानता है वह अमर हो जाता है।'",
             icon: Sparkles,
-            color: "from-rose-400 to-pink-500",
+            color: "from-[var(--sp-gold)] to-pink-500",
             vallis: "2.2-2.3"
         }
     ];
@@ -103,10 +103,10 @@ function KathaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveTab
         <div className="space-y-16">
             {/* Opening Statement */}
             <div className="text-center max-w-3xl mx-auto space-y-4">
-                <h2 className="text-4xl md:text-5xl font-serif font-bold text-amber-100 italic">
+                <h2 className="text-4xl md:text-5xl font-serif font-bold text-[var(--sp-text-hi)] italic">
                     {lang === "en" ? "The Dialogue with Death" : "मृत्यु से संवाद"}
                 </h2>
-                <p className="text-amber-400/70 leading-relaxed text-lg">
+                <p className="text-[var(--sp-text-lo)] leading-relaxed text-lg">
                     {lang === "en"
                         ? "The Katha Upanishad is the most beloved of all Upanishads. It tells the story of a fearless boy who goes to the realm of Death to learn the supreme secret: What happens after we die? Is there an immortal Self?"
                         : "कठोपनिषद् सभी उपनिषदों में सबसे प्रिय है। यह एक निडर बालक की कहानी है जो परम रहस्य जानने के लिए मृत्यु के लोक में जाता है: मृत्यु के बाद क्या होता है? क्या कोई अमर आत्मा है?"}
@@ -121,12 +121,12 @@ function KathaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveTab
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.1 }}
-                        className="bg-slate-900 border border-amber-500/20 rounded-3xl p-6 text-center hover:bg-slate-800 transition-all"
+                        className="bg-[var(--sp-surface)] border border-[var(--sp-border)] rounded-3xl p-6 text-center hover:bg-slate-800 transition-all"
                     >
                         <div className="text-6xl mb-4">{char.emoji}</div>
                         <h3 className="text-xl font-bold text-white mb-1">{char.name}</h3>
-                        <p className="text-amber-400 text-sm font-bold uppercase tracking-widest mb-2">{char.role}</p>
-                        <p className="text-amber-200/60 text-sm">{char.desc}</p>
+                        <p className="text-[var(--sp-text-lo)] text-sm font-bold uppercase tracking-widest mb-2">{char.role}</p>
+                        <p className="text-[var(--sp-text-hi)] text-sm">{char.desc}</p>
                     </motion.div>
                 ))}
             </div>
@@ -135,7 +135,7 @@ function KathaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveTab
             <div className="flex justify-center">
                 <button
                     onClick={() => setActiveTab('research')}
-                    className="flex items-center gap-3 px-8 py-4 bg-slate-900 border border-amber-500/30 rounded-full text-amber-400 hover:bg-amber-500 hover:text-slate-950 transition-all group shadow-xl hover:shadow-amber-500/20"
+                    className="flex items-center gap-3 px-8 py-4 bg-[var(--sp-surface)] border border-[var(--sp-border)] rounded-full text-[var(--sp-text-lo)] hover:bg-[#1a1a33] hover:text-slate-950 transition-all group shadow-xl hover:shadow-amber-500/20"
                 >
                     <BookOpen className="w-5 h-5" />
                     <span className="font-bold uppercase tracking-widest text-sm">
@@ -153,27 +153,27 @@ function KathaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveTab
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.1 }}
-                        className="bg-slate-900 border border-amber-500/20 rounded-3xl p-8 hover:bg-slate-800 transition-all group relative overflow-hidden"
+                        className="bg-[var(--sp-surface)] border border-[var(--sp-border)] rounded-3xl p-8 hover:bg-slate-800 transition-all group relative overflow-hidden"
                     >
                         <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${s.color} opacity-5 blur-2xl group-hover:opacity-10 transition-opacity`} />
                         <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${s.color} flex items-center justify-center mb-6 shadow-lg`}>
                             <s.icon className="w-7 h-7 text-white" />
                         </div>
                         <h3 className="text-xl font-bold text-white mb-2">{s.title}</h3>
-                        <p className="text-xs text-amber-400 font-bold uppercase tracking-widest mb-3">Valli {s.vallis}</p>
-                        <p className="text-amber-200/60 text-sm leading-relaxed">{s.desc}</p>
+                        <p className="text-xs text-[var(--sp-text-lo)] font-bold uppercase tracking-widest mb-3">Valli {s.vallis}</p>
+                        <p className="text-[var(--sp-text-hi)] text-sm leading-relaxed">{s.desc}</p>
                     </motion.div>
                 ))}
             </div>
 
             {/* The Story Context */}
-            <div className="bg-gradient-to-br from-amber-600/10 to-transparent border border-amber-500/20 rounded-3xl p-10 bg-slate-950">
+            <div className="bg-gradient-to-br from-[var(--sp-gold)]/10 to-transparent border border-[var(--sp-border)] rounded-3xl p-10 bg-[var(--sp-surface)]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h3 className="text-3xl font-serif font-bold text-amber-100">
+                        <h3 className="text-3xl font-serif font-bold text-[var(--sp-text-hi)]">
                             {lang === "en" ? "The Background Story" : "पृष्ठभूमि कथा"}
                         </h3>
-                        <div className="space-y-4 text-amber-100/80">
+                        <div className="space-y-4 text-[var(--sp-text-hi)]">
                             <p>
                                 {lang === "en"
                                     ? "Vajashravas was performing a great sacrifice to gain heaven. But he cheated—giving away old, barren, useless cows instead of valuable ones."
@@ -184,18 +184,18 @@ function KathaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveTab
                                     ? "His son Nachiketa saw this hypocrisy. To save his father from sin, the boy offered himself: 'Father, to whom will you give ME?'"
                                     : "उनके पुत्र नचिकेता ने यह पाखंड देखा। अपने पिता को पाप से बचाने के लिए, बालक ने स्वयं को अर्पित किया: 'पिता, मुझे किसे देंगे?'"}
                             </p>
-                            <p className="text-amber-400 font-bold italic">
+                            <p className="text-[var(--sp-text-lo)] font-bold italic">
                                 {lang === "en"
                                     ? 'Angered, the father shouted: "I give you to DEATH!" And so began the journey...'
                                     : 'क्रोधित पिता ने कहा: "मैं तुझे मृत्यु को देता हूँ!" और इस प्रकार यात्रा शुरू हुई...'}
                             </p>
                         </div>
                     </div>
-                    <div className="relative aspect-video rounded-2xl overflow-hidden bg-black flex items-center justify-center border border-amber-500/20 shadow-2xl">
+                    <div className="relative aspect-video rounded-2xl overflow-hidden bg-[var(--sp-bg)] flex items-center justify-center border border-[var(--sp-border)] shadow-2xl">
                         <motion.div
                             animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
                             transition={{ duration: 8, repeat: Infinity }}
-                            className="text-8xl md:text-[100px] font-serif font-black text-transparent bg-clip-text bg-gradient-to-b from-amber-100 to-amber-600 opacity-20"
+                            className="text-8xl md:text-[100px] font-serif font-black text-transparent bg-clip-text bg-gradient-to-b from-[var(--sp-gold)] to-[var(--sp-bg)] opacity-20"
                         >
                             ॐ
                         </motion.div>
@@ -203,12 +203,12 @@ function KathaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveTab
                             <motion.div
                                 animate={{ y: [0, -10, 0] }}
                                 transition={{ duration: 3, repeat: Infinity }}
-                                className="w-24 h-24 rounded-full bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center mb-4 border border-amber-500/30"
+                                className="w-24 h-24 rounded-full bg-gradient-to-br from-[var(--sp-gold)]/20 to-[var(--sp-bg)]/20 flex items-center justify-center mb-4 border border-[var(--sp-border)]"
                             >
-                                <Skull className="w-12 h-12 text-amber-500" />
+                                <Skull className="w-12 h-12 text-[var(--sp-text-hi)]0" />
                             </motion.div>
-                            <p className="text-amber-500 font-black tracking-widest text-xs uppercase">मृत्यवे त्वा ददामीति</p>
-                            <p className="text-amber-400/60 text-xs mt-1">Unto Death I Give Thee</p>
+                            <p className="text-[var(--sp-text-hi)]0 font-black tracking-widest text-xs uppercase">मृत्यवे त्वा ददामीति</p>
+                            <p className="text-[var(--sp-text-lo)] text-xs mt-1">Unto Death I Give Thee</p>
                         </div>
                     </div>
                 </div>
@@ -230,8 +230,8 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
     return (
         <div className="space-y-8">
             <div className="text-center mb-10">
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-amber-100 mb-2">{title}</h2>
-                <p className="text-amber-400/60 font-medium tracking-widest uppercase text-xs">{subtitle}</p>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[var(--sp-text-hi)] mb-2">{title}</h2>
+                <p className="text-[var(--sp-text-lo)] font-medium tracking-widest uppercase text-xs">{subtitle}</p>
             </div>
 
             <motion.div
@@ -239,38 +239,38 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="bg-slate-900 rounded-3xl border border-amber-500/30 overflow-hidden shadow-2xl backdrop-blur-md"
+                className="bg-[var(--sp-surface)] rounded-3xl border border-[var(--sp-border)] overflow-hidden shadow-2xl backdrop-blur-md"
             >
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                     {/* Text Section */}
                     <div className="p-8 md:p-12 space-y-8">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-xl font-black text-white shadow-lg">
+                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--sp-gold)] to-[var(--sp-bg)] flex items-center justify-center text-xl font-black text-white shadow-lg">
                                     {shloka.id}
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-bold text-white">{shloka.theme || "Verse"}</h3>
-                                    <p className="text-amber-400/60 text-xs font-bold uppercase tracking-widest">Katha Upanishad • Valli {shloka.valli}</p>
+                                    <p className="text-[var(--sp-text-lo)] text-xs font-bold uppercase tracking-widest">Katha Upanishad • Valli {shloka.valli}</p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Sanskrit Block */}
-                        <div className="bg-slate-950/60 rounded-2xl p-6 border border-amber-500/20 shadow-inner">
-                            <p className="text-2xl md:text-3xl text-amber-50 text-center leading-relaxed font-serif" style={{ fontFamily: "'Noto Sans Devanagari', serif" }}>
+                        <div className="bg-[var(--sp-surface)]/60 rounded-2xl p-6 border border-[var(--sp-border)] shadow-inner">
+                            <p className="text-2xl md:text-3xl text-[var(--sp-text-hi)] text-center leading-relaxed font-serif" style={{ fontFamily: "'Noto Sans Devanagari', serif" }}>
                                 {shloka.sanskrit}
                             </p>
                         </div>
 
                         {/* Translation Block */}
                         <div className="space-y-6">
-                            <div className="bg-amber-900/20 rounded-xl p-5 border border-amber-500/10">
-                                <h4 className="text-amber-400 font-bold mb-3 flex items-center gap-2 text-sm uppercase tracking-wider">
+                            <div className="bg-[var(--sp-surface)] rounded-xl p-5 border border-[var(--sp-border)]">
+                                <h4 className="text-[var(--sp-text-lo)] font-bold mb-3 flex items-center gap-2 text-sm uppercase tracking-wider">
                                     <Languages className="w-4 h-4" />
                                     {lang === "en" ? "Translation" : "अनुवाद"}
                                 </h4>
-                                <p className="text-amber-50 text-lg leading-relaxed">
+                                <p className="text-[var(--sp-text-hi)] text-lg leading-relaxed">
                                     {lang === "en" ? shloka.english : shloka.hindi}
                                 </p>
                             </div>
@@ -278,16 +278,16 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                             {/* Word Meanings */}
                             {shloka.wordMeanings && shloka.wordMeanings.length > 0 && (
                                 <div>
-                                    <h4 className="text-amber-600 text-[10px] font-black uppercase tracking-widest flex items-center gap-2 mb-4">
+                                    <h4 className="text-[var(--sp-gold)] text-[10px] font-black uppercase tracking-widest flex items-center gap-2 mb-4">
                                         <BookOpen className="w-3 h-3" />
                                         {lang === "en" ? "Word Meanings" : "शब्दार्थ"}
                                     </h4>
                                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                                         {shloka.wordMeanings.map((m: any, i: number) => (
-                                            <div key={i} className="bg-slate-900/50 border border-amber-500/10 rounded-xl p-3 hover:border-amber-500/30 transition-all">
-                                                <p className="text-amber-100 font-serif text-lg mb-1">{m.devanagari}</p>
-                                                <p className="text-amber-600 text-[10px] uppercase tracking-tighter mb-1">{m.sanskrit}</p>
-                                                <p className="text-slate-300 text-sm">{lang === "en" ? m.english : m.hindi}</p>
+                                            <div key={i} className="bg-[var(--sp-surface)]/50 border border-[var(--sp-border)] rounded-xl p-3 hover:border-[var(--sp-border)] transition-all">
+                                                <p className="text-[var(--sp-text-hi)] font-serif text-lg mb-1">{m.devanagari}</p>
+                                                <p className="text-[var(--sp-gold)] text-[10px] uppercase tracking-tighter mb-1">{m.sanskrit}</p>
+                                                <p className="text-[var(--sp-text-lo)] text-sm">{lang === "en" ? m.english : m.hindi}</p>
                                             </div>
                                         ))}
                                     </div>
@@ -295,15 +295,15 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                             )}
 
                             {/* The Essence */}
-                            <div className="bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-2xl p-8 border border-amber-400/40 shadow-xl relative overflow-hidden group">
+                            <div className="bg-gradient-to-br from-[var(--sp-gold)]/20 to-[var(--sp-bg)]/20 rounded-2xl p-8 border border-[var(--sp-border)] shadow-xl relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                                    <Flame className="w-12 h-12 text-amber-400" />
+                                    <Flame className="w-12 h-12 text-[var(--sp-text-lo)]" />
                                 </div>
-                                <h4 className="text-amber-200 font-black mb-4 flex items-center gap-3">
+                                <h4 className="text-[var(--sp-text-hi)] font-black mb-4 flex items-center gap-3">
                                     <span className="bg-amber-500 text-slate-950 w-8 h-8 rounded-lg flex items-center justify-center text-lg">💡</span>
                                     {lang === "en" ? "THE ESSENCE" : "सार"}
                                 </h4>
-                                <p className="text-amber-50 text-xl leading-relaxed italic font-medium relative z-10">
+                                <p className="text-[var(--sp-text-hi)] text-xl leading-relaxed italic font-medium relative z-10">
                                     {lang === "en" ? shloka.simpleExplanation : shloka.simpleExplanationHindi}
                                 </p>
                             </div>
@@ -312,13 +312,13 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                             <div className="grid grid-cols-2 gap-4 mt-6">
                                 <button
                                     onClick={() => (window as any).showSadhanaTimer && (window as any).showSadhanaTimer()}
-                                    className="bg-amber-600/20 hover:bg-amber-600/30 border border-amber-500/30 rounded-xl p-4 text-amber-300 font-bold text-sm flex items-center justify-center gap-2 transition-all"
+                                    className="bg-amber-600/20 hover:bg-[#1a1a33] border border-[var(--sp-border)] rounded-xl p-4 text-[var(--sp-text-lo)] font-bold text-sm flex items-center justify-center gap-2 transition-all"
                                 >
                                     <Wind className="w-4 h-4" /> Start Sadhana
                                 </button>
                                 <button
                                     onClick={() => (window as any).showExperienceReport && (window as any).showExperienceReport()}
-                                    className="bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 rounded-xl p-4 text-emerald-300 font-bold text-sm flex items-center justify-center gap-2 transition-all"
+                                    className="bg-emerald-600/20 hover:bg-[#1a1a33] border border-[var(--sp-border)] rounded-xl p-4 text-[var(--sp-text-lo)] font-bold text-sm flex items-center justify-center gap-2 transition-all"
                                 >
                                     <Feather className="w-4 h-4" /> Log Experience
                                 </button>
@@ -327,8 +327,8 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                     </div>
 
                     {/* Visual Section */}
-                    <div className="relative bg-black/40 min-h-[500px] flex items-center justify-center overflow-hidden border-l border-amber-500/10">
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-500/10 to-transparent pointer-events-none" />
+                    <div className="relative bg-[var(--sp-bg)]/40 min-h-[500px] flex items-center justify-center overflow-hidden border-l border-[var(--sp-border)]">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[var(--sp-gold)]/10 to-transparent pointer-events-none" />
 
                         {image ? (
                             <motion.img
@@ -348,12 +348,12 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                                 >
                                     {shloka.id <= 4 ? "🔥" : shloka.id <= 6 ? "🌾" : "💀"}
                                 </motion.div>
-                                <p className="text-amber-400/50 font-medium italic max-w-xs mx-auto">{shloka.nanoBananaPrompt}</p>
+                                <p className="text-[var(--sp-text-lo)] font-medium italic max-w-xs mx-auto">{shloka.nanoBananaPrompt}</p>
                             </div>
                         )}
 
                         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20">
-                            <span className="px-4 py-1.5 bg-black/60 rounded-full text-[10px] text-amber-400 font-black tracking-[0.2em] uppercase border border-amber-500/30 backdrop-blur-md">
+                            <span className="px-4 py-1.5 bg-[var(--sp-bg)]/60 rounded-full text-[10px] text-[var(--sp-text-lo)] font-black tracking-[0.2em] uppercase border border-[var(--sp-border)] backdrop-blur-md">
                                 {shloka.theme || `Verse ${shloka.id}`}
                             </span>
                         </div>
@@ -367,7 +367,7 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                     <button
                         onClick={() => setCurrentIndex(prev => Math.max(0, prev - 1))}
                         disabled={currentIndex === 0}
-                        className="w-14 h-14 flex items-center justify-center bg-slate-900 text-amber-400 rounded-full border border-amber-500/30 hover:bg-amber-500 hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed group"
+                        className="w-14 h-14 flex items-center justify-center bg-[var(--sp-surface)] text-[var(--sp-text-lo)] rounded-full border border-[var(--sp-border)] hover:bg-[#1a1a33] hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed group"
                     >
                         <ChevronLeft className="w-7 h-7 group-hover:-translate-x-1 transition-transform" />
                     </button>
@@ -379,7 +379,7 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                                 onClick={() => setCurrentIndex(i)}
                                 className={`w-10 h-10 rounded-xl text-sm font-black transition-all border ${i === currentIndex
                                     ? "bg-amber-500 border-amber-300 text-white scale-110 shadow-lg shadow-amber-500/40"
-                                    : "bg-slate-900 border-amber-500/20 text-amber-700 hover:border-amber-500"
+                                    : "bg-[var(--sp-surface)] border-[var(--sp-border)] text-[var(--sp-gold)] hover:border-[var(--sp-border)]"
                                     }`}
                             >
                                 {s.id}
@@ -390,20 +390,20 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                     <button
                         onClick={() => setCurrentIndex(prev => Math.min(data.length - 1, prev + 1))}
                         disabled={currentIndex === data.length - 1}
-                        className="w-14 h-14 flex items-center justify-center bg-slate-900 text-amber-400 rounded-full border border-amber-500/30 hover:bg-amber-500 hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed group"
+                        className="w-14 h-14 flex items-center justify-center bg-[var(--sp-surface)] text-[var(--sp-text-lo)] rounded-full border border-[var(--sp-border)] hover:bg-[#1a1a33] hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed group"
                     >
                         <ChevronRight className="w-7 h-7 group-hover:translate-x-1 transition-transform" />
                     </button>
                 </div>
                 <div className="flex items-center gap-3">
-                    <div className="h-1 w-48 bg-slate-900 rounded-full overflow-hidden">
+                    <div className="h-1 w-48 bg-[var(--sp-surface)] rounded-full overflow-hidden">
                         <motion.div
                             className="h-full bg-amber-500"
                             initial={{ width: 0 }}
                             animate={{ width: `${((currentIndex + 1) / data.length) * 100}%` }}
                         />
                     </div>
-                    <p className="text-amber-400/50 text-xs font-black uppercase tracking-widest">
+                    <p className="text-[var(--sp-text-lo)] text-xs font-black uppercase tracking-widest">
                         {currentIndex + 1} / {data.length} Verses
                     </p>
                 </div>
@@ -424,7 +424,7 @@ export default function KathaLayout() {
     const { logEvent } = useBatch2Events();
 
     const [reportActive, setReportActive] = useState(false);
-    const { mode } = useBatch2UI();
+    const { mode, setMode } = useBatch2UI();
 
     // Expose control to sub-components via window for simplicity
     React.useEffect(() => {
@@ -445,11 +445,11 @@ export default function KathaLayout() {
     const valli6Data = getKathaByValli(6);
 
     if (mode === 'immersive') {
-        return <KathaImmersiveExperience lang={lang} />;
+        return <KathaImmersiveExperience lang={lang} onClose={() => setMode('classic')} />;
     }
 
     return (
-        <div className="min-h-screen bg-slate-950 text-amber-50 font-sans selection:bg-amber-500/30 selection:text-amber-200">
+        <div className="min-h-screen bg-[var(--sp-surface)] text-[var(--sp-text-hi)] font-sans selection:bg-amber-500/30 selection:text-[var(--sp-text-hi)]">
             {/* Hero Section */}
             <header className="relative h-[55vh] flex items-center justify-center overflow-hidden">
                 <div
@@ -478,7 +478,7 @@ export default function KathaLayout() {
                         transition={{ duration: 6, repeat: Infinity }}
                         className="absolute top-1/3 right-1/6 opacity-10"
                     >
-                        <Skull className="w-24 h-24 text-amber-500" />
+                        <Skull className="w-24 h-24 text-[var(--sp-text-hi)]0" />
                     </motion.div>
                 </div>
 
@@ -487,13 +487,13 @@ export default function KathaLayout() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                     >
-                        <span className="inline-block px-5 py-2 bg-amber-500/10 text-amber-400 rounded-full text-[10px] font-black tracking-[0.4em] uppercase mb-8 border border-amber-500/20 backdrop-blur-md">
+                        <span className="inline-block px-5 py-2 bg-amber-500/10 text-[var(--sp-text-lo)] rounded-full text-[10px] font-black tracking-[0.4em] uppercase mb-8 border border-[var(--sp-border)] backdrop-blur-md">
                             Krishna Yajur Veda • 119 Verses • 6 Vallis
                         </span>
-                        <h1 className="text-6xl md:text-9xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-b from-amber-100 to-amber-600 mb-8 tracking-tighter">
+                        <h1 className="text-6xl md:text-9xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-b from-[var(--sp-gold)] to-[var(--sp-bg)] mb-8 tracking-tighter">
                             {lang === "en" ? "Katha Upanishad" : "कठोपनिषद्"}
                         </h1>
-                        <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-2xl md:text-3xl text-amber-200/80">
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-2xl md:text-3xl text-[var(--sp-text-hi)]">
                             <span className="font-light italic">"{lang === "en" ? "The Dialogue with Death" : "मृत्यु से संवाद"}"</span>
                             <span className="hidden md:block w-2 h-2 bg-amber-500 rounded-full" />
                             <span className="font-medium">{lang === "en" ? "Nachiketa's Quest for Immortality" : "नचिकेता की अमरता की खोज"}</span>
@@ -503,19 +503,19 @@ export default function KathaLayout() {
             </header>
 
             {/* Navigation Bar */}
-            <nav className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-white/5 px-4 py-4">
+            <nav className="sticky top-0 z-50 bg-[var(--sp-surface)]/90 backdrop-blur-xl border-b border-white/5 px-4 py-4">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     <button
                         onClick={() => router.push("/student/batch2/upanishads")}
-                        className="flex items-center gap-3 text-amber-500 hover:text-amber-400 transition-all group"
+                        className="flex items-center gap-3 text-[var(--sp-text-hi)]0 hover:text-[var(--sp-text-lo)] transition-all group"
                     >
-                        <div className="w-10 h-10 rounded-xl bg-slate-900/50 flex items-center justify-center border border-amber-500/20 group-hover:bg-amber-500 group-hover:text-white transition-all">
+                        <div className="w-10 h-10 rounded-xl bg-[var(--sp-surface)]/50 flex items-center justify-center border border-[var(--sp-border)] group-hover:bg-[#1a1a33] group-hover:text-white transition-all">
                             <ArrowLeft className="w-5 h-5" />
                         </div>
                         <span className="font-black text-xs uppercase tracking-widest hidden sm:block">Portal</span>
                     </button>
 
-                    <div className="flex bg-black/60 rounded-2xl p-1.5 border border-white/5 shadow-2xl overflow-x-auto no-scrollbar max-w-[70%] md:max-w-none">
+                    <div className="flex bg-[var(--sp-bg)]/60 rounded-2xl p-1.5 border border-white/5 shadow-2xl overflow-x-auto no-scrollbar max-w-[70%] md:max-w-none">
                         {[
                             { id: "overview", label: "Overview", labelHi: "सारांश", icon: Info },
                             { id: "research", label: "Research", labelHi: "शोध", icon: BookOpen },
@@ -531,7 +531,7 @@ export default function KathaLayout() {
                                 onClick={() => setActiveTab(tab.id as any)}
                                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-black transition-all whitespace-nowrap ${activeTab === tab.id
                                     ? "bg-amber-500 text-slate-950 shadow-lg"
-                                    : "text-amber-500 hover:text-amber-400"
+                                    : "text-[var(--sp-text-hi)]0 hover:text-[var(--sp-text-lo)]"
                                     }`}
                             >
                                 <tab.icon className="w-4 h-4" />
@@ -542,12 +542,12 @@ export default function KathaLayout() {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <div className="flex bg-slate-900/50 rounded-xl p-1 border border-white/5">
+                        <div className="flex bg-[var(--sp-surface)]/50 rounded-xl p-1 border border-white/5">
                             {(["en", "hi"] as const).map((l) => (
                                 <button
                                     key={l}
                                     onClick={() => setLang(l)}
-                                    className={`px-4 py-1.5 rounded-lg text-xs font-black transition-all ${lang === l ? "bg-amber-500 text-slate-950 shadow-md" : "text-amber-600 hover:text-amber-400"
+                                    className={`px-4 py-1.5 rounded-lg text-xs font-black transition-all ${lang === l ? "bg-amber-500 text-slate-950 shadow-md" : "text-[var(--sp-gold)] hover:text-[var(--sp-text-lo)]"
                                         }`}
                                 >
                                     {l.toUpperCase()}
@@ -556,7 +556,7 @@ export default function KathaLayout() {
                         </div>
                         <button
                             onClick={() => setIsPlaying(!isPlaying)}
-                            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isPlaying ? "bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/20" : "bg-slate-900/50 text-amber-600 hover:text-amber-400"
+                            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isPlaying ? "bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/20" : "bg-[var(--sp-surface)]/50 text-[var(--sp-gold)] hover:text-[var(--sp-text-lo)]"
                                 }`}
                         >
                             {isPlaying ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
@@ -571,7 +571,7 @@ export default function KathaLayout() {
             </div>
 
             {/* Scroll Progress */}
-            <div className="h-1 bg-slate-950">
+            <div className="h-1 bg-[var(--sp-surface)]">
                 <motion.div
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
@@ -650,7 +650,7 @@ export default function KathaLayout() {
             </main>
 
             {/* Footer */}
-            <footer className="bg-slate-950 py-32 relative overflow-hidden text-center border-t border-amber-900/10">
+            <footer className="bg-[var(--sp-surface)] py-32 relative overflow-hidden text-center border-t border-[var(--sp-border)]">
                 <div className="max-w-4xl mx-auto px-6 space-y-12 relative z-10">
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -658,20 +658,20 @@ export default function KathaLayout() {
                         className="space-y-6"
                     >
                         <div className="w-20 h-px bg-amber-500/30 mx-auto" />
-                        <p className="text-3xl md:text-5xl font-serif text-amber-50 leading-tight">
+                        <p className="text-3xl md:text-5xl font-serif text-[var(--sp-text-hi)] leading-tight">
                             उत्तिष्ठत जाग्रत प्राप्य वरान्निबोधत ।
                         </p>
-                        <p className="text-amber-400/60 font-medium italic text-lg max-w-2xl mx-auto">
+                        <p className="text-[var(--sp-text-lo)] font-medium italic text-lg max-w-2xl mx-auto">
                             {lang === "en"
                                 ? "Arise! Awake! Approach the great teachers and learn!"
                                 : "उठो! जागो! महान शिक्षकों के पास जाओ और सीखो!"}
                         </p>
-                        <p className="text-amber-500/40 text-sm">— Katha Upanishad 1.3.14</p>
+                        <p className="text-[var(--sp-text-hi)]0/40 text-sm">— Katha Upanishad 1.3.14</p>
                         <div className="w-20 h-px bg-amber-500/30 mx-auto" />
                     </motion.div>
 
                     <div className="pt-20">
-                        <p className="text-[10px] text-amber-500/20 font-black tracking-[1em] uppercase">
+                        <p className="text-[10px] text-[var(--sp-text-hi)]0/20 font-black tracking-[1em] uppercase">
                             Digital Upanishad Experience • Eduecosystem
                         </p>
                     </div>
@@ -688,7 +688,7 @@ export default function KathaLayout() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                className="absolute inset-0 bg-black/60 backdrop-blur-md"
+                                className="absolute inset-0 bg-[var(--sp-bg)]/60 backdrop-blur-md"
                                 onClick={() => setSadhanaActive(false)}
                             />
                             <motion.div

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, ChevronLeft, Volume2, Info, Moon, Sparkles, Wind, Expand } from "lucide-react";
+import { ChevronRight, ChevronLeft, Volume2, Info, Moon, Sparkles, Wind, Expand, X } from "lucide-react";
 import { BRIHADARANYAKA_SHLOKAS } from "./data/brihadaranyaka-shlokas";
 import { cn } from "@/lib/utils";
 
@@ -50,7 +50,7 @@ const BRIHADARANYAKA_THEMES = {
     }
 };
 
-export function BrihadaranyakaImmersiveExperience({ lang = "en" }: { lang?: "en" | "hi" }) {
+export function BrihadaranyakaImmersiveExperience({ lang = "en", onClose }: { lang?: "en" | "hi", onClose?: () => void }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isRevealed, setIsRevealed] = useState(false);
     const [showWordMeanings, setShowWordMeanings] = useState(false);
@@ -77,11 +77,18 @@ export function BrihadaranyakaImmersiveExperience({ lang = "en" }: { lang?: "en"
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.code === "Escape" && onClose) {
+                onClose();
+            }
             if (e.code === "Space") {
                 e.preventDefault();
-                setIsRevealed(true);
+                if (!isRevealed) {
+                    setIsRevealed(true);
+                } else {
+                    handleNext();
+                }
             }
-            if (e.code === "ArrowRight" || e.code === "Enter") {
+            if (e.code === "ArrowRight") {
                 handleNext();
             }
             if (e.code === "ArrowLeft") {
@@ -93,12 +100,21 @@ export function BrihadaranyakaImmersiveExperience({ lang = "en" }: { lang?: "en"
         };
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [currentIndex]);
+    }, [currentIndex, onClose]);
 
     if (!shloka) return null;
 
     return (
         <div className="fixed inset-0 bg-black z-[100] overflow-hidden flex flex-col font-sans select-none">
+            {onClose && (
+                <button
+                    onClick={onClose}
+                    className="absolute top-6 right-6 z-50 p-3 rounded-full bg-white/5 hover:bg-white/20 text-white/50 hover:text-white transition-all backdrop-blur-md border border-white/10"
+                >
+                    <X className="w-6 h-6" />
+                </button>
+            )}
+
             {/* The Great Void Background */}
             <div className="absolute inset-0 z-0 flex items-center justify-center">
                 <motion.div
@@ -248,7 +264,7 @@ export function BrihadaranyakaImmersiveExperience({ lang = "en" }: { lang?: "en"
                                     >
                                         <div className="w-px h-16 bg-gradient-to-b from-transparent via-zinc-500 to-transparent group-hover:h-24 transition-all duration-1000 mb-6 opacity-30 group-hover:opacity-100" />
                                         <p className="text-[9px] text-zinc-500 uppercase tracking-[0.6em] group-hover:text-zinc-300 transition-colors text-center font-black">
-                                            Space to Strip Away the Veil
+                                            Press Space to Strip Away the Veil
                                         </p>
                                     </motion.div>
                                 ) : (
@@ -271,7 +287,7 @@ export function BrihadaranyakaImmersiveExperience({ lang = "en" }: { lang?: "en"
                                             transition={{ delay: 1 }}
                                             className="text-center pt-8"
                                         >
-                                            <span className="text-[9px] font-black uppercase tracking-[0.5em] text-zinc-600 mb-4 block">The Absolute Essence</span>
+                                            <span className="text-[9px] font-black uppercase tracking-[0.5em] text-zinc-600 mb-4 block">Press Arrow Right for the Next Negation</span>
                                             <p className="text-zinc-400 font-serif text-xl md:text-2xl leading-relaxed text-balance">
                                                 {lang === "hi" ? shloka.simpleExplanationHindi : shloka.simpleExplanation}
                                             </p>

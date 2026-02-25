@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Eye, ChevronRight, ChevronLeft, Volume2, Info } from "lucide-react";
+import { Sparkles, Eye, ChevronRight, ChevronLeft, Volume2, Info, X } from "lucide-react";
 import { prashnaData, PrashnaDataEntry } from "./data/prashna-shlokas";
 import { cn } from "@/lib/utils";
 
@@ -57,7 +57,7 @@ const PRASHNA_THEMES = {
     }
 };
 
-export function PrashnaImmersiveExperience({ lang = "en" }: { lang?: "en" | "hi" }) {
+export function PrashnaImmersiveExperience({ lang = "en", onClose }: { lang?: "en" | "hi", onClose?: () => void }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isRevealed, setIsRevealed] = useState(false);
     const [showWordMeanings, setShowWordMeanings] = useState(false);
@@ -83,11 +83,18 @@ export function PrashnaImmersiveExperience({ lang = "en" }: { lang?: "en" | "hi"
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.code === "Escape" && onClose) {
+                onClose();
+            }
             if (e.code === "Space") {
                 e.preventDefault();
-                setIsRevealed(true);
+                if (!isRevealed) {
+                    setIsRevealed(true);
+                } else {
+                    handleNext();
+                }
             }
-            if (e.code === "ArrowRight" || e.code === "Enter") {
+            if (e.code === "ArrowRight") {
                 handleNext();
             }
             if (e.code === "ArrowLeft") {
@@ -105,6 +112,14 @@ export function PrashnaImmersiveExperience({ lang = "en" }: { lang?: "en" | "hi"
 
     return (
         <div className="fixed inset-0 bg-black z-[100] overflow-hidden flex flex-col font-sans select-none">
+            {onClose && (
+                <button
+                    onClick={onClose}
+                    className="absolute top-6 right-6 z-50 p-3 rounded-full bg-white/5 hover:bg-white/20 text-white/50 hover:text-white transition-all backdrop-blur-md border border-white/10"
+                >
+                    <X className="w-6 h-6" />
+                </button>
+            )}
             {/* Background Layer */}
             <div className="absolute inset-0 z-0">
                 <motion.div
@@ -290,7 +305,7 @@ export function PrashnaImmersiveExperience({ lang = "en" }: { lang?: "en" | "hi"
 
                                         {/* Continue Hint (Desktop Only) */}
                                         <div className="hidden md:block opacity-20 text-[8px] uppercase tracking-[0.4em] font-black">
-                                            Press Enter to Forge Ahead
+                                            Press Arrow Right to Forge Ahead
                                         </div>
                                     </motion.div>
                                 )}

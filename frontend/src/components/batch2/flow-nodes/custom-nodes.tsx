@@ -62,7 +62,8 @@ interface VedicNodeData {
     style?: string;
     listItems?: string[];
     url?: string;
-    [key: string]: unknown;
+    isStart?: boolean;
+    [key: string]: any;
 }
 
 function VedicNodeComponent({ data }: NodeProps) {
@@ -74,6 +75,7 @@ function VedicNodeComponent({ data }: NodeProps) {
             <Handle type="target" position={Position.Top} className="!bg-transparent !border-0" />
             <div
                 style={{
+                    position: "relative",
                     width: "auto",
                     height: "auto",
                     minWidth: 50,
@@ -93,6 +95,14 @@ function VedicNodeComponent({ data }: NodeProps) {
                 }}
                 className="hover:scale-105 hover:shadow-xl"
             >
+                {nodeData.isStart && (
+                    <div className="absolute -inset-4 bg-amber-500/30 blur-xl rounded-2xl animate-pulse pointer-events-none" />
+                )}
+                {nodeData.isStart && (
+                    <div className="absolute -top-3 -right-4 px-2 py-0.5 bg-amber-500 text-white text-[9px] font-black uppercase tracking-wider rounded border border-amber-200 shadow-lg z-10 whitespace-nowrap">
+                        START HERE
+                    </div>
+                )}
                 <span
                     style={{
                         color: styleConfig.text,
