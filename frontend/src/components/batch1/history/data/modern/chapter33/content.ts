@@ -1,10 +1,7 @@
-
-import { Chapter } from '../../../../types';
-
-export const MODERN_CHAPTER_33_CONTENT: Chapter = {
-    id: 'modern-33',
-    title: 'National Movement: 1939-1941',
-    content: `
+export const MODERN_CHAPTER_33_CONTENT = {
+  id: 'modern-33',
+  title: 'National Movement: 1939-1941',
+  content: `
 # National Movement: The War Years (1939-1941)
 
 The outbreak of World War II fundamentally altered the political landscape in India, leading to a new phase of confrontation and the eventual "Quit India" movement.

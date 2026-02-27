@@ -15,6 +15,7 @@ export interface ChatContext {
     topicId?: number;
     topicTitle?: string;
     section?: string;
+    vulnerabilityProfile?: string;
 }
 
 export const sendMessageToDrAmbedkar = async (message: string, history: ChatMessage[] = [], context?: ChatContext): Promise<ChatMessage> => {
@@ -26,6 +27,9 @@ export const sendMessageToDrAmbedkar = async (message: string, history: ChatMess
         }
         if (context?.topicId) {
             contextContext += `, topic_id:${context.topicId}`;
+        }
+        if (context?.vulnerabilityProfile) {
+            contextContext += `, student_vulnerability_profile:[${context.vulnerabilityProfile}]`;
         }
 
         const response = await axios.post(`${API_URL}/ai/tutor/chat`, {

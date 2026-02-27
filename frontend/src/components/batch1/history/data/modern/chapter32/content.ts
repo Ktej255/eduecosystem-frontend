@@ -1,10 +1,7 @@
-
-import { Chapter } from '../../../../types';
-
-export const MODERN_CHAPTER_32_CONTENT: Chapter = {
-    id: 'modern-31',
-    title: 'The Working Class Movement',
-    content: `
+export const MODERN_CHAPTER_32_CONTENT = {
+  id: 'modern-31',
+  title: 'The Working Class Movement',
+  content: `
 # The Working Class Movement
 
 The Indian working class movement grew in parallel with the national movement, evolving from unorganized protests to a structured trade union movement with significant political influence.

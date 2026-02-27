@@ -1,6 +1,4 @@
-import { Chapter } from '../../../../types';
-
-export const MODERN_CHAPTER_31_CONTENT: Chapter = {
+export const MODERN_CHAPTER_31_CONTENT = {
     id: 'chapter31',
     title: "Peasant Movements 1857-1947",
     content: `

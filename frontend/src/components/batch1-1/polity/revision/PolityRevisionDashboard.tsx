@@ -26,11 +26,14 @@ import CurrentAffairsDashboard from './CurrentAffairsDashboard';
 import ExaminersTrap from './ExaminersTrap';
 import PolityDecisionTree from './PolityDecisionTree';
 import ConstitutionalTimeline from './ConstitutionalTimeline';
-import CommitteeShuffler from './CommitteeShuffler';
+import InteractiveDraftingCommittee from './InteractiveDraftingCommittee';
 import MajorityCalculator from './MajorityCalculator';
 import PYQBank from './PYQBank';
 import MainsTemplateViewer from './MainsTemplateViewer';
 import MnemonicGallery from './MnemonicGallery';
+import ConstitutionalSimulationEngine from './ConstitutionalSimulationEngine';
+import PredictiveExaminerAnalytics from './PredictiveExaminerAnalytics';
+import DynamicVerdictConsequences from './DynamicVerdictConsequences';
 
 export default function PolityRevisionDashboard() {
     const router = useRouter();
@@ -84,6 +87,12 @@ export default function PolityRevisionDashboard() {
                             <TabsTrigger value="majorities" className="px-4 py-2 rounded-xl data-[state=active]:bg-violet-600 data-[state=active]:text-white data-[state=active]:shadow-md font-bold flex items-center gap-2 border border-transparent data-[state=active]:border-violet-700">
                                 <Calculator size={18} /> Majority Calc
                             </TabsTrigger>
+                            <TabsTrigger value="simulation" className="px-4 py-2 rounded-xl data-[state=active]:bg-rose-600 data-[state=active]:text-white data-[state=active]:shadow-md font-bold flex items-center gap-2 border border-transparent data-[state=active]:border-rose-700">
+                                <Flame size={18} /> Deep Simulation
+                            </TabsTrigger>
+                            <TabsTrigger value="verdicts" className="px-4 py-2 rounded-xl data-[state=active]:bg-green-700 data-[state=active]:text-white data-[state=active]:shadow-md font-bold flex items-center gap-2 border border-transparent data-[state=active]:border-green-800">
+                                <Scale size={18} /> SC Verdicts
+                            </TabsTrigger>
 
                             <div className="w-px h-8 bg-slate-300 mx-2 hidden md:block"></div>
 
@@ -124,7 +133,7 @@ export default function PolityRevisionDashboard() {
                     {/* --- TAB CONTENTS --- */}
 
                     <TabsContent value="trap" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
-                        <ExaminersTrap />
+                        <PredictiveExaminerAnalytics />
                     </TabsContent>
 
                     <TabsContent value="logic" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
@@ -136,11 +145,19 @@ export default function PolityRevisionDashboard() {
                     </TabsContent>
 
                     <TabsContent value="committees" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
-                        <CommitteeShuffler />
+                        <InteractiveDraftingCommittee />
                     </TabsContent>
 
                     <TabsContent value="majorities" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
                         <MajorityCalculator />
+                    </TabsContent>
+
+                    <TabsContent value="simulation" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
+                        <ConstitutionalSimulationEngine />
+                    </TabsContent>
+
+                    <TabsContent value="verdicts" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
+                        <DynamicVerdictConsequences />
                     </TabsContent>
 
                     <TabsContent value="smart-tables" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">

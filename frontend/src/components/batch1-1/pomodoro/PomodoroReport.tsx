@@ -10,55 +10,69 @@ import { ActivityLogger, ActivityLog } from '@/lib/analytics/ActivityLogger';
 
 // ========== COMPONENT ==========
 export default function PomodoroReport() {
-    const data = useMemo(() => {
-        if (typeof window === 'undefined') return null;
-        const logs = ActivityLogger.getLogs().filter(l => l.type === 'MCQ_POMODORO');
-        const stats = ActivityLogger.getStats();
+    const [data, setData] = useState<{
+        total: number;
+        correct: number;
+        accuracy: number;
+        byTopic: Record<string, { correct: number; total: number; avgTime: number }>;
+        byConfidence: Record<string, { correct: number; total: number }>;
+        byDay: Record<string, number>;
+        recentLogs: ActivityLog[];
+    } | null>(null);
 
-        // Group by topic
-        const byTopic: Record<string, { correct: number; total: number; avgTime: number }> = {};
-        logs.forEach(log => {
-            const topic = log.details.topic || 'Uncategorized';
-            if (!byTopic[topic]) byTopic[topic] = { correct: 0, total: 0, avgTime: 0 };
-            byTopic[topic].total++;
-            if (log.details.isCorrect) byTopic[topic].correct++;
-            byTopic[topic].avgTime += (log.details.timeSpent || 0);
-        });
+    React.useEffect(() => {
+        const loadData = async () => {
+            if (typeof window === 'undefined') return;
+            const allLogs = await ActivityLogger.getLogs();
+            const logs = allLogs.filter(l => l.type === 'MCQ_POMODORO');
+            const stats = await ActivityLogger.getStats();
 
-        // Calculate averages
-        Object.values(byTopic).forEach(t => {
-            t.avgTime = t.total > 0 ? Math.round(t.avgTime / t.total) : 0;
-        });
+            // Group by topic
+            const byTopic: Record<string, { correct: number; total: number; avgTime: number }> = {};
+            logs.forEach(log => {
+                const topic = log.details.topic || 'Uncategorized';
+                if (!byTopic[topic]) byTopic[topic] = { correct: 0, total: 0, avgTime: 0 };
+                byTopic[topic].total++;
+                if (log.details.isCorrect) byTopic[topic].correct++;
+                byTopic[topic].avgTime += (log.details.timeSpent || 0);
+            });
 
-        // Group by confidence
-        const byConfidence: Record<string, { correct: number; total: number }> = {};
-        logs.forEach(log => {
-            const conf = log.details.confidence || 'unknown';
-            if (!byConfidence[conf]) byConfidence[conf] = { correct: 0, total: 0 };
-            byConfidence[conf].total++;
-            if (log.details.isCorrect) byConfidence[conf].correct++;
-        });
+            // Calculate averages
+            Object.values(byTopic).forEach(t => {
+                t.avgTime = t.total > 0 ? Math.round(t.avgTime / t.total) : 0;
+            });
 
-        // Group by day (last 7 days)
-        const byDay: Record<string, number> = {};
-        const now = Date.now();
-        logs.forEach(log => {
-            const dayLabel = new Date(log.timestamp).toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric' });
-            const daysAgo = Math.floor((now - log.timestamp) / (1000 * 60 * 60 * 24));
-            if (daysAgo < 7) {
-                byDay[dayLabel] = (byDay[dayLabel] || 0) + 1;
-            }
-        });
+            // Group by confidence
+            const byConfidence: Record<string, { correct: number; total: number }> = {};
+            logs.forEach(log => {
+                const conf = log.details.confidence || 'unknown';
+                if (!byConfidence[conf]) byConfidence[conf] = { correct: 0, total: 0 };
+                byConfidence[conf].total++;
+                if (log.details.isCorrect) byConfidence[conf].correct++;
+            });
 
-        return {
-            total: stats.pomodoroMCQs,
-            correct: stats.pomodoroCorrect,
-            accuracy: stats.pomodoroMCQs > 0 ? Math.round((stats.pomodoroCorrect / stats.pomodoroMCQs) * 100) : 0,
-            byTopic,
-            byConfidence,
-            byDay,
-            recentLogs: logs.slice(-20).reverse(),
+            // Group by day (last 7 days)
+            const byDay: Record<string, number> = {};
+            const now = Date.now();
+            logs.forEach(log => {
+                const dayLabel = new Date(log.timestamp).toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric' });
+                const daysAgo = Math.floor((now - log.timestamp) / (1000 * 60 * 60 * 24));
+                if (daysAgo < 7) {
+                    byDay[dayLabel] = (byDay[dayLabel] || 0) + 1;
+                }
+            });
+
+            setData({
+                total: stats.pomodoroMCQs,
+                correct: stats.pomodoroCorrect,
+                accuracy: stats.pomodoroMCQs > 0 ? Math.round((stats.pomodoroCorrect / stats.pomodoroMCQs) * 100) : 0,
+                byTopic,
+                byConfidence,
+                byDay,
+                recentLogs: logs.slice(-20).reverse(),
+            });
         };
+        loadData();
     }, []);
 
     if (!data || data.total === 0) {

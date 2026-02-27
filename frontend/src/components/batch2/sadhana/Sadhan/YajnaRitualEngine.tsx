@@ -9,6 +9,48 @@ import { YajnaImmersiveExperience } from '@/components/batch2/sadhana/Sadhan/Yaj
 
 import { NyasaImmersive } from './NyasaImmersive';
 
+const SANSKRIT_CHARS = ['ॐ', 'ह्रीं', 'श्रीं', 'क्लीं', 'ऐं', 'गं', 'सौः', 'फट्'];
+
+const FloatingSanskritParticles = () => {
+    // We only render this on client to avoid hydration mismatch
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => setMounted(true), []);
+    if (!mounted) return null;
+
+    const particles = Array.from({ length: 15 });
+    return (
+        <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden opacity-30">
+            {particles.map((_, i) => (
+                <motion.div
+                    key={i}
+                    className="absolute text-amber-500/30 font-serif text-3xl md:text-5xl lg:text-7xl font-bold"
+                    initial={{
+                        opacity: 0,
+                        y: "110vh",
+                        x: `${Math.random() * 100}vw`,
+                        rotate: Math.random() * 90 - 45,
+                        scale: Math.random() * 0.5 + 0.5
+                    }}
+                    animate={{
+                        opacity: [0, 0.4, 0.4, 0],
+                        y: "-10vh",
+                        rotate: Math.random() * 180 - 90,
+                        x: `${Math.random() * 100}vw`
+                    }}
+                    transition={{
+                        duration: 15 + Math.random() * 20,
+                        repeat: Infinity,
+                        ease: "linear",
+                        delay: Math.random() * 15
+                    }}
+                >
+                    {SANSKRIT_CHARS[i % SANSKRIT_CHARS.length]}
+                </motion.div>
+            ))}
+        </div>
+    );
+};
+
 interface YajnaStep {
     id: number;
     phase: 'Purification' | 'Invocation' | 'Core Practice' | 'Closing';
@@ -143,6 +185,7 @@ const InteractiveHavanKund = () => {
 export default function YajnaRitualEngine() {
     const [currentStepIndex, setCurrentStepIndex] = useState(0);
     const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());
+    const [japaCount, setJapaCount] = useState<number>(0);
 
     const { mode } = useBatch2UI();
 
@@ -167,6 +210,7 @@ export default function YajnaRitualEngine() {
 
     return (
         <div className="max-w-4xl mx-auto py-8 relative">
+            <FloatingSanskritParticles />
             {/* Global Toggle for Ritual Engine */}
             <div className="absolute top-0 right-0 z-50">
                 <TranceToggle />
@@ -192,6 +236,26 @@ export default function YajnaRitualEngine() {
                             className="h-full bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-700 ease-out"
                             style={{ width: `${progressPercent}%` }}
                         />
+                    </div>
+
+                    {/* Purushcharana Math Input */}
+                    <div className="mt-8 p-6 bg-gradient-to-br from-amber-50 to-orange-50/50 rounded-2xl border border-amber-200 shadow-inner flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div className="text-left">
+                            <span className="font-bold text-amber-900 border-b-2 border-amber-300 pb-1 flex items-center gap-2">
+                                <Sparkles className="w-4 h-4 text-amber-500" />
+                                Purushcharana Mathematics
+                            </span>
+                            <p className="text-sm text-amber-700 mt-2">Enter your total Moola Mantra Sankalpa count to automatically calculate exact offerings.</p>
+                        </div>
+                        <div className="relative">
+                            <input
+                                type="number"
+                                className="w-40 px-4 py-3 rounded-xl border-2 border-amber-300 bg-white text-xl font-black text-amber-900 shadow-sm focus:outline-none focus:border-orange-400 focus:ring-4 focus:ring-orange-400/20 transition-all text-center"
+                                placeholder="125000"
+                                value={japaCount || ''}
+                                onChange={(e) => setJapaCount(parseInt(e.target.value) || 0)}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -268,9 +332,30 @@ export default function YajnaRitualEngine() {
                                         <div className={`mt-1 bg-white p-2 rounded-xl shadow-sm border ${colors.border}`}>
                                             <BookOpen className={`w-5 h-5 ${colors.iconColor}`} />
                                         </div>
-                                        <p className="text-lg text-stone-700 leading-relaxed font-medium">
-                                            {step.instruction}
-                                        </p>
+                                        <div>
+                                            <p className="text-lg text-stone-700 leading-relaxed font-medium">
+                                                {step.instruction}
+                                            </p>
+
+                                            {/* Math Injection Block */}
+                                            {japaCount > 0 && [31, 32, 33, 34].includes(step.id) && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, y: -10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    className={`mt-4 p-5 bg-white rounded-2xl border-2 ${colors.border} shadow-sm inline-block`}
+                                                >
+                                                    <div className={`text-xs font-bold uppercase tracking-widest mb-2 ${colors.text} opacity-70 flex items-center gap-2`}>
+                                                        <Sparkles className="w-3 h-3" /> Exact Requirement
+                                                    </div>
+                                                    <div className={`text-3xl font-black font-serif ${colors.text}`}>
+                                                        {step.id === 31 && `${Math.ceil(japaCount * 0.1).toLocaleString()} Ahutis`}
+                                                        {step.id === 32 && `${Math.ceil(japaCount * 0.01).toLocaleString()} Libations`}
+                                                        {step.id === 33 && `${Math.ceil(japaCount * 0.001).toLocaleString()} Sprinkles`}
+                                                        {step.id === 34 && `${Math.ceil(japaCount * 0.0001).toLocaleString()} Persons`}
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </div>
                                     </div>
 
                                     {step.id === 20 && <div className="mt-8 scale-90 -mx-8"><NyasaImmersive /></div>}

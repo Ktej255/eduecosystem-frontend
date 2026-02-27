@@ -17,7 +17,7 @@ import {
     FileText
 } from 'lucide-react';
 import StandardMCQInterface from '@/components/common/mcq/StandardMCQInterface';
-import StandardTestReport from '@/components/common/reports/StandardTestReport';
+import StandardTestReport, { TestResult } from '@/components/common/reports/StandardTestReport';
 import { Badge } from '@/components/ui/badge';
 import { getRevisionDataById } from '../data/RevisionRegistry';
 import Link from 'next/link';
@@ -69,13 +69,6 @@ interface RevisionData {
     mcqs: MCQ[];
 }
 
-interface TestResultData {
-    testTitle: string;
-    totalTimeTaken: number;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    questions: any[]; // Kept as any for flexibility with StandardMCQInterface output
-}
-
 // ChapterReportHistory - Displays past test reports for a chapter
 function ChapterReportHistory({ chapterId, subject }: { chapterId: number; subject: 'polity' | 'history' }) {
     const [reports, setReports] = useState<{ score: number; totalQuestions: number; accuracy: number; timestamp: string; level: number }[]>([]);
@@ -85,7 +78,8 @@ function ChapterReportHistory({ chapterId, subject }: { chapterId: number; subje
             if (typeof window !== 'undefined') {
                 try {
                     const mod = await import('@/lib/report-persistence');
-                    const chapterReports = mod.getChapterReports(subject)
+                    const reportsData = await mod.getChapterReports(subject);
+                    const chapterReports = reportsData
                         .filter(r => r.chapterId === chapterId)
                         .slice(0, 5); // Show last 5 reports
                     setReports(chapterReports);
@@ -140,7 +134,7 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
     const [answers, setAnswers] = useState<Record<number, number>>({});
     const [submitted, setSubmitted] = useState(false);
     const [score, setScore] = useState(0);
-    const [testResults, setTestResults] = useState<TestResultData | null>(null);
+    const [testResults, setTestResults] = useState<TestResult | null>(null);
     const [showReport, setShowReport] = useState(false);
 
     useEffect(() => {
@@ -444,47 +438,73 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                             />
                         ) : mcqLevel === 1 ? (
                             // Standardized MCQ Interface
-                            <StandardMCQInterface
-                                questions={mcqs.map((q: MCQ, i: number) => ({
-                                    id: i,
-                                    question: q.question,
-                                    options: q.options,
-                                    correctAnswer: q.correctAnswer,
-                                    explanation: q.explanation || "No explanation provided.",
-                                    subtopic: "General",
-                                    chapter: title
-                                }))}
-                                onComplete={(results, time) => {
-                                    setTestResults({
-                                        testTitle: `${title} - Level 1`,
-                                        totalTimeTaken: time,
-                                        questions: results
-                                    });
-                                    setShowReport(true);
-                                    // Save Progress
-                                    const score = results.filter(r => r.isCorrect).length;
-                                    updateMcqProgress(chapterId, score, results.length, subjectId);
+                            (!mcqs || mcqs.length === 0) ? (
+                                <div className="text-center py-24 bg-card dark:bg-[#0a0a0a] rounded-3xl border border-border">
+                                    <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <Sparkles className="w-8 h-8 text-muted-foreground" />
+                                    </div>
+                                    <h3 className="text-xl font-bold mb-2">Questions Syncing</h3>
+                                    <p className="text-muted-foreground mb-6">Level 1 questions for this chapter are currently being indexed.</p>
+                                    <button
+                                        onClick={() => setMcqLevel(null)}
+                                        className="px-6 py-2 bg-gray-900 text-white rounded-lg text-sm font-bold"
+                                    >
+                                        Select Another Level
+                                    </button>
+                                </div>
+                            ) : (
+                                <StandardMCQInterface
+                                    questions={mcqs.map((q: MCQ, i: number) => ({
+                                        id: i,
+                                        question: q.question,
+                                        options: q.options,
+                                        correctAnswer: q.correctAnswer,
+                                        explanation: q.explanation || "No explanation provided.",
+                                        subtopic: "General",
+                                        chapter: title
+                                    }))}
+                                    onComplete={(results, time) => {
+                                        const score = results.filter(r => r.isCorrect).length;
+                                        setTestResults({
+                                            testTitle: `${title} - Level 1`,
+                                            totalTimeTaken: time,
+                                            score: score,
+                                            totalQuestions: results.length,
+                                            accuracy: Math.round((score / results.length) * 100),
+                                            timeTaken: time,
+                                            correctCount: score,
+                                            incorrectCount: results.length - score,
+                                            unansweredCount: 0,
+                                            questions: results as any
+                                        });
+                                        setShowReport(true);
+                                        // Save Progress
+                                        updateMcqProgress(chapterId, score, results.length, subjectId);
 
-                                    // Save to Universal Report Persistence
-                                    saveChapterReport('polity', chapterId, {
-                                        testTitle: `${title} - Level 1`,
-                                        totalTimeTaken: time,
-                                        score,
-                                        totalQuestions: results.length,
-                                        accuracy: Math.round((score / results.length) * 100),
-                                        timeTaken: time,
-                                        questions: results
-                                    }, 1);
+                                        // Save to Universal Report Persistence
+                                        saveChapterReport('polity', chapterId, {
+                                            testTitle: `${title} - Level 1`,
+                                            totalTimeTaken: time,
+                                            score,
+                                            totalQuestions: results.length,
+                                            accuracy: Math.round((score / results.length) * 100),
+                                            timeTaken: time,
+                                            correctCount: score,
+                                            incorrectCount: results.length - score,
+                                            unansweredCount: 0,
+                                            questions: results as any
+                                        }, 1);
 
-                                    toast.success(
-                                        `✅ Test Submitted! Score: ${score}/${results.length} (${Math.round((score / results.length) * 100)}%) - Report saved to Deep Report Center → Chapters tab`,
-                                        { duration: 5000 }
-                                    );
-                                }}
-                                title={`${title} - Level 1`}
-                                subtitle="Topic Revision Test"
-                                onExit={() => setMcqLevel(null)}
-                            />
+                                        toast.success(
+                                            `✅ Test Submitted! Score: ${score}/${results.length} (${Math.round((score / results.length) * 100)}%) - Report saved to Deep Report Center → Chapters tab`,
+                                            { duration: 5000 }
+                                        );
+                                    }}
+                                    title={`${title} - Level 1`}
+                                    subtitle="Topic Revision Test"
+                                    onExit={() => setMcqLevel(null)}
+                                />
+                            )
                         ) : (
                             // Placeholder for Level 2 & 3
                             <div className="text-center py-24 bg-card dark:bg-[#0a0a0a] rounded-3xl border border-border">

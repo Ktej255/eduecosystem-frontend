@@ -1,10 +1,7 @@
-
-import { Chapter } from '../../../../types';
-
-export const MODERN_CHAPTER_34_CONTENT: Chapter = {
-    id: 'modern-34',
-    title: 'The Crisis of 1942: Cripps Mission & Quit India',
-    content: `
+export const MODERN_CHAPTER_34_CONTENT = {
+  id: 'modern-34',
+  title: 'The Crisis of 1942: Cripps Mission & Quit India',
+  content: `
 # The Crisis of 1942: Cripps Mission & Quit India
 
 The year 1942 marked a turning point in the Indian freedom struggle with the failed Cripps Mission leading to the decisive Quit India Movement.

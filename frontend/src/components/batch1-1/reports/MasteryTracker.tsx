@@ -6,7 +6,7 @@ import { Trophy, AlertTriangle, Target, TrendingUp } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 interface MasteryTrackerProps {
-    subject: 'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'science';
+    subject: 'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'scitech';
 }
 
 export default function MasteryTracker({ subject }: MasteryTrackerProps) {
@@ -14,10 +14,15 @@ export default function MasteryTracker({ subject }: MasteryTrackerProps) {
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            setTimeout(() => {
-                const data = getSubjectStats(subject);
-                setStats(data);
-            }, 0);
+            const fetchStats = async () => {
+                try {
+                    const data = await getSubjectStats(subject);
+                    setStats(data);
+                } catch (e) {
+                    console.error("Failed to load subject stats", e);
+                }
+            };
+            fetchStats();
         }
     }, [subject]);
 

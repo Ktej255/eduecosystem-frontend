@@ -11,6 +11,7 @@ import { Sparkles, BookOpen, Scale, History, ChevronLeft, Trash2, Zap, MessageSq
 import { useRouter, useSearchParams } from 'next/navigation';
 import { TOPIC_TITLES } from '@/components/batch1-1/polity/data/polity-types-95';
 import { getSuggestionsForTopic } from '@/components/batch1-1/polity/ai-tutor/data/topic-suggestions';
+import { computeStudentVulnerabilities } from '@/lib/examiner-core';
 
 function AITutorContent() {
     const router = useRouter();
@@ -26,6 +27,20 @@ function AITutorContent() {
 
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [isTyping, setIsTyping] = useState(false);
+    const [vulnerabilityStr, setVulnerabilityStr] = useState<string>('');
+
+    // Fetch student's global weakness profile to feed into AI Persona
+    React.useEffect(() => {
+        const fetchVulnerabilities = async () => {
+            const data = await computeStudentVulnerabilities();
+            if (data.profiles.length > 0) {
+                // Formatting for LLM consumtion
+                const profiles = data.profiles.map(p => `Weakness: ${p.title} (${p.trapType}) - Note: ${p.examinerNote}`).join(' | ');
+                setVulnerabilityStr(profiles);
+            }
+        };
+        fetchVulnerabilities();
+    }, []);
 
     const handleSendMessage = async (text: string) => {
         // 1. Add User Message
@@ -39,10 +54,11 @@ function AITutorContent() {
         setIsTyping(true);
 
         // 2. Call Service with Context
-        const context = currentTopic ? {
-            topicId: currentTopic.id,
-            topicTitle: currentTopic.title
-        } : undefined;
+        const context = {
+            topicId: currentTopic?.id,
+            topicTitle: currentTopic?.title,
+            vulnerabilityProfile: vulnerabilityStr || undefined
+        };
 
         const aiMsg = await sendMessageToDrAmbedkar(text, messages, context);
 

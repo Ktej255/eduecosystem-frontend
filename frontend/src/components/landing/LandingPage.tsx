@@ -15,6 +15,7 @@ import {
     PenTool
 } from "lucide-react";
 import Link from "next/link";
+import { useAuth } from "@/contexts/auth-context";
 import { useRouter } from "next/navigation";
 
 const PortalCard = ({ title, description, icon: Icon, href, color, delay }: any) => (
@@ -58,11 +59,11 @@ const FeatureItem = ({ icon: Icon, title, description }: any) => (
 
 export default function LandingPage() {
     const router = useRouter();
+    const { isAuthenticated } = useAuth();
 
     const handleStart = () => {
-        const token = localStorage.getItem("token");
-        if (token) {
-            router.push("/dashboard");
+        if (isAuthenticated) {
+            router.push("/student/dashboard");
         } else {
             router.push("/login");
         }

@@ -29,6 +29,7 @@ import InnerSpaceWidget from "@/components/meditation/features/InnerSpaceWidget"
 import DailyMissionCard from "@/components/dashboard/DailyMissionCard";
 import { pullCloudProgress, processRetryQueue } from "@/services/progressStorage";
 import QuickReviewWidget from "@/components/dashboard/QuickReviewWidget";
+import { subscribeToPushNotifications } from "@/lib/PushSubscriptionManager";
 
 export default function StudentDashboard() {
     const { user } = useAuth();
@@ -36,6 +37,11 @@ export default function StudentDashboard() {
     useEffect(() => {
         pullCloudProgress();
         processRetryQueue();
+
+        // Request Web Push Permissions gracefully on load
+        setTimeout(() => {
+            subscribeToPushNotifications();
+        }, 5000);
     }, []);
     const { streak, longestStreak, xp } = useGamification() || { streak: 0, longestStreak: 0, xp: 0 };
 

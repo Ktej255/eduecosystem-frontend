@@ -40,38 +40,48 @@ export default function SRSReviewMode() {
     const [sessionStats, setSessionStats] = useState({ correct: 0, incorrect: 0 });
     const [isInitializing, setIsInitializing] = useState(true);
 
+    const [stats, setStats] = useState({ due: 0, new: 0, learning: 0, review: 0 });
+
     // Initialize SRS data for all chapters and get due cards
     useEffect(() => {
-        // Initialize all chapters into SRS system
-        POLITY_REVISION_CHAPTERS.forEach(ch => {
-            if (ch.flashcards && ch.flashcards.length > 0) {
-                initializeChapterForSRS(ch.id, ch.flashcards.length);
+        const loadSRSSession = async () => {
+            setIsInitializing(true);
+
+            // Initialize all chapters into SRS system
+            for (const ch of POLITY_REVISION_CHAPTERS) {
+                if (ch.flashcards && ch.flashcards.length > 0) {
+                    await initializeChapterForSRS(ch.id, ch.flashcards.length);
+                }
             }
-        });
 
-        // Get due cards with flashcard content
-        const due = getDueCards();
-        const cardsWithContent = due.map(card => {
-            const chapter = POLITY_REVISION_CHAPTERS.find(ch => ch.id === card.chapterId);
-            const flashcard = chapter?.flashcards?.[card.flashcardIdx];
-            return {
-                ...card,
-                flashcard: flashcard as Flashcard,
-                chapterTitle: chapter?.title || 'Unknown Chapter'
-            };
-        }).filter(c => c.flashcard);
+            // Get due cards with flashcard content
+            const due = await getDueCards();
+            const cardsWithContent = due.map(card => {
+                const chapter = POLITY_REVISION_CHAPTERS.find(ch => ch.id === card.chapterId);
+                const flashcard = chapter?.flashcards?.[card.flashcardIdx];
+                return {
+                    ...card,
+                    flashcard: flashcard as Flashcard,
+                    chapterTitle: chapter?.title || 'Unknown Chapter'
+                };
+            }).filter(c => c.flashcard);
 
-        setDueCards(cardsWithContent);
-        setIsInitializing(false);
+            setDueCards(cardsWithContent);
+
+            const sessionStats = await getSRSStats();
+            setStats(sessionStats);
+
+            setIsInitializing(false);
+        };
+
+        loadSRSSession();
     }, []);
 
-    const stats = useMemo(() => getSRSStats(), [dueCards]);
-
-    const handleQualityRating = (quality: Quality) => {
+    const handleQualityRating = async (quality: Quality) => {
         const currentCard = dueCards[currentIdx];
 
         // Update SRS data
-        reviewCard(currentCard.chapterId, currentCard.flashcardIdx, quality);
+        await reviewCard(currentCard.chapterId, currentCard.flashcardIdx, quality);
 
         // Update session stats
         if (quality >= 3) {
@@ -89,9 +99,10 @@ export default function SRSReviewMode() {
         }
     };
 
-    const restartSession = () => {
+    const restartSession = async () => {
+        setIsInitializing(true);
         // Refresh due cards
-        const due = getDueCards();
+        const due = await getDueCards();
         const cardsWithContent = due.map(card => {
             const chapter = POLITY_REVISION_CHAPTERS.find(ch => ch.id === card.chapterId);
             const flashcard = chapter?.flashcards?.[card.flashcardIdx];
@@ -107,6 +118,11 @@ export default function SRSReviewMode() {
         setShowAnswer(false);
         setSessionComplete(false);
         setSessionStats({ correct: 0, incorrect: 0 });
+
+        const sessionStats = await getSRSStats();
+        setStats(sessionStats);
+
+        setIsInitializing(false);
     };
 
     // Loading state

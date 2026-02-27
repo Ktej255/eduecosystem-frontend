@@ -163,14 +163,23 @@ export default function SubjectPomodoro() {
     }, []);
 
     // Stats from ActivityLogger
-    const pomodoroStats = useMemo(() => {
-        if (typeof window === 'undefined') return { total: 0, correct: 0, accuracy: 0 };
-        const stats = ActivityLogger.getStats();
-        return {
-            total: stats.pomodoroMCQs,
-            correct: stats.pomodoroCorrect,
-            accuracy: stats.pomodoroMCQs > 0 ? Math.round((stats.pomodoroCorrect / stats.pomodoroMCQs) * 100) : 0,
+    const [pomodoroStats, setPomodoroStats] = useState({ total: 0, correct: 0, accuracy: 0 });
+
+    useEffect(() => {
+        const fetchStats = async () => {
+            if (typeof window === 'undefined') return;
+            try {
+                const stats = await ActivityLogger.getStats();
+                setPomodoroStats({
+                    total: stats.pomodoroMCQs,
+                    correct: stats.pomodoroCorrect,
+                    accuracy: stats.pomodoroMCQs > 0 ? Math.round((stats.pomodoroCorrect / stats.pomodoroMCQs) * 100) : 0,
+                });
+            } catch (err) {
+                console.error("Failed to load pomodoro stats", err);
+            }
         };
+        fetchStats();
     }, [view]);
 
     // Weekly schedule for planner mode

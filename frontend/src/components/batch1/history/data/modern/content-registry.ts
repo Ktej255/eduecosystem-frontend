@@ -38,7 +38,7 @@ import { MODERN_CHAPTER_37_CONTENT } from './chapter37';
 import { MODERN_CHAPTER_38_CONTENT } from './chapter38';
 import { MODERN_CHAPTER_39_CONTENT } from './chapter39';
 
-export const MODERN_HISTORY_CONTENT: Record<string, string> = {
+export const MODERN_HISTORY_CONTENT: Record<string, any> = {
     '1': MODERN_CHAPTER_1_CONTENT,
     '2': MODERN_CHAPTER_2_CONTENT,
     '3': MODERN_CHAPTER_3_CONTENT,

@@ -13,18 +13,56 @@ export default function UPSCOnboarding() {
     const [surveyData, setSurveyData] = useState({ days: 30, dailyHours: 4 });
 
     useEffect(() => {
-        // Check if onboarding is already completed
-        const hasOnboarded = localStorage.getItem('upsc_onboarding_completed');
-        if (!hasOnboarded) {
-            // Delay slightly for effect
-            setTimeout(() => setIsOpen(true), 1000);
-        }
+        const checkOnboardingStatus = async () => {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                setTimeout(() => setIsOpen(true), 1000);
+                return;
+            }
+            try {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/upsc_onboarding`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (res.ok) {
+                    const report = await res.json();
+                    if (report?.data?.completed) {
+                        return; // Already onboarded on the backend
+                    }
+                }
+            } catch (err) { }
+
+            // Fallback check
+            const hasOnboarded = localStorage.getItem('upsc_onboarding_completed');
+            if (!hasOnboarded) {
+                setTimeout(() => setIsOpen(true), 1000);
+            }
+        };
+        checkOnboardingStatus();
     }, []);
 
-    const handleComplete = () => {
-        localStorage.setItem('upsc_onboarding_completed', 'true');
+    const handleComplete = async () => {
         setIsOpen(false);
-        // Could also trigger a toast or redirection
+        localStorage.setItem('upsc_onboarding_completed', 'true');
+        const token = localStorage.getItem("token");
+        if (token) {
+            try {
+                await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        report_type: 'onboarding',
+                        report_key: 'upsc_onboarding',
+                        data: {
+                            completed: true,
+                            plan: { days: surveyData.days, dailyHours: surveyData.dailyHours, path: pathType }
+                        }
+                    })
+                });
+            } catch (err) { }
+        }
     };
 
     const renderVideoStep = () => (

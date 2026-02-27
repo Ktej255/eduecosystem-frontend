@@ -65,6 +65,18 @@ export default function HistoryMCQSession({
     }, []);
 
     const currentQuestion = questions[currentIndex];
+
+    if (!currentQuestion) {
+        return (
+            <div className="flex flex-col items-center justify-center h-full bg-card p-8 rounded-3xl">
+                <AlertCircle className="w-12 h-12 text-amber-500 mb-4" />
+                <h3 className="text-xl font-bold">No Questions Available</h3>
+                <p className="text-muted-foreground mt-2">The question bank for this section is currently empty or indexing.</p>
+                <Button onClick={onCancel} className="mt-6">Return to Dashboard</Button>
+            </div>
+        );
+    }
+
     const progress = ((currentIndex + 1) / questions.length) * 100;
 
     const handleNext = () => {

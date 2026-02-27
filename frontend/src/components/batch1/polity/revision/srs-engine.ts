@@ -24,21 +24,18 @@ const SRS_KEY = 'polity_srs_data';
 // Quality ratings (0-5)
 export type Quality = 0 | 1 | 2 | 3 | 4 | 5;
 
-// Get all SRS data
-export function getSRSData(): Record<string, SRSCard> {
+import { getSRSDataFromDB, saveSRSDataToDB } from '@/lib/report-persistence';
+
+// Get all SRS data (Async)
+export async function getSRSData(): Promise<Record<string, SRSCard>> {
     if (typeof window === 'undefined') return {};
-    try {
-        const stored = localStorage.getItem(SRS_KEY);
-        return stored ? JSON.parse(stored) : {};
-    } catch {
-        return {};
-    }
+    return await getSRSDataFromDB();
 }
 
-// Save SRS data
-export function saveSRSData(data: Record<string, SRSCard>) {
+// Save SRS data (Async)
+export async function saveSRSData(data: Record<string, SRSCard>): Promise<void> {
     if (typeof window === 'undefined') return;
-    localStorage.setItem(SRS_KEY, JSON.stringify(data));
+    await saveSRSDataToDB(data);
 }
 
 // Initialize a card for SRS
@@ -97,8 +94,8 @@ export function calculateNextReview(card: SRSCard, quality: Quality): SRSCard {
 }
 
 // Get cards due for review today
-export function getDueCards(chapterIds?: number[]): SRSCard[] {
-    const data = getSRSData();
+export async function getDueCards(chapterIds?: number[]): Promise<SRSCard[]> {
+    const data = await getSRSData();
     const today = new Date().toISOString().split('T')[0];
 
     return Object.values(data)
@@ -117,8 +114,8 @@ export function getDueCards(chapterIds?: number[]): SRSCard[] {
 }
 
 // Get SRS statistics
-export function getSRSStats(chapterIds?: number[]): SRSStats {
-    const data = getSRSData();
+export async function getSRSStats(chapterIds?: number[]): Promise<SRSStats> {
+    const data = await getSRSData();
     const today = new Date().toISOString().split('T')[0];
 
     let due = 0, newCards = 0, learning = 0, review = 0;
@@ -142,8 +139,8 @@ export function getSRSStats(chapterIds?: number[]): SRSStats {
 }
 
 // Mark a card as reviewed with quality rating
-export function reviewCard(chapterId: number, flashcardIdx: number, quality: Quality): SRSCard {
-    const data = getSRSData();
+export async function reviewCard(chapterId: number, flashcardIdx: number, quality: Quality): Promise<SRSCard> {
+    const data = await getSRSData();
     const cardId = `${chapterId}_${flashcardIdx}`;
 
     let card = data[cardId];
@@ -153,14 +150,14 @@ export function reviewCard(chapterId: number, flashcardIdx: number, quality: Qua
 
     const updatedCard = calculateNextReview(card, quality);
     data[cardId] = updatedCard;
-    saveSRSData(data);
+    await saveSRSData(data);
 
     return updatedCard;
 }
 
 // Initialize all flashcards for a chapter into SRS system
-export function initializeChapterForSRS(chapterId: number, flashcardCount: number) {
-    const data = getSRSData();
+export async function initializeChapterForSRS(chapterId: number, flashcardCount: number): Promise<void> {
+    const data = await getSRSData();
     const today = new Date().toISOString().split('T')[0];
 
     for (let i = 0; i < flashcardCount; i++) {
@@ -170,12 +167,12 @@ export function initializeChapterForSRS(chapterId: number, flashcardCount: numbe
         }
     }
 
-    saveSRSData(data);
+    await saveSRSData(data);
 }
 
 // Get suggested chapters to review based on SRS
-export function getSuggestedReviewChapters(): { chapterId: number; dueCount: number }[] {
-    const data = getSRSData();
+export async function getSuggestedReviewChapters(): Promise<{ chapterId: number; dueCount: number }[]> {
+    const data = await getSRSData();
     const today = new Date().toISOString().split('T')[0];
     const chapterDueCounts: Record<number, number> = {};
 

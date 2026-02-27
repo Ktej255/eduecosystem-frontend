@@ -14,6 +14,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import UPSCGlobalSearch from "@/components/upsc/UPSCGlobalSearch";
 
 export default function StudentHeader() {
     const { user, logout } = useAuth();
@@ -121,6 +122,9 @@ export default function StudentHeader() {
 
                 {/* Right Section */}
                 <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+                    <div className="hidden md:block w-48 xl:w-72 relative mr-2">
+                        <UPSCGlobalSearch />
+                    </div>
                     <ThemeToggle />
 
                     {/* Streak - Compact on mobile */}

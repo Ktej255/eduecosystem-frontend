@@ -4,9 +4,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SKILLS_METADATA, SkillProgress } from '../data/sadhana-data';
 import { Compass, Flame, Target, ChevronDown, ChevronUp, Brain, Sprout } from 'lucide-react';
-import { useBatch2UI } from "@/components/batch2/context/Batch2UIContext";
-import { TranceToggle } from "@/components/batch2/context/TranceToggle";
-import { SkillsExplorerImmersive } from './SkillsExplorerImmersive';
 import { SkillDetailDrawer } from './SkillDetailDrawer';
 
 import { useSadhanaSkillTracker } from "../../hooks/useSadhanaSkillTracker";
@@ -31,24 +28,12 @@ export default function SkillsExplorer({ }: SkillsExplorerProps) {
     const { skillProgress } = useSadhanaSkillTracker();
     const [filter, setFilter] = useState<'All' | 'Evergreen' | 'Mid-term' | 'Immediate'>('All');
     const [expandedSkill, setExpandedSkill] = useState<string | null>(null);
-    const { mode } = useBatch2UI();
 
     const filteredSkills = filter === 'All'
         ? SKILLS_METADATA
         : SKILLS_METADATA.filter(s => s.category === filter);
 
     const getProgress = (skillId: string) => skillProgress.find(s => s.skillId === skillId);
-
-    if (mode === 'immersive') {
-        return (
-            <div className="relative w-full h-full min-h-[600px] flex rounded-3xl overflow-hidden bg-black border border-white/10 shadow-2xl">
-                <SkillsExplorerImmersive />
-                <div className="absolute bottom-6 right-6 z-50">
-                    <TranceToggle />
-                </div>
-            </div>
-        );
-    }
 
     return (
         <div className="w-full max-w-4xl mx-auto flex flex-col h-full max-h-[700px]">
@@ -123,11 +108,6 @@ export default function SkillsExplorer({ }: SkillsExplorerProps) {
                     border-radius: 20px;
                 }
             `}</style>
-
-            {/* Trance Toggle Note: placed here for the standard UI, optionally styled differently */}
-            <div className="absolute bottom-6 right-6 z-50">
-                <TranceToggle />
-            </div>
 
             {/* Slide-in Detail Drawer */}
             <SkillDetailDrawer

@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { toast } from 'sonner';
 import { GraphoDrill } from '@/lib/graphotherapy/grapho-engine';
-import { CLASS_CONFIG } from '@/lib/journey/class-config';
+import { useClassConfig } from '@/hooks/useClassConfig';
 import { markStepComplete } from '@/lib/journey/completion-tracker';
 import {
     ChevronLeft,
@@ -42,8 +42,10 @@ interface DailyDrillModeProps {
     level?: number;
 }
 
-export default function DailyDrillMode({ drill, level = CLASS_CONFIG.graphotherapy.currentLevel }: DailyDrillModeProps) {
-    const pagesRequired = level; // Level 2 = 2 pages
+export default function DailyDrillMode({ drill, level }: DailyDrillModeProps) {
+    const CLASS_CONFIG = useClassConfig();
+    const effectiveLevel = level ?? CLASS_CONFIG.graphotherapy.currentLevel;
+    const pagesRequired = effectiveLevel; // Level 2 = 2 pages
 
     // State
     const [currentPage, setCurrentPage] = useState(1);
@@ -110,7 +112,7 @@ export default function DailyDrillMode({ drill, level = CLASS_CONFIG.graphothera
                 : 0;
 
             await graphotherapyService.completeDay(
-                level,
+                effectiveLevel,
                 drill.day,
                 file,
                 startTime?.toISOString(),

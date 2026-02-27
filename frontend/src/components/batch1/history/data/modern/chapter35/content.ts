@@ -1,10 +1,7 @@
-
-import { Chapter } from '../../../../types';
-
-export const MODERN_CHAPTER_35_CONTENT: Chapter = {
-    id: 'modern-35',
-    title: 'Independence and Partition (1945-1947)',
-    content: `
+export const MODERN_CHAPTER_35_CONTENT = {
+  id: 'modern-35',
+  title: 'Independence and Partition (1945-1947)',
+  content: `
 # Toward Independence and Partition (1945-1947)
 
 The post-war period witnessed a rapid acceleration of events leading to the end of British rule and the partition of the subcontinent.

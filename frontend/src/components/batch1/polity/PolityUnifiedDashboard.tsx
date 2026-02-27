@@ -66,8 +66,11 @@ export default function PolityUnifiedDashboard() {
             console.error("CRITICAL IMPORT ERROR: getSRSStats is not a function", getSRSStats);
         }
 
-        const stats = typeof getSRSStats === 'function' ? getSRSStats() : { due: 0, new: 0, learning: 0, review: 0 };
-        setSrsDueCount(stats.due);
+        const loadStats = async () => {
+            const stats = typeof getSRSStats === 'function' ? await getSRSStats() : { due: 0, new: 0, learning: 0, review: 0 };
+            setSrsDueCount(stats.due);
+        };
+        loadStats();
     }, []);
 
     // Calculate statistics

@@ -121,6 +121,25 @@ function saveProgressStore(store: PolityProgressStore) {
     localStorage.setItem(CHAPTERS_KEY, JSON.stringify(completedChapterIds));
 
     notifyListeners(store);
+
+    // Background sync to backend Postgres securely
+    try {
+        const token = localStorage.getItem("token");
+        if (token) {
+            fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    report_type: 'polity_progress',
+                    report_key: 'polity_progress_unified',
+                    data: store
+                })
+            }).catch(() => { });
+        }
+    } catch (error) { }
 }
 
 // Mark a chapter as complete

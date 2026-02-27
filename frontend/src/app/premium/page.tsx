@@ -15,48 +15,87 @@ import { toast } from "sonner";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
+declare global {
+  interface Window {
+    Cashfree: any;
+  }
+}
+
 export default function SubscriptionPage() {
   const [isLoading, setIsLoading] = useState(false);
   // TODO: This should come from auth context or be fetched from API
   const [isPremium] = useState(false);
   const router = useRouter();
 
+  const loadCashfreeScript = () => {
+    return new Promise((resolve, reject) => {
+      if (window.Cashfree) {
+        resolve(true);
+        return;
+      }
+      const script = document.createElement("script");
+      script.src = "https://sdk.cashfree.com/js/v3/cashfree.js";
+      script.async = true;
+      script.onload = resolve;
+      script.onerror = reject;
+      document.body.appendChild(script);
+    });
+  };
+
   const handleSubscribe = async () => {
     try {
       setIsLoading(true);
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/checkout-session`,
-        {},
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/create-order`,
+        { tier: "premium" },
         { headers: { Authorization: `Bearer ${token}` } },
       );
 
-      // Redirect to Stripe Checkout
-      window.location.href = response.data.url;
-    } catch (error) {
+      const { payment_session_id } = response.data;
+
+      if (!payment_session_id) {
+        throw new Error("Invalid session ID returned from the server.");
+      }
+
+      await loadCashfreeScript();
+
+      const cashfree = window.Cashfree({
+        mode: process.env.NEXT_PUBLIC_ENVIRONMENT === "production" ? "production" : "sandbox",
+      });
+
+      let checkoutOptions = {
+        paymentSessionId: payment_session_id,
+        redirectTarget: "_self"
+      };
+
+      cashfree.checkout(checkoutOptions).then((result: any) => {
+        if (result.error) {
+          toast.error("Payment failed: " + result.error.message);
+          setIsLoading(false);
+        }
+        if (result.redirect) {
+          console.log("Redirecting for payment");
+        }
+        if (result.paymentDetails) {
+          toast.success("Payment Successful! Premium Access Unlocked.");
+          // Reload or redirect securely
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
+        }
+      });
+
+    } catch (error: any) {
       console.error("Checkout failed:", error);
-      toast.error("Failed to start checkout");
+      toast.error(error.response?.data?.detail || error.message || "Failed to start checkout");
       setIsLoading(false);
     }
   };
 
   const handleManage = async () => {
-    try {
-      setIsLoading(true);
-      const token = localStorage.getItem("token");
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/portal`,
-        {},
-        { headers: { Authorization: `Bearer ${token}` } },
-      );
-
-      // Redirect to Stripe Portal
-      window.location.href = response.data.url;
-    } catch (error) {
-      console.error("Portal failed:", error);
-      toast.error("Failed to open billing portal");
-      setIsLoading(false);
-    }
+    // Managing subscriptions on Cashfree or directly via self-serve UI
+    toast.info("Billing portal integration with Cashfree is pending.");
   };
 
   return (

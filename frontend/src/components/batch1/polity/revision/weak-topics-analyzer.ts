@@ -115,9 +115,9 @@ function getRecommendedAction(score: number): 'urgent' | 'review' | 'practice' |
 }
 
 // Analyze all chapters and return weak topics
-export function analyzeWeakTopics(): WeakTopic[] {
+export async function analyzeWeakTopics(): Promise<WeakTopic[]> {
     const progress = getAllProgress();
-    const srsData = getSRSData();
+    const srsData = await getSRSData();
     const weakTopics: WeakTopic[] = [];
 
     POLITY_REVISION_CHAPTERS.forEach(chapter => {
@@ -160,18 +160,20 @@ export function analyzeWeakTopics(): WeakTopic[] {
 }
 
 // Get only the weak topics (score >= 25)
-export function getWeakTopicsOnly(): WeakTopic[] {
-    return analyzeWeakTopics().filter(t => t.weaknessScore >= 25);
+export async function getWeakTopicsOnly(): Promise<WeakTopic[]> {
+    const topics = await analyzeWeakTopics();
+    return topics.filter(t => t.weaknessScore >= 25);
 }
 
 // Get urgent topics (score >= 70)
-export function getUrgentTopics(): WeakTopic[] {
-    return analyzeWeakTopics().filter(t => t.weaknessScore >= 70);
+export async function getUrgentTopics(): Promise<WeakTopic[]> {
+    const topics = await analyzeWeakTopics();
+    return topics.filter(t => t.weaknessScore >= 70);
 }
 
 // Get overall performance metrics
-export function getPerformanceMetrics(): PerformanceMetrics {
-    const allTopics = analyzeWeakTopics();
+export async function getPerformanceMetrics(): Promise<PerformanceMetrics> {
+    const allTopics = await analyzeWeakTopics();
 
     if (allTopics.length === 0) {
         return {

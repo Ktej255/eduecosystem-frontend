@@ -103,6 +103,7 @@ export interface LearningProgress {
     subjectMastery: SubjectMastery;
     studyHabits: StudyHabits;
     sadhana: SadhanaProgress;
+    offerStarts?: Record<string, number>; // "upsc-book-1": 1714567890000
 }
 
 export interface SubjectMastery {
@@ -162,7 +163,7 @@ const MAX_RETRIES = 5;
 const INITIAL_BACKOFF = 1000; // 1 second
 
 async function syncWithCloud(progressState: LearningProgress, retryCount = 0) {
-    const token = localStorage.getItem('edueco_auth_token');
+    const token = localStorage.getItem('token');
     if (!token) return;
 
     try {
@@ -234,7 +235,7 @@ export async function processRetryQueue() {
  * Pull latest state from cloud (Call on login/dashboard load)
  */
 export async function pullCloudProgress(): Promise<void> {
-    const token = localStorage.getItem('edueco_auth_token');
+    const token = localStorage.getItem('token');
     if (!token) return;
 
     try {
@@ -314,7 +315,34 @@ const DEFAULT_PROGRESS: LearningProgress = {
     },
     solvedQuestions: [],
     sadhana: DEFAULT_SADHANA_PROGRESS,
+    offerStarts: {},
 };
+
+// ============================================
+// COMMERCE Scarcity
+// ============================================
+
+export function getOfferStartTime(offerId: string): number | null {
+    const progress = getLearningProgress();
+    if (progress.offerStarts && progress.offerStarts[offerId]) {
+        return progress.offerStarts[offerId];
+    }
+    return null;
+}
+
+export function setOfferStartTime(offerId: string, timestamp: number): void {
+    const progress = getLearningProgress();
+    const offerStarts = progress.offerStarts || {};
+
+    if (!offerStarts[offerId]) {
+        saveLearningProgress({
+            offerStarts: {
+                ...offerStarts,
+                [offerId]: timestamp
+            }
+        });
+    }
+}
 
 // ... existing code ...
 

@@ -22,30 +22,20 @@ interface PaymentGatewayDialogProps {
   onSuccess: () => void;
 }
 
+declare global {
+  interface Window {
+    Cashfree: any;
+  }
+}
+
 const paymentGateways = [
   {
-    id: "razorpay",
-    name: "Razorpay",
-    description: "Credit/Debit Cards, UPI, Netbanking, Wallets",
+    id: "cashfree",
+    name: "Cashfree Payments",
+    description: "Credit/Debit Cards, UPI, Netbanking",
     icon: "💳",
     popular: true,
     color: "bg-blue-500/10 border-blue-500/20 hover:bg-blue-500/20",
-  },
-  {
-    id: "instamojo",
-    name: "Instamojo",
-    description: "Cards, UPI, Netbanking",
-    icon: "💰",
-    popular: false,
-    color: "bg-purple-500/10 border-purple-500/20 hover:bg-purple-500/20",
-  },
-  {
-    id: "stripe",
-    name: "Stripe",
-    description: "International Cards",
-    icon: "🌍",
-    popular: false,
-    color: "bg-cyan-500/10 border-cyan-500/20 hover:bg-cyan-500/20",
   },
 ];
 
@@ -57,7 +47,7 @@ export function PaymentGatewayDialog({
   price,
   onSuccess,
 }: PaymentGatewayDialogProps) {
-  const [selectedGateway, setSelectedGateway] = useState<string>("razorpay");
+  const [selectedGateway, setSelectedGateway] = useState<string>("cashfree");
   const [loading, setLoading] = useState(false);
   const [couponCode, setCouponCode] = useState("");
   const [appliedCoupon, setAppliedCoupon] = useState<any>(null);
@@ -105,12 +95,8 @@ export function PaymentGatewayDialog({
     try {
       setLoading(true);
 
-      if (selectedGateway === "razorpay") {
-        await handleRazorpayPayment();
-      } else if (selectedGateway === "instamojo") {
-        await handleInstamojoPayment();
-      } else if (selectedGateway === "stripe") {
-        await handleStripePayment();
+      if (selectedGateway === "cashfree") {
+        await handleCashfreePayment();
       }
     } catch (error: any) {
       console.error("Payment failed:", error);
@@ -121,82 +107,74 @@ export function PaymentGatewayDialog({
     }
   };
 
-  const handleRazorpayPayment = async () => {
-    // Create Razorpay order
-    const response = await api.post("/course-payments/create-razorpay-order", {
-      course_id: courseId,
-    });
-
-    const { order_id, razorpay_key } = response.data;
-
-    // Load Razorpay script
-    const script = document.createElement("script");
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      const options = {
-        key: razorpay_key,
-        amount: price * 100, // paise
-        currency: "INR",
-        name: "EduEcosystem",
-        description: courseTitle,
-        order_id: order_id,
-        handler: async function (response: any) {
-          try {
-            // Verify payment
-            await api.post("/course-payments/verify-razorpay-payment", {
-              razorpay_order_id: response.razorpay_order_id,
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_signature: response.razorpay_signature,
-            });
-
-            onSuccess();
-            onClose();
-          } catch (error) {
-            alert("Payment verification failed");
-            setLoading(false);
-          }
-        },
-        prefill: {
-          name: "",
-          email: "",
-        },
-        theme: {
-          color: "#0891b2",
-        },
-        modal: {
-          ondismiss: function () {
-            setLoading(false);
-          },
-        },
+  const handleCashfreePayment = async () => {
+    try {
+      setLoading(true);
+      // 1. Get Session ID from backend
+      const requestPayload: any = {
+        course_id: courseId,
+        payment_provider: 'cashfree'
       };
 
-      const rzp = new (window as any).Razorpay(options);
-      rzp.open();
-    };
+      if (appliedCoupon?.coupon?.code) {
+        requestPayload.coupon_code = appliedCoupon.coupon.code;
+      }
+
+      const response = await api.post("/course-payments/create-cashfree-order", requestPayload);
+      const { payment_session_id } = response.data;
+
+      if (!payment_session_id) {
+        throw new Error("Invalid session ID returned from the server.");
+      }
+
+      // 2. Initialize Cashfree via script if not present
+      if (!window.Cashfree) {
+        await loadCashfreeScript();
+      }
+
+      // 3. Trigger checkout natively
+      const cashfree = window.Cashfree({
+        mode: process.env.NEXT_PUBLIC_ENVIRONMENT === "production" ? "production" : "sandbox",
+      });
+
+      let checkoutOptions = {
+        paymentSessionId: payment_session_id,
+        redirectTarget: "_self" // For modal experience, _modal is available in cashfree.js but _self relies on the native overlay Cashfree handles
+      };
+
+      cashfree.checkout(checkoutOptions).then((result: any) => {
+        if (result.error) {
+          // This is triggered if checkout fails
+          alert("Payment failed: " + result.error.message);
+          setLoading(false);
+        }
+        if (result.redirect) {
+          console.log("Redirecting for payment");
+        }
+        if (result.paymentDetails) {
+          // Verify server-side if it passed successfully
+          // Polling or returning to a success screen is standard here
+          onSuccess();
+          onClose();
+        }
+      });
+
+    } catch (err: any) {
+      console.error(err);
+      alert(err.response?.data?.detail || err.message || "Checkout initialization failed");
+      setLoading(false);
+    }
   };
 
-  const handleInstamojoPayment = async () => {
-    const response = await api.post(
-      "/course-payments/create-instamojo-payment",
-      {
-        course_id: courseId,
-      },
-    );
-
-    // Redirect to Instamojo
-    window.location.href = response.data.checkout_url;
-  };
-
-  const handleStripePayment = async () => {
-    const response = await api.post("/course-payments/create-stripe-checkout", {
-      course_id: courseId,
+  const loadCashfreeScript = () => {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = "https://sdk.cashfree.com/js/v3/cashfree.js";
+      script.async = true;
+      script.onload = resolve;
+      script.onerror = reject;
+      document.body.appendChild(script);
     });
-
-    // Redirect to Stripe
-    window.location.href = response.data.checkout_url;
   };
 
   return (
@@ -233,11 +211,10 @@ export function PaymentGatewayDialog({
             <button
               key={gateway.id}
               onClick={() => setSelectedGateway(gateway.id)}
-              className={`w-full border-2 rounded-lg p-4 transition ${
-                selectedGateway === gateway.id
-                  ? "border-cyan-500 bg-cyan-500/10"
-                  : `border-gray-700 ${gateway.color}`
-              }`}
+              className={`w-full border-2 rounded-lg p-4 transition ${selectedGateway === gateway.id
+                ? "border-cyan-500 bg-cyan-500/10"
+                : `border-gray-700 ${gateway.color}`
+                }`}
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">

@@ -5,13 +5,14 @@ import { ArrowLeft, Video, Play, BookHeart, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea"; // Assuming generic Textarea exists
-import { MEET_CONFIG } from "@/config/meet-config";
+import { useMeetConfig } from "@/hooks/useMeetConfig";
 
 export default function NightClass({ onComplete, onBack }: { onComplete: () => void, onBack: () => void }) {
     const [currentTime, setCurrentTime] = useState(new Date());
     const [isLive, setIsLive] = useState(false);
     const [auditText, setAuditText] = useState("");
     const [appreciationText, setAppreciationText] = useState("");
+    const MEET_CONFIG = useMeetConfig();
 
     useEffect(() => {
         const timer = setInterval(() => setCurrentTime(new Date()), 60000);
@@ -67,7 +68,7 @@ export default function NightClass({ onComplete, onBack }: { onComplete: () => v
                             </div>
                         ) : (
                             <div className="text-center py-8">
-                                <Button variant="secondary" className="w-full mb-4" onClick={() => window.open("https://drive.google.com/drive/folders/your-recordings-link", "_blank")}>
+                                <Button variant="secondary" className="w-full mb-4" onClick={() => window.open(MEET_CONFIG.DEFAULT_NIGHT_RECORDING, "_blank")}>
                                     <Play className="w-4 h-4 mr-2" /> Watch Recording
                                 </Button>
                                 <p className="text-sm text-indigo-300">Live session ended. Recording available.</p>

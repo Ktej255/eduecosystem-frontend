@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Play, Video, CheckCircle, ArrowLeft } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MEET_CONFIG } from "@/config/meet-config";
+import { useMeetConfig } from "@/hooks/useMeetConfig";
 import { useAuth } from "@/contexts/auth-context";
 
 export default function MorningMeditation({ onComplete, onBack }: { onComplete: () => void, onBack: () => void }) {
@@ -12,6 +12,7 @@ export default function MorningMeditation({ onComplete, onBack }: { onComplete: 
     const isMasterId = user?.email === "ktej255@gmail.com";
     const [currentTime, setCurrentTime] = useState(new Date());
     const [isLive, setIsLive] = useState(false);
+    const MEET_CONFIG = useMeetConfig();
 
     useEffect(() => {
         const checkTime = () => {
@@ -107,7 +108,7 @@ export default function MorningMeditation({ onComplete, onBack }: { onComplete: 
                                 </div>
                                 <img src="/api/placeholder/800/450" alt="Meditation Thumbnail" className="w-full h-full object-cover" />
                             </div>
-                            <Button variant="outline" className="w-full max-w-md mx-auto" onClick={() => window.open("https://youtube.com/your-video-link", "_blank")}>
+                            <Button variant="outline" className="w-full max-w-md mx-auto" onClick={() => window.open(MEET_CONFIG.DEFAULT_MORNING_RECORDING, "_blank")}>
                                 <Play className="w-4 h-4 mr-2" /> Watch Recording
                             </Button>
                             <p className="text-sm text-muted-foreground max-w-xs mx-auto">

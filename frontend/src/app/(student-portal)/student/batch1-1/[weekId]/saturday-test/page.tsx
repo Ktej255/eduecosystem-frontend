@@ -55,21 +55,62 @@ export default function SaturdayTestPage({ params }: PageProps) {
 
     // Load saved progress
     useEffect(() => {
-        const saved = localStorage.getItem(`batch11_saturday_results_v2_w${weekId}`);
-        if (saved) {
-            const data = JSON.parse(saved);
-            setPaper1Results(data.paper1Results);
-            setPaper2Results(data.paper2Results);
-        }
+        const loadProgress = async () => {
+            const token = localStorage.getItem("token");
+            let loaded = false;
+            if (token) {
+                try {
+                    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/batch11_saturday_results_v2_w${weekId}`, {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    if (res.ok) {
+                        const report = await res.json();
+                        if (report.data) {
+                            setPaper1Results(report.data.paper1Results);
+                            setPaper2Results(report.data.paper2Results);
+                            loaded = true;
+                        }
+                    }
+                } catch (err) { }
+            }
+            if (!loaded) {
+                const saved = localStorage.getItem(`batch11_saturday_results_v2_w${weekId}`);
+                if (saved) {
+                    const data = JSON.parse(saved);
+                    setPaper1Results(data.paper1Results);
+                    setPaper2Results(data.paper2Results);
+                }
+            }
+        };
+        loadProgress();
     }, [weekId]);
 
     // Save progress
-    const saveProgress = (p1Results: any, p2Results: any) => {
-        localStorage.setItem(`batch11_saturday_results_v2_w${weekId}`, JSON.stringify({
+    const saveProgress = async (p1Results: any, p2Results: any) => {
+        const payload = {
             paper1Results: p1Results,
             paper2Results: p2Results,
             lastUpdated: new Date().toISOString()
-        }));
+        };
+        localStorage.setItem(`batch11_saturday_results_v2_w${weekId}`, JSON.stringify(payload));
+
+        const token = localStorage.getItem("token");
+        if (token) {
+            try {
+                await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        report_type: 'saturday_test',
+                        report_key: `batch11_saturday_results_v2_w${weekId}`,
+                        data: payload
+                    })
+                });
+            } catch (err) { }
+        }
     };
 
     const handleTestComplete = (results: any, isPaper1: boolean) => {

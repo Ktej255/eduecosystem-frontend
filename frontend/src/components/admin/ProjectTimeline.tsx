@@ -14,6 +14,22 @@ interface Milestone {
 
 const milestones: Milestone[] = [
     {
+        id: 39,
+        date: "Feb 27, 2026",
+        title: "Priority UI Bug Fixes Deployed",
+        description: "Resolved critical React crashes: Deep Report localStorage failure, History Drill undefined mapping, and Polity Level 1 sync crash. Dual-logging enforced successfully.",
+        status: "completed",
+        tags: ["System", "Bugfix"]
+    },
+    {
+        id: 38,
+        date: "Feb 27, 2026",
+        title: "Automated Reporting Protocol & Deployment Fixes",
+        description: "Enforced dual-saving of all logs to the Desktop and Admin Portal. Resolved the global CSS build crash that was blocking latest Vercel deployments. Commenced debugging 3 UI runtime crashes (Deep Report, History 60 MCQ Drill, Polity Level 1).",
+        status: "completed",
+        tags: ["System", "Bugfix"]
+    },
+    {
         id: 37,
         date: "Feb 12, 2026",
         title: "Day 32 Content (Statutory Bodies & Elections)",

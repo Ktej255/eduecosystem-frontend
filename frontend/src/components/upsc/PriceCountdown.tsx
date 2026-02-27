@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Timer, AlertTriangle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getOfferStartTime, setOfferStartTime } from '@/services/progressStorage';
 
 interface PriceCountdownProps {
     bookId: string;
@@ -30,14 +31,24 @@ export default function PriceCountdown({
 
     useEffect(() => {
         // Initialize timer logic
-        const storedStart = localStorage.getItem(STORAGE_KEY);
-        const now = Date.now();
-        let startTime = parseInt(storedStart || '0');
+        let startTime = getOfferStartTime(STORAGE_KEY);
 
-        if (!storedStart || isNaN(startTime)) {
+        // Fallback to local storage if API hasn't synced or user logged out
+        if (!startTime) {
+            const storedStart = localStorage.getItem(STORAGE_KEY);
+            if (storedStart && !isNaN(parseInt(storedStart))) {
+                startTime = parseInt(storedStart);
+                setOfferStartTime(STORAGE_KEY, startTime); // Promote it to cloud
+            }
+        }
+
+        const now = Date.now();
+
+        if (!startTime) {
             // First visit for this book
             startTime = now;
             localStorage.setItem(STORAGE_KEY, startTime.toString());
+            setOfferStartTime(STORAGE_KEY, startTime);
         }
 
         const elapsed = now - startTime;

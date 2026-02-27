@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { CLASS_CONFIG, isWithinLiveWindow, formatTimeWindow } from '@/lib/journey/class-config';
+import { isWithinLiveWindow, formatTimeWindow } from '@/lib/journey/class-config';
+import { useClassConfig } from '@/hooks/useClassConfig';
 import { markStepComplete } from '@/lib/journey/completion-tracker';
 import { JourneyEngine } from '@/lib/journey/journey-engine';
 import { Video, ExternalLink, Play, CheckCircle, ChevronLeft, Clock } from 'lucide-react';
@@ -17,6 +18,7 @@ export default function MeditationSession({ onComplete, redirectAfterComplete = 
     const [isLive, setIsLive] = useState(false);
     const [isCompleted, setIsCompleted] = useState(false);
     const [currentTime, setCurrentTime] = useState(new Date());
+    const CLASS_CONFIG = useClassConfig();
 
     useEffect(() => {
         // Check live status on mount and every minute

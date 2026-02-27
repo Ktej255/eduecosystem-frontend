@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { CLASS_CONFIG, isWithinLiveWindow, formatTimeWindow } from '@/lib/journey/class-config';
+import { isWithinLiveWindow, formatTimeWindow } from '@/lib/journey/class-config';
+import { useClassConfig } from '@/hooks/useClassConfig';
 import { Video, ExternalLink, CheckCircle, ChevronLeft, Clock, Moon, BookHeart, ClipboardCheck } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -16,6 +17,7 @@ export default function NightClassSession({ onComplete }: NightClassSessionProps
     const [isLive, setIsLive] = useState(false);
     const [step, setStep] = useState<NightStep>('class');
     const [currentTime, setCurrentTime] = useState(new Date());
+    const CLASS_CONFIG = useClassConfig();
 
     useEffect(() => {
         const checkLiveStatus = () => {

@@ -15,7 +15,7 @@ export interface ChapterReportEntry {
 
 const STORAGE_KEY_PREFIX = 'universal_chapter_reports_';
 
-export function saveChapterReport(
+export async function saveChapterReport(
     subject: ChapterReportEntry['subject'],
     chapterId: number,
     result: TestResult,
@@ -24,8 +24,28 @@ export function saveChapterReport(
     if (typeof window === 'undefined') return;
 
     const key = `${STORAGE_KEY_PREFIX}${subject}`;
-    const existingStr = localStorage.getItem(key);
-    const existing: ChapterReportEntry[] = existingStr ? JSON.parse(existingStr) : [];
+
+    // Pull existing first
+    let existing: ChapterReportEntry[] = [];
+    try {
+        const token = localStorage.getItem("token");
+        if (token) {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/?report_type=chapter_report&report_key=${key}`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.ok) {
+                const data = await res.json();
+                if (data.length > 0 && data[0].data?.reports) {
+                    existing = data[0].data.reports;
+                }
+            }
+        }
+    } catch (e) { }
+
+    if (existing.length === 0) {
+        const existingStr = localStorage.getItem(key);
+        existing = existingStr ? JSON.parse(existingStr) : [];
+    }
 
     const newEntry: ChapterReportEntry = {
         id: `${subject}-${chapterId}-${Date.now()}`,
@@ -47,23 +67,62 @@ export function saveChapterReport(
     const trimmed = existing.slice(0, 100);
 
     localStorage.setItem(key, JSON.stringify(trimmed));
+
+    // Sync to DB
+    try {
+        const token = localStorage.getItem("token");
+        if (token) {
+            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    report_type: 'chapter_report',
+                    report_key: key,
+                    data: { reports: trimmed }
+                })
+            });
+        }
+    } catch (err) {
+        console.warn("Failed to sync chapter report to DB");
+    }
 }
 
-export function getChapterReports(subject: ChapterReportEntry['subject']): ChapterReportEntry[] {
+export async function getChapterReports(subject: ChapterReportEntry['subject']): Promise<ChapterReportEntry[]> {
     if (typeof window === 'undefined') return [];
     const key = `${STORAGE_KEY_PREFIX}${subject}`;
+
+    try {
+        const token = localStorage.getItem("token");
+        if (token) {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/?report_type=chapter_report&report_key=${key}`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.ok) {
+                const data = await res.json();
+                if (data.length > 0 && data[0].data?.reports) {
+                    return data[0].data.reports;
+                }
+            }
+        }
+    } catch (e) {
+        console.warn("Falling back to local chapter reports");
+    }
+
     const existingStr = localStorage.getItem(key);
     return existingStr ? JSON.parse(existingStr) : [];
 }
 
-export function getAllChapterReports(): Record<string, ChapterReportEntry[]> {
+export async function getAllChapterReports(): Promise<Record<string, ChapterReportEntry[]>> {
     if (typeof window === 'undefined') return {};
     const subjects = ['polity', 'history', 'geography', 'economy', 'environment', 'scitech'] as const;
     const all: Record<string, ChapterReportEntry[]> = {};
 
-    subjects.forEach(sub => {
-        all[sub] = getChapterReports(sub);
-    });
+    for (const sub of subjects) {
+        all[sub] = await getChapterReports(sub);
+    }
 
     return all;
 }
@@ -76,8 +135,8 @@ export interface SubjectStats {
     weakAreas: number[]; // chapterIds with < 50% accuracy
 }
 
-export function getSubjectStats(subject: ChapterReportEntry['subject']): SubjectStats {
-    const reports = getChapterReports(subject);
+export async function getSubjectStats(subject: ChapterReportEntry['subject']): Promise<SubjectStats> {
+    const reports = await getChapterReports(subject);
     const stats: SubjectStats = {
         totalQuestions: 0,
         totalAttempts: reports.length,
@@ -119,12 +178,71 @@ export interface TrendDataPoint {
     chapterId: number;
 }
 
-export function getSubjectTrendData(subject: ChapterReportEntry['subject']): TrendDataPoint[] {
-    const reports = getChapterReports(subject);
+export async function getSubjectTrendData(subject: ChapterReportEntry['subject']): Promise<TrendDataPoint[]> {
+    const reports = await getChapterReports(subject);
     // Reverse to get chronological order (reports are saved with unshift)
     return [...reports].reverse().map(r => ({
         date: new Date(r.timestamp).toLocaleDateString([], { month: 'short', day: 'numeric' }),
         accuracy: r.accuracy,
         chapterId: r.chapterId
     }));
+}
+
+// --- SRS / Retention Engine Persistence ---
+const SRS_STORAGE_KEY = 'polity_srs_data_v2'; // unique key for backend lookup
+
+export async function saveSRSDataToDB(srsData: Record<string, any>) {
+    // Always backup to local storage
+    if (typeof window !== 'undefined') {
+        localStorage.setItem(SRS_STORAGE_KEY, JSON.stringify(srsData));
+    }
+
+    try {
+        const token = localStorage.getItem("token");
+        if (token) {
+            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    report_type: 'srs_retention_data',
+                    report_key: SRS_STORAGE_KEY,
+                    data: srsData
+                })
+            });
+        }
+    } catch (err) {
+        console.warn("Failed to sync SRS Data to DB:", err);
+    }
+}
+
+export async function getSRSDataFromDB(): Promise<Record<string, any>> {
+    try {
+        const token = localStorage.getItem("token");
+        if (token) {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/?report_type=srs_retention_data&report_key=${SRS_STORAGE_KEY}`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.ok) {
+                const results = await res.json();
+                if (results.length > 0 && results[0].data) {
+                    // Cache the successful fetch locally to mirror
+                    localStorage.setItem(SRS_STORAGE_KEY, JSON.stringify(results[0].data));
+                    return results[0].data;
+                }
+            }
+        }
+    } catch (err) {
+        console.warn("Failed to fetch SRS Data from DB, falling back to local:", err);
+    }
+
+    // Fallback
+    if (typeof window !== 'undefined') {
+        const stored = localStorage.getItem(SRS_STORAGE_KEY);
+        if (stored) return JSON.parse(stored);
+    }
+
+    return {};
 }

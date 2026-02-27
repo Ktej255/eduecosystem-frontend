@@ -17,24 +17,29 @@ export default function WeakTopicsAlert() {
     const [alerts, setAlerts] = useState<WeakTopic[]>([]);
 
     useEffect(() => {
-        const subjects = ['polity', 'history'] as const;
-        const allWeak: WeakTopic[] = [];
+        const fetchWeakTopics = async () => {
+            const subjects = ['polity', 'history'] as const;
+            const allWeak: WeakTopic[] = [];
 
-        subjects.forEach(sub => {
-            const stats = getSubjectStats(sub);
-            stats.weakAreas.forEach(chapterId => {
-                allWeak.push({
-                    subject: sub.charAt(0).toUpperCase() + sub.slice(1),
-                    chapterId,
-                    accuracy: stats.masteryByChapter[chapterId] || 0
-                });
-            });
-        });
+            for (const sub of subjects) {
+                try {
+                    const stats = await getSubjectStats(sub);
+                    stats.weakAreas.forEach(chapterId => {
+                        allWeak.push({
+                            subject: sub.charAt(0).toUpperCase() + sub.slice(1),
+                            chapterId,
+                            accuracy: stats.masteryByChapter[chapterId] || 0
+                        });
+                    });
+                } catch (e) {
+                    console.error("Failed to fetch weak topics for", sub, e);
+                }
+            }
 
-        // Sort by lowest accuracy first
-        setTimeout(() => {
             setAlerts(allWeak.sort((a, b) => a.accuracy - b.accuracy));
-        }, 0);
+        };
+
+        fetchWeakTopics();
     }, []);
 
     if (alerts.length === 0) return null;

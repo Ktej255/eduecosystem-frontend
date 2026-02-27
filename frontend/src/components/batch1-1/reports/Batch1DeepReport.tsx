@@ -19,7 +19,8 @@ import {
     Flashlight,
     GraduationCap,
     FileBarChart,
-    Target
+    Target,
+    Award
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -36,6 +37,7 @@ import { ChapterTestResult } from "@/components/batch1-1/polity/revision/Chapter
 import MasteryTracker from "./MasteryTracker";
 import GoalSetting from "./GoalSetting";
 import WeakTopicsAlert from "./WeakTopicsAlert";
+import CertificateGenerator from "./CertificateGenerator";
 
 export default function Batch1DeepReport({ embedded = false }: { embedded?: boolean }) {
     return (
@@ -122,6 +124,10 @@ function Batch1DeepReportContent({ embedded = false }: { embedded?: boolean }) {
                             <GraduationCap className="w-4 h-4" />
                             <span>Chapters</span>
                         </TabsTrigger>
+                        <TabsTrigger value="certificates" className="data-[state=active]:bg-amber-100 data-[state=active]:text-amber-700 py-3 rounded-xl flex items-center gap-2">
+                            <Award className="w-4 h-4" />
+                            <span>Awards</span>
+                        </TabsTrigger>
                     </TabsList>
                 </div>
 
@@ -157,6 +163,15 @@ function Batch1DeepReportContent({ embedded = false }: { embedded?: boolean }) {
                     <TabsContent value="chapters" className="m-0">
                         <ChapterMCQReport />
                     </TabsContent>
+
+                    <TabsContent value="certificates" className="m-0">
+                        <CertificateGenerator
+                            studentName="Current Student"
+                            courseName="UPSC Batch 1.1 First Phase"
+                            completionDate={new Date().toLocaleDateString('en-GB')}
+                            milestoneId="FOUNDATION_PHASE_1"
+                        />
+                    </TabsContent>
                 </div>
             </Tabs>
         </div>
@@ -167,9 +182,11 @@ function CSATReport() {
     const [logs, setLogs] = useState<ActivityLog[]>([]);
 
     useEffect(() => {
-        setTimeout(() => {
-            setLogs(ActivityLogger.getLogs());
-        }, 0);
+        const fetchLogs = async () => {
+            const data = await ActivityLogger.getLogs();
+            setLogs(data);
+        };
+        fetchLogs();
     }, []);
 
     const csatLogs = logs.filter(l => l.type === 'MCQ_CSAT');
@@ -212,9 +229,11 @@ function EveningReport() {
     const [logs, setLogs] = useState<ActivityLog[]>([]);
 
     useEffect(() => {
-        setTimeout(() => {
-            setLogs(ActivityLogger.getLogs());
-        }, 0);
+        const fetchLogs = async () => {
+            const data = await ActivityLogger.getLogs();
+            setLogs(data);
+        };
+        fetchLogs();
     }, []);
 
     const eveningLogs = logs.filter(l => l.type === 'MCQ_EVENING');
@@ -271,11 +290,17 @@ function ActivityReport() {
     const [logs, setLogs] = useState<ActivityLog[]>([]);
 
     useEffect(() => {
-        // Wrap in setTimeout to avoid synchronous state update warning
-        setTimeout(() => {
-            setStats(ActivityLogger.getStats());
-            setLogs(ActivityLogger.getLogs().reverse().slice(0, 50)); // Last 50 items
-        }, 0);
+        const fetchActivity = async () => {
+            try {
+                const statsData = await ActivityLogger.getStats();
+                setStats(statsData);
+                const logsData = await ActivityLogger.getLogs();
+                setLogs(logsData.reverse().slice(0, 50)); // Last 50 items
+            } catch (err) {
+                console.error("Failed to load activity", err);
+            }
+        };
+        fetchActivity();
     }, []);
 
     if (!stats) return <div className="p-8 text-center text-muted-foreground">Loading Activity Data...</div>;
@@ -476,27 +501,34 @@ function SaturdayTestsReport() {
             // Check for v2 format first
             const savedV2 = localStorage.getItem(`batch11_saturday_results_v2_w${week.id}`);
             if (savedV2) {
-                const data = JSON.parse(savedV2);
-                return {
-                    weekId: week.id,
-                    isV2: true,
-                    ...data
-                };
+                try {
+                    const data = JSON.parse(savedV2);
+                    return {
+                        weekId: week.id,
+                        isV2: true,
+                        ...data
+                    };
+                } catch (e) {
+                    console.error('Failed to parse savedV2 for week ' + week.id, e);
+                }
             }
 
             // Fallback to legacy format
             const savedLegacy = localStorage.getItem(`batch11_saturday_${week.id}`);
             if (savedLegacy) {
-                const data = JSON.parse(savedLegacy);
-                return {
-                    weekId: week.id,
-                    isV2: false,
-                    paper1Results: { score: data.paper1Score },
-                    paper2Results: { score: data.paper2Score },
-                    lastUpdated: data.lastUpdated
-                };
+                try {
+                    const data = JSON.parse(savedLegacy);
+                    return {
+                        weekId: week.id,
+                        isV2: false,
+                        paper1Results: { score: data.paper1Score },
+                        paper2Results: { score: data.paper2Score },
+                        lastUpdated: data.lastUpdated
+                    };
+                } catch (e) {
+                    console.error('Failed to parse savedLegacy for week ' + week.id, e);
+                }
             }
-            return null;
             return null;
         }).filter((r): r is SaturdayTestResult => r !== null);
 
@@ -508,17 +540,21 @@ function SaturdayTestsReport() {
         ].map(test => {
             const saved = localStorage.getItem(test.key);
             if (saved) {
-                const data = JSON.parse(saved);
-                // Ensure data structure matches what SaturdayTestReport expects
-                // The saved format from PolityTestPage is directly the 'results' object
-                return {
-                    weekId: `Polity-${test.id}`,
-                    isV2: true, // It uses the new format
-                    paper1Results: data, // Treat as "Paper 1" for display purposes in the card
-                    paper2Results: null,
-                    lastUpdated: data.endTime,
-                    specialTitle: test.name
-                };
+                try {
+                    const data = JSON.parse(saved);
+                    // Ensure data structure matches what SaturdayTestReport expects
+                    // The saved format from PolityTestPage is directly the 'results' object
+                    return {
+                        weekId: `Polity-${test.id}`,
+                        isV2: true, // It uses the new format
+                        paper1Results: data, // Treat as "Paper 1" for display purposes in the card
+                        paper2Results: null,
+                        lastUpdated: data.endTime,
+                        specialTitle: test.name
+                    };
+                } catch (e) {
+                    console.error(`Failed to parse saved history for ${test.key}`, e);
+                }
             }
             return null;
         }).filter((r): r is SaturdayTestResult => r !== null);
