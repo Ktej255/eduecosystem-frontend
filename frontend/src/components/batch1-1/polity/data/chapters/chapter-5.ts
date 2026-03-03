@@ -1,607 +1,646 @@
-import { LevelData, ChapterLevelData } from "../level-types";
+import { ChapterLevelData } from '../level-types';
 
-// Level 1: The Text-Book Stickler (Strictly Chapter 5)
 const LEVEL_1_QUESTIONS = [
     {
-        question: "The American Constitution was the first to begin with a Preamble. The term 'Preamble' refers to the:",
-        options: ["Conclusion or summary of the Constitution.", "Introduction or preface to the Constitution.", "The main body of the Constitution.", "The amendments to the Constitution."],
-        correctAnswerIndex: 1,
-        explanation: "The term 'Preamble' refers to the introduction or preface to the Constitution."
+        "id": "ch5-l1-q1",
+        "question": "Which of the following countries was the first to begin its Constitution with a Preamble?",
+        "options": ["Great Britain","India","United States of America","France"],
+        "correctAnswerIndex": 2,
+        "explanation": "The American Constitution was the first to begin with a Preamble. Many countries, including India, followed this practice."
     },
     {
-        question: "Who called the Preamble the \"Identity Card of the Constitution\"?",
-        options: ["Dr. B.R. Ambedkar", "Jawaharlal Nehru", "N.A. Palkhivala", "K.M. Munshi"],
-        correctAnswerIndex: 2,
-        explanation: "N.A. Palkhivala, an eminent jurist and constitutional expert, called the Preamble the 'Identity Card of the Constitution'."
+        "id": "ch5-l1-q2",
+        "question": "Who called the Preamble the",
+        "options": ["Dr. B.R. Ambedkar","N.A. Palkhivala","K.M. Munshi","Jawaharlal Nehru"],
+        "correctAnswerIndex": 1,
+        "explanation": "N.A. Palkhivala, an eminent jurist and constitutional expert, called the Preamble the"
     },
     {
-        question: "The Preamble to the Indian Constitution is based on the 'Objectives Resolution', drafted and moved by:",
-        options: ["Dr. Rajendra Prasad", "Pandit Jawaharlal Nehru", "Dr. B.R. Ambedkar", "Sardar Vallabhbhai Patel"],
-        correctAnswerIndex: 1,
-        explanation: "It was drafted and moved by Pandit Jawaharlal Nehru on December 13, 1946."
+        "id": "ch5-l1-q3",
+        "question": "The Preamble to the Indian Constitution is based on the",
+        "options": ["Dr. Rajendra Prasad","Jawaharlal Nehru","Sardar Vallabhbhai Patel","Dr. B.R. Ambedkar"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Preamble to the Indian Constitution is based on the"
     },
     {
-        question: "The Preamble has been amended only once so far, in 1976, by the 42nd Constitutional Amendment Act, which added three new words:",
-        options: ["Sovereign, Democratic, Republic", "Socialist, Secular, Integrity", "Liberty, Equality, Fraternity", "Justice, Social, Economic"],
-        correctAnswerIndex: 1,
-        explanation: "The 42nd Amendment added the words 'Socialist', 'Secular', and 'Integrity'."
+        "id": "ch5-l1-q4",
+        "question": "How many times has the Preamble to the Constitution of India been amended so far?",
+        "options": ["Never","Only once","Twice","Thrice"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Preamble has been amended only once so far, in 1976, by the 42nd Constitutional Amendment Act."
     },
     {
-        question: "The Preamble reveals four ingredients or components. Which of the following is NOT one of them?",
-        options: ["Source of authority of the Constitution.", "Nature of Indian State.", "Objectives of the Constitution.", "Definition of Fundamental Rights."],
-        correctAnswerIndex: 3,
-        explanation: "The Preamble does not define Fundamental Rights; that is done in Part III."
+        "id": "ch5-l1-q5",
+        "question": "Which three new words were added to the Preamble by the 42nd Constitutional Amendment Act (1976)?",
+        "options": ["Sovereign, Democratic, Republic","Socialist, Secular, Integrity","Liberty, Equality, Fraternity","Justice, Liberty, Equality"],
+        "correctAnswerIndex": 1,
+        "explanation": "The 42nd Constitutional Amendment Act (1976) added three new words—Socialist, Secular and Integrity—to the Preamble."
     },
     {
-        question: "According to the Preamble, the Constitution derives its authority from:",
-        options: ["The British Parliament", "The Constituent Assembly", "The People of India", "The Supreme Court of India"],
-        correctAnswerIndex: 2,
-        explanation: "The Preamble states 'We, the People of India... do hereby Adopt, Enact and Give to ourselves this Constitution', deriving authority from the people."
+        "id": "ch5-l1-q6",
+        "question": "According to the Preamble, what is the source of authority of the Constitution?",
+        "options": ["The Parliament of India","The President of India","The Constituent Assembly","The People of India"],
+        "correctAnswerIndex": 3,
+        "explanation": "The Preamble states that the Constitution derives its authority from the people of India ("
     },
     {
-        question: "The word 'Sovereign' implies that India is:",
-        options: ["A dependency of the British Empire.", "A dominion of the British Empire.", "Neither a dependency nor a dominion of any other nation, but an independent state.", "A state under the protection of the UN."],
-        correctAnswerIndex: 2,
-        explanation: "Sovereign means India is an independent state, not subject to any external authority."
+        "id": "ch5-l1-q7",
+        "question": "What is the date of adoption of the Constitution as stipulated in the Preamble?",
+        "options": ["January 26, 1950","August 15, 1947","November 26, 1949","December 9, 1946"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Preamble stipulates November 26, 1949, as the date of adoption of the Indian Constitution."
     },
     {
-        question: "India's membership of the Commonwealth of Nations and the United Nations:",
-        options: ["Limits India's sovereignty.", "Makes India a dominion of the UK.", "In no way constitutes a limitation on her sovereignty.", "Makes the British Crown the head of the Indian State."],
-        correctAnswerIndex: 2,
-        explanation: "These memberships do not affect India's sovereignty."
+        "id": "ch5-l1-q8",
+        "question": "The word",
+        "options": ["A dominion of the British Commonwealth","A dependency of a foreign power","An independent state with no authority above it","A protectorate state"],
+        "correctAnswerIndex": 2,
+        "explanation": "The word"
     },
     {
-        question: "The Indian brand of Socialism is 'Democratic Socialism' and not 'Communistic Socialism'. Democratic Socialism aims to end poverty, ignorance, disease, and inequality of opportunity through:",
-        options: ["Violent revolution.", "Complete nationalization of all means of production.", "Mixed economy where both public and private sectors co-exist.", "Abolition of private property."],
-        correctAnswerIndex: 2,
-        explanation: "Democratic Socialism involves a 'mixed economy'."
+        "id": "ch5-l1-q9",
+        "question": "Although India became a sovereign republic in 1950, it continued its full membership of the Commonwealth of Nations. Who was declared the head of the Commonwealth?",
+        "options": ["The President of India","The Prime Minister of India","The British Crown","The Secretary-General of the UN"],
+        "correctAnswerIndex": 2,
+        "explanation": "In 1949, India declared the continuation of her full membership of the Commonwealth of Nations and accepted the British Crown as the head of the Commonwealth."
     },
     {
-        question: "The term 'Secular' was added by the 42nd Constitutional Amendment Act of 1976. However, the Supreme Court said in 1974 that although the words were not there, there can be no doubt that the Constitution-makers wanted to establish such a state. This is reflected in Articles:",
-        options: ["14 to 18", "19 to 22", "25 to 28", "29 to 30"],
-        correctAnswerIndex: 2,
-        explanation: "Articles 25 to 28 guarantee the fundamental right to freedom of religion."
+        "id": "ch5-l1-q10",
+        "question": "The Indian brand of socialism as reflected in the Preamble is primarily a:",
+        "options": ["Communistic Socialism","State Socialism","Democratic Socialism","Marxist Socialism"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Indian brand of socialism is a"
     },
     {
-        question: "The Indian Constitution embodies the ______ concept of secularism, i.e., all religions in our country (irrespective of their strength) have the same status and support from the state.",
-        options: ["Negative", "Positive", "Neutral", "Western"],
-        correctAnswerIndex: 1,
-        explanation: "India follows the 'Positive' concept of secularism."
+        "id": "ch5-l1-q11",
+        "question": "Democratic socialism as adopted by India believes in a:",
+        "options": ["Mixed economy","Complete nationalization of all means of production","Abolition of private property","Laissez-faire (free market) economy"],
+        "correctAnswerIndex": 0,
+        "explanation": "Democratic socialism holds faith in a"
     },
     {
-        question: "The term 'Democratic' is used in the Preamble in the broader sense embracing not only political democracy but also:",
-        options: ["Social and economic democracy.", "Cultural and religious democracy.", "Military and strategic democracy.", "Educational and technological democracy."],
-        correctAnswerIndex: 0,
-        explanation: "It embraces political, social, and economic democracy."
+        "id": "ch5-l1-q12",
+        "question": "The term",
+        "options": ["The State is completely anti-religion.","The State has its own official religion.","All religions have the same status and support from the state.","The State strictly separates religion from all public affairs without any intervention."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Indian Constitution embodies the positive concept of secularism, i.e., all religions in our country (irrespective of their strength) have the same status and support from the state."
     },
     {
-        question: "\"Democracy is really a form of government which will be known as parliamentary democracy.\" Who said this in the Constituent Assembly?",
-        options: ["Jawaharlal Nehru", "Dr. B.R. Ambedkar", "K.M. Munshi", "Sir Alladi Krishnaswami Ayyar"],
-        correctAnswerIndex: 1,
-        explanation: "Dr. B.R. Ambedkar."
+        "id": "ch5-l1-q13",
+        "question": "The Preamble uses the term",
+        "options": ["Direct Democracy","Presidential Democracy","Representative Parliamentary Democracy","Participatory Democracy"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Indian Constitution provides for a representative parliamentary democracy under which the executive is responsible to the legislature for all its policies and actions."
     },
     {
-        question: "Direct Democracy has four devices. Which of the following is NOT one of them?",
-        options: ["Referendum", "Initiative", "Recall", "Veto"],
-        correctAnswerIndex: 3,
-        explanation: "Veto is not a direct democracy device; Plebiscite is the fourth one."
+        "id": "ch5-l1-q14",
+        "question": "Which of the following is NOT a device of Direct Democracy?",
+        "options": ["Referendum","Initiative","Recall","Electoral College"],
+        "correctAnswerIndex": 3,
+        "explanation": "Direct democracy has four devices—Referendum, Initiative, Recall and Plebiscite. Electoral College is used in representative indirect democracy (like electing the US or Indian President)."
     },
     {
-        question: "The term 'Republic' in our Preamble indicates that India has:",
-        options: ["A hereditary head called the King or Queen.", "An elected head called the President.", "A Prime Minister as the head of the state.", "A Governor-General appointed by the British."],
-        correctAnswerIndex: 1,
-        explanation: "A Republic has an elected head of state (the President in India's case)."
+        "id": "ch5-l1-q15",
+        "question": "The term",
+        "options": ["An elected head called the President.","A hereditary monarch as the head of state.","A Prime Minister who holds absolute power.","A government controlled completely by religious leaders."],
+        "correctAnswerIndex": 0,
+        "explanation": "A republic means that the head of the state is always elected directly or indirectly for a fixed period. In India, the President is elected indirectly for 5 years."
     },
     {
-        question: "A Republic also means two more things: vesting of political sovereignty in the people and:",
-        options: ["The absence of any privileged class.", "The presence of a strong military.", "The suppression of minority rights.", "The rule of a single party."],
-        correctAnswerIndex: 0,
-        explanation: "Republic implies absence of any privileged class (like aristocracy)."
+        "id": "ch5-l1-q16",
+        "question": "The ideal of",
+        "options": ["Social Justice","Economic Justice","Political Justice","Religious Justice"],
+        "correctAnswerIndex": 3,
+        "explanation": "The Preamble embraces three distinct forms of justice: social, economic and political, secured through various provisions of Fundamental Rights and Directive Principles."
     },
     {
-        question: "The ideal of Justice—social, economic, and political—has been taken from the:",
-        options: ["French Revolution", "Russian Revolution (1917)", "American Revolution", "Irish Constitution"],
-        correctAnswerIndex: 1,
-        explanation: "Taken from the Russian Revolution (1917)."
+        "id": "ch5-l1-q17",
+        "question": "The combination of Social Justice and Economic Justice in the Indian Constitution denotes what is popularly known as:",
+        "options": ["Distributive Justice","Retributive Justice","Corrective Justice","Procedural Justice"],
+        "correctAnswerIndex": 0,
+        "explanation": "A combination of social justice and economic justice denotes what is known as"
     },
     {
-        question: "Social Justice denotes the equal treatment of all citizens without any social distinction based on caste, colour, race, religion, sex and so on. It involves the absence of:",
-        options: ["Privileges being extended to any particular section.", "Opportunities for the poor.", "Fundamental Rights.", "Judicial Review."],
-        correctAnswerIndex: 0,
-        explanation: "Social justice means absence of privileges to any section."
+        "id": "ch5-l1-q18",
+        "question": "From which historical event has the ideal of",
+        "options": ["The French Revolution (1789)","The Russian Revolution (1917)","The American War of Independence","The Industrial Revolution"],
+        "correctAnswerIndex": 1,
+        "explanation": "The ideal of justice—social, economic and political—has been taken from the Russian Revolution (1917)."
     },
     {
-        question: "'Economic Justice' eliminates inequalities in wealth, income, and property. A combination of social justice and economic justice denotes what is known as:",
-        options: ["Distributive Justice", "Political Justice", "Legal Justice", "Natural Justice"],
-        correctAnswerIndex: 0,
-        explanation: "Social + Economic Justice = Distributive Justice."
+        "id": "ch5-l1-q19",
+        "question": "The ideals of",
+        "options": ["The Russian Revolution","The French Revolution","The American Declaration of Independence","The Irish Constitution"],
+        "correctAnswerIndex": 1,
+        "explanation": "The ideals of liberty, equality and fraternity in our Preamble have been taken from the French Revolution (1789-1799)."
     },
     {
-        question: "The ideals of Liberty, Equality, and Fraternity in our Preamble have been taken from the:",
-        options: ["Russian Revolution", "French Revolution (1789–1799)", "American Civil War", "Glorious Revolution"],
-        correctAnswerIndex: 1,
-        explanation: "Taken from the French Revolution."
+        "id": "ch5-l1-q20",
+        "question": "The Preamble guarantees the",
+        "options": ["Movement, Residence, and Profession","Thought, Expression, Belief, Faith and Worship","Life and Personal Liberty","Speech and Assembly"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Preamble secures to all citizens of India liberty of thought, expression, belief, faith and worship, through their Fundamental Rights."
     },
     {
-        question: "Liberty meant in the Preamble is not absolute but:",
-        options: ["Restricted", "Qualified", "Unlimited", "Temporary"],
-        correctAnswerIndex: 1,
-        explanation: "Liberty is qualified, meaning it is subject to reasonable restrictions."
+        "id": "ch5-l1-q21",
+        "question": "According to the Preamble,",
+        "options": ["Income and Wealth","Status and Opportunity","Results and Outcomes","Property and Taxation"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Preamble secures to all citizens of India equality of status and opportunity. This provision embraces three dimensions of equality—civic, political and economic."
     },
     {
-        question: "Equality means the absence of special privileges to any section of the society, and the provision of adequate opportunities for all individuals without any discrimination. Which Article abolishes 'untouchability'?",
-        options: ["Article 14", "Article 16", "Article 17", "Article 18"],
-        correctAnswerIndex: 2,
-        explanation: "Article 17 abolishes Untouchability."
+        "id": "ch5-l1-q22",
+        "question": "The term",
+        "options": ["Strict Legal Equality","Brotherhood","Religious Harmony","Absolute Liberty"],
+        "correctAnswerIndex": 1,
+        "explanation": "Fraternity means a sense of brotherhood. The Constitution promotes this feeling of fraternity by the system of single citizenship."
     },
     {
-        question: "Which Article ensures 'Political Equality' by providing that no person is to be declared ineligible for inclusion in electoral rolls on grounds of religion, race, caste or sex?",
-        options: ["Article 325", "Article 326", "Article 15", "Article 16"],
-        correctAnswerIndex: 0,
-        explanation: "Article 325."
+        "id": "ch5-l1-q23",
+        "question": "According to the Preamble, Fraternity has to assure two things. One is the",
+        "options": ["The dignity of the individual","The sovereignty of the Parliament","The economic equality of citizens","The supremacy of the Constitution"],
+        "correctAnswerIndex": 0,
+        "explanation": "The Preamble declares that fraternity has to assure two things—the dignity of the individual and the unity and integrity of the nation."
     },
     {
-        question: "'Fraternity' means a sense of brotherhood. The Constitution promotes this feeling by the system of:",
-        options: ["Dual Citizenship", "Single Citizenship", "Reservation", "Federalism"],
-        correctAnswerIndex: 1,
-        explanation: "Single Citizenship promotes fraternity."
+        "id": "ch5-l1-q24",
+        "question": "Who among the following Constitutional Assembly members commented that the Preamble expresses",
+        "options": ["K.M. Munshi","Sir Alladi Krishnaswami Iyer","Dr. B.R. Ambedkar","Pandit Thakur Das Bhargava"],
+        "correctAnswerIndex": 1,
+        "explanation": "Sir Alladi Krishnaswami Iyer said,"
     },
     {
-        question: "The Preamble declares that fraternity has to assure two things: the dignity of the individual and the:",
-        options: ["Unity and Integrity of the nation.", "Progress and Prosperity of the nation.", "Security and Defense of the nation.", "Liberty and Equality of the nation."],
-        correctAnswerIndex: 0,
-        explanation: "Fraternity assures: Dignity of the individual and the Unity and Integrity of the nation."
+        "id": "ch5-l1-q25",
+        "question": "Who described the Preamble as the",
+        "options": ["Pandit Thakur Das Bhargava","Ernest Barker","K.M. Munshi","M. Hidayatullah"],
+        "correctAnswerIndex": 2,
+        "explanation": "According to K.M. Munshi, a member of the Drafting Committee of the Constituent Assembly, the Preamble is the"
     },
     {
-        question: "The word 'Integrity' was added to the Preamble by the:",
-        options: ["24th Amendment Act", "42nd Amendment Act", "44th Amendment Act", "86th Amendment Act"],
-        correctAnswerIndex: 1,
-        explanation: "Added by the 42nd Amendment Act (1976)."
+        "id": "ch5-l1-q26",
+        "question": "Which English political scientist called the Preamble a",
+        "options": ["Ivor Jennings","Granville Austin","Sir Ernest Barker","K.C. Wheare"],
+        "correctAnswerIndex": 2,
+        "explanation": "Sir Ernest Barker, a distinguished English political scientist, paid a glowing tribute to the political wisdom of the authors of the Preamble and described it as the"
     },
     {
-        question: "Who described the Preamble as the \"Horoscope of our Sovereign Democratic Republic\"?",
-        options: ["Pandit Thakur Das Bhargava", "K.M. Munshi", "Sir Ernest Barker", "M. Hidayatullah"],
-        correctAnswerIndex: 1,
-        explanation: "K.M. Munshi described it as the 'Horoscope'."
+        "id": "ch5-l1-q27",
+        "question": "In which of the following cases did the Supreme Court specifically opine that",
+        "options": ["Berubari Union case (1960)","Golaknath case (1967)","Kesavananda Bharati case (1973)","LIC of India case (1995)"],
+        "correctAnswerIndex": 0,
+        "explanation": "In the Berubari Union case (1960), the Supreme Court specifically opined that Preamble is not a part of the Constitution."
     },
     {
-        question: "Who called the Preamble the \"Key-note\" to the Constitution?",
-        options: ["Sir Ernest Barker", "Sir Alladi Krishnaswami Ayyar", "Dr. B.R. Ambedkar", "Jawaharlal Nehru"],
-        correctAnswerIndex: 0,
-        explanation: "Sir Ernest Barker."
+        "id": "ch5-l1-q28",
+        "question": "In which landmark case did the Supreme Court reverse its earlier verdict and hold that",
+        "options": ["Minerva Mills case","Kesavananda Bharati case (1973)","S.R. Bommai case","Maneka Gandhi case"],
+        "correctAnswerIndex": 1,
+        "explanation": "In the Kesavananda Bharati case (1973), the Supreme Court rejected the earlier opinion and held that Preamble is a part of the Constitution."
     },
     {
-        question: "Sir Ernest Barker was so moved by the text of the Preamble that he quoted it at the opening of his popular book:",
-        options: ["Principles of Social and Political Theory", "The Spirit of Laws", "The Law of the Constitution", "Modern Democracies"],
-        correctAnswerIndex: 0,
-        explanation: "Principles of Social and Political Theory (1951)."
+        "id": "ch5-l1-q29",
+        "question": "With regard to the legal status of the Preamble, which of the following is correct?",
+        "options": ["It is a source of power to legislature and a prohibition upon the powers of legislature.","It is legally enforceable in the courts of law.","It is non-justiciable, that is, its provisions are not enforceable in courts of law.","It overrides the express provisions of Fundamental Rights."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Preamble is neither a source of power to legislature nor a prohibition upon the powers of legislature. It is non-justiciable (not enforceable in courts of law)."
     },
     {
-        question: "In the Berubari Union case (1960), the Supreme Court opined that:",
-        options: ["The Preamble is an integral part of the Constitution.", "The Preamble is NOT a part of the Constitution.", "The Preamble can override the specific provisions of the Constitution.", "The Preamble is the source of power to the legislature."],
-        correctAnswerIndex: 1,
-        explanation: "SC opined that Preamble is NOT a part of the Constitution."
-    },
-    {
-        question: "In the Kesavananda Bharati case (1973), the Supreme Court rejected the earlier opinion and held that:",
-        options: ["The Preamble is an integral part of the Constitution.", "The Preamble is not a part of the Constitution.", "The Preamble cannot be amended.", "The Preamble is superior to Fundamental Rights."],
-        correctAnswerIndex: 0,
-        explanation: "SC held that Preamble IS an integral part of the Constitution."
-    },
-    {
-        question: "In the LIC of India case (1995), the Supreme Court again held that the Preamble is:",
-        options: ["An integral part of the Constitution.", "Not a part of the Constitution.", "Just an introduction.", "A separate entity."],
-        correctAnswerIndex: 0,
-        explanation: "Reiterated that it is an integral part."
-    },
-    {
-        question: "Two things should be noted about the Preamble: 1. It is neither a source of power to legislature nor a prohibition upon the powers of legislature. 2. It is:",
-        options: ["Justiciable (enforceable in courts).", "Non-justiciable (not enforceable in courts).", "Mandatory.", "Binding on the President."],
-        correctAnswerIndex: 1,
-        explanation: "It is non-justiciable."
-    },
-    {
-        question: "The Supreme Court held that the Preamble can be amended under Article 368, subject to the condition that:",
-        options: ["The amendment is passed by a special majority.", "The 'Basic Features' or 'Fundamental Features' of the Constitution as contained in the Preamble cannot be altered.", "The President gives his assent.", "It is ratified by half of the states."],
-        correctAnswerIndex: 1,
-        explanation: "It can be amended, but 'Basic Features' cannot be altered."
-    },
-    {
-        question: "The Preamble states the date of adoption of the Constitution as:",
-        options: ["26th January, 1950", "15th August, 1947", "26th November, 1949", "26th January, 1930"],
-        correctAnswerIndex: 2,
-        explanation: "26th November, 1949."
+        "id": "ch5-l1-q30",
+        "question": "Can the Preamble be amended under Article 368 of the Constitution?",
+        "options": ["No, because it is not a part of the Constitution.","Yes, it can be amended, subject to the condition that no amendment is done to the",".","Yes, it can be amended to entirely alter its fundamental nature.","No, it was frozen permanently by the Kesavananda Bharati case."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Supreme Court in Kesavananda Bharati case (1973) held that the Preamble can be amended, subject to the condition that no amendment is done to the"
     }
 ];
 
-// Level 2: The Conceptual Bridge
 const LEVEL_2_QUESTIONS = [
     {
-        question: "\"The Preamble is non-justiciable.\" This implies that:",
-        options: ["Its provisions cannot be enforced in courts of law.", "It cannot be amended by the Parliament.", "It is superior to Fundamental Rights.", "It is not a part of the Constitution."],
-        correctAnswerIndex: 0,
-        explanation: "Non-justiciable means it cannot be enforced by courts."
+        "id": "ch5-l2-q1",
+        "question": "Why did the Constituent Assembly enact the Preamble *after* the entire Constitution was already enacted?",
+        "options": ["Because the Supreme Court mandated it to be done chronologically last.","To ensure that the Preamble was in strict conformity with the Constitution as adopted.","Because Jawaharlal Nehru moved the Objectives Resolution at the very end of the sessions.","To allow the British Parliament a final review before its passage."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Preamble was enacted after the rest of the Constitution was already enacted to ensure that it was in conformity with the Constitution as adopted by the Assembly."
     },
     {
-        question: "Despite being non-justiciable, the Supreme Court has held that the Preamble plays a vital role in:",
-        options: ["Overriding the provisions of the Constitution in case of ambiguity.", "Interpreting the provisions of the Constitution where the language is ambiguous.", "Restricting the power of the Parliament to amend the Constitution.", "Empowering the President to declare an emergency."],
-        correctAnswerIndex: 1,
-        explanation: "It aids in interpreting ambiguous provisions."
+        "id": "ch5-l2-q2",
+        "question": "Consider the constitutional interpretation of the word",
+        "options": ["Yes, because UN resolutions are legally binding on the Indian Parliament.","Yes, because the UN Charter supersedes the Indian Constitution.","No, because the membership is extra-constitutional and does not restrict India","No, but India must seek UN approval before amending its fundamental rights."],
+        "correctAnswerIndex": 2,
+        "explanation": "Membership of UNO or the Commonwealth does not constitute a limitation on India"
     },
     {
-        question: "The phrase \"We, the People of India\" in the Preamble emphasizes the concept of:",
-        options: ["Parliamentary Sovereignty", "Popular Sovereignty", "Legal Sovereignty", "Executive Sovereignty"],
-        correctAnswerIndex: 1,
-        explanation: "It emphasizes Popular Sovereignty."
+        "id": "ch5-l2-q3",
+        "question": "The Supreme Court in 1997 observed that the Indian brand of socialism aims primarily to:",
+        "options": ["Eliminate the private sector entirely and nationalize banks.","End inequality of income, and achieve a completely egalitarian communist society.","End poverty, ignorance, disease, and inequality of opportunity.","Adopt the structural tenets of Marxism and Leninism strictly."],
+        "correctAnswerIndex": 2,
+        "explanation": "In 1997, the Supreme Court stated that"
     },
     {
-        question: "The \"Sovereignty\" mentioned in the Preamble is political sovereignty. Who holds the legal sovereignty in India?",
-        options: ["The People of India", "The Constitution of India", "The Supreme Court of India", "The Parliament of India"],
-        correctAnswerIndex: 1,
-        explanation: "The Constitution of India holds legal sovereignty."
+        "id": "ch5-l2-q4",
+        "question": "According to Dr. B.R. Ambedkar,",
+        "options": ["A system that strictly separates wealth creation from state control.","A way of life which recognizes liberty, equality, and fraternity as the principles of life.","A democracy where only socially disadvantaged classes have the franchise.","A system where all religions play an equal role in governance."],
+        "correctAnswerIndex": 1,
+        "explanation": "Dr. B.R. Ambedkar defined"
     },
     {
-        question: "\"Socialism\" in the Preamble is often described as a \"blend of Marxism and Gandhism, leaning heavily towards Gandhism.\" This means:",
-        options: ["It advocates for the complete abolition of private property.", "It aims for a classless society through violent struggle.", "It focuses on the welfare of the people and the removal of inequality through democratic means.", "It promotes state ownership of all industries."],
-        correctAnswerIndex: 2,
-        explanation: "It focuses on welfare and removal of inequality democratically."
+        "id": "ch5-l2-q5",
+        "question": "How does the Indian concept of",
+        "options": ["India has a bicameral legislature, while Britain does not.","In India, the head of state is elected (directly/indirectly) for a fixed tenure, while Britain has a hereditary monarch.","India requires the head of government to be from the upper house.","In India, sovereign power rests solely with the judiciary rather than the monarch."],
+        "correctAnswerIndex": 1,
+        "explanation": "The term"
     },
     {
-        question: "In the Berubari Union case (1960), the Supreme Court's opinion that the Preamble is \"not a part of the Constitution\" was based on the fact that:",
-        options: ["It was not debated in the Constituent Assembly.", "It was not voted upon in the Constituent Assembly.", "It is not a source of substantive power.", "It was adopted after the rest of the Constitution was enacted."],
-        correctAnswerIndex: 2,
-        explanation: "It was based on the view that it's not a source of substantive power."
+        "id": "ch5-l2-q6",
+        "question": "The Preamble talks about",
+        "options": ["Article 14 (Equality before law) and Article 15 (No discrimination)","Article 17 (Abolition of Untouchability) and Article 18 (Abolition of Titles)","Directive Principle Article 39 (equal pay for equal work)","None of the above; Fundamental Rights only ensure civic and political equality."],
+        "correctAnswerIndex": 2,
+        "explanation": "Fundamental Rights primarily ensure civic equality (Articles 14-18). Economic equality is promoted heavily by Directive Principles like Article 39 (securing equal right to an adequate means of livelihood and equal pay for equal work)."
     },
     {
-        question: "The Kesavananda Bharati case (1973) overruled the Berubari judgment. The Court held that the Preamble is an integral part of the Constitution because:",
-        options: ["It was adopted by the Constituent Assembly in the same manner as other parts.", "The motion \"The Preamble stands part of the Constitution\" was adopted.", "It reflects the basic structure of the Constitution.", "All of the above."],
-        correctAnswerIndex: 3,
-        explanation: "All arguments supported the view that it is an integral part."
+        "id": "ch5-l2-q7",
+        "question": "The concept of",
+        "options": ["It is absolute for the majority religion but restricted for minorities.","It is restricted solely by the religious texts of the majority.","It is not absolute but qualified, operating within limits and reasonable restrictions mentioned in the Fundamental Rights.","It only applies to speech and not to belief or faith."],
+        "correctAnswerIndex": 2,
+        "explanation": "Liberty as conceived by the Preamble or Fundamental Rights is not absolute but qualified. It has to be enjoyed within the reasonable restrictions specified in the Constitution."
     },
     {
-        question: "The \"Basic Structure Doctrine\" limits the amending power of the Parliament. Can the Preamble itself be amended?",
-        options: ["No, the Preamble is unamendable.", "Yes, but only the parts that do not form the 'Basic Features'.", "Yes, completely, without any restriction.", "Only with the consent of the United Nations."],
-        correctAnswerIndex: 1,
-        explanation: "It can be amended, subject to the Basic Structure doctrine."
+        "id": "ch5-l2-q8",
+        "question": "Assertion (A): The Preamble itself cannot be enforced in a court of law to claim a substantive right (e.g., claiming",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. The Preamble is non-justiciable; you cannot directly file a writ petition solely citing a violation of the Preamble"
     },
     {
-        question: "The insertion of the word \"Secular\" by the 42nd Amendment was criticized by some as unnecessary because:",
-        options: ["India was already a secular state as per Articles 25-28.", "The concept of secularism is Western and not applicable to India.", "It would lead to minority appeasement.", "It would restrict the freedom of religion."],
-        correctAnswerIndex: 0,
-        explanation: "It was argued that Articles 25-28 already established secularism."
+        "id": "ch5-l2-q9",
+        "question": "During the Kesavananda Bharati case (1973), what was the fundamental constitutional dispute regarding the Preamble",
+        "options": ["Whether the Preamble, being a part of the Constitution, could be amended under Article 368 to completely rewrite its ideals.","Whether the Supreme Court had the power to rewrite the Preamble independently.","Whether the Preamble was adopted by the Constituent Assembly properly in 1949.","Whether the Preamble could be suspended during an Emergency."],
+        "correctAnswerIndex": 0,
+        "explanation": "The dispute was whether the Preamble, if recognized as part of the Constitution, could be amended under Article 368. The Court held it CAN be amended, but subject to NOT destroying the"
     },
     {
-        question: "\"Economic Justice\" in the Preamble is directed to be achieved through:",
-        options: ["Fundamental Rights (Part III) only.", "Directive Principles of State Policy (Part IV) only.", "Both Part III and Part IV.", "The Preamble itself."],
-        correctAnswerIndex: 2,
-        explanation: "Achieved through both Part III and Part IV."
+        "id": "ch5-l2-q10",
+        "question": "Consider the relationship between the Preamble and the rest of the Constitution:\\n1. Where there is ambiguity in a specific article, the interpretation of the Preamble can be used as an interpretative tool to guide the courts.\\n2. In a direct, irreconcilable conflict between a specific constitutional provision and the Preamble, the Preamble",
+        "options": ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        "correctAnswerIndex": 0,
+        "explanation": "Statement 1 is correct (The Preamble is a guiding light for interpretation). Statement 2 is incorrect; if there is a direct express provision in the Constitution, it prevails over the general principles of the Preamble."
     },
     {
-        question: "\"Liberty of thought, expression, belief, faith and worship.\" This sequence is significant. Which Article of the Constitution primarily guarantees these liberties?",
-        options: ["Article 14", "Article 19", "Article 21", "Article 25"],
-        correctAnswerIndex: 1,
-        explanation: "Article 19 guarantees Freedom of Speech (thought/expression) and Art 25 (belief/faith/worship)."
+        "id": "ch5-l2-q11",
+        "question": "",
+        "options": ["Article 19 (Speech) and Article 51A(a) (Respecting National Flag)","Article 14 (Equality) and Article 51A(b) (Following noble ideals)","Article 17 (Abolition of Untouchability) and Article 51A(e) (Renouncing practices derogatory to the dignity of women)","Article 21 (Life) and Article 51A(g) (Protecting environment)"],
+        "correctAnswerIndex": 2,
+        "explanation": "The dignity of the individual is structurally upheld via Article 17 (abolition of untouchability) and Part IVA Article 51A(e), which mandates renouncing practices derogatory to the dignity of women, fostering true fraternity."
     },
     {
-        question: "The \"Equality of Status and of Opportunity\" mentioned in the Preamble is ensured by which set of Articles?",
-        options: ["Articles 14-18", "Articles 19-22", "Articles 23-24", "Articles 25-28"],
-        correctAnswerIndex: 0,
-        explanation: "Articles 14-18 (Right to Equality)."
+        "id": "ch5-l2-q12",
+        "question": "According to the Supreme Court in the LIC of India case (1995), what was its renewed stand on the Preamble?",
+        "options": ["It overturned Kesavananda Bharati, ruling it is NOT a part of the Constitution.","It reiterated that the Preamble is an integral part of the Constitution.","It ruled that only the","word should be removed.","It stated that the Preamble is superior to Part III of the Constitution."],
+        "correctAnswerIndex": 1,
+        "explanation": "In the LIC of India case (1995), the Supreme Court once again held that the Preamble is an integral part of the Constitution, reaffirming its Kesavananda stance."
     },
     {
-        question: "\"Fraternity\" cannot be achieved without:",
-        options: ["Social Justice", "Economic Justice", "Liberty and Equality", "Political Justice"],
-        correctAnswerIndex: 2,
-        explanation: "Dr. Ambedkar said Liberty and Equality are essential for Fraternity."
+        "id": "ch5-l2-q13",
+        "question": "Match the ideals in the Preamble with their operational mechanism in the Constitution:\\nList-I\\nA. Political Justice\\nB. Civic Equality\\nC. Economic Justice\\nD. Fraternity\\n\\nList-II\\n1. Universal Adult Franchise & Articles 325, 326\\n2. Articles 14 to 18\\n3. Directive Principles (Article 39)\\n4. Single Citizenship\\n\\nCode (A-B-C-D):",
+        "options": ["1-2-3-4","2-1-4-3","3-4-1-2","1-3-2-4"],
+        "correctAnswerIndex": 0,
+        "explanation": "Political justice is ensured via adult franchise (Art 325/326). Civic equality via Fundamental Rights (Art 14-18). Economic justice via DPSP (Art 39). Fraternity via single citizenship."
     },
     {
-        question: "Dr. Ambedkar stated that \"Liberty, Equality and Fraternity\" form a union of trinity because:",
-        options: ["They are derived from the French Revolution.", "To divorce one from the other is to defeat the very purpose of democracy.", "They are the three pillars of the Constitution.", "They are mentioned in the UN Charter."],
-        correctAnswerIndex: 1,
-        explanation: "To divorce one from the other defeats the purpose of democracy."
+        "id": "ch5-l2-q14",
+        "question": "Assertion (A): The word",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. The Supreme Court observed (1997) that the Constitution envisions a social, economic, and political egalitarian order. Dr. Ambedkar"
     },
     {
-        question: "The word \"Republic\" implies that the Head of State is elected. In India, the President is elected indirectly. This contrasts with the UK where the Head of State is:",
-        options: ["Elected directly.", "Hereditary.", "Nominated by the Parliament.", "Selected by the Judiciary."],
-        correctAnswerIndex: 1,
-        explanation: "In the UK, the Head of State (Monarch) is hereditary."
+        "id": "ch5-l2-q15",
+        "question": "Consider the phrase",
+        "options": ["The establishment of the Inter-State Council.","The provision of a single Constitution for both Centre and States (except J&K historically).","Article 1 describing India as a","rather than a Federation.","The division of powers in the 7th Schedule."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 1 defines India as a"
     },
     {
-        question: "The Preamble of the Indian Constitution is different from the Preamble of the US Constitution in that:",
-        options: ["The US Preamble is justiciable.", "The Indian Preamble is much longer and detailed.", "The Indian Preamble mentions \"Socialist\" and \"Secular\".", "Both (b) and (c)."],
-        correctAnswerIndex: 3,
-        explanation: "Indian Preamble is longer and explicitly mentions Socialist/Secular."
+        "id": "ch5-l2-q16",
+        "question": "What was the significance of the Berubari Union Case (1960) regarding the interpretation of the Preamble?",
+        "options": ["It was the first time the Supreme Court read the","doctrine into the Preamble.","The Court ruled that while the Preamble shows the general purposes behind several provisions, it is not a part of the Constitution and therefore has no substantive power.","The Court ruled that the Preamble could be amended freely by Parliament.","It mandated the addition of the word","to the Preamble."],
+        "correctAnswerIndex": 1,
+        "explanation": "In Berubari (1960), the Supreme Court held that the Preamble is a key to the minds of the makers but specifically opined it was NOT part of the Constitution. This was later reversed in 1973."
     },
     {
-        question: "Which of the following is NOT an objective of the Constitution as declared in the Preamble?",
-        options: ["Justice", "Liberty", "Equality", "Federalism"],
-        correctAnswerIndex: 3,
-        explanation: "Federalism is a feature, not an objective declared in the Preamble."
+        "id": "ch5-l2-q17",
+        "question": "The term",
+        "options": ["Distributive Justice","Political Justice","Social Justice","Economic Justice"],
+        "correctAnswerIndex": 2,
+        "explanation": "Social justice denotes equal treatment of all citizens without any social distinction based on caste, colour, race, religion, sex and so on... essentially eliminating privileges to specific classes."
     },
     {
-        question: "The Preamble does not mention which date?",
-        options: ["Date of Adoption (26 Nov 1949).", "Date of Commencement (26 Jan 1950).", "It mentions both.", "It mentions neither."],
-        correctAnswerIndex: 1,
-        explanation: "It mentions only the Date of Adoption (26 Nov 1949)."
+        "id": "ch5-l2-q18",
+        "question": "In the sequence of words used in the Preamble, which comes first: Justice, Liberty, Equality, or Fraternity?",
+        "options": ["Liberty","Equality","Justice","Fraternity"],
+        "correctAnswerIndex": 2,
+        "explanation": "The exact sequence is: JUSTICE, social, economic and political; LIBERTY of thought, expression...; EQUALITY of status and of opportunity; and to promote among them all FRATERNITY..."
     },
     {
-        question: "\"Dignity of the Individual\" is assured by the Constitution through:",
-        options: ["Fundamental Rights.", "Directive Principles of State Policy.", "Fundamental Duties.", "All of the above."],
-        correctAnswerIndex: 3,
-        explanation: "Assured by FRs, DPSPs, and FDs."
+        "id": "ch5-l2-q19",
+        "question": "The philosophical vision of the Constitution, as encapsulated by the Preamble, draws heavily from",
+        "options": ["Mahatma Gandhi","Sardar Patel","Jawaharlal Nehru","Dr. Rajendra Prasad"],
+        "correctAnswerIndex": 2,
+        "explanation": "Pandit Jawaharlal Nehru, while moving the Objectives Resolution in December 1946, eloquently described it as a declaration, a firm resolve, a pledge, and a dedication."
     },
     {
-        question: "The Preamble is often referred to as a \"Political Horoscope\" because:",
-        options: ["It predicts the future of the nation.", "It outlines the nature of the state and the objectives it seeks to achieve.", "It was drafted by astrologers.", "It is based on planetary positions."],
-        correctAnswerIndex: 1,
-        explanation: "It outlines the philosophy and future direction (objectives) of the state."
+        "id": "ch5-l2-q20",
+        "question": "How does the Supreme Court",
+        "options": ["It makes the Preamble legally enforceable in the High Courts via Article 226.","It grants Parliament the power to bypass Fundamental Rights based on the Preamble","It does not alter its enforceability; the Preamble remains non-justiciable and cannot override direct provisions.","It elevates the Preamble to supersede the Directive Principles of State Policy."],
+        "correctAnswerIndex": 2,
+        "explanation": "Even though it is recognized as a part of the Constitution, the SC clarified that it remains non-justiciable, it doesn"
     },
     {
-        question: "Assertion (A): The Preamble is the key to the understanding of the mind of the makers of the Constitution. Reason (R): It embodies the basic philosophy and fundamental values on which the Constitution is based.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0,
-        explanation: "R explains why A is true."
+        "id": "ch5-l2-q21",
+        "question": "With reference to the Preamble, what does the expression",
+        "options": ["That sovereignty is shared equally between the Centre and the States.","That popular sovereignty is vested in the people of India as a whole, rather than in the Parliament or the states individually.","That India recognizes the sovereignty of the British monarch till 1950.","That only land-owning adults possess sovereign powers."],
+        "correctAnswerIndex": 1,
+        "explanation": "The opening words emphasize the concept of"
     },
     {
-        question: "Assertion (A): India is a Sovereign state. Reason (R): India can acquire a foreign territory or cede a part of its territory in favor of a foreign state.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0,
-        explanation: "The power to acquire/cede territory is an essential attribute of sovereignty."
+        "id": "ch5-l2-q22",
+        "question": "Consider the phrase",
+        "options": ["The abolition of the caste system entirely in private functions.","The opening of all public offices to every citizen without any discrimination based on hereditary titles or status.","The mandatory requirement for every citizen to undergo military service.","The equalization of all wealth and property."],
+        "correctAnswerIndex": 1,
+        "explanation": "A republic means (1) an elected head of state, and (2) vesting of political sovereignty in the people and absence of any privileged class (hence all public offices being open to every citizen without discrimination)."
     },
     {
-        question: "Assertion (A): The Preamble is not enforceable in a court of law. Reason (R): The Preamble does not grant any power to the legislature or the executive.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0,
-        explanation: "Lack of substantive power contributes to its non-justiciability."
+        "id": "ch5-l2-q23",
+        "question": "What is the structural difference between the",
+        "options": ["The French Revolution only pushed for legal justice, while the Russian Revolution envisioned political justice.","The French Revolution inspired the ideals of Liberty, Equality, Fraternity; while the Russian Revolution inspired the detailed concept of Social, Economic, and Political Justice.","Both revolutions contributed exactly the same concepts of justice to the Indian Constitution.","The Russian Revolution only inspired","while the rest is French."],
+        "correctAnswerIndex": 1,
+        "explanation": "The ideals of Liberty, Equality, and Fraternity are specifically traced to the French Revolution, whereas the trinity of Social, Economic, and Political Justice is profoundly inspired by the Russian Revolution."
     },
     {
-        question: "\"Unity and Integrity of the Nation\" embraces both:",
-        options: ["Psychological and Territorial dimensions.", "Social and Economic dimensions.", "Political and Religious dimensions.", "Internal and External dimensions."],
-        correctAnswerIndex: 0,
-        explanation: "It covers both territorial (integrity) and psychological (unity) dimensions."
+        "id": "ch5-l2-q24",
+        "question": "Assertion (A): The",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true and correctly linked. Liberty is not absolute; it is qualified and legally balanced against the security and order of the state through reasonable restrictions."
     },
     {
-        question: "The phrase \"assuring the dignity of the individual\" was added to the Preamble:",
-        options: ["By the 42nd Amendment.", "By the 44th Amendment.", "It was present in the original Constitution.", "It is not in the Preamble."],
-        correctAnswerIndex: 2,
-        explanation: "It was present in the original Preamble."
+        "id": "ch5-l2-q25",
+        "question": "The word",
+        "options": ["The need to assert psychological and territorial integration against regional, linguistic, and secessionist demands.","The need to fight financial corruption and uphold integrity in public office.","The necessity to integrate Sikkim to the Indian Union.","To legitimize the integration of Princely states retroactively."],
+        "correctAnswerIndex": 0,
+        "explanation": "The phrase was expanded to"
     },
     {
-        question: "If a law violates the \"Basic Structure\" of the Constitution (e.g., Secularism), the Supreme Court can strike it down. The source of this \"Basic Structure\" concept is primarily found in:",
-        options: ["The Fundamental Rights alone.", "The Directive Principles alone.", "The Preamble read with other parts of the Constitution.", "The Ninth Schedule."],
-        correctAnswerIndex: 2,
-        explanation: "The Preamble contains the grand noble vision which constitutes the Basic Structure."
+        "id": "ch5-l2-q26",
+        "question": "Which Articles of the Constitution explicitly ensure",
+        "options": ["Articles 14 and 15","Articles 325 and 326","Articles 17 and 18","Articles 39(a) and 39(d)"],
+        "correctAnswerIndex": 1,
+        "explanation": "Political equality is secured via Article 325 (no person is to be declared ineligible for inclusion in electoral rolls on grounds of religion, race, caste or sex) and Article 326 (elections to the Lok Sabha and state assemblies to be on the basis of adult suffrage)."
     },
     {
-        question: "The \"Socialist\" goal of the Preamble is to be achieved through:",
-        options: ["Establishing a Communist state.", "Implementation of Directive Principles like Article 39(b) and 39(c).", "Abolishing all private sector banks.", "Providing free food to everyone."],
-        correctAnswerIndex: 1,
-        explanation: "Achieved through DPSPs promoting equitable distribution of resources."
+        "id": "ch5-l2-q27",
+        "question": "Though",
+        "options": ["The Five Year Plans","The Directive Principles of State Policy (Part IV)","The preamble","Fraternity","The fundamental right to property"],
+        "correctAnswerIndex": 1,
+        "explanation": "Even before 1976, the Constitution had socialist content within the Directive Principles of State Policy, attempting to establish economic justice and egalitarian structures."
     },
     {
-        question: "\"Distributive Justice\" is a combination of:",
-        options: ["Social Justice and Political Justice.", "Economic Justice and Political Justice.", "Social Justice and Economic Justice.", "Liberty and Equality."],
-        correctAnswerIndex: 2,
-        explanation: "Social + Economic Justice = Distributive Justice."
+        "id": "ch5-l2-q28",
+        "question": "The adoption date",
+        "options": ["Yes, the entire Constitution came into operation immediately.","No, only the Preamble came into force, while the rest was deferred to Jan 26, 1950.","No, only certain provisions relating to citizenship, elections, provisional parliament, and temporary provisions came into force immediately (Article 394).","No, the Constitution only came into force after the first general elections in 1951."],
+        "correctAnswerIndex": 2,
+        "explanation": "While adopted on Nov 26, 1949, only articles related to citizenship (5-9), elections (324), provisional parliament (379), etc., came into force immediately. The major part commenced on Jan 26, 1950 (the"
     },
     {
-        question: "The Preamble serves as a guide to the interpretation of the Constitution when:",
-        options: ["The text of the Constitution is clear and unambiguous.", "The text of the Constitution is vague or has more than one meaning.", "The Government wants to bypass a provision.", "The President wants to dissolve the Lok Sabha."],
-        correctAnswerIndex: 1,
-        explanation: "It aids interpretation when the text is ambiguous."
+        "id": "ch5-l2-q29",
+        "question": "When evaluating the legal enforceability of the Preamble, which of the following analogous documents does it closely resemble in terms of judicial standing?",
+        "options": ["The Fundamental Rights (Part III)","The Directive Principles of State Policy (Part IV)","The Seventh Schedule (List of subjects)","The Civil Procedure Code"],
+        "correctAnswerIndex": 1,
+        "explanation": "Like the Directive Principles (Part IV), the Preamble is non-justiciable. It guides the state and courts but cannot be directly enforced in a court of law to assert a substantive legal right."
     },
     {
-        question: "Which of the following statements is correct regarding the adoption of the Preamble?",
-        options: ["It was adopted before the Constitution was drafted.", "It was adopted after the entire Constitution was enacted to ensure conformity.", "It was adopted simultaneously with the Fundamental Rights.", "It was never formally adopted."],
-        correctAnswerIndex: 1,
-        explanation: "It was adopted last to ensure it conformed to the Constitution."
+        "id": "ch5-l2-q30",
+        "question": "In the context of the Preamble, what was the primary rationale given by the Supreme Court in Kesavananda Bharati for allowing its amendment?",
+        "options": ["Since the Preamble is NOT a part of the Constitution, Article 368 applies freely to it.","Since the Preamble IS a part of the Constitution, it is subject to the amending power of Article 368, provided basic features are not destroyed.","Parliament holds absolute sovereign power overriding the basic structure.","The President can amend the Preamble unilaterally through an ordinance."],
+        "correctAnswerIndex": 1,
+        "explanation": "The SC held that because the Preamble was debated, voted on, and adopted by the Constituent Assembly in the same manner as other parts, it IS a part of the Constitution. Therefore, it can be amended under Article 368, barring the destruction of its"
     }
 ];
 
-// Level 3: The UPSC Simulation
 const LEVEL_3_QUESTIONS = [
     {
-        question: "In the context of the government's aggressive push for privatization (e.g., Air India, LIC IPO) and the \"Minimum Government, Maximum Governance\" policy, critics argue this dilutes the \"Socialist\" credential of the Preamble. The Supreme Court's stance (post-1991 reforms) has been that:",
-        options: ["The word \"Socialist\" in the Preamble is now redundant and should be removed.", "\"Socialism\" in the Indian context does not mean state ownership of all resources but aims at \"distributive justice\" and ending poverty, which can be achieved through a mixed economy.", "Privatization of Public Sector Undertakings (PSUs) is unconstitutional as it violates the Preamble.", "The Preamble only binds the Legislature, not the Executive's economic policy."],
-        correctAnswerIndex: 1,
-        explanation: "SC held that socialism means distributive justice, not necessarily state ownership."
+        "id": "ch5-l3-q1",
+        "question": "Consider the constitutional doctrine relating to the Preamble:\\n1. In the S.R. Bommai case (1994), the Supreme Court reiterated that",
+        "options": ["1 only","1 and 2 only","2 and 3 only","1, 2, and 3"],
+        "correctAnswerIndex": 0,
+        "explanation": "Statement 2 is incorrect; the Preamble is non-justiciable and NEVER an independent source of power (it"
     },
     {
-        question: "The \"Right to Property\" was removed as a Fundamental Right, but the Preamble still guarantees \"Economic Justice\". In 2024, the Supreme Court in the Property Rights Case (interpreting Article 300A) held that:",
-        options: ["The state has absolute power to acquire private property for any \"public purpose\" without fair compensation.", "The \"authority of law\" to deprive a person of property must be \"just, fair and reasonable,\" linking Article 300A back to the \"Justice\" and \"Dignity\" clauses of the Preamble.", "Economic Justice is a Directive Principle and cannot be enforced against private property acquisition.", "Adverse possession is the only way to claim economic justice."],
-        correctAnswerIndex: 1,
-        explanation: "Authority of law must be just, fair, and reasonable."
+        "id": "ch5-l3-q2",
+        "question": "With reference to the ideals of",
+        "options": ["Liberty and Equality are mathematically contradictory; absolute liberty destroys equality.","Equality without liberty would kill individual initiative, and liberty without equality would produce the supremacy of the few over the many.","Liberty is an absolute right under Part III, while Equality is merely a discretionary directive under Part IV.","Liberty belongs to the political sphere, whereas Equality belongs strictly to the economic sphere."],
+        "correctAnswerIndex": 1,
+        "explanation": "Dr. Ambedkar stated:"
     },
     {
-        question: "The \"Freebies Culture\" (Revadi Culture) debate in elections is often linked to the \"Socialist\" directive. The Election Commission and Supreme Court are deliberating whether:",
-        options: ["Promising freebies violates the \"Free and Fair Elections\" basic structure.", "It fulfills the Preamble's objective of \"Economic Justice\" and \"Equality of Status\".", "It creates an uneven playing field, violating Article 14.", "All of the above arguments are part of the constitutional debate."],
-        correctAnswerIndex: 3,
-        explanation: "All arguments are part of the ongoing debate."
+        "id": "ch5-l3-q3",
+        "question": "The",
+        "options": ["The mandatory nationalization of all heavy industries and banks.","A system striving to end poverty, ignorance, disease, and inequality of opportunity.","A system guaranteeing universal basic income independently of taxation.","The election of corporate boards directly by factory workers."],
+        "correctAnswerIndex": 1,
+        "explanation": "The SC defined social and economic democracy (democratic socialism) as a blend aimed specifically at ending poverty, ignorance, disease, and inequality of opportunity, rather than strict Marxist nationalization."
     },
     {
-        question: "With the implementation of the Uniform Civil Code (UCC) in states like Uttarakhand (2024), the interpretation of \"Secular\" in the Preamble is under focus. The \"Positive Secularism\" of India implies that:",
-        options: ["The State must have no role in religious practices (Western model).", "The State can reform personal laws to ensure \"Fraternity\" and \"Dignity of the Individual\" (e.g., gender equality), even if it touches upon religious practices.", "The State must support all religions equally by funding their schools.", "The Preamble's \"Secular\" word prohibits any Uniform Civil Code."],
-        correctAnswerIndex: 1,
-        explanation: "Positive secularism allows reform for dignity and fraternity."
+        "id": "ch5-l3-q4",
+        "question": "Consider the amendment of the Preamble in 1976. Why did the Constituent Assembly originally choose NOT to include the word",
+        "options": ["Because the British Parliament refused to ratify a socialist constitution.","Because Dr. Ambedkar believed the Constitution should only lay down the machinery of government, not dictate the socio-economic structure, leaving that choice to the people.","Because India was receiving massive financial aid from the capitalist USA at the time.","Because the word","inherently violates the Fundamental Right to Freedom of Religion."],
+        "correctAnswerIndex": 1,
+        "explanation": "Dr. Ambedkar argued against tying the Constitution to a specific economic ideology (like socialism), stating that the policy of the state, how society should be organized economically, must be left to the people to decide according to time and circumstances."
     },
     {
-        question: "The Citizenship Amendment Act (CAA) Rules notified in 2024 faced challenges for violating the \"Secular\" basic structure. The counter-argument relying on the Preamble's \"Sovereign\" status is that:",
-        options: ["A Sovereign state has the absolute right to define who its citizens are and to classify aliens.", "Sovereignty allows the state to adopt a state religion.", "The Preamble's \"Secular\" clause applies only to citizens, not to aliens or refugees.", "The Preamble is not a source of power, so it cannot restrict the CAA."],
-        correctAnswerIndex: 0,
-        explanation: "Sovereign state has the right to define citizenship."
+        "id": "ch5-l3-q5",
+        "question": "Match the following judicial observations regarding the Preamble to the jurist or constitutional body that made them:\\nList-I\\nA.",
+        "options": ["2-1-4-3","1-2-3-4","2-1-3-4","4-3-2-1"],
+        "correctAnswerIndex": 0,
+        "explanation": "Palkhivala (Identity card), Munshi (Horoscope), Berubari (Key to minds but not a part), Kesavananda (Basic Structure)."
     },
     {
-        question: "The \"Places of Worship Act, 1991\" is often cited as a statutory reflection of the Preamble's \"Secular\" value. In the context of the Gyanvapi Mosque and Mathura disputes (2024-25), the Supreme Court has held that:",
-        options: ["The Act is absolute and bars any judicial inquiry into the character of a place of worship.", "The \"ascertainment of the religious character\" of a place is not barred by the Act; only the \"conversion\" is barred.", "The Preamble's secularism does not apply to pre-1947 disputes.", "The Act itself is unconstitutional."],
-        correctAnswerIndex: 1,
-        explanation: "Ascertainment of character is not barred."
+        "id": "ch5-l3-q6",
+        "question": "Examine the phrase",
+        "options": ["By ensuring all citizens receive equal representation in the Rajya Sabha.","By the abolition of untouchability (Art 17) and the abolition of titles (Art 18) to remove artificial social hierarchies.","By mandating equal pay for equal work.","By guaranteeing free legal aid to all citizens."],
+        "correctAnswerIndex": 1,
+        "explanation": "Equality of"
     },
     {
-        question: "The \"Right to be Forgotten\" (part of the Data Protection Act 2023 discourse) is derived from the \"Liberty of thought and expression\" and \"Dignity of the Individual\". However, it conflicts with:",
-        options: ["The \"Right to Information\" (derived from Freedom of Speech).", "The \"Justice\" (Social and Political) clause which requires transparency in public records (e.g., court verdicts).", "The \"Fraternity\" clause.", "Both (a) and (b)."],
-        correctAnswerIndex: 3,
-        explanation: "It conflicts with RTI and open justice."
+        "id": "ch5-l3-q7",
+        "question": "In contemporary constitutional debates regarding",
+        "options": ["The Preamble grants absolute freedom of religion overriding the state","The Preamble","Liberty of belief, faith and worship","The Preamble mandates a Uniform Civil Code, which Article 25 directly opposes.","The Preamble restricts religious freedom strictly to personal prayer, while Article 25 expands it to public domains."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Preamble promises"
     },
     {
-        question: "The \"Fraternity\" clause in the Preamble was specifically cited by the Supreme Court in the Kaushal Kishore judgment (2023) regarding Hate Speech by Ministers. The Court linked Fraternity to:",
-        options: ["The duty of the state to prevent hate speech that destroys the dignity of individuals.", "The absolute freedom of speech of Ministers.", "The concept of \"Collective Responsibility\" only.", "The \"Unity and Integrity\" clause only."],
-        correctAnswerIndex: 0,
-        explanation: "Hate speech destroys dignity and fraternity."
+        "id": "ch5-l3-q8",
+        "question": "Assertion (A): The phrase",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true.","Both A and R are false."],
+        "correctAnswerIndex": 4,
+        "explanation": "Assertion is completely false. The Constitution was NOT ratified by a direct national referendum; it was adopted by the Constituent Assembly acting on behalf of the people. Reason is theoretically debatable but factually irrelevant because India exercises representative sovereignty, not direct democratic ratification."
     },
     {
-        question: "\"Dignity of the Individual\" has been expanded by the Supreme Court in recent years to include:\n1. The Right to Privacy (Puttaswamy case).\n2. The Right to choose a life partner (Hadiya case).\n3. The Right to die with dignity (Passive Euthanasia - Common Cause case).",
-        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
-        correctAnswerIndex: 3,
-        explanation: "All are included under Dignity."
+        "id": "ch5-l3-q9",
+        "question": "The term",
+        "options": ["The vesting of political sovereignty in a single individual.","The constitutional guarantee of a two-party system.","The absence of any privileged class, resulting in all public offices being thrown open to all citizens without any discrimination.","The absolute separation of the religious authority from the State"],
+        "correctAnswerIndex": 2,
+        "explanation": "A"
     },
     {
-        question: "The \"Basic Structure Doctrine\" is heavily reliant on the Preamble. In the NJAC case (2015), the Supreme Court struck down the amendment primarily to protect which value mentioned/implied in the Preamble?",
-        options: ["Sovereignty of the People.", "Justice (Independence of Judiciary as a prerequisite for Rule of Law).", "Socialist pattern of society.", "Republic nature of the state."],
-        correctAnswerIndex: 1,
-        explanation: "Independence of Judiciary is essential for 'Justice' and Rule of Law."
+        "id": "ch5-l3-q10",
+        "question": "With respect to the amendment of the Preamble in the Kesavananda Bharati case, what was the nuanced distinction made by the Supreme Court regarding",
+        "options": ["The entire Preamble is unamendable because every single word is a basic feature.","The Preamble can be amended under Article 368, but the fundamental features/basic structure elements contained within it (like Sovereign, Democratic, Republic, Secular) cannot be destroyed.","The Preamble can only be amended if a new Constituent Assembly is convened.","The power to amend the Preamble lies exclusively with the Supreme Court through judicial review."],
+        "correctAnswerIndex": 1,
+        "explanation": "The SC held the Preamble can be amended, but the"
     },
     {
-        question: "The \"Preamble Controversy\" (2023) regarding the distribution of the original Constitution (without 'Socialist' and 'Secular') raised a technical constitutional question: Does the \"Original Constitution\" still exist legally?",
-        options: ["No, only the amended text is the legal Constitution.", "Yes, the original text is a historical document, but the legal Constitution includes all amendments.", "The 42nd Amendment was declared void, so the original text is valid.", "The Preamble cannot be amended, so the original text is the only valid one."],
-        correctAnswerIndex: 1,
-        explanation: "The legal Constitution includes all amendments; original is historical."
+        "id": "ch5-l3-q11",
+        "question": "During recent debates around the",
+        "options": ["A strict command economy model that the New Economic Policy violates.","An archaic term that holds no legal or interpretative value post-1991.","An approach aimed at providing a","and",", which can coexist with market mechanisms.","A mandate to completely nationalize the agricultural sector."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Supreme Court (e.g., in Excel Wear, Nakara cases) defined Indian socialism as a blend aiming to provide a decent standard of living and security, not rigid nationalization. Thus, the LPG policies do not legally violate the Preamble"
     },
     {
-        question: "\"We, the People of India... give to ourselves this Constitution.\" This phrase establishes \"Popular Sovereignty.\" How does this reconcile with the fact that the Constituent Assembly was indirectly elected?",
-        options: ["It is a legal fiction; the Assembly was accepted as representing the people's will.", "The first General Election (1951-52) on the basis of adult franchise ratified the Constitution retrospectively.", "The Supreme Court in Kesavananda Bharati held that the \"legal sovereignty\" lies with the Constitution, but \"political sovereignty\" remains with the people.", "All of the above."],
-        correctAnswerIndex: 3,
-        explanation: "All points help reconcile the indirect election with popular sovereignty."
+        "id": "ch5-l3-q12",
+        "question": "Which of the following constitutional provisions most directly operationalizes the Preamble",
+        "options": ["Article 15 (Prohibition of discrimination)","Article 23 (Prohibition of traffic in human beings and forced labour)","Article 29 (Protection of interests of minorities)","Article 324 (Superintendence of elections)"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 23 prohibits begar, forced labour, and traffic in human beings—practices that fundamentally violate the"
     },
     {
-        question: "Comparing the Indian Preamble with the French Constitution's Preamble, both emphasize \"Liberty, Equality, Fraternity.\" However, the Indian Preamble is unique in explicitly linking Fraternity to:",
-        options: ["The Unity and Integrity of the Nation.", "The Secular nature of the state.", "The Socialist goal.", "The Justice delivery system."],
-        correctAnswerIndex: 0,
-        explanation: "Fraternity assures the Unity and Integrity of the Nation."
+        "id": "ch5-l3-q13",
+        "question": "Consider the philosophical shift in the 42nd Amendment. By adding",
+        "options": ["The economic recession of the 1970s.","The psychological and territorial threat posed by secessionist and regional movements.","The diplomatic integration of Sikkim.","The need to integrate public sector undertakings."],
+        "correctAnswerIndex": 1,
+        "explanation": "The word"
     },
     {
-        question: "The \"Republic\" nature of India was tested when the question of \"Commonwealth Membership\" arose in 1949. Nehru justified it by stating:",
-        options: ["The King is the Head of the Commonwealth, but not the Head of the Indian State.", "It is an \"extralegal\" arrangement that does not affect India's sovereignty.", "Allegiance to the Crown is only symbolic for Commonwealth relations, not for domestic governance.", "All of the above."],
-        correctAnswerIndex: 3,
-        explanation: "All were parts of Nehru's justification."
+        "id": "ch5-l3-q14",
+        "question": "The Preamble is declared to be",
+        "options": ["The Supreme Court cannot use it to interpret ambiguous provisions of the Constitution.","It cannot be relied upon to restrict the sweeping legislative powers of Parliament unconditionally.","Citizens cannot file a petition in a court solely to enforce the ideals contained in it, as it does not grant substantive rights or powers.","It is immune from judicial review and cannot be referenced in court judgments."],
+        "correctAnswerIndex": 2,
+        "explanation": "Non-justiciable means it cannot be enforced in a court of law. It implies that the Preamble cannot be the sole basis for a legal claim; it acts merely as a guiding light for interpretation."
     },
     {
-        question: "The \"Social Justice\" objective of the Preamble is constitutionally realized through \"Affirmative Action\" (Reservation). The recent EWS Reservation (103rd Amendment) challenge argued that it violates the \"Basic Structure\" by:",
-        options: ["Excluding SCs/STs/OBCs from the EWS quota (violating Equality Code).", "Using \"economic criteria\" alone (which was previously rejected).", "Exceeding the 50% ceiling (violating the efficiency of administration).", "All of the above arguments were raised."],
-        correctAnswerIndex: 3,
-        explanation: "All arguments were raised against EWS quota."
+        "id": "ch5-l3-q15",
+        "question": "Assertion (A): The",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. American liberty was initially conceived in almost absolute terms (later shaped by judicial police powers), whereas Indian liberty (Article 19-22) is constitutionally qualified by explicitly stated"
     },
     {
-        question: "\"Justice, social, economic and political.\" Why is \"Political\" justice placed last in this sequence?",
-        options: ["Because political justice is less important.", "Because without social and economic justice, political justice (one man, one vote) is meaningless (Dr. Ambedkar's view).", "Because it was alphabetically arranged.", "Because political justice was already achieved by the Independence Act."],
-        correctAnswerIndex: 1,
-        explanation: "Ambedkar believed political equality is meaningless without social/economic equality."
+        "id": "ch5-l3-q16",
+        "question": "With reference to",
+        "options": ["The provision of a bicameral legislature.","The existence of an independent judiciary.","The system of single citizenship.","The separation of powers."],
+        "correctAnswerIndex": 2,
+        "explanation": "While the US federalism promotes dual citizenship (allegiance to the State and the Centre), India adopted"
     },
     {
-        question: "The Preamble secures to all citizens \"Liberty of thought, expression, belief, faith and worship.\" This corresponds directly to which specific Fundamental Rights?",
-        options: ["Articles 19 and 21.", "Articles 19 and 25-28.", "Articles 14 and 19.", "Articles 25 and 32."],
-        correctAnswerIndex: 1,
-        explanation: "Article 19 (Thought/Expression) and Articles 25-28 (Belief/Faith/Worship)."
+        "id": "ch5-l3-q17",
+        "question": "The",
+        "options": ["Sovereign Independent Republic","Liberty of thought, expression, belief, faith, and worship","Adequate safeguards for minorities","The word","and its assurance of national unity"],
+        "correctAnswerIndex": 3,
+        "explanation": "The concept of"
     },
     {
-        question: "\"Equality of status and of opportunity.\" The term \"Status\" here refers to:",
-        options: ["Financial status (wealth).", "Social status (abolition of caste hierarchy and titles).", "Political status (holding office).", "International status."],
-        correctAnswerIndex: 1,
-        explanation: "Equality of Status refers to social equality (abolition of caste/titles)."
+        "id": "ch5-l3-q18",
+        "question": "In the context of the Preamble, consider the philosophical shift from a",
+        "options": ["The Judiciary, by striking down unequal contracts.","The Executive and Legislature, guided by the Directive Principles of State Policy.","The Election Commission, by ensuring fair campaign financing.","The Finance Commission, by devolving funds uniformly to all states."],
+        "correctAnswerIndex": 1,
+        "explanation": "Economic justice (distributive justice) is non-justiciable and falls primarily on the Executive and Legislature to implement through policies guided by the Directive Principles (Part IV)."
     },
     {
-        question: "Assertion (A): The Preamble is a part of the Constitution. Reason (R): A motion was adopted by the Constituent Assembly stating, \"The Preamble stands part of the Constitution.\"",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0,
-        explanation: "The motion adoption is the historical fact making it part of the Constitution."
+        "id": "ch5-l3-q19",
+        "question": "In 2024, debates resurfaced about removing the words",
+        "options": ["Yes, Parliament can remove them using a special majority under Article 368.","Yes, because these words were added during an Emergency and lack original constituent legitimacy.","No, because the Supreme Court has declared","as an unalterable basic feature of the Constitution.","No, because the Preamble is entirely immune to any amendment whatsoever."],
+        "correctAnswerIndex": 2,
+        "explanation": "Since S.R. Bommai (1994), the SC has affirmed"
     },
     {
-        question: "The date \"26th November, 1949\" in the Preamble marks the enactment of the Constitution. However, the Preamble itself came into force on:",
-        options: ["26th November, 1949.", "26th January, 1950 (along with the rest of the Constitution).", "It has no date of commencement.", "It came into force after the first elections."],
-        correctAnswerIndex: 1,
-        explanation: "Preamble was enacted last but came into force on Jan 26, 1950."
+        "id": "ch5-l3-q20",
+        "question": "The words",
+        "options": ["The Constitution of the Fifth French Republic","The Constitution of the United States of America","The Charter of the United Nations","Both B and C"],
+        "correctAnswerIndex": 3,
+        "explanation": "The US Constitution begins with"
     },
     {
-        question: "In the Sengol controversy (New Parliament), the government emphasized the \"Transfer of Power.\" Constitutional experts argued that the Preamble reflects a different source of power. What is the distinction?",
-        options: ["Sengol represents \"Divine Right\" or \"Dynastic Transfer,\" whereas the Preamble represents \"Popular Sovereignty.\"", "Sengol represents \"Legal Sovereignty,\" whereas Preamble represents \"Political Sovereignty.\"", "There is no conflict; both represent the same thing.", "The Preamble recognizes the transfer of power from the British Crown."],
-        correctAnswerIndex: 0,
-        explanation: "Sengol implies divine/dynastic right; Preamble implies Popular Sovereignty."
+        "id": "ch5-l3-q21",
+        "question": "Consider the mechanism through which the ideals of the Preamble act upon the fundamental rights. If an administrative action violates the principle of",
+        "options": ["The Preamble directly.","Article 16 of the Constitution, which operationalizes this preamble ideal.","The Directive Principles of State Policy.","The doctrine of unalienable rights."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Preamble is non-justiciable. You cannot sue relying on the Preamble. The ideal of"
     },
     {
-        question: "The \"Democracy Index\" reports often downgrade India citing \"Democratic Backsliding.\" The government rejects these citing the Preamble's \"Democratic\" mandate which is upheld by:",
-        options: ["Regular and periodic elections (Election Commission).", "Independent Judiciary.", "Vibrant Civil Society.", "All of the above."],
-        correctAnswerIndex: 3,
-        explanation: "All are pillars upholding the democratic mandate."
+        "id": "ch5-l3-q22",
+        "question": "The term",
+        "options": ["International treaties require a unanimous vote in the UN General Assembly to apply to India.","Under Article 253, Parliament must pass an implementing legislation to give effect to an international treaty domestically.","The Supreme Court must ratify every international treaty before it affects Indian citizens.","State Governments have a veto over the implementation of any international treaty within their territory."],
+        "correctAnswerIndex": 1,
+        "explanation": "India follows a dualist system. An international treaty does not automatically become domestic law. Parliament must enact a law under Article 253 to implement treaty obligations, ensuring democratic sovereign control."
     },
     {
-        question: "The \"Integrity\" of the nation is protected by restrictions on Fundamental Rights. Which Constitutional Amendment made \"Sovereignty and Integrity of India\" a ground for restricting Freedom of Speech (Article 19(2))?",
-        options: ["1st Amendment (1951)", "16th Amendment (1963)", "42nd Amendment (1976)", "44th Amendment (1978)"],
-        correctAnswerIndex: 1,
-        explanation: "16th Amendment (1963) added Sovereignty and Integrity as a restriction."
+        "id": "ch5-l3-q23",
+        "question": "Which term in the Preamble inherently negates the theory of",
+        "options": ["Sovereign","Secular","Republic","Fraternity"],
+        "correctAnswerIndex": 2,
+        "explanation": "The term"
     },
     {
-        question: "The \"Idea of India\" as reflected in the Preamble is essentially:",
-        options: ["A Civilizational State (based on ancient culture).", "A Nation-State (based on European model).", "A Constitutional State (based on the values of the Constitution).", "A Religious State."],
-        correctAnswerIndex: 2,
-        explanation: "Identity is defined by the Constitution (Values of Preamble)."
+        "id": "ch5-l3-q24",
+        "question": "During recent debates, some argue that adding",
+        "options": ["The words are merely ornamental and have no interpretive value.","The words made explicit what was already implicitly present within the Constitution","The additions illegally altered the basic structure but are tolerated due to the passage of time.","The additions created an irreconcilable conflict with the fundamental right to property."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Supreme Court noted (e.g., in SR Bommai) that secularism and socialism were already inherent in the original Constitution"
     },
     {
-        question: "\"Liberty is not a license.\" This concept from the Preamble is reflected in:",
-        options: ["The existence of \"Reasonable Restrictions\" on Fundamental Rights.", "The absolute nature of Fundamental Rights.", "The Directive Principles.", "The Emergency Provisions."],
-        correctAnswerIndex: 0,
-        explanation: "Liberty is qualified by reasonable restrictions."
+        "id": "ch5-l3-q25",
+        "question": "Dr. B.R. Ambedkar heavily emphasized",
+        "options": ["The establishment of strong centrally located public sector units.","The constitution of a common All-India Services (IAS/IPS).","The mandate of","under Article 51A(e) to promote harmony transcending religious, linguistic, and regional diversities.","The prohibition of concurrent jurisdiction in criminal law."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 51A(e) explicitly operationalizes"
     },
     {
-        question: "The \"Socialist\" goal in the Preamble was recently tested in the Supreme Court judgment on 'Equal Pay for Equal Work'. The Court held that:",
-        options: ["It is a Fundamental Right under Article 14, read with the Preamble's Socialist goal and Article 39(d).", "It is only a Directive Principle and not enforceable.", "It applies only to permanent employees, not contractual ones.", "Private companies are exempt from this principle."],
-        correctAnswerIndex: 0,
-        explanation: "It is implied in Art 14 read with Preamble and Art 39(d)."
+        "id": "ch5-l3-q26",
+        "question": "What is the primary difference in meaning between",
+        "options": ["Social justice deals exclusively with caste reservations, while economic justice deals with taxation.","Social justice means removing inequalities based on social status (caste, religion, sex), whereas Economic justice involves eliminating glaring inequalities in wealth, income, and property.","Social justice is justiciable, whereas Economic justice is non-justiciable.","Social justice applies to citizens, whereas Economic justice applies to both citizens and aliens."],
+        "correctAnswerIndex": 1,
+        "explanation": "Social justice focuses on equal treatment regardless of birth-based social distinctions. Economic justice focuses on the non-discrimination on economic factors and the elimination of wealth/income disparities."
     },
     {
-        question: "The Preamble uses the word \"people\" (\"We, the People\"). However, Fundamental Rights use \"Person\" (Art 14) and \"Citizen\" (Art 15, 16, 19). This distinction implies:",
-        options: ["The Preamble is broader than Fundamental Rights.", "Sovereignty resides in the \"People\" (collective), while rights belong to \"Persons/Citizens\" (individual).", "Aliens are not part of \"We, the People.\"", "All of the above."],
-        correctAnswerIndex: 3,
-        explanation: "Distinction between collective sovereignty and individual rights."
+        "id": "ch5-l3-q27",
+        "question": "Assertion (A): The Preamble is not a source of power to the legislature, nor is it a source of prohibition upon its powers.\\nReason (R): The Preamble is an introductory philosophical statement, not an operative part containing substantive law.\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. As established in Kesavananda Bharati, while it is part of the constitution, it is merely introductory. Substantive powers to legislate, or prohibitions (like Part III), are found in the operative articles, not the Preamble."
     },
     {
-        question: "In the Bommai case (1994), the Supreme Court held that \"Secularism\" is a basic feature. It further stated that:",
-        options: ["Politics and religion must be strictly mixed.", "Political parties cannot seek votes in the name of religion.", "State governments can be dismissed (Article 356) if they act against the secular ideal.", "Both (b) and (c)."],
-        correctAnswerIndex: 3,
-        explanation: "Bommai case held that secularism is basic structure and misuse of religion is ground for dismissal."
+        "id": "ch5-l3-q28",
+        "question": "The",
+        "options": ["The Doctrine of Severability","The Doctrine of Reasonable Classification","The Test of Reasonableness under Article 19","The Doctrine of Eclipse"],
+        "correctAnswerIndex": 2,
+        "explanation": "The"
     },
     {
-        question: "The \"Union of Trinity\" (Liberty, Equality, Fraternity) concept was originally articulated by Dr. Ambedkar in:",
-        options: ["His speech moving the Draft Constitution (Nov 1948).", "His concluding speech in the Constituent Assembly (Nov 25, 1949).", "The Objectives Resolution debate.", "His resignation speech."],
-        correctAnswerIndex: 1,
-        explanation: "In his concluding speech."
+        "id": "ch5-l3-q29",
+        "question": "The Preamble uses the word",
+        "options": ["","means Law,","means Order.","","means People,","means Rule.","","means Nation,","means State.","","means Freedom,","means Choice."],
+        "correctAnswerIndex": 1,
+        "explanation": "The term is derived from the Greek words"
     },
     {
-        question: "Assertion (A): The Preamble is the \"soul\" of the Constitution. Reason (R): It contains the \"basic structure\" of the Constitution.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0,
-        explanation: "It is the soul because it contains the basic structure/philosophy."
+        "id": "ch5-l3-q30",
+        "question": "In the 1993 S.R. Bommai Case, the Supreme Court used the Preamble heavily to justify a consequential political action. What was this action?",
+        "options": ["The nullification of the 42nd Amendment","The upholding of the dismissal of state governments that failed to protect the secular fabric of the nation.","The establishment of the National Human Rights Commission.","The privatization of core public sector industries."],
+        "correctAnswerIndex": 1,
+        "explanation": "In Bommai (1994), the SC upheld the dismissal of BJP governments in MP, Rajasthan, and HP following the Babri Masjid demolition, arguing that Secularism is a basic feature, and any state government actively subverting it could be dismissed under Article 356."
     }
 ];
 
 export const CHAPTER_5_LEVELS: ChapterLevelData = {
-    topicId: 5,
-    levels: [
-        {
-            levelId: 1,
-            title: "Text-Book Stickler",
-            description: "Direct Recall. Mastering the Facts.",
-            questions: LEVEL_1_QUESTIONS.map((q, i) => ({ ...q, id: `ch5-l1-q${i + 1}` }))
-        },
-        {
-            levelId: 2,
-            title: "Conceptual Bridge",
-            description: "Understanding the 'Why' and 'How'.",
-            questions: LEVEL_2_QUESTIONS.map((q, i) => ({ ...q, id: `ch5-l2-q${i + 1}` }))
-        },
-        {
-            levelId: 3,
-            title: "UPSC Simulation",
-            description: "Complex Scenarios & Statement-based Qs.",
-            questions: LEVEL_3_QUESTIONS.map((q, i) => ({ ...q, id: `ch5-l3-q${i + 1}` }))
-        }
-    ]
+    level1: LEVEL_1_QUESTIONS,
+    level2: LEVEL_2_QUESTIONS,
+    level3: LEVEL_3_QUESTIONS
 };

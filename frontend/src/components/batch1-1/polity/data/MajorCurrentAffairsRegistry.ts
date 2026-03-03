@@ -18,10 +18,20 @@ export const MAJOR_CURRENT_AFFAIRS: CurrentAffairItem[] = [
         title: "Nari Shakti Vandan Adhiniyam (106th Amendment Act)",
         summary: "Provides 33% reservation for women in Lok Sabha and State Legislative Assemblies. Added Articles 330A, 332A, and 334A. Implemented after the next delimitation exercise.",
         date: "2023-09-28",
-        topicIds: [11, 23, 33, 81],
+        topicIds: [11, 23, 33, 81, 82, 83],
         tags: ["Women Reservation", "Amendment", "Parliament"],
         source: "The Hindu",
         importance: "High"
+    },
+    {
+        id: "ca-001b",
+        title: "104th Constitutional Amendment Act (2019)",
+        summary: "Extended the reservation of seats for SCs and STs in the Lok Sabha and State Assemblies for another 10 years (till 2030). Terminated the reservation for Anglo-Indians.",
+        date: "2020-01-25",
+        topicIds: [11, 23, 33, 48, 49, 65],
+        tags: ["SC/ST Reservation", "Amendment", "Anglo-Indians"],
+        source: "PIB",
+        importance: "Medium"
     },
     {
         id: "ca-002",
@@ -162,7 +172,7 @@ export const MAJOR_CURRENT_AFFAIRS: CurrentAffairItem[] = [
         title: "16th Finance Commission Constituted",
         summary: "The 16th Finance Commission headed by Dr. Arvind Panagariya constituted to recommend distribution of tax revenues between Centre and States for 2026-31.",
         date: "2024-12-31",
-        topicIds: [14, 44],
+        topicIds: [14, 44, 46, 73],
         tags: ["Finance Commission", "Fiscal Federalism", "Article 280"],
         source: "PIB",
         importance: "High"

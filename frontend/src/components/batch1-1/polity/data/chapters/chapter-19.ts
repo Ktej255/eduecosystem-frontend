@@ -1,703 +1,506 @@
+import { ChapterLevelData } from '../level-types';
 
-import { ChapterLevelData } from "../level-types";
-
-// Level 1: The Text-Book Stickler (Strictly Chapter 19)
 const LEVEL_1_QUESTIONS = [
     {
-        id: "ch19-l1-q1",
-        question: "The Vice-President occupies the ______ highest office in the country.",
-        options: ["First", "Second", "Third", "Fourth"],
-        correctAnswerIndex: 1,
-        explanation: "Vice-President is the second highest office in the country."
+        "id": "ch19-l1-q1",
+        "question": "What is the rank of the Vice-President of India in the official warrant of precedence?",
+        "options": ["First","Second","Third","Fourth"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Vice-President occupies the second highest office in the country. He is accorded a rank next to the President in the official warrant of precedence."
     },
     {
-        id: "ch19-l1-q2",
-        question: "The office of the Vice-President is modelled on the lines of the:",
-        options: ["British Vice-President.", "American Vice-President.", "Canadian Vice-President.", "Russian Vice-President."],
-        correctAnswerIndex: 1,
-        explanation: "Modelled on the American Vice-President."
+        "id": "ch19-l1-q2",
+        "question": "The office of the Indian Vice-President is modeled on the lines of the Vice-President of which country?",
+        "options": ["Britain","Canada","American","France"],
+        "correctAnswerIndex": 2,
+        "explanation": "This office is modeled on the lines of the American Vice-President."
     },
     {
-        id: "ch19-l1-q3",
-        question: "The Vice-President is elected by an electoral college consisting of:",
-        options: ["Only elected members of Parliament.", "Only elected members of Rajya Sabha.", "Members of both Houses of Parliament (both elected and nominated).", "Members of Parliament and State Assemblies."],
-        correctAnswerIndex: 2,
-        explanation: "Elected by both elected and nominated members of Parliament."
+        "id": "ch19-l1-q3",
+        "question": "How is the Vice-President of India elected?",
+        "options": ["Directly by the people of India","By an electoral college consisting of the members of both Houses of Parliament","By the members of the Rajya Sabha only","By the State Legislative Assemblies"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Vice-President, like the president, is elected not directly by the people but by the method of indirect election. He is elected by the members of an electoral college consisting of the members of both Houses of Parliament."
     },
     {
-        id: "ch19-l1-q4",
-        question: "Do the members of the State Legislative Assemblies participate in the election of the Vice-President?",
-        options: ["Yes.", "No.", "Only in case of a tie.", "Only if Parliament permits."],
-        correctAnswerIndex: 1,
-        explanation: "State Legislative Assembly members do not participate."
+        "id": "ch19-l1-q4",
+        "question": "Which of the following statements about the electoral college for the Vice-President is correct, unlike the Electoral College for the President?",
+        "options": ["It consists only of elected members of Parliament.","It does not include nominated members of Parliament.","It consists of both elected and nominated members of the Parliament.","It includes the elected members of the state legislative assemblies."],
+        "correctAnswerIndex": 2,
+        "explanation": "The electoral college for the Vice-President consists of both elected and nominated members of the Parliament (in the case of president, only elected members)."
     },
     {
-        id: "ch19-l1-q5",
-        question: "The election is held in accordance with the system of:",
-        options: ["Proportional representation by means of the single transferable vote.", "First Past the Post system.", "List System.", "Mixed System."],
-        correctAnswerIndex: 0,
-        explanation: "Proportional representation by single transferable vote."
+        "id": "ch19-l1-q5",
+        "question": "Do the members of the state legislative assemblies participate in the election of the Vice-President?",
+        "options": ["Yes, all elected members do.","Yes, both elected and nominated members do.","No, it does not include the members of the state legislative assemblies.","Yes, but only from bicameral states."],
+        "correctAnswerIndex": 2,
+        "explanation": "The electoral college for the Vice-President does not include the members of the state legislative assemblies (in the case of President, the elected members of the state legislative assemblies are included)."
     },
     {
-        id: "ch19-l1-q6",
-        question: "The Vice-President's election is held by:",
-        options: ["Secret Ballot.", "Open Ballot.", "Show of hands.", "Voice vote."],
-        correctAnswerIndex: 0,
-        explanation: "Voting is by secret ballot."
+        "id": "ch19-l1-q6",
+        "question": "What system of election is used for the Vice-President?",
+        "options": ["First-past-the-post","Proportional representation by means of the single transferable vote","List system","Direct territorial constituencies"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Vice-President’s election, like that of the President’s election, is held in accordance with the system of proportional representation by means of the single transferable vote and the voting is by secret ballot."
     },
     {
-        id: "ch19-l1-q7",
-        question: "All doubts and disputes in connection with the election of the Vice-President are inquired into and decided by the:",
-        options: ["Election Commission of India.", "Supreme Court of India.", "High Court of Delhi.", "President of India."],
-        correctAnswerIndex: 1,
-        explanation: "Supreme Court decides election disputes."
+        "id": "ch19-l1-q7",
+        "question": "All doubts and disputes in connection with election of the Vice-President are inquired into and decided by whom?",
+        "options": ["The Election Commission","The Supreme Court","The Parliament","The President"],
+        "correctAnswerIndex": 1,
+        "explanation": "All doubts and disputes in connection with election of the Vice-President are inquired into and decided by the Supreme Court whose decision is final."
     },
     {
-        id: "ch19-l1-q8",
-        question: "To be eligible for election as Vice-President, a person must be a citizen of India, have completed 35 years of age, and be qualified for election as a member of the:",
-        options: ["Rajya Sabha.", "Lok Sabha.", "State Legislative Assembly.", "Legislative Council."],
-        correctAnswerIndex: 0,
-        explanation: "Must be qualified for election to Rajya Sabha."
+        "id": "ch19-l1-q8",
+        "question": "Which of the following is a mandatory qualification to be eligible for election as Vice-President?",
+        "options": ["He must be qualified for election as a member of the Lok Sabha.","He must be qualified for election as a member of the Rajya Sabha.","He must have completed 30 years of age.","He must be a sitting Governor of a state."],
+        "correctAnswerIndex": 1,
+        "explanation": "To be Vice-President, a person must be qualified for election as a member of the Rajya Sabha. (For President, the qualification is for the Lok Sabha)."
     },
     {
-        id: "ch19-l1-q9",
-        question: "The oath of office to the Vice-President is administered by the:",
-        options: ["President.", "Chief Justice of India.", "Speaker of Lok Sabha.", "Prime Minister."],
-        correctAnswerIndex: 0,
-        explanation: "President administers the oath."
+        "id": "ch19-l1-q9",
+        "question": "What is the minimum age prescribed for a person to be eligible for election as Vice-President?",
+        "options": ["25 years","30 years","35 years","40 years"],
+        "correctAnswerIndex": 2,
+        "explanation": "A candidate must have completed 35 years of age to be eligible for the office of Vice-President."
     },
     {
-        id: "ch19-l1-q10",
-        question: "The Vice-President holds office for a term of:",
-        options: ["5 years.", "6 years.", "Until the pleasure of the President.", "Until the pleasure of Parliament."],
-        correctAnswerIndex: 0,
-        explanation: "Holds office for 5 years."
+        "id": "ch19-l1-q10",
+        "question": "To whom does the Vice-President subscribe his oath of office?",
+        "options": ["The Chief Justice of India","The outgoing Vice-President","The President, or some person appointed in that behalf by him","The Speaker of the Lok Sabha"],
+        "correctAnswerIndex": 2,
+        "explanation": "The oath of office to the Vice-President is administered by the President or some person appointed in that behalf by him."
     },
     {
-        id: "ch19-l1-q11",
-        question: "Does the Vice-President continue in office even after the expiration of his term until his successor assumes charge?",
-        options: ["Yes.", "No, the office becomes vacant.", "No, the Deputy Chairman takes over.", "Depends on President."],
-        correctAnswerIndex: 0,
-        explanation: "Yes, he continues until successor assumes charge."
+        "id": "ch19-l1-q11",
+        "question": "What is the normal term of office for the Vice-President?",
+        "options": ["4 years","5 years","6 years","During the pleasure of the President"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Vice-President holds office for a term of five years from the date on which he enters upon his office."
     },
     {
-        id: "ch19-l1-q12",
-        question: "The Vice-President can resign from his office at any time by addressing the resignation letter to the:",
-        options: ["President.", "Prime Minister.", "Chief Justice of India.", "Speaker of Lok Sabha."],
-        correctAnswerIndex: 0,
-        explanation: "Resignation is addressed to the President."
+        "id": "ch19-l1-q12",
+        "question": "To whom does the Vice-President address his resignation letter?",
+        "options": ["The Chief Justice of India","The President","The Deputy Chairman of Rajya Sabha","The Parliament"],
+        "correctAnswerIndex": 1,
+        "explanation": "However, he can resign from his office at any time by addressing the resignation letter to the President."
     },
     {
-        id: "ch19-l1-q13",
-        question: "The Vice-President can be removed from his office by a resolution of the:",
-        options: ["Rajya Sabha passed by an effective majority and agreed to by the Lok Sabha.", "Lok Sabha passed by an effective majority and agreed to by the Rajya Sabha.", "Both Houses by a special majority.", "Impeachment process similar to President."],
-        correctAnswerIndex: 0,
-        explanation: "Removal by Rajya Sabha effective majority + Lok Sabha agreement."
+        "id": "ch19-l1-q13",
+        "question": "Is formal impeachment required for the removal of the Vice-President?",
+        "options": ["Yes, exactly like the President.","No, a formal impeachment is not required for his removal.","Yes, but only by the Rajya Sabha.","Yes, but it requires Supreme Court approval."],
+        "correctAnswerIndex": 1,
+        "explanation": "A formal impeachment is not required for his removal. He can be removed by a resolution of the Rajya Sabha passed by an effective majority and agreed to by the Lok Sabha."
     },
     {
-        id: "ch19-l1-q14",
-        question: "A formal impeachment is required for the removal of the Vice-President.",
-        options: ["True.", "False."],
-        correctAnswerIndex: 1,
-        explanation: "False, no formal impeachment; resolution is sufficient."
+        "id": "ch19-l1-q14",
+        "question": "Can a resolution for the removal of the Vice-President be introduced in the Lok Sabha?",
+        "options": ["Yes, it can be introduced in either House.","No, it can be introduced ONLY in the Rajya Sabha and not in the Lok Sabha.","Yes, but only with the Speaker","No, it must originate in a joint sitting."],
+        "correctAnswerIndex": 1,
+        "explanation": "Notably, no impeachment is required; and a resolution for his removal can be introduced only in the Rajya Sabha and not in the Lok Sabha."
     },
     {
-        id: "ch19-l1-q15",
-        question: "Can a resolution for the removal of the Vice-President be introduced in the Lok Sabha?",
-        options: ["Yes.", "No, only in Rajya Sabha.", "Yes, if Speaker permits.", "Yes, if 50 members support."],
-        correctAnswerIndex: 1,
-        explanation: "Resolution can only be introduced in Rajya Sabha."
+        "id": "ch19-l1-q15",
+        "question": "How many days",
+        "options": ["7 days","14 days","21 days","30 days"],
+        "correctAnswerIndex": 1,
+        "explanation": "No such resolution can be moved unless at least 14 days’ advance notice has been given."
     },
     {
-        id: "ch19-l1-q16",
-        question: "At least how many days' notice should be given before moving such a resolution?",
-        options: ["14 days.", "30 days.", "7 days.", "No notice required."],
-        correctAnswerIndex: 0,
-        explanation: "14 days' notice is required."
+        "id": "ch19-l1-q16",
+        "question": "For the removal of the Vice-President, the Rajya Sabha must pass a resolution by a special majority (effective majority). What kind of majority is required in the Lok Sabha to agree to this resolution?",
+        "options": ["Absolute majority","Special majority","Simple majority","Two-thirds majority"],
+        "correctAnswerIndex": 2,
+        "explanation": "He can be removed by a resolution of the Rajya Sabha passed by an absolute majority (ie, a majority of the total members of the House) and agreed to by the Lok Sabha with a simple majority."
     },
     {
-        id: "ch19-l1-q17",
-        question: "The Vice-President is the ex-officio Chairman of the:",
-        options: ["Lok Sabha.", "Rajya Sabha.", "Both Houses.", "NITI Aayog."],
-        correctAnswerIndex: 1,
-        explanation: "Ex-officio Chairman of Rajya Sabha."
+        "id": "ch19-l1-q17",
+        "question": "What are the specific grounds mentioned in the Constitution for the removal of the Vice-President?",
+        "options": ["Violation of the Constitution","Incapacity and proved misbehaviour","Corruption","No ground has been mentioned in the Constitution for his removal."],
+        "correctAnswerIndex": 3,
+        "explanation": "Unlike the President (who can be removed for"
     },
     {
-        id: "ch19-l1-q18",
-        question: "While acting as President or discharging the functions of the President, does the Vice-President perform the duties of the Chairman of Rajya Sabha?",
-        options: ["Yes.", "No.", "Partially.", "Only voting."],
-        correctAnswerIndex: 1,
-        explanation: "No, he does not perform duties of Rajya Sabha Chairman."
+        "id": "ch19-l1-q18",
+        "question": "Can a Vice-President who has completed his five-year term be re-elected to the office?",
+        "options": ["No, he can only serve one term.","Yes, he is eligible for re-election to that office for any number of terms.","Yes, but only for a maximum of two terms.","Yes, but only if the sitting President agrees."],
+        "correctAnswerIndex": 1,
+        "explanation": "He is eligible for re-election to that office. He may be elected for any number of terms."
     },
     {
-        id: "ch19-l1-q19",
-        question: "During this period (acting as President), the duties of the Chairman represent performed by the:",
-        options: ["Deputy Chairman of Rajya Sabha.", "Speaker of Lok Sabha.", "Chief Justice.", "Senior-most member."],
-        correctAnswerIndex: 0,
-        explanation: "Deputy Chairman performs the duties."
+        "id": "ch19-l1-q19",
+        "question": "An election to fill a vacancy caused by the expiration of the term of office of the Vice-President must be held:",
+        "options": ["Within six months of the vacancy.","Within one year of the vacancy.","Before the expiration of the term.","As soon as possible."],
+        "correctAnswerIndex": 2,
+        "explanation": "An election to fill a vacancy caused by the expiration of the term of office of Vice-President shall be completed before the expiration of the term."
     },
     {
-        id: "ch19-l1-q20",
-        question: "The Vice-President can act as President for a maximum period of:",
-        options: ["6 months.", "1 year.", "3 months.", "Indefinitely."],
-        correctAnswerIndex: 0,
-        explanation: "Maximum period is 6 months (election must be held)."
+        "id": "ch19-l1-q20",
+        "question": "What is the primary, ex-officio role of the Vice-President of India?",
+        "options": ["To advise the President on legal matters.","To act as the ex-officio Chairman of Rajya Sabha.","To head the NITI Aayog.","To command the armed forces in the President"],
+        "correctAnswerIndex": 1,
+        "explanation": "He acts as the ex-officio Chairman of Rajya Sabha. In this capacity, his powers and functions are similar to those of the Speaker of Lok Sabha."
     },
     {
-        id: "ch19-l1-q21",
-        question: "While acting as President, the Vice-President is entitled to the salary and allowances of the:",
-        options: ["President.", "Chairman of Rajya Sabha.", "Vice-President.", "Member of Parliament."],
-        correctAnswerIndex: 0,
-        explanation: "Entitled to President's salary and allowances."
+        "id": "ch19-l1-q21",
+        "question": "When the Vice-President acts as President due to a vacancy in the President",
+        "options": ["He continues to perform the duties of the Chairman of Rajya Sabha simultaneously.","He does not perform the duties of the office of the chairman of Rajya Sabha.","He assumes the role of Speaker of the Lok Sabha instead.","He appoints a temporary Chairman from his staff."],
+        "correctAnswerIndex": 1,
+        "explanation": "While acting as President or discharging the functions of President, the Vice-President does not perform the duties of the office of the chairman of Rajya Sabha. During this period, those duties are performed by the Deputy Chairman of Rajya Sabha."
     },
     {
-        id: "ch19-l1-q22",
-        question: "The Constitution has not fixed any emoluments for the Vice-President in that capacity. He draws his regular salary in his capacity as:",
-        options: ["Ex-officio Chairman of the Rajya Sabha.", "Vice-President of India.", "Member of Parliament.", "Head of State."],
-        correctAnswerIndex: 0,
-        explanation: "Draws salary as Chairman of Rajya Sabha."
+        "id": "ch19-l1-q22",
+        "question": "For what maximum duration can the Vice-President act as President?",
+        "options": ["Three months","Six months","One year","For the remainder of the deceased President"],
+        "correctAnswerIndex": 1,
+        "explanation": "He can act as President only for a maximum period of six months within which a new President has to be elected."
     },
     {
-        id: "ch19-l1-q23",
-        question: "If the office of Vice-President falls vacant, the election should be held:",
-        options: ["As soon as possible (no 6-month limit specified).", "Within 6 months.", "Within 1 year.", "Immediately."],
-        correctAnswerIndex: 0,
-        explanation: "Election to be held 'as soon as possible'."
+        "id": "ch19-l1-q23",
+        "question": "During the period the Vice-President acts as President, what salary does he receive?",
+        "options": ["His salary as the Chairman of the Rajya Sabha.","Half the salary of the President and half as Chairman.","The salary and allowance of the President.","A special emergency allowance determined by Parliament."],
+        "correctAnswerIndex": 2,
+        "explanation": "During this period, he is not entitled to the salary or allowance payable to the chairman of Rajya Sabha, but the salary and allowance of the President."
     },
     {
-        id: "ch19-l1-q24",
-        question: "Who determines the doubts and disputes relating to the election of the Vice-President?",
-        options: ["Supreme Court.", "Election Commission.", "Parliament.", "President."],
-        correctAnswerIndex: 0,
-        explanation: "Supreme Court determines disputes."
+        "id": "ch19-l1-q24",
+        "question": "Is there any provision in the Constitution regarding the salary of the Vice-President in his capacity specifically as the Vice-President?",
+        "options": ["Yes, the Constitution fixes it at Rs 4 lakh per month.","Yes, but it varies according to the economic situation.","The Constitution has not fixed any emoluments for the Vice-President in that capacity.","Yes, it is dynamically pegged to the Chief Justice"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Constitution has not fixed any emoluments for the Vice-President in that capacity. He draws his regular salary in his capacity as the ex-officio Chairman of the Rajya Sabha."
     },
     {
-        id: "ch19-l1-q25",
-        question: "Can the election of the Vice-President be challenged on the ground that the electoral college was incomplete (e.g., some seats were vacant)?",
-        options: ["Yes.", "No.", "Yes, if substantial seats vacant.", "Depends on court."],
-        correctAnswerIndex: 1,
-        explanation: "No, cannot be challenged on ground of vacancy."
+        "id": "ch19-l1-q25",
+        "question": "If a sitting Vice-President contests an election for the office of President, must they resign from the Vice-Presidency first?",
+        "options": ["Yes, to avoid a conflict of interest.","No, a sitting Vice-President is not deemed to hold an","and is thus qualified to contest.","Yes, but only if they belong to the ruling party.","Yes, the Constitution explicitly requires it."],
+        "correctAnswerIndex": 1,
+        "explanation": "A sitting President or Vice-President of the Union, the governor of any state and a minister for the Union or any state is not deemed to hold any office of profit and hence qualified for being a candidate for Vice-President (or President)."
     },
     {
-        id: "ch19-l1-q26",
-        question: "Are the nominated members of Parliament eligible to vote in the Vice-Presidential election?",
-        options: ["Yes.", "No.", "Only if they join a party.", "Only in Lok Sabha."],
-        correctAnswerIndex: 0,
-        explanation: "Yes, nominated members can vote."
+        "id": "ch19-l1-q26",
+        "question": "Who was the first Vice-President of India?",
+        "options": ["Dr. Rajendra Prasad","Dr. S. Radhakrishnan","Dr. Zakir Hussain","V.V. Giri"],
+        "correctAnswerIndex": 1,
+        "explanation": "Dr. S Radhakrishnan was the first Vice President of India."
     },
     {
-        id: "ch19-l1-q27",
-        question: "Is the Vice-President a member of the House of which he is the Chairman?",
-        options: ["Yes.", "No.", "Only if elected.", "Ex-officio member."],
-        correctAnswerIndex: 1,
-        explanation: "No, he is not a member of Rajya Sabha."
+        "id": "ch19-l1-q27",
+        "question": "When the Vice-President acts as President, who presides over the Rajya Sabha?",
+        "options": ["The Vice-President continues to preside.","The Speaker of the Lok Sabha.","The Deputy Chairman of the Rajya Sabha.","The Chief Justice of India."],
+        "correctAnswerIndex": 2,
+        "explanation": "While acting as President... those duties [Chairman] are performed by the Deputy Chairman of Rajya Sabha."
     },
     {
-        id: "ch19-l1-q28",
-        question: "Can the Vice-President vote in the first instance in the Rajya Sabha?",
-        options: ["Yes.", "No.", "Only on financial bills.", "Only on constitutional amendments."],
-        correctAnswerIndex: 1,
-        explanation: "No, he has no vote in the first instance."
+        "id": "ch19-l1-q28",
+        "question": "The Vice-President can act as President when the President is unable to discharge his functions due to:",
+        "options": ["Absence, illness, or any other cause.","Only due to impeachment.","Only due to resignation.","Only due to death."],
+        "correctAnswerIndex": 0,
+        "explanation": "He acts as President when a vacancy occurs in the office of the President... He can also discharge the functions of the President when he is unable to discharge his functions due to absence, illness or any other cause."
     },
     {
-        id: "ch19-l1-q29",
-        question: "Can the Vice-President exercise a casting vote in the case of an equality of votes?",
-        options: ["Yes.", "No.", "Only if permitted by the House.", "Only in joint sittings."],
-        correctAnswerIndex: 0,
-        explanation: "Yes, he has a casting vote."
+        "id": "ch19-l1-q29",
+        "question": "In what circumstance does the Vice-President act as the President of India?",
+        "options": ["During a National Emergency.","When the Lok Sabha is dissolved.","When a vacancy occurs in the office of the President due to mere resignation, removal, death or otherwise.","When the President travels abroad."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Vice-President acts as President when a vacancy occurs in the office of the President due to his resignation, removal, death or otherwise."
     },
     {
-        id: "ch19-l1-q30",
-        question: "Is the Vice-President subject to impeachment for violation of the Constitution?",
-        options: ["Yes.", "No (Constitution does not mention grounds).", "Yes, on grounds of incapacity.", "Yes, for corruption."],
-        correctAnswerIndex: 1,
-        explanation: "No formal impeachment; Constitution mentions no grounds."
-    },
-    {
-        id: "ch19-l1-q31",
-        question: "When the Vice-President acts as President, does he have the power to pardon (Article 72)?",
-        options: ["Yes.", "No.", "Only for minor offenses.", "Only with CJI concurrence."],
-        correctAnswerIndex: 0,
-        explanation: "Yes, he exercises all powers of the President."
-    },
-    {
-        id: "ch19-l1-q32",
-        question: "The nomination of a candidate for election to the office of Vice-President must be subscribed by at least ______ electors as proposers and ______ electors as seconders.",
-        options: ["20 proposers, 20 seconders.", "50 proposers, 50 seconders.", "10 proposers, 10 seconders.", "5 proposers, 5 seconders."],
-        correctAnswerIndex: 0,
-        explanation: "20 proposers and 20 seconders required."
-    },
-    {
-        id: "ch19-l1-q33",
-        question: "The security deposit for the Vice-Presidential election is:",
-        options: ["₹15,000.", "₹25,000.", "₹10,000.", "₹5,000."],
-        correctAnswerIndex: 0,
-        explanation: "Security deposit is ₹15,000."
-    },
-    {
-        id: "ch19-l1-q34",
-        question: "Who was the first Vice-President of India?",
-        options: ["Dr. S. Radhakrishnan.", "Dr. Zakir Hussain.", "V.V. Giri.", "G.S. Pathak."],
-        correctAnswerIndex: 0,
-        explanation: "Dr. S. Radhakrishnan was the first Vice-President."
-    },
-    {
-        id: "ch19-l1-q35",
-        question: "Can a sitting Governor of a State contest the election for Vice-President?",
-        options: ["Yes, the office of Governor is not an office of profit for this purpose.", "No, he must resign first.", "Yes, but he must take leave.", "No, strictly prohibited."],
-        correctAnswerIndex: 0,
-        explanation: "Yes, Governor is not an office of profit."
+        "id": "ch19-l1-q30",
+        "question": "Which Constitutional authority checks and resolves all election disputes regarding the Vice-Presidency?",
+        "options": ["The Election Commission alone.","A Joint Parliamentary Committee.","The Supreme Court of India.","The Delhi High Court."],
+        "correctAnswerIndex": 2,
+        "explanation": "All doubts and disputes in connection with election of the Vice-President are inquired into and decided by the Supreme Court whose decision is final."
     }
 ];
 
-// Level 2: The Conceptual Bridge (Applied Knowledge)
 const LEVEL_2_QUESTIONS = [
     {
-        id: "ch19-l2-q1",
-        question: "The American Vice-President succeeds to the presidency when it falls vacant, and serves the unexpired term of his predecessor. Does the Indian Vice-President do the same?",
-        options: ["Yes.", "No, he acts as President only until a new President is elected (max 6 months).", "Yes, if Parliament approves.", "Yes, if the remaining term is less than 1 year."],
-        correctAnswerIndex: 1,
-        explanation: "No, he acts only until a new President is elected."
+        "id": "ch19-l2-q1",
+        "question": "Why did the framers of the Constitution include nominated members of Parliament in the Electoral College for the Vice-President, but explicitly exclude them from the Electoral College of the President?",
+        "options": ["Because nominated members lack the political experience required to choose the Head of State, but can choose the Chairman of the Rajya Sabha.","Because the Vice-President","To give the ruling party an edge in the Vice-Presidential election.","Because nominated members cannot be trusted with the nuclear codes."],
+        "correctAnswerIndex": 1,
+        "explanation": "The President is the Head of State; his electoral college must reflect solely the elected will of the entire nation (MPs and MLAs). The Vice-President"
     },
     {
-        id: "ch19-l2-q2",
-        question: "The Constitution has not assigned any significant function to the Vice-President in that capacity. Hence, scholars often call him:",
-        options: ["His Superfluous Highness.", "The Second Citizen.", "The Spare Wheel.", "Note the wording."],
-        correctAnswerIndex: 0,
-        explanation: "Often called 'His Superfluous Highness'."
+        "id": "ch19-l2-q2",
+        "question": "Consider the mechanism for removing the Vice-President (Article 67). While a formal",
+        "options": ["A resolution passed by both Houses of Parliament with a two-thirds majority.","A resolution initiated and passed by the Rajya Sabha with an","(majority of all the then members of the Rajya Sabha) AND subsequently agreed to by the Lok Sabha with a simple majority.","A resolution passed solely by the Rajya Sabha.","An executive order by the President on the advice of the Prime Minister."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Vice-President is primarily the officer of the Rajya Sabha. Therefore, removal proceedings MUST originate in the Rajya Sabha. It requires an"
     },
     {
-        id: "ch19-l2-q3",
-        question: "While acting as President, can the Vice-President preside over the Rajya Sabha?",
-        options: ["Yes.", "No.", "Only for formal occasions.", "If the House permits."],
-        correctAnswerIndex: 1,
-        explanation: "No, he cannot preside over Rajya Sabha while acting as President."
+        "id": "ch19-l2-q3",
+        "question": "While acting as the President of India during a vacancy, the Vice-President ceases to perform the duties of the Chairman of the Rajya Sabha. During this period, what is his constitutional status regarding his Rajya Sabha salary?",
+        "options": ["He draws both the salary of the President and the Chairman of the Rajya Sabha.","He draws only the salary of the Chairman of the Rajya Sabha.","He is not entitled to the salary or allowance payable to the Chairman of Rajya Sabha. He draws the salary and allowance solely of the President.","He receives no salary as it is an honorary acting position."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 65(3) mandate that while the Vice-President acts as President, he has all the powers and immunities of the President and is entitled to the President"
     },
     {
-        id: "ch19-l2-q4",
-        question: "While acting as President, the salary of the Vice-President (as Chairman of Rajya Sabha) ______.",
-        options: ["Continues.", "Ceases.", "Is reduced by half.", "Is doubled."],
-        correctAnswerIndex: 1,
-        explanation: "Salary as Chairman ceases."
+        "id": "ch19-l2-q4",
+        "question": "A Vice-President holds office for a term of five years. What happens if this five-year term expires before his successor has been formally elected and assumed office?",
+        "options": ["The office remains completely vacant.","The Chief Justice of India instantly takes over the Vice-Presidency.","The incumbent Vice-President MUST continue to hold office, notwithstanding the expiration of his term, until his successor enters upon his office.","The Deputy Chairman of the Rajya Sabha acts as the Vice-President."],
+        "correctAnswerIndex": 2,
+        "explanation": "Under Article 67, the Constitution abhors a vacuum in this vital office. Even if the 5-year clock stops, the outgoing Vice-President doesn"
     },
     {
-        id: "ch19-l2-q5",
-        question: "The removal resolution of the Vice-President is listed in Article 67(b). It requires:",
-        options: ["Majority of all the then members of the Rajya Sabha (Effective Majority) + Simple Majority in Lok Sabha.", "Special Majority in both Houses.", "Simple Majority in both Houses.", "Absolute Majority in both Houses."],
-        correctAnswerIndex: 0,
-        explanation: "Effective Majority in RS + Simple Majority in LS."
+        "id": "ch19-l2-q5",
+        "question": "Regarding",
+        "options": ["All bills passed by the Rajya Sabha under his chairmanship are retrospectively nullified.","The Supreme Court must individually review every single action.","The acts done by him in the performance of his duties before the date of the Supreme Court declaration remain perfectly valid.","The Lok Sabha Speaker must retrospectively ratify those actions."],
+        "correctAnswerIndex": 2,
+        "explanation": "Just like the President, the"
     },
     {
-        id: "ch19-l2-q6",
-        question: "This \"Effective Majority\" in Rajya Sabha means:",
-        options: ["More than 50% of the Total Strength.", "More than 50% of the Total Strength minus Vacancies.", "Two-thirds of members present and voting.", "Two-thirds of total membership."],
-        correctAnswerIndex: 1,
-        explanation: "Majority of 'then members' (Total - Vacancies)."
+        "id": "ch19-l2-q6",
+        "question": "Compare the Indian Vice-President with the American Vice-President in the specific scenario where the office of the President falls vacant due to death. What is the fundamental difference in their succession roles?",
+        "options": ["The Indian VP becomes the President for the remaining term; the American VP only acts as President for 6 months.","The American VP assumes the office of the President permanently for the unexpired term of his predecessor. The Indian VP merely","as President temporarily until a new President is elected within 6 months.","Both VP systems operate exactly the same way regarding succession.","The Indian VP cannot succeed the President under any circumstances."],
+        "correctAnswerIndex": 1,
+        "explanation": "This is a massive constitutional distinction. When JFK died, LBJ became the actual President for the remainder of JFK"
     },
     {
-        id: "ch19-l2-q7",
-        question: "Dr. S. Radhakrishnan was elected as Vice-President for how many terms?",
-        options: ["Once.", "Twice.", "Thrice.", "Four times."],
-        correctAnswerIndex: 1,
-        explanation: "He was elected twice (1952 and 1957)."
+        "id": "ch19-l2-q7",
+        "question": "When a resolution for the removal of the Vice-President is under consideration in the Rajya Sabha, what are his rights regarding participation in the proceedings?",
+        "options": ["He must preside over his own removal debate to ensure fairness.","He is completely barred from entering the Parliament building.","He has the right to speak in, and otherwise take part in the proceedings of the Rajya Sabha, but he shall not be entitled to vote at all on such a resolution.","He has the right to vote if there is a tie."],
+        "correctAnswerIndex": 2,
+        "explanation": "Under Article 92, while the resolution for his removal is discussed, the Vice-President cannot preside over the Rajya Sabha. He can sit as an ordinary member, defend himself, and participate in the debate, but he loses his normal casting vote entirely on the resolution itself."
     },
     {
-        id: "ch19-l2-q8",
-        question: "Krishna Kant was the first Vice-President to:",
-        options: ["Resign.", "Die in office.", "Be removed.", "Become President."],
-        correctAnswerIndex: 1,
-        explanation: "First Vice-President to die in office."
+        "id": "ch19-l2-q8",
+        "question": "To be eligible to run for Vice-President, a candidate must be",
+        "options": ["He must not hold an office of profit.","He must be a registered elector in any parliamentary constituency in India.","He must actually be a sitting member of the Rajya Sabha at the time of contesting.","He must be 35 years old."],
+        "correctAnswerIndex": 2,
+        "explanation": "The key phrase is"
     },
     {
-        id: "ch19-l2-q9",
-        question: "When B.D. Jatti acted as President (after Fakhruddin Ali Ahmed's death), who discharged the duties of the Chairman of Rajya Sabha?",
-        options: ["The Deputy Chairman.", "A member nominated by the President.", "The Speaker.", "The Chief Justice."],
-        correctAnswerIndex: 0,
-        explanation: "The Deputy Chairman discharged the duties."
+        "id": "ch19-l2-q9",
+        "question": "Consider the condition of office:",
+        "options": ["The sitting President","A sitting Governor of a State","A sitting Union Cabinet Minister","A highly paid Chairman of a Public Sector Undertaking (PSU)"],
+        "correctAnswerIndex": 3,
+        "explanation": "Political executive offices (President, VP, Governor, Ministers) are constitutionally exempt from the"
     },
     {
-        id: "ch19-l2-q10",
-        question: "Only one Vice-President resigned from his office to contest for the Presidency and won. Who was he?",
-        options: ["V.V. Giri.", "R. Venkataraman.", "S.D. Sharma.", "B.S. Shekhawat."],
-        correctAnswerIndex: 0,
-        explanation: "V.V. Giri resigned to contest."
+        "id": "ch19-l2-q10",
+        "question": "Assertion (A): The Constitution does not assign any significant executive functions to the Vice-President in his normal capacity.\\nReason (R): Because his office was modeled on the American Vice-President solely to create a political",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","Both A and R are false."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. The Vice-President has almost zero executive power while the President is alive and well. His entire day job is managing the Rajya Sabha. The framers literally created the role as a constitutional"
     },
     {
-        id: "ch19-l2-q11",
-        question: "Is the Vice-President impeached?",
-        options: ["Yes, Article 61 applies.", "No, Article 61 applies only to the President.", "Yes, but by a different procedure.", "Yes, by the Supreme Court."],
-        correctAnswerIndex: 1,
-        explanation: "No, Article 61 is only for President."
+        "id": "ch19-l2-q11",
+        "question": "If the Vice-President is discharging the functions of the President (due to the President",
+        "options": ["He continues to perform the duties of the Chairman of Rajya Sabha simultaneously.","He does not perform the duties of the office of the Chairman of Rajya Sabha; those duties are performed by the Deputy Chairman.","The President appoints a temporary Chairman.","The Rajya Sabha sessions are suspended."],
+        "correctAnswerIndex": 1,
+        "explanation": "Under Article 65, whether the VP is"
     },
     {
-        id: "ch19-l2-q12",
-        question: "Can the Vice-President be removed on the ground of \"Violation of the Constitution\"?",
-        options: ["The Constitution mentions no ground for his removal.", "Yes, explicitly mentioned.", "No, only for corruption.", "No, only for incapacity."],
-        correctAnswerIndex: 0,
-        explanation: "Constitution mentions no ground for removal."
+        "id": "ch19-l2-q12",
+        "question": "Which of the following bodies conducts the election for the office of the Vice-President of India?",
+        "options": ["The Parliament of India","The Supreme Court of India","The Election Commission of India","The Ministry of Parliamentary Affairs"],
+        "correctAnswerIndex": 2,
+        "explanation": "Under Article 324, the superintendence, direction, and control of the preparation of electoral rolls for, and the conduct of, all elections to Parliament, State Legislatures, and the offices of President and Vice-President are vested in the Election Commission."
     },
     {
-        id: "ch19-l2-q13",
-        question: "Who decides the election disputes of the Vice-President?",
-        options: ["Supreme Court (Article 71).", "High Court.", "Election Commission.", "Parliament."],
-        correctAnswerIndex: 0,
-        explanation: "Supreme Court under Article 71."
+        "id": "ch19-l2-q13",
+        "question": "If an election to the office of the Vice-President cannot be held prior to the expiration of the term of the outgoing Vice-President, what does the Constitution propose?",
+        "options": ["The office remains vacant.","The Chief Justice of India assumes the role temporarily.","The outgoing Vice-President continues to hold office, notwithstanding the expiration of his term, until his successor is elected and assumes office.","The Parliament must enact a special law."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 67(c) states explicitly: a Vice-President shall, notwithstanding the expiration of his term, continue to hold office until his successor enters upon his office."
     },
     {
-        id: "ch19-l2-q14",
-        question: "The Vice-Presidential election is conducted by:",
-        options: ["Election Commission of India.", "Parliament Secretariat.", "Supreme Court.", "State Election Commissions."],
-        correctAnswerIndex: 0,
-        explanation: "Conducted by Election Commission of India."
+        "id": "ch19-l2-q14",
+        "question": "Consider the resolution for the removal of the Vice-President. Before moving this resolution in the Rajya Sabha, what is the mandatory notice period required?",
+        "options": ["7 days","14 days","21 days","30 days"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 67(b) dictates that no resolution for the removal of the Vice-President shall be moved unless at least fourteen days"
     },
     {
-        id: "ch19-l2-q15",
-        question: "The \"Returning Officer\" for the Vice-Presidential election is typically:",
-        options: ["Secretary General of Lok Sabha or Rajya Sabha (by rotation).", "Chief Election Commissioner.", "Law Minister.", "Cabinet Secretary."],
-        correctAnswerIndex: 0,
-        explanation: "Secretary General of LS/RS by rotation."
+        "id": "ch19-l2-q15",
+        "question": "Can the Vice-President of India simultaneously be a member of the State Legislature (MLA/MLC)?",
+        "options": ["Yes, provided they do not draw a salary from the State.","No, the Constitution explicitly prohibits it.","Yes, but only in their home state.","Yes, if they are nominated rather than elected."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 66(2) provides that the Vice-President shall not be a member of either House of Parliament or a House of the Legislature of any State. If such a member is elected VP, he shall be deemed to have vacated his seat in that House on the date he enters upon his office."
     },
     {
-        id: "ch19-l2-q16",
-        question: "If a person is elected as Vice-President, he is deemed to have vacated his seat in Parliament or State Legislature on:",
-        options: ["The date he enters upon his office as Vice-President.", "The date of his election.", "The date of his nomination.", "Generally he resigns before contesting."],
-        correctAnswerIndex: 0,
-        explanation: "Vacates seat on date of entering office."
+        "id": "ch19-l2-q16",
+        "question": "What is the primary factor that decides the Vice-President",
+        "options": ["His responsibilities as Vice-President.","His age and political experience.","He draws the regular salary assigned to the ex-officio Chairman of the Rajya Sabha.","A specific clause in the original Constitution."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Constitution does not prescribe a salary for the Vice-President in that capacity. He draws his regular salary in his capacity as the ex-officio Chairman of the Rajya Sabha, determined by Parliament from time to time."
     },
     {
-        id: "ch19-l2-q17",
-        question: "The oath of the Vice-President (Article 69) is to:",
-        options: ["Bear true faith and allegiance to the Constitution.", "Preserve, protect and defend the Constitution (This is for President).", "Uphold the sovereignty of India.", "Do right to all manner of people."],
-        correctAnswerIndex: 0,
-        explanation: "Bear true faith and allegiance to the Constitution."
+        "id": "ch19-l2-q17",
+        "question": "If the Supreme Court is hearing a petition regarding an election dispute concerning the Vice-President, can the petitioner challenge the election on the ground that the electoral college was",
+        "options": ["Yes, an incomplete electoral college renders the election automatically void.","No, the Constitution explicitly states that the election of a person as VP shall not be called in question on the ground of the existence of any vacancy among the members of the electoral college.","Yes, but only if more than 10% of the seats are vacant.","Yes, but only if the Election Commission agrees."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 71(4) is a crucial stabilizing clause. The election of a President or Vice-President cannot be challenged merely because some seats in Parliament or Assemblies were vacant at the time of voting. This prevents political games where members resign to block the election."
     },
     {
-        id: "ch19-l2-q18",
-        question: "The President's oath includes \"Preserve, protect and defend the Constitution\". The Vice-President's oath is:",
-        options: ["Simpler (Faith and allegiance + faithfully discharge duty).", "Same as President.", "Same as PM.", "Same as CJI."],
-        correctAnswerIndex: 0,
-        explanation: "Simpler: Faith and allegiance + faithfully discharge duty."
+        "id": "ch19-l2-q18",
+        "question": "Assertion (A): The Vice-President is strictly bound by the advice of the Council of Ministers while acting as the Chairman of the Rajya Sabha.\\nReason (R): Because Article 74 mandates that there shall be a Council of Ministers to aid and advise the President, and the Vice-President represents the President in the upper house.\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","Both A and R are false."],
+        "correctAnswerIndex": 3,
+        "explanation": "Both are false. The Vice-President, when presiding over the Rajya Sabha, acts as an independent legislative presiding officer (like the Speaker). He is NOT a representative of the Executive/President in the House. He is absolutely NOT bound by the advice of the Prime Minister"
     },
     {
-        id: "ch19-l2-q19",
-        question: "Can the Vice-President be re-elected?",
-        options: ["Yes, for any number of terms.", "No, only two terms.", "No, only one term.", "Yes, but not consecutively."],
-        correctAnswerIndex: 0,
-        explanation: "Yes, for any number of terms."
+        "id": "ch19-l2-q19",
+        "question": "Compare the removal process of the Vice-President with that of a Supreme Court Judge. What is a key difference?",
+        "options": ["VP requires proven misbehavior; SC judge does not.","VP requires a two-thirds majority in both houses; SC judge requires a simple majority.","VP removal is initiated only in Rajya Sabha and only requires an effective majority there and simple agreement in Lok Sabha; an SC Judge requires a strict special majority (2/3rds present and voting) in BOTH Houses.","There is no difference in the procedure."],
+        "correctAnswerIndex": 2,
+        "explanation": "Removing an SC Judge is intentionally harder (impeachment-style special majority in both houses) to protect judicial independence. Removing the VP is relatively easier (effective majority in RS, simple majority in LS) because the VP is primarily a parliamentary officer, not an independent adjudicator."
     },
     {
-        id: "ch19-l2-q20",
-        question: "If the election of a person as Vice-President is declared void by the Supreme Court, act done by him before the date of such declaration are:",
-        options: ["Invalidated.", "Not invalidated (They remain in force).", "Suspended.", "Reviewed by Parliament."],
-        correctAnswerIndex: 1,
-        explanation: "Acts remain valid (not invalidated)."
-    },
-    {
-        id: "ch19-l2-q21",
-        question: "Comparison with Speaker. The Speaker is a member of the House. The Vice-President is not. Both have a casting vote. Who can vote in the first instance?",
-        options: ["Speaker (No) - VP (No).", "Speaker (No) - VP (Yes).", "Speaker (Yes, in removal) - VP (No).", "Neither."],
-        correctAnswerIndex: 2,
-        explanation: "Neither generally, but Speaker can vote in removal proceedings."
-    },
-    {
-        id: "ch19-l2-q22",
-        question: "During the removal of the Vice-President in Rajya Sabha, can he vote?",
-        options: ["No, he cannot vote (not a member).", "Yes, he can vote.", "He has a casting vote.", "He can vote in first instance."],
-        correctAnswerIndex: 0,
-        explanation: "No, he cannot vote as he is not a member."
-    },
-    {
-        id: "ch19-l2-q23",
-        question: "During the removal of the Speaker in Lok Sabha, can he vote?",
-        options: ["Yes, in the first instance (Article 96).", "No.", "Only casting vote.", "Only if tie."],
-        correctAnswerIndex: 0,
-        explanation: "Yes, Speaker can vote in first instance during removal."
-    },
-    {
-        id: "ch19-l2-q24",
-        question: "The Vice-President submits his resignation to the President. Who communicates it to the Speaker?",
-        options: ["President (unlike VP resignation which goes to President).", "No specific provision.", "VP himself.", "Cabinet."],
-        correctAnswerIndex: 1,
-        explanation: "No specific provision for communicating VP resignation."
-    },
-    {
-        id: "ch19-l2-q25",
-        question: "Is there any provision for the \"Deputy Vice-President\"?",
-        options: ["No.", "Yes.", "In practice only.", "In Constitution."],
-        correctAnswerIndex: 0,
-        explanation: "No such office exists."
-    },
-    {
-        id: "ch19-l2-q26",
-        question: "Who was the only Vice-President to die in office?",
-        options: ["Krishna Kant.", "B.S. Shekhawat.", "G.S. Pathak.", "B.D. Jatti."],
-        correctAnswerIndex: 0,
-        explanation: "Krishna Kant."
-    },
-    {
-        id: "ch19-l2-q27",
-        question: "When the Vice-President acts as President, who performs the duties of the Chairman of Rajya Sabha?",
-        options: ["Deputy Chairman of Rajya Sabha.", "Senior-most member.", "Speaker.", "None."],
-        correctAnswerIndex: 0,
-        explanation: "Deputy Chairman."
-    },
-    {
-        id: "ch19-l2-q28",
-        question: "Can the Vice-President be appointed as the Governor of a State?",
-        options: ["No, he holds a constitutional office.", "Yes, after his term ends.", "Yes, concurrently.", "Yes, if President allows."],
-        correctAnswerIndex: 1,
-        explanation: "Yes, after his term ends (no bar)."
-    },
-    {
-        id: "ch19-l2-q29",
-        question: "The Vice-President is chairman of which of the following awards juries?",
-        options: ["Pravasi Bharatiya Samman.", "Padma Awards.", "Gandhi Peace Prize.", "Bharat Ratna."],
-        correctAnswerIndex: 0,
-        explanation: "Chairman of Pravasi Bharatiya Samman jury."
-    },
-    {
-        id: "ch19-l2-q30",
-        question: "Does the Vice-President have a right to speak in the Rajya Sabha?",
-        options: ["Yes, as its Chairman.", "No.", "Only on bills.", "Only on Fridays."],
-        correctAnswerIndex: 0,
-        explanation: "Yes, as Presiding Officer."
+        "id": "ch19-l2-q20",
+        "question": "In the event both the President and Vice-President die in a tragic accident simultaneously, who is legally designated to act as President under the",
+        "options": ["The Prime Minister","The Speaker of the Lok Sabha","The Chief Justice of India (CJI), or in his absence, the senior-most Judge of the Supreme Court.","The longest-serving State Governor"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Constitution itself only outlined the VP succeeding the President. Parliament enacted the 1969 Act to outline the further line of succession. If both top offices are suddenly vacant (as happened when Zakir Hussain died and VP V.V. Giri resigned to contest the election), the Chief Justice of India (M. Hidayatullah in that historical case) steps in as acting President."
     }
 ];
 
-// Level 3: The UPSC Prelims 2026 Simulation (Integrated & Current Affairs)
 const LEVEL_3_QUESTIONS = [
     {
-        id: "ch19-l3-q1",
-        question: "The Supreme Court in the \"Dr. N.B. Khare vs Election Commission\" (1957) case held that:",
-        options: ["The election of the President/Vice-President cannot be challenged on the ground that there is a vacancy in the Electoral College.", "The election can be challenged on vacancy grounds.", "The election must be postponed if seats are vacant.", "The EC must fill vacancies first."],
-        correctAnswerIndex: 0,
-        explanation: "Cannot be challenged on ground of vacancy in electoral college."
+        "id": "ch19-l3-q1",
+        "question": "Analyze the constitutional",
+        "options": ["He has a","vote like any ordinary Member of Parliament.","He has absolutely no voting power in the Rajya Sabha under any circumstances.","He cannot vote in the first instance. However, in the case of an equality of votes (a tie) on any issue or bill, he exercises a decisive","to resolve the deadlock.","He can vote only on Constitutional Amendment Bills."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 100(1) defines this precisely. The Chairman (or Speaker in LS) shall not vote in the first instance. This preserves the impartiality of the presiding officer. But if the House is split exactly 50/50, the presiding officer is compelled to cast the deciding vote to break the institutional paralysis."
     },
     {
-        id: "ch19-l3-q2",
-        question: "Jagdeep Dhankhar, the current Vice-President, was previously the:",
-        options: ["Governor of West Bengal.", "Union Minister of Law.", "Governor of Bihar.", "Chief Justice of Rajasthan."],
-        correctAnswerIndex: 0,
-        explanation: "Previously Governor of West Bengal."
+        "id": "ch19-l3-q2",
+        "question": "Consider the constitutional situation when the President",
+        "options": ["The Acting President serves the full remainder of the deceased/resigned President","A fresh election MUST be held within exactly one year, and the new President serves only for the remaining unexpired term.","A fresh election MUST be held as soon as possible after, and in no case later than six months from, the date of occurrence of the vacancy. The newly elected President then serves a full fresh term of five years.","The Parliament decides the timeline via a simple resolution."],
+        "correctAnswerIndex": 2,
+        "explanation": "This is a dual testing point. First, Article 62(2) strictly mandates a 6-month deadline for the new election, ending the VP"
     },
     {
-        id: "ch19-l3-q3",
-        question: "If the Rajya Sabha initiates the removal of the Vice-President, can the Vice-President preside over the session?",
-        options: ["Article 92 says \"No\". He cannot preside while a resolution for his removal is under consideration.", "Yes, he can preside.", "He can be present but provided he does not vote.", "He presides until voted out."],
-        correctAnswerIndex: 0,
-        explanation: "Article 92: Cannot preside during removal consideration."
+        "id": "ch19-l3-q3",
+        "question": "Examine the semantic nuance of",
+        "options": ["Because the Vice-President is a lesser officer.","Because an","(like Art 61) is a quasi-judicial process involving formal framing of legal charges (",") by one House and investigation by the other. The VP","Because","requires the Supreme Court","t need.","Because","can only happen for corruption, while","is for treason."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Supreme Court noted this crucial difference. To oust the President, Parliament must act like a court: draft specific charges, inform him, allow him counsel, investigate, and vote 2/3rds. To oust the VP, Parliament just needs to pass a resolution (Effective majority RS, Simple majority LS). There is no constitutional requirement for a quasi-judicial trial/defense, making it a purely political"
     },
     {
-        id: "ch19-l3-q4",
-        question: "If the Vice-President cannot preside under Article 92, who presides?",
-        options: ["Deputy Chairman.", "A member from the Panel of Vice-Chairmen.", "Speaker.", "Any member determined by the House."],
-        correctAnswerIndex: 0,
-        explanation: "Deputy Chairman presides."
+        "id": "ch19-l3-q4",
+        "question": "In the hypothetical scenario where the Vice-President, acting as President, issues an Ordinance (Article 123) and subsequently signs the death warrant of a convicted terrorist, but a month later the Supreme Court declares his initial election as Vice-President completely void. What is the legal status of the Ordinance and the execution?",
+        "options": ["Both the Ordinance and the execution are retroactively declared illegal and murder.","The Ordinance survives, but the execution is considered invalid.","Under the","doctrine incorporated in Article 71(2), BOTH the legislative act (Ordinance) and the executive act (signing the warrant) performed by him while ostensibly discharging the functions of the President remain perfectly valid and legal.","The new Vice-President must re-sign the papers."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 71(2) prevents systemic breakdown. If the person was widely accepted as VP and was acting as President, the government and citizens operated under the assumption his acts were legal. An election dispute resolving months later cannot unravel the sovereign acts of the State they performed. The acts are permanently immune from invalidation on the ground of the void election."
     },
     {
-        id: "ch19-l3-q5",
-        question: "While a resolution for his removal is under consideration, the Vice-President has the right to speak and take part in the proceedings of:",
-        options: ["Rajya Sabha.", "Lok Sabha.", "Joint Sitting.", "None."],
-        correctAnswerIndex: 0,
-        explanation: "Can speak/participate in Rajya Sabha proceedings."
+        "id": "ch19-l3-q5",
+        "question": "Assertion (A): The Vice-President is ex-officio Chairman of the Rajya Sabha, meaning whoever occupies the office of the VP automatically presides over the Upper House.\\nReason (R): Because the Constitution strictly follows the doctrine of separation of powers, ensuring the Executive (VP) directly controls the Legislature (Rajya Sabha) to prevent gridlock.\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","Both A and R are false."],
+        "correctAnswerIndex": 2,
+        "explanation": "Assertion (A) is the factual definition of"
     },
     {
-        id: "ch19-l3-q6",
-        question: "However, unlike the Speaker (who can vote in the first instance during his removal), the Vice-President:",
-        options: ["Was not given the right to vote at all (Article 92(2)).", "Can vote in first instance.", "Can casting vote.", "Can vote if tie."],
-        correctAnswerIndex: 0,
-        explanation: "Article 92(2): No right to vote at all during removal."
+        "id": "ch19-l3-q6",
+        "question": "Consider the unique phrasing of the requirement for removing the Vice-President: passed by an",
+        "options": ["More than 50% of the total strength: 123 members.","More than 50% of members present and voting: e.g., if only 100 show up, 51 votes.","More than 50% of the *effective* strength (Total strength minus vacancies): 245 - 45 = 200. The effective majority requires at least 101 affirmative votes.","Two-thirds of the members present and voting."],
+        "correctAnswerIndex": 2,
+        "explanation": "This tests precise parliamentary math."
     },
     {
-        id: "ch19-l3-q7",
-        question: "The Vice-President also serves as the Chancellor of central universities like:",
-        options: ["Delhi University, Panjab University, Pondicherry University.", "JNU, BHU.", "IGNOU.", "All Central Universities."],
-        correctAnswerIndex: 0,
-        explanation: "Chancellor of PU, DU, Pondicherry University etc."
+        "id": "ch19-l3-q7",
+        "question": "Evaluate the constitutional silence regarding the Acting President. While Article 65(2) states the VP",
+        "options": ["The Supreme Court automatically assumes jurisdiction.","The Chief Justice of India makes the final determination.","It is a constitutional gray area heavily reliant on convention, usually determined by the Prime Minister","The Parliament must pass a constitutional amendment."],
+        "correctAnswerIndex": 2,
+        "explanation": "Unlike the US 25th Amendment (which has detailed rules for Presidential incapacitation), the Indian Constitution is terrifyingly silent on"
     },
     {
-        id: "ch19-l3-q8",
-        question: "The election of the Vice-President 2022. The opposition candidate was:",
-        options: ["Margaret Alva.", "Gopalalkrishna Gandhi.", "Yashwant Sinha.", "Meira Kumar."],
-        correctAnswerIndex: 0,
-        explanation: "Margaret Alva was the opposition candidate."
+        "id": "ch19-l3-q8",
+        "question": "Assertion (A): During the debate on a resolution seeking the removal of the Vice-President in the Rajya Sabha, the Vice-President is constitutionally barred from presiding over the house.\\nReason (R): Because the",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","Both A and R are false."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both are true, and R is the fundamental jurisprudential basis for A. Article 92 explicitly removes the VP from the Chairman"
     },
     {
-        id: "ch19-l3-q9",
-        question: "Assertion (A): The Constitution provides for the removal of the Vice-President by a resolution of the Rajya Sabha agreed to by the Lok Sabha. Reason (R): The Vice-President is the ex-officio Chairman of the Rajya Sabha, so the initiative for his removal must come from that House. Select the correct answer:",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0,
-        explanation: "Both true and R explains A."
+        "id": "ch19-l3-q9",
+        "question": "Regarding",
+        "options": ["Yes, the Vice-President enjoys identical textual immunity under Article 361.","No, the Constitution (Article 361) explicitly names only the President and the Governor. The Vice-President, in his normal capacity, does NOT enjoy this absolute constitutional immunity from criminal proceedings, unless he is actively","under Article 65.","Yes, but only for civil cases.","Yes, but it requires prior Parliamentary approval."],
+        "correctAnswerIndex": 1,
+        "explanation": "This is a frequent trap. Article 361 says"
     },
     {
-        id: "ch19-l3-q10",
-        question: "The Vice-President's pension is:",
-        options: ["50% of the salary of the Vice-President (Chairman of RS).", "Not provided in the Constitution (Provided by Parliament Act).", "Same as President.", "100% of salary."],
-        correctAnswerIndex: 1,
-        explanation: "Provided by Parliament Act, 50% of salary."
+        "id": "ch19-l3-q10",
+        "question": "In the context of the Vice-Presidential election, the",
+        "options": ["It guarantees that independent candidates win easily.","It ensures that a candidate who is vehemently opposed by 60% of the Parliament cannot win merely by securing a 40% plurality against a divided opposition, as the STV quota system mandates the eventual winner mathematically secures absolute majority support (>50%) through preference transfers.","It ensures the election process is completed in one day.","It gives the State Assemblies veto power."],
+        "correctAnswerIndex": 1,
+        "explanation": "This is the core rationale for STV for high constitutional offices. In FPTP (like Lok Sabha), if A gets 30%, B gets 25%, C gets 25%, and D gets 20%, candidate A wins, despite 70% of voters hating A. STV forces voters to rank choices. If A has 30%, they haven"
     },
     {
-        id: "ch19-l3-q11",
-        question: "The \"Order of Precedence\". The Vice-President ranks:",
-        options: ["Second (After President).", "Third (After President and PM).", "First.", "Fourth."],
-        correctAnswerIndex: 0,
-        explanation: "Ranks Second in Order of Precedence."
+        "id": "ch19-l3-q11",
+        "question": "What happens if a sitting Vice-President, elected by the Parliament, subsequently wishes to resign from their office?",
+        "options": ["They must table their resignation before both Houses of Parliament.","They must submit a sealed resignation to the Chief Justice of India.","They must address their resignation in writing under their hand strictly to the President.","They must simply stop attending the Rajya Sabha."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 67(a) specifies a very simple procedure:"
     },
     {
-        id: "ch19-l3-q12",
-        question: "During the joint sitting of Parliament, if the Speaker and Deputy Speaker are absent, who presides?",
-        options: ["The Deputy Chairman of Rajya Sabha (The Vice-President/Chairman does NOT preside over Joint Sitting).", "The Vice-President.", "The PM.", "Senior member."],
-        correctAnswerIndex: 0,
-        explanation: "Deputy Chairman (VP does not preside Joint Sittings)."
+        "id": "ch19-l3-q12",
+        "question": "Consider the scenario where the Vice-President is acting as President. If the Rajya Sabha needs to pass a Money Bill, who exactly signs the bill and transmits it?",
+        "options": ["The Vice-President (now acting President) must come back to the Rajya Sabha to sign it.","The Speaker of the Lok Sabha automatically assumes jurisdiction.","The Deputy Chairman of the Rajya Sabha, who is performing the duties of the Chairman, manages the Rajya Sabha","The President"],
+        "correctAnswerIndex": 2,
+        "explanation": "A Money Bill is a Lok Sabha prerogative. The Rajya Sabha only gets 14 days to make recommendations. All internal procedures of the Rajya Sabha during the VP"
     },
     {
-        id: "ch19-l3-q13",
-        question: "Why does the Vice-President not preside over a Joint Sitting?",
-        options: ["Because he is not a member of either House of Parliament.", "Because he is busy.", "Because he is from Rajya Sabha.", "Protocol."],
-        correctAnswerIndex: 0,
-        explanation: "Because he is not a member of either House."
+        "id": "ch19-l3-q13",
+        "question": "If the Supreme Court strikes down the election of the Vice-President, can Parliament pass a law to retroactively validate the election and reverse the Supreme Court",
+        "options": ["Yes, using a special constitutional amendment.","No, the Supreme Court","Yes, using an ordinary law passed by simple majority.","Yes, but only if the Election Commission agrees."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 71 specifically grants the Supreme Court original and exclusive jurisdiction over these specific election disputes. Their decision is final. Parliament cannot reverse this specific judicial finding regarding a specific individual"
     },
     {
-        id: "ch19-l3-q14",
-        question: "Can the Vice-President be re-elected for a third term?",
-        options: ["Constitution places no bar.", "No, strictly two terms.", "Convention is two terms (Hamid Ansari was re-elected).", "No."],
-        correctAnswerIndex: 0,
-        explanation: "No Constitutional bar."
+        "id": "ch19-l3-q14",
+        "question": "Assertion (A): The Vice-President is politically bound to support the legislative agenda of the Prime Minister",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","Both A and R are false."],
+        "correctAnswerIndex": 3,
+        "explanation": "Both are false. While politically nominated by parties, once elected, the VP (as Chairman of RS) is expected to be strictly non-partisan and uphold the rules of the House impartially, protecting the rights of the Opposition. He is not a member of the Cabinet and is not bound to push their agenda. He represents the dignity of the House."
     },
     {
-        id: "ch19-l3-q15",
-        question: "In the Warrant of Precedence, who comes after the Vice-President?",
-        options: ["Prime Minister.", "Governors of States within their respective states.", "Former Presidents.", "Deputy PM."],
-        correctAnswerIndex: 0,
-        explanation: "Prime Minister ranks third."
+        "id": "ch19-l3-q15",
+        "question": "Examine the",
+        "options": ["The President of India.","The Election Commission.","The Parliament.","The Supreme Court."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Constitution leaves it to Parliament to legislate exemptions. Parliament has passed the"
     },
     {
-        id: "ch19-l3-q16",
-        question: "The Vice-President's election dispute petition must be filed within:",
-        options: ["30 days of the date of publication of the result.", "15 days.", "60 days.", "90 days."],
-        correctAnswerIndex: 0,
-        explanation: "Within 30 days of result."
+        "id": "ch19-l3-q16",
+        "question": "In the",
+        "options": ["State Assemblies were deemed too corrupt to participate.","The President is the Head of State representing the federal structure (Centre and States). The Vice-President, However, exercises functions only at the Centre (presiding over RS or temporarily acting as President), making state involvement unnecessary and logistically burdensome.","State Assemblies demanded too high a price for their votes.","The British model strictly forbade local participation."],
+        "correctAnswerIndex": 1,
+        "explanation": "Ambedkar"
     },
     {
-        id: "ch19-l3-q17",
-        question: "The \"Acting President\" (Vice-President) can resign by writing to:",
-        options: ["The President (The office, theoretically).", "The Chief Justice.", "The Speaker.", "Self."],
-        correctAnswerIndex: 0,
-        explanation: "Resigns to the office of President."
+        "id": "ch19-l3-q17",
+        "question": "What specific constitutional mechanism ensures the continuous management of the Rajya Sabha when both the offices of the Vice-President (Chairman) and the Deputy Chairman fall vacant simultaneously?",
+        "options": ["The Rajya Sabha cannot meet until a new Chairman is elected.","The President appoints a member of the Rajya Sabha","to perform the duties of the office until the House elects a new Deputy Chairman.","The Speaker of the Lok Sabha automatically takes over.","The Secretary-General presides."],
+        "correctAnswerIndex": 1,
+        "explanation": "Under Article 91(1), if the offices of Chairman and Deputy Chairman are vacant, the duties of the office are performed by such member of the Rajya Sabha as the President may appoint for the purpose. This ensures the legislative branch never paralyzes completely."
     },
     {
-        id: "ch19-l3-q18",
-        question: "The Anti-Defection Law (10th Schedule) applies to:",
-        options: ["MPs and MLAs.", "President.", "Vice-President.", "Governor."],
-        correctAnswerIndex: 0,
-        explanation: "Applies to MPs and MLAs only."
+        "id": "ch19-l3-q18",
+        "question": "Assertion (A): Only a natural-born citizen of India is eligible for the office of Vice-President.\\nReason (R): Because higher constitutional offices must be shielded from those with acquired citizenship to prevent divided national loyalties.\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","Both A and R are false."],
+        "correctAnswerIndex": 3,
+        "explanation": "Both are false. The US Constitution requires the President/VP to be"
     },
     {
-        id: "ch19-l3-q19",
-        question: "Who decides the disqualification of the Vice-President from being a member of Rajya Sabha (if he was one)?",
-        options: ["He ceases to be a member automatically upon election (Article 66(2)).", "President.", "Speaker.", "EC."],
-        correctAnswerIndex: 0,
-        explanation: "Ceases to be member automatically."
+        "id": "ch19-l3-q19",
+        "question": "Consider the",
+        "options": ["To uphold the supremacy of the Parliament.","To",".","To","and to faithfully discharge the duty upon which he is about to enter.","To obey the President"],
+        "correctAnswerIndex": 2,
+        "explanation": "The VP"
     },
     {
-        id: "ch19-l3-q20",
-        question: "The Vice-President's \"Term of Office\" (5 years) includes:",
-        options: ["The period until his successor enters upon his office (Article 67(c)).", "Only 5 calendar years.", "Until Parliament dissolves.", "Until President dismisses."],
-        correctAnswerIndex: 0,
-        explanation: "Includes period until successor enters office."
-    },
-    {
-        id: "ch19-l3-q21",
-        question: "If the Vice-President dies in office, who performs his duties as Chairman of Rajya Sabha?",
-        options: ["Deputy Chairman.", "Speaker.", "President's nominee.", "Secretary General."],
-        correctAnswerIndex: 0,
-        explanation: "Deputy Chairman performs duties."
-    },
-    {
-        id: "ch19-l3-q22",
-        question: "The Vice-President is answerable to:",
-        options: ["The Constitution.", "The President.", "The Parliament.", "The Courts."],
-        correctAnswerIndex: 0,
-        explanation: "Answerable to the Constitution."
-    },
-    {
-        id: "ch19-l3-q23",
-        question: "Can a Minister contest the Vice-Presidential election?",
-        options: ["Yes, but if elected, he is holding an office of profit? No, Ministers are exempted from office of profit disqualification.", "No, he must resign first.", "Yes, but he acts as both.", "No."],
-        correctAnswerIndex: 0,
-        explanation: "Yes, Ministers are exempted but must vacate ministry on election."
-    },
-    {
-        id: "ch19-l3-q24",
-        question: "Comparison: US Vice-President is the President of the Senate. Indian Vice-President is Chairman of Rajya Sabha. Difference:",
-        options: ["US VP is not a member of Senate. Indian VP is not a member of RS. (Similarity). US VP succeeds to Presidency for remaining term. Indian VP acts only temporarily. (Difference).", "No difference.", "US VP is appointed.", "Indian VP is appointed."],
-        correctAnswerIndex: 0,
-        explanation: "Key difference is succession to Presidency."
-    },
-    {
-        id: "ch19-l3-q25",
-        question: "The salary of the Chairman of Rajya Sabha is charged on:",
-        options: ["Consolidated Fund of India.", "Public Account.", "Contingency Fund.", "Estimates."],
-        correctAnswerIndex: 0,
-        explanation: "Charged on Consolidated Fund of India."
-    },
-    {
-        id: "ch19-l3-q26",
-        question: "Article 71 says election matters of President and Vice-President are regulated by:",
-        options: ["Parliament by law (Presidential and Vice-Presidential Elections Act, 1952).", "Election Commission rules.", "Supreme Court rules.", "Presidential Order."],
-        correctAnswerIndex: 0,
-        explanation: "Regulated by Parliament by law."
-    },
-    {
-        id: "ch19-l3-q27",
-        question: "If the Vice-Presidency is vacant, and the President dies. Who acts as President?",
-        options: ["Chief Justice of India.", "Speaker.", "Deputy Chairman.", "PM."],
-        correctAnswerIndex: 0,
-        explanation: "Chief Justice of India."
-    },
-    {
-        id: "ch19-l3-q28",
-        question: "The oath of the Vice-President is mentioned in:",
-        options: ["Article 69.", "Third Schedule.", "Second Schedule.", "Fourth Schedule."],
-        correctAnswerIndex: 0,
-        explanation: "Mentioned in Article 69 (Not in Third Schedule)."
-    },
-    {
-        id: "ch19-l3-q29",
-        question: "Which Vice-President called the Rajya Sabha \"The House of Elders, not the House of Eldest\"?",
-        options: ["M. Venkaiah Naidu.", "Jagdeep Dhankhar.", "Hamid Ansari.", "S. Radhakrishnan."],
-        correctAnswerIndex: 0,
-        explanation: "M. Venkaiah Naidu."
-    },
-    {
-        id: "ch19-l3-q30",
-        question: "The power to decide the date of election of Vice-President rests with:",
-        options: ["Election Commission of India.", "Parliament.", "President.", "Outgoing VP."],
-        correctAnswerIndex: 0,
-        explanation: "Election Commission of India."
+        "id": "ch19-l3-q20",
+        "question": "If a Member of Parliament (MP) is elected as Vice-President, when exactly does their seat in Parliament become officially vacant according to the Constitution?",
+        "options": ["The moment the election results are announced.","Exactly 14 days after the election.","On the exact date on which they enter upon their office as Vice-President by taking the oath.","They are never allowed to contest while holding an MP seat."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 66(2) creates a"
     }
 ];
 
 export const CHAPTER_19_LEVELS: ChapterLevelData = {
-    topicId: 19,
-    levels: [
-        {
-            levelId: 1,
-            title: "The Text-Book Stickler",
-            description: "Strictly Chapter 19",
-            questions: LEVEL_1_QUESTIONS
-        },
-        {
-            levelId: 2,
-            title: "The Conceptual Bridge",
-            description: "Applied Knowledge",
-            questions: LEVEL_2_QUESTIONS
-        },
-        {
-            levelId: 3,
-            title: "UPSC Simulation 2026",
-            description: "Integrated & Current Affairs Context",
-            questions: LEVEL_3_QUESTIONS
-        }
-    ]
+    level1: LEVEL_1_QUESTIONS,
+    level2: LEVEL_2_QUESTIONS,
+    level3: LEVEL_3_QUESTIONS
 };

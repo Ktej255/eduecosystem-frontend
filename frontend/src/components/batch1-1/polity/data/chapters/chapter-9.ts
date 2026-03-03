@@ -1,607 +1,646 @@
-import { ChapterLevelData } from "../level-types";
+import { ChapterLevelData } from '../level-types';
 
-// Level 1: The Text-Book Stickler (Strictly Chapter 9)
 const LEVEL_1_QUESTIONS = [
     {
-        question: "The Directive Principles of State Policy (DPSP) are enumerated in Part IV of the Constitution from Articles:",
-        options: ["36 to 51", "36 to 51-A", "12 to 35", "52 to 78"],
-        correctAnswerIndex: 0, // a) 36 to 51
-        explanation: "Articles 36 to 51 in Part IV."
+        "id": "ch9-l1-q1",
+        "question": "In which Part of the Constitution are the Directive Principles of State Policy enumerated?",
+        "options": ["Part III","Part IV","Part V","Part VI"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Directive Principles of State Policy are enumerated in Part IV of the Constitution from Articles 36 to 51."
     },
     {
-        question: "The concept of DPSP was borrowed from the Constitution of:",
-        options: ["USA", "Canada", "Ireland (Irish Constitution)", "Australia"],
-        correctAnswerIndex: 2, // c) Ireland
-        explanation: "Borrowed from Irish Constitution."
+        "id": "ch9-l1-q2",
+        "question": "The framers of the Constitution borrowed the idea of Directive Principles from the Constitution of which country?",
+        "options": ["USA","USSR","Ireland","Britain"],
+        "correctAnswerIndex": 2,
+        "explanation": "The framers of the Constitution borrowed this idea from the Irish Constitution of 1937, which had copied it from the Spanish Constitution."
     },
     {
-        question: "Dr. B.R. Ambedkar described these principles as:",
-        options: ["Novel features of the Indian Constitution.", "Soul of the Constitution.", "Conscience of the Constitution.", "Key-note of the Constitution."],
-        correctAnswerIndex: 0, // a) Novel features
-        explanation: "Ambedkar called them 'Novel features'."
+        "id": "ch9-l1-q3",
+        "question": "Dr. B.R. Ambedkar described the Directive Principles of State Policy as the:",
+        "options": ["Soul of the Constitution","Novel features of the Constitution","Conscience of the Constitution","Magna Carta of India"],
+        "correctAnswerIndex": 1,
+        "explanation": "Dr B R Ambedkar described these principles as ‘novel features’ of the Indian Constitution."
     },
     {
-        question: "Granville Austin described the Directive Principles and the Fundamental Rights as the:",
-        options: ["Conscience of the Constitution.", "Heart and Soul of the Constitution.", "Basic Structure of the Constitution.", "Philosophy of the Constitution."],
-        correctAnswerIndex: 0, // a) Conscience
-        explanation: "Conscience of the Constitution."
+        "id": "ch9-l1-q4",
+        "question": "Granville Austin described the Directive Principles and the Fundamental Rights together as the:",
+        "options": ["Pillars of Democracy","Conscience of the Constitution","Heart and Soul of the Constitution","Basic Structure of the Constitution"],
+        "correctAnswerIndex": 1,
+        "explanation": "Granville Austin has described the Directive Principles and the Fundamental Rights as the"
     },
     {
-        question: "Article 36 defines the term 'State'. Its meaning is:",
-        options: ["Different from the definition given in Part III (Fundamental Rights).", "Same as the definition given in Part III (Article 12).", "Restricted to the Executive organ only.", "Restricted to the Legislature only."],
-        correctAnswerIndex: 1, // b) Same as Part III
-        explanation: "Same meaning as in Part III (Article 12)."
+        "id": "ch9-l1-q5",
+        "question": "What does the term",
+        "options": ["Strict laws that the State must enforce immediately.","Ideals that the State should keep in mind while formulating policies and enacting laws.","Fundamental Rights available to non-citizens.","Duties assigned purely to the citizens."],
+        "correctAnswerIndex": 1,
+        "explanation": "The phrase"
     },
     {
-        question: "Article 37 declares that the Directive Principles are:",
-        options: ["Justiciable (enforceable by courts).", "Non-justiciable (not enforceable by courts).", "Mandatory.", "Optional suggestions."],
-        correctAnswerIndex: 1, // b) Non-justiciable
-        explanation: "They are non-justiciable."
+        "id": "ch9-l1-q6",
+        "question": "The Directive Principles resemble the",
+        "options": ["The Charter Act of 1833","The Indian Councils Act of 1909","The Government of India Act of 1919","The Government of India Act of 1935"],
+        "correctAnswerIndex": 3,
+        "explanation": "The Directive Principles resemble the"
     },
     {
-        question: "Article 37 also declares that these principles are fundamental in the:",
-        options: ["Governance of the country.", "Making of laws.", "Administration of justice.", "Protection of rights."],
-        correctAnswerIndex: 0, // a) Governance
-        explanation: "Fundamental in the governance of the country."
+        "id": "ch9-l1-q7",
+        "question": "While Fundamental Rights aim at establishing political democracy, the Directive Principles aim at establishing:",
+        "options": ["Economic and Social Democracy","Religious Democracy","Cultural Democracy","International Democracy"],
+        "correctAnswerIndex": 0,
+        "explanation": "They embody the concept of a ‘welfare state’ and not that of a ‘police state’... In brief, they seek to establish economic and social democracy in the country."
     },
     {
-        question: "The Constitution does not contain any classification of Directive Principles. However, on the basis of their content and direction, they are usually classified into three broad categories. Which is NOT one of them?",
-        options: ["Socialist Principles", "Gandhian Principles", "Liberal-Intellectual Principles", "Religious Principles"],
-        correctAnswerIndex: 3, // d) Religious Principles
-        explanation: "Religious Principles is not a classification."
+        "id": "ch9-l1-q8",
+        "question": "Are the Directive Principles of State Policy justiciable in nature?",
+        "options": ["Yes, they are legally enforceable by the courts for their violation.","No, they are non-justiciable in nature, that is, they are not legally enforceable by the courts.","Yes, but only by the Supreme Court, not High Courts.","No, unless the President explicitly decrees their enforcement."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Directive Principles are non-justiciable in nature, that is, they are not legally enforceable by the courts for their violation. Therefore, the government cannot be compelled to implement them."
     },
     {
-        question: "Article 38 directs the State to secure a social order for the promotion of welfare of the people by securing:",
-        options: ["Justice—social, economic and political.", "Liberty—thought, expression and belief.", "Equality—status and opportunity.", "Fraternity."],
-        correctAnswerIndex: 0, // a) Justice
-        explanation: "Justice - social, economic and political."
+        "id": "ch9-l1-q9",
+        "question": "Article 37 explicitly declares that the Directive Principles are:",
+        "options": ["Legally binding on the Parliament alone.","Fundamental in the governance of the country.","Temporary guidelines until 1960.","Subservient to all ordinary laws."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 37 itself says that these principles are fundamental in the governance of the country and it shall be the duty of the State to apply these principles in making laws."
     },
     {
-        question: "Article 39 contains specific principles to be followed by the State. Which of the following is NOT one of them?",
-        options: ["Right to adequate means of livelihood.", "Equitable distribution of material resources of the community.", "Prevention of concentration of wealth.", "Organization of village panchayats."],
-        correctAnswerIndex: 3, // d) Organization of village panchayats
-        explanation: "Village Panchayats is Article 40."
+        "id": "ch9-l1-q10",
+        "question": "Although the Constitution does not formally classify the Directive Principles, on the basis of their content and direction, they are usually classified into three broad categories. Which of the following is NOT one of those categories?",
+        "options": ["Socialistic","Gandhian","Capitalistic","Liberal-Intellectual"],
+        "correctAnswerIndex": 2,
+        "explanation": "On the basis of their content and direction, the Directive Principles can be classified into three broad categories, viz, socialistic, Gandhian and liberal-intellectual."
     },
     {
-        question: "Article 39-A provides for:",
-        options: ["Equal justice and free legal aid.", "Uniform Civil Code.", "Living wage for workers.", "Participation of workers in management."],
-        correctAnswerIndex: 0, // a) Equal justice and free legal aid
-        explanation: "Equal justice and free legal aid."
+        "id": "ch9-l1-q11",
+        "question": "Article 39 directs the State to secure certain principles of policy. Which of the following is NOT one of them?",
+        "options": ["Adequate means of livelihood for all citizens.","Equitable distribution of material resources of the community for the common good.","Equal pay for equal work for men and women.","Mandatory military training for all youth."],
+        "correctAnswerIndex": 3,
+        "explanation": "Article 39 outlines several policies like adequate livelihood, equitable distribution of resources, prevention of wealth concentration, equal pay for equal work, health of workers, and opportunities for children. Mandatory military training is not mentioned."
     },
     {
-        question: "Article 41 secures the right to work, to education and to public assistance in cases of:",
-        options: ["Unemployment, old age, sickness and disablement.", "Poverty only.", "Natural calamities.", "War."],
-        correctAnswerIndex: 0, // a) Unemployment, old age...
-        explanation: "Unemployment, old age, sickness and disablement."
+        "id": "ch9-l1-q12",
+        "question": "Which new Article was added by the 42nd Amendment to promote equal justice and to provide free legal aid to the poor?",
+        "options": ["Article 39A","Article 43A","Article 48A","Article 51A"],
+        "correctAnswerIndex": 0,
+        "explanation": "Article 39A (To promote equal justice and to provide free legal aid to the poor) was added by the 42nd Amendment Act of 1976."
     },
     {
-        question: "Article 42 makes provision for just and humane conditions of work and:",
-        options: ["Maternity relief.", "Paternity relief.", "Child care.", "Old age pension."],
-        correctAnswerIndex: 0, // a) Maternity relief
-        explanation: "Maternity relief."
+        "id": "ch9-l1-q13",
+        "question": "Which Article falls under the",
+        "options": ["Article 40","Article 44","Article 50","Article 51"],
+        "correctAnswerIndex": 0,
+        "explanation": "Article 40 directs the State to organise village panchayats and endow them with necessary powers and authority to enable them to function as units of self-government (a Gandhian principle)."
     },
     {
-        question: "Article 43 secures a living wage, a decent standard of life and social and cultural opportunities for:",
-        options: ["All workers.", "Industrial workers only.", "Agricultural workers only.", "Government servants only."],
-        correctAnswerIndex: 0, // a) All workers
-        explanation: "All workers (agricultural, industrial or otherwise)."
+        "id": "ch9-l1-q14",
+        "question": "Article 43 directs the State to promote what specific type of industries in rural areas (a Gandhian principle)?",
+        "options": ["Heavy iron and steel industries","Cottage industries on an individual or co-operative basis","Information Technology parks","Automobile manufacturing plants"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 43 (Gandhian part) directs the State to promote cottage industries on an individual or co-operation basis in rural areas."
     },
     {
-        question: "Article 43-A (added by 42nd Amendment) directs the State to take steps to secure the participation of workers in the:",
-        options: ["Management of industries.", "Ownership of industries.", "Trade unions.", "Political parties."],
-        correctAnswerIndex: 0, // a) Management
-        explanation: "Management of industries."
+        "id": "ch9-l1-q15",
+        "question": "Which Article directs the State to promote the educational and economic interests of SCs, STs, and other weaker sections of the society and to protect them from social injustice?",
+        "options": ["Article 44","Article 45","Article 46","Article 48"],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 46: To promote the educational and economic interests of SCs, STs, and other weaker sections of the society and to protect them from social injustice and exploitation."
     },
     {
-        question: "Article 47 directs the State to raise the level of nutrition and the standard of living of its people and to improve:",
-        options: ["Public health.", "Environment.", "Education.", "Agriculture."],
-        correctAnswerIndex: 0, // a) Public health
-        explanation: "Public health."
+        "id": "ch9-l1-q16",
+        "question": "Which Article, largely representing Gandhian ideals, directs the State to prohibit the consumption of intoxicating drinks and drugs which are injurious to health?",
+        "options": ["Article 43","Article 47","Article 48","Article 51"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 47 directs the State to prohibit the consumption of intoxicating drinks and drugs which are injurious to health."
     },
     {
-        question: "Article 40 directs the State to organize:",
-        options: ["Village Panchayats.", "Municipalities.", "Co-operative Societies.", "Cottage Industries."],
-        correctAnswerIndex: 0, // a) Village Panchayats
-        explanation: "Village Panchayats."
+        "id": "ch9-l1-q17",
+        "question": "Under Article 48, the State is directed to prohibit the slaughter of cows, calves, and other milch and draught cattle. Furthermore, it directs the State to organise agriculture and animal husbandry on modern and scientific lines. This Article reflects:",
+        "options": ["Only Gandhian principles.","Only Liberal-Intellectual principles.","Both Gandhian (prohibiting cow slaughter) and Liberal-Intellectual (modern scientific agriculture) principles.","Neither; it is a purely Socialistic principle."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 48 appears in both classifications: prohibiting cow slaughter is based on Gandhian ideology, while organizing agriculture/animal husbandry on modern/scientific lines falls under Liberal-Intellectual principles."
     },
     {
-        question: "Article 43 promotes:",
-        options: ["Cottage industries on an individual or co-operation basis in rural areas.", "Heavy industries.", "Small scale industries.", "Service sector."],
-        correctAnswerIndex: 0, // a) Cottage industries
-        explanation: "Cottage industries in rural areas."
+        "id": "ch9-l1-q18",
+        "question": "Which Article, falling under the Liberal-Intellectual category, directs the State to secure for all citizens a Uniform Civil Code throughout the country?",
+        "options": ["Article 41","Article 44","Article 48","Article 50"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 44 directs the State to secure for all citizens a uniform civil code throughout the country."
     },
     {
-        question: "Article 43-B (added by 97th Amendment) promotes the voluntary formation, autonomous functioning, democratic control and professional management of:",
-        options: ["Co-operative Societies.", "NGOs.", "Self Help Groups.", "Trade Unions."],
-        correctAnswerIndex: 0, // a) Co-operative Societies
-        explanation: "Co-operative Societies."
+        "id": "ch9-l1-q19",
+        "question": "The 86th Amendment Act of 2002 changed the subject-matter of Article 45. Originally it directed the State to provide free and compulsory education until the age of 14. What does Article 45 direct NOW?",
+        "options": ["To provide free university education to all.","To provide early childhood care and education for all children until they complete the age of six years.","To provide vocational training to youth aged 15-25.","To eliminate child labor entirely."],
+        "correctAnswerIndex": 1,
+        "explanation": "The 86th Amendment Act (2002) changed the subject-matter of Article 45. The amended directive requires the State to provide early childhood care and education for all children until they complete the age of six years."
     },
     {
-        question: "Article 46 promotes the educational and economic interests of:",
-        options: ["SCs, STs, and other weaker sections.", "Minorities.", "Women and Children.", "Disabled persons."],
-        correctAnswerIndex: 0, // a) SCs, STs, weaker sections
-        explanation: "SCs, STs, and other weaker sections."
+        "id": "ch9-l1-q20",
+        "question": "Which Article directs the State to separate the judiciary from the executive in the public services of the State?",
+        "options": ["Article 49","Article 50","Article 51","Article 52"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 50 directs the state to separate the judiciary from the executive in the public services of the State."
     },
     {
-        question: "Article 47 prohibits the consumption of:",
-        options: ["Intoxicating drinks and drugs which are injurious to health.", "Tobacco products.", "Meat.", "Fast food."],
-        correctAnswerIndex: 0, // a) Intoxicating drinks
-        explanation: "Intoxicating drinks and drugs."
+        "id": "ch9-l1-q21",
+        "question": "Which of the following Articles directs the State to promote international peace and security and maintain just and honourable relations between nations?",
+        "options": ["Article 48","Article 49","Article 50","Article 51"],
+        "correctAnswerIndex": 3,
+        "explanation": "Article 51 directs the State to promote international peace and security and maintain just and honourable relations between nations."
     },
     {
-        question: "Article 48 prohibits the slaughter of:",
-        options: ["Cows, calves and other milch and draught cattle.", "All animals.", "Wild animals.", "Endangered species."],
-        correctAnswerIndex: 0, // a) Cows, calves etc
-        explanation: "Cows, calves and other milch and draught cattle."
+        "id": "ch9-l1-q22",
+        "question": "Four new Directive Principles were added by the 42nd Amendment Act of 1976. Which of the following was NOT one of them?",
+        "options": ["To secure opportunities for healthy development of children (Article 39).","To promote equal justice and provide free legal aid to the poor (Article 39A).","To protect and improve the environment and safeguard forests and wild life (Article 48A).","To promote voluntary formation of co-operative societies (Article 43B)."],
+        "correctAnswerIndex": 3,
+        "explanation": "Article 43B (promoting voluntary formation, autonomous functioning, democratic control, and professional management of co-operative societies) was added later by the 97th Amendment Act of 2011, NOT the 42nd Amendment."
     },
     {
-        question: "Article 44 seeks to secure for all citizens a:",
-        options: ["Uniform Civil Code throughout the territory of India.", "Uniform Criminal Code.", "Common language.", "Common religion."],
-        correctAnswerIndex: 0, // a) UCC
-        explanation: "Uniform Civil Code."
+        "id": "ch9-l1-q23",
+        "question": "Which Amendment Act added the directive to states to minimize inequalities in income, status, facilities, and opportunities (Article 38)?",
+        "options": ["42nd Amendment Act, 1976","44th Amendment Act, 1978","86th Amendment Act, 2002","97th Amendment Act, 2011"],
+        "correctAnswerIndex": 1,
+        "explanation": "The 44th Amendment Act of 1978 added one more Directive Principle, which requires the State to minimise inequalities in income, status, facilities and opportunities (Article 38)."
     },
     {
-        question: "Article 45 (as amended by 86th Amendment) directs the State to provide early childhood care and education for all children until they complete the age of:",
-        options: ["Six years.", "Fourteen years.", "Eighteen years.", "Three years."],
-        correctAnswerIndex: 0, // a) Six years
-        explanation: "Until they complete the age of six years."
+        "id": "ch9-l1-q24",
+        "question": "Which of the following is considered the primary",
+        "options": ["The Supreme Court of India.","The Election Commission of India.","Public opinion (political sanction).","The United Nations."],
+        "correctAnswerIndex": 2,
+        "explanation": "The framers made the Directive Principles non-justiciable and legally non-enforceable. However, the real sanction behind them is political, that is, public opinion. The government is accountable to the electorate at election time."
     },
     {
-        question: "Article 48 directs the State to organize agriculture and animal husbandry on:",
-        options: ["Modern and scientific lines.", "Traditional lines.", "Organic lines.", "Cooperative lines."],
-        correctAnswerIndex: 0, // a) Modern and scientific
-        explanation: "Modern and scientific lines."
+        "id": "ch9-l1-q25",
+        "question": "In the case of a conflict between Fundamental Rights and Directive Principles, what was the initial stance of the Supreme Court in the Champakam Dorairajan case (1951)?",
+        "options": ["Directive principles must completely override Fundamental Rights.","Fundamental Rights and Directive principles are equal.","Fundamental Rights would prevail over Directive Principles; DPSPs have to conform to and run as a subsidiary to the Fundamental Rights.","The President must decide which prevails in each case."],
+        "correctAnswerIndex": 2,
+        "explanation": "In the Champakam Dorairajan case (1951), the Supreme Court ruled that in case of any conflict between Fundamental Rights and Directive Principles, the former would prevail. DPSPs have to run as a subsidiary to the Fundamental Rights."
     },
     {
-        question: "Article 48-A (added by 42nd Amendment) directs the State to protect and improve the environment and to safeguard:",
-        options: ["Forests and wild life.", "Rivers and lakes.", "Mountains and hills.", "Heritage sites."],
-        correctAnswerIndex: 0, // a) Forests and wild life
-        explanation: "Forests and wild life."
+        "id": "ch9-l1-q26",
+        "question": "Which constitutional amendment attempted to accord absolute primacy to ALL Directive Principles over the Fundamental Rights conferred by Articles 14, 19, and 31?",
+        "options": ["24th Amendment Act","25th Amendment Act","42nd Amendment Act","44th Amendment Act"],
+        "correctAnswerIndex": 2,
+        "explanation": "The 42nd Amendment Act (1976) extended the scope of Article 31C to include ALL Directive Principles. This gave absolute primacy to all DPSPs over Fundamental Rights under Articles 14, 19 (and 31). This massive extension was later struck down in Minerva Mills (1980)."
     },
     {
-        question: "Article 49 directs the State to protect monuments, places and objects of:",
-        options: ["Artistic or historic interest declared to be of national importance.", "Religious importance.", "Tourist importance.", "Local importance."],
-        correctAnswerIndex: 0, // a) National importance
-        explanation: "National importance."
+        "id": "ch9-l1-q27",
+        "question": "According to the present constitutional position established by the Supreme Court, which holds supremacy: Fundamental Rights or Directive Principles?",
+        "options": ["Directive Principles are generally supreme over all Fundamental Rights.","Fundamental Rights enjoy absolute supremacy over Fundamental Rights with no exceptions.","Fundamental Rights enjoy supremacy, but Article 31C acts as an exception, protecting laws implementing DPSPs in Art 39(b) and (c) from being challenged under Arts 14 and 19.","They are mutually exclusive and never conflict."],
+        "correctAnswerIndex": 2,
+        "explanation": "Presently, the Fundamental Rights enjoy supremacy over the Directive Principles. Yet, this does not mean DPSPs cannot be implemented. Parliament can amend rights to implement DPSPs, so long as it doesn"
     },
     {
-        question: "Article 50 separates the judiciary from the:",
-        options: ["Executive.", "Legislature.", "Media.", "Public."],
-        correctAnswerIndex: 0, // a) Executive
-        explanation: "Executive."
+        "id": "ch9-l1-q28",
+        "question": "Apart from Part IV, there are some Directives contained in other parts of the Constitution. Which of the following is one such",
+        "options": ["Article 11: Power of Parliament to regulate citizenship.","Article 350-A: Instruction in mother tongue at the primary stage to children belonging to linguistic minority groups.","Article 32: Remedies for enforcement of rights.","Article 1: Name and territory of the Union."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 350-A (Part XVII) directs that every State must endeavor to provide adequate facilities for instruction in the mother-tongue at the primary stage of education to children belonging to linguistic minority groups. It is a directive outside Part IV."
     },
     {
-        question: "Article 51 promotes international peace and security and encourages:",
-        options: ["Settlement of international disputes by arbitration.", "Use of force for peace.", "Formation of military alliances.", "Non-alignment."],
-        correctAnswerIndex: 0, // a) Arbitration
-        explanation: "Settlement by arbitration."
+        "id": "ch9-l1-q29",
+        "question": "Sir B.N. Rau, the Constitutional Advisor, recommended that the rights of an individual should be divided into two categories: justiciable and non-justiciable. Which part of the Constitution did the non-justiciable rights eventually form?",
+        "options": ["Fundamental Duties","Fundamental Rights","Directive Principles of State Policy","The Preamble"],
+        "correctAnswerIndex": 2,
+        "explanation": "Sir B N Rau recommended this division. The Drafting Committee accepted this, making the justiciable rights into Part III (Fundamental Rights) and the non-justiciable rights into Part IV (Directive Principles of State Policy)."
     },
     {
-        question: "Which Amendment Act added four new Directive Principles (Articles 39, 39A, 43A, 48A)?",
-        options: ["42nd Amendment Act, 1976", "44th Amendment Act, 1978", "86th Amendment Act, 2002", "97th Amendment Act, 2011"],
-        correctAnswerIndex: 0, // a) 42nd
-        explanation: "42nd Amendment Act, 1976."
-    },
-    {
-        question: "The 44th Amendment Act of 1978 added one more Directive Principle, requiring the State to minimize inequalities in income, status, facilities and opportunities (Article 38).",
-        options: ["True", "False"],
-        correctAnswerIndex: 0, // a) True
-        explanation: "True."
-    },
-    {
-        question: "In the Champakam Dorairajan case (1951), the Supreme Court ruled that in case of any conflict between Fundamental Rights and Directive Principles, the former would prevail.",
-        options: ["True", "False"],
-        correctAnswerIndex: 0, // a) True
-        explanation: "True."
-    },
-    {
-        question: "In the Golaknath case (1967), the Supreme Court ruled that Fundamental Rights cannot be amended for the implementation of Directive Principles.",
-        options: ["True", "False"],
-        correctAnswerIndex: 0, // a) True
-        explanation: "True."
-    },
-    {
-        question: "In the Minerva Mills case (1980), the Supreme Court held that the Indian Constitution is founded on the bedrock of the balance between Fundamental Rights and Directive Principles.",
-        options: ["True", "False"],
-        correctAnswerIndex: 0, // a) True
-        explanation: "True."
-    },
-    {
-        question: "Directives outside Part IV: Article 335 deals with the claims of SCs and STs to:",
-        options: ["Services and posts.", "Education.", "Land allotment.", "Political representation."],
-        correctAnswerIndex: 0, // a) Services and posts
-        explanation: "Services and posts."
+        "id": "ch9-l1-q30",
+        "question": "The Directive Principles are analogous to which instrument found in the Government of India Act, 1935?",
+        "options": ["Instruments of Accession","Instruments of Instructions","The White Paper","The August Offer"],
+        "correctAnswerIndex": 1,
+        "explanation": "Dr B R Ambedkar noted:"
     }
 ];
 
-// Level 2: The Conceptual Bridge (Applied Knowledge)
 const LEVEL_2_QUESTIONS = [
     {
-        question: "The Directive Principles constitute a \"comprehensive economic, social and political programme\" for a modern welfare state. They aim at realizing the high ideals of Justice, Liberty, Equality, and Fraternity as outlined in:",
-        options: ["The Fundamental Rights.", "The Preamble.", "The Fundamental Duties.", "The Objectives Resolution."],
-        correctAnswerIndex: 1, // b) Preamble
-        explanation: "Outlined in the Preamble."
+        "id": "ch9-l2-q1",
+        "question": "Consider the constitutional status of the Directive Principles of State Policy (Part IV). While they are non-justiciable, meaning courts cannot compel the government to enforce them, what crucial judicial function do they serve under Article 37?",
+        "options": ["They are used to determine if a state government should be dismissed under Article 356.","They help the courts in examining and determining the constitutional validity of a law.","They are used strictly to audit the financial expenditures of the government.","They allow the Supreme Court to suo motu enact legislation lacking in the country."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 37 explicitly states that DPSPs are"
     },
     {
-        question: "Article 37 says DPSP are \"fundamental in the governance of the country.\" This implies that:",
-        options: ["The courts can compel the government to implement them.", "It is the duty of the State to apply these principles in making laws.", "They are superior to Fundamental Rights.", "They can override the Constitution."],
-        correctAnswerIndex: 1, // b) Duty of state
-        explanation: "Duty of the State to apply these principles."
+        "id": "ch9-l2-q2",
+        "question": "The Directive Principles are classified into Socialistic, Gandhian, and Liberal-Intellectual categories based on their content. Which of the following Directives is uniquely found in BOTH the Gandhian and Liberal-Intellectual classifications in various scholarly analyses?",
+        "options": ["To organize village panchayats (Article 40).","To secure a uniform civil code (Article 44).","To organize agriculture and animal husbandry on modern and scientific lines, while prohibiting cow slaughter (Article 48).","To promote international peace and security (Article 51)."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 48 encompasses two distinct ideals. Organizing agriculture and animal husbandry on"
     },
     {
-        question: "Which of the following DPSP reflects the \"Liberal-Intellectual\" ideology?",
-        options: ["To organize village panchayats.", "To secure a uniform civil code.", "To promote cottage industries.", "To prohibit slaughter of cows."],
-        correctAnswerIndex: 1, // b) UCC
-        explanation: "UCC is Liberal-Intellectual."
+        "id": "ch9-l2-q3",
+        "question": "Assertion (A): The government can be taken to court for failing to implement the Uniform Civil Code under Article 44.\\nReason (R): The Directive Principles, though fundamental in governance, are expressly made non-justiciable by the Constitution to allow the State flexibility based on its resources.\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 3,
+        "explanation": "Assertion A is completely false; Article 37 explicitly states that DPSPs"
     },
     {
-        question: "Which of the following DPSP reflects the \"Gandhian\" ideology?",
-        options: ["To separate the judiciary from the executive.", "To promote international peace and security.", "To promote the educational and economic interests of SCs/STs.", "To secure a uniform civil code."],
-        correctAnswerIndex: 2, // c) SC/STs interests
-        explanation: "Promotion of interests of SCs/STs/weaker sections (Art 46) is Gandhian."
+        "id": "ch9-l2-q4",
+        "question": "Article 39(b) and 39(c) hold a unique, elevated status among all Directive Principles. What constitutional mechanism elevates them?",
+        "options": ["They are the only Directives that the Supreme Court can enforce directly.","Under Article 31C, laws made to implement them cannot be challenged on the ground that they violate Fundamental Rights under Articles 14 and 19.","They are immune from any Constitutional Amendment under Article 368.","They automatically become Fundamental Rights during a Financial Emergency."],
+        "correctAnswerIndex": 1,
+        "explanation": "The 25th Amendment Act (1971) inserted Article 31C, which states that no law seeking to implement the socialistic directives in Article 39(b) (equitable distribution of resources) and (c) (prevention of wealth concentration) shall be void on the ground of contravention of Fundamental Rights under Articles 14 and 19."
     },
     {
-        question: "Which of the following DPSP reflects the \"Socialist\" ideology?",
-        options: ["To protect monuments of national importance.", "To secure the right to adequate means of livelihood.", "To prohibit the consumption of intoxicating drinks.", "To organize agriculture on modern lines."],
-        correctAnswerIndex: 1, // b) Livelihood
-        explanation: "Right to livelihood (Art 39a) is Socialist."
+        "id": "ch9-l2-q5",
+        "question": "Which of the following constitutional amendments made the most sweeping additions to the Directive Principles of State Policy, attempting to subordinate Fundamental Rights to All DPSPs?",
+        "options": ["The 1st Amendment (1951)","The 24th Amendment (1971)","The 42nd Amendment (1976)","The 44th Amendment (1978)"],
+        "correctAnswerIndex": 2,
+        "explanation": "The 42nd Amendment Act (1976), often called the"
     },
     {
-        question: "The 42nd Amendment Act (1976) added four new principles. Which of the following was NOT added by this amendment?",
-        options: ["To secure opportunities for healthy development of children (Article 39).", "To promote equal justice and provide free legal aid (Article 39A).", "To minimize inequalities in income, status, facilities, and opportunities (Article 38).", "To take steps to secure the participation of workers in the management of industries (Article 43A)."],
-        correctAnswerIndex: 2, // c) Article 38
-        explanation: "Article 38(2) was added by 44th Amendment."
+        "id": "ch9-l2-q6",
+        "question": "Consider Article 41:",
+        "options": ["By ensuring a government job for one member of every family.","By enacting the Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA), offering 100 days of guaranteed wage employment.","By offering an unconditional universal basic income to all unemployed youth.","By compelling private sector companies to hire local candidates."],
+        "correctAnswerIndex": 1,
+        "explanation": "The MGNREGA (2005) is the classic example of state legislation implementing Article 41 (Right to work) by guaranteeing 100 days of employment in a financial year to every rural household whose adult members volunteer to do unskilled manual work."
     },
     {
-        question: "The 86th Amendment Act (2002) changed the subject matter of Article 45. Originally, Article 45 directed the State to provide free and compulsory education for:",
-        options: ["Children up to 6 years.", "Children up to 14 years.", "Children between 6 and 14 years.", "All citizens."],
-        correctAnswerIndex: 1, // b) Up to 14 years
-        explanation: "Originally up to 14 years."
+        "id": "ch9-l2-q7",
+        "question": "Article 42 directs the State to make provision for",
+        "options": ["The Minimum Wages Act, 1948","The Maternity Benefit Act, 1961","The Equal Remuneration Act, 1976","The Factories Act, 1948"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Maternity Benefit Act (1961), significantly amended in 2017 to increase paid maternity leave from 12 weeks to 26 weeks, is the direct legislative implementation of the"
     },
     {
-        question: "Which Amendment Act gave constitutional status to \"Co-operative Societies\" by adding Article 43B?",
-        options: ["73rd Amendment", "74th Amendment", "97th Amendment", "91st Amendment"],
-        correctAnswerIndex: 2, // c) 97th
-        explanation: "97th Amendment."
+        "id": "ch9-l2-q8",
+        "question": "The Directive Principle under Article 46 requires the State to promote the educational and economic interests of SCs, STs, and other weaker sections. How does this DPSP practically interface with Fundamental Rights?",
+        "options": ["It cannot interface with them because DPSPs are subordinate.","It acts as the constitutional foundation justifying the exceptions granted under Articles 15(4), 15(5), and 16(4) for reservations in education and employment.","It automatically nullifies the Right to Equality under Article 14.","It dictates that reservations must exceed 50% in all states."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 46 provides the moral and constitutional mandate for the State to create special provisions for weaker sections. Courts view Articles 15(4), 15(5), and 16(4) (the reservation clauses) as the tools the State uses to discharge its duty under the Article 46 directive, highlighting the harmony between Parts III and IV."
     },
     {
-        question: "The \"Legal Services Authorities Act, 1987\" was enacted to implement which specific DPSP?",
-        options: ["Article 40 (Panchayats).", "Article 39A (Free Legal Aid).", "Article 44 (UCC).", "Article 50 (Separation of Judiciary)."],
-        correctAnswerIndex: 1, // b) 39A
-        explanation: "Article 39A."
+        "id": "ch9-l2-q9",
+        "question": "Which of the following environmental protections is explicitly mandated by a Directive Principle (Article 48A) introduced by the 42nd Amendment?",
+        "options": ["To transition entirely to renewable energy by 2050.","To protect and improve the environment and to safeguard forests and wildlife.","To establish a National Green Tribunal.","To ban single-use plastics nationwide."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 48A directs the State"
     },
     {
-        question: "The \"Wildlife (Protection) Act, 1972\" and \"Forest (Conservation) Act, 1980\" are steps taken to implement:",
-        options: ["Article 48A.", "Article 49.", "Article 47.", "Article 51A."],
-        correctAnswerIndex: 0, // a) 48A
-        explanation: "Article 48A."
+        "id": "ch9-l2-q10",
+        "question": "The 97th Amendment Act of 2011 elevated",
+        "options": ["To nationalize all failing cooperative banks.","To mandate that all farmers must join a cooperative society.","To promote voluntary formation, autonomous functioning, democratic control, and professional management of co-operative societies.","To exempt cooperative societies from all state and central taxes."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 43B specifies:"
     },
     {
-        question: "In the Champakam Dorairajan Case (1951), the Supreme Court held that DPSP:",
-        options: ["Are superior to Fundamental Rights.", "Are subsidiary to Fundamental Rights.", "Are equal to Fundamental Rights.", "Are enforceable by courts."],
-        correctAnswerIndex: 1, // b) Subsidiary
-        explanation: "Subsidiary to Fundamental Rights."
+        "id": "ch9-l2-q11",
+        "question": "Article 50 directs the state to",
+        "options": ["Judges were directly appointed by the Prime Minister.","The Supreme Court was an advisory body to the Cabinet.","Executive authorities like District Magistrates and Tehsildars possessed and exercised significant judicial (magisterial) powers over criminal offenses.","The High Courts were subordinate to State Governors."],
+        "correctAnswerIndex": 2,
+        "explanation": "During the British era and initial post-independence years, Executive Magistrates (like Collectors/Tehsildars) held substantial judicial powers in criminal cases, meaning the executive could arrest and judge a person. Separating the judiciary from the executive meant taking these judicial powers away and vesting them in separate Judicial Magistrates."
     },
     {
-        question: "To overcome the Champakam Dorairajan judgment, the Parliament enacted which Amendment Act (the first one to amend FRs for DPSP)?",
-        options: ["1st Amendment Act, 1951.", "4th Amendment Act, 1955.", "25th Amendment Act, 1971.", "42nd Amendment Act, 1976."],
-        correctAnswerIndex: 0, // a) 1st Amendment
-        explanation: "1st Amendment Act, 1951 (Inserted Art 31A, 31B)."
+        "id": "ch9-l2-q12",
+        "question": "Assertion (A): Fundamental Rights are negative injunctions on the State, while Directive Principles are positive obligations.\\nReason (R): Fundamental Rights prohibit the State from doing certain things (like discriminating), whereas Directive Principles require the State to actively do certain things (like providing a living wage).\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. FRs are generally negative (prohibiting state action to protect individual liberty), while DPSPs are positive (requiring state action to distribute resources and provide social welfare). Reason R perfectly explains Assertion A."
     },
     {
-        question: "The 25th Amendment Act (1971) inserted a new Article 31C. It provided that no law which seeks to implement the principles specified in ______ shall be void on the ground of contravention of Article 14, 19, or 31.",
-        options: ["Article 39(b) and 39(c).", "All DPSP.", "Article 38 and 39.", "Article 40 and 44."],
-        correctAnswerIndex: 0, // a) 39b and 39c
-        explanation: "Article 39(b) and 39(c)."
+        "id": "ch9-l2-q13",
+        "question": "Which of the following Directive Principles explicitly aims at promoting the economic empowerment of workers against pure capitalistic exploitation?",
+        "options": ["Article 43A: Participation of workers in the management of industries.","Article 51: Promotion of international peace.","Article 49: Protection of monuments and places of national importance.","Article 44: Uniform Civil Code."],
+        "correctAnswerIndex": 0,
+        "explanation": "Article 43A (added by the 42nd Amendment) directs the State to take steps to secure the participation of workers in the management of undertakings, establishments, or other organizations engaged in any industry, challenging pure top-down capitalist management."
     },
     {
-        question: "In the Kesavananda Bharati Case (1973), the Supreme Court regarding Article 31C held that:",
-        options: ["The entire Article 31C is unconstitutional.", "The first part (protecting laws under 39b/c) is valid, but the second part (barring judicial review) is unconstitutional.", "The second part is valid, but the first part is invalid.", "The entire Article 31C is valid."],
-        correctAnswerIndex: 1, // b) First part valid, second invalid
-        explanation: "First part valid, second invalid."
+        "id": "ch9-l2-q14",
+        "question": "Examine the relationship between DPSPs and the Preamble. Which noble objectives enshrined in the Preamble do the Directive Principles primarily seek to realize?",
+        "options": ["Liberty of thought, expression, belief, faith and worship.","Justice—social, economic, and political.","Fraternity assuring the dignity of the individual.","Equality of status only."],
+        "correctAnswerIndex": 1,
+        "explanation": "While FRs primarily protect Liberty and Equality, the DPSPs are fundamentally designed to achieve the grand ideal of"
     },
     {
-        question: "The 42nd Amendment Act (1976) extended the protection of Article 31C to laws implementing:",
-        options: ["Only Article 39(b) and 39(c).", "Any of the Directive Principles.", "Socialist Principles only.", "Gandhian Principles only."],
-        correctAnswerIndex: 1, // b) Any DPSP
-        explanation: "Any of the Directive Principles."
+        "id": "ch9-l2-q15",
+        "question": "Article 45 was significantly altered by the 86th Amendment Act (2002). Why did the subject matter change from",
+        "options": ["Because education up to 14 years was deemed a state subject, not a central directive.","Because the Supreme Court ruled that education beyond 6 years was not feasible for India.","Because education for children between 6 and 14 years was elevated to a Fundamental Right under the newly inserted Article 21A.","Because the government wanted to shift focus entirely to Anganwadi centers."],
+        "correctAnswerIndex": 2,
+        "explanation": "The 86th Amendment made elementary education (6-14 years) a justiciable Fundamental Right (Article 21A). Once it became a fundamental right, the DPSP under Article 45 was amended to direct the state to focus on"
     },
     {
-        question: "In the Minerva Mills Case (1980), the Supreme Court struck down the extension of Article 31C made by the 42nd Amendment. Why?",
-        options: ["Because it violated the \"Basic Structure\" by destroying the balance between FR and DPSP.", "Because DPSP are not justiciable.", "Because it removed the Right to Property.", "Because it was passed during Emergency."],
-        correctAnswerIndex: 0, // a) Balance
-        explanation: "Destroying the balance between FR and DPSP (Basic Structure)."
+        "id": "ch9-l2-q16",
+        "question": "The Directive Principles recognize that the State",
+        "options": ["","","","","","","",""],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 41 specifically states:"
     },
     {
-        question: "Therefore, the present legal position is that Fundamental Rights enjoy supremacy over Directive Principles. However, laws implementing ______ can supersede Article 14 and 19.",
-        options: ["Article 39(b) and 39(c).", "All DPSP.", "Article 44.", "No DPSP."],
-        correctAnswerIndex: 0, // a) 39b and 39c
-        explanation: "Article 39(b) and 39(c)."
+        "id": "ch9-l2-q17",
+        "question": "Article 39A directs the State to provide free legal aid",
+        "options": ["The National Human Rights Commission (NHRC)","The National Legal Services Authority (NALSA)","The Law Commission of India","The Central Bureau of Investigation (CBI)"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Legal Services Authorities Act, 1987 established a nation-wide network under NALSA (National Legal Services Authority) to provide free and competent legal services to the weaker sections of the society, directly implementing Article 39A."
     },
     {
-        question: "Directives Outside Part IV: Article 335 (Part XVI) says that the claims of SC/STs to services and posts shall be taken into consideration consistently with:",
-        options: ["The maintenance of efficiency of administration.", "The social justice goals.", "The population ratio.", "The availability of funds."],
-        correctAnswerIndex: 0, // a) Efficiency
-        explanation: "Maintenance of efficiency of administration."
+        "id": "ch9-l2-q18",
+        "question": "Which of the following is considered a",
+        "options": ["Article 48A: Protection of the environment.","Article 335: Claims of SCs and STs to services and posts, consistent with maintaining administrative efficiency.","Article 38: Promoting the welfare of the people.","Article 51: Promotion of international peace."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 335 in Part XVI explicitly states that the claims of the members of the SCs and STs shall be taken into consideration, consistently with the maintenance of efficiency of administration. Like DPSPs, it is a directive to the state, but it lies outside Part IV. Others include Art 350-A and Art 351."
     },
     {
-        question: "Article 350-A (Part XVII) directs every State to provide adequate facilities for instruction in the mother-tongue at the:",
-        options: ["Primary stage of education to children belonging to linguistic minority groups.", "Secondary stage of education.", "Higher education level.", "All levels of education."],
-        correctAnswerIndex: 0, // a) Primary stage
-        explanation: "Primary stage of education."
+        "id": "ch9-l2-q19",
+        "question": "Article 47 mandates the state to raise the level of nutrition, standard of living, and improve public health. It also specifically directs the prohibition of intoxicating drinks. Why is there a significant disparity among Indian states regarding the implementation of the prohibition aspect of this directive?",
+        "options": ["Prohibition is a Fundamental Right in some states but not others.","Alcohol manufacturing and distribution falls under the","of the 7th Schedule; thus, individual state governments decide whether to implement prohibition based on their revenue dependencies and political goals.","The Supreme Court has banned nationwide prohibition.","The United Nations prohibits a nationwide ban."],
+        "correctAnswerIndex": 1,
+        "explanation": "Alcohol is a State Subject (Entry 8, State List). States earn massive excise revenue from liquor. Therefore, while Article 47 is a DPSP, states like Gujarat and Bihar chose to implement prohibition, while most others prioritize the revenue generated by liquor sales."
     },
     {
-        question: "Article 351 (Part XVII) directs the Union to promote the spread of the ______ language.",
-        options: ["Sanskrit", "Hindi", "English", "Hindustani"],
-        correctAnswerIndex: 1, // b) Hindi
-        explanation: "Hindi."
+        "id": "ch9-l2-q20",
+        "question": "Dr. B.R. Ambedkar believed that a government which rests on popular vote cannot ignore the Directive Principles. What happens, according to him, if a government ignores them?",
+        "options": ["It will be immediately dismissed by the Supreme Court.","The President must declare a National Emergency.","It will certainly have to answer for them before the electorate at election time.","The Prime Minister must face impeachment."],
+        "correctAnswerIndex": 2,
+        "explanation": "Ambedkar famously stated that while there"
     },
     {
-        question: "Comparative & Analytical: The DPSP are similar to the \"Instrument of Instructions\" enumerated in the:",
-        options: ["Government of India Act, 1919.", "Government of India Act, 1935.", "Indian Independence Act, 1947.", "Cabinet Mission Plan."],
-        correctAnswerIndex: 1, // b) GoI Act 1935
-        explanation: "Government of India Act, 1935."
+        "id": "ch9-l2-q21",
+        "question": "Consider the constitutional directive",
+        "options": ["Because the British government had already established a uniform civil code which they didn","Because of overwhelming opposition from minority communities who feared the imposition of a majority code, and the belief that the nation","t yet ready for it.","Because the Drafting Committee believed personal laws were entirely a state matter.","Because the Supreme Court advised against making it a fundamental right."],
+        "correctAnswerIndex": 1,
+        "explanation": "There was fierce debate. Minority members feared forced assimilation. Ambedkar argued for a UCC but conceded the time wasn"
     },
     {
-        question: "Who described the DPSP as a \"Cheque on a bank, payable only when the resources of the bank permit\"?",
-        options: ["K.T. Shah", "T.T. Krishnamachari", "Sir B.N. Rau", "Dr. B.R. Ambedkar"],
-        correctAnswerIndex: 0, // a) K.T. Shah
-        explanation: "K.T. Shah."
+        "id": "ch9-l2-q22",
+        "question": "Examine Article 39(d):",
+        "options": ["No, because it is purely a DPSP and courts can never intervene regarding equal pay.","Yes, the Supreme Court has read the principle of","into the Right to Equality (Article 14), making it enforceable although it strictly resides in Part IV.","Yes, but only in government jobs, not in the private sector.","No, the Equal Remuneration Act 1976 was repealed."],
+        "correctAnswerIndex": 1,
+        "explanation": "While formally a DPSP, the Supreme Court (Randhir Singh case, 1982) ruled that"
     },
     {
-        question: "Who described the DPSP as a \"veritable dustbin of sentiments\"?",
-        options: ["K.C. Wheare", "T.T. Krishnamachari", "Sir Ivor Jennings", "Srinivasan"],
-        correctAnswerIndex: 1, // b) T.T. Krishnamachari
-        explanation: "T.T. Krishnamachari."
+        "id": "ch9-l2-q23",
+        "question": "Article 48 directs the State to",
+        "options": ["Yes, the ban is absolute for all cattle, regardless of age or utility.","No, the SC has traditionally held that the ban applies to cows (absolute), but for other cattle (bulls/bullocks), it applies only as long as they are","(useful). Once they age past utility, they can be slaughtered.","Yes, the ban applies universally to all animals, including poultry.","No, the directive only applies during religious festivals."],
+        "correctAnswerIndex": 1,
+        "explanation": "Historically, the SC distinguished between cows/calves (absolute ban justified by public interest/sentiment) and other cattle. For bulls/bullocks, slaughter was permitted if they were old/decrepit and no longer useful for draught/agricultural purposes, balancing religious sentiments with the economic right to trade (Article 19(1)(g))."
     },
     {
-        question: "Fundamental Rights are ______ in nature, while Directive Principles are ______ in nature.",
-        options: ["Positive; Negative", "Negative; Positive", "Justiciable; Non-justiciable", "Temporary; Permanent"],
-        correctAnswerIndex: 1, // b) Negative; Positive
-        explanation: "FRs are negative (prohibitions), DPSP are positive (instructions)."
+        "id": "ch9-l2-q24",
+        "question": "Which Directive Principle aligns with India",
+        "options": ["Article 48A","Article 49","Article 50","Article 51"],
+        "correctAnswerIndex": 3,
+        "explanation": "Article 51 (Promotion of international peace and security, maintaining just relations, fostering respect for international law, and encouraging arbitration) is the constitutional bedrock of India"
     },
     {
-        question: "\"Economic Democracy\" is the goal of ______, while \"Political Democracy\" is the goal of ______.",
-        options: ["Fundamental Rights; DPSP", "DPSP; Fundamental Rights", "Preamble; Fundamental Duties", "Fundamental Duties; Preamble"],
-        correctAnswerIndex: 1, // b) DPSP; FR
-        explanation: "Economic Democracy (DPSP); Political Democracy (FR)."
+        "id": "ch9-l2-q25",
+        "question": "In the context of the evolution of the DPSP vs. Fundamental Rights debate, the Golaknath Case (1967) established a rigid stance. What was it?",
+        "options": ["DPSPs are permanently supreme over Fundamental Rights.","Parliament CANNOT amend Fundamental Rights, not even to implement Directive Principles.","Article 31C is the most important part of the Constitution.","The Constitution cannot be amended at all."],
+        "correctAnswerIndex": 1,
+        "explanation": "In Golaknath (1967), the SC ruled that Fundamental Rights are"
     },
     {
-        question: "Article 44 (Uniform Civil Code) has been implemented in which state of India for a long time (even before Independence)?",
-        options: ["Goa", "Kerala", "Mizoram", "Jammu & Kashmir"],
-        correctAnswerIndex: 0, // a) Goa
-        explanation: "Goa (Portuguese Civil Code)."
+        "id": "ch9-l2-q26",
+        "question": "Article 38(2), added by the 44th Amendment, urges the State to",
+        "options": ["Individuals only.","Groups of people residing in different areas or engaged in different vocations only.","Both individuals and groups of people residing in different areas or engaged in different vocations.","Only men and women in the organized sector."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 38(2) specifically states the State shall strive to eliminate inequalities"
     },
     {
-        question: "The Khadi and Village Industries Commission (KVIC) was established to implement:",
-        options: ["Article 40", "Article 43", "Article 47", "Article 48"],
-        correctAnswerIndex: 1, // b) Article 43
-        explanation: "Article 43 (Cottage Industries)."
+        "id": "ch9-l2-q27",
+        "question": "Consider the",
+        "options": ["Promoting cottage industries (Article 43).","Organizing village panchayats (Article 40).","Prohibiting intoxicating drinks (Article 47).","Protecting monuments and places of national importance (Article 49)."],
+        "correctAnswerIndex": 3,
+        "explanation": "Protecting monuments (Article 49) is classified under"
     },
     {
-        question: "The \"Criminal Procedure Code, 1973\" separated the judiciary from the executive in the public services of the State. This fulfilled:",
-        options: ["Article 39A", "Article 44", "Article 50", "Article 51"],
-        correctAnswerIndex: 2, // c) Article 50
-        explanation: "Article 50."
+        "id": "ch9-l2-q28",
+        "question": "Article 39(a) directs the state to secure the right to an",
+        "options": ["Building expressways connecting major cities.","Privatizing heavily indebted public sector units.","Distributing subsidized food grains through the Public Distribution System (PDS) and enacting the National Food Security Act.","Encouraging foreign direct investment in the defense sector."],
+        "correctAnswerIndex": 2,
+        "explanation": "Securing"
     },
     {
-        question: "Assertion (A): The DPSP are non-justiciable. Reason (R): The Constitution-makers did not want to burden the future governments with strict legal obligations due to lack of financial resources.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Correct explanation."
+        "id": "ch9-l2-q29",
+        "question": "Assertion (A): The President of India could hypothetically reject a bill passed by Parliament on the grounds that it blatantly violates a Directive Principle of State Policy.\\nReason (R): DPSPs are",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. While courts cannot enforce DPSPs, they bind the executive and legislature. Renowned scholars (like B.R. Ambedkar and Dr. Rajendra Prasad) noted that a President or Governor could technically refuse assent to a bill if it flagrantly violates a DPSP, though convention usually binds them to Cabinet advice."
     },
     {
-        question: "Which of the following acts was enacted to implement the DPSP related to \"Social Security\" (Article 41)?",
-        options: ["Minimum Wages Act, 1948.", "Maternity Benefit Act, 1961.", "Old Age Pension Schemes (NSAP).", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "All implement social security/welfare."
+        "id": "ch9-l2-q30",
+        "question": "Article 51(c) directs the State to foster respect for",
+        "options": ["The international treaty automatically supersedes the domestic law.","The domestic law prevails, as Parliament is sovereign, but courts will try to interpret the domestic law harmoniously with the treaty if possible.","The Supreme Court will immediately strike down the domestic law under Article 51.","The case must be referred to the International Court of Justice."],
+        "correctAnswerIndex": 1,
+        "explanation": "In India"
     }
 ];
 
-// Level 3: The UPSC Simulation 2026 (Integrated & Current Affairs)
 const LEVEL_3_QUESTIONS = [
     {
-        question: "With the implementation of the Uttarakhand UCC (2024), the constitutional debate on Article 44 has resurfaced. Opponents argue that a mandatory UCC violates Article 25. The Supreme Court's consistent stand (e.g., Shah Bano, Sarla Mudgal) has been that:",
-        options: ["Article 25 (Religious Freedom) is absolute and overrides Article 44.", "Article 44 is a \"dead letter\" and should not be implemented.", "Article 25 guarantees religious freedom subject to \"public order, morality and health\" and \"other provisions of Part III,\" but personal laws are not \"laws\" under Article 13.", "Parliament has no power to legislate on personal laws."],
-        correctAnswerIndex: 2, // c) Art 25 subject to...
-        explanation: "Art 25 is subject to Part III; personal laws not laws under Art 13."
+        "id": "ch9-l3-q1",
+        "question": "Consider the constitutional journey of the balance between Fundamental Rights (FRs) and Directive Principles of State Policy (DPSPs). Which landmark judgment firmly established that the Indian Constitution is founded on the",
+        "options": ["Champakam Dorairajan case (1951)","Golaknath case (1967)","Kesavananda Bharati case (1973)","Minerva Mills case (1980)"],
+        "correctAnswerIndex": 3,
+        "explanation": "In Minerva Mills (1980), the SC struck down the 42nd Amendment"
     },
     {
-        question: "The \"Goa Civil Code\" is often cited as a model. However, it is a Portuguese legacy. Which specific feature of the Goa Code contradicts the modern understanding of a \"Uniform\" and \"Gender Just\" code?",
-        options: ["It allows for \"Polygamy\" for Hindu men under specific circumstances (if the wife fails to deliver a male child by age 30).", "It mandates compulsory registration of marriage.", "It provides for equal division of property between spouses.", "It bans Triple Talaq."],
-        correctAnswerIndex: 0, // a) Polygamy
-        explanation: "Allows polygamy for Hindus in specific circumstances."
+        "id": "ch9-l3-q2",
+        "question": "Under the current constitutional position balancing FRs and DPSPs, what is the exact scope of the protective umbrella provided by Article 31C?",
+        "options": ["It protects laws implementing any DPSP from being challenged under any Fundamental Right.","It protects laws implementing ONLY the socialistic directives under Article 39(b) and (c) from being challenged specifically under Articles 14 and 19.","It protects laws implementing Gandhian directives under Article 40 from being challenged under Article 21.","It has been completely struck down by the Supreme Court and no longer offers any protection."],
+        "correctAnswerIndex": 1,
+        "explanation": "Following Minerva Mills (1980) and later clarifications (like Waman Rao), Article 31C is valid only to its original extent (inserted by 25th CAA). It protects ONLY laws giving effect to the directives in Article 39(b) and (c) against challenges under Articles 14 (Equality) and 19 (Freedoms)."
     },
     {
-        question: "The \"Law Commission of India\" (22nd) solicited views on the UCC in 2023. Its predecessor (21st Law Commission) had observed that:",
-        options: ["A UCC is neither necessary nor desirable at this stage.", "A UCC is urgently required to promote national integration.", "A UCC should be implemented state-by-state.", "A UCC violates the Basic Structure."],
-        correctAnswerIndex: 0, // a) Neither necessary nor desirable
-        explanation: "Neither necessary nor desirable at this stage."
+        "id": "ch9-l3-q3",
+        "question": "The Directive Principle under Article 44 advocates for a",
+        "options": ["Marriage and Divorce.","Succession and Inheritance.","Adoption and Maintenance.","Criminal Law (Indian Penal Code/BNS) and Contract Law."],
+        "correctAnswerIndex": 3,
+        "explanation": "While personal laws (marriage, divorce, inheritance, adoption) vary sharply by religion in India (Hindu Marriage Act, Muslim Personal Law, etc.), laws like the IPC/BNS, CrPC/BNSS, Evidence Act, and Contract Act form a uniform civil framework that applies universally regardless of religion."
     },
     {
-        question: "The debate between \"Right to Work\" (MNREGA - Article 41) and \"Universal Basic Income\" (UBI) is ongoing. Economists argue that UBI fulfills the DPSP of \"Economic Justice\" (Article 38) better because:",
-        options: ["It reduces administrative leakage.", "It provides \"choice\" to the beneficiary (Liberty).", "It covers the \"unemployable\" (elderly, disabled) who cannot work under MNREGA.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All are arguments for UBI."
+        "id": "ch9-l3-q4",
+        "question": "Assertion (A): The Supreme Court has repeatedly issued detailed writs (Mandamus) directing the Central Government to enact legislation for a Uniform Civil Code (UCC) to fulfill its constitutional duty under Article 44.\\nReason (R): While DPSPs are fundamentally unenforceable by individuals, the Supreme Court, possessing inherent powers under Article 142, can mandate the legislature to draft specific laws if a DPSP has been ignored for too long.\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true.","Both A and R are false."],
+        "correctAnswerIndex": 4,
+        "explanation": "Both statements are false. The SC has urged/reminded the government (e.g., Shah Bano case, Sarla Mudgal case), but it has explicitly ruled (e.g., Maharshi Avadhesh vs UoI) that it CANNOT issue a writ of Mandamus directing the legislature to enact a Uniform Civil Code, as law-making is solely Parliament"
     },
     {
-        question: "The Rajasthan Platform Based Gig Workers (Registration and Welfare) Act, 2023 is a pioneering law implementing Article 43 (Social Security). Gig workers (Swiggy/Zomato etc.) fall under the \"Unorganized Sector.\" Constitutional experts argue that denying them \"Employee\" status violates:",
-        options: ["Article 14 (Equality).", "Article 21 (Right to Livelihood).", "Article 23 (Forced Labor - if pay is below minimum wage).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Violates 14, 21, and possibly 23."
+        "id": "ch9-l3-q5",
+        "question": "Examine Article 39(b) [‘equitable distribution of material resources of the community’] and 39(c) [‘prevention of concentration of wealth’]. In the landmark 2024 judgment (Property Owners Association vs State of Maharashtra), how did a 9-judge Constitution Bench interpret",
+        "options": ["It ruled that ALL private property automatically constitutes","and the State can take over anything.","It ruled that private property DOES NOT automatically constitute","simply by existing; it depends on the nature, scarcity, and impact of the resource.","It declared Article 39(b) unconstitutional as it violated the Right to Property.","It ruled that only government-owned land qualifies as","."],
+        "correctAnswerIndex": 1,
+        "explanation": "In a crucial 2024 verdict, the SC (8:1 majority) rejected Justice Krishna Iyer"
     },
     {
-        question: "\"Equal Pay for Equal Work\" (Article 39(d)) was declared a constitutional goal by the Supreme Court. In the case of Contractual Employees vs Permanent Employees, the Court held that:",
-        options: ["The principle applies if the nature of duties and responsibilities are identical.", "It does not apply because contractual employees have a different contract.", "It is only a DPSP, hence unenforceable.", "Market forces determine wages, not the Constitution."],
-        correctAnswerIndex: 0, // a) Identical duties
-        explanation: "Applies if duties are identical."
+        "id": "ch9-l3-q6",
+        "question": "Article 43 directs the State to secure a",
+        "options": ["Minimum wage sustains mere life; living wage covers basic sustenance plus modest comfort (education, health, insurance); fair wage is above a living wage reflecting peak industry profitability.","Minimum wage covers basic sustenance (bare physical needs); fair wage covers sustenance plus a little comfort based on industry capacity; living wage provides for the highest standard of living including luxuries.","Minimum wage ensures mere bare physical needs; fair wage is a step up determined by industry capacity; living wage provides basic requirements plus frugal comforts (education, health, decent insurance) and is the ultimate constitutional goal.","There is no legal distinction; all three terms are used interchangeably by the Supreme Court."],
+        "correctAnswerIndex": 2,
+        "explanation": "The SC defined these in the Express Newspapers case (1958). Minimum wage: bare physical needs. Fair wage: higher than minimum, limited by the industry"
     },
     {
-        question: "The \"Right to be Free from Adverse Effects of Climate Change\" was recognized as a distinct Fundamental Right by the Supreme Court in 2024 (Great Indian Bustard Case). This right is derived from:",
-        options: ["Article 21 read with Article 48A and 51A(g).", "Article 14 only.", "Article 19(1)(g) only.", "The Paris Agreement."],
-        correctAnswerIndex: 0, // a) 21 + 48A + 51A
-        explanation: "Article 21 read with 48A and 51A(g)."
+        "id": "ch9-l3-q7",
+        "question": "Which of the following bodies is the primary mechanism established at the state level to realize the Gandhian directive under Article 40 (",
+        "options": ["The 73rd Constitutional Amendment Act, 1992 (Part IX).","The Community Development Programme (1952).","The National Extension Service (1953).","The Mahatma Gandhi National Rural Employment Guarantee Act (2005)."],
+        "correctAnswerIndex": 0,
+        "explanation": "While earlier programs existed, the 73rd Constitutional Amendment Act (1992) gave practical, binding effect to Article 40 by adding Part IX (The Panchayats) to the Constitution, making the establishment of regular village panchayats mandatory rather than just a directive."
     },
     {
-        question: "The Forest (Conservation) Amendment Act, 2023 exempted certain strategic border areas from clearance. Critics argue this dilutes Article 48A. The government's defense relies on:",
-        options: ["Article 51 (Security of State/International relations).", "Article 19(2) (Reasonable restrictions for security).", "The \"Public Trust Doctrine\".", "The \"Polluter Pays Principle\"."],
-        correctAnswerIndex: 0, // a) Art 51/Security
-        explanation: "Security of State (implied in constitutional scheme, Art 51 context usually Intl Peace, but national security is primary defense)."
+        "id": "ch9-l3-q8",
+        "question": "Article 48A (",
+        "options": ["The","Principle (absolute liability).","The","(anticipate and prevent environmental harm).","The",".","The","principle solely for ecological displacement."],
+        "correctAnswerIndex": 3,
+        "explanation": "Through landmark cases (like Vellore Citizens Welfare Forum, M.C. Mehta, etc.), the SC incorporated international environmental concepts—Polluter Pays, Precautionary Principle, Intergenerational Equity, and the Public Trust Doctrine—into domestic law by reading DPSPs and Fundamental Duties into Article 21."
     },
     {
-        question: "\"Prohibition of Intoxicating Drinks\" (Article 47) is implemented by states like Bihar and Gujarat. The constitutional challenge to these \"Liquor Bans\" is usually based on:",
-        options: ["Article 19(1)(g) (Right to trade).", "Article 21 (Right to Choice/Privacy).", "Article 14 (Arbitrariness).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Challenges involve Trade, Privacy/Choice, Arbitrariness."
+        "id": "ch9-l3-q9",
+        "question": "Consider the constitutional directive found in Article 350-A. The 7th Constitutional Amendment Act (1956) inserted this provision acting on the recommendation of the States Reorganization Commission. What does it essentially mandate?",
+        "options": ["It directs linguistic minorities to adopt Hindi as their primary language within a decade.","It mandates the State to provide adequate facilities for instruction in the mother-tongue at the primary stage of education to children belonging to linguistic minority groups.","It reserves 10% of state government jobs for linguistic minorities.","It directs the Union to fund the translation of the Constitution into all scheduled languages."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 350-A (a Directive outside Part IV) charges every state and local authority to endeavor to provide facilities for instruction in the mother-tongue at the primary stage of education to linguistic minority children. The President can issue directions to states to ensure this."
     },
     {
-        question: "The Supreme Court (2021) struck down part of the 97th Amendment (Cooperatives) because:",
-        options: ["\"Cooperative Societies\" is exclusively a State Subject (Entry 32, List II).", "The Amendment was not ratified by half of the states (Article 368(2)).", "It violated the Basic Structure of Federalism.", "All of the above (Specifically for multi-state cooperatives, it was upheld; for state cooperatives, it was struck down)."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Struck down for state cooperatives due to lack of ratification/federalism."
+        "id": "ch9-l3-q10",
+        "question": "Article 51 directs the State to",
+        "options": ["Article 73 (Extent of Executive Power of the Union).","Article 253 (Legislation for giving effect to international agreements).","Article 368 (Power of Parliament to amend the Constitution).","Article 131 (Original jurisdiction of the Supreme Court)."],
+        "correctAnswerIndex": 1,
+        "explanation": "While Article 51 acts as the guiding philosophy, Article 253 provides the concrete mechanism: Parliament has the exclusive power to make any law for the whole or any part of India to implement any international treaty, agreement, or convention, even if the subject matter falls in the State List."
     },
     {
-        question: "Article 40 (Village Panchayats) was a \"Gandhian\" dream. However, the 73rd Amendment (1992) formalized it. The current debate on \"Simultaneous Elections\" suggests a \"Common Electoral Roll\" for Panchayat, Assembly, and Lok Sabha elections. This requires amending:",
-        options: ["Article 243K and Article 324.", "Article 40 only.", "The Representation of People Act only.", "No amendment is needed."],
-        correctAnswerIndex: 0, // a) 243K and 324
-        explanation: "Requires amending 243K (State EC) and 324 (Central EC)."
+        "id": "ch9-l3-q11",
+        "question": "The 97th Amendment (2011) inserted Article 43B regarding Co-operative Societies. However, in 2021 (Union of India v. Rajendra N Shah), a 3-judge bench of the Supreme Court partially struck down the 97th Amendment Act. What was the primary constitutional flaw identified by the Court?",
+        "options": ["It violated the Right to Equality (Article 14) of non-cooperative entities.","Co-operative societies are a","(Entry 32), and the amendment deeply regulated them without the mandatory ratification by one-half of the State Legislatures required under Article 368(2).","It violated the Basic Structure doctrine by curtailing the powers of the Election Commission.","It forced mandatory membership in co-operatives, violating Article 19(1)(c)."],
+        "correctAnswerIndex": 1,
+        "explanation": "The SC struck down Part IXB (dealing with cooperatives) for"
     },
     {
-        question: "The \"National Judicial Appointments Commission\" (NJAC) verdict relied heavily on the \"Independence of Judiciary\" as a Basic Feature. This concept is explicitly mentioned in:",
-        options: ["Article 50 (DPSP).", "Article 124 (Establishment of SC).", "Preamble.", "Fundamental Duties."],
-        correctAnswerIndex: 0, // a) Article 50
-        explanation: "Explicitly mentioned in Article 50."
+        "id": "ch9-l3-q12",
+        "question": "Article 48 instructs the State to",
+        "options": ["The Green Revolution (High Yielding Varieties Programme).","The Bhoodan Movement (Land donation).","The Swadeshi Movement.","The Nationalization of Banks (1969)."],
+        "correctAnswerIndex": 0,
+        "explanation": "The Green Revolution (1960s)—characterized by the introduction of High-Yielding Variety (HYV) seeds, modern irrigation, chemical fertilizers, and pesticides—is the practical historical manifestation of organizing agriculture on"
     },
     {
-        question: "The \"Executive Magistracy\" (DM/SDM) retaining powers to issue Section 144 orders (CrPC/BNSS) is often criticized as a violation of Article 50 (Separation of Judiciary from Executive). The counter-argument is that:",
-        options: ["These are \"preventive\" administrative powers, not \"judicial\" powers.", "Article 50 applies only to criminal trials.", "The DM acts as a court under Article 226.", "Article 50 is not justiciable."],
-        correctAnswerIndex: 0, // a) Preventive
-        explanation: "Considered preventive administrative powers."
+        "id": "ch9-l3-q13",
+        "question": "In the context of protecting the environment (Article 48A), the Supreme Court has frequently applied the",
+        "options": ["The State holds absolute ownership of all natural resources and can privatize them entirely for revenue generation.","Natural resources (air, water, forests) are held by the State as a","for the free and unimpeded use of the general public; the State is legally prohibited from turning them into private ownership or exploiting them arbitrarily.","Only religious trusts can manage natural resources like rivers and ancient groves.","The State must sell all natural resources through open public auctions only."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Public Trust Doctrine (adopted in the US and then in India via M.C. Mehta vs Kamal Nath, 1997) asserts that certain resources like air, rivers, and forests have such great importance to the public that concluding them under private ownership is unjustified. The State holds them in trust to protect them for public use."
     },
     {
-        question: "India's \"Nuclear Doctrine\" (No First Use) and refusal to sign the NPT (Non-Proliferation Treaty) are guided by:",
-        options: ["Article 51 (Promote international peace and security).", "Article 1 (Sovereignty).", "Strategic Autonomy (Non-Alignment).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Guided by Art 51, Sovereignty, and Strategic Autonomy."
+        "id": "ch9-l3-q14",
+        "question": "Article 39(f), introduced by the 42nd Amendment, aims to",
+        "options": ["The Juvenile Justice (Care and Protection of Children) Act, 2015.","The Protection of Children from Sexual Offences (POCSO) Act, 2012.","The Prohibition of Child Marriage Act, 2006.","The National Security Act (NSA), 1980."],
+        "correctAnswerIndex": 3,
+        "explanation": "The JJ Act, POCSO Act, and Prohibition of Child Marriage Act are all deeply rooted in fulfilling Article 39(f) to protect children and ensure their healthy development. The National Security Act (NSA) is a preventive detention law meant for state security, unrelated to child welfare."
     },
     {
-        question: "The Citizenship Amendment Act (CAA) debate involved Article 51(c) (\"Foster respect for international law\"). Critics argued CAA violates the Refugee Convention. The Government's stand:",
-        options: ["India is not a signatory to the Refugee Convention, so no violation.", "Article 51 is non-justiciable.", "CAA is a domestic law for citizenship, not a refugee law.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All are part of the government's stand."
+        "id": "ch9-l3-q15",
+        "question": "Consider the Directive to",
+        "options": ["The Indian Penal Code Amendment of 1955.","The Code of Criminal Procedure (CrPC), 1973.","The Supreme Court (Number of Judges) Act, 1956.","The Administrative Tribunals Act, 1985."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Code of Criminal Procedure (CrPC) of 1973 (replacing the 1898 code) formally structured the separation. It created distinct"
     },
     {
-        question: "Assertion (A): Directives addressed to the State are not enforceable by courts. Reason (R): If the State fails to implement them, the remedy lies in the \"Court of the People\" (Elections), not the Court of Law.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Correct explanation."
+        "id": "ch9-l3-q16",
+        "question": "In statecraft, the Directive Principles function as a",
+        "options": ["They would eventually be converted into Fundamental Rights by the year 2000.","They lay down the explicit goal of an",", ensuring that irrespective of whichever party comes to power, it must respect these basic socio-economic parameters or face the electorate.","They were necessary to mollify the British Parliament during the transfer of power.","They allowed the Supreme Court to bypass the legislature entirely."],
+        "correctAnswerIndex": 1,
+        "explanation": "Ambedkar argued that India"
     },
     {
-        question: "Assertion (A): The Supreme Court has elevated many DPSPs to the status of Fundamental Rights. Reason (R): By reading Article 21 (Right to Life) broadly, the Court has included rights like Health, Environment, and Livelihood (originally DPSPs) into it.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Correct explanation."
+        "id": "ch9-l3-q17",
+        "question": "Article 46 compels the State to protect SCs, STs, and weaker sections from",
+        "options": ["The Indian Penal Code, 1860.","The Protection of Civil Rights Act, 1955.","The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989.","The Right to Information Act, 2005."],
+        "correctAnswerIndex": 2,
+        "explanation": "While the Protection of Civil Rights Act targets"
     },
     {
-        question: "The \"Harmonious Construction\" rule used in Kerala Education Bill case (1957) regarding DPSP means:",
-        options: ["FRs and DPSP should be interpreted in a way that they support each other.", "FRs always override DPSP.", "DPSP always override FRs.", "Courts should ignore conflict."],
-        correctAnswerIndex: 0, // a) Support each other
-        explanation: "Interpret to support each other."
+        "id": "ch9-l3-q18",
+        "question": "Assertion (A): To implement the Directive Principle regarding",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both are true. Article 39A mandates"
     },
     {
-        question: "Article 31C is a \"super-constitutional\" provision because:",
-        options: ["It validates laws even if they violate the \"Golden Triangle\" (14, 19).", "It allows the Parliament to amend the Basic Structure.", "It cannot be amended.", "It applies to all DPSPs."],
-        correctAnswerIndex: 0, // a) Validates laws
-        explanation: "Validates laws against 14 and 19."
+        "id": "ch9-l3-q19",
+        "question": "The Directive Principle in Article 43 mandates securing",
+        "options": ["The Industrial Relations Code, 2020.","The Code on Social Security, 2020.","The Occupational Safety, Health and Working Conditions Code, 2020.","The Code on Wages, 2019."],
+        "correctAnswerIndex": 3,
+        "explanation": "The Code on Wages, 2019 (part of the 4 new labor codes) consolidates older laws (like the Minimum Wages Act 1948). It significantly expands coverage to guarantee a statutory"
     },
     {
-        question: "The \"Cow Slaughter Ban\" (Article 48) was upheld by the Supreme Court in Hanif Qureshi case (1958) as a reasonable restriction on:",
-        options: ["Article 19(1)(g) (Butchers' right to trade).", "Article 25 (Muslims' right to sacrifice - held sacrifice of cow is not essential).", "Both (a) and (b).", "Neither."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Upheld against both 19(1)(g) and 25."
+        "id": "ch9-l3-q20",
+        "question": "Examine the practical application of Article 351:",
+        "options": ["By making Hindi the only official language and banning regional languages in state affairs.","By maintaining English as a permanent associate official language alongside Hindi, and providing safeguards for linguistic minorities (Articles 29, 30, 350A, 350B, and the 8th Schedule) preventing forced imposition.","By mandating that the Supreme Court conduct all proceedings exclusively in Hindi.","By forcing all state legislatures to debate only in Hindi."],
+        "correctAnswerIndex": 1,
+        "explanation": "While Art 351 promotes Hindi, the framers (and subsequent acts like the Official Languages Act 1963) balanced it. English continues to be used for official Union purposes. The 8th Schedule protects 22 major languages, and Arts 29/30 protect minority scripts, ensuring Hindi is promoted as a lingua franca, not imposed coercively over regional identities."
     },
     {
-        question: "Which DPSP was added by the 97th Amendment Act, 2011?",
-        options: ["Promotion of Co-operative Societies (43B).", "Free Legal Aid (39A).", "Protection of Environment (48A).", "Participation of workers (43A)."],
-        correctAnswerIndex: 0, // a) 43B
-        explanation: "Article 43B (Co-operative Societies)."
+        "id": "ch9-l3-q21",
+        "question": "Consider the distinction between Fundamental Rights and Directive Principles in terms of their applicability. Which of the following statements is legally accurate regarding their scope of operation?",
+        "options": ["Both FRs and DPSPs are strictly negative, preventing the state from taking action.","FRs establish a political democracy, while DPSPs aim to establish an economic and social democracy.","DPSPs are enforceable against private individuals, while FRs are only enforceable against the State.","FRs require active legislation to be implemented, while DPSPs are automatically and directly applicable from 1950."],
+        "correctAnswerIndex": 1,
+        "explanation": "FRs (mostly negative injunctions against state overreach) form the bedrock of"
     },
     {
-        question: "The \"Mid-Day Meal Scheme\" (now PM-POSHAN) primarily implements which DPSP?",
-        options: ["Article 47 (Raising level of nutrition).", "Article 45 (Education).", "Article 41 (Public Assistance).", "Article 39(f) (Child development)."],
-        correctAnswerIndex: 0, // a) Article 47
-        explanation: "Article 47."
+        "id": "ch9-l3-q22",
+        "question": "Which of the following acts of Parliament was heavily criticized by scholars for arguably violating the spirit of Article 39(c) (prevention of concentration of wealth), leading to significant constitutional debates regarding the dilution of DPSPs in favor of rapid economic liberalization?",
+        "options": ["The Monopolies and Restrictive Trade Practices (MRTP) Act, 1969.","The repeal of the MRTP Act and its replacement by the Competition Act, 2002.","The Bank Nationalization Act, 1969.","The Abolition of Privy Purses, 1971."],
+        "correctAnswerIndex": 1,
+        "explanation": "The older MRTP Act tightly restricted corporate expansion to strictly enforce Article 39(c) (preventing concentration of economic power). After the 1991 liberalization, the MRTP Act was seen as a hurdle to growth and was repealed, replaced by the Competition Act (2002) which focuses on promoting competition rather than strictly preventing corporate size/wealth concentration."
     },
     {
-        question: "The \"Archaeological Survey of India\" (ASI) functions to fulfill the mandate of:",
-        options: ["Article 49 (Protection of monuments).", "Article 48A (Environment).", "Article 51A(f) (Heritage duty).", "Article 29 (Culture)."],
-        correctAnswerIndex: 0, // a) Article 49
-        explanation: "Article 49."
+        "id": "ch9-l3-q23",
+        "question": "Article 48 directs the organization of agriculture. Does the Constitution anywhere define",
+        "options": ["No, the Constitution leaves it entirely to the common law definitions.","Yes, Article 366 explicitly defines","as agricultural income as defined for the purposes of the enactments relating to Indian income-tax.","Yes, the Tenth Schedule lists all recognized agricultural activities.","No, it is uniquely defined by each state legislature differently."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 366 (Definitions) clause (1) states:"
     },
     {
-        question: "\"Equal Justice and Free Legal Aid\" (Article 39A) is the basis for:",
-        options: ["Lok Adalats.", "NALSA (National Legal Services Authority).", "Public Interest Litigation (PIL).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All (Lok Adalats, NALSA, PIL)."
+        "id": "ch9-l3-q24",
+        "question": "The Directive Principle",
+        "options": ["Article 14 (Equality before Law)","Article 25 (Freedom of Religion)","Article 21 (Right to Life and Personal Liberty)","Article 19(1)(g) (Freedom of Profession)"],
+        "correctAnswerIndex": 2,
+        "explanation": "The SC (e.g., in PUCL vs Union of India regarding the right to food) has expanded Article 21"
     },
     {
-        question: "The \"Maternity Benefit (Amendment) Act, 2017\" increasing leave to 26 weeks is a direct implementation of:",
-        options: ["Article 42.", "Article 41.", "Article 43.", "Article 39."],
-        correctAnswerIndex: 0, // a) Article 42
-        explanation: "Article 42."
+        "id": "ch9-l3-q25",
+        "question": "According to Dr. L.M. Singhvi, what is the",
+        "options": ["The Preamble","The Fundamental Rights","The Directive Principles of State Policy","The Power of Judicial Review"],
+        "correctAnswerIndex": 2,
+        "explanation": "Eminent jurist L.M. Singhvi noted that"
     },
     {
-        question: "Which of the following is NOT a Socialist Principle?",
-        options: ["Prevention of concentration of wealth (39c).", "Right to work (41).", "Organization of Village Panchayats (40).", "Equal pay for equal work (39d)."],
-        correctAnswerIndex: 2, // c) Village Panchayats
-        explanation: "Panchayats (Art 40) is Gandhian."
+        "id": "ch9-l3-q26",
+        "question": "Under Article 51 (Promotion of international peace), does the executive have the power to cede Indian territory to a foreign country by merely signing a treaty?",
+        "options": ["Yes, because foreign policy falls entirely under the executive domain.","No, the Supreme Court ruled in the Berubari Union case (1960) that ceding Indian territory to a foreign country requires a Constitutional Amendment under Article 368.","Yes, provided the State legislature of the affected state agrees.","No, Indian territory can never be ceded under any circumstances."],
+        "correctAnswerIndex": 1,
+        "explanation": "The SC clarified in the Berubari Union Case (1960) that while the executive can settle a boundary dispute without constitutional amendment, CEDING (giving away) Indian territory to a foreign state under a treaty requires an amendment to Article 1 (and the First Schedule) under Article 368 (like the 100th Amendment for the Indo-Bangladesh land boundary agreement)."
     },
     {
-        question: "\"Participation of workers in management of industries\" (Article 43A) is:",
-        options: ["Mandatory for all private companies.", "A goal to be achieved by legislation (e.g., Factories Act).", "A Fundamental Right of trade unions.", "Applicable only to PSUs."],
-        correctAnswerIndex: 1, // b) Goal
-        explanation: "Goal achieved by legislation."
+        "id": "ch9-l3-q27",
+        "question": "Assertion (A): Courts can declare a law void if it conflicts with a Directive Principle of State Policy.\\nReason (R): Article 37 declares DPSPs as",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 3,
+        "explanation": "Assertion A is completely false. Because DPSPs are non-justiciable (Article 37 explicitly says they"
     },
     {
-        question: "The \"Prevention of Atrocities (SC/ST) Act, 1989\" fulfills the mandate of:",
-        options: ["Article 46 (Promote economic interests and protect from social injustice).", "Article 17 (Untouchability).", "Both (a) and (b).", "Article 38 (Social Order)."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Fulfills Art 46 and Art 17."
+        "id": "ch9-l3-q28",
+        "question": "Consider Article 40 (Village Panchayats). Why did Dr. B.R. Ambedkar famously clash with Gandhian members over the role of villages during the Constituent Assembly debates?",
+        "options": ["Ambedkar believed villages were economically unviable and preferred only urban planning.","Ambedkar viewed the traditional Indian village as a",", arguing that the individual, not the village, should be the unit of the Constitution.","Ambedkar wanted village panchayats to have absolute judicial powers, which Gandhi opposed.","Ambedkar believed villages were already perfect and needed no constitutional intervention."],
+        "correctAnswerIndex": 1,
+        "explanation": "Ambedkar had a very critical view of the deeply entrenched caste prejudices and oppression within typical Indian villages. He argued forcefully that making the village the base unit would empower local elites to further oppress Dalits. Hence, the Constitution centers on the"
     },
     {
-        question: "\"Living Wage\" (Article 43) vs \"Minimum Wage\". The Supreme Court has held that:",
-        options: ["Minimum wage is a fundamental right (Article 23 - forced labor if paid less).", "Living wage is the ideal goal (DPSP).", "Fair wage lies between minimum and living wage.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All statements intersect correctly (Reptakos Brett case)."
+        "id": "ch9-l3-q29",
+        "question": "Which of the following is an example of the legislature utilizing a DPSP (Article 39(b) & (c)) to enact major structural economic reforms between the 1950s and 1970s?",
+        "options": ["The enactment of the Right to Information Act.","The Nationalization of 14 major commercial banks in 1969 and the abolition of Privy Purses.","The establishment of the National Green Tribunal.","The passage of the 73rd Constitutional Amendment."],
+        "correctAnswerIndex": 1,
+        "explanation": "To prevent the concentration of wealth (39c) and distribute community material resources equitably (39b), the Indira Gandhi government undertook massive socialist moves like Nationalizing 14 major private banks (1969) and abolishing the privy purses of former royals, heavily relying on these DPSPs for constitutional justification."
     },
     {
-        question: "The \"Old Age Pension\" schemes (like Atal Pension Yojana) implement:",
-        options: ["Article 41 (Public assistance in old age).", "Article 42 (Humane conditions).", "Article 43 (Living wage).", "Article 47 (Standard of living)."],
-        correctAnswerIndex: 0, // a) Article 41
-        explanation: "Article 41."
+        "id": "ch9-l3-q30",
+        "question": "What is the primary difference in the source of obligation between Fundamental Duties (Part IVA) and Directive Principles (Part IV)?",
+        "options": ["FDs are directed at the State, while DPSPs are directed at the citizens.","Both are directed solely at the citizens.","DPSPs are constitutional instructions/directives to the State (Govt/Legislature), whereas Fundamental Duties are moral/civic obligations directed at the Citizens of India.","Both are directed solely at the State."],
+        "correctAnswerIndex": 2,
+        "explanation": "The core difference is the target. Part IV (DPSPs) instructs the STATE on how to behave ("
     }
 ];
 
 export const CHAPTER_9_LEVELS: ChapterLevelData = {
-    topicId: 9,
-    levels: [
-        {
-            levelId: 1,
-            title: "The Text-Book Stickler",
-            description: "Strictly Chapter 9: Direct Recall.",
-            questions: LEVEL_1_QUESTIONS.map((q, i) => ({ ...q, id: `ch9-l1-q${i + 1}` }))
-        },
-        {
-            levelId: 2,
-            title: "The Conceptual Bridge",
-            description: "Applied Knowledge & Analysis.",
-            questions: LEVEL_2_QUESTIONS.map((q, i) => ({ ...q, id: `ch9-l2-q${i + 1}` }))
-        },
-        {
-            levelId: 3,
-            title: "UPSC Simulation 2026",
-            description: "Integrated & Current Affairs Context.",
-            questions: LEVEL_3_QUESTIONS.map((q, i) => ({ ...q, id: `ch9-l3-q${i + 1}` }))
-        }
-    ]
+    level1: LEVEL_1_QUESTIONS,
+    level2: LEVEL_2_QUESTIONS,
+    level3: LEVEL_3_QUESTIONS
 };

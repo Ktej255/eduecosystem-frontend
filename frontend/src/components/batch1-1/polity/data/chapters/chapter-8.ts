@@ -1,637 +1,646 @@
-import { ChapterLevelData } from "../level-types";
+import { ChapterLevelData } from '../level-types';
 
-// Level 1: The Text-Book Stickler (Strictly Chapter 8)
 const LEVEL_1_QUESTIONS = [
     {
-        question: "Fundamental Rights are enshrined in Part III of the Constitution from Articles:",
-        options: ["12 to 35", "14 to 32", "12 to 36", "14 to 35"],
-        correctAnswerIndex: 0, // a) 12 to 35
-        explanation: "Part III covers Articles 12 to 35."
+        "id": "ch8-l1-q1",
+        "question": "In which Part of the Constitution are the Fundamental Rights enshrined?",
+        "options": ["Part II","Part III","Part IV","Part V"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Fundamental Rights are enshrined in Part III of the Constitution from Articles 12 to 35."
     },
     {
-        question: "Part III of the Constitution is rightly described as the:",
-        options: ["Bill of Rights", "Magna Carta of India", "Soul of the Constitution", "Heart of the Constitution"],
-        correctAnswerIndex: 1, // b) Magna Carta of India
-        explanation: "Described as the Magna Carta of India."
+        "id": "ch8-l1-q2",
+        "question": "The framers of the Indian Constitution derived inspiration for Fundamental Rights from the constitution of which country?",
+        "options": ["Britain","Ireland","USSR","USA"],
+        "correctAnswerIndex": 3,
+        "explanation": "The framers derived inspiration from the Constitution of USA (i.e., Bill of Rights)."
     },
     {
-        question: "Article 12 defines the term 'State' for the purposes of Part III. Which of the following is NOT explicitly included in this definition?",
-        options: ["Government and Parliament of India.", "Government and Legislature of States.", "All local authorities (municipalities, panchayats).", "Judiciary (Courts)."],
-        correctAnswerIndex: 3, // d) Judiciary
-        explanation: "Judiciary is not explicitly mentioned in Article 12 (though administrative side is covered by case law)."
+        "id": "ch8-l1-q3",
+        "question": "Part III of the Constitution is rightly described as the:",
+        "options": ["Magna Carta of India","Soul of the Constitution","Instrument of Instructions","Identity Card of the Constitution"],
+        "correctAnswerIndex": 0,
+        "explanation": "Part III of the Constitution is rightly described as the Magna Carta of India. It contains a very long and comprehensive list of"
     },
     {
-        question: "Article 13 declares that all laws that are inconsistent with or in derogation of any of the fundamental rights shall be:",
-        options: ["Void", "Voidable", "Illegal", "Unconstitutional"],
-        correctAnswerIndex: 0, // a) Void
-        explanation: "They shall be void."
+        "id": "ch8-l1-q4",
+        "question": "Originally, the Constitution provided for how many Fundamental Rights?",
+        "options": ["Six","Seven","Eight","Ten"],
+        "correctAnswerIndex": 1,
+        "explanation": "Originally, the Constitution provided for seven Fundamental Rights. The Right to Property was deleted later."
     },
     {
-        question: "The term 'Law' in Article 13 includes:",
-        options: ["Permanent laws enacted by Parliament/State Legislatures.", "Temporary laws like ordinances.", "Statutory instruments like order, bye-law, rule, regulation or notification.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "Includes all: permanent laws, temporary laws, statutory instruments etc."
+        "id": "ch8-l1-q5",
+        "question": "Which Fundamental Right was deleted from the list of Fundamental Rights by the 44th Amendment Act, 1978?",
+        "options": ["Right to Freedom of Religion","Right against Exploitation","Right to Property","Cultural and Educational Rights"],
+        "correctAnswerIndex": 2,
+        "explanation": "The right to property was deleted from the list of Fundamental Rights by the 44th Amendment Act, 1978. It is now a legal right under Article 300-A."
     },
     {
-        question: "Does Article 13 apply to a \"Constitutional Amendment\"?",
-        options: ["Yes, always.", "No, the Supreme Court held in Kesavananda Bharati case that a Constitutional Amendment is not a 'law' under Article 13.", "Yes, but only if it violates the Basic Structure.", "No, it applies only to ordinary laws."],
-        correctAnswerIndex: 2, // c) Yes, if it violates Basic Structure
-        explanation: "Kesavananda Bharati held it can be challenged if it violates Basic Structure."
+        "id": "ch8-l1-q6",
+        "question": "Fundamental Rights are meant for promoting the ideal of:",
+        "options": ["Social democracy","Political democracy","Economic democracy","Cultural democracy"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Fundamental Rights are meant for promoting the ideal of political democracy. They prevent the establishment of an authoritarian and despotic rule in the country."
     },
     {
-        question: "Article 14 says that the State shall not deny to any person equality before the law or the equal protection of the laws within the territory of India. This right is available to:",
-        options: ["Citizens only.", "Foreigners only.", "Both citizens and foreigners (except enemy aliens).", "Only legal persons."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Available to both citizens and foreigners."
+        "id": "ch8-l1-q7",
+        "question": "Are the Fundamental Rights absolute in nature?",
+        "options": ["Yes, they are absolute and immune from any interference.","No, they are not absolute but qualified. The state can impose reasonable restrictions on them.","Yes, except during a financial emergency.","No, they are entirely subject to the absolute discretion of Parliament."],
+        "correctAnswerIndex": 1,
+        "explanation": "Some of them are available only to the citizens while others are available to all persons. However, they are not absolute but qualified. The state can impose"
     },
     {
-        question: "The concept of 'Equality before Law' is of ______ origin, while 'Equal Protection of Laws' is of ______ origin.",
-        options: ["American; British", "British; American", "French; British", "Irish; American"],
-        correctAnswerIndex: 1, // b) British; American
-        explanation: "Equality before Law (British); Equal Protection (American)."
+        "id": "ch8-l1-q8",
+        "question": "If a person",
+        "options": ["No, they must first exhaust all remedies in lower courts.","Yes, they can directly go to the Supreme Court, which can issue writs for their restoration.","No, only the High Courts have original jurisdiction over Fundamental Rights.","Yes, but only if Parliament grants permission."],
+        "correctAnswerIndex": 1,
+        "explanation": "They are defended and guaranteed by the Supreme Court. Hence, the aggrieved person can directly go to the Supreme Court (not necessarily by way of appeal against the judgement of the high courts)."
     },
     {
-        question: "Article 15 provides that the State shall not discriminate against any citizen on grounds only of:",
-        options: ["Religion, race, caste, sex or place of birth.", "Religion, race, caste, descent, place of birth or residence.", "Religion, race, caste, sex, descent, place of birth, residence or any of them.", "Religion, race, caste, language or sex."],
-        correctAnswerIndex: 0, // a) RRCSP
-        explanation: "Religion, race, caste, sex or place of birth."
+        "id": "ch8-l1-q9",
+        "question": "Which of the following Fundamental Rights CANNOT be suspended during a National Emergency?",
+        "options": ["Articles 14 and 15","Articles 19 and 20","Articles 20 and 21","Articles 21 and 22"],
+        "correctAnswerIndex": 2,
+        "explanation": "Fundamental Rights can be suspended during the operation of a National Emergency except the rights guaranteed by Articles 20 and 21."
     },
     {
-        question: "Article 16 provides for equality of opportunity for all citizens in matters relating to:",
-        options: ["Admission to educational institutions.", "Employment or appointment to any office under the State.", "Access to public places.", "Forming associations."],
-        correctAnswerIndex: 1, // b) Employment
-        explanation: "Matters relating to employment or appointment."
+        "id": "ch8-l1-q10",
+        "question": "Which Article defines the term",
+        "options": ["Article 12","Article 13","Article 14","Article 15"],
+        "correctAnswerIndex": 0,
+        "explanation": "Article 12 has defined the term"
     },
     {
-        question: "Mandal Commission (1979) was appointed by the Morarji Desai Government to investigate the conditions of:",
-        options: ["Scheduled Castes", "Scheduled Tribes", "Socially and Educationally Backward Classes (SEBCs)", "Religious Minorities"],
-        correctAnswerIndex: 2, // c) SEBCs
-        explanation: "Socially and Educationally Backward Classes."
+        "id": "ch8-l1-q11",
+        "question": "Article 13 declares that all laws that are inconsistent with or in derogation of any of the fundamental rights shall be void. This doctrine is known as the doctrine of:",
+        "options": ["Separation of Powers","Judicial Review","Eminent Domain","Pith and Substance"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 13 expressly provides for the doctrine of judicial review. This power has been conferred on the Supreme Court (Article 32) and the high courts (Article 226)."
     },
     {
-        question: "Abolition of Untouchability is guaranteed under:",
-        options: ["Article 16", "Article 17", "Article 18", "Article 23"],
-        correctAnswerIndex: 1, // b) Article 17
-        explanation: "Article 17 abolishes untouchability."
+        "id": "ch8-l1-q12",
+        "question": "Article 14 states that the State shall not deny to any person equality before the law or the equal protection of the laws. Is this right available to foreigners?",
+        "options": ["No, it is strictly for Indian citizens only.","Yes, it is available to all persons, whether citizens or foreigners.","Yes, but only to citizens of Commonwealth countries.","No, because foreigners are not subject to Indian laws."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Supreme Court held that where Article 14 uses the word"
     },
     {
-        question: "Article 18 abolishes titles. However, it does not prohibit the state from conferring titles of:",
-        options: ["Hereditary nature.", "Military or academic distinction.", "Political nature.", "Religious nature."],
-        correctAnswerIndex: 1, // b) Military or academic
-        explanation: "Military or academic distinctions are allowed."
+        "id": "ch8-l1-q13",
+        "question": "Article 15 provides that the State shall not discriminate against any citizen on grounds ONLY of:",
+        "options": ["Religion, race, caste, sex or place of birth","Religion, race, caste, sex, residence or descent","Religion, language, caste, sex or wealth","Religion, race, ideology, sex or place of birth"],
+        "correctAnswerIndex": 0,
+        "explanation": "Article 15 provides that the State shall not discriminate against any citizen on grounds only of religion, race, caste, sex or place of birth."
     },
     {
-        question: "Article 19 guarantees six rights to all citizens. Which of the following is NOT one of them (after the 44th Amendment)?",
-        options: ["Right to freedom of speech and expression.", "Right to assemble peaceably and without arms.", "Right to acquire, hold and dispose of property.", "Right to move freely throughout the territory of India."],
-        correctAnswerIndex: 2, // c) Property
-        explanation: "Right to property was deleted from Article 19 by 44th Amendment."
+        "id": "ch8-l1-q14",
+        "question": "Article 16 guarantees equality of opportunity for all citizens in matters relating to employment or appointment to any office under the State. Can the State make provisions for the reservation of appointments in favor of backward classes?",
+        "options": ["No, reservation violates the basic principle of equality of opportunity.","Yes, Article 16 permits the State to make reservations for any backward class of citizens not adequately represented.","Yes, but only in the private sector.","No, only Parliament can make such reservations, not the State."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 16 provides for equality of opportunity... However, there are exceptions: The State can provide for reservation of appointments or posts in favour of any backward class that is not adequately represented in the state services."
     },
     {
-        question: "The right to form \"Co-operative Societies\" was added to Article 19(1)(c) by the:",
-        options: ["42nd Amendment Act, 1976", "44th Amendment Act, 1978", "86th Amendment Act, 2002", "97th Amendment Act, 2011"],
-        correctAnswerIndex: 3, // d) 97th AA 2011
-        explanation: "97th Amendment Act, 2011."
+        "id": "ch8-l1-q15",
+        "question": "Which Article of the Constitution abolishes",
+        "options": ["Article 16","Article 17","Article 18","Article 19"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 17 abolishes"
     },
     {
-        question: "Article 20 grants protection against arbitrary and excessive punishment to an accused person. It contains three provisions. Which is NOT one of them?",
-        options: ["No ex-post-facto law.", "No double jeopardy.", "No self-incrimination.", "No preventive detention."],
-        correctAnswerIndex: 3, // d) No preventive detention
-        explanation: "Preventive detention is under Article 22."
+        "id": "ch8-l1-q16",
+        "question": "Article 18 abolishes titles. Which of the following titles are NOT prohibited by Article 18?",
+        "options": ["Hereditary titles like Maharaja or Raj Bahadur","Titles conferred by foreign states","Military and academic distinctions","Titles of nobility like Duke or Earl"],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 18 abolishes titles and makes four provisions... It prohibits the state from conferring any title (except a military or academic distinction) on any body, whether a citizen or a foreigner."
     },
     {
-        question: "Article 21 declares that no person shall be deprived of his life or personal liberty except according to:",
-        options: ["Due process of law.", "Procedure established by law.", "Executive order.", "Judicial discretion."],
-        correctAnswerIndex: 1, // b) Procedure established by law
-        explanation: "Procedure established by law."
+        "id": "ch8-l1-q17",
+        "question": "Article 19 guarantees to all citizens six rights. Which of the following is NOT one of the six rights currently guaranteed under Article 19?",
+        "options": ["Right to freedom of speech and expression","Right to assemble peaceably and without arms","Right to acquire, hold and dispose of property","Right to form associations or unions"],
+        "correctAnswerIndex": 2,
+        "explanation": "Originally, Article 19 contained seven rights. But, the right to acquire, hold and dispose of property was deleted by the 44th Amendment Act of 1978. The remaining six are speech, assembly, association, movement, residence, and profession."
     },
     {
-        question: "Right to Education (Article 21-A) declares that the State shall provide free and compulsory education to all children of the age of:",
-        options: ["0 to 6 years", "6 to 14 years", "6 to 18 years", "14 to 18 years"],
-        correctAnswerIndex: 1, // b) 6 to 14 years
-        explanation: "6 to 14 years."
+        "id": "ch8-l1-q18",
+        "question": "Article 20 grants protection against arbitrary and excessive punishment to an accused person. It provides three specific protections. Which of the following is NOT one of them?",
+        "options": ["No ex-post-facto law","No double jeopardy","No self-incrimination","Right to speedy trial"],
+        "correctAnswerIndex": 3,
+        "explanation": "Article 20 contains three provisions: No ex-post-facto law, No double jeopardy (not punished for the same offence more than once), and No self-incrimination (cannot be compelled to be a witness against himself). The Right to speedy trial falls under Article 21"
     },
     {
-        question: "Article 22 grants protection to persons who are arrested or detained. A person arrested under ordinary law must be produced before the nearest magistrate within:",
-        options: ["12 hours", "24 hours (excluding journey time)", "48 hours", "7 days"],
-        correctAnswerIndex: 1, // b) 24 hours
-        explanation: "24 hours excluding journey time."
+        "id": "ch8-l1-q19",
+        "question": "Which Article declares that no person shall be deprived of his life or personal liberty except according to procedure established by law?",
+        "options": ["Article 20","Article 21","Article 22","Article 23"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 21 declares that no person shall be deprived of his life or personal liberty except according to procedure established by law. This right is available to both citizens and non-citizens."
     },
     {
-        question: "Under Preventive Detention law, the maximum period for which a person can be detained without the opinion of an Advisory Board is:",
-        options: ["1 month", "2 months", "3 months", "6 months"],
-        correctAnswerIndex: 2, // c) 3 months
-        explanation: "3 months."
+        "id": "ch8-l1-q20",
+        "question": "Which Amendment Act famously added Article 21A, making elementary education a Fundamental Right?",
+        "options": ["44th Amendment Act, 1978","73rd Amendment Act, 1992","86th Amendment Act, 2002","97th Amendment Act, 2011"],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 21A, declaring that the State shall provide free and compulsory education to all children of the age of six to fourteen years, was added by the 86th Constitutional Amendment Act of 2002."
     },
     {
-        question: "Article 23 prohibits 'traffic in human beings' and 'begar'. The term 'begar' means:",
-        options: ["Selling goods at lower prices.", "Compulsory work without remuneration.", "Working overtime.", "Child labor."],
-        correctAnswerIndex: 1, // b) Compulsory work without remuneration
-        explanation: "Compulsory work without remuneration."
+        "id": "ch8-l1-q21",
+        "question": "Article 22 grants protection to persons who are arrested or detained. A person arrested and detained in custody must be produced before the nearest magistrate within a period of:",
+        "options": ["12 hours","24 hours","48 hours","72 hours"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 22 protects against arbitrary arrest. The arrested person has the right to be produced before a magistrate within 24 hours including the journey time."
     },
     {
-        question: "Article 24 prohibits the employment of children below the age of ______ in any factory, mine or other hazardous activities.",
-        options: ["12 years", "14 years", "16 years", "18 years"],
-        correctAnswerIndex: 1, // b) 14 years
-        explanation: "14 years."
+        "id": "ch8-l1-q22",
+        "question": "Article 23 prohibits traffic in human beings, begar (forced labour) and other similar forms of forced labour. This right is available to:",
+        "options": ["Only citizens","Both citizens and non-citizens","Only women and children","Only Scheduled Castes and Scheduled Tribes"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 23 prohibits traffic in human beings, begar and other similar forms of forced labour. This right is available to both citizens and non-citizens."
     },
     {
-        question: "Article 25 guarantees freedom of conscience and the right to freely profess, practice and propagate religion. This right is subject to:",
-        options: ["Public order, morality and health.", "Public order, morality, health and other provisions of Part III.", "Security of the State.", "Sovereignty and Integrity of India."],
-        correctAnswerIndex: 1, // b) Public order, morality, health + Part III
-        explanation: "Subject to public order, morality, health and other provisions of Part III."
+        "id": "ch8-l1-q23",
+        "question": "Under Article 24, employment of children below what age is completely prohibited in any factory, mine, or other hazardous activities?",
+        "options": ["12 years","14 years","16 years","18 years"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 24 prohibits the employment of children below the age of 14 years in any factory, mine or other hazardous activities like construction work or railway."
     },
     {
-        question: "Under Article 25, the wearing and carrying of 'kirpans' is deemed to be included in the profession of the ______ religion.",
-        options: ["Hindu", "Jain", "Sikh", "Buddhist"],
-        correctAnswerIndex: 2, // c) Sikh
-        explanation: "Sikh religion."
+        "id": "ch8-l1-q24",
+        "question": "Article 25 says that all persons are equally entitled to freedom of conscience and the right to freely profess, practice, and propagate religion. However, these rights are subject to:",
+        "options": ["Public order, morality, and health","Public opinion, tradition, and state security","Parliamentary approval every 5 years","The consent of the majority community"],
+        "correctAnswerIndex": 0,
+        "explanation": "Article 25 guarantees freedom of conscience... However, these rights are subject to public order, morality, health and other provisions relating to fundamental rights."
     },
     {
-        question: "Article 26 guarantees rights to manage religious affairs to:",
-        options: ["Individuals", "Religious denominations or any section thereof", "Citizens only", "Foreigners only"],
-        correctAnswerIndex: 1, // b) Religious denominations
-        explanation: "Religious denominations or any section thereof."
+        "id": "ch8-l1-q25",
+        "question": "Which Article grants religious denominations the right to establish and maintain institutions for religious and charitable purposes and to manage their own affairs in matters of religion?",
+        "options": ["Article 25","Article 26","Article 27","Article 28"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 26 deals with the freedom to manage religious affairs. Every religious denomination or any of its section shall have the right to establish and maintain institutions, etc."
     },
     {
-        question: "Article 27 lays down that no person shall be compelled to pay any taxes for the promotion or maintenance of any particular:",
-        options: ["Political party", "Religion or religious denomination", "Language", "Culture"],
-        correctAnswerIndex: 1, // b) Religion
-        explanation: "Religion or religious denomination."
+        "id": "ch8-l1-q26",
+        "question": "Under Article 28, is religious instruction permitted in educational institutions wholly maintained out of State funds?",
+        "options": ["Yes, if the students voluntarily request it.","Yes, provided it is outside regular school hours.","No, religious instruction is completely prohibited in institutions wholly maintained out of State funds.","No, unless the President gives special permission."],
+        "correctAnswerIndex": 2,
+        "explanation": "Under Article 28, no religious instruction shall be provided in any educational institution wholly maintained out of State funds."
     },
     {
-        question: "Article 28 distinguishes between four types of educational institutions. In institutions \"wholly maintained by the State,\" religious instruction is:",
-        options: ["Permitted", "Permitted on a voluntary basis", "Completely prohibited", "Permitted with parental consent"],
-        correctAnswerIndex: 2, // c) Completely prohibited
-        explanation: "Completely prohibited."
+        "id": "ch8-l1-q27",
+        "question": "Which Article provides that any section of the citizens residing in any part of India having a distinct language, script, or culture of its own, shall have the right to conserve the same?",
+        "options": ["Article 28","Article 29","Article 30","Article 32"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 29 provides that any section of the citizens residing in any part of India having a distinct language, script or culture of its own, shall have the right to conserve the same."
     },
     {
-        question: "Article 29 provides that any section of the citizens residing in any part of India having a distinct language, script or culture of its own, shall have the right to:",
-        options: ["Propagate it", "Conserve the same", "Impose it on others", "Seek state funding"],
-        correctAnswerIndex: 1, // b) Conserve the same
-        explanation: "Right to conserve the same."
+        "id": "ch8-l1-q28",
+        "question": "Article 30 grants the right to establish and administer educational institutions to:",
+        "options": ["All citizens universally.","Only religious and linguistic minorities.","Only linguistic minorities.","State Governments exclusively."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 30 grants rights to minorities (religious or linguistic) to establish and administer educational institutions of their choice."
     },
     {
-        question: "Article 30 grants the right to establish and administer educational institutions to:",
-        options: ["Religious minorities only", "Linguistic minorities only", "Religious and linguistic minorities", "All minorities (religious, linguistic, and ethnic)"],
-        correctAnswerIndex: 2, // c) Religious and linguistic
-        explanation: "Right to establish and administer educational institutions."
+        "id": "ch8-l1-q29",
+        "question": "Dr. B.R. Ambedkar called Article 32 the most important Article of the Constitution. What does Article 32 guarantee?",
+        "options": ["The right to life and personal liberty.","The right to constitutional remedies—the right to move the Supreme Court for the enforcement of Fundamental Rights.","The right to vote in general elections.","The right to property."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 32 confers the right to remedies for the enforcement of the fundamental rights of an aggrieved citizen. In other words, the right to get the Fundamental Rights protected is in itself a fundamental right."
     },
     {
-        question: "Article 32 confers the right to remedies for the enforcement of Fundamental Rights. It empowers the ______ to issue directions or orders or writs.",
-        options: ["President", "Parliament", "Supreme Court", "High Court"],
-        correctAnswerIndex: 2, // c) Supreme Court
-        explanation: "Supreme Court."
-    },
-    {
-        question: "Which writ is issued by the court to a public official asking him to perform his official duties that he has failed or refused to perform?",
-        options: ["Habeas Corpus", "Mandamus", "Prohibition", "Certiorari"],
-        correctAnswerIndex: 1, // b) Mandamus
-        explanation: "Mandamus (We Command)."
-    },
-    {
-        question: "Which writ is known as the \"Bulwark of Personal Freedom\"?",
-        options: ["Habeas Corpus", "Quo-Warranto", "Certiorari", "Mandamus"],
-        correctAnswerIndex: 0, // a) Habeas Corpus
-        explanation: "Habeas Corpus."
-    },
-    {
-        question: "Article 31A saves laws providing for acquisition of estates, etc., from being challenged on the ground of contravention of:",
-        options: ["Article 14 and 19", "Article 19 and 21", "Article 14, 19 and 31", "Article 25 and 26"],
-        correctAnswerIndex: 0, // a) Article 14 and 19
-        explanation: "Article 14 and 19."
-    },
-    {
-        question: "Article 31B saves the acts and regulations included in the ______ Schedule from being challenged and invalidated on the ground of contravention of any of the fundamental rights.",
-        options: ["Eighth", "Ninth", "Tenth", "Twelfth"],
-        correctAnswerIndex: 1, // b) Ninth Schedule
-        explanation: "Ninth Schedule."
-    },
-    {
-        question: "Article 33 empowers the Parliament to restrict or abrogate the fundamental rights of:",
-        options: ["Members of Armed Forces and Paramilitary Forces.", "Police Forces and Intelligence Agencies.", "Forces charged with the maintenance of public order.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "All (Armed forces, police, intelligence etc)."
-    },
-    {
-        question: "Who has the power to make laws under Article 33?",
-        options: ["President", "Parliament", "State Legislature", "Supreme Court"],
-        correctAnswerIndex: 1, // b) Parliament
-        explanation: "Parliament only."
-    },
-    {
-        question: "Article 34 provides for the restrictions on fundamental rights while ______ is in force in any area.",
-        options: ["National Emergency", "President's Rule", "Martial Law", "Financial Emergency"],
-        correctAnswerIndex: 2, // c) Martial Law
-        explanation: "Martial Law."
-    },
-    {
-        question: "\"Martial Law\" has:",
-        options: ["Been defined in the Constitution under Article 34.", "Not been defined in the Constitution.", "Been defined in the Army Act.", "Been defined in the Criminal Procedure Code."],
-        correctAnswerIndex: 1, // b) Not defined
-        explanation: "Not defined in the Constitution."
-    },
-    {
-        question: "Article 35 lays down that the power to make laws, to give effect to certain specified fundamental rights shall vest only in the:",
-        options: ["Parliament", "State Legislatures", "Both Parliament and State Legislatures", "Supreme Court"],
-        correctAnswerIndex: 0, // a) Parliament
-        explanation: "Parliament only."
-    },
-    {
-        question: "Which of the following Fundamental Rights are available only to citizens and not to foreigners?",
-        options: ["Article 14, 20, 21, 21A, 22", "Article 15, 16, 19, 29, 30", "Article 15, 16, 19, 21, 22", "Article 14, 19, 21, 25, 29"],
-        correctAnswerIndex: 1, // b) 15, 16, 19, 29, 30
-        explanation: "Articles 15, 16, 19, 29, 30 are available only to citizens."
+        "id": "ch8-l1-q30",
+        "question": "Which Article empowers Parliament to restrict or abrogate the Fundamental Rights of the members of armed forces, para-military forces, police forces, and intelligence agencies?",
+        "options": ["Article 31","Article 32","Article 33","Article 34"],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 33 empowers the Parliament to restrict or abrogate the fundamental rights of the members of armed forces, para-military forces, police forces, intelligence agencies and analogous forces."
     }
 ];
 
-// Level 2: The Conceptual Bridge (Applied Knowledge)
 const LEVEL_2_QUESTIONS = [
     {
-        question: "The definition of \"State\" under Article 12 is wide. Which of the following has the Supreme Court held to be a \"State\" for the enforcement of Fundamental Rights?",
-        options: ["A Private Body working as an agent of the State.", "BCCI (Board of Control for Cricket in India).", "NCERT (National Council of Educational Research and Training).", "A private unaided school (for all purposes)."],
-        correctAnswerIndex: 0, // a) Private body as agent
-        explanation: "Private body as agent of state is State. BCCI/NCERT are not State (mostly)."
+        "id": "ch8-l2-q1",
+        "question": "Consider the definition of",
+        "options": ["Any private company registered under the Companies Act, regardless of its functions.","A private body working as an instrument or agency of the State.","A purely private educational institution not receiving any government aid.","A private cooperative society formed voluntarily by citizens."],
+        "correctAnswerIndex": 1,
+        "explanation": "According to the Supreme Court, even a private body or an agency working as an instrument of the State falls within the meaning of the"
     },
     {
-        question: "The \"Doctrine of Severability\" under Article 13 implies that:",
-        options: ["If a law violates a Fundamental Right, the entire law is void.", "Only the part of the law that is inconsistent with the Fundamental Right is void, provided it can be separated from the rest.", "The law is void ab initio (from the beginning).", "The law becomes valid if the Fundamental Right is amended."],
-        correctAnswerIndex: 1, // b) Severability
-        explanation: "Only inconsistent part is void if severable."
+        "id": "ch8-l2-q2",
+        "question": "Article 13 declares that laws inconsistent with Fundamental Rights shall be void. The term",
+        "options": ["Constitutional Amendments only.","Permanent laws (Acts of Parliament/State Legislatures) and temporary laws (ordinances) only.","Permanent laws, temporary laws, statutory instruments (orders, bye-laws, rules), and non-legislative sources of law (custom/usage).","Only laws passed by the British Parliament prior to 1947."],
+        "correctAnswerIndex": 2,
+        "explanation": "The term"
     },
     {
-        question: "The \"Doctrine of Eclipse\" applies to:",
-        options: ["Post-Constitutional laws only.", "Pre-Constitutional laws only.", "Both Pre and Post Constitutional laws (as per recent judgments).", "Constitutional Amendments."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Originally pre-constitutional, now extended to post-constitutional (Ambica Mills case)."
+        "id": "ch8-l2-q3",
+        "question": "Assertion (A): Article 14 permits",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 2,
+        "explanation": "Assertion A is true; Article 14 forbids class legislation (arbitrary discrimination) but permits reasonable classification (based on intelligible differentia having a rational nexus to the objective). Reason R is false; equality does NOT mean identical treatment for people in radically different circumstances (that would be inequality in practice)."
     },
     {
-        question: "Article 14 permits \"Class Legislation\" but prohibits \"Reasonable Classification\".",
-        options: ["True", "False (It prohibits Class Legislation but permits Reasonable Classification).", "True (It permits both).", "False (It prohibits both)."],
-        correctAnswerIndex: 1, // b) False
-        explanation: "Prohibits class legislation, permits reasonable classification."
+        "id": "ch8-l2-q4",
+        "question": "The concept of",
+        "options": ["No person is above the law and there are no special privileges for anyone.","The absence of any arbitrary power in the hands of the executive.","Equality of treatment under equal circumstances, both in the privileges conferred and liabilities imposed.","The State must guarantee equal income to all citizens."],
+        "correctAnswerIndex": 2,
+        "explanation": ""
     },
     {
-        question: "The \"Creamy Layer\" concept was introduced by the Supreme Court in the Indra Sawhney case (1992) to exclude affluent members from reservation benefits. This applies to:",
-        options: ["SCs and STs.", "OBCs only.", "SCs, STs, and OBCs.", "EWS only."],
-        correctAnswerIndex: 1, // b) OBCs only
-        explanation: "Applies to OBCs (and recently argued for SCs, but originally OBCs)."
+        "id": "ch8-l2-q5",
+        "question": "Article 15 prohibits discrimination on grounds",
+        "options": ["Making a law reserving 100% jobs for men in the military.","Making special provisions for women and children (e.g., reservation of seats for women in local bodies or free education for children).","Providing special land grants exclusively based on a citizen","Denying access to public wells solely based on caste."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 15 permits three critical exceptions: (1) special provisions for women and children (Art 15(3)), (2) special provisions for the advancement of socially and educationally backward classes or SC/STs (Art 15(4)), and (3) reservations in educational institutions for these groups (Art 15(5))."
     },
     {
-        question: "\"Catch-up Rule\" regarding reservation in promotion was restored by which Constitutional Amendment?",
-        options: ["77th Amendment", "81st Amendment", "82nd Amendment", "85th Amendment"],
-        correctAnswerIndex: 3, // d) 85th
-        explanation: "85th Amendment restored consequential seniority (catch-up rule)."
+        "id": "ch8-l2-q6",
+        "question": "Consider the provisions of Article 16 regarding public employment. The State can prescribe",
+        "options": ["The State Legislature concerned.","The Parliament of India.","The Governor of the State.","The Supreme Court of India."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 16 allows residence as a condition, but this power vests EXCLUSIVELY with the Parliament, not state legislatures, to maintain the fundamental unity of Indian citizenship."
     },
     {
-        question: "Article 15(5) regarding reservation in private educational institutions was added by the 93rd Amendment. Does this apply to \"Minority Educational Institutions\"?",
-        options: ["Yes, all institutions.", "No, it specifically excludes minority institutions (Article 30 protection).", "Yes, but only aided ones.", "Yes, if they are professional colleges."],
-        correctAnswerIndex: 1, // b) Excludes minority
-        explanation: "Excludes minority institutions."
+        "id": "ch8-l2-q7",
+        "question": "Under Article 16(4), the State can reserve appointments or posts for any backward class of citizens. What is the constitutionally mandated condition that must be satisfied for the State to exercise this power?",
+        "options": ["The class must constitute at least 50% of the state","The class must be recognized by the United Nations.","The backward class must NOT be adequately represented in the services under the State, in the opinion of the State.","The class must have an annual income below the poverty line."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 16(4) permits the State to provide for reservation in favor of any backward class which, in the opinion of the State, is NOT adequately represented in the State services."
     },
     {
-        question: "The \"Right to Strike\" is:",
-        options: ["A Fundamental Right under Article 19(1)(c).", "A Legal Right under Industrial Disputes Act.", "A Constitutional Right under Article 301.", "Not a right at all."],
-        correctAnswerIndex: 1, // b) Legal Right
-        explanation: "It is a legal/statutory right, not Fundamental."
+        "id": "ch8-l2-q8",
+        "question": "Article 19 guarantees six fundamental freedoms. However, these are not absolute. Which of the following is a constitutionally recognized",
+        "options": ["Protecting the business interests of multinational corporations.","Preventing the criticism of the Prime Minister","Contempt of court, defamation, and incitement to an offence.","Maintaining the ideological purity of the ruling party."],
+        "correctAnswerIndex": 2,
+        "explanation": "The State can impose reasonable restrictions on the exercise of the freedom of speech and expression on the grounds of sovereignty and integrity of India, security of the state, friendly relations with foreign states, public order, decency or morality, contempt of court, defamation, and incitement to an offence."
     },
     {
-        question: "Freedom of Speech (Article 19(1)(a)) includes the \"Right to Silence\". This was upheld in the:",
-        options: ["Bijoe Emmanuel case (National Anthem case).", "Kedar Nath Singh case.", "Maneka Gandhi case.", "Shreya Singhal case."],
-        correctAnswerIndex: 0, // a) Bijoe Emmanuel
-        explanation: "Bijoe Emmanuel (Jehovah's Witnesses) case."
+        "id": "ch8-l2-q9",
+        "question": "Examine the",
+        "options": ["Only external movement is protected by Article 19.","Only internal movement (right to move inside the country) is protected by Article 19.","Both internal and external movement are protected by Article 19.","Neither is protected by Article 19; they fall under Article 21."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 19 protects only the right to move inside the country (internal). The right to move out of the country and the right to come back (external) is protected by Article 21 (right to life and personal liberty) as established in the Menaka Gandhi case."
     },
     {
-        question: "\"Reasonable Restrictions\" on Freedom of Speech include \"Contempt of Court\". However, truth can be a defense in contempt proceedings if it is in:",
-        options: ["Public Interest.", "Good Faith.", "Both (a) and (b).", "Neither (Truth is no defense)."],
-        correctAnswerIndex: 0, // a) Public Interest
-        explanation: "Truth is a defense if in public interest (Contempt of Courts Act amendment)."
+        "id": "ch8-l2-q10",
+        "question": "Article 20 provides protection against",
+        "options": ["A person cannot be tried in two different courts simultaneously.","A person cannot be forced to give a blood/DNA sample.","A person cannot be convicted for an act that wasn","A person cannot be held in police custody for more than 24 hours without a charge sheet."],
+        "correctAnswerIndex": 2,
+        "explanation": "An ex-post-facto law is one that imposes penalties retrospectively (retroactively). Article 20(1) prohibits the State from enacting retrospective criminal legislation."
     },
     {
-        question: "Article 20(3) \"Protection against Self-Incrimination\" extends to:",
-        options: ["Police interrogation.", "Court proceedings.", "Compulsory production of material objects (blood sample, thumb impression).", "Both (a) and (b), but not (c)."],
-        correctAnswerIndex: 3, // d) a and b but not c
-        explanation: "Not to material objects (thumb impression etc)."
+        "id": "ch8-l2-q11",
+        "question": "Consider the protection regarding",
+        "options": ["Yes, double jeopardy applies universally to all state proceedings.","No, the protection against double jeopardy is available ONLY in proceedings before a court of law or a judicial tribunal.","Yes, but only if the punishment involves reduction in rank.","No, unless the President explicitly pardons them."],
+        "correctAnswerIndex": 1,
+        "explanation": "The protection against double jeopardy is available only in proceedings before a court of law or a judicial tribunal. It does NOT apply in departmental or administrative proceedings as they are not of a judicial nature."
     },
     {
-        question: "The \"Golden Triangle\" of Fundamental Rights refers to Articles:",
-        options: ["14, 19, and 21.", "14, 15, and 16.", "19, 21, and 22.", "25, 26, and 27."],
-        correctAnswerIndex: 0, // a) 14, 19, 21
-        explanation: "Articles 14, 19, and 21."
+        "id": "ch8-l2-q12",
+        "question": "The ambit of Article 21 (Protection of Life and Personal Liberty) was vastly expanded by the Supreme Court in the Menaka Gandhi case (1978). While the A.K. Gopalan case (1950) offered protection only against arbitrary executive action, the Menaka Gandhi case extended it to offer protection against:",
+        "options": ["Private individuals taking the law into their own hands.","Arbitrary legislative action (meaning a law itself must be reasonable, fair, and just).","Decisions made by foreign tribunals.","Corporate environmental violations directly."],
+        "correctAnswerIndex": 1,
+        "explanation": "In Menaka Gandhi (1978), the SC ruled that the"
     },
     {
-        question: "In the Maneka Gandhi case (1978), the Supreme Court widened the scope of Article 21 by interpreting \"Procedure Established by Law\" to mean:",
-        options: ["Due Process of Law (Just, Fair, and Reasonable).", "Procedure laid down by Parliament only.", "Procedure laid down by the Executive.", "Procedure followed in Britain."],
-        correctAnswerIndex: 0, // a) Due Process
-        explanation: "Interpreted to mean Due Process (Just, Fair, Reasonable)."
+        "id": "ch8-l2-q13",
+        "question": "Which of the following rights has been explicitly recognized by the Supreme Court as inherently falling under the umbrella of",
+        "options": ["1 and 2 only","2 and 3 only","1 and 3 only","1, 2, and 3"],
+        "correctAnswerIndex": 0,
+        "explanation": "The SC has expanded Article 21 to include dozens of rights (speedy trial, against solitary confinement, right to privacy, etc.). However, there is NO fundamental right to strike or lockout (these are governed by industrial laws)."
     },
     {
-        question: "Which of the following rights is NOT implied under Article 21?",
-        options: ["Right to Livelihood.", "Right to Privacy.", "Right to Die (Active Euthanasia).", "Right to Speedy Trial."],
-        correctAnswerIndex: 2, // c) Right to Die (Active)
-        explanation: "Active Euthanasia is not a right (Passive is allowed)."
+        "id": "ch8-l2-q14",
+        "question": "Article 22 provides safeguards against arbitrary arrest and detention. However, these safeguards (right to be informed, right to legal practitioner, right to be produced before a magistrate in 24 hours) are NOT available to two categories of persons. Who are they?",
+        "options": ["Women and minors.","Enemy aliens and persons arrested under a preventive detention law.","Foreign diplomats and UN officials.","Persons accused of murder and terrorism."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 22(3) explicitly states that the punitive detention safeguards do NOT apply to (a) an enemy alien, and (b) a person arrested or detained under any law providing for preventive detention."
     },
     {
-        question: "Preventive Detention laws can be made by:",
-        options: ["Parliament only.", "State Legislature only.", "Both Parliament and State Legislature (Concurrent List).", "President only."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Concurrent List."
+        "id": "ch8-l2-q15",
+        "question": "In the context of Preventive Detention under Article 22, the detention of a person cannot exceed a certain standard time period unless an advisory board reports sufficient cause for extended detention. What was the standard maximum period established in the original Constitution (and practically in force today)?",
+        "options": ["One month","Three months","Six months","One year"],
+        "correctAnswerIndex": 1,
+        "explanation": "The detention of a person cannot exceed three months unless an advisory board (consisting of high court judges) reports sufficient cause for extended detention. (Note: The 44th CAA 1978 tried to reduce this to 2 months, but that provision has not been brought into force yet)."
     },
     {
-        question: "Under Article 22, the Advisory Board must report within 3 months if detention is to continue. The 44th Amendment tried to reduce this period to:",
-        options: ["1 month", "2 months", "6 weeks", "15 days"],
-        correctAnswerIndex: 1, // b) 2 months
-        explanation: "Tried to reduce to 2 months (un-notified)."
+        "id": "ch8-l2-q16",
+        "question": "Assertion (A): Article 23 prohibits",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 3,
+        "explanation": "Assertion A is false because the State CAN compel work under its exception. Reason R is true: Article 23 explicitly permits the State to impose compulsory service for public purposes (e.g., military or social service), provided it doesn"
     },
     {
-        question: "Article 23 prohibits \"Traffic in human beings\". This includes:",
-        options: ["Selling and buying of men, women, and children like goods.", "Immoral traffic in women and children (prostitution).", "Devadasi system.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Includes all forms of traffic."
+        "id": "ch8-l2-q17",
+        "question": "Article 25 guarantees the",
+        "options": ["It includes the fundamental right to forcibly convert another person to one","It only allows for the private practice of religion at home.","It includes the right to transmit and disseminate one","It is restricted only to linguistic minorities."],
+        "correctAnswerIndex": 2,
+        "explanation": "The right to propagate does not include a fundamental right to convert another person to one"
     },
     {
-        question: "The \"Essential Religious Practices\" test was evolved by the Supreme Court to determine what is protected under Article 25. In the Sabarimala case (2018), the Court held that:",
-        options: ["Exclusion of women is an essential practice of Ayyappa devotees.", "Devotion cannot be subjected to gender discrimination; Article 25 is subject to \"morality\" (Constitutional morality).", "The temple is a denominational temple under Article 26.", "The deity is a juristic person with privacy rights."],
-        correctAnswerIndex: 1, // b)
-        explanation: "Devotion cannot be subjected to gender discrimination."
+        "id": "ch8-l2-q18",
+        "question": "While Article 25 guarantees the rights of individuals, Article 26 protects the rights of",
+        "options": ["It should be a collection of individuals who have a system of beliefs (doctrines) which they regard as conducive to their spiritual well-being.","It should possess a common organization.","It should be designated by a distinctive name.","It must have existed prior to the adoption of the Constitution in 1950."],
+        "correctAnswerIndex": 3,
+        "explanation": "The SC outlined three conditions: a system of beliefs/doctrines, a common organization, and a distinctive name. E.g., Ramakrishna Mission and Ananda Marga are denominations. There is no historical timeline requirement pre-1950."
     },
     {
-        question: "Article 26 gives rights to \"Religious Denominations\". According to the Supreme Court, a religious denomination must satisfy three conditions. Which is NOT one of them?",
-        options: ["It should be a collection of individuals who have a system of beliefs (doctrines).", "It should have a common organization.", "It should have a distinct name.", "It should be recognized by the State."],
-        correctAnswerIndex: 3, // d) Recognized by state
-        explanation: "State recognition not required."
+        "id": "ch8-l2-q19",
+        "question": "Article 27 states that no person shall be compelled to pay any taxes for the promotion or maintenance of any particular religion. Does this prohibit the State from levying",
+        "options": ["Yes, fees and taxes are treated identically under Article 27.","No, it only prohibits",", not","levied to provide secular services or regulation (like crowd control or sanitation at a religious site).","Yes, the State must fund all pilgrim services from the general exchequer without collecting anything from pilgrims.","No, the State can levy taxes, but they must be redistributed to all religions equally."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 27 prohibits only the levy of a tax, not a fee. A fee can be levied on pilgrims to provide them with some special service or safety measures. Also, the state can use tax money for the promotion of ALL religions equally, it just can"
     },
     {
-        question: "Can the State acquire the property of a religious denomination?",
-        options: ["No, Article 26(c) gives them the right to own property.", "Yes, under Article 31 (now 300A), subject to Article 26(d) \"in accordance with law\".", "Yes, but only in case of emergency.", "No, it is a secular state."],
-        correctAnswerIndex: 1, // b) Yes
-        explanation: "Yes, in accordance with law."
+        "id": "ch8-l2-q20",
+        "question": "Consider Article 30 which grants the right to establish educational institutions. The Supreme Court has classified minority educational institutions into three types. Which type is entirely free to manage its own affairs without ANY administrative, syllabus, or academic standards imposed by the State?",
+        "options": ["Institutions that seek recognition as well as aid from the State.","Institutions that seek only recognition from the State and not aid.","Institutions that neither seek recognition nor aid from the State.","Even institutions that seek neither recognition nor aid are completely subject to general laws regarding syllabus and academic standards."],
+        "correctAnswerIndex": 3,
+        "explanation": "Even institutions that neither seek recognition nor aid (the third type) are free to manage their affairs, BUT they are still subject to general laws of the land regarding syllabus, academic standards, hygiene, employment laws, etc. No institution is entirely immune from State standards."
     },
     {
-        question: "Article 30 gives minorities the right to establish educational institutions. The term \"Minority\" here includes:",
-        options: ["Religious and Linguistic minorities only.", "Religious, Linguistic, and Ethnic minorities.", "Religious, Linguistic, and Racial minorities.", "Only Religious minorities."],
-        correctAnswerIndex: 0, // a) Religious and Linguistic
-        explanation: "Religious and Linguistic only."
+        "id": "ch8-l2-q21",
+        "question": "Article 32 gives the Supreme Court the power to issue",
+        "options": ["Mandamus","Certiorari","Quo-Warranto","Prohibition"],
+        "correctAnswerIndex": 2,
+        "explanation": "Quo-Warranto (meaning"
     },
     {
-        question: "In the T.M.A. Pai Foundation case (2002), the Supreme Court held that the unit for determining \"Linguistic Minority\" is:",
-        options: ["The District.", "The State.", "The Whole of India.", "The Taluk."],
-        correctAnswerIndex: 1, // b) The State
-        explanation: "The State is the unit."
+        "id": "ch8-l2-q22",
+        "question": "Which of the following writs CANNOT be issued against a private individual or a private body?",
+        "options": ["Habeas Corpus","Mandamus","Prohibition","Both Mandamus and Prohibition"],
+        "correctAnswerIndex": 3,
+        "explanation": "Habeas corpus can be issued against both public authorities and private individuals. However, Mandamus (command to a public official) and Prohibition (to a lower court/tribunal) cannot be issued against purely private individuals or bodies."
     },
     {
-        question: "Can a minority institution (Article 30) be compelled to reserve seats for backward classes (SC/ST/OBC)?",
-        options: ["Yes, under Article 15(5).", "No, they are exempt from Article 15(5).", "Yes, if they receive government aid.", "Yes, under the RTE Act."],
-        correctAnswerIndex: 1, // b) Exempt
-        explanation: "Exempt from Art 15(5)."
+        "id": "ch8-l2-q23",
+        "question": "Consider the constitutional power to issue writs for the enforcement of Fundamental Rights. What is the fundamental difference between the writ jurisdiction of the Supreme Court (Article 32) and the High Courts (Article 226)?",
+        "options": ["The Supreme Court can issue writs only for Fundamental Rights, whereas High Courts can issue writs for Fundamental Rights AND for any other purpose (ordinary legal rights).","The High Court","s.","The Supreme Court can refuse to exercise its writ jurisdiction, but High Courts cannot refuse.","Only the High Court can issue the writ of Injunction."],
+        "correctAnswerIndex": 0,
+        "explanation": "The SC can issue writs ONLY for the enforcement of Fundamental Rights. HCs can issue writs for Fundamental Rights AND"
     },
     {
-        question: "The \"Writ Jurisdiction\" of the Supreme Court (Article 32) differs from that of the High Court (Article 226) in that:",
-        options: ["SC can issue writs only for Fundamental Rights; HC can issue writs for FRs and \"any other purpose\" (Legal Rights).", "SC's jurisdiction is wider than HC.", "SC can refuse to exercise writ jurisdiction; HC cannot.", "Both have concurrent and identical jurisdiction."],
-        correctAnswerIndex: 0, // a)
-        explanation: "SC only for FRs; HC for FRs + others."
+        "id": "ch8-l2-q24",
+        "question": "Article 33 gives Parliament the power to restrict Fundamental Rights for armed forces to ensure discipline. Does a state legislature have concurrent power to modify these rights for the state police force?",
+        "options": ["Yes, because police and public order are State subjects.","No, the power to make laws under Article 33 is conferred ONLY on Parliament.","Yes, if the Governor grants assent.","No, only the President via ordinance can do this."],
+        "correctAnswerIndex": 1,
+        "explanation": "The power to make laws under Article 33 is conferred ONLY on Parliament and not on state legislatures, ensuring uniform discipline across forces nationwide."
     },
     {
-        question: "\"Res Judicata\" applies to Writ Petitions. This means:",
-        options: ["You cannot file a petition in SC if HC has already rejected it on the same grounds (except Habeas Corpus).", "You can file successive petitions for the same cause.", "The decision of the lower court is binding on the higher court.", "The matter is sub-judice."],
-        correctAnswerIndex: 0, // a) Res Judicata
-        explanation: "Cannot file again if rejected (except Habeas Corpus)."
+        "id": "ch8-l2-q25",
+        "question": "Article 34 provides for the restriction on fundamental rights while",
+        "options": ["It defines the precise circumstances and procedures for declaring martial law in Article 34.","The Constitution does not define the concept of",", leaving it implicit and referring to it only in the context of indemnifying acts done during its operation.","It equates martial law exactly with a National Emergency under Article 352.","It bans martial law completely across the territory of India."],
+        "correctAnswerIndex": 1,
+        "explanation": "The concept of"
     },
     {
-        question: "\"Locus Standi\" (Right to be heard) was relaxed by the Supreme Court to introduce:",
-        options: ["Public Interest Litigation (PIL).", "Judicial Review.", "Curative Petition.", "Special Leave Petition."],
-        correctAnswerIndex: 0, // a) PIL
-        explanation: "Relaxed for PIL."
+        "id": "ch8-l2-q26",
+        "question": "Which of the following Fundamental Rights are available ONLY to citizens of India and denied to friendly aliens?",
+        "options": ["Articles 14, 20, 21, 21A, 22","Articles 15, 16, 19, 29, 30","Articles 23, 24, 25, 26, 27","All Fundamental Rights are available to friendly aliens."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Fundamental Rights available ONLY to citizens (and not to aliens) are 15, 16 (equality of opportunity), 19 (six freedoms), 29 and 30 (cultural and educational rights)."
     },
     {
-        question: "Under Article 33, can the Parliament restrict the Fundamental Rights of \"non-combatant\" employees of the Armed Forces (like barbers, cooks)?",
-        options: ["Yes, the term \"members of the Armed Forces\" covers such employees too.", "No, only combatants.", "No, they are civilians.", "Only during war."],
-        correctAnswerIndex: 0, // a) Yes
-        explanation: "Covers non-combatants too."
+        "id": "ch8-l2-q27",
+        "question": "Consider the protection under Article 20(3):",
+        "options": ["Oral testimony in court.","Documentary evidence based on personal knowledge.","Compulsory production of material objects, thumb impressions, specimens of signature, or blood specimens.","Narco-analysis tests conducted with physical compulsion."],
+        "correctAnswerIndex": 2,
+        "explanation": "The protection does not extend to: (i) compulsory production of material objects, (ii) compulsion to give thumb impression, specimen signature, blood specimens, and (iii) compulsory exhibition of the body. It essentially protects against conveying personal knowledge involuntarily."
     },
     {
-        question: "Article 35 gives exclusive power to the Parliament (and not State Legislatures) to make laws for:\n1. Prescribing residence as a condition for employment (Article 16).\n2. Empowering courts other than SC/HC to issue writs (Article 32).\n3. Restricting rights of Armed Forces (Article 33).\n4. Punishment for Untouchability (Article 17) and Traffic in Human Beings (Article 23).\nSelect the correct answer:",
-        options: ["1 and 2 only", "3 and 4 only", "1, 3, and 4 only", "1, 2, 3, and 4"],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All are exclusive Parliament powers under Art 35."
+        "id": "ch8-l2-q28",
+        "question": "Under the original Constitution, what was the status of the",
+        "options": ["It was completely absent from Part III.","It was guaranteed under Article 19(1)(f) and Article 31 as a Fundamental Right.","It was an ordinary legal right under Article 300.","It was a Directive Principle of State Policy."],
+        "correctAnswerIndex": 1,
+        "explanation": "Originally, the right to property was a Fundamental Right under Article 19(1)(f) (right to acquire, hold, dispose property) and Article 31 (deprivation of property by law and compensation). Both were repealed by the 44th Amendment in 1978."
     },
     {
-        question: "Assertion (A): Fundamental Rights are not absolute. Reason (R): They are subject to \"Reasonable Restrictions\" to balance individual liberty with social control.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Correct explanation."
+        "id": "ch8-l2-q29",
+        "question": "The",
+        "options": ["The Prime Minister and Chief Ministers.","The President of India and the Governors of States.","The Chief Justice of India.","Members of Parliament (for acts committed outside parliament)."],
+        "correctAnswerIndex": 1,
+        "explanation": "Under Article 361, the President of India and the Governor of States enjoy exceptions: no criminal proceedings whatsoever can be instituted or continued against them in any court during their term of office."
     },
     {
-        question: "Which Fundamental Right cannot be suspended even during a National Emergency (Article 352)?",
-        options: ["Article 19", "Article 20 and 21", "Article 32", "Article 14"],
-        correctAnswerIndex: 1, // b) 20 and 21
-        explanation: "Articles 20 and 21."
+        "id": "ch8-l2-q30",
+        "question": "Article 21A mandates free and compulsory education for children. To implement this Fundamental Right, which major legislation was enacted by Parliament?",
+        "options": ["The Right of Children to Free and Compulsory Education (RTE) Act, 2009.","The National Education Policy (NEP) Act, 2020.","The Sarva Shiksha Abhiyan Act, 2001.","The Protection of Child Rights Act, 2005."],
+        "correctAnswerIndex": 0,
+        "explanation": "In pursuance of Article 21A, the Parliament enacted the Right of Children to Free and Compulsory Education (RTE) Act, 2009. This Act represents the consequential legislation envisaged under Article 21A."
     }
 ];
 
-// Level 3: The UPSC Simulation 2026 (Integrated & Current Affairs)
 const LEVEL_3_QUESTIONS = [
     {
-        question: "The Digital Personal Data Protection Act, 2023 has been criticized for diluting the \"Right to Information\" (RTI). In the context of the Puttaswamy judgment (Right to Privacy), the Supreme Court held that:",
-        options: ["Privacy is absolute and overrides the Right to Information.", "Privacy is not absolute; it must yield to legitimate state interests and public interest (RTI).", "RTI is not a fundamental right, unlike Privacy.", "Data protection is a statutory right, not a constitutional one."],
-        correctAnswerIndex: 1, // b)
-        explanation: "Privacy is not absolute; balances with public interest."
+        "id": "ch8-l3-q1",
+        "question": "Consider the constitutional doctrine of",
+        "options": ["It is a legal right, and an aggrieved person can directly approach the Supreme Court under Article 32 if deprived of their property.","It is a constitutional right, but not a fundamental right; deprivation requires authority of law, and an aggrieved person can approach the High Court under Article 226, but not the Supreme Court under Article 32.","It is merely a statutory right governed exclusively by state-level Land Acquisition Acts, with no overarching constitutional protection.","It remains a fundamental right only for religious and linguistic minorities establishing educational institutions."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 300-A ("
     },
     {
-        question: "The \"Right to be Forgotten\" is currently being adjudicated by the Supreme Court. Which Fundamental Rights are in direct conflict here?",
-        options: ["Article 21 (Right to Privacy of the individual) vs Article 19(1)(a) (Right to Information of the public/media).", "Article 14 (Equality) vs Article 19 (Freedom of Press).", "Article 25 (Religious Freedom) vs Article 21.", "Article 32 vs Article 226."],
-        correctAnswerIndex: 0, // a) Privacy vs Info
-        explanation: "Privacy (21) vs Info (19)."
+        "id": "ch8-l3-q2",
+        "question": "Article 21 has been expansively interpreted by the Supreme Court over decades. Which landmark case fundamentally shifted judicial interpretation from the narrow A.K. Gopalan standard (only executive restraint) to the broad",
+        "options": ["Kesavananda Bharati v. State of Kerala (1973)","Menaka Gandhi v. Union of India (1978)","I.R. Coelho v. State of Tamil Nadu (2007)","Puttaswamy v. Union of India (2017)"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Menaka Gandhi case (1978) was the watershed moment. The SC ruled that Article 21"
     },
     {
-        question: "The \"Sealed Cover Jurisprudence\" used by the government in cases like MediaOne (security clearance) was criticized by the Supreme Court (2023). The Court held that:",
-        options: ["National security is an absolute ground to deny natural justice.", "The state must disclose the \"gist\" of the allegations to the affected party to satisfy the \"Right to Fair Hearing\" under Article 21.", "Sealed covers are the prerogative of the Executive under Article 74.", "Only the Chief Justice can view the sealed cover."],
-        correctAnswerIndex: 1, // b) Disclose gist
-        explanation: "Must disclose gist for fair hearing."
+        "id": "ch8-l3-q3",
+        "question": "The",
+        "options": ["Articles 14, 19, and 21","Articles 15, 16, and 29","Articles 32, 226, and 136","Articles 20, 21, and 22"],
+        "correctAnswerIndex": 0,
+        "explanation": "The"
     },
     {
-        question: "The Sabarimala Review and other religious rights cases (Entry of women in mosques, Parsi women's rights) have been referred to a 9-judge Constitution Bench. The core question is the interplay between:",
-        options: ["Article 14 (Equality/Non-discrimination) and Article 25 (Freedom of Religion of denomination).", "Article 25(1) (Individual right) and Article 26(b) (Denominational right).", "The definition of \"Constitutional Morality\".", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Involves equality vs denomination rights, individual vs denomination, and constitutional morality."
+        "id": "ch8-l3-q4",
+        "question": "Examine the",
+        "options": ["Yes, if the institution receives substantial state aid.","No, minority educational institutions are completely exempt from the State","Yes, but only in professional courses like medicine and engineering.","No, but the State can mandate reservation of teaching posts within the institution."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Supreme Court (Pramati Educational and Cultural Trust case, 2014) and Article 15(5) explicitly exempt BOTH aided and unaided minority educational institutions (established under Art 30) from state-mandated reservation policies for students, preserving their autonomous administrative character."
     },
     {
-        question: "The Karnataka Hijab Ban case resulted in a split verdict in the Supreme Court. One judge upheld the ban on the ground that:",
-        options: ["Hijab is not an \"Essential Religious Practice\" in Islam.", "Uniforms in secular institutions are a \"Reasonable Restriction\" under Article 19(2) and do not violate Article 25.", "Article 25 protects only \"conscience,\" not \"dress\".", "Schools are not \"State\" under Article 12."],
-        correctAnswerIndex: 1, // b) Uniforms as restriction
-        explanation: "Hemant Gupta J upheld it as a reasonable restriction."
+        "id": "ch8-l3-q5",
+        "question": "Assertion (A): The freedom of speech and expression (Article 19(1)(a)) does not explicitly mention",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. Unlike the US Constitution which explicitly mentions press freedom, the Indian Constitution"
     },
     {
-        question: "\"Marital Rape\" is currently legal under Exception 2 to Section 375 of IPC (now BNS). The challenge to this exception is based on the violation of:",
-        options: ["Article 14 (Unreasonable classification between married and unmarried women).", "Article 21 (Right to bodily integrity and sexual autonomy).", "Article 15 (Discrimination on grounds of sex/marital status).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Challenge involves 14, 15, and 21."
+        "id": "ch8-l3-q6",
+        "question": "Consider the constitutional validity of",
+        "options": ["Preventive detention can be enacted by both the Parliament and State Legislatures concurrently for reasons of security of state and maintenance of public order.","A detainee must be communicated the grounds of detention as soon as possible, but authorities can refuse to disclose facts considered against the",".","A detainee cannot be held beyond three months without the approval of an Advisory Board.","The Constitution strictly limits the maximum period of preventive detention to six months, beyond which a constitutional amendment is required."],
+        "correctAnswerIndex": 3,
+        "explanation": "Statement D is incorrect. The Constitution does NOT fix a maximum 6-month period. Parliament has the authority (under Art 22(7)) to prescribe the maximum period for which any person may in any class or classes of cases be detained under a preventive detention law."
     },
     {
-        question: "The EWS Reservation (103rd Amendment) was upheld by the Supreme Court (3:2 majority). The majority held that:",
-        options: ["Economic criteria alone cannot be the basis for reservation (overruling Indra Sawhney).", "Economic criteria can be the basis for reservation; exclusion of SC/ST/OBCs from EWS quota is valid to prevent \"double benefit\".", "The 50% ceiling on reservation is inflexible and cannot be breached.", "Reservation is a fundamental right."],
-        correctAnswerIndex: 1, // b) EWS Valid
-        explanation: "Economic criteria valid; exclusion valid to prevent double dipping."
+        "id": "ch8-l3-q7",
+        "question": "Under Article 16(4A), introduced by the 77th Amendment (1995) and modified by the 85th Amendment (2001), the State is empowered to make provisions for reservation in matters of",
+        "options": ["All Backward Classes (including OBCs).","Only Scheduled Castes and Scheduled Tribes (SCs/STs).","Linguistic Minorities in their respective domicile states.","Economically Weaker Sections (EWS)."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 16(4A) explicitly empowers the State to make any provision for reservation in matters of PROMOTION with consequential seniority, to any class or classes of posts in the services under the State in favor of the Scheduled Castes (SCs) and the Scheduled Tribes (STs) only. OBCs get reservation in initial appointment (16(4)) but not in promotion."
     },
     {
-        question: "The \"Sub-classification of Scheduled Castes\" (e.g., Punjab case) was referred to a 7-judge bench. In 2024, the Court allowed sub-classification to:",
-        options: ["Exclude the \"Creamy Layer\" among SCs.", "Grant preferential treatment to the \"most backward\" among the SCs (e.g., Valmikis vs Mazhabis).", "Remove the SC status of those who convert to Christianity.", "Both (a) and (b)."],
-        correctAnswerIndex: 3, // d) Both a and b (Creamy layer + Preferential)
-        explanation: "Sub-classification allowed for both purposes."
+        "id": "ch8-l3-q8",
+        "question": "Examine the",
+        "options": ["Pre-constitutional laws that violate Fundamental Rights are","permanently and cannot be revived even if the Constitution is amended later.","A pre-constitutional law violating a Fundamental Right is not entirely dead; it is merely overshadowed (eclipsed) by the Fundamental Right and remains dormant. If a constitutional amendment removes the inconsistency, the law becomes active again.","Any state law that contradicts a central law is eclipsed and rendered void.","Fundamental Rights are temporarily eclipsed during a National Emergency."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Doctrine of Eclipse (established in Bhikaji Narain Dhakras v. State of MP) states that a pre-constitutional law inconsistent with Part III is not void ab initio (dead from the start). It is merely eclipsed by the fundamental right. If an amendment removes the shadow of that right, the law revives."
     },
     {
-        question: "The \"Local Domicile Reservation\" in private sector jobs (e.g., Haryana's 75% quota law) was challenged. The High Court quashed it as unconstitutional because:",
-        options: ["It violates Article 16(2) (Residence discrimination).", "It violates Article 19(1)(g) (Right to carry on occupation) of employers.", "It creates a \"partition\" of the labor market, violating the unity of India (Article 1).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Violates 16(2), 19(1)(g), and unity."
+        "id": "ch8-l3-q9",
+        "question": "In the landmark Justice K.S. Puttaswamy (Retd.) v. Union of India (2017) judgment, a 9-judge bench of the Supreme Court unanimously declared the",
+        "options": ["Right to Freedom of Religion (Article 25).","Right to Equality (Article 14).","Right against Exploitation (Article 23).","Right to Life and Personal Liberty (Article 21) and as a part of the freedoms guaranteed by Part III."],
+        "correctAnswerIndex": 3,
+        "explanation": "The Supreme Court unanimously ruled that the right to privacy is protected as an intrinsic part of the right to life and personal liberty under Article 21 and as a part of the freedoms guaranteed by Part III of the Constitution."
     },
     {
-        question: "The \"Internet Shutdowns\" in Manipur and other regions were challenged. The Supreme Court in the Anuradha Bhasin case (2020) held that:",
-        options: ["Access to the internet is a Fundamental Right under Article 21.", "Freedom of speech and trade over the internet is constitutionally protected under Article 19(1)(a) and 19(1)(g).", "Internet shutdowns can be indefinite if national security is at stake.", "The government need not publish shutdown orders."],
-        correctAnswerIndex: 1, // b)
-        explanation: "Protected under 19(1)(a) and 19(1)(g)."
+        "id": "ch8-l3-q10",
+        "question": "Consider the power of issuing writs under Article 32 (Supreme Court) and Article 226 (High Court). What is meant by the assertion that the Supreme Court",
+        "options": ["The Supreme Court can originate a writ petition, but it cannot exclusively decide the outcome without consulting the High Court.","An aggrieved citizen can approach the Supreme Court directly (original), but the High Courts also share this power concurrently (not exclusive) under Article 226.","The Supreme Court can issue writs for all legal rights originally, but shares exclusive jurisdiction over Fundamental Rights with Parliament.","The Supreme Court exclusively issues writs, but original petitions must start at the District Court."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 32 allows direct approach to the SC without going through appeals (Original jurisdiction). However, it is"
     },
     {
-        question: "The \"IT Rules, 2021\" (Fact Check Unit) were stayed by the Supreme Court (2024). The criticism was that empowering a government unit to decide \"fake news\" violates:",
-        options: ["Article 14 (State becomes judge in its own cause).", "Article 19(1)(a) (Chilling effect on free speech).", "The principle of Natural Justice.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Violates Speech and Natural Justice."
+        "id": "ch8-l3-q11",
+        "question": "Article 15(6) and 16(6) were inserted by the 103rd Constitutional Amendment Act (2019) to provide a maximum of 10% reservation for Economically Weaker Sections (EWS). Which groups are NOT eligible for this specific 10% EWS quota?",
+        "options": ["Only citizens living below the poverty line irrespective of caste.","Only citizens in rural areas.","Citizens who are already covered under the SC, ST, and Socially and Educationally Backward Classes (OBC) reservations.","Citizens from linguistic minorities."],
+        "correctAnswerIndex": 2,
+        "explanation": "The 10% EWS quota deliberately targets the"
     },
     {
-        question: "\"Hate Speech\" guidelines were reinforced by the Supreme Court (2023). The Court directed police to register cases suo motu (without complaint) to protect:",
-        options: ["The Secular fabric of the nation (Preamble).", "Fraternity and Dignity of individuals (Article 21).", "Public Order (Article 19(2)).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Secularism, Fraternity, Public Order."
+        "id": "ch8-l3-q12",
+        "question": "Consider the",
+        "options": ["Article 14 (Equality)","Article 19(1)(a) (Freedom of Speech and Expression)","Article 21 (Life and Liberty)","Both Article 19(1)(a) and Article 21"],
+        "correctAnswerIndex": 3,
+        "explanation": "The Supreme Court has consistently ruled that the Right to Information is a fundamental right implicit under both Article 19(1)(a) (as you cannot express yourself without information) and Article 21 (right to life implies a right to know about things affecting life, like the environment or governance)."
     },
     {
-        question: "The Bharatiya Nyaya Sanhita (BNS) introduces \"Community Service\" as a punishment. This is seen as a reformative step. Does it violate Article 23 (Begar/Forced Labor)?",
-        options: ["Yes, because it is work without pay.", "No, Article 23(2) permits the State to impose \"compulsory service for public purposes\".", "Yes, unless the convict consents.", "No, because it is not \"labor\" but \"service\"."],
-        correctAnswerIndex: 1, // b) Public Purpose
-        explanation: "Permitted under Art 23(2)."
+        "id": "ch8-l3-q13",
+        "question": "Which of the following restrictions on the",
+        "options": ["The restriction based on",".","The restriction authorizing the State to","associated with religious practice.","The explicit constitutional provision in Article 25(2)(b) allowing the State to provide for",".","The","formulated by the Supreme Court."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 25(2)(b) specifically saves the power of the State to make laws providing for social welfare and reform or the throwing open of Hindu religious institutions of a public character to all classes and sections of Hindus (which historically targeted the evil of untouchability and temple entry bans)."
     },
     {
-        question: "In the PMLA (Money Laundering) Judgment (2022), the Supreme Court upheld the \"twin conditions\" for bail (guilty until proven innocent for bail purposes). Critics argue this reverses the burden of proof, violating:",
-        options: ["Article 14 (Arbitrariness).", "Article 20(3) (Self-incrimination).", "Article 21 (Right to Liberty - \"Bail is rule, jail is exception\").", "Article 22 (Protection against arrest)."],
-        correctAnswerIndex: 2, // c) Art 21
-        explanation: "Violates liberty/bail norms."
+        "id": "ch8-l3-q14",
+        "question": "The",
+        "options": ["If the center and states pass conflicting laws on fundamental rights, they are severed permanently.","If an offending provision of a statute can be separated from the valid provisions, only the offending provision is declared void, saving the rest of the statute.","Fundamental Rights are severed from Directive Principles in cases of conflict.","Judicial review completely severs the legislative branch"],
+        "correctAnswerIndex": 1,
+        "explanation": "Under Article 13, laws are void only"
     },
     {
-        question: "The \"Right to Silence\" of an accused (Article 20(3)) is often bypassed by summoning them as a \"witness\" or for \"inquiry\" (not investigation) under special laws (ED/Customs). The Supreme Court has held that:",
-        options: ["Protection of Article 20(3) is available only to a person \"accused of an offense\" (formal FIR/Complaint).", "Statements made to ED officers are admissible as they are not \"police officers\".", "Both (a) and (b).", "Right to silence is absolute at all stages."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Available only to 'accused'; ED officers not police."
+        "id": "ch8-l3-q15",
+        "question": "Under the",
+        "options": ["Yes, the constitutional ban is absolute across all sectors without exception.","No, it explicitly permits children below 14 to work in family businesses or non-hazardous environments after school hours or during vacations.","Yes, but the State can temporarily suspend it during economic emergencies.","No, only the UN Conventions ban it entirely; the Indian Constitution permits it for agricultural labor."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 24 specifically prohibits hazardous employment (factories, mines). It does not explicitly ban harmless or non-hazardous work. The Child and Adolescent Labour (Prohibition and Regulation) Act, 1986 (amended 2016) completely prohibits employment of children below 14 in all occupations, EXCEPT helping in family enterprises after school/vacations."
     },
     {
-        question: "The National Commission for Minority Educational Institutions (NCMEI) grants \"Minority Status\" certificates. Recently, the Supreme Court clarified that the unit for determining minority status (Linguistic/Religious) is:",
-        options: ["The District.", "The State.", "The Nation.", "The Block."],
-        correctAnswerIndex: 1, // b) State
-        explanation: "State is the unit."
+        "id": "ch8-l3-q16",
+        "question": "The power of Parliament to modify Fundamental Rights for armed forces under Article 33 is sweeping. Which of the following forces or categories of workers have been held by the Supreme Court to fall under the ambit of Article 33?",
+        "options": ["Only combatant ranks in the Army, Navy, and Air Force.","Combatants, as well as non-combatants like barbers, carpenters, mechanics, cooks, and sweepers functioning within the armed forces.","All Central Government employees, including railway workers.","Only Central Armed Police Forces (CAPFs), but not state police forces."],
+        "correctAnswerIndex": 1,
+        "explanation": "The expression"
     },
     {
-        question: "The \"Aligarh Muslim University (AMU) Minority Status\" case (2024) revolves around whether a university established by a central statute (Act of Parliament) can claim minority status under Article 30. The Centre argues:",
-        options: ["Yes, if it was established by Muslims.", "No, an institution established by a statute is a \"national institution,\" not a minority one.", "Yes, but it cannot reserve seats.", "No, because it receives 100% government funding."],
-        correctAnswerIndex: 1, // b) Statute = National
-        explanation: "Centre argues statute-creation negates minority character (Azeez Basha case)."
+        "id": "ch8-l3-q17",
+        "question": "Assertion (A): The",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. Article 300A merely says deprivation must be by"
     },
     {
-        question: "Assertion (A): A law violating Article 14, 19, or 21 is void. Reason (R): The \"Due Process of Law\" doctrine, imported via Maneka Gandhi, requires laws to be just, fair, and reasonable, not just procedurally correct.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Correct explanation."
+        "id": "ch8-l3-q18",
+        "question": "Consider the constitutional protection under Article 20(1) regarding ex-post-facto laws. An individual is facing a civil tax liability case, and the government passes a retroactive tax law demanding higher taxes for the previous five years. Does Article 20(1) protect the individual from this retroactive tax liability?",
+        "options": ["Yes, Article 20(1) prohibits all retrospective laws, civil or criminal.","Yes, because taxation is considered a confiscatory punishment under the Constitution.","No, the protection against ex-post-facto laws extends only to criminal laws, not to civil laws or tax laws.","No, unless the individual is concurrently facing a criminal trial."],
+        "correctAnswerIndex": 2,
+        "explanation": "The protection under Article 20(1) (ex-post-facto laws) is available strictly in criminal proceedings. It does not apply to civil laws or tax laws, meaning the legislature can validly enact retrospective taxation or civil liabilities."
     },
     {
-        question: "Assertion (A): The \"Right to Property\" is no longer a Fundamental Right. Reason (R): It was deleted by the 44th Amendment to facilitate land reforms and prevent judicial intervention in property acquisition.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Correct explanation."
+        "id": "ch8-l3-q19",
+        "question": "The Armed Forces (Special Powers) Act (AFSPA) provides sweeping powers to armed forces in",
+        "options": ["It is justified under Article 33, which limits their fundamental rights.","It is justified under Article 34, provided martial law has been officially declared.","It is justified under Article 355 (duty of the Union to protect states) combined with the legislative competence derived from the 7th Schedule; it does not explicitly rely on martial law (Art 34) as AFSPA operates in non-martial law civilian environments.","The Supreme Court struck down AFSPA as unconstitutional in 2016."],
+        "correctAnswerIndex": 2,
+        "explanation": "AFSPA is a statutory law passed under the Union"
     },
     {
-        question: "The \"Doctrine of Waiver\" of Fundamental Rights:",
-        options: ["Is applicable in India; a citizen can waive his rights.", "Is not applicable in India; a citizen cannot waive his Fundamental Rights (e.g., agree to be discriminated against).", "Applies only to Article 19.", "Applies only to Property Rights."],
-        correctAnswerIndex: 1, // b) Not applicable
-        explanation: "Doctrine of Waiver is not applicable in India (Basheshar Nath case)."
+        "id": "ch8-l3-q20",
+        "question": "Which of the following constitutional provisions operates as an explicit exception to Fundamental Rights, saving laws giving effect to certain Directive Principles from being declared unconstitutional on grounds of violating Articles 14 and 19?",
+        "options": ["Article 31A","Article 31B","Article 31C","Article 35"],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 31C (inserted by 25th CAA, 1971) explicitly protects laws giving effect to the Directive Principles contained in Article 39(b) [equitable distribution of resources] and 39(c) [prevention of wealth concentration] from being challenged on the grounds of contravening Articles 14 and 19."
     },
     {
-        question: "\"Double Jeopardy\" (Article 20(2)) protects a person from being prosecuted and punished twice for the same offense. Does this apply if the first punishment was by a Departmental Inquiry (Administrative)?",
-        options: ["Yes.", "No, it applies only to judicial proceedings (Court of Law).", "Yes, if the inquiry led to dismissal.", "No, unless it was by a Military Court."],
-        correctAnswerIndex: 1, // b) Judicial only
-        explanation: "Only judicial proceedings."
+        "id": "ch8-l3-q21",
+        "question": "The Supreme Court formulated the",
+        "options": ["To prove that the deity was a","under Article 12.","To determine if the exclusion of women aged 10-50 was an","part of the Hindu religion. If not essential, it loses constitutional protection under Article 25 against Article 14 (Equality) claims.","To establish that the temple received state funding and thus fell under Article 28.","To justify the temple"],
+        "correctAnswerIndex": 1,
+        "explanation": "The ERP test determines whether a practice is so fundamental to a religion that altering it would change the nature of the religion itself. In Sabarimala, the SC majority held that the exclusionary practice was not an"
     },
     {
-        question: "The \"Right to Sleep\" was declared a Fundamental Right (under Article 21) in the case of:",
-        options: ["Ramlila Maidan Incident case.", "Puttaswamy case.", "Olga Tellis case.", "Navtej Singh Johar case."],
-        correctAnswerIndex: 0, // a) Ramlila Maidan
-        explanation: "Ramlila Maidan Incident case."
+        "id": "ch8-l3-q22",
+        "question": "Consider the constitutional definition and protection of",
+        "options": ["Yes, Article 29 defines it numerically as any group constituting less than 50% of the national population.","Yes, Article 30 defines it as exclusively religious and linguistic communities recognized by the Central Government.","No, the term","is not explicitly defined anywhere in the Constitution.","Yes, the 42nd Amendment added a detailed definition to the 3rd Schedule."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Constitution uses the word"
     },
     {
-        question: "The \"Right to Travel Abroad\" is protected under:",
-        options: ["Article 19(1)(d) (Move freely throughout India).", "Article 19(1)(e) (Reside anywhere).", "Article 21 (Personal Liberty - Maneka Gandhi case).", "Article 14."],
-        correctAnswerIndex: 2, // c) Article 21
-        explanation: "Article 21 (Maneka Gandhi)."
+        "id": "ch8-l3-q23",
+        "question": "When evaluating the tension between Fundamental Rights (Part III) and Directive Principles of State Policy (Part IV), the Minerva Mills case (1980) established a foundational principle. What was the core holding regarding this relationship?",
+        "options": ["Fundamental Rights are permanently supreme and Directive Principles are legally meaningless.","Directive Principles completely supersede Fundamental Rights whenever the State enacts social welfare legislation.","The Indian Constitution is founded on the bedrock of the","between Fundamental Rights and Directive Principles; they are complementary, not competing.","The President determines which Part assumes supremacy during a crisis."],
+        "correctAnswerIndex": 2,
+        "explanation": "In Minerva Mills (1980), the SC ruled that the Constitution is founded on the bedrock of balance between Part III and Part IV. To give absolute primacy to one over the other is to disturb the harmony of the Constitution, which is a"
     },
     {
-        question: "Article 31C saves laws giving effect to Directive Principles (Article 39(b) and 39(c)) from being challenged under Articles 14 and 19. The Minerva Mills case struck down the expansion of Article 31C to all DPSPs because:",
-        options: ["It destroyed the \"Balance between FR and DPSP\" (Basic Structure).", "It violated Article 14.", "It was passed during Emergency.", "It removed Judicial Review entirely."],
-        correctAnswerIndex: 0, // a) Balance
-        explanation: "Destroyed the balance (Basic Structure)."
+        "id": "ch8-l3-q24",
+        "question": "Article 22(4) deals with Preventive Detention. The 44th Amendment Act (1978) sought to reduce the maximum period of preventive detention without obtaining the opinion of an advisory board from 3 months to 2 months. What is the current operational legal status of this reduction?",
+        "options": ["It has been actively strictly enforced since 1978.","The Supreme Court struck down the reduction in 1980.","The provision has not yet been brought into force; hence, the original period of 3 months still continues in practice.","It was repealed by the 59th Amendment during the Punjab crisis."],
+        "correctAnswerIndex": 2,
+        "explanation": "Interestingly, the provision of the 44th CAA bringing down the period from three months to two months has NEVER been brought into force by notification. Hence, the original constitutional provision of three months is ostensibly still the functional law."
     },
     {
-        question: "The \"Ninth Schedule\" laws are open to Judicial Review if they:",
-        options: ["Violate any Fundamental Right.", "Violate the Basic Structure and were added after April 24, 1973 (Kesavananda Bharati date).", "Are related to land reforms.", "Are challenged within 10 years."],
-        correctAnswerIndex: 1, // b) Basic Structure + Date
-        explanation: "Basic Structure violation + Post-1973 (IR Coelho case)."
+        "id": "ch8-l3-q25",
+        "question": "Article 16(5) provides a specific exception to the general rule of non-discrimination in public employment on the grounds of religion. What does this exception permit?",
+        "options": ["It allows the State to reserve 15% of all government jobs for religious minorities.","It permits a law requiring that the incumbent of an office in a religious or denominational institution must belong to that particular religion.","It allows the military to recruit exclusively from specific martial religions.","It permits religious taxes to strictly fund the salaries of temple priests."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 16(5) states that a law can provide that the incumbent of an office in connection with the affairs of any religious or denominational institution or any member of the governing body thereof shall be a person professing a particular religion or belonging to a particular denomination. This is logical and exempt from the secular employment rule."
     },
     {
-        question: "The \"Right to Vote\" is:",
-        options: ["A Fundamental Right.", "A Constitutional Right (Article 326).", "A Statutory Right (RPA, 1951).", "Both (b) and (c) (Subject to debate, but primarily Statutory/Constitutional)."],
-        correctAnswerIndex: 3, // d) Constitutional/Statutory
-        explanation: "Constitutional (Art 326) / Statutory. Not Fundamental."
+        "id": "ch8-l3-q26",
+        "question": "Under the Ninth Schedule, created by the 1st Constitutional Amendment (Article 31B), laws placed within it were intended to be completely immune from judicial review on the grounds of violating Fundamental Rights. However, in the I.R. Coelho case (2007), what critical restriction did the Supreme Court place on the",
+        "options": ["It declared the entire Ninth Schedule retrospectively unconstitutional.","It ruled that only agricultural land reform laws can be placed in the Ninth Schedule.","It ruled that laws placed in the Ninth Schedule AFTER April 24, 1973 (Kesavananda Bharati judgment date) ARE subject to judicial review if they violate the","(which includes Articles 14, 15, 19, 21).","It transferred the power of judicial review of Ninth Schedule laws solely to the President."],
+        "correctAnswerIndex": 2,
+        "explanation": "The SC held that there is no blanket immunity. Any law inserted into the Ninth Schedule after April 24, 1973, is open to challenge if it violates the basic structure of the Constitution (derived from the rights under Art 14, 15, 19, and 21)."
     },
     {
-        question: "\"Preventive Detention\" laws in India must conform to the procedural safeguards of Article 22. However, these safeguards (e.g., 3 months limit) are not available to:",
-        options: ["Enemy Aliens.", "Persons arrested under UAPA.", "Political prisoners.", "Journalists."],
-        correctAnswerIndex: 0, // a) Enemy Aliens
-        explanation: "Enemy Aliens are denied Art 22 protections."
+        "id": "ch8-l3-q27",
+        "question": "Consider the mechanism of issuing the writ of",
+        "options": ["Against a lower court to compel it to exercise its jurisdiction.","Against an inferior tribunal to perform a statutory duty.","Against the President of India or the State Governors for the performance of their constitutional duties.","Against a municipal corporation compelling it to enforce bylaws."],
+        "correctAnswerIndex": 2,
+        "explanation": "Mandamus cannot be issued against the President of India or the State Governors. It also cannot be issued against a private individual/body, to enforce departmental instructions lacking statutory force, or when the duty is discretionary rather than mandatory."
     },
     {
-        question: "The \"Rule of Law\" is embodied in Article 14. The \"Rule of Law\" implies:\n1. Absence of arbitrary power.\n2. Equality before law.\n3. Primacy of the rights of the individual (Constitution is result of rights).\nSelect the correct answer (Indian Context):",
-        options: ["1 and 2 only (Indian Constitution is source, not result).", "1 and 3 only.", "2 and 3 only.", "1, 2, and 3."],
-        correctAnswerIndex: 0, // a) 1 and 2
-        explanation: "In India, Constitution is the source of rights, not the result."
+        "id": "ch8-l3-q28",
+        "question": "Assertion (A): A corporation set up under an Act of Parliament (like ONGC or LIC) is considered",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. The SC (RD Shetty case, Ajay Hasia case) evolved tests to determine if a body is an"
     },
     {
-        question: "\"Sedition\" (Section 124A IPC) was effectively suspended by the Supreme Court (2022) pending review. The conflict is between:",
-        options: ["Article 19(1)(a) (Free Speech) and Article 19(2) (Security of State/Public Order).", "Article 21 and Article 14.", "Colonial law and Modern Democracy.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Involves all aspects."
+        "id": "ch8-l3-q29",
+        "question": "The Right to Education (Article 21A) guarantees free and compulsory education to all children aged 6 to 14. How has the Supreme Court interpreted the obligation of UNAIDED private minority educational institutions regarding the RTE Act",
+        "options": ["They are fully bound by the RTE mandate, as education is a universal right.","They are exempt from the 25% RTE reservation mandate, as forcing it upon them violates their autonomy guaranteed under Article 30(1).","They must provide 10% reservation instead of 25%.","They are bound by it only if they are recognized by the CBSE/ICSE."],
+        "correctAnswerIndex": 1,
+        "explanation": "In Pramati Educational and Cultural Trust v. Union of India (2014), a Constitution Bench of the Supreme Court held that the RTE Act, 2009 is inapplicable to both aided and unaided minority educational institutions, as compelling them to admit students out of the mandate would abrogate their right under Article 30(1)."
     },
     {
-        question: "The \"Right to Health\" (Article 21) was emphasized during the COVID-19 pandemic. The Supreme Court held that:",
-        options: ["The State has an obligation to provide free treatment to all.", "Private hospitals cannot charge exorbitant fees; the \"Right to Health\" includes affordable treatment.", "Vaccination cannot be made mandatory (Right to Bodily Integrity).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All (Affordable treatment, no mandatory vax, state obligation)."
+        "id": "ch8-l3-q30",
+        "question": "Which of the following constitutional Articles allows the state to utilize forced labor conceptually, not as",
+        "options": ["Article 15(4)","Article 33","Article 23(2) itself allows this exception explicitly.","Article 352 (National Emergency) explicitly overrides Article 23."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 23(1) prohibits forced labor/begar. However, Article 23(2) provides an explicit exception:"
     }
 ];
 
 export const CHAPTER_8_LEVELS: ChapterLevelData = {
-    topicId: 8,
-    levels: [
-        {
-            levelId: 1,
-            title: "The Text-Book Stickler",
-            description: "Strictly Chapter 8: Direct Recall.",
-            questions: LEVEL_1_QUESTIONS.map((q, i) => ({ ...q, id: `ch8-l1-q${i + 1}` }))
-        },
-        {
-            levelId: 2,
-            title: "The Conceptual Bridge",
-            description: "Applied Knowledge & Analysis.",
-            questions: LEVEL_2_QUESTIONS.map((q, i) => ({ ...q, id: `ch8-l2-q${i + 1}` }))
-        },
-        {
-            levelId: 3,
-            title: "UPSC Simulation 2026",
-            description: "Integrated & Current Affairs Context.",
-            questions: LEVEL_3_QUESTIONS.map((q, i) => ({ ...q, id: `ch8-l3-q${i + 1}` }))
-        }
-    ]
+    level1: LEVEL_1_QUESTIONS,
+    level2: LEVEL_2_QUESTIONS,
+    level3: LEVEL_3_QUESTIONS
 };

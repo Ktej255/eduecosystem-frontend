@@ -1,702 +1,506 @@
-import { ChapterLevelData } from "../level-types";
+import { ChapterLevelData } from '../level-types';
 
-// Level 1: The Text-Book Stickler (Strictly Chapter 15)
 const LEVEL_1_QUESTIONS = [
     {
-        id: "ch15-l1-q1",
-        question: "The Constitution divides legislative authority between the Centre and the States in:",
-        options: ["Part XI", "Part XII", "Part XIII", "Part XIV"],
-        correctAnswerIndex: 0,
-        explanation: "Part XI deals with Relations between the Union and the States."
+        "id": "ch15-l1-q1",
+        "question": "The Constitution of India divides Centre-State relations into three parts. Which of the following is NOT one of those parts?",
+        "options": ["Legislative relations","Administrative relations","Judicial relations","Financial relations"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Constitution divides Centre-State relations into Legislative, Administrative, and Financial relations. There is no division of judicial powers as India has an integrated judicial system."
     },
     {
-        id: "ch15-l1-q2",
-        question: "The Parliament can make laws for the whole or any part of the territory of India. Who can make laws with \"extra-territorial operation\"?",
-        options: ["Only Parliament.", "Only State Legislatures.", "Both Parliament and State Legislatures.", "Neither."],
-        correctAnswerIndex: 0,
-        explanation: "Only Parliament can make laws with extra-territorial operation."
+        "id": "ch15-l1-q2",
+        "question": "Which Part of the Constitution deals with the Legislative Relations between the Centre and the states (Articles 245 to 255)?",
+        "options": ["Part X","Part XI","Part XII","Part XIII"],
+        "correctAnswerIndex": 1,
+        "explanation": "Articles 245 to 255 in Part XI of the Constitution deal with the legislative relations between the Centre and the states."
     },
     {
-        id: "ch15-l1-q3",
-        question: "The Seventh Schedule contains three lists. Which list has precedence over the others?",
-        options: ["Union List over State List and Concurrent List.", "State List over Union List.", "Concurrent List over Union List.", "All are equal."],
-        correctAnswerIndex: 0,
-        explanation: "Union List has precedence over State List and Concurrent List."
+        "id": "ch15-l1-q3",
+        "question": "Regarding the",
+        "options": ["They apply only to Union Territories.","They can apply to the whole or any part of the territory of India.","They apply only outside the territory of India (extra-territorial laws).","They apply only to states that have ratified them."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Parliament can make laws for the whole or any part of the territory of India. The territory of India includes the states, the union territories, and any other area for the time being included in the territory of India."
     },
     {
-        id: "ch15-l1-q4",
-        question: "In case of a conflict between the Concurrent List and the State List, which one prevails?",
-        options: ["Concurrent List.", "State List.", "Union List.", "Supreme Court decides."],
-        correctAnswerIndex: 0,
-        explanation: "Concurrent List prevails in case of conflict with State List."
+        "id": "ch15-l1-q4",
+        "question": "Which legislative body in India alone possesses the power to make",
+        "options": ["State Legislatures","The Supreme Court","The Parliament","The Inter-State Council"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Parliament alone can make"
     },
     {
-        id: "ch15-l1-q5",
-        question: "However, if a State law on a Concurrent subject has received the assent of the ______, it prevails in that State.",
-        options: ["Governor", "President", "Chief Minister", "Parliament"],
-        correctAnswerIndex: 1,
-        explanation: "Presidential assent allows State law on Concurrent subject to prevail."
+        "id": "ch15-l1-q5",
+        "question": "Though Parliament has pan-India jurisdiction, the President can make regulations for the peace, progress, and good government of five specific Union Territories, which have the same force as acts of Parliament. Which of the following is NOT one of those UTs?",
+        "options": ["Andaman and Nicobar Islands","Lakshadweep","Delhi","Ladakh"],
+        "correctAnswerIndex": 2,
+        "explanation": "The President makes regulations for five UTs: Andaman and Nicobar Islands, Lakshadweep, Dadra and Nagar Haveli, Daman and Diu, and Ladakh. Delhi is a specifically governed UT with its own Legislative Assembly under Art 239AA."
     },
     {
-        id: "ch15-l1-q6",
-        question: "The power to make laws with respect to residuary subjects (not enumerated in any of the three lists) is vested in the:",
-        options: ["Parliament.", "State Legislatures.", "President.", "Supreme Court."],
-        correctAnswerIndex: 0,
-        explanation: "Residuary powers are vested in Parliament."
+        "id": "ch15-l1-q6",
+        "question": "In the Seventh Schedule of the Constitution, which List gives exclusive power to the Parliament to make laws? (It currently has 98 subjects).",
+        "options": ["State List (List II)","Concurrent List (List III)","Union List (List I)","Residuary List"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Parliament has exclusive powers to make laws with respect to any of the matters enumerated in the Union List (List I)."
     },
     {
-        id: "ch15-l1-q7",
-        question: "The Parliament can legislate on any subject in the State List in the \"National Interest\" if a resolution is passed by:",
-        options: ["Lok Sabha.", "Rajya Sabha.", "Both Houses.", "President."],
-        correctAnswerIndex: 1,
-        explanation: "Rajya Sabha must pass a resolution for Parliament to legislate on State List in national interest."
+        "id": "ch15-l1-q7",
+        "question": "Which of the following subjects is correctly matched with its respective List in the Seventh Schedule?",
+        "options": ["Defense - State List","Police - Union List","Education - Concurrent List","Banking - State List"],
+        "correctAnswerIndex": 2,
+        "explanation": "Education is in the Concurrent List (shifted from State List by the 42nd Amendment). Defense and Banking are Union List subjects. Police is a key State List subject."
     },
     {
-        id: "ch15-l1-q8",
-        question: "Such a resolution by Rajya Sabha (Article 249) must be supported by:",
-        options: ["Simple Majority.", "Two-thirds of members present and voting.", "Absolute Majority.", "Two-thirds of total membership."],
-        correctAnswerIndex: 1,
-        explanation: "Article 249 resolution requires two-thirds of members present and voting."
+        "id": "ch15-l1-q8",
+        "question": "The power to make laws on",
+        "options": ["The State Legislatures","The Parliament","The Supreme Court","The President directly"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Parliament has the power to make laws with respect to any matter for any part of the territory of India not enumerated in any of the three Lists (Article 248). This is called the residuary legislative power."
     },
     {
-        id: "ch15-l1-q9",
-        question: "The Parliament can legislate on State List subjects during a \"Proclamation of Emergency\" (Article 250). Such laws cease to have effect on the expiration of ______ after the emergency ceases.",
-        options: ["3 months", "6 months", "1 year", "2 years"],
-        correctAnswerIndex: 1,
-        explanation: "Such laws expire 6 months after emergency ceases."
+        "id": "ch15-l1-q9",
+        "question": "In case of a conflict or overlapping between the Union List and the State List, which list prevails?",
+        "options": ["The State List","The Union List","The Supreme Court decides on a case-by-case basis","The matter is moved to the Concurrent List"],
+        "correctAnswerIndex": 1,
+        "explanation": "In case of overlapping between the Union List and the State List, the former should prevail. The Union List always secures predominance over the State List."
     },
     {
-        id: "ch15-l1-q10",
-        question: "The Parliament can legislate on State List subjects if the legislatures of ______ or more states request it by passing resolutions (Article 252).",
-        options: ["One", "Two", "Three", "Half"],
-        correctAnswerIndex: 1,
-        explanation: "Two or more states must request through resolutions under Article 252."
+        "id": "ch15-l1-q10",
+        "question": "According to Article 254, what happens if there is a conflict (repugnancy) between a Central law and a State law regarding a subject in the Concurrent List?",
+        "options": ["The State law prevails immediately.","The Central law prevails, and the State law is void to the extent of repugnancy.","Both laws are struck down by the courts.","The President suspends the subject for an entire year."],
+        "correctAnswerIndex": 1,
+        "explanation": "In case of a conflict between the Central law and the state law on a subject enumerated in the Concurrent List, the Central law prevails over the state law."
     },
     {
-        id: "ch15-l1-q11",
-        question: "The Parliament can legislate on State List subjects for implementing:",
-        options: ["International treaties, agreements or conventions (Article 253).", "National policies.", "Directive Principles.", "Fundamental Duties."],
-        correctAnswerIndex: 0,
-        explanation: "Article 253 allows Parliament to legislate to implement international treaties."
+        "id": "ch15-l1-q11",
+        "question": "Under Article 249, Parliament can make laws on a subject in the State List if a particular constitutional body passes a resolution declaring it is",
+        "options": ["The Lok Sabha","The Legislative Assemblies of at least half the states","The Rajya Sabha","The Inter-State Council"],
+        "correctAnswerIndex": 2,
+        "explanation": "If the Rajya Sabha declares that it is necessary in the national interest that Parliament should make laws with respect to a matter in the State List, then the Parliament becomes competent to make laws on that matter (Article 249)."
     },
     {
-        id: "ch15-l1-q12",
-        question: "During \"President's Rule\" (Article 356), the Parliament becomes empowered to make laws with respect to any matter in the State List in relation to that state.",
-        options: ["True.", "False."],
-        correctAnswerIndex: 0,
-        explanation: "During President's Rule, Parliament can make laws on State List for that state."
+        "id": "ch15-l1-q12",
+        "question": "When a National Emergency (Article 352) is in operation, what happens to the legislative powers concerning the State List?",
+        "options": ["The State Legislatures are permanently dissolved.","State Legislatures retain exclusive power, Parliament cannot interfere.","Parliament acquires the power to legislate with respect to ANY matter in the State List for the entire country.","Only the President can legislate via ordinance; Parliament is suspended."],
+        "correctAnswerIndex": 2,
+        "explanation": "During a national emergency, Parliament acquires the power to legislate with respect to matters in the State List. The states"
     },
     {
-        id: "ch15-l1-q13",
-        question: "The executive power of every State shall be so exercised as to ensure compliance with the laws made by:",
-        options: ["The Parliament.", "The State Legislature.", "Both (a) and (b).", "The President."],
-        correctAnswerIndex: 0,
-        explanation: "State executive must ensure compliance with Parliamentary laws."
+        "id": "ch15-l1-q13",
+        "question": "When does the Parliament acquire the power to legislate on a State List subject during",
+        "options": ["Never; state laws remain valid.","When the Rajya Sabha passes a resolution.","When the President issues an order declaring that the powers of the state legislature shall be exercised by or under the authority of Parliament.","Only after the Supreme Court approves the takeover."],
+        "correctAnswerIndex": 2,
+        "explanation": "When President"
     },
     {
-        id: "ch15-l1-q14",
-        question: "The Centre can give directions to the States in certain matters. Which is NOT one of them?",
-        options: ["Construction and maintenance of means of communication of national or military importance.", "Protection of railways.", "Provision of adequate facilities for instruction in mother-tongue at primary stage to linguistic minorities.", "Implementation of Uniform Civil Code."],
-        correctAnswerIndex: 3,
-        explanation: "Implementation of Uniform Civil Code is not among these directions."
+        "id": "ch15-l1-q14",
+        "question": "Part XI covers Administrative Relations under Articles 256 to 263. A key principle is that the executive power of every state must be exercised so as to ensure compliance with:",
+        "options": ["The orders of the local High Court.","The laws made by the Parliament and any existing laws which apply in that state.","The directives of neighboring states.","The demands of the dominant political party."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 256 states that the executive power of every state is to be exercised in such a way as to ensure compliance with the laws made by the Parliament."
     },
     {
-        id: "ch15-l1-q15",
-        question: "If a State fails to comply with any directions given by the Centre, the President can hold that a situation has arisen in which the government of the State cannot be carried on in accordance with the Constitution. This attracts:",
-        options: ["Article 352", "Article 356 (President's Rule)", "Article 360", "Article 365"],
-        correctAnswerIndex: 3,
-        explanation: "Article 365 attracts President's Rule for non-compliance."
+        "id": "ch15-l1-q15",
+        "question": "Under Article 365, what is the consequence if a state fails to comply with or give effect to any administrative directions given by the Centre?",
+        "options": ["The State Chief Minister is fined.","The State is excluded from national elections.","It is lawful for the President to hold that a situation has arisen in which the government of the state cannot be carried on in accordance with the provisions of the Constitution (leading to President","The Centre must negotiate a treaty with the state."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 365 says that where any state has failed to comply with any directions given by the Centre, it will be lawful for the President to hold that a situation has arisen in which the government of the state cannot be carried on in accordance with the provisions of the Constitution (meaning Article 356 can be applied)."
     },
     {
-        id: "ch15-l1-q16",
-        question: "The President may, with the consent of the State Government, entrust to that Government any matter to which the executive power of the Union extends.",
-        options: ["True", "False"],
-        correctAnswerIndex: 0,
-        explanation: "True - President can entrust Union matters to States with their consent."
+        "id": "ch15-l1-q16",
+        "question": "The Centre can give directions to the states regarding the construction and maintenance of means of communication declared to be of",
+        "options": ["State highways only","Private internet networks","The railways within the state","Local municipal water supplies"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Centre can direct states regarding the measures to be taken for the protection of the railways within the state."
     },
     {
-        id: "ch15-l1-q17",
-        question: "Can the Parliament confer powers and impose duties on a State without its consent?",
-        options: ["Yes, generally.", "No, never.", "Yes, but only for All India Services.", "Only during Emergency."],
-        correctAnswerIndex: 0,
-        explanation: "Yes, Parliament can confer powers and duties on States without consent."
+        "id": "ch15-l1-q17",
+        "question": "Which of the following bodies resolves disputes regarding the use, distribution, and control of waters of any inter-state river or river valley?",
+        "options": ["The Supreme Court exclusively","The National Green Tribunal","Parliament can legally provide for the adjudication of such disputes, usually by creating an ad hoc Tribunal.","The Inter-State Council"],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 262 empowers Parliament to provide for the adjudication of any dispute or complaint with respect to the use, distribution and control of waters of any inter-state river or river valley. Parliament enacted the Inter-State Water Disputes Act (1956) creating Tribunals."
     },
     {
-        id: "ch15-l1-q18",
-        question: "Article 262 provides for the adjudication of disputes relating to waters of inter-state rivers. Who can provide for such adjudication?",
-        options: ["President.", "Supreme Court.", "Parliament.", "NITI Aayog."],
-        correctAnswerIndex: 2,
-        explanation: "Parliament can provide for adjudication of inter-state water disputes."
+        "id": "ch15-l1-q18",
+        "question": "Under Article 263, who has the constitutional authority to establish an Inter-State Council if it appears that the public interests would be served by its establishment?",
+        "options": ["The Prime Minister","The Parliament","The Chief Justice of India","The President"],
+        "correctAnswerIndex": 3,
+        "explanation": "Article 263 contemplates the establishment of an Inter-State Council to effect coordination between the states and between Centre and states. The President can establish such a council if at any time it appears to him that the public interest would be served by its establishment."
     },
     {
-        id: "ch15-l1-q19",
-        question: "Article 263 empowers the ______ to establish an Inter-State Council to inquire into and advise upon disputes between states.",
-        options: ["Parliament", "President", "Supreme Court", "Prime Minister"],
-        correctAnswerIndex: 1,
-        explanation: "The President is empowered to establish the Inter-State Council."
+        "id": "ch15-l1-q19",
+        "question": "The",
+        "options": ["IAS, IPS, Indian Revenue Service (IRS)","IAS, IPS, Indian Foreign Service (IFS)","IAS, IPS, Indian Forest Service (IFS)","IAS, Indian Railway Traffic Service (IRTS), IPS"],
+        "correctAnswerIndex": 2,
+        "explanation": "There are currently three all-India services: Indian Administrative Service (IAS), Indian Police Service (IPS), and Indian Forest Service (IFS). (Note: Indian Foreign Service is a Central service, not an All-India service)."
     },
     {
-        id: "ch15-l1-q20",
-        question: "The Constitution divides the taxing powers between the Centre and the States. The residuary power of taxation belongs to the:",
-        options: ["Centre (Parliament).", "States.", "President.", "GST Council."],
-        correctAnswerIndex: 0,
-        explanation: "Residuary power of taxation lies with Parliament."
+        "id": "ch15-l1-q20",
+        "question": "While Members of the All-India Services serve in state administrations, who possesses the",
+        "options": ["The State Chief Minister","The State Public Service Commission","The Central Government","The Parliament"],
+        "correctAnswerIndex": 2,
+        "explanation": "The members of these services are recruited and trained by the Centre but are assigned to different states for work. The ultimate control lies with the Central government while immediate control vests with the state governments."
     },
     {
-        id: "ch15-l1-q21",
-        question: "Which Amendment Act (2016) made a fundamental change in the Centre-State financial relations by introducing GST?",
-        options: ["100th Amendment", "101st Amendment", "102nd Amendment", "103rd Amendment"],
-        correctAnswerIndex: 1,
-        explanation: "101st Amendment introduced GST in 2016."
+        "id": "ch15-l1-q21",
+        "question": "State Public Service Commissions conduct exams for state civil services. However, who appoints and who removes the Chairman and members of a State Public Service Commission?",
+        "options": ["Appointed by the Governor, removed by the Governor.","Appointed by the President, removed by the President.","Appointed by the Governor, but removed only by the President.","Appointed by the Chief Minister, removed by the High Court."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Chairman and members of a state public service commission are appointed by the governor of the state, but they can be removed only by the President (not the governor)."
     },
     {
-        id: "ch15-l1-q22",
-        question: "The \"Grant-in-aid\" to the States (Article 275) is charged on the:",
-        options: ["Consolidated Fund of India.", "Contingency Fund of India.", "Public Account of India.", "Consolidated Fund of the State."],
-        correctAnswerIndex: 0,
-        explanation: "Grants-in-aid are charged on the Consolidated Fund of India."
+        "id": "ch15-l1-q22",
+        "question": "During a National Emergency (Article 352), what directive power does the Centre acquire over the States",
+        "options": ["The Centre can only direct states regarding external affairs.","The Centre becomes entitled to give executive directions to a state on","matter.","The Centre has no administrative power; only legislative.","The states become completely independent administratively to handle the emergency."],
+        "correctAnswerIndex": 1,
+        "explanation": "During a national emergency, the Centre becomes entitled to give executive directions to a state on"
     },
     {
-        id: "ch15-l1-q23",
-        question: "The Finance Commission (Article 280) is constituted by the President every:",
-        options: ["3 years.", "4 years.", "5 years.", "6 years."],
-        correctAnswerIndex: 2,
-        explanation: "Finance Commission is constituted every 5 years."
+        "id": "ch15-l1-q23",
+        "question": "Which Part of the Constitution deals with Centre-State",
+        "options": ["Part X","Part XI","Part XII","Part XIV"],
+        "correctAnswerIndex": 2,
+        "explanation": "Articles 268 to 293 in Part XII of the Constitution deal with Centre-state financial relations."
     },
     {
-        id: "ch15-l1-q24",
-        question: "The property of the Centre is exempted from:",
-        options: ["All State taxes.", "Some State taxes.", "Only Municipal taxes.", "None."],
-        correctAnswerIndex: 0,
-        explanation: "Central property is exempt from all State taxes."
+        "id": "ch15-l1-q24",
+        "question": "Regarding the allocation of taxing powers, who has the exclusive power to levy taxes on subjects enumerated in the Union List?",
+        "options": ["The State Legislature","The Finance Commission","The Parliament","Municipal Corporations"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Parliament has exclusive power to levy taxes on subjects enumerated in the Union List (e.g., income tax, customs, corporation tax)."
     },
     {
-        id: "ch15-l1-q25",
-        question: "The property and income of a State is exempted from:",
-        options: ["Central taxation.", "State taxation.", "GST.", "Customs duty."],
-        correctAnswerIndex: 0,
-        explanation: "State property and income are exempt from Central taxation."
+        "id": "ch15-l1-q25",
+        "question": "Article 280 provides for a",
+        "options": ["The Prime Minister, every year.","The Parliament, every 10 years.","The President of India, every fifth year or at such earlier time as he considers necessary.","The Supreme Court, when disputes arise."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 280 provides for a Finance Commission as a quasi-judicial body. It is constituted by the President of India every fifth year or at such earlier time as he considers necessary."
     },
     {
-        id: "ch15-l1-q26",
-        question: "The First Administrative Reforms Commission (ARC) was constituted in 1966. Who was its chairman initially?",
-        options: ["K. Hanumanthaiya.", "Morarji Desai.", "M.C. Setalvad.", "G.S. Pathak."],
-        correctAnswerIndex: 1,
-        explanation: "Morarji Desai was the initial chairman of the First ARC."
+        "id": "ch15-l1-q26",
+        "question": "What is the primary function of the Finance Commission regarding Central and State finances?",
+        "options": ["To collect taxes from citizens directly.","To audit the accounts of the central and state governments.","To make recommendations to the President regarding the distribution of net proceeds of taxes between the Centre and the states, and the allocation between the states of the respective shares of such proceeds.","To print currency notes."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Finance Commission is required to make recommendations regarding the distribution of the net proceeds of taxes to be shared between the Centre and the states, and the allocation between the states of the respective shares of such proceeds."
     },
     {
-        id: "ch15-l1-q27",
-        question: "The Rajamannar Committee (1969) was appointed by the Government of:",
-        options: ["Kerala.", "Tamil Nadu (DMK Government).", "West Bengal.", "Punjab."],
-        correctAnswerIndex: 1,
-        explanation: "Rajamannar Committee was appointed by Tamil Nadu's DMK Government."
+        "id": "ch15-l1-q27",
+        "question": "Besides sharing taxes, the Constitution provides for",
+        "options": ["The Contingency Fund of India","The Consolidated Fund of India","The Public Account of India","The Prime Minister"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 275 empowers the Parliament to make grants to the states which are in need of financial assistance. These sums are charged on the Consolidated Fund of India every year."
     },
     {
-        id: "ch15-l1-q28",
-        question: "The Sarkaria Commission was appointed by the Central Government in:",
-        options: ["1980", "1983", "1987", "1990"],
-        correctAnswerIndex: 1,
-        explanation: "Sarkaria Commission was appointed in 1983."
+        "id": "ch15-l1-q28",
+        "question": "States can borrow money within India. However, under what condition must a State obtain the explicit",
+        "options": ["If the loan amount exceeds 1 Crore rupees.","If the loan is raised from an international bank.","If there is still outstanding any part of a loan made to the State by the Centre, or in respect of which the Centre has given a guarantee.","States never need Central consent to borrow internally."],
+        "correctAnswerIndex": 2,
+        "explanation": "A state cannot raise any loan without the consent of the Centre, if there is still outstanding any part of a loan made to the state by the Centre or in respect of which a guarantee has been given by the Centre. (In practice, all states have debt to the Centre, meaning they always need consent)."
     },
     {
-        id: "ch15-l1-q29",
-        question: "Which commission recommended that \"Article 356 should be used very sparingly, in extreme cases, as a last resort\"?",
-        options: ["Rajamannar Committee.", "Sarkaria Commission.", "Anandpur Sahib Resolution.", "West Bengal Memorandum."],
-        correctAnswerIndex: 1,
-        explanation: "Sarkaria Commission recommended sparing use of Article 356."
+        "id": "ch15-l1-q29",
+        "question": "During a",
+        "options": ["The Centre can abolish state taxes.","The President can mandate that all money bills passed by the state legislature be reserved for his consideration.","The Centre takes over the collection of all local taxes.","The state budget is voted on by the Lok Sabha instead of the State Assembly."],
+        "correctAnswerIndex": 1,
+        "explanation": "During a Financial Emergency, the President can give directions requiring all money bills or other financial bills to be reserved for the consideration of the President after they are passed by the state legislature."
     },
     {
-        id: "ch15-l1-q30",
-        question: "The Punchhi Commission was constituted in 2007 under the chairmanship of:",
-        options: ["M.M. Punchhi (Former CJI).", "R.S. Sarkaria.", "Veerappa Moily.", "Manmohan Singh."],
-        correctAnswerIndex: 0,
-        explanation: "M.M. Punchhi, former CJI, headed the commission."
-    },
-    {
-        id: "ch15-l1-q31",
-        question: "Which of the following was a recommendation of the Sarkaria Commission regarding the Governor?",
-        options: ["The post of Governor should be abolished.", "He should be an eminent person from outside the state.", "He should be a politician from the ruling party.", "He should be elected by the State Legislature."],
-        correctAnswerIndex: 1,
-        explanation: "Sarkaria recommended Governor should be from outside the state."
-    },
-    {
-        id: "ch15-l1-q32",
-        question: "The \"Anandpur Sahib Resolution\" (1973) demanded that the Centre's jurisdiction should be restricted only to:",
-        options: ["Defence, Foreign Affairs, Communications, and Currency.", "Defence and Foreign Affairs only.", "All subjects except Police.", "Inter-state rivers only."],
-        correctAnswerIndex: 0,
-        explanation: "Anandpur Sahib Resolution wanted Centre limited to Defence, Foreign Affairs, Communications, and Currency."
-    },
-    {
-        id: "ch15-l1-q33",
-        question: "The \"West Bengal Memorandum\" (1977) suggested that the word 'Union' in the Constitution should be replaced by:",
-        options: ["Federation.", "United States.", "Republic.", "Commonwealth."],
-        correctAnswerIndex: 0,
-        explanation: "West Bengal Memorandum suggested replacing 'Union' with 'Federation'."
-    },
-    {
-        id: "ch15-l1-q34",
-        question: "Article 355 imposes a duty on the Centre to protect every state against:",
-        options: ["External aggression and internal disturbance.", "Financial instability.", "Political instability.", "Natural calamities."],
-        correctAnswerIndex: 0,
-        explanation: "Article 355 protects against external aggression and internal disturbance."
-    },
-    {
-        id: "ch15-l1-q35",
-        question: "The \"Zone of Peace\" concept was mentioned in:",
-        options: ["Anandpur Sahib Resolution.", "West Bengal Memorandum.", "Sarkaria Commission Report.", "Punchhi Commission Report."],
-        correctAnswerIndex: 0,
-        explanation: "Zone of Peace was mentioned in the Anandpur Sahib Resolution."
+        "id": "ch15-l1-q30",
+        "question": "In 1983, the Central Government appointed a major three-member commission to thoroughly examine the working of Centre-State relations. What was the name of this famous commission?",
+        "options": ["Rajamannar Committee","Kothari Commission","Sarkaria Commission","Punchhi Commission"],
+        "correctAnswerIndex": 2,
+        "explanation": "In 1983, the Central government appointed a three-member Commission on Centre-state relations under the chairmanship of R.S. Sarkaria, a retired judge of the Supreme Court."
     }
 ];
 
-// Level 2: The Conceptual Bridge (Applied Knowledge)
 const LEVEL_2_QUESTIONS = [
     {
-        id: "ch15-l2-q1",
-        question: "The \"Doctrine of Repugnancy\" (Article 254) applies when:",
-        options: ["There is a conflict between a Central Law and a State Law on a subject in the Union List.", "There is a conflict between a Central Law and a State Law on a subject in the State List.", "There is a conflict between a Central Law and a State Law on a subject in the Concurrent List.", "There is a conflict between two State Laws."],
-        correctAnswerIndex: 2,
-        explanation: "Doctrine of Repugnancy applies to Concurrent List subjects."
+        "id": "ch15-l2-q1",
+        "question": "Consider the constitutional division of legislative powers under the Seventh Schedule. While the Union has 98 subjects (originally 97) and the State has 59 (originally 66), the Concurrent List has 52 (originally 47). What was the primary constitutional justification provided by the framers for including a Concurrent List, unlike the classical US Federation which lacks one?",
+        "options": ["To allow states to gradually take over Union subjects over a 50-year transition period.","To provide a constitutional space where both Centre and States can legislate on matters which are not singularly of national or local importance, but where uniformity across the nation is desirable though not strictly essential (e.g., criminal law, marriage).","To serve as a temporary list of subjects that the Supreme Court must eventually assign to either the Union or the States.","To ensure that whatever law the State makes on these subjects can never be overridden by the Centre."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Concurrent List (borrowed from the Australian Constitution) provides flexibility. Certain subjects like Criminal Law or Marriage don"
     },
     {
-        id: "ch15-l2-q2",
-        question: "If a State law on a Concurrent subject is repugnant to an earlier Central law, the State law:",
-        options: ["Becomes void to the extent of repugnancy.", "Prevails if it has received the President's assent.", "Prevails if it has received the Governor's assent.", "Both laws operate simultaneously."],
-        correctAnswerIndex: 1,
-        explanation: "Presidential assent allows State law to prevail."
+        "id": "ch15-l2-q2",
+        "question": "Assertion (A): The Parliament is endowed with",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 2,
+        "explanation": "Assertion (A) is generally true; only Parliament has unlimited extra-territorial jurisdiction. Reason (R) is FALSE. Due to the"
     },
     {
-        id: "ch15-l2-q3",
-        question: "Even after the President's assent to a State law (under Article 254(2)), can the Parliament enact a law adding to, amending, or repealing the State law?",
-        options: ["No, the President's assent makes the State law final.", "Yes, Parliament retains the power to override the State law on the same subject subsequently.", "Only if the State Legislature consents.", "Only during an Emergency."],
-        correctAnswerIndex: 1,
-        explanation: "Parliament can still override State law even after Presidential assent."
+        "id": "ch15-l2-q3",
+        "question": "Under Article 252, Parliament can legislate on a State List subject if the legislatures of two or more States pass a resolution requesting it. Which of the following prominent Central acts was passed using this specific constitutional mechanism?",
+        "options": ["The Right to Information Act, 2005","The Right to Education Act, 2009","The Wildlife (Protection) Act, 1972","The National Food Security Act, 2013"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Wildlife Protection Act, 1972, the Water (Prevention and Control of Pollution) Act, 1974, and the Transplantation of Human Organs Act, 1994, are classic examples. States surrendered their power on these specific subjects to Parliament to ensure uniform national legislation."
     },
     {
-        id: "ch15-l2-q4",
-        question: "Article 248 vests the residuary power of legislation in the Parliament. However, in the case of the GST (101st Amendment), the power to tax goods and services is:",
-        options: ["Vested exclusively in Parliament.", "Vested exclusively in State Legislatures.", "Vested concurrently in Parliament and State Legislatures (Article 246A).", "Vested in the GST Council."],
-        correctAnswerIndex: 2,
-        explanation: "GST power is concurrent under Article 246A."
+        "id": "ch15-l2-q4",
+        "question": "The",
+        "options": ["If the State law was passed with a 2/3rds special majority, it permanently overrides the Central law.","If the State law was reserved for the consideration of the President and received his assent, it prevails over an *existing* Central law within that specific State.","If the State approaches the Supreme Court, the Court automatically nullifies the Central law for that state.","If the State has a higher population than 50 million, its laws supersede Central laws."],
+        "correctAnswerIndex": 1,
+        "explanation": "This is a vital safeguard for state autonomy in the Concurrent sphere. If a state wants a law (say, on land acquisition) that conflicts with a Central law, it can pass it, but the Governor MUST reserve it for the President. If the President (acting on the Union Cabinet"
     },
     {
-        id: "ch15-l2-q5",
-        question: "When Parliament legislates on a State subject under Article 252 (Request by two or more states):",
-        options: ["The law applies to all states in India.", "The law applies only to the requesting states and those that adopt it later.", "The requesting states can amend or repeal the law later.", "The law automatically lapses after 1 year."],
-        correctAnswerIndex: 1,
-        explanation: "Article 252 law applies to requesting states and those that adopt it."
+        "id": "ch15-l2-q5",
+        "question": "Consider the financial relations and the concept of",
+        "options": ["Surcharges are collected by the States on behalf of the Centre, saving administrative costs.","The proceeds of a Surcharge form part of the Consolidated Fund of India and exclusively belong to the Centre; they are expressly EXCLUDED from the divisible pool of taxes that must be shared with the States.","Surcharges can only be levied during a National Emergency.","States are legally required to match the value of the surcharge from their own funds."],
+        "correctAnswerIndex": 1,
+        "explanation": "This is a major point of friction in Centre-State relations. While regular income tax or corporate tax goes into the divisible pool (currently 41% given to states as per the 15th FC), whatever revenue the Centre gathers via"
     },
     {
-        id: "ch15-l2-q6",
-        question: "Can the Parliament repeal or amend an Act passed under Article 252?",
-        options: ["No, only the State Legislatures can do so.", "Yes, only the Parliament can do so (States surrender their power).", "Yes, but with the consent of the States.", "No, it becomes a permanent law."],
-        correctAnswerIndex: 1,
-        explanation: "Only Parliament can amend or repeal Article 252 laws."
+        "id": "ch15-l2-q6",
+        "question": "Examine the",
+        "options": ["The State must bear the cost fully, as it is a subordinate administrative unit.","The Constitution mandates that the Centre must compensate the State for any extra costs incurred in executing Central laws or directions, the quantum of which is determined by an arbitrator appointed by the Chief Justice of India if they cannot agree.","The State has the right to refuse to implement the law unless paid first.","The extra cost is deducted from the State"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 258(3) contains this equitable provision. If the Centre delegates executive functions or issues directions (e.g., maintaining national highways) that force the State agencies to spend extra money, the Government of India is constitutionally obligated to pay that extra cost. An arbitrator (appointed by the CJI) determines the sum if negotiations fail."
     },
     {
-        id: "ch15-l2-q7",
-        question: "Article 257 provides that the executive power of the State shall be so exercised as not to:",
-        options: ["Prejudice the exercise of the executive power of the Union.", "Impede or prejudice the exercise of the executive power of the Union.", "Contradict the Directive Principles.", "Violate Fundamental Rights."],
-        correctAnswerIndex: 1,
-        explanation: "State must not impede or prejudice Union's executive power."
+        "id": "ch15-l2-q7",
+        "question": "In the context of the Zonal Councils, created under the States Reorganisation Act of 1956, they are statutory (not constitutional) bodies designed to promote cooperative federalism. Who serves as the common Chairman of all the five Zonal Councils in India?",
+        "options": ["The Prime Minister","The President of India","The Union Home Minister","The Chief Minister of the largest state in the respective zone (rotating annually)"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Union Home Minister is the common Chairman of all five Zonal Councils (Northern, Central, Eastern, Western, Southern). The Chief Ministers of the states in the zone serve as Vice-Chairmen, rotating annually."
     },
     {
-        id: "ch15-l2-q8",
-        question: "The \"All India Services\" (Article 312) are often criticized by States as violating federalism because:",
-        options: ["Officers are recruited by the Centre but work in States.", "Disciplinary action (dismissal/removal) against them can be taken only by the Centre (President).", "They occupy key strategic posts in the State administration.", "All of the above."],
-        correctAnswerIndex: 3,
-        explanation: "All these factors make AIS a violation of federalism in States' view."
+        "id": "ch15-l2-q8",
+        "question": "The Sarkaria Commission (1983) made profound recommendations regarding Centre-State relations. Which of the following was one of its most critical recommendations designed specifically to protect democratically elected State governments?",
+        "options": ["That Article 356 (President","That Article 356 must be used very sparingly, only as a measure of","when all other constitutional alternatives to rectify the failure of constitutional machinery in the state have been exhausted.","That the Governor should be directly elected by the people of the state.","That the Concurrent List should be abolished entirely."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Sarkaria Commission did NOT recommend abolishing Article 356 (unlike the Rajamannar Committee). However, to stop its rampant misuse, it strongly advocated that it should be an absolute"
     },
     {
-        id: "ch15-l2-q9",
-        question: "Deployment of Central Armed Police Forces (CAPF) in a State suo motu (without State request) by the Centre is:",
-        options: ["Unconstitutional (Police is a State subject).", "Constitutional under Article 355 (Duty to protect against internal disturbance).", "Allowed only during National Emergency.", "Allowed only with President's Rule."],
-        correctAnswerIndex: 1,
-        explanation: "Article 355 allows Centre to deploy forces for internal disturbance."
+        "id": "ch15-l2-q9",
+        "question": "Assertion (A): The Centre enjoys absolute immunity from taxation by State governments on its properties situated within a state.\\nReason (R): Under the doctrine of mutual immunity from taxation, properties of the Union (e.g., railways, post offices) are entirely exempt from all taxes imposed by a State or local authority (like municipalities), unless Parliament by law permits otherwise.\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both are true. Article 285 provides that the property of the Union is exempt from all taxes imposed by a State or by any authority within a State (like a municipal corporation taxing a central railway station structure), establishing financial sovereignty of the Centre over its assets."
     },
     {
-        id: "ch15-l2-q10",
-        question: "\"Full Faith and Credit\" (Article 261) shall be given throughout the territory of India to:",
-        options: ["Public acts, records and judicial proceedings of the Union and of every State.", "Only Central laws.", "Only Supreme Court judgments.", "Only Acts of Parliament."],
-        correctAnswerIndex: 0,
-        explanation: "Article 261 covers public acts, records and judicial proceedings."
+        "id": "ch15-l2-q10",
+        "question": "Consider the inverse of the previous rule regarding taxation immunities (Article 289). Property and income of a State are generally exempt from Union taxation. However, what is the crucial exception where the Centre CAN constitutionally tax a State",
+        "options": ["The Centre can tax a State","The Centre can tax the commercial trade or business activities carried on by a State (e.g., a State-run profitable corporation like a state transport service), if Parliament provides for it by law.","The Centre can tax the salary of the Chief Minister.","The Centre can tax the land revenue collected by the State."],
+        "correctAnswerIndex": 1,
+        "explanation": "While the sovereign functions and general property of a state are exempt from central tax (Art 289), the Constitution explicitly states that this exemption does NOT prevent the Union from imposing a tax on any trade or business (commercial activity) carried on by or on behalf of the Government of a State."
     },
     {
-        id: "ch15-l2-q11",
-        question: "Disputes relating to the use, distribution or control of waters of inter-state rivers (Article 262):",
-        options: ["Fall within the original jurisdiction of the Supreme Court (Article 131).", "Are adjudicated by Tribunals set up by Parliament; Supreme Court jurisdiction is barred.", "Are settled by the President.", "Are settled by the Inter-State Council."],
-        correctAnswerIndex: 1,
-        explanation: "Parliament sets up tribunals and SC jurisdiction is barred under Article 262."
+        "id": "ch15-l2-q11",
+        "question": "Under Article 258, the President can, with the consent of the State Government, entrust either conditionally or unconditionally to that Government or its officers, functions relating to any matter to which the executive power of the Union extends. What distinct, reciprocal power does Article 258A provide regarding state executive functions?",
+        "options": ["It empowers the Supreme Court to mandate such delegation.","It empowers a State Governor, with the consent of the Central Government, to entrust state executive functions to the Central Government or its officers.","It prevents states from delegating any power whatsoever.","It allows states to bypass the President and negotiate directly with the UN."],
+        "correctAnswerIndex": 1,
+        "explanation": "Delegation is a two-way street for administrative convenience. Just as the Centre can entrust its functions to state officers (Art 258), the 7th Amendment (1956) added Art 258A, allowing the Governor of a State to reciprocally delegate the execution of state functions to Central officers."
     },
     {
-        id: "ch15-l2-q12",
-        question: "Before GST, the Centre had the exclusive power to tax:",
-        options: ["Manufacture of goods (Excise) and Services.", "Sale of goods (Sales Tax).", "Agricultural income.", "Land and buildings."],
-        correctAnswerIndex: 0,
-        explanation: "Centre had exclusive power over Excise and Service Tax."
+        "id": "ch15-l2-q12",
+        "question": "Regarding legislative relations, what happens if Parliament passes a law (Act",
+        "options": ["Act","is summarily dismissed by the Governor.","Act","(the Central law) prevails, and Act","(the State law) is inoperative to the extent of the repugnancy, but only as long as Act","remains in force (usually 1 year after the resolution expires).","Act","permanently overrides Act","instantly.","Both Acts are suspended until reviewed by the CJI."],
+        "correctAnswerIndex": 1,
+        "explanation": "When Parliament legislates under Art 249, it doesn"
     },
     {
-        id: "ch15-l2-q13",
-        question: "Before GST, States had the exclusive power to tax:",
-        options: ["Sale of goods (VAT/Sales Tax).", "Services.", "Manufacture.", "Income (Non-agricultural)."],
-        correctAnswerIndex: 0,
-        explanation: "States had exclusive power over VAT/Sales Tax."
+        "id": "ch15-l2-q13",
+        "question": "Consider the constitutional constraints on state taxing powers regarding inter-state commerce. Under Article 286, what specific prohibition is placed on a State Legislature concerning the imposition of sales tax?",
+        "options": ["States are prohibited from levying sales tax on any agricultural produce.","States cannot impose a tax on the supply of goods or services where such supply takes place in the course of inter-state trade or commerce. Only Parliament can levy the Integrated Goods and Services Tax (IGST) in these scenarios.","States cannot levy sales tax on items bought by women.","States must surrender all sales tax revenue to the Centre."],
+        "correctAnswerIndex": 1,
+        "explanation": "To prevent states from erecting trade barriers and destroying the common economic market of India, Art 286 strictly prohibits a state from taxing a transaction (sale/purchase) that occurs across state lines (inter-state) or in the course of international import/export. Only the Centre can tax inter-state supply (e.g., via IGST)."
     },
     {
-        id: "ch15-l2-q14",
-        question: "The \"GST Council\" (Article 279A) is a constitutional body chaired by:",
-        options: ["The Prime Minister.", "The Union Finance Minister.", "The NITI Aayog CEO.", "A rotating Chief Minister."],
-        correctAnswerIndex: 1,
-        explanation: "Union Finance Minister chairs the GST Council."
+        "id": "ch15-l2-q14",
+        "question": "The",
+        "options": ["Statutory grants are for individuals, discretionary are for corporations.","Statutory grants are given strictly on the binding recommendation of the Finance Commission (charged on the Consolidated Fund); Discretionary grants (historically managed by the Planning Commission) are made voluntarily by the Centre for public purposes, without any legal compulsion.","Statutory grants can only be used for defense; discretionary for education.","There is no functional difference; they are just different names."],
+        "correctAnswerIndex": 1,
+        "explanation": "Art 275 grants are mandatory, structured financial transfers based on the Finance Commission"
     },
     {
-        id: "ch15-l2-q15",
-        question: "In the GST Council, the vote of the Central Government has a weightage of:",
-        options: ["One-half (50%).", "One-third (33.3%).", "Two-thirds (66.6%).", "One-fourth (25%)."],
-        correctAnswerIndex: 1,
-        explanation: "Centre has 1/3rd weightage in GST Council voting."
+        "id": "ch15-l2-q15",
+        "question": "Assertion (A): While the Constitution provides a clear division of legislative powers, it does not guarantee parallel financial resources to the States, creating",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. Unlike the legislative division (which gives states substantial subjects to govern like Police/Health), the financial division explicitly favors the Centre, ensuring that the Union controls the vast majority of national revenue. This structural"
     },
     {
-        id: "ch15-l2-q16",
-        question: "A decision in the GST Council requires a majority of:",
-        options: ["Not less than one-half of the weighted votes.", "Not less than two-thirds of the weighted votes.", "Not less than three-fourths of the weighted votes.", "Consensus."],
-        correctAnswerIndex: 2,
-        explanation: "GST Council decisions require 3/4th of weighted votes."
+        "id": "ch15-l2-q16",
+        "question": "When evaluating the Punchhi Commission",
+        "options": ["It recommended that Governors serve for life.","It recommended the Governor should only be removed by a resolution of the State Legislative Assembly, ending the","doctrine.","It proposed providing the Governor with a fixed tenure of 5 years and determining their removal through a process similar to the impeachment of the President (involving Parliament), rather than by a simple central executive order.","It suggested abolishing the post entirely."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Punchhi Commission noted that the"
     },
     {
-        id: "ch15-l2-q17",
-        question: "The Sarkaria Commission (1983) recommended that the Governor:",
-        options: ["Should be appointed in consultation with the Chief Minister of the concerned State.", "Should be a person who has not taken too great a part in politics generally, and particularly in the recent past.", "Should be a \"detached figure\" from outside the State.", "All of the above."],
-        correctAnswerIndex: 3,
-        explanation: "Sarkaria made all these recommendations about Governor."
+        "id": "ch15-l2-q17",
+        "question": "Article 253 of the Constitution empowers the Parliament to make laws for the whole or any part of the territory of India for implementing International Treaties, Agreements, or Conventions. What is the profound federal implication of this specific Article?",
+        "options": ["It forbids Parliament from signing treaties.","It permits Parliament to single-handedly legislate on subjects squarely enumerated in the State List, if such legislation is genuinely necessary to implement an international treaty obligation, effectively overriding state autonomy in that specific instance.","It mandates that all international treaties must be ratified by all 28 states.","It forces the Supreme Court to translate treaties."],
+        "correctAnswerIndex": 1,
+        "explanation": "This is a massive unitary feature. To ensure the nation speaks with one voice globally, Art 253 allows the Centre to bypass the 7th Schedule. If India signs a UN treaty on"
     },
     {
-        id: "ch15-l2-q18",
-        question: "The Sarkaria Commission recommended regarding Article 356 that:",
-        options: ["It should be abolished.", "The Governor's Report should be a \"speaking document\" (detailed reasons).", "The Assembly should be dissolved immediately.", "Judicial review should be barred."],
-        correctAnswerIndex: 1,
-        explanation: "Governor's Report should be a speaking document with detailed reasons."
+        "id": "ch15-l2-q18",
+        "question": "Consider the borrowing powers under Articles 292 and 293. While the Central Government can borrow domestically or globally upon the security of the Consolidated Fund of India, what is the absolute restriction placed on the borrowing power of the States?",
+        "options": ["States can only borrow from the World Bank, not the IMF.","States are constitutionally prohibited from borrowing directly from foreign governments or international financial institutions outside the territory of India.","States can borrow internationally only if they pay a 10% fee to the Centre.","States are not allowed to borrow any money whatsoever."],
+        "correctAnswerIndex": 1,
+        "explanation": "State governments cannot borrow externally (from other countries or entities like the World Bank directly on their own sovereign guarantee). They can only borrow internally within the territory of India (from the market or the Central government itself). All external national debt is managed solely by the Centre to maintain macroeconomic stability."
     },
     {
-        id: "ch15-l2-q19",
-        question: "The Punchhi Commission (2007) recommended \"Localizing Emergency\" under Article 355 and 356. This means:",
-        options: ["Imposing Emergency only in a specific troubled district/area rather than the whole state.", "Allowing Local Bodies to declare emergency.", "Giving power to the Governor to declare emergency.", "Using army without declaring emergency."],
-        correctAnswerIndex: 0,
-        explanation: "Localizing Emergency means limiting it to specific districts."
+        "id": "ch15-l2-q19",
+        "question": "The Inter-State Council was established remarkably late, in 1990, via a Presidential Order based on the recommendations of which major commission?",
+        "options": ["The Kothari Commission","The Punchhi Commission","The Second Administrative Reforms Commission","The Sarkaria Commission on Centre-State Relations"],
+        "correctAnswerIndex": 3,
+        "explanation": "Although Article 263 existed since 1950, it was essentially dormant. The Sarkaria Commission (1983-88) strongly recommended creating a permanent Inter-State Council as an independent national forum for consultation. The V.P. Singh government finally established it in 1990."
     },
     {
-        id: "ch15-l2-q20",
-        question: "The Punchhi Commission recommended that the Governor should be removed by:",
-        options: ["The President at his pleasure (Status quo).", "An impeachment process by the State Legislature (similar to President).", "The Chief Minister.", "The Supreme Court."],
-        correctAnswerIndex: 1,
-        explanation: "Punchhi recommended impeachment process for Governor removal."
-    },
-    {
-        id: "ch15-l2-q21",
-        question: "Regarding the \"Treaty Making Power\" (Article 253), the Punchhi Commission suggested:",
-        options: ["States should be involved in the negotiation of treaties that affect them.", "Parliament's power should be restricted.", "Treaties should be ratified by States.", "No change."],
-        correctAnswerIndex: 0,
-        explanation: "States should be involved in treaty negotiations affecting them."
-    },
-    {
-        id: "ch15-l2-q22",
-        question: "The \"Zonal Councils\" differ from the \"Inter-State Council\" in that:",
-        options: ["Zonal Councils are statutory (States Reorganization Act, 1956); Inter-State Council is constitutional (Article 263).", "Zonal Councils are constitutional; Inter-State Council is statutory.", "Zonal Councils are headed by PM; Inter-State Council by Home Minister.", "Zonal Councils have binding powers; Inter-State Council is advisory."],
-        correctAnswerIndex: 0,
-        explanation: "Zonal Councils are statutory; Inter-State Council is constitutional."
-    },
-    {
-        id: "ch15-l2-q23",
-        question: "The Chairman of the Zonal Councils is:",
-        options: ["The Prime Minister.", "The Union Home Minister.", "The Chief Minister of the host state (by rotation).", "The Vice-President."],
-        correctAnswerIndex: 1,
-        explanation: "Union Home Minister chairs the Zonal Councils."
-    },
-    {
-        id: "ch15-l2-q24",
-        question: "Assertion (A): The Centre can give directions to the States to maintain and construct means of communication declared to be of national importance. Reason (R): Non-compliance with such directions can attract the imposition of President's Rule under Article 365. Select the correct answer:",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 1,
-        explanation: "Both true but R is not the explanation - they are separate provisions."
-    },
-    {
-        id: "ch15-l2-q25",
-        question: "\"Cooperative Federalism\" vs \"Bargaining Federalism\". The era of Coalition Governments (1989-2014) is often associated with:",
-        options: ["Centralized Federalism.", "Bargaining Federalism (Regional parties extracting concessions).", "Unitary Federalism.", "Dictatorial Federalism."],
-        correctAnswerIndex: 1,
-        explanation: "Coalition era saw Bargaining Federalism."
-    },
-    {
-        id: "ch15-l2-q26",
-        question: "The \"Special Category Status\" for states (Gadgil Formula) was discontinued by the:",
-        options: ["13th Finance Commission.", "14th Finance Commission.", "Planning Commission.", "NITI Aayog."],
-        correctAnswerIndex: 1,
-        explanation: "14th Finance Commission discontinued Special Category Status concept."
-    },
-    {
-        id: "ch15-l2-q27",
-        question: "\"Grants-in-aid\" under Article 275 are given on the recommendation of:",
-        options: ["NITI Aayog.", "Finance Commission.", "Inter-State Council.", "Parliament."],
-        correctAnswerIndex: 1,
-        explanation: "Finance Commission recommends Grants-in-aid."
-    },
-    {
-        id: "ch15-l2-q28",
-        question: "\"Discretionary Grants\" under Article 282 are given by:",
-        options: ["The Centre and States for any public purpose (even if not within their legislative competence).", "The President only.", "The Governor only.", "The Finance Commission."],
-        correctAnswerIndex: 0,
-        explanation: "Article 282 allows discretionary grants by Centre and States."
-    },
-    {
-        id: "ch15-l2-q29",
-        question: "Which Commission observed that \"Article 282 (Discretionary Grants) was intended to be a residuary provision but has been used to over-shadow Article 275\"?",
-        options: ["Sarkaria Commission.", "First ARC.", "Rajamannar Committee.", "Punchhi Commission."],
-        correctAnswerIndex: 0,
-        explanation: "Sarkaria Commission made this observation."
-    },
-    {
-        id: "ch15-l2-q30",
-        question: "The \"North-Eastern Council\" was upgraded to a nodal agency for economic and social development of the NE region in 2002. Who is its Chairman?",
-        options: ["The Prime Minister.", "The Union Home Minister.", "The DoNER Minister.", "The Governor of Assam."],
-        correctAnswerIndex: 1,
-        explanation: "Union Home Minister is the Chairman of NEC."
+        "id": "ch15-l2-q20",
+        "question": "If a State Legislature passes a Bill seeking to acquire property compulsorily for a public purpose, under what condition does it require the assent of the President to be legally valid?",
+        "options": ["It always requires Presidential assent.","Under Article 31A, a State law dealing with the acquisition of an","(agrarian reform) must be reserved for the consideration of the President and receive his assent to be immunized against challenges based on violating Fundamental Rights (Articles 14, 19).","Only if the land belongs exclusively to a foreign national.","Never; land is exclusively a State subject."],
+        "correctAnswerIndex": 1,
+        "explanation": "While land is a state subject, radical agrarian reform laws inherently violated the Right to Property/Equality. To save these state laws from being struck down by courts, the Constitution (First Amendment) introduced Art 31A. It provides immunity to these laws, but ONLY IF they have been reserved for and received the President"
     }
 ];
 
-// Level 3: The UPSC Prelims 2026 Simulation (Integrated & Current Affairs)
 const LEVEL_3_QUESTIONS = [
     {
-        id: "ch15-l3-q1",
-        question: "In the landmark suit filed by Kerala against the Union (2024), the Supreme Court considered the Centre's imposition of a \"Net Borrowing Ceiling\" (NBC) on States. The Centre's power to restrict State borrowing is derived from:",
-        options: ["Article 292 (Borrowing by GOI).", "Article 293(3) (Consent of GOI required if State has outstanding loan to Centre).", "Article 293(1) (Executive power of State extends to borrowing).", "The FRBM Act, 2003 (Fiscal Responsibility)."],
-        correctAnswerIndex: 1,
-        explanation: "Article 293(3) requires Centre's consent when State has outstanding loans."
+        "id": "ch15-l3-q1",
+        "question": "Consider the profound implications of Article 250 acting in concert with Article 352 (National Emergency). If the Parliament passes a law on a subject traditionally residing in the State List (",
+        "options": ["It permanently overrides all State laws and becomes part of the permanent legal code of India.","It can be amended by the State Assembly immediately.","The law remains operative only during the period of the emergency and officially ceases to have effect on the expiration of six months after the emergency has ceased to operate.","It is automatically subjected to judicial review and repealed immediately."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 250 empowers Parliament to legislate on State subjects during a Proclamation of Emergency. However, this power is strictly"
     },
     {
-        id: "ch15-l3-q2",
-        question: "The States argue that \"Public Debt of the State\" is a State List subject (Entry 43). Therefore, the Centre's imposition of NBC violates federalism. The Centre counters that:",
-        options: ["Borrowing affects the macro-economic stability of the nation, which is a Union responsibility.", "Article 293(4) allows the Centre to impose conditions while giving consent for loans.", "Off-budget borrowings by State PSUs must be included in the NBC to reflect true fiscal health.", "All of the above."],
-        correctAnswerIndex: 3,
-        explanation: "Centre uses all these arguments to justify NBC."
+        "id": "ch15-l3-q2",
+        "question": "The Supreme Court’s interpretation of",
+        "options": ["It would strike down the entire Act instantly because it touches the Union List.","It would sever the offending portions and declare the rest valid.","If the Court determines the","(pith and substance) of the Act genuinely centers on Agricultural Indebtedness, it will uphold the Act as perfectly valid, treating the encroachment on Promissory Notes as merely","and constitutionally insignificant.","It would declare a Constitutional Emergency and suspend the State Assembly."],
+        "correctAnswerIndex": 2,
+        "explanation": "This is the classic application of Pith and Substance (e.g., Prafulla Kumar Mukherjee v. Bank of Commerce case). The lists are not watertight compartments. If a law genuinely belongs to its intended list, incidental encroachment into another list does not invalidate it. This doctrine powerfully protects state legislative autonomy from hyper-technical central challenges."
     },
     {
-        id: "ch15-l3-q3",
-        question: "The \"16th Finance Commission\" (under Arvind Panagariya) has been asked to review the current tax devolution formula. A major demand of Southern States is to reduce the weightage given to \"Population (2011 Census)\" because:",
-        options: ["It penalizes states that have successfully controlled population growth (demographic performance).", "It favors states with higher per capita income.", "It violates Article 14.", "It contradicts the 15th FC recommendations."],
-        correctAnswerIndex: 0,
-        explanation: "Southern states feel penalized for controlling population growth."
+        "id": "ch15-l3-q3",
+        "question": "Assertion (A): The President’s absolute veto over State Bills reserved by the Governor under Article 201 constitutes a severe breach in the federal principle of coordinate sovereignties.\\nReason (R): Unlike the suspensive veto applied to Parliamentary Bills (which Parliament can override), the State Legislature possesses absolutely no constitutional mechanism to override a Presidential veto, effectively granting the Centre absolute power to kill inconvenient state legislation.\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. If the President returns a State Bill, the State Assembly has 6 months to reconsider it. BUT, even if they pass it again (with or without amendments) and send it back to the President, the President is NOT bound to give assent (unlike for Union Bills). The President can kill it permanently, representing a huge unitary bias."
     },
     {
-        id: "ch15-l3-q4",
-        question: "In the case of State of Punjab vs Governor (2023), the Supreme Court interpreted the phrase \"as soon as possible\" in the first proviso to Article 200. It held that:",
-        options: ["The Governor has no time limit.", "If the Governor decides to \"withhold assent\", he must immediately return the Bill to the Legislature for reconsideration. He cannot sit on it indefinitely (Pocket Veto is not absolute).", "The Governor can reserve the bill for the President after withholding assent.", "The Governor is not answerable to the Court."],
-        correctAnswerIndex: 1,
-        explanation: "Governor must return bills promptly if withholding assent."
+        "id": "ch15-l3-q4",
+        "question": "The",
+        "options": ["When evaluating the colour schemes of state flags.","When determining if the President","When a Legislature (Union or State) completely lacks the constitutional competence to legislate on a specific subject, yet attempt to covertly achieve the same result by drafting a law that superficially appears to fall within their permitted list, thereby committing a",".","When evaluating environmental laws concerning pollution."],
+        "correctAnswerIndex": 2,
+        "explanation": "If a state cannot directly tax"
     },
     {
-        id: "ch15-l3-q5",
-        question: "If a State Legislature re-passes a Bill returned by the Governor (with or without amendments), the Governor:",
-        options: ["Shall not withhold assent (Must give assent).", "Can reserve it for the President.", "Can withhold assent again.", "Can refer it to the Supreme Court."],
-        correctAnswerIndex: 0,
-        explanation: "Governor must give assent when Legislature re-passes a returned Bill."
+        "id": "ch15-l3-q5",
+        "question": "Consider the financial dimension of Centre-State relations enshrined in Article 268 (Duties levied by the Union but collected and appropriated by the States). Which of the following taxes prominently falls perfectly under this unique category, ensuring that while the Centre mandates the rate, the States retain the entire revenue?",
+        "options": ["Income Tax","Corporation Tax","Stamp duties on Bills of Exchange and Promissory Notes (e.g., in financial transactions).","Customs Duties"],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 268 covers Stamp Duties on bills of exchange, cheques, promissory notes, policies of insurance, transfer of shares, etc. The Union (Parliament) levies them (fixes uniform rates nationally for economic stability), but the States collect them within their territories and keep the money entirely; it never enters the Consolidated Fund of India."
     },
     {
-        id: "ch15-l3-q6",
-        question: "The Tamil Nadu Assembly passed a resolution urging the Centre to fix a timeline for the Governor to give assent. Currently, the Constitution:",
-        options: ["Fixes a timeline of 6 months.", "Fixes a timeline of 6 weeks.", "Does not fix any specific timeline.", "Leaves it to the President."],
-        correctAnswerIndex: 2,
-        explanation: "Constitution does not fix any specific timeline for Governor's assent."
+        "id": "ch15-l3-q6",
+        "question": "Analyze the implications of the 101st Amendment Act (GST) on the",
+        "options": ["Yes; GST applies uniformly to all government commercial activities (e.g., State Transport, Railway freight), destroying the previous immunities completely.","No; because GST is explicitly defined as an indirect tax, it technically falls outside the scope of","immunities defined in 285 & 289. Therefore, if a State engages in commercial","(e.g., selling timber), it must legally pay Central GST/IGST just like a private corporation.","Yes; but the Supreme Court blocked its implementation.","No; the Centre still cannot tax any commercial activity of a state."],
+        "correctAnswerIndex": 1,
+        "explanation": "The immunities in 285 & 289 relate primarily to direct taxes (property/income). GST is an indirect tax on"
     },
     {
-        id: "ch15-l3-q7",
-        question: "The Centre proposed amendments to the IAS (Cadre) Rules, 1954 in 2022 to ensure sufficient Central Deputation Reserve (CDR). The amendment empowers the Centre to:",
-        options: ["Recall any IAS officer from the State without the State's consent in specific situations.", "Override the State's objection in case of disagreement, within a specified time.", "Punish officers who refuse central deputation.", "Both (a) and (b)."],
-        correctAnswerIndex: 3,
-        explanation: "Centre can recall officers and override State objections under the amendment."
+        "id": "ch15-l3-q7",
+        "question": "Which of the following bodies is a constitutional entity established solely to promote",
+        "options": ["The Inter-State Council","The Finance Commission","The Planning Commission (replaced by NITI Aayog)","The Zonal Councils"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Planning Commission (created by executive resolution in 1950, NOT constitutional) wielded immense power over discretionary grants (Art 282) and state five-year plans. States often resented it acting as a"
     },
     {
-        id: "ch15-l3-q8",
-        question: "States oppose this move (Q7) arguing it violates the spirit of \"Cooperative Federalism\" and administrative control. The Centre's justification is:",
-        options: ["Shortage of officers at the Centre (Joint Secretary level).", "All India Service officers have a liability to serve both Centre and State.", "States are not sending enough officers for deputation.", "All of the above."],
-        correctAnswerIndex: 3,
-        explanation: "Centre uses all these justifications for the cadre rule amendments."
+        "id": "ch15-l3-q8",
+        "question": "Assertion (A): Under Article 356 (President",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","Both A and R are false."],
+        "correctAnswerIndex": 3,
+        "explanation": "Both are entirely FALSE. This is a critical distinction. A National Emergency (Art 352) allows the suspension of Fundamental Rights (Arts 358 & 359). However, President"
     },
     {
-        id: "ch15-l3-q9",
-        question: "During the West Bengal Panchayat Elections (2023), the Calcutta High Court directed the deployment of Central Forces. The State Government challenged this arguing \"Public Order\" and \"Police\" are State subjects. The Supreme Court upheld the deployment because:",
-        options: ["The High Court has no jurisdiction.", "Free and fair elections are a \"Basic Structure\", and Article 324 (Election Commission) coupled with Article 355 empowers the Centre/Courts to ensure security when State machinery fails.", "Central forces are superior to State police.", "The State requested it."],
-        correctAnswerIndex: 1,
-        explanation: "Free elections are Basic Structure and Article 324/355 empowers deployment."
+        "id": "ch15-l3-q9",
+        "question": "Regarding",
+        "options": ["The Centre cannot deploy forces without the State","The Centre must declare an Emergency first.","The Centre has the constitutional authority to deploy its armed forces in any State to maintain public order and resolve internal disturbances, even if the State Government explicitly opposes or refuses to consent to the deployment.","Only the Governor can request troops."],
+        "correctAnswerIndex": 2,
+        "explanation": "While"
     },
     {
-        id: "ch15-l3-q10",
-        question: "In Manipur (2023-24), the Unified Command structure (including Army, Assam Rifles, and State Police) was headed by a Security Advisor appointed by the Centre. This effectively places the law and order:",
-        options: ["Under the State Government (nominal).", "Under the Central Government (de facto application of Article 355).", "Under the Governor.", "Under the Chief Justice."],
-        correctAnswerIndex: 1,
-        explanation: "Central Government effectively controls law and order under Article 355."
+        "id": "ch15-l3-q10",
+        "question": "Evaluate the role of the",
+        "options": ["The Finance Commission includes State Chief Ministers, the GST Council does not.","The Finance Commission’s recommendations are largely binding, while the GST Council is entirely advisory with no statutory teeth.","The Finance Commission is an expert body unilaterally appointed by the Centre (President) which dictates terms downwards. The GST Council is a joint constitutional forum comprising both Union Ministers AND State Finance Ministers, where decisions require a 3/4ths weighted majority (States have 2/3rd vote weight, Centre 1/3rd), guaranteeing that neither the Centre alone nor the States alone can enforce a major tax change.","The Finance Commission handles indirect taxes, the GST Council handles direct taxes."],
+        "correctAnswerIndex": 2,
+        "explanation": "This highlights the paradigm shift. The Finance Commission is central-heavy (appointed by the President). The GST Council (Art 279A) is truly federal; it structurally forces the Centre and States to sit at a common table. The voting arithmetic (Centre = 33.3%, States combined = 66.6%, needing 75% to pass) legally mandates cooperation and consensus-building for every single tax rate change."
     },
     {
-        id: "ch15-l3-q11",
-        question: "The National Education Policy (NEP) 2020 advocates a common structure. Some States (like TN, Kerala) have formed their own Education Policies. Since \"Education\" is in the Concurrent List:",
-        options: ["The State Policy prevails automatically.", "The Central Policy (NEP) is merely \"advisory/guideline\" in nature for schools, but mandatory for Higher Education (UGC standards).", "The Centre can force States to adopt NEP under Article 256.", "Education was transferred to the Union List."],
-        correctAnswerIndex: 1,
-        explanation: "NEP is advisory for schools but mandatory for Higher Education."
+        "id": "ch15-l3-q11",
+        "question": "Recall the 1994 S.R. Bommai judgment. Regarding the imposition of President",
+        "options": ["The Governor must conduct exit polls.","The determination of whether the Chief Minister has lost the confidence of the Assembly MUST be tested strictly on the","(via a trust vote) and NOT based on the subjective, private assessment of the Governor or the parading of MLAs at the Raj Bhavan.","The Governor must consult the Chief Justice of India.","The Governor must wait for the next general election."],
+        "correctAnswerIndex": 1,
+        "explanation": "Historically, Governors dismissed CMs by claiming they"
     },
     {
-        id: "ch15-l3-q12",
-        question: "The Electricity (Amendment) Bill proposes allowing multiple discoms in the same area. Electricity is a Concurrent subject. If States oppose this:",
-        options: ["Parliament cannot pass the bill.", "Parliament can pass the bill, and it will override inconsistent State laws (Article 254).", "States can block its implementation by not notifying rules.", "It requires ratification by half the states."],
-        correctAnswerIndex: 1,
-        explanation: "Parliamentary law on Concurrent subject overrides State laws."
+        "id": "ch15-l3-q12",
+        "question": "Under the provisions of the Inter-State River Water Disputes Act, 1956 (enacted under Article 262), Parliament has significantly curtailed the power of the Judiciary. Which specific judicial power is explicitly barred concerning these tribunals?",
+        "options": ["The Supreme Court cannot appoint the tribunal members.","Neither the Supreme Court nor any other court shall have jurisdiction in respect of any water dispute which may be referred to such a tribunal under this Act, barring original jurisdiction (Article 131) and forcing reliance on the Tribunal","The Supreme Court can only hear appeals after 10 years.","High Courts can hear appeals, but the Supreme Court cannot."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 262(2) allows Parliament to exclude the jurisdiction of the SC. The 1956 Act explicitly states that once a dispute is referred to a Tribunal, neither the SC nor any other court has jurisdiction. (Note: The SC technically still entertains Special Leave Petitions under Art 136 regarding the *implementation* of the award, but the core dispute must be handled by the Tribunal)."
     },
     {
-        id: "ch15-l3-q13",
-        question: "The Teesta Water Sharing Treaty with Bangladesh has been pending due to opposition from West Bengal. Under Article 253, the Parliament has the power to implement the treaty:",
-        options: ["Only with the consent of West Bengal.", "Without the consent of West Bengal, overriding the State List entry \"Water\" (Entry 17).", "Only if declared a National Project.", "Only during Emergency."],
-        correctAnswerIndex: 1,
-        explanation: "Article 253 allows Parliament to implement treaties even on State subjects."
+        "id": "ch15-l3-q13",
+        "question": "Assertion (A): The Union Government can legally direct a State Government regarding the language to be used in its administration and the educational facilities for linguistic minority groups.\\nReason (R): Under Articles 347 and 350A, the President can direct a State to officially recognize a specific language if a substantial proportion of the population desires it, and mandate that States provide adequate facilities for instruction in the mother-tongue at the primary stage of education.\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. This administrative directive power serves to protect linguistic minorities. It prevents the majoritarian imposition of a single regional language on diverse populations within a state, allowing the Centre to intervene (via Presidential directives) to safeguard constitutional linguistic rights."
     },
     {
-        id: "ch15-l3-q14",
-        question: "The Inter-State River Water Disputes (Amendment) Bill proposes a \"Single Permanent Tribunal\" instead of multiple tribunals. The decision of this Tribunal:",
-        options: ["Can be challenged in the Supreme Court under Article 136 (Special Leave Petition).", "Is final and binding; SC jurisdiction is barred under Article 262.", "Is advisory.", "Must be ratified by Parliament."],
-        correctAnswerIndex: 1,
-        explanation: "Article 262 bars SC jurisdiction over water dispute tribunals."
+        "id": "ch15-l3-q14",
+        "question": "Consider the constitutional mechanics of the",
+        "options": ["Approval from the RBI.","No money can be withdrawn from the Consolidated Fund of a State EXCEPT under appropriation made by law passed by the State Legislature (the passing of the Appropriation Bill following the budget debate).","Approval from the President.","Approval from the Finance Commission."],
+        "correctAnswerIndex": 1,
+        "explanation": "Financial sovereignty lies with the legislature. The executive cannot spend a single rupee blindly. To handle sudden emergencies when the assembly isn"
     },
     {
-        id: "ch15-l3-q15",
-        question: "Despite the bar under Article 262, the Supreme Court hears water disputes (like Cauvery) under:",
-        options: ["Article 131 (Original Jurisdiction).", "Article 136 (Special Leave Petition) - on grounds of violation of legal rights/natural justice.", "Article 32 (Fundamental Rights).", "Article 143 (Advisory Jurisdiction)."],
-        correctAnswerIndex: 1,
-        explanation: "SC hears water disputes under Article 136 on grounds of legal rights."
+        "id": "ch15-l3-q15",
+        "question": "The Sarkaria Commission investigated the notorious friction between Governors and Chief Ministers. Regarding the appointment of a Governor, what strong",
+        "options": ["The Governor must belong to the ruling party at the Centre.","The Governor must be an active politician from a neighboring state.","The Chief Minister of the concerned State must be genuinely consulted prior to the appointment of the Governor; and the appointee should be an eminent person from outside the State, detached from active local politics.","The Governor should be chosen via an online poll."],
+        "correctAnswerIndex": 2,
+        "explanation": "To ensure the Governor acts as an impartial constitutional head rather than a political agent, Sarkaria (and later Punchhi) strongly recommended consulting the CM and appointing apolitical, eminent outsiders. The frequent ignoring of this convention (appointing active politicians contrary to the CM"
     },
     {
-        id: "ch15-l3-q16",
-        question: "Assertion (A): The Governor can reserve a State Bill for the consideration of the President if it endangers the position of the High Court. Reason (R): This is the only condition mentioned in the Constitution (Article 200, second proviso) where reservation is mandatory. Select the correct answer:",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0,
-        explanation: "Both true and R correctly explains A."
+        "id": "ch15-l3-q16",
+        "question": "Assertion (A): Article 365 fundamentally strengthens the coercive power of Article 356 (President",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. Article 356 requires a"
     },
     {
-        id: "ch15-l3-q17",
-        question: "Assertion (A): The Centre can levy \"Cess\" and \"Surcharge\" on taxes to raise additional revenue. Reason (R): The proceeds of Cess and Surcharge are not shareable with the States and form part of the Consolidated Fund of India exclusively. Select the correct answer:",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0,
-        explanation: "Both true and R explains why Centre uses Cess/Surcharge."
+        "id": "ch15-l3-q17",
+        "question": "Examine the",
+        "options": ["Never; Parliament","When the proposed tax is unpopular.","If the Court, interpreting the entries broadly, finds that the substance of the newly proposed Central tax subtly overlaps or attempts to encompass an area already implicitly covered by a specific taxing entry assigned to the State List.","If the tax rate exceeds 30%."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Residuary power is truly"
     },
     {
-        id: "ch15-l3-q18",
-        question: "The \"Special Assistance to States for Capital Investment\" scheme (interest-free loans for 50 years) is a form of:",
-        options: ["Article 275 Grant.", "Article 282 Discretionary Grant/Loan.", "Article 293 Loan.", "GST Compensation."],
-        correctAnswerIndex: 1,
-        explanation: "This is a discretionary grant under Article 282."
+        "id": "ch15-l3-q18",
+        "question": "Regarding",
+        "options": ["The State","The Governor of the State takes command.","Despite operating in the State at its request, the Central armed forces remain strictly under the command, control, and superintendence of the Central Government (Ministry of Home Affairs), not the State authorities.","The local District Magistrate acts as the Supreme Commander."],
+        "correctAnswerIndex": 2,
+        "explanation": "The 42nd Amendment added Entry 2A to the Union List, explicitly stating that deployment of armed forces of the Union in aid of civil power remains under Central control. While they assist the State Police, the ultimate chain of command leads back to Delhi, preventing State CMs from issuing direct operational orders to Union troops."
     },
     {
-        id: "ch15-l3-q19",
-        question: "The Supreme Court's 2018 Judgment on \"NCT of Delhi\" (GNCTD vs UOI) emphasized that the Lieutenant Governor (LG) is bound by the aid and advice of the Council of Ministers in all matters except:",
-        options: ["Public Order, Police, and Land.", "Services (later modified by 2023 Act).", "Finance.", "Education."],
-        correctAnswerIndex: 0,
-        explanation: "LG not bound by CM's advice on Public Order, Police, and Land."
+        "id": "ch15-l3-q19",
+        "question": "In analyzing the Punchhi Commission",
+        "options": ["Abolishing the Concurrent List entirely.","Before introducing a Bill on a Concurrent subject, the Centre must engage in broad-based prior consultation with States through the Inter-State Council mechanism to build consensus, rather than simply passing a law and imposing","on existing state laws.","Giving States the right to veto Central Concurrent laws.","Only allowing the Supreme Court to draft Concurrent laws."],
+        "correctAnswerIndex": 1,
+        "explanation": "A major grievance of States is that the Centre unilaterally passes laws on the Concurrent List (like Education or Forests), instantly overriding carefully crafted State policies. Punchhi recommended establishing a strong constitutional convention of"
     },
     {
-        id: "ch15-l3-q20",
-        question: "The \"Sarkaria Commission\" recommendation on the appointment of Governor (consultation with CM) is:",
-        options: ["A constitutional requirement.", "A statutory requirement.", "A convention (often breached).", "A judicial mandate."],
-        correctAnswerIndex: 2,
-        explanation: "It's a convention, not a legal requirement."
-    },
-    {
-        id: "ch15-l3-q21",
-        question: "\"Fiscal Marksman-ship\" refers to:",
-        options: ["Accuracy of budget estimates (Revenue vs Actuals).", "States hitting deficit targets.", "Centre collecting taxes efficiently.", "GST collection."],
-        correctAnswerIndex: 0,
-        explanation: "Fiscal Marksmanship measures budget estimate accuracy."
-    },
-    {
-        id: "ch15-l3-q22",
-        question: "The \"Disaster Management Act, 2005\" was invoked by the Centre during COVID-19 to issue binding guidelines to States. This Act was passed under which entry of the Seventh Schedule?",
-        options: ["Public Health (State List).", "Disaster Management (Concurrent List - Not explicitly mentioned).", "Social Security and Social Insurance (Concurrent List, Entry 23) + Residuary Power.", "Interstate Quarantine (Union List)."],
-        correctAnswerIndex: 2,
-        explanation: "DM Act uses Concurrent List Entry 23 and Residuary Power."
-    },
-    {
-        id: "ch15-l3-q23",
-        question: "The \"Zonal Councils\" were established to promote:",
-        options: ["Emotional Integration of the country.", "Cooperation in social and economic matters.", "Uniform policies.", "All of the above."],
-        correctAnswerIndex: 3,
-        explanation: "Zonal Councils promote all these objectives."
-    },
-    {
-        id: "ch15-l3-q24",
-        question: "The \"Punchhi Commission\" suggested that the \"Doctrine of Pleasure\" regarding the Governor's tenure should be:",
-        options: ["Retained as absolute.", "Deleted; Governor should have security of tenure and removal only by impeachment.", "Restricted to specific grounds.", "Transferred to the Chief Justice."],
-        correctAnswerIndex: 1,
-        explanation: "Punchhi recommended impeachment process for Governor removal."
-    },
-    {
-        id: "ch15-l3-q25",
-        question: "\"Cooperative Federalism\" is often contrasted with \"Competitive Federalism\". Which body promotes the latter through indices like 'Ease of Doing Business' or 'SDG India Index'?",
-        options: ["Inter-State Council.", "Finance Commission.", "NITI Aayog.", "National Development Council."],
-        correctAnswerIndex: 2,
-        explanation: "NITI Aayog promotes Competitive Federalism through rankings."
-    },
-    {
-        id: "ch15-l3-q26",
-        question: "The \"GST Compensation\" to States was guaranteed for a period of:",
-        options: ["3 years.", "5 years (ended June 2022).", "10 years.", "Indefinitely."],
-        correctAnswerIndex: 1,
-        explanation: "GST Compensation was for 5 years, ending June 2022."
-    },
-    {
-        id: "ch15-l3-q27",
-        question: "Can the President entrust Executive functions of the Centre to a State without its consent?",
-        options: ["Yes, absolutely.", "No, it requires consent (Article 258(1)).", "Yes, but only if Parliament passes a law conferring such power (Article 258(2)).", "Only during Emergency."],
-        correctAnswerIndex: 1,
-        explanation: "Article 258(1) requires State consent for entrustment."
-    },
-    {
-        id: "ch15-l3-q28",
-        question: "The \"All India Judicial Service\" proposal requires a resolution by Rajya Sabha. This resolution acts as:",
-        options: ["A Constitutional Amendment.", "An authorization for Parliament to legislate (Article 312).", "A final law.", "A recommendation to the President."],
-        correctAnswerIndex: 1,
-        explanation: "RS resolution authorizes Parliament to legislate under Article 312."
-    },
-    {
-        id: "ch15-l3-q29",
-        question: "The \"Sovereign Guarantee\" for external loans (e.g., from World Bank) raised by a State Government is given by:",
-        options: ["The State Government itself.", "The Central Government (Union of India).", "The RBI.", "The SBI."],
-        correctAnswerIndex: 1,
-        explanation: "Central Government provides sovereign guarantee for external loans."
-    },
-    {
-        id: "ch15-l3-q30",
-        question: "Which of the following is an \"Extra-Constitutional\" device for Centre-State cooperation?",
-        options: ["GST Council.", "Inter-State Council.", "Zonal Councils (Statutory).", "NITI Aayog (Executive Resolution)."],
-        correctAnswerIndex: 3,
-        explanation: "NITI Aayog is extra-constitutional, created by executive resolution."
+        "id": "ch15-l3-q20",
+        "question": "Consider the profound impact of the",
+        "options": ["The President can seize all funds in the State Consolidated Funds.","The President must double the financial grants to the affected states.","The President can, by order, massively modify or entirely suspend the constitutional provisions relating to the distribution of revenues between the Centre and the States, freezing devolutions and grants indefinitely for the remainder of the financial year.","The President has no power over financial distribution during Article 352."],
+        "correctAnswerIndex": 2,
+        "explanation": "During a National Emergency fighting a war or rebellion, the Centre needs absolute control over all national resources. Article 354 allows the President to unilaterally suspend the recommendations of the Finance Commission and halt the sharing of taxes and grants with the States, legally starving them of funds to finance the national war effort."
     }
 ];
 
 export const CHAPTER_15_LEVELS: ChapterLevelData = {
-    topicId: 15,
-    levels: [
-        {
-            levelId: 1,
-            title: "The Text-Book Stickler",
-            description: "Strictly Chapter 15",
-            questions: LEVEL_1_QUESTIONS
-        },
-        {
-            levelId: 2,
-            title: "The Conceptual Bridge",
-            description: "Applied Knowledge",
-            questions: LEVEL_2_QUESTIONS
-        },
-        {
-            levelId: 3,
-            title: "UPSC Simulation 2026",
-            description: "Integrated & Current Affairs Context",
-            questions: LEVEL_3_QUESTIONS
-        }
-    ]
+    level1: LEVEL_1_QUESTIONS,
+    level2: LEVEL_2_QUESTIONS,
+    level3: LEVEL_3_QUESTIONS
 };

@@ -1,607 +1,576 @@
-import { ChapterLevelData } from "../level-types";
+import { ChapterLevelData } from '../level-types';
 
-// Level 1: The Text-Book Stickler (Strictly Chapter 10)
 const LEVEL_1_QUESTIONS = [
     {
-        question: "The original Constitution of India (1950) contained:",
-        options: ["Fundamental Rights only.", "Fundamental Duties only.", "Both Fundamental Rights and Fundamental Duties.", "Neither Fundamental Rights nor Fundamental Duties."],
-        correctAnswerIndex: 0, // a) Fundamental Rights only
-        explanation: "Original Constitution contained only Fundamental Rights, not Duties."
+        "id": "ch10-l1-q1",
+        "question": "In the original Constitution of India (1950), which of the following were included regarding Fundamental Rights and Duties?",
+        "options": ["Both Fundamental Rights and Fundamental Duties were included.","Only Fundamental Duties were included, but not Fundamental Rights.","Only Fundamental Rights were included, but not Fundamental Duties.","Neither Fundamental Rights nor Fundamental Duties were included."],
+        "correctAnswerIndex": 2,
+        "explanation": "Though the rights and duties of the citizens are correlative and inseparable, the original constitution contained only the fundamental rights and not the fundamental duties."
     },
     {
-        question: "The fundamental duties were added to the Constitution by the:",
-        options: ["24th Amendment Act, 1971", "42nd Amendment Act, 1976", "44th Amendment Act, 1978", "86th Amendment Act, 2002"],
-        correctAnswerIndex: 1, // b) 42nd Amendment
-        explanation: "42nd Amendment Act, 1976."
+        "id": "ch10-l1-q2",
+        "question": "The Fundamental Duties in the Indian Constitution are inspired by the Constitution of which former country?",
+        "options": ["USA","USSR","Ireland","Britain"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Fundamental Duties in the Indian Constitution are inspired by the Constitution of erstwhile USSR. Notably, none of the Constitutions of major democratic countries like USA, Canada, France, etc. specifically contain a list of duties."
     },
     {
-        question: "The fundamental duties in the Indian Constitution are inspired by the Constitution of:",
-        options: ["USA", "Canada", "USSR (now Russia)", "Ireland"],
-        correctAnswerIndex: 2, // c) USSR
-        explanation: "Inspired by the Constitution of USSR."
+        "id": "ch10-l1-q3",
+        "question": "Which committee recommended the inclusion of a separate chapter on Fundamental Duties in the Constitution?",
+        "options": ["Santhanam Committee","Swaran Singh Committee","Verma Committee","Kothari Commission"],
+        "correctAnswerIndex": 1,
+        "explanation": "In 1976, the Congress Party set up the Sardar Swaran Singh Committee to make recommendations about fundamental duties."
     },
     {
-        question: "Which committee recommended the inclusion of a separate chapter on fundamental duties in the Constitution?",
-        options: ["Verma Committee", "Sarkaria Commission", "Swaran Singh Committee", "Ram Nandan Committee"],
-        correctAnswerIndex: 2, // c) Swaran Singh Committee
-        explanation: "Swaran Singh Committee."
+        "id": "ch10-l1-q4",
+        "question": "During which national event was the Swaran Singh Committee set up to recommend Fundamental Duties?",
+        "options": ["During the Indo-Pak War of 1971","During the internal emergency (1975–1977)","During the framing of the Constitution in 1949","During the Kargil War in 1999"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Swaran Singh Committee was set up in 1976 during the operation of the internal emergency (1975–1977) to make recommendations and stress that citizens must be conscious of their duties."
     },
     {
-        question: "The Swaran Singh Committee was set up in 1976 by the:",
-        options: ["Janata Party Government.", "Congress Party Government.", "Supreme Court.", "Law Commission."],
-        correctAnswerIndex: 1, // b) Congress Party
-        explanation: "Congress Party Government."
+        "id": "ch10-l1-q5",
+        "question": "Which Constitutional Amendment Act added the Fundamental Duties to the Constitution?",
+        "options": ["24th Amendment Act, 1971","42nd Amendment Act, 1976","44th Amendment Act, 1978","86th Amendment Act, 2002"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Congress Government at Centre accepted the recommendations and enacted the 42nd Constitutional Amendment Act in 1976, which added a new Part IVA containing the Fundamental Duties."
     },
     {
-        question: "The Swaran Singh Committee recommended the incorporation of how many fundamental duties?",
-        options: ["8", "10", "11", "12"],
-        correctAnswerIndex: 0, // a) 8
-        explanation: "Recommended 8 duties."
+        "id": "ch10-l1-q6",
+        "question": "In which Part and Article of the Constitution are the Fundamental Duties specified?",
+        "options": ["Part IV, Article 51","Part IVA, Article 51A","Part V, Article 52","Part III, Article 35A"],
+        "correctAnswerIndex": 1,
+        "explanation": "The 42nd Amendment added a new part, namely, Part IVA to the Constitution. It consists of only one Article, that is, Article 51A which specifies a code of ten fundamental duties."
     },
     {
-        question: "The 42nd Amendment Act (1976) included a new Part in the Constitution, which is:",
-        options: ["Part III-A", "Part IV-A", "Part IX-A", "Part XIV-A"],
-        correctAnswerIndex: 1, // b) Part IV-A
-        explanation: "Part IV-A."
+        "id": "ch10-l1-q7",
+        "question": "How many Fundamental Duties were originally added by the 42nd Amendment Act in 1976?",
+        "options": ["Eight","Ten","Eleven","Twelve"],
+        "correctAnswerIndex": 1,
+        "explanation": "Though the Swaran Singh Committee suggested the incorporation of eight Fundamental Duties, the 42nd Constitutional Amendment Act (1976) included ten Fundamental Duties."
     },
     {
-        question: "This new Part IV-A consists of only one Article, which is:",
-        options: ["Article 51", "Article 51-A", "Article 39-A", "Article 43-A"],
-        correctAnswerIndex: 1, // b) Article 51-A
-        explanation: "Article 51-A."
+        "id": "ch10-l1-q8",
+        "question": "Which of the following recommendations of the Swaran Singh Committee was NOT accepted and thus not incorporated in the Constitution?",
+        "options": ["To abide by the Constitution and respect its ideals.","To uphold and protect the sovereignty of India.","Penalty or punishment for non-compliance with or refusal to observe any of the duties.","To defend the country and render national service."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Swaran Singh Committee recommended penalty/punishment for non-compliance and making duty to pay taxes a duty. Neither punishment nor duty to pay taxes was accepted by the Congress Party."
     },
     {
-        question: "Originally (in 1976), the list of fundamental duties contained:",
-        options: ["8 duties", "10 duties", "11 duties", "12 duties"],
-        correctAnswerIndex: 1, // b) 10 duties
-        explanation: "Originally 10 duties."
+        "id": "ch10-l1-q9",
+        "question": "Currently, what is the total number of Fundamental Duties listed under Article 51A?",
+        "options": ["Ten","Eleven","Twelve","Thirteen"],
+        "correctAnswerIndex": 1,
+        "explanation": "Originally ten in 1976, one more Fundamental Duty was added in 2002. Currently, there are eleven fundamental duties in Article 51A."
     },
     {
-        question: "According to Article 51-A, it shall be the duty of every citizen of India to abide by the Constitution and respect its ideals and institutions, the:",
-        options: ["Parliament and State Legislatures.", "National Flag and the National Anthem.", "President and the Prime Minister.", "Supreme Court and High Courts."],
-        correctAnswerIndex: 1, // b) National Flag and Anthem
-        explanation: "National Flag and the National Anthem."
+        "id": "ch10-l1-q10",
+        "question": "Which Constitutional Amendment Act added the eleventh Fundamental Duty?",
+        "options": ["44th Amendment Act, 1978","73rd Amendment Act, 1992","86th Amendment Act, 2002","97th Amendment Act, 2011"],
+        "correctAnswerIndex": 2,
+        "explanation": "The 86th Constitutional Amendment Act, 2002 added the 11th fundamental duty regarding education for children."
     },
     {
-        question: "It is a duty to cherish and follow the noble ideals that inspired our:",
-        options: ["Religious leaders.", "National struggle for freedom.", "Constitution makers.", "Social reformers."],
-        correctAnswerIndex: 1, // b) National struggle
-        explanation: "National struggle for freedom."
+        "id": "ch10-l1-q11",
+        "question": "The eleventh Fundamental Duty mandates who to provide opportunities for education to a child or ward between the ages of six and fourteen years?",
+        "options": ["The State","The Central Government","The parent or guardian","Local panchayats"],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 51A(k) states:"
     },
     {
-        question: "It is a duty to uphold and protect the:",
-        options: ["Sovereignty, Unity and Integrity of India.", "Sovereignty, Socialism and Secularism of India.", "Liberty, Equality and Fraternity.", "Justice, Social and Economic."],
-        correctAnswerIndex: 0, // a) Sovereignty, Unity and Integrity
-        explanation: "Sovereignty, Unity and Integrity of India."
+        "id": "ch10-l1-q12",
+        "question": "According to Article 51A(a), it is the duty of every citizen of India to abide by the Constitution and respect its ideals and institutions, the National Flag, and the:",
+        "options": ["National Emblem","National Anthem","National Song","Parliament"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 51A(a): to abide by the Constitution and respect its ideals and institutions, the National Flag and the National Anthem."
     },
     {
-        question: "It is a duty to defend the country and render national service when:",
-        options: ["Ordered by the President.", "Called upon to do so.", "There is a war.", "There is a natural calamity."],
-        correctAnswerIndex: 1, // b) Called upon
-        explanation: "When called upon to do so."
+        "id": "ch10-l1-q13",
+        "question": "Article 51A(b) prescribes the duty to cherish and follow the noble ideals that inspired what?",
+        "options": ["The framing of the Constitution","The national struggle for freedom","The economic development of India","The establishment of democracy"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 51A(b): to cherish and follow the noble ideals that inspired the national struggle for freedom."
     },
     {
-        question: "It is a duty to promote harmony and the spirit of common brotherhood amongst all the people of India transcending:",
-        options: ["Religious, linguistic and regional or sectional diversities.", "Caste, creed and color.", "Political ideologies.", "Economic status."],
-        correctAnswerIndex: 0, // a) Religious, linguistic...
-        explanation: "Religious, linguistic and regional or sectional diversities."
+        "id": "ch10-l1-q14",
+        "question": "Article 51A(c) says it is the duty to uphold and protect the sovereignty, unity, and what else of India?",
+        "options": ["Democracy","Republic","Integrity","Fraternity"],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 51A(c): to uphold and protect the sovereignty, unity and integrity of India."
     },
     {
-        question: "It is a duty to renounce practices derogatory to the:",
-        options: ["Dignity of women.", "Dignity of the individual.", "Unity of the nation.", "Culture of India."],
-        correctAnswerIndex: 0, // a) Dignity of women
-        explanation: "Dignity of women."
+        "id": "ch10-l1-q15",
+        "question": "Which of the following is a Fundamental Duty under Article 51A(d)?",
+        "options": ["To pay taxes regularly.","To defend the country and render national service when called upon to do so.","To vote in every national election.","To promote international peace."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 51A(d): to defend the country and render national service when called upon to do so."
     },
     {
-        question: "It is a duty to value and preserve the rich heritage of our:",
-        options: ["Composite culture.", "Ancient history.", "Religious traditions.", "Scientific achievements."],
-        correctAnswerIndex: 0, // a) Composite culture
-        explanation: "Composite culture."
+        "id": "ch10-l1-q16",
+        "question": "Under Article 51A(e), citizens must promote harmony and the spirit of common brotherhood and renounce practices derogatory to the dignity of:",
+        "options": ["The elderly","Women","Minorities","The Armed Forces"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 51A(e): to promote harmony and the spirit of common brotherhood... and to renounce practices derogatory to the dignity of women."
     },
     {
-        question: "It is a duty to protect and improve the natural environment including forests, lakes, rivers and wild life, and to have:",
-        options: ["Respect for animals.", "Compassion for living creatures.", "Scientific temper.", "Humanism."],
-        correctAnswerIndex: 1, // b) Compassion
-        explanation: "Compassion for living creatures."
+        "id": "ch10-l1-q17",
+        "question": "Article 51A(f) states it is a duty to value and preserve the rich heritage of the country",
+        "options": ["Economic wealth","Natural environment","Composite culture","Scientific achievements"],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 51A(f): to value and preserve the rich heritage of the country’s composite culture."
     },
     {
-        question: "It is a duty to develop the scientific temper, humanism and the spirit of:",
-        options: ["Inquiry and reform.", "Nationalism and patriotism.", "Tolerance and peace.", "Sacrifice and service."],
-        correctAnswerIndex: 0, // a) Inquiry and reform
-        explanation: "Inquiry and reform."
+        "id": "ch10-l1-q18",
+        "question": "Which Fundamental Duty directs citizens to",
+        "options": ["Article 51A(e)","Article 51A(f)","Article 51A(g)","Article 51A(h)"],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 51A(g): to protect and improve the natural environment including forests, lakes, rivers and wildlife and to have compassion for living creatures."
     },
     {
-        question: "It is a duty to safeguard public property and to:",
-        options: ["Abjure violence.", "Follow traffic rules.", "Pay taxes.", "Vote in elections."],
-        correctAnswerIndex: 0, // a) Abjure violence
-        explanation: "Abjure violence."
+        "id": "ch10-l1-q19",
+        "question": "Article 51A(h) instructs citizens to develop humanism, the spirit of inquiry and reform, and what else?",
+        "options": ["Scientific temper","Religious tolerance","Political awareness","Physical fitness"],
+        "correctAnswerIndex": 0,
+        "explanation": "Article 51A(h): to develop scientific temper, humanism and the spirit of inquiry and reform."
     },
     {
-        question: "It is a duty to strive towards excellence in all spheres of:",
-        options: ["Individual and collective activity.", "Educational and professional activity.", "Political and social activity.", "Economic and industrial activity."],
-        correctAnswerIndex: 0, // a) Individual and collective
-        explanation: "Individual and collective activity."
+        "id": "ch10-l1-q20",
+        "question": "Which duty requires citizens to safeguard public property and to abjure violence?",
+        "options": ["Article 51A(g)","Article 51A(h)","Article 51A(i)","Article 51A(j)"],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 51A(i): to safeguard public property and to abjure violence."
     },
     {
-        question: "The 11th Fundamental Duty was added by the:",
-        options: ["82nd Amendment Act, 2000", "84th Amendment Act, 2001", "86th Amendment Act, 2002", "91st Amendment Act, 2003"],
-        correctAnswerIndex: 2, // c) 86th Amendment
-        explanation: "86th Amendment Act, 2002."
+        "id": "ch10-l1-q21",
+        "question": "According to Article 51A(j), citizens should strive towards excellence in all spheres of individual and collective activity, so that the nation constantly rises to higher levels of:",
+        "options": ["Income and wealth","Endeavour and achievement","Military power","International influence"],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 51A(j): to strive towards excellence in all spheres of individual and collective activity so that the nation constantly rises to higher levels of endeavour and achievement."
     },
     {
-        question: "The 11th duty (51-A(k)) is to provide opportunities for education to his child or ward between the age of:",
-        options: ["0 and 6 years.", "6 and 14 years.", "6 and 18 years.", "14 and 18 years."],
-        correctAnswerIndex: 1, // b) 6 and 14 years
-        explanation: "6 and 14 years."
+        "id": "ch10-l1-q22",
+        "question": "Are the Fundamental Duties applicable to foreigners living in India?",
+        "options": ["Yes, they apply universally to all people in India.","No, the Fundamental Duties are confined to citizens only.","Yes, but only the duty to pay taxes.","Yes, except for diplomats."],
+        "correctAnswerIndex": 1,
+        "explanation": "Unlike some Fundamental Rights which extend to all persons whether citizens or foreigners, the Fundamental Duties are confined to citizens only and do not extend to foreigners."
     },
     {
-        question: "Features and Significance: The Fundamental Duties are confined to:",
-        options: ["Citizens only.", "Foreigners only.", "Both citizens and foreigners.", "Only government servants."],
-        correctAnswerIndex: 0, // a) Citizens only
-        explanation: "Citizens only."
+        "id": "ch10-l1-q23",
+        "question": "Like the Directive Principles of State Policy, what is the legal nature of the Fundamental Duties?",
+        "options": ["They are fully justiciable and automatically enforced by the Supreme Court.","They are non-justiciable; the Constitution does not provide for their direct enforcement by courts.","They are enforced directly by the Executive without needing legislation.","They are legally binding only on government employees."],
+        "correctAnswerIndex": 1,
+        "explanation": "Like the Directive Principles, the fundamental duties are non-justiciable. The Constitution does not provide for their direct enforcement by the courts."
     },
     {
-        question: "Like the Directive Principles, the fundamental duties are:",
-        options: ["Justiciable.", "Non-justiciable.", "Mandatory.", "Enforceable by writs."],
-        correctAnswerIndex: 1, // b) Non-justiciable
-        explanation: "Non-justiciable."
+        "id": "ch10-l1-q24",
+        "question": "Even though Fundamental Duties are non-justiciable, can Parliament enforce them through legislation?",
+        "options": ["No, Parliament is forbidden from making laws to enforce non-justiciable duties.","Yes, there is not legal sanction against their violation explicitly in the Constitution, but Parliament is free to enforce them by suitable legislation.","Yes, but only after receiving permission from the Supreme Court.","No, only state legislatures can enforce them."],
+        "correctAnswerIndex": 1,
+        "explanation": "Moreover, there is no legal sanction against their violation. However, the Parliament is free to enforce them by suitable legislation."
     },
     {
-        question: "The Swaran Singh Committee suggested that Parliament may provide for the imposition of:",
-        options: ["Taxes for non-performance of duties.", "Penalty or punishment for non-compliance with duties.", "Social boycott for violation of duties.", "Compulsory military service."],
-        correctAnswerIndex: 1, // b) Penalty or punishment
-        explanation: "Penalty or punishment for non-compliance."
+        "id": "ch10-l1-q25",
+        "question": "Which of the following is categorized as a",
+        "options": ["Cherishing the noble ideals of the freedom struggle.","Respecting the Constitution, National Flag, and National Anthem.","Having compassion for living creatures.","Developing humanism."],
+        "correctAnswerIndex": 1,
+        "explanation": "Some of them are moral duties while others are civic duties. For instance, cherishing noble ideals of freedom struggle is a moral precept, while respecting the Constitution, National Flag and National Anthem is a civic duty."
     },
     {
-        question: "Did the Congress Government (in 1976) accept the Swaran Singh Committee's recommendation regarding penalty/punishment?",
-        options: ["Yes, fully.", "No, it did not incorporate this provision in the Constitution.", "Yes, but only for certain duties.", "Yes, but left it to the Judiciary."],
-        correctAnswerIndex: 1, // b) No
-        explanation: "No, it did not incorporate this provision."
+        "id": "ch10-l1-q26",
+        "question": "Critics of the Fundamental Duties often point out that the list is not exhaustive. Which of the following duties did the Swaran Singh Committee recommend but was left OUT of the Constitution?",
+        "options": ["Duty to vote","Duty to protect wildlife","Duty to pay taxes","Duty to family planning"],
+        "correctAnswerIndex": 2,
+        "explanation": "Critics note the list is not exhaustive... duty to cast vote, pay taxes, family planning etc are not covered. Specifically, the duty to pay taxes was recommended by Swaran Singh Committee but not included."
     },
     {
-        question: "Another recommendation of the Swaran Singh Committee which was NOT accepted was the duty to:",
-        options: ["Pay taxes.", "Vote in elections.", "Follow family planning.", "Both (a) and (b)."],
-        correctAnswerIndex: 0, // a) Pay taxes
-        explanation: "Duty to pay taxes was recommended but not accepted."
+        "id": "ch10-l1-q27",
+        "question": "In 1999, the Government of India set up a committee to operationalize the suggestions to teach Fundamental Duties to the citizens. Who headed this committee?",
+        "options": ["Sardar Swaran Singh","Justice J.S. Verma","L.M. Singhvi","Santhanam"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Verma Committee on Fundamental Duties of the Citizens (1999) identified the existence of legal provisions for the implementation of some of the Fundamental Duties."
     },
     {
-        question: "The Verma Committee on Fundamental Duties of Citizens (1999) identified the existence of:",
-        options: ["Legal provisions for the implementation of some of the Fundamental Duties.", "Constitutional provisions for enforcing all duties.", "Lack of any legal provisions.", "Need for new duties."],
-        correctAnswerIndex: 0, // a) Legal provisions exists
-        explanation: "Existence of legal provisions."
+        "id": "ch10-l1-q28",
+        "question": "According to the Verma Committee (1999), which existing Act penalizes disrespect to the National Flag and National Anthem?",
+        "options": ["The Indian Penal Code, 1860","The Prevention of Insults to National Honour Act, 1971","The Unlawful Activities (Prevention) Act, 1967","The Representation of the People Act, 1951"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Verma Committee noted: The Prevention of Insults to National Honour Act (1971) prevents disrespect to the Constitution of India, the National Flag and the National Anthem."
     },
     {
-        question: "Legal Provisions: The Prevention of Insults to National Honour Act (1971) prevents disrespect to:",
-        options: ["The Constitution of India.", "The National Flag.", "The National Anthem.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "Constitution, Flag, and Anthem."
+        "id": "ch10-l1-q29",
+        "question": "Why did the framers of the original Constitution NOT include Fundamental Duties?",
+        "options": ["They forgot to incorporate them during the drafting process.","They believed that duties were implicit in the Constitution and the rights inherently carried responsibilities, negating the need for a separate list.","The British government strictly forbade the inclusion of duties.","There wasn"],
+        "correctAnswerIndex": 1,
+        "explanation": "The framers did not feel it necessary to incorporate the fundamental duties because they believed that the duties of the citizens are already implicit in the Constitution, woven into the rights."
     },
     {
-        question: "The Protection of Civil Rights Act (1955) provides for punishments for offences related to:",
-        options: ["Caste and religion.", "Untouchability.", "Gender discrimination.", "Regionalism."],
-        correctAnswerIndex: 1, // b) Untouchability
-        explanation: "Untouchability."
-    },
-    {
-        question: "The Unlawful Activities (Prevention) Act (1967) provides for the declaration of a communal organization as an unlawful association. This relates to the duty to:",
-        options: ["Uphold sovereignty, unity and integrity.", "Protect environment.", "Safeguard public property.", "Develop scientific temper."],
-        correctAnswerIndex: 0, // a) Sovereignty, unity and integrity
-        explanation: "Sovereignty, unity and integrity."
-    },
-    {
-        question: "The Representation of People Act (1951) provides for disqualification of members of Parliament/State Legislature for indulging in:",
-        options: ["Corrupt practices.", "Promoting enmity between different groups on grounds of religion, race, etc.", "Both (a) and (b).", "Neither (a) nor (b)."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Both corrupt practices and promoting enmity."
-    },
-    {
-        question: "The Wildlife (Protection) Act of 1972 prohibits:",
-        options: ["Trade in rare and endangered species.", "Hunting of all animals.", "Fishing in rivers.", "Keeping pets."],
-        correctAnswerIndex: 0, // a) Trade in rare and endangered species
-        explanation: "Trade in rare and endangered species."
-    },
-    {
-        question: "The Forest (Conservation) Act of 1980 checks:",
-        options: ["Deforestation and diversion of forest land for non-forest purposes.", "Afforestation.", "Social forestry.", "Agro-forestry."],
-        correctAnswerIndex: 0, // a) Deforestation
-        explanation: "Deforestation and diversion."
-    },
-    {
-        question: "The fundamental duties serve as a reminder to the citizens that while enjoying their rights, they should also be conscious of duties they owe to:",
-        options: ["Their family.", "Their country, their society and their fellow citizens.", "The government.", "The world."],
-        correctAnswerIndex: 1, // b) Country, society, citizens
-        explanation: "Their country, their society and their fellow citizens."
+        "id": "ch10-l1-q30",
+        "question": "Who famously observed that",
+        "options": ["H.R. Gokhale","Indira Gandhi","Jawaharlal Nehru","Morarji Desai"],
+        "correctAnswerIndex": 1,
+        "explanation": "Indira Gandhi, the then Prime Minister, justified the inclusion of fundamental duties arguing that their inclusion would help to strengthen democracy. She said,"
     }
 ];
 
-// Level 2: The Conceptual Bridge (Applied Knowledge)
 const LEVEL_2_QUESTIONS = [
     {
-        question: "Nature & Enforcement: Fundamental Duties are non-justiciable. This means:",
-        options: ["A citizen cannot be punished for violating them directly under the Constitution.", "Parliament cannot make laws to enforce them.", "Courts cannot take cognizance of them while interpreting laws.", "They are merely moral suggestions with no legal value."],
-        correctAnswerIndex: 0, // a) Cannot be punished directly under Constitution
-        explanation: "Cannot be punished directly under the Constitution (needs statutory backing)."
+        "id": "ch10-l2-q1",
+        "question": "Consider the constitutional status of Fundamental Duties in Part IVA. How did the Swaran Singh Committee initially envision their enforcement, contrary to what was finally adopted in the 42nd Amendment?",
+        "options": ["The Committee suggested making them justiciable directly through Article 32.","The Committee recommended that Parliament should impose by law a penalty or punishment for any non-compliance with or refusal to observe any of the duties.","The Committee strictly advised against any legal sanctions, arguing duties must remain purely moral.","The Committee suggested giving the President unilateral power to punish citizens who ignore duties."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Swaran Singh Committee practically suggested making duties a hybrid of moral and legal obligations by explicitly recommending that Parliament should have the power to impose a penalty or punishment for non-compliance. This recommendation, however, was rejected by the Congress government."
     },
     {
-        question: "However, the Parliament is free to enforce Fundamental Duties by:",
-        options: ["Suitable legislation.", "Executive order.", "Constitutional Amendment only.", "Judicial Review."],
-        correctAnswerIndex: 0, // a) Suitable legislation
-        explanation: "Suitable legislation."
+        "id": "ch10-l2-q2",
+        "question": "Assertion (A): A law made by Parliament imposing a penalty for the non-observance of a Fundamental Duty cannot be challenged in a court on the ground of infringement of Fundamental Rights.\\nReason (R): The Swaran Singh Committee",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true.","Both A and R are false."],
+        "correctAnswerIndex": 4,
+        "explanation": "Both statements are false. The Swaran Singh Committee DID recommend that no law imposing such a penalty shall be called in question in any court on the ground of infringement of Fundamental Rights. However, this sweeping recommendation was REJECTED by the government and is NOT in the Constitution. Therefore, any penal law regarding duties CAN be tested against Fundamental Rights."
     },
     {
-        question: "In the AIIMS Students Union vs AIIMS (2001) case, the Supreme Court held that Fundamental Duties are:",
-        options: ["Fundamental to the governance of the country (like DPSP).", "Equally important as Fundamental Rights.", "Not enforceable at all.", "Only for government servants."],
-        correctAnswerIndex: 1, // b) Equally important
-        explanation: "Equally important as Fundamental Rights."
+        "id": "ch10-l2-q3",
+        "question": "Examine the correlation between Fundamental Rights and Fundamental Duties. The Supreme Court has ruled that Fundamental Duties can be used constitutionally to:",
+        "options": ["Automatically restrict a citizen","Determine the constitutional validity of a law. If a law seeks to give effect to a duty, it may be considered","under Article 14 or 19.","Dismiss state governments under Article 356.","Suspend habeas corpus during peacetime."],
+        "correctAnswerIndex": 1,
+        "explanation": "In 1992, the SC ruled that in determining the constitutional validity of any law, if a court finds that the law in question seeks to give effect to a fundamental duty, it may consider such law to be"
     },
     {
-        question: "The \"Verma Committee\" (1999) on Fundamental Duties identified the existence of legal provisions for the implementation of some of the Fundamental Duties. Which of the following acts implements the duty to \"renounce practices derogatory to the dignity of women\"?",
-        options: ["The Protection of Women from Domestic Violence Act, 2005.", "The Indian Penal Code (IPC).", "The Dowry Prohibition Act, 1961.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "All (IPC, Dowry Act, DV Act) implement this duty."
+        "id": "ch10-l2-q4",
+        "question": "In the context of Article 51A, classify the following duty:",
+        "options": ["A civic duty, because it requires active state funding to enforce.","A moral duty, because it appeals to the internal values and historical consciousness of the citizen rather than a strict legal/state-oriented obligation.","A justiciable duty, enforceable via the National Green Tribunal.","Neither; it is a Directive Principle mistakenly placed in Part IVA."],
+        "correctAnswerIndex": 1,
+        "explanation": "According to Laxmikanth, the duties are categorized into moral and civic. Cherishing noble ideals or valuing our rich heritage are moral precepts, relying on the conscience of the citizen. Respecting the National Flag or Constitution (which have specific penal laws attached) are civic duties."
     },
     {
-        question: "The duty to \"safeguard public property and to abjure violence\" is legally enforced by:",
-        options: ["The Prevention of Damage to Public Property Act, 1984.", "The Unlawful Activities (Prevention) Act, 1967.", "The National Security Act, 1980.", "The Disaster Management Act, 2005."],
-        correctAnswerIndex: 0, // a) Prevention of Damage to Public Property Act
-        explanation: "The Prevention of Damage to Public Property Act, 1984."
+        "id": "ch10-l2-q5",
+        "question": "Consider the constitutional scope of the Fundamental Duties. Why is the list in Article 51A heavily criticized by legal experts as being non-exhaustive?",
+        "options": ["Because it does not include duties toward the United Nations.","Because it omits several vital civic obligations universally expected in democracies, such as casting a vote, paying taxes, or family planning.","Because it failed to include the duty to protect historical monuments.","Because it does not impose duties on state legislatures."],
+        "correctAnswerIndex": 1,
+        "explanation": "Critics highlight that the list is not exhaustive as it does not cover other important duties like casting vote, paying taxes, family planning, etc. In fact, the Swaran Singh Committee explicitly recommended the duty to pay taxes, which was rejected."
     },
     {
-        question: "Rights vs Duties Relationship: \"Rights and Duties are correlative and inseparable.\" This implies that:",
-        options: ["For every right, there is a corresponding duty.", "A citizen cannot claim rights if he does not perform duties.", "Duties are superior to rights.", "Rights are superior to duties."],
-        correctAnswerIndex: 0, // a) Correlative
-        explanation: "For every right, there is a corresponding duty."
+        "id": "ch10-l2-q6",
+        "question": "The Justice Verma Committee (1999) on Fundamental Duties extensively documented existing legal provisions that implement Article 51A. Which of the following laws was cited as operationalizing the duty",
+        "options": ["The Protection of Civil Rights Act (1955).","The Representation of the People Act (1951).","The Prevention of Insults to National Honour Act (1971).","The Unlawful Activities (Prevention) Act (1967)."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Verma Committee noted that The Prevention of Insults to National Honour Act (1971) prevents disrespect to the Constitution of India, the National Flag, and the National Anthem, thereby legally enforcing Article 51A(a)."
     },
     {
-        question: "Unlike Fundamental Rights, which are available to all persons (citizens and foreigners), Fundamental Duties are confined to:",
-        options: ["Citizens only.", "Foreigners only.", "Both citizens and foreigners.", "Only voters."],
-        correctAnswerIndex: 0, // a) Citizens only
-        explanation: "Citizens only."
+        "id": "ch10-l2-q7",
+        "question": "Article 51A(g) directs citizens to protect and improve the natural environment, including forests, lakes, rivers, and wildlife. According to the Verma Committee, which of the following is an existing penal law that actually enforces this specific fundamental duty?",
+        "options": ["The Indian Forest Act (1927) and the Wildlife (Protection) Act (1972).","The Right to Information Act (2005).","The Forest Rights Act (2006).","The Land Acquisition Act (1894)."],
+        "correctAnswerIndex": 0,
+        "explanation": "The Verma Committee cited several acts, including the Wildlife (Protection) Act (1972) which prohibits trade in rare species, and the Forest (Conservation) Act (1980), which check indiscriminate deforestation. These effectively give legal teeth to the duty mentioned in 51A(g)."
     },
     {
-        question: "The inclusion of Fundamental Duties in the Constitution was criticized by some on the ground that:",
-        options: ["They are superfluous because they are already performed by people generally.", "Some duties are vague and difficult to understand (e.g., \"noble ideals\", \"scientific temper\").", "They are non-justiciable and hence toothless.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "All are valid criticisms."
+        "id": "ch10-l2-q8",
+        "question": "Assertion (A): The Fundamental Duties found in Part IVA are legally binding on all persons residing within the territory of India.\\nReason (R): Fundamental Rights, Directive Principles, and Fundamental Duties form a comprehensive code for all inhabitants—citizens and aliens alike—to ensure national integrity.\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true.","Both A and R are false."],
+        "correctAnswerIndex": 4,
+        "explanation": "Both statements are false. Unlike some Fundamental Rights (like Art 14 or 21) which apply to all persons, Fundamental Duties are expressly confined to CITIZENS ONLY and do not extend to foreigners. The very first line of Article 51A says:"
     },
     {
-        question: "The inclusion of Fundamental Duties aligns the Indian Constitution with the Constitutions of:",
-        options: ["Western democracies (USA, Canada, France, etc.).", "Socialist countries (USSR, Vietnam, etc.).", "Monarchies.", "Theocratic states."],
-        correctAnswerIndex: 1, // b) Socialist countries
-        explanation: "Socialist countries (Democratic constitutions usually don't have duties)."
+        "id": "ch10-l2-q9",
+        "question": "Which of the following Fundamental Duties specifically aims to eradicate practices like untouchability, casteism, and dowry through structural and social reform initiated by citizens?",
+        "options": ["Article 51A(a): To abide by the Constitution.","Article 51A(e): To promote harmony and the spirit of common brotherhood amongst all the people of India transcending religious, linguistic and regional or sectional diversities.","Article 51A(h): To develop scientific temper.","Article 51A(c): To uphold sovereignty and integrity."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 51A(e) appeals to the citizenry to promote harmony and brotherhood transcending religious, linguistic, and regional/sectional diversities. This implicitly calls for the eradication of entrenched prejudices like casteism and communalism to build a unified fraternity."
     },
     {
-        question: "Can a court refuse to issue a writ for the enforcement of a Fundamental Right if the petitioner has violated a Fundamental Duty?",
-        options: ["Yes, the court can refuse relief (Doctrine of Clean Hands).", "No, Fundamental Rights are absolute.", "No, Duties are non-justiciable.", "Yes, but only in case of Article 32."],
-        correctAnswerIndex: 0, // a) Clean Hands
-        explanation: "Yes, under the invocation of Art 51A (Ranganath Mishra case Logic / Clean Hands)."
+        "id": "ch10-l2-q10",
+        "question": "Examine the language of the Fundamental Duties. Critics argue that they suffer from a major linguistic defect which makes their legal enforcement practically impossible without further elaboration. What is this defect?",
+        "options": ["They are exclusively written in Sanskrit.","They use vague, ambiguous, and archaic terms (e.g.,",",",",",") that are difficult for an average citizen to define precisely.","They frequently contradict the Fundamental Rights explicitly.","They are too precise, leaving no room for judicial interpretation."],
+        "correctAnswerIndex": 1,
+        "explanation": "Critics note that some of the duties are vague, ambiguous, and difficult to be understood by the common man. Words like"
     },
     {
-        question: "Swaran Singh vs Verma Committee: The Swaran Singh Committee recommended a separate chapter on Fundamental Duties. It also suggested that:",
-        options: ["Failure to comply with duties should be punishable by law.", "Such punishment should not be questioned in any court.", "Duty to pay taxes should be a Fundamental Duty.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "All were recommended."
+        "id": "ch10-l2-q11",
+        "question": "Consider the duty under Article 51A(d):",
+        "options": ["Article 51A(d) repealed Article 23(2).","Article 51A(d) makes the State","Article 51A(d) places a moral/civic obligation on the citizen, which provides the philosophical and constitutional justification for the State to actually enact a law imposing compulsory service under Article 23(2).","Article 51A(d) applies only to the military, while Article 23(2) applies only to civilians."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 23(2) allows the State to impose compulsory national service (an exception to forced labor). Article 51A(d) creates the reciprocal duty for the citizen to render that service when called. They are complementary; the duty justifies the State"
     },
     {
-        question: "Which of the above recommendations (Q11) was accepted by the Congress Government and incorporated into the 42nd Amendment?",
-        options: ["Punishment for non-compliance.", "Bar on judicial review of punishment.", "Duty to pay taxes.", "None of the above."],
-        correctAnswerIndex: 3, // d) None
-        explanation: "None were accepted."
+        "id": "ch10-l2-q12",
+        "question": "The Verma Committee (1999) noted that the Representation of People Act (1951) acts as an enforcement mechanism for several Fundamental Duties. In what specific way does the RPA (1951) enforce the duties of promoting harmony and secularism?",
+        "options": ["By making voting mandatory for all citizens.","By providing for the disqualification of members of Parliament or state legislature for indulging in corrupt practice, including soliciting votes on the ground of religion or promoting enmity between different classes.","By reserving 33% of seats in Parliament for minorities.","By forcing all political parties to merge into a single national front."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Verma Committee observed that the RPA (1951) disqualifies MPs/MLAs for corrupt practices, which explicitly includes seeking votes on the grounds of religion or promoting enmity between classes. This legally enforces the duty in Article 51A(e)—promoting harmony and common brotherhood."
     },
     {
-        question: "The Verma Committee (1999) was set up to:",
-        options: ["Suggest new Fundamental Duties.", "Operationalize the suggestions to teach Fundamental Duties to citizens.", "Remove Fundamental Duties.", "Make Duties justiciable."],
-        correctAnswerIndex: 1, // b) Operationalize
-        explanation: "Operationalize suggestions to teach/implement."
+        "id": "ch10-l2-q13",
+        "question": "Article 51A(f) mandates the preservation of India",
+        "options": ["The Right to Information Act, 2005.","The Ancient Monuments and Archaeological Sites and Remains Act, 1958.","The Copyright Act, 1957.","The Special Marriage Act, 1954."],
+        "correctAnswerIndex": 1,
+        "explanation": "To give teeth to the duty of preserving the rich heritage of the country"
     },
     {
-        question: "The Verma Committee recommended that:",
-        options: ["January 3rd be observed as \"Fundamental Duties Day\".", "Duties should be taught in schools and colleges.", "Media should propagate duties.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "All were recommended."
+        "id": "ch10-l2-q14",
+        "question": "In the 86th Amendment Act (2002), Article 51A(k) was added, making it a duty to provide opportunities for education. This duty was added concurrently with which other significant constitutional changes?",
+        "options": ["The addition of Article 21A (Fundamental Right to Education) and the amendment of Article 45 (DPSP regarding early childhood care).","The repeal of Article 29 and 30 (Minority educational rights).","The introduction of the 10th Schedule (Anti-Defection Law).","The passing of the Right to Education (RTE) Act, 2009 simultaneously."],
+        "correctAnswerIndex": 0,
+        "explanation": "The 86th Amendment (2002) was a comprehensive package for education: It made elementary education a justiciable Fundamental Right (Art 21A), changed the DPSP in Art 45 (shifting focus to 0-6 years), and added the 11th Fundamental Duty (Art 51A(k)) for parents/guardians to provide opportunities."
     },
     {
-        question: "Specific Duties Analysis: \"To value and preserve the rich heritage of our composite culture.\" This duty (Article 51-A(f)) draws inspiration from:",
-        options: ["The ancient Indian tradition of \"Vasudhaiva Kutumbakam\".", "The secular fabric of the nation.", "The diversity of India.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "All concepts align."
+        "id": "ch10-l2-q15",
+        "question": "Which of the following Fundamental Duties was NOT part of the original Constitutional package added in 1976 during the Emergency?",
+        "options": ["To safeguard public property and to abjure violence.","To provide opportunities for education to a child or ward between the age of six and fourteen years.","To uphold and protect the sovereignty, unity and integrity of India.","To develop the scientific temper, humanism and the spirit of inquiry and reform."],
+        "correctAnswerIndex": 1,
+        "explanation": "The duty to provide educational opportunities (Article 51A(k)) was added much later, in 2002, by the 86th Constitutional Amendment Act. All the other options were part of the original 10 duties inserted in 1976 by the 42nd Amendment."
     },
     {
-        question: "\"To protect and improve the natural environment.\" This duty (Article 51-A(g)) imposes an obligation on:",
-        options: ["The State (under Article 48A).", "The Citizens (under Article 51-A(g)).", "Both the State and the Citizens.", "Only the Forest Department."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Both State (48A) and Citizens (51A-g)."
+        "id": "ch10-l2-q16",
+        "question": "Assertion (A): The Fundamental Duties serve as a reminder to the citizens that while enjoying their rights, they should also be conscious of duties they owe to their country, society, and fellow citizens.\\nReason (R): The Indian Constitution follows the Universal Declaration of Human Rights model exactly, treating rights and duties as legally symmetrical and equally enforceable without specific legislation.\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 2,
+        "explanation": "Assertion A is true (this is the philosophical basis described by the SC and textbooks). Reason R is false; rights and duties are NOT legally symmetrical in India. Rights (Part III) are directly enforceable and justiciable; Duties (Part IVA) are non-justiciable and require specific parliamentary legislation to be penalised."
     },
     {
-        question: "\"To develop the scientific temper, humanism and the spirit of inquiry and reform.\" This duty (Article 51-A(h)) is particularly significant in combating:",
-        options: ["Superstition and blind faith.", "Religious fundamentalism.", "Social evils.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "Combats all listed regressive practices."
+        "id": "ch10-l2-q17",
+        "question": "Which Fundamental Duty is often invoked by the Supreme Court when hearing Public Interest Litigations (PILs) regarding the failure of municipalities to clear garbage or prevent industrial pollution in rivers?",
+        "options": ["Article 51A(a): To respect the Constitution.","Article 51A(g): To protect and improve the natural environment.","Article 51A(c): To uphold sovereignty.","Article 51A(d): To defend the country."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 51A(g) ("
     },
     {
-        question: "\"To strive towards excellence in all spheres of individual and collective activity.\" This duty (Article 51-A(j)) aims at:",
-        options: ["Personal success only.", "Raising the nation to higher levels of endeavor and achievement.", "Economic growth only.", "Sports achievements only."],
-        correctAnswerIndex: 1, // b) Raising nation
-        explanation: "Raising the nation to higher levels of endeavor and achievement."
+        "id": "ch10-l2-q18",
+        "question": "According to H.R. Gokhale (former Law Minister), what was the primary political rationale for adding the chapter on Fundamental Duties during the Emergency in 1976?",
+        "options": ["To align the Constitution strictly with the United States Constitution.","Because in post-independence India, people laid absolute emphasis on rights while demonstrating a lack of respect for their civic duties and national institutions.","To automatically override all Fundamental Rights of the opposition parties.","To pave the way for a transition to a purely communist state."],
+        "correctAnswerIndex": 1,
+        "explanation": "H.R. Gokhale stated that post-independence, people laid all emphasis on rights but forgot their duties. The insertion of Part IVA was meant to remedy this imbalance and serve as a constant reminder that citizens must observe certain basic norms of democratic conduct."
     },
     {
-        question: "The duty to \"provide opportunities for education to his child or ward\" (Article 51-A(k)) was added to complement:",
-        options: ["Article 21-A (Right to Education).", "Article 45 (Early Childhood Care).", "Both (a) and (b).", "Neither."],
-        correctAnswerIndex: 0, // a) Article 21-A
-        explanation: "Article 21-A."
+        "id": "ch10-l2-q19",
+        "question": "In the context of protecting weaker sections, how does Article 51A(e) specifically address the status of women in society?",
+        "options": ["It mandates 33% reservation for women in Parliament.","It directs the State to provide equal pay for equal work.","It obligates citizens to",".","It makes the practice of dowry a capital offense."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 51A(e) explicitly enjoins citizens to promote harmony... AND"
     },
     {
-        question: "Comparative & Analytical: Which of the following is NOT a Fundamental Duty?",
-        options: ["To cast vote in elections.", "To pay taxes.", "To follow family planning.", "All of the above are not Fundamental Duties."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "None are FDs."
+        "id": "ch10-l2-q20",
+        "question": "Which political party heavily criticized the inclusion of Fundamental Duties in 1976, although they chose NOT to remove them when they came to power leading to the 44th Amendment in 1978?",
+        "options": ["The Indian National Congress","The Communist Party of India (Marxist)","The Janata Party","The Swatantra Party"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Janata Party strongly opposed the 42nd Amendment (1976) during the Emergency. However, when the Morarji Desai-led Janata government passed the 43rd and 44th Amendments to undo the Emergency excesses, they chose NOT to annul Part IVA, implicitly acknowledging the utility and harmlessness of the Fundamental Duties."
     },
     {
-        question: "The Japanese Constitution is one of the few democratic constitutions that contains a list of duties. One such duty is:",
-        options: ["To work.", "To vote.", "To speak truth.", "To meditate."],
-        correctAnswerIndex: 0, // a) To work
-        explanation: "To work."
+        "id": "ch10-l2-q21",
+        "question": "The duty to",
+        "options": ["The non-violent Independence movement led by Mahatma Gandhi.","Rampant communal riots, Naxalite violence, and destruction of public property during strikes and bandhs.","India","The need to ban the possession of all civilian firearms."],
+        "correctAnswerIndex": 1,
+        "explanation": "The mandate to"
     },
     {
-        question: "In the M.C. Mehta case (1988), the Supreme Court directed the Central Government to introduce compulsory teaching of ______ in all educational institutions, invoking Article 51-A(g).",
-        options: ["Yoga.", "Environment.", "Sanskrit.", "Moral Science."],
-        correctAnswerIndex: 1, // b) Environment
-        explanation: "Environment."
+        "id": "ch10-l2-q22",
+        "question": "Which of the following legal doctrines is NOT associated with the non-justiciable nature of Part IVA (Fundamental Duties)?",
+        "options": ["They cannot be enforced by the issuance of a Writ of Mandamus.","Their violation alone does not automatically constitute a criminal offense without a backing statute.","The Supreme Court can strike down any parliamentary law that attempts to enforce them.","The courts can use them as an interpretative tool to resolve ambiguities in statutes."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Supreme Court will NOT strike down a law attempting to enforce a duty. In fact, Parliament is absolutely free to enact laws to penalize the violation of duties (e.g., Flag Code, Wildlife Act). Statements A, B, and D are true characteristics of their non-justiciable nature."
     },
     {
-        question: "The \"Prevention of Insults to National Honour Act, 1971\" was enacted before the insertion of Fundamental Duties in 1976. This shows that:",
-        options: ["Duties existed in statutory form even before constitutional recognition.", "The Act was unconstitutional.", "The Act was retrospective.", "The Swaran Singh Committee merely codified existing laws."],
-        correctAnswerIndex: 0, // a) Existed in statutory form
-        explanation: "Duties existed in statutory form."
+        "id": "ch10-l2-q23",
+        "question": "Article 51A(h) urges the development of",
+        "options": ["Funding space exploration (ISRO).","Promoting superstitions, black magic, or irrational orthodox practices via state-sponsored education.","Establishing the National Research Foundation.","Encouraging students to debate historical events."],
+        "correctAnswerIndex": 1,
+        "explanation": "Promoting superstition or black magic directly contradicts the"
     },
     {
-        question: "Assertion (A): Fundamental Duties are not enforceable by writs. Reason (R): They are duties of citizens, not the State. Writs are issued against the State for violation of Rights.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Correct explanation."
+        "id": "ch10-l2-q24",
+        "question": "Consider the constitutional structure: Part III (Fundamental Rights), Part IV (Directive Principles), Part IVA (Fundamental Duties). What does the addition of Part IVA primarily signify regarding the maturation of the Indian constitutional state?",
+        "options": ["A shift from a democratic state to a totalitarian state.","A realization that the state","rights (FRs) must be balanced with the citizens","The complete failure of the Fundamental Rights framework.","An alignment with the capitalist ideologies of the Western bloc."],
+        "correctAnswerIndex": 1,
+        "explanation": "Part IVA was added to complete the constitutional framework. It signifies that rights are not absolute but come with a reciprocal responsibility; a healthy democracy requires citizens not just to claim rights from the state (FRs) or demand welfare (DPSPs), but to actively contribute to national well-being and social harmony."
     },
     {
-        question: "The phrase \"Composite Culture\" in Article 51-A(f) refers to:",
-        options: ["Hindu Culture only.", "The synthesis of various cultural streams that have enriched India.", "Western Culture.", "Vedic Culture."],
-        correctAnswerIndex: 1, // b) Synthesis
-        explanation: "Synthesis of various cultural streams."
+        "id": "ch10-l2-q25",
+        "question": "The Verma Committee observed that the Unlawful Activities (Prevention) Act, 1967 (UAPA) provides teeth to which specific Fundamental Duty?",
+        "options": ["Article 51A(f) (composite culture).","Article 51A(c) (uphold sovereignty, unity and integrity of India).","Article 51A(h) (scientific temper).","Article 51A(j) (excellence in all spheres)."],
+        "correctAnswerIndex": 1,
+        "explanation": "The UAPA (1967) was specifically enacted to combat organizations and individuals involved in activities that threaten the sovereignty and territorial integrity of India. Thus, it serves as the strict penal enforcement of the duty mentioned in Article 51A(c)."
     },
     {
-        question: "\"National Service\" under Article 51-A(d) implies:",
-        options: ["Joining the Army.", "Joining the Civil Services.", "Rendering service when called upon during emergencies or war.", "Social work."],
-        correctAnswerIndex: 2, // c) When called upon
-        explanation: "When called upon during emergencies/war."
+        "id": "ch10-l2-q26",
+        "question": "Which of the following is NOT a Fundamental Duty listed in the Constitution of India?",
+        "options": ["To safeguard public property.","To promote international peace and security.","To defend the country when called upon.","To develop humanism."],
+        "correctAnswerIndex": 1,
+        "explanation": ""
     },
     {
-        question: "The Fundamental Duties help the courts in:",
-        options: ["Defining the scope of Fundamental Rights.", "Determining the constitutional validity of a law.", "Interpreting the Preamble.", "Appointing judges."],
-        correctAnswerIndex: 1, // b) Constitutional validity
-        explanation: "Determining constitutional validity (reasonable restrictions)."
+        "id": "ch10-l2-q27",
+        "question": "The duty",
+        "options": ["Only military expenditure.","Only space exploration.","Arts, sports, science, international competitions, and recognizing citizens with awards like Bharat Ratna or Padma Shri.","Only religious propagation."],
+        "correctAnswerIndex": 2,
+        "explanation": "Because citizens have a duty to strive for excellence so the nation rises to"
     },
     {
-        question: "If a law seeks to give effect to a Fundamental Duty, the court may consider such law to be:",
-        options: ["\"Reasonable\" in relation to Article 14 or 19.", "Unconstitutional.", "Void.", "Mandatory."],
-        correctAnswerIndex: 0, // a) Reasonable
-        explanation: "Reasonable."
+        "id": "ch10-l2-q28",
+        "question": "Assertion (A): The Fundamental Duties were incorporated during the Emergency to suppress the democratic protests led by Jayaprakash Narayan.\\nReason (R): The Swaran Singh Committee argued that citizens were abusing their freedoms, necessitating a constitutional reminder of their duties to the nation.\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both are historically true. The Indira Gandhi government, facing the massive JP movement (which they termed anti-national/anarchic), used the internal Emergency to set up the Swaran Singh Committee. The explicit rationale was to remind protesting citizens that their democratic rights were subject to their duties to maintain national order and sovereignty."
     },
     {
-        question: "The \"Flag Code of India, 2002\" governs the display of the National Flag. It is:",
-        options: ["A statute (Act of Parliament).", "An executive instruction/code combined with statutory provisions.", "A Constitutional Amendment.", "A Judicial Order."],
-        correctAnswerIndex: 1, // b) Executive instruction
-        explanation: "Executive code with statutory backing (Emblems Act)."
+        "id": "ch10-l2-q29",
+        "question": "Does the Constitution mandate the State to proactively *educate* citizens about their Fundamental Duties?",
+        "options": ["Yes, Article 51A contains an explicit clause directing schools to teach it.","No, the Constitution is silent on the mechanism; but the Justice Verma Committee strongly recommended making citizens aware of these duties through education and media.","Yes, the 86th Amendment made it a Fundamental Right to be taught Duties.","No, and the Supreme Court has barred the State from spending money on teaching Duties."],
+        "correctAnswerIndex": 1,
+        "explanation": "The text of Article 51A merely lists the duties. It does not contain a specific mandate on HOW to enforce or teach them. However, judicial activism and committees like the Verma Committee (1999) strongly recommended incorporating them in school curricula and widespread media campaigns to operationalize them."
     },
     {
-        question: "Which Fundamental Duty is often cited in cases related to \"Cow Slaughter\"?",
-        options: ["51-A(g) - Compassion for living creatures.", "51-A(f) - Heritage.", "51-A(e) - Harmony.", "51-A(i) - Public Property."],
-        correctAnswerIndex: 0, // a) 51-A(g)
-        explanation: "Compassion for living creatures."
+        "id": "ch10-l2-q30",
+        "question": "Which feature makes the Indian Constitution",
+        "options": ["Unlike India, Western democracies rely strictly on unwritten duties and refuse to enact penal laws.","Major Western democratic constitutions generally do not contain an exhaustive codified list of duties of citizens, relying instead on statutory laws and civic traditions.","Western democracies strictly place duties in their Preambles.","Western democracies allow foreigners to be bound by civic duties, unlike India."],
+        "correctAnswerIndex": 1,
+        "explanation": "As noted in Laxmikanth, none of the Constitutions of major democratic countries like USA, Canada, France, Germany, Australia, etc. specifically contain a list of duties of citizens. They focus on rights, leaving duties to be derived from ordinary laws. The socialist countries (like the USSR) were the primary models for including a specific chapter on duties."
     }
 ];
 
-// Level 3: The UPSC Simulation 2026 (Integrated & Current Affairs)
 const LEVEL_3_QUESTIONS = [
     {
-        question: "Theme: Legal Enforcement & Justiciability (Recent Trends)\nIn 2024, the Supreme Court heard a PIL seeking to make Fundamental Duties mandatory. The Court's observation reiterated the Ranganath Mishra Judgment (2003), stating that:",
-        options: ["Fundamental Duties should be enforced by a new law immediately.", "Legal and social sanctions can be used to create a comprehensive code for duties, but they remain non-justiciable under the Constitution unless Parliament legislates.", "Duties are superior to Rights and must be enforced by Police.", "Duties are only for government servants."],
-        correctAnswerIndex: 1, // b) Legal and social sanctions...
-        explanation: "Non-justiciable unless Parliament legislates."
+        "id": "ch10-l3-q1",
+        "question": "Consider the interplay between Article 51A (Fundamental Duties) and Article 21 (Right to Life) as established by the Supreme Court in the landmark M.C. Mehta vs. Union of India (Kanpur Tanneries) case. How does the Court utilize Part IVA in environmental jurisprudence?",
+        "options": ["The Court ruled that Article 51A(g) is a direct, enforceable command that overrides Article 21, allowing immediate closure of polluting industries without due process.","The Court interpreted the citizen","to protect and improve the natural environment","The Court declared that because duties are non-justiciable, they cannot be used to interpret Fundamental Rights like Article 21.","The Court held that Article 51A only applies to the State"],
+        "correctAnswerIndex": 1,
+        "explanation": "In cases like M.C. Mehta, the Supreme Court masterfully linked Part IVA with Part III. It ruled that the duty of citizens to protect the environment (51A(g)) imposes a concomitant obligation on the State to enforce this protection, thereby reading the right to a healthy environment directly into the Right to Life (Article 21)."
     },
     {
-        question: "The \"Prevention of Damage to Public Property Act, 1984\" implements Article 51-A(i). In the context of the Farmers' Protests and CAProtests, the Supreme Court laid down guidelines for:",
-        options: ["Recovering damages from protesters who destroy public property (apportioning liability).", "Making leaders of the protest personally liable.", "Banning all protests that cause damage.", "Both (a) and (b)."],
-        correctAnswerIndex: 3, // d) Both
-        explanation: "Liability of protesters and leaders."
+        "id": "ch10-l3-q2",
+        "question": "In the AIIMS Students Union vs. AIIMS (2001) case, a 3-judge bench of the Supreme Court made a profound observation regarding the constitutional status of Fundamental Duties compared to Fundamental Rights. What was the crux of this observation?",
+        "options": ["Fundamental Duties must always yield to Fundamental Rights in cases of irreconcilable conflict.","Fundamental Duties are not legally enforceable, making Rights the singular pillar of the Constitution.","Fundamental Duties are","in Part IVA, and though not enforceable by a writ of mandamus, they provide vital guidance for interpreting the Constitution, balancing rights, and cannot be ignored by the courts.","Fundamental Duties are superior to Fundamental Rights and can be used to suspend Rights during national emergencies."],
+        "correctAnswerIndex": 2,
+        "explanation": "The SC categorically stated that though duties are not explicitly enforceable by writs (unlike Part III), they are a vital aid for constitutional interpretation. The court emphasized that Rights and Duties are fundamentally balanced; one cannot claim absolute rights without acknowledging the reciprocal duties to the nation."
     },
     {
-        question: "The Justice J.S. Verma Committee (1999) identified existing legal provisions for duties. Which of the following duties is NOT backed by a specific criminal statute in India?",
-        options: ["To respect the National Flag (Prevention of Insults to National Honour Act).", "To protect wildlife (Wildlife Protection Act).", "To develop scientific temper and spirit of inquiry.", "To renounce practices derogatory to the dignity of women (IPC/BNS)."],
-        correctAnswerIndex: 2, // c) Scientific temper
-        explanation: "No specific statute for Scientific Temper (apart from local superstition laws)."
+        "id": "ch10-l3-q3",
+        "question": "Examine the National Anthem controversy in Shyam Narayan Chouksey v. Union of India (2016-2018). The Supreme Court initially mandated standing for the National Anthem in cinemas under Article 51A(a). However, it later modified this order. What is the current, settled legal position deriving from this case regarding the *enforceability* of 51A(a) through judicial edict alone?",
+        "options": ["The Supreme Court maintained the strict mandate, ruling that Article 51A(a) empowers the Court to create new criminal offenses for disrespect.","The Court modified its stance, ruling that while respecting the Anthem is a duty, compelling citizens to stand in cinemas via a judicial order overreaches; enforcement requires specific executive/legislative action (like amending the Prevention of Insults to National Honour Act).","The Court ruled the National Anthem is entirely optional and Article 51A(a) is void.","The Court held that only government officials are bound by Article 51A(a)."],
+        "correctAnswerIndex": 1,
+        "explanation": "The SC initially (2016) ordered mandatory playing and standing in cinemas relying heavily on Art 51A(a). However, in 2018, it modified the order, recognizing that"
     },
     {
-        question: "Theme: Environment & Climate Duty (Art 51-A(g))\nThe \"Great Indian Bustard Case\" (2024) linked the Right to be free from adverse effects of climate change (Article 21) with the Fundamental Duty (Article 51-A(g)). This implies that:",
-        options: ["Citizens have a duty to not oppose renewable energy projects (like solar power lines).", "The State's duty to protect the environment (Article 48A) and Citizen's duty (51-A(g)) together create a \"Public Trust\" obligation on the government.", "The duty is only for citizens, not corporations.", "Article 51-A(g) overrides the right to development."],
-        correctAnswerIndex: 1, // b) Public Trust
-        explanation: "Creates Public Trust obligation."
+        "id": "ch10-l3-q4",
+        "question": "Assertion (A): The Constitution allows Parliament to enact a law that penalizes the non-performance of ANY of the eleven Fundamental Duties.\\nReason (R): The Swaran Singh Committee’s recommendation giving Parliament absolute immunity from judicial review for laws penalizing the breach of Fundamental Duties was rejected by the 42nd Amendment.\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true.","Both A and R are false."],
+        "correctAnswerIndex": 1,
+        "explanation": "Both statements are true, but R does not fully explain A. Parliament CAN enact a law penalizing non-performance (Assertion A is true, e.g., Flag Code). The Swaran Singh committee DID recommend judicial immunity for such laws, which the government rejected (Reason R is true). However, the reason Parliament can penalize is based on its inherent sovereign legislative power, not merely the rejection of the immunity clause."
     },
     {
-        question: "\"Carbon Footprint\" and Individual Duty: Can a court issue a writ of mandamus against a private citizen for failing to protect the environment (Article 51-A(g))?",
-        options: ["Yes, under the Polluter Pays Principle.", "No, writs are generally issued against the State; however, courts can enforce statutory duties (like waste management rules) against individuals.", "Yes, Fundamental Duties are directly enforceable.", "No, environmental protection is only the State's job."],
-        correctAnswerIndex: 1, // b) No writs against private individuals generally
-        explanation: "Writs usually against State, but statutory duties enforceable."
+        "id": "ch10-l3-q5",
+        "question": "Consider Article 51A(b):",
+        "options": ["It conflicts directly with the Right to Equality under Article 14.","The","is not a legally defined event in the Constitution.","The phrase","is highly subjective, politically malleable, and lacks a definitive, codified consensus, making it nearly impossible to translate into precise penal statutes.","It requires citizens to actively join political parties."],
+        "correctAnswerIndex": 2,
+        "explanation": "This highlights the primary criticism of Part IVA. Many duties (like 51A(b)) are moral precepts woven in poetic but legally vague language. What constitutes a"
     },
     {
-        question: "Theme: Scientific Temper & Education (Art 51-A(h), (k))\nThe \"Anti-Superstition Laws\" (e.g., in Maharashtra, Karnataka) are statutory implementations of Article 51-A(h) (Scientific Temper). A challenge to these laws often cites:",
-        options: ["Article 25 (Right to Religion and rituals).", "Article 26 (Right of denominations to manage affairs).", "Article 29 (Right to conserve culture).", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "Challenges cite 25, 26, 29."
+        "id": "ch10-l3-q6",
+        "question": "Article 51A(f) mandates citizens",
+        "options": ["They are contradictory; Article 51A(f) seeks to homogenize culture while Articles 29/30 seek to isolate minorities.","They are complementary; while Articles 29/30 protect specific minority scripts/cultures as rights, Article 51A(f) places a duty on ALL citizens to value this resulting diverse mosaic (the composite whole) as a shared national heritage.","Article 51A(f) supersedes Articles 29 and 30 in cases regarding educational institutions.","The Supreme Court has ruled that","only refers to the majority religion"],
+        "correctAnswerIndex": 1,
+        "explanation": ""
     },
     {
-        question: "The National Education Policy (NEP) 2020 emphasizes \"Constitutional Values\". This aligns with Article 51-A(k) (Education opportunity) and 51-A(a) (Respect ideals). Critics argue that the \"saffronization\" allegation conflicts with the duty to:",
-        options: ["Cherish and follow noble ideals of freedom struggle (Secularism).", "Develop scientific temper.", "Preserve composite culture.", "All of the above are grounds of debate."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All are debate grounds."
+        "id": "ch10-l3-q7",
+        "question": "In the context of the Swaran Singh Committee recommendations, what was the underlying political ideology that drove the Congress government (during the Emergency) to feel the absolute necessity of adding Part IVA?",
+        "options": ["A shift toward classical laissez-faire capitalism where the State minimizes its role.","A desire to strictly emulate the unwritten constitutional conventions of the United Kingdom.","The belief, largely inspired by the socialist Soviet model, that the State was facing an existential threat from citizens asserting","democratic rights without acknowledging their socio-political obligations to the State","A requirement stipulated by the United Nations to receive international aid."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Emergency was characterized by extreme state centralization and suspension of civil liberties. The Indira Gandhi government, facing massive protests, felt that citizens were treating rights as"
     },
     {
-        question: "Theme: Composite Culture & Heritage (Art 51-A(f))\nThe Archaeological Survey of India (ASI) excavations (e.g., Rakhigarhi, Gyanvapi) are often debated. The Fundamental Duty to \"value and preserve the rich heritage of our composite culture\" (51-A(f)):",
-        options: ["Mandates the restoration of all ancient temples.", "Supports the \"Places of Worship Act, 1991\" which freezes the status of religious places to preserve the \"composite\" character as it existed on Aug 15, 1947.", "Applies only to Vedic culture.", "Is irrelevant to legal disputes."],
-        correctAnswerIndex: 1, // b) Supports Places of Worship Act
-        explanation: "Supports Places of Worship Act and composite character."
+        "id": "ch10-l3-q8",
+        "question": "Which of the following is a direct, practical consequence of the non-justiciable nature of Fundamental Duties, as interpreted by the judiciary?",
+        "options": ["If a citizen flagrantly violates a Fundamental Duty, they automatically lose their citizenship.","A citizen cannot seek a writ of mandamus from the Supreme Court under Article 32 to compel another citizen or the State to perform a Fundamental Duty.","The Parliament is constitutionally barred from enacting any laws that relate to the subjects mentioned in Part IVA.","The President can issue an ordinance to enforce duties without Parliamentary approval."],
+        "correctAnswerIndex": 1,
+        "explanation": "Because they are non-justiciable (like Directive Principles), they lack direct legal enforceability through the courts. Therefore, you cannot approach the Supreme Court strictly asking for a writ (like Mandamus) to force a citizen to, say,"
     },
     {
-        question: "\"Composite Culture\" was interpreted by the Supreme Court in the Ismail Faruqui case (Ayodhya, 1994) to mean:",
-        options: ["A culture where all religions have equal right to propagate.", "A synthesis of Sanskriti and Tehzeeb, reflecting the secular ethos.", "A culture dominated by the majority.", "A culture defined by the State."],
-        correctAnswerIndex: 1, // b) Synthesis
-        explanation: "Synthesis reflecting secular ethos."
+        "id": "ch10-l3-q9",
+        "question": "The duty to",
+        "options": ["He vehemently opposed any mention of duties, stating Indians possessed inherent civic sense.","He argued that explicit duties were only necessary for marginalized communities.","He believed duties were implicitly woven into the fabric of the rights themselves and enforcing explicit duties would dilute the absolute nature of the Fundamental Rights being granted.","He wanted duties to override all Fundamental Rights from the inception."],
+        "correctAnswerIndex": 2,
+        "explanation": "Ambedkar and the framers felt that rights intrinsically carry correlative duties. To explicitly codify strong duties (especially penal ones) within the rights chapter would give the State a dangerous tool to arbitrarily restrict those crucial foundational rights. They preferred leaving civic obligations to ordinary law."
     },
     {
-        question: "Theme: Sovereignty & Integrity (Art 51-A(c))\nThe \"Unlawful Activities (Prevention) Act\" (UAPA) primarily enforces the duty to \"uphold and protect the sovereignty, unity and integrity of India.\" A person can be designated a \"terrorist\" under UAPA if they:",
-        options: ["Advocate the secession of any part of India (violating 51-A(c)).", "Disrespect the National Flag (violating 51-A(a)).", "Fail to vote (violating civic duty).", "Criticize the government."],
-        correctAnswerIndex: 0, // a) Secession
-        explanation: "Advocating secession violates 51-A(c) and UAPA."
+        "id": "ch10-l3-q10",
+        "question": "Examine the 86th Amendment Act of 2002. It altered Part III, Part IV, and Part IVA simultaneously. Which of the following correctly outlines this trifecta of changes regarding education?",
+        "options": ["Art 21A (Right for 0-6 years); Art 45 (Duty for 6-14 years); Art 51A(k)(DPSP for universities).","Art 21A (Right for 6-14 years); Art 45 (DPSP for 0-6 years); Art 51A(k) (Parent","Art 21A (Parent","Art 21A (DPSP for universities); Art 45 (Parent"],
+        "correctAnswerIndex": 1,
+        "explanation": "The trifecta: 1. Part III: Inserted Art 21A (Fundamental Right to free/compulsory education for children aged 6 to 14). 2. Part IV: Substituted Art 45 (State DPSP to provide early childhood care up to age 6). 3. Part IVA: Added Art 51A(k) (Fundamental Duty of the parent/guardian to provide educational opportunities to their child aged 6 to 14)."
     },
     {
-        question: "\"Sedition\" (Section 124A IPC/BNS) vs Duty to Respect Institutions. The Law Commission (2023) recommended retaining Sedition to protect:",
-        options: ["The Government established by law.", "The Unity and Integrity of India (Article 51-A(c)).", "The Image of the Prime Minister.", "The Directive Principles."],
-        correctAnswerIndex: 1, // b) Unity and Integrity
-        explanation: "Unity and Integrity of India."
+        "id": "ch10-l3-q11",
+        "question": "In the Bijoe Emmanuel vs. State of Kerala (1986) case regarding students belonging to the Jehovah",
+        "options": ["The Court ruled that the duty under 51A(a) to respect the National Anthem automatically overrides religious freedoms under Article 25, compelling the students to sing.","The Court held that Article 51A(a) was unconstitutional as it violated the basic structure.","The Court ruled that standing respectfully during the Anthem fulfills the duty to","under 51A(a) and the Prevention of Insults to National Honour Act; forcing them to sing against their sincerely held religious beliefs violates Article 19(1)(a) and Article 25.","The Court expelled the students, stating that duties apply equally to children without exception."],
+        "correctAnswerIndex": 2,
+        "explanation": "A landmark judgment. The SC ruled that the children (who stood respectfully in silence but refused to sing due to deep religious convictions) did not commit any offense under the 1971 Act, nor did they violate the duty under 51A(a). The Court upheld their Right to Freedom of Speech (to remain silent) and Freedom of Religion (Art 25), proving that duties do not extinguish deeply held constitutional rights when respect is otherwise demonstrated."
     },
     {
-        question: "Theme: Nationalism vs Constitutionalism (Art 51-A(a))\nIn the National Anthem Case (Bijoe Emmanuel), the Supreme Court held that expulsion of Jehovah's Witness children for not singing the anthem violated Article 19(1)(a) and 25. How did the Court interpret Article 51-A(a)?",
-        options: ["It held that the duty to \"respect\" the anthem does not compel one to \"sing\" it, provided they stand respectfully.", "It held that Article 51-A(a) makes singing mandatory for all citizens.", "It held that Article 51-A cannot override Article 25.", "Both (a) and (c)."],
-        correctAnswerIndex: 0, // a) Respect != Sing
-        explanation: "Respect means standing, not necessarily singing."
+        "id": "ch10-l3-q12",
+        "question": "Consider the Verma Committee (1999) observation regarding the enforcement of the duty to",
+        "options": ["Filing a direct writ of Mandamus under Article 32 citing only Article 51A(g).","Invoking the original jurisdiction of the Supreme Court under Article 131.","Utilizing Public Interest Litigation (PIL) under Article 32/226 to seek enforcement of Article 21, supplemented conceptually by Article 51A(g).","Filing a private criminal complaint under the Indian Penal Code for treason."],
+        "correctAnswerIndex": 2,
+        "explanation": "Because duties (51A) are non-justiciable, a citizen cannot file a writ citing ONLY a duty. The most powerful tool has been the PIL. Activists (like M.C. Mehta) file PILs alleging a violation of the Right to Life (Art 21) due to pollution, and courts use the State"
     },
     {
-        question: "The \"Cinema Hall Anthem Order\" (2016) by the Supreme Court (later modified) relied on Article 51-A(a). The modification in 2018 stated that:",
-        options: ["Playing the anthem is mandatory in all cinema halls.", "Playing the anthem is optional/directory, not mandatory.", "People need not stand up if they are eating.", "Foreigners must also stand."],
-        correctAnswerIndex: 1, // b) Optional/directory
-        explanation: "Made optional."
+        "id": "ch10-l3-q13",
+        "question": "Article 51A(e) directs citizens to",
+        "options": ["The Dowry Prohibition Act, 1961.","The Commission of Sati (Prevention) Act, 1987.","The Protection of Women from Domestic Violence Act, 2005.","The Hindu Succession (Amendment) Act, 2005."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Commission of Sati (Prevention) Act (1987) was passed to strictly criminalize the glorification and practice of Sati. The constitutional validity and moral imperative for such severe legislation against a claimed"
     },
     {
-        question: "Theme: Women & Dignity (Art 51-A(e))\nThe \"Marital Rape Exception\" debate involves Article 51-A(e) (Renounce practices derogatory to dignity of women). Petitioners argue that:",
-        options: ["The exception is a \"practice\" that treats women as property, derogatory to their dignity.", "Fundamental Duties can be used to interpret Fundamental Rights (Article 21 - Dignity).", "The State has a duty to remove this exception.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "All arguments used."
+        "id": "ch10-l3-q14",
+        "question": "Assertion (A): The Fundamental Duties were heavily inspired by the socialist constitutions, particularly that of the erstwhile USSR.\\nReason (R): Socialist constitutions traditionally emphasize that the citizen",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. Indira Gandhi"
     },
     {
-        question: "\"Triple Talaq\" was struck down in Shayara Bano case (2017). Justice Kurian Joseph cited Article 51-A(e) to state that:",
-        options: ["Practices derogatory to women cannot be protected as \"Essential Religious Practices\" under Article 25.", "Personal laws are not subject to Fundamental Duties.", "Triple Talaq is good for social harmony.", "Parliament must legislate."],
-        correctAnswerIndex: 0, // a) Not ERP
-        explanation: "Practices derogatory to women cannot be ERP."
+        "id": "ch10-l3-q15",
+        "question": "If Parliament enacts a law compelling all citizens between the ages of 18 and 21 to undergo mandatory military training, citing Article 51A(d) (",
+        "options": ["The law would be struck down immediately as Article 51A is non-justiciable.","The State would defend it by stating that Article 51A(d) constitutes a","on Article 19 freedoms and perfectly aligns with the explicit exception in Article 23(2) allowing compulsory service for public purposes.","The State would argue that the Military Act automatically suspends Part III of the Constitution.","The State would claim that the President has absolute decree power over 18-21 year olds."],
+        "correctAnswerIndex": 1,
+        "explanation": "A law enforcing a duty is constitutional. Article 23(2) explicitly allows the state to impose compulsory service for public purposes. Furthermore, courts use duties to determine"
     },
     {
-        question: "Assertion (A): The Fundamental Duties are not self-executory. Reason (R): A law is required for their enforcement; they cannot be enforced by writs directly against citizens.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Correct explanation."
+        "id": "ch10-l3-q16",
+        "question": "The duty to",
+        "options": ["Article 14 (Right to Equality).","Article 21 (Right to Life).","Article 25 (Right to freedom of religion and free profession, practice and propagation of religion).","Article 32 (Constitutional Remedies)."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 25 grants the freedom to practice and propagate religion. However, when"
     },
     {
-        question: "Assertion (A): Fundamental Duties help in determining the constitutionality of a law. Reason (R): If a law promotes a Fundamental Duty, it is considered \"reasonable\" under Article 14 or 19.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Correct explanation."
+        "id": "ch10-l3-q17",
+        "question": "Which feature of the Fundamental Duties structurally differentiates them the most from the Directive Principles of State Policy?",
+        "options": ["DPSPs are legally enforceable; Duties are not.","DPSPs are addressed to the State (executive/legislature) guiding governance; Duties are addressed directly to the individual citizens prescribing behavioral norms.","DPSPs can amend the Constitution; Duties cannot.","DPSPs were added by amendment; Duties were in the original constitution."],
+        "correctAnswerIndex": 1,
+        "explanation": "The primary structural difference is the target audience. DPSPs (Part IV) instruct the STATE on what policies to pursue for a welfare society. Fundamental Duties (Part IVA) instruct the CITIZEN on their obligations to the nation and society."
     },
     {
-        question: "Theme: Miscellaneous\nWhich of the following committees was specifically set up to \"operationalize\" Fundamental Duties?",
-        options: ["Swaran Singh Committee (1976).", "Verma Committee (1999).", "Venkatachalam Commission (2002).", "Punchhi Commission (2007)."],
-        correctAnswerIndex: 1, // b) Verma Committee
-        explanation: "Verma Committee."
+        "id": "ch10-l3-q18",
+        "question": "The Swaran Singh Committee made several radical recommendations that the Congress government ultimately rejected. Which of the following rejected recommendations would have fundamentally altered the power dynamic between the Judiciary and the Parliament regarding Fundamental Rights?",
+        "options": ["The recommendation to abolish the Supreme Court entirely.","The recommendation that any law imposing a penalty for violating a Fundamental Duty could NOT be questioned in any court on the ground of infringement of any Fundamental Right.","The recommendation to make the President the absolute head of the Judiciary.","The recommendation to allow states to write their own Fundamental Duties."],
+        "correctAnswerIndex": 1,
+        "explanation": "Had this recommendation been accepted, Parliament could have passed an extreme law (e.g., jailing someone indefinitely without trial for"
     },
     {
-        question: "The \"Right to Education Act, 2009\" imposes a duty on parents to send children to school. This statutory duty mirrors the Constitutional Duty under:",
-        options: ["Article 51-A(k).", "Article 21-A.", "Article 45.", "Article 46."],
-        correctAnswerIndex: 0, // a) 51-A(k)
-        explanation: "Article 51-A(k)."
+        "id": "ch10-l3-q19",
+        "question": "Consider the constitutional amendment process. If the current Government wished to add a 12th Fundamental Duty to Article 51A (e.g.,",
+        "options": ["A simple majority in both houses.","A special majority of Parliament (2/3rd members present and voting + absolute majority of the total membership) in both houses.","A special majority of Parliament AND ratification by half of the State Legislatures.","Only an executive order by the President is required."],
+        "correctAnswerIndex": 1,
+        "explanation": "Amending Part IVA (Fundamental Duties) requires a Special Majority under Article 368. It DOES NOT require ratification by half the states, because it does not affect the federal structure of the Constitution (like the election of the President, Supreme Court powers, or the 7th Schedule lists would)."
     },
     {
-        question: "\"Tax Evasion\" is often linked to the lack of a Fundamental Duty to pay taxes. The Swaran Singh Committee recommended it, but it was rejected because:",
-        options: ["It was considered too harsh.", "Most Indians were too poor to pay taxes.", "Sufficient laws (Income Tax Act) already existed.", "It would violate Article 19(1)(g)."],
-        correctAnswerIndex: 2, // c) Sufficient laws
-        explanation: "Sufficient laws existed (fear of harassment was also a reason, but C is the standard answer)."
-    },
-    {
-        question: "In the Hinsa Virodhak Sangh vs Mirzapur Moti Kuresh Jamat (2008) case regarding closure of slaughterhouses during Jain festivals, the Supreme Court relied on:",
-        options: ["Article 51-A(g) (Compassion for living creatures).", "Article 19(1)(g) (Right to trade).", "Article 25 (Religious freedom).", "Article 48 (Cow slaughter)."],
-        correctAnswerIndex: 0, // a) 51-A(g)
-        explanation: "Relied on 51-A(g)."
-    },
-    {
-        question: "The \"Flag Code of India\" was amended in 2002 to allow citizens to hoist the flag on all days. This right was recognized as part of:",
-        options: ["Article 19(1)(a) (Freedom of Expression) read with Article 51-A(a) (Duty to respect).", "Article 21.", "Article 14.", "Statutory right only."],
-        correctAnswerIndex: 0, // a) 19(1)(a)
-        explanation: "19(1)(a) read with 51-A(a)."
-    },
-    {
-        question: "The \"Pledge\" recited in schools (\"India is my country...\") reflects which Fundamental Duties?",
-        options: ["51-A(a) (Constitution), (c) (Sovereignty), (e) (Brotherhood).", "51-A(k) (Education).", "51-A(g) (Environment).", "All of the above."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Reflects brotherhood, sovereignty, etc."
-    },
-    {
-        question: "\"Animal Welfare Board of India\" is a statutory body. Its functioning is guided by:",
-        options: ["Article 51-A(g).", "Article 48.", "Article 48A.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Guided by all."
-    },
-    {
-        question: "The duty to \"defend the country\" (Article 51-A(d)) implies:",
-        options: ["Conscription (Compulsory military service) is constitutional if Parliament enacts a law.", "Every citizen is automatically a soldier.", "Citizens can keep private armies.", "Citizens must pay a defense tax."],
-        correctAnswerIndex: 0, // a) Conscription is constitutional
-        explanation: "Conscription is constitutional."
-    },
-    {
-        question: "Which Fundamental Duty is unique in that it was added much later than the others?",
-        options: ["51-A(a)", "51-A(k)", "51-A(g)", "51-A(e)"],
-        correctAnswerIndex: 1, // b) 51-A(k)
-        explanation: "51-A(k) added in 2002."
-    },
-    {
-        question: "The concept of \"Constitutional Morality\" emphasized by the Supreme Court includes adherence to:",
-        options: ["Fundamental Rights only.", "Fundamental Duties only.", "The core values of the Constitution including Rights, Duties, and Preamble.", "Social morality."],
-        correctAnswerIndex: 2, // c) Core values
-        explanation: "Core values including Rights and Duties."
-    },
-    {
-        question: "Can a foreigner be punished for disrespecting the Indian National Flag in India?",
-        options: ["Yes, under the Prevention of Insults to National Honour Act (which applies to \"whoever\" within India).", "No, Fundamental Duties apply only to citizens.", "No, they have diplomatic immunity.", "Yes, but only deported."],
-        correctAnswerIndex: 0, // a) Yes
-        explanation: "Act applies to 'whoever' within India."
-    },
-    {
-        question: "The \"Scientific Temper\" duty (51-A(h)) is often cited against:",
-        options: ["Astrology courses in universities.", "Witch-hunting.", "Magic remedies advertisements.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Cited against all."
-    },
-    {
-        question: "In the Ranganath Mishra case, the Supreme Court directed the Centre to:",
-        options: ["Enact a comprehensive law for duties.", "Implement the Verma Committee recommendations to spread awareness.", "Make voting mandatory.", "Amend the Constitution to add more duties."],
-        correctAnswerIndex: 1, // b) Implement Verma Committee
-        explanation: "Implement Verma Committee recommendations."
+        "id": "ch10-l3-q20",
+        "question": "In constitutional philosophy, What is the concept of",
+        "options": ["It is the belief that a Republic must have an elected monarch; Part IVA ensures the President","It emphasizes that true liberty is not just freedom from state interference (negative rights), but requires citizens to actively participate in public life and uphold civic virtues/duties for the common good; Part IVA codifies these virtues.","It is the doctrine that only taxpayers should vote; Part IVA enforces tax collection.","It advocates for the complete subjugation of the individual to the state apparatus."],
+        "correctAnswerIndex": 1,
+        "explanation": "Civic Republicanism (contrasting with strict liberalism) argues that a healthy democracy survives only when citizens possess"
     }
 ];
 
 export const CHAPTER_10_LEVELS: ChapterLevelData = {
-    topicId: 10,
-    levels: [
-        {
-            levelId: 1,
-            title: "The Text-Book Stickler",
-            description: "Strictly Chapter 10: Direct Recall.",
-            questions: LEVEL_1_QUESTIONS.map((q, i) => ({ ...q, id: `ch10-l1-q${i + 1}` }))
-        },
-        {
-            levelId: 2,
-            title: "The Conceptual Bridge",
-            description: "Applied Knowledge & Analysis.",
-            questions: LEVEL_2_QUESTIONS.map((q, i) => ({ ...q, id: `ch10-l2-q${i + 1}` }))
-        },
-        {
-            levelId: 3,
-            title: "UPSC Simulation 2026",
-            description: "Integrated & Current Affairs Context.",
-            questions: LEVEL_3_QUESTIONS.map((q, i) => ({ ...q, id: `ch10-l3-q${i + 1}` }))
-        }
-    ]
+    level1: LEVEL_1_QUESTIONS,
+    level2: LEVEL_2_QUESTIONS,
+    level3: LEVEL_3_QUESTIONS
 };

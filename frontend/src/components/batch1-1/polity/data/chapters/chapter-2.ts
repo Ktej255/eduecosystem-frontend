@@ -1,607 +1,646 @@
-import { LevelData, ChapterLevelData } from "../level-types";
+import { ChapterLevelData } from '../level-types';
 
-// Level 1: The Text-Book Stickler
 const LEVEL_1_QUESTIONS = [
     {
-        question: "Who put forward the idea of a Constituent Assembly for India for the first time in 1934?",
-        options: ["M.N. Roy", "Jawaharlal Nehru", "Mahatma Gandhi", "Sardar Patel"],
-        correctAnswerIndex: 0,
-        explanation: "The idea of a Constituent Assembly for India was put forward for the first time in 1934 by M.N. Roy."
+        "id": "ch2-l1-q1",
+        "question": "Who was the first person to pitch the idea of a Constituent Assembly for India in 1934?",
+        "options": ["Jawaharlal Nehru","Mahatma Gandhi","M.N. Roy","Sardar Vallabhbhai Patel"],
+        "correctAnswerIndex": 2,
+        "explanation": "It was in 1934 that the idea of a Constituent Assembly for India was put forward for the first time by M.N. Roy, a pioneer of communist movement in India."
     },
     {
-        question: "In which year did the Indian National Congress (INC) officially demand a Constituent Assembly to frame the Constitution of India?",
-        options: ["1934", "1935", "1938", "1940"],
-        correctAnswerIndex: 1,
-        explanation: "In 1935, the Indian National Congress (INC), for the first time, officially demanded a Constituent Assembly to frame the Constitution of India."
+        "id": "ch2-l1-q2",
+        "question": "In which year did the Indian National Congress (INC) for the first time officially demand a Constituent Assembly to frame the Constitution of India?",
+        "options": ["1928","1934","1935","1940"],
+        "correctAnswerIndex": 2,
+        "explanation": "In 1935, the Indian National Congress (INC), for the first time, officially demanded a Constituent Assembly to frame the Constitution of India."
     },
     {
-        question: "The demand for a Constituent Assembly was finally accepted in principle by the British Government in what is known as the:",
-        options: ["August Offer of 1940", "Cripps Proposal of 1942", "Cabinet Mission Plan of 1946", "Mountbatten Plan of 1947"],
-        correctAnswerIndex: 0,
-        explanation: "The demand was finally accepted in principle by the British Government in what is known as the 'August Offer' of 1940."
+        "id": "ch2-l1-q3",
+        "question": "The demand for a Constituent Assembly was finally accepted in principle by the British Government in what is known as:",
+        "options": ["The August Offer of 1940","The Cripps Proposal of 1942","The Cabinet Mission Plan of 1946","The Mountbatten Plan of 1947"],
+        "correctAnswerIndex": 0,
+        "explanation": "The demand was finally accepted in principle by the British Government in what is known as the"
     },
     {
-        question: "Why were the proposals of the Cripps Mission (1942) rejected by the Muslim League?",
-        options: ["It did not grant immediate independence.", "It wanted India to be divided into two autonomous states with two separate Constituent Assemblies.", "It proposed a weak centre.", "It did not provide for separate electorates."],
-        correctAnswerIndex: 1,
-        explanation: "The Muslim League rejected the Cripps Proposals because it wanted India to be divided into two autonomous states with two separate Constituent Assemblies."
+        "id": "ch2-l1-q4",
+        "question": "Under the Cabinet Mission Plan (1946), what was the total assigned strength of the Constituent Assembly?",
+        "options": ["296","389","292","308"],
+        "correctAnswerIndex": 1,
+        "explanation": "The total strength of the Constituent Assembly was to be 389. Of these, 296 seats were to be allotted to British India and 93 seats to the Princely States."
     },
     {
-        question: "The Constituent Assembly was constituted in November 1946 under the scheme formulated by the:",
-        options: ["August Offer", "Cripps Mission", "Cabinet Mission Plan", "Wavell Plan"],
-        correctAnswerIndex: 2,
-        explanation: "The Constituent Assembly was constituted in November 1946 under the scheme formulated by the Cabinet Mission Plan."
+        "id": "ch2-l1-q5",
+        "question": "Who among the following boycotted the first meeting of the Constituent Assembly held on December 9, 1946?",
+        "options": ["The Indian National Congress","The Muslim League","The Princely States","The Hindu Mahasabha"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Muslim League boycotted the meeting and insisted on a separate state of Pakistan. Thus, the meeting was attended by only 211 members."
     },
     {
-        question: "What was the total strength of the Constituent Assembly as per the Cabinet Mission Plan?",
-        options: ["296", "389", "208", "412"],
-        correctAnswerIndex: 1,
-        explanation: "The total strength of the Constituent Assembly was to be 389."
+        "id": "ch2-l1-q6",
+        "question": "Following the French practice, who was elected as the temporary President of the Constituent Assembly during its first meeting?",
+        "options": ["Dr. Rajendra Prasad","Dr. B.R. Ambedkar","Dr. Sachchidananda Sinha","Jawaharlal Nehru"],
+        "correctAnswerIndex": 2,
+        "explanation": "Dr. Sachchidananda Sinha, the oldest member, was elected as the temporary President of the Assembly, following the French practice."
     },
     {
-        question: "Out of the 389 seats, how many were allotted to British India and how many to the Princely States?",
-        options: ["296 to British India and 93 to Princely States", "292 to British India and 97 to Princely States", "208 to British India and 73 to Princely States", "300 to British India and 89 to Princely States"],
-        correctAnswerIndex: 0,
-        explanation: "296 seats were allotted to British India and 93 seats to the Princely States."
+        "id": "ch2-l1-q7",
+        "question": "Who was elected as the permanent President of the Constituent Assembly on December 11, 1946?",
+        "options": ["Dr. Rajendra Prasad","H.C. Mukherjee","V.T. Krishnamachari","B.N. Rau"],
+        "correctAnswerIndex": 0,
+        "explanation": "On December 11, 1946, Dr. Rajendra Prasad and H.C. Mukherjee were elected as the President and Vice-President of the Assembly respectively."
     },
     {
-        question: "The seats in British India were to be divided among the three principal communities. Which were they?",
-        options: ["Hindus, Muslims, and Sikhs", "Muslims, Sikhs, and General (all except Muslims and Sikhs)", "Hindus, Muslims, and Christians", "General, Scheduled Castes, and Scheduled Tribes"],
-        correctAnswerIndex: 1,
-        explanation: "The seats were divided among the three principal communities: Muslims, Sikhs, and General (all except Muslims and Sikhs)."
+        "id": "ch2-l1-q8",
+        "question": "The Constituent Assembly had two Vice-Presidents. One was H.C. Mukherjee. Who was the other?",
+        "options": ["K.M. Munshi","V.T. Krishnamachari","Alladi Krishnaswami Ayyar","T.T. Krishnamachari"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Assembly had two Vice-Presidents. Both H.C. Mukherjee and V.T. Krishnamachari were elected as the Vice-Presidents of the Assembly."
     },
     {
-        question: "How were the representatives of the Princely States to be selected?",
-        options: ["Elected directly by the people.", "Nominated by the heads of the Princely States.", "Elected by an electoral college.", "Selected by the British Viceroy."],
-        correctAnswerIndex: 1,
-        explanation: "The representatives of the Princely States were to be nominated by the heads of the Princely States."
+        "id": "ch2-l1-q9",
+        "question": "On December 13, 1946, who moved the historic",
+        "options": ["Jawaharlal Nehru","Dr. B.R. Ambedkar","Sardar Vallabhbhai Patel","Dr. Rajendra Prasad"],
+        "correctAnswerIndex": 0,
+        "explanation": "On December 13, 1946, Jawaharlal Nehru moved the historic"
     },
     {
-        question: "The Constituent Assembly was, therefore, a:",
-        options: ["Fully elected body.", "Fully nominated body.", "Partly elected and partly nominated body.", "Sovereign body from the start."],
-        correctAnswerIndex: 2,
-        explanation: "It was a partly elected and partly nominated body."
+        "id": "ch2-l1-q10",
+        "question": "Who was appointed as the Constitutional Advisor (Legal Advisor) to the Constituent Assembly?",
+        "options": ["S.N. Mukherjee","Prem Behari Narain Raizada","Sir B.N. Rau","Dr. B.R. Ambedkar"],
+        "correctAnswerIndex": 2,
+        "explanation": "Sir B.N. Rau was appointed as the constitutional advisor (Legal advisor) to the Constituent Assembly."
     },
     {
-        question: "The elections to the Constituent Assembly (for 296 seats of British India) were held in July-August 1946. How many seats did the Indian National Congress win?",
-        options: ["73", "208", "211", "296"],
-        correctAnswerIndex: 1,
-        explanation: "The Indian National Congress won 208 seats."
+        "id": "ch2-l1-q11",
+        "question": "What was the total time taken by the Constituent Assembly to draft the Constitution of India?",
+        "options": ["2 years, 11 months and 18 days","3 years, 1 month and 15 days","2 years, 9 months and 10 days","1 year, 11 months and 18 days"],
+        "correctAnswerIndex": 0,
+        "explanation": "The Constituent Assembly took 2 years, 11 months and 18 days to finalize the Constitution."
     },
     {
-        question: "Who among the following key personalities of India was NOT a member of the Constituent Assembly?",
-        options: ["Dr. Rajendra Prasad", "Mahatma Gandhi", "J.B. Kripalani", "K.M. Munshi"],
-        correctAnswerIndex: 1,
-        explanation: "Mahatma Gandhi was not a member of the Constituent Assembly."
+        "id": "ch2-l1-q12",
+        "question": "On which date did the Constituent Assembly adopt the National Flag?",
+        "options": ["August 15, 1947","July 22, 1947","January 24, 1950","January 26, 1950"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Constituent Assembly adopted the national flag on July 22, 1947."
     },
     {
-        question: "When was the first meeting of the Constituent Assembly held?",
-        options: ["December 6, 1946", "December 9, 1946", "December 11, 1946", "December 13, 1946"],
-        correctAnswerIndex: 1,
-        explanation: "The Constituent Assembly held its first meeting on December 9, 1946."
+        "id": "ch2-l1-q13",
+        "question": "On which date did the Constituent Assembly adopt the National Anthem and the National Song?",
+        "options": ["August 15, 1947","November 26, 1949","January 24, 1950","January 26, 1950"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Constituent Assembly adopted the national anthem and the national song on January 24, 1950."
     },
     {
-        question: "Who was elected as the temporary President of the Assembly, following the French practice, as the oldest member?",
-        options: ["Dr. Rajendra Prasad", "Dr. Sachchidanand Sinha", "H.C. Mukherjee", "B.N. Rau"],
-        correctAnswerIndex: 1,
-        explanation: "Dr. Sachchidanand Sinha, the oldest member, was elected as the temporary President of the Assembly."
+        "id": "ch2-l1-q14",
+        "question": "Who was elected as the first President of India by the Constituent Assembly on January 24, 1950?",
+        "options": ["Dr. S. Radhakrishnan","Dr. Rajendra Prasad","Jawaharlal Nehru","C. Rajagopalachari"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Constituent Assembly elected Dr. Rajendra Prasad as the first President of India on January 24, 1950."
     },
     {
-        question: "Who was elected as the permanent President of the Constituent Assembly on December 11, 1946?",
-        options: ["Dr. B.R. Ambedkar", "Jawaharlal Nehru", "Dr. Rajendra Prasad", "Sardar Patel"],
-        correctAnswerIndex: 2,
-        explanation: "Dr. Rajendra Prasad was elected as the permanent President of the Assembly."
+        "id": "ch2-l1-q15",
+        "question": "The Constituent Assembly appointed several committees to deal with different tasks. Who chaired the",
+        "options": ["Sardar Vallabhbhai Patel","Dr. B.R. Ambedkar","Jawaharlal Nehru","Dr. Rajendra Prasad"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Union Powers Committee was chaired by Jawaharlal Nehru."
     },
     {
-        question: "Who were elected as the two Vice-Presidents of the Constituent Assembly?",
-        options: ["H.C. Mukherjee and V.T. Krishnamachari", "B.N. Rau and S.N. Mukherjee", "K.M. Munshi and Alladi Krishnaswami Ayyar", "Pattabhi Sitaramayya and G.V. Mavalankar"],
-        correctAnswerIndex: 0,
-        explanation: "H.C. Mukherjee and V.T. Krishnamachari were elected as the Vice-Presidents."
+        "id": "ch2-l1-q16",
+        "question": "Who among the following was the Chairman of the Provincial Constitution Committee?",
+        "options": ["Sardar Vallabhbhai Patel","Jawaharlal Nehru","Dr. Rajendra Prasad","J.B. Kripalani"],
+        "correctAnswerIndex": 0,
+        "explanation": "The Provincial Constitution Committee was chaired by Sardar Vallabhbhai Patel."
     },
     {
-        question: "On December 13, 1946, who moved the historic 'Objectives Resolution' in the Assembly?",
-        options: ["Dr. B.R. Ambedkar", "Sardar Patel", "Jawaharlal Nehru", "Dr. Rajendra Prasad"],
-        correctAnswerIndex: 2,
-        explanation: "Jawaharlal Nehru moved the historic 'Objectives Resolution'."
+        "id": "ch2-l1-q17",
+        "question": "The Drafting Committee, set up on August 29, 1947, was entrusted with the task of preparing a draft of the new Constitution. How many members did it consist of?",
+        "options": ["Five","Seven","Nine","Eleven"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Drafting Committee consisted of seven members, chaired by Dr. B.R. Ambedkar."
     },
     {
-        question: "The 'Objectives Resolution' was unanimously adopted by the Assembly on which date?",
-        options: ["December 26, 1946", "January 22, 1947", "January 26, 1947", "August 15, 1947"],
-        correctAnswerIndex: 1,
-        explanation: "It was unanimously adopted by the Assembly on January 22, 1947."
+        "id": "ch2-l1-q18",
+        "question": "Who was the Chairman of the Drafting Committee?",
+        "options": ["Dr. Rajendra Prasad","Jawaharlal Nehru","Dr. B.R. Ambedkar","K.M. Munshi"],
+        "correctAnswerIndex": 2,
+        "explanation": "Dr. B.R. Ambedkar was the Chairman of the Drafting Committee."
     },
     {
-        question: "The modified version of the 'Objectives Resolution' forms which part of the present Constitution?",
-        options: ["Fundamental Rights", "Directive Principles", "Preamble", "Fundamental Duties"],
-        correctAnswerIndex: 2,
-        explanation: "Its modified version forms the Preamble of the present Constitution."
+        "id": "ch2-l1-q19",
+        "question": "N. Madhava Rau replaced a member in the Drafting Committee who resigned due to ill-health. Who did he replace?",
+        "options": ["D.P. Khaitan","Alladi Krishnaswamy Ayyar","Syed Mohammad Saadullah","B.L. Mitter"],
+        "correctAnswerIndex": 3,
+        "explanation": "N. Madhava Rau replaced B.L. Mitter who resigned due to ill-health."
     },
     {
-        question: "Which Act formally empowered the Constituent Assembly to frame any Constitution it pleased and repeal any British Act, including the Independence Act itself?",
-        options: ["Cabinet Mission Plan", "Indian Independence Act of 1947", "Government of India Act 1935", "Third June Plan"],
-        correctAnswerIndex: 1,
-        explanation: "The Indian Independence Act of 1947."
+        "id": "ch2-l1-q20",
+        "question": "Who replaced D.P. Khaitan in the Drafting Committee after his death in 1948?",
+        "options": ["N. Gopalaswamy Ayyangar","T.T. Krishnamachari","K.M. Munshi","S.N. Mukherjee"],
+        "correctAnswerIndex": 1,
+        "explanation": "T.T. Krishnamachari replaced D.P. Khaitan who died in 1948."
     },
     {
-        question: "After the Indian Independence Act of 1947, who chaired the Assembly when it met as a legislative body (Dominion Legislature)?",
-        options: ["Dr. Rajendra Prasad", "G.V. Mavalankar", "B.R. Ambedkar", "Jawaharlal Nehru"],
-        correctAnswerIndex: 1,
-        explanation: "G.V. Mavalankar chaired the Assembly when it met as a legislative body."
+        "id": "ch2-l1-q21",
+        "question": "The Constitution as adopted on November 26, 1949, contained a Preamble, 395 Articles, and how many Schedules?",
+        "options": ["Eight","Nine","Ten","Twelve"],
+        "correctAnswerIndex": 0,
+        "explanation": "The Constitution as adopted on November 26, 1949, contained a Preamble, 395 Articles and 8 Schedules."
     },
     {
-        question: "When the Assembly met as a Constitution-making body, it was chaired by _______; when it met as a legislative body, it was chaired by _______.",
-        options: ["G.V. Mavalankar; Dr. Rajendra Prasad", "Dr. Rajendra Prasad; G.V. Mavalankar", "Dr. Rajendra Prasad; B.N. Rau", "B.R. Ambedkar; G.V. Mavalankar"],
-        correctAnswerIndex: 1,
-        explanation: "Dr. Rajendra Prasad (Constitution-making) and G.V. Mavalankar (Legislative body)."
+        "id": "ch2-l1-q22",
+        "question": "Who introduced the final draft of the Constitution in the Assembly on November 4, 1948 (first reading)?",
+        "options": ["Jawaharlal Nehru","Dr. Rajendra Prasad","Dr. B.R. Ambedkar","Sardar Vallabhbhai Patel"],
+        "correctAnswerIndex": 2,
+        "explanation": "Dr. B.R. Ambedkar introduced the final draft of the Constitution in the Assembly on November 4, 1948."
     },
     {
-        question: "The Constituent Assembly adopted the National Flag on:",
-        options: ["July 22, 1947", "August 15, 1947", "January 26, 1950", "January 24, 1950"],
-        correctAnswerIndex: 0,
-        explanation: "July 22, 1947."
+        "id": "ch2-l1-q23",
+        "question": "Which of the following dates is mentioned in the Preamble as the date on which the people of India adopted, enacted, and gave to themselves the Constitution?",
+        "options": ["August 15, 1947","November 26, 1949","January 24, 1950","January 26, 1950"],
+        "correctAnswerIndex": 1,
+        "explanation": "November 26, 1949, is the date of adoption mentioned in the Preamble."
     },
     {
-        question: "On January 24, 1950, the Constituent Assembly adopted which of the following?",
-        options: ["National Anthem", "National Song", "Dr. Rajendra Prasad as the first President of India", "All of the above"],
-        correctAnswerIndex: 3,
-        explanation: "All of the above."
+        "id": "ch2-l1-q24",
+        "question": "Which date was specifically chosen as the",
+        "options": ["August 15","November 26","January 26","October 2"],
+        "correctAnswerIndex": 2,
+        "explanation": "January 26 was specifically chosen as the"
     },
     {
-        question: "How much time did the Constituent Assembly take to frame the Constitution?",
-        options: ["2 years, 11 months, and 18 days", "3 years, 1 month, and 10 days", "2 years, 10 months, and 8 days", "3 years exactly"],
-        correctAnswerIndex: 0,
-        explanation: "2 years, 11 months, and 18 days."
+        "id": "ch2-l1-q25",
+        "question": "Who is recognized as the",
+        "options": ["Mahatma Gandhi","Dr. Rajendra Prasad","Jawaharlal Nehru","Dr. B.R. Ambedkar"],
+        "correctAnswerIndex": 3,
+        "explanation": "Dr. B.R. Ambedkar is recognized as the Father of the Constitution of India."
     },
     {
-        question: "Who was the Chairman of the Union Powers Committee and the Union Constitution Committee?",
-        options: ["Sardar Patel", "Jawaharlal Nehru", "Dr. B.R. Ambedkar", "J.B. Kripalani"],
-        correctAnswerIndex: 1,
-        explanation: "Jawaharlal Nehru."
+        "id": "ch2-l1-q26",
+        "question": "What was the symbol (seal) adopted by the Constituent Assembly?",
+        "options": ["Lion Capital of Ashoka","Elephant","Tiger","Peacock"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Elephant was adopted as the symbol (seal) of the Constituent Assembly."
     },
     {
-        question: "Who was the Chairman of the Provincial Constitution Committee?",
-        options: ["Jawaharlal Nehru", "Sardar Patel", "Dr. Rajendra Prasad", "H.C. Mukherjee"],
-        correctAnswerIndex: 1,
-        explanation: "Sardar Patel."
+        "id": "ch2-l1-q27",
+        "question": "Who was the chief draftsman of the Constitution in the Constituent Assembly?",
+        "options": ["Sir B.N. Rau","S.N. Mukherjee","Prem Behari Narain Raizada","T.T. Krishnamachari"],
+        "correctAnswerIndex": 1,
+        "explanation": "S.N. Mukherjee was the chief draftsman of the constitution in the Constituent Assembly."
     },
     {
-        question: "The Drafting Committee was set up on August 29, 1947. How many members did it have?",
-        options: ["5", "6", "7", "9"],
-        correctAnswerIndex: 2,
-        explanation: "7 members."
+        "id": "ch2-l1-q28",
+        "question": "The original Constitution of India was handwritten by whom?",
+        "options": ["Nandalal Bose","Beohar Rammanohar Sinha","Prem Behari Narain Raizada","S.N. Mukherjee"],
+        "correctAnswerIndex": 2,
+        "explanation": "Prem Behari Narain Raizada was the calligrapher of the Indian Constitution. The original constitution was handwritten by him in a flowing italic style."
     },
     {
-        question: "Who among the following was NOT a member of the Drafting Committee?",
-        options: ["Dr. K.M. Munshi", "Syed Mohammad Saadullah", "N. Madhava Rau", "Pattabhi Sitaramayya"],
-        correctAnswerIndex: 3,
-        explanation: "Pattabhi Sitaramayya."
+        "id": "ch2-l1-q29",
+        "question": "Who illuminated and beautified the original version of the Constitution?",
+        "options": ["Artists from Shantiniketan including Nandalal Bose and Beohar Rammanohar Sinha","Artists from the JJ School of Art","S.N. Mukherjee and his team","British calligraphers based in London"],
+        "correctAnswerIndex": 0,
+        "explanation": "The original version was beautified and decorated by artists from Shantiniketan including Nandalal Bose and Beohar Rammanohar Sinha."
     },
     {
-        question: "Who replaced B.L. Mitter on the Drafting Committee due to ill health?",
-        options: ["N. Madhava Rau", "T.T. Krishnamachari", "Alladi Krishnaswami Ayyar", "D.P. Khaitan"],
-        correctAnswerIndex: 0,
-        explanation: "N. Madhava Rau."
-    },
-    {
-        question: "Who replaced D.P. Khaitan on the Drafting Committee after his death in 1948?",
-        options: ["H.V. Kamath", "T.T. Krishnamachari", "K.C. Sharma", "S.N. Mukherjee"],
-        correctAnswerIndex: 1,
-        explanation: "T.T. Krishnamachari."
-    },
-    {
-        question: "The Constitution as adopted on November 26, 1949, contained a Preamble, ____ Articles, and ____ Schedules.",
-        options: ["395 Articles, 8 Schedules", "395 Articles, 10 Schedules", "448 Articles, 12 Schedules", "390 Articles, 8 Schedules"],
-        correctAnswerIndex: 0,
-        explanation: "395 Articles and 8 Schedules."
-    },
-    {
-        question: "The Preamble was enacted:",
-        options: ["Before the entire Constitution was enacted.", "After the entire Constitution was already enacted.", "Simultaneously with the Objectives Resolution.", "On August 15, 1947."],
-        correctAnswerIndex: 1,
-        explanation: "After the entire Constitution was already enacted."
-    },
-    {
-        question: "Some provisions of the Constitution (like Citizenship, Elections, Provisional Parliament) came into force on November 26, 1949 itself. The remaining provisions came into force on:",
-        options: ["January 26, 1950", "August 15, 1950", "January 1, 1950", "December 26, 1949"],
-        correctAnswerIndex: 0,
-        explanation: "January 26, 1950."
-    },
-    {
-        question: "Why was January 26 chosen as the 'date of commencement' of the Constitution?",
-        options: ["It was the birthdate of Dr. Ambedkar.", "To commemorate the 'Purna Swaraj' day celebrated in 1930.", "It was the day the Drafting Committee was formed.", "It was the day the Second World War ended."],
-        correctAnswerIndex: 1,
-        explanation: "To commemorate the 'Purna Swaraj' day."
+        "id": "ch2-l1-q30",
+        "question": "Who calligraphed the Hindi version of the original Constitution?",
+        "options": ["Prem Behari Narain Raizada","Nandalal Bose","Vasant Krishnan Vaidya","Beohar Rammanohar Sinha"],
+        "correctAnswerIndex": 2,
+        "explanation": "The calligraphy of the Hindi version of the original constitution was done by Vasant Krishnan Vaidya and elegantly decorated and illuminated by Nandalal Bose."
     }
 ];
 
-// Level 2: The Conceptual Bridge
 const LEVEL_2_QUESTIONS = [
     {
-        question: "\"The Constituent Assembly was not a sovereign body.\" This criticism is often leveled against the Assembly because:",
-        options: ["It was created by the British Parliament's proposal (Cabinet Mission Plan).", "It was elected indirectly by the Provincial Assemblies.", "It included nominated members from Princely States.", "It did not have the power to alter its own composition."],
-        correctAnswerIndex: 0,
-        explanation: "Critics argue it wasn't sovereign initially because it was created by the proposals of the British Government (Cabinet Mission Plan)."
+        "id": "ch2-l2-q1",
+        "question": "Consider the following statements regarding the composition of the Constituent Assembly under the Cabinet Mission Plan (1946):\\n1. The members were directly elected by the people of India on the basis of universal adult franchise.\\n2. The seats allocated to each British province were divided among Muslims, Sikhs, and General, in proportion to their population.\\n3. The representatives of princely states were to be nominated by the heads of the princely states.\\nWhich of the statements given above are correct?",
+        "options": ["1 and 2 only","2 and 3 only","1 and 3 only","1, 2, and 3"],
+        "correctAnswerIndex": 1,
+        "explanation": "Statement 1 is incorrect; members were indirectly elected by the members of the provincial assemblies, who themselves were elected on a limited franchise."
     },
     {
-        question: "How did the Indian Independence Act of 1947 change the position of the Constituent Assembly regarding its sovereignty?",
-        options: ["It made the Assembly a fully sovereign body, free to abrogate any British law.", "It dissolved the Assembly and called for fresh elections.", "It restricted the Assembly's power to framing the Constitution only.", "It made the Governor-General the head of the Assembly."],
-        correctAnswerIndex: 0,
-        explanation: "The Act made the Assembly a fully sovereign body, empowered to frame any Constitution and repeal any act of the British Parliament."
+        "id": "ch2-l2-q2",
+        "question": "Which of the following was NOT a function performed by the Constituent Assembly of India?",
+        "options": ["It ratified India","It enacted the completely new national budget for the year 1948-49.","It adopted the National Flag on July 22, 1947.","It adopted the National Anthem on January 24, 1950."],
+        "correctAnswerIndex": 1,
+        "explanation": "While the Assembly functioned as a provisional Parliament,"
     },
     {
-        question: "The Constituent Assembly performed two separate functions. Which of the following statements are correct?\n1. Both functions were performed on the same days.\n2. When it met as the Constituent Assembly, it was chaired by Dr. Rajendra Prasad.\n3. When it met as the Legislative body, it was chaired by G.V. Mavalankar.",
-        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
-        correctAnswerIndex: 1,
-        explanation: "Statement 1 is incorrect because the two functions were performed on separate days. Statements 2 and 3 are correct."
+        "id": "ch2-l2-q3",
+        "question": "With reference to the Indian Independence Act of 1947, how did it alter the position of the Constituent Assembly?\\n1. It made the Assembly a fully sovereign body, free to abrogate any British law.\\n2. The Assembly became a bicameral legislative body.\\n3. The total strength of the Assembly was reduced due to the creation of Pakistan.\\nSelect the correct answer:",
+        "options": ["1 only","1 and 3 only","2 and 3 only","1, 2, and 3"],
+        "correctAnswerIndex": 1,
+        "explanation": "Statement 2 is incorrect. The Assembly became the first Parliament of free India (a single, unicameral body at the time), not bicameral. It was made fully sovereign (1) and its strength reduced to 299 (3)."
     },
     {
-        question: "Critics argue that the Constituent Assembly was \"dominated by Congress.\" Which famous British expert commented, \"The Constituent Assembly was a one-party body in an essentially one-party country\"?",
-        options: ["Winston Churchill", "Lord Mountbatten", "Granville Austin", "Clement Attlee"],
-        correctAnswerIndex: 2,
-        explanation: "This comment was made by Granville Austin, a British constitutional expert."
+        "id": "ch2-l2-q4",
+        "question": "When the Constituent Assembly met as the provisional Parliament (legislative body), who presided over its sessions?",
+        "options": ["Dr. Rajendra Prasad","Jawaharlal Nehru","G.V. Mavalankar","Dr. B.R. Ambedkar"],
+        "correctAnswerIndex": 2,
+        "explanation": "Whenever the Assembly met as the Constituent body it was chaired by Dr. Rajendra Prasad, and when it met as the legislative body, it was chaired by G.V. Mavalankar."
     },
     {
-        question: "Why did the Constituent Assembly rely on \"Indirect Election\" rather than \"Direct Election\" by adult franchise?",
-        options: ["Direct elections were considered too expensive and time-consuming.", "The literacy rate was too low for direct elections.", "The Congress Party feared losing a direct election.", "The British Government prohibited direct elections."],
-        correctAnswerIndex: 0,
-        explanation: "Given the urgency and the communal atmosphere, direct elections were considered too slow and cumbersome."
+        "id": "ch2-l2-q5",
+        "question": "Assertion (A): The Constituent Assembly was a partly elected and partly nominated body.\\nReason (R): The members from British Indian Provinces were indirectly elected, while those from the Princely States were nominated.\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true and the reason correctly explains the assertion."
     },
     {
-        question: "The \"Drafting Committee\" is often considered the most important committee. However, it did not work in isolation. Its primary task was to:",
-        options: ["Generate new ideas for the Constitution from scratch.", "Scrutinize the draft prepared by the Constitutional Advisor (B.N. Rau) and other committees.", "Copy the Government of India Act, 1935 verbatim.", "Translate the British Constitution into Indian languages."],
-        correctAnswerIndex: 1,
-        explanation: "Its task was to scrutinize the draft prepared by the Constitutional Advisor (B.N. Rau) and give it a final shape."
+        "id": "ch2-l2-q6",
+        "question": "Match the following Committees of the Constituent Assembly with their Chairmen:\\nList-I\\nA. Advisory Committee on Fundamental Rights\\nB. Rules of Procedure Committee\\nC. States Committee (Committee for Negotiating with States)\\nD. Drafting Committee\\n\\nList-II\\n1. Dr. Rajendra Prasad\\n2. Jawaharlal Nehru\\n3. Sardar Vallabhbhai Patel\\n4. Dr. B.R. Ambedkar\\n\\nCode (A-B-C-D):",
+        "options": ["3-1-2-4","1-3-2-4","3-2-1-4","2-1-3-4"],
+        "correctAnswerIndex": 0,
+        "explanation": "Advisory FR (Patel), Rules (Prasad), States (Nehru), Drafting (Ambedkar)."
     },
     {
-        question: "Match the Committee with its Chairman:\nA. Steering Committee\nB. Fundamental Rights Sub-Committee\nC. Union Constitution Committee\nD. States Committee (Negotiating)",
-        options: ["A-2 (Prasad), B-3 (Kripalani), C-1 (Nehru), D-1 (Nehru)", "A-2 (Prasad), B-4 (Patel), C-1 (Nehru), D-1 (Nehru)", "A-1, B-3, C-2, D-4", "A-2, B-3, C-4, D-1"],
-        correctAnswerIndex: 0,
-        explanation: "Correct Match: Steering - Rajendra Prasad (2), FR Sub-Committee - J.B. Kripalani (3), Union Constitution - Nehru (1), States Committee (Negotiating) - Nehru (1)."
+        "id": "ch2-l2-q7",
+        "question": "The Advisory Committee on Fundamental Rights, Minorities and Tribal and Excluded Areas had several sub-committees. Who among the following chaired the Fundamental Rights Sub-Committee?",
+        "options": ["J.B. Kripalani","H.C. Mukherjee","Gopinath Bardoloi","A.V. Thakkar"],
+        "correctAnswerIndex": 0,
+        "explanation": "J.B. Kripalani chaired the Fundamental Rights Sub-Committee."
     },
     {
-        question: "The \"Objective Resolution\" moved by Nehru laid down the fundamentals. Which of the following was NOT explicitly mentioned in the original resolution?",
-        options: ["India is to be an Independent Sovereign Republic.", "Territories of India shall possess residuary powers (Federalism).", "Social, economic, and political justice for all people.", "A secular state with a uniform civil code."],
-        correctAnswerIndex: 3,
-        explanation: "The word 'Secular' was not explicitly mentioned in the original resolution."
+        "id": "ch2-l2-q8",
+        "question": "Consider the following statements regarding the",
+        "options": ["1 and 2 only","2 and 3 only","1 and 3 only","1, 2, and 3"],
+        "correctAnswerIndex": 0,
+        "explanation": "Statement 3 is incorrect; the Objectives Resolution proposed that the residuary powers would vest in the States (territories comprising the autonomous units), reflecting the initial loose federation idea."
     },
     {
-        question: "Why did Dr. Ambedkar call the \"Draft Constitution\" a \"Federal\" constitution despite its strong centralizing tendency?",
-        options: ["Because it created a dual polity (Union and States).", "Because the States had the right to secede.", "Because the judiciary was independent.", "Because the Governor was elected."],
-        correctAnswerIndex: 0,
-        explanation: "He argued it is federal because it establishes a dual polity (Union and States) with authority derived from the Constitution."
+        "id": "ch2-l2-q9",
+        "question": "The Preamble to the Indian Constitution is based directly on which of the following?",
+        "options": ["The Charter Act of 1853","The Government of India Act 1935","The Objectives Resolution drafted and moved by Jawaharlal Nehru","The Mountbatten Plan"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Preamble is essentially a modified version of the Objectives Resolution moved by Nehru in 1946."
     },
     {
-        question: "The Constituent Assembly appointed a \"Drafting Committee\" on August 29, 1947. Who among the following was the only Congress member in this committee (originally)?",
-        options: ["K.M. Munshi", "Alladi Krishnaswami Ayyar", "N. Madhava Rau", "Mohammad Saadullah"],
-        correctAnswerIndex: 0,
-        explanation: "K.M. Munshi was the most prominent Congress member (originally)."
+        "id": "ch2-l2-q10",
+        "question": "Which of the following constitutional provisions came into force on November 26, 1949, before the full commencement of the Constitution?",
+        "options": ["Fundamental Rights and Directive Principles","Citizenship, Elections, and Provisional Parliament","The Supreme Court and High Courts","Emergency Provisions and Amendment Procedures"],
+        "correctAnswerIndex": 1,
+        "explanation": "Some provisions pertaining to citizenship, elections, provisional parliament, temporary and transitional provisions (Articles 5, 6, 7, 8, 9, 60, 324, 366, 367, 379, 380, 388, 391, 392 and 393) came into force on November 26, 1949 itself."
     },
     {
-        question: "\"The Constitution was adopted on November 26, 1949.\" What is the legal significance of the word \"Adopted\" here?",
-        options: ["It means the Constitution came into full force on this day.", "It means the people of India enacted the Constitution and gave it to themselves on this day.", "It means the British Parliament approved it on this day.", "It means the Draft was finalized, but it had no legal force until Jan 26, 1950."],
-        correctAnswerIndex: 1,
-        explanation: "The Preamble states 'do hereby Adopt, Enact and Give to ourselves this Constitution', signifying the people's act of giving the law to themselves."
+        "id": "ch2-l2-q11",
+        "question": "In the Constituent Assembly, the representation of princely states was to be determined by:",
+        "options": ["Direct election by the citizens of the princely states.","Election by the rulers of the princely states.","Nomination by the heads of the princely states.","A mix of election and nomination supervised by the British Resident."],
+        "correctAnswerIndex": 2,
+        "explanation": "The members from princely states were to be nominated by the heads of the princely states."
     },
     {
-        question: "The \"Elephant size\" of the Indian Constitution is often attributed to:",
-        options: ["The dominance of legal luminaries in the Assembly.", "The inclusion of administrative details from the Act of 1935.", "The need to accommodate the diversity of a vast country.", "All of the above."],
-        correctAnswerIndex: 3,
-        explanation: "All factors contributed: Geography, Diversity, 1935 Act influence, and dominance of legal luminaries."
+        "id": "ch2-l2-q12",
+        "question": "Assertion (A): The Constituent Assembly was criticized for being a",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Granville Austin noted the Assembly was a one-party body in an essentially one-party country heavily dominated by Congress (208 seats)."
     },
     {
-        question: "Why did the Constituent Assembly take nearly 3 years to frame the Constitution?",
-        options: ["There was a lack of consensus on key issues.", "The Partition of India disrupted the process.", "The Assembly wanted to incorporate the best provisions from world constitutions.", "The members were busy with administration."],
-        correctAnswerIndex: 2,
-        explanation: "The framers wanted to incorporate the best provisions from various constitutions and adapt them to Indian conditions."
+        "id": "ch2-l2-q13",
+        "question": "Consider the following differences between the Interim Government (1946) and the First Cabinet of Free India (1947):\\n1. Jawaharlal Nehru was the Vice-President of the Viceroy",
+        "options": ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        "correctAnswerIndex": 0,
+        "explanation": "Statement 2 is incorrect; Joginder Nath Mandal (Muslim League) was the Law Member in 1946. Dr. Ambedkar became Law Minister only in 1947."
     },
     {
-        question: "Which of the following provisions came into force immediately on November 26, 1949?\n1. Citizenship\n2. Elections\n3. Fundamental Rights\n4. Provisional Parliament",
-        options: ["1 and 2 only", "1, 2, and 3 only", "1, 2, and 4 only", "1, 2, 3, and 4"],
-        correctAnswerIndex: 2,
-        explanation: "Fundamental Rights (Part III) came into force on Jan 26, 1950. Citizenship, Elections, and Provisional Parliament came into force on Nov 26, 1949."
+        "id": "ch2-l2-q14",
+        "question": "Who among the following was the Chairman of the",
+        "options": ["G.V. Mavalankar","K.M. Munshi","Rajendra Prasad","J.B. Kripalani"],
+        "correctAnswerIndex": 0,
+        "explanation": "G.V. Mavalankar was the chairman of the Committee on the Functions of the Constituent Assembly."
     },
     {
-        question: "Which Constitutional Amendment later authorized the President to publish the Hindi translation of the Constitution?",
-        options: ["42nd Amendment Act, 1976", "58th Amendment Act, 1987", "44th Amendment Act, 1978", "61st Amendment Act, 1988"],
-        correctAnswerIndex: 1,
-        explanation: "The 58th Amendment Act of 1987 authorized the President to publish the translation of the Constitution in Hindi."
+        "id": "ch2-l2-q15",
+        "question": "Which of the following is an INCORRECT match regarding the Sources of the Indian Constitution?",
+        "options": ["Concurrent List – Australian Constitution","Emergency Provisions – Weimar Constitution of Germany","Directive Principles of State Policy – Irish Constitution","Procedure Established by Law – British Constitution"],
+        "correctAnswerIndex": 3,
+        "explanation": "Procedure Established by Law is sourced from the Japanese Constitution, not the British. The British Constitution provided the Rule of Law."
     },
     {
-        question: "The idea of the \"Constituent Assembly\" being elected by \"Adult Franchise\" was advocated by Nehru in 1938. Why was this not implemented in 1946?",
-        options: ["The British Government refused to organize such a massive election.", "The Cabinet Mission Plan mandated indirect elections to speed up the transfer of power.", "The Muslim League opposed adult franchise.", "There were no electoral rolls available."],
-        correctAnswerIndex: 1,
-        explanation: "The Cabinet Mission Plan mandated indirect elections to avoid delay in the transfer of power."
+        "id": "ch2-l2-q16",
+        "question": "From which Constitution did India borrow the",
+        "options": ["US Constitution","Irish Constitution","Canadian Constitution","South African Constitution"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Method of Election of the President was adopted from the Irish Constitution."
     },
     {
-        question: "Which of the following functions did the Constituent Assembly perform in addition to making the Constitution?\n1. Ratified India's membership of the Commonwealth.\n2. Adopted the National Flag.\n3. Elected the first President of India.\n4. Legislated the Hindu Code Bill (in part).",
-        options: ["1 and 2 only", "2 and 3 only", "1, 2, and 3 only", "1, 2, 3, and 4"],
-        correctAnswerIndex: 2,
-        explanation: "It ratified Commonwealth membership (May 1949), adopted the Flag (July 1947), and elected the first President (Jan 1950)."
+        "id": "ch2-l2-q17",
+        "question": "The concept of",
+        "options": ["US Constitution","Canadian Constitution","Government of India Act 1935","Australian Constitution"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Canadian Constitution provided features for a strong centre, including vesting residuary powers in the Centre."
     },
     {
-        question: "The \"Advisory Committee on Fundamental Rights...\" was chaired by Sardar Patel. Who chaired the 'Minorities Sub-Committee'?",
-        options: ["J.B. Kripalani", "H.C. Mukherjee", "Gopinath Bardoloi", "A.V. Thakkar"],
-        correctAnswerIndex: 1,
-        explanation: "H.C. Mukherjee chaired the Minorities Sub-Committee."
+        "id": "ch2-l2-q18",
+        "question": "Consider the following features:\\n1. Office of Governor\\n2. Public Service Commissions\\n3. Bi-cameralism at the Centre\\nWhich of these were borrowed directly from the Government of India Act of 1935?",
+        "options": ["1 and 2 only","2 and 3 only","1 and 3 only","1, 2, and 3"],
+        "correctAnswerIndex": 0,
+        "explanation": "While bicameralism at the Centre existed in the 1919 and 1935 Acts, standard textbook"
     },
     {
-        question: "\"It is a Lawyer's Paradise.\" This criticism of the Constitution refers to:",
-        options: ["The complexity and legalistic language used in the Constitution.", "The fact that only lawyers can contest elections.", "The dominance of the Judiciary over the Legislature.", "The excessive number of laws in India."],
-        correctAnswerIndex: 0,
-        explanation: "Sir Ivor Jennings called it a 'Lawyer's Paradise' because the legalistic language would lead to endless litigation."
+        "id": "ch2-l2-q19",
+        "question": "Assertion (A): Some critics argue that the Constituent Assembly was a",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 2,
+        "explanation": "The critics argue it wasn"
     },
     {
-        question: "Consider the following statements regarding the \"States Committee\":\n1. It was chaired by Jawaharlal Nehru.\n2. Its primary task was to integrate the Princely States.",
-        options: ["1 only", "1 and 2", "2 only", "Neither 1 nor 2"],
-        correctAnswerIndex: 0,
-        explanation: "It was chaired by Nehru. Its task was 'Negotiating with States' for entry. 'Integration' was Patel's work."
+        "id": "ch2-l2-q20",
+        "question": "Which of the following members of the Drafting Committee was the only Congress member initially?",
+        "options": ["K.M. Munshi","T.T. Krishnamachari","Alladi Krishnaswamy Ayyar","N. Gopalaswamy Ayyangar"],
+        "correctAnswerIndex": 0,
+        "explanation": "K.M. Munshi was the only original Congress member of the Drafting Committee. Others like TTK joined later representing Congress."
     },
     {
-        question: "Deep Dive: Why did the Constituent Assembly retain the \"Federal Scheme\" of the 1935 Act despite the Partition?",
-        options: ["Because they wanted to appease the remaining Princely States.", "Because they realized a vast country like India could not be governed from a single centre.", "Because the British insisted on it.", "Because it was the only model they knew."],
-        correctAnswerIndex: 1,
-        explanation: "The framers realized that a unitary system was not feasible for a vast and diverse country like India."
+        "id": "ch2-l2-q21",
+        "question": "Who among the following was the Chairman of the",
+        "options": ["Dr. Rajendra Prasad","Jawaharlal Nehru","Sardar Patel","J.B. Kripalani"],
+        "correctAnswerIndex": 0,
+        "explanation": "Dr. Rajendra Prasad was the Chairman of the Ad hoc Committee on National Flag."
     },
     {
-        question: "What triggered the gradual joining of representatives from Princely States after April 28, 1947?",
-        options: ["The Mountbatten Plan of June 3, 1947.", "The threat of military action by Sardar Patel.", "The acceptance of the partition principle became imminent.", "The persuasion by Lord Wavell."],
-        correctAnswerIndex: 0,
-        explanation: "The acceptance of the Mountbatten Plan (June 3) made it clear that partition was happening, leading most remaining states to join."
+        "id": "ch2-l2-q22",
+        "question": "Which among the following committees of the Constituent Assembly was headed by Jawaharlal Nehru?",
+        "options": ["Provincial Constitution Committee","Steering Committee","Union Constitution Committee","Advisory Committee on Fundamental Rights"],
+        "correctAnswerIndex": 2,
+        "explanation": "Jawaharlal Nehru headed the Union Powers Committee, Union Constitution Committee, and States Committee."
     },
     {
-        question: "Assertion (A): The Constituent Assembly was a \"representative\" body, though not directly elected.\nReason (R): The seats were allocated in proportion to the population, and the method of election (PR with STV) ensured that all communities were represented.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0,
-        explanation: "While not directly elected, the allocation and PR method ensured it represented all sections of Indian society fairly well."
+        "id": "ch2-l2-q23",
+        "question": "The idea of",
+        "options": ["The American Declaration of Independence","The French Constitution (Revolution)","The Russian Revolution","The Irish Constitution"],
+        "correctAnswerIndex": 1,
+        "explanation": "The ideals of liberty, equality and fraternity in the Preamble are taken from the French Constitution (French Revolution)."
     },
     {
-        question: "Who was the \"Constitutional Advisor\" to the Constituent Assembly?",
-        options: ["B.N. Rau", "S.N. Mukherjee", "H.V.R. Iyengar", "Prem Behari Narain Raizada"],
-        correctAnswerIndex: 0,
-        explanation: "Sir B.N. Rau was the Constitutional Advisor."
+        "id": "ch2-l2-q24",
+        "question": "Consider the following statements:\\n1. Dr. Sachchidananda Sinha was the oldest member of the Assembly.\\n2. The Muslim League",
+        "options": ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        "correctAnswerIndex": 0,
+        "explanation": "Statement 2 is incorrect; there were some nationalist Muslims (like Maulana Abul Kalam Azad) who were Congress members and attended the first meeting."
     },
     {
-        question: "The \"Calligrapher\" of the Indian Constitution (who hand-wrote the original document) was:",
-        options: ["Nand Lal Bose", "Prem Behari Narain Raizada", "Beohar Rammanohar Sinha", "Vasant Krishan Vaidya"],
-        correctAnswerIndex: 1,
-        explanation: "Prem Behari Narain Raizada was the calligrapher."
+        "id": "ch2-l2-q25",
+        "question": "The Indian Constitution borrows the feature of",
+        "options": ["British Constitution","Canadian Constitution","Australian Constitution","Irish Constitution"],
+        "correctAnswerIndex": 2,
+        "explanation": "Concurrent List, freedom of trade, commerce and inter-course, and joint sitting of the two Houses of Parliament are sourced from Australia."
     },
     {
-        question: "The artists from which institution were responsible for the beautification of the original Constitution?",
-        options: ["J.J. School of Art, Bombay", "Shantiniketan", "Madras School of Art", "Calcutta School of Art"],
-        correctAnswerIndex: 1,
-        explanation: "Artists from Shantiniketan, including Nandalal Bose, decorated it."
+        "id": "ch2-l2-q26",
+        "question": "The Constitution of India was legally enacted by the Constituent Assembly acting as:",
+        "options": ["A representative body of the Indian people.","The Parliament of the Dominion of India.","The legislature of the Republic of India.","An advisory body to the British Crown."],
+        "correctAnswerIndex": 0,
+        "explanation": "The Preamble says"
     },
     {
-        question: "How many \"Sessions\" did the Constituent Assembly hold in total?",
-        options: ["9", "11", "12", "15"],
-        correctAnswerIndex: 1,
-        explanation: "The Constituent Assembly held 11 sessions in total (spanning 2 years, 11 months, 18 days)."
+        "id": "ch2-l2-q27",
+        "question": "With reference to the criticism of the Constituent Assembly as a",
+        "options": ["Winston Churchill","Lord Mountbatten","Lord Viscount Simon","Granville Austin"],
+        "correctAnswerIndex": 2,
+        "explanation": "Lord Viscount Simon called it a"
     },
     {
-        question: "In the \"Mountbatten Plan\" (June 3, 1947), it was decided that:",
-        options: ["The Constituent Assembly would continue as one body.", "A separate Constituent Assembly would be set up for Pakistan.", "The Constituent Assembly of India would have no power.", "The British Parliament would draft the Constitution."],
-        correctAnswerIndex: 1,
-        explanation: "It provided for the creation of a separate Constituent Assembly for Pakistan."
+        "id": "ch2-l2-q28",
+        "question": "Which of the following functions of the Constituent Assembly required it to act as the",
+        "options": ["Drafting the Fundamental Rights chapter.","Passing ordinary laws for the country","Negotiating with Princely States for integration.","Appointing Judges to the Supreme Court."],
+        "correctAnswerIndex": 1,
+        "explanation": "After adopting the Constitution, the Constituent Assembly ceased to exist as a constitution-making body and became the Provisional Parliament to pass ordinary laws until the first general elections in 1951-52."
     },
     {
-        question: "Which of the following political groups formally boycotted the first meeting of the Constituent Assembly?",
-        options: ["The Justice Party", "The Muslim League", "The Hindu Mahasabha", "The Scheduled Castes Federation"],
-        correctAnswerIndex: 1,
-        explanation: "The Muslim League boycotted the meeting to demand Pakistan."
+        "id": "ch2-l2-q29",
+        "question": "How did the",
+        "options": ["As a completely Unitary State with no provincial autonomy.","As a loose Union of autonomous territories with residuary powers resting in the units.","As an absolute Monarchy under the British Crown.","As a Federation with a highly centralized residuary power structure."],
+        "correctAnswerIndex": 1,
+        "explanation": "The original Objectives Resolution proposed a union composed of autonomous units retaining all residuary powers, though the final Constitution changed this due to Partition, making a strong Centre."
     },
     {
-        question: "The \"Chief Draftsman\" of the Constitution in the Constituent Assembly was:",
-        options: ["S.N. Mukherjee", "H.V.R. Iyengar", "B.N. Rau", "Dr. B.R. Ambedkar"],
-        correctAnswerIndex: 0,
-        explanation: "S.N. Mukherjee was the Chief Draftsman of the Constitution."
+        "id": "ch2-l2-q30",
+        "question": "Match the personality with their role in the making of the Constitution:\\nList-I\\nA. H.V.R. Iyengar\\nB. S.N. Mukherjee\\nC. Prem Behari Narain Raizada\\nList-II\\n1. Chief Draftsman\\n2. Calligrapher\\n3. Secretary to the Constituent Assembly\\nCode (A-B-C):",
+        "options": ["3-1-2","1-3-2","2-1-3","3-2-1"],
+        "correctAnswerIndex": 0,
+        "explanation": "HVR Iyengar was the Secretary, SN Mukherjee was Chief Draftsman, and Raizada was the Calligrapher."
     }
 ];
 
-// Level 3: The UPSC Simulation
 const LEVEL_3_QUESTIONS = [
     {
-        question: "In September 2023, the Old Parliament House was renamed \"Samvidhan Sadan\". Historically, what was the specific significance of the \"Central Hall\" of this building?",
-        options: ["It was where the first meeting of the Constituent Assembly was held.", "It was the library of the Constituent Assembly.", "It was the office of the Drafting Committee.", "It was where the Transfer of Power ceremony took place only."],
-        correctAnswerIndex: 0,
-        explanation: "The Central Hall (Constitution Hall) is where the Constituent Assembly met to frame the Constitution."
+        "id": "ch2-l3-q1",
+        "question": "In November 2024, the President released the Constitution of India in Sanskrit and Maithili languages. Regarding the",
+        "options": ["1 and 2 only","2 and 3 only","1 and 3 only","1, 2, and 3"],
+        "correctAnswerIndex": 0,
+        "explanation": "Statement 3 is incorrect; Article 394-A specifically grants"
     },
     {
-        question: "With the implementation of the Nari Shakti Vandan Adhiniyam, women's representation is set to increase. In the Constituent Assembly (1946-1950), what was the total strength of women members?",
-        options: ["9", "12", "15", "21"],
-        correctAnswerIndex: 2,
-        explanation: "There were 15 women members in the Constituent Assembly."
+        "id": "ch2-l3-q2",
+        "question": "A recent debate in 2024 (sparked by Bibek Debroy) suggested India needs a",
+        "options": ["Article 395, which explicitly repealed the Indian Independence Act, 1947, and the Government of India Act, 1935.","Article 368, which grants the Parliament the power to amend the Constitution.","The Objectives Resolution, which declared the source of all power to be the",".","Article 394, which brought certain provisional clauses into immediate effect on Nov 26, 1949."],
+        "correctAnswerIndex": 0,
+        "explanation": "Article 395 is the crucial"
     },
     {
-        question: "Dakshayani Velayudhan was a significant figure in the Constituent Assembly. She was distinct because:",
-        options: ["She was the only female member of the Drafting Committee.", "She was the first and only Dalit woman to be elected to the Constituent Assembly.", "She was the youngest member of the Assembly.", "She presided over the Assembly in the absence of Dr. Rajendra Prasad."],
-        correctAnswerIndex: 1,
-        explanation: "She was the first and only Dalit woman to be elected to the Constituent Assembly."
+        "id": "ch2-l3-q3",
+        "question": "With reference to the drafting of the Constitution, what is the significance of the difference in phraseology between",
+        "options": ["It differentiates between the legal drafting experts and the political consensus of the Assembly.","It conceptually limits the Constitution","It establishes the doctrine of popular sovereignty, meaning the Constitution","It meant that the document required ratification by adult franchise through a national referendum."],
+        "correctAnswerIndex": 2,
+        "explanation": "The phrase signifies"
     },
     {
-        question: "The \"Hamara Samvidhan Hamara Samman\" campaign emphasizes decolonization. Which decision of the Constituent Assembly most reflects this spirit?",
-        options: ["Adopting the Parliamentary system.", "Repealing the Indian Independence Act, 1947, via Article 395.", "Retaining the \"Rule of Law\".", "Using English as the language of the High Courts."],
-        correctAnswerIndex: 1,
-        explanation: "Article 395 repealed the Indian Independence Act, 1947 and the Government of India Act, 1935, severing legal ties with the British Parliament."
+        "id": "ch2-l3-q4",
+        "question": "Consider the following bodies associated with the framing of India",
+        "options": ["1 only","1 and 2 only","2 and 3 only","1, 2, and 3"],
+        "correctAnswerIndex": 0,
+        "explanation": "The INC appointed an Experts Committee in July 1946 (headed by Nehru) to prepare material and draft proposals for the Constituent Assembly before it even met in December."
     },
     {
-        question: "The First Amendment Act, 1951—which added the Ninth Schedule—was passed by which body?",
-        options: ["The Lok Sabha.", "The Provisional Parliament (which was the Constituent Assembly).", "The Rajya Sabha.", "A Joint Sitting."],
-        correctAnswerIndex: 1,
-        explanation: "It was passed by the Provisional Parliament (the Constituent Assembly functioning as the legislature) in 1951."
+        "id": "ch2-l3-q5",
+        "question": "Which of the following criticisms was NOT commonly levelled against the Constituent Assembly by constitutional scholars like Granville Austin or Ivor Jennings?",
+        "options": ["It was a",", making the language overly complex and bulky.","It was","because it was not directly elected by adult franchise.","It lacked legitimacy because it failed to incorporate the Government of India Act 1935.","It was essentially a","body (according to Viscount Simon)."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Assembly actually incorporated massive chunks of the 1935 Act into the Constitution. Jennings criticized it for being a"
     },
     {
-        question: "Consider the following regarding the \"Sovereignty\" of the Constituent Assembly:\n1. Before August 15, 1947, the Assembly was not fully sovereign.\n2. The Indian Independence Act, 1947, expressly declared the Assembly to be a sovereign body.\n3. The Assembly had the power to abrogate any British law.",
-        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
-        correctAnswerIndex: 3,
-        explanation: "All statements are correct. It became sovereign only after the Independence Act."
+        "id": "ch2-l3-q6",
+        "question": "The structural part of the Indian Constitution is largely derived from the Government of India Act of 1935. However, which of the following",
+        "options": ["The establishment of an independent federal judiciary.","The distribution of legislative powers into three lists.","The enshrinement of a justiciable Bill of Rights (Fundamental Rights).","The creation of entirely autonomous provincial executives responsible to the legislature."],
+        "correctAnswerIndex": 2,
+        "explanation": "The 1935 Act fiercely avoided including a Bill of Rights (Fundamental Rights) due to British colonial fears. The inclusion of Part III fundamentally differentiated the new structural governance from the colonial era."
     },
     {
-        question: "S.N. Mukherjee is often an unsung hero. His role was described as:",
-        options: ["The Constitutional Advisor.", "The Chief Draftsman who put the complex proposals into clear legal language.", "The Calligrapher.", "The Chairman of the Credentials Committee."],
-        correctAnswerIndex: 1,
-        explanation: "He was the Chief Draftsman, praised by Ambedkar for his ability to put intricate proposals into legal form."
+        "id": "ch2-l3-q7",
+        "question": "In the ongoing debates regarding the",
+        "options": ["The requirement of ratification by half the state legislatures for amending federal provisions.","The ability of Parliament to alter the names, boundaries, and areas of states by a simple majority without using Article 368.","The explicit provision giving the Supreme Court the power to review constitutional amendments.","The necessity of a special majority (2/3rds) in both Houses for most amendments."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 4 allows Parliament to form new states or alter boundaries by a simple majority, explicitly stating this is NOT an amendment under Article 368, showcasing extreme flexibility."
     },
     {
-        question: "Match the Member with the specific Community they represented:\nA. Frank Anthony\nB. H.P. Modi\nC. Jaipal Singh Munda\nD. Shyama Prasad Mukherjee",
-        options: ["A-2 (Anglo-Indian), B-1 (Parsee), C-4 (Tribal), D-3 (Hindu Mahasabha)", "A-2, B-3, C-4, D-1", "A-1, B-2, C-3, D-4", "A-4, B-1, C-2, D-3"],
-        correctAnswerIndex: 0,
-        explanation: "Frank Anthony (Anglo-Indians), H.P. Modi (Parsees), Jaipal Singh (Tribals), S.P. Mukherjee (Hindu Mahasabha)."
+        "id": "ch2-l3-q8",
+        "question": "Compare the framing trajectories of the Indian and Pakistani Constituent Assemblies. The Indian Assembly successfully framed the Constitution by 1949. The original Pakistani Assembly, formed concurrently in 1947, faced which of the following primary constitutional deadlocks that stalled its process for years?",
+        "options": ["Refusal of the princely states to integrate into Pakistan.","Inability to agree on the representation formula between the two heavily disproportionate wings (East and West Pakistan).","An immediate military coup led by Ayub Khan in 1948.","The British Parliament"],
+        "correctAnswerIndex": 1,
+        "explanation": "The primary deadlock in Pakistan"
     },
     {
-        question: "The \"Provincial Constitution Committee\" was chaired by:",
-        options: ["Jawaharlal Nehru", "Sardar Patel", "Dr. Rajendra Prasad", "B.N. Rau"],
-        correctAnswerIndex: 1,
-        explanation: "Sardar Patel chaired the Provincial Constitution Committee."
+        "id": "ch2-l3-q9",
+        "question": "Consider the dual role of the Constituent Assembly (CA). When dealing with the integration of princely states, which committee formed by the CA played an early communicative role, even before Sardar Patel",
+        "options": ["Union Powers Committee","Rules of Procedure Committee","The States Committee (Committee for Negotiating with States)","Provincial Constitution Committee"],
+        "correctAnswerIndex": 2,
+        "explanation": "The States Committee (headed by Nehru) was explicitly formed to negotiate with the Chamber of Princes to bring their representatives into the Assembly."
     },
     {
-        question: "Who among the following was the Constitutional Advisor to the Assembly, and also played a key role in representing India at the ICJ?",
-        options: ["Dr. B.R. Ambedkar", "Sir B.N. Rau", "Alladi Krishnaswami Ayyar", "K.M. Munshi"],
-        correctAnswerIndex: 1,
-        explanation: "Sir B.N. Rau was the Constitutional Advisor and later served as a judge at the ICJ."
+        "id": "ch2-l3-q10",
+        "question": "How did the Cabinet Mission Plan",
+        "options": ["The Assembly immediately divided itself into three distinct legislative groups (A, B, and C) to draft provincial constitutions.","The Assembly fiercely rejected it immediately, leading directly to the partition of India.","The initial Committees (like Union Powers) envisioned a very weak Centre with limited powers (Defense, Foreign Affairs, Communications) to accommodate the Grouping plan.","The Grouping plan forced the Assembly to prioritize minority rights over fundamental rights."],
+        "correctAnswerIndex": 2,
+        "explanation": "Initially, the Assembly worked within the Cabinet Mission framework which proposed a weak center (only 3 subjects). Only after the Partition plan (Mountbatten plan) did the Assembly switch to drafting a strong Centre."
     },
     {
-        question: "The final session (January 24, 1950) is often considered the 12th session. What was the specific agenda?",
-        options: ["To debate the Preamble.", "To sign the Constitution, adopt the National Anthem/Song, and elect the first President.", "To pass the Indian Independence Act.", "To partition the Assembly seats."],
-        correctAnswerIndex: 1,
-        explanation: "On Jan 24, 1950, the Assembly met to just sign the Constitution and elect the President, not for debate."
+        "id": "ch2-l3-q11",
+        "question": "In the context of the recent simultaneous elections (",
+        "options": ["Provisions relating to Elections (Article 324) were kept pending until the First General Elections in 1951.","Provisions relating to Elections came into force immediately on Nov 26, 1949, to prepare the institutional framework (ECI) for impending adult-franchise elections.","Elections were not fundamentally addressed until the Representation of the People Act, 1950, was passed.","The entire constitutional framework for elections was borrowed from the US Constitution and enforced in 1950."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 324 (Election Commission) was among the few articles that came into force immediately on November 26, 1949, because preparing electoral rolls for universal adult franchise required the immediate establishment of the ECI."
     },
     {
-        question: "The Assembly was elected:\n1. Directly by the people.\n2. Indirectly by the members of the Provincial Legislative Assemblies.\n3. Nominated entirely.",
-        options: ["1 only", "2 only", "3 only", "1 and 2"],
-        correctAnswerIndex: 1,
-        explanation: "The Constituent Assembly was elected indirectly by the members of the Provincial Legislative Assemblies."
+        "id": "ch2-l3-q12",
+        "question": "Consider the following statements regarding the",
+        "options": ["1 and 2 only","2 and 3 only","1 and 3 only","1, 2, and 3"],
+        "correctAnswerIndex": 0,
+        "explanation": "Statement 3 is incorrect; the third reading was moved by Dr. B.R. Ambedkar. Dr. Rajendra Prasad was the President of the Assembly, not the mover of the draft readings."
     },
     {
-        question: "Why did the Constituent Assembly reject the system of \"Proportional Representation\" for the Lok Sabha?",
-        options: ["It was too complicated for illiterate voters.", "It would lead to unstable governments (coalitions).", "It creates a distance between the voter and the representative.", "All of the above."],
-        correctAnswerIndex: 3,
-        explanation: "All reasons were cited: complexity, instability, and lack of direct contact."
+        "id": "ch2-l3-q13",
+        "question": "Why did the Constituent Assembly adopt the",
+        "options": ["To allow the Drafting Committee time to review its legal terminology.","To wait for the Muslim League to join the Assembly and participate in this foundational resolution.","Because Dr. Ambedkar heavily opposed its socialist undertones initially.","Because the British Cabinet explicitly ordered a delay pending the partition plan."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Assembly postponed its adoption to late January 1947 to give the Muslim League a chance to join the Assembly and partake in adopting the foundational resolution."
     },
     {
-        question: "Granville Austin described the Congress in the Assembly not as a dictatorial party but as:",
-        options: ["A rigid dictatorial party.", "A broad umbrella or \"consensus\" party representing diverse viewpoints.", "A party of the elite lawyers only.", "A party controlled by the British."],
-        correctAnswerIndex: 1,
-        explanation: "He described it as a party of 'Consensus' and 'Accommodation'."
+        "id": "ch2-l3-q14",
+        "question": "Assertion (A): The Indian Constitution is often called a",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both are true. Ambedkar proudly defended this"
     },
     {
-        question: "The method of Proportional Representation by means of Single Transferable Vote is currently used in India for the election of:",
-        options: ["President only", "President and Rajya Sabha Members", "Rajya Sabha Members and Lok Sabha Members", "All of the above"],
-        correctAnswerIndex: 1,
-        explanation: "It is used for the President, Vice-President, and Rajya Sabha members, but NOT for Lok Sabha."
+        "id": "ch2-l3-q15",
+        "question": "During recent debates on federalism, several states invoked their autonomy. At the Constituent Assembly, the",
+        "options": ["Sardar Patel; a parliamentary model for provinces similar to the Centre.","Jawaharlal Nehru; a presidential model for provinces with an elected Governor.","Dr. B.R. Ambedkar; a highly centralized model where Governors act as full agents of the Centre.","K.M. Munshi; a federal model but without upper legislative houses for any province."],
+        "correctAnswerIndex": 0,
+        "explanation": "Sardar Patel chaired the Provincial Constitution Committee, which recommended a parliamentary form of government for the provinces (states), mirroring the central structure."
     },
     {
-        question: "Which artist from Shantiniketan sketched the 'Lion Capital of Ashoka' for the emblem and the borders of the pages?",
-        options: ["Beohar Rammanohar Sinha", "Nandalal Bose", "Abanindranath Tagore", "Raja Ravi Varma"],
-        correctAnswerIndex: 1,
-        explanation: "Nandalal Bose sketched the Lion Capital and led the art team."
+        "id": "ch2-l3-q16",
+        "question": "Which of the following describes the unique",
+        "options": ["It acted as the constitution-making body for both India and Pakistan simultaneously.","It exercised executive powers as the Cabinet and legislative powers as the Parliament.","It functioned as a sovereign Constituent Assembly for framing the Constitution and as the Dominion Legislature (Provisional Parliament) for making ordinary laws.","It functioned as the Supreme Court for appellate cases and as the Parliament."],
+        "correctAnswerIndex": 2,
+        "explanation": "It performed two separate functions: making the Constitution (chaired by Rajendra Prasad) and enacting ordinary laws (chaired by G.V. Mavalankar)."
     },
     {
-        question: "On the Preamble page, the signature \"Ram\" belongs to:",
-        options: ["Beohar Rammanohar Sinha", "Prem Behari Narain Raizada", "Vasant Krishan Vaidya", "Nandalal Bose"],
-        correctAnswerIndex: 0,
-        explanation: "It belongs to Beohar Rammanohar Sinha (Jabalpur-born artist from Shantiniketan)."
+        "id": "ch2-l3-q17",
+        "question": "Consider the following statements about the",
+        "options": ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        "correctAnswerIndex": 0,
+        "explanation": "The Elephant was adopted as the symbol (seal) of the Constituent Assembly. The Lion Capital is the National Emblem but was not the Constituent Assembly"
     },
     {
-        question: "The \"Seal\" of the Constituent Assembly depicted which animal?",
-        options: ["Tiger", "Lion", "Elephant", "Bull"],
-        correctAnswerIndex: 2,
-        explanation: "The Elephant was the symbol (seal) of the Constituent Assembly."
+        "id": "ch2-l3-q18",
+        "question": "Regarding the incorporation of international mechanisms in the Constitution, the",
+        "options": ["British Constitution","Irish Constitution","Japanese Constitution","Canadian Constitution"],
+        "correctAnswerIndex": 2,
+        "explanation": "The phrase"
     },
     {
-        question: "How did the \"Mountbatten Plan\" (June 3, 1947) affect the composition of the Constituent Assembly?",
-        options: ["The total strength increased.", "The members from the areas included in Pakistan withdrew, reducing the strength to 299.", "The Princely States were removed.", "The British members were added."],
-        correctAnswerIndex: 1,
-        explanation: "The members from Pakistan territories withdrew, reducing the strength from 389 to 299."
+        "id": "ch2-l3-q19",
+        "question": "At the time of its adoption, the Constitution contained 395 Articles and 8 Schedules. Since then, the number of Schedules has grown to 12. Which was the FIRST Schedule to be added to the Constitution post-adoption, protecting laws from judicial review?",
+        "options": ["Eighth Schedule","Ninth Schedule","Tenth Schedule","Eleventh Schedule"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Ninth Schedule was added by the 1st Amendment in 1951 to protect land reform laws from judicial review, a significant evolution from the original 8 schedules."
     },
     {
-        question: "Who was the Law Minister in the first cabinet of free India and also the Chairman of the Drafting Committee?",
-        options: ["Dr. B.R. Ambedkar", "K.M. Munshi", "Alladi Krishnaswami Ayyar", "N. Madhava Rau"],
-        correctAnswerIndex: 0,
-        explanation: "Dr. B.R. Ambedkar was the First Law Minister and Chairman of the Drafting Committee."
+        "id": "ch2-l3-q20",
+        "question": "Which Indian artist was entrusted with illuminating the Preamble page of the original Constitution, embedding intricate artwork reflecting India",
+        "options": ["Beohar Rammanohar Sinha","Nandalal Bose","Prem Behari Narain Raizada","S.N. Mukherjee"],
+        "correctAnswerIndex": 0,
+        "explanation": "While Nandalal Bose directed the artwork for the entire document, the specific illumination and beautification of the Preamble page was done by Beohar Rammanohar Sinha (his signature"
     },
     {
-        question: "Assertion (A): The Constitution of India is the longest written constitution.\nReason (R): The Assembly incorporated provisions from various constitutions and detailed administrative provisions to prevent ambiguity.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0,
-        explanation: "The detailed nature was intentional to avoid future legal ambiguities, leading to its length."
+        "id": "ch2-l3-q21",
+        "question": "The",
+        "options": ["To draft the fundamental rights applicable strictly to the princely states.","To negotiate with the princely states to secure their entry into the Constituent Assembly.","To draw the geographical boundaries of the newly created states after partition.","To decide the division of assets between India and Pakistan."],
+        "correctAnswerIndex": 1,
+        "explanation": "The States Committee (headed by Nehru) was specifically a"
     },
     {
-        question: "The \"Hindi Translation\" of the Constitution was signed by the members on:",
-        options: ["January 24, 1950", "January 26, 1950", "November 26, 1949", "It was not signed"],
-        correctAnswerIndex: 0,
-        explanation: "The members signed both the English and Hindi versions on January 24, 1950."
+        "id": "ch2-l3-q22",
+        "question": "The Constituent Assembly was criticized as a",
+        "options": ["That the 1935 Act was actually drafted by Indians during the Round Table Conferences.","That the Constitution included a Bill of Rights, which the British acts lacked.","That nobody holds any patent rights in the fundamental ideas of a Constitution, and administrative continuity was vital for a new nation.","That the 1935 Act was only a temporary measure until a fully socialist constitution could be enacted."],
+        "correctAnswerIndex": 2,
+        "explanation": "Ambedkar bluntly defended the borrowing:"
     },
     {
-        question: "Which provision was used by the Constituent Assembly to function as the \"Provisional Parliament\"?",
-        options: ["Article 368", "Article 370", "Article 379", "Article 395"],
-        correctAnswerIndex: 2,
-        explanation: "Article 379 (now repealed) contained the transitional provision for the Provisional Parliament."
+        "id": "ch2-l3-q23",
+        "question": "In the final drafting stages, the Constituent Assembly rejected the",
+        "options": ["The Parliamentary system ensures absolute stability of the executive over accountability.","The Indian populace was more familiar with the Parliamentary system due to decades of British rule, emphasizing daily responsibility over periodic stability.","The Presidential system would contradict the fundamental rights guaranteed to minorities.","The Princely States demanded a Parliamentary system to maintain their local monarchies."],
+        "correctAnswerIndex": 1,
+        "explanation": "The framers preferred"
     },
     {
-        question: "Decisions in the Assembly were mostly arrived at by:",
-        options: ["Simple Majority", "Two-thirds Majority", "Consensus and Accommodation", "Direction of the Congress"],
-        correctAnswerIndex: 2,
-        explanation: "They preferred Consensus and Accommodation over simple majority voting to ensure wide acceptance."
+        "id": "ch2-l3-q24",
+        "question": "Identify the correct chronological order of the following events during the making of the Constitution:\\n1. Adoption of the National Flag.\\n2. Adoption of the Objectives Resolution.\\n3. The passing of the historic",
+        "options": ["3-2-1-4","3-1-2-4","2-3-1-4","1-2-3-4"],
+        "correctAnswerIndex": 0,
+        "explanation": "Purna Swaraj (1929) -> Objectives Resolution (Jan 1947) -> Flag (July 1947) -> Anthem (Jan 1950)."
     },
     {
-        question: "The inclusion of DPSP was influenced by the Irish Constitution and the report of which committee?",
-        options: ["Nehru Report", "Sapru Committee (1945)", "Simon Commission", "Butler Committee"],
-        correctAnswerIndex: 1,
-        explanation: "The Sapru Committee (1945) recommended dividing rights into Justiciable (Fundamental Rights) and Non-Justiciable (DPSP)."
+        "id": "ch2-l3-q25",
+        "question": "Article 393 of the Constitution contains the",
+        "options": ["This Constitution may be called the Constitution of India.","This Constitution constitutes India into a Sovereign Socialist Secular Democratic Republic.","This Constitution repeals the Government of India Act, 1935.","This Constitution shall come into force on the twenty-sixth day of January, 1950."],
+        "correctAnswerIndex": 0,
+        "explanation": "Article 393 states the short title:"
     },
     {
-        question: "The date \"November 26, 1949\" in the Preamble signifies:",
-        options: ["Date of commencement", "The date on which the people Adopted, Enacted and gave to themselves the Constitution", "British ratification", "Republic Day"],
-        correctAnswerIndex: 1,
-        explanation: "It is the date of Adoption and Enactment."
+        "id": "ch2-l3-q26",
+        "question": "Which of the following elements of the Constitution was fundamentally inspired by the Canadian Constitution?",
+        "options": ["Advisory jurisdiction of the Supreme Court.","Election of members of the Rajya Sabha.","Ideal of justice in the Preamble.","Fundamental Duties."],
+        "correctAnswerIndex": 0,
+        "explanation": "Canadian features: Federation with strong centre, residuary powers in the centre, appointment of state governors by the centre, and advisory jurisdiction of the Supreme Court."
     },
     {
-        question: "\"Constitution Day\" was first celebrated in 2015 to mark the 125th birth anniversary of:",
-        options: ["Jawaharlal Nehru", "Mahatma Gandhi", "Dr. B.R. Ambedkar", "Sardar Patel"],
-        correctAnswerIndex: 2,
-        explanation: "It marks the 125th birth anniversary of Dr. B.R. Ambedkar."
+        "id": "ch2-l3-q27",
+        "question": "The",
+        "options": ["The US Constitution","The British Defence of the Realm Act","The Government of India Act, 1935","The Constitution of South Africa"],
+        "correctAnswerIndex": 2,
+        "explanation": "The detailed emergency provisions are largely drawn from the Government of India Act, 1935 (Section 93 for state emergencies, etc.), while the specific suspension of FRs comes from Weimar."
     },
     {
-        question: "Which of the following was NOT a function of the Constituent Assembly?",
-        options: ["Adopting the National Flag.", "Ratifying the Commonwealth membership.", "Appointing the first Prime Minister.", "Electing the first President."],
-        correctAnswerIndex: 2,
-        explanation: "The Prime Minister was appointed, but the Constituent Assembly (as a body) Elected the President. The PM was already head of the Interim Govt."
+        "id": "ch2-l3-q28",
+        "question": "Consider the critique that the Constituent Assembly was a",
+        "options": ["The inclusion of philosophical ideals in the Preamble.","The vast bulk and highly complicated legalistic language defining detailed administrative procedures.","The borrowing of non-justiciable Directive Principles from Ireland.","The guarantee of universal adult franchise."],
+        "correctAnswerIndex": 1,
+        "explanation": "The massive size, detailed administrative provisions, and complex legal jargon inserted by the lawyer-dominated Assembly led Sir Ivor Jennings to call it a"
     },
     {
-        question: "Which member was a strong advocate of the \"Trinity\" of Liberty, Equality, and Fraternity?",
-        options: ["Jawaharlal Nehru", "Dr. B.R. Ambedkar", "K.M. Munshi", "Sarojini Naidu"],
-        correctAnswerIndex: 1,
-        explanation: "Dr. B.R. Ambedkar strongly argued that Liberty, Equality, and Fraternity form a union of trinity."
+        "id": "ch2-l3-q29",
+        "question": "Under the Independence Act 1947, the Constituent Assembly became the Dominion Legislature. What was the legal consequence for the representation of the Muslim League in the Assembly post-Partition?",
+        "options": ["The Muslim League members who opted for India were expelled.","The Muslim League members from the Indian Dominion territories boycotted the CA entirely.","The members from areas forming Pakistan withdrew completely, reducing the total Assembly strength to 299.","The Muslim League"],
+        "correctAnswerIndex": 2,
+        "explanation": "Post-partition, Muslim League members from areas allocated to Pakistan withdrew, reducing the Assembly"
     },
     {
-        question: "The Central Hall is historically unique because:",
-        options: ["It was only used by the CA.", "It was used for British Joint Sittings.", "It was the meeting place of the Chamber of Princes, the Constituent Assembly, and later Joint Sittings.", "It was built specifically for the CA."],
-        correctAnswerIndex: 2,
-        explanation: "It housed the Chamber of Princes (pre-1947), the Constituent Assembly (1946-49), and Parliament Joint Sittings (post-1950)."
+        "id": "ch2-l3-q30",
+        "question": "Which of the following statements explains the legal significance of the",
+        "options": ["On Nov 26, the Assembly became a Republic, but the Constitution was not ready until Jan 26.","On Nov 26, the people enacted the Constitution in its entirety, but kept the President","On Nov 26, the Constitution was adopted and minor provisions enacted, whereas on Jan 26, the entire Constitution was enforced and India formally became a sovereign Republic.","There is no legal difference; both days celebrate the end of British rule."],
+        "correctAnswerIndex": 2,
+        "explanation": "Nov 26 is the date of adoption with minor provisions (Citizenship, Elections) coming into force. Jan 26 is the"
     }
 ];
 
 export const CHAPTER_2_LEVELS: ChapterLevelData = {
-    topicId: 2,
-    levels: [
-        {
-            levelId: 1,
-            title: "Text-Book Stickler",
-            description: "Strictly Chapter 2: Direct Recall.",
-            questions: LEVEL_1_QUESTIONS.map((q, i) => ({ ...q, id: `ch2-l1-q${i + 1}` }))
-        },
-        {
-            levelId: 2,
-            title: "Conceptual Bridge",
-            description: "Applied Knowledge & Analysis.",
-            questions: LEVEL_2_QUESTIONS.map((q, i) => ({ ...q, id: `ch2-l2-q${i + 1}` }))
-        },
-        {
-            levelId: 3,
-            title: "UPSC Simulation",
-            description: "Integrated & Current Affairs Context.",
-            questions: LEVEL_3_QUESTIONS.map((q, i) => ({ ...q, id: `ch2-l3-q${i + 1}` }))
-        }
-    ]
+    level1: LEVEL_1_QUESTIONS,
+    level2: LEVEL_2_QUESTIONS,
+    level3: LEVEL_3_QUESTIONS
 };

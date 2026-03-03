@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle2, XCircle, Trophy, Play, Lock, AlertTriangle, RefreshCw, ChevronRight, BookOpen, FileBarChart } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getChapterLevels } from '../data/chapter-level-index';
-import { LevelQuestion, LevelData } from '../data/level-types';
+import { LevelQuestion, LevelData, FormattedChapterLevelData } from '../data/level-types';
 import { saveChapterReport } from '@/lib/report-persistence';
 // @ts-ignore
 import confetti from 'canvas-confetti';
@@ -93,11 +93,28 @@ function ConfidenceStrip({
 // --- Main Component ---
 export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGameProps) {
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const requestedLevel = searchParams.get('level');
+
     const [activeLevel, setActiveLevel] = useState<number | null>(null);
     const [unlockedLevels, setUnlockedLevels] = useState<number[]>([1]);
     const [showReport, setShowReport] = useState(false);
     const [lastResult, setLastResult] = useState<ChapterTestResult | null>(null);
     const chapterData = getChapterLevels(topicId);
+
+    // Initial Level Selection from Query Param
+    useEffect(() => {
+        if (requestedLevel) {
+            const levelNum = parseInt(requestedLevel);
+            if ([1, 2, 3].includes(levelNum)) {
+                setActiveLevel(levelNum);
+                // Also unlock levels up to requested if needed, or assume first time
+                if (levelNum > 1) {
+                    setUnlockedLevels(prev => Array.from(new Set([...prev, levelNum])));
+                }
+            }
+        }
+    }, [requestedLevel]);
 
     // Load unlocked levels from localStorage
     useEffect(() => {

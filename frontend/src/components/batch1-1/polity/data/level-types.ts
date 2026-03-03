@@ -14,6 +14,12 @@ export interface LevelData {
 }
 
 export interface ChapterLevelData {
+    level1: LevelQuestion[];
+    level2?: LevelQuestion[];
+    level3?: LevelQuestion[];
+}
+
+export interface FormattedChapterLevelData {
     topicId: number;
     levels: LevelData[];
 }

@@ -1,607 +1,576 @@
-import { ChapterLevelData } from "../level-types";
+import { ChapterLevelData } from '../level-types';
 
-// Level 1: The Text-Book Stickler (Strictly Chapter 12)
 const LEVEL_1_QUESTIONS = [
     {
-        question: "The question whether Fundamental Rights can be amended by the Parliament under Article 368 first arose in which case?",
-        options: ["Golak Nath case (1967)", "Shankari Prasad case (1951)", "Kesavananda Bharati case (1973)", "Minerva Mills case (1980)"],
-        correctAnswerIndex: 1, // b) Shankari Prasad
-        explanation: "Shankari Prasad case (1951)."
+        "id": "ch12-l1-q1",
+        "question": "In which constitutional case was the question of whether Fundamental Rights can be amended by the Parliament under Article 368 first raised?",
+        "options": ["Golaknath case (1967)","Kesavananda Bharati case (1973)","Shankari Prasad case (1951)","Minerva Mills case (1980)"],
+        "correctAnswerIndex": 2,
+        "explanation": "The question whether Fundamental Rights can be amended by the Parliament under Article 368 came for consideration of the Supreme Court within a year of the Constitution coming into force, in the Shankari Prasad case (1951)."
     },
     {
-        question: "In the Shankari Prasad case (1951), the Supreme Court ruled that the power of the Parliament to amend the Constitution under Article 368:",
-        options: ["Includes the power to amend Fundamental Rights.", "Does not include the power to amend Fundamental Rights.", "Is limited by the Basic Structure.", "Is subject to ratification by states."],
-        correctAnswerIndex: 0, // a) Includes the power
-        explanation: "In Shankari Prasad, the Court ruled that Article 368 includes the power to amend Fundamental Rights."
+        "id": "ch12-l1-q2",
+        "question": "In the Shankari Prasad case (1951), the Supreme Court ruled that the power of Parliament to amend the Constitution under Article 368 includes the power to amend ________.",
+        "options": ["Only the Directive Principles of State Policy.","Fundamental Rights as well.","Only the Preamble.","Only the Schedules, but not Fundamental Rights."],
+        "correctAnswerIndex": 1,
+        "explanation": "In the Shankari Prasad case, the Supreme Court ruled that the power of the Parliament to amend the Constitution under Article 368 also includes the power to amend Fundamental Rights."
     },
     {
-        question: "In the Shankari Prasad case, the Court held that the word 'law' in Article 13 includes only:",
-        options: ["Constitutional amendment acts.", "Ordinary laws.", "Both ordinary laws and constitutional amendment acts.", "Executive orders."],
-        correctAnswerIndex: 1, // b) Ordinary laws
-        explanation: "The Court held that 'law' in Article 13 includes only ordinary laws, not constitutional amendment acts."
+        "id": "ch12-l1-q3",
+        "question": "According to the Supreme Court in the Shankari Prasad case (1951), the word",
+        "options": ["Executive orders.","Ordinances promulgated by the President.","Constitutional amendment acts (constituent laws).","State laws."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Court held that the word"
     },
     {
-        question: "In the Golak Nath case (1967), the Supreme Court reversed its earlier stand. It ruled that:",
-        options: ["The Parliament has absolute power to amend the Constitution.", "The Fundamental Rights are given a 'transcendental and immutable' position.", "The Parliament can abridge Fundamental Rights but cannot take them away.", "The Directive Principles are superior to Fundamental Rights."],
-        correctAnswerIndex: 1, // b) Transcendental and immutable
-        explanation: "Fundamental Rights were described as transcendental and immutable in the Golak Nath case."
+        "id": "ch12-l1-q4",
+        "question": "In which landmark case did the Supreme Court explicitly reverse its earlier stand and rule that Fundamental Rights are given a",
+        "options": ["Shankari Prasad case (1951)","Sajjan Singh case (1965)","Golaknath case (1967)","Kesavananda Bharati case (1973)"],
+        "correctAnswerIndex": 2,
+        "explanation": "In the Golaknath case (1967), the Supreme Court reversed its earlier stance, ruling that Fundamental Rights are given a"
     },
     {
-        question: "In the Golak Nath case, the Court held that a Constitutional Amendment Act:",
-        options: ["Is not a 'law' within the meaning of Article 13.", "Is a 'law' within the meaning of Article 13 and hence would be void for violating any of the Fundamental Rights.", "Is a special law protected by the Ninth Schedule.", "Is an executive action."],
-        correctAnswerIndex: 1, // b) Is a 'law'
-        explanation: "The Court held that a constitutional amendment is a 'law' under Article 13."
+        "id": "ch12-l1-q5",
+        "question": "Which Constitutional Amendment Act was enacted by the Parliament in reaction to the Supreme Court",
+        "options": ["24th Amendment Act (1971)","25th Amendment Act (1971)","42nd Amendment Act (1976)","44th Amendment Act (1978)"],
+        "correctAnswerIndex": 0,
+        "explanation": "Parliament reacted to the SC"
     },
     {
-        question: "To overcome the Golak Nath judgment, the Parliament enacted the:",
-        options: ["24th Amendment Act (1971).", "25th Amendment Act (1971).", "42nd Amendment Act (1976).", "44th Amendment Act (1978)."],
-        correctAnswerIndex: 0, // a) 24th
-        explanation: "24th Amendment Act (1971)."
+        "id": "ch12-l1-q6",
+        "question": "The doctrine of",
+        "options": ["Golaknath case (1967)","Minerva Mills case (1980)","Kesavananda Bharati case (1973)","Waman Rao case (1981)"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Supreme Court formulated the doctrine of"
     },
     {
-        question: "The 24th Amendment Act amended which Articles to declare that Parliament has the power to abridge or take away any of the Fundamental Rights?",
-        options: ["Articles 13 and 368.", "Articles 14 and 19.", "Articles 31 and 32.", "Articles 12 and 35."],
-        correctAnswerIndex: 0, // a) 13 and 368
-        explanation: "Amended Articles 13 and 368."
+        "id": "ch12-l1-q7",
+        "question": "What was the ruling of the Supreme Court in the Kesavananda Bharati case (1973) regarding the Parliament",
+        "options": ["Parliament cannot amend Fundamental Rights under any circumstances.","Parliament has unlimited power to amend any part of the Constitution.","Parliament can amend any part, including Fundamental Rights, provided the amendment does not alter the","of the Constitution.","The amending power of Parliament is subject to approval by a national referendum."],
+        "correctAnswerIndex": 2,
+        "explanation": "The SC ruled that the constituent power of Parliament under Article 368 does not enable it to alter the"
     },
     {
-        question: "In the Kesavananda Bharati case (1973), the Supreme Court overruled the judgment in:",
-        options: ["Shankari Prasad case.", "Golak Nath case.", "Sajjan Singh case.", "AK Gopalan case."],
-        correctAnswerIndex: 1, // b) Golak Nath
-        explanation: "Overruled the Golak Nath case."
+        "id": "ch12-l1-q8",
+        "question": "Which Constitutional Amendment Act declared that there is",
+        "options": ["24th Amendment Act (1971)","39th Amendment Act (1975)","42nd Amendment Act (1976)","44th Amendment Act (1978)"],
+        "correctAnswerIndex": 2,
+        "explanation": "Parliament reacted to the Kesavananda Bharati doctrine by enacting the 42nd Amendment Act (1976), which amended Article 368 to state there is no limitation on its amending power and ousted judicial review."
     },
     {
-        question: "In the Kesavananda Bharati case, the Court upheld the validity of the 24th Amendment Act but laid down a new doctrine known as:",
-        options: ["Doctrine of Severability.", "Doctrine of Eclipse.", "Doctrine of Basic Structure.", "Doctrine of Pith and Substance."],
-        correctAnswerIndex: 2, // c) Basic Structure
-        explanation: "Doctrine of Basic Structure."
+        "id": "ch12-l1-q9",
+        "question": "In which case did the Supreme Court invalidate the provision of the 42nd Amendment Act (1976) that excluded judicial review of constitutional amendments?",
+        "options": ["Waman Rao case (1981)","Minerva Mills case (1980)","Indira Nehru Gandhi case (1975)","Kihoto Hollohan case (1993)"],
+        "correctAnswerIndex": 1,
+        "explanation": "In the Minerva Mills case (1980), the Supreme Court invalidated this provision of the 42nd Amendment Act, asserting that"
     },
     {
-        question: "According to the Basic Structure doctrine, the Parliament:",
-        options: ["Cannot amend the Constitution at all.", "Can amend any part of the Constitution provided it does not alter its 'basic structure'.", "Can amend only the Preamble.", "Cannot amend the Fundamental Rights."],
-        correctAnswerIndex: 1, // b) Can amend provided...
-        explanation: "Can amend any part provided it does not alter the basic structure."
+        "id": "ch12-l1-q10",
+        "question": "In the Minerva Mills case (1980), why did the Supreme Court rule that Parliament cannot grant itself",
+        "options": ["Because only the President can have unlimited powers.","Because a","is itself a basic feature of the Constitution, and Parliament cannot use this limited power to enlarge it into an absolute power.","Because state legislatures also need a share in unlimited power.","Because the United Nations Charter forbids unlimited constitutional power."],
+        "correctAnswerIndex": 1,
+        "explanation": "Chief Justice Chandrachud observed that the Constitution has conferred a"
     },
     {
-        question: "The doctrine of basic structure was reaffirmed and applied by the Supreme Court in the Indira Nehru Gandhi case (1975). In this case, the Court invalidated a provision of the:",
-        options: ["39th Amendment Act (1975).", "42nd Amendment Act (1976).", "25th Amendment Act (1971).", "44th Amendment Act (1978)."],
-        correctAnswerIndex: 0, // a) 39th
-        explanation: "39th Amendment Act (1975)."
+        "id": "ch12-l1-q11",
+        "question": "In the Waman Rao case (1981), the Supreme Court clarified the retrospective application of the Basic Structure doctrine. It held that the doctrine would apply to constitutional amendments enacted after which specific date?",
+        "options": ["January 26, 1950","February 27, 1967","April 24, 1973","December 18, 1976"],
+        "correctAnswerIndex": 2,
+        "explanation": "In the Waman Rao case (1981), the Supreme Court clarified that the doctrine of basic structure would apply to constitutional amendments enacted after April 24, 1973 (i.e., the date of the Kesavananda Bharati judgment)."
     },
     {
-        question: "The 39th Amendment Act had kept the election disputes involving which specific offices outside the jurisdiction of all courts?",
-        options: ["President, Vice-President, Prime Minister and Speaker of Lok Sabha.", "President and Governors.", "Prime Minister and Chief Ministers.", "Members of Parliament."],
-        correctAnswerIndex: 0, // a) President, VP, PM, Speaker
-        explanation: "President, Vice-President, Prime Minister, and Speaker of Lok Sabha."
+        "id": "ch12-l1-q12",
+        "question": "Which of the following is NOT generally considered a part of the",
+        "options": ["Supremacy of the Constitution","Secular character of the Constitution","Separation of powers between the legislature, the executive and the judiciary","Supremacy of the Parliament over the Constitution"],
+        "correctAnswerIndex": 3,
+        "explanation": "The"
     },
     {
-        question: "In reaction to the Basic Structure doctrine, the Parliament enacted the 42nd Amendment Act (1976). It added a clause declaring that:",
-        options: ["There shall be no limitation on the constituent power of Parliament.", "No amendment can be questioned in any court on any ground.", "Both (a) and (b).", "Neither (a) nor (b)."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Declared no limitation and no judicial questioning."
+        "id": "ch12-l1-q13",
+        "question": "Is there an exhaustive, precisely defined list of",
+        "options": ["Yes, it is listed in the Ninth Schedule.","Yes, it was added to Article 368 by the 44th Amendment.","No, the Constitution does not define","; it has emerged from various Supreme Court judgments.","Yes, it is defined in the Preamble."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Supreme Court is yet to define or clarify what exactly constitutes the"
     },
     {
-        question: "In the Minerva Mills case (1980), the Supreme Court invalidated the above provision of the 42nd Amendment Act because it excluded:",
-        options: ["Judicial Review.", "Fundamental Duties.", "Directive Principles.", "Emergency Provisions."],
-        correctAnswerIndex: 0, // a) Judicial Review
-        explanation: "Judicial Review is a basic feature."
+        "id": "ch12-l1-q14",
+        "question": "Which of the following values was recognized as a part of the basic structure of the Constitution in the S.R. Bommai case (1994)?",
+        "options": ["The Right to Property as a Fundamental Right.","The monarchical form of government.","Secularism and Federalism.","The supremacy of Directive Principles over all Fundamental Rights."],
+        "correctAnswerIndex": 2,
+        "explanation": "In the S.R. Bommai case (1994), both"
     },
     {
-        question: "In the Waman Rao case (1981), the Supreme Court clarified that the doctrine of Basic Structure would apply to constitutional amendments enacted after:",
-        options: ["January 26, 1950.", "April 24, 1973.", "June 25, 1975.", "November 26, 1949."],
-        correctAnswerIndex: 1, // b) April 24, 1973
-        explanation: "April 24, 1973."
+        "id": "ch12-l1-q15",
+        "question": "In the Indira Nehru Gandhi v. Raj Narain case (1975), the Supreme Court struck down a provision of the 39th Amendment Act (1975). What did this annulled provision essentially attempt to do?",
+        "options": ["It attempted to abolish the office of the President.","It attempted to keep the election disputes involving the Prime Minister and the Speaker of Lok Sabha outside the jurisdiction of all courts.","It attempted to make the Supreme Court directly subordinate to the Prime Minister.","It attempted to delete all Fundamental Rights during an Emergency."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Supreme Court applied the"
     },
     {
-        question: "The Supreme Court has defined the 'basic structure' of the Constitution:",
-        options: ["In the Kesavananda Bharati case itself.", "In the Minerva Mills case.", "In the SR Bommai case.", "The Court has not yet defined or clarified what constitutes the 'basic structure'."],
-        correctAnswerIndex: 3, // d) Not yet defined/exhaustive list
-        explanation: "There is no exhaustive definition; it is evolved case-by-case."
+        "id": "ch12-l1-q16",
+        "question": "Which of the following is considered an element of the Basic Structure of the Constitution?",
+        "options": ["The principle of free and fair elections.","The right to acquire and hold immense private property without state restriction.","The absolute secrecy of government spending.","The reservation of seats for specific castes in the Supreme Court."],
+        "correctAnswerIndex": 0,
+        "explanation": "From the various judgments,"
     },
     {
-        question: "Which of the following is NOT an element of the basic structure as declared by the Supreme Court in various judgments?",
-        options: ["Supremacy of the Constitution.", "Sovereign, democratic and republican nature of the Indian polity.", "Secular character of the Constitution.", "Supremacy of the Parliament."],
-        correctAnswerIndex: 3, // d) Supremacy of Parliament
-        explanation: "India has Constitutional Supremacy, not Parliamentary Supremacy."
+        "id": "ch12-l1-q17",
+        "question": "In the context of the Basic Structure doctrine, what does the",
+        "options": ["It signifies that Directive Principles are legally enforceable.","It signifies that Fundamental Rights are always subordinate to Directive Principles.","It is recognized as an essential basic feature of the Constitution, established firmly in the Minerva Mills case (1980).","It means the Parliament can freely amend Fundamental Rights to implement Directive Principles without judicial review."],
+        "correctAnswerIndex": 2,
+        "explanation": "The balance between Fundamental Rights and Directive Principles is a key component of the basic structure, specifically emphasized in the Minerva Mills case (1980), preventing Parliament from granting absolute primacy to one over the other."
     },
     {
-        question: "Which case declared \"Free and fair elections\" as a basic feature?",
-        options: ["Kesavananda Bharati case (1973).", "Indira Nehru Gandhi case (1975).", "Minerva Mills case (1980).", "Kihoto Hollohan case (1993)."],
-        correctAnswerIndex: 1, // b) Indira Nehru Gandhi
-        explanation: "Indira Nehru Gandhi case (1975)."
+        "id": "ch12-l1-q18",
+        "question": "Which feature of the judiciary is considered an integral part of the",
+        "options": ["The ability of the government to transfer judges at will.","Independence of the Judiciary.","Subordination of High Courts to the State Legislature.","The election of judges by popular vote."],
+        "correctAnswerIndex": 1,
+        "explanation": "The"
     },
     {
-        question: "Which case declared \"Judicial Review\" as a basic feature?",
-        options: ["Minerva Mills case (1980).", "Waman Rao case (1981).", "SR Bommai case (1994).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Reaffirmed in all cited cases."
+        "id": "ch12-l1-q19",
+        "question": "The",
+        "options": ["Shankari Prasad Case (1951)","A.K. Gopalan Case (1950)","Indira Nehru Gandhi Case (1975)","Both C and several other basic structure cases."],
+        "correctAnswerIndex": 3,
+        "explanation": "The"
     },
     {
-        question: "Which case declared \"Rule of Law\" as a basic feature?",
-        options: ["Indira Nehru Gandhi case (1975).", "Minerva Mills case (1980).", "Sambamurthy case (1987).", "Indra Sawhney case (1992)."],
-        correctAnswerIndex: 0, // a) Indira Nehru Gandhi
-        explanation: "Indira Nehru Gandhi case (1975)."
+        "id": "ch12-l1-q20",
+        "question": "Article 32 involves the power of the Supreme Court to issue writs. In the context of the Basic Structure doctrine, what is the status of Article 32?",
+        "options": ["It can be amended by a simple parliamentary majority.","It is a basic feature of the constitution and cannot be abrogated or taken away.","It can be suspended permanently during peacetime via an amendment.","It was explicitly excluded from the basic structure in the Kesavananda case."],
+        "correctAnswerIndex": 1,
+        "explanation": "The powers of the Supreme Court under Article 32 (along with Articles 136, 141, and 142) form a part of the basic structure of the Constitution."
     },
     {
-        question: "Which case declared \"Harmony and balance between Fundamental Rights and Directive Principles\" as a basic feature?",
-        options: ["Minerva Mills case (1980).", "Kesavananda Bharati case (1973).", "Central Coal Fields Ltd. case (1980).", "Bhim Singhji case (1981)."],
-        correctAnswerIndex: 0, // a) Minerva Mills
-        explanation: "Minerva Mills case (1980)."
+        "id": "ch12-l1-q21",
+        "question": "Which of the following best describes the principle of",
+        "options": ["It is a purely political slogan with no constitutional backing.","It is an element of the Basic Structure of the Constitution.","It was abandoned after the economic reforms of 1991.","It applies only to the State governments, not the Union government."],
+        "correctAnswerIndex": 1,
+        "explanation": "The principle of a"
     },
     {
-        question: "Which case declared \"Federal character of the Constitution\" as a basic feature?",
-        options: ["SR Bommai case (1994).", "Kesavananda Bharati case (1973).", "Minerva Mills case (1980).", "Both (a) and (b)."],
-        correctAnswerIndex: 3, // d) Both a and b
-        explanation: "Kesavananda Bharati and SR Bommai."
+        "id": "ch12-l1-q22",
+        "question": "In the I.R. Coelho Case (2007), often referred to as the",
+        "options": ["Absolutely immune from judicial review forever.","Subject to judicial review if they are added after April 24, 1973, and violate the basic structure of the Constitution.","Subject to judicial review only if they relate to land reforms.","Immune from judicial review only if ratified by all states."],
+        "correctAnswerIndex": 1,
+        "explanation": "In the I.R. Coelho case (2007), the Supreme Court ruled that there is no blanket immunity from judicial review for laws included in the Ninth Schedule. Laws added after April 24, 1973, are open to challenge if they violate the basic structure."
     },
     {
-        question: "Which case declared \"Secularism\" as a basic feature?",
-        options: ["SR Bommai case (1994).", "Kesavananda Bharati case (1973).", "Indira Nehru Gandhi case (1975).", "Golak Nath case (1967)."],
-        correctAnswerIndex: 0, // a) SR Bommai
-        explanation: "SR Bommai case (1994)."
+        "id": "ch12-l1-q23",
+        "question": "The power of Judicial Review under Article 226 rests with:",
+        "options": ["The Supreme Court of India.","The High Courts.","Both the Supreme Court and High Courts jointly.","The President of India."],
+        "correctAnswerIndex": 1,
+        "explanation": "Article 226 deals with the power of Judicial Review of the High Courts, whereas Article 32 deals with the Supreme Court. Both are considered part of the Basic Structure (e.g., L. Chandra Kumar case)."
     },
     {
-        question: "Which case declared \"Separation of powers between the legislature, the executive and the judiciary\" as a basic feature?",
-        options: ["Kesavananda Bharati case (1973).", "Indira Nehru Gandhi case (1975).", "Minerva Mills case (1980).", "Delhi Judicial Service Association case (1991)."],
-        correctAnswerIndex: 1, // b) Indira Nehru Gandhi
-        explanation: "Indira Nehru Gandhi case (1975)."
+        "id": "ch12-l1-q24",
+        "question": "Which constitutional amendment did Parliament enact to overcome the ruling in the Golaknath Case (1967)?",
+        "options": ["The 1st Amendment Act.","The 24th Amendment Act.","The 42nd Amendment Act.","The 44th Amendment Act."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Parliament reacted to the Supreme Court"
     },
     {
-        question: "Which case declared \"Freedom and dignity of the individual\" as a basic feature?",
-        options: ["Kesavananda Bharati case (1973).", "Minerva Mills case (1980).", "Indra Sawhney case (1992).", "SR Bommai case (1994)."],
-        correctAnswerIndex: 0, // a) Kesavananda
-        explanation: "Kesavananda Bharati case (1973)."
+        "id": "ch12-l1-q25",
+        "question": "How did the 24th Amendment Act (1971) change the relationship between Article 13 and Article 368?",
+        "options": ["It made Article 13 superior to Article 368.","It declared that","in Article 13 includes constitutional amendments under Article 368.","It explicitly stated that nothing in Article 13 shall apply to any amendment made under Article 368.","It merged Article 13 and Article 368."],
+        "correctAnswerIndex": 2,
+        "explanation": "The 24th Amendment Act amended Articles 13 and 368, explicitly declaring that Parliament has the power to abridge any Fundamental Right under Article 368, and such an act will NOT be considered a"
     },
     {
-        question: "Which case declared \"Unity and integrity of the nation\" as a basic feature?",
-        options: ["Kesavananda Bharati case (1973).", "SR Bommai case (1994).", "L. Chandra Kumar case (1997).", "Waman Rao case (1981)."],
-        correctAnswerIndex: 0, // a) Kesavananda
-        explanation: "Kesavananda Bharati case (1973)."
+        "id": "ch12-l1-q26",
+        "question": "The",
+        "options": ["Article 14","Article 21","Article 32","Article 368"],
+        "correctAnswerIndex": 0,
+        "explanation": "The Principle of Equality, fundamentally enshrined in Article 14, is a recognized element of the basic structure of the Constitution."
     },
     {
-        question: "Which case declared \"Principle of equality\" as a basic feature?",
-        options: ["Indira Nehru Gandhi case (1975).", "Minerva Mills case (1980).", "Raghunath Rao case (1993).", "Indra Sawhney case (1992)."],
-        correctAnswerIndex: 0, // a) Indira Nehru Gandhi
-        explanation: "Indira Nehru Gandhi case (1975)."
+        "id": "ch12-l1-q27",
+        "question": "In the context of the Basic Structure doctrine, what does the",
+        "options": ["A system where the President is the real executive head.","A system characterized by the supremacy of the Parliament over the Constitution.","The specific democratic framework established by the Constitution where the executive is responsible to the legislature, recognized as a basic feature.","A system where only Parliament can appoint judges."],
+        "correctAnswerIndex": 2,
+        "explanation": "The"
     },
     {
-        question: "Which case declared \"Independence of Judiciary\" as a basic feature?",
-        options: ["Supreme Court Advocates-on-Record Association case (1993).", "Kumar Padma Prasad case (1992).", "L. Chandra Kumar case (1997).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Reaffirmed in multiple cases."
+        "id": "ch12-l1-q28",
+        "question": "Did the Supreme Court in the Kesavananda Bharati case (1973) uphold or invalidate the 24th Amendment Act (1971)?",
+        "options": ["It completely invalidated the 24th Amendment Act.","It upheld the validity of the 24th Amendment Act while inventing the Basic Structure doctrine.","It partially invalidated it, stating it only applied to Directive Principles.","It referred the 24th Amendment Act to a national referendum."],
+        "correctAnswerIndex": 1,
+        "explanation": "In the Kesavananda Bharati case (1973), the Supreme Court upheld the validity of the 24th Amendment Act (confirming Parliament"
     },
     {
-        question: "Which case declared \"Powers of the Supreme Court under Article 32, 136, 141 and 142\" as a basic feature?",
-        options: ["Delhi Judicial Service Association case (1991).", "I.R. Coelho case (2007).", "Madras Bar Association case (2014).", "Kihoto Hollohan case (1993)."],
-        correctAnswerIndex: 0, // a) Delhi PJSA
-        explanation: "Delhi Judicial Service Association case (1991)."
+        "id": "ch12-l1-q29",
+        "question": "According to the L. Chandra Kumar Case (1997), the power of judicial review of the High Courts under Article 226 and the Supreme Court under Article 32 is a basic feature. Consequently, what cannot be done away with entirely?",
+        "options": ["The jurisdiction of administrative tribunals.","The jurisdiction of civil courts.","The power of judicial review of these constitutional courts.","The power of Parliament to amend the Constitution."],
+        "correctAnswerIndex": 2,
+        "explanation": "In the L. Chandra Kumar case (1997), the Supreme Court reiterated that the power of judicial review under Articles 226 and 32 is a part of the basic structure and thus cannot be ousted or excluded even by a constitutional amendment."
     },
     {
-        question: "Which case declared \"Powers of the High Courts under Articles 226 and 227\" as a basic feature?",
-        options: ["L. Chandra Kumar case (1997).", "SR Bommai case (1994).", "Minerva Mills case (1980).", "P. Sambamurthy case (1987)."],
-        correctAnswerIndex: 0, // a) L. Chandra Kumar
-        explanation: "L. Chandra Kumar case (1997)."
-    },
-    {
-        question: "Which case declared \"Limited power of Parliament to amend the Constitution\" as a basic feature?",
-        options: ["Minerva Mills case (1980).", "Kesavananda Bharati case (1973).", "Indira Nehru Gandhi case (1975).", "Waman Rao case (1981)."],
-        correctAnswerIndex: 0, // a) Minerva Mills
-        explanation: "Minerva Mills case (1980)."
-    },
-    {
-        question: "Which case declared \"Effective access to justice\" as a basic feature?",
-        options: ["Central Coal Fields Ltd. case (1980).", "P. Sambamurthy case (1987).", "Delhi Judicial Service Association case (1991).", "Indra Sawhney case (1992)."],
-        correctAnswerIndex: 0, // a) Central Coal Fields
-        explanation: "Central Coal Fields Ltd. case (1980)."
-    },
-    {
-        question: "Which case declared \"Welfare State (Social Justice)\" as a basic feature?",
-        options: ["Kesavananda Bharati case (1973).", "SR Bommai case (1994).", "Indra Sawhney case (1992).", "Minerva Mills case (1980)."],
-        correctAnswerIndex: 2, // c) Indra Sawhney
-        explanation: "Indra Sawhney case (1992)."
-    },
-    {
-        question: "Which case declared \"Democracy\" as a basic feature?",
-        options: ["Kesavananda Bharati case (1973).", "Indira Nehru Gandhi case (1975).", "Kihoto Hollohan case (1993).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Fundamental feature declared in all."
-    },
-    {
-        question: "The judgment in I.R. Coelho case (2007) is also known as the:",
-        options: ["Ninth Schedule Case.", "Mandal Case.", "Reservation Case.", "Panchayat Case."],
-        correctAnswerIndex: 0, // a) Ninth Schedule
-        explanation: "Ninth Schedule Case."
+        "id": "ch12-l1-q30",
+        "question": "Which of the following describes the evolution of the Parliament",
+        "options": ["It began as absolute, became restricted in 1967, was restored in 1971, and was finally subjected to the limits of the Basic Structure doctrine.","Fundamental Rights have always been immune from amendments since 1950.","Parliament always possessed unlimited constituent power without any judicial interference.","The power shifted from Parliament to the State Legislatures entirely."],
+        "correctAnswerIndex": 0,
+        "explanation": "The evolution is: Shankari Prasad (1951) - Parliament can amend FRs (absolute). Golaknath (1967) - Parliament cannot amend FRs (restricted). 24th Amendment (1971) - Power restored (absolute). Kesavananda (1973) / Minerva Mills (1980) - Parliament can amend FRs, but cannot alter the Basic Structure (limited)."
     }
 ];
 
-// Level 2: The Conceptual Bridge (Applied Knowledge)
 const LEVEL_2_QUESTIONS = [
     {
-        question: "The \"Basic Structure Doctrine\" is based on the principle of:",
-        options: ["Express limitations in the Constitution.", "Implied limitations on the amending power of Parliament.", "Supremacy of the Judiciary over Parliament.", "Natural Law."],
-        correctAnswerIndex: 1, // b) Implied limitations
-        explanation: "Implied limitations."
+        "id": "ch12-l2-q1",
+        "question": "Consider the constitutional paradox regarding the First Amendment Act (1951) and the Shankari Prasad judgment. What was the central argument raised by the petitioners challenging the First Amendment under Article 13(2)?",
+        "options": ["That the Provisional Parliament lacked the authority to amend the Constitution.","That","in Article 13(2) includes both ordinary laws and constitutional amendments. Therefore, an amendment (like the 1st Amendment) that abridges a Fundamental Right is void to the extent of the contravention.","That the President","That the 1st Amendment violated the unwritten","of the Constitution."],
+        "correctAnswerIndex": 1,
+        "explanation": "In Shankari Prasad, the primary argument was that Article 13(2) declares that"
     },
     {
-        question: "In the Kesavananda Bharati case (1973), the Supreme Court held that the power to \"amend\" (Article 368) does not include the power to:",
-        options: ["Add new provisions.", "Repeal old provisions.", "Alter the basic features or framework of the Constitution.", "Change the Preamble."],
-        correctAnswerIndex: 2, // c) Alter basic features
-        explanation: "Does not include power to alter basic structure."
+        "id": "ch12-l2-q2",
+        "question": "Assertion (A): According to the Golaknath judgment (1967), the power to amend the Constitution is an ordinary legislative power rather than a distinct constituent power.\\nReason (R): The Supreme Court in Golaknath ruled that Article 368 only lays down the procedure to amend the Constitution, and doesn",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both are true. This was the crux of the fiercely debated Golaknath judgment. The SC (by a slim 6:5 majority) held that Art 368 merely provided the"
     },
     {
-        question: "The distinction between \"Constituent Power\" (Article 368) and \"Legislative Power\" (Article 245) was primarily debated in:",
-        options: ["Shankari Prasad case.", "Golak Nath case.", "Kesavananda Bharati case.", "Minerva Mills case."],
-        correctAnswerIndex: 2, // c) Kesavananda
-        explanation: "Kesavananda Bharati case."
+        "id": "ch12-l2-q3",
+        "question": "How did the 24th Amendment Act (1971) specifically rewrite the text of the Constitution to permanently neutralize the judicial interpretation established in the Golaknath case?",
+        "options": ["By declaring the Supreme Court unconstitutional.","By adding a clause to Article 13 stating it does not apply to amendments under Article 368, and adding a clause to Article 368 stating it does not apply to Article 13, explicitly separating","from","power.","By transferring the amending power entirely to the State Legislatures.","By mandating that all constitutional amendments must first be cleared by a national referendum."],
+        "correctAnswerIndex": 1,
+        "explanation": "The 24th Amendment brilliantly created a constitutional firewall. It added Art 13(4) ("
     },
     {
-        question: "In Golak Nath, the Court held that a Constitutional Amendment is a \"law\" under Article 13. In Kesavananda Bharati, the Court held that:",
-        options: ["It is a \"law\" under Article 13.", "It is not a \"law\" under Article 13, but is still subject to the Basic Structure limitation.", "It is a \"law\" but can override Fundamental Rights.", "It is an executive order."],
-        correctAnswerIndex: 1, // b) Not a 'law', but limited
-        explanation: "It is not a 'law' under Art 13, but constituent power is limited by the Basic Structure."
+        "id": "ch12-l2-q4",
+        "question": "In the monumental Kesavananda Bharati judgment (1973), while the",
+        "options": ["Parliament permanently lost the right to amend Fundamental Rights.","It recognized Parliament","It affirmed that Parliament DOES have the power to abridge or take away any of the Fundamental Rights, provided such amendment does not destroy the basic structure.","It transferred the amending power from Parliament to the Supreme Court."],
+        "correctAnswerIndex": 2,
+        "explanation": "Kesavananda Bharati is often misunderstood as purely restrictive. It was actually a compromise. It OVERRULED Golaknath, restoring Parliament"
     },
     {
-        question: "The 24th Amendment Act (1971) sought to restore Parliament's power to amend Fundamental Rights. The Supreme Court in Kesavananda Bharati:",
-        options: ["Struck it down completely.", "Upheld it validly.", "Upheld it subject to the Basic Structure doctrine.", "Upheld it partially."],
-        correctAnswerIndex: 2, // c) Upheld subject to Basic Structure
-        explanation: "Upheld it subject to Basic Structure."
+        "id": "ch12-l2-q5",
+        "question": "Examine the government",
+        "options": ["To legally recognize and embed the Basic Structure doctrine into the text of the Constitution.","To completely outlaw","of constitutional amendments and declare Parliamentary sovereignty absolute and unlimited.","To require state ratification for every constitutional amendment.","To make Fundamental Duties legally enforceable."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Indira Gandhi government violently disagreed with the Basic Structure concept. They used the 42nd Amendment (clauses 4 & 5 of Art 368) to explicitly outlaw judicial review ("
     },
     {
-        question: "The 39th Amendment Act (1975) placed the election of the Prime Minister beyond judicial review. The Supreme Court struck this down in the Indira Gandhi vs Raj Narain case (1975) because it violated:",
-        options: ["Free and fair elections.", "Rule of Law.", "Judicial Review.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All listed features."
+        "id": "ch12-l2-q6",
+        "question": "In the Minerva Mills case (1980), the Supreme Court struck down the 42nd Amendment",
+        "options": ["He based it on the unwritten conventions of the British Parliament.","He argued that since the Constitution gave Parliament a","amending power, Parliament cannot use that very limited power to grant itself an","absolute power; dong so destroys the basic structure.","He essentially declared that the Supreme Court is the actual sovereign ruler of India.","He based the ruling entirely on international human rights treaties."],
+        "correctAnswerIndex": 1,
+        "explanation": "This is a quintessential example of constitutional logic. Chandrachud argued: The Constitution created Parliament and gave it a *limited* amending power (limited by the basic structure). Parliament is a creature of the Constitution. A creature cannot use its limited power to alter the instrument that created it to become absolutely powerful."
     },
     {
-        question: "The 42nd Amendment (1976) gave Directive Principles (Article 39b/c) precedence over Fundamental Rights (14, 19, 31). In Minerva Mills, the Court struck down the extension of this precedence to ALL Directive Principles because:",
-        options: ["It destroyed the \"harmony and balance\" between FRs and DPSPs.", "DPSPs are non-justiciable.", "It violated the Right to Property.", "It was passed during Emergency."],
-        correctAnswerIndex: 0, // a) Harmony and balance
-        explanation: "Destroyed the harmony and balance."
+        "id": "ch12-l2-q7",
+        "question": "Consider the timeline established in the Waman Rao case (1981). A constitutional amendment was passed in 1974 placing an agricultural land reform act in the Ninth Schedule. Is this amendment open to judicial review based on the",
+        "options": ["No, because the Ninth Schedule provides absolute immunity.","No, because the law concerns agricultural land, a state subject.","Yes, because it was enacted AFTER April 24, 1973 (Kesavananda Bharati judgment), making it vulnerable to judicial review if it violates the basic structure.","Yes, but only if the President explicitly orders the Supreme Court to review it."],
+        "correctAnswerIndex": 2,
+        "explanation": "Waman Rao drew a firm line in the sand: April 24, 1973. Any inclusion in the 9th Schedule *before* this date is safe. Any inclusion *after* this date is subject to basic structure scrutiny. Since the theoretical amendment was in 1974, it is open to challenge."
     },
     {
-        question: "The \"99th Constitutional Amendment Act\" (NJAC) is the only amendment struck down in entirety by the Supreme Court. The ground was violation of:",
-        options: ["Independence of Judiciary (Basic Structure).", "Separation of Powers (Basic Structure).", "Both (a) and (b).", "Federalism."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Independence of Judiciary and Separation of Powers."
+        "id": "ch12-l2-q8",
+        "question": "Which of the following elements, declared as part of the Basic Structure by the Supreme Court, directly ensures the accountability of the Executive to the Legislature?",
+        "options": ["The Federal character of the Constitution.","The Parliamentary system of Government.","The independence of the Judiciary.","The Secular character of the Constitution."],
+        "correctAnswerIndex": 1,
+        "explanation": "The core defining characteristic of the"
     },
     {
-        question: "In the I.R. Coelho case (2007) regarding the Ninth Schedule, the Court held that:",
-        options: ["The Ninth Schedule is immune from judicial review.", "Any law added to the Ninth Schedule after April 24, 1973, is open to challenge if it violates Fundamental Rights forming the Basic Structure.", "The entire Ninth Schedule is unconstitutional.", "Only land reform laws are immune."],
-        correctAnswerIndex: 1, // b) Open after 1973
-        explanation: "Open after April 24, 1973."
+        "id": "ch12-l2-q9",
+        "question": "Assertion (A): The",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 3,
+        "explanation": "Assertion A is FALSE. The Kesavananda Bharati case explicitly ruled that the Preamble IS a part of the Constitution and CAN be amended under Article 368. However, Reason R is TRUE—Parliament cannot amend the Preamble in a way that *destroys* its basic features (like removing"
     },
     {
-        question: "The \"Rule of Law\" as a basic feature implies:",
-        options: ["Absence of arbitrary power.", "Equality before law.", "The Constitution is the result of the rights of individuals.", "Both (a) and (b)."],
-        correctAnswerIndex: 3, // d) Both a and b
-        explanation: "Includes absence of arbitrary power and equality before law."
+        "id": "ch12-l2-q10",
+        "question": "How does the Supreme Court determine whether a specific provision or a new amendment forms a part of or violates the",
+        "options": ["By referring to a definitive list maintained by the Ministry of Law and Justice.","By conducting a national referendum on the specific provision.","It is determined by the Court strictly on a case-by-case basis through judicial interpretation of the core constitutional philosophy.","By appealing to the International Court of Justice for an advisory opinion."],
+        "correctAnswerIndex": 2,
+        "explanation": "There is no exhaustive list defined anywhere. The Basic Structure is a fluid, judicially evolved concept. The Court examines each challenged amendment"
     },
     {
-        question: "Which of the following is NOT expressly mentioned in the Constitution but is considered part of the Basic Structure?",
-        options: ["Judicial Review.", "Separation of Powers.", "Federalism.", "Cabinet System of Government."],
-        correctAnswerIndex: 3, // d) Cabinet System (actually the phrase Basic Structure itself is not mentioned)
-        explanation: "The prompt notes that the 'Basic Structure' itself is not mentioned in the text."
+        "id": "ch12-l2-q11",
+        "question": "Consider the implications of the Indira Nehru Gandhi v. Raj Narain (1975) judgment. The Court struck down a provision that barred judicial review of the Prime Minister",
+        "options": ["The Directive Principles of State Policy.","Free and fair elections, and the Rule of Law.","The establishment of a Welfare State.","The separation of powers between the centre and states."],
+        "correctAnswerIndex": 1,
+        "explanation": "The 39th Amendment attempted to put the PM"
     },
     {
-        question: "Is \"Socialism\" part of the Basic Structure?",
-        options: ["Yes, added by the Preamble and affirmed in Excel Wear case.", "No, it is a policy choice.", "Only \"Democratic Socialism\".", "Only \"Gandhian Socialism\"."],
-        correctAnswerIndex: 0, // a) Yes
-        explanation: "Affirmed in the Preamble/Excel Wear case."
+        "id": "ch12-l2-q12",
+        "question": "If Parliament attempts to pass a constitutional amendment completely abolishing the High Courts and centralizing all judicial power solely in the Supreme Court, this would likely be struck down for violating which element(s) of the Basic Structure?",
+        "options": ["Federalism and the power of Judicial Review under Article 226.","Secularism and the Welfare State.","The Parliamentary system and Sovereign Democratic Republic nature.","The Harmony between Fundamental Rights and DPSP."],
+        "correctAnswerIndex": 0,
+        "explanation": "Abolishing High Courts destroys the federal judicial architecture (Federalism) and destroys the specific power of Judicial Review granted to High Courts under Article 226 (which L. Chandra Kumar definitively declared a basic feature)."
     },
     {
-        question: "Is the \"Right to Property\" part of the Basic Structure?",
-        options: ["Yes.", "No, the Court held so in Kesavananda Bharati (Justice Khanna's opinion).", "Yes, but only for minorities.", "Yes, but only for farmers."],
-        correctAnswerIndex: 1, // b) No
-        explanation: "Justice Khanna's opinion in Kesavananda held it's not basic structure."
+        "id": "ch12-l2-q13",
+        "question": "The",
+        "options": ["It means the three organs cannot interact or overlap in any capacity whatsoever.","It means a broad separation where one organ does not completely usurp the essential constitutional functions assigned to another (e.g., the legislature cannot pass a law that acts as a judicial verdict).","It refers only to the separation of the Civil Service from the Military.","It signifies that only the Judiciary has actual power."],
+        "correctAnswerIndex": 1,
+        "explanation": "India has a functional overlap (e.g., the executive sits in the legislature). The"
     },
     {
-        question: "The \"Federal Character\" of the Constitution was declared a basic feature in S.R. Bommai case (1994). This restricts Parliament from:",
-        options: ["Altering boundaries of states under Article 3.", "Using Article 356 arbitrarily to dismiss state governments.", "Changing the names of states.", "Creating new states."],
-        correctAnswerIndex: 1, // b) Arbitrary 356
-        explanation: "SR Bommai case focused heavily on Art 356 usage."
+        "id": "ch12-l2-q14",
+        "question": "Which of the following Supreme Court cases prominently reiterated",
+        "options": ["S.R. Bommai case (1994)","Kihoto Hollohan case (1993)","Indra Sawhney case (1992)","L. Chandra Kumar case (1997)"],
+        "correctAnswerIndex": 0,
+        "explanation": "In the S.R. Bommai case (1994), the Supreme Court upheld the imposition of President"
     },
     {
-        question: "The \"Secular Character\" being a basic feature means:",
-        options: ["The State has no religion.", "The State treats all religions equally.", "Politics and religion should not be mixed (Bommai case).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All dimensions are part of Indian Secularism."
+        "id": "ch12-l2-q15",
+        "question": "The evolution of the Basic Structure doctrine represents a distinct shift in Indian constitutional law regarding the ultimate",
+        "options": ["The Parliament, representing the will of the people.","The Supreme Court of India.","The text and foundational philosophy of the Constitution itself.","The President of India."],
+        "correctAnswerIndex": 2,
+        "explanation": "The doctrine firmly established"
     },
     {
-        question: "Can Parliament increase the power of judicial review via amendment?",
-        options: ["Yes, upgrading basic features is allowed; degrading/damaging them is not.", "No, the structure must remain exactly as it was in 1950.", "No, it violates separation of powers.", "Yes, but only with State ratification."],
-        correctAnswerIndex: 0, // a) Upgrading is allowed
-        explanation: "Upgrading/Strengthening is generally permissible."
+        "id": "ch12-l2-q16",
+        "question": "Assertion (A): The Supreme Court in the Minerva Mills case (1980) ruled that placing Directive Principles over Fundamental Rights broadly destroys the basic structure.\\nReason (R): The Court held that the Indian Constitution is founded on the bedrock of the balance between Parts III and IV, and giving absolute primacy to one over the other destroys the essential harmony of the Constitution.\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both are true. The 42nd Amendment tried to make DPSP (Art 39(b)(c)) legally superior to Fundamental Rights (Arts 14, 19). In Minerva Mills, the SC struck this down, stating that the harmony between FRs and DPSP is a basic feature, and you cannot subordinate FRs entirely to DPSP. The reason correctly explains the assertion."
     },
     {
-        question: "Does the US Constitution have a similar doctrine?",
-        options: ["Yes, explicit \"unamendable\" clauses.", "No, the US Supreme Court has never struck down a constitutional amendment.", "Yes, implied limitations.", "Yes, the \"Bill of Rights\" cannot be amended."],
-        correctAnswerIndex: 1, // b) No
-        explanation: "US SC has never struck down an amendment."
+        "id": "ch12-l2-q17",
+        "question": "Consider the Kihoto Hollohan case (1993) concerning the 10th Schedule (Anti-Defection Law). The SC struck down Paragraph 7 of the Schedule, which barred judicial review of the Speaker",
+        "options": ["Federalism.","The principle of free and fair elections.","The power of Judicial Review (and the Rule of Law).","The welfare state."],
+        "correctAnswerIndex": 2,
+        "explanation": "The SC upheld the Anti-Defection law broadly but struck down the specific paragraph that tried to oust the jurisdiction of the High Courts and Supreme Court. The Court reiterated that Judicial Review is a basic feature, and the Speaker"
     },
     {
-        question: "Critics argue that the Basic Structure doctrine is vague because:",
-        options: ["The Supreme Court has never given an exhaustive list of basic features.", "It allows the Judiciary to act as a \"Third Chamber\" of Parliament.", "It has no basis in the constitutional text.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Common criticisms."
+        "id": "ch12-l2-q18",
+        "question": "How did the 44th Amendment Act (1978) interact with the",
+        "options": ["It attempted to overturn the Kesavananda Bharati judgment like the 42nd Amendment did.","It recognized the Right to Property as the most important element of the basic structure.","By deleting the Right to Property from the list of Fundamental Rights, it utilized Parliament","Property","basic feature","It made the 9th Schedule completely immune from the Basic Structure doctrine."],
+        "correctAnswerIndex": 2,
+        "explanation": "The 44th Amendment (passed by the Janata government) deleted the Right to Property (Art 31). This was constitutionally valid specifically because of the Kesavananda ruling: Parliament CAN amend FRs. Because the Supreme Court never considered the"
     },
     {
-        question: "Who decides whether a particular amendment violates the Basic Structure?",
-        options: ["The President.", "The Parliament itself.", "The Supreme Court (Final Interpreter).", "The People (Referendum)."],
-        correctAnswerIndex: 2, // c) Supreme Court
-        explanation: "Supreme Court is the final interpreter."
+        "id": "ch12-l2-q19",
+        "question": "Which of the following best describes the international standing and origin of the",
+        "options": ["It is a uniquely Indian judicial invention, heavily influenced by implications flowing from the constitutional text, with no direct parallel in British or early American constitutional law.","It was directly copied from the unwritten British Constitution.","It was explicitly mandated by the United Nations Human Rights Council.","It is an old, established doctrine that originated in the 18th century US Supreme Court."],
+        "correctAnswerIndex": 0,
+        "explanation": "The Basic Structure doctrine is largely considered an indigenous innovation of Indian constitutional jurisprudence (though influenced by German concepts regarding unamendable constitutional core features post-WWII). It does not exist in the UK (which has Parliamentary sovereignty) and has no direct equivalent in standard US jurisprudence."
     },
     {
-        question: "Can the \"Preamble\" be amended?",
-        options: ["No, never.", "Yes, as long as the amendment does not alter the basic features found in the Preamble (e.g., secularism, democracy).", "Yes, completely.", "Only to correct errors."],
-        correctAnswerIndex: 1, // b) Yes, provided...
-        explanation: "Can be amended subject to Basic Structure."
+        "id": "ch12-l2-q20",
+        "question": "Consider an amendment that seeks to alter Article 32 (Right to Constitutional Remedies). Under the current constitutional position (post-Kesavananda), what is the legal trajectory of such an amendment?",
+        "options": ["It is absolutely prohibited under Article 368.","It can be passed by a simple majority.","It can be passed by Parliament using a Special Majority, but it will be struck down entirely by the Supreme Court because the power to issue writs under Article 32 is a declared Basic Feature.","It requires ratification by all 28 states to be valid."],
+        "correctAnswerIndex": 2,
+        "explanation": "Parliament can technically"
     },
     {
-        question: "The \"Waman Rao case\" (1981) drew a line at:",
-        options: ["Jan 26, 1950.", "April 24, 1973 (Date of Kesavananda judgment).", "June 1975 (Emergency).", "1976 (42nd Amendment)."],
-        correctAnswerIndex: 1, // b) April 24, 1973
-        explanation: "Prospective application from Kesavananda date."
+        "id": "ch12-l2-q21",
+        "question": "In the context of the Basic Structure doctrine, why is the concept of a",
+        "options": ["Because DPSP were made justiciable by the 42nd Amendment.","Because the Constitution","s fundamental identity.","Because international organizations mandated it.","Because fundamental rights alone cannot function without a welfare state."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Basic Structure isn"
     },
     {
-        question: "In the L. Chandra Kumar case (1997), the Supreme Court declared that the power of judicial review vested in High Courts under Article 226 and 227 is:",
-        options: ["A statutory power.", "A basic feature of the Constitution which cannot be ousted even by creating Tribunals (Article 323A/B).", "Subject to Parliament's will.", "Available only for Fundamental Rights."],
-        correctAnswerIndex: 1, // b) Basic feature
-        explanation: "Basic feature (cannot be ousted)."
+        "id": "ch12-l2-q22",
+        "question": "The power to amend the Constitution under Article 368 vs. The Basic Structure limitation. Which prominent legal scholar famously argued the government",
+        "options": ["Nani Palkhivala","H.M. Seervai","Fali S. Nariman","Soli Sorabjee"],
+        "correctAnswerIndex": 1,
+        "explanation": "H.M. Seervai, one of India"
     },
     {
-        question: "The \"Separation of Powers\" in India is not rigid like in the USA. However, it is a basic feature. This implies:",
-        options: ["The Judiciary cannot take over the functions of the Legislature or Executive.", "The Executive cannot exercise essential legislative functions.", "Checks and balances are essential.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Implications of separation of powers."
+        "id": "ch12-l2-q23",
+        "question": "If Parliament enacts an amendment seeking to change the system of government from a",
+        "options": ["It would be valid if ratified by half the states.","It would be valid only if authorized by a 2/3rds majority in a national referendum.","It would be struck down by the Supreme Court as the","is a recognized Basic Feature of the Constitution.","It would require the approval of the outgoing President."],
+        "correctAnswerIndex": 2,
+        "explanation": "The"
     },
     {
-        question: "Assertion (A): The Parliament cannot alter the \"Basic Structure\" of the Constitution. Reason (R): The power to amend (Article 368) is a derivative power and cannot be used to destroy the source (Constitution) itself.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Correct explanation (Derivative power logic)."
+        "id": "ch12-l2-q24",
+        "question": "The Basic Structure doctrine has been criticized by some legal purists on what major philosophical ground?",
+        "options": ["It makes the Constitution too easy to amend, leading to instability.","It constitutes","or","by allowing unelected judges to strike down the will of the elected Parliament based on an unwritten, subjective concept.","It gives too much power to state governors.","It violates international law."],
+        "correctAnswerIndex": 1,
+        "explanation": "The primary criticism against the Basic Structure doctrine is that it is fundamentally anti-democratic. It is not written anywhere in the Constitution. Critics argue it acts as an abstract"
     },
     {
-        question: "The concept of \"Limited Government\" is essential to Constitutionalism. Which basic feature ensures this?",
-        options: ["Fundamental Rights.", "Judicial Review.", "Rule of Law.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All ensure limited government."
+        "id": "ch12-l2-q25",
+        "question": "Consider the",
+        "options": ["It strictly enforces Article 21 and completely voids Article 47.","It attempts to interpret the laws implementing Article 47 in a way that respects the essence of Article 21, achieving a balanced synthesis rather than allowing one to completely obliterate the other.","It strictly enforces Article 47 because DPSP always supersede FRs.","It refers the clash to Parliament."],
+        "correctAnswerIndex": 1,
+        "explanation": "The core of the"
     },
     {
-        question: "In Minerva Mills, the Court declared \"Harmony and Balance between Fundamental Rights and Directive Principles\" as a basic feature. This means:",
-        options: ["FRs are superior to DPSPs.", "DPSPs are superior to FRs.", "One cannot be given absolute primacy over the other in a way that destroys the other.", "Both can be amended freely."],
-        correctAnswerIndex: 2, // c) Balance
-        explanation: "Co-existence and balance."
+        "id": "ch12-l2-q26",
+        "question": "In the Indira Sawhney Case (1992), often called the",
+        "options": ["It prevents Parliament from amending reservation policies under any circumstances.","It dictates that while Parliament can amend articles to provide reservations (e.g., Art 16(4A)), these amendments must not result in arbitrary state action or destroy the fundamental concept of equality inherent in the Rule of Law (e.g., breaching the 50% cap unnecessarily).","It mandates that reservations must be proportional to total population.","It abolished all reservations."],
+        "correctAnswerIndex": 1,
+        "explanation": "The"
     },
     {
-        question: "The \"Essence of the Constitution\" argument was used by:",
-        options: ["N.A. Palkhivala (Counsel in Kesavananda Bharati).", "B.R. Ambedkar.", "Jawaharlal Nehru.", "Sir B.N. Rau."],
-        correctAnswerIndex: 0, // a) Palkhivala
-        explanation: "N.A. Palkhivala."
+        "id": "ch12-l2-q27",
+        "question": "Assertion (A): The inclusion of an Act in the Ninth Schedule absolutely immunizes it from being challenged on the ground of violating Article 14 (Right to Equality) or Article 19 (Right to Freedom).\\nReason (R): Article 31B explicitly saves the Acts in the Ninth Schedule from being void on the ground that they are inconsistent with ANY of the rights conferred by Part III (Fundamental Rights).\\nSelect the correct answer:",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 3,
+        "explanation": "Assertion A is FALSE in the post-1973/I.R. Coelho era. While Reason R correctly states the *textual intent* of Article 31B, the Supreme Court has ruled that if a post-1973 Act violates Arts 14, 19, or 21 in a way that destroys the"
     },
     {
-        question: "Does the \"Basic Structure\" apply to ordinary laws?",
-        options: ["No, ordinary laws are tested against the Constitution (Articles).", "Yes, indirectly. If an ordinary law violates a provision that is part of the basic structure (like FRs), it is void.", "Yes, explicitly.", "Only to tax laws."],
-        correctAnswerIndex: 0, // a) No (tested against Articles)
-        explanation: "Ordinary laws are tested against specific provisions, not the 'Basic Structure' doctrine itself."
+        "id": "ch12-l2-q28",
+        "question": "Which term best describes the judicial philosophy that underpins the Supreme Court",
+        "options": ["Textualism (Strict adherence to the literal text).","Judicial Restraint.","Judicial Activism (or living tree constitutionalism).","Legal Positivism."],
+        "correctAnswerIndex": 2,
+        "explanation": "The Basic Structure doctrine is the zenith of Indian Judicial Activism. By implying limitations that do not exist in the explicit text of Article 368, the Court interpreted the Constitution dynamically (as a living entity with an unalterable soul) to protect democratic values from temporary parliamentary majorities."
     },
     {
-        question: "Which of the following is NOT considered a basic feature?",
-        options: ["The Parliamentary System of Government.", "The Presidential System of Government.", "The Principle of Free and Fair Elections.", "The Independence of the Judiciary."],
-        correctAnswerIndex: 1, // b) Presidential System
-        explanation: "We have a Parliamentary system."
+        "id": "ch12-l2-q29",
+        "question": "If a state government argues that a central constitutional amendment violates the",
+        "options": ["The Inter-State Council.","The High Court of that specific State.","The Supreme Court of India via its Original Jurisdiction (Article 131) or via a Writ Petition (Article 32) if fundamental rights are also affected.","A Joint Session of Parliament."],
+        "correctAnswerIndex": 2,
+        "explanation": "Disputes regarding the constitutional validity of a central amendment affecting the federal structure (or any basic feature) are litigated in the Supreme Court, acting as the ultimate interpreter and guardian of the Constitution"
     },
     {
-        question: "The \"Kihoto Hollohan case\" (1993) reinforced:",
-        options: ["Democracy.", "Judicial Review as a basic feature.", "Parliamentary Sovereignty.", "Federalism."],
-        correctAnswerIndex: 1, // b) Judicial Review
-        explanation: "Reinforced Judicial Review."
+        "id": "ch12-l2-q30",
+        "question": "The Supreme Court has sometimes evolved new basic features to meet contemporary challenges. According to recent constitutional discourse and cases like K.S. Puttaswamy (2017), which emerging right is heavily intertwined with the basic structure of the Constitution via Article 21?",
+        "options": ["Right to strike.","Right to absolute free speech without reasonable restrictions.","Right to Privacy.","Right to carry arms."],
+        "correctAnswerIndex": 2,
+        "explanation": "In the Puttaswamy judgment (2017), the 9-judge bench declared the Right to Privacy an intrinsic part of the Right to Life and Liberty under Article 21. Since Article 21 and human dignity form part of the basic structure, Privacy is now deeply embedded in the unamendable constitutional core."
     }
 ];
 
-// Level 3: The UPSC Simulation 2026 (Integrated & Current Affairs)
 const LEVEL_3_QUESTIONS = [
     {
-        question: "Theme: The \"Tyranny of the Unelected\" Debate (2024-25)\nIf Parliament were to pass the 107th Amendment explicitly stating \"No amendment under Article 368 shall be called in question in any court on any ground\":",
-        options: ["The Amendment would be valid as it restores the original intent of the Constitution makers.", "The Supreme Court would likely strike it down ab initio because \"Judicial Review\" and the \"Limited Amending Power\" are themselves Basic Features (Minerva Mills case).", "The President would be bound to withhold assent to protect the Constitution.", "It would depend on whether it was ratified by half the states."],
-        correctAnswerIndex: 1, // b) Struck down
-        explanation: "Limited amending power is a basic feature."
+        "id": "ch12-l3-q1",
+        "question": "Consider the constitutional journey of the",
+        "options": ["Article 368 contains both the power and the procedure to amend the Constitution, including Fundamental Rights.","Article 368 only lays down the procedure to amend the Constitution; the actual power to amend is derived from ordinary legislative power (Article 245), meaning an amendment is a","under Article 13(2) and cannot take away Fundamental Rights.","Article 368 gives Parliament absolute, unfettered constituent power that supersedes all judicial review.","Article 368 can only be used to amend the Directive Principles of State Policy."],
+        "correctAnswerIndex": 1,
+        "explanation": "In Golaknath (1967), the SC shockingly ruled that Art 368 only provided the"
     },
     {
-        question: "Critics argue that the Basic Structure doctrine has no textual basis. However, proponents argue it is derived from:",
-        options: ["The Preamble (\"We, the People\").", "Article 13 (\"Law\" includes amendments).", "The implied limitation in the word \"Amend\" (Article 368) which means to improve/change but not to destroy.", "Both (a) and (c)."],
-        correctAnswerIndex: 3, // d) Both a and c
-        explanation: "Derived from Preamble and Implied Limitations."
+        "id": "ch12-l3-q2",
+        "question": "How did Parliament specifically react to neutralize the Supreme Court",
+        "options": ["By declaring a National Emergency and suspending Article 32.","By passing the 24th Constitutional Amendment Act (1971), which explicitly stated that nothing in Article 13 shall apply to any amendment made under Article 368.","By impeaching the Chief Justice who delivered the judgment.","By amending the Preamble to remove the word","."],
+        "correctAnswerIndex": 1,
+        "explanation": "The 24th Amendment (1971) added a new clause (4) to Article 13, stating"
     },
     {
-        question: "Theme: Free & Fair Elections (CEC Appointment Act 2023)\nThe constitutional challenge argues this Act violates the \"Basic Structure\" by compromising:",
-        options: ["The Independence of the Election Commission (part of \"Free and Fair Elections\").", "The Separation of Powers.", "The Rule of Law.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Potential impact on all listed features."
+        "id": "ch12-l3-q3",
+        "question": "The landmark Kesavananda Bharati v. State of Kerala (1973) case fundamentally reshaped Indian constitutional law. While it upheld the validity of the 24th Amendment (giving Parliament the power to amend ANY part of the constitution), what massive constitutional limit did it simultaneously invent and impose on Parliament?",
+        "options": ["The Due Process Clause.","The Basic Structure (or basic features) Doctrine.","The Harmonious Construction Doctrine.","The Colourable Legislation Doctrine."],
+        "correctAnswerIndex": 1,
+        "explanation": "The 13-judge bench created the"
     },
     {
-        question: "In the Anoop Baranwal case (2023), the Supreme Court directed inclusion of the CJI until a law is made. Now that a law excludes CJI, does the Basic Structure doctrine apply?",
-        options: ["No, because the Court's order was temporary.", "Yes, if the new law creates an institution (ECI) that is not \"independent\" enough to ensure free and fair elections, it violates the Basic Structure.", "No, Parliament is supreme in law-making.", "Yes, but only if the law is retrospective."],
-        correctAnswerIndex: 1, // b) Yes
-        explanation: "Independence must be maintained regardless of temporary orders."
+        "id": "ch12-l3-q4",
+        "question": "Examine the 42nd Amendment Act (1976), often termed the",
+        "options": ["They attempted to mandate that every amendment must be approved by the President and the Supreme Court collectively.","They declared that there is","on the constituent power of Parliament to amend the Constitution, and no amendment could be questioned in ANY court on ANY ground.","They attempted to make Fundamental Duties superior to Fundamental Rights.","They mandated a national referendum for any future basic structure changes."],
+        "correctAnswerIndex": 1,
+        "explanation": "The Indira Gandhi government added clauses (4) and (5) to Article 368 via the 42nd Amendment to assert total parliamentary infallibility. Clause (4) ousted judicial review ("
     },
     {
-        question: "Theme: Federalism & Article 370 Verdict\nIn the Article 370 Verdict (December 2023), regarding the \"Basic Structure\" challenge (violation of Federalism), the Court held that:",
-        options: ["Article 370 was a permanent provision, but Parliament has plenary power.", "Jammu & Kashmir did not possess \"internal sovereignty\" different from other states; thus, its reorganization did not violate the federal basic structure.", "Federalism is not a basic feature for J&K.", "The President's Rule under Article 356 overrides the Basic Structure."],
-        correctAnswerIndex: 1, // b) No internal sovereignty
-        explanation: "J&K sovereignty was not distinct from other states in this context."
+        "id": "ch12-l3-q5",
+        "question": "How did the Supreme Court deal with the 42nd Amendment",
+        "options": ["The Court upheld them, bowing to Parliamentary sovereignty.","The Court struck them down as unconstitutional, declaring that","and a","are themselves essential features of the Basic Structure.","The Court ignored them entirely.","The Court ruled they only applied during national emergencies."],
+        "correctAnswerIndex": 1,
+        "explanation": "In Minerva Mills (1980), the SC emphatically struck down clauses 4 and 5 of Art 368. Chief Justice Chandrachud ruled that Parliament"
     },
     {
-        question: "The Court held that interfering with the elected government's control over bureaucracy in NCT Delhi (2023) violates:",
-        options: ["The \"Triple Chain of Accountability\" (Civil Servants -> Ministers -> Legislature -> People), which is essential to \"Parliamentary Democracy\" (Basic Structure).", "Article 370.", "The Basic Structure of the Civil Services.", "Article 14."],
-        correctAnswerIndex: 0, // a) Triple Chain of Accountability
-        explanation: "Essential to Parliamentary Democracy."
+        "id": "ch12-l3-q6",
+        "question": "Assertion (A): Not a single provision in the Indian Constitution is completely immune from being amended.\\nReason (R): Article 368 grants Parliament constituent power to amend",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true.","Both A and R are false."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. Kesavananda Bharati categorically held that ANY part of the Constitution (including the Preamble and Fundamental Rights) can be amended under Art 368. The ONLY constitutional restriction is that the"
     },
     {
-        question: "Theme: Independence of Judiciary (NJAC & Transfers)\nIf the government delays appointments despite reiteration by the Collegium, it arguably violates:",
-        options: ["It is a procedural delay.", "The \"Independence of Judiciary\" (Basic Structure) by frustrating the judicial process.", "It is an exercise of Executive power.", "It is a check and balance."],
-        correctAnswerIndex: 1, // b) Independence of Judiciary
-        explanation: "Frustrating reiteration affects independence."
+        "id": "ch12-l3-q7",
+        "question": "Consider the Waman Rao v. Union of India (1981) case. It specifically addressed the timeline applicability of the Basic Structure doctrine regarding amendments placing laws in the Ninth Schedule. What was the critical cut-off date established by the Supreme Court?",
+        "options": ["January 26, 1950 (Adoption of the Constitution).","February 27, 1967 (Date of the Golaknath judgment).","April 24, 1973 (Date of the Kesavananda Bharati judgment).","December 18, 1976 (Date of the 42nd Amendment Act)."],
+        "correctAnswerIndex": 2,
+        "explanation": "The SC clarified in Waman Rao (and later affirmed in I.R. Coelho) that the Basic Structure doctrine operates retrospectively only up to the date of its creation. Any constitutional amendment bringing an act/regulation into the Ninth Schedule *after* April 24, 1973 (Kesavananda judgment date) is open to judicial review based on the basic structure test."
     },
     {
-        question: "Can the \"Transfer of High Court Judges\" be challenged as violating the Basic Structure?",
-        options: ["No, transfers are administrative.", "Yes, if the transfer is \"punitive\" and without the consent of the judge, it affects \"Judicial Independence\".", "Yes, but only by the State Government.", "No, the President has absolute power."],
-        correctAnswerIndex: 1, // b) Yes, if punitive
-        explanation: "Punitive transfers affect judicial independence."
+        "id": "ch12-l3-q8",
+        "question": "Which of the following procedural anomalies concerning Constitutional Amendments arguably bypasses the strict scrutiny theoretically envisioned by the Indian Constitution",
+        "options": ["The President","The mandatory requirement of joint sittings for all amendments.","The ability to amend several significant provisions (like modifying the 1st or 2nd schedules, creating Legislative Councils, altering territory) by a mere simple legislative majority, avoiding the stringent requirements of Article 368 entirely.","The requirement of a national referendum on all amendments."],
+        "correctAnswerIndex": 2,
+        "explanation": "Critics point out the"
     },
     {
-        question: "Theme: Secularism & Preamble\nThe counter-argument relying on the Basic Structure against removing \"Socialist\" and \"Secular\" is:",
-        options: ["Concepts were always part of the Basic Structure (S.R. Bommai).", "The 42nd Amendment was validated by the 44th Amendment.", "The Preamble cannot be amended.", "Both (a) and (b)."],
-        correctAnswerIndex: 0, // a) Always part of basic structure
-        explanation: "Bommai case held secularism is basic structure."
+        "id": "ch12-l3-q9",
+        "question": "In the context of amending the Constitution, federal principles dictate that changes affecting the balance of power require state consent. However, in India, half the states can thwart a constitutional amendment, but ALL the states combined CANNOT force one. What does this indicate about the nature of Indian federalism?",
+        "options": ["It proves India is a pure, classical federation like the USA.","It establishes a system of",".","It highlights the heavily asymmetrical, unitary bias (","nature) of the Constitution where the Centre holds overwhelming constituent initiative.","It proves the states have absolute sovereignty."],
+        "correctAnswerIndex": 2,
+        "explanation": "This is a quintessential example of India"
     },
     {
-        question: "Does a mandatory Uniform Civil Code (UCC) violate the \"Secular\" basic structure?",
-        options: ["Yes, because it interferes with religion.", "No, the Supreme Court has held that Secularism implies the State treating all citizens equally, and a UCC (Article 44) is a step towards secular legal uniformity.", "Yes, if it is based on Hindu laws.", "Only if it bans all rituals."],
-        correctAnswerIndex: 1, // b) No
-        explanation: "Secular legal uniformity is the goal."
+        "id": "ch12-l3-q10",
+        "question": "If a Constitutional Amendment Bill relates to the",
+        "options": ["A simple majority in Parliament, followed by Presidential assent.","A special majority in Parliament, followed by Presidential assent.","A special majority in Parliament, AND ratification by resolutions passed by a special majority in not less than one-half of the State Legislatures.","A special majority in Parliament, AND ratification by resolutions passed by a simple majority in not less than one-half of the State Legislatures, followed by Presidential assent."],
+        "correctAnswerIndex": 3,
+        "explanation": "Modifying the 7th Schedule strictly requires: 1) Special majority in Lok Sabha AND Rajya Sabha individually. 2) Ratification by at least 50% (half) of the State Assemblies by a SIMPLE MAJORITY in each assembly. 3) Finally, the obligatory assent of the President (who cannot withhold it under the 24th Amendment)."
     },
     {
-        question: "Theme: Rule of Law & ED/CBI Jurisdiction\nThe Supreme Court in 2023 held that \"piecemeal\" extensions of investigative agency directors undermine:",
-        options: ["The independence of investigative agencies, which is crucial for the \"Rule of Law\" (Basic Structure).", "The seniority rules of the Civil Services.", "The Federal structure.", "The Right to Equality."],
-        correctAnswerIndex: 0, // a) Independence for Rule of Law
-        explanation: "Independence is crucial for Rule of Law."
+        "id": "ch12-l3-q11",
+        "question": "The power of Parliament to amend the Constitution includes the power to amend Article 368 itself. When doing so, which specific procedural safeguard must be adhered to?",
+        "options": ["Only the Lok Sabha can vote on amending Article 368.","It requires only a Special Majority in Parliament.","It is one of the specific provisions triggering the",", requiring both a Special Majority in Parliament and Ratification by half the State Legislatures.","It requires a unanimous vote in the Supreme Court."],
+        "correctAnswerIndex": 2,
+        "explanation": "Article 368 is an"
     },
     {
-        question: "If a special law (like PMLA/UAPA) reversals \"Bail is the rule\", does it violate the Basic Structure?",
-        options: ["No, Parliament can make strict laws for serious offenses.", "Yes, it violates \"Personal Liberty\" which is a basic feature.", "The Supreme Court has upheld these strict conditions as valid classifications.", "Yes, but only for PMLA."],
-        correctAnswerIndex: 2, // c) Valid classifications
-        explanation: "Upheld in Vijay Madanlal case."
+        "id": "ch12-l3-q12",
+        "question": "Consider the National Judicial Appointments Commission (NJAC) Act and the accompanying 99th Constitutional Amendment Act (2014). The Supreme Court struck down the amendment in 2015. On what specific",
+        "options": ["It violated the fundamental right to equality (Article 14).","It violated the principles of federalism by removing state tribunals.","It compromised the","by granting the executive (Law Minister) and political entities an overriding say in the appointment of judges.","It bypassed the mandatory state ratification process."],
+        "correctAnswerIndex": 2,
+        "explanation": "The SC (4:1 majority) in the Fourth Judges Case struck down the 99th Amendment (NJAC) entirely. It ruled that judicial primary and the absolute separation of the executive from the judiciary regarding judge appointments is a"
     },
     {
-        question: "Theme: Delimitation 2026 & Federalism\nIf Delimitation reduces seat share of Southern states, it could be challenged as violating:",
-        options: ["The \"Federal Balance\" (Basic Structure).", "The \"Democracy\" principle (One Vote, One Value).", "Both (a) and (b) present conflicting interpretations of the Basic Structure.", "Neither; Parliament has absolute power under Article 82."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Conflicting interpretations of Federalism vs Democracy."
+        "id": "ch12-l3-q13",
+        "question": "Assertion (A): A constitutional amendment passed strictly adhering to the special majority procedure in Article 368 cannot be declared ultra vires purely on procedural grounds.\\nReason (R): Because the",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true.","Both A and R are false."],
+        "correctAnswerIndex": 4,
+        "explanation": "Both statements are false. The Supreme Court exercises judicial review over constitutional amendments on BOTH substantive (Basic Structure test) AND procedural grounds. For instance, if a bill requiring state ratification didn"
     },
     {
-        question: "Theme: Assertion & Reason\nAssertion (A): The Basic Structure doctrine limits the \"Constituent Power\" of the Parliament. Reason (R): The Supreme Court held that a limited amending power is itself a basic feature of the Constitution.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Correct explanation."
+        "id": "ch12-l3-q14",
+        "question": "The power to",
+        "options": ["M.V. Pylee","Granville Austin","K.C. Wheare","Ivor Jennings"],
+        "correctAnswerIndex": 1,
+        "explanation": "Granville Austin noted that the amending process has proved itself one of the most ably conceived aspects of the Constitution. Though it appears complex, Austin praised it as the"
     },
     {
-        question: "Assertion (A): The Ninth Schedule is no longer a \"black hole\" for laws to escape judicial scrutiny. Reason (R): In the I.R. Coelho case, the SC ruled that laws placed in the Ninth Schedule after April 24, 1973, are open to challenge if they violate the Basic Structure.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Correct explanation."
+        "id": "ch12-l3-q15",
+        "question": "If a new state (e.g., Telangana) is formed out of an existing state (e.g., Andhra Pradesh), the newly mapped territories legally alter the map defined in the First Schedule. Why did the formation of Telangana (2014) NOT require a Constitutional Amendment under Article 368?",
+        "options": ["Because the Supreme Court issued a special exemption under Article 142.","Because Article 4 of the Constitution explicitly declares that laws making changes to the First and Fourth Schedules consequential to creating new states under Articles 2 and 3 are not considered","for the purpose of Article 368.","Because it was a Presidential decree under Emergency powers.","Because both State assemblies unanimously agreed to bypass Article 368."],
+        "correctAnswerIndex": 1,
+        "explanation": "This is the classic application of Article 4. Parliament alters the boundaries and immediately changes the First (territories) and Fourth (Rajya Sabha seats) Schedules using a simple ordinary legislative majority. Technically it modifies the constitutional text, but it is explicitly immunized from the rigorous procedure and definition of Article 368."
     },
     {
-        question: "Critics argue the Basic Structure doctrine is an example of:",
-        options: ["Judicial Restraint.", "Judicial Legislation (Overreach).", "Constitutional Interpretation (Activism).", "Executive Interference."],
-        correctAnswerIndex: 1, // b) Judicial Legislation
-        explanation: "Common critique."
+        "id": "ch12-l3-q16",
+        "question": "Which Constitutional Amendment famously attempted to place Election disputes concerning the Prime Minister and the Speaker of the Lok Sabha entirely beyond the jurisdiction of all courts, including the Supreme Court, before being struck down in the Raj Narain case?",
+        "options": ["24th Amendment Act, 1971","39th Amendment Act, 1975","42nd Amendment Act, 1976","44th Amendment Act, 1978"],
+        "correctAnswerIndex": 1,
+        "explanation": "During the Emergency, to protect Indira Gandhi"
     },
     {
-        question: "Can the Supreme Court strike down a Constitutional Amendment before it is passed (at the Bill stage)?",
-        options: ["Yes, if it violates the Basic Structure.", "No, judicial review applies only to \"laws\" (Acts) enacted, not Bills (Premature).", "Yes, if the President refers it under Article 143.", "No, never."],
-        correctAnswerIndex: 1, // b) No, premature
-        explanation: "JR applies to Acts, not Bills."
+        "id": "ch12-l3-q17",
+        "question": "Examine the",
+        "options": ["The Doctrine of Separation of Powers.","The Doctrine of Federalism.","The Doctrine of Parliamentary Sovereignty.","The Doctrine of Harmonious Construction."],
+        "correctAnswerIndex": 1,
+        "explanation": "The President is the head of the Indian State (the Union and the States essentially). The electoral college consists of elected MLAs of the states alongside MPs. Any change to this process alters the political weight and rights of the states within the Union. Thus, to protect Federalism, states are given a veto mechanism (ratification requirement)."
     },
     {
-        question: "The \"Welfare State\" is a basic feature. This forces the State to ensure:",
-        options: ["Complete equality of income.", "Social and Economic Justice (Article 38).", "Free food for all.", "100% employment."],
-        correctAnswerIndex: 1, // b) Social and Economic Justice
-        explanation: "Article 38."
+        "id": "ch12-l3-q18",
+        "question": "Consider the constitutional paradox regarding the 9th Schedule (Article 31B). While placed under the protection of the shield of the 9th schedule via constitutional amendments, how did the Supreme Court in I.R. Coelho v. State of Tamil Nadu (2007) definitively rule on the amendability vs. judicial review debate?",
+        "options": ["The Court ruled that any amendment placing a law in the 9th Schedule is completely immune from judicial review forever.","The Court ruled the 9th Schedule is unconstitutional and struck it out of the Constitution entirely.","The Court ruled that while Parliament can amend the Constitution to place laws in the 9th Schedule, any inclusion made *after* April 24, 1973 (Kesavananda date) is subject to judicial review if it violates the","(e.g., core fundamental rights like Arts 14, 19, 21).","The Court ruled that only State Legislatures can place laws in the 9th Schedule."],
+        "correctAnswerIndex": 2,
+        "explanation": "The landmark I.R. Coelho judgment (2007, 9-judge bench) definitively shattered the"
     },
     {
-        question: "The Court held that \"Efficiency of Administration\" (Article 335) must be balanced with:",
-        options: ["Efficiency is a basic feature.", "Social Justice is a basic feature, and efficiency must be balanced with it (Nagaraj case).", "Reservation is not a fundamental right.", "Both (b) and (c)."],
-        correctAnswerIndex: 1, // b) Social Justice balance
-        explanation: "Nagaraj case balance."
+        "id": "ch12-l3-q19",
+        "question": "If an amendment to the Constitution is passed altering the",
+        "options": ["Special Majority under Article 368.","Special Majority + State Ratification under Article 368.","Simple majority in Parliament outside the strict purview of Article 368.","It requires the formation of a Constituent Assembly."],
+        "correctAnswerIndex": 2,
+        "explanation": "Privileges of the Parliament, its members, and its committees are listed among the specific provisions in Laxmikanth that can be amended by a simple ordinary legislative majority, rather than invoking the rigid mechanisms of a Special Majority under Article 368."
     },
     {
-        question: "Is \"Parliamentary Sovereignty\" a basic feature of the Indian Constitution?",
-        options: ["Yes, absolutely.", "No, India has \"Constitutional Sovereignty,\" not Parliamentary Sovereignty.", "Yes, but only in financial matters.", "No, the President is sovereign."],
-        correctAnswerIndex: 1, // b) No (Constitutional Sovereignty)
-        explanation: "Constitutional Sovereignty."
-    },
-    {
-        question: "The \"Golden Triangle\" (Articles 14, 19, 21) forms the core of the Basic Structure regarding Human Rights. Any amendment affecting these must meet the test of:",
-        options: ["Reasonableness.", "Public Interest.", "The \"Essence of Rights\" test (M. Nagaraj).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Cumulative tests."
-    },
-    {
-        question: "In the K.S. Puttaswamy case (Privacy), the Court linked Privacy to:",
-        options: ["Dignity of the Individual (Preamble).", "Liberty (Article 21).", "Freedoms (Article 19).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Linked to Preamble, Art 19, and 21."
-    },
-    {
-        question: "The Supreme Court in 2020 suggested that for defection cases:",
-        options: ["The Speaker is the final authority.", "An independent \"Permanent Tribunal\" should be set up.", "The Governor should decide.", "The High Court should decide directly."],
-        correctAnswerIndex: 1, // b) Permanent Tribunal
-        explanation: "Suggested to ensure neutrality."
-    },
-    {
-        question: "The \"L. Chandra Kumar\" case struck down provisions barring jurisdiction in favor of Tribunals because:",
-        options: ["High Court fees.", "Access to Justice is a basic feature.", "Armed Forces AFSPA.", "Death Penalty."],
-        correctAnswerIndex: 1, // b) Access to Justice
-        explanation: "Access to Justice."
-    },
-    {
-        question: "The Sabarimala Review will decide if \"Constitutional Morality\" overrides:",
-        options: ["Religious beliefs (Article 25).", "Group rights (Article 26).", "Judicial Precedents.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Wide reach of the review."
-    },
-    {
-        question: "Which of the following is NOT an element of the Basic Structure?",
-        options: ["The mandate to build a Socialist state.", "The supremacy of the Constitution.", "The principle of equality.", "The power of Parliament to amend the Constitution."],
-        correctAnswerIndex: 3, // d) Power of Parliament
-        explanation: "The 'Limited Power' is the feature, not the power itself."
-    },
-    {
-        question: "The \"creamy layer\" exclusion in reservation was held to be a facet of:",
-        options: ["Equality (Basic Structure).", "Efficiency.", "Fraternity.", "Liberty."],
-        correctAnswerIndex: 0, // a) Equality
-        explanation: "Facet of equality."
-    },
-    {
-        question: "Transitioning to a \"Theocratic State\" would violate:",
-        options: ["Secularism.", "Democracy.", "Equality.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Violates multiple basic features."
-    },
-    {
-        question: "The \"Venkatachalam Commission\" (2002) was set up to:",
-        options: ["Rewrite the Constitution.", "Suggest amendments without altering the Basic Structure.", "Review the Basic Structure doctrine itself.", "Abolish the Rajya Sabha."],
-        correctAnswerIndex: 1, // b) Suggest amendments
-        explanation: "Review commission."
-    },
-    {
-        question: "The Basic Structure doctrine serves as:",
-        options: ["A shield against majoritarianism.", "A check on the amending power.", "A guardian of the \"Identity\" of the Constitution.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Comprehensive role of the doctrine."
+        "id": "ch12-l3-q20",
+        "question": "Assertion (A): The President of India",
+        "options": ["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],
+        "correctAnswerIndex": 0,
+        "explanation": "Both statements are true. Prior to 1971, the President could theoretically withhold assent to a Constitutional Amendment Bill. The 24th Amendment changed"
     }
 ];
 
 export const CHAPTER_12_LEVELS: ChapterLevelData = {
-    topicId: 12,
-    levels: [
-        {
-            levelId: 1,
-            title: "The Text-Book Stickler",
-            description: "Strictly Chapter 12: Direct Recall.",
-            questions: LEVEL_1_QUESTIONS.map((q, i) => ({ ...q, id: `ch12-l1-q${i + 1}` }))
-        },
-        {
-            levelId: 2,
-            title: "The Conceptual Bridge",
-            description: "Applied Knowledge & Analysis.",
-            questions: LEVEL_2_QUESTIONS.map((q, i) => ({ ...q, id: `ch12-l2-q${i + 1}` }))
-        },
-        {
-            levelId: 3,
-            title: "UPSC Simulation 2026",
-            description: "Integrated & Current Affairs Context.",
-            questions: LEVEL_3_QUESTIONS.map((q, i) => ({ ...q, id: `ch12-l3-q${i + 1}` }))
-        }
-    ]
+    level1: LEVEL_1_QUESTIONS,
+    level2: LEVEL_2_QUESTIONS,
+    level3: LEVEL_3_QUESTIONS
 };

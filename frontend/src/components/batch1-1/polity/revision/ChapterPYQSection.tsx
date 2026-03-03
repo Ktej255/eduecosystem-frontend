@@ -9,10 +9,10 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ChapterPYQData, PYQQuestion } from "../data/pyq-data";
+import { PYQItem } from "../data/pyq-types";
 
 interface ChapterPYQSectionProps {
-    pyqData: ChapterPYQData;
+    pyqData: PYQItem[];
 }
 
 const FrequencyBadge = ({ frequency }: { frequency: 'high' | 'medium' | 'low' }) => {
@@ -47,27 +47,30 @@ const QuestionCard = ({
     index,
     onAnswer
 }: {
-    question: PYQQuestion;
+    question: PYQItem;
     index: number;
     onAnswer: (correct: boolean) => void;
 }) => {
     const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
     const [showExplanation, setShowExplanation] = useState(false);
+    const correctAnswerIndex = question.options ? question.options.findIndex(o => o.isCorrect) : -1;
     const isAnswered = selectedAnswer !== null;
-    const isCorrect = selectedAnswer === question.correctAnswer;
+    const isCorrect = selectedAnswer === correctAnswerIndex;
 
     const handleSelect = (optionIndex: number) => {
         if (isAnswered) return;
         setSelectedAnswer(optionIndex);
         setShowExplanation(true);
-        onAnswer(optionIndex === question.correctAnswer);
+        onAnswer(optionIndex === correctAnswerIndex);
     };
 
-    const difficultyColors = {
-        easy: "bg-green-100 text-green-800",
-        moderate: "bg-yellow-100 text-yellow-800",
-        difficult: "bg-red-100 text-red-800",
+    const difficultyColors: Record<string, string> = {
+        Easy: "bg-green-100 text-green-800",
+        Medium: "bg-yellow-100 text-yellow-800",
+        Hard: "bg-red-100 text-red-800",
     };
+
+    const diffColor = difficultyColors[question.difficulty] || "bg-yellow-100 text-yellow-800";
 
     return (
         <div className="bg-card border-2 border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
@@ -80,29 +83,11 @@ const QuestionCard = ({
                     <Badge className="bg-indigo-100 text-indigo-800 font-bold">
                         UPSC {question.year}
                     </Badge>
-                    <Badge className={`${difficultyColors[question.difficulty]} font-bold text-[10px]`}>
+                    <Badge className={`${diffColor} font-bold text-[10px]`}>
                         {question.difficulty.toUpperCase()}
                     </Badge>
                 </div>
-                {question.articleReference && (
-                    <span className="text-xs text-muted-foreground font-bold italic">
-                        📜 {question.articleReference}
-                    </span>
-                )}
             </div>
-
-            {/* Context (Why this year?) */}
-            {question.context && (
-                <div className="mb-4 bg-sky-50 border-l-4 border-sky-400 p-3 rounded-r-lg flex gap-3">
-                    <Newspaper className="text-sky-600 shrink-0" size={18} />
-                    <div>
-                        <p className="text-[10px] uppercase font-black text-sky-600 mb-0.5">Why this question?</p>
-                        <p className="text-xs text-sky-800 font-medium leading-relaxed">
-                            {question.context}
-                        </p>
-                    </div>
-                </div>
-            )}
 
             {/* Question */}
             <p className="text-foreground font-bold text-sm leading-relaxed mb-4 whitespace-pre-line">
@@ -111,11 +96,11 @@ const QuestionCard = ({
 
             {/* Options */}
             <div className="space-y-2">
-                {question.options.map((option, optIdx) => {
+                {question.options?.map((option, optIdx) => {
                     let optionStyle = "bg-muted border-border hover:bg-muted";
 
                     if (isAnswered) {
-                        if (optIdx === question.correctAnswer) {
+                        if (optIdx === correctAnswerIndex) {
                             optionStyle = "bg-green-100 border-green-500 text-green-800";
                         } else if (optIdx === selectedAnswer && !isCorrect) {
                             optionStyle = "bg-red-100 border-red-500 text-red-800";
@@ -132,10 +117,10 @@ const QuestionCard = ({
                             className={`w-full text-left p-3 rounded-xl border-2 ${optionStyle} transition-all flex items-center gap-3`}
                         >
                             <span className="w-6 h-6 rounded-full border-2 border-current flex items-center justify-center text-xs font-bold shrink-0">
-                                {String.fromCharCode(65 + optIdx)}
+                                {option.label}
                             </span>
-                            <span className="text-sm font-medium">{option}</span>
-                            {isAnswered && optIdx === question.correctAnswer && (
+                            <span className="text-sm font-medium">{option.text}</span>
+                            {isAnswered && optIdx === correctAnswerIndex && (
                                 <CheckCircle2 className="ml-auto text-green-600" size={18} />
                             )}
                             {isAnswered && optIdx === selectedAnswer && !isCorrect && (
@@ -165,19 +150,6 @@ const QuestionCard = ({
                     <p className="text-sm text-muted-foreground leading-relaxed">
                         {question.explanation}
                     </p>
-
-                    {/* The Twist (Technique) */}
-                    {question.twist && (
-                        <div className="mt-4 bg-amber-50 border border-amber-200 p-3 rounded-lg flex gap-3">
-                            <Lightbulb className="text-amber-600 shrink-0" size={18} />
-                            <div>
-                                <p className="text-[10px] uppercase font-black text-amber-600 mb-0.5">The Twist / Trap</p>
-                                <p className="text-xs text-amber-800 font-medium leading-relaxed">
-                                    {question.twist}
-                                </p>
-                            </div>
-                        </div>
-                    )}
                     {question.tags.length > 0 && (
                         <div className="flex flex-wrap gap-1 mt-3">
                             {question.tags.map((tag, i) => (
@@ -196,6 +168,19 @@ const QuestionCard = ({
 export default function ChapterPYQSection({ pyqData }: ChapterPYQSectionProps) {
     const [isExpanded, setIsExpanded] = useState(false);
     const [score, setScore] = useState({ correct: 0, total: 0 });
+
+    const totalPYQs = pyqData.length;
+    const lastAskedYear = pyqData.length > 0 ? Math.max(...pyqData.map(q => q.year)) : 0;
+
+    let frequency: 'high' | 'medium' | 'low' = 'low';
+    if (totalPYQs >= 5) frequency = 'high';
+    else if (totalPYQs >= 2) frequency = 'medium';
+
+    const recent = pyqData.filter(q => q.year >= 2020).length;
+    const old = pyqData.filter(q => q.year < 2020 && q.year >= 2015).length;
+    let trendDirection: 'increasing' | 'stable' | 'decreasing' = 'stable';
+    if (recent > old) trendDirection = 'increasing';
+    else if (recent < old && recent === 0) trendDirection = 'decreasing';
 
     const handleAnswer = (correct: boolean) => {
         setScore(prev => ({
@@ -223,14 +208,16 @@ export default function ChapterPYQSection({ pyqData }: ChapterPYQSectionProps) {
                     {/* Stats Row */}
                     <div className="flex flex-wrap items-center gap-4">
                         <div className="bg-card/20 backdrop-blur-sm rounded-xl px-4 py-2">
-                            <span className="text-2xl font-black">{pyqData.totalPYQs}</span>
+                            <span className="text-2xl font-black">{totalPYQs}</span>
                             <span className="text-xs ml-1">Total PYQs</span>
                         </div>
-                        <div className="bg-card/20 backdrop-blur-sm rounded-xl px-4 py-2">
-                            <span className="text-lg font-bold">📅 Last asked: {pyqData.lastAskedYear}</span>
-                        </div>
-                        <FrequencyBadge frequency={pyqData.frequency} />
-                        <TrendBadge trend={pyqData.trendDirection} />
+                        {totalPYQs > 0 && (
+                            <div className="bg-card/20 backdrop-blur-sm rounded-xl px-4 py-2">
+                                <span className="text-lg font-bold">📅 Last asked: {lastAskedYear}</span>
+                            </div>
+                        )}
+                        <FrequencyBadge frequency={frequency} />
+                        <TrendBadge trend={trendDirection} />
                     </div>
 
                     {/* Score Display */}
@@ -253,12 +240,12 @@ export default function ChapterPYQSection({ pyqData }: ChapterPYQSectionProps) {
                 {isExpanded ? (
                     <>
                         <ChevronUp className="mr-2" size={20} />
-                        Hide PYQ Practice ({pyqData.questions.length} questions)
+                        Hide PYQ Practice ({pyqData.length} questions)
                     </>
                 ) : (
                     <>
                         <ChevronDown className="mr-2" size={20} />
-                        Practice PYQs ({pyqData.questions.length} questions available)
+                        Practice PYQs ({pyqData.length} questions available)
                     </>
                 )}
             </Button>
@@ -266,7 +253,7 @@ export default function ChapterPYQSection({ pyqData }: ChapterPYQSectionProps) {
             {/* Questions List */}
             {isExpanded && (
                 <div className="mt-6 space-y-6">
-                    {pyqData.questions.map((q, idx) => (
+                    {pyqData.map((q, idx) => (
                         <QuestionCard
                             key={q.id}
                             question={q}
@@ -274,15 +261,6 @@ export default function ChapterPYQSection({ pyqData }: ChapterPYQSectionProps) {
                             onAnswer={handleAnswer}
                         />
                     ))}
-
-                    {pyqData.questions.length < pyqData.totalPYQs && (
-                        <div className="text-center p-6 bg-muted rounded-2xl border-2 border-dashed border-border">
-                            <Clock className="mx-auto text-muted-foreground mb-2" size={32} />
-                            <p className="text-muted-foreground font-bold">
-                                {pyqData.totalPYQs - pyqData.questions.length} more questions coming soon!
-                            </p>
-                        </div>
-                    )}
                 </div>
             )}
         </div>
