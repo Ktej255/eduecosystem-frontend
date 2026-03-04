@@ -10,16 +10,19 @@ import { ANCIENT_CHAPTER_9_CONTENT, ANCIENT_CHAPTER_9_MCQS, ANCIENT_CHAPTER_9_SU
 import { ANCIENT_CHAPTER_10_CONTENT, ANCIENT_CHAPTER_10_MCQS, ANCIENT_CHAPTER_10_SUBTOPICS } from './chapter10';
 import { ANCIENT_CHAPTER_11_CONTENT, ANCIENT_CHAPTER_11_MCQS, ANCIENT_CHAPTER_11_SUBTOPICS } from './chapter11';
 import { ANCIENT_CHAPTER_12_CONTENT, ANCIENT_CHAPTER_12_MCQS, ANCIENT_CHAPTER_12_SUBTOPICS } from './chapter12';
+import { ANCIENT_CHAPTER_13_CONTENT, ANCIENT_CHAPTER_13_MCQS, ANCIENT_CHAPTER_13_SUBTOPICS } from './chapter13';
+import { ANCIENT_CHAPTER_14_CONTENT, ANCIENT_CHAPTER_14_MCQS, ANCIENT_CHAPTER_14_SUBTOPICS } from './chapter14';
+import { ANCIENT_CHAPTER_15_CONTENT, ANCIENT_CHAPTER_15_MCQS, ANCIENT_CHAPTER_15_SUBTOPICS } from './chapter15';
 
-// Chapters 13-15 exist with legacy data or are pending upgrade
-let ANCIENT_CHAPTER_13_CONTENT = '', ANCIENT_CHAPTER_13_MCQS: any[] = [], ANCIENT_CHAPTER_13_SUBTOPICS: any[] = [];
-let ANCIENT_CHAPTER_14_CONTENT = '', ANCIENT_CHAPTER_14_MCQS: any[] = [], ANCIENT_CHAPTER_14_SUBTOPICS: any[] = [];
-let ANCIENT_CHAPTER_15_CONTENT = '', ANCIENT_CHAPTER_15_MCQS: any[] = [], ANCIENT_CHAPTER_15_SUBTOPICS: any[] = [];
+// Chapters 16-18 exist with legacy data or are pending upgrade
+let ANCIENT_CHAPTER_16_CONTENT = '', ANCIENT_CHAPTER_16_MCQS: any[] = [], ANCIENT_CHAPTER_16_SUBTOPICS: any[] = [];
+let ANCIENT_CHAPTER_17_CONTENT = '', ANCIENT_CHAPTER_17_MCQS: any[] = [], ANCIENT_CHAPTER_17_SUBTOPICS: any[] = [];
+let ANCIENT_CHAPTER_18_CONTENT = '', ANCIENT_CHAPTER_18_MCQS: any[] = [], ANCIENT_CHAPTER_18_SUBTOPICS: any[] = [];
 
-// Try importing existing legacy chapter data (chapters 13-15)
-try { const ch13 = require('./chapter13'); ANCIENT_CHAPTER_13_CONTENT = ch13.ANCIENT_CHAPTER_13_CONTENT; ANCIENT_CHAPTER_13_MCQS = ch13.ANCIENT_CHAPTER_13_MCQS; ANCIENT_CHAPTER_13_SUBTOPICS = ch13.ANCIENT_CHAPTER_13_SUBTOPICS; } catch { }
-try { const ch14 = require('./chapter14'); ANCIENT_CHAPTER_14_CONTENT = ch14.ANCIENT_CHAPTER_14_CONTENT; ANCIENT_CHAPTER_14_MCQS = ch14.ANCIENT_CHAPTER_14_MCQS; ANCIENT_CHAPTER_14_SUBTOPICS = ch14.ANCIENT_CHAPTER_14_SUBTOPICS; } catch { }
-try { const ch15 = require('./chapter15'); ANCIENT_CHAPTER_15_CONTENT = ch15.ANCIENT_CHAPTER_15_CONTENT; ANCIENT_CHAPTER_15_MCQS = ch15.ANCIENT_CHAPTER_15_MCQS; ANCIENT_CHAPTER_15_SUBTOPICS = ch15.ANCIENT_CHAPTER_15_SUBTOPICS; } catch { }
+// Try importing existing legacy chapter data (chapters 16-18)
+try { const ch16 = require('./chapter16'); ANCIENT_CHAPTER_16_CONTENT = ch16.ANCIENT_CHAPTER_16_CONTENT; ANCIENT_CHAPTER_16_MCQS = ch16.ANCIENT_CHAPTER_16_MCQS; ANCIENT_CHAPTER_16_SUBTOPICS = ch16.ANCIENT_CHAPTER_16_SUBTOPICS; } catch { }
+try { const ch17 = require('./chapter17'); ANCIENT_CHAPTER_17_CONTENT = ch17.ANCIENT_CHAPTER_17_CONTENT; ANCIENT_CHAPTER_17_MCQS = ch17.ANCIENT_CHAPTER_17_MCQS; ANCIENT_CHAPTER_17_SUBTOPICS = ch17.ANCIENT_CHAPTER_17_SUBTOPICS; } catch { }
+try { const ch18 = require('./chapter18'); ANCIENT_CHAPTER_18_CONTENT = ch18.ANCIENT_CHAPTER_18_CONTENT; ANCIENT_CHAPTER_18_MCQS = ch18.ANCIENT_CHAPTER_18_MCQS; ANCIENT_CHAPTER_18_SUBTOPICS = ch18.ANCIENT_CHAPTER_18_SUBTOPICS; } catch { }
 
 export const ANCIENT_CONTENT_MAP: Record<number, any> = {
     1: {
@@ -97,10 +100,22 @@ export const ANCIENT_CONTENT_MAP: Record<number, any> = {
         mcqs: ANCIENT_CHAPTER_15_MCQS,
         subtopics: ANCIENT_CHAPTER_15_SUBTOPICS
     },
-    // Chapters 16-27: Placeholder entries
-    16: { content: '', mcqs: [], subtopics: [] },
-    17: { content: '', mcqs: [], subtopics: [] },
-    18: { content: '', mcqs: [], subtopics: [] },
+    16: {
+        content: ANCIENT_CHAPTER_16_CONTENT,
+        mcqs: ANCIENT_CHAPTER_16_MCQS,
+        subtopics: ANCIENT_CHAPTER_16_SUBTOPICS
+    },
+    17: {
+        content: ANCIENT_CHAPTER_17_CONTENT,
+        mcqs: ANCIENT_CHAPTER_17_MCQS,
+        subtopics: ANCIENT_CHAPTER_17_SUBTOPICS
+    },
+    18: {
+        content: ANCIENT_CHAPTER_18_CONTENT,
+        mcqs: ANCIENT_CHAPTER_18_MCQS,
+        subtopics: ANCIENT_CHAPTER_18_SUBTOPICS
+    },
+    // Chapters 19-27: Placeholder entries
     19: { content: '', mcqs: [], subtopics: [] },
     20: { content: '', mcqs: [], subtopics: [] },
     21: { content: '', mcqs: [], subtopics: [] },
