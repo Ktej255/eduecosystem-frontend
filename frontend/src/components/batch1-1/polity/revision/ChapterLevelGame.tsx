@@ -411,7 +411,7 @@ function GameInterface({
         };
 
         onFinish(percentage, testResult);
-    }, [questionResults, score, totalQuestions, chapterNumber, chapterTitle, levelData, startTime, onFinish]);
+    }, [questionResults, score, totalQuestions, chapterNumber, topicName, levelData, startTime, onFinish]);
 
     if (showResult) {
         const percentage = Math.round((score / totalQuestions) * 100);
