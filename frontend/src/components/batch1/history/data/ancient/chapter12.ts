@@ -1,104 +1,144 @@
-export interface Subtopic {
-    id: string;
-    name: string;
-}
-
-export interface Question {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation: string;
-    subtopic: string;
-    difficulty?: 'Easy' | 'Moderate' | 'Hard';
-}
+import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_12_SUBTOPICS: Subtopic[] = [
-    { id: 'harsha', name: 'Harshavardhana & Kannauj' },
-    { id: 'hiuen_tsang', name: 'Accounts of Hiuen Tsang' }
+    { id: 'material_life', name: 'Material Life & Second Urbanization' },
+    { id: 'admin_centralization', name: 'Administrative Center & Bureaucracy' },
+    { id: 'taxation_system', name: 'Fiscal System & Revenue' },
+    { id: 'varna_society', name: 'Social Structure: The Varna System' },
+    { id: 'legal_system', name: 'Law, Justice & Legal Manuals' }
 ];
 
 export const ANCIENT_CHAPTER_12_MCQS: Question[] = [
-    {
-        id: 1,
-        question: "The biography 'Harshacharita' was written by whom?",
-        options: ["Harshavardhana", "Banabhatta", "Hiuen Tsang", "Kalidasa"],
-        correctAnswer: 1,
-        explanation: "Banabhatta was the court poet of Harsha. He wrote 'Harshacharita' (Biography of Harsha) and 'Kadambari'.",
-        subtopic: 'harsha',
-        difficulty: 'Easy'
-    },
-    {
-        id: 2,
-        question: "Which Chalukyan ruler defeated Harshavardhana on the banks of the Narmada river?",
-        options: ["Pulakeshin I", "Pulakeshin II", "Vikramaditya I", "Kirtivarman"],
-        correctAnswer: 1,
-        explanation: "Pulakeshin II (Chalukya of Badami) defeated Harsha and stopped his southern expansion. This is mentioned in the Aihole Inscription.",
-        subtopic: 'harsha',
-        difficulty: 'Easy'
-    },
-    {
-        id: 3,
-        question: "Harshavardhana is credited with writing which of the following Sanskrit plays?",
-        options: ["Ratnavali, Priyadarshika, Nagananda", "Shakuntalam, Malavikagnimitram", "Mrichhakatika, Mudrarakshasa", "Swapnavasavadattam"],
-        correctAnswer: 0,
-        explanation: "Harsha was a scholar-king. He wrote three plays: Ratnavali, Priyadarshika, and Nagananda.",
-        subtopic: 'harsha',
-        difficulty: 'Moderate'
-    },
-    {
-        id: 4,
-        question: "Hiuen Tsang (Xuanzang) presided over a grand religious assembly organized by Harsha at:",
-        options: ["Thanesar", "Pataliputra", "Kannauj", "Prayag"],
-        correctAnswer: 2,
-        explanation: "Harsha organized a grand assembly at Kannauj to honor Hiuen Tsang and spread Mahayana doctrines.",
-        subtopic: 'hiuen_tsang',
-        difficulty: 'Moderate'
-    },
-    {
-        id: 5,
-        question: "According to Hiuen Tsang, the Nalanda University was maintained by the revenue of:",
-        options: ["10 villages", "100 villages", "Royal Treasury only", "Donations from foreign monks"],
-        correctAnswer: 1,
-        explanation: "Harsha granted the revenue of 100 villages (later increased to 200) for the maintenance of Nalanda University.",
-        subtopic: 'hiuen_tsang',
-        difficulty: 'Hard'
-    }
+    // ═══════════════════════════════════════════
+    // LEVEL 1 — EASY (30 Questions): Book Recall
+    // ═══════════════════════════════════════════
+    { id: 1, question: "The 'Second Urbanization' in India occurred primarily in which region?", options: ["Indus Valley", "Ganga Plain", "Deccan Plateau", "South India"], correctAnswer: 1, explanation: "After the Harappan (Indus) urbanization, the second wave of city-building happened in the Middle Ganga basin around 600 BCE.", subtopic: 'material_life', difficulty: 'Easy' },
+    { id: 2, question: "Which pottery type is a characteristic marker of the 6th century BCE urban phase?", options: ["Black and Red Ware (BRW)", "Painted Grey Ware (PGW)", "Northern Black Polished Ware (NBPW)", "Ochre Coloured Pottery (OCP)"], correctAnswer: 2, explanation: "NBPW, with its glossy metallic finish, represents the peak of ceramic technology in the Buddha's age.", subtopic: 'material_life', difficulty: 'Easy' },
+    { id: 3, question: "The term used for a town-dweller in early Pali texts was:", options: ["Gramaka", "Porana / Negama", "Dasa", "Bhikshu"], correctAnswer: 1, explanation: "Negama (from Nigama - market town) referred to the urban merchant class.", subtopic: 'material_life', difficulty: 'Easy' },
+    { id: 4, question: "The 'Bhagadugha' in the Magadhan administration was the official responsible for:", options: ["Tax collection / Revenue gathering", "Judiciary", "Military training", "Cooking"], correctAnswer: 0, explanation: "The Bhagadugha collected the king's share (Bhaga) from the produce.", subtopic: 'taxation_system', difficulty: 'Easy' },
+    { id: 5, question: "What was the standard land tax (Bhaga) in the age of Buddha?", options: ["1/2", "1/4", "1/6", "1/10"], correctAnswer: 2, explanation: "Most states collected one-sixth of the total produce as grain from the peasants.", subtopic: 'taxation_system', difficulty: 'Easy' },
+    { id: 6, question: "The administrative council of high officials in a monarchy was called:", options: ["Sabha", "Parishad", "Santhagara", "Gana"], correctAnswer: 1, explanation: "The Parishad (Advisory Council) helped the King in governance.", subtopic: 'admin_centralization', difficulty: 'Easy' },
+    { id: 7, question: "Who was the 'Mahamatra' in the state structure?", options: ["A priest", "A high-ranking official / minister", "A slave", "A foreigner"], correctAnswer: 1, explanation: "Mahamatras were multipurpose high officials appointed for administration, justice, and surveillance.", subtopic: 'admin_centralization', difficulty: 'Easy' },
+    { id: 8, question: "The Varna system during Buddha's time became:", options: ["Flexible and based on choice", "Hereditary and determined by birth", "Abolished by kings", "Only for religious duties"], correctAnswer: 1, explanation: "Social status increasingly became rigid, with birth being the primary factor for varna.", subtopic: 'varna_society', difficulty: 'Easy' },
+    { id: 9, question: "Which social group was considered the 'primary producers' paying taxes to the state?", options: ["Brahmins", "Kshatriyas", "Vaishyas (Peasants/Merchants)", "Shudras"], correctAnswer: 2, explanation: "Vaishyas were the tax-paying class (Balihara) that sustained the state and the priest-warrior elites.", subtopic: 'varna_society', difficulty: 'Easy' },
+    { id: 10, question: "The 'Shudras', according to the Varna theory of this period, were destined to:", options: ["Rule kingdoms", "Perform sacrifices", "Serve the three higher varnas as laborers/servants", "Teach in schools"], correctAnswer: 2, explanation: "The fourth varna was relegated to the status of a service class.", subtopic: 'varna_society', difficulty: 'Easy' },
+    { id: 11, question: "Which specialized class of officials was responsible for legal and judicial proceedings?", options: ["Vyavaharika Mahamatras", "Senappatis", "Gramakas", "Shaulkikas"], correctAnswer: 0, explanation: "Vyavaharika Mahamatras acted as judges to settle disputes in towns.", subtopic: 'legal_system', difficulty: 'Easy' },
+    { id: 12, question: "The term 'Shaulkika' refers to officials who collected:", options: ["Land revenue", "Customs duties/tolls on trade (Shulka)", "Religious donations", "Military recruits"], correctAnswer: 1, explanation: "Shulka was the toll collected on goods entering towns or crossing borders.", subtopic: 'taxation_system', difficulty: 'Easy' },
+    { id: 13, question: "What was the 'Setthi' in the social hierarchy?", options: ["A poor farmer", "A wealthy merchant / capitalist who often lent money to the king", "A soldier", "A monk"], correctAnswer: 1, explanation: "Setthis Were influential urban magnates who controlled trade and finance.", subtopic: 'material_life', difficulty: 'Easy' },
+    { id: 14, question: "The 'Dharmasutras' were:", options: ["Buddhist scriptures", "Manuals of law and social conduct written by Brahmins", "Stories of Buddha", "Military tactics"], correctAnswer: 1, explanation: "Dharmasutras (600-300 BCE) codified the duties for each Varna.", subtopic: 'legal_system', difficulty: 'Easy' },
+    { id: 15, question: "The systematic use of 'Iron' for clearing forests led to the expansion of civilization into which region?", options: ["Thar Desert", "Middle Ganga Valley", "Kashmir", "Arabian Sea"], correctAnswer: 1, explanation: "Iron tools were essential for clearing the heavy wet forests of the eastern Ganga plains.", subtopic: 'material_life', difficulty: 'Easy' },
+    { id: 16, question: "Which animal began to be used on a large scale for both agriculture and warfare in Magadha?", options: ["Horse", "Elephant", "Camel", "Donkey"], correctAnswer: 1, explanation: "Elephants were used for breaking fort walls and clearing forests.", subtopic: 'material_life', difficulty: 'Easy' },
+    { id: 17, question: "The term 'Srenis' refers to:", options: ["Religious sects", "Guilds of artisans and merchants", "Groups of soldiers", "Villages"], correctAnswer: 1, explanation: "Srenis Were organized professional bodies that regulated crafts and trade.", subtopic: 'material_life', difficulty: 'Easy' },
+    { id: 18, question: "Punch-marked coins were mainly made of:", options: ["Gold", "Silver / Copper", "Bronze", "Lead"], correctAnswer: 1, explanation: "Silver punch-marked coins (Karshapanas) were the most common metallic currency.", subtopic: 'material_life', difficulty: 'Easy' },
+    { id: 19, question: "The village headman (Gramaka) was appointed by:", options: ["Other villagers", "The King", "The Priest", "Inheritance only"], correctAnswer: 1, explanation: "Monarchies asserted central control by appointing headmen to manage villages and taxes.", subtopic: 'admin_centralization', difficulty: 'Easy' },
+    { id: 20, question: "The 'Rajjukas' were officials responsible for:", options: ["Cleaning the palace", "Surveying land and dispensing justice in rural areas", "Cooking for the King", "Training elephants"], correctAnswer: 1, explanation: "They used 'ropes' (Rajju) to measure fields for taxation purposes.", subtopic: 'taxation_system', difficulty: 'Easy' },
+    { id: 21, question: "Which group of Brahmanas acted as advisors to the King in matters of religion and state?", options: ["Bhikshus", "Purohitas", "Sanyasis", "Yatis"], correctAnswer: 1, explanation: "The Purohit (Chaplain) held a prestigious position in the royal court.", subtopic: 'admin_centralization', difficulty: 'Easy' },
+    { id: 22, question: "In the Varna hierarchy, which group claimed the highest status and monopoly over knowledge?", options: ["Kshatriyas", "Brahmins", "Vaishyas", "Shudras"], correctAnswer: 1, explanation: "Brahmins placed themselves at the top as the sole custodians of Vedic knowledge and rituals.", subtopic: 'varna_society', difficulty: 'Easy' },
+    { id: 23, question: "The term 'Kammankara' refers to:", options: ["King", "Agricultural laborer / worker", "Poet", "Merchant"], correctAnswer: 1, explanation: "They were the landless labor force working on individual or state farms.", subtopic: 'material_life', difficulty: 'Easy' },
+    { id: 24, question: "What indicates the growth of a 'Money Economy' in this age?", options: ["Trade by barter only", "Introduction of Punch-marked coins and references to 'Kahapanas' (Cash) in texts", "Usage of credit cards", "No trade existed"], correctAnswer: 1, explanation: "The transition to metallic money enabled professional administrative and military payments.", subtopic: 'material_life', difficulty: 'Easy' },
+    { id: 25, question: "Legislative and executive functions in 'Republics' (Gana-sanghas) were performed in the:", options: ["Temple", "Santhagara (Assembly Hall)", "Battlefield", "Priest's house"], correctAnswer: 1, explanation: "The meeting hall was the socio-political center of the tribal republics.", subtopic: 'admin_centralization', difficulty: 'Easy' },
+    { id: 26, question: "Which varna was generally excluded from the 'Upanayana' (sacred thread) ceremony?", options: ["Brahmin", "Kshatriya", "Vaishya", "Shudra"], correctAnswer: 3, explanation: "The first three varnas were 'Dvija' (twice-born), while Shudras were excluded from Vedic initiation.", subtopic: 'varna_society', difficulty: 'Easy' },
+    { id: 27, question: "The practice of 'Bali' changed from a voluntary gift to a:", options: ["Forced labor", "Compulsory tax collected by officers", "Religious song", "Marriage ritual"], correctAnswer: 1, explanation: "The state institutionalized the collection of surplus.", subtopic: 'taxation_system', difficulty: 'Easy' },
+    { id: 28, question: "The 'Gramanis' or 'Gramakas' were mostly:", options: ["Young warriors", "Hereditary or appointed heads of village units", "Monks", "Foreigners"], correctAnswer: 1, explanation: "The village was the basic unit of resource extraction.", subtopic: 'admin_centralization', difficulty: 'Easy' },
+    { id: 29, question: "The earliest Indian legal texts are called:", options: ["Puranas", "Dharmasutras", "Vedas", "Upnishads"], correctAnswer: 1, explanation: "These texts codified the social and legal rules for the four varnas.", subtopic: 'legal_system', difficulty: 'Easy' },
+    { id: 30, question: "Which major North Indian town was a hub for the 'NBPW' ceramic industry?", options: ["Rajgir", "Pataliputra / Kashi (Varanasi)", "Ujjain", "Kaushambi"], correctAnswer: 1, explanation: "Varanasi and Pataliputra were key urban high-culture and manufacturing centers.", subtopic: 'material_life', difficulty: 'Easy' },
+
+    // ══════════════════════════════════════════════════
+    // LEVEL 2 — MODERATE (30 Questions): Conceptual
+    // ══════════════════════════════════════════════════
+    { id: 31, question: "Why is the 6th Century BCE called the 'Age of Iron' in Indian history?", options: ["People wore iron clothes", "Iron tools (axes/ploughs) created the material basis for permanent agriculture, urban surplus, and professional states", "Iron was only for jewelry", "Gods were made of iron"], correctAnswer: 1, explanation: "Iron technology was the prime mover of socio-economic change in the Ganga valley.", subtopic: 'material_life', difficulty: 'Moderate' },
+    { id: 32, question: "The 'Second Urbanization' was fundamentally different from the first (Harappan) because:", options: ["It had no drainage", "It was based on iron technology and located in the Gangetic plains, unlike the Bronze/Indus based first urbanization", "It had no trade", "Only kings lived in towns"], correctAnswer: 1, explanation: "Material basis and geographical location were the key differentiators.", subtopic: 'material_life', difficulty: 'Moderate' },
+    { id: 33, question: "Consider the 'Varna' structure:\n1. Brahmins claimed ritual purity and superiority.\n2. Kshatriyas claimed secular power and kingship.\n3. The rivalry between the two led to the rise of new religious ideologies.", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 3, explanation: "The 'Brahmin-Kshatriya' tension is a central theme of the Buddha's age social history.", subtopic: 'varna_society', difficulty: 'Moderate' },
+    { id: 34, question: "How did the Magadhan 'Taxation' system provide a stable base for the first empire?", options: ["By making taxes optional", "By institutionalizing land tax (1/6th) and tolls on trade, collected by dedicated state officers", "By looting neighbors only", "By seizing all gold"], correctAnswer: 1, explanation: "Predictable revenue allowed for a standing army and a professional bureaucracy.", subtopic: 'taxation_system', difficulty: 'Moderate' },
+    { id: 35, question: "The rise of 'Srenis' (Guilds) indicates:", options: ["Lack of work", "High specialization of labor and the emergence of a powerful urban middle class of artisans and traders", "Return to tribal living", "End of money"], correctAnswer: 1, explanation: "Guilds consolidated the economic power of urban production units.", subtopic: 'material_life', difficulty: 'Moderate' },
+    { id: 36, question: "Consider the 'Dharmasutra' law:\n1. It prescribed different punishments for the same crime based on the varna of the victim and perpetrator.\n2. It aimed at absolute social equality.\n3. It was strictly Buddhist.", options: ["1 only", "1 and 2 only", "2 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Early Indian law was deeply Varna-differentiated (e.g., higher penalty for Shudra attacking Brahmin).", subtopic: 'legal_system', difficulty: 'Moderate' },
+    { id: 37, question: "The transition from 'Sabha/Samiti' (Tribal Assemblies) to the 'Parishad' (Royal Council) signify:", options: ["Increase in democracy", "Loss of tribal participation as the king's power became centralized and absolute", "Return of the gods", "No change"], correctAnswer: 1, explanation: "Monarchy marginalized popular assemblies in favor of hand-picked bureaucratic advisors.", subtopic: 'admin_centralization', difficulty: 'Moderate' },
+    { id: 38, question: "What was the role of 'Slaves' (Dasas) in the Buddha's era?", options: ["Only in fighting", "Mainly domestic service and, occasionally, labor in agriculture alongside free laborers", "Slaves ruled the towns", "There were no slaves"], correctAnswer: 1, explanation: "Unlike Greco-Roman world, Indian slavery was not the primary mode of production, though it existed.", subtopic: 'varna_society', difficulty: 'Moderate' },
+    { id: 39, question: "The 'Pali' texts mention 'Gahapatis'. Who were they?", options: ["Only priests", "Heads of households and prosperous landowners among the Vaishya varna", "Warriors", "Beggars"], correctAnswer: 1, explanation: "Gahapatis were the backbone of the rural economy and tax base.", subtopic: 'varna_society', difficulty: 'Moderate' },
+    { id: 40, question: "Why did the 'Buddhist' and 'Jain' movements resonate with the Vaishya varna?", options: ["Buddhism was only for merchants", "Because of their focus on non-violence (Ahimsa) which suited trade and their egalitarian stance compared to Vedic varna strictness", "They were told to join by kings", "Lack of choice"], correctAnswer: 1, explanation: "The new faiths provided social dignity and an ethical framework compatible with commerce.", subtopic: 'varna_society', difficulty: 'Moderate' },
+    { id: 41, question: "What was a 'Jaladurga'?", options: ["A garden", "A water-fortress (like Pataliputra) protected by rivers", "A ship", "A temple of Varuna"], correctAnswer: 1, explanation: "Magadha used rivers as strategic natural moats.", subtopic: 'admin_centralization', difficulty: 'Moderate' },
+    { id: 42, question: "Consider the 'Money Economy' effects:\n1. It allowed the state to pay its army and officials regular salaries.\n2. it facilitated long-distance trade.\n3. It ended the barter system completely.", options: ["1 and 2 only", "2 and 3 only", "1 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Barter continued in villages, but the state and trade moved to cash.", subtopic: 'material_life', difficulty: 'Moderate' },
+    { id: 43, question: "The 'Mahamatras' were appointed for various tasks. Match:\nA. Vyavaharika — 1. Justice\nB. Shulkadhyaksha — 2. Toll/Customs\nC. Gramabhojaka — 3. Village Affairs", options: ["A-1, B-2, C-3", "A-2, B-1, C-3", "A-3, B-1, C-2", "A-1, B-3, C-2"], correctAnswer: 0, explanation: "Specialization in bureaucracy was a Magadhan hallmark.", subtopic: 'admin_centralization', difficulty: 'Moderate' },
+    { id: 44, question: "How did the 'Settled Agriculture' impact the Varna system?", options: ["It abolished it", "It required a stable labor force (Shudras) and tax base (Vaishyas), cementing social differences", "It made everyone equal", "No impact"], correctAnswer: 1, explanation: "The economic hierarchy was articulated through the religious language of Varna.", subtopic: 'varna_society', difficulty: 'Moderate' },
+    { id: 45, question: "The term 'Untouchability' (Chandalas):\n1. Started to appear in texts in this period (late Vedic/Buddha age).\n2. Refers to groups excluded from the Varna system entirely (Ati-shudra).\n3. Was a product of the Bronze Age.", options: ["1 and 2 only", "2 and 3 only", "1 only", "3 only"], correctAnswer: 0, explanation: "The notion of ritual pollution lead to the exclusion of certain low-status occupations.", subtopic: 'varna_society', difficulty: 'Moderate' },
+    { id: 46, question: "Why did Magadhan kings create a 'Standing Army'?", options: ["For parades", "To eliminate dependence on tribal levies and ensure continuous control over vast territories", "Because Alexander told them to", "No alternative"], correctAnswer: 1, explanation: "Permanent professionals replaced seasonal citizen-warriors.", subtopic: 'admin_centralization', difficulty: 'Moderate' },
+    { id: 47, question: "The 'Rajjukas' (rope-bearers) were predecessors of modern:", options: ["Police", "Land revenue / Survey officers", "Judges", "Teachers"], correctAnswer: 1, explanation: "Scientific land measurement for tax was their primary duty.", subtopic: 'taxation_system', difficulty: 'Moderate' },
+    { id: 48, question: "What distinguishes 'NBPW' culture from earlier 'PGW' culture?", options: ["NBPW had no pottery", "NBPW coincides with full-scale urbanization, money economy, and extensive iron use", "PGW was in cities", "NBPW was only for Jains"], correctAnswer: 1, explanation: "NBPW is the archaeological footprint of the first empires.", subtopic: 'material_life', difficulty: 'Moderate' },
+    { id: 49, question: "The 'Dharmasutra' period saw the emergence of 'Raja-dharma'. This means:", options: ["The King's religion", "The ethical and governing duties of the King as the protector of Varna and law", "Laws for peasants", "A way to kill enemies"], correctAnswer: 1, explanation: "Statecraft was integrated into the Brahmanical religious/legal order.", subtopic: 'legal_system', difficulty: 'Moderate' },
+    { id: 50, question: "Consider the Status of Women in this Age:\n1. They were allowed into the Sangha (Buddhist/Jain order).\n2. They were generally excluded from political assemblies and higher education.\n3. Their legal/social position showed signs of decline compared to the early Vedic period.", options: ["1, 2 and 3", "1 and 2 only", "2 and 3 only", "1 only"], correctAnswer: 0, explanation: "Society became more patriarchal and ritual-focused, restricting female autonomy.", subtopic: 'varna_society', difficulty: 'Moderate' },
+    { id: 51, question: "The 'Setthi-Gahapatis' were often the primary patrons of:", options: ["Only Vedic rituals", "The Buddha and the Sangha, providing land, food, and housing", "The King's secret police", "Foreign armies"], correctAnswer: 1, explanation: "Commercial success funded the growth of non-Brahmanical religions.", subtopic: 'varna_society', difficulty: 'Moderate' },
+    { id: 52, question: "How were 'Tribal Republics' (Gana-sanghas) integrated into the Varna system?", options: ["They were rejected", "The ruling clans were usually accorded Kshatriya status while local tribes were assimilated as lower varnas", "Everyone became a Brahmin", "Varna was not allowed"], correctAnswer: 1, explanation: "Varna theory was flexible enough to absorb diverse political structures into a common social framework.", subtopic: 'varna_society', difficulty: 'Moderate' },
+    { id: 53, question: "The Magadhan system of 'Bali' and 'Bhaga' proves:", options: ["State was poor", "State had a highly developed capability for systematic surplus extraction", "Taxes were only on gold", "No surplus existed"], correctAnswer: 1, explanation: "Systemic taxation is the 'fuel' of empire building.", subtopic: 'taxation_system', difficulty: 'Moderate' },
+    { id: 54, question: "Consider the 'Judiciary' in the age of Buddha:\n1. King was the highest judge.\n2. Cases were settled based on custom, Varna laws, and local rules.\n3. Torture was used to extract confession.", options: ["1, 2 and 3", "1 and 2 only", "2 and 3 only", "3 only"], correctAnswer: 0, explanation: "A rough but institutionalized judicial system was evolving.", subtopic: 'legal_system', difficulty: 'Moderate' },
+    { id: 55, question: "Match:\nA. Pura — 1. Fortified Town\nB. Nigama — 2. Market Town\nC. Grama — 3. Village", options: ["A-1, B-2, C-3", "A-2, B-1, C-3", "A-1, B-3, C-2", "A-3, B-2, C-1"], correctAnswer: 0, explanation: "Hierarchical settlement patterns emerged in the Buddha's time.", subtopic: 'material_life', difficulty: 'Moderate' },
+    { id: 56, question: "The use of 'Elephants' in Magadha's army was possible because:", options: ["They were imported from Africa", "Magadha had proximity to the dense forests (Bengal/Assam/Bihar) where elephants were native", "Magadha had no other choices", "They were given as gifts"], correctAnswer: 1, explanation: "Magadha's natural resources (Elephants/Iron) gave it a permanent military edge.", subtopic: 'material_life', difficulty: 'Moderate' },
+    { id: 57, question: "What was the 'Ashtakula' in some republics?", options: ["Eight kings", "A council of eight clans for governance", "Eight types of rice", "A religious ceremony"], correctAnswer: 1, explanation: "Republics often used confederated structures for collective decision making.", subtopic: 'admin_centralization', difficulty: 'Moderate' },
+    { id: 58, question: "The 'Purohita' in this period became more than just a priest; he was a:", options: ["Farmer", "Political advisor and state theorist", "Soldier", "Tailor"], correctAnswer: 1, explanation: "The Priest-King alliance was the ideological core of the monarchy.", subtopic: 'admin_centralization', difficulty: 'Moderate' },
+    { id: 59, question: "Consider:\n1. NBPW pottery was traded as luxury ware across India.\n2. It reached as far as South India (Amaravati).\n3. It was produced by machines.", options: ["1 and 2 only", "2 and 3 only", "1 only", "1, 2 and 3"], correctAnswer: 0, explanation: "High-quality urban products traveled along the new trade routes (Uttarapatha/Dakshinapatha).", subtopic: 'material_life', difficulty: 'Moderate' },
+    { id: 60, question: "The term 'Anaryas' in legal texts was often used for:", options: ["Foreigners only", "Lower varnas and forest tribes outside the fold of Varna culture", "Buddhists", "Jains"], correctAnswer: 1, explanation: "Varna identity was used to define the 'Civilized' vs 'Barbarian' border.", subtopic: 'varna_society', difficulty: 'Moderate' },
+
+    // ══════════════════════════════════════════════════════
+    // LEVEL 3 — HARD (30 Questions): UPSC Simulation
+    // ══════════════════════════════════════════════════════
+    { id: 61, question: "Assertion (A): The 'Second Urbanization' was an ecological breakthrough.\nReason (R): Use of iron tools (axes and ploughs) in the high-rainfall Gangetic basin allowed the systematic clearing of deep-rooted forests, transforming them into the world's most productive agricultural zone.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Technology enabled humans to conquer the challenging but fertile eastern ecology.", subtopic: 'material_life', difficulty: 'Hard' },
+    { id: 62, question: "Consider the following about 'Magadhan Administration':\n1. It was the first state to create a professional bureaucracy (Amatyas) independent of tribal/clan ties.\n2. Officials were appointed regardless of their varna.\n3. The system included specialized 'Mahamatras' for judicial, military, and fiscal affairs.", options: ["1 and 3 only", "2 and 3 only", "1 only", "1, 2 and 3"], correctAnswer: 0, explanation: "While more professional, officials Were still usually drawn from the higher varnas.", subtopic: 'admin_centralization', difficulty: 'Hard' },
+    { id: 63, question: "Assertion (A): The 'Vaishya' varna provided the financial backbone of the Sramana movements (Buddhism/Jainism).\nReason (R): These new religions approved of money-lending (usury) and trade, which were often viewed with suspicion in orthodox Vedic Brahmanism.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Economic shift to commerce found its ideological justification in heterodox faiths.", subtopic: 'varna_society', difficulty: 'Hard' },
+    { id: 64, question: "Which of the following describes 'Early Indian Law' as seen in Dharmasutras correctly?", options: ["It was secular and egalitarian", "It was essentially a 'Class-Varna' law, where legal rights and penalties were directly tied to social status", "It was only for religious crimes", "There was no law"], correctAnswer: 1, explanation: "Equality before law was a foreign concept; law was a tool for social stratification.", subtopic: 'legal_system', difficulty: 'Hard' },
+    { id: 65, question: "Assertion (A): The Gana-sanghas (Republics) were less prone to the rise of absolute despotism.\nReason (R): Political power was decentralized among a large group of 'Projectors' or 'Rajas' who met in public assemblies.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Oligarchy acted as a check on individual tyranny, though it was still an elite-focused system.", subtopic: 'admin_centralization', difficulty: 'Hard' },
+    { id: 66, question: "Consider the 'NBPW' ceramic economy:\n1. It represents the highest technical skill in pottery in the ancient world.\n2. Its spread follows the political expansion of the Magadhan empire.\n3. It was used primarily for storing grains by poor peasants.", options: ["1 and 2 only", "2 and 3 only", "1 only", "3 only"], correctAnswer: 0, explanation: "NBPW was 'Fine China'—a luxury ware of the urban elite.", subtopic: 'material_life', difficulty: 'Hard' },
+    { id: 67, question: "Assertion (A): The 'Setthi' מגנאממ was a sign of the emerging 'Proto-Capitalism' in 6th Century BCE.\nReason (R): They controlled large merchant fleets, industrial craft-villages, and acted as state-financiers and bankers to the Magadhan kings.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Magadha was an 'Alliance' between the Central State (Kings) and Urban Capital (Setthis).", subtopic: 'material_life', difficulty: 'Hard' },
+    { id: 68, question: "How did 'Varna' theory adapt to the economic changes of the Buddha's age?", options: ["It was ignored", "It redefined the Vaishya as a 'tax-payer' (Balihara) and Shudra as 'labor' (Kammankara) to ensure surplus flow to the state and priests", "It made Shudras rich", "It ended the King's power"], correctAnswer: 1, explanation: "Religious theory provided the 'blueprint' for economic exploitation.", subtopic: 'varna_society', difficulty: 'Hard' },
+    { id: 69, question: "Assertion (A): Use of 'Punch-marked coins' enabled the King to build a 'Standing Army'.\nReason (R): Salaries could now be paid in cash (Karshapanas) rather than through land-grants or grain-sharing, ensuring direct loyalty to the central treasury.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Money is the prerequisite for the professionalization of military power.", subtopic: 'material_life', difficulty: 'Hard' },
+    { id: 70, question: "Consider 'Social Justice' in the era of Buddha:\n1. Buddha accepted Shudras into the Sangha.\n2. Buddha preached against the Varna system in all social spheres.\n3. In practice, the Sangha reflected the egalitarian ideals more than the broader society.", options: ["1 and 3 only", "2 and 3 only", "1 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Buddha did NOT start a social revolution outside the Sangha; he accepted varna as a social reality but rejected it as a spiritual barrier.", subtopic: 'varna_society', difficulty: 'Hard' },
+    { id: 71, question: "Assertion (A): The Shishunaga dynasty's election by 'People' marks the first democratic moment in Magadha.\nReason (R): The urban citizenry (Negamas) and ministers revolted against the serial patricide (killing of fathers) of the Haryanka line.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Urban public opinion began to count in the politics of capitalized cities.", subtopic: 'admin_centralization', difficulty: 'Hard' },
+    { id: 72, question: "What does the term 'Aniravasita Shudras' (Pure Shudras) imply in later Paninian grammar?", options: ["Shudras allowed to eat from his master's bowls and live in the town limits", "Shudras were slaves", "Shudras were untouchable", "Shudras were priests"], correctAnswer: 0, explanation: "Social distinction within the Shudra varna began to emerge based on ritual proximity.", subtopic: 'varna_society', difficulty: 'Hard' },
+    { id: 73, question: "Assertion (A): The 'Brahmin-Kshatriya' alliance was essential to the Magadhan state.\nReason (R): The Brahmin provided religious legitimacy to the King's absolute power, while the King protected the Brahmin's social privileges and Vedic order.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "The 'Kshatra-Brahma' collaboration is the ideological anchor of the Indian state.", subtopic: 'admin_centralization', difficulty: 'Hard' },
+    { id: 74, question: "Consider the 'Taxation on Trade' (Shulka):\n1. Toll booths (Shaulka-sthala) were located at city gates.\n2. Standard rate was often 1/10th or 1/20th of the value.\n3. Merchants who avoided tolls were severely punished by the state.", options: ["1, 2 and 3", "1 and 2 only", "2 and 3 only", "1 only"], correctAnswer: 0, explanation: "Urban revenue was as important as agricultural tax for the growing empire.", subtopic: 'taxation_system', difficulty: 'Hard' },
+    { id: 75, question: "Assertion (A): Pataliputra was the first 'Smart City' of Ancient India.\nReason (R): It used advanced civil engineering for drainage, wooden fortifications for defense against floods, and systematic street planning.", options: ["A is partially right but term 'Smart' is modern, R is factually correct as per Megasthenes/archaeology", "Both correct", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Pataliputra's civil engineering (wooden sewage/forts) was superior for its time.", subtopic: 'material_life', difficulty: 'Hard' },
+    { id: 76, question: "Which describes 'Rural Administration' in Magadha correctly?", options: ["Villages were completely independent", "State control extended via the Gramaka and periodic visits of high officials (Mahamatras) to prevent tax evasion and check local judges", "Magadha had no villages", "Villages were ruled by priests only"], correctAnswer: 1, explanation: "Centralization required deep penetration into the village-level resource unit.", subtopic: 'admin_centralization', difficulty: 'Hard' },
+    { id: 77, question: "Consider:\n1. Slavery in India was mentioned by Greek writers like Megasthenes.\n2. Megasthenes claimed 'No Indians are slaves'.\n3. This suggests Indian slavery was so benign/different from Greek version that foreigners didn't recognize it.", options: ["2 and 3 only", "1 and 2 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Famous historical discrepancy: Pali texts mention slaves, Greeks didn't 'see' them because they weren't treated like Greek 'property'.", subtopic: 'varna_society', difficulty: 'Hard' },
+    { id: 78, question: "Assertion (A): The 'Upanayana' restriction for Shudras was a method of 'Intellectual Control'.\nReason (R): By denying access to Vedic Sanskrit and education, the priests ensured that lower varnas could not challenge the ideological basis of the state.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Social control was built on the monopoly of sacred language and texts.", subtopic: 'varna_society', difficulty: 'Hard' },
+    { id: 79, question: "Why did 'Irrigation' projects (Setu) become a state responsibility in this era?", options: ["For fun", "Expansion of agriculture into areas without perennial rivers required state-maned dams, canals, and tanks to ensure tax revenue stability", "Gods asked for it", "Merchants paid for all of it"], correctAnswer: 1, explanation: "The state realized that water management = Revenue management.", subtopic: 'material_life', difficulty: 'Hard' },
+    { id: 80, question: "Consider:\n1. The 'Parishad' (King's Council) was purely advisory.\n2. In practice, a strong King could ignore the Parishad.\n3. The Parishad survived from the earlier tribal times.", options: ["1 and 2 only", "2 and 3 only", "1 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Parishad was a handpicked tool of the monarch, unlike the earlier participatory assemblies.", subtopic: 'admin_centralization', difficulty: 'Hard' },
+    { id: 81, question: "Assertion (A): The 'Second Urbanization' was fueled by 'Mercantile Capitalism'.\nReason (R): The rise of long-distance trade routes (Dakshinapatha and Uttarapatha) allowed for the specialization of whole villages into specific crafts (industrial villages).", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Market expansion led to industrial concentration and specialization.", subtopic: 'material_life', difficulty: 'Hard' },
+    { id: 82, question: "What does the term 'Pannas' in Pali texts refer to?", options: ["Coins", "Slaves", "Leaf-letters / Early forms of writing for commercial transactions", "Rice"], correctAnswer: 2, explanation: "The requirements of trade led to the widespread use of writing for business.", subtopic: 'material_life', difficulty: 'Hard' },
+    { id: 83, question: "Consider 'Legal Penalties' in Dharmasutras:\n1. Death penalty was common for treason.\n2. Fines were the most frequent punishment for lesser crimes.\n3. Punishments for Shudras were usually 'corporeal' (physical) while for Brahmins they were 'penitential'.", options: ["1, 2 and 3", "1 and 2 only", "2 and 3 only", "1 only"], correctAnswer: 0, explanation: "The legal system was designed to protect the physical body of the elite and extract labor from the lower classes.", subtopic: 'legal_system', difficulty: 'Hard' },
+    { id: 84, question: "Assertion (A): The Buddha's 'Middle Path' was a socio-economic moderate stance.\nReason (R): He balanced the needs of the emerging merchant class (who wanted social peace and trade) with the reality of monarchical power.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Buddhism provided the 'spiritual software' for a stable, commercially-prosperous urban society.", subtopic: 'varna_society', difficulty: 'Hard' },
+    { id: 85, question: "Which describes the 'Fate of the Republican Assemblies' correctly?", options: ["They were spread everywhere", "They were gradually suppressed by centralizing monarchies (like Magadha) which viewed them as breeding grounds for dissent", "They became the Parliament of India", "They were killed by Jains"], correctAnswer: 1, explanation: "Empire and Democracy/Oligarchy were incompatible in the ancient world's push for centralization.", subtopic: 'admin_centralization', difficulty: 'Hard' },
+    { id: 86, question: "What indicates that the 'Varna' system was an 'Ideal' and often messy in practice?", options: ["Presence of 'Mixed Castes' (Varnasankara) and the rise of powerful non-Kshatriya kings like the Nandas", "Wait, everyone followed varna strictly", "Taxes were only on Brahmins", "No records exist"], correctAnswer: 0, explanation: "Reality (inter-caste marriage, social mobility) constantly forced the theory to adapt through 'Jati' classification.", subtopic: 'varna_society', difficulty: 'Hard' },
+    { id: 87, question: "Assertion (A): The use of 'Kharoshhi' in the NW and 'Brahmi' in the rest of India shows regional administrative diversity.\nReason (R): Magadha adapted different scripts to suit the local linguistic and administrative heritage of conquered territories (like Gandhara).", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Administrative pragmatism defined the early empires.", subtopic: 'admin_centralization', difficulty: 'Hard' },
+    { id: 88, question: "Consider 'Urban Waste Management' in 6th Century BCE:\n1. Archaeological evidence shows the use of 'Ring Wells' for drainage and soakage.\n2. Every house had a flush toilet.\n3. Waste was thrown into the river Ganga without any planning.", options: ["1 only", "1 and 2 only", "2 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Ring-wells Were a significant urban engineering innovation of the NBPW phase.", subtopic: 'material_life', difficulty: 'Hard' },
+    { id: 89, question: "The term 'Sarthavaha' refers to:", options: ["The King's bodyguard", "Leader of a merchant caravan crossing long distances", "A maritime captain", "A religious teacher"], correctAnswer: 1, explanation: "Sarthavahas were the lynchpins of the interstate land trade.", subtopic: 'material_life', difficulty: 'Hard' },
+    { id: 90, question: "Assertion (A): The 'Magadhan State' was a 'Revenue machine'.\nReason (R): Its survival depended on continuous expansion and the minute extraction of surplus through a sophisticated network of tax-collectors, spies, and bureaucrats.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Magadha successfully transformed from a tribal chiefdom to a predatory, professionally managed fiscal state.", subtopic: 'taxation_system', difficulty: 'Hard' }
 ];
 
 export const ANCIENT_CHAPTER_12_CONTENT = `
-# BLOCK 1: KINGDOM OF KANNAUJ
-## 👑 HARSHAVARDHANA (606-647 AD)
+# Chapter 12: State and Varna Society in the Age of the Buddha
 
-**Rise to Power:**
-*   Belonged to **Pushyabhuti Dynasty** of Thanesar (Haryana).
-*   Shifted capital to **Kannauj** (UP) after saving his sister Rajyashri.
-*   Last great Hindu emperor of North India.
+## 🏙️ Material Life: The Second Urbanization
+- **Eco-Context:** Use of **Iron axes and ploughs** allowed clearing the thick forests of the Middle Ganga Plains.
+- **Pottery:** **Northern Black Polished Ware (NBPW)** became the hallmark of this urban age.
+- **Currency:** Introduction of **Punch-marked silver coins** created a money economy.
+- **Urban Centers:** Rise of cities like Pataliputra, Kashi, Vaishali, and Kaushambi as hubs of trade and manufacture.
 
-**Military Conquests:**
-*   Conquered most of North India (Punjab, Kannauj, Bengal, Bihar, Orissa).
-*   **Defeat:** Failed to invade South India. Defeated by **Pulakeshin II** (Chalukya) on the banks of **Narmada**. The Aihole inscription mentions this victory.
+## 🏛️ Administrative Centralization
+- **Bureaucracy:** Hand-picked high officials (**Amatyas/Mahamatras**) replaced tribal advisors.
+- **Army:** Transition to **Standing Armies** paid by the state, independent of tribal loyalty.
+- **The Council:** King relied on a **Parishad** (advisory council) and the **Purohita** (priest-advisor).
+- **Control:** Appointment of village headmen (**Gramakas**) to connect the center and periphery.
 
-**Administration:**
-*   More feudal and decentralized than Guptas.
-*   Officers were paid in land grants.
-*   Law and order was not as good as under Guptas (Hiuen Tsang was robbed twice).
+## 💰 Taxation & Revenue
+- **Land Tax (Bhaga):** Fixed at **1/6th** of produce; collected systematically by officials like Bhagadughas.
+- **Tolls (Shulka):** Customs duties on trade goods entering cities (collected by Shaulkikas).
+- **Labor:** Compulsory labor (**Vishti**) was sometimes extracted for state public works.
 
-# BLOCK 2: RELIGION & LITERATURE
-## 📜 THE SCHOLAR KING
+## 👥 The Varna System & Society
+- **Structure:** Society was rigidly divided into four varnas: Brahmin, Kshatriya, Vaishya, and Shudra.
+- **Tax Base:** Vaishyas (peasants/merchants) were the primary tax-payers.
+- **The Laborers:** Shudras and **Kammankaras** (landless laborers) were the manual workforce.
+- **Ideology:** The **Dharmasutras** codified laws that protected the status of the higher varnas and institutionalized social hierarchy.
 
-**Literature:**
-*   **Banabhatta (Court Poet):** Wrote *Harshacharita* (First historical biography) and *Kadambari*.
-*   **Harsha's Works:** Wrote 3 Sanskrit plays - *Ratnavali*, *Priyadarshika*, and *Nagananda*.
-
-**Religion:**
-*   Originally Shaivite, later embraced **Mahayana Buddhism**.
-*   **Kannauj Assembly:** A grand religious conference to honor Hiuen Tsang.
-*   **Prayag Assembly:** Held every 5 years (Maha Moksha Parishad). Harsha donated all his wealth here.
-
-**Hiuen Tsang (Xuanzang):**
-*   "Prince of Pilgrims". Visited India (630-645 AD).
-*   Studied at **Nalanda** (under Shilabhadra).
-*   Wrote *Si-Yu-Ki* (Records of the Western World).
-*   Mentioned that untouchability was prevalent and city life had declined (towns described as desolate).
+## ⚖️ Legal System
+- **Justice:** Vyavaharika Mahamatras (Judges) settled disputes in towns based on custom and Dharmasutras.
+- **Nature of Law:** Law was not egalitarian; punishments varied according to the varna of the perpetrator and the victim.
 `;

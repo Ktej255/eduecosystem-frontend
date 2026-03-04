@@ -1,110 +1,139 @@
-export interface Subtopic {
-    id: string;
-    name: string;
-}
-
-export interface Question {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation: string;
-    subtopic: string;
-    difficulty?: 'Easy' | 'Moderate' | 'Hard';
-}
+import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_11_SUBTOPICS: Subtopic[] = [
-    { id: 'political', name: 'Political History (Samudragupta to Skandagupta)' },
-    { id: 'golden_age', name: 'Administration, Society & Golden Age' }
+    { id: 'iranian_contact', name: 'Iranian (Persian) Invasions & Impact' },
+    { id: 'macedonian_invasion', name: 'Alexander’s Invasion: Progress & Battles' },
+    { id: 'impact_macedonian', name: 'Impact of Macedonian Invasion' },
+    { id: 'cultural_exchange', name: 'Cultural & Economic Exchanges' },
+    { id: 'political_backwash', name: 'Political Consequences for India' }
 ];
 
 export const ANCIENT_CHAPTER_11_MCQS: Question[] = [
-    {
-        id: 1,
-        question: "Who is known as the 'Napoleon of India' for his extensive military conquests?",
-        options: ["Chandragupta I", "Samudragupta", "Chandragupta II", "Skandagupta"],
-        correctAnswer: 1,
-        explanation: "V.A. Smith called Samudragupta the 'Napoleon of India'. His conquests are detailed in the Allahabad Pillar Inscription (Prayag Prashasti).",
-        subtopic: 'political',
-        difficulty: 'Easy'
-    },
-    {
-        id: 2,
-        question: "The 'Prayag Prashasti' (Allahabad Pillar Inscription) was composed by:",
-        options: ["Kalidasa", "Harisena", "Ravikirti", "Banabhatta"],
-        correctAnswer: 1,
-        explanation: "Harisena, the court poet of Samudragupta, composed the Prayag Prashasti in Sanskrit.",
-        subtopic: 'political',
-        difficulty: 'Easy'
-    },
-    {
-        id: 3,
-        question: "The Chinese traveler Fa-Hien visited India during the reign of:",
-        options: ["Samudragupta", "Chandragupta II (Vikramaditya)", "Kanishka", "Harshavardhana"],
-        correctAnswer: 1,
-        explanation: "Fa-Hien visited India (399-414 AD) during the reign of Chandragupta II to collect Buddhist texts. He describes the peace and prosperity of the land.",
-        subtopic: 'political',
-        difficulty: 'Easy'
-    },
-    {
-        id: 4,
-        question: "Which Gupta ruler successfully repulsed the invasion of the Hunas?",
-        options: ["Kumaragupta", "Skandagupta", "Vishnugupta", "Buddhagupta"],
-        correctAnswer: 1,
-        explanation: "Skandagupta (455-467 AD) is famous for defeating the Hunas and saving the empire from early collapse.",
-        subtopic: 'political',
-        difficulty: 'Moderate'
-    },
-    {
-        id: 5,
-        question: "The 'Navratnas' (Nine Gems) flourished in the court of:",
-        options: ["Samudragupta", "Chandragupta II", "Harshavardhana", "Akbar"],
-        correctAnswer: 1,
-        explanation: "Chandragupta II (Vikramaditya) had the Navratnas, including Kalidasa, Amarasimha, and Varahamihira.",
-        subtopic: 'golden_age',
-        difficulty: 'Easy'
-    }
+    // ═══════════════════════════════════════════
+    // LEVEL 1 — EASY (30 Questions): Book Recall
+    // ═══════════════════════════════════════════
+    { id: 1, question: "Which Persian King first invaded the northwestern part of India in the 6th century BCE?", options: ["Cyrus", "Darius I", "Xerxes", "Cambyses"], correctAnswer: 1, explanation: "Darius I (516 BCE) conquered the Indus valley and Punjab, making it the 20th province of his empire.", subtopic: 'iranian_contact', difficulty: 'Easy' },
+    { id: 2, question: "The Kharosthi script was introduced in India through contact with:", options: ["Greeks", "Iranians", "Chinese", "Mesopotamians"], correctAnswer: 1, explanation: "The Aramaic-derived Kharosthi script was brought to India by the Persian (Iranian) administration.", subtopic: 'iranian_contact', difficulty: 'Easy' },
+    { id: 3, question: "Alexander the Great belonged to which kingdom?", options: ["Persia", "Egypt", "Macedonia (Greece)", "Rome"], correctAnswer: 2, explanation: "Alexander was the son of Philip II of Macedonia.", subtopic: 'macedonian_invasion', difficulty: 'Easy' },
+    { id: 4, question: "Alexander invaded India in which year?", options: ["326 BCE", "261 BCE", "305 BCE", "516 BCE"], correctAnswer: 0, explanation: "Alexander crossed the Indus to invade India in 326 BCE.", subtopic: 'macedonian_invasion', difficulty: 'Easy' },
+    { id: 5, question: "The famous Battle of Hydaspes was fought between Alexander and:", options: ["Chandra-gupta Maurya", "Porus (Paurava)", "Dhana Nanda", "Ambhi"], correctAnswer: 1, explanation: "Alexander fought the Paurava king Porus on the banks of the Jhelum (Hydaspes).", subtopic: 'macedonian_invasion', difficulty: 'Easy' },
+    { id: 6, question: "Who was the King of Taxila who submitted to Alexander without a fight?", options: ["Porus", "Ambhi", "Sudas", "Bimbisara"], correctAnswer: 1, explanation: "Ambhi (Omphis) of Taxila welcomed Alexander to secure help against his rival, Porus.", subtopic: 'macedonian_invasion', difficulty: 'Easy' },
+    { id: 7, question: "Which river marked the easternmost point of Alexander's campaign, where his soldiers refused to advance further?", options: ["Indus", "Sutlej", "Beas (Hyphasis)", "Chenab"], correctAnswer: 2, explanation: "The Beas river was the limit of Alexander's invasion as his weary troops mutinied.", subtopic: 'macedonian_invasion', difficulty: 'Easy' },
+    { id: 8, question: "The 'Kharosthi' script is written from:", options: ["Left to Right", "Right to Left", "Top to Bottom", "Boustrophedon"], correctAnswer: 1, explanation: "Like Arabic, Kharosthi was written from right to left.", subtopic: 'iranian_contact', difficulty: 'Easy' },
+    { id: 9, question: "How many major cities/settlements did Alexander found in India?", options: ["One", "Two", "Several (including Alexandria/Boukephala)", "None"], correctAnswer: 2, explanation: "He founded cities like Alexandria-in-Caucasus, Boukephala (named after his horse), and Nikaia.", subtopic: 'impact_macedonian', difficulty: 'Easy' },
+    { id: 10, question: "Darius I received 360 talents of gold dust every year from the Indian province. This province was called:", options: ["Gandhara", "India (Hindush)", "Kamboja", "Saurashtra"], correctAnswer: 1, explanation: "The Indian satrapy (Hindush) was the richest province of the Achaemenian empire.", subtopic: 'iranian_contact', difficulty: 'Easy' },
+    { id: 11, question: "Which Greek explorer was sent by Darius I to explore the Indus river?", options: ["Megasthenes", "Herodotus", "Skylax", "Pliny"], correctAnswer: 2, explanation: "Skylax of Karyanda led a naval expedition for Darius along the Indus to the sea.", subtopic: 'iranian_contact', difficulty: 'Easy' },
+    { id: 12, question: "The Iranian provinces in India provided which vital resource to the Persian army in Greece?", options: ["Cavalry", "Infantry and Chariots (Indian units used at Plataea)", "Spices", "Silk"], correctAnswer: 1, explanation: "Indian soldiers fought under Xerxes against the Greeks in European campaigns.", subtopic: 'iranian_contact', difficulty: 'Easy' },
+    { id: 13, question: "The Battle of Hydaspes resulted in:", options: ["Death of Alexander", "Victory for Alexander but Porus was reinstated", "Death of Porus", "Alexander's retreat from Jhelum"], correctAnswer: 1, explanation: "Alexander won but was so impressed by Porus's bravery that he returned his kingdom as a vassal.", subtopic: 'macedonian_invasion', difficulty: 'Easy' },
+    { id: 14, question: "Alexander died in 323 BCE at:", options: ["Athens", "Babylon", "Pataliputra", "Taxila"], correctAnswer: 1, explanation: "While returning from the Indian campaign, Alexander died of illness in Babylon.", subtopic: 'macedonian_invasion', difficulty: 'Easy' },
+    { id: 15, question: "The Greek accounts of Alexander's time mention 'Sandrocottus', who is identified as:", options: ["Ashoka", "Chandragupta Maurya", "Bindusara", "Dhana Nanda"], correctAnswer: 1, explanation: "Greek writers (Justin, Strabo) used Sandrocottus for Chandragupta Maurya.", subtopic: 'macedonian_invasion', difficulty: 'Easy' },
+    { id: 16, question: "Which of the following was NOT a member of Alexander's army or staff who wrote about India?", options: ["Nearchus", "Onesicritus", "Aristobulus", "Megasthenes"], correctAnswer: 3, explanation: "Megasthenes came later during Chandragupta Maurya's reign, sent by Seleucus Nicator.", subtopic: 'impact_macedonian', difficulty: 'Easy' },
+    { id: 17, question: "One of the major economic impacts of Alexander's invasion was:", options: ["Discovery of iron", "Opening of four land and sea routes between India and the Greek world", "Introduction of rice", "Building of the Great Wall"], correctAnswer: 1, explanation: "Alexander's campaign integrated India into the broader Mediterranean/West Asian trade nexus.", subtopic: 'impact_macedonian', difficulty: 'Easy' },
+    { id: 18, question: "Who was Phillip II?", options: ["Alexander's general", "Alexander's father", "The King of Persia", "The King of Taxila"], correctAnswer: 1, explanation: "Philip II was the Macedonian King who unified Greece before Alexander.", subtopic: 'macedonian_invasion', difficulty: 'Easy' },
+    { id: 19, question: "The 'Gandhara' school of art was a result of:", options: ["Persian influence", "Indo-Greek cultural fusion", "Chinese travel", "Ashoka's laws"], correctAnswer: 1, explanation: "Greco-Buddhist art flourished in the aftermath of Alexander and the Indo-Greek kingdoms.", subtopic: 'cultural_exchange', difficulty: 'Easy' },
+    { id: 20, question: "Which Persian King used Indian soldiers in his invasion of Greece (480 BCE)?", options: ["Cyrus", "Darius II", "Xerxes", "Artaxerxes"], correctAnswer: 2, explanation: "Xerxes included Indian infantry (girt with cotton) in his massive army against Greece.", subtopic: 'iranian_contact', difficulty: 'Easy' },
+    { id: 21, question: "Alexander's favorite horse, after which he named a city, was:", options: ["Chetak", "Boukephalos", "Rocinante", "Incitatus"], correctAnswer: 1, explanation: "The city of Boukephala was founded on the Jhelum where the horse died.", subtopic: 'impact_macedonian', difficulty: 'Easy' },
+    { id: 22, question: "Alexander appointed several Greek governors to manage his Indian conquests. These governors were called:", options: ["Satraps", "Amatyas", "Mahamatras", "Gramanis"], correctAnswer: 0, explanation: "Satrap (from Persian Kshatrapa) was the term for a provincial governor.", subtopic: 'impact_macedonian', difficulty: 'Easy' },
+    { id: 23, question: "Which part of India was most affected by Iranian and Greek invasions?", options: ["Deccan", "South India", "Northwest India (Punjab, Sindh, Gandhara)", "Magadha"], correctAnswer: 2, explanation: "The geographical proximity made the Northwest the bridge for foreign contacts.", subtopic: 'iranian_contact', difficulty: 'Easy' },
+    { id: 24, question: "The Greek name for the river Ravi was:", options: ["Hydaspes", "Hydraotes", "Hyphasis", "Akesines"], correctAnswer: 1, explanation: "Hydaspes=Jhelum; Akesines=Chenab; Hydraotes=Ravi; Hyphasis=Beas.", subtopic: 'macedonian_invasion', difficulty: 'Easy' },
+    { id: 25, question: "Alexander's invasion provided Indian history with its first:", options: ["Religion", "Definite chronologically fixed point (326 BCE)", "Steel weapon", "Poetry"], correctAnswer: 1, explanation: "It helped establish the 'Sheet Anchor' of Indian chronology (Synchronism with Greek records).", subtopic: 'impact_macedonian', difficulty: 'Easy' },
+    { id: 26, question: "The Greek historian called 'The Father of History' who wrote about the Persian province of India was:", options: ["Pliny", "Herodotus", "Strabo", "Arrian"], correctAnswer: 1, explanation: "Herodotus provided details on the Indian province paying 360 talents of gold to Darius.", subtopic: 'iranian_contact', difficulty: 'Easy' },
+    { id: 27, question: "Which city in India was a Greek-founded military base/outpost?", options: ["Sravasti", "Nikaia (Victory city)", "Kashi", "Ujjain"], correctAnswer: 1, explanation: "Nikaia was founded near the site of the battle against Porus.", subtopic: 'impact_macedonian', difficulty: 'Easy' },
+    { id: 28, question: "The Aramaic script, used in Ashoka's inscriptions in the NW, was brought by:", options: ["Iranians", "Greeks", "Romans", "Arabs"], correctAnswer: 0, explanation: "Aramaic was the official administrative language of the Persian Empire.", subtopic: 'iranian_contact', difficulty: 'Easy' },
+    { id: 29, question: "Which king in Magadha was Alexander's army afraid of?", options: ["Ajatasatru", "Dhana Nanda", "Udayin", "Kalashoka"], correctAnswer: 1, explanation: "Reports of the massive Nanda army on the other side of the Beas caused the mutiny.", subtopic: 'macedonian_invasion', difficulty: 'Easy' },
+    { id: 30, question: "Alexander's naval commander who explored the sea route from the Indus to the Persian Gulf was:", options: ["Hephaestion", "Nearchus", "Perdiccas", "Ptolemy"], correctAnswer: 1, explanation: "Nearchus provided a detailed log of the maritime return journey.", subtopic: 'impact_macedonian', difficulty: 'Easy' },
+
+    // ══════════════════════════════════════════════════
+    // LEVEL 2 — MODERATE (30 Questions): Conceptual
+    // ══════════════════════════════════════════════════
+    { id: 31, question: "Why were the Iranians able to penetrate the Indian border while internal kingdoms could not?", options: ["Iranians were peaceful", "The frontier tribes (Kamboja, Gandhara) were fragmented into many small states with no powerful central authority like Magadha", "Iranians used magic", "Internal kingdoms had no armies"], correctAnswer: 1, explanation: "The lack of political unity in the Northwest acted as an invitation to the expanding Achaemenid Empire.", subtopic: 'iranian_contact', difficulty: 'Moderate' },
+    { id: 32, question: "The intro-duction of Ashoka's inscription-writing style (on stones/pillars) is thought to be influenced by:", options: ["Greek plays", "Achaemenid (Persian) models like the inscriptions of Darius", "Chinese wall-writing", "Egyptian pyramids"], correctAnswer: 1, explanation: "Darius's rock inscriptions (Behistun) provided a prototype for royal epigraphy followed by Ashoka.", subtopic: 'cultural_exchange', difficulty: 'Moderate' },
+    { id: 33, question: "Alexander's invasion indirectly helped the Maurya Empire by:", options: ["Killing all kings", "Destroying the independent tribal republics and small states of the NW, creating a power vacuum for Chandragupta to fill", "Teaching Chandragupta how to speak Greek", "Giving Chandragupta iron"], correctAnswer: 1, explanation: "Unified control in the NW became easier once the local decentralized powers were weakened/destroyed by Alexander.", subtopic: 'political_backwash', difficulty: 'Moderate' },
+    { id: 34, question: "Match the Greek and Sanskrit river names:\nA. Jhelum — 1. Hydraotes\nB. Ravi — 2. Hyphasis\nC. Beas — 3. Hydaspes", options: ["A-3, B-1, C-2", "A-1, B-2, C-3", "A-3, B-2, C-1", "A-2, B-3, C-1"], correctAnswer: 0, explanation: "Correct mapping is vital for historical geography.", subtopic: 'macedonian_invasion', difficulty: 'Moderate' },
+    { id: 35, question: "How did Iranian contact affect Indian material life?", options: ["Introduction of silk", "Introduction of improved administrative practices, use of stone pillars, and certain monetary systems (Sigloi)", "End of agriculture", "Start of desertification"], correctAnswer: 1, explanation: "The first metallic coins (Sigloi) in India and early bureaucracy show Persian influence.", subtopic: 'iranian_contact', difficulty: 'Moderate' },
+    { id: 36, question: "Wait, why didn't Alexander proceed to the Ganga?", options: ["He didn't know it existed", "His soldiers were homesick, exhausted by the monsoons, and terrified of the reports of the Nanda's elephant army", "He ran out of food", "Dhana Nanda invited him to a party"], correctAnswer: 1, explanation: "The combination of climatic hardship and the daunting prospect of fighting the Nanda empire led to the mutiny.", subtopic: 'macedonian_invasion', difficulty: 'Moderate' },
+    { id: 37, question: "Consider:\n1. Alexander's invasion lasted for nearly 19 months.\n2. Most of his time was spent in battles against independent tribes of the NW.\n3. He was defeated by King Porus.", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Alexander technically won the Battle of Hydaspes against Porus.", subtopic: 'macedonian_invasion', difficulty: 'Moderate' },
+    { id: 38, question: "The Kharosthi script, used widely from 3rd BCE to 3rd CE, is a descendant of:", options: ["Brahmi", "Aramaic", "Hieroglyphics", "Greek alphabet"], correctAnswer: 1, explanation: "Aramaic, the Persian chancellery language, was modified in the NW to create Kharosthi.", subtopic: 'cultural_exchange', difficulty: 'Moderate' },
+    { id: 39, question: "Which describes the 'Satrapy' system correctly?", options: ["Rules for farming", "Provincial administrative system where each 'Satrap' was a governor responsible for taxes and law in their zone", "Religious schools", "Greek military formations"], correctAnswer: 1, explanation: "Maurya administration eventually borrowed elements of this provincial organization.", subtopic: 'iranian_contact', difficulty: 'Moderate' },
+    { id: 40, question: "Alexander's invasion is a landmark because it provides 'Synchronism'. What does this mean?", options: ["Two things happening at the same time", "Correlating Indian events with dated Greek historical records to fix Indian dates", "A religious ceremony", "End of the world"], correctAnswer: 1, explanation: "It bridged the gap between oral/Puranic timelines and professional chronometry.", subtopic: 'impact_macedonian', difficulty: 'Moderate' },
+    { id: 41, question: "What was the 'Asvaka' (Assakenoi) tribe's reaction to Alexander?", options: ["They welcomed him", "They offered a fierce resistance, with their women also participating in the defense", "They fled to the mountains", "They joined his army"], correctAnswer: 1, explanation: "Tribal resistance in the NW was desperate and often included the whole population.", subtopic: 'macedonian_invasion', difficulty: 'Moderate' },
+    { id: 42, question: "Alexander's return journey was through:", options: ["The Himalayas", "Split forces: One through the Gedrosian desert and one via the sea (Nearchus)", "Through China", "He didn't return"], correctAnswer: 1, explanation: "Alexander led the land force through the harsh desert while Nearchus commanded the fleet.", subtopic: 'macedonian_invasion', difficulty: 'Moderate' },
+    { id: 43, question: "Consider:\n1. Contact with Greeks introduced the use of 'Curtains' in Indian theatre (Yavanika).\n2. Contact introduced improve-ment in astronomy and coin-malling (horoscopic astrology).\n3. It introduced Buddhism to Greece.", options: ["1 and 2 only", "2 and 3 only", "1 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Indian theatre (Yavanika) and horoscopy (Horasastra) show Greek (Yavana) debt.", subtopic: 'cultural_exchange', difficulty: 'Moderate' },
+    { id: 44, question: "The Persian silver coins called 'Sigloi' were found in the NW. They prove:", options: ["Indians were Persians", "Regular commercial and financial interactions between India and the Achaemenids", "Persians were poor", "Lack of money"], correctAnswer: 1, explanation: "Finding foreign currency proves substantial and sustained bilateral trade.", subtopic: 'iranian_contact', difficulty: 'Moderate' },
+    { id: 45, question: "Which describes the 'Maurya-Greek' relationship post-Alexander?", options: ["Continuous war", "Establishment of diplomatic relations and matrimonial links (e.g., Seleucus and Chandragupta treaty)", "Complete isolation", "Greeks conquered Pataliputra"], correctAnswer: 1, explanation: "The 305 BCE treaty stabilized the border and started a century of Greco-Indian diplomacy.", subtopic: 'political_backwash', difficulty: 'Moderate' },
+    { id: 46, question: "What was the fate of Alexander's Indian provinces after his death?", options: ["Became part of China", "Quickly reclaimed by Chandragupta Maurya after local people revolted against Greek satraps", "Remained Greek for 1000 years", "Fell into the ocean"], correctAnswer: 1, explanation: "The Maurya liberation movement rapidly swept away the Greek outposts in the Panjab.", subtopic: 'political_backwash', difficulty: 'Moderate' },
+    { id: 47, question: "Consider:\n1. Darius I's inscription mentions 'Gadara' (Gandhara).\n2. Xerxes used Indian cotton-clad infantry.\n3. The Persians were the first to provide naval exploration of the Indus.", options: ["1, 2 and 3", "1 and 2 only", "2 and 3 only", "1 only"], correctAnswer: 0, explanation: "Achaemenid interest in India was geographical, military, and fiscal.", subtopic: 'iranian_contact', difficulty: 'Moderate' },
+    { id: 48, question: "How did Alexander treat Porus? Why?", options: ["Executed him", "Returned his kingdom as he was impressed by his dignity ('Treat me as a king') and bravery", "Made him a slave", "sent him to Greece"], correctAnswer: 1, explanation: "A rare instance of chivalry in ancient warfare recorded by Greek chroniclers.", subtopic: 'macedonian_invasion', difficulty: 'Moderate' },
+    { id: 49, question: "The 'Alexandria' cities founded by Alexander were meant as:", options: ["Vacation spots", "Military outposts and trade centers to secure the communication routes with Greece", "Religious temples", "Schools for Jains"], correctAnswer: 1, explanation: "Alexander's 'Alexandrias' Were strategic nodes of his global empire.", subtopic: 'impact_macedonian', difficulty: 'Moderate' },
+    { id: 50, question: "Which Iranian influence is seen in Mauryan 'Court Etiquette'?", options: ["Handshaking", "Ceremonial hair-washing and the burning of perpetual fire/incense", "Sitting on the floor", "Lack of ceremony"], correctAnswer: 1, explanation: "The protocol of the Mauryan audience hall likely modeled itself on Persepolis (Persian capital).", subtopic: 'cultural_exchange', difficulty: 'Moderate' },
+    { id: 51, question: "The Greek name 'Sandrocottus' for Chandragupta Maurya was confirmed by:", options: ["William Jones", "James Prinsep", "Lord Curzon", "Charles Wilkins"], correctAnswer: 0, explanation: "Jones identifying Sandrocottus = Chandragupta provided the fixed point for Indian ancient chronology.", subtopic: 'impact_macedonian', difficulty: 'Moderate' },
+    { id: 52, question: "Consider:\n1. Iranians conquered the whole of North India.\n2. Greeks crossed the Beas river.\n3. Both primarily stayed in the Northwest region.", options: ["3 only", "1 and 3 only", "2 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Neither empire succeeded in penetrating the Gangetic heartland.", subtopic: 'political_backwash', difficulty: 'Moderate' },
+    { id: 53, question: "Which factor best explains why Alexander's satraps failed to hold India for long?", options: ["They were too nice", "Lack of local support and the immediate rise of a powerful centralizing force in Magadha (Maurya)", "They all died of cold", "Greek food was not available"], correctAnswer: 1, explanation: "A decentralized Greece could not maintain a hold over a region where a local empire was already maturing.", subtopic: 'political_backwash', difficulty: 'Moderate' },
+    { id: 54, question: "Alexander's chroniclers (like Arrian and Strabo) provided the first accounts of:", options: ["Indian poetry", "Social customs like sati, female warriors, and the beauty of the NW horses", "Vedas", "Buddhist philosophy"], correctAnswer: 1, explanation: "Greek observations (despite bias) are the earliest outside descriptions of Indian society.", subtopic: 'impact_macedonian', difficulty: 'Moderate' },
+    { id: 55, question: "Match the Greek city with its location:\nA. Alexandria-in-Caucasus — 1. Kabul region\nB. Boukephala — 2. Jhelum river\nC. Nikaia — 3. Victory site on Jhelum", options: ["A-1, B-2, C-3", "A-2, B-1, C-3", "A-1, B-3, C-2", "A-3, B-2, C-1"], correctAnswer: 0, explanation: "Standard mappings from Alexander's progress.", subtopic: 'impact_macedonian', difficulty: 'Moderate' },
+    { id: 56, question: "Which script is called the 'Indo-Bactrian' or 'Greco-Aramaic' script in later NW archaeology?", options: ["Brahmi", "Kharosthi", "Devanagari", "Tamil"], correctAnswer: 1, explanation: "Its hybrid nature and regional usage gave it this moniker.", subtopic: 'cultural_exchange', difficulty: 'Moderate' },
+    { id: 57, question: "What indicates that Persia viewed India primarily as a source of revenue?", options: ["They sent teachers here", "The Indian satrapy (Hindush) paid the highest tax in the world (360 talents gold dust)", "They didn't tax India", "Tax was paid in rice"], correctAnswer: 1, explanation: "The enormous tribute recorded by Herodotus highlights the economic value of the Indus satrapy.", subtopic: 'iranian_contact', difficulty: 'Moderate' },
+    { id: 58, question: "How did Alexander's invasion contribute to 'Art' history?", options: ["It destroyed all Indian art", "It pioneered the use of stone in large-scale sculpture (replacing wood)", "It introduced painting", "None"], correctAnswer: 1, explanation: "The shift from wood/clay to stone (Ashokan monoliths) is often traced back to Persian/Greek inspiration.", subtopic: 'cultural_exchange', difficulty: 'Moderate' },
+    { id: 59, question: "The Greek accounts of 'Dhana Nanda' described him as:", options: ["A great saint", "Extremely powerful but born of a barber (Xandrames/Aggrammes)", "A weak king", "A friend of Alexander"], correctAnswer: 1, explanation: "The Greek record confirms the Nanda's low-varna origin and legendary military might.", subtopic: 'political_backwash', difficulty: 'Moderate' },
+    { id: 60, question: "Which battle in 331 BCE saw Indian elephants fighting for Persia against Alexander, just before he entered India?", options: ["Plataea", "Gaugamela (Arbela)", "Issus", "Marathon"], correctAnswer: 1, explanation: "Alexander first faced Indian war elephants while fighting the last Persian King, Darius III, at Gaugamela.", subtopic: 'macedonian_invasion', difficulty: 'Moderate' },
+
+    // ══════════════════════════════════════════════════════
+    // LEVEL 3 — HARD (30 Questions): UPSC Simulation
+    // ══════════════════════════════════════════════════════
+    { id: 61, question: "Assertion (A): Alexander's invasion was a significant but 'short-lived' event in Indian political history.\nReason (R): Within a decade of his death, almost all Greek traces in the Northwest were swept away by the Mauryan counter-offensive.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Politically it was a transient storm, though culturally it had a long tail (Gandhara art, trade).", subtopic: 'political_backwash', difficulty: 'Hard' },
+    { id: 62, question: "Consider the following about the 'Kharosthi' script:\n1. It evolved in North-Western India after the Achaemenid conquest.\n2. It was used primarily for commercial and administrative records.\n3. It was deciphered by James Prinsep using bilingual Indo-Greek coins.\nWhich are correct?", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 3, explanation: "Prinsep's decipherment of Kharosthi and Brahmi unlocked the history of ancient North India.", subtopic: 'cultural_exchange', difficulty: 'Hard' },
+    { id: 63, question: "Assertion (A): The Iranians opened the 'Steel Gates' of India to the Western world.\nReason (R): The Persian conquest of the 6th century BCE provided a bridge through which Indian commodities (cotton, gold) and information first reached the Mediterranean.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Persia acted as the middleman that introduced 'India' to the Greek mind (Herodotus).", subtopic: 'iranian_contact', difficulty: 'Hard' },
+    { id: 64, question: "Consider Alexander's campaign strategy:\n1. He secured his supply lines by founding cities like Alexandria-in-Caucasus.\n2. He used specialized naval units to cross large rivers like the Indus.\n3. He avoided conflict with the tribal republics to reach the Ganga faster.\nWhich of these are INACCURATE?", options: ["1 only", "2 only", "3 only", "2 and 3 only"], correctAnswer: 2, explanation: "Alexander spent MOST of his time in brutal, time-consuming wars with the tribal republics of the Panjab.", subtopic: 'macedonian_invasion', difficulty: 'Hard' },
+    { id: 65, question: "Assertion (A): The Mauryan bell-shaped capitals and monolithic pillars show Persian influence.\nReason (R): The Persian 'Apadana' architecture at Persepolis used similar pillar forms and animal capitals (like bulls and lions).", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Trans-cultural artistic borrowing is evident in the transition to stone art under the Mauryas.", subtopic: 'cultural_exchange', difficulty: 'Hard' },
+    { id: 66, question: "Which of the following describes the 'Social Observation' of Greeks in Alexander's army correctly?", options: ["Indians are slaves", "High praise for Indian integrity: No locks on houses, no lawsuits, and general honesty among people", "Indians are illiterate", "Indians don't know how to fight"], correctAnswer: 1, explanation: "Greeks were struck by the moral and ethno-cultural difference of the Indians compared to Persians or Scythians.", subtopic: 'impact_macedonian', difficulty: 'Hard' },
+    { id: 67, question: "Assertion (A): Alexander's invasion provided the first 'fixed point' for Indian chronology.\nReason (R): The Greek records allow us to date the ACCESSION of Chandragupta Maurya and determine his synchronism with Seleucus Nicator.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Without the Greek anchor, ancient Indian timelines would be based purely on Puranic floating dates.", subtopic: 'impact_macedonian', difficulty: 'Hard' },
+    { id: 68, question: "Consider the 'Gaugamela' (331 BCE) significance for India:\n1. It saw the last major stand of the Achaemenid empire against Alexander.\n2. Indian troops fought on the side of Darius III (Persia).\n3. The Persian defeat directly opened the gates of the Hindukush to Alexander.", options: ["1 and 3 only", "2 and 3 only", "1 only", "1, 2 and 3"], correctAnswer: 3, explanation: "The collapse of Persia at Gaugamela brought Alexander to the borders of India.", subtopic: 'macedonian_invasion', difficulty: 'Hard' },
+    { id: 69, question: "Assertion (A): The 'Sigloi' and 'Shekel' were the first currencies circulating in the Indian Northwest.\nReason (R): Local Indian kingdoms in the 6th century BCE had not yet developed their own indigenous coinage system.", options: ["A correct, R wrong", "Both correct, R explains A", "A wrong, R correct", "Both are wrong"], correctAnswer: 0, explanation: "India ALREADY had indigenous 'Punch-marked coins' (Puranas/Karshapanas) alongside Persian Sigloi.", subtopic: 'iranian_contact', difficulty: 'Hard' },
+    { id: 70, question: "What indicates the 'Brutality' of Alexander's campaign in the NW?", options: ["He gave presents to everyone", "Massacres of populations (e.g., Malloi/Kshudrakas) and the selling of thousands of survivors into slavery as a deterrent", "He avoided all battles", "He only fought with kings"], correctAnswer: 1, explanation: "Alexander used 'exemplary violence' to suppress the independent tribes who resisted his march.", subtopic: 'macedonian_invasion', difficulty: 'Hard' },
+    { id: 71, question: "Consider the Iranian province of 'Hindush':\n1. It was the most populous part of the Achaemenid empire.\n2. It contributed more to the treasury than Babylonia and Egypt combined.\n3. It was located primarily in the Gangetic plain.", options: ["1 and 2 only", "2 and 3 only", "1 only", "1, 2 and 3"], correctAnswer: 0, explanation: "It was huge in revenue, but restricted to the Indus-NW region, not the Ganga.", subtopic: 'iranian_contact', difficulty: 'Hard' },
+    { id: 72, question: "Assertion (A): Alexander's invasion was technically an 'Indo-Greek' encounter only in its later legacy.\nReason (R): Alexander stayed in India for a very short duration, and the real fusion happened under the later Indo-Greek kings (Milinda).", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Alexander was the vanguard; the 'Indo-Greek' culture was a century-long slow burn after him.", subtopic: 'cultural_exchange', difficulty: 'Hard' },
+    { id: 73, question: "The Greek accounts of 'Dhana Nanda' mentioned that he was despised by his subjects due to:\n1. His low (barber) caste.\n2. His extreme avarice and heavy taxation.\n3. His conversion to Buddhism.", options: ["1 and 2 only", "2 and 3 only", "1 only", "3 only"], correctAnswer: 0, explanation: "Dhana Nanda's lack of support (despite his huge army) was a key reason Alexander’s army felt they could win, yet mutinied anyway.", subtopic: 'macedonian_invasion', difficulty: 'Hard' },
+    { id: 74, question: "Consider the 'Nearchus' log significance:\n1. It provided the first reliable maritime geography of the coastline from Indus to the Persian Gulf.\n2. It mentioned the existence of whales and exotic marine life for the Greek world.\n3. It was used by Marco Polo.", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Nearchus's account was the foundational text for Indo-Middle Eastern maritime knowledge for centuries.", subtopic: 'impact_macedonian', difficulty: 'Hard' },
+    { id: 75, question: "Assertion (A): Kharosthi script was almost entirely abandoned by the 4th Century CE in India.\nReason (R): The rise of the Gupta empire and the standardization of Brahmi (and its derivatives) as the pan-Indian script led to the decline of regional alternatives.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Brahmi became the mother of all modern Indian scripts, leaving Kharosthi as a dead-end.", subtopic: 'cultural_exchange', difficulty: 'Hard' },
+    { id: 76, question: "Which of the following describes 'Persian Architecture' in Magadha most plausible according to some scholars?", options: ["The 80-pillared hall in Pataliputra (Kumrahar) was built on the model of the Hall of 100 Pillars at Persepolis", "Magadha had no pillars", "They used only wood", "Only temples existed"], correctAnswer: 0, explanation: "Spooner and others found structural parallels between Mauryan and Persian palaces.", subtopic: 'cultural_exchange', difficulty: 'Hard' },
+    { id: 77, question: "Consider Alexander's 'Satrapies' in India:\n1. Peithon: In charge of the lower Indus.\n2. Porus: In charge of the territory between Jhelum and Beas.\n3. Ambhi: In charge of the territory between Indus and Jhelum.\nWhich are correctly matched?", options: ["1, 2 and 3", "1 and 2 only", "2 and 3 only", "1 only"], correctAnswer: 0, explanation: "Alexander cleverly left local kings in charge of their zones while placing Greek generals in charge of the Indus/corridors.", subtopic: 'impact_macedonian', difficulty: 'Hard' },
+    { id: 78, question: "Assertion (A): The 'Yavana' influence on Indian astrology was profound.\nReason (R): The term 'Hora' (for hour) and the 'Yavanajataka' (text) prove the synthesis of Hellenistic and Indian astronomical traditions.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Yavana (Ionians/Greeks) left a lasting mark on Indian science, specifically mathematics and astronomy.", subtopic: 'cultural_exchange', difficulty: 'Hard' },
+    { id: 79, question: "Why did Alexander CROSS the Indus at 'Ohind'?", options: ["It was the only shallow place", "It was the traditional crossing point used by all previous invaders and merchants", "Gods commanded it", "His sailors made him"], correctAnswer: 1, explanation: "Ohind/Attock remained the gateway into the Punjab for thousands of years.", subtopic: 'macedonian_invasion', difficulty: 'Hard' },
+    { id: 80, question: "Consider:\n1. Persian impact was primarily administrative and epigraphic.\n2. Greek impact was primarily commercial and artistic.\n3. Both together finished the isolation of Ancient India.", options: ["1, 2 and 3", "1 and 2 only", "2 and 3 only", "1 only"], correctAnswer: 0, explanation: "They integrated the subcontinent into the world's first globalized trade and political network.", subtopic: 'impact_macedonian', difficulty: 'Hard' },
+    { id: 81, question: "Assertion (A): Herodotus's account of 'Gold-digging Ants' in India was a complete myth.\nReason (R): Scholars now believe it was a mistranslated account of Himalayan marmots who brought up gold dust while burrowing.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Modern research (Peissel) found that Tibetans/Dards literally collected gold dust kicked up by burrowing marmots.", subtopic: 'iranian_contact', difficulty: 'Hard' },
+    { id: 82, question: "What does the existence of a 'Greek Satrap' in the Kandahar region (NW) at the time of Ashoka imply?", options: ["Ashoka was Greek", "A significant population of Greeks remained in the NW long after Alexander, necessitating Ashoka to issue bilingual (Greek/Aramaic) edicts", "Greeks were slaves", "No Greeks existed"], correctAnswer: 1, explanation: "The Kandahar bilingual inscription proves the persistence of Greek/Persian sub-cultures in Ashoka's empire.", subtopic: 'political_backwash', difficulty: 'Hard' },
+    { id: 83, question: "Consider 'Indian Siege Craft' vs Alexander:\n1. The siege of Sangala (Kathas) showed the Indian use of wagon-forts.\n2. The Siege of Massaga showed the use of wooden towers.\n3. Indians were better at sieges than Greeks.", options: ["1 and 2 only", "2 and 3 only", "1 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Greeks were the world masters of sieges (using towers, rams, and engines), which often overwhelmed Indian mountain/river forts.", subtopic: 'macedonian_invasion', difficulty: 'Hard' },
+    { id: 84, question: "Assertion (A): The Iranians were the first to cultivate 'Cotton' in the Indus valley.\nReason (R): Greek texts refer to 'Trees that bear wool' specifically in the context of the Persian provinces in India.", options: ["A is wrong, R is correct", "Both correct", "A correct, R wrong", "A wrong, R wrong"], correctAnswer: 0, explanation: "HARAPPANS were the first; Persians and Greeks just discovered and exported it.", subtopic: 'iranian_contact', difficulty: 'Hard' },
+    { id: 85, question: "Which describes the 'Fate of Ambhi' (Taxila) correctly?", options: ["Killed by Porus", "Became the first unified king of NW", "Slowly lost status as Chandragupta Maurya unified the Panjab, eventually becoming a non-entity", "Went to Greece"], correctAnswer: 2, explanation: "The 'Traitor' king who invited Alexander was soon overshadowed by the nationalist rise of the Mauryas.", subtopic: 'political_backwash', difficulty: 'Hard' },
+    { id: 86, question: "What indicates the 'Wealth' of the 360 talents gold dust paid by India to Persia?", options: ["It was roughly 1 ton of gold annually, more than enough to fund multiple Persian wars", "It was too little", "It was only copper", "It was never paid"], correctAnswer: 0, explanation: "The massive revenue from the Indus province made it the crown jewel of the Achaemenid treasury.", subtopic: 'iranian_contact', difficulty: 'Hard' },
+    { id: 87, question: "Assertion (A): Alexander's conquest of India was 'incomplete'.\nReason (R): He never reached the heartland of Indian civilization (The Middle Ganga Basin) or the South.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "He only touched the periphery; the core of Magadhan and Tamil culture remained untouched by Grecan arms.", subtopic: 'macedonian_invasion', difficulty: 'Hard' },
+    { id: 88, question: "Consider 'Greek Chronicles' on Indian women:\n1. They mentioned the practice of Sati among the Cathaeans (Punjab).\n2. They mentioned women joining the army and fighting in the front lines.\n3. They said women were not allowed to study.", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Greeks were fascinated by the 'warrior behavior' and 'harsh customs' of the Indian frontier tribes.", subtopic: 'impact_macedonian', difficulty: 'Hard' },
+    { id: 89, question: "The term 'Yavana' (Greek/Foreigner) enters Indian literature first in the writings of:", options: ["Ashoka", "Panini", "Kautilya", "Kalidasa"], correctAnswer: 1, explanation: "Panini (the Grammarian of Taxila, 5th/4th BCE) mentions 'Yavanani' (Greek script or women).", subtopic: 'cultural_exchange', difficulty: 'Hard' },
+    { id: 90, question: "Assertion (A): The 'Great Wall of India' in the NW was built to stop Alexander.\nReason (R): No such wall existed; the natural barrier of the Hindukush and the rivers was the only defense.", options: ["Both correct (A is wrong, R explains why)", "A is correct", "R is wrong", "Both are wrong"], correctAnswer: 0, explanation: "There was no Great Wall; the defense was the fierce tribal resistance in the mountains/passes.", subtopic: 'macedonian_invasion', difficulty: 'Hard' }
 ];
 
 export const ANCIENT_CHAPTER_11_CONTENT = `
-# BLOCK 1: POLITICAL HISTORY
-## 👑 THE IMPERIAL GUPTAS (319 - 540 AD)
+# Chapter 11: Iranian and Macedonian Invasions
 
-**1. Chandragupta I (319-335 AD):**
-*   Started the **Gupta Era (319 AD)**.
-*   Married Kumaradevi (Lichchhavi princess). Issued King-Queen type coins.
+## 🇮🇷 Iranian (Persian) Contact (6th–4th BCE)
+- **Darius I (516 BCE):** Conquered the Indus Valley and Punjab, turning it into the richest satrapy (province) of the Achaemenid Empire.
+- **Tribute:** India paid 360 talents of gold dust annually — more than any other province.
+- **Xerxes:** Used Indian infantry (cotton-clad) to fight against Greeks in his European campaigns.
+- **Impact:**
+  - **Kharosthi Script:** Derived from Aramaic; written Right-to-Left.
+  - **Admin:** Influenced Mauryan bureaucracy and stone inscriptions (epigraphy).
+  - **Coins:** Introduction of Iranian silver **Sigloi** coins in the Northwest.
 
-**2. Samudragupta (335-375 AD):**
-*   **Prayag Prashasti:** Composed by Harisena. Describes his Digvijaya (Conquest in all directions).
-*   **Policies:**
-    *   **Aryavarta (North):** Prasabhoddharana (Violent extermination). Annexed territories.
-    *   **Dakshinapatha (South):** Grahana-Mokshan-Anugraha (Capture, Release, Reinstall). Defeated 12 kings but returned their kingdoms.
-*   **Coins:** Shown playing **Veena** (Lover of music). Performed Ashvamedha.
+## ⚔️ Alexander’s Invasion (327–325 BCE)
+- **Context:** Alexander of Macedonia, after destroying the Persian Empire, entered India through the Hindukush.
+- **Battle of Hydaspes (326 BCE):** Fought on the Jhelum against King **Porus**. Alexander won but returned the kingdom to Porus in admiration of his bravery.
+- **The Mutiny:** Alexander's troops refused to cross the **Beas** river, fearing the massive army of the **Nanda Empire** and exhausted by the Indian monsoon.
+- **Return Journey:** Alexander built a fleet (Nearchus) and split his forces between land (Gedrosian desert) and sea return routes.
 
-**3. Chandragupta II (Vikramaditya) (376-415 AD):**
-*   Defeated the **Shakas** (Western Satraps) and took the title *Sakari*.
-*   **Fa-Hien** visited his court.
-*   **Navratnas:** Kalidasa (Poet), Amarasimha (Lexicographer), Dhanvantari (Physician), Varahamihira (Astronomer).
-
-**4. Later Guptas:**
-*   **Kumaragupta:** Founded **Nalanda University** (Oxford of Mahayana Buddhism).
-*   **Skandagupta:** Defeated the **Hunas**. Restored Sudarshana Lake.
-
-# BLOCK 2: THE GOLDEN AGE
-## 🌟 ART, SCIENCE & ADMINISTRATION
-
-**Administration:**
-*   **Decentralized:** Feudalism grew. Land grants increased.
-*   **Vishti:** Forced labor became common.
-*   **Law:** Civil and Criminal laws were clearly defined for the first time (Smritis).
-
-**Religion:**
-*   Revival of **Brahmanism** (Vaishnavism/Shaivism).
-*   Temple architecture began (Nagara Style). **Dashavatara Temple** (Deogarh).
-*   Buddhism declined but Nalanda flourished.
-
-**Literature (Sanskrit):**
-*   **Kalidasa:** *Shakuntalam* (Drama), *Meghadutam* (Poem).
-*   **Vishkakhadatta:** *Mudrarakshasa* (Spy thriller).
-*   **Shudraka:** *Mrichhakatika* (The Little Clay Cart - story of a merchant and courtesan).
+## 🏺 Impact of the Macedonian Invasion
+- **Chronology:** Provided a fixed point (326 BCE) to Anchor Ancient Indian history.
+- **Geography:** Opened four new land and sea routes for trade between India and the West.
+- **Cities:** Founded several 'Alexandrias' and Nikaia as military bases.
+- **Political:** Destroyed decentralized tribal republics in the Panjab, clearing the way for **Chandragupta Maurya** to unify the region.
+- **Culture:** Led to the **Gandhara School of Art** (Greek-influenced Buddhist art) and introduced Hellenistic science/astronomy notes (Yavanika/Horasastra).
 `;

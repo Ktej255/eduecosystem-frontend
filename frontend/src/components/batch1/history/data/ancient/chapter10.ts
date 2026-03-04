@@ -1,109 +1,149 @@
-export interface Subtopic {
-    id: string;
-    name: string;
-}
-
-export interface Question {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation: string;
-    subtopic: string;
-    difficulty?: 'Easy' | 'Moderate' | 'Hard';
-}
+import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_10_SUBTOPICS: Subtopic[] = [
-    { id: 'sculpture', name: 'Schools of Sculpture (Gandhara, Mathura, Amravati)' },
-    { id: 'architecture', name: 'Stupas & Cave Architecture' }
+    { id: 'mahajanapadas', name: 'The 16 Mahajanapadas' },
+    { id: 'rise_magadha', name: 'Rise of Magadha: Haryanka & Shishunaga' },
+    { id: 'nanda_dynasty', name: 'The Nanda Dynasty & First Empire' },
+    { id: 'magadha_success', name: 'General Factors of Magadhan Success' },
+    { id: 'admin_society', name: 'Administration & Social Changes' }
 ];
 
 export const ANCIENT_CHAPTER_10_MCQS: Question[] = [
-    {
-        id: 1,
-        question: "Which of the following schools of art is known for the first physical representation of the Buddha in human form?",
-        options: ["Gandhara School", "Mathura School", "Amravati School", "Sarnath School"],
-        correctAnswer: 1,
-        explanation: "The Mathura School (indigenous) is credited with the first human images of Buddha (based on Yaksha figures). Gandhara followed closely with Greek influence.",
-        subtopic: 'sculpture',
-        difficulty: 'Moderate'
-    },
-    {
-        id: 2,
-        question: "Consider the following statements regarding the Gandhara School of Art:\n1. It used bluish-grey sandstone.\n2. It was heavily influenced by Greco-Roman styles.\n3. It flourished under the Guptas.\n\nWhich of the statements given above are correct?",
-        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"],
-        correctAnswer: 0,
-        explanation: "Statement 3 is Incorrect: Gandhara art flourished under the Kushanas (especially Kanishka), not the Guptas. 1 & 2 are correct.",
-        subtopic: 'sculpture',
-        difficulty: 'Easy'
-    },
-    {
-        id: 3,
-        question: "The 'Amravati School of Art' is distinct because of its extensive use of:",
-        options: ["Red Sandstone", "White Marble", "Granite", "Burnt Bricks"],
-        correctAnswer: 1,
-        explanation: "Amravati School (Satavahanas/Ikshvakus) is famous for its use of White Marble and narrative themes (Jataka tales).",
-        subtopic: 'sculpture',
-        difficulty: 'Easy'
-    },
-    {
-        id: 4,
-        question: "The 'Lomas Rishi Cave' in Barabar Hills, the earliest example of rock-cut architecture, belonged to which sect?",
-        options: ["Buddhism", "Jainism", "Ajivika", "Shaivism"],
-        correctAnswer: 2,
-        explanation: "Ashoka dedicated the Barabar caves (Lomas Rishi, Sudama) to the Ajivika sect.",
-        subtopic: 'architecture',
-        difficulty: 'Moderate'
-    },
-    {
-        id: 5,
-        question: "In the context of Stupa architecture, the 'Harmika' refers to:",
-        options: ["The circumambulatory path", "The gateway", "The square railing on top of the dome", "The umbrella on top"],
-        correctAnswer: 2,
-        explanation: "Harmika is the square railing on top of the dome (Anda) representing the abode of gods. The umbrella (Chhatra) stands above it.",
-        subtopic: 'architecture',
-        difficulty: 'Moderate'
-    }
+    // ═══════════════════════════════════════════
+    // LEVEL 1 — EASY (30 Questions): Book Recall
+    // ═══════════════════════════════════════════
+    { id: 1, question: "How many major territorial states (Mahajanapadas) existed in North India in the 6th century BCE?", options: ["8", "12", "16", "20"], correctAnswer: 2, explanation: "Buddhist and Jain texts (Anguttara Nikaya) list 16 major territorial states called Mahajanapadas.", subtopic: 'mahajanapadas', difficulty: 'Easy' },
+    { id: 2, question: "Which Mahajanapada eventually emerged as the most powerful?", options: ["Kashi", "Kosala", "Vatsa", "Magadha"], correctAnswer: 3, explanation: "Magadha, located in modern Bihar, became the supreme power due to its geography and resources.", subtopic: 'rise_magadha', difficulty: 'Easy' },
+    { id: 3, question: "Who was the founder of the Haryanka dynasty of Magadha?", options: ["Ajatasatru", "Bimbisara", "Udayin", "Mahapadma Nanda"], correctAnswer: 1, explanation: "Bimbisara (544–492 BCE) founded the Haryanka dynasty and started Magadha's expansion.", subtopic: 'rise_magadha', difficulty: 'Easy' },
+    { id: 4, question: "The first capital of Magadha was:", options: ["Pataliputra", "Vaishali", "Rajgir (Girivraja)", "Champa"], correctAnswer: 2, explanation: "Rajgir, surrounded by five hills, served as the initial fortified capital of Magadha.", subtopic: 'rise_magadha', difficulty: 'Easy' },
+    { id: 5, question: "Bimbisara used which policy to strengthen his position?", options: ["Only war", "Matrimonial alliances", "Religious conversion", "Democratic voting"], correctAnswer: 1, explanation: "Bimbisara married princesses of Kosala, Vaishali, and Madra to secure his borders and influence.", subtopic: 'rise_magadha', difficulty: 'Easy' },
+    { id: 6, question: "Ajatasatru was the son of:", options: ["Chandra-gupta", "Bimbisara", "Ashoka", "Mahapadma Nanda"], correctAnswer: 1, explanation: "Ajatasatru succeeded his father Bimbisara (reportedly by killing him).", subtopic: 'rise_magadha', difficulty: 'Easy' },
+    { id: 7, question: "Which Magadhan king built the fort of Pataliputra (Patiligrama)?", options: ["Bimbisara", "Ajatasatru", "Udayin", "Kalashoka"], correctAnswer: 1, explanation: "Ajatasatru laid the foundation of the fort at Pataliputra to watch over the Lichchhavis.", subtopic: 'rise_magadha', difficulty: 'Easy' },
+    { id: 8, question: "Udayin shifted the capital of Magadha from Rajgir to:", options: ["Vaishali", "Champa", "Pataliputra", "Kaushambi"], correctAnswer: 2, explanation: "Udayin officially moved the capital to Pataliputra due to its strategic location at the confluence of several rivers.", subtopic: 'rise_magadha', difficulty: 'Easy' },
+    { id: 9, question: "The Shishunaga dynasty was founded after overthrowing which dynasty?", options: ["Mauryan", "Nanda", "Haryanka", "Gupta"], correctAnswer: 2, explanation: "Shishunaga, a viceroy, was elected by the people to replace the unpopular Haryanka rulers.", subtopic: 'rise_magadha', difficulty: 'Easy' },
+    { id: 10, question: "Mahapadma Nanda is famous as:", options: ["The first Buddhist king", "The 'Ugrasena' and 'Sarvakshatrantaka' (Uprooter of all Kshatriyas)", "The friend of Alexander", "The peaceful king"], correctAnswer: 1, explanation: "He was a powerful non-Kshatriya ruler who built the first major empire in India.", subtopic: 'nanda_dynasty', difficulty: 'Easy' },
+    { id: 11, question: "The last ruler of the Nanda dynasty was:", options: ["Mahapadma Nanda", "Dhana Nanda", "Udayin", "Kalashoka"], correctAnswer: 1, explanation: "Dhana Nanda was the king when Alexander invaded India; he was later overthrown by Chandragupta Maurya.", subtopic: 'nanda_dynasty', difficulty: 'Easy' },
+    { id: 12, question: "Which Mahajanapada was a confederacy of eight clans, including the Lichchhavis?", options: ["Magadha", "Vajji", "Malla", "Cedi"], correctAnswer: 1, explanation: "Vajji (centered at Vaishali) was a famous 'Gana-Sangha' or republic.", subtopic: 'mahajanapadas', difficulty: 'Easy' },
+    { id: 13, question: "Which Mahajanapada was located on the banks of the Yamuna with its capital at Kaushambi?", options: ["Vatsa", "Kuru", "Panchala", "Matsya"], correctAnswer: 0, explanation: "Vatsa (modern Prayagraj region) was a powerful kingdom during the time of Buddha.", subtopic: 'mahajanapadas', difficulty: 'Easy' },
+    { id: 14, question: "Ashmaka was the only Mahajanapada located in:", options: ["North India", "South India (on the Godavari)", "Central India", "Afghanistan"], correctAnswer: 1, explanation: "Ashmaka (capital Paudanya) was the southernmost Mahajanapada.", subtopic: 'mahajanapadas', difficulty: 'Easy' },
+    { id: 15, question: "The Mahajanapada Gandhara was located in:", options: ["Bihar", "Rajasthan", "Northwestern Pakistan/Afghanistan (capital Taxila)", "Deccan"], correctAnswer: 2, explanation: "Gandhara was a major center of learning and trade in the Northwest.", subtopic: 'mahajanapadas', difficulty: 'Easy' },
+    { id: 16, question: "Which Magadhan king conquered Kashi and Kosala?", options: ["Bimbisara", "Ajatasatru", "Mahapadma Nanda", "Kanishka"], correctAnswer: 1, explanation: "Ajatasatru aggressively expanded Magadha by defeating his uncle Prasenajit of Kosala.", subtopic: 'rise_magadha', difficulty: 'Easy' },
+    { id: 17, question: "The primary reason for Magadha's military superiority was the use of:", options: ["Aircraft", "Elephants on a large scale", "Only bows and arrows", "Naval ships"], correctAnswer: 1, explanation: "Magadha was the first to use elephants extensively in war against its neighbors.", subtopic: 'magadha_success', difficulty: 'Easy' },
+    { id: 18, question: "Which Magadhan king is said to have possessed a massive army of 200,000 infantry and 6,000 elephants, terrifying Alexander's troops?", options: ["Bimbisara", "Dhana Nanda", "Ajatasatru", "Udayin"], correctAnswer: 1, explanation: "The wealth and might of the Nandas (recorded by Greeks) deterred Alexander's army.", subtopic: 'nanda_dynasty', difficulty: 'Easy' },
+    { id: 19, question: "The term 'Gana-Sangha' refers to:", options: ["Absolute Monarchy", "Oligarchic Republic", "Religious Sect", "Village council"], correctAnswer: 1, explanation: "Republics like Vajji and Malla were ruled by a council of heads (rajas) rather than a single hereditary king.", subtopic: 'mahajanapadas', difficulty: 'Easy' },
+    { id: 20, question: "Avanti's capital was:", options: ["Ujjain", "Kaushambi", "Mathura", "Pataliputra"], correctAnswer: 0, explanation: "Ujjain (North Avanti) and Mahishmati (South Avanti) were its important centers.", subtopic: 'mahajanapadas', difficulty: 'Easy' },
+    { id: 21, question: "Which Magadhan ruler was a contemporary of both Buddha and Mahavira?", options: ["Bimbisara", "Ashoka", "Chandragupta", "Mahapadma Nanda"], correctAnswer: 0, explanation: "Bimbisara personally met and supported both the great teachers.", subtopic: 'rise_magadha', difficulty: 'Easy' },
+    { id: 22, question: "Who was the 'Amatya' in the Magadhan administration?", options: ["King", "High-ranking official / Minister", "Soldier", "Priest"], correctAnswer: 1, explanation: "Amatyas were the bureaucratic class that helped in central administration.", subtopic: 'admin_society', difficulty: 'Easy' },
+    { id: 23, question: "The Nanda dynasty was of which social origin according to Puranas?", options: ["Kshatriya", "Brahmin", "Shudra / Low-born", "Vaishya"], correctAnswer: 2, explanation: "Mahapadma Nanda is described as being born of a Shudra mother, marking a shift in social power.", subtopic: 'nanda_dynasty', difficulty: 'Easy' },
+    { id: 24, question: "The first Buddhist Council was held during the reign of which Magadhan King?", options: ["Bimbisara", "Ajatasatru", "Kalashoka", "Ashoka"], correctAnswer: 1, explanation: "Ajatasatru patronized the first council at Rajgir.", subtopic: 'rise_magadha', difficulty: 'Easy' },
+    { id: 25, question: "Which Mahajanapada was located in modern-day Rajasthan?", options: ["Cedi", "Matsya", "Surasena", "Kuru"], correctAnswer: 1, explanation: "Matsya (capital Viratanagara) was located in the Jaipur region.", subtopic: 'mahajanapadas', difficulty: 'Easy' },
+    { id: 26, question: "Which city was known the world over as a center for higher education in the 6th century BCE?", options: ["Pataliputra", "Nalanda", "Taxila", "Sarnath"], correctAnswer: 2, explanation: "Taxila (Gandhara) was the most famous university city in ancient India.", subtopic: 'admin_society', difficulty: 'Easy' },
+    { id: 27, question: "The Magadhan system of 'Bhāka' refers to:", options: ["Weapon", "Land tax consisting of 1/6th of produce", "Sacrifice", "Marriage type"], correctAnswer: 1, explanation: "Bhaga was the systematic land tax that funded the Magadhan state.", subtopic: 'admin_society', difficulty: 'Easy' },
+    { id: 28, question: "Anga was the neighbor of Magadha to its:", options: ["West", "East", "North", "South"], correctAnswer: 1, explanation: "Anga (capital Champa) was located to the east of Magadha.", subtopic: 'mahajanapadas', difficulty: 'Easy' },
+    { id: 29, question: "Which king conquered Avanti for Magadha?", options: ["Bimbisara", "Ajatasatru", "Shishunaga", "Mahapadma Nanda"], correctAnswer: 2, explanation: "Shishunaga finally ended the century-long rivalry by defeating Avanti.", subtopic: 'rise_magadha', difficulty: 'Easy' },
+    { id: 30, question: "The metal used for the earliest 'Punch Marked Coins' was primarily:", options: ["Gold", "Silver", "Iron", "Zinc"], correctAnswer: 1, explanation: "Silver coins with punched symbols were the first metallic currency in India.", subtopic: 'admin_society', difficulty: 'Easy' },
+
+    // ══════════════════════════════════════════════════
+    // LEVEL 2 — MODERATE (30 Questions): Conceptual
+    // ══════════════════════════════════════════════════
+    { id: 31, question: "Why was Magadha's location strategically superior to other Mahajanapadas?", options: ["It was near the sea", "It commanded the fertile Gangetic plain and was near rich iron ore deposits in Chotanagpur", "It was in the desert", "It was on top of a mountain"], correctAnswer: 1, explanation: "Fertile land provided surplus food/tax, and iron provided superior weapons and tools.", subtopic: 'magadha_success', difficulty: 'Moderate' },
+    { id: 32, question: "How did the 'Gana-Sanghas' differ from Monarchies?", options: ["They had no military", "Power was shared by a group of elders/heads (Oligarchy) rather than a single hereditary king", "They were ruled by priests only", "They didn't pay any taxes"], correctAnswer: 1, explanation: "Republics like Vajji and Shakya had a more participatory (among elites) governance structure.", subtopic: 'mahajanapadas', difficulty: 'Moderate' },
+    { id: 33, question: "Consider the Haryanka kings:\n1. Bimbisara started expansion through marriage.\n2. Ajatasatru used aggressive military conquest and new weapons (Mahashilakantaka).\n3. Udayin established Pataliputra as the permanent capital.", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 3, explanation: "All three statements accurately summarize the key contributions of the Haryanka rulers.", subtopic: 'rise_magadha', difficulty: 'Moderate' },
+    { id: 34, question: "Which of the following factors contributed to the rise of 'Territorial States' in 6th century BCE?", options: ["Random luck", "Use of iron for clearing forests and permanent agriculture, creating surplus and settled populations", "Religious commands", "Lack of rivers"], correctAnswer: 1, explanation: "Economic change (Iron/Surplus) was the catalyst for moving from tribal 'Jana' to territorial 'Janapada'.", subtopic: 'mahajanapadas', difficulty: 'Moderate' },
+    { id: 35, question: "The rivalry between Magadha and Avanti lasted for nearly 100 years. Why?", options: ["Both wanted the same princess", "Both were competing for dominance over the trade routes and the iron resources of Central India", "Religious differences", "They spoke different languages"], correctAnswer: 1, explanation: "Strategic and economic competition between two powerful neighbors led to prolonged conflict.", subtopic: 'rise_magadha', difficulty: 'Moderate' },
+    { id: 36, question: "Consider:\n1. Nandas were the first to build a truly pan-North Indian empire.\n2. They were unpopular because of their low origin and heavy taxation.\n3. Alexander did not attack them because he was their friend.", options: ["1 and 2 only", "2 and 3 only", "1, 2 and 3", "1 only"], correctAnswer: 0, explanation: "Alexander's army refused to fight because they were exhausted and feared the Nanda army.", subtopic: 'nanda_dynasty', difficulty: 'Moderate' },
+    { id: 37, question: "What was the significance of 'Punched Marked Coins'?", options: ["They were for decoration", "They indicated the growth of a money economy, trade, and the state's ability to pay soldiers/officials", "They were religious medals", "Only kings could touch them"], correctAnswer: 1, explanation: "The transition to metallic money enabled centralization and professional bureaucracy.", subtopic: 'admin_society', difficulty: 'Moderate' },
+    { id: 38, question: "Match the Mahajanapada with its location:\nA. Kuru — 1. Meerut/Delhi region\nB. Surasena — 2. Mathura\nC. Cedi — 3. Bundelkhand", options: ["A-1, B-2, C-3", "A-2, B-1, C-3", "A-3, B-1, C-2", "A-1, B-3, C-2"], correctAnswer: 0, explanation: "Kuru=Indraprastha; Surasena=Mathura; Cedi=Shaktimati.", subtopic: 'mahajanapadas', difficulty: 'Moderate' },
+    { id: 39, question: "The Magadhan system of administration involved 'Balisadhakas'. They were responsible for:", options: ["Leading the army", "Collecting mandatory taxes (Bali)", "Performing sacrifices", "Cleaning the place"], correctAnswer: 1, explanation: "They were the tax-collecting agents of the king.", subtopic: 'admin_society', difficulty: 'Moderate' },
+    { id: 40, question: "Why did the 'Vajji' confederacy resist Magadha for 16 years?", options: ["They had more gold", "Their republican structure fostered high unity and public participation in defense", "They were protected by gods", "Magadha had no army then"], correctAnswer: 1, explanation: "Gana-sanghas were often militarily resilient due to the direct stake of the ruling clans in and sovereignty.", subtopic: 'mahajanapadas', difficulty: 'Moderate' },
+    { id: 41, question: "Consider the 'Nanda' empire's end:\n1. Dhana Nanda was a favorite of the people.\n2. Chanakya and Chandragupta exploited the internal dissent against the Nandas.\n3. The Nandas were overthrown by the Shishunagas.", options: ["2 only", "1 and 2 only", "2 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Dhana Nanda was hated. He was overthrown by Chandragupta Maurya.", subtopic: 'nanda_dynasty', difficulty: 'Moderate' },
+    { id: 42, question: "The term 'Srenis' (Guilds) started becoming important in this period because:", options: ["Kings made them", "Growth of crafts and trade necessitated organized bodies of artisans and merchants", "They were religious groups", "They didn't exist before"], correctAnswer: 1, explanation: "Commercialization led to the formation of proto-corporate bodies called guilds.", subtopic: 'admin_society', difficulty: 'Moderate' },
+    { id: 43, question: "How did the kings of this era ensure the loyalty of their standing army?", options: ["Through blood oaths only", "Paying them in cash (coins) and providing professional training", "Allowing them to loot everything", "They were all family members"], correctAnswer: 1, explanation: "Professionalization of the army (Mahasenan) was a key Magadhan innovation.", subtopic: 'admin_society', difficulty: 'Moderate' },
+    { id: 44, question: "Which describes the 'Sects' in 6th Century BCE correctly?", options: ["Only Buddhism and Jainism", "Existence of around 62 different heterodox sects including Ajivikas and Charvakas", "Only one religion existed", "No religion existed"], correctAnswer: 1, explanation: "It was a period of intense intellectual and spiritual churning (Sramana movement).", subtopic: 'admin_society', difficulty: 'Moderate' },
+    { id: 45, question: "The location of Rajgir (Magadha) was advantageous because:", options: ["It had no walls", "It was surrounded by iron-rich hills and natural fortifications", "It was on the sea", "It was easy to attack"], correctAnswer: 1, explanation: "The five hills (Pancha-parvata) provided a natural fortress.", subtopic: 'rise_magadha', difficulty: 'Moderate' },
+    { id: 46, question: "Consider:\n1. Punch-marked coins carried names of kings.\n2. They carried symbols like the sun, moon, and trees.\n3. They were mostly made of gold.", options: ["2 only", "1 and 2 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "They DID NOT have names/dates (introduced by Indo-Greeks later). They were mostly silver/copper.", subtopic: 'admin_society', difficulty: 'Moderate' },
+    { id: 47, question: "Why did Magadha expand toward the East (Anga) first?", options: ["Anga was very weak", "To control the river port of Champa and the sea trade routes of the Bay of Bengal", "Because Anga had no king", "Pure chance"], correctAnswer: 1, explanation: "Controlling Anga provided Magadha access to the lucrative riverine and maritime trade routes.", subtopic: 'rise_magadha', difficulty: 'Moderate' },
+    { id: 48, question: "The 'Village Headman' (Gramaka/Gramabhojaka) became powerful because:", options: ["He was the king's brother", "He was the link between the king and the farmers, responsible for tax collection and local order", "He had the only iron plough", "He was also the local priest"], correctAnswer: 1, explanation: "Decentralized administration relied heavily on the village unit for resource extraction.", subtopic: 'admin_society', difficulty: 'Moderate' },
+    { id: 49, question: "Which factor best explains the shift of capital to Pataliputra?", options: ["Rajgir was too cold", "Pataliputra was a 'Jaladurga' (water fortress) at the confluence of Ganga, Son, and Gandak rivers", "Udayin liked the view", "The river Son was full of gold"], correctAnswer: 1, explanation: "Pataliputra allowed the king to command movement along the major rivers in all directions.", subtopic: 'rise_magadha', difficulty: 'Moderate' },
+    { id: 50, question: "Consider the society in this age:\n1. Varna system became the basis of social and legal order.\n2. Slavery existed in domestic forms.\n3. Urban craftspeople had high social status.", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Craftspeople, despite their economic power, were often ranked lower in the Varna hierarchy.", subtopic: 'admin_society', difficulty: 'Moderate' },
+    { id: 51, question: "The 'Bimbisara' and 'Prasenajit' (Kosala) relationship was one of:", options: ["Constant war", "Matrimonial alliance (Bimbisara married Prasenajit's sister)", "Hatred", "They didn't know each other"], correctAnswer: 1, explanation: "The Kosala-Magadha alliance was a key pillar of stability in early Haryanka history.", subtopic: 'rise_magadha', difficulty: 'Moderate' },
+    { id: 52, question: "What indicates the 'Centralization' of Magadhan power?", options: ["Usage of elective assemblies", "Appointment of high-ranking officials (Mahamatras) directly by the king for various duties", "Dividing the kingdom into independent parts", "The king had no power"], correctAnswer: 1, explanation: "The creation of a centralized bureaucracy is a hallmark of the Magadhan state.", subtopic: 'admin_society', difficulty: 'Moderate' },
+    { id: 53, question: "How did the 'Iron' deposits of Chotanagpur help Magadha specifically?", options: ["Provided iron for jewelry", "Provided the raw material for high-quality weapons and heavy agricultural tools", "They exported all iron to Rome", "No impact"], correctAnswer: 1, explanation: "Proximity to the source of the age's most important metal gave Magadha an 'industrial' edge.", subtopic: 'magadha_success', difficulty: 'Moderate' },
+    { id: 54, question: "Consider the Nanda's 'Low Origin' significance:\n1. It reflected the rising power of non-Kshatriya classes in Indian politics.\n2. It led to the downfall of the Varna system.\n3. It was a major reason for the elite Brahmin/Kshatriya hostility toward them.", options: ["1 and 3 only", "2 and 3 only", "1 only", "1, 2 and 3"], correctAnswer: 0, explanation: "The Nandas broke the Kshatriya monopoly on kingship, leading to social friction recorded in the Puranas.", subtopic: 'nanda_dynasty', difficulty: 'Moderate' },
+    { id: 55, question: "Match:\nA. Kashi — 1. Varanasi\nB. Vajji — 2. Vaishali\nC. Kosala — 3. Shravasti", options: ["A-1, B-2, C-3", "A-2, B-1, C-3", "A-3, B-1, C-2", "A-1, B-3, C-2"], correctAnswer: 0, explanation: "Standard capitals of the North Indian states.", subtopic: 'mahajanapadas', difficulty: 'Moderate' },
+    { id: 56, question: "The 'Mahashilakantaka' used by Ajatasatru was a:", options: ["Type of food", "War engine for throwing large stones (like a catapult)", "New type of bow", "A religious ceremony"], correctAnswer: 1, explanation: "Ajatasatru introduced advanced war machinery to defeat the Lichchhavi confederacy.", subtopic: 'rise_magadha', difficulty: 'Moderate' },
+    { id: 57, question: "Which Mahajanapada's King 'Pradyota' was treated for jaundice by Bimbisara's physician Jivaka?", options: ["Avanti", "Kosala", "Vatsa", "Anga"], correctAnswer: 0, explanation: "This famous medical diplomacy shows the diplomatic reach of Magadha.", subtopic: 'rise_magadha', difficulty: 'Moderate' },
+    { id: 58, question: "The 'Sutranis' (manuals) mentioned in this period were for:", options: ["Only religious rules", "Various activities including statecraft, law, and social behavior", "Only for farmers", "Only for women"], correctAnswer: 1, explanation: "Specialized literature for administration and social regulation began to emerge.", subtopic: 'admin_society', difficulty: 'Moderate' },
+    { id: 59, question: "Why did the 'Nanda' kings maintain such a massive army?", options: ["For fun", "To suppress internal rebellions, collect taxes effectively, and prevent invasions", "To conquer the world", "To protect the temples"], correctAnswer: 1, explanation: "An empire sustained by taxation needs a strong military hand to ensure resource flow.", subtopic: 'nanda_dynasty', difficulty: 'Moderate' },
+    { id: 60, question: "The term 'Porana' in texts refers to:", options: ["Old people", "Town dwellers (from 'Pura')", "Villagers", "Priests"], correctAnswer: 1, explanation: "The rise of towns necessitated a distinction between urban and rural populations.", subtopic: 'admin_society', difficulty: 'Moderate' },
+
+    // ══════════════════════════════════════════════════════
+    // LEVEL 3 — HARD (30 Questions): UPSC Simulation
+    // ══════════════════════════════════════════════════════
+    { id: 61, question: "Assertion (A): Magadha's success was as much due to its 'unorthodox' culture as its resources.\nReason (R): Being outside the heartland of Vedic orthopraxy (Kuru-Panchala), Magadha was more open to social mixing and new technologies like the large-scale use of elephants.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "The 'frontier' nature of Magadha produced a more dynamic and less socially restricted political system.", subtopic: 'magadha_success', difficulty: 'Hard' },
+    { id: 62, question: "Consider the following about the 'Gana-Sanghas' (Republics):\n1. They were concentrated in the foothills of the Himalayas and Northwestern India.\n2. Decision-making was done through discussion in a Hall (Santhagara).\n3. They were more tolerant of heterodox religions (Buddhism/Jainism) than monarchies.", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 3, explanation: "Republics provided the alternative political model to the centralizing monarchies of the plains.", subtopic: 'mahajanapadas', difficulty: 'Hard' },
+    { id: 63, question: "Assertion (A): The Nanda kings are described as 'Sarvakshatrantaka' (Exterminator of Kshatriyas).\nReason (R): Their rise signaled the shift of political power into the hands of non-Kshatriya (Shudra) groups for the first time in Indian history.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "The traditional varna-monarchy link was broken by the Nandas, causing a major socio-political rupture.", subtopic: 'nanda_dynasty', difficulty: 'Hard' },
+    { id: 64, question: "Which of the following best describes the 'Taxation' system in the Magadhan empire?", options: ["Purely voluntary tribute (Bali)", "A systematic levy (Bhaga) handled by professional collectors (Shaulkika/Bhagadugha) with a fixed 1/6th rate", "No taxes; state relied on trade only", "Taxes were only on Brahmins"], correctAnswer: 1, explanation: "Magadha successfully shifted from tribal voluntary gifts to an institutionalized fiscal system.", subtopic: 'admin_society', difficulty: 'Hard' },
+    { id: 65, question: "Assertion (A): The shift of capital to Pataliputra was a masterstroke in 'Geo-Politics'.\nReason (R): Pataliputra functioned as a 'water-fort' (Jaladurga) and a node for controlling the trade of the Ganga, Son, Gandak, and Ghaghara rivers.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Rivers were the highways of the ancient world; controlling the 'meeting of rivers' meant controlling the economy.", subtopic: 'rise_magadha', difficulty: 'Hard' },
+    { id: 66, question: "Consider 'Magadhan Military Technology':\n1. Rathamusala: Chariot with a mace/scythe for mass killing.\n2. Mahashilakantaka: Stone-throwing engine.\n3. Large scale use of horse-cavalry over elephants.\nWhich are correct for Ajatasatru's period?", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Magadhan military focused on elephants and war-machines; massive horse cavalry was a later Nanda/Mauryan feature.", subtopic: 'rise_magadha', difficulty: 'Hard' },
+    { id: 67, question: "Assertion (A): The Shishunaga dynasty was established through a 'Popular Revolt'.\nReason (R): The Haryanka rulers were perceived by the people of Magadha as 'Patricides' (killers of fathers), leading them to elect Shishunaga.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "The Haryanka line’s internal violence led to their rejection by the urban populace.", subtopic: 'rise_magadha', difficulty: 'Hard' },
+    { id: 68, question: "Which depicts 'Rural-Urban' dynamics in the 6th Century BCE accurately?", options: ["Cities were independent of villages", "Cities relied on agricultural surplus extracted via the 'Gramaka' link to sustain non-producing classes", "Villages were richer than cities", "They were the same"], correctAnswer: 1, explanation: "The 'Taxation-Town' nexus is the defining economic feature of the Second Urbanization.", subtopic: 'admin_society', difficulty: 'Hard' },
+    { id: 69, question: "Assertion (A): The 'Amatyas' were the precursors to the Mauryan 'Adhyakshas'.\nReason (R): The Magadhan kings created a professional bureaucracy separate from the royal kinsmen to handle growing state functions.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Professional administration replaced tribal councils as the empire grew.", subtopic: 'admin_society', difficulty: 'Hard' },
+    { id: 70, question: "Consider the '16 Mahajanapadas' list:\n1. Most were in the Gangetic plain.\n2. Kamboja and Gandhara were in the Northwest.\n3. Matsya and Surasena were in the South.", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Matsya/Surasena were in Rajasthan/UP (North), not South.", subtopic: 'mahajanapadas', difficulty: 'Hard' },
+    { id: 71, question: "Assertion (A): The Nanda treasury was the largest of its time.\nReason (R): They successfully integrated the trade routes of the North and the newly explored tolls from local commerce into the central treasury.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "The Nandas were famous for their 'countless wealth' (Padma-Nidhi) derived from systemic extraction.", subtopic: 'nanda_dynasty', difficulty: 'Hard' },
+    { id: 72, question: "How did 'Varna' theory justify Magadhan social control in this period?", options: ["It promoted equality", "It provided a legal framework to define the roles of producers (Vaishya/Shudra) and rulers (Kshatriya/Brahmin)", "It didn't exist in Magadha", "It was for religious purposes only"], correctAnswer: 1, explanation: "The Dharmashastras began to codify the 'Varna-Duty' link to ensure economic stability and social order.", subtopic: 'admin_society', difficulty: 'Hard' },
+    { id: 73, question: "Assertion (A): Small autonomous villages were more common in the Gana-Sanghas than in Magadha.\nReason (R): Centralized monarchies tended to absorb or directly control village administration for tax efficiency.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Monarchy is inherently more intrusive at the local level than the looser confederations of the republics.", subtopic: 'admin_society', difficulty: 'Hard' },
+    { id: 74, question: "Consider the 'Punch Marked Coins' symbols:\n1. They were standardized across the entire Nanda empire.\n2. Symbols like the Sun and 6-armed wheel were common.\n3. They represented the signature of the issuing merchant or guild only.", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Symbols likely represented the 'State's' guarantee, though guilds also issued some early coins.", subtopic: 'admin_society', difficulty: 'Hard' },
+    { id: 75, question: "Assertion (A): Alexander's invasion was a 'blessing in disguise' for the rise of the Mauryas.\nReason (R): It weakened the Northwest tribal republics and paved the way for a unified empire under a single Magadhan king.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "The vacuum left by Alexander in the Panjab was filled by Chandragupta with Chanakya's help.", subtopic: 'nanda_dynasty', difficulty: 'Hard' },
+    { id: 76, question: "Which of the following describes 'Magadhan Foreign Policy' under Bimbisara correctly?", options: ["Isolationism", "Duality of matrimonial alliances with neighbors and ruthless conquest of rivals (like Anga)", "Surrender to Persia", "Alliances with Greeks"], correctAnswer: 1, explanation: "Bimbisara used soft and hard power effectively to establish Magadhan base.", subtopic: 'rise_magadha', difficulty: 'Hard' },
+    { id: 77, question: "Consider:\n1. Bimbisara started the regular army.\n2. Ajatasatru perfected sieges.\n3. Mahapadma Nanda integrated the empire.\nWhich are correct regarding Magadhan military evolution?", options: ["1, 2 and 3", "1 and 2 only", "2 and 3 only", "3 only"], correctAnswer: 0, explanation: "Magadha's rise was fundamentally built on continuous military professionalization.", subtopic: 'magadha_success', difficulty: 'Hard' },
+    { id: 78, question: "Assertion (A): The Nanda dynasty represented the first 'Empire' (Ekarat) of India.\nReason (R): They were the first to cross the Vindhyas and establish a presence in the Deccan (Kalinga).", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "The Nanda expansion reaching Orissa (Kalinga Hathigumpha inscription) proves their imperial scale.", subtopic: 'nanda_dynasty', difficulty: 'Hard' },
+    { id: 79, question: "Which best describes the role of the 'Sutrakaras' in this era?", options: ["Tailors", "Fmous poets", "Codifiers of social, legal, and ritual rules that formed the base of Dharmashastras", "Inventors of tools"], correctAnswer: 2, explanation: "The 600-300 BCE period saw the rise of the 'Sutra' literature defining Hindu social life.", subtopic: 'admin_society', difficulty: 'Hard' },
+    { id: 80, question: "The term 'Maha-matras' (high officials) included:\n1. Sarvarthaka (General affairs)\n2. Vyavaharika (Judges)\n3. Senanayaka (Army commanders)\nWhich were part of the Magadhan cabinet?", options: ["1, 2 and 3", "1 and 2 only", "2 and 3 only", "1 only"], correctAnswer: 0, explanation: "Magadha had a diverse and specialized bureaucracy.", subtopic: 'admin_society', difficulty: 'Hard' },
+    { id: 81, question: "Assertion (A): Slavery was an essential part of the production economy in the 6th century BCE.\nReason (R): Buddhist and Jain texts frequently mention 'Dasa-kammankara' (slaves and laborers) working in large-scale farms (Kshetras).", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Agricultural expansion relied on a mix of peasants and forced/landless labor.", subtopic: 'admin_society', difficulty: 'Hard' },
+    { id: 82, question: "Consider the 'Nanda' economy:\n1. They introduced the 'Nandopamana' system of weights and measures.\n2. They were the first to impose a tax on animals and salt.\n3. They banned private merchants.", options: ["1 and 2 only", "2 and 3 only", "1 only", "1, 2 and 3"], correctAnswer: 0, explanation: "They professionalized metrics and expanded the tax base, but did not ban merchants (they needed their taxes).", subtopic: 'nanda_dynasty', difficulty: 'Hard' },
+    { id: 83, question: "What does the 'Aitareya Brahmana's' mention of different kingly titles (Samrat, Virat, Bhoja) suggest about the 6th Century BCE?", options: ["Different languages", "Political fragmentation vs. the emergent ideal of Universal Kingship (Chakravartin)", "The kings were gods", "Lack of peace"], correctAnswer: 1, explanation: "It reflects a transition stage where regional powers were vying for the supreme title of 'Sole Ruler'.", subtopic: 'mahajanapadas', difficulty: 'Hard' },
+    { id: 84, question: "Assertion (A): Ajatasatru's victory over the Vajji league required 'espionage'.\nReason (R): Vassakara, his minister, sowed seeds of internal dissension among the Lichchhavi clans to weaken them from within.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Magadha used intrigue (Upaya) alongside military force to break the powerful republics.", subtopic: 'rise_magadha', difficulty: 'Hard' },
+    { id: 85, question: "Consider the 'Mahajanapada' of Gandhara:\n1. It was the gatekeeper of the iron/horse trade from the Northwest.\n2. Taxila was its capital, famous for medicine (Atreya/Jivaka) and grammar (Panini).\n3. It was under the influence of the Persian Achaemenids by 500 BCE.", options: ["1, 2 and 3", "1 and 2 only", "2 and 3 only", "1 only"], correctAnswer: 0, explanation: "Gandhara's location made it the cultural and commercial bridge to West Asia.", subtopic: 'mahajanapadas', difficulty: 'Hard' },
+    { id: 86, question: "Which is the most plausible explanation for the 'Haryanka' dynasty's end?", options: ["Foreign invasion", "Elite Brahminic coup", "Internal dynastic decay and the perception of Haryanka kings as 'unholy' by its people", "Lack of money"], correctAnswer: 2, explanation: "The citizens of Pataliputra and Rajgir eventually preferred an 'elected' minister over violent hereditary kings.", subtopic: 'rise_magadha', difficulty: 'Hard' },
+    { id: 87, question: "Assertion (A): The 6th century BCE is characterized as the 'Age of Iron and Coinage'.\nReason (R): These two innovations enabled the permanent clearing of forests and the creation of a centralized professional state.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "The material basis of the first empires was silver coins and iron tools.", subtopic: 'admin_society', difficulty: 'Hard' },
+    { id: 88, question: "What does the term 'Kshatriya' signify in the Gana-sanghas specifically?", options: ["Warrior slave", "The elite land-owning clans who had the right to rule and vote in the assembly", "Mercenaries", "Anyone who fought"], correctAnswer: 1, explanation: "In republics, 'Kshatriya' was a political status of the core clans rather than just a military occupation.", subtopic: 'mahajanapadas', difficulty: 'Hard' },
+    { id: 90, question: "Assertion (A): Magadha's isolation from the center of Vedic culture allowed for a more flexible social hierarchy.\nReason (R): Elements like the incorporation of lower-varna people into high administrative and military roles were easier in Magadha.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Being a 'non-standard' Vedic area, Magadha became a laboratory for social and political innovation.", subtopic: 'magadha_success', difficulty: 'Hard' }
 ];
 
 export const ANCIENT_CHAPTER_10_CONTENT = `
-# BLOCK 1: SCHOOLS OF SCULPTURE
-## 🗿 GANDHARA, MATHURA & AMRAVATI
+# Chapter 10: Territorial States and the First Magadhan Empire
 
-**1. Gandhara School (North-West):**
-*   **Patrons:** Kushanas (Kanishka).
-*   **Influence:** Greco-Roman (Hellenistic). Known as Greco-Buddhist art.
-*   **Material:** Bluish-Grey Sandstone / Stucco (later).
-*   **Buddha's Image:** Apollo-like face, wavy hair, muscular body, heavy drapery (folds), spiritual calm.
-*   **Theme:** Almost exclusively Buddhist.
+## 🗺️ The 16 Mahajanapadas (6th Century BCE)
+- **Context:** The transition from tribal (Jana) to territorial (Janapada) politics.
+- **Geography:** Primarily in the Gangetic valley; Gandhara in NW, Ashmaka in South.
+- **Types:** Monarchies (Magadha, Kosala) and Gana-sanghas/Republics (Vajji, Malla).
 
-**2. Mathura School (North India):**
-*   **Patrons:** Kushanas.
-*   **Influence:** Indigenous (Indian). Developed from Yaksha worship.
-*   **Material:** Spotted Red Sandstone.
-*   **Buddha's Image:** Stout body, shaven head (early), smiling face, seated in Padmasana (Yogi), transparent drapery.
-*   **Theme:** Buddhist, Jain (Tirthankaras), and Hindu (Shiva/Vishnu). **Secular** themes also present.
+## 🌋 The Rise of Magadha
+Magadha emerged supreme over rivals (Kashi, Kosala, Avanti) due to:
+- **Iron:** Proximity to iron mines (Chotanagpur) for weapons and tools.
+- **Geography:** Fortified capitals (Rajgir Hills and Pataliputra Water-fort).
+- **Elephants:** Large-scale use in warfare — a Magadhan specialty.
+- **Agriculture:** Fertile Gangetic silt provided a massive tax base.
 
-**3. Amravati School (Deccan):**
-*   **Patrons:** Satavahanas and Ikshvakus.
-*   **Material:** White Marble.
-*   **Style:** Narrative art (telling stories from Jatakas). Figures are slim and full of movement (Tribhanga posture).
+## 👑 Major Dynasties
+1. **Haryanka Dynasty:**
+   - **Bimbisara:** Expansion through marriage and conquest (Anga).
+   - **Ajatasatru:** Aggressive wars (Kosala/Vajji); first Buddhist council.
+   - **Udayin:** Founded Pataliputra as capital.
+2. **Shishunaga Dynasty:** Overthrew Haryankas; finally ended Avanti's rivalry.
+3. **Nanda Dynasty:**
+   - **Mahapadma Nanda:** First 'Empire-builder'; non-Kshatriya origin.
+   - **Dhana Nanda:** Hated but wealthy; deterrence to Alexander.
 
-# BLOCK 2: STUPAS & CAVES
-## 🏛️ EARLY INDIAN ARCHITECTURE
+## 🏛️ Administration & Economy
+- **Bureacracy:** Professional officials (Amatyas/Mahamatras) replaced tribal councils.
+- **Taxation:** Fixed land tax (Bhaga - 1/6th) and toll-collectors (Shaulkika).
+- **Money:** Introduction of **Punch-marked silver coins** signaled a money economy.
+- **Guilds:** Artisans and merchants organized into 'Srenis'.
 
-**Stupa Architecture:**
-*   **Purpose:** To house relics (Dhatu) of Buddha or great monks.
-*   **Structure:**
-    *   **Anda:** Semi-circular dome.
-    *   **Harmika:** Square box on top (Abode of God).
-    *   **Chhatra:** Umbrella (Symbol of sovereignty/Dharma).
-    *   **Pradakshina Patha:** Circumambulatory path enclosed by railings (*Vedika*).
-    *   **Toranas:** Gateways (e.g., Sanchi Toranas with Jataka carvings).
-
-**Rock-Cut Caves:**
-*   **Mauryan:** Barabar Caves (Bihar) for Ajivikas. Polished inner walls.
-*   **Post-Mauryan:**
-    *   **Chaitya:** Prayer Hall (e.g., Karle Chaitya - Largest). Has a Stupa at the end.
-    *   **Vihara:** Residential Hall for monks (e.g., Nasik Viharas).
+## 👥 Social & Political Evolution
+- **Republics:** Ruled by oligarchic councils in Santhagaras (Assembly halls).
+- **Monarchy:** Kings claimed quasi-divinity and centralized power.
+- **Varna:** Became the legal and social framework; Shudras as the primary labor force.
 `;
