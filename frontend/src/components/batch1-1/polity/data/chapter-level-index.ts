@@ -1,204 +1,189 @@
-import { ChapterLevelData, FormattedChapterLevelData } from "./level-types";
-import { CHAPTER_1_LEVELS } from "./chapters/chapter-1";
-import { CHAPTER_2_LEVELS } from "./chapters/chapter-2";
-import { CHAPTER_3_LEVELS } from "./chapters/chapter-3";
-import { CHAPTER_4_LEVELS } from "./chapters/chapter-4";
-import { CHAPTER_5_LEVELS } from "./chapters/chapter-5";
-import { CHAPTER_6_LEVELS } from "./chapters/chapter-6";
-import { CHAPTER_7_LEVELS } from "./chapters/chapter-7";
-import { CHAPTER_8_LEVELS } from "./chapters/chapter-8";
-import { CHAPTER_9_LEVELS } from "./chapters/chapter-9";
-import { CHAPTER_10_LEVELS } from "./chapters/chapter-10";
-import { CHAPTER_11_LEVELS } from "./chapters/chapter-11";
-import { CHAPTER_12_LEVELS } from "./chapters/chapter-12";
-import { CHAPTER_13_LEVELS } from "./chapters/chapter-13";
-import { CHAPTER_14_LEVELS } from "./chapters/chapter-14";
-import { CHAPTER_15_LEVELS } from "./chapters/chapter-15";
-import { CHAPTER_16_LEVELS } from "./chapters/chapter-16";
-import { CHAPTER_17_LEVELS } from "./chapters/chapter-17";
-import { CHAPTER_18_LEVELS } from "./chapters/chapter-18";
-import { CHAPTER_19_LEVELS } from "./chapters/chapter-19";
-import { CHAPTER_20_LEVELS } from "./chapters/chapter-20";
-import { CHAPTER_21_LEVELS } from "./chapters/chapter-21";
-import { CHAPTER_22_LEVELS } from "./chapters/chapter-22";
-import { CHAPTER_23_LEVELS } from "./chapters/chapter-23";
-import { CHAPTER_24_LEVELS } from "./chapters/chapter-24";
-import { CHAPTER_25_LEVELS } from "./chapters/chapter-25";
-import { CHAPTER_26_LEVELS } from "./chapters/chapter-26";
-import { CHAPTER_27_LEVELS } from "./chapters/chapter-27";
-import { CHAPTER_28_LEVELS } from "./chapters/chapter-28";
-import { CHAPTER_29_LEVELS } from "./chapters/chapter-29";
-import { CHAPTER_30_LEVELS } from "./chapters/chapter-30";
-import { CHAPTER_31_LEVELS } from "./chapters/chapter-31";
-import { CHAPTER_32_LEVELS } from "./chapters/chapter-32";
-import { CHAPTER_33_LEVELS } from "./chapters/chapter-33";
-import { CHAPTER_34_LEVELS } from "./chapters/chapter-34";
-import { CHAPTER_35_LEVELS } from "./chapters/chapter-35";
-import { CHAPTER_36_LEVELS } from "./chapters/chapter-36";
-import { CHAPTER_37_LEVELS } from "./chapters/chapter-37";
-import { CHAPTER_38_LEVELS } from "./chapters/chapter-38";
-import { CHAPTER_39_LEVELS } from "./chapters/chapter-39";
-import { CHAPTER_40_LEVELS } from "./chapters/chapter-40";
-import { CHAPTER_41_LEVELS } from "./chapters/chapter-41";
-import { CHAPTER_42_LEVELS } from "./chapters/chapter-42";
-import { CHAPTER_43_LEVELS } from "./chapters/chapter-43";
-import { CHAPTER_44_LEVELS } from "./chapters/chapter-44";
-import { CHAPTER_45_LEVELS } from "./chapters/chapter-45";
-import { CHAPTER_46_LEVELS } from "./chapters/chapter-46";
-import { CHAPTER_47_LEVELS } from "./chapters/chapter-47";
-import { CHAPTER_48_LEVELS } from "./chapters/chapter-48";
-import { CHAPTER_49_LEVELS } from "./chapters/chapter-49";
-import { CHAPTER_50_LEVELS } from "./chapters/chapter-50";
-import { CHAPTER_51_LEVELS } from "./chapters/chapter-51";
-import { CHAPTER_52_LEVELS } from "./chapters/chapter-52";
-import { CHAPTER_53_LEVELS } from "./chapters/chapter-53";
-import { CHAPTER_54_LEVELS } from "./chapters/chapter-54";
-import { CHAPTER_55_LEVELS } from "./chapters/chapter-55";
-import { CHAPTER_56_LEVELS } from "./chapters/chapter-56";
-import { CHAPTER_57_LEVELS } from "./chapters/chapter-57";
-import { CHAPTER_58_LEVELS } from "./chapters/chapter-58";
-import { CHAPTER_59_LEVELS } from "./chapters/chapter-59";
-import { CHAPTER_60_LEVELS } from "./chapters/chapter-60";
-import { CHAPTER_61_LEVELS } from "./chapters/chapter-61";
-import { CHAPTER_62_LEVELS } from "./chapters/chapter-62";
-import { CHAPTER_63_LEVELS } from "./chapters/chapter-63";
-import { CHAPTER_64_LEVELS } from "./chapters/chapter-64";
-import { CHAPTER_65_LEVELS } from "./chapters/chapter-65";
-import { CHAPTER_66_LEVELS } from "./chapters/chapter-66";
-import { CHAPTER_67_LEVELS } from "./chapters/chapter-67";
-import { CHAPTER_68_LEVELS } from "./chapters/chapter-68";
-import { CHAPTER_69_LEVELS } from "./chapters/chapter-69";
-import { CHAPTER_70_LEVELS } from "./chapters/chapter-70";
-import { CHAPTER_71_LEVELS } from "./chapters/chapter-71";
-import { CHAPTER_72_LEVELS } from "./chapters/chapter-72";
-import { CHAPTER_73_LEVELS } from "./chapters/chapter-73";
-import { CHAPTER_74_LEVELS } from "./chapters/chapter-74";
-import { CHAPTER_75_LEVELS } from "./chapters/chapter-75";
-import { CHAPTER_76_LEVELS } from "./chapters/chapter-76";
-import { CHAPTER_77_LEVELS } from "./chapters/chapter-77";
-import { CHAPTER_78_LEVELS } from "./chapters/chapter-78";
-import { CHAPTER_79_LEVELS } from "./chapters/chapter-79";
-import { CHAPTER_80_LEVELS } from "./chapters/chapter-80";
-import { CHAPTER_81_LEVELS } from "./chapters/chapter-81";
-import { CHAPTER_82_LEVELS } from "./chapters/chapter-82";
-import { CHAPTER_83_LEVELS } from "./chapters/chapter-83";
-import { CHAPTER_84_LEVELS } from "./chapters/chapter-84";
-import { CHAPTER_85_LEVELS } from "./chapters/chapter-85";
-import { CHAPTER_86_LEVELS } from "./chapters/chapter-86";
-import { CHAPTER_87_LEVELS } from "./chapters/chapter-87";
-import { CHAPTER_88_LEVELS } from "./chapters/chapter-88";
-import { CHAPTER_89_LEVELS } from "./chapters/chapter-89";
-import { CHAPTER_90_LEVELS } from "./chapters/chapter-90";
-import { CHAPTER_91_LEVELS } from "./chapters/chapter-91";
-import { CHAPTER_92_LEVELS } from "./chapters/chapter-92";
-import { CHAPTER_93_LEVELS } from "./chapters/chapter-93";
-import { CHAPTER_94_LEVELS } from "./chapters/chapter-94";
-import { CHAPTER_95_LEVELS } from "./chapters/chapter-95";
+import { ChapterLevelData, FormattedChapterLevelData, LevelQuestion } from "./level-types";
+import { MCQ } from "@/components/batch1/polity/data/mcq-utils";
 
-// Map topicId to its Level Data
-export const CHAPTER_LEVEL_DATA: Record<number, ChapterLevelData> = {
-    1: CHAPTER_1_LEVELS,
-    2: CHAPTER_2_LEVELS,
-    3: CHAPTER_3_LEVELS,
-    4: CHAPTER_4_LEVELS,
-    5: CHAPTER_5_LEVELS,
-    6: CHAPTER_6_LEVELS,
-    7: CHAPTER_7_LEVELS,
-    8: CHAPTER_8_LEVELS,
-    9: CHAPTER_9_LEVELS,
-    10: CHAPTER_10_LEVELS,
-    11: CHAPTER_11_LEVELS,
-    12: CHAPTER_12_LEVELS,
-    13: CHAPTER_13_LEVELS,
-    14: CHAPTER_14_LEVELS,
-    15: CHAPTER_15_LEVELS,
-    16: CHAPTER_16_LEVELS,
-    17: CHAPTER_17_LEVELS,
-    18: CHAPTER_18_LEVELS,
-    19: CHAPTER_19_LEVELS,
-    20: CHAPTER_20_LEVELS,
-    21: CHAPTER_21_LEVELS,
-    22: CHAPTER_22_LEVELS,
-    23: CHAPTER_23_LEVELS,
-    24: CHAPTER_24_LEVELS,
-    25: CHAPTER_25_LEVELS,
-    26: CHAPTER_26_LEVELS,
-    27: CHAPTER_27_LEVELS,
-    28: CHAPTER_28_LEVELS,
-    29: CHAPTER_29_LEVELS,
-    30: CHAPTER_30_LEVELS,
-    31: CHAPTER_31_LEVELS,
-    32: CHAPTER_32_LEVELS,
-    33: CHAPTER_33_LEVELS,
-    34: CHAPTER_34_LEVELS,
-    35: CHAPTER_35_LEVELS,
-    36: CHAPTER_36_LEVELS,
-    37: CHAPTER_37_LEVELS,
-    38: CHAPTER_38_LEVELS,
-    39: CHAPTER_39_LEVELS,
-    40: CHAPTER_40_LEVELS,
-    41: CHAPTER_41_LEVELS,
-    42: CHAPTER_42_LEVELS,
-    43: CHAPTER_43_LEVELS,
-    44: CHAPTER_44_LEVELS,
-    45: CHAPTER_45_LEVELS,
-    46: CHAPTER_46_LEVELS,
-    47: CHAPTER_47_LEVELS,
-    48: CHAPTER_48_LEVELS,
-    49: CHAPTER_49_LEVELS,
-    50: CHAPTER_50_LEVELS,
-    51: CHAPTER_51_LEVELS,
-    52: CHAPTER_52_LEVELS,
-    53: CHAPTER_53_LEVELS,
-    54: CHAPTER_54_LEVELS,
-    55: CHAPTER_55_LEVELS,
-    56: CHAPTER_56_LEVELS,
-    57: CHAPTER_57_LEVELS,
-    58: CHAPTER_58_LEVELS,
-    59: CHAPTER_59_LEVELS,
-    60: CHAPTER_60_LEVELS,
-    61: CHAPTER_61_LEVELS,
-    62: CHAPTER_62_LEVELS,
-    63: CHAPTER_63_LEVELS,
-    64: CHAPTER_64_LEVELS,
-    65: CHAPTER_65_LEVELS,
-    66: CHAPTER_66_LEVELS,
-    67: CHAPTER_67_LEVELS,
-    68: CHAPTER_68_LEVELS,
-    69: CHAPTER_69_LEVELS,
-    70: CHAPTER_70_LEVELS,
-    71: CHAPTER_71_LEVELS,
-    72: CHAPTER_72_LEVELS,
-    73: CHAPTER_73_LEVELS,
-    74: CHAPTER_74_LEVELS,
-    75: CHAPTER_75_LEVELS,
-    76: CHAPTER_76_LEVELS,
-    77: CHAPTER_77_LEVELS,
-    78: CHAPTER_78_LEVELS,
-    79: CHAPTER_79_LEVELS,
-    80: CHAPTER_80_LEVELS,
-    81: CHAPTER_81_LEVELS,
-    82: CHAPTER_82_LEVELS,
-    83: CHAPTER_83_LEVELS,
-    84: CHAPTER_84_LEVELS,
-    85: CHAPTER_85_LEVELS,
-    86: CHAPTER_86_LEVELS,
-    87: CHAPTER_87_LEVELS,
-    88: CHAPTER_88_LEVELS,
-    89: CHAPTER_89_LEVELS,
-    90: CHAPTER_90_LEVELS,
-    91: CHAPTER_91_LEVELS,
-    92: CHAPTER_92_LEVELS,
-    93: CHAPTER_93_LEVELS,
-    94: CHAPTER_94_LEVELS,
-    95: CHAPTER_95_LEVELS
+import { DAY1_MCQS } from "@/components/batch1/polity/data/day1-mcqs";
+import { DAY2_MCQS } from "@/components/batch1/polity/data/day2-mcqs";
+import { DAY3_MCQS } from "@/components/batch1/polity/data/day3-mcqs";
+import { DAY4_MCQS } from "@/components/batch1/polity/data/day4-mcqs";
+import { DAY5_MCQS } from "@/components/batch1/polity/data/day5-mcqs";
+import { DAY6_MCQS } from "@/components/batch1/polity/data/day6-mcqs";
+import { DAY7_MCQS } from "@/components/batch1/polity/data/day7-mcqs";
+import { DAY8_MCQS } from "@/components/batch1/polity/data/day8-mcqs";
+import { DAY9_MCQS } from "@/components/batch1/polity/data/day9-mcqs";
+import { DAY10_MCQS } from "@/components/batch1/polity/data/day10-mcqs";
+import { DAY11_MCQS } from "@/components/batch1/polity/data/day11-mcqs";
+import { DAY12_MCQS } from "@/components/batch1/polity/data/day12-mcqs";
+import { DAY13_MCQS } from "@/components/batch1/polity/data/day13-mcqs";
+import { DAY14_MCQS } from "@/components/batch1/polity/data/day14-mcqs";
+import { DAY15_MCQS } from "@/components/batch1/polity/data/day15-mcqs";
+import { DAY16_MCQS } from "@/components/batch1/polity/data/day16-mcqs";
+import { DAY17_MCQS } from "@/components/batch1/polity/data/day17-mcqs";
+import { DAY18_MCQS } from "@/components/batch1/polity/data/day18-mcqs";
+import { DAY19_MCQS } from "@/components/batch1/polity/data/day19-mcqs";
+import { DAY20_MCQS } from "@/components/batch1/polity/data/day20-mcqs";
+import { DAY21_MCQS } from "@/components/batch1/polity/data/day21-mcqs";
+import { DAY22_MCQS } from "@/components/batch1/polity/data/day22-mcqs";
+import { DAY23_MCQS } from "@/components/batch1/polity/data/day23-mcqs";
+import { DAY24_MCQS } from "@/components/batch1/polity/data/day24-mcqs";
+import { DAY25_MCQS } from "@/components/batch1/polity/data/day25-mcqs";
+import { DAY26_MCQS } from "@/components/batch1/polity/data/day26-mcqs";
+import { DAY27_MCQS } from "@/components/batch1/polity/data/day27-mcqs";
+import { DAY28_MCQS } from "@/components/batch1/polity/data/day28-mcqs";
+import { DAY29_MCQS } from "@/components/batch1/polity/data/day29-mcqs";
+import { DAY30_MCQS } from "@/components/batch1/polity/data/day30-mcqs";
+import { DAY31_MCQS } from "@/components/batch1/polity/data/day31-mcqs";
+import { DAY32_MCQS } from "@/components/batch1/polity/data/day32-mcqs";
+import { DAY33_MCQS } from "@/components/batch1/polity/data/day33-mcqs";
+import { DAY34_MCQS } from "@/components/batch1/polity/data/day34-mcqs";
+import { DAY35_MCQS } from "@/components/batch1/polity/data/day35-mcqs";
+import { DAY36_MCQS } from "@/components/batch1/polity/data/day36-mcqs";
+import { DAY37_MCQS } from "@/components/batch1/polity/data/day37-mcqs";
+import { DAY38_MCQS } from "@/components/batch1/polity/data/day38-mcqs";
+import { DAY39_MCQS } from "@/components/batch1/polity/data/day39-mcqs";
+import { DAY40_MCQS } from "@/components/batch1/polity/data/day40-mcqs";
+import { DAY41_MCQS } from "@/components/batch1/polity/data/day41-mcqs";
+import { DAY42_MCQS } from "@/components/batch1/polity/data/day42-mcqs";
+import { DAY43_MCQS } from "@/components/batch1/polity/data/day43-mcqs";
+import { DAY44_MCQS } from "@/components/batch1/polity/data/day44-mcqs";
+import { DAY45_MCQS } from "@/components/batch1/polity/data/day45-mcqs";
+import { DAY46_MCQS } from "@/components/batch1/polity/data/day46-mcqs";
+import { DAY47_MCQS } from "@/components/batch1/polity/data/day47-mcqs";
+import { DAY48_MCQS } from "@/components/batch1/polity/data/day48-mcqs";
+import { DAY49_MCQS } from "@/components/batch1/polity/data/day49-mcqs";
+import { DAY50_MCQS } from "@/components/batch1/polity/data/day50-mcqs";
+import { DAY51_MCQS } from "@/components/batch1/polity/data/day51-mcqs";
+import { DAY52_MCQS } from "@/components/batch1/polity/data/day52-mcqs";
+import { DAY53_MCQS } from "@/components/batch1/polity/data/day53-mcqs";
+import { DAY54_MCQS } from "@/components/batch1/polity/data/day54-mcqs";
+import { DAY55_MCQS } from "@/components/batch1/polity/data/day55-mcqs";
+import { DAY56_MCQS } from "@/components/batch1/polity/data/day56-mcqs";
+import { DAY57_MCQS } from "@/components/batch1/polity/data/day57-mcqs";
+import { DAY58_MCQS } from "@/components/batch1/polity/data/day58-mcqs";
+import { DAY59_MCQS } from "@/components/batch1/polity/data/day59-mcqs";
+import { DAY60_MCQS } from "@/components/batch1/polity/data/day60-mcqs";
+import { DAY61_MCQS } from "@/components/batch1/polity/data/day61-mcqs";
+import { DAY62_MCQS } from "@/components/batch1/polity/data/day62-mcqs";
+import { DAY63_MCQS } from "@/components/batch1/polity/data/day63-mcqs";
+import { DAY64_MCQS } from "@/components/batch1/polity/data/day64-mcqs";
+import { DAY65_MCQS } from "@/components/batch1/polity/data/day65-mcqs";
+import { DAY66_MCQS } from "@/components/batch1/polity/data/day66-mcqs";
+import { DAY67_MCQS } from "@/components/batch1/polity/data/day67-mcqs";
+
+export const CHAPTER_MCQS: Record<number, MCQ[]> = {
+    1: DAY1_MCQS,
+    2: DAY2_MCQS,
+    3: DAY3_MCQS,
+    4: DAY4_MCQS,
+    5: DAY5_MCQS,
+    6: DAY6_MCQS,
+    7: DAY7_MCQS,
+    8: DAY8_MCQS,
+    9: DAY9_MCQS,
+    10: DAY10_MCQS,
+    11: DAY11_MCQS,
+    12: DAY12_MCQS,
+    13: DAY13_MCQS,
+    14: DAY14_MCQS,
+    15: DAY15_MCQS,
+    16: DAY16_MCQS,
+    17: DAY17_MCQS,
+    18: DAY18_MCQS,
+    19: DAY19_MCQS,
+    20: DAY20_MCQS,
+    21: DAY21_MCQS,
+    22: DAY22_MCQS,
+    23: DAY23_MCQS,
+    24: DAY24_MCQS,
+    25: DAY25_MCQS,
+    26: DAY26_MCQS,
+    27: DAY27_MCQS,
+    28: DAY28_MCQS,
+    29: DAY29_MCQS,
+    30: DAY30_MCQS,
+    31: DAY31_MCQS,
+    32: DAY32_MCQS,
+    33: DAY33_MCQS,
+    34: DAY34_MCQS,
+    35: DAY35_MCQS,
+    36: DAY36_MCQS,
+    37: DAY37_MCQS,
+    38: DAY38_MCQS,
+    39: DAY39_MCQS,
+    40: DAY40_MCQS,
+    41: DAY41_MCQS,
+    42: DAY42_MCQS,
+    43: DAY43_MCQS,
+    44: DAY44_MCQS,
+    45: DAY45_MCQS,
+    46: DAY46_MCQS,
+    47: DAY47_MCQS,
+    48: DAY48_MCQS,
+    49: DAY49_MCQS,
+    50: DAY50_MCQS,
+    51: DAY51_MCQS,
+    52: DAY52_MCQS,
+    53: DAY53_MCQS,
+    54: DAY54_MCQS,
+    55: DAY55_MCQS,
+    56: DAY56_MCQS,
+    57: DAY57_MCQS,
+    58: DAY58_MCQS,
+    59: DAY59_MCQS,
+    60: DAY60_MCQS,
+    61: DAY61_MCQS,
+    62: DAY62_MCQS,
+    63: DAY63_MCQS,
+    64: DAY64_MCQS,
+    65: DAY65_MCQS,
+    66: DAY66_MCQS,
+    67: DAY67_MCQS,
+    68: [], // Missing data for Topic 68
+    69: [], // Missing data for Topic 69
+    70: [], // Missing data for Topic 70
+    71: [], // Missing data for Topic 71
+    72: [], // Missing data for Topic 72
+    73: [], // Missing data for Topic 73
+    74: [], // Missing data for Topic 74
+    75: [], // Missing data for Topic 75
+    76: [], // Missing data for Topic 76
+    77: [], // Missing data for Topic 77
+    78: [], // Missing data for Topic 78
+    79: [], // Missing data for Topic 79
+    80: [], // Missing data for Topic 80
+    81: [], // Missing data for Topic 81
+    82: [], // Missing data for Topic 82
+    83: [], // Missing data for Topic 83
+    84: [], // Missing data for Topic 84
+    85: [], // Missing data for Topic 85
+    86: [], // Missing data for Topic 86
+    87: [], // Missing data for Topic 87
+    88: [], // Missing data for Topic 88
+    89: [], // Missing data for Topic 89
+    90: [], // Missing data for Topic 90
+    91: [], // Missing data for Topic 91
+    92: [], // Missing data for Topic 92
+    93: [], // Missing data for Topic 93
+    94: [], // Missing data for Topic 94
+    95: [], // Missing data for Topic 95
 };
 
 export function getChapterLevels(topicId: number): FormattedChapterLevelData | undefined {
-    const rawData = CHAPTER_LEVEL_DATA[topicId];
-    if (!rawData) return undefined;
+    const questions = CHAPTER_MCQS[topicId];
+    if (!questions || questions.length === 0) return undefined;
 
-    // Map the raw data format to the expected FormattedChapterLevelData format
+    // The new standard format splits questions by difficulty_tier
+    const level1 = questions.filter(q => q.difficulty_tier === 'Level_1' || q.level === 'Easy');
+    const level2 = questions.filter(q => q.difficulty_tier === 'Level_2' || q.level === 'Moderate');
+    const level3 = questions.filter(q => q.difficulty_tier === 'Level_3' || q.level === 'Tough');
+
+    const mapToLevelQuestion = (q: MCQ): LevelQuestion => ({
+        id: q.id,
+        question: q.question,
+        options: q.options,
+        correctAnswerIndex: q.correctAnswer ?? q.correctIndex ?? 0,
+        explanation: q.explanation || "Detailed explanation available in the master solution guide."
+    });
+
     return {
         topicId,
         levels: [
@@ -206,19 +191,19 @@ export function getChapterLevels(topicId: number): FormattedChapterLevelData | u
                 levelId: 1,
                 title: "Level 1: Foundation",
                 description: "Test your fundamental understanding of this chapter's core concepts.",
-                questions: rawData.level1 || []
+                questions: level1.map(mapToLevelQuestion)
             },
             {
                 levelId: 2,
                 title: "Level 2: Advanced",
                 description: "Application-based and multi-statement questions for deeper analysis.",
-                questions: rawData.level2 || []
+                questions: level2.map(mapToLevelQuestion)
             },
             {
                 levelId: 3,
                 title: "Level 3: Master",
                 description: "UPSC standard questions with assertion-reasoning and complex matching.",
-                questions: rawData.level3 || []
+                questions: level3.map(mapToLevelQuestion)
             }
         ].filter(L => L.questions.length > 0)
     };

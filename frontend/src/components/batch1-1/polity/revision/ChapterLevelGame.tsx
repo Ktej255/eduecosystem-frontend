@@ -160,8 +160,16 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
             score: result.score,
             accuracy: result.percentage,
             timeTaken: result.totalTimeTaken,
+            totalTimeTaken: result.totalTimeTaken,
             topicBreakdown: { "Polity": { total: result.totalQuestions, correct: result.score } },
-            questionAnalysis: result.questions.map(q => ({ questionId: q.id, wasted: !q.isCorrect && q.timeSpent > 60 }))
+            questionAnalysis: result.questions.map(q => ({ questionId: q.id, wasted: !q.isCorrect && q.timeSpent > 60 })),
+            questions: result.questions.map(q => ({
+                id: q.id.toString(),
+                userAnswer: q.userAnswer?.toString() || '',
+                isCorrect: q.isCorrect,
+                timeSpent: q.timeSpent,
+                topic: 'Polity'
+            }))
         }, levelId);
 
         // Unlock next level if passed
@@ -353,18 +361,20 @@ function GameInterface({
     const progress = ((currentIndex) / totalQuestions) * 100;
 
     const handleSelect = (index: number) => {
-        if (isAnswered) return;
         setSelectedOption(index);
         setIsAnswered(true);
-        if (index === question.correctAnswerIndex) {
-            setScore(prev => prev + 1);
-        }
+        // Correct answers are evaluated on 'Next Question', not here.
     };
 
     const handleNext = () => {
         // Save question result
         const timeSpent = Math.round((Date.now() - questionStartTime) / 1000);
         const isCorrect = selectedOption === question.correctAnswerIndex;
+
+        // Standardized scoring: only evaluate on submission (Next)
+        if (isCorrect) {
+            setScore(prev => prev + 1);
+        }
 
         const result: QuestionResult = {
             id: question.id || `q${currentIndex + 1}`,
@@ -487,20 +497,17 @@ function GameInterface({
 
                     <div className="space-y-3">
                         {question.options.map((option, idx) => {
-                            let statusClass = "bg-card border-2 border-slate-100 text-muted-foreground hover:border-violet-200 hover:bg-violet-50";
                             const isSelected = selectedOption === idx;
-                            const isCorrect = idx === question.correctAnswerIndex;
 
-                            if (isAnswered) {
-                                if (isCorrect) {
-                                    statusClass = "bg-green-50 border-green-500 text-green-700 font-bold shadow-sm";
-                                } else if (isSelected) {
-                                    statusClass = "bg-red-50 border-red-500 text-red-700 opacity-60";
-                                } else {
-                                    statusClass = "bg-muted border-slate-100 text-muted-foreground opacity-50";
-                                }
-                            } else if (isSelected) {
+                            // Standardized behavior: NO immediate correct/incorrect coloring.
+                            // Only indicate selection state like the standard exam layout.
+                            let statusClass = "bg-card border-2 border-slate-100 text-muted-foreground hover:border-violet-200 hover:bg-violet-50";
+
+                            if (isSelected) {
                                 statusClass = "border-violet-600 bg-violet-50 text-violet-800 font-bold shadow-md ring-2 ring-violet-100";
+                            } else if (isAnswered) {
+                                // If answered, non-selected options just subtly fade.
+                                statusClass = "bg-card border-slate-100 text-muted-foreground opacity-70";
                             }
 
                             return (
@@ -508,20 +515,15 @@ function GameInterface({
                                     key={idx}
                                     whileTap={!isAnswered ? { scale: 0.99 } : {}}
                                     onClick={() => handleSelect(idx)}
-                                    disabled={isAnswered}
                                     className={`w-full text-left p-4 rounded-xl transition-all flex items-center gap-3 ${statusClass}`}
                                 >
                                     <div className={`
                                        w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border
-                                       ${isAnswered && isCorrect ? 'bg-green-600 border-green-600 text-white' : ''}
-                                       ${isAnswered && isSelected && !isCorrect ? 'bg-red-600 border-red-600 text-white' : ''}
-                                       ${!isAnswered ? 'bg-card border-border text-muted-foreground' : ''}
+                                       ${isSelected ? 'bg-violet-600 border-violet-600 text-white' : 'bg-card border-border text-muted-foreground'}
                                    `}>
                                         {String.fromCharCode(65 + idx)}
                                     </div>
                                     <span className="flex-1">{option}</span>
-                                    {isAnswered && isCorrect && <CheckCircle2 className="text-green-600" size={20} />}
-                                    {isAnswered && isSelected && !isCorrect && <XCircle className="text-red-600" size={20} />}
                                 </motion.button>
                             );
                         })}
