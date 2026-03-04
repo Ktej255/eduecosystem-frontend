@@ -1,731 +1,397 @@
 import type { MCQ } from './mcq-utils';
 
 export const DAY32_MCQS: MCQ[] = [
-    // TOPIC 1: BAR COUNCIL OF INDIA (15 Questions)
+    // ----------------------------------------------------------------------
+    // LEVEL 1: EASY (The Text-Book Stickler - Strictly Chapter 32)
+    // ----------------------------------------------------------------------
     {
         id: 1,
-        question: "The Bar Council of India was established under which Act?",
+        question: "Which Article of the Constitution deals with the status of the council of ministers in the states?",
         options: [
-            "The Advocates Act, 1961",
-            "The Legal Services Authorities Act, 1987",
-            "The Bar Council Act, 1955",
-            "The Indian Legal Practitioners Act, 1923"
+            "Article 163",
+            "Article 164",
+            "Article 166",
+            "Article 167"
         ],
-        correctAnswer: 0,
-        explanation: "The Bar Council of India is a statutory body established under section 4 of the Advocates Act, 1961."
+        correctAnswer: 0, // A
+        explanation: "Article 163 deals with the status of the council of ministers while Article 164 deals with the appointment, tenure, responsibility, qualifications, oath and salaries and allowances of the ministers.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Article Mapping", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 2,
-        question: "Who is the ex-officio member of the Bar Council of India?",
+        question: "According to Article 163, there shall be a Council of Ministers with the Chief Minister at the head to aid and advise the ______ in the exercise of his functions.",
         options: [
-            "The Chief Justice of India",
-            "The Attorney General of India",
-            "The Minister of Law and Justice",
-            "The Chairperson of the Law Commission"
+            "President",
+            "Governor",
+            "State Legislature",
+            "High Court"
         ],
-        correctAnswer: 1,
-        explanation: "The Attorney General of India and the Solicitor General of India are ex-officio members of the Bar Council of India."
+        correctAnswer: 1, // B
+        explanation: "Article 163: There shall be a council of ministers with the Chief Minister as the head to aid and advise the governor in the exercise of his functions.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Governor Aid and Advice", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 3,
-        question: "Which of the following is NOT a function of the Bar Council of India?",
+        question: "Does the Constitution explicitly state that the advice tendered by Ministers to the Governor shall be inquired into in any court?",
         options: [
-            "To lay down standards of professional conduct for advocates",
-            "To safeguard the rights, privileges and interests of advocates",
-            "To appoint judges to the High Courts",
-            "To promote and support law reform"
+            "Yes, in the Supreme Court only.",
+            "Yes, in any High Court.",
+            "No, the advice tendered by Ministers to the Governor shall not be inquired into in any court.",
+            "Yes, but only with the President's permission."
         ],
-        correctAnswer: 2,
-        explanation: "Appointment of judges is done by the President (Collegium system/NJAC debate), not the Bar Council. BCI regulates the legal profession."
+        correctAnswer: 2, // C
+        explanation: "Article 163 states: The question whether any, and if so what, advice was tendered by ministers to the governor shall not be inquired into in any court.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Judicial Inquiry Bar", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 4,
-        question: "The All India Bar Examination (AIBE) is conducted by:",
+        question: "Article 164 explicitly mentions that the Chief Minister shall be appointed by the Governor, and the other Ministers shall be appointed by the Governor on the advice of the:",
         options: [
-            "Union Public Service Commission",
-            "National Testing Agency",
-            "Bar Council of India",
-            "Supreme Court of India"
+            "President",
+            "Chief Justice of High Court",
+            "Speaker of Assembly",
+            "Chief Minister"
         ],
-        correctAnswer: 2,
-        explanation: "The BCI conducts the All India Bar Examination to test an advocate's ability to practice law."
+        correctAnswer: 3, // D
+        explanation: "Article 164 says that the Chief Minister shall be appointed by the governor and the other ministers shall be appointed by the governor on the advice of the Chief Minister.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Minister Appointment", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 5,
-        question: "State Bar Councils are established under:",
+        question: "In which of the following groups of states does the Constitution specifically mandate the appointment of a Minister in charge of tribal welfare?",
         options: [
-            "State Legislature Acts",
-            "The Advocates Act, 1961",
-            "Constitution of India",
-            "Executive Order of the Governor"
+            "Chhattisgarh, Jharkhand, Madhya Pradesh, and Odisha",
+            "Bihar, Uttar Pradesh, and Rajasthan",
+            "Assam, Meghalaya, and Tripura",
+            "Kerala, Tamil Nadu, and Karnataka"
         ],
-        correctAnswer: 1,
-        explanation: "Both the Bar Council of India and State Bar Councils are established under the Advocates Act, 1961."
+        correctAnswer: 0, // A
+        explanation: "In the states of Chhattisgarh, Jharkhand, Madhya Pradesh and Odisha, there shall be a minister in charge of tribal welfare who may in addition be in charge of the welfare of the scheduled castes and backward classes.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Tribal Welfare Minister", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 6,
-        question: "The 'Senior Advocate' designation is conferred by:",
+        question: "The 94th Amendment Act of 2006 freed which state from the obligation of having a minister in charge of tribal welfare?",
         options: [
-            "The President of India",
-            "The Bar Council of India",
-            "The Supreme Court or High Courts",
-            "The Ministry of Law"
+            "Madhya Pradesh",
+            "Odisha",
+            "Bihar",
+            "Jharkhand"
         ],
-        correctAnswer: 2,
-        explanation: "The Supreme Court or High Courts designate an advocate as a 'Senior Advocate' with their consent, based on ability/standing."
+        correctAnswer: 2, // C
+        explanation: "Originally, this provision was applicable to Bihar, Madhya Pradesh and Odisha. The 94th Amendment Act of 2006 freed Bihar from the obligation of having such a minister...",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "94th Amendment Act", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 7,
-        question: "Professional misconduct by an advocate is punished by:",
+        question: "According to the 91st Amendment Act of 2003, the total number of ministers, including the Chief Minister, in the council of ministers in a state shall not exceed what percentage of the total strength of the Legislative Assembly?",
         options: [
-            "The Police",
-            "The Consumer Court",
-            "The Disciplinary Committee of the State Bar Council",
-            "The High Court directly"
+            "10%",
+            "12%",
+            "15%",
+            "20%"
         ],
-        correctAnswer: 2,
-        explanation: "Disciplinary committees of State Bar Councils explicitly handle cases of misconduct, with appeal lying to the BCI and then SC."
+        correctAnswer: 2, // C
+        explanation: "The total number of ministers, including the chief minister, in the council of ministers in a state shall not exceed 15 per cent of the total strength of the legislative assembly of that state.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Maximum Strength", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 8,
-        question: "Foreign lawyers are strictly prohibited from practicing law in India. (True/False status)",
+        question: "While the maximum limit is 15%, the 91st Amendment Act also prescribed that the number of ministers, including the Chief Minister, in a state shall not be less than:",
         options: [
-            "Strictly prohibited in all forms",
-            "Allowed only for arbitration/international law on reciprocal basis (recent BCI rules)",
-            "Allowed freely in corporate firms",
-            "Allowed if registered with Home Ministry"
+            "10",
+            "12",
+            "15",
+            "7"
         ],
-        correctAnswer: 1,
-        explanation: "Recent BCI rules (2023) allow entry of foreign lawyers/firms on a reciprocal basis for foreign law advice and international commercial arbitration."
+        correctAnswer: 1, // B
+        explanation: "But, the number of ministers, including the chief minister, in a state shall not be less than 12.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Minimum Strength", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 9,
-        question: "The Chairman and Vice-Chairman of the Bar Council of India are elected by:",
+        question: "If a member of the state legislature is disqualified on the ground of defection under the Tenth Schedule, what happens to their eligibility to become a minister?",
         options: [
-            "The Members of the Council from amongst themselves",
-            "The Chief Justice of India",
-            "The Advocates of the Supreme Court directly",
-            "The Central Government"
+            "They can be appointed as a minister with Governor's special permission.",
+            "They are completely disqualified to be appointed as a minister.",
+            "They can only be appointed as a Minister of State, not Cabinet Minister.",
+            "Defection has no impact on ministerial eligibility."
         ],
-        correctAnswer: 0,
-        explanation: "The Council elects its own Chairman and Vice-Chairman for a period of 2 years."
+        correctAnswer: 1, // B
+        explanation: "A member of either House of state legislature belonging to any political party who is disqualified on the ground of defection shall also be disqualified to be appointed as a minister. (91st Amendment)",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Defection Disqualification", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 10,
-        question: "Funds for the Bar Council of India primarily come from:",
+        question: "The ministers hold office during the pleasure of the:",
         options: [
-            "Consolidated Fund of India",
-            "20% share of enrollment fees from State Bar Councils",
-            "Direct tax on law firms",
-            "Grants from the World Bank"
+            "Chief Minister",
+            "President",
+            "Governor",
+            "Speaker"
         ],
-        correctAnswer: 1,
-        explanation: "Every State Bar Council must pay 20% of total enrollment fees received by it to the BCI."
+        correctAnswer: 2, // C
+        explanation: "The ministers shall hold office during the pleasure of the governor (Article 164).",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Term of Office", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 11,
-        question: "Who has the power to recognize foreign law degrees for enrollment in India?",
+        question: "The council of ministers shall be collectively responsible to the:",
         options: [
-            "Ministry of Education",
-            "University Grants Commission (UGC)",
-            "Bar Council of India",
-            "Association of Indian Universities"
+            "Governor",
+            "State Legislative Council",
+            "State Legislative Assembly",
+            "Parliament"
         ],
-        correctAnswer: 2,
-        explanation: "BCI recognizes universities (Indian & Foreign) whose degrees in law shall be a qualification for enrollment."
+        correctAnswer: 2, // C
+        explanation: "The council of ministers shall be collectively responsible to the state Legislative Assembly.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Collective Responsibility", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 12,
-        question: "Can the BCI issue directives to State Bar Councils?",
+        question: "Before a minister enters upon his office, the Governor administers to him the oaths of office and:",
         options: [
-            "No, State Councils are autonomous",
-            "Yes, under the Advocates Act",
-            "Only with High Court permission",
-            "Only in financial matters"
+            "Allegiance",
+            "Wealth",
+            "Secrecy",
+            "Justice"
         ],
-        correctAnswer: 1,
-        explanation: "BCI exercises general supervision and control over State Bar Councils."
+        correctAnswer: 2, // C
+        explanation: "The governor shall administer the oaths of office and secrecy to a minister.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Oath", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 13,
-        question: "The Advocates Welfare Fund is constituted under:",
+        question: "A minister who for any period of six consecutive months is not a member of the state legislature:",
         options: [
-            "The Advocates Welfare Fund Act, 2001",
-            "The BCI Rules 1975",
-            "The Welfare of Lawyers Act 1990",
-            "Directive Principles"
+            "Is suspended without pay.",
+            "Must resign within the next 30 days.",
+            "Ceases to be a minister at the expiration of that period.",
+            "Can continue as a minister if the CM permits."
         ],
-        correctAnswer: 0,
-        explanation: "A specific central act, The Advocates Welfare Fund Act, 2001, governs this."
+        correctAnswer: 2, // C
+        explanation: "A minister who for any period of six consecutive months is not a member of the state legislature shall at the expiration of that period cease to be a minister.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Non-member minister", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 14,
-        question: "Does the BCI regulate legal aid?",
+        question: "Who determines the salaries and allowances of the state ministers?",
         options: [
-            "No, that is NALSA's job only",
-            "Yes, it is one of its statutory functions to organize legal aid",
-            "Only for Supreme Court cases",
-            "It funds NALSA but doesn't organize it"
+            "The Governor",
+            "The Parliament",
+            "The State Legislature",
+            "The Finance Commission"
         ],
-        correctAnswer: 1,
-        explanation: "One of the functions of BCI (S.7 of Advocates Act) is to organize legal aid to the poor."
+        correctAnswer: 2, // C
+        explanation: "The salaries and allowances of ministers shall be determined by the state legislature.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Salaries", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 15,
-        question: "The term of office of elected members of a State Bar Council is:",
+        question: "Article 166 deals with the conduct of business of the Government of a State. According to this article, all executive action of the Government of a State shall be expressed to be taken in the name of the:",
         options: [
-            "2 years",
-            "3 years",
-            "5 years",
-            "6 years"
+            "Chief Minister",
+            "Governor",
+            "Chief Secretary",
+            "President"
         ],
-        correctAnswer: 2,
-        explanation: "The term is generally 5 years."
+        correctAnswer: 1, // B
+        explanation: "Article 166: All executive action of the Government of a State shall be expressed to be taken in the name of the Governor.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Article 166", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
-
-    // TOPIC 2: COMPETITION COMMISSION OF INDIA (15 Questions)
     {
         id: 16,
-        question: "The Competition Commission of India (CCI) replaced which former body?",
+        question: "Who makes rules for the more convenient transaction of the business of the government of the state, and for the allocation among ministers of the said business?",
         options: [
-            "MRTP Commission",
-            "Company Law Board",
-            "BIFR",
-            "Fair Trade Commission"
+            "The Speaker",
+            "The Governor",
+            "The Chief Minister",
+            "The Chief Secretary"
         ],
-        correctAnswer: 0,
-        explanation: "The CCI replaced the Monopolies and Restrictive Trade Practices (MRTP) Commission."
+        correctAnswer: 1, // B
+        explanation: "The Governor shall make rules for the more convenient transaction of the business of the government of the state, and for the allocation among ministers of the said business.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Business Rules", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 17,
-        question: "The Competition Act, 2002 seeks to regulate:",
+        question: "According to Article 177, every minister has the right to speak and take part in the proceedings of the Assembly (and Council, if any), but he cannot:",
         options: [
-            "Anti-competitive agreements",
-            "Abuse of dominant position",
-            "Combinations (Mergers & Acquisitions)",
-            "All of the above"
+            "Vote in the House of which he is not a member.",
+            "Sit in the front row.",
+            "Ask questions to other ministers.",
+            "Participate in legislative committees."
         ],
-        correctAnswer: 3,
-        explanation: "The Act covers these three main pillars: Agreements, Dominance, and Combinations."
+        correctAnswer: 0, // A
+        explanation: "Article 177: Every minister shall have the right to speak and take part in the proceedings of the Assembly... but shall not be entitled to vote (in the House where he is not a member).",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Voting Rights", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 18,
-        question: "The Chairperson and members of CCI are appointed by:",
+        question: "What does the principle of 'Collective Responsibility' ultimately mean for the Council of Ministers?",
         options: [
-            "The President directly",
-            "The Central Government",
-            "The Chief Justice of India",
-            "The Ministry of Finance only"
+            "They are totally independent in their respective departments.",
+            "They are directly responsible to the Governor for their departments.",
+            "They swim and sink together. If the assembly passes a no-confidence motion, all ministers have to resign.",
+            "Only the Chief Minister is responsible for the government's failures."
         ],
-        correctAnswer: 1,
-        explanation: "Appointed by the Central Government generally on the recommendation of a Selection Committee (headed by MCA Secretary or similar, usually)."
+        correctAnswer: 2, // C
+        explanation: "The fundamental principle underlying the working of parliamentary system of government is the principle of collective responsibility... They swim and sink together.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Swim and Sink", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 19,
-        question: "What is 'Predatory Pricing' under the Competition Act?",
+        question: "If the legislative assembly passes a no-confidence motion against the council of ministers, who among the following must resign?",
         options: [
-            "Pricing below cost to eliminate competition",
-            "Pricing according to market demand",
-            "High pricing to maximize profit",
-            "Discount pricing for festivals"
+            "Only the cabinet ministers.",
+            "Only the ministers who are members of the legislative assembly.",
+            "All the ministers, including those belonging to the legislative council.",
+            "Only the Chief Minister."
         ],
-        correctAnswer: 0,
-        explanation: "Predatory pricing is the sale of goods/services at a price below the cost of production with a view to reduce competition or eliminate competitors."
+        correctAnswer: 2, // C
+        explanation: "When the legislative assembly passes a no-confidence motion against the council of ministers, all the ministers have to resign including those ministers who are from the legislative council.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Resignation Scope", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 20,
-        question: "The Competition Appellate Tribunal (COMPAT) was replaced by:",
+        question: "While the council of ministers is collectively responsible to the assembly, to whom is a minister individually responsible?",
         options: [
-            "National Company Law Appellate Tribunal (NCLAT)",
-            "High Courts",
-            "Supreme Court",
-            "Central Administrative Tribunal"
+            "The Chief Minister",
+            "The Speaker",
+            "The Governor",
+            "The People"
         ],
-        correctAnswer: 0,
-        explanation: "In 2017, COMPAT ceased to exist and its appellate functions were transferred to the NCLAT."
+        correctAnswer: 2, // C
+        explanation: "Article 164 also contains the principle of individual responsibility. It states that the ministers hold office during the pleasure of the governor.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Individual Responsibility", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 21,
-        question: "Is the CCI a constitutional body?",
+        question: "Under 'Individual Responsibility', the Governor can remove a minister at a time when the council of ministers enjoys the confidence of the legislative assembly. However, the Governor can dismiss a minister only on the advice of the:",
         options: [
-            "Yes, under Article 301",
-            "No, it is a statutory body",
-            "No, it is an executive body",
-            "Yes, under Article 323B"
+            "President",
+            "Chief Minister",
+            "Speaker",
+            "High Court"
         ],
-        correctAnswer: 1,
-        explanation: "It is a statutory body established under the Competition Act, 2002."
+        correctAnswer: 1, // B
+        explanation: "However, the governor can remove a minister only on the advice of the Chief Minister.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Removal Advice", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 22,
-        question: "The 'relevant market' definition in the Competition Act considers:",
+        question: "Is there any provision in the Constitution for the system of 'legal responsibility' of a minister in the states?",
         options: [
-            "Only relevant product market",
-            "Only relevant geographic market",
-            "Both relevant product and geographic market",
-            "Only the global market"
+            "Yes, a minister must countersign every order of the Governor.",
+            "No, there is no provision in the Constitution for the system of legal responsibility of a minister in the states.",
+            "Yes, but only for financial bills.",
+            "Yes, a minister is legally immune from all actions."
         ],
-        correctAnswer: 2,
-        explanation: "Relevant market means the market determined by the Commission with reference to the relevant product market or the relevant geographic market or with reference to both."
+        correctAnswer: 1, // B
+        explanation: "As at the Centre, there is no provision in the Constitution for the system of legal responsibility of a minister in the states... Further, the courts are barred from enquiring into the nature of advice rendered by the ministers to the governor.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "No Legal Responsibility", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 23,
-        question: "CCI has the power to impose a penalty of up to what amount on cartels?",
+        question: "The state council of ministers consists of three categories of ministers. Which of the following is NOT one of these standard categories?",
         options: [
-            "10% of turnover or 3 times profit, whichever is higher",
-            "100 Crores fixed",
-            "1% of global turnover",
-            "50% of net profit"
+            "Cabinet Ministers",
+            "Ministers of State",
+            "Deputy Ministers",
+            "Associate Ministers"
         ],
-        correctAnswer: 0,
-        explanation: "For cartels, penalty can be up to 3 times of its profit for each year of continuance of such agreement or 10% of its turnover for each year of continuance of such agreement, whichever is higher."
+        correctAnswer: 3, // D
+        explanation: "The council of ministers consists of three categories of ministers, namely, cabinet ministers, ministers of state, and deputy ministers.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Categories of Ministers", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 24,
-        question: "The term of office for the Chairperson of CCI is:",
+        question: "Which category of ministers heads the important departments of the state government like home, education, finance, agriculture and so on?",
         options: [
-            "5 years or age of 65 years",
-            "3 years or age of 65 years",
-            "5 years or age of 70 years",
-            "4 years fixed"
+            "Ministers of State",
+            "Deputy Ministers",
+            "Cabinet Ministers",
+            "Parliamentary Secretaries"
         ],
-        correctAnswer: 0,
-        explanation: "Currently 5 years or until the age of 65 years, whichever is earlier."
+        correctAnswer: 2, // C
+        explanation: "The cabinet ministers head the important departments of the state government like home, education, finance, agriculture and so on.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Cabinet Ministers", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 25,
-        question: "Does the Competition Act apply to Government Departments?",
+        question: "Which body actually attends meetings and plays a crucial role in deciding policies within the state government?",
         options: [
-            "No, strict sovereign immunity",
-            "Yes, if they are engaged in any activity related to production/storage/supply/distribution",
-            "Only to PSUs, not Depts",
-            "Only if they make a profit"
+            "The entire Council of Ministers",
+            "Only the Cabinet",
+            "Only the Ministers of State",
+            "Only the Deputy Ministers"
         ],
-        correctAnswer: 1,
-        explanation: "The definition of 'enterprise' includes government departments engaged in economic activities, excluding sovereign functions (like atomic energy, defence, space)."
+        correctAnswer: 1, // B
+        explanation: "They (Cabinet ministers) are members of the cabinet, attend its meetings and play an important role in deciding policies... Thus, cabinet is the real centre of power in the state government.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Cabinet Function", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 26,
-        question: "The principle of 'Leniency Programme' in Competition Law refers to:",
+        question: "Ministers of state can either be given independent charge of departments or can be attached to:",
         options: [
-            "Reduced penalty for whistleblowers in a cartel",
-            "Forgiving small companies",
-            "Delaying prosecution",
-            "Exempting agricultural sector"
+            "Deputy Ministers",
+            "The Governor",
+            "Cabinet Ministers",
+            "The Speaker"
         ],
-        correctAnswer: 0,
-        explanation: "Under lesser penalty regulations (Leniency), a member of a cartel who discloses information can get a reduced penalty."
+        correctAnswer: 2, // C
+        explanation: "The ministers of state can either be given independent charge of departments or can be attached to cabinet ministers.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Ministers of State", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 27,
-        question: "Which committee recommended the enactment of the Competition Act, 2002?",
+        question: "Are Ministers of State members of the Cabinet?",
         options: [
-            "Raghuram Rajan Committee",
-            "Raghavan Committee",
-            "Narasimham Committee",
-            "Dutt Committee"
+            "Yes, always.",
+            "No, they are not members of the cabinet and do not attend the cabinet meetings unless specially invited.",
+            "They are members, but without voting rights.",
+            "They are members only during emergencies."
         ],
-        correctAnswer: 1,
-        explanation: "The High Level Committee on Competition Policy and Law was headed by S.V.S. Raghavan."
+        correctAnswer: 1, // B
+        explanation: "They (Ministers of State) are not members of the cabinet and do not attend the cabinet meetings unless specially invited...",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "MoS Cabinet Membership", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 28,
-        question: "A 'combination' (M&A) needs CCI approval if:",
+        question: "Deputy ministers are given independent charge of departments. True or False?",
         options: [
-            "It crosses certain asset/turnover thresholds",
-            "It involves any foreign company",
-            "It is in the tech sector",
-            "The government refers it"
+            "True",
+            "False",
+            "Partially True",
+            "Cannot be determined"
         ],
-        correctAnswer: 0,
-        explanation: "Combinations are regulated based on asset and turnover thresholds specified in the Act."
+        correctAnswer: 1, // B
+        explanation: "False. Next in rank are the deputy ministers. They are not given independent charge of departments. They are attached to the cabinet ministers...",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Deputy Ministers", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 29,
-        question: "Does CCI have suo motu powers?",
+        question: "Sometimes, the council of ministers may also include a 'Deputy Chief Minister'. The Deputy Chief Ministers are usually appointed for what primary reason?",
         options: [
-            "No, it needs a complaint",
-            "Yes, it can initiate inquiry on its own knowledge",
-            "Yes, but only with Supreme Court permission",
-            "No, only on government reference"
+            "Constitutional requirement under Article 164.",
+            "Local political reasons.",
+            "To assist the Governor in administrative matters.",
+            "To substitute the Chief Secretary."
         ],
-        correctAnswer: 1,
-        explanation: "CCI can inquire into alleged contraventions on its own motion (suo motu), on receipt of information, or on reference."
+        correctAnswer: 1, // B
+        explanation: "At times, the council of ministers may also include a deputy chief minister. The deputy chief ministers are appointed mostly for local political reasons.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Deputy CM Purpose", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     },
     {
         id: 30,
-        question: "Who represents the CCI in courts?",
+        question: "The 'Cabinet' is a smaller body consisting of only the cabinet ministers and is the highest decision-making authority in the politico-administrative system of a state. True or False?",
         options: [
-            "Director General (Investigation)",
-            "Secretary of CCI",
-            "Attorney General",
-            "Standing Counsel"
+            "True",
+            "False",
+            "Partially True",
+            "Cannot be determined"
         ],
-        correctAnswer: 0,
-        explanation: "The Director General (DG) assists the CCI in investigating contraventions, but the Commission itself issues orders."
-    },
-
-    // TOPIC 3: ROLE OF REGIONAL PARTIES (15 Questions)
-    {
-        id: 31,
-        question: "What defines a 'Regional Party' in the Indian context?",
-        options: [
-            "It is restricted to a specific region/state and prioritizes local interests",
-            "It is banned from national elections",
-            "It has less than 100 members",
-            "It follows a communist ideology"
-        ],
-        correctAnswer: 0,
-        explanation: "Regional parties operate within a limited area and articulate regional/local interests."
-    },
-    {
-        id: 32,
-        question: "Regional parties are eligible for recognition as 'State Parties' if they secure:",
-        options: [
-            "10% of votes in LS",
-            "6% of valid votes in the State + 2 Assembly Seats",
-            "20% of votes in Panchayat elections",
-            "Any 1 seat in Lok Sabha"
-        ],
-        correctAnswer: 1,
-        explanation: "One criteria is: Secure 6% of valid votes polled in the State at a general election to the Legislative Assembly AND win at least 2 seats."
-    },
-    {
-        id: 33,
-        question: "The rise of regional parties post-1967 is attributed to:",
-        options: [
-            "Decline of Congress dominance",
-            "Rise of regional aspirations",
-            "Success of coalition politics",
-            "All of the above"
-        ],
-        correctAnswer: 3,
-        explanation: "All these factors contributed to the proliferation of regional parties."
-    },
-    {
-        id: 34,
-        question: "Which of the following is NOT a feature of regional parties?",
-        options: [
-            "Regional identity is key",
-            "Normally focus on Local/State issues",
-            "Ideologically always aligned with the Left",
-            "Limited electoral base"
-        ],
-        correctAnswer: 2,
-        explanation: "Regional parties can have various ideologies (Dravidian, ethno-centric, secular, right-wing, etc.), not just Left."
-    },
-    {
-        id: 35,
-        question: "Regional parties have strengthened Indian Federalism by:",
-        options: [
-            "Demanding more autonomy for states",
-            "Checking the monopoly of the Centre",
-            "Bringing local issues to Parliament",
-            "All of the above"
-        ],
-        correctAnswer: 3,
-        explanation: "They have played a crucial role in deepening federalism and decentralization."
-    },
-    {
-        id: 36,
-        question: "Which was the first regional party to form a government in a state on its own?",
-        options: [
-            "DMK in Tamil Nadu",
-            "TDP in Andhra Pradesh",
-            "Akali Dal in Punjab",
-            "National Conference in J&K"
-        ],
-        correctAnswer: 0,
-        explanation: "DMK (Dravida Munnetra Kazhagam) formed the government in Madras State (TN) in 1967, marking a shift."
-    },
-    {
-        id: 37,
-        question: "A recognized State Party gets the privilege of:",
-        options: [
-            "Exclusive allotted symbol in that state",
-            "Free airtime on Doordarshan/AIR",
-            "Requires only 1 proposer for nomination",
-            "All of the above"
-        ],
-        correctAnswer: 3,
-        explanation: "Recognition brings symbol reservation, broadcast time, and easier nomination rules."
-    },
-    {
-        id: 38,
-        question: "Which scholar described Indian politics as 'federalized' due to regional parties?",
-        options: [
-            "Rajni Kothari",
-            "Paul Brass",
-            "Yogendra Yadav",
-            "Christophe Jaffrelot"
-        ],
-        correctAnswer: 2,
-        explanation: "Scholars like Yogendra Yadav have analyzed the 'third electoral system' and federalization of politics."
-    },
-    {
-        id: 39,
-        question: "Can a Regional Party become a National Party?",
-        options: [
-            "No, never",
-            "Yes, if it meets ECI criteria across 4 states",
-            "Only if it merges with Congress or BJP",
-            "Only by Supreme Court order"
-        ],
-        correctAnswer: 1,
-        explanation: "Yes, parties like AAP, BSP, etc., started regionally and achieved National status (though status changes based on performance)."
-    },
-    {
-        id: 40,
-        question: "Regional parties often focus on which type of mobilization?",
-        options: [
-            "International relations",
-            "Caste, Language, or Ethnic identity",
-            "Space exploration",
-            "Global trade"
-        ],
-        correctAnswer: 1,
-        explanation: "Identity politics (Linguistic, Caste, Tribal) is a common mobilization tool."
-    },
-    {
-        id: 41,
-        question: "The 'United Front' (1996) government was largely a coalition of:",
-        options: [
-            "Congress and BJP",
-            "Regional Parties supported by Congress",
-            "Communist Parties only",
-            "Military leaders"
-        ],
-        correctAnswer: 1,
-        explanation: "It was a coalition of 13 parties, mostly regional (TDP, DMK, AGP etc.), supported by Congress from outside."
-    },
-    {
-        id: 42,
-        question: "Regional parties play a 'Kingmaker' role in:",
-        options: [
-            "Presidential Systems",
-            "Coalition Governments at the Centre",
-            "Unitary States",
-            "Local Municipalities only"
-        ],
-        correctAnswer: 1,
-        explanation: "In hung parliaments, their support is crucial for forming the central government."
-    },
-    {
-        id: 43,
-        question: "Which article allows restrictions on regionalism in the interest of 'integrity of India'?",
-        options: [
-            "Article 19(2)",
-            "Article 370",
-            "Article 14",
-            "Article 25"
-        ],
-        correctAnswer: 0,
-        explanation: "Reasonable restrictions on Freedom of Speech/Assembly/Association can be imposed for sovereignty and integrity of India (16th Amendment)."
-    },
-    {
-        id: 44,
-        question: "The trend of 'Regionalisation of National Parties' refers to:",
-        options: [
-            "National parties forming state units with autonomy",
-            "National parties shutting down",
-            "National parties ignoring states",
-            "Regional parties becoming national"
-        ],
-        correctAnswer: 0,
-        explanation: "National parties adapting to local realities and giving autonomy to state units to compete with regional forces."
-    },
-    {
-        id: 45,
-        question: "Which movement largely birthed the AGP (Asom Gana Parishad)?",
-        options: [
-            "Naxalite Movement",
-            "Assam Agitation (Anti-foreigners movement)",
-            "Environment movement",
-            "Dravidian movement"
-        ],
-        correctAnswer: 1,
-        explanation: "AGP was born out of the 6-year long Assam Agitation led by AASU against illegal immigration."
-    },
-
-    // TOPIC 4: ELECTIONS (15 Questions)
-    {
-        id: 46,
-        question: "Which Part of the Constitution deals with Elections?",
-        options: [
-            "Part XIV",
-            "Part XV",
-            "Part XVI",
-            "Part XVII"
-        ],
-        correctAnswer: 1,
-        explanation: "Part XV (Articles 324-329) deals with Elections."
-    },
-    {
-        id: 47,
-        question: "Article 324 vests the power of superintendence, direction, and control of elections in:",
-        options: [
-            "Parliament",
-            "Supreme Court",
-            "Election Commission of India",
-            "President"
-        ],
-        correctAnswer: 2,
-        explanation: "Article 324 creates the ECI."
-    },
-    {
-        id: 48,
-        question: "The Election Commission conducts elections for:",
-        options: [
-            "Parliament and State Legislatures only",
-            "Parliament, State Legislatures, President, and Vice President",
-            "Panchayats and Municipalities also",
-            "Only Lok Sabha"
-        ],
-        correctAnswer: 1,
-        explanation: "ECI is responsible for Parliament, State Legislatures, President, and VP. Local bodies are managed by State Election Commissions."
-    },
-    {
-        id: 49,
-        question: "Article 326 guarantees:",
-        options: [
-            "Reservation for SC/STs",
-            "Universal Adult Suffrage",
-            "Right to property",
-            "Powers of ECI"
-        ],
-        correctAnswer: 1,
-        explanation: "Article 326 states that elections to LS and Assemblies shall be on the basis of adult suffrage (18+ years)."
-    },
-    {
-        id: 50,
-        question: "Who prepares the electoral rolls for Parliament elections?",
-        options: [
-            "Census Commissioner",
-            "Election Commission of India",
-            "Delimitation Commission",
-            "State Government"
-        ],
-        correctAnswer: 1,
-        explanation: "Preparation of electoral rolls is under the superintendence of ECI (Art 324)."
-    },
-    {
-        id: 51,
-        question: "The 'Model Code of Conduct' comes into force:",
-        options: [
-            "Immediately on announcement of election schedule by ECI",
-            "From the date of notification by President",
-            "From the last date of nomination",
-            "Only on polling day"
-        ],
-        correctAnswer: 0,
-        explanation: "It applies from the moment the ECI announces the election schedule."
-    },
-    {
-        id: 52,
-        question: "Which Act deals with the preparation of electoral rolls and qualification of voters?",
-        options: [
-            "Representation of the People Act, 1950",
-            "Representation of the People Act, 1951",
-            "Presidential and Vice-Presidential Elections Act, 1952",
-            "Delimitation Act, 2002"
-        ],
-        correctAnswer: 0,
-        explanation: "RPA 1950 deals with allocation of seats, delimitation, and preparation of electoral rolls. RPA 1951 deals with conduct of elections."
-    },
-    {
-        id: 53,
-        question: "Article 329 bars the interference of courts in:",
-        options: [
-            "Election expenses",
-            "Electoral disputes",
-            "Electoral matters like delimitation of constituencies",
-            "Model Code violations"
-        ],
-        correctAnswer: 2,
-        explanation: "Art 329(a): Validity of any law relating to delimitation or allotment of seats cannot be questioned in any court."
-    },
-    {
-        id: 54,
-        question: "An election petition calling in question an election to Parliament is presented to:",
-        options: [
-            "Election Commission",
-            "Supreme Court directly",
-            "The High Court",
-            "District Court"
-        ],
-        correctAnswer: 2,
-        explanation: "Election petitions are heard by the High Court (RPA 1951)."
-    },
-    {
-        id: 55,
-        question: "The 'First-Past-The-Post' system is used for:",
-        options: [
-            "Presidential Election",
-            "Rajya Sabha Election",
-            "Lok Sabha Election",
-            "Vice-Presidential Election"
-        ],
-        correctAnswer: 2,
-        explanation: "Lok Sabha and Assembly elections use FPTP. President/RS use Proportional Representation."
-    },
-    {
-        id: 56,
-        question: "Right to Vote in India is a:",
-        options: [
-            "Fundamental Right",
-            "Natural Right",
-            "Constitutional Right / Statutory Right",
-            "Human Right"
-        ],
-        correctAnswer: 2,
-        explanation: "Often debated. UPSC key has called it a Constitutional Right (Art 326) or Statutory Right (RPA). It is NOT a Fundamental Right."
-    },
-    {
-        id: 57,
-        question: "Who has the power to make provisions with respect to elections to Legislatures?",
-        options: [
-            "Election Commission",
-            "Parliament",
-            "President",
-            "Supreme Court"
-        ],
-        correctAnswer: 1,
-        explanation: "Article 327 empowers Parliament to make laws relating to all matters concerning elections."
-    },
-    {
-        id: 58,
-        question: "The provision for 'NOTA' (None Of The Above) was introduced following which judgment?",
-        options: [
-            "Lily Thomas case",
-            "PUCL v. Union of India (2013)",
-            "ADR v. Union of India",
-            "Indra Sawhney case"
-        ],
-        correctAnswer: 1,
-        explanation: "The SC judgment in PUCL v. UOI (2013) directed ECI to provide the NOTA option."
-    },
-    {
-        id: 59,
-        question: "VVPAT stands for:",
-        options: [
-            "Voter Verdifiable Paper Audit Trail",
-            "Voter Verified Paper Audit Trail",
-            "Voting Verification Paper Account Trail",
-            "Valid Vote Paper Audit Trail"
-        ],
-        correctAnswer: 1,
-        explanation: "Voter Verified Paper Audit Trail."
-    },
-    {
-        id: 60,
-        question: "Is there a ceiling on election expenditure for political parties?",
-        options: [
-            "Yes, same as candidates",
-            "Yes, 100 Crores",
-            "No, there is no ceiling",
-            "Yes, decided by ECI every year"
-        ],
-        correctAnswer: 2,
-        explanation: "Under RPA 1951, there is a ceiling on candidate expenditure, but NO ceiling on election expenditure by political parties."
+        correctAnswer: 0, // A
+        explanation: "True. It is a smaller body consisting of cabinet ministers... It is the highest decision-making authority in the politico-administrative system of a state.",
+        level: "Easy", topic: "State Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Cabinet Definition", source_mapping: { book: "M. Laxmikanth", chapter: "State Council of Ministers" }
     }
 ];

@@ -1,294 +1,397 @@
-
-export interface MCQ {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation?: string;
-    level?: string;
-    topic?: string;
-    chapter?: string;
-    subtopic?: string;
-}
+import type { MCQ } from './mcq-utils';
 
 export const DAY23_MCQS: MCQ[] = [
-    // ==========================================
-    // NHRC (30 Questions)
-    // ==========================================
+    // ----------------------------------------------------------------------
+    // LEVEL 1: EASY (The Text-Book Stickler - Strictly Chapter 23)
+    // ----------------------------------------------------------------------
     {
         id: 1,
-        question: "NHRC was established under which Act?",
-        options: ["Protection of Human Rights Act, 1993", "Human Rights Commission Act, 1991", "Constitution of India", "NHRC Act, 1995"],
-        correctAnswer: 0,
-        explanation: "Protection of Human Rights Act, 1993.",
-        subtopic: "56.1"
+        question: "What is a Parliamentary Committee?",
+        options: [
+            "Any committee comprising members of Parliament.",
+            "A committee that is appointed or elected by the House or nominated by the Speaker/Chairman.",
+            "A committee that works closely with the President.",
+            "A committee formed by the ruling party."
+        ],
+        correctAnswer: 1, // B
+        explanation: "A parliamentary committee means a committee that... Is appointed or elected by the House or nominated by the Speaker / Chairman... Works under the direction of the Speaker / Chairman... Presents its report to the House or to the Speaker / Chairman... Has a secretariat provided by the Lok Sabha / Rajya Sabha.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Definition", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 2,
-        question: "Status of NHRC?",
-        options: ["Constitutional Body", "Statutory Body", "Executive Body", "NGO"],
-        correctAnswer: 1,
-        explanation: "Statutory Body.",
-        subtopic: "56.1"
+        question: "Under whose direction does a Parliamentary Committee work?",
+        options: [
+            "The Prime Minister",
+            "The President of India",
+            "The Speaker / Chairman of the House",
+            "The Chief Justice of India"
+        ],
+        correctAnswer: 2, // C
+        explanation: "A parliamentary committee... Works under the direction of the Speaker / Chairman.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 3,
-        question: "Chairman of NHRC is appointed by President on recommendation of committee headed by:",
-        options: ["Home Minister", "President", "Prime Minister", "CJI"],
-        correctAnswer: 2,
-        explanation: "Prime Minister.",
-        subtopic: "56.1"
+        question: "What are the two broad classifications of Parliamentary Committees?",
+        options: [
+            "Standing Committees and Ad Hoc Committees",
+            "Financial Committees and Administrative Committees",
+            "Lok Sabha Committees and Rajya Sabha Committees",
+            "Statutory Committees and Non-Statutory Committees"
+        ],
+        correctAnswer: 0, // A
+        explanation: "Broadly, parliamentary committees are of two kinds—Standing Committees and Ad Hoc Committees. The former are permanent... The latter are temporary...",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 4,
-        question: "Which of the following is NOT a member of NHRC Selection Committee?",
-        options: ["Speaker of Lok Sabha", "Deputy Chairman of Rajya Sabha", "Leader of Opposition in Rajya Sabha", "Chairman of Rajya Sabha"],
-        correctAnswer: 3,
-        explanation: "Chairman of Rajya Sabha (VP) is NOT a member. Deputy Chairman is.",
-        subtopic: "56.1"
+        question: "Which of the following describes Standing Committees?",
+        options: [
+            "They are temporary and cease to exist after completing their task.",
+            "They are appointed by the President during emergencies.",
+            "They are permanent (constituted every year or periodically) and work on a continuous basis.",
+            "They are composed only of Ministers."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The former [Standing Committees] are permanent (constituted every year or periodically) and work on a continuous basis.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 5,
-        question: "Tenure of NHRC Chairman/Members (2019 Amendment)?",
-        options: ["5 years / 70 age", "3 years / 70 age", "5 years / 65 age", "6 years / 65 age"],
-        correctAnswer: 1,
-        explanation: "3 years or 70 years of age.",
-        subtopic: "56.1"
+        question: "Which category do the Public Accounts Committee, Estimates Committee, and Committee on Public Undertakings fall under?",
+        options: [
+            "Ad hoc Committees",
+            "Financial Committees",
+            "Departmental Standing Committees",
+            "Committees to Inquire"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Financial Committees (a) Public Accounts Committee (b) Estimates Committee (c) Committee on Public Undertakings",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Classification", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 6,
-        question: "Who can be the Chairman of NHRC (post-2019)?",
-        options: ["Only Retired CJI", "Retired CJI or Retired SC Judge", "Serving CJI", "Any High Court CJ"],
-        correctAnswer: 1,
-        explanation: "Retired Chief Justice of India OR a Judge of the Supreme Court.",
-        subtopic: "56.1"
+        question: "When was the Public Accounts Committee first set up?",
+        options: [
+            "1919",
+            "1921",
+            "1947",
+            "1950"
+        ],
+        correctAnswer: 1, // B
+        explanation: "This committee was set up first in 1921 under the provisions of the Government of India Act of 1919 and has since been in existence.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 7,
-        question: "Can NHRC punish violators of human rights?",
-        options: ["Yes", "No", "Only fine", "Only imprisonment"],
-        correctAnswer: 1,
-        explanation: "No. It has no power to punish. It can only recommend.",
-        subtopic: "56.2"
+        question: "What is the total membership of the Public Accounts Committee presently?",
+        options: [
+            "15 members",
+            "20 members",
+            "22 members",
+            "30 members"
+        ],
+        correctAnswer: 2, // C
+        explanation: "At present, it consists of 22 members (15 from the Lok Sabha and 7 from the Rajya Sabha).",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Composition", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 8,
-        question: "Who removes the Chairman of NHRC?",
-        options: ["President", "PM", "Parliament", "Supreme Court"],
-        correctAnswer: 0,
-        explanation: "President (after SC inquiry in cases of misbehavior).",
-        subtopic: "56.1"
+        question: "How are the members of the Public Accounts Committee elected?",
+        options: [
+            "Nominated by the President",
+            "Elected by the Parliament entirely from the ruling party",
+            "Elected by the Parliament every year from amongst its members according to the principle of proportional representation by means of the single transferable vote",
+            "Directly elected by the public"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The members are elected by the Parliament every year from amongst its members according to the principle of proportional representation by means of the single transferable vote.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Election Method", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 9,
-        question: "NHRC annual report is submitted to:",
-        options: ["Central Govt", "President", "Parliament", "SC"],
-        correctAnswer: 0,
-        explanation: "Central Government (and State Govt concerned), which lays it before Parliament.",
-        subtopic: "56.2"
+        question: "Can a minister be elected as a member of the Public Accounts Committee?",
+        options: [
+            "Yes, invariably",
+            "Yes, if nominated by the Speaker",
+            "No",
+            "Only the Finance Minister"
+        ],
+        correctAnswer: 2, // C
+        explanation: "A minister cannot be elected as a member of the committee.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Membership Rules", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 10,
-        question: "Limitation period for NHRC to inquire into incidents?",
-        options: ["6 months", "1 year", "2 years", "No limit"],
-        correctAnswer: 1,
-        explanation: "One year from the date on which the act constituting violation of human rights is alleged to have been committed.",
-        subtopic: "56.2"
+        question: "Since 1967, what convention has developed regarding the chairman of the Public Accounts Committee?",
+        options: [
+            "The chairman is always the Speaker of the Lok Sabha.",
+            "The chairman is selected invariably from the ruling party.",
+            "The chairman is selected invariably from the Opposition.",
+            "The oldest member of the committee becomes the chairman."
+        ],
+        correctAnswer: 2, // C
+        explanation: "However, since 1967 a convention has developed whereby the chairman of the committee is selected invariably from the Opposition.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Convention", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 11,
-        question: "Is NHRC eligible for reappointment?",
-        options: ["Yes", "No", "Only Chairman", "Only Members"],
-        correctAnswer: 0,
-        explanation: "Yes, eligible for re-appointment (subject to age limit).",
-        subtopic: "56.1"
+        question: "What is the primary function of the Public Accounts Committee?",
+        options: [
+            "To draft the union budget.",
+            "To examine the annual audit reports of the Comptroller and Auditor General of India (CAG).",
+            "To decide the allocation of funds to state governments.",
+            "To appoint the Finance Commission."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The function of the committee is to examine the annual audit reports of the Comptroller and Auditor General of India (CAG), which are laid before the Parliament by the President.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Function", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 12,
-        question: "Ex-officio members of NHRC include Chairpersons of:",
-        options: ["NCSC, NCST, NCBC, NCW", "UPSC, ECI", "NITI Aayog", "Finance Commission"],
-        correctAnswer: 0,
-        explanation: "NCSC, NCST, NCBC, National Commission for Women, Minorities, Child Rights, and Persons with Disabilities (Chief Commissioner).",
-        subtopic: "56.1"
+        question: "Who acts as a 'guide, friend and philosopher' to the Public Accounts Committee?",
+        options: [
+            "The Prime Minister",
+            "The Speaker of the Lok Sabha",
+            "The Comptroller and Auditor General of India (CAG)",
+            "The Finance Secretary"
+        ],
+        correctAnswer: 2, // C
+        explanation: "In the fulfillment of the above functions, the committee is assisted by the CAG. In fact, the CAG acts as a guide, friend and philosopher of the committee.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 13,
-        question: "Headquarters of NHRC?",
-        options: ["Mumbai", "Delhi", "Kolkata", "Chennai"],
-        correctAnswer: 1,
-        explanation: "Delhi.",
-        subtopic: "56.1"
+        question: "When was the first Estimates Committee in the post-independence era constituted?",
+        options: [
+            "1947",
+            "1950",
+            "1952",
+            "1956"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The origin of this committee can be traced to the standing financial committee set up in 1921. The first Estimates Committee in the post-independence era was constituted in 1950 on the recommendation of John Mathai, the then finance minister.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "History", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 14,
-        question: "Does NHRC investigations have powers of Civil Court?",
-        options: ["Yes", "No", "Criminal Court", "High Court"],
-        correctAnswer: 0,
-        explanation: "Yes, under Code of Civil Procedure, 1908.",
-        subtopic: "56.2"
+        question: "What is the membership strength of the Estimates Committee?",
+        options: [
+            "22 members (15 from LS and 7 from RS)",
+            "30 members (all from Lok Sabha)",
+            "45 members (30 from LS and 15 from RS)",
+            "15 members (all from Rajya Sabha)"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Originally, it had 25 members but in 1956 its membership was raised to 30. All the thirty members are from Lok Sabha only. The Rajya Sabha has no representation in this committee.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Composition", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 15,
-        question: "Can NHRC investigate cases pending before a court?",
-        options: ["Yes", "No, unless court approves", "Always", "Never"],
-        correctAnswer: 1,
-        explanation: "It cannot inquire into any matter pending before a State Commission or any other Commission duly constituted. For court cases, it needs court approval/permission.",
-        subtopic: "56.2"
+        question: "From which House are the members of the Estimates Committee drawn?",
+        options: [
+            "Lok Sabha only",
+            "Rajya Sabha only",
+            "Both Lok Sabha and Rajya Sabha",
+            "Nominated by the President"
+        ],
+        correctAnswer: 0, // A
+        explanation: "All the thirty members are from Lok Sabha only. The Rajya Sabha has no representation in this committee.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Composition", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 16,
-        question: "Role of NHRC regarding Armed Forces?",
-        options: ["Full power", "No power", "Limited power (seek report)", "Can arrest"],
-        correctAnswer: 2,
-        explanation: "Limited role. Can only seek report from Central Govt.",
-        subtopic: "56.2"
+        question: "Who appoints the chairman of the Estimates Committee?",
+        options: [
+            "The Prime Minister",
+            "The President",
+            "The Speaker",
+            "The Chairman of Rajya Sabha"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The chairman of the committee is appointed by the Speaker from amongst its members...",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 17,
-        question: "Grounds for removal of NHRC member?",
-        options: ["Insolvency", "Unsound mind", "Conviction", "All of above"],
-        correctAnswer: 3,
-        explanation: "All of the above (plus Misbehavior/Incapacity via SC inquiry).",
-        subtopic: "56.1"
+        question: "What is the primary function of the Estimates Committee?",
+        options: [
+            "To audit government accounts post-expenditure.",
+            "To suggest 'economies' in public expenditure by examining the estimates included in the budget.",
+            "To approve or reject the annual budget.",
+            "To investigate administrative corruption."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The function of the committee is to examine the estimates included in the budget and suggest ‘economies’ in public expenditure.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Function", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 18,
-        question: "Who is the 'Chief Commissioner for Persons with Disabilities' in NHRC context?",
-        options: ["Ex-officio member", "Full time member", "Secretary", "Observer"],
-        correctAnswer: 0,
-        explanation: "Ex-officio member (Added by 2019 Amendment).",
-        subtopic: "56.1"
+        question: "On whose recommendation was the Committee on Public Undertakings created in 1964?",
+        options: [
+            "Santhanam Committee",
+            "Krishna Menon Committee",
+            "John Mathai Committee",
+            "Mandal Commission"
+        ],
+        correctAnswer: 1, // B
+        explanation: "This committee was created in 1964 on the recommendation of the Krishna Menon Committee.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "History", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 19,
-        question: "Salary of NHRC members decided by?",
-        options: ["Central Govt", "President", "Parliament", "Consolidated Fund"],
-        correctAnswer: 0,
-        explanation: "Central Government.",
-        subtopic: "56.1"
+        question: "What is the current membership of the Committee on Public Undertakings?",
+        options: [
+            "15 members (10 LS, 5 RS)",
+            "22 members (15 LS, 7 RS)",
+            "30 members (all LS)",
+            "45 members"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Originally, it had 15 members (10 from the Lok Sabha and 5 from the Rajya Sabha). However, in 1974, its membership was raised to 22 (15 from the Lok Sabha and 7 from the Rajya Sabha).",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Composition", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
         id: 20,
-        question: "Can NHRC take suo motu cognizance?",
-        options: ["Yes", "No", "Only on application", "Only with SC order"],
-        correctAnswer: 0,
-        explanation: "Yes, it can take suo motu cognizance.",
-        subtopic: "56.2"
-    },
-    { id: 21, question: "Secretary General of NHRC is an officer of rank?", options: ["Secretary to GoI", "Joint Secretary", "Director", "Superintendent"], correctAnswer: 0, subtopic: "56.1" },
-    { id: 22, question: "Human Rights Courts set up under?", options: ["Section 30 of Act", "Constitution", "CrPC", "IPC"], correctAnswer: 0, subtopic: "56.3" },
-    { id: 23, question: "Paris Principles relate to?", options: ["Human Rights Institutions", "Climate Change", "Trade", "Labor"], correctAnswer: 0, subtopic: "56.1" },
-    { id: 24, question: "Does NHRC grant compensation?", options: ["No, recommends", "Yes", "To limited extent", "From own fund"], correctAnswer: 0, subtopic: "56.2" },
-    { id: 25, question: "Who appoints Special Public Prosecutor for Human Rights Court?", options: ["State Govt", "Central Govt", "NHRC", "HC"], correctAnswer: 0, subtopic: "56.3" },
-    { id: 26, question: "Total full-time members in NHRC (excluding Chairman)?", options: ["5", "4", "2", "3"], correctAnswer: 0, subtopic: "56.1" }, // 5 members (1 judicial SC/CJ HC, 1 CJ HC, 3 knowledge/exp including 1 woman)
-    { id: 27, question: "First Chairman of NHRC?", options: ["Ranganath Misra", "M.N. Venkatachaliah", "J.S. Verma", "A.S. Anand"], correctAnswer: 0, subtopic: "56.1" },
-    { id: 28, question: "Can NHRC visit jails?", options: ["Yes", "No", "With permission", "Only Central Jails"], correctAnswer: 0, subtopic: "56.2" },
-    { id: 29, question: "Are NHRC members eligible for further govt employment?", options: ["No", "Yes", "State only", "PSU only"], correctAnswer: 0, subtopic: "56.1" }, // Act says ineligible for further employment under Govt of India or State.
-    { id: 30, question: "NHRC established in which year?", options: ["1993", "1992", "1990", "1995"], correctAnswer: 0, subtopic: "56.1" },
-
-    // ==========================================
-    // SHRC (30 Questions)
-    // ==========================================
-    {
-        id: 31,
-        question: "SHRC Chairman appointed by:",
-        options: ["Governor", "President", "CM", "CJI"],
-        correctAnswer: 0,
-        explanation: "Governor.",
-        subtopic: "57.1"
+        question: "From which House can the chairman of the Committee on Public Undertakings be appointed?",
+        options: [
+            "Only from the Lok Sabha",
+            "Only from the Rajya Sabha",
+            "From either House",
+            "They are usually an outside expert"
+        ],
+        correctAnswer: 0, // A
+        explanation: "The chairman of the committee is appointed by the Speaker from amongst its members who are drawn from the Lok Sabha only. Thus, the members of the committee who are from the Rajya Sabha cannot be appointed as the chairman.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
-        id: 32,
-        question: "Who removes SHRC Chairman?",
-        options: ["President", "Governor", "CM", "Parliament"],
-        correctAnswer: 0,
-        explanation: "President (Not Governor).",
-        subtopic: "57.1"
+        id: 21,
+        question: "Can the Committee on Public Undertakings examine matters of major government policy as distinct from business or commercial functions of the public undertakings?",
+        options: [
+            "Yes, absolutely.",
+            "No, the committee is not to examine and investigate... matters of major government policy as distinct from business or commercial functions of the public undertakings.",
+            "Yes, if directed by the President.",
+            "Yes, but only for navratna companies."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The committee is not to examine and investigate any of the following: (i) matters of major government policy as distinct from business or commercial functions of the public undertakings...",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Limitation", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
-        id: 33,
-        question: "State Human Rights Commission deals with violations in:",
-        options: ["List II & III", "List I only", "List I, II & III", "List II only"],
-        correctAnswer: 0,
-        explanation: "List II (State List) and List III (Concurrent List).",
-        subtopic: "57.2"
+        id: 22,
+        question: "When was the system of Departmental Standing Committees (DSCs) instituted?",
+        options: [
+            "1950",
+            "1989",
+            "1993",
+            "2004"
+        ],
+        correctAnswer: 2, // C
+        explanation: "On the recommendation of the Rules Committee of the Lok Sabha, 17 Departmentally-Related Standing Committees (DRSCs) were set up in the Parliament in 1993.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "History", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
-        id: 34,
-        question: "SHRC Selection Committee Head?",
-        options: ["CM", "Governor", "Home Minister", "Speaker"],
-        correctAnswer: 0,
-        explanation: "Chief Minister.",
-        subtopic: "57.1"
+        id: 23,
+        question: "Currently, how many Departmental Standing Committees (DSCs) exist?",
+        options: [
+            "17",
+            "20",
+            "24",
+            "30"
+        ],
+        correctAnswer: 2, // C
+        explanation: "In 2004, seven more such committees were setup, thus increasing their number from 17 to 24.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
-        id: 35,
-        question: "Is sitting Judge of HC eligible for SHRC?",
-        options: ["Yes, with CJ consultation", "No", "Retired only", "After resignation"],
-        correctAnswer: 0,
-        explanation: "Act allows Sitting Judge (appointed after consultation with Chief Justice of High Court).",
-        subtopic: "57.1"
+        id: 24,
+        question: "What is the main objective of the Departmental Standing Committees?",
+        options: [
+            "To audit all state governments.",
+            "To ensure day-to-day administration of ministries.",
+            "To secure more accountability of the Executive (i.e., the Council of Ministers) to the Parliament, particularly financial accountability.",
+            "To conduct elections for the Parliament."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The main objective of the standing committees is to secure more accountability of the Executive (i.e., the Council of Ministers) to the Parliament, particularly financial accountability.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Purpose", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
-        id: 36,
-        question: "Tenure of SHRC members?",
-        options: ["3 years / 70 age", "5 years / 70 age", "5 years / 65 age", "3 years / 65 age"],
-        correctAnswer: 0,
-        explanation: "3 years or 70 years of age.",
-        subtopic: "57.1"
+        id: 25,
+        question: "How many members does each Departmental Standing Committee consist of?",
+        options: [
+            "21",
+            "31",
+            "45",
+            "50"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Each standing committee consists of 31 members (21 from Lok Sabha and 10 from Rajya Sabha).",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Composition", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
-        id: 37,
-        question: "SHRC report submitted to:",
-        options: ["State Govt", "Governor", "President", "NHRC"],
-        correctAnswer: 0,
-        explanation: "State Government (laid before State Legislature).",
-        subtopic: "57.2"
+        id: 26,
+        question: "Do the recommendations of the Departmental Standing Committees have a binding nature on Parliament?",
+        options: [
+            "Yes, they are absolute laws.",
+            "No, they are highly regarded but are advisory in nature.",
+            "Yes, unless vetoed by the President.",
+            "Yes, but only the financial ones."
+        ],
+        correctAnswer: 1, // B
+        explanation: "However, it should be noted that the recommendations of these committees are advisory in nature and hence not binding on the Parliament.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
-        id: 38,
-        question: "Can NHRC investigate a case already with SHRC?",
-        options: ["No", "Yes", "If serious", "On appeal"],
-        correctAnswer: 0,
-        explanation: "No. NHRC does not inquire if SHRC has already taken cognizance.",
-        subtopic: "56.2"
+        id: 27,
+        question: "Which committee specifically considers matters of procedure and conduct of business in the House?",
+        options: [
+            "Committee on Privileges",
+            "Rules Committee",
+            "Business Advisory Committee",
+            "Committee on Petitions"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Rules Committee: This committee considers the matters of procedure and conduct of business in the House and recommends necessary amendments or additions to the rules of the House.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Function", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
-        id: 39,
-        question: "Joint State Human Rights Commission (JSHRC) created by?",
-        options: ["Parliament", "President", "States concerned", "NHRC"],
-        correctAnswer: 0,
-        explanation: "Not explicitly mentioned in standard text mostly, but usually Joint Statutory bodies are by Parliament.",
-        subtopic: "57.1"
+        id: 28,
+        question: "Who acts as the ex-officio chairman of the Rules Committee in the Lok Sabha?",
+        options: [
+            "The Prime Minister",
+            "The Minister of Parliamentary Affairs",
+            "The Speaker",
+            "A member of the opposition"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Lok Sabha committee consists of 15 members including the Speaker as its ex-officio chairman.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
     {
-        id: 40,
-        question: "Can SHRC inquire into Union Territories?",
-        options: ["No, Central Govt handles UTs (mostly NHRC)", "Yes", "Only Delhi", "Only Puducherry"],
-        correctAnswer: 0,
-        explanation: "NHRC deals with UTs usually. (However, Delhi has exception potential, but typically NHRC). Amendment 2019 empowered NHRC to handle UTs cases effectively, or assign to SHRC.",
-        subtopic: "57.1"
+        id: 29,
+        question: "What does the Committee on Privileges examine?",
+        options: [
+            "It examines the privileges of the Prime Minister.",
+            "It investigates the financial privileges of states.",
+            "The functions of this committee are semi-judicial in nature. It examines the cases of breach of privileges of the House and its members and recommends appropriate action.",
+            "It handles international diplomatic privileges."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Committee on Privileges: The functions of this committee are semi-judicial in nature. It examines the cases of breach of privileges of the House and its members and recommends appropriate action.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Function", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
     },
-    { id: 41, question: "SHRC members salary decided by?", options: ["State Govt", "Governor", "Parliament", "Consol Fund"], correctAnswer: 0, subtopic: "57.1" },
-    { id: 42, question: "Can SHRC punish?", options: ["No, recommendatory", "Yes", "Fine only", "Imprisonment"], correctAnswer: 0, subtopic: "57.2" },
-    { id: 43, question: "Selection Committee for SHRC includes Speaker?", options: ["Yes", "No", "Only CM", "Only Governor"], correctAnswer: 0, subtopic: "57.1" },
-    { id: 44, question: "Number of members in SHRC (excluding Chair)?", options: ["2", "4", "3", "5"], correctAnswer: 0, subtopic: "57.1" }, // 2 members (1 judicial, 1 exp)
-    { id: 45, question: "Chairperson of SHRC must be?", options: ["Retired CJ/Judge of HC", "Retired SC Judge", "Any Lawyer", "IAS"], correctAnswer: 0, subtopic: "57.1" },
-    { id: 46, question: "Removal ground 'Misbehavior' requires inquiry by?", options: ["Supreme Court", "High Court", "NCW", "CBI"], correctAnswer: 0, subtopic: "57.1" }, // Even for SHRC, it's SC inquiry
-    { id: 47, question: "Can SHRC take cognisance if 1 year passed?", options: ["No", "Yes", "With court order", "With Governor sign"], correctAnswer: 0, subtopic: "57.2" },
-    { id: 48, question: "Are SHRC members eligible for employment under Govt?", options: ["No", "Yes", "State works yes", "Central works yes"], correctAnswer: 0, subtopic: "57.1" },
-    { id: 49, question: "Does SHRC have own investigation staff?", options: ["Yes", "No", "Use Police", "Use CBI"], correctAnswer: 0, subtopic: "57.2" }, // Can have own, or utilize officer of Govt
-    { id: 50, question: "SHRC Chair removed by Governor?", options: ["No, President", "Yes", "Yes with Cabinet", "Yes with HC CJ"], correctAnswer: 0, subtopic: "57.1" },
-    { id: 51, question: "State Home Minister in SHRC Selection Committee?", options: ["Yes", "No", "Invitee", "Observer"], correctAnswer: 0, subtopic: "57.1" },
-    { id: 52, question: "Leader of Opposition (Assembly) in SHRC Committee?", options: ["Yes", "No", "Sometimes", "If recognized"], correctAnswer: 0, subtopic: "57.1" },
-    { id: 53, question: "Protection of Human Rights Act passed in?", options: ["1993", "1990", "1947", "1950"], correctAnswer: 0, subtopic: "56.1" },
-    { id: 54, question: "Is SHRC a constitutional body?", options: ["No", "Yes", "Quasi-judicial only", "Executive"], correctAnswer: 0, subtopic: "57.1" },
-    { id: 55, question: "Can SHRC transfer cases to NHRC?", options: ["No provision", "Yes", "If requested", "If serious"], correctAnswer: 0, subtopic: "57.2" },
-    { id: 56, question: "Who assists SHRC?", options: ["Secretary", "CEO", "Registrar", "None"], correctAnswer: 0, subtopic: "57.1" },
-    { id: 57, question: "Term of SHRC members is renewable?", options: ["Yes", "No", "Once", "Twice"], correctAnswer: 0, subtopic: "57.1" },
-    { id: 58, question: "Chairman of Legislative Council (if exists) in SHRC Committee?", options: ["Yes (Chairman & LoP Council)", "No", "Only Chairman", "Only LoP"], correctAnswer: 0, subtopic: "57.1" },
-    { id: 59, question: "Can SHRC intervene in court proceedings?", options: ["Yes with court approval", "No", "Suo motu", "Always"], correctAnswer: 0, subtopic: "57.2" },
-    { id: 60, question: "Is Human Rights defined in the Act?", options: ["Yes (Sec 2)", "No", "Refers to UN", "Refers to Constitution"], correctAnswer: 0, subtopic: "56.1" }
+    {
+        id: 30,
+        question: "Which committee examines bills to ensure that the rules regarding the formulation of bye-laws and regulations by the executive are being properly followed?",
+        options: [
+            "Committee on Subordinate Legislation",
+            "Committee on Assurances",
+            "Business Advisory Committee",
+            "Committee on Petitions"
+        ],
+        correctAnswer: 0, // A
+        explanation: "Committee on Subordinate Legislation: This committee examines and reports to the House whether the powers to make regulations, rules, sub-rules and bye-laws delegated by the Parliament or conferred by the Constitution to the Executive are being properly exercised by it.",
+        level: "Easy", topic: "Parliamentary Committees", difficulty_tier: "Level_1", cognitive_tag: "Function", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Committees" }
+    }
 ];
-
-export default DAY23_MCQS;

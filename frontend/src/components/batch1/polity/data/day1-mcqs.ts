@@ -2,714 +2,547 @@ import type { MCQ } from './mcq-utils';
 export type { MCQ };
 
 export const DAY1_MCQS: MCQ[] = [
-    // LEVEL 1: EASY (Direct Factual)
+    // ----------------------------------------------------------------------
+    // LEVEL 1: EASY (The Text-Book Stickler - Strictly Chapter 1)
+    // ----------------------------------------------------------------------
     {
         id: 1,
-        question: "Which Act established the Supreme Court at Calcutta for the first time?",
+        question: "In 1765, the East India Company obtained the 'diwani' rights. Which of the following provinces were included in this grant?",
         options: [
-            "Charter Act of 1833",
-            "Regulating Act of 1773",
-            "Pitt’s India Act of 1784",
-            "Charter Act of 1853"
+            "Bengal, Bombay, and Madras",
+            "Bengal, Bihar, and Orissa",
+            "Madras, Mysore, and Hyderabad",
+            "Bengal, Awadh, and Punjab"
         ],
         correctAnswer: 1, // B
+        explanation: "In 1765, the Company, which till now had purely trading functions obtained the 'diwani' (i.e., rights over revenue and civil justice) of Bengal, Bihar and Orissa.",
         level: "Easy",
-        // New Adaptive Fields
-        difficulty_tier: 'Level_1',
-        cognitive_tag: 'Knowledge',
-        source_mapping: {
-            book: 'M. Laxmikanth',
-            chapter: 'Historical Background',
-            page_ref: 4
-        }
+        topic: "Historical Background",
+        chapter: "The Company Rule (1773–1858)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
     },
     {
         id: 2,
-        question: "Who was the first Governor-General of Bengal?",
+        question: "Which of the following acts was the first step taken by the British Government to control and regulate the affairs of the East India Company in India?",
         options: [
-            "Lord William Bentinck",
-            "Lord Warren Hastings",
-            "Lord Canning",
-            "Lord Cornwallis"
+            "Pitt’s India Act of 1784",
+            "Charter Act of 1813",
+            "Regulating Act of 1773",
+            "Charter Act of 1833"
         ],
-        correctAnswer: 1,
+        correctAnswer: 2, // C
+        explanation: "The Regulating Act of 1773 is of great constitutional importance as it was the first step taken by the British Government to control and regulate the affairs of the East India Company.",
         level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Regulating Act 1773"
+        topic: "Historical Background",
+        chapter: "The Company Rule (1773–1858)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
     },
     {
         id: 3,
-        question: "Which Act designated the Governor-General of Bengal as the 'Governor-General of India'?",
+        question: "The Regulating Act of 1773 designated the Governor of Bengal as the 'Governor-General of Bengal'. Who was the first such Governor-General?",
         options: [
-            "Regulating Act of 1773",
-            "Charter Act of 1833",
-            "Charter Act of 1853",
-            "Government of India Act of 1858"
+            "Lord Cornwallis",
+            "Lord William Bentinck",
+            "Lord Warren Hastings",
+            "Lord Dalhousie"
         ],
-        correctAnswer: 1,
+        correctAnswer: 2, // C
+        explanation: "The Regulating Act of 1773 designated the Governor of Bengal as the 'Governor-General of Bengal'. The first such Governor-General was Lord Warren Hastings.",
         level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Charter Act 1833"
+        topic: "Historical Background",
+        chapter: "The Company Rule (1773–1858)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
     },
     {
         id: 4,
-        question: "The 'Board of Control' to manage political affairs was created by which Act?",
+        question: "Which act provided for the establishment of a Supreme Court at Calcutta (1774) comprising one chief justice and three other judges?",
+        options: [
+            "Regulating Act of 1773",
+            "Amending Act of 1781",
+            "Pitt’s India Act of 1784",
+            "Charter Act of 1793"
+        ],
+        correctAnswer: 0, // A
+        explanation: "The Regulating Act of 1773 provided for the establishment of a Supreme Court at Calcutta (1774) comprising one chief justice and three other judges.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Company Rule (1773–1858)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 5,
+        question: "The Amending Act of 1781 was passed to rectify the defects of the Regulating Act of 1773. By what other name is it known?",
+        options: [
+            "Communal Award",
+            "Act of Settlement",
+            "Portfolio Act",
+            "Declaratory Act"
+        ],
+        correctAnswer: 1, // B
+        explanation: "In a bid to rectify the defects of the Regulating Act of 1773, the British Parliament passed the Amending Act of 1781, also known as the Act of Settlement.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Company Rule (1773–1858)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 6,
+        question: "Which of the following acts established a system of double government by creating a new body called the Board of Control to manage political affairs?",
         options: [
             "Regulating Act of 1773",
             "Pitt’s India Act of 1784",
             "Charter Act of 1813",
-            "Government of India Act of 1858"
+            "Charter Act of 1833"
         ],
         correctAnswer: 1, // B
-        level: "Easy"
+        explanation: "Pitt’s India Act of 1784 established a system of double government by allowing the Court of Directors to manage commercial affairs but creating a new body called the Board of Control to manage political affairs.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Company Rule (1773–1858)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
     },
     {
-        id: 5,
-        question: "Which Act ended the trade monopoly of the East India Company in India (except for tea and trade with China)?",
+        id: 7,
+        question: "Pitt's India Act of 1784 was significant for two main reasons. Which of the following is one of them?",
+        options: [
+            "It ended the commercial monopoly of the East India Company.",
+            "The Company's territories in India were for the first time called the 'British possessions in India'.",
+            "It introduced an open competition system of selection and recruitment of civil servants.",
+            "It separated the legislative and executive functions of the Governor-General’s council."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Pitt's India Act was significant for two reasons: first, the Company's territories in India were for the first time called the 'British possessions in India'; and second, the British Government was given supreme control over Company's affairs.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Company Rule (1773–1858)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Understanding",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 8,
+        question: "In 1786, Lord Cornwallis was appointed as the Governor-General of Bengal. Which of the following demands did he make to accept the post?",
+        options: [
+            "He should be given the power to override the decision of his council in special cases.",
+            "He should be the sole authority to collect revenue.",
+            "He should be the Chief Justice of the Supreme Court.",
+            "He should be exempted from the jurisdiction of the Supreme Court."
+        ],
+        correctAnswer: 0, // A
+        explanation: "Lord Cornwallis placed two demands: 1) He should be given the power to override the decision of his council in special cases. 2) He would also be the Commander-in-Chief. Both were enacted via the Act of 1786.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Company Rule (1773–1858)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 9,
+        question: "Which act made the Governor-General of Bengal the 'Governor-General of India' and vested in him all civil and military powers?",
+        options: [
+            "Charter Act of 1793",
+            "Charter Act of 1813",
+            "Charter Act of 1833",
+            "Charter Act of 1853"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Charter Act of 1833 made the Governor-General of Bengal the 'Governor-General of India' and vested in him all civil and military powers.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Company Rule (1773–1858)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 10,
+        question: "Who was the first Governor-General of India?",
+        options: [
+            "Lord Warren Hastings",
+            "Lord Cornwallis",
+            "Lord William Bentinck",
+            "Lord Dalhousie"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Lord William Bentinck was the first governor-general of India, created under the Charter Act of 1833.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Company Rule (1773–1858)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 11,
+        question: "The Charter Act of 1833 ended the activities of the East India Company as a commercial body. What did the company become?",
+        options: [
+            "A military regulatory body only",
+            "A purely administrative body",
+            "A judicial body handling civil disputes",
+            "An autonomous sovereign entity"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Charter Act of 1833 ended the activities of the East India Company as a commercial body, which became a purely administrative body.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Company Rule (1773–1858)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 12,
+        question: "Which act for the first time separated the legislative and executive functions of the Governor-General’s council?",
         options: [
             "Charter Act of 1813",
             "Charter Act of 1833",
             "Charter Act of 1853",
             "Government of India Act of 1858"
         ],
-        correctAnswer: 0,
+        correctAnswer: 2, // C
+        explanation: "The Charter Act of 1853 separated, for the first time, the legislative and executive functions of the Governor-General’s council, establishing the Indian (Central) Legislative Council.",
         level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Charter Act 1813"
+        topic: "Historical Background",
+        chapter: "The Company Rule (1773–1858)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
     },
     {
-        id: 6,
+        id: 13,
+        question: "The Macaulay Committee (the Committee on the Indian Civil Service) was appointed in 1854 following which act's provision for open competition for civil servants?",
+        options: [
+            "Charter Act of 1833",
+            "Charter Act of 1853",
+            "Government of India Act of 1858",
+            "Indian Councils Act of 1861"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Charter Act of 1853 introduced an open competition system, throwing open the covenanted civil service to Indians, leading to the appointment of the Macaulay Committee in 1854.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Company Rule (1773–1858)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Understanding",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 14,
+        question: "The Government of India Act of 1858 is also known by which of the following titles?",
+        options: [
+            "The Act for the Good Governance of India",
+            "The Act of Dominion Status",
+            "The Act of Settlement",
+            "The Act of Representative Government"
+        ],
+        correctAnswer: 0, // A
+        explanation: "The Government of India Act of 1858 is also known as the Act for the Good Government of India.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 15,
+        question: "Under the Government of India Act of 1858, the designation of the Governor-General of India was changed to what?",
+        options: [
+            "Secretary of State for India",
+            "President of India",
+            "Viceroy of India",
+            "Chief Commissioner"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Government of India Act of 1858 changed the designation of the Governor-General of India to that of Viceroy of India.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 16,
         question: "Who was the first Viceroy of India?",
         options: [
+            "Lord Mountbatten",
             "Lord Curzon",
-            "Lord Canning",
-            "Lord Bentinck",
-            "Lord Mountbatten"
+            "Lord William Bentinck",
+            "Lord Canning"
         ],
-        correctAnswer: 1,
+        correctAnswer: 3, // D
+        explanation: "Lord Canning became the first Viceroy of India after the enactment of the Government of India Act of 1858.",
         level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Government of India Act 1858"
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
     },
     {
-        id: 7,
-        question: "The 'Portfolio System' was given statutory recognition by which Act?",
+        id: 17,
+        question: "Which of the following bodies were abolished by the Government of India Act of 1858 to end the system of double government?",
         options: [
+            "The Supreme Court of Calcutta and the Sadar Diwani Adalat",
+            "The Board of Control and Court of Directors",
+            "The Governor-General's Executive and Legislative Councils",
+            "The Provincial Legislative Councils of Bombay and Madras"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Government of India Act of 1858 ended the system of double government by abolishing the Board of Control and Court of Directors.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 18,
+        question: "The Government of India Act of 1858 created a new office called the Secretary of State for India. How many members were in the Council of India established to assist him?",
+        options: [
+            "10-member council",
+            "12-member council",
+            "15-member council",
+            "20-member council"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Government of India Act of 1858 created a new office, Secretary of State for India, and established a 15-member Council of India to assist the Secretary of State.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 19,
+        question: "The Indian Councils Act of 1861 initiated the process of decentralization by restoring the legislative powers to which presidencies?",
+        options: [
+            "Bengal and Punjab",
+            "Bombay and Madras",
+            "North-Western Frontier and Awadh",
+            "Assam and Burma"
+        ],
+        correctAnswer: 1, // B
+        explanation: "It initiated the process of decentralization by restoring the legislative powers to the Bombay and Madras Presidencies, reversing the centralizing tendency that started from 1773.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 20,
+        question: "Which act gave statutory recognition to the 'portfolio' system introduced by Lord Canning in 1859?",
+        options: [
+            "Government of India Act of 1858",
             "Indian Councils Act of 1861",
             "Indian Councils Act of 1892",
-            "Government of India Act of 1858",
             "Indian Councils Act of 1909"
         ],
-        correctAnswer: 0,
+        correctAnswer: 1, // B
+        explanation: "The Indian Councils Act of 1861 gave recognition to the 'portfolio' system, introduced by Lord Canning in 1859, under which a member of the Viceroy’s council was made in-charge of one or more departments.",
         level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Indian Councils Act 1861"
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
     },
     {
-        id: 8,
-        question: "Which Act is popularly known as the 'Morley-Minto Reforms'?",
+        id: 21,
+        question: "What was the lifespan of an ordinance issued by the Viceroy during an emergency without the concurrence of the legislative council under the Indian Councils Act of 1861?",
+        options: [
+            "Three months",
+            "Six months",
+            "One year",
+            "Three years"
+        ],
+        correctAnswer: 1, // B
+        explanation: "It empowered the Viceroy to issue ordinances, without the concurrence of the legislative council, during an emergency. The life of such an ordinance was six months.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 22,
+        question: "According to the Indian Councils Act of 1892, which of the following new powers was granted to the legislative councils?",
+        options: [
+            "Power to vote on the budget",
+            "Power to discuss the budget and address questions to the executive",
+            "Power to override the Governor-General’s veto",
+            "Power to elect the members of the Board of Control"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Indian Councils Act of 1892 increased the functions of legislative councils and gave them the power of discussing the budget and addressing questions to the executive.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 23,
+        question: "The Indian Councils Act of 1909 is also popularly known by which name?",
+        options: [
+            "Montagu-Chelmsford Reforms",
+            "Morley-Minto Reforms",
+            "Macaulay Reforms",
+            "Simon Commission Report"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Indian Councils Act of 1909 is also known as Morley-Minto Reforms (Lord Morley was the then Secretary of State for India and Lord Minto was the then Viceroy of India).",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 24,
+        question: "Under the Act of 1909, who became the first Indian to join the Viceroy’s Executive Council as the law member?",
+        options: [
+            "Dadabhai Naoroji",
+            "Gopal Krishna Gokhale",
+            "Satyendra Prasad Sinha",
+            "Surendranath Banerjee"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Satyendra Prasad Sinha became the first Indian to join the Viceroy’s Executive Council. He was appointed as the law member.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
+    },
+    {
+        id: 25,
+        question: "Which act introduced a system of communal representation for Muslims by accepting the concept of 'separate electorate'?",
         options: [
             "Indian Councils Act of 1892",
             "Indian Councils Act of 1909",
             "Government of India Act of 1919",
             "Government of India Act of 1935"
         ],
-        correctAnswer: 1,
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Indian Councils Act 1909"
-    },
-    {
-        id: 9,
-        question: "Which Act introduced 'Separate Electorates' for Muslims for the first time?",
-        options: [
-            "Act of 1909",
-            "Act of 1919",
-            "Act of 1935",
-            "Act of 1892"
-        ],
-        correctAnswer: 0,
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Indian Councils Act 1909"
-    },
-    {
-        id: 10,
-        question: "The Reserve Bank of India was established under the provisions of which Act?",
-        options: [
-            "Government of India Act, 1919",
-            "Government of India Act, 1935",
-            "Indian Independence Act, 1947",
-            "Regulating Act, 1773"
-        ],
-        correctAnswer: 1,
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Government of India Act 1935"
-    },
-    {
-        id: 11,
-        question: "Dyarchy was introduced in the Provinces by which Act?",
-        options: [
-            "Act of 1892",
-            "Act of 1909",
-            "Act of 1919",
-            "Act of 1935"
-        ],
-        correctAnswer: 2,
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Government of India Act 1919"
-    },
-    {
-        id: 12,
-        question: "Which Act abolished the Doctrine of Lapse?",
-        options: [
-            "Government of India Act of 1858",
-            "Indian Councils Act of 1861",
-            "Indian Councils Act of 1892",
-            "Government of India Act of 1919"
-        ],
-        correctAnswer: 0,
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Government of India Act 1858"
-    },
-    {
-        id: 13,
-        question: "Who was the first Indian to join the Viceroy’s Executive Council?",
-        options: [
-            "G.K. Gokhale",
-            "Satyendra Prasad Sinha",
-            "Dadabhai Naoroji",
-            "Tej Bahadur Sapru"
-        ],
         correctAnswer: 1, // B
-        level: "Easy"
-    },
-    {
-        id: 14,
-        question: "The office of the 'High Commissioner for India' in London was created by:",
-        options: [
-            "Act of 1909",
-            "Act of 1919",
-            "Act of 1935",
-            "Act of 1858"
-        ],
-        correctAnswer: 1,
+        explanation: "The Indian Councils Act of 1909 introduced a system of communal representation for Muslims by accepting the concept of 'separate electorate'.",
         level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Government of India Act 1919"
-    },
-    {
-        id: 15,
-        question: "When was the 'Mountbatten Plan' accepted?",
-        options: [
-            "August 15, 1947",
-            "June 3, 1947",
-            "January 26, 1950",
-            "February 20, 1947"
-        ],
-        correctAnswer: 1,
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Indian Independence Act 1947"
-    },
-    // LEVEL 2: MODERATE
-    {
-        id: 16,
-        question: "Consider the following statements regarding the Regulating Act of 1773:\n\n1. It made the Governors of Bombay and Madras independent of the Governor-General of Bengal.\n2. It established a Supreme Court at Calcutta.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
-        ],
-        correctAnswer: 1,
-        explanation: "Statement 1 is incorrect; they were made subordinate.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Regulating Act 1773",
-        // New Adaptive Fields
-        difficulty_tier: 'Level_2',
-        cognitive_tag: 'Understanding',
-        source_mapping: {
-            book: 'M. Laxmikanth',
-            chapter: 'Historical Background',
-            page_ref: 5
-        }
-    },
-    {
-        id: 17,
-        question: "Which of the following features is associated with the Charter Act of 1833?\n\n1. It made the Governor-General of Bengal the Governor-General of India.\n2. It ended the commercial activities of the East India Company completely.\n3. It introduced an open competition for civil services.\n\nSelect the correct answer:",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2, and 3"
-        ],
-        correctAnswer: 0,
-        explanation: "Statement 3 is incorrect; the attempt was negated.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Charter Act 1833"
-    },
-    {
-        id: 18,
-        question: "The 'Double Government' system established by Pitt’s India Act of 1784 involved:",
-        options: [
-            "Board of Control and Viceroy's Council",
-            "Court of Directors and Board of Control",
-            "Governor-General and Chief Justice",
-            "Legislative Council and Executive Council"
-        ],
-        correctAnswer: 1, // B
-        level: "Moderate"
-    },
-    {
-        id: 19,
-        question: "With reference to the Government of India Act, 1858, consider the following:\n\n1. It ended the system of Double Government.\n2. It created a new office, Secretary of State for India, vested with complete authority over Indian administration.\n3. The Secretary of State was a member of the British Cabinet.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 only",
-            "1 and 2 only",
-            "2 and 3 only",
-            "1, 2, and 3"
-        ],
-        correctAnswer: 3,
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Government of India Act 1858"
-    },
-    {
-        id: 20,
-        question: "Which Act empowered the Viceroy to issue ordinances, without the concurrence of the legislative council, during an emergency?",
-        options: [
-            "Indian Councils Act, 1861",
-            "Indian Councils Act, 1892",
-            "Indian Councils Act, 1909",
-            "Government of India Act, 1919"
-        ],
-        correctAnswer: 0,
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Indian Councils Act 1861"
-    },
-    {
-        id: 21,
-        question: "Consider the following statements about the Indian Councils Act of 1892:\n\n1. It introduced the principle of election for the first time, though the word 'election' was not used.\n2. It gave the legislative councils the power of discussing the budget.\n\nWhich of the statements is/are correct?",
-        options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
-        ],
-        correctAnswer: 2,
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Indian Councils Act 1892"
-    },
-    {
-        id: 22,
-        question: "The term \"Dyarchy\" under the Act of 1919 referred to:",
-        options: [
-            "Division of subjects between Centre and Provinces.",
-            "Division of Provincial subjects into Reserved and Transferred.",
-            "Double rule by the British and Indian Rulers.",
-            "Separation of Judiciary from Executive."
-        ],
-        correctAnswer: 1,
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Government of India Act 1919"
-    },
-    {
-        id: 23,
-        question: "Which of the following is NOT a feature of the Government of India Act, 1935?",
-        options: [
-            "Abolition of Dyarchy in the provinces.",
-            "Introduction of Provincial Autonomy.",
-            "Establishment of a Federal Court.",
-            "Establishment of a Board of Control."
-        ],
-        correctAnswer: 3,
-        explanation: "Board of Control was abolished in 1858.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Government of India Act 1935"
-    },
-    {
-        id: 24,
-        question: "Consider the following pairs:\n\n1. Act of 1773: Supreme Court established.\n2. Act of 1813: Christian Missionaries allowed.\n3. Act of 1833: Law Member added to Governor-General's Council.\n\nWhich of the pairs given above is/are correctly matched?",
-        options: [
-            "1 only",
-            "1 and 2 only",
-            "2 and 3 only",
-            "1, 2, and 3"
-        ],
-        correctAnswer: 3,
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Multiple Acts"
-    },
-    {
-        id: 25,
-        question: "The Communal Award (Separate Electorates) was extended to which of the following by the Act of 1919?\n\n1. Sikhs\n2. Indian Christians\n3. Anglo-Indians\n4. Europeans\n\nSelect the correct code:",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 only",
-            "1, 2, 3, and 4"
-        ],
-        correctAnswer: 3,
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Government of India Act 1919"
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
     },
     {
         id: 26,
-        question: "Which Act for the first time separated the legislative and executive functions of the Governor-General’s Council?",
+        question: "Because of the separate electorates introduced in 1909, who came to be known as the 'Father of Communal Electorate'?",
         options: [
-            "Charter Act of 1833",
-            "Charter Act of 1853",
-            "Indian Councils Act of 1861",
-            "Indian Councils Act of 1892"
+            "Lord Morley",
+            "Lord Minto",
+            "Lord Curzon",
+            "Lord Hardinge"
         ],
         correctAnswer: 1, // B
-        level: "Moderate"
+        explanation: "Lord Minto came to be known as the Father of Communal Electorate.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
     },
     {
         id: 27,
-        question: "Under the Government of India Act 1935, the Residuary Powers were given to:",
+        question: "The Government of India Act of 1919 divided the provincial subjects into two parts. What were they called?",
         options: [
-            "Federal Legislature",
-            "Provincial Legislature",
-            "Viceroy (Governor-General)",
-            "Federal Court"
+            "Federal and State",
+            "Central and Provincial",
+            "Transferred and Reserved",
+            "Concurrent and Residuary"
         ],
-        correctAnswer: 2,
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Constitutional History",
-        subtopic: "Government of India Act 1935"
+        correctAnswer: 2, // C
+        explanation: "The Government of India Act of 1919 further divided the provincial subjects into two parts—transferred and reserved. This dual scheme of governance was known as 'dyarchy'.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
     },
     {
         id: 28,
-        question: "The first attempt to introduce a representative and popular element in the governance of India was made through:",
+        question: "Which act introduced, for the first time, bicameralism and direct elections in the country?",
         options: [
-            "Indian Councils Act, 1861",
-            "Indian Councils Act, 1892",
-            "Indian Councils Act, 1909",
-            "Government of India Act, 1919"
+            "Indian Councils Act of 1909",
+            "Government of India Act of 1919",
+            "Government of India Act of 1935",
+            "Indian Independence Act of 1947"
         ],
-        correctAnswer: 2, // C
-        explanation: "Though 1892 had indirect elections, 1909 officially recognized elections and expanded the scope significantly.",
-        level: "Moderate"
+        correctAnswer: 1, // B
+        explanation: "The Government of India Act of 1919 introduced, for the first time, bicameralism and direct elections in the country. The Indian Legislative Council was replaced by a bicameral legislature.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
     },
     {
         id: 29,
-        question: "Consider the following regarding the Amending Act of 1781:\n\n1. It exempted the Governor-General and Council from the jurisdiction of the Supreme Court for official acts.\n2. It placed revenue matters under the jurisdiction of the Supreme Court.\n\nWhich is correct?",
+        question: "In 1926, which body was set up for recruiting civil servants as provided by the Act of 1919?",
         options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
+            "Union Public Service Commission",
+            "Central Public Service Commission",
+            "Federal Public Service Commission",
+            "Staff Selection Commission"
         ],
-        correctAnswer: 0, // A
-        explanation: "Statement 2 is incorrect; revenue matters were excluded.",
-        level: "Moderate"
+        correctAnswer: 1, // B
+        explanation: "The Act of 1919 provided for the establishment of a public service commission. Hence, a Central Public Service Commission was set up in 1926 for recruiting civil servants.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
     },
     {
         id: 30,
-        question: "Which Act explicitly defined the constitutional position of the British territories in India for the first time?",
+        question: "Under the Government of India Act of 1935, the powers were divided between the Centre and units in the form of three lists. To whom were the 'residuary powers' given?",
         options: [
-            "Regulating Act of 1773",
-            "Pitt's India Act of 1784",
-            "Charter Act of 1813",
-            "Charter Act of 1833"
-        ],
-        correctAnswer: 2, // C
-        level: "Moderate"
-    },
-    // LEVEL 3: TOUGH
-    {
-        id: 31,
-        question: "Arrange the following events in chronological order:\n\n1. Appointment of Satyendra Prasad Sinha as Law Member.\n2. Introduction of Portfolio System.\n3. Establishment of Federal Court.\n4. Transfer of power from Company to Crown.\n\nCode:",
-        options: [
-            "4-2-1-3",
-            "2-4-3-1",
-            "4-1-2-3",
-            "2-1-4-3"
-        ],
-        correctAnswer: 0, // A
-        explanation: "1858 [Crown Rule] -> 1861 [Portfolio] -> 1909 [Sinha] -> 1937 [Federal Court]",
-        level: "Tough",
-        // New Adaptive Fields
-        difficulty_tier: 'Level_3',
-        cognitive_tag: 'Understanding',
-        source_mapping: {
-            book: 'M. Laxmikanth',
-            chapter: 'Historical Background',
-            page_ref: 8
-        }
-    },
-    {
-        id: 32,
-        question: "Assertion (A): The Government of India Act of 1919 introduced 'Dyarchy' at the Centre.\nReason (R): The Act aimed to establish a responsible government in India.\n\nSelect the correct answer:",
-        options: [
-            "Both A and R are true and R is the correct explanation of A.",
-            "Both A and R are true but R is not the correct explanation of A.",
-            "A is true but R is false.",
-            "A is false but R is true."
+            "Federal Legislature",
+            "Provincial Legislature",
+            "Secretary of State for India",
+            "Viceroy"
         ],
         correctAnswer: 3, // D
-        explanation: "Dyarchy was introduced in Provinces, not Centre. Bicameralism was at Centre.",
-        level: "Tough"
-    },
-    {
-        id: 33,
-        question: "Which of the following statements is/are correct regarding the Charter Act of 1833?\n\n1. It deprived the Governors of Bombay and Madras of their legislative powers.\n2. The laws made under this Act were called 'Regulations'.\n3. It authorized the Government of India to issue licenses to private Indian merchants for trade with China.\n\nCode:",
-        options: [
-            "1 only",
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only"
-        ],
-        correctAnswer: 0, // A
-        explanation: "Statement 2 is incorrect; they were called 'Acts'. Previous ones were 'Regulations'. Statement 3 is irrelevant/incorrect.",
-        level: "Tough"
-    },
-    {
-        id: 34,
-        question: "With reference to the 'Instrument of Instructions' contained in the Government of India Act, 1935, which of the following is correct?",
-        options: [
-            "It was incorporated in the Constitution of India as Fundamental Rights.",
-            "It was incorporated as Directive Principles of State Policy.",
-            "It was a directive to the Governor-General regarding the dominion status.",
-            "It was a list of subjects for the Central Legislature."
-        ],
-        correctAnswer: 1, // B
-        explanation: "This links the historical act to the current Constitution.",
-        level: "Tough"
-    },
-    {
-        id: 35,
-        question: "\"It provided for the establishment of an All-India Federation consisting of provinces and princely states as units. The Federation never came into being.\" This description refers to:",
-        options: [
-            "Indian Councils Act, 1909",
-            "Government of India Act, 1919",
-            "Government of India Act, 1935",
-            "Indian Independence Act, 1947"
-        ],
-        correctAnswer: 2, // C
-        level: "Tough"
-    },
-    {
-        id: 36,
-        question: "The 'Transferred Subjects' under the Act of 1919 included which of the following?\n\n1. Education\n2. Health\n3. Police\n4. Finance\n\nSelect the correct code:",
-        options: [
-            "1 and 2 only",
-            "3 and 4 only",
-            "1, 2, and 3 only",
-            "2, 3, and 4 only"
-        ],
-        correctAnswer: 0, // A
-        explanation: "Police and Finance were Reserved Subjects.",
-        level: "Tough"
-    },
-    {
-        id: 37,
-        question: "Which Act empowered the Governor-General-in-Council to frame regulations for Provincial Courts and Councils, bypassing the Supreme Court?",
-        options: [
-            "Regulating Act, 1773",
-            "Amending Act, 1781",
-            "Pitt’s India Act, 1784",
-            "Act of 1786"
-        ],
-        correctAnswer: 1, // B
-        level: "Tough"
-    },
-    {
-        id: 38,
-        question: "Consider the following statements about the Act of 1786:\n\n1. It was enacted specifically to fulfill the demands of Lord Cornwallis.\n2. It allowed the Governor-General to override his council's decisions in special cases.\n3. It separated the office of Commander-in-Chief from that of the Governor-General.\n\nWhich is/are correct?",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2, and 3"
-        ],
-        correctAnswer: 0, // A
-        explanation: "Statement 3 is incorrect; Cornwallis wanted to BE the Commander-in-Chief.",
-        level: "Tough"
-    },
-    {
-        id: 39,
-        question: "Which of the following Acts allocated 'One Lakh Rupees' annually for the promotion of education in India?",
-        options: [
-            "Charter Act of 1793",
-            "Charter Act of 1813",
-            "Charter Act of 1833",
-            "Wood’s Despatch, 1854"
-        ],
-        correctAnswer: 1, // B
-        level: "Tough"
-    },
-    {
-        id: 40,
-        question: "Match List-I with List-II:\n\nList-I (Act)\nA. Charter Act 1853\nB. Charter Act 1833\nC. Act of 1858\nD. Act of 1909\n\nList-II (Provision)\n1. Separation of Executive & Legislature\n2. Abolition of EIC as commercial body\n3. Separate Electorates\n4. Abolition of Board of Control\n\nCode (A-B-C-D):",
-        options: [
-            "1-2-4-3",
-            "2-1-3-4",
-            "1-2-3-4",
-            "4-3-2-1"
-        ],
-        correctAnswer: 0, // A
-        level: "Tough"
-    },
-    {
-        id: 41,
-        question: "Regarding the Indian Independence Act of 1947, which statement is INCORRECT?",
-        options: [
-            "It abolished the office of the Secretary of State for India.",
-            "It granted freedom to Indian princely states to join either dominion or remain independent.",
-            "It declared India as a sovereign state from Jan 26, 1950.",
-            "It designated the Governor-General of India and provincial governors as constitutional (nominal) heads."
-        ],
-        correctAnswer: 2, // C
-        explanation: "It declared India independent from Aug 15, 1947, not 1950.",
-        level: "Tough"
-    },
-    {
-        id: 42,
-        question: "The \"Centralization\" of administration in British India started with which Act and reached its peak with which Act?",
-        options: [
-            "Started: 1773; Peak: 1833",
-            "Started: 1784; Peak: 1853",
-            "Started: 1773; Peak: 1858",
-            "Started: 1833; Peak: 1919"
-        ],
-        correctAnswer: 0, // A
-        level: "Tough"
-    },
-    {
-        id: 43,
-        question: "Which Act provided for the appointment of a separate Governor for the Bengal Presidency, relieving the Governor-General of India of this burden?",
-        options: [
-            "Charter Act of 1833",
-            "Charter Act of 1853",
-            "Indian Councils Act of 1861",
-            "Government of India Act of 1919"
-        ],
-        correctAnswer: 1, // B
-        explanation: "1853 Act authorized this to separate general Govt of India from local Govt of Bengal.",
-        level: "Tough"
-    },
-    {
-        id: 44,
-        question: "The system of 'Budget' was introduced in British India in 1860. Which Act formally gave the Legislative Council the power to discuss the Budget?",
-        options: [
-            "Indian Councils Act, 1861",
-            "Indian Councils Act, 1892",
-            "Indian Councils Act, 1909",
-            "Government of India Act of 1919"
-        ],
-        correctAnswer: 1, // B
-        level: "Tough"
-    },
-    {
-        id: 45,
-        question: "Consider the following regarding the 1919 Act:\n\n1. It introduced bicameralism at the Centre.\n2. It introduced direct elections in the country.\n3. It extended the franchise to all women in India.\n\nWhich is/are correct?",
-        options: [
-            "1 only",
-            "1 and 2 only",
-            "2 and 3 only",
-            "1, 2, and 3"
-        ],
-        correctAnswer: 1, // B
-        explanation: "Statement 3 is incorrect; franchise was limited by property, tax, or education.",
-        level: "Tough"
-    },
-    {
-        id: 46,
-        question: "The proposal for the 'Constituent Assembly' was first put forward by M.N. Roy in 1934. Which Act finally empowered the Constituent Assembly to frame and adopt any constitution?",
-        options: [
-            "August Offer, 1940",
-            "Cripps Mission, 1942",
-            "Cabinet Mission Plan, 1946",
-            "Indian Independence Act, 1947"
-        ],
-        correctAnswer: 3, // D
-        level: "Tough"
-    },
-    {
-        id: 47,
-        question: "Why was the \"Simon Commission\" (1927) boycotted by Indians?",
-        options: [
-            "It proposed the partition of India.",
-            "It recommended the abolition of Dyarchy.",
-            "There was no Indian member in the commission.",
-            "It was appointed before the scheduled time of 10 years."
-        ],
-        correctAnswer: 2, // C
-        explanation: "General Historical Knowledge/Context.",
-        level: "Tough"
-    },
-    {
-        id: 48,
-        question: "Which Act separated provincial budgets from the Central budget for the first time?",
-        options: [
-            "Act of 1909",
-            "Act of 1919",
-            "Act of 1935",
-            "Act of 1892"
-        ],
-        correctAnswer: 1, // B
-        explanation: "1919 Act authorized provinces to enact their own budgets.",
-        level: "Tough"
-    },
-    {
-        id: 49,
-        question: "The demand for 'Purna Swaraj' was adopted in the Lahore Session (1929). Which Act was termed by JL Nehru as \"A car with all brakes and no engine\"?",
-        options: [
-            "Act of 1909",
-            "Act of 1919",
-            "Act of 1935",
-            "Indian Independence Act, 1947"
-        ],
-        correctAnswer: 2, // C
-        explanation: "Famous historical quote regarding the 1935 Act.",
-        level: "Tough"
-    },
-    {
-        id: 50,
-        question: "Which Act provided for the establishment of a Joint Public Service Commission for two or more provinces?",
-        options: [
-            "Act of 1919",
-            "Act of 1935",
-            "Act of 1909",
-            "Act of 1858"
-        ],
-        correctAnswer: 1, // B
-        level: "Tough"
+        explanation: "The Act divided the powers between Centre and units into Federal List, Provincial List, and Concurrent List. The residuary powers were given to the Viceroy.",
+        level: "Easy",
+        topic: "Historical Background",
+        chapter: "The Crown Rule (1858–1947)",
+        difficulty_tier: "Level_1",
+        cognitive_tag: "Knowledge",
+        source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background" }
     }
 ];

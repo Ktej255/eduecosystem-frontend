@@ -1,481 +1,397 @@
-
-export interface MCQ {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation?: string;
-    level?: string;
-    topic?: string;
-    chapter?: string;
-    subtopic?: string;
-}
+import type { MCQ } from './mcq-utils';
 
 export const DAY13_MCQS: MCQ[] = [
-    // ==========================================
-    // PAPER 1: WEEK 2 TOPICS (Q1-50)
-    // Parliament, Judiciary, State Legislature
-    // ==========================================
-
+    // ----------------------------------------------------------------------
+    // LEVEL 1: EASY (The Text-Book Stickler - Strictly Chapter 13)
+    // ----------------------------------------------------------------------
     {
         id: 1,
-        question: "1. Which of the following statements about Money Bills is INCORRECT?",
-        options: ["Must be introduced in Lok Sabha", "Must be introduced on recommendation of President", "Rajya Sabha can detain it for 1 month", "Speaker certifies it"],
-        correctAnswer: 2,
-        explanation: "Rajya Sabha can detain a Money Bill for a maximum of 14 DAYS only.",
-        subtopic: "22.6"
+        question: "Political scientists typically classify political systems into two categories based on the nature of relations between the national government and the regional governments. What are these two categories?",
+        options: [
+            "Parliamentary and Presidential",
+            "Democratic and Authoritarian",
+            "Unitary and Federal",
+            "Republic and Monarchy"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Political scientists classify governments into unitary and federal based on the nature of relations between the national government and the regional governments.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 2,
-        question: "2. The 'Shadow Cabinet' is a unique institution of?",
-        options: ["British Cabinet System", "American System", "French System", "Japanese System"],
-        correctAnswer: 0,
-        explanation: "British Cabinet System. It is formed by the Opposition party to balance the ruling cabinet.",
-        subtopic: "22.1"
+        question: "By definition, what is a Unitary government?",
+        options: [
+            "A government where all powers are divided between the Centre and the states by the Constitution.",
+            "A government where powers are concentrated in the hands of the states.",
+            "A government in which all powers are vested in the national government, and the regional governments, if they exist, derive their authority from the national government.",
+            "A government headed exclusively by a Monarch."
+        ],
+        correctAnswer: 2, // C
+        explanation: "A unitary government is one in which all the powers are vested in the national government and the regional governments derive their authority from the national government.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 3,
-        question: "3. Who decides the question of disqualification under the Tenth Schedule?",
-        options: ["President", "Election Commission", "Chairman/Speaker", "Supreme Court"],
-        correctAnswer: 2,
-        explanation: "The Presiding Officer of the House (Speaker in LS, Chairman in RS/Council).",
-        subtopic: "22.2"
+        question: "Which of the following countries is a prominent example of a Federal model of government?",
+        options: [
+            "Britain",
+            "France",
+            "Japan",
+            "USA"
+        ],
+        correctAnswer: 3, // D
+        explanation: "The US is the first and the oldest federation in the world. Britain, France, and Japan are examples of unitary models.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 4,
-        question: "4. The concept of 'Public Interest Litigation' (PIL) originated in?",
-        options: ["USA", "UK", "Australia", "India"],
-        correctAnswer: 0,
-        explanation: "USA in the 1960s.",
-        subtopic: "26.4"
+        question: "The term 'federation' is derived from a Latin word 'foedus'. What does 'foedus' mean?",
+        options: [
+            "Power or Authority",
+            "Treaty or Agreement",
+            "Division or Separation",
+            "Union or State"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The term 'federation' is derived from a Latin word 'foedus' which means 'treaty' or 'agreement'.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 5,
-        question: "5. Disputes between the Centre and States come under which Jurisdiction of SC?",
-        options: ["Writ", "Advisory", "Original", "Appellate"],
-        correctAnswer: 2,
-        explanation: "Original Jurisdiction (Article 131).",
-        subtopic: "26.3"
+        question: "A federation can be formed in two ways: 'integration' or 'disintegration'. Which country's federation is the classic example of formation by 'integration' (independent states coming together)?",
+        options: [
+            "Canada",
+            "India",
+            "USA",
+            "Britain"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The US is the first and oldest federation formed by the 'integration' of 13 independent states to form a strong national government.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 6,
-        question: "6. Which committee examinations the 'Demands for Grants'?",
-        options: ["Public Accounts Committee", "Estimates Committee", "Departmental Standing Committees", "Business Advisory Committee"],
-        correctAnswer: 2,
-        explanation: "Departmental Standing Committees (DSCs) scrutinize the demands for grants.",
-        subtopic: "23.2"
+        question: "The Indian federal system is based on the model of which country?",
+        options: [
+            "United States of America",
+            "Switzerland",
+            "Canada",
+            "Australia"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Indian federal system is based on the 'Canadian model' and not on the 'American model'. Like Canada, India's federation was formed by disintegration and strongly centralizes power.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 7,
-        question: "7. Who appoints the District Judges?",
-        options: ["Governor", "President", "Chief Justice of HC", "State Public Service Commission"],
-        correctAnswer: 0,
-        explanation: "Governor (in consultation with High Court).",
-        subtopic: "35.1"
+        question: "Does the Constitution of India explicitly contain the word 'federation' anywhere in its text?",
+        options: [
+            "Yes, in the Preamble.",
+            "Yes, in Article 1.",
+            "Yes, in the Seventh Schedule.",
+            "No, the word 'federation' has nowhere been used in the Constitution."
+        ],
+        correctAnswer: 3, // D
+        explanation: "The word 'federation' has nowhere been used in the Constitution. Instead, Article 1 of the Constitution describes India as a 'Union of States'.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 8,
-        question: "8. The maximum gap between two sessions of Parliament cannot be more than?",
-        options: ["3 months", "6 months", "9 months", "1 year"],
-        correctAnswer: 1,
-        explanation: "6 months.",
-        subtopic: "22.3"
+        question: "According to Dr. B.R. Ambedkar, Article 1 describes India as a 'Union of States' to indicate two things. What is one of those things?",
+        options: [
+            "Indian federation is the result of an agreement among the states like the American Federation.",
+            "The states have the right to secede from the federation.",
+            "The Indian federation is NOT the result of an agreement among the states like the American Federation.",
+            "The states are completely sovereign and independent."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Dr. Ambedkar stated it implies two things: one, Indian federation is not the result of an agreement among the states like the American Federation; and two, the states have no right to secede from the federation. The federation is a union because it is indestructible.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 9,
-        question: "9. Joint Sitting of Parliament is summoned by?",
-        options: ["Speaker", "President", "PM", "Chairman RS"],
-        correctAnswer: 1,
-        explanation: "Summoned by President, Presided by Speaker.",
-        subtopic: "22.7"
+        question: "Which of the following is a classic feature of a Federal system of government?",
+        options: [
+            "Single Government (only at the Centre).",
+            "Unwritten Constitution.",
+            "Dual Government (national government and regional governments).",
+            "Flexibility of the entire Constitution."
+        ],
+        correctAnswer: 2, // C
+        explanation: "A key feature of a federal system is the 'Dual Polity' or Dual Government, consisting of the Union at the Centre and the states at the periphery.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 10,
-        question: "10. Article 226 empowers High Courts to issue writs for?",
-        options: ["Fundamental Rights only", "Ordinary Legal Rights only", "Both FR and Legal Rights", "Constitutional Rights only"],
-        correctAnswer: 2,
-        explanation: "For the enforcement of Fundamental Rights AND 'for any other purpose' (legal rights).",
-        subtopic: "34.2"
+        question: "In the Federal features of the Indian Constitution, how are powers divided between the Centre and the states?",
+        options: [
+            "Through a verbal agreement between the Prime Minister and Chief Ministers.",
+            "Through the Seventh Schedule of the Constitution containing Union, State, and Concurrent Lists.",
+            "By the Supreme Court on a case-by-case basis.",
+            "By the President issuing ordinances every year."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Constitution divides power between the Centre and the states in terms of the Union List, State List, and Concurrent List in the Seventh Schedule.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 11,
-        question: "11. Legislative Council can delay an Ordinary Bill for a maximum of?",
-        options: ["3 months", "4 months", "6 months", "14 days"],
-        correctAnswer: 1,
-        explanation: "4 months (3 months in first instance + 1 month in second instance).",
-        subtopic: "36.5"
+        question: "Why is a 'Written Constitution' considered an essential feature of a Federal system?",
+        options: [
+            "So that citizens can read it in historical archives.",
+            "To ensure that the division of powers between the Centre and states is clear, defined, and acts as a binding document on both.",
+            "Because an unwritten constitution only allows for Presidential systems.",
+            "To prevent the Supreme Court from having any power."
+        ],
+        correctAnswer: 1, // B
+        explanation: "A written Constitution is essential for a federation to specify the structure, organization, powers, and functions of both the Central and state governments, defining limits so they do not trespass into each other's spheres.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Understanding", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 12,
-        question: "12. Who is the Chairman of the Rajya Sabha?",
-        options: ["President", "Vice-President", "PM", "Elected by RS members"],
-        correctAnswer: 1,
-        explanation: "The Vice-President of India is the ex-officio Chairman of Rajya Sabha.",
-        subtopic: "22.4"
+        question: "The 'Rigidity of the Constitution' is a federal feature. What does it mean in this context?",
+        options: [
+            "The Constitution can never be changed under any circumstances.",
+            "The Constitution cannot be understood easily.",
+            "Provisions concerned with the federal structure can only be amended by the joint action of the Central and state governments (special majority plus state ratification).",
+            "Only the President can amend the Constitution."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The division of powers established by the Constitution as well as its supremacy can be maintained only if the method of its amendment is rigid. The structural provisions require ratification by half the state legislatures.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 13,
-        question: "13. What is the strength of the Supreme Court at present (2024)?",
-        options: ["31", "34", "33", "30"],
-        correctAnswer: 1,
-        explanation: "34 (33 Judges + 1 CJI).",
-        subtopic: "26.1"
+        question: "What role does the 'Independent Judiciary' play as a federal feature of the Indian Constitution?",
+        options: [
+            "It conducts elections for state legislatures.",
+            "It appoints the Governors of the states.",
+            "It works to protect the supremacy of the Constitution and settle disputes between the Centre and the states or between the states.",
+            "It collects taxes for both Centre and states."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Constitution establishes an independent judiciary headed by the Supreme Court to settle disputes between the Centre and the states and to protect the supremacy of the Constitution.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 14,
-        question: "14. A High Court Judge is removed in the same manner as?",
-        options: ["Governor", "Attorney General", "Supreme Court Judge", "Speaker"],
-        correctAnswer: 2,
-        explanation: "Same as a Supreme Court Judge.",
-        subtopic: "34.1"
+        question: "How does 'Bicameralism' support the federal structure of India?",
+        options: [
+            "By ensuring two Prime Ministers exists at all times.",
+            "The upper house (Rajya Sabha) represents the states of Indian Federation and protects state interests against undue interference by the Centre.",
+            "The lower house (Lok Sabha) consists exclusively of state governors.",
+            "By having two separate Constitutions, one for the Lok Sabha and one for the Rajya Sabha."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Bicameralism provides an Upper House (Rajya Sabha) that represents the states of the Indian Federation, acting as a mechanism to maintain the federal equilibrium and protect states' interests.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 15,
-        question: "15. Which of the following funds is under the disposal of the President?",
-        options: ["Consolidated Fund", "Contingency Fund", "Public Account", "Prime Minister Relief Fund"],
-        correctAnswer: 1,
-        explanation: "He acts as the guardian of the Contingency Fund of India.",
-        subtopic: "22.10"
+        question: "Although India is a federation, it has many 'Unitary' (non-federal) features. Which of the following is an example of a unitary feature in the Indian Constitution?",
+        options: [
+            "Division of powers",
+            "Written Constitution",
+            "Single Constitution for both Centre and States",
+            "Bicameralism"
+        ],
+        correctAnswer: 2, // C
+        explanation: "In a true federation like the US, states have the right to frame their own constitution. In India, there is a 'Single Constitution' for both the Centre and the states, which is a strong unitary feature.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 16,
-        question: "16. Estimates Committee members are from?",
-        options: ["Lok Sabha only", "Rajya Sabha only", "Both Houses", "Nominated members only"],
-        correctAnswer: 0,
-        explanation: "Only from Lok Sabha (30 members).",
-        subtopic: "23.1"
+        question: "How does the 'flexible' nature of amending certain parts of the Constitution serve as a Unitary feature?",
+        options: [
+            "It allows states to constantly rewrite the Constitution.",
+            "The bulk of the Constitution can be amended by the unilateral action of the Parliament (simple or special majority) without any state consent.",
+            "It allows the President to suspend the Constitution at will.",
+            "It means the Constitution is physically printed on flexible paper."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The process of constitutional amendment is less rigid than in typical federations. The bulk of the Constitution can be amended by the unilateral action of the Parliament, a hallmark of a unitary system.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Understanding", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 17,
-        question: "17. Who admits a motion of 'No Confidence'?",
-        options: ["President", "Speaker", "PM", "Leader of Opposition"],
-        correctAnswer: 1,
-        explanation: "Speaker (needs support of 50 members).",
-        subtopic: "22.4"
+        question: "The states in India do not have equal representation in the Rajya Sabha. How are the seats in the Rajya Sabha distributed among the states?",
+        options: [
+            "Equally, every state gets 10 seats.",
+            "Based on their geographic area.",
+            "Based on their population (e.g., UP has 31, while Tripura has 1).",
+            "Based on their financial contribution to the Centre."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Unlike the US Senate, where states have equal representation regardless of size, Indian states are given representation in the Rajya Sabha on the basis of population. This is considered a unitary bias.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 18,
-        question: "18. Which Article deals with the Annual Financial Statement (Budget)?",
-        options: ["110", "112", "266", "267"],
-        correctAnswer: 1,
-        explanation: "Article 112.",
-        subtopic: "22.8"
+        question: "Which of the following describes the 'Emergency Provisions' as a highly unitary feature of the Indian Constitution?",
+        options: [
+            "During an emergency, the Centre's powers diminish entirely, leaving states independent.",
+            "During an emergency, the federal structure converts into a unitary one without a formal amendment of the Constitution, giving the Central government absolute control over states.",
+            "Emergencies can only be declared by state governments.",
+            "State legislatures gain the power to impeach the President during emergencies."
+        ],
+        correctAnswer: 1, // B
+        explanation: "During an emergency, the Central government becomes all-powerful and the states go into the total control of the Centre. It converts the federal structure into a unitary one without a formal amendment.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 19,
-        question: "19. Can a minister who is not a member of Parliament participate in proceedings?",
-        options: ["Yes, but cannot vote", "No", "Yes, and can vote", "Only in Joint Sitting"],
-        correctAnswer: 0,
-        explanation: "Yes, he can participate in proceedings of both Houses but cannot vote until he becomes a member.",
-        subtopic: "22.5"
+        question: "In classical federations like the USA, there involves 'Dual Citizenship' (national and state). What is the citizenship structure in India?",
+        options: [
+            "India also has Dual Citizenship.",
+            "India has Triple Citizenship (National, State, District).",
+            "India adopted a Single Citizenship (Indian citizenship only, no separate state citizenship).",
+            "India has no concept of citizenship."
+        ],
+        correctAnswer: 2, // C
+        explanation: "In spite of a dual polity, the Constitution of India, like that of Canada, adopted the system of single citizenship. There is only Indian citizenship and no separate state citizenship.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 20,
-        question: "20. The quorum to hold a meeting of the House of Parliament is?",
-        options: ["1/10th of total membership", "1/2 of total membership", "1/3rd of total membership", "50 members"],
-        correctAnswer: 0,
-        explanation: "One-tenth of the total number of members of the House.",
-        subtopic: "22.3"
+        question: "The Indian Judiciary is described as an 'Integrated Judiciary'. How is this a unitary feature?",
+        options: [
+            "It means state Supreme Courts are independent of the national Supreme Court.",
+            "There is a single system of courts (Supreme Court at the top, High Courts below) that enforces both Central laws as well as state laws.",
+            "State laws can only be enforced by state-run local courts.",
+            "The executive and judiciary are merged."
+        ],
+        correctAnswer: 1, // B
+        explanation: "India has a single system of courts enforcing both Central laws as well as state laws. In contrast, the US has a double system of courts where federal courts enforce federal laws and state courts enforce state laws.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 21,
-        question: "21. Original Jurisdiction of SC DOES NOT extend to?",
-        options: ["Inter-state water disputes", "Centre-State disputes", "State-State disputes", "Dispute involving Govt of India"],
-        correctAnswer: 0,
-        explanation: "Inter-state water disputes are excluded (Article 262).",
-        subtopic: "26.3"
+        question: "The All-India Services (like IAS, IPS, IFS) are considered a unitary feature. Why?",
+        options: [
+            "Because they are recruited exclusively by state governments.",
+            "Because they only serve in the Central government offices in Delhi.",
+            "Because they serve both the Centre and states, but they are recruited uniquely by the Centre, which retains ultimate control over them, violating strict federal division.",
+            "Because they are exempt from all state laws."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Though All-India services serve both Centre and states, they are recruited and trained by the Centre. They hold key posts in states, but ultimate control lies with the Central government, restricting state autonomy.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Understanding", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 22,
-        question: "22. NJAC Act (2014) was declared unconstitutional by SC in?",
-        options: ["First Judges Case", "Second Judges Case", "Third Judges Case", "Fourth Judges Case"],
-        correctAnswer: 3,
-        explanation: "Fourth Judges Case (2015).",
-        subtopic: "26.1"
+        question: "How is the appointment of the state Governor by the President considered a unitary feature?",
+        options: [
+            "The Governor is elected directly by the people of the state.",
+            "The Governor acts entirely on the advice of the state Chief Minister.",
+            "The Governor is appointed by the President, acts as an agent of the Centre, and holds office during the pleasure of the President.",
+            "The Governor can veto Parliament's laws."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The governor is appointed by the President, holds office during his pleasure, and acts as an agent of the Centre. Central control over the states is maintained through this office.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 23,
-        question: "23. Which writ commands a public official to perform his duty?",
-        options: ["Certiorari", "Mandamus", "Prohibition", "Quo Warranto"],
-        correctAnswer: 1,
-        explanation: "Mandamus ('We Command').",
-        subtopic: "26.3"
+        question: "The institution of the Comptroller and Auditor General (CAG) restricts the financial autonomy of states (a unitary feature) because:",
+        options: [
+            "The CAG is elected by the state assemblies.",
+            "The CAG audits only the Central government's accounts.",
+            "The CAG audits the accounts of not only the Central government but also those of the states, yet is appointed solely by the President without consulting the states.",
+            "The CAG demands a share of the state taxes."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The CAG audits the accounts of both the Central and state governments. But his appointment and removal are done solely by the President, without consulting the states, restricting state financial autonomy.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 24,
-        question: "24. The 'Advisory Jurisdiction' of SC is taken from which Constitution?",
-        options: ["USA", "Canada", "UK", "Australia"],
-        correctAnswer: 1,
-        explanation: "Canadian Constitution.",
-        subtopic: "26.3"
+        question: "The Governor has the power to reserve certain types of bills passed by the state legislature for the consideration of the President. What leverage does this give the Centre?",
+        options: [
+            "It gives the Centre no leverage.",
+            "It forces the President to sign all state bills immediately.",
+            "The President enjoys absolute veto over these bills, establishing a Central veto over state legislation.",
+            "It forces the Supreme Court to review the bills."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The governor is empowered to reserve certain types of bills passed by the state legislature for the consideration of the President. The President can withhold his assent to such bills in the first instance or in the second instance. Thus, the President enjoys absolute veto over State bills.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 25,
-        question: "25. Who can abolish a State Legislative Council?",
-        options: ["President", "Parliament", "Governor", "State Assembly"],
-        correctAnswer: 1,
-        explanation: "Parliament (on resolution of State Assembly).",
-        subtopic: "36.2"
+        question: "Which prominent political scientist described the Indian Constitution as 'quasi-federal'?",
+        options: [
+            "Granville Austin",
+            "K.C. Wheare",
+            "Ivor Jennings",
+            "Paul Appleby"
+        ],
+        correctAnswer: 1, // B
+        explanation: "K.C. Wheare described the Constitution of India as 'quasi-federal'. He remarked that Indian Union is a unitary state with subsidiary federal features rather than a federal state with subsidiary unitary features.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
-    // ... Fill up to 50 with mixed Qs from Week 2
     {
         id: 26,
-        question: "26. The Speaker of Lok Sabha submits his resignation to?",
-        options: ["President", "PM", "Deputy Speaker", "CJI"],
-        correctAnswer: 2,
-        explanation: "Deputy Speaker.",
-        subtopic: "22.4"
+        question: "Granville Austin famously described the Indian federalism using which distinct term, signifying a system that produces a strong central government but doesn't necessarily result in weak provincial governments?",
+        options: [
+            "Bargaining Federalism",
+            "Co-operative Federalism",
+            "Federation with a centralizing tendency",
+            "Extremely Unitary"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Granville Austin called the Indian federalism a 'Co-operative Federalism'.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 27,
-        question: "27. Lok Adalats have been given statutory status by?",
-        options: ["Legal Services Authorities Act, 1987", "Constitution Act", "Civil Procedure Code", "Supreme Court Order"],
-        correctAnswer: 0,
-        explanation: "Legal Services Authorities Act, 1987.",
-        subtopic: "35.2"
+        question: "In the landmark S.R. Bommai case (1994), what did the Supreme Court explicitly declare regarding the structural nature of the Indian Constitution?",
+        options: [
+            "That federalism is a superficial, non-essential feature.",
+            "That the Constitution is strictly unitary.",
+            "That 'federalism' is an essential 'basic feature' of the Constitution.",
+            "That states have the constitutional right to declare independence."
+        ],
+        correctAnswer: 2, // C
+        explanation: "In the S.R. Bommai case (1994), the Supreme Court laid down that the Constitution is federal and characterized federalism as its 'basic feature'.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 28,
-        question: "28. Who appoints the Chairman of the Public Accounts Committee?",
-        options: ["Speaker", "PM", "President", "Leader of Opposition"],
-        correctAnswer: 0,
-        explanation: "Speaker of Lok Sabha.",
-        subtopic: "23.1"
+        question: "The Supreme Court in S.R. Bommai noted that while the Centre is endowed with more powers, the States are not merely 'appendages' of the Centre. Within their allotted sphere, they are:",
+        options: [
+            "Completely subordinate to the Governor.",
+            "Agencies of the Central Government.",
+            "Supreme, with an independent constitutional existence.",
+            "Regulated directly by the United Nations."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Supreme Court stated that states have an independent constitutional existence. They are not appendages or agencies of the Centre. Within the sphere allotted to them, the states are supreme.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 29,
-        question: "29. Minimum age for being a member of Rajya Sabha?",
-        options: ["25", "30", "35", "21"],
-        correctAnswer: 1,
-        explanation: "30 years.",
-        subtopic: "22.2"
+        question: "Which of the following describes the distribution of power regarding the 'Residuary Powers' (subjects not mentioned in any of the three lists) in India, and how does it compare to the US/Australia?",
+        options: [
+            "Residuary powers rest with the States, similar to the US.",
+            "Residuary powers rest with the Centre, similar to Canada, unlike the US where they rest with the States.",
+            "Residuary powers are shared equally between Centre and States.",
+            "There are no residuary powers; the lists are exhaustive forever."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Centre has residuary powers in India (as in Canada), unlike in the US or Australia where residuary powers are vested in the states. This signifies a strong Centre.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
     },
     {
         id: 30,
-        question: "30. Constitution Bench of Supreme Court refers to a bench with?",
-        options: ["3 judges", "5 or more judges", "All judges", "Single judge"],
-        correctAnswer: 1,
-        explanation: "5 or more judges.",
-        subtopic: "26.1"
-    },
-    // Random filling 31-50 with rapid fire Week 2 topics
-    { id: 31, question: "31. Salary of HC Judges charged on?", options: ["Consolidated Fund of India", "Consolidated Fund of State", "Contingency Fund", "Grants"], correctAnswer: 1, subtopic: "34.1" },
-    { id: 32, question: "32. Pension of HC Judges charged on?", options: ["Consolidated Fund of India", "Consolidated Fund of State", "Both", "None"], correctAnswer: 0, subtopic: "34.1" },
-    { id: 33, question: "33. Who is the first Law Officer of India?", options: ["CJI", "Law Minister", "Attorney General", "Solicitor General"], correctAnswer: 2, subtopic: "20.0" },
-    { id: 34, question: "34. Can Courts inquire into validity of proceedings in Parliament?", options: ["Yes", "No", "Only if unconstitutional", "Only SC"], correctAnswer: 1, subtopic: "22.9" },
-    { id: 35, question: "35. Which House is the 'House of Elders'?", options: ["Lok Sabha", "Rajya Sabha", "Vidhan Sabha", "None"], correctAnswer: 1, subtopic: "22.1" },
-    { id: 36, question: "36. First hour of every parliamentary sitting is?", options: ["Zero Hour", "Question Hour", "Prayer Hour", "Agenda Hour"], correctAnswer: 1, subtopic: "22.3" },
-    { id: 37, question: "37. Zero Hour is an innovation of?", options: ["UK", "India", "USA", "France"], correctAnswer: 1, subtopic: "22.3" },
-    { id: 38, question: "38. Who presides over Joint Sitting if Speaker & Deputy Speaker are absent?", options: ["Chairman RS", "Deputy Chairman RS", "Senior Member", "PM"], correctAnswer: 1, subtopic: "22.7" },
-    { id: 39, question: "39. Anti-Defection Law is in which Schedule?", options: ["8th", "9th", "10th", "11th"], correctAnswer: 2, subtopic: "22.2" },
-    { id: 40, question: "40. Can a Nominated Member join a political party?", options: ["No", "Yes, anytime", "Yes, within 6 months", "Yes, after 6 months"], correctAnswer: 2, subtopic: "22.2" },
-    { id: 41, question: "41. Whip is mentioned in?", options: ["Constitution", "Rules of House", "Parliamentary Statute", "Convention"], correctAnswer: 3, subtopic: "22.5" },
-    { id: 42, question: "42. Lame Duck Session refers to?", options: ["First session", "Budget session", "Last session of existing Lok Sabha", "Emergency session"], correctAnswer: 2, subtopic: "22.3" },
-    { id: 43, question: "43. Vote on Account is for?", options: ["Expenditure", "Income", "Taxation", "Loans"], correctAnswer: 0, subtopic: "22.8" },
-    { id: 44, question: "44. Guillotine is applied to?", options: ["Demands for Grants", "Questions", "Motions", "Bills"], correctAnswer: 0, subtopic: "22.8" },
-    { id: 45, question: "45. Who appoints the Secretary General of Lok Sabha?", options: ["President", "PM", "Speaker", "Civil Service Board"], correctAnswer: 2, subtopic: "22.4" },
-    { id: 46, question: "46. Rajya Sabha has equal power with Lok Sabha in?", options: ["Money Bills", "Constitutional Amendment", "No Conflict Motion", "All bills"], correctAnswer: 1, subtopic: "22.6" },
-    { id: 47, question: "47. How many Departmental Standing Committees are there?", options: ["17", "24", "30", "15"], correctAnswer: 1, subtopic: "23.2" },
-    { id: 48, question: "48. Integrated Judicial System was adopted from?", options: ["USA", "GOI Act 1935", "UK", "Canada"], correctAnswer: 1, subtopic: "26.1" },
-    { id: 49, question: "49. Supreme Court of Calcutta was established by?", options: ["Regulating Act 1773", "Pitts India Act 1784", "Charter Act 1833", "GOI Act 1858"], correctAnswer: 0, subtopic: "26.1" },
-    { id: 50, question: "50. Who removes a State Public Service Commission member?", options: ["Governor", "President", "Chairman UPSC", "CM"], correctAnswer: 1, subtopic: "34.1" },
-
-    // ==========================================
-    // PAPER 2: WEEK 1 TOPICS (Q51-100)
-    // Const Framework, Union & State Executive
-    // ==========================================
-
-    {
-        id: 51,
-        question: "51. The idea of Constituent Assembly was first proposed by?",
-        options: ["M.N. Roy", "J.L. Nehru", "Gandhi", "Ambedkar"],
-        correctAnswer: 0,
-        explanation: "M.N. Roy in 1934.",
-        subtopic: "2.1"
-    },
-    {
-        id: 52,
-        question: "52. Preamble is?",
-        options: ["Justiciable", "Not Justiciable", "Enforceable", "Supreme Law"],
-        correctAnswer: 1,
-        explanation: "Non-justiciable (Not enforceable in courts).",
-        subtopic: "4.1"
-    },
-    {
-        id: 53,
-        question: "53. 'Socialist' and 'Secular' were added by?",
-        options: ["42nd Amendment", "44th Amendment", "1st Amendment", "86th Amendment"],
-        correctAnswer: 0,
-        explanation: "42nd Amendment Act, 1976.",
-        subtopic: "4.1"
-    },
-    {
-        id: 54,
-        question: "54. Article 1 describes India as?",
-        options: ["Federal State", "Unitary State", "Union of States", "Confederation"],
-        correctAnswer: 2,
-        explanation: "Union of States.",
-        subtopic: "5.1"
-    },
-    {
-        id: 55,
-        question: "55. Citizenship is in which Part of Constitution?",
-        options: ["Part I", "Part II", "Part III", "Part IV"],
-        correctAnswer: 1,
-        explanation: "Part II (Articles 5-11).",
-        subtopic: "6.1"
-    },
-    {
-        id: 56,
-        question: "56. Fundamental Duties were added on recommendation of?",
-        options: ["Verma Committee", "Swaran Singh Committee", "Mandal Commission", "Sarkaria Commission"],
-        correctAnswer: 1,
-        explanation: "Swaran Singh Committee (1976).",
-        subtopic: "9.1"
-    },
-    {
-        id: 57,
-        question: "57. Which Article deals with 'Abolition of Untouchability'?",
-        options: ["16", "17", "18", "23"],
-        correctAnswer: 1,
-        explanation: "Article 17.",
-        subtopic: "7.1"
-    },
-    {
-        id: 58,
-        question: "58. Right to Property is now a?",
-        options: ["Fundamental Right", "Legal Right", "Moral Right", "Review Right"],
-        correctAnswer: 1,
-        explanation: "Legal Right (Article 300A).",
-        subtopic: "7.1"
-    },
-    {
-        id: 59,
-        question: "59. Impeachment of President can be initiated in?",
-        options: ["Lok Sabha only", "Rajya Sabha only", "Either House", "Joint Sitting"],
-        correctAnswer: 2,
-        explanation: "Either House of Parliament.",
-        subtopic: "17.1"
-    },
-    {
-        id: 60,
-        question: "60. Who appoints the Prime Minister?",
-        options: ["Lok Sabha", "President", "Majority Party", "Chief Justice"],
-        correctAnswer: 1,
-        explanation: "President (Article 75).",
-        subtopic: "20.1"
-    },
-    {
-        id: 61,
-        question: "61. The President can dissolve Lok Sabha on advice of?",
-        options: ["Speaker", "Council of Ministers", "CJI", "VP"],
-        correctAnswer: 1,
-        explanation: "Council of Ministers headed by PM.",
-        subtopic: "17.2"
-    },
-    {
-        id: 62,
-        question: "62. Minimum age to be President of India?",
-        options: ["30", "35", "25", "40"],
-        correctAnswer: 1,
-        explanation: "35 years.",
-        subtopic: "17.1"
-    },
-    {
-        id: 63,
-        question: "63. The Governor holds office during the pleasure of?",
-        options: ["PM", "President", "CM", "Parliament"],
-        correctAnswer: 1,
-        explanation: "President.",
-        subtopic: "30.1"
-    },
-    {
-        id: 64,
-        question: "64. Article 72 deals with?",
-        options: ["Pardoning power of President", "Pardoning power of Governor", "PM appointment", "Attorney General"],
-        correctAnswer: 0,
-        explanation: "Pardoning power of President.",
-        subtopic: "17.2"
-    },
-    {
-        id: 65,
-        question: "65. Who is the ex-officio Chairman of NITI Aayog?",
-        options: ["President", "PM", "Finance Minister", "Planning Minister"],
-        correctAnswer: 1,
-        explanation: "Prime Minister.",
-        subtopic: "20.1"
-    },
-    {
-        id: 66,
-        question: "66. Emergency Provisions are taken from?",
-        options: ["Germany (Weimar)", "USA", "Canada", "UK"],
-        correctAnswer: 0,
-        explanation: "Germany.",
-        subtopic: "16.1"
-    },
-    {
-        id: 67,
-        question: "67. Financial Emergency is under Article?",
-        options: ["352", "356", "360", "365"],
-        correctAnswer: 2,
-        explanation: "Article 360.",
-        subtopic: "16.1"
-    },
-    {
-        id: 68,
-        question: "68. Who administers oath to the President?",
-        options: ["VP", "PM", "CJI", "Speaker"],
-        correctAnswer: 2,
-        explanation: "Chief Justice of India.",
-        subtopic: "17.1"
-    },
-    {
-        id: 69,
-        question: "69. Directive Principles (DPSP) are taken from?",
-        options: ["Irish Constitution", "USA", "UK", "France"],
-        correctAnswer: 0,
-        explanation: "Irish Constitution.",
-        subtopic: "8.1"
-    },
-    {
-        id: 70,
-        question: "70. Uniform Civil Code is mentioned in Article?",
-        options: ["40", "44", "45", "50"],
-        correctAnswer: 1,
-        explanation: "Article 44.",
-        subtopic: "8.1"
-    },
-    // Filling 71-100 (Rapid Fire Week 1)
-    { id: 71, question: "71. Fundamental Rights are justiciable?", options: ["Yes", "No", "Partially", "None"], correctAnswer: 0, subtopic: "7.1" },
-    { id: 72, question: "72. Which article is 'Heart and Soul' of Constitution?", options: ["14", "19", "32", "21"], correctAnswer: 2, subtopic: "7.1" },
-    { id: 73, question: "73. Who called Preamble the 'Identity Card'?", options: ["Palkhivala", "Nehru", "Ambedkar", "Munshi"], correctAnswer: 0, subtopic: "4.1" },
-    { id: 74, question: "74. 10th Schedule added by?", options: ["52nd Amd", "42nd Amd", "44th Amd", "61st Amd"], correctAnswer: 0, subtopic: "3.2" },
-    { id: 75, question: "75. Drafting Committee Chairman?", options: ["Ambedkar", "Nehru", "Patel", "Prasad"], correctAnswer: 0, subtopic: "2.1" },
-    { id: 76, question: "76. Procedure established by law is from?", options: ["Japan", "USA", "UK", "Russia"], correctAnswer: 0, subtopic: "3.2" },
-    { id: 77, question: "77. Federal System with strong centre is from?", options: ["Canada", "USA", "Aus", "UK"], correctAnswer: 0, subtopic: "3.2" },
-    { id: 78, question: "78. Concurrent List is from?", options: ["Australia", "Canada", "USA", "UK"], correctAnswer: 0, subtopic: "3.2" },
-    { id: 79, question: "79. Article 368 deals with?", options: ["Amendment", "Emergency", "Finance", "Election"], correctAnswer: 0, subtopic: "10.1" },
-    { id: 80, question: "80. Basic Structure doctrine case?", options: ["Kesavananda", "Golaknath", "Minerva", "Maneka"], correctAnswer: 0, subtopic: "11.1" },
-    { id: 81, question: "81. Who elects Vice President?", options: ["Parliament (All members)", "Parliament (Elected only)", "Parliament + States", "RS only"], correctAnswer: 0, subtopic: "18.1" },
-    { id: 82, question: "82. Ordinance making power of President?", options: ["123", "213", "143", "52"], correctAnswer: 0, subtopic: "17.2" },
-    { id: 83, question: "83. Max gap between two sessions of Parliament?", options: ["6 months", "3 months", "9 months", "1 year"], correctAnswer: 0, subtopic: "22.3" },
-    { id: 84, question: "84. Total number of Schedules in Constitution?", options: ["8", "10", "12", "9"], correctAnswer: 2, subtopic: "3.2" },
-    { id: 85, question: "85. How many Fundamental Duties?", options: ["10", "11", "9", "12"], correctAnswer: 1, subtopic: "9.1" },
-    { id: 86, question: "86. Right to Education (21A) added by?", options: ["86th Amd", "42nd Amd", "44th Amd", "91st Amd"], correctAnswer: 0, subtopic: "7.1" },
-    { id: 87, question: "87. Gram Panchayats organization article?", options: ["40", "41", "42", "43"], correctAnswer: 0, subtopic: "8.1" },
-    { id: 88, question: "88. Separation of Judiciary from Executive?", options: ["50", "51", "48", "49"], correctAnswer: 0, subtopic: "8.1" },
-    { id: 89, question: "89. Promotion of International Peace?", options: ["51", "50", "52", "45"], correctAnswer: 0, subtopic: "8.1" },
-    { id: 90, question: "90. Writ of Habeas Corpus means?", options: ["To have the body", "We command", "By what authority", "To certify"], correctAnswer: 0, subtopic: "7.1" },
-    { id: 91, question: "91. Financial Emergency declared how many times?", options: ["Never", "Once", "Twice", "Thrice"], correctAnswer: 0, subtopic: "16.1" },
-    { id: 92, question: "92. National Emergency grounds?", options: ["War, External Aggression, Armed Rebellion", "Internal Disturbance", "Economic Crisis", "Political Instability"], correctAnswer: 0, subtopic: "16.1" },
-    { id: 93, question: "93. President's Rule article?", options: ["356", "360", "352", "358"], correctAnswer: 0, subtopic: "16.1" },
-    { id: 94, question: "94. Council of Ministers is collectively responsible to?", options: ["Lok Sabha", "Parliament", "President", "PM"], correctAnswer: 0, subtopic: "21.2" },
-    { id: 95, question: "95. Who appoints the Governor?", options: ["President", "PM", "CJI", "CM"], correctAnswer: 0, subtopic: "30.1" },
-    { id: 96, question: "96. Advocate General appointed by?", options: ["Governor", "President", "Chief Justice", "CM"], correctAnswer: 0, subtopic: "30.3" },
-    { id: 97, question: "97. Power to grant pardons by Governor is under?", options: ["161", "72", "163", "164"], correctAnswer: 0, subtopic: "30.2" },
-    { id: 98, question: "98. State Election Commissioner removed by?", options: ["President", "Governor", "Parliament", "CM"], correctAnswer: 0, subtopic: "30.1" },
-    { id: 99, question: "99. Money Bill in State Legislature requires prior recommendation of?", options: ["Governor", "President", "CM", "Speaker"], correctAnswer: 0, subtopic: "30.2" },
-    { id: 100, question: "100. 73rd Amendment deals with?", options: ["Panchayati Raj", "Municipalities", "Cooperatives", "Languages"], correctAnswer: 0, subtopic: "38.1" }
+        question: "Morris Jones described the Indian federal system using which of the following phrases to highlight the constant negotiation between the Centre and States?",
+        options: [
+            "Co-operative Federalism",
+            "Competitive Federalism",
+            "Bargaining Federalism",
+            "Coercive Federalism"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Morris Jones described it as 'Bargaining Federalism', noting the practical political negotiations that occur between the central and state governments.",
+        level: "Easy", topic: "Federal System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Federal System" }
+    }
 ];
-
-export default DAY13_MCQS;

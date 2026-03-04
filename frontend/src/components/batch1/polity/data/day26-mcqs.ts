@@ -1,294 +1,397 @@
-
-export interface MCQ {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation?: string;
-    level?: string;
-    topic?: string;
-    chapter?: string;
-    subtopic?: string;
-}
+import type { MCQ } from './mcq-utils';
 
 export const DAY26_MCQS: MCQ[] = [
-    // ==========================================
-    // LOKPAL (30 Questions)
-    // ==========================================
+    // ----------------------------------------------------------------------
+    // LEVEL 1: EASY (The Text-Book Stickler - Strictly Chapter 26)
+    // ----------------------------------------------------------------------
     {
         id: 1,
-        question: "Lokpal and Lokayuktas Act was passed in:",
-        options: ["2013", "2011", "2014", "2005"],
-        correctAnswer: 0,
-        explanation: "2013.",
-        subtopic: "62.1"
+        question: "Which articles in Part V of the Constitution specifically deal with the Supreme Court?",
+        options: [
+            "Articles 52 to 78",
+            "Articles 124 to 147",
+            "Articles 148 to 151",
+            "Articles 214 to 231"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Articles 124 to 147 in Part V of the Constitution deal with the organisation, independence, jurisdiction, powers, procedures and so on of the Supreme Court.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 2,
-        question: "Total members in Lokpal excluding Chairperson?",
-        options: ["Max 8", "Max 4", "Max 10", "Max 6"],
-        correctAnswer: 0,
-        explanation: "Maximum 8 members.",
-        subtopic: "62.1"
+        question: "When was the Supreme Court of India inaugurated?",
+        options: [
+            "August 15, 1947",
+            "November 26, 1949",
+            "January 26, 1950",
+            "January 28, 1950"
+        ],
+        correctAnswer: 3, // D
+        explanation: "The Supreme Court of India was inaugurated on January 28, 1950.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "History", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 3,
-        question: "Percentage of Judicial Members in Lokpal?",
-        options: ["Minimum 50%", "Maximum 50%", "Minimum 33%", "No limit"],
-        correctAnswer: 0,
-        explanation: "Not less than 50% of the members shall be Judicial Members.",
-        subtopic: "62.1"
+        question: "Which pre-independence judicial body did the Supreme Court of India succeed?",
+        options: [
+            "The High Court of Calcutta",
+            "The Privy Council",
+            "The Federal Court of India",
+            "The Crown Court"
+        ],
+        correctAnswer: 2, // C
+        explanation: "It succeeded the Federal Court of India, established under the Government of India Act of 1935.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "History", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 4,
-        question: "Who is the Chairperson of the Lokpal Selection Committee?",
-        options: ["President", "Prime Minister", "CJI", "Speaker"],
-        correctAnswer: 1,
-        explanation: "Prime Minister.",
-        subtopic: "62.1"
+        question: "Who is authorized by the Constitution to regulate the strength (number of judges) of the Supreme Court?",
+        options: [
+            "The President of India",
+            "The Chief Justice of India",
+            "The Parliament",
+            "The Union Cabinet"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Parliament is authorised to regulate the strength of the Supreme Court.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Authority", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 5,
-        question: "Eminent Jurist in Selection Committee is nominated by?",
-        options: ["President", "PM", "CJI", "Committee itself"],
-        correctAnswer: 0,
-        explanation: "President (on recommendation of the other 4 members).",
-        subtopic: "62.1"
+        question: "Who appoints the judges of the Supreme Court?",
+        options: [
+            "The Chief Justice of India",
+            "The Prime Minister",
+            "The Law Minister",
+            "The President"
+        ],
+        correctAnswer: 3, // D
+        explanation: "The judges of the Supreme Court are appointed by the President.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Role Identification", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 6,
-        question: "Term of Lokpal Chairperson/Members?",
-        options: ["5 years / 70 age", "5 years / 65 age", "6 years / 65 age", "3 years / 70 age"],
-        correctAnswer: 0,
-        explanation: "5 years or 70 years of age.",
-        subtopic: "62.1"
+        question: "According to the 'Third Judges Case' (1998), the Chief Justice of India must consult a collegium of how many senior-most judges of the Supreme Court for appointments?",
+        options: [
+            "Two",
+            "Three",
+            "Four",
+            "Five"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Chief Justice of India should consult a collegium of four senior-most judges of the Supreme Court.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 7,
-        question: "Can Lokpal investigate PM?",
-        options: ["Yes, with exceptions", "No, never", "Only after demission", "Only personal matters"],
-        correctAnswer: 0,
-        explanation: "Yes, except matters relating to international relations, external and internal security, public order, atomic energy and space.",
-        subtopic: "62.2"
+        question: "Which Constitutional Amendment Act attempted to replace the Collegium System with the National Judicial Appointments Commission (NJAC)?",
+        options: [
+            "97th Amendment Act",
+            "99th Amendment Act",
+            "100th Amendment Act",
+            "101st Amendment Act"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The 99th Constitutional Amendment Act of 2014 and the National Judicial Appointments Commission Act of 2014 replaced the collegium system of appointing judges to the Supreme Court and High Courts with a new body called the National Judicial Appointments Commission (NJAC).",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Constitutional Amendment", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 8,
-        question: "To investigate PM, how much majority of Lokpal bench is needed?",
-        options: ["2/3rd", "Simple Majority", "3/4th", "Unanimous"],
-        correctAnswer: 0,
-        explanation: "At least two-thirds of the members of the Lokpal must approve such inquiry.",
-        subtopic: "62.2"
+        question: "In which year did the Supreme Court declare the 99th Constitutional Amendment Act (NJAC) unconstitutional and void?",
+        options: [
+            "2014",
+            "2015",
+            "2016",
+            "2017"
+        ],
+        correctAnswer: 1, // B
+        explanation: "In 2015, the Supreme Court declared both the 99th Constitutional Amendment as well as the NJAC Act as unconstitutional and void.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 9,
-        question: "Who removes Lokpal Chairperson?",
-        options: ["President", "Parliament", "Supreme Court", "Committee"],
-        correctAnswer: 0,
-        explanation: "President (after SC inquiry on reference by President).",
-        subtopic: "62.1"
+        question: "To be appointed as a judge of the Supreme Court, a person must have been a judge of a High Court (or High Courts in succession) for at least:",
+        options: [
+            "3 years",
+            "5 years",
+            "7 years",
+            "10 years"
+        ],
+        correctAnswer: 1, // B
+        explanation: "He should have been a judge of a High Court (or high courts in succession) for five years.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Qualification", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 10,
-        question: "Reference for removal can be made by President on petition signed by?",
-        options: ["At least 100 MPs", "PM", "Cabinet", "Any citizen"],
-        correctAnswer: 0,
-        explanation: "At least 100 Members of Parliament.",
-        subtopic: "62.1"
+        question: "To be appointed as a judge of the Supreme Court based on advocacy, a person must have been an advocate of a High Court for at least:",
+        options: [
+            "5 years",
+            "10 years",
+            "15 years",
+            "20 years"
+        ],
+        correctAnswer: 1, // B
+        explanation: "He should have been an advocate of a High Court (or High Courts in succession) for ten years.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Qualification", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 11,
-        question: "Is there reservation in Lokpal membership?",
-        options: ["Yes, min 50% for SC/ST/OBC/Women/Minorities", "No", "Only for Women", "Only for SC/ST"],
-        correctAnswer: 0,
-        explanation: "Minimum 50% of members shall be from amongst SC, ST, OBC, Minorities and Women.",
-        subtopic: "62.1"
+        question: "A distinguished jurist can be appointed as a Judge of the Supreme Court if they hold that distinction in the opinion of the:",
+        options: [
+            "Chief Justice of India",
+            "Parliament",
+            "President",
+            "Bar Council of India"
+        ],
+        correctAnswer: 2, // C
+        explanation: "He should be a distinguished jurist in the opinion of the president.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Qualification", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 12,
-        question: "Search Committee to assist Selection Committee has how many members?",
-        options: ["At least 7", "At least 5", "Exactly 3", "Only 1"],
-        correctAnswer: 0,
-        explanation: "At least 7 members.",
-        subtopic: "62.1"
+        question: "Does the Constitution prescribe a minimum age for appointment as a judge of the Supreme Court?",
+        options: [
+            "Yes, 35 years.",
+            "Yes, 45 years.",
+            "Yes, 50 years.",
+            "No, the Constitution has not prescribed a minimum age."
+        ],
+        correctAnswer: 3, // D
+        explanation: "From the above, it is clear that the Constitution has not prescribed a minimum age for appointment as a judge of the Supreme Court.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Qualification", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 13,
-        question: "Salary of Lokpal Chairperson is equivalent to?",
-        options: ["CJI", "SC Judge", "Cabinet Secretary", "PM"],
-        correctAnswer: 0,
-        explanation: "Chief Justice of India.",
-        subtopic: "62.1"
+        question: "Before whom does a person appointed as a judge of the Supreme Court make and subscribe an oath or affirmation?",
+        options: [
+            "The Chief Justice of India",
+            "The Prime Minister",
+            "The President, or some person appointed by him for this purpose",
+            "The Speaker of the Lok Sabha"
+        ],
+        correctAnswer: 2, // C
+        explanation: "A person appointed as a judge of the Supreme Court, before entering upon his office, has to make and subscribe an oath or affirmation before the President, or some person appointed by him for this purpose.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Oath", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 14,
-        question: "Jurisdiction of Lokpal covers?",
-        options: ["Group A, B, C and D officers", "Only Group A", "Only Ministers", "Only MP"],
-        correctAnswer: 0,
-        explanation: "Yes, it covers all categories of public servants (Group A, B, C, D).",
-        subtopic: "62.2"
+        question: "At what age does a Judge of the Supreme Court retire?",
+        options: [
+            "60 years",
+            "62 years",
+            "65 years",
+            "70 years"
+        ],
+        correctAnswer: 2, // C
+        explanation: "He holds office until he attains the age of 65 years.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Tenure", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 15,
-        question: "Can Lokpal take suo motu cognizance?",
-        options: ["No", "Yes", "In rare cases", "If directed by Court"],
-        correctAnswer: 0,
-        explanation: "Act does not explicitly empower suo motu. It acts on 'complaint'.",
-        subtopic: "62.2"
+        question: "To whom does a Judge of the Supreme Court write to resign from his office?",
+        options: [
+            "The Parliament",
+            "The Chief Justice of India",
+            "The Law Minister",
+            "The President"
+        ],
+        correctAnswer: 3, // D
+        explanation: "He can resign his office by writing to the president.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Resignation", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 16,
-        question: "First Lokpal of India?",
-        options: ["P.C. Ghose", "Dipak Misra", "Ranjan Gogoi", "H.L. Dattu"],
-        correctAnswer: 0,
-        explanation: "Pinaki Chandra Ghose.",
-        subtopic: "62.1"
+        question: "Who has the power to issue the formal order to remove a Judge of the Supreme Court?",
+        options: [
+            "The Parliament",
+            "The Chief Justice of India",
+            "The President",
+            "The Prime Minister"
+        ],
+        correctAnswer: 2, // C
+        explanation: "A judge of the Supreme Court can be removed from his Office by an order of the president.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Removal", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 17,
-        question: "Time limit for preliminary inquiry by Lokpal?",
-        options: ["90 days (extendable to 180)", "30 days", "60 days", "1 year"],
-        correctAnswer: 0,
-        explanation: "90 days (extendable by another 90 days).",
-        subtopic: "62.2"
+        question: "What are the two grounds mentioned in the Constitution for the removal of a Supreme Court judge?",
+        options: [
+            "Violation of the Constitution and Corruption",
+            "Proved misbehaviour or incapacity",
+            "Insolvency and Moral turpitude",
+            "Treason and Bribery"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The grounds of removal are two—proved misbehaviour or incapacity.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Grounds for Removal", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 18,
-        question: "Lokpal has powers of?",
-        options: ["Civil Court", "Criminal Court", "High Court", "Police Station"],
-        correctAnswer: 0,
-        explanation: "Civil Court.",
-        subtopic: "62.2"
+        question: "Which Act regulates the procedure relating to the removal of a judge of the Supreme Court by the process of impeachment?",
+        options: [
+            "The Supreme Court Rules, 1966",
+            "The Constitution (Amendment) Act, 1971",
+            "The Judges (Inquiry) Act, 1968",
+            "The Representation of the People Act, 1951"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Judges (Inquiry) Act (1968) regulates the procedure relating to the removal of a judge of the Supreme Court by the process of impeachment.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 19,
-        question: "Can Lokpal attach property?",
-        options: ["Yes, provisionally", "No", "Only after conviction", "Only cash"],
-        correctAnswer: 0,
-        explanation: "Yes, power to provisionally attach assets of corrupt public servants.",
-        subtopic: "62.2"
+        question: "To initiate the removal process under the Judges (Inquiry) Act, a removal motion in the Lok Sabha must be signed by at least how many members?",
+        options: [
+            "50 members",
+            "100 members",
+            "150 members",
+            "200 members"
+        ],
+        correctAnswer: 1, // B
+        explanation: "A removal motion signed by 100 members (in the case of Lok Sabha) or 50 members (in the case of Rajya Sabha) is to be given to the Speaker/Chairman.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Procedure", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
         id: 20,
-        question: "Does Lokpal have its own Inquiry Wing?",
-        options: ["Yes", "No", "Uses CBI only", "Uses Police only"],
-        correctAnswer: 0,
-        explanation: "Yes, Act mandates Inquiry Wing and Prosecution Wing.",
-        subtopic: "62.2"
-    },
-    { id: 21, question: "Who bears expenses of Lokpal?", options: ["Consolidated Fund of India", "Contingency Fund", "Dept of Personnel", "Ministry of Law"], correctAnswer: 0, subtopic: "62.1" },
-    { id: 22, question: "Can Lokpal punish for false complaints?", options: ["Yes", "No", "Only Court can", "Only fine"], correctAnswer: 0, subtopic: "62.2" }, // Yes, imprisonment up to 1 year and fine.
-    { id: 23, question: "Institutions fully funded by Govt under Lokpal?", options: ["Yes", "No", "Only if notified", "Partially"], correctAnswer: 0, subtopic: "62.2" },
-    { id: 24, question: "NGOs receiving foreign donation > 10 Lakhs under Lokpal?", options: ["Yes", "No", "Only > 1 Cr", "Not covered"], correctAnswer: 0, subtopic: "62.2" },
-    { id: 25, question: "Is Lokpal a constitutional body?", options: ["No", "Yes", "Quasi-judicial", "None"], correctAnswer: 0, subtopic: "62.1" },
-    { id: 26, question: "Can Lokpal transfer CBI officers investigating a case?", options: ["No, without Lokpal approval", "Yes", "Govt power", "CBI Director power"], correctAnswer: 0, subtopic: "62.2" }, // Investigating officers cannot be transferred without Lokpal approval.
-    { id: 27, question: "Term 'Ombudsman' originated in?", options: ["Sweden", "Norway", "UK", "France"], correctAnswer: 0, subtopic: "62.1" }, // 1809
-    { id: 28, question: "First ARC (1966) recommended?", options: ["Lokpal & Lokayukta", "CBI", "CVC", "NHRC"], correctAnswer: 0, subtopic: "62.1" },
-    { id: 29, question: "Does Lokpal cover Judiciary?", options: ["No", "Yes", "Only Lower Judiciary", "Only HC"], correctAnswer: 0, subtopic: "62.2" },
-    { id: 30, question: "Is Armed Forces under Lokpal?", options: ["No", "Yes", "Partially", "Only corruption"], correctAnswer: 0, subtopic: "62.2" },
-
-    // ==========================================
-    // LOKAYUKTA (30 Questions)
-    // ==========================================
-    {
-        id: 31,
-        question: "Which state passed Lokayukta Act first?",
-        options: ["Odisha", "Maharashtra", "Rajasthan", "UP"],
-        correctAnswer: 0,
-        explanation: "Odisha (1970). But Maharashtra established it first in 1971.",
-        subtopic: "62.3"
+        question: "Who determines the salaries, allowances, privileges, leave, and pension of the Judges of the Supreme Court?",
+        options: [
+            "The President",
+            "The Finance Commission",
+            "The Parliament",
+            "The Chief Justice of India"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The salaries, allowances, privileges, leave and pension of the judges of the Supreme Court are determined from time to time by the Parliament.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Financial Authority", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
-        id: 32,
-        question: "Which state established Lokayukta first?",
-        options: ["Maharashtra", "Odisha", "Bihar", "Karnataka"],
-        correctAnswer: 0,
-        explanation: "Maharashtra (1971).",
-        subtopic: "62.3"
+        id: 21,
+        question: "Can the salaries and allowances of Supreme Court judges be altered to their disadvantage after their appointment?",
+        options: [
+            "Yes, by a simple majority in Parliament.",
+            "Yes, immediately after an election.",
+            "No, except during a National Emergency.",
+            "No, except during a Financial Emergency."
+        ],
+        correctAnswer: 3, // D
+        explanation: "They cannot be varied to their disadvantage after their appointment except during a financial emergency.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Safeguard", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
-        id: 33,
-        question: "Lokayukta is appointed by?",
-        options: ["Governor", "CM", "President", "Chief Justice of HC"],
-        correctAnswer: 0,
-        explanation: "Governor.",
-        subtopic: "62.3"
+        id: 22,
+        question: "Who can appoint a judge of the Supreme Court as an Acting Chief Justice of India when the office of Chief Justice is vacant?",
+        options: [
+            "The outgoing Chief Justice of India",
+            "The Parliament",
+            "The President",
+            "The senior-most judge automatically takes over without appointment"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The President can appoint a judge of the Supreme Court as an acting Chief Justice of India when... the office of Chief Justice of India is vacant.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Appointment", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
-        id: 34,
-        question: "Appointment usually requires consultation with?",
-        options: ["CJ of HC & Leader of Opposition", "CM only", "President", "Speaker"],
-        correctAnswer: 0,
-        explanation: "Chief Justice of High Court and Leader of Opposition in State Assembly.",
-        subtopic: "62.3"
+        id: 23,
+        question: "When there is a lack of quorum of permanent judges, who can appoint a Judge of a High Court as an ad hoc judge of the Supreme Court?",
+        options: [
+            "The President",
+            "The Chief Justice of India (with previous consent of the President)",
+            "The Parliament",
+            "The Chief Justice of the concerned High Court directly"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Chief Justice of India can appoint a judge of a High Court as an ad hoc judge of the Supreme Court... He can do so only after consultation with the chief justice of the High Court concerned and with the previous consent of the president.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Appointment", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
-        id: 35,
-        question: "Lokpal Act 2013 mandates states to establish Lokayukta within?",
-        options: ["1 year", "6 months", "2 years", "3 years"],
-        correctAnswer: 0,
-        explanation: "1 year from commencement of Act (Section 63).",
-        subtopic: "62.3"
+        id: 24,
+        question: "A retired judge acting as a judge of the Supreme Court is entitled to such allowances as determined by the:",
+        options: [
+            "President",
+            "Parliament",
+            "Chief Justice of India",
+            "Consolidated Fund of India directly"
+        ],
+        correctAnswer: 0, // A
+        explanation: "He is entitled to such allowances as the president may determine.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Allowances", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
-        id: 36,
-        question: "Does Lokayukta jurisdiction include CM?",
-        options: ["Varies by State", "Yes always", "No never", "Only in UTs"],
-        correctAnswer: 0,
-        explanation: "Varies. Included in HP, AP, MP, Gujarat. Excluded in Maharashtra, Rajasthan, UP.",
-        subtopic: "62.3"
+        id: 25,
+        question: "Which city is declared by the Constitution as the seat of the Supreme Court?",
+        options: [
+            "Mumbai",
+            "Kolkata",
+            "Delhi",
+            "Chennai"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Constitution declares Delhi as the seat of the Supreme Court.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
-        id: 37,
-        question: "Tenure of Lokayukta consists of?",
-        options: ["5 years / 65 or 70 (varies)", "Fixed 5 years", "Fixed 6 years", "No fixed term"],
-        correctAnswer: 0,
-        explanation: "Varies by state acts. Usually 5 years or 65/70 years.",
-        subtopic: "62.3"
+        id: 26,
+        question: "Can the Chief Justice of India appoint a place other than Delhi as the seat of the Supreme Court?",
+        options: [
+            "No, Delhi is the only constitutionally permitted seat.",
+            "Yes, independently without consulting anyone.",
+            "Yes, but only with the approval of the Parliament.",
+            "Yes, but only with the approval of the President."
+        ],
+        correctAnswer: 3, // D
+        explanation: "But, it also authorises the chief justice of India to appoint other place or places as seat of the Supreme Court. He can take decision in this regard only with the approval of the President.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Seat of Court", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
-        id: 38,
-        question: "Is Up-Lokayukta appointed in states?",
-        options: ["Yes", "No", "Lokayukta decides", "Only in large states"],
-        correctAnswer: 0,
-        explanation: "Yes, many states have Upa-Lokayuktas.",
-        subtopic: "62.3"
+        id: 27,
+        question: "Who approves the rules made by the Supreme Court for regulating the general practice and procedure of the Court?",
+        options: [
+            "The Parliament",
+            "The Law Minister",
+            "The President",
+            "They do not require approval."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Supreme Court can, with the approval of the president, make rules for regulating generally the practice and procedure of the Court.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Procedure", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
-        id: 39,
-        question: "Lokayukta presents annual report to?",
-        options: ["Governor", "CM", "State Legislature", "High Court"],
-        correctAnswer: 0,
-        explanation: "Governor (who acts on advice of State Ministers? No, who lays it before state legislature).",
-        subtopic: "62.3"
+        id: 28,
+        question: "The Constitutional cases or references made by the President under Article 143 are decided by a Bench consisting of at least how many judges?",
+        options: [
+            "Three",
+            "Five",
+            "Seven",
+            "Nine"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Constitutional cases or references made by the President under Article 143 are decided by a Bench consisting of at least five judges.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Bench Strength", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
     {
-        id: 40,
-        question: "Are recommendations of Lokayukta binding?",
-        options: ["Advisory usually", "Binding", "Mandatory", "Final"],
-        correctAnswer: 0,
-        explanation: "Advisory/Recommendatory in most states.",
-        subtopic: "62.3"
+        id: 29,
+        question: "What type of bench usually decides 'all other cases' (non-constitutional cases) in the Supreme Court?",
+        options: [
+            "A Single-Judge Bench",
+            "A Division Bench of not less than three judges",
+            "A Division Bench of not less than two judges",
+            "A Full Court Bench"
+        ],
+        correctAnswer: 2, // C
+        explanation: "All other cases are usually decided by a bench consisting of not less than two judges.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Bench Strength", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
     },
-    { id: 41, question: "Karnataka Lokayukta is considered?", options: ["Very Strong", "Weak", "Advisory", "Defunct"], correctAnswer: 0, subtopic: "62.3" },
-    { id: 42, question: "Can Lokayukta take suo motu action?", options: ["Varies (Karnataka/UP yes)", "No", "Never", "Only on referral"], correctAnswer: 0, subtopic: "62.3" },
-    { id: 43, question: "Removal of Lokayukta generally by?", options: ["Governor/President (varies)", "CM", "HC", "Speaker"], correctAnswer: 0, subtopic: "62.3" },
-    { id: 44, question: "Qualification for Lokayukta generally?", options: ["Judicial background", "IAS", "Politician", "Social Worker"], correctAnswer: 0, subtopic: "62.3" },
-    { id: 45, question: "Does Lokayukta cover Ministers?", options: ["Yes (mostly)", "No", "Only Cabinet", "Only Junior"], correctAnswer: 0, subtopic: "62.3" },
-    { id: 46, question: "Can Lokayukta investigate MLAs?", options: ["Yes (mostly)", "No", "Only in session", "With Speaker permission"], correctAnswer: 0, subtopic: "62.3" },
-    { id: 47, question: "State with no Lokayukta Act yet?", options: ["Available in most now", "Tamil Nadu", "Kerala", "None"], correctAnswer: 0, subtopic: "62.3" }, // Most have passed.
-    { id: 48, question: "Is Lokayukta eligible for reappointment?", options: ["Generally No", "Yes", "Once", "Twice"], correctAnswer: 0, subtopic: "62.3" },
-    { id: 49, question: "Lokayukta deals with?", options: ["Corruption and Maladministration", "Only Corruption", "Only Grievance", "None"], correctAnswer: 0, subtopic: "62.3" },
-    { id: 50, question: "Can Lokayukta initiate prosecution?", options: ["Yes (in some states)", "No", "Only Police", "Only CBI"], correctAnswer: 0, subtopic: "62.3" },
-    { id: 51, question: "Does Lokayukta have independent investigation machinery?", options: ["Varies (Karnataka yes)", "No", "Depends on Police", "Uses CBI"], correctAnswer: 0, subtopic: "62.3" },
-    { id: 52, question: "Lokayukta salary charges on?", options: ["Consolidated Fund of State", "Union Fund", "Voted", "Grant"], correctAnswer: 0, subtopic: "62.3" },
-    { id: 53, question: "Does Act 2013 prescribe structure of Lokayukta?", options: ["No, left to States", "Yes", "Partially", "Only tenure"], correctAnswer: 0, subtopic: "62.3" },
-    { id: 54, question: "Who nominates Governor for Lokayukta advice?", options: ["Council of Ministers", "President", "PM", "None"], correctAnswer: 0, subtopic: "62.3" },
-    { id: 55, question: "Can Lokayukta investigate former CMs?", options: ["Yes", "No", "Only sitting", "Only if permitted"], correctAnswer: 0, subtopic: "62.3" },
-    { id: 56, question: "Judicial Members in Lokpal Selection Committee?", options: ["CJI or his nominee", "AG", "Law Minister", "None"], correctAnswer: 0, subtopic: "62.1" },
-    { id: 57, question: "Lokpal Bill first introduced in?", options: ["1968", "1971", "1980", "2011"], correctAnswer: 0, subtopic: "62.1" },
-    { id: 58, question: "Term 'Lokpal' coined by?", options: ["L.M. Singhvi", "Ambedkar", "Nehru", "Gandhi"], correctAnswer: 0, subtopic: "62.1" },
-    { id: 59, question: "Are local bodies under Lokayukta?", options: ["Yes (mostly)", "No", "Only Mayors", "Only CEOs"], correctAnswer: 0, subtopic: "62.3" },
-    { id: 60, question: "Is Lokpal a multi-member body?", options: ["Yes", "No", "Single", "Double"], correctAnswer: 0, subtopic: "62.1" }
+    {
+        id: 30,
+        question: "Are the judgments of the Supreme Court delivered by open court?",
+        options: [
+            "Yes, all judgments are delivered in open court.",
+            "No, they are always delivered in closed chambers.",
+            "Only judgments regarding the President are open.",
+            "Only constitutional judgments are open."
+        ],
+        correctAnswer: 0, // A
+        explanation: "The judgments are delivered by the open court.",
+        level: "Easy", topic: "Supreme Court", difficulty_tier: "Level_1", cognitive_tag: "Procedure", source_mapping: { book: "M. Laxmikanth", chapter: "Supreme Court" }
+    }
 ];
-
-export default DAY26_MCQS;

@@ -1,294 +1,397 @@
-
-export interface MCQ {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation?: string;
-    level?: string;
-    topic?: string;
-    chapter?: string;
-    subtopic?: string;
-}
+import type { MCQ } from './mcq-utils';
 
 export const DAY22_MCQS: MCQ[] = [
-    // ==========================================
-    // ATTORNEY GENERAL OF INDIA (30 Questions)
-    // ==========================================
+    // ----------------------------------------------------------------------
+    // LEVEL 1: EASY (The Text-Book Stickler - Strictly Chapter 22)
+    // ----------------------------------------------------------------------
     {
         id: 1,
-        question: "Article 76 deals with:",
-        options: ["Advocate General", "Attorney General", "Solicitor General", "CAG"],
-        correctAnswer: 1,
-        explanation: "Attorney General of India.",
-        subtopic: "38.3"
+        question: "Which part of the Constitution deals with the Parliament?",
+        options: [
+            "Part IV",
+            "Part V",
+            "Part VI",
+            "Part IX"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Articles 79 to 122 in Part V of the Constitution deal with the organisation, composition, duration, officers, procedures, privileges, powers and so on of the Parliament.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 2,
-        question: "Attorney General is appointed by:",
-        options: ["PM", "President", "CJI", "Law Minister"],
-        correctAnswer: 1,
-        explanation: "President.",
-        subtopic: "38.3"
+        question: "According to the Constitution, the Parliament of India consists of:",
+        options: [
+            "Lok Sabha and Rajya Sabha only",
+            "The President and Lok Sabha only",
+            "The President, the Council of States (Rajya Sabha), and the House of the People (Lok Sabha)",
+            "The Prime Minister, Lok Sabha, and Rajya Sabha"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Under the Constitution, the Parliament of India consists of three parts viz, the President, the Council of States and the House of the People.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 3,
-        question: "Who fixes the remuneration of the Attorney General?",
-        options: ["Parliament", "Constitution", "President", "Supreme Court"],
-        correctAnswer: 2,
-        explanation: "President.",
-        subtopic: "38.3"
+        question: "In which year were the Hindi names 'Rajya Sabha' and 'Lok Sabha' adopted?",
+        options: [
+            "1950",
+            "1952",
+            "1954",
+            "1956"
+        ],
+        correctAnswer: 2, // C
+        explanation: "In 1954, the Hindi names ‘Rajya Sabha’ and ‘Lok Sabha’ were adopted by the Council of States and the House of People respectively.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 4,
-        question: "Does AG have the right to vote in Parliament?",
-        options: ["Yes", "No", "Only in Joint Sitting", "Only on constitutional bills"],
-        correctAnswer: 1,
-        explanation: "No. He has right to speak but not to vote (Article 88).",
-        subtopic: "38.3"
+        question: "Is the President of India a member of either House of Parliament?",
+        options: [
+            "Yes, of the Lok Sabha",
+            "Yes, of the Rajya Sabha",
+            "Yes, of both Houses",
+            "No, he is not a member of either House."
+        ],
+        correctAnswer: 3, // D
+        explanation: "Though the President of India is not a member of either House of Parliament and does not sit in the Parliament to attend its meetings, he is an integral part of the Parliament.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 5,
-        question: "Qualification for AG?",
-        options: ["Qualified to be HC Judge", "Qualified to be SC Judge", "Eminent Jurist only", "10 years practice"],
-        correctAnswer: 1,
-        explanation: "Qualified to be appointed a Judge of the Supreme Court.",
-        subtopic: "38.3"
+        question: "What is the maximum strength of the Rajya Sabha fixed by the Constitution?",
+        options: [
+            "250",
+            "245",
+            "552",
+            "545"
+        ],
+        correctAnswer: 0, // A
+        explanation: "The maximum strength of the Rajya Sabha is fixed at 250, out of which, 238 are to be the representatives of the states and union territories (elected indirectly) and 12 are nominated by the president.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 6,
-        question: "AG holds office during:",
-        options: ["5 years", "6 years", "Pleasure of President", "Pleasure of PM"],
-        correctAnswer: 2,
-        explanation: "Pleasure of the President.",
-        subtopic: "38.3"
+        question: "How many members are nominated by the President to the Rajya Sabha?",
+        options: [
+            "2",
+            "10",
+            "12",
+            "14"
+        ],
+        correctAnswer: 2, // C
+        explanation: "...and 12 are nominated by the president.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 7,
-        question: "Who assists the Attorney General?",
-        options: ["Solicitor General", "Advocate General", "Law Secretary", "Registrar"],
-        correctAnswer: 0,
-        explanation: "Solicitor General of India (and Additional SGs).",
-        subtopic: "38.3"
+        question: "Which Schedule of the Constitution deals with the allocation of seats in the Rajya Sabha to the states and union territories?",
+        options: [
+            "First Schedule",
+            "Third Schedule",
+            "Fourth Schedule",
+            "Ninth Schedule"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Fourth Schedule of the Constitution deals with the allocation of seats in the Rajya Sabha to the states and union territories.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 8,
-        question: "Article 88 is related to:",
-        options: ["Rights of Ministers and AG in Houses", "Duties of PM", "Conduct of Business", "Sessions"],
-        correctAnswer: 0,
-        explanation: "Rights of Ministers and Attorney General as respects Houses.",
-        subtopic: "38.3"
+        question: "By what method are the representatives of states in the Rajya Sabha elected?",
+        options: [
+            "Direct election by the people",
+            "Proportional representation by means of the single transferable vote",
+            "First-past-the-post system",
+            "Nomination by the Governor"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The election is held in accordance with the system of proportional representation by means of the single transferable vote.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 9,
-        question: "Can AG defend accused persons in criminal prosecutions?",
-        options: ["Yes", "No (without permission)", "Always No", "Yes (if not govt servant)"],
-        correctAnswer: 1,
-        explanation: "No, without the permission of the Government of India.",
-        subtopic: "38.3"
+        question: "On what basis are seats allocated to the states in the Rajya Sabha?",
+        options: [
+            "Equal representation for all states",
+            "On the basis of population",
+            "On the basis of area size",
+            "On the basis of tax contribution"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The seats are allotted to the states in the Rajya Sabha on the basis of population. Hence, the number of representatives varies from state to state.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 10,
-        question: "Is AG a member of the Central Cabinet?",
-        options: ["Yes", "No", "Invitee", "Ex-officio"],
-        correctAnswer: 1,
-        explanation: "No. He is not a member of the Cabinet.",
-        subtopic: "38.3"
+        question: "What is the maximum strength of the Lok Sabha fixed by the Constitution (prior to the 104th Amendment regarding Anglo-Indians)?",
+        options: [
+            "543",
+            "545",
+            "550",
+            "552"
+        ],
+        correctAnswer: 3, // D
+        explanation: "The maximum strength of the Lok Sabha is fixed at 552. Out of this, 530 members are to be the representatives of the states, 20 members are to be the representatives of the union territories and 2 members are to be nominated by the president from the Anglo-Indian community.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 11,
-        question: "First Attorney General of India:",
-        options: ["M.C. Setalvad", "C.K. Daphtary", "Niren De", "Soli Sorabjee"],
-        correctAnswer: 0,
-        explanation: "M.C. Setalvad (Wait, longest serving). Yes, also the First.",
-        subtopic: "38.3"
+        question: "What is the minimum voting age for Lok Sabha elections after the 61st Constitutional Amendment Act (1988)?",
+        options: [
+            "21 years",
+            "18 years",
+            "25 years",
+            "16 years"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The voting age was reduced from 21 to 18 years by the 61st Constitutional Amendment Act, 1988.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 12,
-        question: "Which of these is NOT a constitutional body?",
-        options: ["UPSC", "Election Commission", "Solicitor General", "CAG"],
-        correctAnswer: 2,
-        explanation: "Solicitor General is not mentioned in Constitution (Statutory/Executive).",
-        subtopic: "38.3"
+        question: "According to the 84th Amendment Act of 2001, until which year was the total number of seats in the Lok Sabha frozen?",
+        options: [
+            "2010",
+            "2020",
+            "2026",
+            "2030"
+        ],
+        correctAnswer: 2, // C
+        explanation: "This ban on readjustment was extended for another year (i.e., upto year 2026) by the 84th Amendment Act of 2001.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 13,
-        question: "Right of audience of AG extends to:",
-        options: ["Supreme Court only", "High Courts only", "All courts in territory of India", "Parliament only"],
-        correctAnswer: 2,
-        explanation: "All courts in the territory of India.",
-        subtopic: "38.3"
+        question: "Is the Rajya Sabha subject to dissolution?",
+        options: [
+            "Yes, every 5 years",
+            "Yes, every 6 years",
+            "No, it is a continuing chamber",
+            "Yes, by the President at any time"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Rajya Sabha (first constituted in 1952) is a continuing chamber, that is, it is a permanent body and not subject to dissolution.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 14,
-        question: "AG submits resignation to:",
-        options: ["PM", "CJI", "President", "Speaker"],
-        correctAnswer: 2,
-        explanation: "President.",
-        subtopic: "38.3"
+        question: "What proportion of Rajya Sabha members retire every second year?",
+        options: [
+            "One-half",
+            "One-third",
+            "Two-thirds",
+            "One-fourth"
+        ],
+        correctAnswer: 1, // B
+        explanation: "However, one-third of its members retire every second year. Their seats are filled up by fresh elections and presidential nominations at the beginning of every third year.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 15,
-        question: "Does AG fall under RTI?",
-        options: ["Yes", "No", "Partially", "Public Authority definition debate"],
-        correctAnswer: 3,
-        explanation: "Debatable, but historically Delhi HC said AG is not a public authority. Recent views vary.",
-        subtopic: "38.3"
+        question: "What is the normal term of the Lok Sabha?",
+        options: [
+            "4 years",
+            "5 years",
+            "6 years",
+            "Until the Prime Minister resigns"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Unlike the Rajya Sabha, the Lok Sabha is not a continuing chamber. Its normal term is five years from the date of its first meeting after the general elections, after which it automatically dissolves.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 16,
-        question: "Conventionally, AG resigns when:",
-        options: ["Government resigns", "President resigns", "CJI retires", "Term ends"],
-        correctAnswer: 0,
-        explanation: "When the Government (Council of Ministers) resigns or is replaced, as he is appointed on its advice.",
-        subtopic: "38.3"
+        question: "During a National Emergency, by how much time can the term of the Lok Sabha be extended at a time?",
+        options: [
+            "Six months",
+            "One year at a time",
+            "Two years at a time",
+            "Indefinitely without limit"
+        ],
+        correctAnswer: 1, // B
+        explanation: "However, the term of the Lok Sabha can be extended during the period of national emergency be a law of Parliament for one year at a time for any length of time.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 17,
-        question: "Can AG be appointed as a Director in any company?",
-        options: ["Yes", "No (without permission)", "Always No", "Always Yes"],
-        correctAnswer: 1,
-        explanation: "No, without the permission of the Government.",
-        subtopic: "38.3"
+        question: "What is the minimum age qualification for a person to be chosen as a member of the Rajya Sabha?",
+        options: [
+            "21 years",
+            "25 years",
+            "30 years",
+            "35 years"
+        ],
+        correctAnswer: 2, // C
+        explanation: "He must be not less than 30 years of age in the case of the Rajya Sabha and not less than 25 years of age in the case of the Lok Sabha.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 18,
-        question: "Can AG advise ministries?",
-        options: ["Yes", "No, Law Ministry does", "Only if referred", "Directly"],
-        correctAnswer: 2,
-        explanation: "He gives advice on legal matters referred to him by the President (Govt).",
-        subtopic: "38.3"
+        question: "Which of the following is NOT a ground for disqualification under the Constitution (Article 102)?",
+        options: [
+            "Holding an office of profit",
+            "Being of unsound mind as declared by a court",
+            "Being an undischarged insolvent",
+            "Failing to submit election expense returns"
+        ],
+        correctAnswer: 3, // D
+        explanation: "Failing to lodge an account of election expenses is a disqualification under the Representation of the People Act (1951), not explicitly under the constitutional provisions of Article 102.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 19,
-        question: "Article 105 also applies to?",
-        options: ["AG", "CAG", "CEC", "UPSC Chair"],
-        correctAnswer: 0,
-        explanation: "Yes, AG enjoys privileges and immunities of MP (Article 105(4)).",
-        subtopic: "38.3"
+        question: "Who decides the question of disqualification of a member of Parliament (other than on grounds of defection)?",
+        options: [
+            "The Speaker / Chairman",
+            "The Supreme Court",
+            "The Election Commission alone",
+            "The President, whose decision is final"
+        ],
+        correctAnswer: 3, // D
+        explanation: "On the question whether a member is subject to any of the above disqualifications [under Constitution/RPA], the president’s decision is final. However, he should obtain the opinion of the election commission and act accordingly.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
         id: 20,
-        question: "British vs Indian AG?",
-        options: ["Indian AG is member of Cabinet", "British AG is not member of Cabinet", "British AG is member of Cabinet", "None"],
-        correctAnswer: 2,
-        explanation: "In Britain, AG is a member of the Cabinet. In India, he is not.",
-        subtopic: "38.3"
-    },
-    { id: 21, question: "Who appears on behalf of GoI in SC?", options: ["AG", "Law Minister", "Home Secretary", "PM"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 22, question: "Can AG take part in Joint Sitting?", options: ["Yes", "No", "Only if summoned", "As observer"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 23, question: "Are AG's comments in Parliament actionable in court?", options: ["No", "Yes", "Depends", "If defamatory"], correctAnswer: 0, subtopic: "38.3" }, // Protected by privileges
-    { id: 24, question: "Who determines duties of AG?", options: ["President", "Parliament", "Constitution", "CJI"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 25, question: "Term 'Law Officer' usually includes?", options: ["AG & SG", "AG, SG, Judges", "Police", "Magistrates"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 26, question: "Current Attorney General (2026 Context)?", options: ["R. Venkataramani", "K.K. Venugopal", "Mukul Rohatgi", "Harish Salve"], correctAnswer: 0, subtopic: "38.3" }, // Update if changed, usually static content
-    { id: 27, question: "Removal procedure of AG?", options: ["Impeachment", "President pleasure", "SC Inquiry", "Parl Resolution"], correctAnswer: 1, subtopic: "38.3" },
-    { id: 28, question: "Does Constitution debar AG from private practice?", options: ["No", "Yes", "Implied", "Partially"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 29, question: "AG is part of Union Executive?", options: ["Yes", "No", "Part of Judiciary", "Legislature"], correctAnswer: 0, subtopic: "38.3" }, // Art 52-78 Part V
-    { id: 30, question: "Can AG speak in committee of Parliament?", options: ["Yes, if named a member", "No", "Always", "Only Chairman"], correctAnswer: 0, subtopic: "38.3" },
-
-    // ==========================================
-    // ADVOCATE GENERAL (30 Questions)
-    // ==========================================
-    {
-        id: 31,
-        question: "Article 165 deals with:",
-        options: ["Advocate General", "AG", "Governor", "CM"],
-        correctAnswer: 0,
-        explanation: "Advocate General for the State.",
-        subtopic: "38.3"
+        question: "Under the Tenth Schedule, who decides questions of disqualification on the ground of defection?",
+        options: [
+            "The President",
+            "The Election Commission",
+            "The Chairman/Speaker of the respective House",
+            "The Supreme Court directly"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The question of disqualification under the Tenth Schedule is decided by the Chairman in the case of Rajya Sabha and Speaker in the case of Lok Sabha (and not by the president of India).",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
-        id: 32,
-        question: "Advocate General is appointed by:",
-        options: ["President", "Governor", "CM", "Chief Justice of HC"],
-        correctAnswer: 1,
-        explanation: "Governor.",
-        subtopic: "38.3"
+        id: 21,
+        question: "If a person is elected to both Houses of Parliament, within how many days must they intimate in which House they desire to serve?",
+        options: [
+            "7 days",
+            "10 days",
+            "14 days",
+            "30 days"
+        ],
+        correctAnswer: 1, // B
+        explanation: "If a person is elected to both the Houses of Parliament, he must intimate within 10 days in which House he desires to serve. In default of such intimation, his seat in the Rajya Sabha becomes vacant.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
-        id: 33,
-        question: "Qualification for Advocate General?",
-        options: ["Qualified to be SC Judge", "Qualified to be HC Judge", "10 yrs advocate", "Eminent Jurist"],
-        correctAnswer: 1,
-        explanation: "Qualified to be appointed a Judge of a High Court.",
-        subtopic: "38.3"
+        id: 22,
+        question: "A House of Parliament can declare the seat of a member vacant if they are absent from all its meetings for a period of:",
+        options: [
+            "30 days",
+            "60 days",
+            "90 days",
+            "6 months"
+        ],
+        correctAnswer: 1, // B
+        explanation: "A House can declare the seat of a member vacant if he is absent from all its meetings for a period of sixty days without its permission.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
-        id: 34,
-        question: "Advocate General holds office during pleasure of:",
-        options: ["President", "Governor", "CM", "High Court"],
-        correctAnswer: 1,
-        explanation: "Governor.",
-        subtopic: "38.3"
+        id: 23,
+        question: "Who is the presiding officer of the Lok Sabha?",
+        options: [
+            "The Prime Minister",
+            "The Vice-President",
+            "The Speaker",
+            "The Chief Justice"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Each House of Parliament has its own presiding officer. There is a Speaker and a Deputy Speaker for the Lok Sabha...",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
-        id: 35,
-        question: "Can Advocate General vote in State Legislature?",
-        options: ["Yes", "No", "In Upper House", "In Lower House"],
-        correctAnswer: 1,
-        explanation: "No. Right to speak but not to vote (Article 177).",
-        subtopic: "38.3"
+        id: 24,
+        question: "Who decides whether a bill is a money bill or not?",
+        options: [
+            "The Finance Minister",
+            "The Prime Minister",
+            "The President",
+            "The Speaker of the Lok Sabha"
+        ],
+        correctAnswer: 3, // D
+        explanation: "He [Speaker] decides whether a bill is a money bill or not and his decision on this question is final.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
-        id: 36,
-        question: "Who fixes remuneration of Advocate General?",
-        options: ["Governor", "State Legislature", "Parliament", "Constitution"],
-        correctAnswer: 0,
-        explanation: "Governor.",
-        subtopic: "38.3"
+        id: 25,
+        question: "Who presides over a joint sitting of the two Houses of Parliament?",
+        options: [
+            "The President",
+            "The Vice-President (Chairman of Rajya Sabha)",
+            "The Speaker of Lok Sabha",
+            "The Prime Minister"
+        ],
+        correctAnswer: 2, // C
+        explanation: "He [Speaker] presides over a joint sitting of the two Houses of Parliament. Such a sitting is summoned by the President to settle a deadlock between the two Houses on a bill.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
-        id: 37,
-        question: "Article 177 corresponds to Union Article:",
-        options: ["88", "76", "78", "75"],
-        correctAnswer: 0,
-        explanation: "Article 88 (Rights of Ministers and AG).",
-        subtopic: "38.3"
+        id: 26,
+        question: "Who acts as the ex-officio Chairman of the Rajya Sabha?",
+        options: [
+            "The President of India",
+            "The Vice-President of India",
+            "The senior-most member of Rajya Sabha",
+            "The Prime Minister"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The presiding officer of the Rajya Sabha is known as the Chairman. The vice-president of India is the ex-officio Chairman of the Rajya Sabha.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
-        id: 38,
-        question: "Does Advocate General have right of audience in all courts in India?",
-        options: ["Yes", "No, only in State", "In SC also", "Adjacent states"],
-        correctAnswer: 1,
-        explanation: "Right of audience in any court in the STATE (jurisdiction matter). Though functionally they appear in SC for State.",
-        subtopic: "38.3"
+        id: 27,
+        question: "Can the Chairman of the Rajya Sabha vote in the first instance during proceedings?",
+        options: [
+            "Yes, he has a regular vote.",
+            "No, he cannot vote in the first instance, but can cast a deciding vote in case of an equality of votes.",
+            "He cannot vote under any circumstances.",
+            "Only on constitutional amendment bills."
+        ],
+        correctAnswer: 1, // B
+        explanation: "However, like the Speaker, the Chairman also cannot vote in the first instance. He too can cast a casting vote in the case of an equality of votes.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
-        id: 39,
-        question: "Is Advocate General a government servant?",
-        options: ["Yes", "No", "Part-time", "Contractual"],
-        correctAnswer: 1,
-        explanation: "No. (Same as AG).",
-        subtopic: "38.3"
+        id: 28,
+        question: "What is the quorum required to constitute a meeting of either House of Parliament?",
+        options: [
+            "One-fifth of the total number of members",
+            "One-tenth of the total number of members in each House including the presiding officer",
+            "One-third of the total number of members",
+            "Fifty members in Lok Sabha and twenty-five in Rajya Sabha"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Quorum is the minimum number of members required to be present in the House before it can transact any business. It is one-tenth of the total number of members in each House including the presiding officer.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
     {
-        id: 40,
-        question: "Advocate General resigns to:",
-        options: ["Governor", "President", "CM", "CJI"],
-        correctAnswer: 0,
-        explanation: "Governor.",
-        subtopic: "38.3"
+        id: 29,
+        question: "What is 'Question Hour' in Parliament?",
+        options: [
+            "The last hour of every sitting where votes are taken.",
+            "The first hour of every parliamentary sitting devoted to asking and answering questions.",
+            "A special session held on Sundays to question the Prime Minister.",
+            "The time allotted for passing the Budget."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The first hour of every parliamentary sitting is slotted for this. During this time, the members ask questions and the ministers usually give answers.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
     },
-    { id: 41, question: "Highest Law Officer in State?", options: ["Advocate General", "AG", "Law Minister", "Chief Justice"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 42, question: "Is Advocate General member of State Cabinet?", options: ["No", "Yes", "Invitee", "Sometimes"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 43, question: "Can Adv Gen attend State Legislature committee?", options: ["Yes if named", "No", "Always", "Only PACS"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 44, question: "Does Constitution fix Adv Gen tenure?", options: ["No", "Yes 5 yrs", "Yes 6 yrs", "Till 62"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 45, question: "Adv Gen Privileges are same as?", options: ["MLA", "MP", "Judge", "Secretary"], correctAnswer: 0, subtopic: "38.3" }, // Art 194
-    { id: 46, question: "Who assigns duties to Advocate General?", options: ["Governor", "CM", "State Legislature", "HC"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 47, question: "Advocate General is part of State Executive?", options: ["Yes", "No", "Judiciary", "Legislature"], correctAnswer: 0, subtopic: "38.3" }, // Art 153-167
-    { id: 48, question: "Can Adv Gen hold private practice?", options: ["Yes", "No", "Limited", "With permission"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 49, question: "Qualification: Judicial Office requirement for HC Judge/Adv Gen?", options: ["10 years", "5 years", "7 years", "15 years"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 50, question: "Conventionally Adv Gen resigns when?", options: ["Govt resigns", "Governor changes", "CM changes", "Term ends"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 51, question: "Does Adv Gen salary charge on Consol Fund?", options: ["No, fees based", "Yes", "Voted", "Contingency"], correctAnswer: 0, subtopic: "38.3" }, // Not charged usually, determined by Governor
-    { id: 52, question: "Advocate General vs Attorney General appointment?", options: ["Governor vs President", "President vs Governor", "Same", "None"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 53, question: "Can Governor remove Adv Gen anytime?", options: ["Yes", "No", "With inquiry", "On CM advice only"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 54, question: "Is Adv Gen considered public servant under IPC?", options: ["Yes", "No", "Debatable", "Only in court"], correctAnswer: 0, subtopic: "38.3" }, // Yes for IPC 21
-    { id: 55, question: "Can Adv Gen initiate contempt proceedings?", options: ["Yes", "No", "Only AG", "Only Court"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 56, question: "First Advocate General of a State appointed under?", options: ["Constitution", "GOI Act 1935", "Charter Act", "None"], correctAnswer: 1, subtopic: "38.3" }, // Provincial Autonomy
-    { id: 57, question: "Does Article 165 mention Solicitor General of State?", options: ["No", "Yes", "Implicitly", "Amendment"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 58, question: "Can Adv Gen be reappointed?", options: ["Yes", "No", "Once", "Twice"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 59, question: "Age limit for Advocate General?", options: ["No limit in Constitution", "62", "65", "60"], correctAnswer: 0, subtopic: "38.3" },
-    { id: 60, question: "Advocate General appears for?", options: ["State Govt", "Central Govt", "Public", "Governor"], correctAnswer: 0, subtopic: "38.3" }
+    {
+        id: 30,
+        question: "Which of the following motions is moved to express lack of confidence in the Council of Ministers?",
+        options: [
+            "Adjournment Motion",
+            "Censure Motion",
+            "No-Confidence Motion",
+            "Calling Attention Motion"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Article 75 of the Constitution says that the council of ministers shall be collectively responsible to the Lok Sabha... In other words, the Lok Sabha can remove the ministry from office by passing a no-confidence motion.",
+        level: "Easy", topic: "Parliament", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliament" }
+    }
 ];
-
-export default DAY22_MCQS;

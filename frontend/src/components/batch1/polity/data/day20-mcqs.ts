@@ -1,372 +1,397 @@
-
-export interface MCQ {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation?: string;
-    level?: string;
-    topic?: string;
-    chapter?: string;
-    subtopic?: string;
-}
+import type { MCQ } from './mcq-utils';
 
 export const DAY20_MCQS: MCQ[] = [
-    // ==========================================
-    // JUDICIARY EXTENSIONS REVISION (1-10)
-    // ==========================================
+    // ----------------------------------------------------------------------
+    // LEVEL 1: EASY (The Text-Book Stickler - Strictly Chapter 20)
+    // ----------------------------------------------------------------------
     {
         id: 1,
-        question: "Tribunals were added to Constitution by:",
-        options: ["42nd Amendment", "44th Amendment", "1st Amendment", "73rd Amendment"],
-        correctAnswer: 0,
-        explanation: "42nd Amendment (Part XIV-A).",
-        subtopic: "36.1"
+        question: "Which Article of the Constitution deals with the status of the council of ministers?",
+        options: [
+            "Article 74",
+            "Article 75",
+            "Article 77",
+            "Article 78"
+        ],
+        correctAnswer: 0, // A
+        explanation: "Article 74 deals with the status of the council of ministers while Article 75 deals with the appointment, tenure, responsibility, qualification, oath and salaries and allowances of the ministers.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 2,
-        question: "Who appoints District Judges?",
-        options: ["Governor", "High Court CJ", "President", "CM"],
-        correctAnswer: 0,
-        explanation: "Governor in consultation with High Court (Art 233).",
-        subtopic: "37.1"
+        question: "Who is the real executive authority in the parliamentary system of government in India?",
+        options: [
+            "The President",
+            "The Parliament",
+            "The Council of Ministers headed by the Prime Minister",
+            "The Supreme Court"
+        ],
+        correctAnswer: 2, // C
+        explanation: "As the Constitution of India provides for a parliamentary system of government modelled on the British pattern, the council of ministers headed by the prime minister is the real executive authority is our politico-administrative system.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 3,
-        question: "The 'Basic Structure' doctrine limits:",
-        options: ["Judicial Review", "Amending Power of Parliament", "President's Power", "Governor's Power"],
-        correctAnswer: 1,
-        explanation: "It limits the amending power of Parliament (Kesavananda Bharati).",
-        subtopic: "28.2"
+        question: "According to Article 74, who shall act in accordance with the advice of the Council of Ministers?",
+        options: [
+            "The Prime Minister",
+            "The Chief Justice of India",
+            "The President",
+            "The Speaker"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Article 74: There shall be a Council of Ministers with the Prime Minister at the head to aid and advise the President who shall, in the exercise of his functions, act in accordance with such advice.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 4,
-        question: "PIL mechanism is primarily based on:",
-        options: ["Adversarial System", "Inquisitorial System", "Relaxation of Locus Standi", "Strict Procedure"],
-        correctAnswer: 2,
-        explanation: "Relaxation of Locus Standi rule.",
-        subtopic: "30.1"
+        question: "Can the President ask the Council of Ministers to reconsider their advice?",
+        options: [
+            "No, the advice is final the first time.",
+            "Yes, but only once; and the President must act in accordance with the reconsidered advice.",
+            "Yes, he can return it as many times as he likes.",
+            "Yes, but only if the Supreme Court agrees."
+        ],
+        correctAnswer: 1, // B
+        explanation: "However, the President may require the Council of Ministers to reconsider such advice and the President shall act in accordance with the advice tendered after such reconsideration.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 5,
-        question: "Gram Nyayalayas Act was passed in:",
-        options: ["2008", "2005", "2000", "2010"],
-        correctAnswer: 0,
-        explanation: "2008.",
-        subtopic: "37.5"
+        question: "Can any court in India inquire into the advice tendered by Ministers to the President?",
+        options: [
+            "Yes, the Supreme Court can inquire into it.",
+            "Yes, any High Court can inquire into it.",
+            "No, the question whether any, and if so what, advice was tendered by Ministers to the President shall not be inquired into in any court.",
+            "Yes, if it violates Fundamental Rights."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The question whether any, and if so what, advice was tendered by Ministers to the President shall not be inquired into in any court.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 6,
-        question: "Central Administrative Tribunal (CAT) members are appointed by:",
-        options: ["President", "CJI", "Law Minister", "UPSC"],
-        correctAnswer: 0,
-        explanation: "President.",
-        subtopic: "36.1"
+        question: "According to Article 75, who appoints the Prime Minister?",
+        options: [
+            "The Parliament",
+            "The Chief Justice of India",
+            "The President",
+            "The outgoing Prime Minister"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Article 75: The Prime Minister shall be appointed by the President...",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 7,
-        question: "Judicial Review can be exercised by:",
-        options: ["Supreme Court only", "High Courts only", "Both SC and HC", "Tribunals"],
-        correctAnswer: 2,
-        explanation: "Both Supreme Court and High Courts.",
-        subtopic: "28.1"
+        question: "How are the other Ministers appointed?",
+        options: [
+            "By the Prime Minister directly.",
+            "By the Parliament.",
+            "By the President on the advice of the Prime Minister.",
+            "By the Chief Justice of India."
+        ],
+        correctAnswer: 2, // C
+        explanation: "...and the other Ministers shall be appointed by the President on the advice of the Prime Minister.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 8,
-        question: "Lok Adalat awards are:",
-        options: ["Advisory", "Binding", "Appealable", "None"],
-        correctAnswer: 1,
-        explanation: "Binding and non-appealable.",
-        subtopic: "37.4"
+        question: "What is the maximum limit on the total number of ministers, including the Prime Minister, in the Council of Ministers?",
+        options: [
+            "10% of the total strength of the Lok Sabha.",
+            "15% of the total strength of the Parliament (both Houses).",
+            "15% of the total strength of the Lok Sabha.",
+            "There is no constitutional limit."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The total number of ministers, including the Prime Minister, in the Council of Ministers shall not exceed 15% of the total strength of the Lok Sabha.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 9,
-        question: "Legal Services Authorities Act, 1987 implements which DPSP?",
-        options: ["Art 39A", "Art 40", "Art 44", "Art 50"],
-        correctAnswer: 0,
-        explanation: "Article 39A (Free Legal Aid).",
-        subtopic: "37.7"
+        question: "Which Constitutional Amendment Act added the provision limiting the size of the Council of Ministers to 15% of the Lok Sabha?",
+        options: [
+            "42nd Amendment Act of 1976",
+            "44th Amendment Act of 1978",
+            "91st Amendment Act of 2003",
+            "97th Amendment Act of 2011"
+        ],
+        correctAnswer: 2, // C
+        explanation: "This [15% limit] provision was added by the 91st Amendment Act of 2003.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 10,
-        question: "Ninth Schedule laws are open to judicial review if added after:",
-        options: ["1973", "1951", "1976", "1980"],
-        correctAnswer: 0,
-        explanation: "April 24, 1973 (Kesavananda Bharati judgment date).",
-        subtopic: "28.2"
+        question: "If a member of Parliament is disqualified on the ground of defection, can they still be appointed as a minister?",
+        options: [
+            "Yes, but only as a Minister of State.",
+            "No, a member disqualified on the ground of defection shall also be disqualified to be appointed as a minister.",
+            "Yes, if the Prime Minister insists.",
+            "Yes, for a maximum of 6 months."
+        ],
+        correctAnswer: 1, // B
+        explanation: "A member of either house of Parliament belonging to any political party who is disqualified on the ground of defection shall also be disqualified to be appointed as a minister.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
-
-    // ==========================================
-    // FEDERAL EXTENSIONS REVISION (11-20)
-    // ==========================================
     {
         id: 11,
-        question: "Chairperson of GST Council?",
-        options: ["PM", "Union Finance Minister", "RBI Governor", "President"],
-        correctAnswer: 1,
-        explanation: "Union Finance Minister.",
-        subtopic: "47.2"
+        question: "During whose pleasure do the ministers hold office?",
+        options: [
+            "The Prime Minister",
+            "The Parliament",
+            "The President",
+            "The Supreme Court"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The ministers shall hold office during the pleasure of the President.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 12,
-        question: "Article 279A deals with:",
-        options: ["Finance Commission", "GST Council", "Inter-State Council", "Zonal Council"],
-        correctAnswer: 1,
-        explanation: "GST Council.",
-        subtopic: "47.1"
+        question: "To which body is the Council of Ministers COLLECTIVELY responsible?",
+        options: [
+            "The President",
+            "The Rajya Sabha",
+            "The Parliament as a whole",
+            "The Lok Sabha"
+        ],
+        correctAnswer: 3, // D
+        explanation: "The council of ministers shall be collectively responsible to the Lok Sabha.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 13,
-        question: "NITI Aayog replaced:",
-        options: ["Planning Commission", "NDC", "Finance Commission", "Inter-State Council"],
-        correctAnswer: 0,
-        explanation: "Planning Commission.",
-        subtopic: "55.1"
+        question: "Who administers the oaths of office and secrecy to a minister?",
+        options: [
+            "The Prime Minister",
+            "The Chief Justice of India",
+            "The President",
+            "The Speaker"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The President shall administer the oaths of office and secrecy to a minister.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 14,
-        question: "Vice-Chairman of NITI Aayog has the rank of:",
-        options: ["Cabinet Minister", "Minister of State", "Safety Secretary", "Cabinet Secretary"],
-        correctAnswer: 0,
-        explanation: "Cabinet Minister.",
-        subtopic: "55.2"
+        question: "What happens if a minister is NOT a member of either House of Parliament for six consecutive months?",
+        options: [
+            "They remain a minister but cannot vote.",
+            "They cease to be a minister.",
+            "They must pay a fine.",
+            "Their term is extended by the President."
+        ],
+        correctAnswer: 1, // B
+        explanation: "A minister who is not a member of the Parliament (either house) for any period of six consecutive months shall cease to be a minister.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 15,
-        question: "GST Council decision quorum?",
-        options: ["1/2", "1/3", "2/3", "3/4"],
-        correctAnswer: 0,
-        explanation: "One-half of total members.",
-        subtopic: "47.2"
+        question: "Who determines the salaries and allowances of ministers?",
+        options: [
+            "The President",
+            "The Prime Minister",
+            "The Parliament",
+            "The Finance Commission"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The salaries and allowances of ministers shall be determined by the Parliament.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 16,
-        question: "States' vote weightage in GST Council?",
-        options: ["2/3", "1/3", "1/2", "3/4"],
-        correctAnswer: 0,
-        explanation: "Two-thirds.",
-        subtopic: "47.2"
+        question: "According to Article 77, all executive action of the Government of India shall be expressed to be taken in the name of the:",
+        options: [
+            "Prime Minister",
+            "Government of India",
+            "President",
+            "Parliament"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Article 77: All executive action of the Government of India shall be expressed to be taken in the name of the President.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 17,
-        question: "Aspirational Districts Programme is by:",
-        options: ["NITI Aayog", "Ministry of Home", "Ministry of Rural Dev", "UNDP"],
-        correctAnswer: 0,
-        explanation: "NITI Aayog.",
-        subtopic: "55.5"
+        question: "Who makes rules for the more convenient transaction of the business of the Government of India, and for the allocation of business among Ministers?",
+        options: [
+            "The Prime Minister",
+            "The Parliament",
+            "The President",
+            "The Cabinet Secretary"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The President shall make rules for the more convenient transaction of the business of the Government of India, and for the allocation among Ministers of the said business.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 18,
-        question: "Who is the CEO of NITI Aayog appointed by?",
-        options: ["PM", "President", "Governing Council", "UPSC"],
-        correctAnswer: 0,
-        explanation: "Prime Minister.",
-        subtopic: "55.2"
+        question: "What does the principle of 'collective responsibility' imply when a no-confidence motion is passed in the Lok Sabha?",
+        options: [
+            "Only the Prime Minister has to resign.",
+            "Only the minister responsible for the specific failure has to resign.",
+            "All the ministers, including those from the Rajya Sabha, have to resign.",
+            "The Parliament is automatically dissolved."
+        ],
+        correctAnswer: 2, // C
+        explanation: "When the Lok Sabha passes a no-confidence motion against the council of ministers, all the ministers have to resign including those ministers who are from the Rajya Sabha.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 19,
-        question: "Which of these is NOT subsumed in GST?",
-        options: ["Central Excise", "Service Tax", "VAT", "Basic Customs Duty"],
-        correctAnswer: 3,
-        explanation: "Basic Customs Duty is NOT subsumed. (Countervailing duty is).",
-        subtopic: "47.3"
+        question: "Besides collective responsibility, what other type of responsibility does Article 75 contain?",
+        options: [
+            "Financial Responsibility",
+            "Legal Responsibility",
+            "Individual Responsibility",
+            "Moral Responsibility"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Article 75 also contains the principle of individual responsibility. It states that the ministers hold office during the pleasure of the president, which means that the President can remove a minister even at a time when the council of ministers enjoys the confidence of the Lok Sabha.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 20,
-        question: "Cooperative Federalism is the core of:",
-        options: ["NITI Aayog", "Planning Commission", "Finance Commission", "UPSC"],
-        correctAnswer: 0,
-        explanation: "NITI Aayog.",
-        subtopic: "55.3"
+        question: "If a minister disagrees with a cabinet decision and is not prepared to defend it in Parliament, what is they constitutionally expected to do?",
+        options: [
+            "Vote against it in Parliament secretly.",
+            "Resign.",
+            "Publicly criticize the decision but stay in the cabinet.",
+            "Appeal to the Supreme Court."
+        ],
+        correctAnswer: 1, // B
+        explanation: "If any minister disagrees with a cabinet decision and is not prepared to defend it, he must resign.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
-
-    // ==========================================
-    // PHILOSOPHY REVISION (21-30)
-    // ==========================================
     {
         id: 21,
-        question: "DPSP are 'fundamental in the governance of the country' - Article?",
-        options: ["37", "36", "38", "39"],
-        correctAnswer: 0,
-        explanation: "Article 37.",
-        subtopic: "9.1"
+        question: "Does the Indian Constitution provide for the legal responsibility of a minister regarding Presidential orders?",
+        options: [
+            "Yes, every order of the President requires a minister's counter-signature.",
+            "No, there is no provision in the Constitution for the system of legal responsibility of a minister.",
+            "Yes, ministers are legally immune from all actions.",
+            "Yes, if the order violates a fundamental right."
+        ],
+        correctAnswer: 1, // B
+        explanation: "In India, there is no provision in the Constitution for the system of legal responsibility of a minister. It is not required that an order of the President for a public act should be countersigned by a minister.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 22,
-        question: "Which Amendment added 11th Fundamental Duty?",
-        options: ["86th", "42nd", "44th", "97th"],
-        correctAnswer: 0,
-        explanation: "86th Amendment Act, 2002.",
-        subtopic: "10.1"
+        question: "Which of the following describes the 'Cabinet' as opposed to the larger 'Council of Ministers'?",
+        options: [
+            "It is a larger body than the Council.",
+            "It consists of all three categories of ministers (Cabinet, State, Deputy).",
+            "It is a smaller body consisting of only cabinet ministers, about 15 to 20 in number.",
+            "It never meets as a body to transact government business."
+        ],
+        correctAnswer: 2, // C
+        explanation: "It [the Cabinet] is a smaller body consisting of 15 to 20 ministers. It includes the cabinet ministers only.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 23,
-        question: "UCC is mentioned in Article:",
-        options: ["44", "45", "46", "40"],
-        correctAnswer: 0,
-        explanation: "Article 44.",
-        subtopic: "9.2"
+        question: "Which category of ministers are given independent charge of ministries/departments or attached to cabinet ministers?",
+        options: [
+            "Cabinet Ministers",
+            "Ministers of State",
+            "Deputy Ministers",
+            "Parliamentary Secretaries"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The ministers of state can either be given independent charge of ministries/ departments or can be attached to cabinet ministers.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 24,
-        question: "To respect National Flag is a:",
-        options: ["Fundamental Duty", "DPSP", "Legal Right", "None"],
-        correctAnswer: 0,
-        explanation: "Fundamental Duty (Art 51A(a)).",
-        subtopic: "10.2"
+        question: "Are Deputy Ministers given independent charge of departments?",
+        options: [
+            "Yes, very frequently.",
+            "No, they are not given independent charge of departments or ministries.",
+            "Yes, but only in the Home Ministry.",
+            "Yes, but only if they are from the Rajya Sabha."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Next in rank are the deputy ministers. They are not given independent charge of departments or ministries. They are attached to the cabinet ministers or ministers of state and assist them...",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 25,
-        question: "Instrument of Instructions refers to:",
-        options: ["DPSP", "Fundamental Rights", "Preamble", "Fundamental Duties"],
-        correctAnswer: 0,
-        explanation: "DPSP (resemble Instrument of Instructions of GOI Act 1935).",
-        subtopic: "9.1"
+        question: "Do Ministers of State generally attend Cabinet meetings?",
+        options: [
+            "Yes, always.",
+            "No, they do not attend the cabinet meetings unless specially invited when something related to their ministries/departments is considered by the cabinet.",
+            "Yes, but they cannot vote.",
+            "Only if the PM is absent."
+        ],
+        correctAnswer: 1, // B
+        explanation: "They [Ministers of State] are not members of the cabinet and do not attend the cabinet meetings unless specially invited when something related to their ministries/departments is considered by the cabinet.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 26,
-        question: "Right to Work is in Article:",
-        options: ["41", "42", "43", "40"],
-        correctAnswer: 0,
-        explanation: "Article 41.",
-        subtopic: "9.2"
+        question: "Which of the following is the highest decision-making authority in our politico-administrative system?",
+        options: [
+            "The Parliament",
+            "The Supreme Court",
+            "The Cabinet",
+            "The National Development Council"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Role of Cabinet: 1. It is the highest decision-making authority in our politico-administrative system.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 27,
-        question: "Separation of Judiciary from Executive - Article:",
-        options: ["50", "51", "49", "48"],
-        correctAnswer: 0,
-        explanation: "Article 50.",
-        subtopic: "9.2"
+        question: "Was the word 'Cabinet' originally present in the text of the Constitution of India?",
+        options: [
+            "Yes, it was in Article 74.",
+            "Yes, it was in Article 75.",
+            "No, it was not there in the original text of the Constitution.",
+            "Yes, it was defined in the Preamble."
+        ],
+        correctAnswer: 2, // C
+        explanation: "It was inserted in Article 352 of the Constitution in 1978 by the 44th Constitutional Amendment Act. Thus, it did not find a place in the original text of the Constitution.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 28,
-        question: "Is 'Paying Taxes' a Fundamental Duty?",
-        options: ["No", "Yes", "Recommended but not added", "Implied"],
-        correctAnswer: 0,
-        explanation: "No. Recommended by Swaran Singh Committee but not added.",
-        subtopic: "10.1"
+        question: "Which body's decisions are binding on all ministers?",
+        options: [
+            "The Parliament as a whole",
+            "The Council of Ministers",
+            "The Cabinet",
+            "The Inter-State Council"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Distinction between Council of Ministers and Cabinet... Cabinet: It meets, as a body, frequently and usually once in a week to deliberate and take decisions regarding the transaction of government business... Its decisions bind on all ministers.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 29,
-        question: "Article 31C saves laws implementing:",
-        options: ["Art 39(b) and (c)", "Art 44", "Art 40", "All DPSP"],
-        correctAnswer: 0,
-        explanation: "Art 39(b) and (c).",
-        subtopic: "9.4"
+        question: "Who is the chief crisis manager in the politico-administrative system of India?",
+        options: [
+            "The Home Secretary",
+            "The Cabinet",
+            "The Prime Minister solely",
+            "The President"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Role of Cabinet... 5. It is the chief crisis manager and thus deals with all emergency situations.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
     },
     {
         id: 30,
-        question: "Which part of Constitution deals with Welfare State ideals?",
-        options: ["Part IV (DPSP)", "Part III (FR)", "Preamble only", "Part IVA"],
-        correctAnswer: 0,
-        explanation: "Part IV (DPSP).",
-        subtopic: "9.1"
-    },
-
-    // ==========================================
-    // CONSTITUTIONAL BODIES REVISION (31-60)
-    // ==========================================
-    {
-        id: 31,
-        question: "Election Commission Article?",
-        options: ["324", "326", "325", "329"],
-        correctAnswer: 0,
-        explanation: "Article 324.",
-        subtopic: "38.1"
-    },
-    {
-        id: 32,
-        question: "Removal of CEC is same as:",
-        options: ["SC Judge", "HC Judge", "President", "Minister"],
-        correctAnswer: 0,
-        explanation: "Judge of Supreme Court.",
-        subtopic: "38.1"
-    },
-    {
-        id: 33,
-        question: "CAG is appointed by:",
-        options: ["President", "PM", "Parliament", "Selection Committee"],
-        correctAnswer: 0,
-        explanation: "President.",
-        subtopic: "25.1"
-    },
-    {
-        id: 34,
-        question: "Tenure of CAG?",
-        options: ["6 years / 65 age", "5 years / 65 age", "6 years / 62 age", "5 years / 60 age"],
-        correctAnswer: 0,
-        explanation: "6 years or 65 years of age.",
-        subtopic: "25.1"
-    },
-    {
-        id: 35,
-        question: "Article 315 deals with:",
-        options: ["UPSC & SPSC", "UPSC only", "SPSC only", "Election Commission"],
-        correctAnswer: 0,
-        explanation: "Public Service Commissions for Union and States.",
-        subtopic: "38.1"
-    },
-    {
-        id: 36,
-        question: "Who removes SPSC Chairman?",
-        options: ["President", "Governor", "Parliament", "Supreme Court"],
-        correctAnswer: 0,
-        explanation: "President (after SC inquiry).",
-        subtopic: "38.2"
-    },
-    {
-        id: 37,
-        question: "Finance Commission Article?",
-        options: ["280", "279A", "268", "275"],
-        correctAnswer: 0,
-        explanation: "Article 280.",
-        subtopic: "22.1"
-    },
-    {
-        id: 38,
-        question: "National Commission for SCs (NCSC) Article?",
-        options: ["338", "338A", "338B", "340"],
-        correctAnswer: 0,
-        explanation: "Article 338.",
-        subtopic: "39.2"
-    },
-    {
-        id: 39,
-        question: "NCST was created by:",
-        options: ["89th Amendment", "65th Amendment", "91st Amendment", "86th Amendment"],
-        correctAnswer: 0,
-        explanation: "89th Amendment Act, 2003.",
-        subtopic: "39.2"
-    },
-    {
-        id: 40,
-        question: "NCBC Constitutional Status Amendment?",
-        options: ["102nd", "101st", "103rd", "104th"],
-        correctAnswer: 0,
-        explanation: "102nd Amendment Act, 2018.",
-        subtopic: "39.2"
-    },
-    { id: 41, question: "CAG audits accounts of?", options: ["Centre & States", "Centre only", "States only", "PSUs only"], correctAnswer: 0, subtopic: "25.1" },
-    { id: 42, question: "Special Officer Linguistic Minorities Article?", options: ["350B", "350A", "351", "343"], correctAnswer: 0, subtopic: "39.3" },
-    { id: 43, question: "UPSC Annual Report submitted to?", options: ["President", "Parliament", "DoPT", "PM"], correctAnswer: 0, subtopic: "38.1" },
-    { id: 44, question: "State Election Commissioner appointed by?", options: ["Governor", "President", "CEC", "CM"], correctAnswer: 0, subtopic: "38.1" },
-    { id: 45, question: "Can SPSC member become UPSC member?", options: ["Yes", "No", "Only Chairman", "After 2 years"], correctAnswer: 0, subtopic: "38.2" },
-    { id: 46, question: "Finance Commission members eligible for reappointment?", options: ["Yes", "No", "Only once", "Only Chair"], correctAnswer: 0, subtopic: "22.1" },
-    { id: 47, question: "Model Code of Conduct implies?", options: ["Guidelines", "Law", "Constitutional rule", "Court order"], correctAnswer: 0, subtopic: "93.1" },
-    { id: 48, question: "Article 320(4) excludes UPSC from?", options: ["Reservation matters", "Recruitment", "Disciplinary", "Pension"], correctAnswer: 0, subtopic: "38.1" },
-    { id: 49, question: "Who certifies the net proceeds of tax?", options: ["CAG", "Finance Minister", "Finance Commission", "PM"], correctAnswer: 0, subtopic: "25.1" }, // Art 279
-    { id: 50, question: "Delimitation Commission is headed by?", options: ["Retired SC Judge", "CEC", "Speaker", "PM"], correctAnswer: 0, subtopic: "70.1" },
-    { id: 51, question: "Number of Election Commissioners fixed by?", options: ["President", "Parliament", "Constitution", "CEC"], correctAnswer: 0, subtopic: "38.1" },
-    { id: 52, question: "First Chief Election Commissioner?", options: ["Sukumar Sen", "T.N. Seshan", "V.S. Ramadevi", "K.V.K. Sundaram"], correctAnswer: 0, subtopic: "38.1" },
-    { id: 53, question: "Audit reports of CAG laid before State Legislature by?", options: ["Governor", "CAG", "Speaker", "CM"], correctAnswer: 0, subtopic: "25.1" },
-    { id: 54, question: "UPSC Members removal inquiry by?", options: ["Supreme Court", "High Court", "Parliament", "CBI"], correctAnswer: 0, subtopic: "38.1" },
-    { id: 55, question: "Does SPSC present report to President?", options: ["No, to Governor", "Yes", "If Joint SPSC", "If President Rule"], correctAnswer: 0, subtopic: "38.2" },
-    { id: 56, question: "Nodal Ministry for NCSC?", options: ["Social Justice", "Tribal Affairs", "Home", "HRD"], correctAnswer: 0, subtopic: "39.2" },
-    { id: 57, question: "Article 338A?", options: ["NCST", "NCSC", "NCBC", "OBC"], correctAnswer: 0, subtopic: "39.2" },
-    { id: 58, question: "Who removes CEC?", options: ["President on Parliament resolution", "President at pleasure", "PM", "CJI"], correctAnswer: 0, subtopic: "38.1" },
-    { id: 59, question: "Voting Age reduced to 18 by?", options: ["61st Amendment", "42nd Amendment", "44th Amendment", "73rd Amendment"], correctAnswer: 0, subtopic: "38.1" }, // 1988
-    { id: 60, question: "Right to Vote is?", options: ["Constitutional Right", "Fundamental Right", "Natural Right", "Moral Right"], correctAnswer: 0, subtopic: "38.1" }
+        question: "What is an 'Inner Cabinet' or 'Kitchen Cabinet'?",
+        options: [
+            "A subset of bureaucrats managing food supply.",
+            "An informal body consisting of the Prime Minister and two to four influential colleagues in whom he has faith and with whom he can discuss every problem.",
+            "A formal sub-committee appointed by the President.",
+            "The lowest tier of ministers (Deputy Ministers)."
+        ],
+        correctAnswer: 1, // B
+        explanation: "It is an informal body consisting of the Prime Minister and two to four influential colleagues in whom he has faith and with whom he can discuss every problem. It advises the prime minister on important political and administrative issues and assists him in making crucial decisions.",
+        level: "Easy", topic: "Central Council of Ministers", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Central Council of Ministers" }
+    }
 ];
-
-export default DAY20_MCQS;

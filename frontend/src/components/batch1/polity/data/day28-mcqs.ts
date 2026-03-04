@@ -1,298 +1,397 @@
-
-export interface MCQ {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation?: string;
-    level?: string;
-    topic?: string;
-    chapter?: string;
-    subtopic?: string;
-}
+import type { MCQ } from './mcq-utils';
 
 export const DAY28_MCQS: MCQ[] = [
-    // ==========================================
-    // CONSTITUTIONAL BODIES (20 Questions)
-    // ==========================================
+    // ----------------------------------------------------------------------
+    // LEVEL 1: EASY (The Text-Book Stickler - Strictly Chapter 28)
+    // ----------------------------------------------------------------------
     {
         id: 1,
-        question: "Who decides the number of Election Commissioners?",
-        options: ["President", "Parliament", "Chief Election Commissioner", "Supreme Court"],
-        correctAnswer: 0,
-        explanation: "The President fixes the number of Election Commissioners from time to time.",
-        subtopic: "43.1"
+        question: "In which country did the concept of 'Judicial Activism' originate and develop?",
+        options: [
+            "United Kingdom",
+            "United States of America",
+            "France",
+            "India"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The concept of judicial activism originated and developed in the USA.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "History", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 2,
-        question: "UPSC submits its annual report to?",
-        options: ["Parliament", "President", "DoPT Minister", "Cabinet Secretary"],
-        correctAnswer: 1,
-        explanation: "President, who places it before Parliament.",
-        subtopic: "44.1"
+        question: "Who is credited with coining the term 'Judicial Activism' in 1947?",
+        options: [
+            "Justice John Marshall",
+            "Arthur Schlesinger Jr.",
+            "Justice V.R. Krishna Iyer",
+            "Upendra Baxi"
+        ],
+        correctAnswer: 1, // B
+        explanation: "This term was coined by Arthur Schlesinger Jr., an American historian and educator, in 1947.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "History", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 3,
-        question: "Finance Commission is constituted every?",
-        options: ["5 years", "4 years", "6 years", "10 years"],
-        correctAnswer: 0,
-        explanation: "Every 5th year or earlier.",
-        subtopic: "46.1"
+        question: "In India, during which decade was the doctrine of Judicial Activism primarily introduced?",
+        options: [
+            "Mid-1950s",
+            "Mid-1960s",
+            "Mid-1970s",
+            "Mid-1990s"
+        ],
+        correctAnswer: 2, // C
+        explanation: "In India, the doctrine of judicial activism was introduced in mid-1970s.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "History", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 4,
-        question: "Who acts as the Chairman of the GST Council?",
-        options: ["PM", "Union Finance Minister", "RBI Governor", "Home Minister"],
-        correctAnswer: 1,
-        explanation: "Union Finance Minister.",
-        subtopic: "47.1"
+        question: "Who among the following were the pioneers (founding fathers) of Judicial Activism in India?",
+        options: [
+            "Justice H.R. Khanna and Justice M.H. Beg",
+            "Justice V.R. Krishna Iyer, Justice P.N. Bhagwati, Justice O. Chinnappa Reddy, and Justice D.A. Desai",
+            "Justice Y.V. Chandrachud and Justice A.N. Ray",
+            "Justice R.S. Sarkaria and Justice M.N. Venkatachaliah"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Justice V.R. Krishna Iyer, Justice P.N. Bhagwati, Justice O. Chinnappa Reddy and Justice D.A. Desai laid the foundations of judicial activism in the country.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Key Figures", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 5,
-        question: "CAG is responsible to?",
-        options: ["President", "Parliament", "PM", "Supreme Court"],
-        correctAnswer: 1,
-        explanation: "CAG is an agent of Parliament and conducts audits on its behalf.",
-        subtopic: "52.1"
+        question: "Judicial Activism denotes the proactive role played by the judiciary in:",
+        options: [
+            "Protecting the rights of citizens and promoting justice in society.",
+            "Usurping the powers of the President.",
+            "Rewriting the Constitution without parliamentary approval.",
+            "Running the day-to-day administration of the states."
+        ],
+        correctAnswer: 0, // A
+        explanation: "Judicial activism denotes the proactive role played by the judiciary in the protection of the rights of citizens and in the promotion of justice in the society.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Definition", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 6,
-        question: "The NCSC (National Commission for SCs) has powers of?",
-        options: ["Civil Court", "Criminal Court", "High Court", "Sessions Court"],
-        correctAnswer: 0,
-        explanation: "Civil Court while investigating complaints.",
-        subtopic: "48.1"
+        question: "Judicial Activism is sometimes also referred to as:",
+        options: [
+            "Judicial Despotism",
+            "Judicial Dynamism",
+            "Judicial Stagnation",
+            "Judicial Conservatism"
+        ],
+        correctAnswer: 1, // B
+        explanation: "It is also known as 'judicial dynamism'.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Terminology", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 7,
-        question: "Attorney General holds office during the pleasure of?",
-        options: ["President", "PM", "CJI", "Parliament"],
-        correctAnswer: 0,
-        explanation: "President.",
-        subtopic: "53.1"
+        question: "Judicial Activism is considered the exact opposite of which of the following concepts?",
+        options: [
+            "Judicial Review",
+            "Judicial Independence",
+            "Judicial Restraint",
+            "Judicial Transparency"
+        ],
+        correctAnswer: 2, // C
+        explanation: "It is the antithesis of 'judicial restraint', which means the self-control exercised by the judiciary.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Concept", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 8,
-        question: "Advocate General is appointed by?",
-        options: ["President", "Governor", "CM", "High Court CJ"],
-        correctAnswer: 1,
-        explanation: "Governor.",
-        subtopic: "54.1"
+        question: "Which of the following closely related mechanisms is considered the primary 'instrument' or 'tool' through which Judicial Activism has flourished in India?",
+        options: [
+            "Advisory Jurisdiction (Article 143)",
+            "Original Jurisdiction (Article 131)",
+            "Public Interest Litigation (PIL)",
+            "Special Leave Petition (Article 136)"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Judicial activism is closely related to the concept of Public Interest Litigation (PIL). Actually, PIL is the most popular form of judicial activism.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Tool", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 9,
-        question: "Article 338B deals with?",
-        options: ["NCBC", "NCSC", "NCST", "Special Officer for Linguistic Minorities"],
-        correctAnswer: 0,
-        explanation: "National Commission for Backward Classes.",
-        subtopic: "50.1"
+        question: "What is the primary justification often given by the Judiciary when it steps into areas traditionally belonging to the executive or legislature?",
+        options: [
+            "The Judiciary has superior intelligence.",
+            "Collapse of the responsible government or 'Legislative Vacuum'.",
+            "The Constitution explicitly orders the judiciary to run the country.",
+            "To increase the salary of judges."
+        ],
+        correctAnswer: 1, // B
+        explanation: "One of the main justifications is the collapse of the responsible government. When the legislature fails to make the necessary legislation and the executive fails to perform its administrative functions, the judiciary steps in to protect citizens' rights (filling the vacuum).",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Justification", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 10,
-        question: "Special Officer for Linguistic Minorities reports to?",
-        options: ["President", "Minority Affairs Minister", "Parliament", "Home Minister"],
-        correctAnswer: 0,
-        explanation: "President.",
-        subtopic: "51.1"
+        question: "What does the term 'promissory estoppel', as expanded by the Supreme Court, relate to in the context of judicial activism?",
+        options: [
+            "It forces the court to stop reviewing a state law.",
+            "It holds the government accountable to its promises made to citizens or corporations, preventing it from arbitrarily backing out.",
+            "It stops the President from declaring an emergency.",
+            "It stops a judge from resigning."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Under the activism phase, the SC expanded doctrines like 'promissory estoppel' bringing the government within the purview of this legal principle, meaning the government cannot arbitrarily back out of promises if a party has acted upon them.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Legal Doctrine", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
-    { id: 11, question: "Salaries of Supreme Court Judges are charged on?", options: ["Consolidated Fund of India", "Contingency Fund", "Public Account", "Estimate Fund"], correctAnswer: 0, subtopic: "26.1" },
-    { id: 12, question: "State Election Commission is appointed by?", options: ["Governor", "President", "CEC", "CM"], correctAnswer: 0, subtopic: "Constitutional" },
-    { id: 13, question: "Can a retired UPSC Chairman be employed in Govt of India?", options: ["No", "Yes", "With Permission", "Only in State"], correctAnswer: 0, subtopic: "44.1" },
-    { id: 14, question: "Joint State Public Service Commission is created by?", options: ["An Act of Parliament", "Presidential Order", "State Legislatures", "Constitution"], correctAnswer: 0, subtopic: "45.1" }, // Statutory body, not constitutional
-    { id: 15, question: "Who recommends the distribution of taxes between Centre and States?", options: ["Finance Commission", "NITI Aayog", "GST Council", "RBI"], correctAnswer: 0, subtopic: "46.1" },
-    { id: 16, question: "District Judges are appointed by?", options: ["Governor", "President", "High Court CJ", "CM"], correctAnswer: 0, subtopic: "34.1" },
-    { id: 17, question: "Who certifies a Money Bill in State Legislature?", options: ["Speaker of Assembly", "Governor", "CM", "Council Chairman"], correctAnswer: 0, subtopic: "32.1" },
-    { id: 18, question: "Maximum gap between two sessions of Parliament?", options: ["6 months", "3 months", "9 months", "1 year"], correctAnswer: 0, subtopic: "22.1" },
-    { id: 19, question: "Concept of Judicial Review borrowed from?", options: ["USA", "UK", "Canada", "Australia"], correctAnswer: 0, subtopic: "27.1" },
-    { id: 20, question: "Inter-State Council is set up by?", options: ["President", "Parliament", "NITI Aayog", "Supreme Court"], correctAnswer: 0, subtopic: "15.1" },
-
-    // ==========================================
-    // NON-CONSTITUTIONAL BODIES (20 Questions)
-    // ==========================================
+    {
+        id: 11,
+        question: "Which concept implies that the court should strictly interpret the laws enacted by the legislature and not substitute its own policy views?",
+        options: [
+            "Judicial Activism",
+            "Judicial Restraint",
+            "Judicial Creativity",
+            "Judicial Dynamism"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Judicial restraint means courts should interpret the laws and not make them. Judges should stick to interpreting the law as written by the legislature.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Definition", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
+    },
+    {
+        id: 12,
+        question: "Which constitutional doctrine is most commonly cited as being threatened or violated when Judicial Activism turns into 'Judicial Overreach'?",
+        options: [
+            "Rule of Law",
+            "Separation of Powers",
+            "Bicameralism",
+            "Universal Adult Franchise"
+        ],
+        correctAnswer: 1, // B
+        explanation: "When judicial activism crosses its limits and becomes judicial adventurism, it is known as judicial overreach. This is criticized for disturbing the balance of power among the three organs of the state, violating the Doctrine of Separation of Powers.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Constitutional Danger", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
+    },
+    {
+        id: 13,
+        question: "The enthusiasm of citizens to approach the courts for securing their rights and improving public administration is a major cause of judicial activism. True or False?",
+        options: [
+            "True",
+            "False",
+            "Partially True",
+            "Cannot be determined"
+        ],
+        correctAnswer: 0, // A
+        explanation: "Yes, citizens' enthusiasm and the rise of civil society organizations actively approaching the courts through PILs is a major driving force behind judicial activism.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Causes", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
+    },
+    {
+        id: 14,
+        question: "According to Dr. Vandana, which of the following is considered a positive outcome of Judicial Activism?",
+        options: [
+            "It delays the legislative process.",
+            "It provides a system of checks and balances to the other branches of government when they fail.",
+            "It makes judges more powerful than politicians.",
+            "It abolishes the need for a Parliament."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Judicial activism provides a system of checks and balances where the judiciary can rectify the failures of the legislative and executive branches, ensuring justice is delivered.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Positive Impact", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
+    },
+    {
+        id: 15,
+        question: "In the context of the expansion of rights by the Supreme Court, the Right to Privacy, Right to Clean Environment, and Right to Speedy Trial have all been judicially read into which Article of the Constitution?",
+        options: [
+            "Article 14",
+            "Article 19",
+            "Article 21",
+            "Article 32"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Through judicial activism, the SC has heavily expanded the scope of Article 21 (Protection of Life and Personal Liberty) to include the right to privacy, clean environment, speedy trial, free legal aid, etc.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Rights Expansion", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
+    },
+    {
+        id: 16,
+        question: "Which of the following is NOT an attribute of Judicial Restraint?",
+        options: [
+            "Judges should look to the original intent of the writers of the Constitution.",
+            "Judges should respect 'Stare Decisis' (past precedents).",
+            "Legislatures, not courts, should make policy decisions.",
+            "Judges should actively seek out social problems and create new laws to fix them."
+        ],
+        correctAnswer: 3, // D
+        explanation: "Actively seeking out social problems to fix by creating new laws is the hallmark of judicial activism, not restraint. Restraint emphasizes deference to the elected branches.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Restraint vs Activism", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
+    },
+    {
+        id: 17,
+        question: "The Supreme Court issuing guidelines to prevent sexual harassment at the workplace in the Vishakha case (1997) is a classic example of:",
+        options: [
+            "Judicial Restraint",
+            "Judicial Activism filling a legislative vacuum",
+            "Original Jurisdiction",
+            "Appellate Jurisdiction"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Because there was no law by Parliament regarding sexual harassment at workplaces, the Supreme Court used judicial activism to lay down binding guidelines (Vishakha Guidelines) to fill this legislative vacuum until Parliament passed a law (which happened in 2013).",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Classic Example", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
+    },
+    {
+        id: 18,
+        question: "When the Supreme Court directed the Centre to distribute food grains rotting in godowns to the poor, this was criticized by some as an example of:",
+        options: [
+            "Judicial Review",
+            "Judicial Restraint",
+            "Judicial Overreach (entering executive policy domain)",
+            "Judicial Pardon"
+        ],
+        correctAnswer: 2, // C
+        explanation: "While motivated by welfare, directing the exact distribution of food grains is strictly an executive/administrative function. Critics point to such detailed administrative directions as instances where judicial activism borders on 'judicial overreach'.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Criticism Example", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
+    },
+    {
+        id: 19,
+        question: "Which organ of the state is primarily responsible for law-making under the doctrine of Separation of Powers, which judicial restraint seeks to protect?",
+        options: [
+            "The Judiciary",
+            "The Executive",
+            "The Legislature",
+            "The Media"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Under the Doctrine of Separation of Powers, law-making is the exclusive domain of the Legislature.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Constitutional Basics", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
+    },
+    {
+        id: 20,
+        question: "Upendra Baxi notes that Judicial Activism is closely associated with which kind of jurisprudence?",
+        options: [
+            "Colonial Jurisprudence",
+            "Social Action Litigation / Public Interest Jurisprudence",
+            "Martial Law Jurisprudence",
+            "Corporate Jurisprudence"
+        ],
+        correctAnswer: 1, // B
+        explanation: "In India, judicial activism is intimately connected with Public Interest Litigation (PIL), which Prof. Upendra Baxi prefers to call 'Social Action Litigation' (SAL).",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Baxi View", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
+    },
     {
         id: 21,
-        question: "CVC was established on recommendation of?",
-        options: ["Santhanam Committee", "Kripalani Committee", "Gorwala Committee", "Sarkaria Commission"],
-        correctAnswer: 0,
-        explanation: "Santhanam Committee on Prevention of Corruption.",
-        subtopic: "60.1"
+        question: "A broad, progressive interpretation of the Constitution to adapt it to changing social realities is a characteristic of:",
+        options: [
+            "Judicial Restraint",
+            "Judicial Conservatism",
+            "Judicial Activism",
+            "Strict Constructionism"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Judicial activism involves interpreting the Constitution broadly and progressively to meet the needs of a changing society, rather than sticking rigidly to a literal or originalist interpretation.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Interpretation Style", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 22,
-        question: "NHRC Chairperson must be?",
-        options: ["Former CJI or Judge of SC", "Former CJ of HC", "Eminent Jurist", "Social Worker"],
-        correctAnswer: 0,
-        explanation: "Former Chief Justice of India or Judge of the Supreme Court.",
-        subtopic: "56.1"
+        question: "The power to punish for its own Contempt (Article 129) provides the Supreme Court the authority to effectively enforce its 'activist' directions. True or False?",
+        options: [
+            "True",
+            "False",
+            "Partially True",
+            "Cannot be determined"
+        ],
+        correctAnswer: 0, // A
+        explanation: "Yes, if the executive ignores the guidelines or orders passed by the Court during its activist interventions, the Court can use its contempt powers to force compliance.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Enforcement Power", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 23,
-        question: "CIC is appointed by President on recommendation of committee headed by?",
-        options: ["Prime Minister", "Home Minister", "CJI", "Vice President"],
-        correctAnswer: 0,
-        explanation: "Prime Minister.",
-        subtopic: "58.1"
+        question: "Which of the following is an argument OFTEN used AGAINST Judicial Activism?",
+        options: [
+            "It protects minority rights.",
+            "It acts as a safety valve for public grievances.",
+            "Judges are not elected and thus lack democratic accountability to make broad policy decisions.",
+            "It accelerates the delivery of justice."
+        ],
+        correctAnswer: 2, // C
+        explanation: "A major criticism is the 'counter-majoritarian' argument: Legislators are elected by the people and can be voted out if they make bad policies. Judges are unelected and unaccountable to the public, making it inappropriate for them to dictate complex socio-economic policies.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Criticism", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 24,
-        question: "Lokpal institution was first introduced in Parliament in?",
-        options: ["1968", "1971", "1985", "2011"],
-        correctAnswer: 0,
-        explanation: "1968.",
-        subtopic: "62.1"
+        question: "The concept of 'Basic Structure' created in the Kesavananda Bharati case (1973) is widely considered the ultimate milestone of Judicial Activism in India. What did it allow the Judiciary to do?",
+        options: [
+            "Appoint the Prime Minister.",
+            "Review and strike down Constitutional Amendments passed by the Parliament.",
+            "Dissolve State Assemblies at will.",
+            "Draft the Union Budget."
+        ],
+        correctAnswer: 1, // B
+        explanation: "By creating the 'Basic Structure Doctrine', the unelected judiciary gave itself the ultimate power to review and strike down even Constitutional Amendments passed by elected representatives, a power not explicitly written anywhere in the Constitution.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Ultimate Example", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 25,
-        question: "NITI Aayog was established by?",
-        options: ["Executive Resolution", "Act of Parliament", "Constitutional Amendment", "Supreme Court Order"],
-        correctAnswer: 0,
-        explanation: "Executive Resolution (Cabinet).",
-        subtopic: "55.1"
+        question: "When the Supreme Court issues an order asking the government to interlink rivers, critics point out that the Court lacks ____ to decide such complex technical and economic matters.",
+        options: [
+            "Jurisdiction",
+            "Expertise and financial accountability",
+            "Contempt powers",
+            "Writ powers"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Judges are experts in law, not hydrology or economics. Critiques of overreach argue that courts lack the technical expertise to formulate complex policies like river interlinking, and they don't have to face the financial consequences of their orders.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Limitation", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 26,
-        question: "CBI Director is appointed based on which Act currently?",
-        options: ["DSPE Act 1946 (as amended by Lokpal Act)", "CVC Act", "Police Act", "CBI Act"],
-        correctAnswer: 0,
-        explanation: "Selection committee mechanism is in DSPE Act, as amended by Lokpal Act.",
-        subtopic: "61.1"
+        question: "The phenomenon where the Judiciary takes over the administrative functions of the executive (e.g., monitoring the daily progress of a criminal investigation in hawala scams) is termed as carrying out a:",
+        options: [
+            "Continuing Mandamus",
+            "Writ of Certiorari",
+            "Writ of Quo Warranto",
+            "Curative Petition"
+        ],
+        correctAnswer: 0, // A
+        explanation: "In cases of systemic executive failure (like massive corruption investigations where politicians try to stall police), the Court doesn't just pass one order. It uses a 'Continuing Mandamus', commanding the investigative agencies to report directly to the Court periodically, effectively taking over the administrative supervision.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Activist Tool", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 27,
-        question: "Who removes Information Commissioners?",
-        options: ["President", "CIC", "PM", "Supreme Court"],
-        correctAnswer: 0,
-        explanation: "President (after SC inquiry).",
-        subtopic: "58.1"
+        question: "Subhash Kashyap observed that 'Judicial Activism is not a distinct or separate phenomenon but an extension of the process of ________'.",
+        options: [
+            "Judicial Restraint",
+            "Judicial Review",
+            "Legislative Drafting",
+            "Administrative action"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Judicial activism is essentially an aggressive or proactive application of the power of judicial review.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Observation", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 28,
-        question: "Does NHRC have power to punish for contempt?",
-        options: ["No", "Yes", "Limited", "Same as Court"],
-        correctAnswer: 0,
-        explanation: "No, it is a recommendatory body.",
-        subtopic: "56.2"
+        question: "Which of the following scenarios best demonstrates 'Judicial Restraint'?",
+        options: [
+            "The Court ordering the construction of new hospitals.",
+            "The Court ruling that creating a specific reservation policy is the job of the Legislature, refusing to mandate it.",
+            "The Court setting the pricing formula for Covid vaccines.",
+            "The Court cancelling 2G spectrum licenses."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Declining to intervene in a highly debated policy matter (like specifics of reservation quotas or economic policy) and stating 'This is the domain of the elected legislature, not the courts' is a textbook example of judicial restraint.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Application", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 29,
-        question: "Tenure of Lokpal Members?",
-        options: ["5 years/70 years", "5 years/65 years", "6 years/65 years", "3 years/70 years"],
-        correctAnswer: 0,
-        explanation: "5 years or 70 years of age.",
-        subtopic: "62.1"
+        question: "According to former CJI A.S. Anand, what is the danger if the Judiciary crosses the lakshman rekha (boundary) set by the Constitution?",
+        options: [
+            "It will lead to a military coup.",
+            "It will cause \"judicial authoritarianism\" and a constitutional crisis.",
+            "It will make the Constitution stronger.",
+            "It will save the country's economy."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Many judges have warned against overreach. If the judiciary constantly dictates to the executive and legislature, it leads to 'judicial authoritarianism' (or tyranny of the unelected), disrupting the delicate balance established by the Constitution.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Warning", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
     },
     {
         id: 30,
-        question: "Central Information Commission falls under which Ministry?",
-        options: ["Ministry of Personnel", "Home Ministry", "Law Ministry", "I&B Ministry"],
-        correctAnswer: 0,
-        explanation: "Ministry of Personnel, Public Grievances and Pensions.",
-        subtopic: "58.1"
-    },
-    { id: 31, question: "State Information Commissioner tenure?", options: ["3 years or 65 age", "5 years or 65 age", "5 years or 70 age", "Prescribed by Central Govt"], correctAnswer: 3, subtopic: "59.1" }, // Current rule: Fixed by Centre (3 years).
-    { id: 32, question: "SHRC report submitted to?", options: ["State Govt", "Governor", "President", "NHRC"], correctAnswer: 0, subtopic: "57.1" },
-    { id: 33, question: "Can CBI investigate in a state without general consent?", options: ["No, unless HC/SC orders", "Yes", "For terrorism only", "With Governor permission"], correctAnswer: 0, subtopic: "61.2" },
-    { id: 34, question: "Who appoints the Special Director of CBI?", options: ["Central Govt on CVC Committee Rec", "CBI Director", "PM", "President"], correctAnswer: 0, subtopic: "61.1" },
-    { id: 35, question: "National Human Rights Commission set up in?", options: ["1993", "1990", "1995", "2000"], correctAnswer: 0, subtopic: "56.1" },
-    { id: 36, question: "Is CVC a multi-member body?", options: ["Yes (Max 2 VC)", "No", "Max 5 VC", "Max 3 VC"], correctAnswer: 0, subtopic: "60.1" },
-    { id: 37, question: "Can Lokpal investigate Judiciary?", options: ["No", "Yes", "Only Lower", "Only Admin side"], correctAnswer: 0, subtopic: "62.2" },
-    { id: 38, question: "Who is the 'amicus curiae' of Indian Federalism?", options: ["Supreme Court", "President", "Governor", "Finance Commission"], correctAnswer: 0, subtopic: "Concept" },
-    { id: 39, question: "Whistle Blowers Protection Act, 2014 sets up?", options: ["Competent Authorities", "Special Police", "New Courts", "None"], correctAnswer: 0, subtopic: "Misc" },
-    { id: 40, question: "Lokpal expenditures charged on?", options: ["Consolidated Fund of India", "Contingency Fund", "Grants", "Department Fund"], correctAnswer: 0, subtopic: "62.1" },
-
-    // ==========================================
-    // REVISION OF WEEKS 1-3 (20 Questions)
-    // ==========================================
-    {
-        id: 41,
-        question: "Fundamental Duties were added by which Amendment?",
-        options: ["42nd", "44th", "86th", "91st"],
-        correctAnswer: 0,
-        explanation: "42nd Amendment Act, 1976.",
-        subtopic: "9.1"
-    },
-    {
-        id: 42,
-        question: "Procedure established by law is from?",
-        options: ["Japan", "USA", "UK", "France"],
-        correctAnswer: 0,
-        explanation: "Japan.",
-        subtopic: "3.1"
-    },
-    {
-        id: 43,
-        question: "Tenth Schedule was added by?",
-        options: ["52nd Amendment", "3th Amendment", "42nd Amendment", "73rd Amendment"],
-        correctAnswer: 0,
-        explanation: "52nd Amendment Act, 1985 (Anti-Defection).",
-        subtopic: "22.6"
-    },
-    {
-        id: 44,
-        question: "Money Bill can be introduced in?",
-        options: ["Lok Sabha only", "Rajya Sabha only", "Either House", "Joint Sitting"],
-        correctAnswer: 0,
-        explanation: "Lok Sabha only.",
-        subtopic: "22.3"
-    },
-    {
-        id: 45,
-        question: "Who presides over Joint Sitting of Parliament?",
-        options: ["Speaker of LS", "Chairman of RS", "President", "PM"],
-        correctAnswer: 0,
-        explanation: "Speaker of Lok Sabha.",
-        subtopic: "22.3"
-    },
-    {
-        id: 46,
-        question: "Pardon power of President is under Article?",
-        options: ["72", "161", "74", "76"],
-        correctAnswer: 0,
-        explanation: "Article 72.",
-        subtopic: "17.1"
-    },
-    {
-        id: 47,
-        question: "Impeachment of President requires majority of?",
-        options: ["2/3rd of total membership", "2/3rd present and voting", "Simple majority", "Absolute majority"],
-        correctAnswer: 0,
-        explanation: "2/3rd of total membership of the House.",
-        subtopic: "17.1"
-    },
-    {
-        id: 48,
-        question: "Council of Ministers is collectively responsible to?",
-        options: ["Lok Sabha", "Parliament", "President", "People"],
-        correctAnswer: 0,
-        explanation: "Lok Sabha (Article 75).",
-        subtopic: "20.1"
-    },
-    {
-        id: 49,
-        question: "Article 123 deals with?",
-        options: ["President's Ordinance", "Supreme Court", "Governor's Ordinance", "Financial Emergency"],
-        correctAnswer: 0,
-        explanation: "Power of President to promulgate Ordinances.",
-        subtopic: "17.2"
-    },
-    {
-        id: 50,
-        question: "Sarkaria Commission dealt with?",
-        options: ["Centre-State Relations", "Electoral Reforms", "Banking", "Police Reforms"],
-        correctAnswer: 0,
-        explanation: "Centre-State Relations (1983).",
-        subtopic: "14.1"
-    },
-    { id: 51, question: "Which Article allows Parliament to legislate on State List in national interest?", options: ["249", "250", "252", "253"], correctAnswer: 0, subtopic: "14.1" },
-    { id: 52, question: "Financial Emergency (Article 360) imposed how many times?", options: ["Never", "Once", "Twice", "During 1991"], correctAnswer: 0, subtopic: "16.1" },
-    { id: 53, question: "Right to Property is a?", options: ["Legal Right", "Fundamental Right", "Natural Right", "Moral Right"], correctAnswer: 0, subtopic: "7.1" },
-    { id: 54, question: "Who appoints the District Judges?", options: ["Governor", "High Court CJ", "President", "CM"], correctAnswer: 0, subtopic: "34.1" },
-    { id: 55, question: "Judicial Activism originated in?", options: ["USA", "UK", "India", "Germany"], correctAnswer: 0, subtopic: "28.1" },
-    { id: 56, question: "PIL was introduced in India by?", options: ["Justice P.N. Bhagwati", "Justice Krishna Iyer", "Both", "Justice Ray"], correctAnswer: 2, subtopic: "29.1" },
-    { id: 57, question: "Basic Structure doctrine came from?", options: ["Kesavananda Bharati Case", "Golaknath Case", "Minerva Mills Case", "Maneka Gandhi Case"], correctAnswer: 0, subtopic: "11.1" },
-    { id: 58, question: "Who can dissolve the Lok Sabha?", options: ["President", "PM", "Speaker", "CJI"], correctAnswer: 0, subtopic: "22.1" },
-    { id: 59, question: "Quorum to constitute a meeting of the House?", options: ["1/10th of total members", "1/5th", "1/3rd", "50 members"], correctAnswer: 0, subtopic: "22.3" },
-    { id: 60, question: "First hour of every parliamentary sitting is?", options: ["Question Hour", "Zero Hour", "Lunch Hour", "Motion Hour"], correctAnswer: 0, subtopic: "22.3" }
+        question: "Which Article of the Constitution requires the state to take steps to separate the judiciary from the executive in the public services of the State?",
+        options: [
+            "Article 40",
+            "Article 50",
+            "Article 51",
+            "Article 21"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Article 50 (a Directive Principle) explicitly calls for the separation of the judiciary from the executive to ensure judicial independence, a foundational prerequisite for the judiciary to be able to act proactively without fear or favor.",
+        level: "Easy", topic: "Judicial Activism", difficulty_tier: "Level_1", cognitive_tag: "Constitutional Safeguard", source_mapping: { book: "M. Laxmikanth", chapter: "Judicial Activism" }
+    }
 ];
-
-export default DAY28_MCQS;

@@ -1,502 +1,362 @@
-
-export interface MCQ {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation?: string;
-    level?: string;
-    topic?: string;
-    chapter?: string;
-    subtopic?: string;
-}
+import type { MCQ } from './mcq-utils';
 
 export const DAY12_MCQS: MCQ[] = [
-    // ==========================================
-    // DAY 12: STATE LEGISLATURE (60 Questions)
-    // Comparisons with Parliament, Procedure, Composition
-    // ==========================================
-
+    // ----------------------------------------------------------------------
+    // LEVEL 1: EASY (The Text-Book Stickler - Strictly Chapter 12)
+    // ----------------------------------------------------------------------
     {
         id: 1,
-        question: "Which Articles deal with the State Legislature?",
-        options: ["168 to 212", "152 to 167", "124 to 147", "214 to 232"],
-        correctAnswer: 0,
-        explanation: "Articles 168 to 212 in Part VI.",
-        subtopic: "36.1"
+        question: "Which Articles of the Indian Constitution deal with the parliamentary system at the Centre?",
+        options: ["Articles 74 and 75", "Articles 163 and 164", "Articles 52 and 53", "Articles 148 and 149"],
+        correctAnswer: 0, // A
+        explanation: "Articles 74 and 75 deal with the parliamentary system at the Centre, while Articles 163 and 164 deal with it in the states.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 2,
-        question: "How many states in India have a Bicameral Legislature?",
-        options: ["5", "6", "7", "28"],
-        correctAnswer: 1,
-        explanation: "6 States (Andhra, Telangana, UP, Bihar, Maharashtra, Karnataka).",
-        subtopic: "36.1"
+        question: "A parliamentary system is based on the principle of:",
+        options: [
+            "Strict separation of powers between the legislature and executive.",
+            "Cooperation and co-ordination between the legislative and executive organs.",
+            "Supremacy of the judiciary over the executive.",
+            "Direct election of the head of state by the people."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The parliamentary system is based on the principle of cooperation and co-ordination between the legislative and executive organs, unlike the presidential system which is based on the separation of powers.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 3,
-        question: "Creation or Abolition of Legislative Council is done by:",
-        options: ["President", "Parliament", "State Assembly", "Governor"],
-        correctAnswer: 1,
-        explanation: "Parliament (on recommendation of State Assembly).",
-        subtopic: "36.2"
+        question: "What is another common name for the parliamentary system of government?",
+        options: ["Presidential system", "Non-responsible government", "Cabinet government", "Fixed executive system"],
+        correctAnswer: 2, // C
+        explanation: "The parliamentary system is also known as cabinet government or responsible government or Westminster model of government.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 4,
-        question: "The resolution for creation/abolition of Council must be passed by Assembly with:",
-        options: ["Simple Majority", "Special Majority", "Absolute Majority", "Effective Majority"],
-        correctAnswer: 1,
-        explanation: "Special Majority (Two-thirds present & voting + Majority of total strength).",
-        subtopic: "36.2"
+        question: "In the Indian parliamentary system, who is the 'nominal executive' (de jure executive)?",
+        options: ["The Prime Minister", "The Chief Justice of India", "The President", "The Speaker of Lok Sabha"],
+        correctAnswer: 2, // C
+        explanation: "In India, the President is the nominal executive (de jure executive or titular executive) while the Prime Minister is the real executive (de facto executive).",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 5,
-        question: "Does the Parliament need to amend the Constitution for creating a Council?",
-        options: ["Yes, under Art 368", "No, it is an ordinary law", "Yes, with ratification", "Depends on state"],
-        correctAnswer: 1,
-        explanation: "No. It is deemed NOT to be an amendment under Article 368 (passed by Simple Majority in Parliament).",
-        subtopic: "36.2"
+        question: "In the context of the parliamentary system, the term 'Real Executive' refers to:",
+        options: ["The President", "The Prime Minister and the Council of Ministers", "The Parliament as a whole", "The Supreme Court"],
+        correctAnswer: 1, // B
+        explanation: "The Prime Minister (along with the Council of Ministers) is the real executive (de facto executive), exercising actual power.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 6,
-        question: "Maximum strength of Legislative Assembly is:",
-        options: ["500", "552", "450", "600"],
-        correctAnswer: 0,
-        explanation: "500.",
-        subtopic: "36.3"
+        question: "Article 75 of the Indian Constitution states that the Council of Ministers is collectively responsible to:",
+        options: ["The President", "The Prime Minister", "The Parliament in general", "The Lok Sabha (House of the People) in particular"],
+        correctAnswer: 3, // D
+        explanation: "Article 75 states that the council of ministers is collectively responsible to the Parliament in general and to the Lok Sabha in particular.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 7,
-        question: "Minimum strength of Legislative Assembly is (generally):",
-        options: ["40", "50", "60", "30"],
-        correctAnswer: 2,
-        explanation: "60 (Exceptions exist like Sikkim, Goa, etc.).",
-        subtopic: "36.3"
+        question: "What happens in a parliamentary system if the Lok Sabha passes a 'No-Confidence Motion'?",
+        options: [
+            "Only the Prime Minister must resign.",
+            "The entire Council of Ministers must resign.",
+            "The President must dissolve the Lok Sabha immediately but the ministers remain.",
+            "A national referendum is held."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Collective responsibility means they swim and sink together. If the Lok Sabha passes a vote of no-confidence, the entire council of ministers must resign.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 8,
-        question: "Minimum age for membership of Legislative Council is:",
-        options: ["25", "30", "35", "21"],
-        correctAnswer: 1,
-        explanation: "30 Years (Same as Rajya Sabha).",
-        subtopic: "36.3"
+        question: "Which of the following is a key feature of the Indian Parliamentary system regarding the membership of ministers?",
+        options: [
+            "Ministers must not be members of Parliament.",
+            "A person cannot be a minister even for a day if they are not an MP.",
+            "The ministers are members of both the legislature and the executive.",
+            "Ministers are chosen exclusively from the civil services."
+        ],
+        correctAnswer: 2, // C
+        explanation: "A key feature is 'Double Membership': The ministers are members of both the legislature and the executive. A person cannot remain a minister for more than six consecutive months without becoming an MP.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 9,
-        question: "What proportion of Council members are elected by MLAs?",
-        options: ["1/3", "1/6", "1/12", "1/2"],
-        correctAnswer: 0,
-        explanation: "1/3rd.",
-        subtopic: "36.3"
+        question: "In a parliamentary system, who plays the leadership role over the Council of Ministers, the Parliament, and the ruling party?",
+        options: ["The President", "The Speaker", "The Prime Minister", "The Vice-President"],
+        correctAnswer: 2, // C
+        explanation: "The Prime Minister plays the leadership role in this system of government. He is the leader of the council of ministers, leader of the Parliament, and leader of the party in power.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 10,
-        question: "What proportion of Council members are nominated by Governor?",
-        options: ["1/3", "1/6", "1/10", "1/12"],
-        correctAnswer: 1,
-        explanation: "1/6th.",
-        subtopic: "36.3"
+        question: "The lower house of the Indian Parliament (Lok Sabha) can be dissolved by the President on the advice of:",
+        options: ["The Chief Justice of India", "The Prime Minister", "The Speaker of the Lok Sabha", "The Rajya Sabha"],
+        correctAnswer: 1, // B
+        explanation: "The lower house of the Parliament (Lok Sabha) can be dissolved by the President on recommendation of the Prime Minister, even before the expiry of its term.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 11,
-        question: "Graduates of how many years standing can vote for Council seats?",
-        options: ["1 year", "2 years", "3 years", "5 years"],
-        correctAnswer: 2,
-        explanation: "3 years.",
-        subtopic: "36.3"
+        question: "Which of the following describes the principle of 'Secrecy' in the Indian parliamentary system?",
+        options: [
+            "Members of Parliament cannot speak to the press.",
+            "The opposition is not allowed to know the budget details.",
+            "Ministers operate on the principle of secrecy of procedure and cannot divulge information about cabinet proceedings, policies, and decisions.",
+            "The Constitution itself is a secret document."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Ministers operate on the principle of secrecy of procedure and cannot divulge information about cabinet proceedings. They take an oath of secrecy administered by the President.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 12,
-        question: "The ultimate power to pass an Ordinary Bill lies with:",
-        options: ["Assembly", "Council", "Governor", "Joint Sitting"],
-        correctAnswer: 0,
-        explanation: "Assembly. (It can override the Council by passing it a second time).",
-        subtopic: "36.5"
+        question: "While India adopted the British parliamentary system, there is a fundamental difference between the head of the state in India and Britain. What is it?",
+        options: [
+            "India has a monarch; Britain has an elected President.",
+            "India has an elected head (Republic); Britain has a hereditary head (Monarchy).",
+            "In India, the head of state is the Prime Minister.",
+            "There is no difference; both are hereditary monarchs."
+        ],
+        correctAnswer: 1, // B
+        explanation: "India has a republican system in place of the British monarchical system. The Head of the State in India (President) is elected, while in Britain, the Head of the State (King/Queen) enjoys a hereditary position.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 13,
-        question: "What is the maximum period a Council can delay a bill in the FIRST instance?",
-        options: ["1 month", "3 months", "4 months", "14 days"],
-        correctAnswer: 1,
-        explanation: "3 months.",
-        subtopic: "36.5"
+        question: "Another major difference between the Indian and British parliamentary systems is the concept of 'Parliamentary Sovereignty'. Which of the following is true?",
+        options: [
+            "The Indian Parliament is fully sovereign like the British Parliament.",
+            "The British Parliament is sovereign, but the Indian Parliament is NOT supreme/sovereign; its powers are limited by a written Constitution, federalism, judicial review, and fundamental rights.",
+            "Neither Parliament is sovereign; they are both subordinate to the UN.",
+            "The Indian Parliament only makes laws for states, not the Union."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The British system is based on the doctrine of the sovereignty of Parliament, while the Parliament is not supreme in India due to a written Constitution, federal system, judicial review, and fundamental rights.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 14,
-        question: "What is the maximum TOTAL delay a Council can cause to a bill?",
-        options: ["3 months", "4 months", "6 months", "1 year"],
-        correctAnswer: 1,
-        explanation: "4 months (3 months first time + 1 month second time).",
-        subtopic: "36.5"
+        question: "In Britain, there is a concept of 'legal responsibility of the minister' where the minister countersigns official acts of the Head of State. Does India have a similar system of legal responsibility of a minister?",
+        options: [
+            "Yes, every order of the President must be countersigned by a minister.",
+            "No, India has no system of legal responsibility of a minister; the President's orders do not require counter-signature by a minister.",
+            "Yes, but only for financial bills.",
+            "Yes, the Prime Minister countersigns all acts of the Lok Sabha."
+        ],
+        correctAnswer: 1, // B
+        explanation: "In Britain, the minister who countersigns an order is legally responsible for it. In India, unlike Britain, there is no system of legal responsibility of a minister. It is not required that an order of the President for a public act should be countersigned by a minister.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 15,
-        question: "Is there a provision for Joint Sitting in State Legislature?",
-        options: ["Yes", "No", "Only for Money Bills", "Only for Constitutional Amendments"],
-        correctAnswer: 1,
-        explanation: "No provision for Joint Sitting.",
-        subtopic: "36.5"
+        question: "In Britain, it is a convention that the Prime Minister MUST be a member of the Lower House (House of Commons). What is the rule in India?",
+        options: [
+            "The PM in India must also invariably belong to the Lok Sabha.",
+            "The PM in India must belong to the Rajya Sabha.",
+            "The PM in India can be a member of either House of Parliament (Lok Sabha or Rajya Sabha).",
+            "The PM in India cannot be a member of either House."
+        ],
+        correctAnswer: 2, // C
+        explanation: "In India, the Prime Minister may be a member of any of the two Houses of Parliament (e.g., Indira Gandhi, Manmohan Singh from Rajya Sabha). In Britain, the PM should definitely be a member of the Lower House.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 16,
-        question: "Who presides over the Legislative Council?",
-        options: ["Speaker", "Chairman", "Governor", "CM"],
-        correctAnswer: 1,
-        explanation: "Chairman (elected by the Council members from amongst themselves).",
-        subtopic: "36.4"
+        question: "Can a person who is NOT a Member of Parliament (MP) be appointed as a minister in India?",
+        options: [
+            "No, it is strictly forbidden.",
+            "Yes, they can be a minister indefinitely.",
+            "Yes, but they can remain a minister for a maximum period of six months without becoming an MP.",
+            "Yes, but only if they are nominated by the Supreme Court."
+        ],
+        correctAnswer: 2, // C
+        explanation: "In India, a person who is not a member of Parliament can be appointed as minister for a maximum period of six months. In Britain, members of Parliament alone are appointed as ministers.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 17,
-        question: "Can an Ordinary Bill be introduced in the Legislative Council?",
-        options: ["Yes", "No", "Only with Governor permission", "Only Ministers can"],
-        correctAnswer: 0,
-        explanation: "Yes.",
-        subtopic: "36.5"
+        question: "Which of the following systems is characterized by the 'separation of powers' between the executive and legislative branches?",
+        options: [
+            "Parliamentary System",
+            "Presidential System",
+            "Cabinet System",
+            "Westminster System"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The presidential system of government (like in the USA) is based on the doctrine of separation of powers between the two organs—the executive and the legislature.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 18,
-        question: "Can a Money Bill be introduced in the Legislative Council?",
-        options: ["Yes", "No", "Only with Speaker permission", "Only with Governor permission"],
-        correctAnswer: 1,
-        explanation: "No. Only in Assembly.",
-        subtopic: "36.5"
+        question: "A significant demerit of the Parliamentary system, often highlighted by critics, is:",
+        options: [
+            "It prevents harmony between the legislature and executive.",
+            "It leads to a highly stable government that cannot be removed.",
+            "It can lead to unstable governments and a sudden change in policies when the ruling party loses its majority.",
+            "It establishes an irreversible autocracy of the President."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Demerits of the parliamentary system include: Unstable Government (mercy of majority votes), No Continuity of Policies (due to changing governments), and Government by Amateurs.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 19,
-        question: "Who decides if a bill is a Money Bill in the State Legislature?",
-        options: ["Governor", "Chairman", "Speaker", "CM"],
-        correctAnswer: 2,
-        explanation: "Speaker of the Assembly.",
-        subtopic: "36.6"
+        question: "In contrast to the parliamentary system, the Presidential system (like the USA) offers what major advantage?",
+        options: [
+            "More responsibility to the legislature.",
+            "Greater harmony between the executive and legislative branches.",
+            "A highly stable government for the entire fixed term.",
+            "The ability of the legislature to easily remove the President on political grounds."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The presidential system offers a 'stable government' (the President and secretaries are appointed for a fixed term and aren't dependent on legislative majority) and 'continuity in policies', which are considered demerits in the parliamentary system.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 20,
-        question: "The quorum for a meeting of State Legislature is:",
-        options: ["1/10th or 10", "1/10th or 50", "1/5th or 20", "1/3rd"],
-        correctAnswer: 0,
-        explanation: "1/10th of total membership OR 10 members, whichever is GREATER.",
-        subtopic: "36.6"
+        question: "The concept of 'Shadow Cabinet', an institution formed by the opposition party to balance the ruling cabinet, is a unique feature of the parliamentary system of which country?",
+        options: [
+            "India",
+            "USA",
+            "Britain",
+            "France"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Britain has the system of 'shadow cabinet' formed by the opposition party to prepare its members for future ministerial office. There is no such formally recognized institution in India.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 21,
-        question: "The Governor can reserve a bill for President's consideration under Article:",
-        options: ["200", "201", "213", "163"],
-        correctAnswer: 0,
-        explanation: "Article 200.",
-        subtopic: "36.5"
+        question: "Which of the following was a primary reason given by the Constituent Assembly for adopting the Parliamentary system over the Presidential system?",
+        options: [
+            "Familiarity with the system due to British rule and the operation of the 1919 and 1935 Acts.",
+            "The desire to have a single dictatorial executive.",
+            "The need for total separation of powers to prevent tyranny.",
+            "Pressure from the international community."
+        ],
+        correctAnswer: 0, // A
+        explanation: "Reasons for adopting the parliamentary system included: 1) Familiarity with the system during British rule. 2) Preference to more responsibility over stability. 3) Need to avoid legislative-executive conflicts. 4) Nature of Indian society (heterogeneous).",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 22,
-        question: "Is it mandatory for Governor to reserve a bill that endangers the High Court?",
-        options: ["Yes", "No", "Discretionary", "Depends on CM"],
-        correctAnswer: 0,
-        explanation: "Yes, it is mandatory.",
-        subtopic: "36.5"
+        question: "Dr. B.R. Ambedkar noted that a democratic executive must satisfy two conditions: 'stability' and 'responsibility'. Which did he claim the Indian parliamentary system favored?",
+        options: [
+            "It favored more stability over responsibility.",
+            "It favored more responsibility over stability.",
+            "It completely ignored both.",
+            "It achieved perfect equality between the two."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Dr. B.R. Ambedkar pointed out that the draft constitution, in recommending the parliamentary system, preferred 'more responsibility to more stability', contrasting it with the American system which gives more stability but less responsibility.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 23,
-        question: "The privileges of State Legislature are mentioned in Article:",
-        options: ["105", "194", "164", "172"],
-        correctAnswer: 1,
-        explanation: "Article 194. (105 is for Parliament).",
-        subtopic: "36.6"
+        question: "The parliamentary system is sometimes criticized as 'Government by Amateurs'. Why?",
+        options: [
+            "Because ministers are primarily politicians who may lack specialized, technical knowledge of the ministries they head, unlike the expert secretaries in a presidential system.",
+            "Because members of parliament are usually unpaid volunteers.",
+            "Because the President randomly selects citizens to be ministers.",
+            "Because there is no civil service to assist them."
+        ],
+        correctAnswer: 0, // A
+        explanation: "It is called a government by amateurs because the ministers are not experts in their fields (they are politicians). The PM is restricted to choosing ministers from MPs, preventing the drafting of outside experts as is done in the US Presidential system.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Understanding", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 24,
-        question: "Members of Legislative Assembly participate in election of:",
-        options: ["President", "Vice President", "Governor", "All"],
-        correctAnswer: 0,
-        explanation: "President (Not VP, not Governor).",
-        subtopic: "36.3"
+        question: "If a single political party secures an absolute majority in the Lok Sabha, what does the President ordinarily do?",
+        options: [
+            "Declares an Emergency to prevent monopoly.",
+            "Invites the leader of that majority party to form the government (become the Prime Minister).",
+            "Appoints the Chief Justice to head the government.",
+            "Dissolves the Lok Sabha immediately."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The political party which secures majority seats in the Lok Sabha forms the government. The President invites the leader of the majority party to form the government and appoints him as the Prime Minister.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 25,
-        question: "Do nominated members of Assembly participate in President's election?",
-        options: ["Yes", "No", "Only if permitted", "In case of tie"],
-        correctAnswer: 1,
-        explanation: "No.",
-        subtopic: "36.3"
+        question: "What does the phrase 'Ministers are collectively responsible to the Parliament' actually mean in practice?",
+        options: [
+            "Every minister must write a personal report to Parliament daily.",
+            "The Council of Ministers works as a team; if the government loses a major vote in the Lok Sabha, the whole cabinet must resign, not just one minister.",
+            "Ministers are responsible only for their specific individual departments, but not the overall government policy.",
+            "Parliament can legally force ministers to pay fines collectively."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Collective responsibility means the ministers are jointly responsible to the Lok Sabha for all their acts of omission and commission. They swim and sink together. A no-confidence motion defeats the whole government.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Understanding", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 26,
-        question: "The Council of Ministers is collectively responsible to:",
-        options: ["Governor", "Assembly", "Council", "Legislature"],
-        correctAnswer: 1,
-        explanation: "Legislative Assembly (Article 164).",
-        subtopic: "36.3"
+        question: "In the context of the parliamentary system, what is the role of ministers regarding the defense of government policies in Parliament?",
+        options: [
+            "They can freely criticize government policies they disagree with.",
+            "Once a cabinet decision is taken, all ministers must stand by it and defend it, both within and outside the Parliament.",
+            "They are only expected to defend policies originating from their own ministry.",
+            "They must remain completely silent during parliamentary debates."
+        ],
+        correctAnswer: 1, // B
+        explanation: "As part of collective responsibility, it is the fundamental duty of every minister to stand by cabinet decisions and support them both within and outside the Parliament, even if they personally disagree.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 27,
-        question: "A Minister who is not a member of either House must become one within:",
-        options: ["3 months", "6 months", "1 year", "Impossible"],
-        correctAnswer: 1,
-        explanation: "6 months.",
-        subtopic: "36.3"
+        question: "Which of the following is a recognized merit of the parliamentary system?",
+        options: [
+            "It guarantees fixed continuity of policies even if governments change.",
+            "It ensures harmony between the legislature and executive, preventing deadlocks.",
+            "It allows for the widespread use of independent, non-political experts in the cabinet.",
+            "Strict separation of powers ensures zero overlap."
+        ],
+        correctAnswer: 1, // B
+        explanation: "A major merit is 'Harmony Between Legislature and Executive'. Because the executive is drawn from the legislature and enjoys its majority support, there are fewer conflicts and deadlocks compared to the presidential system.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 28,
-        question: "Who appoints the Advocate General of the State?",
-        options: ["President", "Governor", "Chief Justice of HC", "CM"],
-        correctAnswer: 1,
-        explanation: "Governor (Article 165).",
-        subtopic: "36.1" // Related Executive
+        question: "A presidential system is generally considered to be:",
+        options: [
+            "Responsible but unstable.",
+            "Non-responsible (to the legislature) but highly stable.",
+            "Neither responsible nor stable.",
+            "Both highly responsible and highly stable."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The presidential system is categorized as a 'non-responsible' or 'non-parliamentary' system because the executive is not accountable to the legislature for its policies, but it provides 'stable government' due to fixed tenures.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 29,
-        question: "Minimum age to be an MLA is:",
-        options: ["21", "25", "30", "35"],
-        correctAnswer: 1,
-        explanation: "25 Years.",
-        subtopic: "36.3"
+        question: "Does the Indian Constitution specify both the parliamentary system at the centre AND in the states?",
+        options: [
+            "No, states have a presidential system.",
+            "Yes, Articles 74/75 for the Centre and Articles 163/164 for the states.",
+            "No, states are ruled directly by the President's agents without a parliamentary system.",
+            "States are free to choose their own system."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Yes, the Constitution of India provides for a parliamentary form of government both at the Centre (Arts 74, 75) and in the states (Arts 163, 164).",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     },
     {
         id: 30,
-        question: "Usually the term of Assembly is:",
-        options: ["4 years", "5 years", "6 years", "Permanent"],
-        correctAnswer: 1,
-        explanation: "5 years.",
-        subtopic: "36.3"
-    },
-    {
-        id: 31,
-        question: "The term of Assembly can be extended during National Emergency by:",
-        options: ["6 months", "1 year", "2 years", "Indefinite"],
-        correctAnswer: 1,
-        explanation: "1 year at a time.",
-        subtopic: "36.3"
-    },
-    {
-        id: 32,
-        question: "Who adjourns the meeting of the Assembly?",
-        options: ["Speaker", "Governor", "CM", "President"],
-        correctAnswer: 0,
-        explanation: "Speaker (Adjournment is by Presiding Officer; Prorogation is by Governor).",
-        subtopic: "36.4"
-    },
-    {
-        id: 33,
-        question: "Who prorogues the session of the State Legislature?",
-        options: ["Speaker", "Governor", "CM", "President"],
-        correctAnswer: 1,
-        explanation: "Governor.",
-        subtopic: "36.3"
-    },
-    {
-        id: 34,
-        question: "Does dissolution of Assembly affect bills pending in the Council which have NOT been passed by Assembly?",
-        options: ["They lapse", "They do not lapse", "Depends on Speaker", "Depends on Governor"],
-        correctAnswer: 1,
-        explanation: "They DO NOT lapse. (Originating in Council, pending in Council, not passed by Assembly).",
-        subtopic: "36.5"
-    },
-    {
-        id: 35,
-        question: "A bill passed by Assembly but pending in Council at time of dissolution:",
-        options: ["Lapses", "Does not lapse", "Sent to President", "Becomes Act"],
-        correctAnswer: 0,
-        explanation: "Lapses.",
-        subtopic: "36.5"
-    },
-    {
-        id: 36,
-        question: "Can the Governor promulgate an ordinance when only one House is in session?",
-        options: ["Yes", "No", "Only if President agrees", "Only for money bills"],
-        correctAnswer: 0,
-        explanation: "Yes (Article 213).",
-        subtopic: "31.4"
-    },
-    {
-        id: 37,
-        question: "An ordinance issued by Governor must be approved by Legislature within:",
-        options: ["6 months", "6 weeks", "3 months", "1 year"],
-        correctAnswer: 1,
-        explanation: "6 weeks from reassembly.",
-        subtopic: "31.4"
-    },
-    {
-        id: 38,
-        question: "Nominated members of Council are chosen from fields: Art, Lit, Science, Social Service and:",
-        options: ["Sports", "Cooperative Movement", "Business", "Politics"],
-        correctAnswer: 1,
-        explanation: "Cooperative Movement (This 5th category is unique to States; Rajya Sabha has only 4).",
-        subtopic: "36.3"
-    },
-    {
-        id: 39,
-        question: "Voting on Demands for Grants is done by:",
-        options: ["Assembly only", "Council only", "Both Houses", "Governor"],
-        correctAnswer: 0,
-        explanation: "Assembly only.",
-        subtopic: "36.6"
-    },
-    {
-        id: 40,
-        question: "The Speaker of Legislative Assembly resigns writing to:",
-        options: ["Governor", "Chief Minister", "Deputy Speaker", "Chairman"],
-        correctAnswer: 2,
-        explanation: "Deputy Speaker.",
-        subtopic: "36.4"
-    },
-    {
-        id: 41,
-        question: "When the Speaker is absent, who presides?",
-        options: ["Chief Minister", "Deputy Speaker", "Senior Most Member", "Governor"],
-        correctAnswer: 1,
-        explanation: "Deputy Speaker.",
-        subtopic: "36.4"
-    },
-    {
-        id: 42,
-        question: "Does the Chairman of Legislative Council vote in the first instance?",
-        options: ["Yes", "No", "Always", "Unless forbidden"],
-        correctAnswer: 1,
-        explanation: "No. He casts a casting vote in case of equality of votes.",
-        subtopic: "36.4"
-    },
-    {
-        id: 43,
-        question: "Who fixes the salaries of members of State Legislature?",
-        options: ["Parliament", "State Legislature", "Governor", "President"],
-        correctAnswer: 1,
-        explanation: "State Legislature by law.",
-        subtopic: "36.6"
-    },
-    {
-        id: 44,
-        question: "Which State has the largest Legislative Assembly?",
-        options: ["Maharashtra", "West Bengal", "Uttar Pradesh", "Bihar"],
-        correctAnswer: 2,
-        explanation: "Uttar Pradesh (403 members).",
-        subtopic: "36.3"
-    },
-    {
-        id: 45,
-        question: "Can Parliament increase the number of seats in State Assembly?",
-        options: ["Yes", "No", "State subject", "Only Election Commission"],
-        correctAnswer: 0,
-        explanation: "Yes (Delimitation Acts).",
-        subtopic: "36.1"
-    },
-    {
-        id: 46,
-        question: "Anti-Defection Law (10th Schedule) applies to:",
-        options: ["Only Parliament", "Only State Legislature", "Both", "Panchayats"],
-        correctAnswer: 2,
-        explanation: "Both Parliament and State Legislatures.",
-        subtopic: "36.6"
-    },
-    {
-        id: 47,
-        question: "If a person is elected to both Assembly and Parliament, his seat in:",
-        options: ["Parliament becomes vacant", "Assembly becomes vacant", "Both become vacant", "He chooses"],
-        correctAnswer: 0,
-        explanation: "Parliament seat becomes vacant if he does not resign from Assembly within 14 days (Rule 2 of Prohibition of Simultaneous Membership Rules).",
-        subtopic: "36.3"
-    },
-    {
-        id: 48,
-        question: "In the absence of Speaker and Deputy Speaker, who presides?",
-        options: ["CM", "Governor", "Person from Panel of Chairpersons", "Senior Member"],
-        correctAnswer: 2,
-        explanation: "Member from the Panel of Chairpersons.",
-        subtopic: "36.4"
-    },
-    {
-        id: 49,
-        question: "Which state abolished its Legislative Council recently (resolution pass)?",
-        options: ["Andhra Pradesh", "Tamil Nadu", "Punjab", "Assam"],
-        correctAnswer: 0,
-        explanation: "Andhra Pradesh Assembly passed resolution to abolish, but Parliament hasn't acted yet. (Contextual factual update).",
-        subtopic: "36.2"
-    },
-    {
-        id: 50,
-        question: "West Bengal recently passed a resolution to:",
-        options: ["Create a Council", "Abolish Assembly", "Change Name", "None"],
-        correctAnswer: 0,
-        explanation: "Create a Legislative Council.",
-        subtopic: "36.2"
-    },
-    {
-        id: 51,
-        question: "The power of State Legislature to make laws is on:",
-        options: ["Union List", "State and Concurrent List", "Residuary Subjects", "All Lists"],
-        correctAnswer: 1,
-        explanation: "State List and Concurrent List.",
-        subtopic: "36.6"
-    },
-    {
-        id: 52,
-        question: "Residuary Powers belong to:",
-        options: ["Parliament", "State Legislature", "President", "SC"],
-        correctAnswer: 0,
-        explanation: "Parliament.",
-        subtopic: "36.6"
-    },
-    {
-        id: 53,
-        question: "In case of conflict on Concurrent List law:",
-        options: ["State law prevails", "Central law prevails", "SC decides", "Governor decides"],
-        correctAnswer: 1,
-        explanation: "Central law prevails (Unless State law received President's assent).",
-        subtopic: "36.6"
-    },
-    {
-        id: 54,
-        question: "The 'Leader of Opposition' is a statutory post:",
-        options: ["Yes", "No", "Constitutional", "Convention"],
-        correctAnswer: 0,
-        explanation: "Yes.",
-        subtopic: "36.4"
-    },
-    {
-        id: 55,
-        question: "Language used in State Legislature is:",
-        options: ["English only", "hindi only", "Official language of state / Hindi / English", "Any language"],
-        correctAnswer: 2,
-        explanation: "Official language of the state, Hindi, or English. (Presiding officer can permit mother tongue).",
-        subtopic: "36.6"
-    },
-    {
-        id: 56,
-        question: "Can a court inquire into proceedings of the Legislature?",
-        options: ["Yes", "No", "Only SC", "Only HC"],
-        correctAnswer: 1,
-        explanation: "No (Article 212).",
-        subtopic: "36.6"
-    },
-    {
-        id: 57,
-        question: "Who is the 'first citizen' of a State?",
-        options: ["CM", "Governor", "Chief Justice", "Speaker"],
-        correctAnswer: 1,
-        explanation: "Governor.",
-        subtopic: "31.1"
-    },
-    {
-        id: 58,
-        question: "The maximum gap between two sessions of state legislature cannot be more than:",
-        options: ["3 months", "6 months", "9 months", "1 year"],
-        correctAnswer: 1,
-        explanation: "6 months.",
-        subtopic: "36.3"
-    },
-    {
-        id: 59,
-        question: "In which list is 'Public Order'?",
-        options: ["Union", "State", "Concurrent", "Residuary"],
-        correctAnswer: 1,
-        explanation: "State List.",
-        subtopic: "36.6"
-    },
-    {
-        id: 60,
-        question: "Which Constitutional Amendment capped the size of Council of Ministers?",
-        options: ["91st", "92nd", "86th", "42nd"],
-        correctAnswer: 0,
-        explanation: "91st Amendment Act (15% of Assembly strength).",
-        subtopic: "33.1"
+        question: "Ivor Jennings called the parliamentary system the 'Cabinet system' because:",
+        options: [
+            "It is held in a small room called a cabinet.",
+            "The cabinet is the nucleus of power and the real directing engine of government in this system.",
+            "Only cabinet makers can become ministers.",
+            "It requires cabinets to be elected directly by the people."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Ivor Jennings called it the 'cabinet system' because the cabinet is the nucleus of power in a parliamentary system, essentially steering the entire government machinery.",
+        level: "Easy", topic: "Parliamentary System", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary System" }
     }
 ];
-
-export default DAY12_MCQS;

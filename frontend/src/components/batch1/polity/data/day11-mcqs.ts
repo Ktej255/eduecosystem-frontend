@@ -1,510 +1,397 @@
-
-export interface MCQ {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation?: string;
-    level?: string;
-    topic?: string;
-    chapter?: string;
-    subtopic?: string;
-}
+import type { MCQ } from './mcq-utils';
 
 export const DAY11_MCQS: MCQ[] = [
-    // ==========================================
-    // DAY 11: INTEGRATED JUDICIARY (60 Questions)
-    // Supreme Court (Ch 26), High Court (Ch 34), Subordinate Courts (Ch 35)
-    // ==========================================
-
-    // --- APPOINTMENT & TENURE (SC vs HC) ---
+    // ----------------------------------------------------------------------
+    // LEVEL 1: EASY (The Text-Book Stickler - Strictly Chapter 11)
+    // ----------------------------------------------------------------------
     {
         id: 1,
-        question: "The judges of the High Court are appointed by:",
-        options: ["Governor", "President", "Chief Justice of India", "Chief Justice of High Court"],
-        correctAnswer: 1,
-        explanation: "President (Consults CJI + Governor). Governor administers oath, but President appoints.",
-        subtopic: "34.1"
+        question: "In which constitutional case was the question of whether Fundamental Rights can be amended by the Parliament under Article 368 first raised?",
+        options: [
+            "Golaknath case (1967)",
+            "Kesavananda Bharati case (1973)",
+            "Shankari Prasad case (1951)",
+            "Minerva Mills case (1980)"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The question whether Fundamental Rights can be amended by the Parliament under Article 368 came for consideration of the Supreme Court within a year of the Constitution coming into force, in the Shankari Prasad case (1951).",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 2,
-        question: "Is the number of Judges in a High Court fixed by the Constitution?",
-        options: ["Yes", "No", "Fixed by Parliament", "Fixed by State Legislature"],
-        correctAnswer: 1,
-        explanation: "No. It is decided by the President from time to time.",
-        subtopic: "34.1"
+        question: "In the Shankari Prasad case (1951), the Supreme Court ruled that the power of Parliament to amend the Constitution under Article 368 includes the power to amend ________.",
+        options: [
+            "Only the Directive Principles of State Policy.",
+            "Fundamental Rights as well.",
+            "Only the Preamble.",
+            "Only the Schedules, but not Fundamental Rights."
+        ],
+        correctAnswer: 1, // B
+        explanation: "In the Shankari Prasad case, the Supreme Court ruled that the power of the Parliament to amend the Constitution under Article 368 also includes the power to amend Fundamental Rights.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 3,
-        question: "The retirement age of a High Court judge is:",
-        options: ["60", "62", "65", "66"],
-        correctAnswer: 1,
-        explanation: "62 years. (It is 65 for Supreme Court).",
-        subtopic: "34.1"
+        question: "According to the Supreme Court in the Shankari Prasad case (1951), the word 'law' in Article 13 includes only ordinary laws and does NOT include:",
+        options: [
+            "Executive orders.",
+            "Ordinances promulgated by the President.",
+            "Constitutional amendment acts (constituent laws).",
+            "State laws."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Court held that the word 'law' in Article 13 includes only ordinary laws and not the constitutional amendment acts (constituent laws). Therefore, the Parliament can abridge or take away any of the Fundamental Rights by enacting a constitutional amendment act.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 4,
-        question: "Who can transfer a High Court Judge from one HC to another?",
-        options: ["President", "CJI", "Governor", "Parliament"],
-        correctAnswer: 0,
-        explanation: "President (after consultation with CJI).",
-        subtopic: "34.1"
+        question: "In which landmark case did the Supreme Court explicitly reverse its earlier stand and rule that Fundamental Rights are given a 'transcendental and immutable' position and hence, the Parliament cannot abridge or take away any of them?",
+        options: [
+            "Shankari Prasad case (1951)",
+            "Sajjan Singh case (1965)",
+            "Golaknath case (1967)",
+            "Kesavananda Bharati case (1973)"
+        ],
+        correctAnswer: 2, // C
+        explanation: "In the Golaknath case (1967), the Supreme Court reversed its earlier stance, ruling that Fundamental Rights are given a 'transcendental and immutable' position and the Parliament cannot take away or abridge any of them.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 5,
-        question: "The salaries of High Court judges are charged on:",
-        options: ["Consolidated Fund of India", "Consolidated Fund of State", "Contingency Fund of India", "Public Account of State"],
-        correctAnswer: 1,
-        explanation: "Consolidated Fund of STATE. (Difference: Their PENSION is charged on Consolidated Fund of INDIA).",
-        subtopic: "34.1"
+        question: "Which Constitutional Amendment Act was enacted by the Parliament in reaction to the Supreme Court's judgment in the Golaknath case (1967)?",
+        options: [
+            "24th Amendment Act (1971)",
+            "25th Amendment Act (1971)",
+            "42nd Amendment Act (1976)",
+            "44th Amendment Act (1978)"
+        ],
+        correctAnswer: 0, // A
+        explanation: "Parliament reacted to the SC's Golaknath judgment by enacting the 24th Amendment Act (1971), which declared that Parliament has the power to abridge or take away any Fundamental Right under Article 368.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 6,
-        question: "The Pension of a High Court judge is charged on:",
-        options: ["Consolidated Fund of India", "Consolidated Fund of State", "Both equally", "None"],
-        correctAnswer: 0,
-        explanation: "Consolidated Fund of INDIA. (Crucial distinction).",
-        subtopic: "34.1"
+        question: "The doctrine of 'Basic Structure' of the Constitution was first propounded by the Supreme Court in the:",
+        options: [
+            "Golaknath case (1967)",
+            "Minerva Mills case (1980)",
+            "Kesavananda Bharati case (1973)",
+            "Waman Rao case (1981)"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Supreme Court formulated the doctrine of 'basic structure' (or 'basic features') of the constitution in the landmark Kesavananda Bharati case (1973).",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 7,
-        question: "A High Court Judge submits his resignation to:",
-        options: ["Governor", "Chief Justice of HC", "President", "CJI"],
-        correctAnswer: 2,
-        explanation: "President.",
-        subtopic: "34.1"
+        question: "What was the ruling of the Supreme Court in the Kesavananda Bharati case (1973) regarding the Parliament's constituent power under Article 368?",
+        options: [
+            "Parliament cannot amend Fundamental Rights under any circumstances.",
+            "Parliament has unlimited power to amend any part of the Constitution.",
+            "Parliament can amend any part, including Fundamental Rights, provided the amendment does not alter the 'basic structure' of the Constitution.",
+            "The amending power of Parliament is subject to approval by a national referendum."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The SC ruled that the constituent power of Parliament under Article 368 does not enable it to alter the 'basic structure' of the Constitution. This means Parliament cannot abridge or take away a Fundamental Right that forms a part of the basic structure.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 8,
-        question: "The procedure for removal of a High Court judge is the same as that of:",
-        options: ["Supreme Court Judge", "Governor", "State Election Commissioner", "Both A and C"],
-        correctAnswer: 3,
-        explanation: "Same as SC Judge. (State Election Commissioner is also removed in same manner).",
-        subtopic: "34.1"
+        question: "Which Constitutional Amendment Act declared that there is 'no limitation whatever' on the constituent power of Parliament and that no amendment can be questioned in any court?",
+        options: [
+            "24th Amendment Act (1971)",
+            "39th Amendment Act (1975)",
+            "42nd Amendment Act (1976)",
+            "44th Amendment Act (1978)"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Parliament reacted to the Kesavananda Bharati doctrine by enacting the 42nd Amendment Act (1976), which amended Article 368 to state there is no limitation on its amending power and ousted judicial review.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
-
-    // --- JURISDICTION (SC vs HC) ---
     {
         id: 9,
-        question: "Which Article empowers High Courts to issue writs?",
-        options: ["Article 32", "Article 136", "Article 226", "Article 227"],
-        correctAnswer: 2,
-        explanation: "Article 226.",
-        subtopic: "34.2"
+        question: "In which case did the Supreme Court invalidate the provision of the 42nd Amendment Act (1976) that excluded judicial review of constitutional amendments?",
+        options: [
+            "Waman Rao case (1981)",
+            "Minerva Mills case (1980)",
+            "Indira Nehru Gandhi case (1975)",
+            "Kihoto Hollohan case (1993)"
+        ],
+        correctAnswer: 1, // B
+        explanation: "In the Minerva Mills case (1980), the Supreme Court invalidated this provision of the 42nd Amendment Act, asserting that 'judicial review' itself is an essential feature of the 'basic structure' of the Constitution.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 10,
-        question: "The Writ Jurisdiction of the High Court is:",
-        options: ["Narrower than SC", "Wider than SC", "Equal to SC", "Discretionary"],
-        correctAnswer: 1,
-        explanation: "Wider. HC can issue writs for legal rights too ('any other purpose'), SC only for Fundamental Rights.",
-        subtopic: "34.2"
+        question: "In the Minerva Mills case (1980), why did the Supreme Court rule that Parliament cannot grant itself 'unlimited' amending power?",
+        options: [
+            "Because only the President can have unlimited powers.",
+            "Because a 'limited amending power' is itself a basic feature of the Constitution, and Parliament cannot use this limited power to enlarge it into an absolute power.",
+            "Because state legislatures also need a share in unlimited power.",
+            "Because the United Nations Charter forbids unlimited constitutional power."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Chief Justice Chandrachud observed that the Constitution has conferred a 'limited' amending power on the Parliament. Therefore, under the exercise of that limited power, it cannot enlarge that very power into an absolute power. A limited amending power is a basic feature of the Constitution.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Understanding", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 11,
-        question: "Under Article 227, the High Court has power of superintendence over:",
-        options: ["Only Subordinate Courts", "All courts and tribunals within its territory", "Military Courts", "Only Civil Courts"],
-        correctAnswer: 1,
-        explanation: "All courts and tribunals (Except military/armed forces tribunals).",
-        subtopic: "34.2"
+        question: "In the Waman Rao case (1981), the Supreme Court clarified the retrospective application of the Basic Structure doctrine. It held that the doctrine would apply to constitutional amendments enacted after which specific date?",
+        options: [
+            "January 26, 1950",
+            "February 27, 1967",
+            "April 24, 1973",
+            "December 18, 1976"
+        ],
+        correctAnswer: 2, // C
+        explanation: "In the Waman Rao case (1981), the Supreme Court clarified that the doctrine of basic structure would apply to constitutional amendments enacted after April 24, 1973 (i.e., the date of the Kesavananda Bharati judgment).",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 12,
-        question: "Disputes regarding the election of Members of Parliament (MPs) are settled by:",
-        options: ["Election Commission", "Supreme Court", "High Court", "President"],
-        correctAnswer: 2,
-        explanation: "High Court (Original Jurisdiction). Appeal lies to SC.",
-        subtopic: "34.2"
+        question: "Which of the following is NOT generally considered a part of the 'Basic Structure' of the Indian Constitution, according to various Supreme Court judgments?",
+        options: [
+            "Supremacy of the Constitution",
+            "Secular character of the Constitution",
+            "Separation of powers between the legislature, the executive and the judiciary",
+            "Supremacy of the Parliament over the Constitution"
+        ],
+        correctAnswer: 3, // D
+        explanation: "The 'Supremacy of the Constitution' (not Parliamentary supremacy) is a key feature of the basic structure. The Indian Parliament is not fully supreme or sovereign like the British Parliament; it is bound by the Constitution.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 13,
-        question: "The concept of 'Circuit Bench' is associated with:",
-        options: ["Supreme Court only", "High Courts", "District Courts", "Lok Adalats"],
-        correctAnswer: 1,
-        explanation: "High Courts often have benches in other cities (e.g., Bombay HC at Nagpur).",
-        subtopic: "34.1"
+        question: "Is there an exhaustive, precisely defined list of 'Basic Structure' features officially written in the Constitution of India?",
+        options: [
+            "Yes, it is listed in the Ninth Schedule.",
+            "Yes, it was added to Article 368 by the 44th Amendment.",
+            "No, the Constitution does not define 'basic structure'; it has emerged from various Supreme Court judgments.",
+            "Yes, it is defined in the Preamble."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Supreme Court is yet to define or clarify what exactly constitutes the 'basic structure' of the Constitution in a single exhaustive list. From various judgments, different features have emerged as elements of the basic structure.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 14,
-        question: "Who can extend the jurisdiction of a High Court to a Union Territory?",
-        options: ["President", "Parliament", "Supreme Court", "Governor"],
-        correctAnswer: 1,
-        explanation: "Parliament by law.",
-        subtopic: "34.2"
+        question: "Which of the following values was recognized as a part of the basic structure of the Constitution in the S.R. Bommai case (1994)?",
+        options: [
+            "The Right to Property as a Fundamental Right.",
+            "The monarchical form of government.",
+            "Secularism and Federalism.",
+            "The supremacy of Directive Principles over all Fundamental Rights."
+        ],
+        correctAnswer: 2, // C
+        explanation: "In the S.R. Bommai case (1994), both 'Secularism' and 'Federalism' were forcefully reiterated and applied as essential features of the basic structure of the Constitution.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
-
-    // --- SUBORDINATE COURTS (Ch 35) ---
     {
         id: 15,
-        question: "Appointment of District Judges is made by:",
-        options: ["Governor", "Any HC Judge", "President", "State Public Service Commission"],
-        correctAnswer: 0,
-        explanation: "Governor (in consultation with the High Court).",
-        subtopic: "35.1"
+        question: "In the Indira Nehru Gandhi v. Raj Narain case (1975), the Supreme Court struck down a provision of the 39th Amendment Act (1975). What did this annulled provision essentially attempt to do?",
+        options: [
+            "It attempted to abolish the office of the President.",
+            "It attempted to keep the election disputes involving the Prime Minister and the Speaker of Lok Sabha outside the jurisdiction of all courts.",
+            "It attempted to make the Supreme Court directly subordinate to the Prime Minister.",
+            "It attempted to delete all Fundamental Rights during an Emergency."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Supreme Court applied the 'basic structure' theory and struck down a provision of the 39th Amendment Act (1975) which kept the election disputes involving the Prime Minister and the Speaker of Lok Sabha outside the jurisdiction of all courts.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 16,
-        question: "Who appoints persons (other than district judges) to the judicial service of a state?",
-        options: ["Governor + SPSC + HC", "Governor only", "HC only", "SPSC only"],
-        correctAnswer: 0,
-        explanation: "Governor, after consultation with State Public Service Commission and High Court.",
-        subtopic: "35.1"
+        question: "Which of the following is considered an element of the Basic Structure of the Constitution?",
+        options: [
+            "The principle of free and fair elections.",
+            "The right to acquire and hold immense private property without state restriction.",
+            "The absolute secrecy of government spending.",
+            "The reservation of seats for specific castes in the Supreme Court."
+        ],
+        correctAnswer: 0, // A
+        explanation: "From the various judgments, 'Free and fair elections' is clearly identified as one of the elements of the basic structure of the Constitution.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 17,
-        question: "The control over subordinate courts is vested in:",
-        options: ["Governor", "Supreme Court", "High Court", "Law Minister"],
-        correctAnswer: 2,
-        explanation: "High Court (Article 235).",
-        subtopic: "35.1"
+        question: "In the context of the Basic Structure doctrine, what does the 'Harmony and balance between Fundamental Rights and Directive Principles' signify?",
+        options: [
+            "It signifies that Directive Principles are legally enforceable.",
+            "It signifies that Fundamental Rights are always subordinate to Directive Principles.",
+            "It is recognized as an essential basic feature of the Constitution, established firmly in the Minerva Mills case (1980).",
+            "It means the Parliament can freely amend Fundamental Rights to implement Directive Principles without judicial review."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The balance between Fundamental Rights and Directive Principles is a key component of the basic structure, specifically emphasized in the Minerva Mills case (1980), preventing Parliament from granting absolute primacy to one over the other.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 18,
-        question: "Lok Adalat awards are:",
-        options: ["Advisory", "Binding and Final", "Appealable in HC", "Appealable in SC"],
-        correctAnswer: 1,
-        explanation: "Final and Binding. No appeal lies in any court.",
-        subtopic: "35.2"
+        question: "Which feature of the judiciary is considered an integral part of the 'basic structure' of the Constitution?",
+        options: [
+            "The ability of the government to transfer judges at will.",
+            "Independence of the Judiciary.",
+            "Subordination of High Courts to the State Legislature.",
+            "The election of judges by popular vote."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The 'Independence of Judiciary' is a universally recognized element of the basic structure of the Constitution.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 19,
-        question: "The First Lok Adalat was held in:",
-        options: ["Delhi", "Maharashtra", "Gujarat", "Tamil Nadu"],
-        correctAnswer: 2,
-        explanation: "Gujarat (1982).",
-        subtopic: "35.2"
+        question: "The 'Rule of Law' is identified as an element of the basic structure. Which landmark judgment emphatically reinforced this?",
+        options: [
+            "Shankari Prasad Case (1951)",
+            "A.K. Gopalan Case (1950)",
+            "Indira Nehru Gandhi Case (1975)",
+            "Both C and several other basic structure cases."
+        ],
+        correctAnswer: 3, // D
+        explanation: "The 'Rule of law' is a core pillar of the basic structure, highlighted strongly in the Indira Nehru Gandhi case (1975) among others.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 20,
-        question: "Family Courts Act was passed in:",
-        options: ["1984", "1990", "1955", "2000"],
-        correctAnswer: 0,
-        explanation: "1984.",
-        subtopic: "35.1"
+        question: "Article 32 involves the power of the Supreme Court to issue writs. In the context of the Basic Structure doctrine, what is the status of Article 32?",
+        options: [
+            "It can be amended by a simple parliamentary majority.",
+            "It is a basic feature of the constitution and cannot be abrogated or taken away.",
+            "It can be suspended permanently during peacetime via an amendment.",
+            "It was explicitly excluded from the basic structure in the Kesavananda case."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The powers of the Supreme Court under Article 32 (along with Articles 136, 141, and 142) form a part of the basic structure of the Constitution.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
-
-    // --- SUPREME COURT (Revision & Integration) ---
     {
         id: 21,
-        question: "Which statement is TRUE regarding Advisory Jurisdiction (Art 143)?",
-        options: ["SC opinion is binding on President", "President is bound to ask SC", "SC must give opinion if referenced", "SC may refuse to give opinion (unless pre-Constitution treaty)"],
-        correctAnswer: 3,
-        explanation: "SC may refuse to give its opinion on matters of public importance.",
-        subtopic: "26.3"
+        question: "Which of the following best describes the principle of 'Welfare State' within the framework of the Indian Constitution?",
+        options: [
+            "It is a purely political slogan with no constitutional backing.",
+            "It is an element of the Basic Structure of the Constitution.",
+            "It was abandoned after the economic reforms of 1991.",
+            "It applies only to the State governments, not the Union government."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The principle of a 'Welfare state (socio-economic justice)' has been identified by the Supreme Court as one of the essential features comprising the basic structure of the Constitution.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 22,
-        question: "Who is the 'Custodian of the Constitution'?",
-        options: ["President", "Parliament", "Supreme Court", "PM"],
-        correctAnswer: 2,
-        explanation: "Supreme Court.",
-        subtopic: "26.4"
+        question: "In the I.R. Coelho Case (2007), often referred to as the 'Ninth Schedule Case', the Supreme Court established that laws placed in the Ninth Schedule are:",
+        options: [
+            "Absolutely immune from judicial review forever.",
+            "Subject to judicial review if they are added after April 24, 1973, and violate the basic structure of the Constitution.",
+            "Subject to judicial review only if they relate to land reforms.",
+            "Immune from judicial review only if ratified by all states."
+        ],
+        correctAnswer: 1, // B
+        explanation: "In the I.R. Coelho case (2007), the Supreme Court ruled that there is no blanket immunity from judicial review for laws included in the Ninth Schedule. Laws added after April 24, 1973, are open to challenge if they violate the basic structure.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 23,
-        question: "Curative Petition is filed after:",
-        options: ["Review Petition dismissal", "SLP dismissal", "High Court judgment", "Mercy Petition"],
-        correctAnswer: 0,
-        explanation: "After the Review Petition is dismissed (Final remedy).",
-        subtopic: "26.3"
+        question: "The power of Judicial Review under Article 226 rests with:",
+        options: [
+            "The Supreme Court of India.",
+            "The High Courts.",
+            "Both the Supreme Court and High Courts jointly.",
+            "The President of India."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Article 226 deals with the power of Judicial Review of the High Courts, whereas Article 32 deals with the Supreme Court. Both are considered part of the Basic Structure (e.g., L. Chandra Kumar case).",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 24,
-        question: "Original Jurisdiction of SC (Art 131) does NOT cover:",
-        options: ["Centre vs State", "State vs State", "Inter-state Water Disputes", "Centre vs UT"],
-        correctAnswer: 2,
-        explanation: "Inter-state Water Disputes are excluded (Art 262).",
-        subtopic: "26.3"
+        question: "Which constitutional amendment did Parliament enact to overcome the ruling in the Golaknath Case (1967)?",
+        options: [
+            "The 1st Amendment Act.",
+            "The 24th Amendment Act.",
+            "The 42nd Amendment Act.",
+            "The 44th Amendment Act."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Parliament reacted to the Supreme Court's judgment in the Golaknath case (1967) by enacting the 24th Amendment Act (1971).",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 25,
-        question: "The strength of Supreme Court is increased by:",
-        options: ["Parliament Act", "Constitutional Amendment", "President Order", "SC Resolution"],
-        correctAnswer: 0,
-        explanation: "Parliamentary Act (Simple Majority).",
-        subtopic: "26.1"
+        question: "How did the 24th Amendment Act (1971) change the relationship between Article 13 and Article 368?",
+        options: [
+            "It made Article 13 superior to Article 368.",
+            "It declared that 'law' in Article 13 includes constitutional amendments under Article 368.",
+            "It explicitly stated that nothing in Article 13 shall apply to any amendment made under Article 368.",
+            "It merged Article 13 and Article 368."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The 24th Amendment Act amended Articles 13 and 368, explicitly declaring that Parliament has the power to abridge any Fundamental Right under Article 368, and such an act will NOT be considered a 'law' under the meaning of Article 13.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
-    // More Comparisons
     {
         id: 26,
-        question: "Can a High Court interpret the Constitution?",
-        options: ["Yes", "No", "Only if SC permits", "Only regarding State laws"],
-        correctAnswer: 0,
-        explanation: "Yes. High Courts can interpret the Constitution (and check constitutionality of laws).",
-        subtopic: "34.2"
+        question: "The 'Principle of Equality' is considered a feature of the basic structure. Which specific article of the Constitution is most closely associated with this broad principle?",
+        options: [
+            "Article 14",
+            "Article 21",
+            "Article 32",
+            "Article 368"
+        ],
+        correctAnswer: 0, // A
+        explanation: "The Principle of Equality, fundamentally enshrined in Article 14, is a recognized element of the basic structure of the Constitution.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 27,
-        question: "Who administers oath to the Governor?",
-        options: ["President", "CJI", "Chief Justice of HC", "VP"],
-        correctAnswer: 2,
-        explanation: "Chief Justice of the concerned High Court.",
-        subtopic: "32.1"
+        question: "In the context of the Basic Structure doctrine, what does the 'Parliamentary System' refer to?",
+        options: [
+            "A system where the President is the real executive head.",
+            "A system characterized by the supremacy of the Parliament over the Constitution.",
+            "The specific democratic framework established by the Constitution where the executive is responsible to the legislature, recognized as a basic feature.",
+            "A system where only Parliament can appoint judges."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The 'Parliamentary System' of government is an explicitly recognized element of the basic structure of the Indian Constitution, ensuring democratic accountability.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Understanding", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 28,
-        question: "Which is the common High Court for Punjab, Haryana and Chandigarh?",
-        options: ["Delhi HC", "Punjab & Haryana HC", "Chandigarh HC", "Allahabad HC"],
-        correctAnswer: 1,
-        explanation: "Punjab and Haryana High Court.",
-        subtopic: "34.1"
+        question: "Did the Supreme Court in the Kesavananda Bharati case (1973) uphold or invalidate the 24th Amendment Act (1971)?",
+        options: [
+            "It completely invalidated the 24th Amendment Act.",
+            "It upheld the validity of the 24th Amendment Act while inventing the Basic Structure doctrine.",
+            "It partially invalidated it, stating it only applied to Directive Principles.",
+            "It referred the 24th Amendment Act to a national referendum."
+        ],
+        correctAnswer: 1, // B
+        explanation: "In the Kesavananda Bharati case (1973), the Supreme Court upheld the validity of the 24th Amendment Act (confirming Parliament's power to amend any part, including FRs) and simultaneously laid down the new doctrine of the 'basic structure'.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 29,
-        question: "How many High Courts have jurisdiction over more than one State/UT (excluding their own)?",
-        options: ["3", "4", "7", "6"],
-        correctAnswer: 2,
-        explanation: "Bombay, Calcutta, Guwahati, Kerala, Madras, P&H, J&K (Check current status, usually 7).",
-        subtopic: "34.1"
+        question: "According to the L. Chandra Kumar Case (1997), the power of judicial review of the High Courts under Article 226 and the Supreme Court under Article 32 is a basic feature. Consequently, what cannot be done away with entirely?",
+        options: [
+            "The jurisdiction of administrative tribunals.",
+            "The jurisdiction of civil courts.",
+            "The power of judicial review of these constitutional courts.",
+            "The power of Parliament to amend the Constitution."
+        ],
+        correctAnswer: 2, // C
+        explanation: "In the L. Chandra Kumar case (1997), the Supreme Court reiterated that the power of judicial review under Articles 226 and 32 is a part of the basic structure and thus cannot be ousted or excluded even by a constitutional amendment.",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     },
     {
         id: 30,
-        question: "Delhi is the only UT to have:",
-        options: ["Its own High Court", "A Legislative Council", "A Governor", "Direct election of Governor"],
-        correctAnswer: 0,
-        explanation: "Delhi is the only UT with its own High Court (J&K is now a UT with HC too, but historically Delhi was unique).",
-        subtopic: "34.1"
-    },
-    {
-        id: 31,
-        question: "Appointments of persons to be District Judges are posted by:",
-        options: ["Governor", "High Court", "Chief Minister", "Law Minister"],
-        correctAnswer: 0,
-        explanation: "Governor (consulting HC).",
-        subtopic: "35.1"
-    },
-    {
-        id: 32,
-        question: "Gram Nyayalayas Act was enacted in:",
-        options: ["2008", "2000", "2010", "2005"],
-        correctAnswer: 0,
-        explanation: "2008.",
-        subtopic: "35.2"
-    },
-    {
-        id: 33,
-        question: "The Presiding officer of a Lok Adalat is usually:",
-        options: ["Retired Judicial Officer", "Lay person", "Social worker", "Politician"],
-        correctAnswer: 0,
-        explanation: "Retired or serving judicial officer.",
-        subtopic: "35.2"
-    },
-    {
-        id: 34,
-        question: "Legal Services Authorities Act (NALSA) was enacted in:",
-        options: ["1987", "1990", "1976", "1980"],
-        correctAnswer: 0,
-        explanation: "1987 (Came into force in 1995).",
-        subtopic: "35.2"
-    },
-    {
-        id: 35,
-        question: "Who is the Patron-in-Chief of NALSA?",
-        options: ["President", "CJI", "Law Minister", "Attorney General"],
-        correctAnswer: 1,
-        explanation: "Chief Justice of India.",
-        subtopic: "35.2"
-    },
-    {
-        id: 36,
-        question: "Who is the Executive Chairman of NALSA?",
-        options: ["CJI", "Second Senior-most SC Judge", "Law Minister", "Retired CJI"],
-        correctAnswer: 1,
-        explanation: "Second Senior-most Judge of Supreme Court.",
-        subtopic: "35.2"
-    },
-    {
-        id: 37,
-        question: "Free Legal Aid is mandated by Article:",
-        options: ["39A", "21", "14", "32"],
-        correctAnswer: 0,
-        explanation: "Article 39A (DPSP).",
-        subtopic: "35.2"
-    },
-    {
-        id: 38,
-        question: "Can Lok Adalats handle criminal cases?",
-        options: ["All criminal cases", "Compoundable offences only", "Non-compoundable only", "No criminal cases"],
-        correctAnswer: 1,
-        explanation: "Only COMPOUNDABLE offences (where compromise is allowed by law).",
-        subtopic: "35.2"
-    },
-    {
-        id: 39,
-        question: "Who can remove a member of State Public Service Commission?",
-        options: ["Governor", "President", "CM", "Parliament"],
-        correctAnswer: 1,
-        explanation: "President (even though appointed by Governor). Same as High Court judge removal analogy (President does removal).",
-        subtopic: "34.1"
-    },
-    {
-        id: 40,
-        question: "Which Writ is issued to quash the order of a lower court?",
-        options: ["Mandamus", "Certiorari", "Quo Warranto", "Habeas Corpus"],
-        correctAnswer: 1,
-        explanation: "Certiorari.",
-        subtopic: "26.3"
-    },
-    {
-        id: 41,
-        question: "Which of the following deals with 'Separation of Judiciary from Executive'?",
-        options: ["Art 50", "Art 51", "Art 49", "Art 48"],
-        correctAnswer: 0,
-        explanation: "Article 50.",
-        subtopic: "35.1"
-    },
-    {
-        id: 42,
-        question: "Judicial Review is NOT mentioned in:",
-        options: ["Article 13", "Article 32", "Article 226", "Article 110"],
-        correctAnswer: 3,
-        explanation: "Not dealing with Money Bills directly. Judical Review is implied in 13, 32, 226.",
-        subtopic: "26.4"
-    },
-    {
-        id: 43,
-        question: "Who is authorized to appoint the Chief Justice of a High Court?",
-        options: ["President", "CJI", "Governor", "Collegium"],
-        correctAnswer: 0,
-        explanation: "President (Consultation with CJI + Governor).",
-        subtopic: "34.1"
-    },
-    {
-        id: 44,
-        question: "Can Parliament establish a common High Court for two or more states?",
-        options: ["Yes", "No", "Only SC can", "Only President can"],
-        correctAnswer: 0,
-        explanation: "Yes, by law (7th Constitutional Amendment).",
-        subtopic: "34.1"
-    },
-    {
-        id: 45,
-        question: "Which High Court has the largest number of benches?",
-        options: ["Allahabad", "Bombay", "Guwahati", "Madras"],
-        correctAnswer: 2,
-        explanation: "Guwahati High Court (It serves Assam, Nagaland, Mizoram, Arunachal Pradesh) - has multiple benches.",
-        subtopic: "34.1"
-    },
-    {
-        id: 46,
-        question: "Which is the oldest High Court in India?",
-        options: ["Calcutta HC", "Bombay HC", "Madras HC", "Allahabad HC"],
-        correctAnswer: 0,
-        explanation: "Calcutta High Court (Established 1862).",
-        subtopic: "34.1"
-    },
-    {
-        id: 47,
-        question: "Contempt of Court Act was amended in 2006 to include __ as a defence.",
-        options: ["Ignorance", "Truth", "Mistake", "Good faith"],
-        correctAnswer: 1,
-        explanation: "Truth.",
-        subtopic: "26.3"
-    },
-    {
-        id: 48,
-        question: "Permanent Lok Adalats are established for:",
-        options: ["Public Utility Services", "Criminal Cases", "Family disputes", "Property disputes"],
-        correctAnswer: 0,
-        explanation: "Public Utility Services (Transport, Postal, etc.).",
-        subtopic: "35.2"
-    },
-    {
-        id: 49,
-        question: "Maximum limit of pecuniary jurisdiction of Lok Adalat is:",
-        options: ["10 Lakhs", "20 Lakhs", "1 Crore", "No limit"],
-        correctAnswer: 1,
-        explanation: "Check latest. Generally 20 Lakhs for strict cases, but varies. Default answer often 20L in old contexts, but flexible.",
-        subtopic: "35.2"
-    },
-    {
-        id: 50,
-        question: "Who heads the District Court when dealing with criminal cases?",
-        options: ["District Judge", "Sessions Judge", "Chief Judicial Magistrate", "Munsiff"],
-        correctAnswer: 1,
-        explanation: "Sessions Judge. (Same person is District Judge for civil cases).",
-        subtopic: "35.1"
-    },
-    {
-        id: 51,
-        question: "A Sessions Judge has power to impose:",
-        options: ["Life Imprisonment only", "Death Sentence (with HC confirmation)", "Any sentence including death", "Max 10 years"],
-        correctAnswer: 2,
-        explanation: "Any sentence authorized by law, but Death Sentence must be confirmed by High Court.",
-        subtopic: "35.1"
-    },
-    {
-        id: 52,
-        question: "Which Article deals with the appointment of District Judges?",
-        options: ["Art 233", "Art 234", "Art 235", "Art 236"],
-        correctAnswer: 0,
-        explanation: "Article 233.",
-        subtopic: "35.1"
-    },
-    {
-        id: 53,
-        question: "Subordinate courts are also called:",
-        options: ["Lower Courts", "District Courts", "Mofussil Courts", "All of above"],
-        correctAnswer: 3,
-        explanation: "All of the above.",
-        subtopic: "35.1"
-    },
-    {
-        id: 54,
-        question: "The power of Judicial Review in India is:",
-        options: ["Limited", "Unlimited", "Absolute", "None"],
-        correctAnswer: 0,
-        explanation: "Limited by the text of the Constitution (Procedure Established by Law vs Due Process).",
-        subtopic: "26.4"
-    },
-    {
-        id: 55,
-        question: "Does the Constitution define 'Contempt of Court'?",
-        options: ["Yes", "No", "Partially", "In Schedule 10"],
-        correctAnswer: 1,
-        explanation: "No. It gives power to punish, but does not define it (Contempt of Courts Act 1971 defines it).",
-        subtopic: "26.3"
-    },
-    {
-        id: 56,
-        question: "PIL petitions can be filed in:",
-        options: ["Supreme Court only", "High Courts only", "Both SC and HC", "District Courts"],
-        correctAnswer: 2,
-        explanation: "Both Supreme Court and High Courts.",
-        subtopic: "26.4"
-    },
-    {
-        id: 57,
-        question: "The concept of 'rule of law' is a part of:",
-        options: ["Basic Structure", "DPSP", "Preamble only", "Fundamental Duties"],
-        correctAnswer: 0,
-        explanation: "Basic Structure of the Constitution.",
-        subtopic: "26.4"
-    },
-    {
-        id: 58,
-        question: "Who appoints the officers and servants of the Supreme Court?",
-        options: ["President", "CJI", "UPSC", "Law Minister"],
-        correctAnswer: 1,
-        explanation: "Chief Justice of India (or judge directed by him).",
-        subtopic: "26.1"
-    },
-    {
-        id: 59,
-        question: "The administrative expenses of HC are charged on:",
-        options: ["Consolidated Fund of India", "Consolidated Fund of State", "Voted by Assembly", "Grants"],
-        correctAnswer: 1,
-        explanation: "Consolidated Fund of State.",
-        subtopic: "34.1"
-    },
-    {
-        id: 60,
-        question: "To remove a Judge, the motion does not fall if:",
-        options: ["LS dissolves", "RS adjourns", "Session prorogues", "None"],
-        correctAnswer: 0,
-        explanation: "A removal motion kept pending in Lok Sabha DOES lapse on dissolution. But if it originate in RS, it does not.",
-        subtopic: "26.2"
+        question: "Which of the following describes the evolution of the Parliament's amending power concerning Fundamental Rights from 1951 to 1980?",
+        options: [
+            "It began as absolute, became restricted in 1967, was restored in 1971, and was finally subjected to the limits of the Basic Structure doctrine.",
+            "Fundamental Rights have always been immune from amendments since 1950.",
+            "Parliament always possessed unlimited constituent power without any judicial interference.",
+            "The power shifted from Parliament to the State Legislatures entirely."
+        ],
+        correctAnswer: 0, // A
+        explanation: "The evolution is: Shankari Prasad (1951) - Parliament can amend FRs (absolute). Golaknath (1967) - Parliament cannot amend FRs (restricted). 24th Amendment (1971) - Power restored (absolute). Kesavananda (1973) / Minerva Mills (1980) - Parliament can amend FRs, but cannot alter the Basic Structure (limited).",
+        level: "Easy", topic: "Basic Structure of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Understanding", source_mapping: { book: "M. Laxmikanth", chapter: "Basic Structure of the Constitution" }
     }
 ];
-
-export default DAY11_MCQS;

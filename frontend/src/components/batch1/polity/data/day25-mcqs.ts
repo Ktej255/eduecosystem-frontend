@@ -1,294 +1,397 @@
-
-export interface MCQ {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation?: string;
-    level?: string;
-    topic?: string;
-    chapter?: string;
-    subtopic?: string;
-}
+import type { MCQ } from './mcq-utils';
 
 export const DAY25_MCQS: MCQ[] = [
-    // ==========================================
-    // CVC (30 Questions)
-    // ==========================================
+    // ----------------------------------------------------------------------
+    // LEVEL 1: EASY (The Text-Book Stickler - Strictly Chapter 25)
+    // ----------------------------------------------------------------------
     {
         id: 1,
-        question: "CVC was established on the recommendation of:",
-        options: ["Santhanam Committee", "Kripalani Committee", "Administrative Reforms Commission", "Gorwala Committee"],
-        correctAnswer: 0,
-        explanation: "Committee on Prevention of Corruption (Santhanam Committee, 1962-64).",
-        subtopic: "60.1"
+        question: "When was the Indian Parliamentary Group (IPG) formed?",
+        options: [
+            "1947",
+            "1949",
+            "1950",
+            "1952"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Indian Parliamentary Group (IPG) is an autonomous body formed in the year 1949 in pursuance of a motion adopted by the Constituent Assembly (Legislative) on 16 August, 1948.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "History", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 2,
-        question: "CVC became a statutory body in which year?",
-        options: ["2003", "1998", "1964", "2013"],
-        correctAnswer: 0,
-        explanation: "2003 (The Central Vigilance Commission Act).",
-        subtopic: "60.1"
+        question: "Is the Indian Parliamentary Group (IPG) an autonomous body?",
+        options: [
+            "Yes, it is an autonomous body.",
+            "No, it is a department under the Ministry of External Affairs.",
+            "No, it is a sub-committee of the Lok Sabha.",
+            "Yes, but it is financially controlled by the UN."
+        ],
+        correctAnswer: 0, // A
+        explanation: "The Indian Parliamentary Group is an autonomous body.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 3,
-        question: "Appointment Committee for CVC consists of:",
-        options: ["PM + Home Minister + LoP (LS)", "PM + CJI + LoP", "PM + Speaker + LoP", "PM + HM + Speaker"],
-        correctAnswer: 0,
-        explanation: "Prime Minister (Head), Minister of Home Affairs, and Leader of Opposition in Lok Sabha.",
-        subtopic: "60.1"
+        question: "Who can become a member of the Indian Parliamentary Group?",
+        options: [
+            "Only current Members of Parliament (Lok Sabha and Rajya Sabha).",
+            "Current Members of Parliament and former Members of Parliament.",
+            "Any citizen of India.",
+            "Only Cabinet Ministers."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Membership of the IPG is open to all current Members of Parliament. Former Members of Parliament can also become associate members.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Membership", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 4,
-        question: "Tenure of Central Vigilance Commissioner?",
-        options: ["4 years / 65 age", "5 years / 65 age", "3 years / 70 age", "6 years / 65 age"],
-        correctAnswer: 0,
-        explanation: "4 years or 65 years of age (whichever is earlier). Note: 4 years is unique.",
-        subtopic: "60.1"
+        question: "What type of membership is granted to former Members of Parliament in the IPG?",
+        options: [
+            "Honorary Membership",
+            "Life Membership",
+            "Associate Membership",
+            "Full Voting Membership"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Former Members of Parliament can also become associate members.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Membership Category", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 5,
-        question: "Who removes CVC from office?",
-        options: ["President", "Supreme Court", "Parliament", "PM"],
-        correctAnswer: 0,
-        explanation: "President (after SC inquiry in cases of misbehavior).",
-        subtopic: "60.1"
+        question: "Who acts as the ex-officio President of the Indian Parliamentary Group (IPG)?",
+        options: [
+            "The Prime Minister",
+            "The President of India",
+            "The Speaker of the Lok Sabha",
+            "The Chairman of the Rajya Sabha"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Speaker of the Lok Sabha is the ex-officio President of the Group.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Leadership", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 6,
-        question: "Number of Vigilance Commissioners (excluding CVC)?",
-        options: ["Not more than 2", "Not more than 3", "Exactly 2", "Exactly 4"],
-        correctAnswer: 0,
-        explanation: "Not more than two.",
-        subtopic: "60.1"
+        question: "Who acts as the ex-officio Vice-Presidents of the Indian Parliamentary Group?",
+        options: [
+            "The Prime Minister and the Leader of the Opposition.",
+            "The Deputy Speaker of the Lok Sabha and the Deputy Chairman of the Rajya Sabha.",
+            "The Minister of Parliamentary Affairs and the Minister of External Affairs.",
+            "The oldest members of the Lok Sabha and Rajya Sabha."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Deputy Speaker of the Lok Sabha and the Deputy Chairman of the Rajya Sabha are the ex-officio Vice-Presidents of the Group.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Leadership", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 7,
-        question: "Is CVC eligible for reappointment?",
-        options: ["No", "Yes", "Once", "Twice"],
-        correctAnswer: 0,
-        explanation: "No. (Also ineligible for further employment).",
-        subtopic: "60.1"
+        question: "Who acts as the ex-officio Secretary-General of the Indian Parliamentary Group?",
+        options: [
+            "The Secretary of the Ministry of Parliamentary Affairs",
+            "The Secretary-General of the Lok Sabha",
+            "The Secretary-General of the Rajya Sabha",
+            "A retired diplomat appointed by the President"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Secretary-General of the Lok Sabha acts as the ex-officio Secretary-General of the IPG.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Administration", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 8,
-        question: "Salary of CVC is same as?",
-        options: ["UPSC Chairman", "Election Commissioner", "Cabinet Secretary", "SC Judge"],
-        correctAnswer: 0,
-        explanation: "Chairman of UPSC.",
-        subtopic: "60.1"
+        question: "The Indian Parliamentary Group acts as the National Group of Which international organization?",
+        options: [
+            "The United Nations General Assembly (UNGA)",
+            "The Inter-Parliamentary Union (IPU)",
+            "The Commonwealth Secretariat",
+            "The Non-Aligned Movement (NAM)"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The IPG acts as the National Group of the Inter-Parliamentary Union (IPU) and also as the India Branch of the Commonwealth Parliamentary Association (CPA).",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "International Affiliation", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 9,
-        question: "Jurisdiction of CVC extends to:",
-        options: ["Group A officers of Central Govt", "All Central Govt employees", "Private sector", "State Govt employees"],
-        correctAnswer: 0,
-        explanation: "Group A officers of Central Govt, Senior officers of PSUs/Banks etc.",
-        subtopic: "60.2"
+        question: "Besides the IPU, the Indian Parliamentary Group also acts as the India branch for which other major international parliamentary association?",
+        options: [
+            "The European Parliament",
+            "The SAARC Parliamentary Forum",
+            "The Commonwealth Parliamentary Association (CPA)",
+            "The BRICS Parliamentary Committee"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The IPG also acts... as the India Branch of the Commonwealth Parliamentary Association (CPA).",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "International Affiliation", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 10,
-        question: "CVC annual report is submitted to:",
-        options: ["President", "Parliament", "Central Govt", "PM"],
-        correctAnswer: 0,
-        explanation: "President (who lays it before Parliament).",
-        subtopic: "60.2"
+        question: "When was the Inter-Parliamentary Union (IPU) founded?",
+        options: [
+            "1889",
+            "1919",
+            "1945",
+            "1950"
+        ],
+        correctAnswer: 0, // A
+        explanation: "The Inter-Parliamentary Union (IPU) is an international organization of parliaments of sovereign states. It was founded in 1889.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 11,
-        question: "Who is the 'Designated Agency' to receive Whistleblower complaints (PIDPI)?",
-        options: ["CVC", "CBI", "Lokpal", "Supreme Court"],
-        correctAnswer: 0,
-        explanation: "Central Vigilance Commission (under PIDPI Resolution).",
-        subtopic: "60.2"
+        question: "What is a primary aim of the Indian Parliamentary Group?",
+        options: [
+            "To fund election campaigns for its members.",
+            "To promote personal contacts between Members of Parliament in India.",
+            "To decide the foreign policy of the Indian government.",
+            "To audit the travel expenses of diplomats."
+        ],
+        correctAnswer: 1, // B
+        explanation: "One of the aims is to promote personal contacts between Members of Parliament.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Objective", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 12,
-        question: "Can CVC investigate criminal cases?",
-        options: ["No, it refers to CBI", "Yes", "Limited power", "Only corruption"],
-        correctAnswer: 0,
-        explanation: "CVC is an advisory/supervisory body. It refers cases for investigation to CBI or Chief Vigilance Officers (CVOs).",
-        subtopic: "60.2"
+        question: "Does the IPG aim to study questions of public importance that are likely to come up before the Parliament?",
+        options: [
+            "Yes, it aims to study such questions and arrange seminars and discussions on them.",
+            "No, discussing pending parliamentary business is forbidden in the IPG.",
+            "Only if the Supreme Court requests a study.",
+            "Yes, but only questions related to defense."
+        ],
+        correctAnswer: 0, // A
+        explanation: "To study questions of public importance that are likely to come up before the Parliament; arrange seminars and discussions and orientation courses...",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Objective", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 13,
-        question: "Role of CVC regarding CBI?",
-        options: ["Superintendence over CBI (PC Act cases)", "Full control over CBI", "Appoints CBI Director", "None"],
-        correctAnswer: 0,
-        explanation: "Superintendence over CBI in so far as it relates to offences under Prevention of Corruption Act, 1988.",
-        subtopic: "60.2"
+        question: "Which body arranges lectures on political, defense, economic, social, and educational problems by Members of Parliament and distinguished persons?",
+        options: [
+            "The Public Accounts Committee",
+            "The Indian Parliamentary Group",
+            "The Election Commission",
+            "The Union Public Service Commission"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Group arranges lectures on political, defense, economic, social and educational problems by Members of Parliament and distinguished persons.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Function", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 14,
-        question: "First Chief Vigilance Commissioner?",
-        options: ["N.S. Rau", "K. Santhanam", "Nivuttan", "Vittal"],
-        correctAnswer: 0,
-        explanation: "Niuus Srinivas Rau (1964).",
-        subtopic: "60.1"
+        question: "Does the IPG arrange visits to foreign countries for Indian Parliamentarians?",
+        options: [
+            "Yes, with a view to develop contacts with members of other Parliaments.",
+            "No, only the Ministry of External Affairs can arrange foreign visits.",
+            "Yes, but only for Cabinet Ministers.",
+            "No, the IPG strictly operates within India."
+        ],
+        correctAnswer: 0, // A
+        explanation: "To arrange visits to foreign countries with a view to develop contacts with members of other Parliaments.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Function", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 15,
-        question: "Does CVC have powers of Civil Court?",
-        options: ["Yes", "No", "Criminal Court", "High Court"],
-        correctAnswer: 0,
-        explanation: "Yes, for inquiring.",
-        subtopic: "60.2"
+        question: "Under the auspices of the IPG, which award is conferred on sitting Members of Parliament to recognize their overall contribution?",
+        options: [
+            "Bharat Ratna",
+            "Outstanding Parliamentarian Award",
+            "Padma Vibhushan",
+            "Best Legislator Trophy"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Outstanding Parliamentarian Award is conferred under the auspices of the IPG.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Award", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 16,
-        question: "Whistleblowers Protection Act 2014 designates?",
-        options: ["CVC as Competent Authority", "CBI", "Lokpal", "PM"],
-        correctAnswer: 0,
-        explanation: "CVC.",
-        subtopic: "60.2"
+        question: "When was the Outstanding Parliamentarian Award instituted by the IPG?",
+        options: [
+            "1950",
+            "1990",
+            "1995",
+            "2005"
+        ],
+        correctAnswer: 2, // C
+        explanation: "An award for Outstanding Parliamentarian was instituted in the year 1995.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 17,
-        question: "Member composition of CVC selection committee includes CJI?",
-        options: ["No", "Yes", "Yes as observer", "Yes if LoP absent"],
-        correctAnswer: 0,
-        explanation: "No. (Committee is PM + HM + LoP).",
-        subtopic: "60.1"
+        question: "Who was the first recipient of the Outstanding Parliamentarian Award in 1995?",
+        options: [
+            "Atal Bihari Vajpayee",
+            "Chandra Shekhar",
+            "Indrajit Gupta",
+            "Somnath Chatterjee"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The first recipient of the award was Shri Chandra Shekhar.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 18,
-        question: "Vigilance Awareness Week is observed in?",
-        options: ["Oct/Nov (Sardar Patel birthday week)", "January", "August", "December"],
-        correctAnswer: 0,
-        explanation: "Week in which the birthday of Sardar Vallabhbhai Patel (31st Oct) falls.",
-        subtopic: "60.2"
+        question: "Which of the following describes the nature of the Inter-Parliamentary Union (IPU)?",
+        options: [
+            "It is a military alliance.",
+            "It is an international organization of Parliaments of sovereign states.",
+            "It is a branch of the World Bank.",
+            "It is a subset of the Indian Parliament."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Inter-Parliamentary Union (IPU) is an international organization of parliaments of sovereign states.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Definition", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 19,
-        question: "Lokpal refers complaints to?",
-        options: ["CVC (for inquiry)", "CBI", "Police", "Home Ministry"],
-        correctAnswer: 0,
-        explanation: "Lokpal can refer complaints to CVC for preliminary inquiry.",
-        subtopic: "60.2"
+        question: "Where are the headquarters of the Inter-Parliamentary Union (IPU) located?",
+        options: [
+            "New York",
+            "London",
+            "Geneva",
+            "Paris"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Its headquarters are at Geneva (Switzerland).",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
         id: 20,
-        question: "Can CVC review progress of applications for sanction of prosecution?",
-        options: ["Yes", "No", "Only for Ministers", "Only for Judiciary"],
-        correctAnswer: 0,
-        explanation: "Yes.",
-        subtopic: "60.2"
-    },
-    { id: 21, question: "Salary of Vigilance Commissioner (Member) equal to?", options: ["UPSC Member", "UPSC Chairman", "Secretary", "Addl Secretary"], correctAnswer: 0, subtopic: "60.1" },
-    { id: 22, question: "Does CVC deal with private sector corruption?", options: ["No", "Yes", "Partially", "If bank involved"], correctAnswer: 0, subtopic: "60.2" },
-    { id: 23, question: "Is CVC a constitutional body?", options: ["No", "Yes", "Executive", "NGO"], correctAnswer: 0, subtopic: "60.1" },
-    { id: 24, question: "Removal grounds for CVC same as?", options: ["UPSC Chairman", "CEC", "Judge", "Minister"], correctAnswer: 0, subtopic: "60.1" },
-    { id: 25, question: "CVC head office?", options: ["New Delhi", "Mumbai", "Bangalore", "Hyderabad"], correctAnswer: 0, subtopic: "60.1" },
-    { id: 26, question: "Term of CVO in ministries?", options: ["Determinied by CVC", "3 years", "5 years", "Ad-hoc"], correctAnswer: 0, subtopic: "60.2" },
-    { id: 27, question: "Can CVC call for reports from Ministries?", options: ["Yes", "No", "Through PMO", "Through Cabinet Sec"], correctAnswer: 0, subtopic: "60.2" },
-    { id: 28, question: "Is CVC consulted for appointment of Directors of ED/CBI?", options: ["Yes", "No", "Only ED", "Only CBI"], correctAnswer: 0, subtopic: "60.2" }, // CVC chairs committee for ED Director. For CBI, CVC is member? No, CVC has role in selection of SP and above in CBI. For Director, check new rules (PM+CJI+LoP).
-    { id: 29, question: "Bank Securities and Fraud Cell is under?", options: ["CBI", "CVC", "RBI", "SBI"], correctAnswer: 0, subtopic: "61.2" }, // Actually CBI creates these cells.
-    { id: 30, question: "Does CVC have own investigation wing?", options: ["No (depended on CVO/CBI)", "Yes", "Police", "Raw"], correctAnswer: 0, subtopic: "60.2" },
-
-    // ==========================================
-    // CBI (30 Questions)
-    // ==========================================
-    {
-        id: 31,
-        question: "CBI was set up in?",
-        options: ["1963", "1946", "1950", "1980"],
-        correctAnswer: 0,
-        explanation: "1963 (by Home Ministry resolution).",
-        subtopic: "61.1"
+        question: "Does the Inter-Parliamentary Union (IPU) have a close working relationship with the United Nations?",
+        options: [
+            "Yes, it supports the objectives of the UN and works in close co-operation with it.",
+            "No, it was formed to counter the UN.",
+            "No, it restricts its affiliation solely to the Commonwealth.",
+            "Yes, but it only interacts with the UN Security Council."
+        ],
+        correctAnswer: 0, // A
+        explanation: "The IPU supports the objectives of the United Nations, whose efforts it backs and with which it works in close co-operation.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "International Alignment", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
-        id: 32,
-        question: "CBI derives investigation powers from?",
-        options: ["Delhi Special Police Establishment Act, 1946", "CBI Act", "CVC Act", "Police Act 1861"],
-        correctAnswer: 0,
-        explanation: "DSPE Act, 1946.",
-        subtopic: "61.1"
+        id: 21,
+        question: "What is an 'Associate Member' of the IPG entitled to do?",
+        options: [
+            "Vote in all General Body meetings.",
+            "Represent India at the IPU conferences universally.",
+            "Enjoy limited rights; they are not entitled to representation on the Executive Committee or to vote at meetings, nor represent the Group abroad.",
+            "Run for the Presidency of the IPG."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Associate members enjoy limited rights. They are not entitled to representation on the Executive Committee or to vote at meetings, nor are they eligible for inclusion in the Indian Parliamentary Delegations abroad.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Membership Rights", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
-        id: 33,
-        question: "CBI works under supervision of which Ministry?",
-        options: ["Ministry of Personnel, Public Grievances and Pensions", "Home Ministry", "Defence Ministry", "Law Ministry"],
-        correctAnswer: 0,
-        explanation: "Ministry of Personnel.",
-        subtopic: "61.1"
+        id: 22,
+        question: "Who nominates the members of the Indian Parliamentary Delegations to foreign countries sent by the IPG?",
+        options: [
+            "The Prime Minister",
+            "The Minister of External Affairs",
+            "The Speaker of Lok Sabha in his capacity as the President of the Group",
+            "The President of India"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The composition of Indian Parliamentary Delegations to foreign countries is decided by the Speaker, Lok Sabha, in his capacity as President of the Group.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Delegation Formation", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
-        id: 34,
-        question: "CBI Director is appointed by Committee headed by?",
-        options: ["PM", "Home Minister", "CVC", "President"],
-        correctAnswer: 0,
-        explanation: "Prime Minister.",
-        subtopic: "61.1"
+        id: 23,
+        question: "Is the Commonwealth Parliamentary Association (CPA) limited to sovereign nations?",
+        options: [
+            "Yes, only fully independent sovereign states.",
+            "No, it consists of National, Provincial, State and Territorial Parliaments and Legislatures of the countries of the Commonwealth.",
+            "Yes, but only members of the UN Security Council.",
+            "No, any country in the world can join."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The CPA is an association of Commonwealth Parliamentarians who... It consists of National, Provincial, State and Territorial Parliaments and Legislatures...",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Scope", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
-        id: 35,
-        question: "Committee for CBI Director appointment includes CJI?",
-        options: ["Yes", "No", "Sometimes", "Only if LoP absent"],
-        correctAnswer: 0,
-        explanation: "Yes. (PM + LoP + CJI/Judge). Lokpal Act 2013 modified this.",
-        subtopic: "61.1"
+        id: 24,
+        question: "Do members of State Legislatures in India have their own branches of the Commonwealth Parliamentary Association (CPA)?",
+        options: [
+            "Yes, state legislatures can form their own State Branches of the CPA.",
+            "No, only the Union Parliament represents the CPA in India.",
+            "Yes, but they must operate under the Home Ministry.",
+            "No, state MLAs are banned from joining international bodies."
+        ],
+        correctAnswer: 0, // A
+        explanation: "In India, the CPA has its India Union Branch in Parliament and State Branches in the State Legislatures.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "State Level Participation", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
-        id: 36,
-        question: "Tenure of CBI Director?",
-        options: ["Minimum 2 years", "3 years", "5 years fixed", "Pleasure of President"],
-        correctAnswer: 0,
-        explanation: "Fixed tenure of 2 years (protected by CVC Act/Lokpal Act). Recent amendment allows extensions up to 5 years total.",
-        subtopic: "61.1"
+        id: 25,
+        question: "What is the primary motive behind the creation of the IPG regarding international diplomacy?",
+        options: [
+            "To declare war independently of the executive.",
+            "To establish a forum for 'parliamentary diplomacy' supplementing the efforts of formal executive diplomacy.",
+            "To negotiate trade tariffs with the WTO.",
+            "To audit the foreign aid received by India."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The IPG acts as a link between Parliament of India and Parliaments of the world, fostering relationships (parliamentary diplomacy) that run parallel to traditional executive-driven foreign policy.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Diplomatic Role", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
-        id: 37,
-        question: "Santhanam Committee recommended establishment of?",
-        options: ["CBI and CVC", "Only CVC", "Only CBI", "Lokpal"],
-        correctAnswer: 0,
-        explanation: "Both CVC and CBI establishment recommended/endorsed by it.",
-        subtopic: "61.1"
+        id: 26,
+        question: "Which of the following is NOT an ex-officio position in the IPG?",
+        options: [
+            "President (Speaker of Lok Sabha)",
+            "Vice-President (Deputy Chairman, Rajya Sabha)",
+            "Secretary-General (Secretary-General, Lok Sabha)",
+            "Treasurer (Finance Minister)"
+        ],
+        correctAnswer: 3, // D
+        explanation: "The Finance Minister has no ex-officio role in the IPG. The President, Vice-Presidents, and Secretary-General positions are all tied to parliamentary offices, not executive ones.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Role Identification", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
-        id: 38,
-        question: "Can CBI investigate in a State without consent?",
-        options: ["No (unless SC/HC orders)", "Yes", "In emergency", "If Central employee involved"],
-        correctAnswer: 0,
-        explanation: "No. Needs State Govt consent (General or Special). Exception: Constitutional Courts (SC/HC) can order investigation without state consent.",
-        subtopic: "61.2"
+        id: 27,
+        question: "How does the IPG facilitate interaction between MPs and foreign leaders visiting India?",
+        options: [
+            "By taking the foreign leaders to the MP's constituencies.",
+            "By arranging addresses by visiting Heads of State and Government to Members of Parliament.",
+            "By offering foreign leaders Indian citizenship.",
+            "By funding the foreign travel of the visiting leaders."
+        ],
+        correctAnswer: 1, // B
+        explanation: "One of the functions of the Group is to arrange addresses by visiting Heads of State and Government to Members of Parliament.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Function", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
-        id: 39,
-        question: "Motto of CBI?",
-        options: ["Industry, Impartiality, Integrity", "Satyameva Jayate", "Dharmo Rakshati Rakshitah", "Service before Self"],
-        correctAnswer: 0,
-        explanation: "Industry, Impartiality, Integrity.",
-        subtopic: "61.1"
+        id: 28,
+        question: "If a Member of Parliament ceases to be an MP (e.g., they lose an election), what happens to their IPG membership?",
+        options: [
+            "They remain a full member for life.",
+            "They immediately cease to be a regular member but become eligible to be an 'Associate Member'.",
+            "They are expelled from the IPG permanently.",
+            "They become President of the IPG."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Regular membership is for current MPs. Former MPs can become 'Associate Members', retaining a connection but losing voting/representation rights.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Membership Transition", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
     {
-        id: 40,
-        question: "Which wing of CBI coordinates with Interpol?",
-        options: ["Coordination Wing", "International Police Cooperation Cell", "Special Crimes", "Economic Offences"],
-        correctAnswer: 0,
-        explanation: "CBI acts as the National Central Bureau of Interpol.",
-        subtopic: "61.2"
+        id: 29,
+        question: "Which body shares the secretarial work of the IPG?",
+        options: [
+            "The Prime Minister's Office.",
+            "The Lok Sabha Secretariat.",
+            "The Ministry of External Affairs.",
+            "The Election Commission."
+        ],
+        correctAnswer: 1, // B
+        explanation: "As the Secretary-General of the Lok Sabha is the ex-officio Secretary-General of the IPG, the Lok Sabha Secretariat handles its administrative function.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Administration", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
     },
-    { id: 41, question: "General Consent to CBI?", options: ["State gives blanket permission", "Case by case", "Centre gives", "Court gives"], correctAnswer: 0, subtopic: "61.2" },
-    { id: 42, question: "Director of Prosecution in CBI appointed by?", options: ["Central Govt on CVC advice", "CBI Director", "President", "PM"], correctAnswer: 0, subtopic: "61.2" },
-    { id: 43, question: "Is CBI a statutory body?", options: ["No (Power from DSPE Act)", "Yes", "Constitutional", "NGO"], correctAnswer: 0, subtopic: "61.1" }, // Techically runs under DSPE Act, but not created *by* an Act like NHRC. Often called Non-constitutional/attached office.
-    { id: 44, question: "Vineet Narain case is related to?", options: ["CBI/CVC Reforms", "Police Reforms", "Election Reforms", "Panchayat"], correctAnswer: 0, subtopic: "61.1" },
-    { id: 45, question: "Does CBI come under RTI?", options: ["No (Exempt under Sch 2)", "Yes", "Partially", "Only admin matters"], correctAnswer: 0, subtopic: "61.1" }, // Exempted org, except corruption/human rights.
-    { id: 46, question: "Special Police Establishment (SPE) set up in?", options: ["1941", "1946", "1950", "1861"], correctAnswer: 0, subtopic: "61.1" },
-    { id: 47, question: "Can CBI take up suo motu investigation in States?", options: ["No, only in UTs", "Yes", "For heinous crimes", "If foreigners involved"], correctAnswer: 0, subtopic: "61.2" },
-    { id: 48, question: "Who recommends appointment of SP and above in CBI?", options: ["CVC Committee", "UPSC", "DOPT", "Home Ministry"], correctAnswer: 0, subtopic: "60.2" }, // CVC Committee.
-    { id: 49, question: "Founding Director of CBI?", options: ["D.P. Kohli", "Hoover", "Rau", "Santhanam"], correctAnswer: 0, subtopic: "61.1" },
-    { id: 50, question: "Does CBI investigate economic offences?", options: ["Yes", "No", "Only ED", "Only SFIO"], correctAnswer: 0, subtopic: "61.2" },
-    { id: 51, question: "Extension of CBI Director tenure up to?", options: ["5 years", "3 years", "6 years", "4 years"], correctAnswer: 0, subtopic: "61.1" },
-    { id: 52, question: "Which Section of DSPE Act requires State Consent?", options: ["Section 6", "Section 5", "Section 4", "Section 3"], correctAnswer: 0, subtopic: "61.2" },
-    { id: 53, question: "CBI Academy is located in?", options: ["Ghaziabad", "Hyderabad", "Mussourie", "Delhi"], correctAnswer: 0, subtopic: "61.1" },
-    { id: 54, question: "Is CBI an attached office?", options: ["Yes (Ministry of Personnel)", "No", "Subordinate", "Autonomous"], correctAnswer: 0, subtopic: "61.1" },
-    { id: 55, question: "Can Union Territory administration order CBI probe?", options: ["No, Central Govt controls UTs", "Yes", "Lt Governor", "CM of UT"], correctAnswer: 0, subtopic: "61.2" }, // CBI can investigate in UTs without 'consent' issue as UT is Central.
-    { id: 56, question: "Interpol Notices: Red Corner?", options: ["Arrest of wanted person", "Missing person", "Dead body", "Intelligence"], correctAnswer: 0, subtopic: "61.2" },
-    { id: 57, question: "Lokpal Act 2013 changes in CBI?", options: ["Prosecution Directorate headed by Director", "Removed CVC control", "Removed PM", "None"], correctAnswer: 0, subtopic: "61.1" },
-    { id: 58, question: "Appointment of CBI Director: If no LoP?", options: ["Leader of Single Largest Opp Party", "Speaker", "Vacant", "President decides"], correctAnswer: 0, subtopic: "61.1" },
-    { id: 59, question: "Superintendence of CBI in administrative matters lies with?", options: ["Dept of Personnel & Training (DoPT)", "CVC", "Home Ministry", "PMO"], correctAnswer: 0, subtopic: "61.1" },
-    { id: 60, question: "Conviction rate of CBI is generally?", options: ["High (65-70%)", "Low (10%)", "Very Low", "90%"], correctAnswer: 0, subtopic: "61.2" }
+    {
+        id: 30,
+        question: "Is IPG membership compulsory for every Member of Parliament?",
+        options: [
+            "Yes, it is automatically assigned upon swearing in.",
+            "No, it is an autonomous body, and membership is voluntary.",
+            "Yes, if they want to sit in the front rows.",
+            "Yes, but only for Lok Sabha members."
+        ],
+        correctAnswer: 1, // B
+        explanation: "It is an autonomous body, and membership is 'open' to all MPs, meaning it is an optional, voluntary association designed for networking and diplomacy.",
+        level: "Easy", topic: "Indian Parliamentary Group", difficulty_tier: "Level_1", cognitive_tag: "Nature of Membership", source_mapping: { book: "M. Laxmikanth", chapter: "Parliamentary Group" }
+    }
 ];
-
-export default DAY25_MCQS;

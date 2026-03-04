@@ -1,299 +1,397 @@
-
-export interface MCQ {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation?: string;
-    level?: string;
-    topic?: string;
-    chapter?: string;
-    subtopic?: string;
-}
+import type { MCQ } from './mcq-utils';
 
 export const DAY14_MCQS: MCQ[] = [
-    // ==========================================
-    // DAY 14: SUNDAY MOCK TEST 2 (100 Questions)
-    // Syllabus: Week 1 + Week 2 (Integrated)
-    // ==========================================
-
+    // ----------------------------------------------------------------------
+    // LEVEL 1: EASY (The Text-Book Stickler - Strictly Chapter 14)
+    // ----------------------------------------------------------------------
     {
         id: 1,
-        question: "1. The 'Basic Structure' doctrine prevents Parliament from:",
-        options: ["Amending the Constitution", "Altering the core features of Constitution", "Increasing number of SC Judges", "Making laws on State List"],
-        correctAnswer: 1,
-        explanation: "Kesavananda Bharati case: Parliament cannot alter the basic features.",
-        subtopic: "11.1"
+        question: "The Constitution of India divides Centre-State relations into three parts. Which of the following is NOT one of those parts?",
+        options: [
+            "Legislative relations",
+            "Administrative relations",
+            "Judicial relations",
+            "Financial relations"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Constitution divides Centre-State relations into Legislative, Administrative, and Financial relations. There is no division of judicial powers as India has an integrated judicial system.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 2,
-        question: "2. Which of the following is NOT a fundamental duty?",
-        options: ["To respect the National Flag", "To defend the country", "To vote in elections", "To safeguard public property"],
-        correctAnswer: 2,
-        explanation: "Voting is a legal right, not a Fundamental Duty (Though suggested by Verma Committee, not in Art 51A).",
-        subtopic: "9.1"
+        question: "Which Part of the Constitution deals with the Legislative Relations between the Centre and the states (Articles 245 to 255)?",
+        options: [
+            "Part X",
+            "Part XI",
+            "Part XII",
+            "Part XIII"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Articles 245 to 255 in Part XI of the Constitution deal with the legislative relations between the Centre and the states.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 3,
-        question: "3. 'Equality before Law' (Art 14) is borrowed from:",
-        options: ["USA", "UK", "France", "USSR"],
-        correctAnswer: 1,
-        explanation: "UK (British Constitution - Rule of Law). 'Equal Protection of Laws' is from USA.",
-        subtopic: "7.1"
+        question: "Regarding the 'Territorial Extent' of Central and state legislation, what is the geographical scope of laws made by the Parliament?",
+        options: [
+            "They apply only to Union Territories.",
+            "They can apply to the whole or any part of the territory of India.",
+            "They apply only outside the territory of India (extra-territorial laws).",
+            "They apply only to states that have ratified them."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Parliament can make laws for the whole or any part of the territory of India. The territory of India includes the states, the union territories, and any other area for the time being included in the territory of India.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 4,
-        question: "4. Who presides over the joint sitting of State Legislature?",
-        options: ["Speaker", "Chairman", "Governor", "None of these"],
-        correctAnswer: 3,
-        explanation: "There is NO provision for Joint Sitting in State Legislature.",
-        subtopic: "36.5"
+        question: "Which legislative body in India alone possesses the power to make 'extra-territorial legislation' (laws applicable to Indian citizens and their property anywhere in the world)?",
+        options: [
+            "State Legislatures",
+            "The Supreme Court",
+            "The Parliament",
+            "The Inter-State Council"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Parliament alone can make 'extra-territorial legislation'. Thus, the laws of the Parliament are also applicable to the Indian citizens and their property in any part of the world.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 5,
-        question: "5. The salary of the Speaker of Lok Sabha is fixed by:",
-        options: ["President", "Parliament", "Consolidated Fund", "Pay Commission"],
-        correctAnswer: 1,
-        explanation: "Parliament by Law.",
-        subtopic: "22.4"
+        question: "Though Parliament has pan-India jurisdiction, the President can make regulations for the peace, progress, and good government of five specific Union Territories, which have the same force as acts of Parliament. Which of the following is NOT one of those UTs?",
+        options: [
+            "Andaman and Nicobar Islands",
+            "Lakshadweep",
+            "Delhi",
+            "Ladakh"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The President makes regulations for five UTs: Andaman and Nicobar Islands, Lakshadweep, Dadra and Nagar Haveli, Daman and Diu, and Ladakh. Delhi is a specifically governed UT with its own Legislative Assembly under Art 239AA.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 6,
-        question: "6. Which writ is known as 'Bulwark of Individual Liberty'?",
-        options: ["Mandamus", "Habeas Corpus", "Quo Warranto", "Certiorari"],
-        correctAnswer: 1,
-        explanation: "Habeas Corpus.",
-        subtopic: "26.3"
+        question: "In the Seventh Schedule of the Constitution, which List gives exclusive power to the Parliament to make laws? (It currently has 98 subjects).",
+        options: [
+            "State List (List II)",
+            "Concurrent List (List III)",
+            "Union List (List I)",
+            "Residuary List"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Parliament has exclusive powers to make laws with respect to any of the matters enumerated in the Union List (List I).",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 7,
-        question: "7. The President can resign by writing to:",
-        options: ["CJI", "Vice-President", "Speaker", "PM"],
-        correctAnswer: 1,
-        explanation: "Vice-President.",
-        subtopic: "17.1"
+        question: "Which of the following subjects is correctly matched with its respective List in the Seventh Schedule?",
+        options: [
+            "Defense - State List",
+            "Police - Union List",
+            "Education - Concurrent List",
+            "Banking - State List"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Education is in the Concurrent List (shifted from State List by the 42nd Amendment). Defense and Banking are Union List subjects. Police is a key State List subject.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 8,
-        question: "8. Total strength of Lok Sabha is currently fixed based on which census?",
-        options: ["1971", "1991", "2001", "2011"],
-        correctAnswer: 0,
-        explanation: "1971 Census (Seats allocation) - frozen till 2026/following census.",
-        subtopic: "22.2"
+        question: "The power to make laws on 'Residuary Subjects' (matters not enumerated in any of the three lists) is vested in:",
+        options: [
+            "The State Legislatures",
+            "The Parliament",
+            "The Supreme Court",
+            "The President directly"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Parliament has the power to make laws with respect to any matter for any part of the territory of India not enumerated in any of the three Lists (Article 248). This is called the residuary legislative power.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 9,
-        question: "9. Tenth Schedule was added by which Amendment?",
-        options: ["42nd", "44th", "52nd", "61st"],
-        correctAnswer: 2,
-        explanation: "52nd Amendment Act, 1985.",
-        subtopic: "3.2"
+        question: "In case of a conflict or overlapping between the Union List and the State List, which list prevails?",
+        options: [
+            "The State List",
+            "The Union List",
+            "The Supreme Court decides on a case-by-case basis",
+            "The matter is moved to the Concurrent List"
+        ],
+        correctAnswer: 1, // B
+        explanation: "In case of overlapping between the Union List and the State List, the former should prevail. The Union List always secures predominance over the State List.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 10,
-        question: "10. Who appoints the Judges of the High Court?",
-        options: ["Governor", "Chief Justice of HC", "President", "CJI"],
-        correctAnswer: 2,
-        explanation: "President.",
-        subtopic: "34.1"
+        question: "According to Article 254, what happens if there is a conflict (repugnancy) between a Central law and a State law regarding a subject in the Concurrent List?",
+        options: [
+            "The State law prevails immediately.",
+            "The Central law prevails, and the State law is void to the extent of repugnancy.",
+            "Both laws are struck down by the courts.",
+            "The President suspends the subject for an entire year."
+        ],
+        correctAnswer: 1, // B
+        explanation: "In case of a conflict between the Central law and the state law on a subject enumerated in the Concurrent List, the Central law prevails over the state law.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 11,
-        question: "11. 'Economic Justice' is mentioned in?",
-        options: ["Preamble and FR", "Preamble and DPSP", "FR and DPSP", "Preamble only"],
-        correctAnswer: 1,
-        explanation: "Preamble and Directive Principles (Art 38, 39).",
-        subtopic: "4.1"
+        question: "Under Article 249, Parliament can make laws on a subject in the State List if a particular constitutional body passes a resolution declaring it is 'necessary in the national interest'. Which body is this?",
+        options: [
+            "The Lok Sabha",
+            "The Legislative Assemblies of at least half the states",
+            "The Rajya Sabha",
+            "The Inter-State Council"
+        ],
+        correctAnswer: 2, // C
+        explanation: "If the Rajya Sabha declares that it is necessary in the national interest that Parliament should make laws with respect to a matter in the State List, then the Parliament becomes competent to make laws on that matter (Article 249).",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 12,
-        question: "12. Who can remove a High Court Judge?",
-        options: ["President", "Governor", "Parliament", "Supreme Court"],
-        correctAnswer: 0,
-        explanation: "President (after Parliamentary address).",
-        subtopic: "34.1"
+        question: "When a National Emergency (Article 352) is in operation, what happens to the legislative powers concerning the State List?",
+        options: [
+            "The State Legislatures are permanently dissolved.",
+            "State Legislatures retain exclusive power, Parliament cannot interfere.",
+            "Parliament acquires the power to legislate with respect to ANY matter in the State List for the entire country.",
+            "Only the President can legislate via ordinance; Parliament is suspended."
+        ],
+        correctAnswer: 2, // C
+        explanation: "During a national emergency, Parliament acquires the power to legislate with respect to matters in the State List. The states' power to legislate is not suspended, but there is concurrent jurisdiction, and parliamentary law prevails in case of conflict.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 13,
-        question: "13. The Union Council of Ministers is collectively responsible to?",
-        options: ["House of the People", "Council of States", "President", "PM"],
-        correctAnswer: 0,
-        explanation: "House of the People (Lok Sabha).",
-        subtopic: "21.2"
+        question: "When does the Parliament acquire the power to legislate on a State List subject during 'President's Rule' (Article 356)?",
+        options: [
+            "Never; state laws remain valid.",
+            "When the Rajya Sabha passes a resolution.",
+            "When the President issues an order declaring that the powers of the state legislature shall be exercised by or under the authority of Parliament.",
+            "Only after the Supreme Court approves the takeover."
+        ],
+        correctAnswer: 2, // C
+        explanation: "When President's rule is imposed in a state, the President can declare that the powers of the state legislature are to be exercised by the Parliament. Parliament then makes laws on State List subjects for that state.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 14,
-        question: "14. Which Article gives the President power to grant pardons?",
-        options: ["72", "76", "75", "123"],
-        correctAnswer: 0,
-        explanation: "Article 72.",
-        subtopic: "17.2"
+        question: "Part XI covers Administrative Relations under Articles 256 to 263. A key principle is that the executive power of every state must be exercised so as to ensure compliance with:",
+        options: [
+            "The orders of the local High Court.",
+            "The laws made by the Parliament and any existing laws which apply in that state.",
+            "The directives of neighboring states.",
+            "The demands of the dominant political party."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Article 256 states that the executive power of every state is to be exercised in such a way as to ensure compliance with the laws made by the Parliament.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 15,
-        question: "15. The 'Sarkaria Commission' examined?",
-        options: ["Centre-State Relations", "Banking Reforms", "Election Reforms", "Judicial Reforms"],
-        correctAnswer: 0,
-        explanation: "Centre-State Relations.",
-        subtopic: "14.1"
+        question: "Under Article 365, what is the consequence if a state fails to comply with or give effect to any administrative directions given by the Centre?",
+        options: [
+            "The State Chief Minister is fined.",
+            "The State is excluded from national elections.",
+            "It is lawful for the President to hold that a situation has arisen in which the government of the state cannot be carried on in accordance with the provisions of the Constitution (leading to President's Rule).",
+            "The Centre must negotiate a treaty with the state."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Article 365 says that where any state has failed to comply with any directions given by the Centre, it will be lawful for the President to hold that a situation has arisen in which the government of the state cannot be carried on in accordance with the provisions of the Constitution (meaning Article 356 can be applied).",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 16,
-        question: "16. Article 32 is a Fundamental Right?",
-        options: ["Yes", "No", "Legal Right", "Constitutional Right"],
-        correctAnswer: 0,
-        explanation: "Yes, Right to Constitutional Remedies is a FR.",
-        subtopic: "7.1"
+        question: "The Centre can give directions to the states regarding the construction and maintenance of means of communication declared to be of 'national or military importance'. Which other specific infrastructure can the Centre direct states to protect?",
+        options: [
+            "State highways only",
+            "Private internet networks",
+            "The railways within the state",
+            "Local municipal water supplies"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Centre can direct states regarding the measures to be taken for the protection of the railways within the state.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 17,
-        question: "17. Who is the constitutional head of the State?",
-        options: ["CM", "President", "Governor", "Chief Justice"],
-        correctAnswer: 2,
-        explanation: "Governor.",
-        subtopic: "30.1"
+        question: "Which of the following bodies resolves disputes regarding the use, distribution, and control of waters of any inter-state river or river valley?",
+        options: [
+            "The Supreme Court exclusively",
+            "The National Green Tribunal",
+            "Parliament can legally provide for the adjudication of such disputes, usually by creating an ad hoc Tribunal.",
+            "The Inter-State Council"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Article 262 empowers Parliament to provide for the adjudication of any dispute or complaint with respect to the use, distribution and control of waters of any inter-state river or river valley. Parliament enacted the Inter-State Water Disputes Act (1956) creating Tribunals.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 18,
-        question: "18. What is the quorum for Rajya Sabha?",
-        options: ["25", "50", "100", "30"],
-        correctAnswer: 0,
-        explanation: "25 (1/10th of 250).",
-        subtopic: "22.3"
+        question: "Under Article 263, who has the constitutional authority to establish an Inter-State Council if it appears that the public interests would be served by its establishment?",
+        options: [
+            "The Prime Minister",
+            "The Parliament",
+            "The Chief Justice of India",
+            "The President"
+        ],
+        correctAnswer: 3, // D
+        explanation: "Article 263 contemplates the establishment of an Inter-State Council to effect coordination between the states and between Centre and states. The President can establish such a council if at any time it appears to him that the public interest would be served by its establishment.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 19,
-        question: "19. The concept of 'Due Process of Law' is a feature of?",
-        options: ["UK Constitution", "US Constitution", "Indian Constitution", "French Constitution"],
-        correctAnswer: 1,
-        explanation: "USA. India follows 'Procedure Established by Law' (though expanded by SC to 'Due Process' in Maneka Gandhi case).",
-        subtopic: "26.4"
+        question: "The 'All-India Services' are common to both the Centre and the States. Which are the three currently existing All-India Services?",
+        options: [
+            "IAS, IPS, Indian Revenue Service (IRS)",
+            "IAS, IPS, Indian Foreign Service (IFS)",
+            "IAS, IPS, Indian Forest Service (IFS)",
+            "IAS, Indian Railway Traffic Service (IRTS), IPS"
+        ],
+        correctAnswer: 2, // C
+        explanation: "There are currently three all-India services: Indian Administrative Service (IAS), Indian Police Service (IPS), and Indian Forest Service (IFS). (Note: Indian Foreign Service is a Central service, not an All-India service).",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 20,
-        question: "20. Which budget is known as the 'Budget of the Constitution'?",
-        options: ["Article 110", "Article 112", "Article 265", "Article 280"],
-        correctAnswer: 1,
-        explanation: "Annual Financial Statement (Art 112).",
-        subtopic: "22.8"
+        question: "While Members of the All-India Services serve in state administrations, who possesses the 'ultimate control' over them (e.g., the power to dismiss or remove them)?",
+        options: [
+            "The State Chief Minister",
+            "The State Public Service Commission",
+            "The Central Government",
+            "The Parliament"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The members of these services are recruited and trained by the Centre but are assigned to different states for work. The ultimate control lies with the Central government while immediate control vests with the state governments.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 21,
-        question: "21. A Money Bill passed by Lok Sabha is deemed passed by Rajya Sabha if not returned in?",
-        options: ["1 month", "14 days", "3 months", "21 days"],
-        correctAnswer: 1,
-        explanation: "14 days.",
-        subtopic: "22.6"
+        question: "State Public Service Commissions conduct exams for state civil services. However, who appoints and who removes the Chairman and members of a State Public Service Commission?",
+        options: [
+            "Appointed by the Governor, removed by the Governor.",
+            "Appointed by the President, removed by the President.",
+            "Appointed by the Governor, but removed only by the President.",
+            "Appointed by the Chief Minister, removed by the High Court."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Chairman and members of a state public service commission are appointed by the governor of the state, but they can be removed only by the President (not the governor).",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 22,
-        question: "22. Who administers oath to the State Council of Ministers?",
-        options: ["Governor", "CM", "Speaker", "Chief Justice"],
-        correctAnswer: 0,
-        explanation: "Governor.",
-        subtopic: "31.1"
+        question: "During a National Emergency (Article 352), what directive power does the Centre acquire over the States' administrative machinery?",
+        options: [
+            "The Centre can only direct states regarding external affairs.",
+            "The Centre becomes entitled to give executive directions to a state on 'any' matter.",
+            "The Centre has no administrative power; only legislative.",
+            "The states become completely independent administratively to handle the emergency."
+        ],
+        correctAnswer: 1, // B
+        explanation: "During a national emergency, the Centre becomes entitled to give executive directions to a state on 'any' matter. Thus, state governments are brought under the complete control of the Centre, though they are not suspended.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 23,
-        question: "23. 86th Amendment Act dealt with?",
-        options: ["Right to Education", "Panchayati Raj", "Anti-Defection", "GST"],
-        correctAnswer: 0,
-        explanation: "Right to Education (Article 21A) in 2002.",
-        subtopic: "7.1"
+        question: "Which Part of the Constitution deals with Centre-State 'Financial Relations' (Articles 268 to 293)?",
+        options: [
+            "Part X",
+            "Part XI",
+            "Part XII",
+            "Part XIV"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Articles 268 to 293 in Part XII of the Constitution deal with Centre-state financial relations.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 24,
-        question: "24. Can a Governor be dismissed by the President at any time?",
-        options: ["Yes", "No", "Only after inquiry", "Only on impeachment"],
-        correctAnswer: 0,
-        explanation: "Yes ('Pleasure of President').",
-        subtopic: "30.1"
+        question: "Regarding the allocation of taxing powers, who has the exclusive power to levy taxes on subjects enumerated in the Union List?",
+        options: [
+            "The State Legislature",
+            "The Finance Commission",
+            "The Parliament",
+            "Municipal Corporations"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Parliament has exclusive power to levy taxes on subjects enumerated in the Union List (e.g., income tax, customs, corporation tax).",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
     {
         id: 25,
-        question: "25. Who is the head of the State Judiciary?",
-        options: ["Governor", "Chief Justice of HC", "Law Minister", "Advocate General"],
-        correctAnswer: 1,
-        explanation: "Chief Justice of High Court.",
-        subtopic: "34.1"
+        question: "Article 280 provides for a 'Finance Commission'. Who constitutes this commission, and how often?",
+        options: [
+            "The Prime Minister, every year.",
+            "The Parliament, every 10 years.",
+            "The President of India, every fifth year or at such earlier time as he considers necessary.",
+            "The Supreme Court, when disputes arise."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Article 280 provides for a Finance Commission as a quasi-judicial body. It is constituted by the President of India every fifth year or at such earlier time as he considers necessary.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
     },
-    // Rapid Fire 26-50
-    { id: 26, question: "26. Finance Commission article?", options: ["280", "281", "360", "112"], correctAnswer: 0, subtopic: "14.2" },
-    { id: 27, question: "27. CAG article?", options: ["148", "76", "165", "324"], correctAnswer: 0, subtopic: "25.1" },
-    { id: 28, question: "28. Election Commission article?", options: ["324", "325", "326", "280"], correctAnswer: 0, subtopic: "38.1" },
-    { id: 29, question: "29. UPSC members appointed by?", options: ["President", "PM", "Chairman", "Parliament"], correctAnswer: 0, subtopic: "38.1" },
-    { id: 30, question: "30. SPSC members appointed by?", options: ["Governor", "President", "CM", "UPSC"], correctAnswer: 0, subtopic: "38.1" },
-    { id: 31, question: "31. Removal of SPSC members by?", options: ["President", "Governor", "HC", "CM"], correctAnswer: 0, subtopic: "38.1" },
-    { id: 32, question: "32. GST Council Article?", options: ["279A", "268", "269", "270"], correctAnswer: 0, subtopic: "14.1" },
-    { id: 33, question: "33. Voting age reduced from 21 to 18 by?", options: ["61st Amd", "42nd Amd", "44th Amd", "86th Amd"], correctAnswer: 0, subtopic: "22.2" },
-    { id: 34, question: "34. Co-operative Societies Fundamental Right?", options: ["19(1)(c)", "21", "14", "32"], correctAnswer: 0, subtopic: "7.1" },
-    { id: 35, question: "35. Protection of Wildlife DPSP?", options: ["48A", "48", "49", "51A"], correctAnswer: 0, subtopic: "8.1" },
-    { id: 36, question: "36. Free Legal Aid DPSP?", options: ["39A", "38", "37", "40"], correctAnswer: 0, subtopic: "8.1" },
-    { id: 37, question: "37. President Rule Max duration?", options: ["3 years", "1 year", "6 months", "Indefinite"], correctAnswer: 0, subtopic: "16.1" },
-    { id: 38, question: "38. National Emergency approval time?", options: ["1 month", "2 months", "6 months", "14 days"], correctAnswer: 0, subtopic: "16.1" },
-    { id: 39, question: "39. Financial Emergency approval time?", options: ["2 months", "1 month", "6 months", "14 days"], correctAnswer: 0, subtopic: "16.1" },
-    { id: 40, question: "40. Attorney General right to vote in Parliament?", options: ["No", "Yes", "Only in Joint Sitting", "Tie breaker"], correctAnswer: 0, subtopic: "20.3" },
-    { id: 41, question: "41. Lok Sabha Speaker Cast Vote?", options: ["In tie", "Always", "Never", "First instance"], correctAnswer: 0, subtopic: "22.4" },
-    { id: 42, question: "42. Who acts as President if President and VP absent?", options: ["CJI", "Senior SC Judge", "Speaker", "PM"], correctAnswer: 0, subtopic: "17.1" },
-    { id: 43, question: "43. Impeachment of President Notice period?", options: ["14 days", "1 month", "7 days", "2 months"], correctAnswer: 0, subtopic: "17.1" },
-    { id: 44, question: "44. Can President dissolve Rajya Sabha?", options: ["No", "Yes", "On advice of PM", "On advice of Chairman"], correctAnswer: 0, subtopic: "22.2" },
-    { id: 45, question: "45. Term of Rajya Sabha member?", options: ["6 years", "5 years", "2 years", "Reference"], correctAnswer: 0, subtopic: "22.2" },
-    { id: 46, question: "46. Composition of RS?", options: ["238 + 12", "250 + 2", "543 + 2", "550"], correctAnswer: 0, subtopic: "22.1" },
-    { id: 47, question: "47. Max strength of LS?", options: ["552", "545", "500", "250"], correctAnswer: 0, subtopic: "22.1" },
-    { id: 48, question: "48. Anglo-Indian nomination abolished by?", options: ["104th Amd", "103rd Amd", "102nd Amd", "101st Amd"], correctAnswer: 0, subtopic: "22.2" },
-    { id: 49, question: "49. 102nd Amendment?", options: ["NCBC status", "EWS", "GST", "Land Boundary"], correctAnswer: 0, subtopic: "38.1" },
-    { id: 50, question: "50. 103rd Amendment?", options: ["EWS 10%", "NCBC", "GST", "SC/ST"], correctAnswer: 0, subtopic: "7.1" },
-    // 51-100 Filler similar high-yield
-    { id: 51, question: "51. Which Schedule deals with Languages?", options: ["8th", "7th", "9th", "10th"], correctAnswer: 0, subtopic: "3.2" },
-    { id: 52, question: "52. Which Schedule deals with Allocation of Seats in RS?", options: ["4th", "3rd", "2nd", "5th"], correctAnswer: 0, subtopic: "3.2" },
-    { id: 53, question: "53. Forms of Oaths are in?", options: ["3rd Schedule", "2nd Schedule", "4th Schedule", "Preamble"], correctAnswer: 0, subtopic: "3.2" },
-    { id: 54, question: "54. Anti-Defection Schedule?", options: ["10th", "11th", "12th", "9th"], correctAnswer: 0, subtopic: "3.2" },
-    { id: 55, question: "55. Panchayat powers Schedule?", options: ["11th", "12th", "10th", "9th"], correctAnswer: 0, subtopic: "3.2" },
-    { id: 56, question: "56. Municipality powers Schedule?", options: ["12th", "11th", "10th", "9th"], correctAnswer: 0, subtopic: "3.2" },
-    { id: 57, question: "57. Land Reform Acts protection?", options: ["9th Schedule", "10th Schedule", "8th Schedule", "7th Schedule"], correctAnswer: 0, subtopic: "3.2" },
-    { id: 58, question: "58. Division of powers lists?", options: ["7th Schedule", "8th Schedule", "6th Schedule", "5th Schedule"], correctAnswer: 0, subtopic: "3.2" },
-    { id: 59, question: "59. Tribal Areas administration (Assam, Meghalaya...)?", options: ["6th Schedule", "5th Schedule", "7th Schedule", "4th Schedule"], correctAnswer: 0, subtopic: "3.2" },
-    { id: 60, question: "60. Scheduled Areas administration (General)?", options: ["5th Schedule", "6th Schedule", "8th Schedule", "9th Schedule"], correctAnswer: 0, subtopic: "3.2" },
-    { id: 61, question: "61. Right to Sleep is a part of?", options: ["Art 21", "Art 19", "Art 20", "Art 22"], correctAnswer: 0, subtopic: "7.1" },
-    { id: 62, question: "62. Right to Privacy is a part of?", options: ["Art 21", "Art 19", "Art 14", "Art 25"], correctAnswer: 0, subtopic: "7.1" },
-    { id: 63, question: "63. Right to Internet access?", options: ["Art 19", "Art 21", "Art 14", "Art 32"], correctAnswer: 0, subtopic: "7.1" },
-    { id: 64, question: "64. Abolition of Titles?", options: ["Art 18", "Art 17", "Art 19", "Art 20"], correctAnswer: 0, subtopic: "7.1" },
-    { id: 65, question: "65. Freedom of Press implicit in?", options: ["19(1)(a)", "19(1)(b)", "21", "14"], correctAnswer: 0, subtopic: "7.1" },
-    { id: 66, question: "66. Prohibition of Traffic in Human Beings?", options: ["Art 23", "Art 24", "Art 21", "Art 22"], correctAnswer: 0, subtopic: "7.1" },
-    { id: 67, question: "67. Prohibition of Child Labour?", options: ["Art 24", "Art 23", "Art 21A", "Art 45"], correctAnswer: 0, subtopic: "7.1" },
-    { id: 68, question: "68. Freedom of Conscience?", options: ["Art 25", "Art 26", "Art 27", "Art 28"], correctAnswer: 0, subtopic: "7.1" },
-    { id: 69, question: "69. Protection of interests of minorities?", options: ["Art 29", "Art 30", "Art 28", "Art 27"], correctAnswer: 0, subtopic: "7.1" },
-    { id: 70, question: "70. Right of minorities to establish educational institutions?", options: ["Art 30", "Art 29", "Art 28", "Art 21A"], correctAnswer: 0, subtopic: "7.1" },
-    { id: 71, question: "71. Who is the first Law Officer of State?", options: ["Advocate General", "Attorney General", "Solicitor General", "Law Minister"], correctAnswer: 0, subtopic: "30.3" },
-    { id: 72, question: "72. Which Article deals with State Legislature?", options: ["168", "169", "170", "152"], correctAnswer: 0, subtopic: "36.1" },
-    { id: 73, question: "73. Who appoints Chief Minister?", options: ["Governor", "President", "Party", "Speaker"], correctAnswer: 0, subtopic: "31.1" },
-    { id: 74, question: "74. Minimum age for Governor?", options: ["35", "30", "25", "40"], correctAnswer: 0, subtopic: "30.1" },
-    { id: 75, question: "75. Can a person be Governor of two states?", options: ["Yes", "No", "Only temporarily", "Only UTs"], correctAnswer: 0, subtopic: "30.1" },
-    { id: 76, question: "76. Salary of Governor charged on?", options: ["Consolidated Fund of State", "India", "Contingency", "Grants"], correctAnswer: 0, subtopic: "30.1" },
-    { id: 77, question: "77. Ordinance of Governor life?", options: ["6 weeks from reassembly", "6 months", "3 months", "1 year"], correctAnswer: 0, subtopic: "31.4" },
-    { id: 78, question: "78. Joint Sitting of State Legislature?", options: ["No Provision", "Yes", "For Money Bills", "For Ordinary Bills"], correctAnswer: 0, subtopic: "36.5" },
-    { id: 79, question: "79. Creation of Legislative Council Process?", options: ["Assembly Special Resolution + Parl Simple Law", "Parl Amendment", "State Act", "President Order"], correctAnswer: 0, subtopic: "36.2" },
-    { id: 80, question: "80. How many states have Vidhan Parishad?", options: ["6", "7", "5", "28"], correctAnswer: 0, subtopic: "36.1" },
-    { id: 81, question: "81. Andhra Pradesh Capital?", options: ["Amaravati", "Hyderabad", "Vizag", "Kurnool"], correctAnswer: 0, subtopic: "5.1" },
-    { id: 82, question: "82. Language of Supreme Court?", options: ["English", "Hindi", "Both", "Any"], correctAnswer: 0, subtopic: "26.1" },
-    { id: 83, question: "83. SC Judges retirement age?", options: ["65", "62", "60", "70"], correctAnswer: 0, subtopic: "26.1" },
-    { id: 84, question: "84. HC Judges retirement age?", options: ["62", "65", "60", "58"], correctAnswer: 0, subtopic: "34.1" },
-    { id: 85, question: "85. Strength of SC decided by?", options: ["Parliament", "President", "CJI", "Constitution"], correctAnswer: 0, subtopic: "26.1" },
-    { id: 86, question: "86. Strength of HC decided by?", options: ["President", "Parliament", "Governor", "CJ HC"], correctAnswer: 0, subtopic: "34.1" },
-    { id: 87, question: "87. Separation of Powers is in?", options: ["Basic Structure", "Preamble", "DPSP", "FR"], correctAnswer: 0, subtopic: "11.1" },
-    { id: 88, question: "88. Judicial Review source?", options: ["Art 13", "Art 32", "Art 226", "All"], correctAnswer: 3, subtopic: "26.4" },
-    { id: 89, question: "89. PIL introduced by?", options: ["Justice PN Bhagwati", "Justice Iyer", "Justice Ray", "Justice Beg"], correctAnswer: 0, subtopic: "26.4" },
-    { id: 90, question: "90. Curative Petition concept from?", options: ["Rupa Ashok Hurra case", "Maneka Gandhi case", "Kesavananda case", "Minerva case"], correctAnswer: 0, subtopic: "26.3" },
-    { id: 91, question: "91. Largest Committee of Parliament?", options: ["Estimates Committee", "PAC", "CPU", "Ethics"], correctAnswer: 0, subtopic: "23.1" },
-    { id: 92, question: "92. Chairman of PAC from?", options: ["Opposition", "Ruling", "RS", "Speaker"], correctAnswer: 0, subtopic: "23.1" },
-    { id: 93, question: "93. 'Friend, Philosopher and Guide' of PAC?", options: ["CAG", "Speaker", "Secretary General", "Attorney General"], correctAnswer: 0, subtopic: "25.1" },
-    { id: 94, question: "94. Ethics Committee in LS started in?", options: ["2000", "1997", "2005", "1990"], correctAnswer: 0, subtopic: "23.4" },
-    { id: 95, question: "95. Committee on Women Empowerment members?", options: ["30 (20 LS + 10 RS)", "22", "15", "45"], correctAnswer: 0, subtopic: "23.3" },
-    { id: 96, question: "96. Who is not a member of Zonal Councils?", options: ["President", "Home Minister", "CMs", "Administrator of UTs"], correctAnswer: 0, subtopic: "15.1" },
-    { id: 97, question: "97. Chairman of Zonal Councils?", options: ["Home Minister", "PM", "President", "VP"], correctAnswer: 0, subtopic: "15.1" },
-    { id: 98, question: "98. Inter-State Council set up by?", options: ["President", "Parliament", "SC", "PM"], correctAnswer: 0, subtopic: "14.3" },
-    { id: 99, question: "99. Article 263 deals with?", options: ["Inter-State Council", "Water disputes", "Finance Commission", "GST"], correctAnswer: 0, subtopic: "14.3" },
-    { id: 100, question: "100. Punchhi Commission related to?", options: ["Centre-State Relations", "Police Reforms", "Electoral Reforms", "Education"], correctAnswer: 0, subtopic: "14.1" }
+    {
+        id: 26,
+        question: "What is the primary function of the Finance Commission regarding Central and State finances?",
+        options: [
+            "To collect taxes from citizens directly.",
+            "To audit the accounts of the central and state governments.",
+            "To make recommendations to the President regarding the distribution of net proceeds of taxes between the Centre and the states, and the allocation between the states of the respective shares of such proceeds.",
+            "To print currency notes."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Finance Commission is required to make recommendations regarding the distribution of the net proceeds of taxes to be shared between the Centre and the states, and the allocation between the states of the respective shares of such proceeds.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
+    },
+    {
+        id: 27,
+        question: "Besides sharing taxes, the Constitution provides for 'Grants-in-Aid' to the states from the Central resources. Statutory grants (Article 275) are given out of which fund?",
+        options: [
+            "The Contingency Fund of India",
+            "The Consolidated Fund of India",
+            "The Public Account of India",
+            "The Prime Minister's Relief Fund"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Article 275 empowers the Parliament to make grants to the states which are in need of financial assistance. These sums are charged on the Consolidated Fund of India every year.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
+    },
+    {
+        id: 28,
+        question: "States can borrow money within India. However, under what condition must a State obtain the explicit 'consent' of the Central Government before raising any new loan?",
+        options: [
+            "If the loan amount exceeds 1 Crore rupees.",
+            "If the loan is raised from an international bank.",
+            "If there is still outstanding any part of a loan made to the State by the Centre, or in respect of which the Centre has given a guarantee.",
+            "States never need Central consent to borrow internally."
+        ],
+        correctAnswer: 2, // C
+        explanation: "A state cannot raise any loan without the consent of the Centre, if there is still outstanding any part of a loan made to the state by the Centre or in respect of which a guarantee has been given by the Centre. (In practice, all states have debt to the Centre, meaning they always need consent).",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
+    },
+    {
+        id: 29,
+        question: "During a 'Financial Emergency' (Article 360), what power does the Centre gain over State budgets in particular?",
+        options: [
+            "The Centre can abolish state taxes.",
+            "The President can mandate that all money bills passed by the state legislature be reserved for his consideration.",
+            "The Centre takes over the collection of all local taxes.",
+            "The state budget is voted on by the Lok Sabha instead of the State Assembly."
+        ],
+        correctAnswer: 1, // B
+        explanation: "During a Financial Emergency, the President can give directions requiring all money bills or other financial bills to be reserved for the consideration of the President after they are passed by the state legislature.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
+    },
+    {
+        id: 30,
+        question: "In 1983, the Central Government appointed a major three-member commission to thoroughly examine the working of Centre-State relations. What was the name of this famous commission?",
+        options: [
+            "Rajamannar Committee",
+            "Kothari Commission",
+            "Sarkaria Commission",
+            "Punchhi Commission"
+        ],
+        correctAnswer: 2, // C
+        explanation: "In 1983, the Central government appointed a three-member Commission on Centre-state relations under the chairmanship of R.S. Sarkaria, a retired judge of the Supreme Court.",
+        level: "Easy", topic: "Centre-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Centre-State Relations" }
+    }
 ];
-
-export default DAY14_MCQS;

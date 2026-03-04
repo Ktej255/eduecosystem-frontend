@@ -1,368 +1,397 @@
-
-export interface MCQ {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation?: string;
-    level?: string;
-    topic?: string;
-    chapter?: string;
-    subtopic?: string;
-}
+import type { MCQ } from './mcq-utils';
 
 export const DAY21_MCQS: MCQ[] = [
-    // ==========================================
-    // WEEK 1 & 2 MIX (20 Questions)
-    // ==========================================
+    // ----------------------------------------------------------------------
+    // LEVEL 1: EASY (The Text-Book Stickler - Strictly Chapter 21)
+    // ----------------------------------------------------------------------
     {
         id: 1,
-        question: "Which Schedule contains the Union List, State List and Concurrent List?",
-        options: ["Seventh Schedule", "Eighth Schedule", "Ninth Schedule", "Sixth Schedule"],
-        correctAnswer: 0,
-        explanation: "Seventh Schedule (Article 246).",
-        subtopic: "14.1"
+        question: "Are Cabinet Committees mentioned in the Constitution of India?",
+        options: [
+            "Yes, they are described in Article 74.",
+            "Yes, they are established under Article 77.",
+            "No, they are extra-constitutional in emergence.",
+            "Yes, they are mentioned in the First Schedule."
+        ],
+        correctAnswer: 2, // C
+        explanation: "They are extra-constitutional in emergence. In other words, they are not mentioned in the Constitution.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 2,
-        question: "President's Rule (Article 356) can be imposed when:",
-        options: ["Financial instability", "Failure of constitutional machinery in State", "War", "Internal disturbance"],
-        correctAnswer: 1,
-        explanation: "Failure of constitutional machinery in the State.",
-        subtopic: "16.1"
+        question: "Under which rules are the establishment of Cabinet Committees provided?",
+        options: [
+            "Rules of Procedure of the Lok Sabha",
+            "Rules of Business of the Government of India",
+            "The Constitution of India",
+            "The Representation of the People Act"
+        ],
+        correctAnswer: 1, // B
+        explanation: "However, the Rules of Business provide for their establishment.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 3,
-        question: "Who administers oath to the President?",
-        options: ["Vice President", "PM", "Chief Justice of India", "Speaker"],
-        correctAnswer: 2,
-        explanation: "Chief Justice of India.",
-        subtopic: "17.1"
+        question: "What are the two types of Cabinet Committees?",
+        options: [
+            "Standing and Ad hoc",
+            "Formal and Informal",
+            "Executive and Legislative",
+            "Permanent and Temporary"
+        ],
+        correctAnswer: 0, // A
+        explanation: "They are of two types—standing and ad hoc. The former are of a permanent nature while the latter are of a temporary nature.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 4,
-        question: "Money Bill can be introduced in:",
-        options: ["Only Lok Sabha", "Only Rajya Sabha", "Either House", "Joint Sitting"],
-        correctAnswer: 0,
-        explanation: "Only in Lok Sabha.",
-        subtopic: "22.2"
+        question: "Who sets up the Cabinet Committees?",
+        options: [
+            "The President",
+            "The Parliament",
+            "The Prime Minister",
+            "The Chief Justice of India"
+        ],
+        correctAnswer: 2, // C
+        explanation: "They are set up by the Prime Minister according to the exigencies of the time and requirements of the situation.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 5,
-        question: "Anti-Defection Law is contained in:",
-        options: ["10th Schedule", "11th Schedule", "9th Schedule", "8th Schedule"],
-        correctAnswer: 0,
-        explanation: "10th Schedule (added by 52nd Amendment).",
-        subtopic: "23.2"
+        question: "Does the number, nomenclature, and composition of Cabinet Committees remain the same over time?",
+        options: [
+            "Yes, they are fixed by law.",
+            "No, they vary from time to time.",
+            "Yes, they are changed only by constitutional amendment.",
+            "Yes, they are fixed by the President."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Hence, their number, nomenclature, and composition varies from time to time.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 6,
-        question: "Preamble was amended by which Amendment?",
-        options: ["42nd", "44th", "86th", "None"],
-        correctAnswer: 0,
-        explanation: "42nd Amendment Act, 1976 (Added Secular, Socialist, Integrity).",
-        subtopic: "4.1"
+        question: "What is the typical membership size of a Cabinet Committee?",
+        options: [
+            "Only 2 members",
+            "Exactly 10 members",
+            "They usually include only three to eight members.",
+            "More than 15 members"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Their membership varies from three to eight. They usually include only cabinet ministers.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 7,
-        question: "Fundamental Rights are suspended during National Emergency except:",
-        options: ["Article 19", "Article 20 and 21", "Article 14", "Article 32"],
-        correctAnswer: 1,
-        explanation: "Article 20 and 21 cannot be suspended even during National Emergency.",
-        subtopic: "16.1"
+        question: "Are non-cabinet ministers entirely excluded from membership in Cabinet Committees?",
+        options: [
+            "Yes, they are completely barred.",
+            "No, the non-cabinet ministers are not debarred from their membership.",
+            "Yes, unless special permission is granted by the President.",
+            "No, but they cannot vote."
+        ],
+        correctAnswer: 1, // B
+        explanation: "They usually include only cabinet ministers. However, the non-cabinet ministers are not debarred from their membership.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 8,
-        question: "Quorum to constitute a meeting of Lok Sabha?",
-        options: ["1/10th of total members", "1/5th", "1/3rd", "50 members"],
-        correctAnswer: 0,
-        explanation: "One-tenth of the total number of members.",
-        subtopic: "22.1"
+        question: "Do Cabinet Committees only include ministers in charge of subjects covered by the committee?",
+        options: [
+            "Yes, exclusively.",
+            "No, they not only include the ministers in charge of subjects covered by them but also include other senior ministers.",
+            "Yes, to ensure focused discussion.",
+            "No, they must include opposition members as well."
+        ],
+        correctAnswer: 1, // B
+        explanation: "They not only include the ministers in charge of subjects covered by them but also include other senior ministers.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 9,
-        question: "Who is the ex-officio Chairman of Rajya Sabha?",
-        options: ["President", "Vice President", "PM", "Deeputy Chairman"],
-        correctAnswer: 1,
-        explanation: "Vice President of India.",
-        subtopic: "22.1"
+        question: "Who mostly heads the Cabinet Committees?",
+        options: [
+            "The Home Minister",
+            "The Prime Minister",
+            "The Finance Minister",
+            "The President"
+        ],
+        correctAnswer: 1, // B
+        explanation: "They are mostly headed by the Prime Minister. Some time other Cabinet Ministers, particularly the Home Minister or the Finance Minister, also acts as their Chairman.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 10,
-        question: "Supreme Court judges retire at age of:",
-        options: ["60", "62", "65", "70"],
-        correctAnswer: 2,
-        explanation: "65 years.",
-        subtopic: "26.1"
+        question: "If the Prime Minister is a member of a Cabinet Committee, what is his formal position in that committee?",
+        options: [
+            "He acts as a regular member.",
+            "He acts as an observer.",
+            "He invariably presides over it.",
+            "He serves as the secretary."
+        ],
+        correctAnswer: 2, // C
+        explanation: "But, in case the Prime Minister is a member of a committee, he invariably presides over it.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
-    { id: 11, question: "Panchayati Raj received constitutional status by?", options: ["73rd Amd", "74th Amd", "42nd Amd", "44th Amd"], correctAnswer: 0, subtopic: "39.1" },
-    { id: 12, question: "Uniform Civil Code is a?", options: ["FR", "DPSP", "FD", "Legal Right"], correctAnswer: 1, subtopic: "9.2" },
-    { id: 13, question: "Right to Property is a?", options: ["Fundamental Right", "Legal Right", "Moral Right", "Natural Right"], correctAnswer: 1, subtopic: "8.1" },
-    { id: 14, question: "Sarkaria Commission dealt with?", options: ["Centre-State Relations", "Banking", "Elections", "Education"], correctAnswer: 0, subtopic: "15.2" },
-    { id: 15, question: "First Law Officer of India?", options: ["CJI", "Attorney General", "Law Minister", "Solicitor General"], correctAnswer: 1, subtopic: "38.3" },
-    { id: 16, question: "Joint Sitting is summoned by?", options: ["Speaker", "President", "PM", "Chairman RS"], correctAnswer: 1, subtopic: "22.3" },
-    { id: 17, question: "Fundamental Duties were borrowed from?", options: ["USA", "USSR", "UK", "Canada"], correctAnswer: 1, subtopic: "10.1" },
-    { id: 18, question: "Residuary powers vest with?", options: ["Centre", "States", "Both", "President"], correctAnswer: 0, subtopic: "14.1" },
-    { id: 19, question: "Cabinet word mentioned in Constitution?", options: ["Article 352", "Article 74", "Article 75", "Not mentioned"], correctAnswer: 0, subtopic: "19.1" }, // Since 44th Amd
-    { id: 20, question: "Procedure established by law vs Due process?", options: ["Article 21", "Article 14", "Article 19", "Article 32"], correctAnswer: 0, subtopic: "8.1" },
-
-    // ==========================================
-    // WEEK 3 MIX (20 Questions - Judiciary/Fed/Bodies)
-    // ==========================================
+    {
+        id: 11,
+        question: "What happens to the decisions taken by a Cabinet Committee?",
+        options: [
+            "They are final and cannot be reviewed.",
+            "They must be approved by the President first.",
+            "They not only sort out issues and formulate proposals for the consideration of the Cabinet, but also take decisions. However, the Cabinet can review their decisions.",
+            "They are sent directly to Parliament for a vote."
+        ],
+        correctAnswer: 2, // C
+        explanation: "They not only sort out issues and formulate proposals for the consideration of the Cabinet, but also take decisions. However, the Cabinet can review their decisions.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
+    },
+    {
+        id: 12,
+        question: "Upon what principle are Cabinet Committees based?",
+        options: [
+            "Division of labor and effective delegation",
+            "Separation of powers",
+            "Checks and balances",
+            "Federalism"
+        ],
+        correctAnswer: 0, // A
+        explanation: "They are an organisational device to reduce the enormous workload of the Cabinet. They also facilitate in-depth examination of policy issues and effective coordination. They are based on the principles of division of labour and effective delegation.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
+    },
+    {
+        id: 13,
+        question: "Which of the following describes 'Ad hoc' committees?",
+        options: [
+            "They are permanent in nature.",
+            "They are formed by the Parliament.",
+            "They are constituted from time to time to deal with special problems.",
+            "They only handle financial matters."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Ad hoc committees are constituted from time to time to deal with special problems.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
+    },
+    {
+        id: 14,
+        question: "In 1994, how many standing cabinet committees were in existence?",
+        options: [
+            "10",
+            "11",
+            "12",
+            "13"
+        ],
+        correctAnswer: 3, // D
+        explanation: "In 1994, there were 13 standing cabinet committees.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
+    },
+    {
+        id: 15,
+        question: "In 2013, how many standing cabinet committees were in existence?",
+        options: [
+            "8",
+            "10",
+            "12",
+            "13"
+        ],
+        correctAnswer: 1, // B
+        explanation: "In 2013, there were 10 standing cabinet committees.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
+    },
+    {
+        id: 16,
+        question: "At present (as of the chapter's context/2019 reconstituted list), how many standing cabinet committees are there?",
+        options: [
+            "6",
+            "8",
+            "10",
+            "12"
+        ],
+        correctAnswer: 1, // B
+        explanation: "At present, there are 8 standing cabinet committees.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
+    },
+    {
+        id: 17,
+        question: "Which of the following is NOT one of the current standing cabinet committees?",
+        options: [
+            "Cabinet Committee on Security",
+            "Cabinet Committee on Economic Affairs",
+            "Cabinet Committee on Political Affairs",
+            "Cabinet Committee on External Affairs"
+        ],
+        correctAnswer: 3, // D
+        explanation: "The list includes: Political Affairs, Economic Affairs, Appointments, Security, Parliamentary Affairs, Accommodation, Investment and Growth, and Employment and Skill Development. There is no 'Cabinet Committee on External Affairs' mentioned.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
+    },
+    {
+        id: 18,
+        question: "Which Cabinet Committee deals with all policy matters pertaining to domestic and foreign affairs?",
+        options: [
+            "The Cabinet Committee on Security",
+            "The Cabinet Committee on Political Affairs",
+            "The Cabinet Committee on Economic Affairs",
+            "The Cabinet Committee on Parliamentary Affairs"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Cabinet Committee on Political Affairs deals with all policy matters pertaining to domestic and foreign affairs.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
+    },
+    {
+        id: 19,
+        question: "What is the function of the Cabinet Committee on Economic Affairs?",
+        options: [
+            "It directs and coordinates the governmental activities in the economic sphere.",
+            "It manages the progress of government business in the Parliament.",
+            "It deals with all policy matters pertaining to domestic and foreign affairs.",
+            "It decides all higher level appointments in the Central Secretariat."
+        ],
+        correctAnswer: 0, // A
+        explanation: "The Cabinet Committee on Economic Affairs directs and coordinates the governmental activities in the economic sphere.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
+    },
+    {
+        id: 20,
+        question: "Which Cabinet Committee decides all higher-level appointments in the Central Secretariat, Public Enterprises, Banks and Financial Institutions?",
+        options: [
+            "The Appointments Committee of the Cabinet",
+            "The Cabinet Committee on Economic Affairs",
+            "The Cabinet Committee on Parliamentary Affairs",
+            "The Cabinet Committee on Political Affairs"
+        ],
+        correctAnswer: 0, // A
+        explanation: "Appointments Committee of the Cabinet decides all higher level appointments in the Central Secretariat, Public Enterprises, Banks and Financial Institutions.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
+    },
     {
         id: 21,
-        question: "GST Council Chairperson?",
-        options: ["PM", "FM", "President", "RBI Gov"],
-        correctAnswer: 1,
-        explanation: "Union Finance Minister.",
-        subtopic: "47.2"
+        question: "Which Cabinet Committee looks after the progress of government business in the Parliament?",
+        options: [
+            "The Cabinet Committee on Political Affairs",
+            "The Cabinet Committee on Parliamentary Affairs",
+            "The Appointments Committee of the Cabinet",
+            "The Cabinet Committee on Security"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Parliamentary Affairs Committee looks after the progress of government business in the Parliament.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 22,
-        question: "Tribunals Article?",
-        options: ["323A", "324", "326", "320"],
-        correctAnswer: 0,
-        explanation: "Article 323A (Administrative Tribunals).",
-        subtopic: "36.1"
+        question: "Who chairs the Cabinet Committee on Parliamentary Affairs?",
+        options: [
+            "The Prime Minister",
+            "The Home Minister",
+            "The Finance Minister",
+            "The Speaker of Lok Sabha"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The first three committees [Political Affairs, Economic Affairs, Appointments] are chaired by the Prime Minister and the last one [Parliamentary Affairs] by the Home Minister.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 23,
-        question: "NCBC Constitutional status year?",
-        options: ["2018", "2019", "2015", "1993"],
-        correctAnswer: 0,
-        explanation: "2018 (102nd Amendment).",
-        subtopic: "39.2"
+        question: "Out of the four most important cabinet committees mentioned in the text (Political Affairs, Economic Affairs, Appointments, Parliamentary Affairs), which one is described as the most powerful?",
+        options: [
+            "The Appointments Committee",
+            "The Cabinet Committee on Economic Affairs",
+            "The Cabinet Committee on Political Affairs",
+            "The Cabinet Committee on Parliamentary Affairs"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Of all the Cabinet Committees, the most powerful is the Political Affairs Committee, often described as a 'Super-Cabinet'.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 24,
-        question: "Who removes SPSC members?",
-        options: ["Governor", "President", "CM", "HC Judge"],
-        correctAnswer: 1,
-        explanation: "President.",
-        subtopic: "38.2"
+        question: "Which Cabinet Committee is often referred to as the 'Super-Cabinet'?",
+        options: [
+            "The Appointments Committee of the Cabinet",
+            "The Cabinet Committee on Economic Affairs",
+            "The Cabinet Committee on Political Affairs",
+            "The Cabinet Committee on Security"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Of all the Cabinet Committees, the most powerful is the Political Affairs Committee, often described as a 'Super-Cabinet'.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 25,
-        question: "Finance Commission formed every?",
-        options: ["5 years", "6 years", "4 years", "10 years"],
-        correctAnswer: 0,
-        explanation: "5 years.",
-        subtopic: "22.1"
+        question: "Besides Standing Committees, what other institutional mechanisms have Prime Ministers used to reduce Cabinet workload?",
+        options: [
+            "Group of Ministers (GoMs)",
+            "Special Parliamentary Committees",
+            "Supreme Court Advisory Panels",
+            "National Security Council Directives"
+        ],
+        correctAnswer: 0, // A
+        explanation: "In addition to cabinet committees, several Groups of Ministers (GoMs) has been constituted to look into different issues/subjects.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 26,
-        question: "NITI Aayog Chairman?",
-        options: ["President", "PM", "Finance Minister", "Planning Minister"],
-        correctAnswer: 1,
-        explanation: "Prime Minister.",
-        subtopic: "55.2"
+        question: "Are Groups of Ministers (GoMs) permanent bodies?",
+        options: [
+            "Yes, they are established by the Constitution.",
+            "No, some of these GoMs have been empowered to take decisions on behalf of the Cabinet whereas the others make recommendations to the Cabinet. They are essentially Ad hoc.",
+            "Yes, they exist as long as the Lok Sabha exists.",
+            "No, they only exist during emergencies."
+        ],
+        correctAnswer: 1, // B
+        explanation: "GoMs are ad hoc bodies formed to give recommendations to the cabinet on certain emergent issues and critical problem areas.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 27,
-        question: "CAG removal grounds same as?",
-        options: ["SC Judge", "Minister", "Governor", "MP"],
-        correctAnswer: 0,
-        explanation: "Judge of Supreme Court.",
-        subtopic: "25.1"
+        question: "What is an Empowered Group of Ministers (EGoM)?",
+        options: [
+            "A GoM headed specifically by the Prime Minister.",
+            "A GoM that has been empowered to take decisions on behalf of the Cabinet without further approval.",
+            "A GoM that includes state Chief Ministers.",
+            "A GoM sanctioned by the Supreme Court."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Some of these GoMs have been empowered to take decisions on behalf of the Cabinet whereas the others make recommendations to the Cabinet.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 28,
-        question: "Article 44 deals with?",
-        options: ["UCC", "Village Panchayat", "Education", "Wages"],
-        correctAnswer: 0,
-        explanation: "Uniform Civil Code.",
-        subtopic: "9.2"
+        question: "What happened to the existing Empowered Group of Ministers (EGoMs) and Group of Ministers (GoMs) under the Modi government in 2014?",
+        options: [
+            "Their numbers were doubled.",
+            "They were integrated into the NITI Aayog.",
+            "The Modi government decided to abolish all the existing 9 EGoMs and 21 GoMs for greater accountability and faster decision-making.",
+            "They were made permanent constitutional bodies."
+        ],
+        correctAnswer: 2, // C
+        explanation: "It should be noted here that the Modi government in 2014, decided to abolish all the existing 9 EGoMs (Empowered Group of Ministers) and 21 GoMs (Group of Ministers)...",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 29,
-        question: "Linguistic Minorities Special Officer Article?",
-        options: ["350B", "340", "342", "351"],
-        correctAnswer: 0,
-        explanation: "Article 350B.",
-        subtopic: "39.3"
+        question: "What was the stated purpose behind the abolition of EGoMs and GoMs in 2014?",
+        options: [
+            "To give more power to the President.",
+            "For greater accountability and to ensure faster decision-making by ministries and departments.",
+            "To reduce the financial burden of committee meetings.",
+            "To transfer their functions directly to the Parliament."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Modi government in 2014, decided to abolish all the existing 9 EGoMs... for greater accountability and to ensure faster decision-making. This move was to empower the Ministries and Departments to take decisions themselves.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     },
     {
         id: 30,
-        question: "Election Commission consists of CAN & ?",
-        options: ["2 ECs", "3 ECs", "4 ECs", "Fixed by President"],
-        correctAnswer: 3,
-        explanation: "Such number of other ECs as the President may fix.",
-        subtopic: "38.1"
-    },
-    { id: 31, question: "EVM first used in?", options: ["Kerala", "Goa", "Delhi", "UP"], correctAnswer: 0, subtopic: "38.1" },
-    { id: 32, question: "PIL pioneer judge?", options: ["P.N. Bhagwati", "Chandrachud", "Hidayatullah", "Ray"], correctAnswer: 0, subtopic: "30.1" },
-    { id: 33, question: "Subordinate Courts Article?", options: ["233-237", "214-231", "124-147", "300A"], correctAnswer: 0, subtopic: "37.1" },
-    { id: 34, question: "Voting Age 21 to 18 Amd?", options: ["61st", "69th", "73rd", "86th"], correctAnswer: 0, subtopic: "38.1" },
-    { id: 35, question: "Who appoints District Judges?", options: ["Governor", "President", "CJI", "CM"], correctAnswer: 0, subtopic: "37.1" },
-    { id: 36, question: "Term of UPSC Member?", options: ["6 yrs/65 age", "5 yrs/65 age", "6 yrs/62 age", "5 yrs/60 age"], correctAnswer: 0, subtopic: "38.1" },
-    { id: 37, question: "Who appoints National Commission for SC Chair?", options: ["President", "PM", "Speaker", "CJI"], correctAnswer: 0, subtopic: "39.2" },
-    { id: 38, question: "Finance Commission recommendations?", options: ["Advisory", "Binding", "Mandatory", "Statutory"], correctAnswer: 0, subtopic: "22.1" },
-    { id: 39, question: "Article 40?", options: ["Village Panchayats", "UCC", "Cow Slaughter", "Separation of Judiciary"], correctAnswer: 0, subtopic: "9.2" },
-    { id: 40, question: "Fundamentals Duties non-justiciable?", options: ["Yes", "No", "Partially", "None"], correctAnswer: 0, subtopic: "10.1" },
-
-    // ==========================================
-    // TOUGH & INTEGRATED (20 Questions)
-    // ==========================================
-    {
-        id: 41,
-        question: "Which writ is issued to squash the order of a lower court?",
-        options: ["Certiorari", "Mandamus", "Quo-Warranto", "Habeas Corpus"],
-        correctAnswer: 0,
-        explanation: "Certiorari.",
-        subtopic: "32.1"
-    },
-    {
-        id: 42,
-        question: "Who can remove the Vice-President?",
-        options: ["Parliament", "Rajya Sabha only", "President", "Supreme Court"],
-        correctAnswer: 0,
-        explanation: "Resolution by RS passed by effective majority and agreed to by LS.",
-        subtopic: "18.1"
-    },
-    {
-        id: 43,
-        question: "Legislative Council creation/abolition Article?",
-        options: ["169", "170", "171", "168"],
-        correctAnswer: 0,
-        explanation: "Article 169.",
-        subtopic: "33.1"
-    },
-    {
-        id: 44,
-        question: "Maximum gap between two sessions of Parliament?",
-        options: ["6 months", "3 months", "9 months", "1 year"],
-        correctAnswer: 0,
-        explanation: "Six months.",
-        subtopic: "22.1"
-    },
-    {
-        id: 45,
-        question: "Who decides disqualification under 10th Schedule?",
-        options: ["Presiding Officer of House", "President", "ECI", "Court"],
-        correctAnswer: 0,
-        explanation: "Chairman/Speaker of the House.",
-        subtopic: "23.2"
-    },
-    {
-        id: 46,
-        question: "Casting vote in Parliament is exercised by?",
-        options: ["Speaker", "PM", "Leader of Opposition", "Secretary General"],
-        correctAnswer: 0,
-        explanation: "Speaker (in case of tie only).",
-        subtopic: "22.1"
-    },
-    {
-        id: 47,
-        question: "Money Bill can be rejected by Rajya Sabha?",
-        options: ["No", "Yes", "Yes with reason", "Only for 6 months"],
-        correctAnswer: 0,
-        explanation: "No. RS can only delay for 14 days.",
-        subtopic: "22.2"
-    },
-    {
-        id: 48,
-        question: "Who appoints the PM?",
-        options: ["President", "Lok Sabha", "Majority Party", "Predecessor PM"],
-        correctAnswer: 0,
-        explanation: "President (Article 75).",
-        subtopic: "19.1"
-    },
-    {
-        id: 49,
-        question: "Ordinance making power of President Article?",
-        options: ["123", "213", "143", "52"],
-        correctAnswer: 0,
-        explanation: "Article 123.",
-        subtopic: "17.4"
-    },
-    {
-        id: 50,
-        question: "Advisory Jurisdiction of Supreme Court Article?",
-        options: ["143", "141", "136", "131"],
-        correctAnswer: 0,
-        explanation: "Article 143.",
-        subtopic: "26.3"
-    },
-    {
-        id: 51,
-        question: "Governor's Pardoning power Article?",
-        options: ["161", "72", "163", "213"],
-        correctAnswer: 0,
-        explanation: "Article 161 (cannot pardon death sentence).",
-        subtopic: "30.1"
-    },
-    {
-        id: 52,
-        question: "Original Jurisdiction of SC deals with?",
-        options: ["Federal disputes", "Writs", "Advice", "Appeals"],
-        correctAnswer: 0,
-        explanation: "Centre-State or Inter-State disputes (Article 131).",
-        subtopic: "26.2"
-    },
-    {
-        id: 53,
-        question: "Public Accounts Committee Chairman is usually?",
-        options: ["From Opposition", "From Ruling Party", "Speaker", "Deputy Speaker"],
-        correctAnswer: 0,
-        explanation: "From Opposition (Convention since 1967).",
-        subtopic: "23.1"
-    },
-    {
-        id: 54,
-        question: "Estimates Committee has members from?",
-        options: ["Lok Sabha only", "Both Houses", "Rajya Sabha only", "None"],
-        correctAnswer: 0,
-        explanation: "Lok Sabha only (30 members).",
-        subtopic: "23.1"
-    },
-    {
-        id: 55,
-        question: "No-Confidence Motion needs support of how many members to be admitted?",
-        options: ["50", "100", "20", "10"],
-        correctAnswer: 0,
-        explanation: "50 members.",
-        subtopic: "22.5"
-    },
-    {
-        id: 56,
-        question: "Star Campaigner expenditure limits?",
-        options: ["Exempted if within rules", "Counted in candidate", "Partially counted", "No limit"],
-        correctAnswer: 0,
-        explanation: "Exempted from candidate's expenditure limit (travel expenses).",
-        subtopic: "93.1"
-    },
-    {
-        id: 57,
-        question: "Right to Privacy is Fundamental Right under?",
-        options: ["Article 21", "Article 19", "Article 14", "Article 25"],
-        correctAnswer: 0,
-        explanation: "Article 21 (Puttaswamy Judgment).",
-        subtopic: "8.1"
-    },
-    {
-        id: 58,
-        question: "EWS Reservation Amendment?",
-        options: ["103rd", "102nd", "104th", "100th"],
-        correctAnswer: 0,
-        explanation: "103rd Amendment Act, 2019.",
-        subtopic: "8.1"
-    },
-    {
-        id: 59,
-        question: "Who can dissolve Lok Sabha?",
-        options: ["President", "PM", "Speaker", "CJI"],
-        correctAnswer: 0,
-        explanation: "President (usually on advice of Council of Ministers).",
-        subtopic: "22.1"
-    },
-    {
-        id: 60,
-        question: "Pocket Veto was used by Zail Singh for?",
-        options: ["Post Office Bill", "Dowry Bill", "Banking Bill", "PEPSU Bill"],
-        correctAnswer: 0,
-        explanation: "Indian Post Office (Amendment) Bill, 1986.",
-        subtopic: "17.4"
+        question: "After abolishing EGoMs/GoMs, where problems are inter-ministerial in nature, how are they typically resolved according to the 2014 directive?",
+        options: [
+            "Through a national referendum.",
+            "By the Supreme Court.",
+            "The Cabinet Secretariat and the Prime Minister’s Office (PMO) will facilitate the decision-making process.",
+            "By forming temporary EGoMs again."
+        ],
+        correctAnswer: 2, // C
+        explanation: "This move was to empower the Ministries and Departments to take decisions themselves... Wherever the Ministries face any difficulties, the Cabinet Secretariat and the Prime Minister’s Office (PMO) will facilitate the decision-making process.",
+        level: "Easy", topic: "Cabinet Committees", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Cabinet Committees" }
     }
 ];
-
-export default DAY21_MCQS;

@@ -1,505 +1,377 @@
-
-export interface MCQ {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation?: string;
-    level?: string;
-    topic?: string;
-    chapter?: string;
-    subtopic?: string;
-}
+import type { MCQ } from './mcq-utils';
 
 export const DAY10_MCQS: MCQ[] = [
-    // ==========================================
-    // CHAPTER 23: PARLIAMENTARY COMMITTEES (60 Questions)
-    // Financial, Standing, Ad-hoc Committees, Forums
-    // ==========================================
-
+    // ----------------------------------------------------------------------
+    // LEVEL 1: EASY (The Text-Book Stickler - Strictly Chapter 10)
+    // ----------------------------------------------------------------------
     {
         id: 1,
-        question: "Which of the following is NOT a Financial Committee?",
-        options: ["Public Accounts Committee", "Estimates Committee", "Committee on Public Undertakings", "Committee on Privileges"],
-        correctAnswer: 3,
-        explanation: "Committee on Privileges is not a Financial Committee (It is an Inquiry Committee).",
-        subtopic: "23.1"
+        question: "Which Part and Article of the Indian Constitution deal with the power of Parliament to amend the Constitution and its procedure?",
+        options: ["Part XX, Article 368", "Part XVIII, Article 352", "Part XXI, Article 370", "Part IX, Article 243"],
+        correctAnswer: 0, // A
+        explanation: "Article 368 in Part XX of the Constitution deals with the powers of Parliament to amend the Constitution and its procedure.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 2,
-        question: "The Public Accounts Committee (PAC) was first set up in:",
-        options: ["1921", "1950", "1952", "1947"],
-        correctAnswer: 0,
-        explanation: "1921 (under GOI Act of 1919).",
-        subtopic: "23.1"
+        question: "The procedure for the amendment of the Constitution as laid down in Article 368 is borrowed from the constitution of which country?",
+        options: ["USA", "Britain", "South Africa", "Ireland"],
+        correctAnswer: 2, // C
+        explanation: "The procedure for amendment of the constitution is borrowed from the Constitution of South Africa.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 3,
-        question: "Total members in Public Accounts Committee are:",
-        options: ["22", "30", "15", "10"],
-        correctAnswer: 0,
-        explanation: "22 Members (15 LS + 7 RS).",
-        subtopic: "23.1"
+        question: "Who can initiate an amendment of the Constitution under Article 368?",
+        options: [
+            "Only the President of India.",
+            "Either House of Parliament.",
+            "State Legislatures only.",
+            "The Supreme Court of India."
+        ],
+        correctAnswer: 1, // B
+        explanation: "An amendment of the Constitution can be initiated only by the introduction of a bill for the purpose in either House of Parliament.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 4,
-        question: "The Chairman of PAC is appointed by:",
-        options: ["President", "Speaker", "PM", "Minister of Parliamentary Affairs"],
-        correctAnswer: 1,
-        explanation: "The Speaker of Lok Sabha.",
-        subtopic: "23.1"
+        question: "Can a State Legislature initiate a bill to amend the Constitution of India?",
+        options: [
+            "Yes, if passed by a special majority.",
+            "Yes, but only for matters related to the state list.",
+            "No, an amendment bill can only be introduced in Parliament.",
+            "Yes, if the Governor recommends it."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The bill can be initiated only in either House of Parliament and NOT in the state legislatures.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 5,
-        question: "Since 1967, the Chairman of PAC is invariably from:",
-        options: ["Ruling Party", "Opposition Party", "Coalition Partner", "Nominated Members"],
-        correctAnswer: 1,
-        explanation: "Opposition Party (By convention).",
-        subtopic: "23.1"
+        question: "Does the introduction of a constitutional amendment bill require the prior permission of the President?",
+        options: [
+            "Yes, always.",
+            "No, it does not require prior permission of the President.",
+            "Yes, but only if introduced by a private member.",
+            "Yes, if it affects state boundaries."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The bill can be introduced either by a minister or by a private member and does not require prior permission of the president.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 6,
-        question: "The Estimates Committee consists of how many members?",
-        options: ["22", "25", "30", "31"],
-        correctAnswer: 2,
-        explanation: "30 Members.",
-        subtopic: "23.1"
+        question: "In the context of Article 368, what kind of majority is required in each House of Parliament to pass a constitutional amendment bill?",
+        options: [
+            "A simple majority of the members present and voting.",
+            "A special majority, that is, a majority of the total membership of the House and a majority of two-thirds of the members of the House present and voting.",
+            "Absolute majority of the total membership only.",
+            "Two-thirds majority of the total membership of the House."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The bill must be passed in each House by a special majority, that is, a majority of the total membership of the House and a majority of two-thirds of the members of the House present and voting.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 7,
-        question: "Which committee has members ONLY from Lok Sabha?",
-        options: ["PAC", "Estimates Committee", "Public Undertakings", "Departmental Standing Committee"],
-        correctAnswer: 1,
-        explanation: "Estimates Committee (30 members from Lok Sabha only).",
-        subtopic: "23.1"
+        question: "If there is a disagreement between the Lok Sabha and the Rajya Sabha over a constitutional amendment bill, how is it resolved?",
+        options: [
+            "The President summons a joint sitting of both Houses.",
+            "The view of the Lok Sabha automatically prevails.",
+            "There is no provision for holding a joint sitting; the bill lapses.",
+            "The Supreme Court mediates the disagreement."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Each House must pass the bill separately. In case of a disagreement between the two Houses, there is no provision for holding a joint sitting of the two Houses for the purpose of deliberation and passage of the bill.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 8,
-        question: "The Committee on Public Undertakings was recommended by:",
-        options: ["Sarkaria Commission", "Krishna Menon Committee", "Santhanam Committee", "Ashok Mehta Committee"],
-        correctAnswer: 1,
-        explanation: "Krishna Menon Committee (1964).",
-        subtopic: "23.1"
+        question: "If an amendment bill seeks to change the federal provisions of the Constitution, what additional requirement must be met after Parliament passes it?",
+        options: [
+            "It must be ratified by the Supreme Court.",
+            "It must be ratified by the legislatures of half of the states by a simple majority.",
+            "It must be ratified by all states by a special majority.",
+            "It must be approved by a national referendum."
+        ],
+        correctAnswer: 1, // B
+        explanation: "If the bill seeks to amend the federal provisions of the Constitution, it must also be ratified by the legislatures of half of the states by a simple majority, that is, a majority of the members of the House present and voting.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 9,
-        question: "A Minister is eligible to be a member of:",
-        options: ["PAC", "Estimates Committee", "Any Parliamentary Committee", "None of the Financial Committees"],
-        correctAnswer: 3,
-        explanation: "Ministers cannot be members of Financial Committees.",
-        subtopic: "23.1"
+        question: "When a constitutional amendment bill, properly passed by Parliament (and ratified by states if required), is presented to the President, what action must the President take?",
+        options: [
+            "He may withhold his assent.",
+            "He may return the bill for reconsideration.",
+            "He must give his assent to the bill.",
+            "He must refer it to the Supreme Court for advice."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The president must give his assent to the bill. He can neither withhold his assent to the bill nor return the bill for reconsideration of the Parliament.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 10,
-        question: "The term of office of members of Financial Committees is:",
-        options: ["1 year", "2 years", "5 years", "Co-terminus with House"],
-        correctAnswer: 0,
-        explanation: "1 year.",
-        subtopic: "23.1"
+        question: "Which Constitutional Amendment Act made it strictly obligatory for the President to give his assent to a constitutional amendment bill?",
+        options: ["24th Amendment Act of 1971", "42nd Amendment Act of 1976", "44th Amendment Act of 1978", "86th Amendment Act of 2002"],
+        correctAnswer: 0, // A
+        explanation: "The 24th Constitutional Amendment Act of 1971 made it obligatory for the President to give his assent to a constitutional amendment bill.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
-    // Standing Committees (DSCs)
     {
         id: 11,
-        question: "How many Departmental Standing Committees exist currently?",
-        options: ["17", "24", "32", "12"],
-        correctAnswer: 1,
-        explanation: "24.",
-        subtopic: "23.2"
+        question: "How many ways are there to amend the Constitution of India, taking into account both Article 368 and other provisions?",
+        options: ["One", "Two", "Three", "Four"],
+        correctAnswer: 2, // C
+        explanation: "The Constitution can be amended in three ways: 1. Amendment by simple majority of the Parliament, 2. Amendment by special majority of the Parliament, and 3. Amendment by special majority of the Parliament and the ratification of half of the state legislatures.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 12,
-        question: "DSCs scrutinize the Demands for Grants:",
-        options: ["Before voting in House", "After voting in House", "After budget passes", "During guillotine"],
-        correctAnswer: 0,
-        explanation: "Before voting. The House goes into recess for 3-4 weeks for this scrutiny.",
-        subtopic: "23.2"
+        question: "Are the amendments made by a 'simple majority of Parliament' considered as amendments 'under Article 368'?",
+        options: [
+            "Yes, all amendments are considered under Article 368.",
+            "No, these amendments are exclusively kept outside the purview of Article 368.",
+            "Only if they relate to fundamental rights.",
+            "Only if the President considers them under Article 368."
+        ],
+        correctAnswer: 1, // B
+        explanation: "A number of provisions in the Constitution can be amended by a simple majority of the two Houses of Parliament outside the scope of Article 368.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Understanding", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 13,
-        question: "Each DSC has how many members?",
-        options: ["22", "30", "31", "45"],
-        correctAnswer: 2,
-        explanation: "31 (21 LS + 10 RS).",
-        subtopic: "23.2"
+        question: "Which of the following matters can be amended by a simple majority of Parliament?",
+        options: [
+            "Fundamental Rights",
+            "Directive Principles of State Policy",
+            "Formation of new states and alteration of areas, boundaries or names of existing states",
+            "Election of the President and its manner"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Formation of new states and alteration of areas, boundaries or names of existing states (Article 3) can be done by a simple majority and is explicitly outside Article 368.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 14,
-        question: "Out of 24 DSCs, how many work under the Chairman of Rajya Sabha?",
-        options: ["8", "16", "12", "6"],
-        correctAnswer: 0,
-        explanation: "8 work under RS Chairman, 16 under LS Speaker.",
-        subtopic: "23.2"
+        question: "The abolition or creation of legislative councils in states can be done by which type of majority?",
+        options: [
+            "Special majority of Parliament.",
+            "Simple majority of Parliament.",
+            "Special majority + Ratification by half the states.",
+            "Only by a constitutional amendment under Article 368."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Abolition or creation of legislative councils in states (Article 169) is one of the provisions that can be amended by a simple majority of the Parliament.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 15,
-        question: "Can DSCs suggest cuts in Demands for Grants?",
-        options: ["Yes", "No", "Only Economy Cut", "Only Token Cut"],
-        correctAnswer: 1,
-        explanation: "No. They cannot suggest cuts. Their reports are persuasive in nature.",
-        subtopic: "23.2"
+        question: "Amendments relating to 'Citizenship—acquisition and termination' are carried out through:",
+        options: [
+            "Simple majority of Parliament",
+            "Special majority of Parliament",
+            "Special majority + State Ratification",
+            "Executive Order by the Home Ministry"
+        ],
+        correctAnswer: 0, // A
+        explanation: "Citizenship (acquisition and termination) can be amended by a simple majority of Parliament.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
-    // Other Committees
     {
         id: 16,
-        question: "Which committee examines the cases of breach of privilege?",
-        options: ["Committee on Ethics", "Committee on Privileges", "Rules Committee", "Ad-hoc Committee"],
-        correctAnswer: 1,
-        explanation: "Committee on Privileges.",
-        subtopic: "23.3"
+        question: "Which of the following requires a Special Majority of Parliament (but NOT state ratification) for an amendment?",
+        options: [
+            "Salaries and allowances of the members of Parliament.",
+            "Elections to Parliament and state legislatures.",
+            "Fundamental Rights and Directive Principles.",
+            "Power of Parliament to amend the Constitution."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The provisions which can be amended by this way (special majority only) include (i) Fundamental Rights; (ii) Directive Principles of State Policy; and (iii) All other provisions which are not covered by the first and third categories.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 17,
-        question: "Committee on Subordinate Legislation examines:",
-        options: ["Bills", "Budgets", "Delegated Legislation/Rules", "Petitions"],
-        correctAnswer: 2,
-        explanation: "Delegated legislation (Rules, regulations, bye-laws made by Executive).",
-        subtopic: "23.3"
+        question: "If an amendment seeks to change the 'Election of the President and its manner', what is the required procedure?",
+        options: [
+            "Simple majority of Parliament.",
+            "Special majority of Parliament only.",
+            "Special majority of Parliament and consent of half of the state legislatures by a simple majority.",
+            "Consent of all state legislatures."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Provisions relating to the federal structure, like the Election of the President, require a special majority of the Parliament and also the consent of half of the state legislatures by a simple majority.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 18,
-        question: "Business Advisory Committee of Lok Sabha is chaired by:",
-        options: ["Speaker", "PM", "Minister of Parliamentary Affairs", "Deputy Speaker"],
-        correctAnswer: 0,
-        explanation: "Speaker.",
-        subtopic: "23.4"
+        question: "Which of the following provisions requires ratification by half of the states?",
+        options: [
+            "Use of official language.",
+            "Fifth Schedule—administration of scheduled areas.",
+            "Distribution of legislative powers between the Union and the states (Seventh Schedule).",
+            "Directive Principles of State Policy."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Any of the lists in the Seventh Schedule (distribution of legislative powers) relates to the federal structure and requires special majority plus ratification by half the states.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 19,
-        question: "The Rules Committee of Lok Sabha consists of how many members?",
-        options: ["11", "15", "22", "30"],
-        correctAnswer: 1,
-        explanation: "15 members including Speaker (Chairman).",
-        subtopic: "23.4"
+        question: "To amend Article 368 itself, which procedure must be followed?",
+        options: [
+            "It cannot be amended under any circumstances.",
+            "Simple majority of Parliament.",
+            "Special majority of Parliament.",
+            "Special majority of Parliament and consent of half of the state legislatures."
+        ],
+        correctAnswer: 3, // D
+        explanation: "The 'Power of Parliament to amend the Constitution and its procedure (Article 368 itself)' requires a special majority of Parliament and consent of half of the state legislatures.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 20,
-        question: "Committee on Absence of Members is present in:",
-        options: ["Lok Sabha only", "Rajya Sabha only", "Both Houses", "Neither"],
-        correctAnswer: 0,
-        explanation: "In Lok Sabha only. (Rajya Sabha handles it directly).",
-        subtopic: "23.4"
+        question: "Is there a time limit prescribed in the Constitution within which the state legislatures must ratify an amendment bill?",
+        options: [
+            "Yes, 6 months.",
+            "Yes, 1 year.",
+            "No, the Constitution does not prescribe a time frame.",
+            "Yes, until the next general election."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Constitution does not prescribe the time frame within which the state legislatures should ratify or reject an amendment submitted to them.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 21,
-        question: "Committee on Private Members' Bills and Resolutions exists in:",
-        options: ["Lok Sabha only", "Rajya Sabha only", "Both", "Jointly"],
-        correctAnswer: 0,
-        explanation: "Lok Sabha only. (In RS, Business Advisory Committee generally does this function).",
-        subtopic: "23.4"
+        question: "Can an amendment bill be introduced by a private member of Parliament?",
+        options: [
+            "No, only by a Cabinet Minister.",
+            "Yes, any member (minister or private member) can introduce it.",
+            "Only by members of the ruling party.",
+            "Only by the Leader of the Opposition."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The bill can be introduced either by a minister or by a private member.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 22,
-        question: "The function of Committee on Government Assurances is to:",
-        options: ["Assure government stability", "Scrutinize promises made by Ministers", "Check budget", "Check corruption"],
-        correctAnswer: 1,
-        explanation: "Scrutinize the assurances, promises, undertakings given by Ministers.",
-        subtopic: "23.3"
+        question: "What does 'Total Membership' technically refer to when calculating a Special Majority in a House of Parliament?",
+        options: [
+            "Only the members present on the day of voting.",
+            "The total number of members comprising the House, irrespective of whether there are vacancies or absentees.",
+            "The total number of members minus the nominated members.",
+            "The members belonging to the ruling coalition."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The expression 'total membership' means the total number of members comprising the House irrespective of fact whether there are vacancies or absentees.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 23,
-        question: "Which committee examines the petitions on public importance pending before the House?",
-        options: ["Committee on Petitions", "Public Grievances Committee", "Ethics Committee", "Rules Committee"],
-        correctAnswer: 0,
-        explanation: "Committee on Petitions.",
-        subtopic: "23.3"
+        question: "Does the Constitution provide for a special body like a Constitutional Convention to amend the Constitution?",
+        options: [
+            "Yes, a Constitutional Convention is formed every 10 years.",
+            "No, there is no separate body; the constituent power is vested in the Parliament.",
+            "Yes, the Supreme Court acts as the Constitutional Convention.",
+            "Yes, the NITI Aayog."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Critics point out there is no provision for a special body like a Constitutional Convention or Constituent Assembly for amending the Constitution. The constituent power is vested in the Parliament.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 24,
-        question: "Joint Committee on Offices of Profit consists of:",
-        options: ["10 members", "15 members", "22 members", "30 members"],
-        correctAnswer: 1,
-        explanation: "15 members (10 LS + 5 RS).",
-        subtopic: "23.3"
+        question: "Which of the following describes the Indian Constitution's amendment process best?",
+        options: [
+            "Extremely rigid, like the USA.",
+            "Extremely flexible, like the UK.",
+            "A synthesis or mixture of both rigidity and flexibility.",
+            "Unamendable."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Indian Constitution is neither flexible nor rigid but a synthesis of both.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Understanding", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 25,
-        question: "Committee on Empowerment of Women was constituted in:",
-        options: ["1950", "1990", "1997", "2005"],
-        correctAnswer: 2,
-        explanation: "1997.",
-        subtopic: "23.3"
+        question: "If half of the states ratify an amendment bill concerning the federal structure, what is the status of the remaining states?",
+        options: [
+            "The bill cannot proceed until all states ratify.",
+            "The formalities are completed, and the remaining states' actions do not matter.",
+            "The bill is sent back to Parliament.",
+            "The President must consult the remaining states."
+        ],
+        correctAnswer: 1, // B
+        explanation: "If one half of the states give their consent, the formality is completed. There is no provision requiring the consent of all the states.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 26,
-        question: "Library Committee consists of:",
-        options: ["9 members", "6 members", "3 members", "15 members"],
-        correctAnswer: 0,
-        explanation: "9 members (6 LS + 3 RS).",
-        subtopic: "23.5"
+        question: "According to the Supreme Court ruling in the Kesavananda Bharati case (1973), Parliament under Article 368 CANNOT amend:",
+        options: [
+            "Fundamental Rights",
+            "Directive Principles",
+            "The 'Basic Structure' of the Constitution",
+            "Election procedures"
+        ],
+        correctAnswer: 2, // C
+        explanation: "In the Kesavananda Bharati case (1973), the Supreme Court ruled that Parliament cannot amend those provisions which form the 'basic structure' of the Constitution.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 27,
-        question: "Consultative Committees are constituted by:",
-        options: ["Parliament", "Ministry of Parliamentary Affairs", "Speaker", "President"],
-        correctAnswer: 1,
-        explanation: "Ministry of Parliamentary Affairs.",
-        subtopic: "23.5"
+        question: "The power to amend the Constitution rests almost entirely with the Parliament. State legislatures can only initiate one specific type of constitutional change. What is it?",
+        options: [
+            "Changing the name of the state.",
+            "Passing a resolution requesting the Parliament for the creation or abolition of a legislative council in the state.",
+            "Fixing the salary of the Governor.",
+            "Drawing internal electoral boundaries."
+        ],
+        correctAnswer: 1, // B
+        explanation: "State legislatures cannot initiate any bill or proposal for amending the Constitution except in one case, that is, passing a resolution requesting the Parliament for the creation or abolition of legislative councils in the states. And even here, the final decision rests with Parliament.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 28,
-        question: "The Chairman of Consultative Committee is:",
-        options: ["Speaker", "Minister/Minister of State in charge", "Senior Member", "Opposition Leader"],
-        correctAnswer: 1,
-        explanation: "Minister / Minister of State in charge of the Ministry concerned.",
-        subtopic: "23.5"
+        question: "Which Schedule's amendment requires a simple majority in Parliament rather than a special majority under Article 368?",
+        options: [
+            "Seventh Schedule",
+            "Ninth Schedule",
+            "Second Schedule",
+            "None of the above"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Amendments to the Second Schedule (Emoluments, allowances, privileges of the President, Governors, Speakers, judges, etc.), Fifth Schedule, and Sixth Schedule require only a simple majority.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 29,
-        question: "Who is the Chairman of the General Purposes Committee?",
-        options: ["Speaker", "Deputy Speaker", "PM", "Home Minister"],
-        correctAnswer: 0,
-        explanation: "Presiding Officer (Speaker in LS, Chairman in RS) is Ex-officio Chairman.",
-        subtopic: "23.5"
+        question: "The Supreme Court and High Courts' jurisdiction falls under which category of constitutional amendment?",
+        options: [
+            "Simple Majority of Parliament.",
+            "Special Majority of Parliament only.",
+            "Special majority of Parliament + Consent of half of the state legislatures.",
+            "It cannot be amended."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Provisions regarding the Supreme Court and high courts relate to the federal structure, therefore requiring Special majority of Parliament and consent of half of the state legislatures.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     },
     {
         id: 30,
-        question: "The main role of the Ethics Committee is to:",
-        options: ["Oversee moral conduct of members", "Check corruption in government", "Audit accounts", "Select ministers"],
-        correctAnswer: 0,
-        explanation: "Enforce code of conduct and examine cases of misconduct/unethical behavior of members.",
-        subtopic: "23.3"
-    },
-    // Ch 24 Forums & Groups
-    {
-        id: 31,
-        question: "How many Parliamentary Forums are there currently?",
-        options: ["5", "6", "8", "10"],
-        correctAnswer: 2,
-        explanation: "8 Forums (Water, Youth, Children, Population, Disaster Mgmt, Artisans, Millennium Goals, Dig. Economy - note: updates occur, standard is 8).",
-        subtopic: "24.1"
-    },
-    {
-        id: 32,
-        question: "The first Parliamentary Forum established was on:",
-        options: ["Water Conservation", "Youth", "Children", "Population"],
-        correctAnswer: 0,
-        explanation: "Water Conservation and Management (2005).",
-        subtopic: "24.1"
-    },
-    {
-        id: 33,
-        question: "Who is the President of the Parliamentary Forum on Population and Public Health?",
-        options: ["Speaker", "Chairman Rajya Sabha", "Health Minister", "PM"],
-        correctAnswer: 1,
-        explanation: "Chairman of Rajya Sabha.",
-        subtopic: "24.1"
-    },
-    {
-        id: 34,
-        question: "For all other Parliamentary Forums (except Population), the President is:",
-        options: ["Speaker", "Chairman RS", "Concerned Minister", "PM"],
-        correctAnswer: 0,
-        explanation: "Speaker of Lok Sabha.",
-        subtopic: "24.1"
-    },
-    {
-        id: 35,
-        question: "The Indian Parliamentary Group (IPG) acts as the National Group of:",
-        options: ["UN", "IPU (Inter-Parliamentary Union)", "SAARC", "Commonwealth"],
-        correctAnswer: 1,
-        explanation: "IPU and CPA (Commonwealth Parliamentary Association).",
-        subtopic: "24.2"
-    },
-    {
-        id: 36,
-        question: "Membership of IPG is open to:",
-        options: ["All MPs", "Only LS MPs", "Only Ministers", "Only Senior MPs"],
-        correctAnswer: 0,
-        explanation: "All members of Parliament.",
-        subtopic: "24.2"
-    },
-    {
-        id: 37,
-        question: "Who confers the 'Outstanding Parliamentarian Award'?",
-        options: ["President", "IPG", "Speaker", "Prime Minister"],
-        correctAnswer: 1,
-        explanation: "Indian Parliamentary Group (IPG).",
-        subtopic: "24.2"
-    },
-    {
-        id: 38,
-        question: "Which committee assists the Speaker in deciding allocation of time for discussions?",
-        options: ["Rules Committee", "Business Advisory Committee", "General Purposes Committee", "House Committee"],
-        correctAnswer: 1,
-        explanation: "Business Advisory Committee (BAC).",
-        subtopic: "23.4"
-    },
-    {
-        id: 39,
-        question: "The report of the PAC is submitted to:",
-        options: ["President", "Prime Minister", "Lok Sabha", "Parliament"],
-        correctAnswer: 2,
-        explanation: "Lok Sabha (Speaker).",
-        subtopic: "23.1"
-    },
-    {
-        id: 40,
-        question: "Which committee examines the audit reports of the CAG?",
-        options: ["PAC", "Estimates", "Privileges", "Ethics"],
-        correctAnswer: 0,
-        explanation: "Public Accounts Committee.",
-        subtopic: "23.1"
-    },
-    {
-        id: 41,
-        question: "Estimates Committee report is debatable in the House:",
-        options: ["Yes", "No", "Only if Speaker allows", "After 1 year"],
-        correctAnswer: 1,
-        explanation: "No. The reports are not debated in the House (Convention).",
-        subtopic: "23.1"
-    },
-    {
-        id: 42,
-        question: "Which committee is also known as 'Rashtriya Barh Ayog'?",
-        options: ["None", "Flood Commission", "Disaster Mgmt Forum", "Water Forum"],
-        correctAnswer: 0,
-        explanation: "Rashtriya Barh Ayog is National Flood Commission (Executive), not a Parliamentary Committee. Trick question.",
-        subtopic: "23.1"
-    },
-    {
-        id: 43,
-        question: "Select Committees are appointed for:",
-        options: ["General purpose", "Specific Bill/Purpose", "Permanent purpose", "Financial purpose"],
-        correctAnswer: 1,
-        explanation: "Specific Bill or specific investigation. They become 'functus officio' after reporting.",
-        subtopic: "23.1"
-    },
-    {
-        id: 44,
-        question: "Joint Parliamentary Committee (JPC) has members from:",
-        options: ["LS only", "RS only", "Both Houses", "Outside experts"],
-        correctAnswer: 2,
-        explanation: "Both Houses (Usually 2:1 ratio for LS:RS).",
-        subtopic: "23.1"
-    },
-    {
-        id: 45,
-        question: "The salaries of MPs are determined by:",
-        options: ["Parliament", "President", "Speaker", "Pay Commission"],
-        correctAnswer: 0,
-        explanation: "Parliament by law (Article 106).",
-        subtopic: "22.2"
-    },
-    {
-        id: 46,
-        question: "Salary and Allowances of Leaders of Opposition in Parliament Act was passed in:",
-        options: ["1977", "1985", "1950", "1991"],
-        correctAnswer: 0,
-        explanation: "1977.",
-        subtopic: "22.5"
-    },
-    {
-        id: 47,
-        question: "Who is the final interpreter of the Rules of Procedure in the House?",
-        options: ["President", "Speaker", "Attorney General", "Secretary General"],
-        correctAnswer: 1,
-        explanation: "Speaker.",
-        subtopic: "22.4"
-    },
-    {
-        id: 48,
-        question: "Adjournment Motion needs support of how many members?",
-        options: ["50", "100", "20", "10"],
-        correctAnswer: 0,
-        explanation: "50 members.",
-        subtopic: "22.6"
-    },
-    {
-        id: 49,
-        question: "Half-an-hour discussion is for:",
-        options: ["Matter of sufficient public importance requiring elucidation", "Budget", "Adjournment", "Censure"],
-        correctAnswer: 0,
-        explanation: "To elucidate on a matter of public importance arising out of a previous answer.",
-        subtopic: "22.6"
-    },
-    {
-        id: 50,
-        question: "Rule 377 in Lok Sabha allows members to:",
-        options: ["Raise matters which are not points of order", "Raise money bills", "Dismiss government", "Vote"],
-        correctAnswer: 0,
-        explanation: "Raise matters which cannot be raised under any other rule.",
-        subtopic: "22.6"
-    },
-    {
-        id: 51,
-        question: "The maximum duration of 'Zero Hour' is:",
-        options: ["30 mins", "1 hour", "Indefinite", "Not specified"],
-        correctAnswer: 3,
-        explanation: "Not specified in rules. Usually lasts until agenda is taken up (approx 1 hr).",
-        subtopic: "22.3"
-    },
-    {
-        id: 52,
-        question: "Short Duration Discussion is also called:",
-        options: ["Two-hour discussion", "Half-hour discussion", "Zero hour", "Question hour"],
-        correctAnswer: 0,
-        explanation: "Two-hour discussion.",
-        subtopic: "22.6"
-    },
-    {
-        id: 53,
-        question: "Who prepares the list of business for the House?",
-        options: ["Secretary General", "Speaker", "Leader of House", "Leader of Opposition"],
-        correctAnswer: 0,
-        explanation: "Secretary General (under Speaker's directions).",
-        subtopic: "22.4"
-    },
-    {
-        id: 54,
-        question: "Can Parliament increase the number of SC judges?",
-        options: ["Yes", "No", "Only if CJI requests", "Only if President requests"],
-        correctAnswer: 0,
-        explanation: "Yes, by law.",
-        subtopic: "22.9"
-    },
-    {
-        id: 55,
-        question: "Which Article deals with the 'Language to be used in Parliament'?",
-        options: ["120", "210", "343", "345"],
-        correctAnswer: 0,
-        explanation: "Article 120.",
-        subtopic: "22.9"
-    },
-    {
-        id: 56,
-        question: "A member can speak in his mother tongue in the House with permission of:",
-        options: ["Presiding Officer", "PM", "Leader of House", "Cannot speak"],
-        correctAnswer: 0,
-        explanation: "Presiding Officer.",
-        subtopic: "22.9"
-    },
-    {
-        id: 57,
-        question: "The 'quarum' to constitute a meeting of a Parliamentary Committee is:",
-        options: ["1/3rd", "1/4th", "1/10th", "1/2"],
-        correctAnswer: 0,
-        explanation: "One-third of the total number of members of the committee.",
-        subtopic: "23.1"
-    },
-    {
-        id: 58,
-        question: "Who appoints the Chairman of a Parliamentary Committee?",
-        options: ["Presiding Officer", "Committee Members", "PM", "President"],
-        correctAnswer: 0,
-        explanation: "Speaker (LS) or Chairman (RS).",
-        subtopic: "23.1"
-    },
-    {
-        id: 59,
-        question: "Does a Parliamentary Committee hold its sittings in public?",
-        options: ["Yes", "No", "Sometimes", "With permission"],
-        correctAnswer: 1,
-        explanation: "No. The sittings are held in private.",
-        subtopic: "23.1"
-    },
-    {
-        id: 60,
-        question: "Which committee acts as the 'Watchdog' of the subordinate legislation?",
-        options: ["Committee on Subordinate Legislation", "PAC", "Estimates", "Rules Committee"],
-        correctAnswer: 0,
-        explanation: "Committee on Subordinate Legislation.",
-        subtopic: "23.3"
+        question: "Can a state legislature, after ratifying a constitutional amendment bill, completely withdraw its consent at a later date?",
+        options: [
+            "Yes, at any time before the President signs it.",
+            "Yes, but only if the ruling party changes in the state.",
+            "The Constitution is silent on this issue.",
+            "No, withdrawal of consent is expressly forbidden by Article 368."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Constitution is silent on the issue whether the states can withdraw their approval after according the same.",
+        level: "Easy", topic: "Amendment of the Constitution", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Amendment of the Constitution" }
     }
 ];
-
-export default DAY10_MCQS;

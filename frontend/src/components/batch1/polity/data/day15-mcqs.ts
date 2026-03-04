@@ -1,508 +1,397 @@
-
-export interface MCQ {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation?: string;
-    level?: string;
-    topic?: string;
-    chapter?: string;
-    subtopic?: string;
-}
+import type { MCQ } from './mcq-utils';
 
 export const DAY15_MCQS: MCQ[] = [
-    // ==========================================
-    // CHAPTER 37: SUBORDINATE COURTS (20 Questions)
-    // ==========================================
+    // ----------------------------------------------------------------------
+    // LEVEL 1: EASY (The Text-Book Stickler - Strictly Chapter 15)
+    // ----------------------------------------------------------------------
     {
         id: 1,
-        question: "Who appoints the District Judges?",
-        options: ["President", "Governor", "Chief Justice of High Court", "Chief Minister"],
-        correctAnswer: 1,
-        explanation: "Governor appoints District Judges in consultation with the High Court (Article 233).",
-        subtopic: "37.1"
+        question: "To ensure harmony among the states, the Constitution makes provisions regarding 'Inter-State Relations'. Which of the following is NOT one of the primary mechanisms provided in the Constitution for this purpose?",
+        options: [
+            "Adjudication of inter-state water disputes.",
+            "Coordination through Inter-State Councils.",
+            "Mutual recognition of public acts, records, and judicial proceedings.",
+            "Establishment of a permanent Federal Police Force."
+        ],
+        correctAnswer: 3, // D
+        explanation: "The Constitution provides for water dispute adjudication (Art 262), Inter-State Councils (Art 263), mutual recognition of public acts (Art 261), and freedom of inter-state trade (Art 301). It does not provide for a permanent Federal Police Force to manage inter-state relations.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 2,
-        question: "Which Article deals with the control over subordinate courts?",
-        options: ["Article 233", "Article 234", "Article 235", "Article 236"],
-        correctAnswer: 2,
-        explanation: "Article 235 vests the control over subordinate courts in the High Court.",
-        subtopic: "37.3"
+        question: "Which Article of the Constitution deals with the adjudication of disputes relating to waters of inter-state rivers or river valleys?",
+        options: [
+            "Article 131",
+            "Article 262",
+            "Article 263",
+            "Article 356"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Article 262 of the Constitution provides for the adjudication of inter-state water disputes.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 3,
-        question: "To be appointed as a District Judge, a person should be an advocate for a minimum of:",
-        options: ["5 years", "7 years", "10 years", "3 years"],
-        correctAnswer: 1,
-        explanation: "7 years of practice as an advocate or pleader.",
-        subtopic: "37.1"
+        question: "Under Article 262, what significant power is granted to the Parliament regarding the jurisdiction of courts over inter-state water disputes?",
+        options: [
+            "Parliament can mandate that only the Supreme Court hears these cases.",
+            "Parliament may by law provide that neither the Supreme Court nor any other court shall exercise jurisdiction in respect of any such dispute or complaint.",
+            "Parliament can allow state High Courts to issue final verdicts on these rivers.",
+            "Parliament can permanently transfer the river to Union control."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Article 262(2) states that Parliament may by law provide that neither the Supreme Court nor any other court shall exercise jurisdiction in respect of any such dispute or complaint relating to inter-state rivers.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 4,
-        question: "The 'Sessions Judge' deals with:",
-        options: ["Civil cases", "Criminal cases", "Revenue cases", "Constitutional cases"],
-        correctAnswer: 1,
-        explanation: "Sessions Judge deals with Criminal cases. (District Judge deals with Civil cases).",
-        subtopic: "37.2"
+        question: "To implement the provisions of Article 262, Parliament enacted two major laws. One of them is the Inter-State Water Disputes Act (1956). What is the other?",
+        options: [
+            "The National River Conservation Act (1995)",
+            "The River Boards Act (1956)",
+            "The Inter-State Council Act (1990)",
+            "The Water Prevention and Control of Pollution Act (1974)"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Under Article 262, Parliament has enacted two laws: the River Boards Act (1956) and the Inter-State Water Disputes Act (1956).",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 5,
-        question: "A death sentence passed by a Sessions Judge must be confirmed by:",
-        options: ["Supreme Court", "High Court", "Governor", "President"],
-        correctAnswer: 1,
-        explanation: "It must be confirmed by the High Court before execution.",
-        subtopic: "37.2"
+        question: "According to the Inter-State Water Disputes Act (1956), who is empowered to set up an ad hoc tribunal for the adjudication of a dispute between two or more states in relation to the waters of an inter-state river?",
+        options: [
+            "The Supreme Court of India",
+            "The Central Government",
+            "The Inter-State Council",
+            "The President directly"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Inter-State Water Disputes Act empowers the Central government to set up an ad hoc tribunal for the adjudication of a dispute between two or more states.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 6,
-        question: "Who determines the posting and promotion of District Judges?",
-        options: ["Governor", "High Court", "State Govt", "UPSC"],
-        correctAnswer: 1,
-        explanation: "High Court (Art 235).",
-        subtopic: "37.3"
+        question: "Once an Inter-State Water Dispute Tribunal gives its decision, what is its legal standing?",
+        options: [
+            "It is merely advisory and states can ignore it.",
+            "It must be ratified by the Parliament to become binding.",
+            "The decision of the tribunal is final and binding on the parties to the dispute.",
+            "It can be instantly appealed to the local High Court."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Inter-State Water Disputes Act states that the decision of the tribunal is final and binding on the parties to the dispute.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 7,
-        question: "Lok Adalats have been given statutory status under which Act?",
-        options: ["Legal Services Authorities Act, 1987", "Arbitration Act, 1996", "Civil Procedure Code", "Local Laws Act"],
-        correctAnswer: 0,
-        explanation: "Legal Services Authorities Act, 1987.",
-        subtopic: "37.4"
+        question: "Which states are involved in the famous, long-standing Cauvery Water Dispute?",
+        options: [
+            "Maharashtra, Karnataka, and Andhra Pradesh",
+            "Punjab, Haryana, and Rajasthan",
+            "Karnataka, Kerala, Tamil Nadu, and Puducherry",
+            "Goa, Karnataka, and Maharashtra"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Cauvery Water Disputes Tribunal (set up in 1990) involves the states of Karnataka, Kerala, Tamil Nadu, and the UT of Puducherry.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 8,
-        question: "The decision of a Lok Adalat is:",
-        options: ["Binding", "Non-binding", "Appealable to HC", "Appealable to SC"],
-        correctAnswer: 0,
-        explanation: "Final and binding on all parties. No appeal lies to any court.",
-        subtopic: "37.4"
+        question: "Article 263 contemplates the establishment of an Inter-State Council. Who is authorized to establish such a council if it appears that public interests would be served by it?",
+        options: [
+            "The Prime Minister",
+            "The Parliament",
+            "The President",
+            "The Chief Justice of India"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Article 263 states that the President can establish an Inter-State Council if at any time it appears to him that the public interest would be served by its establishment.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 9,
-        question: "Gram Nyayalayas were established by an Act of:",
-        options: ["2005", "2008", "2010", "2000"],
-        correctAnswer: 1,
-        explanation: "Gram Nyayalayas Act, 2008.",
-        subtopic: "37.5"
+        question: "The Inter-State Council was formally established in 1990 based on the strong recommendation of which commission?",
+        options: [
+            "Sarkaria Commission",
+            "Punchhi Commission",
+            "First Administrative Reforms Commission",
+            "Rajamannar Committee"
+        ],
+        correctAnswer: 0, // A
+        explanation: "The Sarkaria Commission on Centre-State Relations (1983–88) made a strong case for the establishment of a permanent Inter-State Council. The VP Singh government established it in 1990.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 10,
-        question: "First Lok Adalat was held in:",
-        options: ["Delhi", "Gujarat", "Maharashtra", "Tamil Nadu"],
-        correctAnswer: 1,
-        explanation: "Gujarat (1982) as a voluntary conciliation agency.",
-        subtopic: "37.4"
+        question: "Who is the Chairman of the Inter-State Council established under Article 263?",
+        options: [
+            "The President",
+            "The Union Home Minister",
+            "The Prime Minister",
+            "A rotating Chief Minister"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Prime Minister is the Chairman of the Inter-State Council.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 11,
-        question: "Who heads the District Legal Services Authority?",
-        options: ["District Collector", "District Judge", "Chief Judicial Magistrate", "SP"],
-        correctAnswer: 1,
-        explanation: "District Judge is the Ex-Officio Chairman.",
-        subtopic: "37.7"
+        question: "What is the primary nature of the function of the Inter-State Council according to Article 263?",
+        options: [
+            "It is a legislative body that can pass laws binding on states.",
+            "It is a judicial body that gives final verdicts on all state disputes.",
+            "Its function to enquire and advise upon inter-state disputes is complementary to the Supreme Court's jurisdiction under Article 131, meaning it is an advisory body.",
+            "It is a financial body that distributes tax revenue."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Council's function to enquire and advise upon inter-state disputes is complementary to the Supreme Court’s jurisdiction under Article 131. Unlike the court, the Council’s function is advisory and not binding.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 12,
-        question: "Can Lok Adalats take up cases at pre-litigation stage?",
-        options: ["Yes", "No", "Only Civil", "Only Matrimonial"],
-        correctAnswer: 0,
-        explanation: "Yes, they can take up pending cases as well as pre-litigation disputes.",
-        subtopic: "37.4"
+        question: "Under the States Reorganisation Act of 1956, the country was divided into five zones, and a 'Zonal Council' was provided for each. Are Zonal Councils constitutional or statutory bodies?",
+        options: [
+            "They are constitutional bodies created directly by Article 263.",
+            "They are statutory bodies created by an Act of Parliament.",
+            "They are executive bodies created by a Prime Ministerial decree.",
+            "They are judicial bodies created by the Supreme Court."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Zonal Councils are statutory (and not the constitutional) bodies. They are established by an Act of the Parliament, that is, States Reorganisation Act of 1956.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 13,
-        question: "Family Courts Act was enacted in:",
-        options: ["1984", "1987", "1990", "1980"],
-        correctAnswer: 0,
-        explanation: "Family Courts Act, 1984.",
-        subtopic: "37.6"
+        question: "Who acts as the common chairman of all the five Zonal Councils (Northern, Central, Eastern, Western, and Southern)?",
+        options: [
+            "The Prime Minister",
+            "The President",
+            "The Union Home Minister",
+            "The Vice-President"
+        ],
+        correctAnswer: 2, // C
+        explanation: "The Union home minister is the common chairman of the five Zonal Councils.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 14,
-        question: "Permanent Lok Adalats deal with:",
-        options: ["Public Utility Services", "Criminal Cases", "Constitutional Cases", "All Civil Cases"],
-        correctAnswer: 0,
-        explanation: "Public Utility Services (Transport, Postal, etc) up to Rs 1 Crore.",
-        subtopic: "37.4"
+        question: "In addition to the five Zonal Councils created in 1956, a separate North-Eastern Council was created later. By which act was it created?",
+        options: [
+            "The States Reorganisation Act, 1956 (Amendment)",
+            "The North-Eastern Council Act, 1971",
+            "The Assam Reorganisation Act, 1969",
+            "The 7th Constitutional Amendment Act, 1956"
+        ],
+        correctAnswer: 1, // B
+        explanation: "In addition to the above Zonal Councils, a North-Eastern Council was created by a separate Act of Parliament—the North-Eastern Council Act of 1971.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 15,
-        question: "Is Legal representation allowed in Family Courts?",
-        options: ["Allowed as right", "Not allowed as right", "Mandatory", "Only for women"],
-        correctAnswer: 1,
-        explanation: "Lawyers are generally not allowed as a matter of right.",
-        subtopic: "37.6"
+        question: "Which part of the Constitution guarantees freedom of trade, commerce, and intercourse throughout the territory of India (Articles 301 to 307)?",
+        options: [
+            "Part XI",
+            "Part XII",
+            "Part XIII",
+            "Part XIV"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Articles 301 to 307 in Part XIII of the Constitution deal with the trade, commerce and intercourse within the territory of India.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 16,
-        question: "The Chief Judicial Magistrate (CJM) can sentence up to:",
-        options: ["3 years", "5 years", "7 years", "Life"],
-        correctAnswer: 2,
-        explanation: "7 years imprisonment.",
-        subtopic: "37.2"
+        question: "Article 301 declares that trade, commerce, and intercourse throughout the territory of India shall be free. However, this freedom is not absolute. Who has the power to impose restrictions on this freedom in the 'public interest' under Article 302?",
+        options: [
+            "State Legislatures alone",
+            "The Parliament",
+            "The Supreme Court",
+            "The Zonal Councils"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Article 302: Parliament can impose restrictions on the freedom of trade, commerce or intercourse between the states or within a state in public interest.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 17,
-        question: "Who appoints members of the State Judicial Service (other than Dist Judges)?",
-        options: ["High Court", "Governor after consultation with SPSC and HC", "Governor only", "SPSC only"],
-        correctAnswer: 1,
-        explanation: "Governor after consultation with SPSC and High Court (Art 234).",
-        subtopic: "37.1"
+        question: "Under Article 304, a State legislature can impose reasonable restrictions on the freedom of trade, commerce or intercourse with that state in the public interest. However, what is the prerequisite for introducing such a bill in the state legislature?",
+        options: [
+            "Consent of the adjacent states.",
+            "Previous sanction of the President.",
+            "Approval from the Inter-State Council.",
+            "A referendum in the state."
+        ],
+        correctAnswer: 1, // B
+        explanation: "A bill for this purpose can be introduced in the state legislature only with the previous sanction of the president (Article 304).",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 18,
-        question: "Gram Nyayalayas are presided over by:",
-        options: ["Sarpanch", "Nyayadhikari", "District Judge", "Collector"],
-        correctAnswer: 1,
-        explanation: "Nyayadhikari (appointed by State Govt in consult with HC).",
-        subtopic: "37.5"
+        question: "To prevent discrimination, Article 303 prohibits both the Parliament and the State Legislatures from making laws that give preference to one state over another regarding trade and commerce. What is the only exception allowing Parliament to discriminate?",
+        options: [
+            "If a state is politically favored.",
+            "In the case of dealing with a situation arising from scarcity of goods in any part of India.",
+            "If the Finance Commission recommends it.",
+            "There are absolutely no exceptions."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Parliament can make discrimination or give preference to one state over another in the case of dealing with a situation arising from a scarcity of goods in any part of India (Article 303).",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 19,
-        question: "Gram Nyayalayas follow summary procedure in:",
-        options: ["Civil cases", "Criminal cases", "Both", "None"],
-        correctAnswer: 1,
-        explanation: "Summary procedure in Criminal cases.",
-        subtopic: "37.5"
+        question: "Can a State Legislature impose taxes on goods imported from other States or Union Territories?",
+        options: [
+            "No, states cannot tax incoming goods under any circumstances.",
+            "Yes, provided the tax does not discriminate between goods imported from other states and goods manufactured or produced in that state.",
+            "Yes, they can tax imported goods at a much higher rate to protect local industries.",
+            "Yes, but only if the Central Government collects the tax."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The legislature of a state can impose on goods imported from other states any tax to which similar goods manufactured in that state are subject. This is to ensure no discrimination against imported goods (Article 304).",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 20,
-        question: "Which Article separates Judiciary from Executive?",
-        options: ["Article 50", "Article 51", "Article 49", "Article 48"],
-        correctAnswer: 0,
-        explanation: "Article 50 (DPSP).",
-        subtopic: "9.1"
+        question: "The Constitution provides for 'Full Faith and Credit'. What does this clause (Article 261) mandate?",
+        options: [
+            "That every state must trust the financial promises of the Centre.",
+            "That Full faith and credit shall be given throughout the territory of India to public acts, records and judicial proceedings of the Union and of every State.",
+            "That states must give loans to each other without interest.",
+            "That the public must have blind faith in the government."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Article 261 declares that 'Full faith and credit shall be given throughout the territory of India to public acts, records and judicial proceedings of the Union and of every State.'",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
-
-    // ==========================================
-    // CHAPTER 36: TRIBUNALS (20 Questions)
-    // ==========================================
     {
         id: 21,
-        question: "Part XIV-A (Tribunals) was added by:",
-        options: ["42nd Amendment", "44th Amendment", "25th Amendment", "61st Amendment"],
-        correctAnswer: 0,
-        explanation: "42nd Amendment Act, 1976.",
-        subtopic: "36.1"
+        question: "Under the 'Full Faith and Credit' clause, what is the rule regarding final judgments and orders delivered by civil courts in any part of India?",
+        options: [
+            "They are only enforceable in the state where they were issued.",
+            "They must be re-tried if enforced in another state.",
+            "They are capable of execution anywhere within India (without the necessity of a fresh suit).",
+            "They only apply to criminal cases, not civil cases."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Final judgments and orders delivered or passed by civil courts in any part of India are capable of execution anywhere within India (without the necessity of a fresh suit upon the judgment).",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 22,
-        question: "Administrative Tribunals are under Article:",
-        options: ["323A", "323B", "324", "320"],
-        correctAnswer: 0,
-        explanation: "Article 323A.",
-        subtopic: "36.2"
+        question: "What does the term 'Public acts' mean in the context of the 'Full Faith and Credit' clause?",
+        options: [
+            "Only the actions of the President.",
+            "Charitable acts done by NGOs.",
+            "Both legislative and executive acts of the Government.",
+            "Only the judgments of the Supreme Court."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The term 'public acts' includes both legislative and executive acts of the government.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 23,
-        question: "Who can establish Administrative Tribunals (323A)?",
-        options: ["Parliament only", "Parliament & State Leg", "President", "SC"],
-        correctAnswer: 0,
-        explanation: "Parliament only.",
-        subtopic: "36.2"
+        question: "While Article 301 guarantees freedom of trade and commerce, can the national or state governments create monopolies in a particular trade or business?",
+        options: [
+            "No, monopolies are strictly unconstitutional.",
+            "Yes, but only the Central Government can create monopolies.",
+            "Yes, the freedom under Article 301 is subject to the nationalization laws (creating a monopoly for the Centre or State in a given sector).",
+            "Yes, but only for foreign companies."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Article 305 says the freedom under Article 301 is subject to the nationalisation laws. Parliament or a state legislature can make laws for carrying on any trade, business, industry or service by the government to the exclusion of citizens (creating a monopoly).",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 24,
-        question: "Who can establish Tribunals for other matters (323B)?",
-        options: ["Parliament only", "State Leg only", "Both Parliament and State Leg", "President"],
-        correctAnswer: 2,
-        explanation: "Both Parliament and State Legislatures (based on legislative competence).",
-        subtopic: "36.2"
+        question: "Under Article 307, Parliament can appoint an authority to carry out the purposes of provisions relating to freedom of trade and commerce (Articles 301 to 304). Has Parliament appointed any such authority to date?",
+        options: [
+            "Yes, the Inter-State Trade Commission.",
+            "Yes, the Competition Commission of India.",
+            "Yes, the Ministry of Commerce directly.",
+            "No such authority has been appointed so far."
+        ],
+        correctAnswer: 3, // D
+        explanation: "Article 307 empowers Parliament to appoint such authority. However, no such authority has been appointed so far.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 25,
-        question: "Who appoints the Chairman of CAT (Central Admin Tribunal)?",
-        options: ["President", "CJI", "PM", "Law Minister"],
-        correctAnswer: 0,
-        explanation: "President.",
-        subtopic: "36.1"
+        question: "The Inter-State Council comprises several members. Which of the following is NOT a member of the Inter-State Council?",
+        options: [
+            "The Prime Minister (Chairman)",
+            "Chief Ministers of all states",
+            "Six Central Cabinet Ministers (nominated by PM)",
+            "The Chief Justice of India"
+        ],
+        correctAnswer: 3, // D
+        explanation: "The Inter-State Council does not include the Chief Justice of India. It consists of the PM, all CMs, Administrators of UTs, and six Central Cabinet Ministers (including the Home Minister).",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 26,
-        question: "Is CAT bound by the procedure of Civil Procedure Code (1908)?",
-        options: ["Yes", "No", "Partially", "Only in civil matters"],
-        correctAnswer: 1,
-        explanation: "No. It is guided by Principles of Natural Justice.",
-        subtopic: "36.1"
+        question: "A Standing Committee of the Inter-State Council was set up in 1996 for continuous consultation. Who is the Chairman of this Standing Committee?",
+        options: [
+            "The Prime Minister",
+            "The Union Home Minister",
+            "The Finance Minister",
+            "A Chief Minister"
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Standing Committee of the Inter-State Council is chaired by the Union Home Minister. (It also includes 5 Union Cabinet Ministers and 9 Chief Ministers).",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 27,
-        question: "Appeals against CAT orders lie to:",
-        options: ["Supreme Court directly", "High Court (Division Bench)", "President", "Review only"],
-        correctAnswer: 1,
-        explanation: "To the concerned High Court Division Bench (L. Chandra Kumar case). Earlier it was SC.",
-        subtopic: "36.3"
+        question: "How many active Zonal Councils are currently functioning in India under the 1956 Act?",
+        options: [
+            "4",
+            "5",
+            "6",
+            "7"
+        ],
+        correctAnswer: 1, // B
+        explanation: "There are 5 Zonal Councils (Northern, Central, Eastern, Western, and Southern) created by the States Reorganisation Act of 1956.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 28,
-        question: "Which case declared judicial review of HCs over Tribunals as Basic Structure?",
-        options: ["Sampath Kumar case", "Chandra Kumar case", "Minerva Mills case", "Kesavananda case"],
-        correctAnswer: 1,
-        explanation: "L. Chandra Kumar vs Union of India (1997).",
-        subtopic: "36.3"
+        question: "Which of the following bodies act as 'deliberative and advisory' bodies aiming to foster emotional integration of the country and help remove the after-effects of separation in some cases?",
+        options: [
+            "Water Disputes Tribunals",
+            "Zonal Councils",
+            "High Courts",
+            "Finance Commission"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Zonal Councils are deliberative and advisory bodies. One of their stated objectives is to bring out the emotional integration of the country and arrest the growth of acute state consciousness, regionalism, linguism, and particularistic tendencies.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Understanding", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 29,
-        question: "SAT (State Admin Tribunals) are established by:",
-        options: ["Governor", "State Govt", "Parliament", "President"],
-        correctAnswer: 3,
-        explanation: "Technically established by Centre (Parliament/Notification) on request of State. But Art 323A says Parliament.",
-        subtopic: "36.1"
+        question: "Which of the following is a function of the Inter-State Council as explicitly defined in Article 263?",
+        options: [
+            "To impose President's Rule in states.",
+            "To investigate and discuss subjects in which some or all of the states, or the Union and one or more of the states, have a common interest.",
+            "To audit the financial accounts of the states.",
+            "To conduct elections for State Assemblies."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Article 263 explicitly states it is the duty of the Council to investigate and discuss subjects in which some or all of the states, or the Union and one or more of the states, have a common interest.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     },
     {
         id: 30,
-        question: "Article 323B covers:",
-        options: ["Taxation", "Land Reforms", "Labour", "All of above"],
-        correctAnswer: 3,
-        explanation: "Taxation, Foreign exchange, Industrial/Labour, Land reforms, Ceiling on urban property, etc.",
-        subtopic: "36.2"
-    },
-    {
-        id: 31,
-        question: "Tribunals Reform Act was passed in:",
-        options: ["2021", "2019", "2017", "2023"],
-        correctAnswer: 0,
-        explanation: "Tribunals Reforms Act, 2021 (set terms and conditions).",
-        subtopic: "36.1"
-    },
-    {
-        id: 32,
-        question: "Term of office for defects in Tribunal Members currently (post 2021 Act)?",
-        options: ["4 years", "5 years", "3 years", "6 years"],
-        correctAnswer: 0,
-        explanation: "4 years.",
-        subtopic: "36.1"
-    },
-    {
-        id: 33,
-        question: "National Green Tribunal (NGT) was established in:",
-        options: ["2010", "2005", "2015", "2000"],
-        correctAnswer: 0,
-        explanation: "2010.",
-        subtopic: "36.4"
-    },
-    {
-        id: 34,
-        question: "NCLT deals with:",
-        options: ["Company Law", "Income Tax", "Environment", "Consumers"],
-        correctAnswer: 0,
-        explanation: "Company Law matters (National Company Law Tribunal).",
-        subtopic: "36.4"
-    },
-    {
-        id: 35,
-        question: "Can Parliament establish hierarchy of tribunals?",
-        options: ["Yes", "No", "Only for 323B", "Only for 323A"],
-        correctAnswer: 2,
-        explanation: "Clause 323B allows hierarchy. 323A allows only one Central and State tribunals.",
-        subtopic: "36.2"
-    },
-    {
-        id: 36,
-        question: "Is CAT a constitutional body?",
-        options: ["Yes", "No", "Statutory", "Executive"],
-        correctAnswer: 1,
-        explanation: "It is a Statutory body (Administrative Tribunals Act 1985), deriving authority from Art 323A.",
-        subtopic: "36.1"
-    },
-    {
-        id: 37,
-        question: "Principal Bench of CAT is in:",
-        options: ["Mumbai", "Delhi", "Chennai", "Kolkata"],
-        correctAnswer: 1,
-        explanation: "Delhi.",
-        subtopic: "36.1"
-    },
-    {
-        id: 38,
-        question: "Armed Forces Tribunal (AFT) established in:",
-        options: ["2007", "2009", "2005", "2011"],
-        correctAnswer: 0,
-        explanation: "Armed Forces Tribunal Act, 2007.",
-        subtopic: "36.4"
-    },
-    {
-        id: 39,
-        question: "Can Civil Courts try matters covered by CAT?",
-        options: ["Yes", "No", "With SC permission", "Sometimes"],
-        correctAnswer: 1,
-        explanation: "No, jurisdiction of civil courts is barred.",
-        subtopic: "36.1"
-    },
-    {
-        id: 40,
-        question: "AFT appeals lie to:",
-        options: ["High Court", "Supreme Court", "President", "None"],
-        correctAnswer: 1,
-        explanation: "Directly to Supreme Court (Generally). Though HCs also claim writ jurisdiction.",
-        subtopic: "36.4"
-    },
-
-    // ==========================================
-    // JUDICIAL REVIEW & PIL & ACTIVISM (20 Questions)
-    // ==========================================
-    {
-        id: 41,
-        question: "The concept of Judicial Review in India is borrowed from:",
-        options: ["UK", "USA", "Canada", "Australia"],
-        correctAnswer: 1,
-        explanation: "USA.",
-        subtopic: "28.1"
-    },
-    {
-        id: 42,
-        question: "Judicial Review applies to:",
-        options: ["Legislative enactments", "Executive orders", "Constitutional Amendments", "All of the above"],
-        correctAnswer: 3,
-        explanation: "All of them can be challenged.",
-        subtopic: "28.1"
-    },
-    {
-        id: 43,
-        question: "Source of Judicial Review power in Constitution:",
-        options: ["Art 13", "Art 32", "Art 226", "All of above"],
-        correctAnswer: 3,
-        explanation: "All provide basis for JR.",
-        subtopic: "28.1"
-    },
-    {
-        id: 44,
-        question: "Which Schedule was originally immune from Judicial Review?",
-        options: ["9th", "10th", "11th", "12th"],
-        correctAnswer: 0,
-        explanation: "9th Schedule (Article 31B).",
-        subtopic: "28.2"
-    },
-    {
-        id: 45,
-        question: "Concept of PIL originated in:",
-        options: ["UK", "USA", "India", "Australia"],
-        correctAnswer: 1,
-        explanation: "USA (mid 1960s).",
-        subtopic: "30.1"
-    },
-    {
-        id: 46,
-        question: "Who are the pioneers of PIL in India?",
-        options: ["Justice Bhagwati & Krishna Iyer", "Justice Hidayatullah", "Justice Ray", "Justice Beg"],
-        correctAnswer: 0,
-        explanation: "Justice V.R. Krishna Iyer and Justice P.N. Bhagwati.",
-        subtopic: "30.1"
-    },
-    {
-        id: 47,
-        question: "First reported case of PIL in India?",
-        options: ["Hussainara Khatoon case", "Minerva Mills", "Golaknath", "Kesavananda"],
-        correctAnswer: 0,
-        explanation: "Hussainara Khatoon case (1979) regarding undertrials.",
-        subtopic: "30.1"
-    },
-    {
-        id: 48,
-        question: "Scope of Locus Standi in PIL is:",
-        options: ["Strict", "Relaxed", "Abolished", "Same as civil suit"],
-        correctAnswer: 1,
-        explanation: "Relaxed. Any public spirited person can file.",
-        subtopic: "30.2"
-    },
-    {
-        id: 49,
-        question: "Judicial Activism implies:",
-        options: ["Judicial Tyranny", "Proactive role of judiciary", "Judiciary making laws", "None"],
-        correctAnswer: 1,
-        explanation: "Proactive role of judiciary in protecting citizens' rights.",
-        subtopic: "29.1"
-    },
-    {
-        id: 50,
-        question: "Judicial Restraint advocates:",
-        options: ["Interference in executive", "Limited role of judiciary", "Supremacy of Judges", "Overturning laws frequently"],
-        correctAnswer: 1,
-        explanation: "Limited role, deferring to elected representatives.",
-        subtopic: "29.2"
-    },
-    {
-        id: 51,
-        question: "Can PIL be filed against private individuals?",
-        options: ["Yes", "No", "Only if state party", "Generally No"],
-        correctAnswer: 3,
-        explanation: "Generally No, primarily against State/Public Authorities. But exceptions exist for private bodies performing public duty.",
-        subtopic: "30.3"
-    },
-    {
-        id: 52,
-        question: "'Epistolary Jurisdiction' refers to:",
-        options: ["Treating letters as writs", "Jurisdiction over post office", "Jurisdiction over epics", "None"],
-        correctAnswer: 0,
-        explanation: "Treating letters/telegrams as writ petitions (PIL).",
-        subtopic: "30.2"
-    },
-    {
-        id: 53,
-        question: "Basic Structure doctrine is a form of:",
-        options: ["Judicial Restraint", "Judicial Activism", "Legislative Power", "Example of UK Law"],
-        correctAnswer: 1,
-        explanation: "It is an example of Judicial Activism (Judicial Invention).",
-        subtopic: "29.1"
-    },
-    {
-        id: 54,
-        question: "Article 142 refers to:",
-        options: ["Complete Justice", "Special Leave", "Advisory Jurisdiction", "Writ Jurisdiction"],
-        correctAnswer: 0,
-        explanation: "Enforcement of decrees/orders for doing 'complete justice'. Tool for activism.",
-        subtopic: "26.3"
-    },
-    {
-        id: 55,
-        question: "Vishaka Guidelines (1997) is an example of:",
-        options: ["Judicial Legislation/Activism", "Executive Order", "Parliament Act", "Treaty"],
-        correctAnswer: 0,
-        explanation: "Supreme Court laying down law (Guidelines against Sexual Harassment) in absence of legislation.",
-        subtopic: "29.1"
-    },
-    {
-        id: 56,
-        question: "Which of the following is NOT a ground for PIL?",
-        options: ["Bonded Labour", "Women Harassment", "Personal Service Matter", "Environmental Pollution"],
-        correctAnswer: 2,
-        explanation: "Service matters (Pension, Salary etc of individuals) are generally NOT entertained as PIL.",
-        subtopic: "30.3"
-    },
-    {
-        id: 57,
-        question: "Rule of Law is embodied in:",
-        options: ["Article 14", "Article 32", "Article 21", "Article 19"],
-        correctAnswer: 0,
-        explanation: "Article 14.",
-        subtopic: "7.1"
-    },
-    {
-        id: 58,
-        question: "Due Process of Law is explicitly mentioned in Indian Constitution? (Before Maneka Gandhi)",
-        options: ["Yes", "No", "In Preamble", "In Art 19"],
-        correctAnswer: 1,
-        explanation: "No. The text says 'Procedure Established by Law'. Maneka Gandhi case introduced Due Process via interpretation.",
-        subtopic: "7.1"
-    },
-    {
-        id: 59,
-        question: "SR Bommai Case (1994) dealt with:",
-        options: ["President Rule (Art 356)", "Reservation", "Basic Structure", "Panchayats"],
-        correctAnswer: 0,
-        explanation: "President's Rule and Secularism.",
-        subtopic: "16.1"
-    },
-    {
-        id: 60,
-        question: "Mandal Case (Indra Sawhney 1992) dealt with:",
-        options: ["Reservation for OBCs", "SC/ST Atrocities", "EWS", "Women Rights"],
-        correctAnswer: 0,
-        explanation: "Reservation for OBCs (27%) and Creamy Layer concept.",
-        subtopic: "7.1"
+        question: "Is the jurisdiction of the Supreme Court over inter-state water disputes completely barred the moment the dispute arises?",
+        options: [
+            "Yes, the Supreme Court can never look at river waters.",
+            "No, the Supreme Court automatically takes all these cases under Article 131.",
+            "Under the 1956 Act, the Supreme Court's jurisdiction is barred only *after* the Central Government establishes a Tribunal and refers the specific dispute to it.",
+            "The Supreme Court and the Tribunal share parallel jurisdiction at all times."
+        ],
+        correctAnswer: 2, // C
+        explanation: "The bar on the Supreme Court's jurisdiction does not apply automatically to all water disputes. The jurisdiction of the Supreme Court (or any other court) is barred only 'in respect of the water dispute which has been referred to the Tribunal' under the Inter-State Water Disputes Act.",
+        level: "Easy", topic: "Inter-State Relations", difficulty_tier: "Level_1", cognitive_tag: "Understanding", source_mapping: { book: "M. Laxmikanth", chapter: "Inter-State Relations" }
     }
 ];
-
-export default DAY15_MCQS;

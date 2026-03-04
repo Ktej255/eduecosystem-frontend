@@ -1,505 +1,317 @@
-
-export interface MCQ {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation?: string;
-    level?: string;
-    topic?: string;
-    chapter?: string;
-    subtopic?: string;
-}
+import type { MCQ } from './mcq-utils';
 
 export const DAY7_MCQS: MCQ[] = [
-    // ==========================================
-    // SUNDAY REVISION CHALLENGE (60 Questions)
-    // Focus: Conceptual clarity and comparative analysis
-    // ==========================================
-
+    // ----------------------------------------------------------------------
+    // LEVEL 1: EASY (The Text-Book Stickler - Strictly Chapter 7)
+    // ----------------------------------------------------------------------
     {
         id: 1,
-        question: "Which of the following is NOT a feature of the Parliamentary System in India?",
-        options: ["Presence of nominal and real executives", "Majority party rule", "Dissolution of the Lower House", "Strict separation of powers"],
-        correctAnswer: 3,
-        explanation: "India has a 'fusion of powers' (Executive is part of Legislature), not a strict separation like the USA.",
-        subtopic: "13.1"
+        question: "In which Part of the Constitution are the Fundamental Rights enshrined?",
+        options: ["Part II", "Part III", "Part IV", "Part V"],
+        correctAnswer: 1, // B
+        explanation: "The Fundamental Rights are enshrined in Part III of the Constitution from Articles 12 to 35.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 2,
-        question: "The power to declare an area as a 'Scheduled Area' lies with:",
-        options: ["The Parliament", "The President", "The Governor", "The State Legislature"],
-        correctAnswer: 1,
-        explanation: "The President is empowered to declare an area as a Scheduled Area.",
-        subtopic: "14.2"
+        question: "The framers of the Indian Constitution derived inspiration for Fundamental Rights from the constitution of which country?",
+        options: ["Britain", "Ireland", "USSR", "USA"],
+        correctAnswer: 3, // D
+        explanation: "The framers derived inspiration from the Constitution of USA (i.e., Bill of Rights).",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 3,
-        question: "Under Article 356, President's Rule is imposed if:",
-        options: ["There is a financial crisis", "There is failure of constitutional machinery in the state", "There is internal rebellion", "The Governor resigns"],
-        correctAnswer: 1,
-        explanation: "Article 356: Failure of constitutional machinery.",
-        subtopic: "17.2"
+        question: "Part III of the Constitution is rightly described as the:",
+        options: ["Magna Carta of India", "Soul of the Constitution", "Instrument of Instructions", "Identity Card of the Constitution"],
+        correctAnswer: 0, // A
+        explanation: "Part III of the Constitution is rightly described as the Magna Carta of India. It contains a very long and comprehensive list of 'justiciable' Fundamental Rights.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 4,
-        question: "Which writ is issued by the court to a public official asking him to perform his official duties?",
-        options: ["Habeas Corpus", "Mandamus", "Prohibition", "Quo-Warranto"],
-        correctAnswer: 1,
-        explanation: "Mandamus (We Command).",
-        subtopic: "11.0"
+        question: "Originally, the Constitution provided for how many Fundamental Rights?",
+        options: ["Six", "Seven", "Eight", "Ten"],
+        correctAnswer: 1, // B
+        explanation: "Originally, the Constitution provided for seven Fundamental Rights. The Right to Property was deleted later.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 5,
-        question: "The concept of 'Procedure Established by Law' in Article 21 is borrowed from:",
-        options: ["American Constitution", "British Constitution", "Japanese Constitution", "Canadian Constitution"],
-        correctAnswer: 2,
-        explanation: "Japanese Constitution.",
-        subtopic: "11.1"
+        question: "Which Fundamental Right was deleted from the list of Fundamental Rights by the 44th Amendment Act, 1978?",
+        options: ["Right to Freedom of Religion", "Right against Exploitation", "Right to Property", "Cultural and Educational Rights"],
+        correctAnswer: 2, // C
+        explanation: "The right to property was deleted from the list of Fundamental Rights by the 44th Amendment Act, 1978. It is now a legal right under Article 300-A.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 6,
-        question: "The 'Sovereignty' of the Indian Parliament is restricted by:",
-        options: ["Powers of the President", "Judicial Review", "Leader of the Opposition", "Powers of the PM"],
-        correctAnswer: 1,
-        explanation: "Judicial Review and Written Constitution limit the sovereignty of Parliament (unlike the British Parliament which is sovereign).",
-        subtopic: "12.2"
+        question: "Fundamental Rights are meant for promoting the ideal of:",
+        options: ["Social democracy", "Political democracy", "Economic democracy", "Cultural democracy"],
+        correctAnswer: 1, // B
+        explanation: "The Fundamental Rights are meant for promoting the ideal of political democracy. They prevent the establishment of an authoritarian and despotic rule in the country.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 7,
-        question: "In the interim government formed in 1946, who held the portfolio of External Affairs?",
-        options: ["Sardar Patel", "Jawaharlal Nehru", "Liaquat Ali Khan", "Baldev Singh"],
-        correctAnswer: 1,
-        explanation: "Jawaharlal Nehru.",
-        subtopic: "11.0"
+        question: "Are the Fundamental Rights absolute in nature?",
+        options: [
+            "Yes, they are absolute and immune from any interference.",
+            "No, they are not absolute but qualified. The state can impose reasonable restrictions on them.",
+            "Yes, except during a financial emergency.",
+            "No, they are entirely subject to the absolute discretion of Parliament."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Some of them are available only to the citizens while others are available to all persons. However, they are not absolute but qualified. The state can impose 'reasonable restrictions' on them.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Understanding", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 8,
-        question: "The resolution for removing the Vice-President of India can be moved in:",
-        options: ["Lok Sabha only", "Rajya Sabha only", "Either House", "Joint Sitting"],
-        correctAnswer: 1,
-        explanation: "Rajya Sabha only. (It must be passed by RS by effective majority and agreed to by LS).",
-        subtopic: "19.2"
+        question: "If a person's Fundamental Rights are violated, can they directly approach the Supreme Court?",
+        options: [
+            "No, they must first exhaust all remedies in lower courts.",
+            "Yes, they can directly go to the Supreme Court, which can issue writs for their restoration.",
+            "No, only the High Courts have original jurisdiction over Fundamental Rights.",
+            "Yes, but only if Parliament grants permission."
+        ],
+        correctAnswer: 1, // B
+        explanation: "They are defended and guaranteed by the Supreme Court. Hence, the aggrieved person can directly go to the Supreme Court (not necessarily by way of appeal against the judgement of the high courts).",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 9,
-        question: "Which of the following expenditures is NOT 'charged' on the Consolidated Fund of India?",
-        options: ["Salary of President", "Salary of Supreme Court Judges", "Salary of High Court Judges", "Pensions of High Court Judges"],
-        correctAnswer: 2,
-        explanation: "Salary of High Court Judges is charged on the Consolidated Fund of the STATE. (Their PENSIONS are charged on CF of INDIA). This is a common trap.",
-        subtopic: "15.3"
+        question: "Which of the following Fundamental Rights CANNOT be suspended during a National Emergency?",
+        options: [
+            "Articles 14 and 15",
+            "Articles 19 and 20",
+            "Articles 20 and 21",
+            "Articles 21 and 22"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Fundamental Rights can be suspended during the operation of a National Emergency except the rights guaranteed by Articles 20 and 21.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 10,
-        question: "If a Minister loses the confidence of the Lok Sabha, what happens?",
-        options: ["He resigns alone", "The Whole Council resigns", "President decides", "PM decides"],
-        correctAnswer: 1,
-        explanation: "The defeat of a minister on the floor of the house usually leads to the resignation of the entire Council (Collective Responsibility).",
-        subtopic: "21.2"
+        question: "Which Article defines the term 'State' for the purposes of Part III of the Constitution?",
+        options: ["Article 12", "Article 13", "Article 14", "Article 15"],
+        correctAnswer: 0, // A
+        explanation: "Article 12 has defined the term 'State' for the purposes of Part III. It includes the executive and legislative organs of the Union and states, local authorities, and all other statutory/non-statutory authorities.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 11,
-        question: "Who can attend the meetings of Parliament without being a member?",
-        options: ["Chief Justice of India", "Attorney General of India", "Chief Election Commissioner", "Solicitor General"],
-        correctAnswer: 1,
-        explanation: "Attorney General of India (Article 76).",
-        subtopic: "21.0"
+        question: "Article 13 declares that all laws that are inconsistent with or in derogation of any of the fundamental rights shall be void. This doctrine is known as the doctrine of:",
+        options: ["Separation of Powers", "Judicial Review", "Eminent Domain", "Pith and Substance"],
+        correctAnswer: 1, // B
+        explanation: "Article 13 expressly provides for the doctrine of judicial review. This power has been conferred on the Supreme Court (Article 32) and the high courts (Article 226).",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 12,
-        question: "The 'Electoral College' for the President does NOT include:",
-        options: ["Elected members of Lok Sabha", "Elected members of Rajya Sabha", "Nominated members of Rajya Sabha", "Elected members of State Assemblies"],
-        correctAnswer: 2,
-        explanation: "Nominated members do not participate in the election of the President.",
-        subtopic: "18.1"
+        question: "Article 14 states that the State shall not deny to any person equality before the law or the equal protection of the laws. Is this right available to foreigners?",
+        options: [
+            "No, it is strictly for Indian citizens only.",
+            "Yes, it is available to all persons, whether citizens or foreigners.",
+            "Yes, but only to citizens of Commonwealth countries.",
+            "No, because foreigners are not subject to Indian laws."
+        ],
+        correctAnswer: 1, // B
+        explanation: "The Supreme Court held that where Article 14 uses the word 'person', it includes legal persons as well as foreigners. It applies to all persons whether citizens or foreigners.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 13,
-        question: "Which Amendment restored the power of judicial review curtailed by the 42nd Amendment?",
-        options: ["43rd Amendment", "44th Amendment", "45th Amendment", "46th Amendment"],
-        correctAnswer: 0,
-        explanation: "43rd Amendment Act, 1977.",
-        subtopic: "11.1"
+        question: "Article 15 provides that the State shall not discriminate against any citizen on grounds ONLY of:",
+        options: [
+            "Religion, race, caste, sex or place of birth",
+            "Religion, race, caste, sex, residence or descent",
+            "Religion, language, caste, sex or wealth",
+            "Religion, race, ideology, sex or place of birth"
+        ],
+        correctAnswer: 0, // A
+        explanation: "Article 15 provides that the State shall not discriminate against any citizen on grounds only of religion, race, caste, sex or place of birth.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 14,
-        question: "The joint sitting of Parliament is borrowed from:",
-        options: ["USA", "UK", "Australia", "Canada"],
-        correctAnswer: 2,
-        explanation: "Australia.",
-        subtopic: "11.1"
+        question: "Article 16 guarantees equality of opportunity for all citizens in matters relating to employment or appointment to any office under the State. Can the State make provisions for the reservation of appointments in favor of backward classes?",
+        options: [
+            "No, reservation violates the basic principle of equality of opportunity.",
+            "Yes, Article 16 permits the State to make reservations for any backward class of citizens not adequately represented.",
+            "Yes, but only in the private sector.",
+            "No, only Parliament can make such reservations, not the State."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Article 16 provides for equality of opportunity... However, there are exceptions: The State can provide for reservation of appointments or posts in favour of any backward class that is not adequately represented in the state services.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Understanding", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 15,
-        question: "Who determines the salaries and allowances of Ministers?",
-        options: ["President", "Prime Minister", "Parliament", "Cabinet Secretary"],
-        correctAnswer: 2,
-        explanation: "Parliament.",
-        subtopic: "21.1"
+        question: "Which Article of the Constitution abolishes 'Untouchability' and forbids its practice in any form?",
+        options: ["Article 16", "Article 17", "Article 18", "Article 19"],
+        correctAnswer: 1, // B
+        explanation: "Article 17 abolishes 'untouchability' and forbids its practice in any form. The enforcement of any disability arising out of untouchability shall be an offence punishable in accordance with law.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 16,
-        question: "Which case ruled that Preamble is an integral part of the Constitution?",
-        options: ["Berubari Union case", "Kesavananda Bharati case", "LIC of India case", "Both B and C"],
-        correctAnswer: 3,
-        explanation: "Kesavananda Bharati (1973) and LIC of India (1995) both held Preamble is an integral part.",
-        subtopic: "11.0"
+        question: "Article 18 abolishes titles. Which of the following titles are NOT prohibited by Article 18?",
+        options: [
+            "Hereditary titles like Maharaja or Raj Bahadur",
+            "Titles conferred by foreign states",
+            "Military and academic distinctions",
+            "Titles of nobility like Duke or Earl"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Article 18 abolishes titles and makes four provisions... It prohibits the state from conferring any title (except a military or academic distinction) on any body, whether a citizen or a foreigner.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 17,
-        question: "The Directive Principles of State Policy (DPSP) are:",
-        options: ["Justiciable", "Non-justiciable", "Mandatory", "Enforceable by SC"],
-        correctAnswer: 1,
-        explanation: "They are non-justiciable (Article 37).",
-        subtopic: "12.1"
+        question: "Article 19 guarantees to all citizens six rights. Which of the following is NOT one of the six rights currently guaranteed under Article 19?",
+        options: [
+            "Right to freedom of speech and expression",
+            "Right to assemble peaceably and without arms",
+            "Right to acquire, hold and dispose of property",
+            "Right to form associations or unions"
+        ],
+        correctAnswer: 2, // C
+        explanation: "Originally, Article 19 contained seven rights. But, the right to acquire, hold and dispose of property was deleted by the 44th Amendment Act of 1978. The remaining six are speech, assembly, association, movement, residence, and profession.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 18,
-        question: "Which part of the Constitution is called the 'Magna Carta of India'?",
-        options: ["Part III", "Part IV", "Part II", "Part V"],
-        correctAnswer: 0,
-        explanation: "Part III (Fundamental Rights).",
-        subtopic: "11.0"
+        question: "Article 20 grants protection against arbitrary and excessive punishment to an accused person. It provides three specific protections. Which of the following is NOT one of them?",
+        options: [
+            "No ex-post-facto law",
+            "No double jeopardy",
+            "No self-incrimination",
+            "Right to speedy trial"
+        ],
+        correctAnswer: 3, // D
+        explanation: "Article 20 contains three provisions: No ex-post-facto law, No double jeopardy (not punished for the same offence more than once), and No self-incrimination (cannot be compelled to be a witness against himself). The Right to speedy trial falls under Article 21's broad interpretations, not the explicit text of Article 20.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 19,
-        question: "The President can declare National Emergency ON WRITTEN RECOMMENDATION of:",
-        options: ["Prime Minister", "Cabinet", "Speaker", "Parliament"],
-        correctAnswer: 1,
-        explanation: "The Cabinet (Union Cabinet). Added by 44th Amendment to prevent arbitrary declaration by PM alone (like 1975).",
-        subtopic: "17.1"
+        question: "Which Article declares that no person shall be deprived of his life or personal liberty except according to procedure established by law?",
+        options: ["Article 20", "Article 21", "Article 22", "Article 23"],
+        correctAnswer: 1, // B
+        explanation: "Article 21 declares that no person shall be deprived of his life or personal liberty except according to procedure established by law. This right is available to both citizens and non-citizens.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 20,
-        question: "Who appoints the District Judges?",
-        options: ["Governor", "Chief Justice of HC", "President", "CM"],
-        correctAnswer: 0,
-        explanation: "Governor (in consultation with the High Court).",
-        subtopic: "31.2"
+        question: "Which Amendment Act famously added Article 21A, making elementary education a Fundamental Right?",
+        options: ["44th Amendment Act, 1978", "73rd Amendment Act, 1992", "86th Amendment Act, 2002", "97th Amendment Act, 2011"],
+        correctAnswer: 2, // C
+        explanation: "Article 21A, declaring that the State shall provide free and compulsory education to all children of the age of six to fourteen years, was added by the 86th Constitutional Amendment Act of 2002.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
-    // Comparative Politics (President vs Governor)
     {
         id: 21,
-        question: "In which matter does the Governor have a power that the President does NOT have?",
-        options: ["Pardoning death sentence", "Appointing Ambassadors", "Reserving bills for President's consideration", "Declaring Emergency"],
-        correctAnswer: 2,
-        explanation: "Reserving state bills for the President is a special power of the Governor.",
-        subtopic: "31.6"
+        question: "Article 22 grants protection to persons who are arrested or detained. A person arrested and detained in custody must be produced before the nearest magistrate within a period of:",
+        options: ["12 hours", "24 hours", "48 hours", "72 hours"],
+        correctAnswer: 1, // B
+        explanation: "Article 22 protects against arbitrary arrest. The arrested person has the right to be produced before a magistrate within 24 hours including the journey time.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 22,
-        question: "Who administers oath to the Vice-President?",
-        options: ["Chief Justice of India", "President", "Speaker", "Prime Minister"],
-        correctAnswer: 1,
-        explanation: "The President.",
-        subtopic: "19.1"
+        question: "Article 23 prohibits traffic in human beings, begar (forced labour) and other similar forms of forced labour. This right is available to:",
+        options: [
+            "Only citizens",
+            "Both citizens and non-citizens",
+            "Only women and children",
+            "Only Scheduled Castes and Scheduled Tribes"
+        ],
+        correctAnswer: 1, // B
+        explanation: "Article 23 prohibits traffic in human beings, begar and other similar forms of forced labour. This right is available to both citizens and non-citizens.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 23,
-        question: "The maximum life of an ordinance issued by the President is:",
-        options: ["6 months", "6 weeks", "6 months + 6 weeks", "1 year"],
-        correctAnswer: 2,
-        explanation: "6 months (max gap between sessions) + 6 weeks (time to pass after reassembly).",
-        subtopic: "18.4"
+        question: "Under Article 24, employment of children below what age is completely prohibited in any factory, mine, or other hazardous activities?",
+        options: ["12 years", "14 years", "16 years", "18 years"],
+        correctAnswer: 1, // B
+        explanation: "Article 24 prohibits the employment of children below the age of 14 years in any factory, mine or other hazardous activities like construction work or railway.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 24,
-        question: "Which of the following is NOT a constitutional body?",
-        options: ["Finance Commission", "UPSC", "NITI Aayog", "Election Commission"],
-        correctAnswer: 2,
-        explanation: "NITI Aayog is an executive body (non-constitutional, non-statutory).",
-        subtopic: "11.0"
+        question: "Article 25 says that all persons are equally entitled to freedom of conscience and the right to freely profess, practice, and propagate religion. However, these rights are subject to:",
+        options: [
+            "Public order, morality, and health",
+            "Public opinion, tradition, and state security",
+            "Parliamentary approval every 5 years",
+            "The consent of the majority community"
+        ],
+        correctAnswer: 0, // A
+        explanation: "Article 25 guarantees freedom of conscience... However, these rights are subject to public order, morality, health and other provisions relating to fundamental rights.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 25,
-        question: "The Chairman of Zonal Councils is:",
-        options: ["President", "Prime Minister", "Union Home Minister", "Chief Minister by rotation"],
-        correctAnswer: 2,
-        explanation: "Union Home Minister.",
-        subtopic: "16.3"
+        question: "Which Article grants religious denominations the right to establish and maintain institutions for religious and charitable purposes and to manage their own affairs in matters of religion?",
+        options: ["Article 25", "Article 26", "Article 27", "Article 28"],
+        correctAnswer: 1, // B
+        explanation: "Article 26 deals with the freedom to manage religious affairs. Every religious denomination or any of its section shall have the right to establish and maintain institutions, etc.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 26,
-        question: "The breakdown of Constitutional machinery in a State is popularly known as:",
-        options: ["National Emergency", "State Emergency", "Financial Emergency", "Judicial Emergency"],
-        correctAnswer: 1,
-        explanation: "State Emergency or President's Rule.",
-        subtopic: "17.2"
+        question: "Under Article 28, is religious instruction permitted in educational institutions wholly maintained out of State funds?",
+        options: [
+            "Yes, if the students voluntarily request it.",
+            "Yes, provided it is outside regular school hours.",
+            "No, religious instruction is completely prohibited in institutions wholly maintained out of State funds.",
+            "No, unless the President gives special permission."
+        ],
+        correctAnswer: 2, // C
+        explanation: "Under Article 28, no religious instruction shall be provided in any educational institution wholly maintained out of State funds.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Knowledge", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 27,
-        question: "Are the Fundamental Duties applicable to foreigners?",
-        options: ["Yes", "No", "Some of them", "Only if they reside for 5 years"],
-        correctAnswer: 1,
-        explanation: "Fundamental Duties are confined to citizens only.",
-        subtopic: "11.0"
+        question: "Which Article provides that any section of the citizens residing in any part of India having a distinct language, script, or culture of its own, shall have the right to conserve the same?",
+        options: ["Article 28", "Article 29", "Article 30", "Article 32"],
+        correctAnswer: 1, // B
+        explanation: "Article 29 provides that any section of the citizens residing in any part of India having a distinct language, script or culture of its own, shall have the right to conserve the same.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 28,
-        question: "The 86th Amendment Act dealt with:",
-        options: ["Panchayati Raj", "Anti-Defection", "Right to Education", "GST"],
-        correctAnswer: 2,
-        explanation: "Right to Education (Article 21A).",
-        subtopic: "11.1"
+        question: "Article 30 grants the right to establish and administer educational institutions to:",
+        options: [
+            "All citizens universally.",
+            "Only religious and linguistic minorities.",
+            "Only linguistic minorities.",
+            "State Governments exclusively."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Article 30 grants rights to minorities (religious or linguistic) to establish and administer educational institutions of their choice.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 29,
-        question: "Which state was the first to establish Panchayati Raj?",
-        options: ["Andhra Pradesh", "Rajasthan", "Bihar", "Gujarat"],
-        correctAnswer: 1,
-        explanation: "Rajasthan (Nagaur district, 1959).",
-        subtopic: "33.0"
+        question: "Dr. B.R. Ambedkar called Article 32 the most important Article of the Constitution. What does Article 32 guarantee?",
+        options: [
+            "The right to life and personal liberty.",
+            "The right to constitutional remedies—the right to move the Supreme Court for the enforcement of Fundamental Rights.",
+            "The right to vote in general elections.",
+            "The right to property."
+        ],
+        correctAnswer: 1, // B
+        explanation: "Article 32 confers the right to remedies for the enforcement of the fundamental rights of an aggrieved citizen. In other words, the right to get the Fundamental Rights protected is in itself a fundamental right.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     },
     {
         id: 30,
-        question: "Who is known as the 'Father of Local Self-Government' in India?",
-        options: ["Lord Mayo", "Lord Ripon", "Lord Curzon", "Lord Dalhousie"],
-        correctAnswer: 1,
-        explanation: "Lord Ripon.",
-        subtopic: "33.0"
-    },
-    // True/False variants
-    {
-        id: 31,
-        question: "The advice of the Council of Ministers is binding on the President.",
-        options: ["Always true", "True after 42nd/44th Amendments", "False", "Only in financial matters"],
-        correctAnswer: 1,
-        explanation: "The 42nd and 44th Amendments made the advice binding (President can return once, but must accept if sent back).",
-        subtopic: "21.2"
-    },
-    {
-        id: 32,
-        question: "The Preamble is justiciable.",
-        options: ["True", "False", "Partially", "Only in SC"],
-        correctAnswer: 1,
-        explanation: "False. Its provisions are not enforceable in courts.",
-        subtopic: "11.0"
-    },
-    {
-        id: 33,
-        question: "India is a 'Coming Together' Federation.",
-        options: ["True", "False", "It is Holding Together", "Neither"],
-        correctAnswer: 1,
-        explanation: "False. India is a 'Holding Together' Federation (like Belgium/Spain), not 'Coming Together' (like USA).",
-        subtopic: "14.1"
-    },
-    {
-        id: 34,
-        question: "The Rajya Sabha has equal power with Lok Sabha in ammending the Constitution.",
-        options: ["True", "False", "Only regarding States", "No power at all"],
-        correctAnswer: 0,
-        explanation: "True. A Constitutional Amendment Bill can be introduced in either House and must be passed by both separately. No joint sitting.",
-        subtopic: "13.0"
-    },
-    {
-        id: 35,
-        question: "The Governor has no diplomatic or military powers.",
-        options: ["True", "False", "Has military but not diplomatic", "Has diplomatic only"],
-        correctAnswer: 0,
-        explanation: "True. Only President has diplomatic and military powers.",
-        subtopic: "31.2"
-    },
-    // Final 25 Concept mix
-    {
-        id: 36,
-        question: "Which Schedule contains the list of recognized languages?",
-        options: ["7th", "8th", "9th", "10th"],
-        correctAnswer: 1,
-        explanation: "8th Schedule.",
-        subtopic: "11.0"
-    },
-    {
-        id: 37,
-        question: "How many languages are currently in the 8th Schedule?",
-        options: ["14", "18", "22", "24"],
-        correctAnswer: 2,
-        explanation: "22 languages.",
-        subtopic: "11.0"
-    },
-    {
-        id: 38,
-        question: "Which Article provides for the abolition or creation of Legislative Councils in states?",
-        options: ["168", "169", "170", "171"],
-        correctAnswer: 1,
-        explanation: "Article 169.",
-        subtopic: "33.0"
-    },
-    {
-        id: 39,
-        question: "The maximum gap between two sessions of State Legislature cannot exceed:",
-        options: ["3 months", "6 months", "9 months", "1 year"],
-        correctAnswer: 1,
-        explanation: "6 months.",
-        subtopic: "33.0"
-    },
-    {
-        id: 40,
-        question: "Who appoints the Chief Election Commissioner?",
-        options: ["Prime Minister", "President", "Parliament", "CJI"],
-        correctAnswer: 1,
-        explanation: "President.",
-        subtopic: "18.3"
-    },
-    {
-        id: 41,
-        question: "The CAG (Comptroller and Auditor General) acts as:",
-        options: ["Guardian of public purse", "Guardian of Constitution", "Guardian of Law", "Government accountant only"],
-        correctAnswer: 0,
-        explanation: "Guardian of the public purse.",
-        subtopic: "11.0"
-    },
-    {
-        id: 42,
-        question: "The term of CAG office is:",
-        options: ["5 years or 65 age", "6 years or 65 age", "6 years or 62 age", "5 years or 60 age"],
-        correctAnswer: 1,
-        explanation: "6 years or upto age of 65 years, whichever is earlier.",
-        subtopic: "11.0"
-    },
-    {
-        id: 43,
-        question: "Does the Governor have the power to appoint Judges of the High Court?",
-        options: ["Yes", "No", "Only District Judges", "Only Additional Judges"],
-        correctAnswer: 1,
-        explanation: "No. HC Judges are appointed by President. Governor is only CONSULTED.",
-        subtopic: "31.2"
-    },
-    {
-        id: 44,
-        question: "The decisions of the Central Administrative Tribunal (CAT) can be appealed in:",
-        options: ["Supreme Court only", "High Court (Division Bench)", "District Court", "President"],
-        correctAnswer: 1,
-        explanation: "Since Chandra Kumar case (1997), appeal lies to Division Bench of concerned High Court first.",
-        subtopic: "11.0"
-    },
-    {
-        id: 45,
-        question: "Which of the following states does not have a bicameral legislature?",
-        options: ["Bihar", "Karnataka", "Maharashtra", "Tamil Nadu"],
-        correctAnswer: 3,
-        explanation: "Tamil Nadu has a unicameral legislature (abolished Council).",
-        subtopic: "33.0"
-    },
-    {
-        id: 46,
-        question: "The Sarkaria Commission recommended that the Governor should be:",
-        options: ["A politician from the ruling party", "An eminent person from outside the state", "A retired judge of the same state", "The Chief Secretary"],
-        correctAnswer: 1,
-        explanation: "An eminent person from outside the state (to ensure impartiality).",
-        subtopic: "15.4"
-    },
-    {
-        id: 47,
-        question: "Which Article grants special status to Delhi?",
-        options: ["239", "239A", "239AA", "239AB"],
-        correctAnswer: 2,
-        explanation: "Article 239AA (69th Amendment Act, 1991).",
-        subtopic: "11.0"
-    },
-    {
-        id: 48,
-        question: "Who conducts elections to Municipalities and Panchayats?",
-        options: ["Election Commission of India", "State Election Commission", "State Government", "Governor"],
-        correctAnswer: 1,
-        explanation: "State Election Commission.",
-        subtopic: "33.0"
-    },
-    {
-        id: 49,
-        question: "The State Election Commissioner is appointed by:",
-        options: ["President", "Governor", "Chief Minister", "CEC of India"],
-        correctAnswer: 1,
-        explanation: "Governor.",
-        subtopic: "33.0"
-    },
-    {
-        id: 50,
-        question: "Article 243-ZD deals with:",
-        options: ["District Planning Committee", "Metropolitan Planning Committee", "State Finance Commission", "Gram Sabha"],
-        correctAnswer: 0,
-        explanation: "District Planning Committee.",
-        subtopic: "33.0"
-    },
-    {
-        id: 51,
-        question: "Taxes on agricultural income is listed in:",
-        options: ["Union List", "State List", "Concurrent List", "Residuary Powers"],
-        correctAnswer: 1,
-        explanation: "State List.",
-        subtopic: "15.1"
-    },
-    {
-        id: 52,
-        question: "Education was moved to Concurrent List by:",
-        options: ["42nd Amendment", "44th Amendment", "86th Amendment", "1st Amendment"],
-        correctAnswer: 0,
-        explanation: "42nd Amendment Act, 1976.",
-        subtopic: "15.1"
-    },
-    {
-        id: 53,
-        question: "Who is empowered to remove the Chairperson of a State Public Service Commission?",
-        options: ["Governor", "President", "Parliament", "Supreme Court"],
-        correctAnswer: 1,
-        explanation: "President (even though appointed by Governor).",
-        subtopic: "31.1"
-    },
-    {
-        id: 54,
-        question: "Which President of India was elected unopposed?",
-        options: ["Rajendra Prasad", "S. Radhakrishnan", "N. Sanjeeva Reddy", "APJ Abdul Kalam"],
-        correctAnswer: 2,
-        explanation: "N. Sanjeeva Reddy (1977).",
-        subtopic: "18.0"
-    },
-    {
-        id: 55,
-        question: "Who was the first Vice-President of India?",
-        options: ["S. Radhakrishnan", "V.V. Giri", "Zakir Hussain", "G.S. Pathak"],
-        correctAnswer: 0,
-        explanation: "Dr. S. Radhakrishnan.",
-        subtopic: "19.0"
-    },
-    {
-        id: 56,
-        question: "The term 'Cabinet' is mentioned in the Constitution only once in Article:",
-        options: ["74", "75", "352", "356"],
-        correctAnswer: 2,
-        explanation: "Article 352 (Clause 3)",
-        subtopic: "21.3"
-    },
-    {
-        id: 57,
-        question: "Total number of members in the Constituent Assembly were:",
-        options: ["299", "389", "296", "412"],
-        correctAnswer: 1,
-        explanation: "389 (before partition). 299 (after partition).",
-        subtopic: "11.0"
-    },
-    {
-        id: 58,
-        question: "The design of the National Flag was adopted on:",
-        options: ["July 22, 1947", "August 15, 1947", "January 26, 1950", "November 26, 1949"],
-        correctAnswer: 0,
-        explanation: "July 22, 1947.",
-        subtopic: "11.0"
-    },
-    {
-        id: 59,
-        question: "Who was the Chairman of the Drafting Committee?",
-        options: ["Jawaharlal Nehru", "Sardar Patel", "Dr. B.R. Ambedkar", "Dr. Rajendra Prasad"],
-        correctAnswer: 2,
-        explanation: "Dr. B.R. Ambedkar.",
-        subtopic: "11.0"
-    },
-    {
-        id: 60,
-        question: "The Constitution of India was adopted on:",
-        options: ["26 January 1950", "26 November 1949", "15 August 1947", "26 January 1949"],
-        correctAnswer: 1,
-        explanation: "26 November 1949 (Enacted/Adopted). Came into force on 26 Jan 1950.",
-        subtopic: "11.0"
+        question: "Which Article empowers Parliament to restrict or abrogate the Fundamental Rights of the members of armed forces, para-military forces, police forces, and intelligence agencies?",
+        options: ["Article 31", "Article 32", "Article 33", "Article 34"],
+        correctAnswer: 2, // C
+        explanation: "Article 33 empowers the Parliament to restrict or abrogate the fundamental rights of the members of armed forces, para-military forces, police forces, intelligence agencies and analogous forces.",
+        level: "Easy", topic: "Fundamental Rights", difficulty_tier: "Level_1", cognitive_tag: "Fact", source_mapping: { book: "M. Laxmikanth", chapter: "Fundamental Rights" }
     }
 ];
-
-export default DAY7_MCQS;
