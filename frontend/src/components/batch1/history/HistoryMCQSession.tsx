@@ -56,6 +56,7 @@ export default function HistoryMCQSession({
     const [results, setResults] = useState<Record<string, MCQResult>>({});
     const [timeLeft, setTimeLeft] = useState(questions.length * 60); // 1 min per question
     const [questionStartTime, setQuestionStartTime] = useState(Date.now());
+    const [isPaletteOpen, setIsPaletteOpen] = useState(false);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -124,8 +125,6 @@ export default function HistoryMCQSession({
         const s = seconds % 60;
         return `${m}:${s.toString().padStart(2, '0')}`;
     };
-
-    const [isPaletteOpen, setIsPaletteOpen] = useState(false);
 
     return (
         <div className="flex flex-col h-full bg-muted dark:bg-black overflow-hidden rounded-3xl relative">
