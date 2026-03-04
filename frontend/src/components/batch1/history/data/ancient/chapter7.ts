@@ -1,106 +1,151 @@
-export interface Subtopic {
-    id: string;
-    name: string;
-}
-
-export interface Question {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation: string;
-    subtopic: string;
-    difficulty?: 'Easy' | 'Moderate' | 'Hard';
-}
+import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_7_SUBTOPICS: Subtopic[] = [
-    { id: 'invasions', name: 'Foreign Invasions (Indo-Greeks to Kushanas)' },
-    { id: 'kanishka', name: 'Kanishka & Gandhara Art' },
-    { id: 'native', name: 'Native Dynasties (Shungas, Kanvas, Chedis)' }
+    { id: 'aryan_migration', name: 'Aryan Migration & Geography' },
+    { id: 'rig_vedic_society', name: 'Rig Vedic Society & Tribal Structure' },
+    { id: 'political_org', name: 'Political Organization & Assemblies' },
+    { id: 'religion_rituals', name: 'Religion, Gods & Rituals' },
+    { id: 'economy_technology', name: 'Economy, Technology & Material Life' }
 ];
 
 export const ANCIENT_CHAPTER_7_MCQS: Question[] = [
-    {
-        id: 1,
-        question: "Who among the following was the most famous Indo-Greek ruler known for his philosophical dialogue with the Buddhist monk Nagasena?",
-        options: ["Demetrius", "Menander (Milinda)", "Eucratides", "Heliodorus"],
-        correctAnswer: 1,
-        explanation: "Menander (Milinda) is famous for the 'Milinda Panho' (Questions of Milinda), a dialogue with Nagasena. He converted to Buddhism.",
-        subtopic: 'invasions',
-        difficulty: 'Easy'
-    },
-    {
-        id: 2,
-        question: "The 'Gandhara School of Art' flourished primarily under which dynasty?",
-        options: ["Mauryas", "Guptas", "Kushanas", "Satavahanas"],
-        correctAnswer: 2,
-        explanation: "Gandhara School (Greco-Buddhist art) flourished under the Kushanas, especially Kanishka. It featured realistic images of Buddha with Greek features.",
-        subtopic: 'kanishka',
-        difficulty: 'Easy'
-    },
-    {
-        id: 3,
-        question: "The 'Junagarh Inscription' of Rudradaman Is famous for being:",
-        options: ["The first inscription in pure Sanskrit.", "The only inscription mentioning Ashoka by name.", "A record of the Silk Route trade.", "A dedication to the Sun God."],
-        correctAnswer: 0,
-        explanation: "It is the first long inscription in chaste Sanskrit. It mentions the repair of the Sudarshana Lake by Rudradaman (Shaka ruler).",
-        subtopic: 'invasions',
-        difficulty: 'Moderate'
-    },
-    {
-        id: 4,
-        question: "Who started the 'Saka Era' in 78 AD, which is used by the Government of India today?",
-        options: ["Vikramaditya", "Kanishka", "Rudradaman", "Ashoka"],
-        correctAnswer: 1,
-        explanation: "Kanishka started the Saka Era in 78 AD to mark his accession.",
-        subtopic: 'kanishka',
-        difficulty: 'Easy'
-    },
-    {
-        id: 5,
-        question: "The 'Besnagar Pillar Inscription' (Heliodorus Pillar) is dedicated to:",
-        options: ["Shiva", "Vasudeva (Vishnu)", "Buddha", "Mahavira"],
-        correctAnswer: 1,
-        explanation: "Heliodorus (Greek ambassador) erected it in honor of Vasudeva (Vishnu), showing the adoption of Vaishnavism by Greeks.",
-        subtopic: 'native',
-        difficulty: 'Moderate'
-    }
+    // ═══════════════════════════════════════════
+    // LEVEL 1 — EASY (30 Questions): Book Recall
+    // ═══════════════════════════════════════════
+    { id: 1, question: "The term 'Aryan' literally means:", options: ["Warrior", "Noble or High-born", "Foreigner", "Farmer"], correctAnswer: 1, explanation: "Aryan is derived from Sanskrit 'Arya', meaning noble, high-born, or cultured.", subtopic: 'aryan_migration', difficulty: 'Easy' },
+    { id: 2, question: "The earliest Aryans in India settled in the region called:", options: ["Aryavarta", "Sapta Sindhu (Land of Seven Rivers)", "Dakshinapatha", "Magadha"], correctAnswer: 1, explanation: "The early Rig Vedic Aryans settled in the Sapta Sindhu region (the Indus and its five tributaries + Sarasvati).", subtopic: 'aryan_migration', difficulty: 'Easy' },
+    { id: 3, question: "The Rig Veda is a collection of:", options: ["Philosophical discourses", "Hymns to deities", "Magic spells", "Historical chronicles"], correctAnswer: 1, explanation: "The Rig Veda consists of 1028 hymns (Suktas) addressed to various gods.", subtopic: 'religion_rituals', difficulty: 'Easy' },
+    { id: 4, question: "Which was the most important animal in the Rig Vedic economy?", options: ["Horse", "Elephant", "Cow", "Camel"], correctAnswer: 2, explanation: "The cow (Gau) was the primary measure of wealth and the center of the pastoral economy.", subtopic: 'economy_technology', difficulty: 'Easy' },
+    { id: 5, question: "The Rig Vedic society was predominantly:", options: ["Matriarchal", "Patriarchal", "Egalitarian", "Monarchical"], correctAnswer: 1, explanation: "Rig Vedic society was patriarchal, with the father (Kulapa) as the head of the family.", subtopic: 'rig_vedic_society', difficulty: 'Easy' },
+    { id: 6, question: "The deity 'Indra' in the Rig Veda is primarily known as:", options: ["God of Knowledge", "Thunderbolt God and Breaker of Forts (Purandara)", "God of Death", "God of Fire"], correctAnswer: 1, explanation: "Indra was the most important god, known as the rain god and Purandara (destroyer of forts).", subtopic: 'religion_rituals', difficulty: 'Easy' },
+    { id: 7, question: "The battle of Ten Kings (Dasrajan) was fought on the banks of which river?", options: ["Sarasvati", "Ganga", "Parushni (Ravi)", "Vitasta (Jhelum)"], correctAnswer: 2, explanation: "The Dasrajan battle was fought on the banks of the Parushni (modern Ravi) river.", subtopic: 'political_org', difficulty: 'Easy' },
+    { id: 8, question: "In the Rig Veda, 'Gavishti' refers to:", options: ["Sacrificial fire", "Search for cows (war for cattle)", "Village assembly", "Agricultural festival"], correctAnswer: 1, explanation: "Wars were often fought for cattle and were termed 'Gavishti' (search for cows).", subtopic: 'economy_technology', difficulty: 'Easy' },
+    { id: 9, question: "Who was the 'Gopa' in the Rig Vedic period?", options: ["Priest", "Village headman", "King/Tribal Chief", "Warrior"], correctAnswer: 2, explanation: "The king or tribal chief was called 'Gopati' or 'Gopa', the protector of cattle.", subtopic: 'political_org', difficulty: 'Easy' },
+    { id: 10, question: "Which of the following assemblies was the oldest and allowed participation of women?", options: ["Sabha", "Samiti", "Vidatha", "Gana"], correctAnswer: 2, explanation: "The Vidatha was an ancient tribal assembly that performed religious and military functions and included women.", subtopic: 'political_org', difficulty: 'Easy' },
+    { id: 11, question: "The 'Gayatri Mantra' is found in which book of the Rig Veda?", options: ["Book 1", "Book 3", "Book 7", "Book 10"], correctAnswer: 1, explanation: "The Gayatri Mantra, addressed to Savitri (Solar deity), is found in the 3rd Mandala of the Rig Veda.", subtopic: 'religion_rituals', difficulty: 'Easy' },
+    { id: 12, question: "Indra is addressed in how many hymns of the Rig Veda?", options: ["100", "200", "250", "500"], correctAnswer: 2, explanation: "Indra is the most celebrated god with 250 hymns dedicated to him.", subtopic: 'religion_rituals', difficulty: 'Easy' },
+    { id: 13, question: "Which metal was known as 'Ayas' in the early Vedic period (likely copper/bronze)?", options: ["Iron", "Copper/Bronze", "Gold", "Silver"], correctAnswer: 1, explanation: "Ayas referred to copper or bronze. Iron (Shyama Ayas) was not known in the early Vedic phase.", subtopic: 'economy_technology', difficulty: 'Easy' },
+    { id: 14, question: "The river Ganga is mentioned how many times in the Rig Veda?", options: ["Once", "Ten times", "Hundreds of times", "Not at all"], correctAnswer: 0, explanation: "The Ganga is mentioned only once, indicating it was on the periphery of the early Aryan geography.", subtopic: 'aryan_migration', difficulty: 'Easy' },
+    { id: 15, question: "The basic unit of Rig Vedic society was the:", options: ["Gram", "Vis", "Jana", "Kula (Family)"], correctAnswer: 3, explanation: "The family (Kula/Griha) was the fundamental social unit, led by the Grihapati.", subtopic: 'rig_vedic_society', difficulty: 'Easy' },
+    { id: 16, question: "Which god was the intermediary between gods and men?", options: ["Varuna", "Agni", "Indra", "Soma"], correctAnswer: 1, explanation: "Agni (Fire God) carried the offerings from humans to the gods.", subtopic: 'religion_rituals', difficulty: 'Easy' },
+    { id: 17, question: "The term 'Jana' in the Rig Veda refers to:", options: ["The King", "The Tribe", "The Land", "The Priest"], correctAnswer: 1, explanation: "Jana referred to the tribe (like Bharatas, Purus, Yadus).", subtopic: 'political_org', difficulty: 'Easy' },
+    { id: 18, question: "Soma was the god of:", options: ["Fire", "Plants and an intoxicating drink", "Justice", "War"], correctAnswer: 1, explanation: "Soma was the king of plants and the deity of the sacred drink used in rituals.", subtopic: 'religion_rituals', difficulty: 'Easy' },
+    { id: 19, question: "The 'Panchajana' refers to:", options: ["Five priests", "Five tribal groups (Yadu, Turvasu, Druhyu, Anu, Puru)", "Five rivers", "Five gods"], correctAnswer: 1, explanation: "These were the five most prominent Aryan tribes mentioned in the Rig Veda.", subtopic: 'political_org', difficulty: 'Easy' },
+    { id: 20, question: "Rig Vedic Aryans were primarily:", options: ["Urban dwellers", "Pastoral nomads", "Permanent farmers", "Industrialists"], correctAnswer: 1, explanation: "Early Aryans were mobile pastoralists who prioritized cattle over permanent farming.", subtopic: 'economy_technology', difficulty: 'Easy' },
+    { id: 21, question: "The head of the 'Gram' (village) was called:", options: ["Gopa", "Gramani", "Rajanya", "Vrajapati"], correctAnswer: 1, explanation: "The Gramani was the village headman and leader of the fighting unit during migrations.", subtopic: 'political_org', difficulty: 'Easy' },
+    { id: 22, question: "Which varna is NOT mentioned in the earliest books of the Rig Veda?", options: ["Brahmin", "Kshatriya", "Shudra", "Vaishya"], correctAnswer: 2, explanation: "The Purusha Sukta (10th Mandala) mentions Shudras for the first time; earlier books focus on the Arya/Dasa divide.", subtopic: 'rig_vedic_society', difficulty: 'Easy' },
+    { id: 23, question: "The 'Sabha' was an assembly of:", options: ["All tribal members", "Elders and nobles", "Only women", "Only priests"], correctAnswer: 1, explanation: "The Sabha was a more restricted council of elders and elite members compared to the Samiti.", subtopic: 'political_org', difficulty: 'Easy' },
+    { id: 24, question: "Which river was considered the most sacred (Nadi-tarna) by the Rig Vedic Aryans?", options: ["Indus", "Sarasvati", "Ganga", "Yamuna"], correctAnswer: 1, explanation: "Sarasvati was the most praised and sacred river in the hymns.", subtopic: 'aryan_migration', difficulty: 'Easy' },
+    { id: 25, question: "Women in the Rig Vedic period could:", options: ["Attend assemblies", "Getting educated (Vidushi)", "Participate in debates", "All of the above"], correctAnswer: 3, explanation: "Women enjoyed a relatively high status — attending assemblies, receiving education (e.g., Lopamudra, Ghosha), and choosing partners.", subtopic: 'rig_vedic_society', difficulty: 'Easy' },
+    { id: 26, question: "A 'Nishka' in the early Vedic period was:", options: ["A priest", "A gold coin/ornament used as currency", "A weapon", "A type of pottery"], correctAnswer: 1, explanation: "Nishka was a gold ornament or piece used as a medium of exchange before formal coinage.", subtopic: 'economy_technology', difficulty: 'Easy' },
+    { id: 27, question: "Who was 'Varuna'?", options: ["God of War", "Upholder of Cosmic Order (Rita)", "God of Wind", "God of the Moon"], correctAnswer: 1, explanation: "Varuna was the guardian of the moral laws and the cosmic order of the universe.", subtopic: 'religion_rituals', difficulty: 'Easy' },
+    { id: 28, question: "The Dasas and Dasyus mentioned in the Veda were:", options: ["Friendly neighbors", "Indigenous inhabitants/opponents of Aryans", "Aryans from another tribe", "Slaves only"], correctAnswer: 1, explanation: "These terms referred to the non-Aryan indigenous groups with whom the Aryans clashed.", subtopic: 'aryan_migration', difficulty: 'Easy' },
+    { id: 29, question: "Did the Rig Vedic people use the horse-drawn chariot?", options: ["No", "Yes", "Only for farming", "Only for carrying water"], correctAnswer: 1, explanation: "The light-wheeled chariot (Ratha) drawn by horses was a major military advantage of the Aryans.", subtopic: 'economy_technology', difficulty: 'Easy' },
+    { id: 30, question: "Which of these crops was known as 'Yava' in the Rig Veda?", options: ["Rice", "Barley", "Wheat", "Sugarcane"], correctAnswer: 1, explanation: "Yava refers to barley, the most common cereal mentioned in the Rig Veda.", subtopic: 'economy_technology', difficulty: 'Easy' },
+
+    // ══════════════════════════════════════════════════
+    // LEVEL 2 — MODERATE (30 Questions): Conceptual
+    // ══════════════════════════════════════════════════
+    { id: 31, question: "Consider the following about Rig Vedic Kingship:\n1. The King (Rajan) was an absolute monarch.\n2. Kingship was usually hereditary but subject to tribal approval.\n3. The King did not have a standing army.", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 1, explanation: "The King was a tribal leader (not absolute) and relied on tribal militias (no standing army).", subtopic: 'political_org', difficulty: 'Moderate' },
+    { id: 32, question: "The shift from the Indus region to the Gangetic plain by the end of the Rig Vedic period was primarily due to:", options: ["Better climate in the east", "The need for more land for growing population and search for new pastures", "Avoidance of Iranian invasions", "Invention of iron"], correctAnswer: 1, explanation: "Demographic pressure and the quest for new fertile lands/pastures drove the eastward movement.", subtopic: 'aryan_migration', difficulty: 'Moderate' },
+    { id: 33, question: "How did the 'Battle of Ten Kings' shape Rig Vedic politics?", options: ["It destroyed all tribes", "It established the supremacy of the Bharata tribe under King Sudas", "It led to the disappearance of the Aryans", "It unified all tribes under a single empire"], correctAnswer: 1, explanation: "The victory of Sudas secured the dominance of the Bharata tribe, which eventually merged with the Purus to form the Kurus.", subtopic: 'political_org', difficulty: 'Moderate' },
+    { id: 34, question: "Consider:\n1. Sabha was a general assembly of the whole tribe.\n2. Samiti was a smaller group of elites/elders.\n3. Both assemblies exercised check over the King.", options: ["3 only", "1 and 2 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Actually, Sabha was the smaller group (elders) and Samiti was the larger one. Both did check the King's power.", subtopic: 'political_org', difficulty: 'Moderate' },
+    { id: 35, question: "Social division in the Rig Veda was primarily based on:\n1. Occupation\n2. Varna (Color/Status)\n3. Ritual purity", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Initially, it was the Arya vs Dasa divide. Later, occupational groups emerged but were not yet rigid/hereditary like the later caste system.", subtopic: 'rig_vedic_society', difficulty: 'Moderate' },
+    { id: 36, question: "Why was 'Bali' significant in the Rig Vedic economy?", options: ["It was a mandatory tax paid by everyone", "It was a voluntary offering made by people to the chief", "It was a religious sacrifice only", "It was used to buy horses from Central Asia"], correctAnswer: 1, explanation: "Bali was a voluntary tribute/gift to the Rajan, proving the non-extractive nature of the early state.", subtopic: 'economy_technology', difficulty: 'Moderate' },
+    { id: 37, question: "Match:\nA. Vrajapati — 1. Head of village\nB. Gramani — 2. Head of pasture land\nC. Kulapa — 3. Head of family", options: ["A-2, B-1, C-3", "A-1, B-2, C-3", "A-3, B-1, C-2", "A-2, B-3, C-1"], correctAnswer: 0, explanation: "Vrajapati = pasture lands; Gramani = village; Kulapa = family.", subtopic: 'political_org', difficulty: 'Moderate' },
+    { id: 38, question: "The 'Purohita' held an influential position because:", options: ["He was the king's general", "He performed rituals and prayers to ensure the tribe's victory and prosperity", "He owned all the land", "He was elected by the people"], correctAnswer: 1, explanation: "The family priest (Purohita) was the king's advisor, providing ritual legitimacy and spiritual support for war.", subtopic: 'political_org', difficulty: 'Moderate' },
+    { id: 39, question: "Consider the status of women:\n1. They could choose husbands through 'Swayamvara'.\n2. Child marriage was common.\n3. Widow remarriage (Niyoga) was practiced.", options: ["1 and 3 only", "2 and 3 only", "1 and 2 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Rig Vedic women had high status — no child marriage, Swayamvara existed, and Niyoga (remarriage for progeny) was allowed.", subtopic: 'rig_vedic_society', difficulty: 'Moderate' },
+    { id: 40, question: "What indicates that Rig Vedic religion was patriarchal?", options: ["Male gods (Indra, Agni, Varuna) dominant over female deities", "Priests were always women", "They had no female deities", "Families were headed by mothers"], correctAnswer: 0, explanation: "The religious hierarchy mirrored the social one, with powerful male warrior gods taking precedence.", subtopic: 'religion_rituals', difficulty: 'Moderate' },
+    { id: 41, question: "The term 'Vis' in the Rig Veda denotes:", options: ["The merchant class", "The whole tribal community", "The soldiers", "The slaves"], correctAnswer: 1, explanation: "Vis referred to the common people of the tribe, from which the term 'Vaishya' eventually derived.", subtopic: 'rig_vedic_society', difficulty: 'Moderate' },
+    { id: 42, question: "Why did the Aryans succeed in defeating the local inhabitants?", options: ["They had more people", "Superior military technology (horses, chariots, bronze weapons)", "They were more peaceful", "They had better farming tools"], correctAnswer: 1, explanation: "Horse-drawn chariots and better metallic weapons provided a significant combat advantage.", subtopic: 'aryan_migration', difficulty: 'Moderate' },
+    { id: 43, question: "Consider:\n1. The Rig Veda mentions 'Sama' hymns for chanting.\n2. It mentions the 'Yajus' formula for sacrifice.\n3. These are separate Samhitas but integrated in practice.", options: ["1 and 2 only", "2 and 3 only", "1, 2 and 3", "3 only"], correctAnswer: 2, explanation: "While the Rig Veda is the oldest, the ritual practice eventually birthed the specialized Sama and Yajur Vedas.", subtopic: 'religion_rituals', difficulty: 'Moderate' },
+    { id: 44, question: "How did Rig Vedic people view land ownership?", options: ["Individual private property", "Communal tribal resource", "Owned by the King alone", "No concept of land"], correctAnswer: 1, explanation: "Land was communal tribal territory; private ownership of land was NOT a feature of this pastoral phase.", subtopic: 'economy_technology', difficulty: 'Moderate' },
+    { id: 45, question: "The 'Purusha Sukta' in the 10th Mandala is significant because:", options: ["It contains the गायत्री मन्त्र", "It provides the cosmological origin of the four varnas", "It describes the battle of kings", "It lists the 10 kings"], correctAnswer: 1, explanation: "It is the earliest text describing the creation of Brahmins, Rajanyas, Vaishyas, and Shudras from the Cosmic Man.", subtopic: 'rig_vedic_society', difficulty: 'Moderate' },
+    { id: 46, question: "Which describes 'Rita' correctly?", options: ["A type of grain", "The cosmic and moral order of the universe", "A sacrifice ritual", "A tribal assembly"], correctAnswer: 1, explanation: "Rita was the fundamental law governing the stars, seasons, and moral life, guarded by Varuna.", subtopic: 'religion_rituals', difficulty: 'Moderate' },
+    { id: 47, question: "The 'Dasa' vs 'Arya' conflict in the Veda was based on differences in:", options: ["Religion only", "Skin color, language, and cultural practices (phallic worship vs nature worship)", "Only wealth", "Only land"], correctAnswer: 1, explanation: "Differences in physical appearance (Varna), speech (Mridhravach), and rituals (Akraman) were cited.", subtopic: 'aryan_migration', difficulty: 'Moderate' },
+    { id: 48, question: "What role did the charioteer (Suta) play in the Vedic period?", options: ["Just a driver", "Friend and companion of the king, who also served as a news-bearer/memory-keeper", "A low-status slave", "A tax collector"], correctAnswer: 1, explanation: "The Suta was a high-status official close to the king, often involved in diplomacy and court records.", subtopic: 'political_org', difficulty: 'Moderate' },
+    { id: 49, question: "Consider:\n1. Rice was the staple diet of early Aryans.\n2. Barley was the primary grain.\n3. They practiced slash-and-burn agriculture.", options: ["2 and 3 only", "1 and 2 only", "1, 2 and 3", "1 only"], correctAnswer: 0, explanation: "Early Aryans focused on barley (Yava). Rice (Vrihi) became important in the later Vedic phase/Gangetic plains.", subtopic: 'economy_technology', difficulty: 'Moderate' },
+    { id: 50, question: "The 'Anu, Puru, Yadu, Turvasu, and Druhyu' tribes are collectively known as:", options: ["Dasas", "Panchajana", "Brahmins", "Indo-Greeks"], correctAnswer: 1, explanation: "These were the five core Aryan tribes mentioned frequently in the Rig Veda.", subtopic: 'political_org', difficulty: 'Moderate' },
+    { id: 51, question: "Domestic architecture in the Rig Vedic period consisted of:", options: ["Brick cities", "Circular or rectangular houses of wood, straw, and reed", "Stone castles", "They lived in tents only"], correctAnswer: 1, explanation: "Lacking urban centres, তারা perishable structures of wood and reeds built in tribal hamlets.", subtopic: 'economy_technology', difficulty: 'Moderate' },
+    { id: 52, question: "The concept of 'monotheism' in the Rig Veda is found in:", options: ["Early books", "Later philosophical hymns (e.g., Nasadiya Sukta) which state 'Truth is one, sages call it by many names'", "It is not found", "It is the only theme"], correctAnswer: 1, explanation: "Later parts of the Rig Veda move from many gods toward a concept of a single ultimate reality (Ekam Sat).", subtopic: 'religion_rituals', difficulty: 'Moderate' },
+    { id: 53, question: "Why did the cow become 'Aghnya' (not to be killed)?", options: ["Lack of grass", "Economic value as a source of dairy, labor, and a unit of wealth", "They were sacred from the start", "Because they were pets"], correctAnswer: 1, explanation: "Its immense utility as a 'walking bank' and source of nutrition made its preservation vital for the community.", subtopic: 'economy_technology', difficulty: 'Moderate' },
+    { id: 54, question: "Match the mountain/river mentioned in the Rig Veda:\nA. Himvant — 1. Kabul river\nB. Kubha — 2. Himalayas\nC. Mujavant — 3. Source of Soma (Hindu Kush)", options: ["A-2, B-1, C-3", "A-1, B-2, C-3", "A-3, B-1, C-2", "A-2, B-3, C-1"], correctAnswer: 0, explanation: "Himvant = Himalayas; Kubha = Kabul; Mujavant = peak known for Soma plant.", subtopic: 'aryan_migration', difficulty: 'Moderate' },
+    { id: 55, question: "The transition from 'Jana' (tribe) to 'Janapada' (territory) happened in:", options: ["Early Rig Vedic phase", "Later Vedic phase", "Indus Valley period", "Mauryan period"], correctAnswer: 1, explanation: "Settled territorial units (Janapadas) replaced mobile tribal groups (Janas) as the focus shifted to land.", subtopic: 'political_org', difficulty: 'Moderate' },
+    { id: 56, question: "Consider:\n1. Aditi was the mother of gods.\n2. Ushas was the goddess of dawn.\n3. Female deities were more popular than male ones.", options: ["1 and 2 only", "2 and 3 only", "1, 2 and 3", "1 only"], correctAnswer: 0, explanation: "Female deities existed but were far less prominent than the male warrior/nature gods.", subtopic: 'religion_rituals', difficulty: 'Moderate' },
+    { id: 57, question: "How did Rig Vedic people spend their wealth?", options: ["Buying land", "Performing sacrifices (Yajna) and rewarding priests with cattle/slaves", "Building temples", "Hoarding gold"], correctAnswer: 1, explanation: "Sacrifices were the primary way to redistribute wealth and gain prestige/divine favor.", subtopic: 'economy_technology', difficulty: 'Moderate' },
+    { id: 58, question: "The term 'Mridhravach' used for enemies means:", options: ["Brave warriors", "Speakers of soft words", "Speakers of gibberish/different language", "Poets"], correctAnswer: 2, explanation: "This linguistic boundary was a key way Aryans identified themselves as distinct from 'others'.", subtopic: 'aryan_migration', difficulty: 'Moderate' },
+    { id: 59, question: "Which of the following describes the Rig Vedic military formation?", options: ["Pikemen and phalanx", "Sardha, Vrata, and Gana (tribal units)", "Mercenary armies", "Elephants and artillery"], correctAnswer: 1, explanation: "Warfare was a communal tribal activity organized into hereditary or tribal units like Gana.", subtopic: 'political_org', difficulty: 'Moderate' },
+    { id: 60, question: "The presence of 'Dasis' (female slaves) in the Rig Veda suggests:", options: ["Aryans worked for Dasas", "Capture of women during wars and their use in domestic work", "Gender equality", "Lack of manpower"], correctAnswer: 1, explanation: "Slaves (primarily women) were acquired through warfare and given as gifts (Dana) in sacrifices.", subtopic: 'rig_vedic_society', difficulty: 'Moderate' },
+
+    // ══════════════════════════════════════════════════════
+    // LEVEL 3 — HARD (30 Questions): UPSC Simulation
+    // ══════════════════════════════════════════════════════
+    { id: 61, question: "Assertion (A): Rig Vedic society was relatively egalitarian compared to the later Vedic period.\nReason (R): Tribal traditions, shared pastoral resources, and the absence of a fixed tax system limited extreme wealth disparities.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "The lack of private land/taxes and communal nature of the tribe kept the social hierarchy relatively flat.", subtopic: 'rig_vedic_society', difficulty: 'Hard' },
+    { id: 62, question: "Consider the following about the 'Aryans' in the Rig Veda:\n1. They were a single ethnic race migrating from Central Asia.\n2. The term 'Arya' denoted a shared language and culture rather than a biological race.\n3. The Rig Veda contains no evidence of internal conflict among Aryan tribes.\nWhich of these reflect modern scholarly views?", options: ["1 only", "2 only", "1 and 2 only", "1, 2 and 3"], correctAnswer: 1, explanation: "Arya is linguistic-cultural. There was significant conflict among Aryan tribes (e.g., Dasrajan). Ethnic purity is an outdated 19th-century view.", subtopic: 'aryan_migration', difficulty: 'Hard' },
+    { id: 63, question: "Assertion (A): The Sabhas and Samitis declined in power as the Vedic period progressed.\nReason (R): The increase in the King's territory and military strength led to the rise of absolute monarchical power.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "As tribal chief became territorial king, popular assemblies could no longer effectively check localized absolute power.", subtopic: 'political_org', difficulty: 'Hard' },
+    { id: 64, question: "Which of the following describes the relationship between 'Dana' and 'Dakshina' in the Rig Veda correctly?", options: ["They are the same", "Dana is a charitable gift; Dakshina is a specific payment to a priest for sacrificial service", "Dana is only for gods", "Dakshina is a tax on land"], correctAnswer: 1, explanation: "Dakshina (cow/nishka) was the prerequisite for a ritual's efficacy, paid to the officiant priest.", subtopic: 'religion_rituals', difficulty: 'Hard' },
+    { id: 65, question: "Assertion (A): Environmental factors played a role in the eastward migration of the Aryans.\nReason (R): Overgrazing in the Sapta Sindhu region and climate aridity may have reduced the carrying capacity of the land.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Resource depletion in the original settlement area is a key geographic driver for migration.", subtopic: 'aryan_migration', difficulty: 'Hard' },
+    { id: 66, question: "Consider the 'Varuna' vs 'Indra' religious dynamic:\n1. Varuna represents the older, ethical-moral order (Rita).\n2. Indra represents the newer, dynamic warrior energy needed for conquest.\n3. The rise of Indra over Varuna mirrors the Aryan military expansion phase.\nWhich are correct?", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 2, explanation: "Scholars see a shift from peaceful ethical gods (Varuna) to militarily useful gods (Indra) as the Aryans fought for territory.", subtopic: 'religion_rituals', difficulty: 'Hard' },
+    { id: 67, question: "Which best describes the status of the 'Shudra' in the Rig Vedic age?", options: ["An oppressed untouchable caste", "Initially a term for captured non-Aryan people, they occupied a low position but were not yet excluded from society", "They were the ruling elite", "The term does not exist in any part of the Rig Veda"], correctAnswer: 1, explanation: "In the early phase, it was a blurred line of subjugation; rigid caste exclusion developed only in the later Vedic age.", subtopic: 'rig_vedic_society', difficulty: 'Hard' },
+    { id: 68, question: "Assertion (A): Rig Vedic sacrifices (Yajnas) were primarily for 'material' benefits (Praja, Pashu, Dhana).\nReason (R): Spiritual liberation (Moksha) was not yet the primary focus of early Vedic religion.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Early religion was 'pravritti' (world-affirming) seeking children, cattle, and victory; 'nivritti' (renunciation) came with the Upanishads.", subtopic: 'religion_rituals', difficulty: 'Hard' },
+    { id: 69, question: "Which of the following describes the 'Dasrajan' battle participants correctly?", options: ["Aryans vs Greeks", "Ten Aryan and Non-Aryan tribes united against King Sudas of the Bharata tribe", "Ten Bharata kings fighting each other", "Dasyus fighting Dasas"], correctAnswer: 1, explanation: "The opposition to Sudas was a confederacy of five Aryan and five non-Aryan tribes.", subtopic: 'political_org', difficulty: 'Hard' },
+    { id: 70, question: "Assertion (A): The absence of iron (Ayas as copper) limited the Aryans' ability to clear dense jungles in the East initially.\nReason (R): High-carbon steel was required to cut the heavy teak and sal forests of the middle Gangetic plain.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "The lack of iron kept Aryans in the drier NW; only iron tools (later Vedic) enabled the clearing of the Gangetic forests.", subtopic: 'aryan_migration', difficulty: 'Hard' },
+    { id: 71, question: "Consider the 'Nasadiya Sukta' (Hymn of Creation):\n1. It expresses deep skepticism about the origins of the universe.\n2. It suggests that even the gods came after the creation.\n3. It represents the pinnacle of Rig Vedic philosophical inquiry.\nWhich are correct?", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 3, explanation: "The Nasadiya Sukta (10.129) is famous for its abstract and philosophical questioning of 'the beginning'.", subtopic: 'religion_rituals', difficulty: 'Hard' },
+    { id: 72, question: "Which is the most accurate summary of Rig Vedic 'Land Rights'?", options: ["Private ownership was documented in deeds", "Tribal group had the usage rights over pasture and arable land, but no concept of salable land existed", "Kings owned and sold land at will", "Land was not valued at all"], correctAnswer: 1, explanation: "Pastoralists value cattle, not static land; territory was communal tribal 'space' for roaming.", subtopic: 'economy_technology', difficulty: 'Hard' },
+    { id: 73, question: "Assertion (A): The term 'Varna' in the early Rig Veda was more about 'Us vs Them' than internal social hierarchy.\nReason (R): It primarily distinguished the 'fair-skinned' Aryas from the 'dark-skinned' Dasas.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Varna (color) was the initial basis of social categorization between the invaders and the indigenous groups.", subtopic: 'rig_vedic_society', difficulty: 'Hard' },
+    { id: 74, question: "How did the 'Purohita' impact the conduct of war?", options: ["He led the army in person", "He used psychological warfare through hymns and rituals to demoralize the enemy and boost Aryan morale", "He remained at home and did nothing", "He was a spy"], correctAnswer: 1, explanation: "His rituals were believed to invoke divine help, essentially serving as a source of ideological and morale support.", subtopic: 'political_org', difficulty: 'Hard' },
+    { id: 75, question: "Assertion (A): The Rig Veda mentions neither the tiger nor the lion.\nReason (R): Aryans were not yet familiar with the flora and fauna of the dense Gangetic and coastal forests.", options: ["A correct, R wrong", "A wrong, R wrong", "Both correct, R explains A", "Both wrong"], correctAnswer: 1, explanation: "Rig Veda mentions the **LION** (Simha) frequently but NOT the **TIGER** (Vyaghra), because Tigers were in the dense east.", subtopic: 'aryan_migration', difficulty: 'Hard' },
+    { id: 76, question: "Consider the 'Niyoga' practice (levirate marriage):\n1. It allowed a widow to cohabit with her brother-in-law to produce an heir.\n2. It was seen as a way to maintain the lineage in a patriarchal society.\n3. It was banned in the Rig Vedic age.", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "Niyoga was a widely accepted and practiced custom for the sake of male progeny in the family line.", subtopic: 'rig_vedic_society', difficulty: 'Hard' },
+    { id: 77, question: "Which factor best explains the 'Pastoral-Agricultural' duality of the Rig Vedic economy?", options: ["The climate was too dry for farming", "Technological constraints (absence of iron) and a tribal culture favoring mobility over sedentary farming", "They didn't like vegetables", "Rice was not invented"], correctAnswer: 1, explanation: "While they knew farming, their tools and social structure made pastoralism more efficient and prestige-giving.", subtopic: 'economy_technology', difficulty: 'Hard' },
+    { id: 78, question: "Assertion (A): Early Vedic religion can be described as 'Henotheism'.\nReason (R): Max Muller coined this term to describe the practice of addressing whoever deity is being worshipped as the supreme one at that moment.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Muller observed that Aryans praised Indra, Agni, or Varuna as if that specific god was the ultimate while praying to them.", subtopic: 'religion_rituals', difficulty: 'Hard' },
+    { id: 79, question: "Consider:\n1. Use of the wheel with spokes (Spoked Wheel).\n2. Use of a decimal-like system in numbers.\n3. Awareness of the 12-month year.\nWhich are correct regarding early Vedic knowledge?", options: ["1 and 3 only", "1 and 2 only", "2 and 3 only", "1, 2 and 3"], correctAnswer: 3, explanation: "Spoked wheels gave them mobility; they had high numbers (parardha) and a 12-month/360-day calendar.", subtopic: 'economy_technology', difficulty: 'Hard' },
+    { id: 80, question: "Which of the following is the most accurate description of the 'Vrajapati's' role?", options: ["Collection of taxes", "Authority over families living in a shared large territory/pasture land", "Military general", "Judge of crimes"], correctAnswer: 1, explanation: "The 'Hurdle-master' had authority over the shared pastures where the Kulas (families) grazed their herds.", subtopic: 'political_org', difficulty: 'Hard' },
+    { id: 81, question: "Assertion (A): The Aryans didn't just 'invade' but 'migrated' in waves over centuries.\nReason (R): Archaeological evidence shows a gradual infiltration and cultural exchange rather than a single violent event.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Modern consensus favors migration in groups and stages across the Iranian plateau into the Indus plain.", subtopic: 'aryan_migration', difficulty: 'Hard' },
+    { id: 82, question: "Consider the 'Asvamedha' (Horse Sacrifice) in the Rig Veda:\n1. It was as elaborate as in the later Vedic period.\n2. It was a simple ritual mentioned only once.\n3. It was used to claim universal empire.", options: ["2 only", "1 and 3 only", "2 and 3 only", "1, 2 and 3"], correctAnswer: 0, explanation: "In the Rig Veda, Asvamedha is simple and rare. Its political/imperial meaning flourished in the later Vedic age.", subtopic: 'religion_rituals', difficulty: 'Hard' },
+    { id: 83, question: "Which is the most likely reason for the mention of 'Ocean' (Samudra) in the Rig Veda?", options: ["They reached the Indian Ocean", "It referred to the confluence of massive rivers like the Indus, which looked like a sea", "They traded with Rome by sea", "They came from a sea-island"], correctAnswer: 1, explanation: "Early Aryans were land-locked in Punjab; 'Samudra' likely meant the vastness of the Indus river during floods.", subtopic: 'aryan_migration', difficulty: 'Hard' },
+    { id: 84, question: "Assertion (A): Rig Vedic language (Sanskrit) has ties to Avestan (Old Iranian).\nReason (R): Many deities (Indra, Mithra) and concepts (Haoma/Soma) are common to both texts, proving a shared origin.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Indo-Iranian shared roots are linguistic and cultural facts connecting the Veda and Avesta.", subtopic: 'aryan_migration', difficulty: 'Hard' },
+    { id: 85, question: "Consider:\n1. Use of silver coins.\n2. Use of Iron weapons.\n3. Building of stone stupas.\nWhich of these are EXCLUDED from Rig Vedic culture?", options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"], correctAnswer: 3, explanation: "Silver, Iron, and Stupas are all features of a later period (Iron Age/Historical era).", subtopic: 'economy_technology', difficulty: 'Hard' },
+    { id: 86, question: "Which best characterizes 'Tribal Identity' in the Rig Vedic age?", options: ["Based on individual achievement", "Based on 'Gotra' (clan) and lineage from a common ancestor", "Based on government documentation", "Based on religious conversion"], correctAnswer: 1, explanation: "The Gotra system provided the kinship structure that defined the Jana (tribe) and Vis (community).", subtopic: 'rig_vedic_society', difficulty: 'Hard' },
+    { id: 87, question: "Assertion (A): The 'Bharatas' and 'Purus' were rivals who eventually unified.\nReason (R): They merged to handle common enemies and became the 'Kuru' tribe of the Upper Gangetic plain.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "This merger is a classic example of tribal consolidation leading toward territorial statehood (Kuru Janapada).", subtopic: 'political_org', difficulty: 'Hard' },
+    { id: 88, question: "What does the word 'Dasyu-hatya' signify in the hymns?", options: ["Killing of snakes", "Extermination of Dasyus (enemies/demons) as a religious and tribal duty", "A festival", "A medical term"], correctAnswer: 1, explanation: "It reflects the intense survival/conquest struggle of the early Aryans against the indigenous people.", subtopic: 'aryan_migration', difficulty: 'Hard' },
+    { id: 89, question: "Which of the following describes Rig Vedic 'Taxation' accurately?", options: ["Mandatory 1/6th of produce", "Non-existent; only voluntary 'Bali' and war booty (distributable) sustained the chief", "Paid in gold coins only", "Tax on salt"], correctAnswer: 1, explanation: "The early Vedic state was not a tax-collecting machine; it relied on voluntary gifts and raid plunder.", subtopic: 'economy_technology', difficulty: 'Hard' },
+    { id: 90, question: "Assertion (A): The Rig Vedic age ended when the center of power shifted to the Middle Gangetic plain.\nReason (R): The discovery of iron and the transition to permanent agriculture replaced pastoral tribalism.", options: ["Both correct, R explains A", "Both correct, R does NOT explain A", "A correct, R wrong", "A wrong, R correct"], correctAnswer: 0, explanation: "Technological change (iron) and geographic shift led to the 'Later Vedic' phase with its complex hierarchies.", subtopic: 'aryan_migration', difficulty: 'Hard' }
 ];
 
 export const ANCIENT_CHAPTER_7_CONTENT = `
-# BLOCK 1: FOREIGN INVASIONS (200 BC - 100 AD)
-## 🌍 THE AGE OF ASSIMILATION
+# Chapter 7: Advent of the Aryans and the Age of the Rig Veda
 
-**1. Indo-Greeks (Bactrian Greeks):**
-*   First to invade India after Mauryas.
-*   **Menander (Milinda):** Famous king. Converted to Buddhism by **Nagasena**. Text: *Milinda Panho*.
-*   **Contribution:** First to issue **Gold Coins** in India (attribution definite). Introduced **Hellenistic Art** (Gandhara School).
+## 🐎 Aryan Migration & Origins
+- **Origins:** Proto-Indo-Europeans from the Central Asian/Southern Russian steppes.
+- **Geography:** Settled in **Sapta Sindhu** (Land of Seven Rivers — Indus, 5 tributaries, and Sarasvati).
+- **Migration:** Entered in waves through the Northwest passes (Khyber, Bolan) around 1500 BCE.
 
-**2. The Shakas (Scythians):**
-*   Replaced Greeks. 5 branches.
-*   **Rudradaman I (Western Kstrapa):** Most famous. Repaired **Sudarshana Lake** (Gujarat). Issued first long Sanskrit inscription (**Junagarh Inscription**).
+## 👥 Society & Tribal Life
+- **Structure:** **Patriarchal**; Head of family = Kulapa/Grihapati.
+- **Unit:** Kula (family) → Gram (village) → Vis (clan) → Jana (tribe).
+- **Varna System:** Initially flexible; focused on the **Arya vs Dasa/Dasyu** divide.
+- **Women:** Relatively high status; attended Sabha/Vidatha; education (Lopamudra).
 
-**3. The Parthians (Pahlavas):**
-*   King **Gondophernes**. St. Thomas (Christianity) is said to have visited his court.
+## ⚔️ Political Organization
+- **Tribal Chief (Rajan):** Not an absolute monarch; protector of cows (Gopa).
+- **Assemblies:** 
+  - **Vidatha:** Oldest, inclusive, military/religious.
+  - **Sabha:** Council of elders/nobles.
+  - **Samiti:** General assembly of the tribe.
+- **Conflicts:** War for cattle (Gavishti); Battle of Ten Kings (Dasrajan) on the Ravi.
 
-**4. The Kushanas (Yueh-chi):**
-*   **Kanishka (78-101 AD):** Greatest king.
-    *   **Capitals:** Purushapura (Peshawar) and Mathura.
-    *   **Saka Era:** Started in **78 AD** (Used by Indian Govt).
-    *   **Religion:** Parton of Mahayana Buddhism. Held 4th Buddhist Council in Kashmir.
-    *   **Scholars:** Ashvaghosha (*Buddhacharita*), Charaka (*Charaka Samhita*), Nagarjuna (*Madhyamika*).
+## 🌾 Economy & Material Life
+- **Pastoralism:** Cattle (Cow) was the primary wealth.
+- **Agriculture:** Secondary; Barley (Yava) was the main crop.
+- **Technology:** Horse-drawn chariots (spoked wheels), copper/bronze (Ayas). No Iron.
+- **Currency:** No coins; **Nishka** (gold ornament) and cows used as media of exchange.
 
-# BLOCK 2: NATIVE DYNASTIES
-## 🗡️ BRAHMINICAL REVIVAL
-
-**1. The Shunga Dynasty (185-73 BC):**
-*   **Pushyamitra Shunga:** Commander-in-chief who killed the last Mauryan king (Brihadratha).
-*   Staunch Brahmin. Performed Ashvamedha sacrifice.
-*   Patanjali (author of *Mahabhasya*) was his contemporary.
-
-**2. The Kanva Dynasty:**
-*   Founded by Vasudeva Kanva. Short-lived.
-
-**3. The Cheti Dynasty (Kalinga):**
-*   **Kharavela:** Greatest king. **Hathigumpha Inscription** (Elephants Cave) describes his victories. Jain patron.
+## 🔱 Religion & Philosophy
+- **Naturalism:** Personification of natural forces (Indra, Agni, Varuna).
+- **Key Gods:**
+  - **Indra:** (250 hymns) God of War and Weather (Purandara).
+  - **Agni:** (200 hymns) Messenger god; fire.
+  - **Varuna:** Guardian of **Rita** (Cosmic Order).
+- **Sacrifice (Yajna):** Performed for material benefits (sons, cattle, victory).
+- **Gayatri Mantra:** Found in 3rd Mandala of Rig Veda.
 `;
