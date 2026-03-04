@@ -1,10 +1,11 @@
 import { ANCIENT_CHAPTER_1_CONTENT, ANCIENT_CHAPTER_1_MCQS, ANCIENT_CHAPTER_1_SUBTOPICS } from './chapter1';
 import { ANCIENT_CHAPTER_2_CONTENT, ANCIENT_CHAPTER_2_MCQS, ANCIENT_CHAPTER_2_SUBTOPICS } from './chapter2';
 import { ANCIENT_CHAPTER_3_CONTENT, ANCIENT_CHAPTER_3_MCQS, ANCIENT_CHAPTER_3_SUBTOPICS } from './chapter3';
+import { ANCIENT_CHAPTER_4_CONTENT, ANCIENT_CHAPTER_4_MCQS, ANCIENT_CHAPTER_4_SUBTOPICS } from './chapter4';
+import { ANCIENT_CHAPTER_5_CONTENT, ANCIENT_CHAPTER_5_MCQS, ANCIENT_CHAPTER_5_SUBTOPICS } from './chapter5';
+import { ANCIENT_CHAPTER_6_CONTENT, ANCIENT_CHAPTER_6_MCQS, ANCIENT_CHAPTER_6_SUBTOPICS } from './chapter6';
 
-// Chapters 4-5 don't exist yet — will be created in Batch 2
-// Chapters 6-15 exist with legacy data (fewer MCQs) — will be upgraded in later batches
-let ANCIENT_CHAPTER_6_CONTENT = '', ANCIENT_CHAPTER_6_MCQS: any[] = [], ANCIENT_CHAPTER_6_SUBTOPICS: any[] = [];
+// Chapters 7-15 exist with legacy data or are pending upgrade
 let ANCIENT_CHAPTER_7_CONTENT = '', ANCIENT_CHAPTER_7_MCQS: any[] = [], ANCIENT_CHAPTER_7_SUBTOPICS: any[] = [];
 let ANCIENT_CHAPTER_8_CONTENT = '', ANCIENT_CHAPTER_8_MCQS: any[] = [], ANCIENT_CHAPTER_8_SUBTOPICS: any[] = [];
 let ANCIENT_CHAPTER_9_CONTENT = '', ANCIENT_CHAPTER_9_MCQS: any[] = [], ANCIENT_CHAPTER_9_SUBTOPICS: any[] = [];
@@ -15,8 +16,7 @@ let ANCIENT_CHAPTER_13_CONTENT = '', ANCIENT_CHAPTER_13_MCQS: any[] = [], ANCIEN
 let ANCIENT_CHAPTER_14_CONTENT = '', ANCIENT_CHAPTER_14_MCQS: any[] = [], ANCIENT_CHAPTER_14_SUBTOPICS: any[] = [];
 let ANCIENT_CHAPTER_15_CONTENT = '', ANCIENT_CHAPTER_15_MCQS: any[] = [], ANCIENT_CHAPTER_15_SUBTOPICS: any[] = [];
 
-// Try importing existing legacy chapter data (chapters 6-15)
-try { const ch6 = require('./chapter6'); ANCIENT_CHAPTER_6_CONTENT = ch6.ANCIENT_CHAPTER_6_CONTENT; ANCIENT_CHAPTER_6_MCQS = ch6.ANCIENT_CHAPTER_6_MCQS; ANCIENT_CHAPTER_6_SUBTOPICS = ch6.ANCIENT_CHAPTER_6_SUBTOPICS; } catch { }
+// Try importing existing legacy chapter data (chapters 7-15)
 try { const ch7 = require('./chapter7'); ANCIENT_CHAPTER_7_CONTENT = ch7.ANCIENT_CHAPTER_7_CONTENT; ANCIENT_CHAPTER_7_MCQS = ch7.ANCIENT_CHAPTER_7_MCQS; ANCIENT_CHAPTER_7_SUBTOPICS = ch7.ANCIENT_CHAPTER_7_SUBTOPICS; } catch { }
 try { const ch8 = require('./chapter8'); ANCIENT_CHAPTER_8_CONTENT = ch8.ANCIENT_CHAPTER_8_CONTENT; ANCIENT_CHAPTER_8_MCQS = ch8.ANCIENT_CHAPTER_8_MCQS; ANCIENT_CHAPTER_8_SUBTOPICS = ch8.ANCIENT_CHAPTER_8_SUBTOPICS; } catch { }
 try { const ch9 = require('./chapter9'); ANCIENT_CHAPTER_9_CONTENT = ch9.ANCIENT_CHAPTER_9_CONTENT; ANCIENT_CHAPTER_9_MCQS = ch9.ANCIENT_CHAPTER_9_MCQS; ANCIENT_CHAPTER_9_SUBTOPICS = ch9.ANCIENT_CHAPTER_9_SUBTOPICS; } catch { }
@@ -43,8 +43,16 @@ export const ANCIENT_CONTENT_MAP: Record<number, any> = {
         mcqs: ANCIENT_CHAPTER_3_MCQS,
         subtopics: ANCIENT_CHAPTER_3_SUBTOPICS
     },
-    4: { content: '', mcqs: [], subtopics: [] },  // Batch 2
-    5: { content: '', mcqs: [], subtopics: [] },  // Batch 2
+    4: {
+        content: ANCIENT_CHAPTER_4_CONTENT,
+        mcqs: ANCIENT_CHAPTER_4_MCQS,
+        subtopics: ANCIENT_CHAPTER_4_SUBTOPICS
+    },
+    5: {
+        content: ANCIENT_CHAPTER_5_CONTENT,
+        mcqs: ANCIENT_CHAPTER_5_MCQS,
+        subtopics: ANCIENT_CHAPTER_5_SUBTOPICS
+    },
     6: {
         content: ANCIENT_CHAPTER_6_CONTENT,
         mcqs: ANCIENT_CHAPTER_6_MCQS,
@@ -95,7 +103,7 @@ export const ANCIENT_CONTENT_MAP: Record<number, any> = {
         mcqs: ANCIENT_CHAPTER_15_MCQS,
         subtopics: ANCIENT_CHAPTER_15_SUBTOPICS
     },
-    // Chapters 16-27: Placeholder entries (will be populated in Batches 6-9)
+    // Chapters 16-27: Placeholder entries
     16: { content: '', mcqs: [], subtopics: [] },
     17: { content: '', mcqs: [], subtopics: [] },
     18: { content: '', mcqs: [], subtopics: [] },
