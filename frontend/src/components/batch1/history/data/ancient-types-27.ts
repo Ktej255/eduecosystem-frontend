@@ -1,8 +1,10 @@
-// RS Sharma 27 Chapters - Ancient History
+// RS Sharma - India's Ancient Past (27 Chapters)
+// Exact chapter list as provided by the user
 // For Batch 1.1 Revision Platform
 
 export type PartId = 'I' | 'II' | 'III' | 'IV';
 export type Priority = 'High' | 'Medium' | 'Low';
+export type SectionStatus = 'not-started' | 'in-progress' | 'completed';
 
 export interface TimelineEvent {
     year: string;
@@ -23,6 +25,38 @@ export interface HandwrittenNote {
     style: "cursive" | "marker" | "sketch";
 }
 
+export interface Flashcard {
+    id: string;
+    front: string;
+    back: string;
+    tags: string[];
+}
+
+export interface MCQ {
+    id: string;
+    question: string;
+    options: string[];
+    correctIndex: number;
+    explanation: string;
+    difficulty: 'easy' | 'moderate' | 'tough';
+    tags?: string[];
+    currentAffair?: {
+        headline: string;
+        date: string;
+        source: string;
+        summary: string;
+    };
+}
+
+export interface ChapterProgress {
+    readSection: SectionStatus;
+    flashcards: SectionStatus;
+    drill: SectionStatus;
+    l1: SectionStatus;
+    l2: SectionStatus;
+    l3: SectionStatus;
+}
+
 export interface AncientTopic27 {
     id: number;
     part: PartId;
@@ -33,6 +67,13 @@ export interface AncientTopic27 {
     timelines?: TimelineEvent[];
     maps?: MapCoordinate[];
     handwrittenNotes?: HandwrittenNote[];
+
+    // Study Assets
+    flashcards?: Flashcard[];
+    drillMcqs?: MCQ[];   // 60-question composite drill
+    l1Mcqs?: MCQ[];      // Foundation - book recall only
+    l2Mcqs?: MCQ[];      // UPSC Moderate
+    l3Mcqs?: MCQ[];      // UPSC Tough + Current Affairs
 
     // Metadata
     priority: Priority;
@@ -50,65 +91,65 @@ export const ANCIENT_PARTS: AncientPart[] = [
     {
         id: 'I',
         title: 'Foundations & Early Cultures',
-        description: 'Significance to Harappan Civilization',
+        description: 'History, Geography & Stone Age to Harappan Civilization',
         color: 'stone',
-        range: [1, 10]
+        range: [1, 6]
     },
     {
         id: 'II',
-        title: 'Vedic Age & Emergence of States',
-        description: 'Aryan Culture to Age of Buddha',
+        title: 'Vedic Age & Rise of States',
+        description: 'Aryans, Vedic Phase, Buddhism & Magadhan Empire',
         color: 'amber',
-        range: [11, 17]
+        range: [7, 14]
     },
     {
         id: 'III',
-        title: 'Empires & Contacts',
-        description: 'Mauryas to Satavahanas',
+        title: 'Empires, Trade & Southern India',
+        description: 'Central Asia, Satavahanas, Deep South & Post-Maurya Towns',
         color: 'emerald',
-        range: [18, 20]
+        range: [15, 22]
     },
     {
         id: 'IV',
-        title: 'Golden Age & Legacy',
-        description: 'Guptas to Scientific Legacy',
+        title: 'Golden Age & Transition',
+        description: 'Regional Kingdoms, Cultural Legacy & Medieval Transition',
         color: 'purple',
-        range: [21, 27]
+        range: [23, 27]
     }
 ];
 
 export const ANCIENT_TOPICS: { id: number; title: string; part: PartId }[] = [
-    // Part I (1-10)
-    { id: 1, title: 'The Significance of Ancient Indian History', part: 'I' },
-    { id: 2, title: 'Modern Historians of Ancient India', part: 'I' },
-    { id: 3, title: 'Nature of Sources and Historical Construction', part: 'I' },
-    { id: 4, title: 'Geographical Setting', part: 'I' },
-    { id: 5, title: 'Ecology and Environment', part: 'I' },
-    { id: 6, title: 'The Linguistic Background', part: 'I' },
-    { id: 7, title: 'Human Evolution: The Old Stone Age', part: 'I' },
-    { id: 8, title: 'The Neolithic Age: First Food Producers', part: 'I' },
-    { id: 9, title: 'Chalcolithic Cultures', part: 'I' },
-    { id: 10, title: 'Harappan Culture: Bronze Age Urbanization', part: 'I' },
+    // Part I: Foundations & Early Cultures (1-6)
+    { id: 1, title: 'The Importance of Ancient Indian History', part: 'I' },
+    { id: 2, title: 'The Construction of Ancient Indian History', part: 'I' },
+    { id: 3, title: 'The Geographical Setting', part: 'I' },
+    { id: 4, title: 'The Stone Age', part: 'I' },
+    { id: 5, title: 'The Stone-Copper Phase', part: 'I' },
+    { id: 6, title: 'The Harappan Civilization', part: 'I' },
 
-    // Part II (11-17)
-    { id: 11, title: 'Identity of Aryan Culture', part: 'II' },
-    { id: 12, title: 'The Age of the Rig Veda', part: 'II' },
-    { id: 13, title: 'The Later Vedic Phase', part: 'II' },
-    { id: 14, title: 'Jainism and Buddhism', part: 'II' },
-    { id: 15, title: 'Territorial States and the Rise of Magadha', part: 'II' },
-    { id: 16, title: 'Iranian and Macedonian Invasions', part: 'II' },
-    { id: 17, title: 'State Structure and Varna System (Age of Buddha)', part: 'II' },
+    // Part II: Vedic Age & Rise of States (7-14)
+    { id: 7, title: 'Advent of the Aryans and the Age of the Rig Veda', part: 'II' },
+    { id: 8, title: 'The Later Vedic Phase: Transition to State and Social Formation', part: 'II' },
+    { id: 9, title: 'Jainism and Buddhism', part: 'II' },
+    { id: 10, title: 'Territorial States and the First Magadhan Empire', part: 'II' },
+    { id: 11, title: 'Iranian and Macedonian Invasions', part: 'II' },
+    { id: 12, title: 'State and Varna Society in the Age of the Buddha', part: 'II' },
+    { id: 13, title: 'The Age of the Mauryas', part: 'II' },
+    { id: 14, title: 'Significance of the Maurya Rule', part: 'II' },
 
-    // Part III (18-20)
-    { id: 18, title: 'The Maurya Empire', part: 'III' },
-    { id: 19, title: 'Central Asian Contacts and Their Results', part: 'III' },
-    { id: 20, title: 'The Age of the Satavahanas', part: 'III' },
+    // Part III: Empires, Trade & Southern India (15-22)
+    { id: 15, title: 'Central Asian Contacts and Their Results', part: 'III' },
+    { id: 16, title: 'The Age of the Satavahanas', part: 'III' },
+    { id: 17, title: 'The Dawn of History in the Deep South', part: 'III' },
+    { id: 18, title: 'Crafts, Trade and Towns in the Post-Maurya Age', part: 'III' },
+    { id: 19, title: 'The Rise and Growth of the Gupta Empire', part: 'III' },
+    { id: 20, title: 'Life in the Gupta Age', part: 'III' },
+    { id: 21, title: 'Spread of Civilization in Eastern India', part: 'III' },
+    { id: 22, title: 'Harsha and His Times', part: 'III' },
 
-    // Part IV (21-27)
-    { id: 21, title: 'Spread of Civilization in Eastern India', part: 'IV' },
-    { id: 22, title: 'Harsha and His Times', part: 'IV' },
-    { id: 23, title: 'Formation of New States in the Peninsula', part: 'IV' },
-    { id: 24, title: 'India\'s Cultural Contacts with the Asian Countries', part: 'IV' },
+    // Part IV: Golden Age & Transition (23-27)
+    { id: 23, title: 'Formation of New States and Rural Expansion in the Peninsula', part: 'IV' },
+    { id: 24, title: "India's Cultural Contacts with the Asian Countries", part: 'IV' },
     { id: 25, title: 'Transformation of the Ancient Phase', part: 'IV' },
     { id: 26, title: 'Sequence of Social Changes', part: 'IV' },
     { id: 27, title: 'Legacy in Science and Civilization', part: 'IV' }
@@ -121,3 +162,10 @@ export function getAncientPartById(partId: PartId): AncientPart | undefined {
 export function getAncientTopicById(topicId: number) {
     return ANCIENT_TOPICS.find(t => t.id === topicId);
 }
+
+// Status colors for the visited-state UI pattern
+export const SECTION_STATUS_COLORS: Record<SectionStatus, { bg: string; text: string; border: string }> = {
+    'not-started': { bg: 'bg-zinc-800/50', text: 'text-zinc-400', border: 'border-zinc-700' },
+    'in-progress': { bg: 'bg-amber-900/30', text: 'text-amber-400', border: 'border-amber-600' },
+    'completed': { bg: 'bg-emerald-900/30', text: 'text-emerald-400', border: 'border-emerald-600' }
+};

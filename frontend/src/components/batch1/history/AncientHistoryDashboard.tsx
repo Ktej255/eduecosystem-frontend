@@ -20,8 +20,33 @@ import {
 import {
     ANCIENT_PARTS,
     ANCIENT_TOPICS,
-    AncientPart
+    AncientPart,
+    ChapterProgress,
+    SectionStatus
 } from "@/components/batch1/history/data/ancient-types-27";
+
+const SECTION_KEYS: (keyof ChapterProgress)[] = ['readSection', 'flashcards', 'drill', 'l1', 'l2', 'l3'];
+const SECTION_LABELS = ['R', 'F', 'D', '1', '2', '3'];
+
+function SectionDots({ progress }: { progress?: ChapterProgress }) {
+    return (
+        <div className="flex gap-1 items-center">
+            {SECTION_KEYS.map((key, i) => {
+                const status: SectionStatus = progress?.[key] || 'not-started';
+                return (
+                    <span
+                        key={key}
+                        title={`${SECTION_LABELS[i]}: ${status}`}
+                        className={`w-2 h-2 rounded-full ${status === 'completed' ? 'bg-emerald-500' :
+                                status === 'in-progress' ? 'bg-amber-400' :
+                                    'bg-stone-300'
+                            }`}
+                    />
+                );
+            })}
+        </div>
+    );
+}
 
 export default function AncientHistoryDashboard() {
     const router = useRouter();
@@ -38,11 +63,19 @@ export default function AncientHistoryDashboard() {
             const parsed = JSON.parse(saved);
             setProgressData(parsed);
 
-            const completed = Object.values(parsed).filter((p: any) => p?.completed).length;
+            // Count chapters where ALL 6 sections are completed
+            const completed = Object.entries(parsed).filter(([, p]: [string, any]) => {
+                if (!p) return false;
+                return SECTION_KEYS.every(k => p[k] === 'completed');
+            }).length;
+            const started = Object.entries(parsed).filter(([, p]: [string, any]) => {
+                if (!p) return false;
+                return SECTION_KEYS.some(k => p[k] === 'in-progress' || p[k] === 'completed');
+            }).length;
             setStats({
                 completed,
                 total: 27,
-                percentage: Math.round((completed / 27) * 100)
+                percentage: Math.round((started / 27) * 100)
             });
         }
     }, []);
@@ -181,7 +214,11 @@ export default function AncientHistoryDashboard() {
                     {ANCIENT_PARTS.map((part) => {
                         const style = getPartColors(part.color);
                         const partTopics = topicsByPart[part.id] || [];
-                        const partCompleted = partTopics.filter(t => progressData[t.id]?.completed).length;
+                        const partCompleted = partTopics.filter(t => {
+                            const p = progressData[t.id];
+                            if (!p) return false;
+                            return SECTION_KEYS.every(k => p[k] === 'completed');
+                        }).length;
                         const partTotal = partTopics.length;
                         const partProgress = Math.round((partCompleted / Math.max(partTotal, 1)) * 100);
 
@@ -214,7 +251,9 @@ export default function AncientHistoryDashboard() {
                                 <CardContent className="p-0">
                                     <div className="divide-y divide-stone-100">
                                         {partTopics.map((topic) => {
-                                            const isDone = progressData[topic.id]?.completed;
+                                            const chapterProg = progressData[topic.id] as ChapterProgress | undefined;
+                                            const isDone = chapterProg ? SECTION_KEYS.every(k => chapterProg[k] === 'completed') : false;
+                                            const hasStarted = chapterProg ? SECTION_KEYS.some(k => chapterProg[k] === 'in-progress' || chapterProg[k] === 'completed') : false;
 
                                             return (
                                                 <div
@@ -251,9 +290,12 @@ export default function AncientHistoryDashboard() {
                                                                     </Badge>
                                                                 )}
                                                             </div>
-                                                            <p className="text-xs text-stone-500 mt-0.5 truncate hidden sm:block">
-                                                                Rapid Revision & MCQ Modules Available
-                                                            </p>
+                                                            <div className="flex items-center gap-2 mt-1">
+                                                                <SectionDots progress={chapterProg} />
+                                                                <span className="text-[10px] text-stone-400 hidden sm:inline">
+                                                                    {isDone ? 'All sections complete' : hasStarted ? 'In progress' : 'Not started'}
+                                                                </span>
+                                                            </div>
                                                         </div>
                                                     </div>
 
