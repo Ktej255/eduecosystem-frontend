@@ -20,6 +20,7 @@ interface TopicAnalyticsModalProps {
     isOpen: boolean;
     onClose: () => void;
     topicId: number | null;
+    topicTitle?: string;
     data: TopicData | null;
     onAction: (type: 'flashcard' | 'mcq' | 'read') => void;
 }
@@ -28,13 +29,10 @@ export default function TopicAnalyticsModal({
     isOpen,
     onClose,
     topicId,
-    data,
-    onAction
+    topicTitle
 }: TopicAnalyticsModalProps) {
     if (!topicId) return null;
-
-    const topic = TOPIC_TITLES.find(t => t.id === topicId);
-    if (!topic) return null;
+    const title = topicTitle || "Unknown Topic";
 
     // Derived Metrics
     const retentionScore = data?.score ? Math.round(data.score * 0.8 + (data.completed ? 20 : 0)) : (data?.completed ? 100 : 0);

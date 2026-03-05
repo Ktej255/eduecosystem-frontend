@@ -13,18 +13,20 @@ import { ANCIENT_CHAPTER_12_CONTENT, ANCIENT_CHAPTER_12_MCQS, ANCIENT_CHAPTER_12
 import { ANCIENT_CHAPTER_13_CONTENT, ANCIENT_CHAPTER_13_MCQS, ANCIENT_CHAPTER_13_SUBTOPICS } from './chapter13';
 import { ANCIENT_CHAPTER_14_CONTENT, ANCIENT_CHAPTER_14_MCQS, ANCIENT_CHAPTER_14_SUBTOPICS } from './chapter14';
 import { ANCIENT_CHAPTER_15_CONTENT, ANCIENT_CHAPTER_15_MCQS, ANCIENT_CHAPTER_15_SUBTOPICS } from './chapter15';
+import { ANCIENT_CHAPTER_16_CONTENT, ANCIENT_CHAPTER_16_MCQS, ANCIENT_CHAPTER_16_SUBTOPICS } from './chapter16';
+import { ANCIENT_CHAPTER_17_CONTENT, ANCIENT_CHAPTER_17_MCQS, ANCIENT_CHAPTER_17_SUBTOPICS } from './chapter17';
+import { ANCIENT_CHAPTER_18_CONTENT, ANCIENT_CHAPTER_18_MCQS, ANCIENT_CHAPTER_18_SUBTOPICS } from './chapter18';
+import { ANCIENT_CHAPTER_19_CONTENT, ANCIENT_CHAPTER_19_MCQS, ANCIENT_CHAPTER_19_SUBTOPICS } from './chapter19';
+import { ANCIENT_CHAPTER_20_CONTENT, ANCIENT_CHAPTER_20_MCQS, ANCIENT_CHAPTER_20_SUBTOPICS } from './chapter20';
+import { ANCIENT_CHAPTER_21_CONTENT, ANCIENT_CHAPTER_21_MCQS, ANCIENT_CHAPTER_21_SUBTOPICS } from './chapter21';
+import { ANCIENT_CHAPTER_22_CONTENT, ANCIENT_CHAPTER_22_MCQS, ANCIENT_CHAPTER_22_SUBTOPICS } from './chapter22';
+import { ANCIENT_CHAPTER_23_CONTENT, ANCIENT_CHAPTER_23_MCQS, ANCIENT_CHAPTER_23_SUBTOPICS } from './chapter23';
+import { ANCIENT_CHAPTER_24_CONTENT, ANCIENT_CHAPTER_24_MCQS, ANCIENT_CHAPTER_24_SUBTOPICS } from './chapter24';
+import { ANCIENT_CHAPTER_25_CONTENT, ANCIENT_CHAPTER_25_MCQS, ANCIENT_CHAPTER_25_SUBTOPICS } from './chapter25';
+import { ANCIENT_CHAPTER_26_CONTENT, ANCIENT_CHAPTER_26_MCQS, ANCIENT_CHAPTER_26_SUBTOPICS } from './chapter26';
+import { ANCIENT_CHAPTER_27_CONTENT, ANCIENT_CHAPTER_27_MCQS, ANCIENT_CHAPTER_27_SUBTOPICS } from './chapter27';
 
-// Chapters 16-18 exist with legacy data or are pending upgrade
-let ANCIENT_CHAPTER_16_CONTENT = '', ANCIENT_CHAPTER_16_MCQS: any[] = [], ANCIENT_CHAPTER_16_SUBTOPICS: any[] = [];
-let ANCIENT_CHAPTER_17_CONTENT = '', ANCIENT_CHAPTER_17_MCQS: any[] = [], ANCIENT_CHAPTER_17_SUBTOPICS: any[] = [];
-let ANCIENT_CHAPTER_18_CONTENT = '', ANCIENT_CHAPTER_18_MCQS: any[] = [], ANCIENT_CHAPTER_18_SUBTOPICS: any[] = [];
-
-// Try importing existing legacy chapter data (chapters 16-18)
-try { const ch16 = require('./chapter16'); ANCIENT_CHAPTER_16_CONTENT = ch16.ANCIENT_CHAPTER_16_CONTENT; ANCIENT_CHAPTER_16_MCQS = ch16.ANCIENT_CHAPTER_16_MCQS; ANCIENT_CHAPTER_16_SUBTOPICS = ch16.ANCIENT_CHAPTER_16_SUBTOPICS; } catch { }
-try { const ch17 = require('./chapter17'); ANCIENT_CHAPTER_17_CONTENT = ch17.ANCIENT_CHAPTER_17_CONTENT; ANCIENT_CHAPTER_17_MCQS = ch17.ANCIENT_CHAPTER_17_MCQS; ANCIENT_CHAPTER_17_SUBTOPICS = ch17.ANCIENT_CHAPTER_17_SUBTOPICS; } catch { }
-try { const ch18 = require('./chapter18'); ANCIENT_CHAPTER_18_CONTENT = ch18.ANCIENT_CHAPTER_18_CONTENT; ANCIENT_CHAPTER_18_MCQS = ch18.ANCIENT_CHAPTER_18_MCQS; ANCIENT_CHAPTER_18_SUBTOPICS = ch18.ANCIENT_CHAPTER_18_SUBTOPICS; } catch { }
-
-export const ANCIENT_CONTENT_MAP: Record<number, any> = {
+export const contentRegistry: Record<number, ChapterData> = {
     1: {
         content: ANCIENT_CHAPTER_1_CONTENT,
         mcqs: ANCIENT_CHAPTER_1_MCQS,
@@ -115,14 +117,49 @@ export const ANCIENT_CONTENT_MAP: Record<number, any> = {
         mcqs: ANCIENT_CHAPTER_18_MCQS,
         subtopics: ANCIENT_CHAPTER_18_SUBTOPICS
     },
-    // Chapters 19-27: Placeholder entries
-    19: { content: '', mcqs: [], subtopics: [] },
-    20: { content: '', mcqs: [], subtopics: [] },
-    21: { content: '', mcqs: [], subtopics: [] },
-    22: { content: '', mcqs: [], subtopics: [] },
-    23: { content: '', mcqs: [], subtopics: [] },
-    24: { content: '', mcqs: [], subtopics: [] },
-    25: { content: '', mcqs: [], subtopics: [] },
-    26: { content: '', mcqs: [], subtopics: [] },
-    27: { content: '', mcqs: [], subtopics: [] }
+    19: {
+        content: ANCIENT_CHAPTER_19_CONTENT,
+        mcqs: ANCIENT_CHAPTER_19_MCQS,
+        subtopics: ANCIENT_CHAPTER_19_SUBTOPICS
+    },
+    20: {
+        content: ANCIENT_CHAPTER_20_CONTENT,
+        mcqs: ANCIENT_CHAPTER_20_MCQS,
+        subtopics: ANCIENT_CHAPTER_20_SUBTOPICS
+    },
+    21: {
+        content: ANCIENT_CHAPTER_21_CONTENT,
+        mcqs: ANCIENT_CHAPTER_21_MCQS,
+        subtopics: ANCIENT_CHAPTER_21_SUBTOPICS
+    },
+    22: {
+        content: ANCIENT_CHAPTER_22_CONTENT,
+        mcqs: ANCIENT_CHAPTER_22_MCQS,
+        subtopics: ANCIENT_CHAPTER_22_SUBTOPICS
+    },
+    23: {
+        content: ANCIENT_CHAPTER_23_CONTENT,
+        mcqs: ANCIENT_CHAPTER_23_MCQS,
+        subtopics: ANCIENT_CHAPTER_23_SUBTOPICS
+    },
+    24: {
+        content: ANCIENT_CHAPTER_24_CONTENT,
+        mcqs: ANCIENT_CHAPTER_24_MCQS,
+        subtopics: ANCIENT_CHAPTER_24_SUBTOPICS
+    },
+    25: {
+        content: ANCIENT_CHAPTER_25_CONTENT,
+        mcqs: ANCIENT_CHAPTER_25_MCQS,
+        subtopics: ANCIENT_CHAPTER_25_SUBTOPICS
+    },
+    26: {
+        content: ANCIENT_CHAPTER_26_CONTENT,
+        mcqs: ANCIENT_CHAPTER_26_MCQS,
+        subtopics: ANCIENT_CHAPTER_26_SUBTOPICS
+    },
+    27: {
+        content: ANCIENT_CHAPTER_27_CONTENT,
+        mcqs: ANCIENT_CHAPTER_27_MCQS,
+        subtopics: ANCIENT_CHAPTER_27_SUBTOPICS
+    }
 };

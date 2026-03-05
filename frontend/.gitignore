@@ -39,3 +39,31 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large binary files (PDFs, images, etc.)
+*.pdf
+
+# Python scripts (should not be in frontend repo)
+*.py
+
+# Temporary output / debug files
+*.log
+tsc.txt
+tsc_*.txt
+toc_*.txt
+build_log.txt
+build_output.txt
+topic_mapper_dump.txt
+ancient_toc*.txt
+gap_analysis*.json
+polity_mapping*.json
+service_config.json
+teacher_routes.txt
+*.json.bak
+l1_title_scan.json
+
+# Raw MCQ source data (PDFs, extraction scripts, temp outputs)
+**/raw_mcqs/
+
+# Scratch/temp scripts
+tmp_*.js

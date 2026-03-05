@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import { Flame, Shield, Activity, Fingerprint, BookOpen, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import Link from 'next/link';
 import { CORE_SADHANAS, PRAYASHCHITTA_METHODS } from './data/sadhana-data';
 import { useSadhanaProgress } from './hooks/useSadhanaProgress';
 import { useBatch2Events } from '../hooks/useBatch2Events';
@@ -419,12 +420,20 @@ export function SankalpaWizardImmersive() {
                             </p>
 
                             {!showPrayashchitta ? (
-                                <button
-                                    onClick={() => setShowPrayashchitta(true)}
-                                    className="text-[10px] font-sans font-bold uppercase tracking-[0.4em] text-red-500/50 hover:text-red-500 transition-colors border-b border-transparent hover:border-red-500 pb-1"
-                                >
-                                    Initiate Prayashchitta (Break Vow)
-                                </button>
+                                <div className="flex flex-col items-center gap-6 mt-4">
+                                    <Link
+                                        href="/student/batch2/sadhana"
+                                        className="px-12 py-4 bg-orange-600/20 border border-orange-500 text-orange-100 uppercase tracking-[0.3em] text-[10px] font-black hover:bg-orange-600 hover:border-orange-500 transition-colors"
+                                    >
+                                        Proceed To Journey
+                                    </Link>
+                                    <button
+                                        onClick={() => setShowPrayashchitta(true)}
+                                        className="text-[10px] font-sans font-bold uppercase tracking-[0.4em] text-red-500/50 hover:text-red-500 transition-colors border-b border-transparent hover:border-red-500 pb-1"
+                                    >
+                                        Initiate Prayashchitta (Break Vow)
+                                    </button>
+                                </div>
                             ) : (
                                 <motion.div
                                     initial={{ opacity: 0, y: 30 }}

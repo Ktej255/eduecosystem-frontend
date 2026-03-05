@@ -111,6 +111,47 @@ export const CURRENT_AFFAIRS_DATA: CurrentAffairItem[] = [
         tags: ['NAI', 'Central Vista', 'Archives'],
         chapter: 1
     },
+    // Ancient History Integrations
+    {
+        id: '101',
+        title: 'ASI Restorations in South-East Asia',
+        description: 'Recent ASI restorations of temples in "My Son" (Vietnam) and "Ta Prohm" (Cambodia) highlight India\'s cultural diplomacy, conserving laterite and sandstone structures reflecting historical Indianization.',
+        subject: 'History',
+        date: '2024-03-10',
+        month: 'March',
+        tags: ['Art & Culture', 'ASI', 'Southeast Asia'],
+        chapter: 25
+    },
+    {
+        id: '102',
+        title: 'Act East Policy and Ancient Ties',
+        description: 'India\'s Act East Policy frequently revives historical narratives of peaceful "Indianization" via the spread of Sanskrit, Buddhism, and maritime trade across ASEAN nations.',
+        subject: 'IR',
+        date: '2024-04-15',
+        month: 'April',
+        tags: ['Act East Policy', 'ASEAN', 'Soft Power'],
+        chapter: 25
+    },
+    {
+        id: '103',
+        title: 'Rakhigarhi Excavations and Aryan Ancestry',
+        description: 'DNA analysis from Rakhigarhi suggests local genetic continuity for Harappans, intensifying debates around the Aryan Migration theory and indigenous origins.',
+        subject: 'History',
+        date: '2023-10-12',
+        month: 'October',
+        tags: ['IVC', 'Genetics', 'Rakhigarhi'],
+        chapter: 6
+    },
+    {
+        id: '104',
+        title: 'Untouchability Debates and Early Medieval History',
+        description: 'Modern discourse on Dalit rights often revisits the extreme ritual purity measures (like un-seeability) formulated during India\'s early medieval transition.',
+        subject: 'History',
+        date: '2024-05-20',
+        month: 'May',
+        tags: ['Social Justice', 'Caste', 'Historiography'],
+        chapter: 26
+    },
     {
         id: '96',
         title: 'Renaming of NMML to Prime Ministers’ Museum and Library (PMML)',

@@ -1,180 +1,199 @@
 import { ChapterLevelData, FormattedChapterLevelData, LevelQuestion } from "./level-types";
 import { MCQ } from "@/components/batch1/polity/data/mcq-utils";
 
-import { DAY1_MCQS } from "@/components/batch1/polity/data/day1-mcqs";
-import { DAY2_MCQS } from "@/components/batch1/polity/data/day2-mcqs";
-import { DAY3_MCQS } from "@/components/batch1/polity/data/day3-mcqs";
-import { DAY4_MCQS } from "@/components/batch1/polity/data/day4-mcqs";
-import { DAY5_MCQS } from "@/components/batch1/polity/data/day5-mcqs";
-import { DAY6_MCQS } from "@/components/batch1/polity/data/day6-mcqs";
-import { DAY7_MCQS } from "@/components/batch1/polity/data/day7-mcqs";
-import { DAY8_MCQS } from "@/components/batch1/polity/data/day8-mcqs";
-import { DAY9_MCQS } from "@/components/batch1/polity/data/day9-mcqs";
-import { DAY10_MCQS } from "@/components/batch1/polity/data/day10-mcqs";
-import { DAY11_MCQS } from "@/components/batch1/polity/data/day11-mcqs";
-import { DAY12_MCQS } from "@/components/batch1/polity/data/day12-mcqs";
-import { DAY13_MCQS } from "@/components/batch1/polity/data/day13-mcqs";
-import { DAY14_MCQS } from "@/components/batch1/polity/data/day14-mcqs";
-import { DAY15_MCQS } from "@/components/batch1/polity/data/day15-mcqs";
-import { DAY16_MCQS } from "@/components/batch1/polity/data/day16-mcqs";
-import { DAY17_MCQS } from "@/components/batch1/polity/data/day17-mcqs";
-import { DAY18_MCQS } from "@/components/batch1/polity/data/day18-mcqs";
-import { DAY19_MCQS } from "@/components/batch1/polity/data/day19-mcqs";
-import { DAY20_MCQS } from "@/components/batch1/polity/data/day20-mcqs";
-import { DAY21_MCQS } from "@/components/batch1/polity/data/day21-mcqs";
-import { DAY22_MCQS } from "@/components/batch1/polity/data/day22-mcqs";
-import { DAY23_MCQS } from "@/components/batch1/polity/data/day23-mcqs";
-import { DAY24_MCQS } from "@/components/batch1/polity/data/day24-mcqs";
-import { DAY25_MCQS } from "@/components/batch1/polity/data/day25-mcqs";
-import { DAY26_MCQS } from "@/components/batch1/polity/data/day26-mcqs";
-import { DAY27_MCQS } from "@/components/batch1/polity/data/day27-mcqs";
-import { DAY28_MCQS } from "@/components/batch1/polity/data/day28-mcqs";
-import { DAY29_MCQS } from "@/components/batch1/polity/data/day29-mcqs";
-import { DAY30_MCQS } from "@/components/batch1/polity/data/day30-mcqs";
-import { DAY31_MCQS } from "@/components/batch1/polity/data/day31-mcqs";
-import { DAY32_MCQS } from "@/components/batch1/polity/data/day32-mcqs";
-import { DAY33_MCQS } from "@/components/batch1/polity/data/day33-mcqs";
-import { DAY34_MCQS } from "@/components/batch1/polity/data/day34-mcqs";
-import { DAY35_MCQS } from "@/components/batch1/polity/data/day35-mcqs";
-import { DAY36_MCQS } from "@/components/batch1/polity/data/day36-mcqs";
-import { DAY37_MCQS } from "@/components/batch1/polity/data/day37-mcqs";
-import { DAY38_MCQS } from "@/components/batch1/polity/data/day38-mcqs";
-import { DAY39_MCQS } from "@/components/batch1/polity/data/day39-mcqs";
-import { DAY40_MCQS } from "@/components/batch1/polity/data/day40-mcqs";
-import { DAY41_MCQS } from "@/components/batch1/polity/data/day41-mcqs";
-import { DAY42_MCQS } from "@/components/batch1/polity/data/day42-mcqs";
-import { DAY43_MCQS } from "@/components/batch1/polity/data/day43-mcqs";
-import { DAY44_MCQS } from "@/components/batch1/polity/data/day44-mcqs";
-import { DAY45_MCQS } from "@/components/batch1/polity/data/day45-mcqs";
-import { DAY46_MCQS } from "@/components/batch1/polity/data/day46-mcqs";
-import { DAY47_MCQS } from "@/components/batch1/polity/data/day47-mcqs";
-import { DAY48_MCQS } from "@/components/batch1/polity/data/day48-mcqs";
-import { DAY49_MCQS } from "@/components/batch1/polity/data/day49-mcqs";
-import { DAY50_MCQS } from "@/components/batch1/polity/data/day50-mcqs";
-import { DAY51_MCQS } from "@/components/batch1/polity/data/day51-mcqs";
-import { DAY52_MCQS } from "@/components/batch1/polity/data/day52-mcqs";
-import { DAY53_MCQS } from "@/components/batch1/polity/data/day53-mcqs";
-import { DAY54_MCQS } from "@/components/batch1/polity/data/day54-mcqs";
-import { DAY55_MCQS } from "@/components/batch1/polity/data/day55-mcqs";
-import { DAY56_MCQS } from "@/components/batch1/polity/data/day56-mcqs";
-import { DAY57_MCQS } from "@/components/batch1/polity/data/day57-mcqs";
-import { DAY58_MCQS } from "@/components/batch1/polity/data/day58-mcqs";
-import { DAY59_MCQS } from "@/components/batch1/polity/data/day59-mcqs";
-import { DAY60_MCQS } from "@/components/batch1/polity/data/day60-mcqs";
-import { DAY61_MCQS } from "@/components/batch1/polity/data/day61-mcqs";
-import { DAY62_MCQS } from "@/components/batch1/polity/data/day62-mcqs";
-import { DAY63_MCQS } from "@/components/batch1/polity/data/day63-mcqs";
-import { DAY64_MCQS } from "@/components/batch1/polity/data/day64-mcqs";
-import { DAY65_MCQS } from "@/components/batch1/polity/data/day65-mcqs";
-import { DAY66_MCQS } from "@/components/batch1/polity/data/day66-mcqs";
-import { DAY67_MCQS } from "@/components/batch1/polity/data/day67-mcqs";
+import { CHAPTER_1_MCQS as TOPIC_1_MCQS } from '@/components/batch1/polity/data/mcqs/chapter1-mcqs';
+import { CHAPTER_2_MCQS as TOPIC_2_MCQS } from '@/components/batch1/polity/data/mcqs/chapter2-mcqs';
+import { CHAPTER_3_MCQS as TOPIC_3_MCQS } from '@/components/batch1/polity/data/mcqs/chapter3-mcqs';
+import { CHAPTER_4_MCQS as TOPIC_4_MCQS } from '@/components/batch1/polity/data/mcqs/chapter4-mcqs';
+import { CHAPTER_5_MCQS as TOPIC_5_MCQS } from '@/components/batch1/polity/data/mcqs/chapter5-mcqs';
+import { CHAPTER_6_MCQS as TOPIC_6_MCQS } from '@/components/batch1/polity/data/mcqs/chapter6-mcqs';
+import { CHAPTER_7_MCQS as TOPIC_7_MCQS } from '@/components/batch1/polity/data/mcqs/chapter7-mcqs';
+import { CHAPTER_8_MCQS as TOPIC_8_MCQS } from '@/components/batch1/polity/data/mcqs/chapter8-mcqs';
+import { CHAPTER_9_MCQS as TOPIC_9_MCQS } from '@/components/batch1/polity/data/mcqs/chapter9-mcqs';
+import { CHAPTER_10_MCQS as TOPIC_10_MCQS } from '@/components/batch1/polity/data/mcqs/chapter10-mcqs';
+import { CHAPTER_11_MCQS as TOPIC_11_MCQS } from '@/components/batch1/polity/data/mcqs/chapter11-mcqs';
+import { CHAPTER_12_MCQS as TOPIC_12_MCQS } from '@/components/batch1/polity/data/mcqs/chapter12-mcqs';
+import { CHAPTER_13_MCQS as TOPIC_13_MCQS } from '@/components/batch1/polity/data/mcqs/chapter13-mcqs';
+import { CHAPTER_14_MCQS as TOPIC_14_MCQS } from '@/components/batch1/polity/data/mcqs/chapter14-mcqs';
+import { CHAPTER_15_MCQS as TOPIC_15_MCQS } from '@/components/batch1/polity/data/mcqs/chapter15-mcqs';
+import { CHAPTER16_MCQS as TOPIC_16_MCQS } from '@/components/batch1/polity/data/mcqs/chapter16-mcqs';
+import { CHAPTER17_MCQS as TOPIC_17_MCQS } from '@/components/batch1/polity/data/mcqs/chapter17-mcqs';
+import { CHAPTER_18_MCQS as TOPIC_18_MCQS } from '@/components/batch1/polity/data/mcqs/chapter18-mcqs';
+import { CHAPTER_19_MCQS as TOPIC_19_MCQS } from '@/components/batch1/polity/data/mcqs/chapter19-mcqs';
+import { CHAPTER_20_MCQS as TOPIC_20_MCQS } from '@/components/batch1/polity/data/mcqs/chapter20-mcqs';
+import { CHAPTER_21_MCQS as TOPIC_21_MCQS } from '@/components/batch1/polity/data/mcqs/chapter21-mcqs';
+import { CHAPTER_22_MCQS as TOPIC_22_MCQS } from '@/components/batch1/polity/data/mcqs/chapter22-mcqs';
+import { CHAPTER_23_MCQS as TOPIC_23_MCQS } from '@/components/batch1/polity/data/mcqs/chapter23-mcqs';
+import { CHAPTER_24_MCQS as TOPIC_24_MCQS } from '@/components/batch1/polity/data/mcqs/chapter24-mcqs';
+import { CHAPTER_25_MCQS as TOPIC_25_MCQS } from '@/components/batch1/polity/data/mcqs/chapter25-mcqs';
+import { CHAPTER_26_MCQS as TOPIC_26_MCQS } from '@/components/batch1/polity/data/mcqs/chapter26-mcqs';
+import { CHAPTER_27_MCQS as TOPIC_27_MCQS } from '@/components/batch1/polity/data/mcqs/chapter27-mcqs';
+import { CHAPTER_28_MCQS as TOPIC_28_MCQS } from '@/components/batch1/polity/data/mcqs/chapter28-mcqs';
+import { CHAPTER_29_MCQS as TOPIC_29_MCQS } from '@/components/batch1/polity/data/mcqs/chapter29-mcqs';
+import { CHAPTER_30_MCQS as TOPIC_30_MCQS } from '@/components/batch1/polity/data/mcqs/chapter30-mcqs';
+import { CHAPTER_31_MCQS as TOPIC_31_MCQS } from '@/components/batch1/polity/data/mcqs/chapter31-mcqs';
+import { CHAPTER_32_MCQS as TOPIC_32_MCQS } from '@/components/batch1/polity/data/mcqs/chapter32-mcqs';
+import { CHAPTER_33_MCQS as TOPIC_33_MCQS } from '@/components/batch1/polity/data/mcqs/chapter33-mcqs';
+import { CHAPTER_34_MCQS as TOPIC_34_MCQS } from '@/components/batch1/polity/data/mcqs/chapter34-mcqs';
+import { CHAPTER_35_MCQS as TOPIC_35_MCQS } from '@/components/batch1/polity/data/mcqs/chapter35-mcqs';
+import { CHAPTER_36_MCQS as TOPIC_36_MCQS } from '@/components/batch1/polity/data/mcqs/chapter36-mcqs';
+import { CHAPTER_37_MCQS as TOPIC_37_MCQS } from '@/components/batch1/polity/data/mcqs/chapter37-mcqs';
+import { CHAPTER_38_MCQS as TOPIC_38_MCQS } from '@/components/batch1/polity/data/mcqs/chapter38-mcqs';
+import { CHAPTER_39_MCQS as TOPIC_39_MCQS } from '@/components/batch1/polity/data/mcqs/chapter39-mcqs';
+import { CHAPTER_40_MCQS as TOPIC_40_MCQS } from '@/components/batch1/polity/data/mcqs/chapter40-mcqs';
+import { CHAPTER_98_MCQS as TOPIC_41_MCQS } from '@/components/batch1/polity/data/mcqs/chapter98-mcqs';
+import { CHAPTER_99_MCQS as TOPIC_42_MCQS } from '@/components/batch1/polity/data/mcqs/chapter99-mcqs';
+import { CHAPTER_41_MCQS as TOPIC_43_MCQS } from '@/components/batch1/polity/data/mcqs/chapter41-mcqs';
+import { CHAPTER_42_MCQS as TOPIC_44_MCQS } from '@/components/batch1/polity/data/mcqs/chapter42-mcqs';
+import { CHAPTER_43_MCQS as TOPIC_45_MCQS } from '@/components/batch1/polity/data/mcqs/chapter43-mcqs';
+import { CHAPTER_44_MCQS as TOPIC_46_MCQS } from '@/components/batch1/polity/data/mcqs/chapter44-mcqs';
+import { CHAPTER_45_MCQS as TOPIC_47_MCQS } from '@/components/batch1/polity/data/mcqs/chapter45-mcqs';
+import { CHAPTER_46_MCQS as TOPIC_48_MCQS } from '@/components/batch1/polity/data/mcqs/chapter46-mcqs';
+import { CHAPTER_47_MCQS as TOPIC_49_MCQS } from '@/components/batch1/polity/data/mcqs/chapter47-mcqs';
+import { CHAPTER_48_MCQS as TOPIC_50_MCQS } from '@/components/batch1/polity/data/mcqs/chapter48-mcqs';
+import { CHAPTER_49_MCQS as TOPIC_51_MCQS } from '@/components/batch1/polity/data/mcqs/chapter49-mcqs';
+import { CHAPTER_50_MCQS as TOPIC_52_MCQS } from '@/components/batch1/polity/data/mcqs/chapter50-mcqs';
+import { CHAPTER_96_MCQS as TOPIC_53_MCQS } from '@/components/batch1/polity/data/mcqs/chapter96-mcqs';
+import { CHAPTER_97_MCQS as TOPIC_54_MCQS } from '@/components/batch1/polity/data/mcqs/chapter97-mcqs';
+import { CHAPTER_51_MCQS as TOPIC_56_MCQS } from '@/components/batch1/polity/data/mcqs/chapter51-mcqs';
+import { CHAPTER_52_MCQS as TOPIC_57_MCQS } from '@/components/batch1/polity/data/mcqs/chapter52-mcqs';
+import { CHAPTER_53_MCQS as TOPIC_58_MCQS } from '@/components/batch1/polity/data/mcqs/chapter53-mcqs';
+import { CHAPTER_61_MCQS as TOPIC_59_MCQS } from '@/components/batch1/polity/data/mcqs/chapter61-mcqs';
+import { CHAPTER_62_MCQS as TOPIC_60_MCQS } from '@/components/batch1/polity/data/mcqs/chapter62-mcqs';
+import { CHAPTER_63_MCQS as TOPIC_61_MCQS } from '@/components/batch1/polity/data/mcqs/chapter63-mcqs';
+import { CHAPTER_54_MCQS as TOPIC_62_MCQS } from '@/components/batch1/polity/data/mcqs/chapter54-mcqs';
+import { CHAPTER_55_MCQS as TOPIC_63_MCQS } from '@/components/batch1/polity/data/mcqs/chapter55-mcqs';
+import { CHAPTER_56_MCQS as TOPIC_64_MCQS } from '@/components/batch1/polity/data/mcqs/chapter56-mcqs';
+import { CHAPTER_57_MCQS as TOPIC_65_MCQS } from '@/components/batch1/polity/data/mcqs/chapter57-mcqs';
+import { CHAPTER_58_MCQS as TOPIC_66_MCQS } from '@/components/batch1/polity/data/mcqs/chapter58-mcqs';
+import { CHAPTER_59_MCQS as TOPIC_67_MCQS } from '@/components/batch1/polity/data/mcqs/chapter59-mcqs';
+import { CHAPTER_60_MCQS as TOPIC_68_MCQS } from '@/components/batch1/polity/data/mcqs/chapter60-mcqs';
+import { CHAPTER_81_MCQS as TOPIC_69_MCQS } from '@/components/batch1/polity/data/mcqs/chapter81-mcqs';
+import { CHAPTER_65_MCQS as TOPIC_70_MCQS } from '@/components/batch1/polity/data/mcqs/chapter65-mcqs';
+import { CHAPTER_95_MCQS as TOPIC_73_MCQS } from '@/components/batch1/polity/data/mcqs/chapter95-summary';
+import { CHAPTER_76_MCQS as TOPIC_74_MCQS } from '@/components/batch1/polity/data/mcqs/chapter76-mcqs';
+import { CHAPTER_77_MCQS as TOPIC_75_MCQS } from '@/components/batch1/polity/data/mcqs/chapter77-mcqs';
+import { CHAPTER_78_MCQS as TOPIC_76_MCQS } from '@/components/batch1/polity/data/mcqs/chapter78-mcqs';
+import { CHAPTER_79_MCQS as TOPIC_77_MCQS } from '@/components/batch1/polity/data/mcqs/chapter79-mcqs';
+import { CHAPTER_100_MCQS as TOPIC_78_MCQS } from '@/components/batch1/polity/data/mcqs/chapter100-mcqs';
+import { CHAPTER_66_MCQS as TOPIC_79_MCQS } from '@/components/batch1/polity/data/mcqs/chapter66-mcqs';
+import { CHAPTER_67_MCQS as TOPIC_80_MCQS } from '@/components/batch1/polity/data/mcqs/chapter67-mcqs';
+import { CHAPTER_68_MCQS as TOPIC_81_MCQS } from '@/components/batch1/polity/data/mcqs/chapter68-mcqs';
+import { CHAPTER_69_MCQS as TOPIC_82_MCQS } from '@/components/batch1/polity/data/mcqs/chapter69-mcqs';
+import { CHAPTER_70_MCQS as TOPIC_83_MCQS } from '@/components/batch1/polity/data/mcqs/chapter70-mcqs';
+import { CHAPTER_71_MCQS as TOPIC_84_MCQS } from '@/components/batch1/polity/data/mcqs/chapter71-mcqs';
+import { CHAPTER_72_MCQS as TOPIC_86_MCQS } from '@/components/batch1/polity/data/mcqs/chapter72-mcqs';
+import { CHAPTER_73_MCQS as TOPIC_87_MCQS } from '@/components/batch1/polity/data/mcqs/chapter73-mcqs';
+import { CHAPTER_74_MCQS as TOPIC_88_MCQS } from '@/components/batch1/polity/data/mcqs/chapter74-mcqs';
+import { CHAPTER_75_MCQS as TOPIC_89_MCQS } from '@/components/batch1/polity/data/mcqs/chapter75-mcqs';
+import { CHAPTER_93_MCQS as TOPIC_90_MCQS } from '@/components/batch1/polity/data/mcqs/chapter93-ncrwc';
+import { CHAPTER_84_MCQS as TOPIC_95_MCQS } from '@/components/batch1/polity/data/mcqs/chapter84-mcqs';
 
 export const CHAPTER_MCQS: Record<number, MCQ[]> = {
-    1: DAY1_MCQS,
-    2: DAY2_MCQS,
-    3: DAY3_MCQS,
-    4: DAY4_MCQS,
-    5: DAY5_MCQS,
-    6: DAY6_MCQS,
-    7: DAY7_MCQS,
-    8: DAY8_MCQS,
-    9: DAY9_MCQS,
-    10: DAY10_MCQS,
-    11: DAY11_MCQS,
-    12: DAY12_MCQS,
-    13: DAY13_MCQS,
-    14: DAY14_MCQS,
-    15: DAY15_MCQS,
-    16: DAY16_MCQS,
-    17: DAY17_MCQS,
-    18: DAY18_MCQS,
-    19: DAY19_MCQS,
-    20: DAY20_MCQS,
-    21: DAY21_MCQS,
-    22: DAY22_MCQS,
-    23: DAY23_MCQS,
-    24: DAY24_MCQS,
-    25: DAY25_MCQS,
-    26: DAY26_MCQS,
-    27: DAY27_MCQS,
-    28: DAY28_MCQS,
-    29: DAY29_MCQS,
-    30: DAY30_MCQS,
-    31: DAY31_MCQS,
-    32: DAY32_MCQS,
-    33: DAY33_MCQS,
-    34: DAY34_MCQS,
-    35: DAY35_MCQS,
-    36: DAY36_MCQS,
-    37: DAY37_MCQS,
-    38: DAY38_MCQS,
-    39: DAY39_MCQS,
-    40: DAY40_MCQS,
-    41: DAY41_MCQS,
-    42: DAY42_MCQS,
-    43: DAY43_MCQS,
-    44: DAY44_MCQS,
-    45: DAY45_MCQS,
-    46: DAY46_MCQS,
-    47: DAY47_MCQS,
-    48: DAY48_MCQS,
-    49: DAY49_MCQS,
-    50: DAY50_MCQS,
-    51: DAY51_MCQS,
-    52: DAY52_MCQS,
-    53: DAY53_MCQS,
-    54: DAY54_MCQS,
-    55: DAY55_MCQS,
-    56: DAY56_MCQS,
-    57: DAY57_MCQS,
-    58: DAY58_MCQS,
-    59: DAY59_MCQS,
-    60: DAY60_MCQS,
-    61: DAY61_MCQS,
-    62: DAY62_MCQS,
-    63: DAY63_MCQS,
-    64: DAY64_MCQS,
-    65: DAY65_MCQS,
-    66: DAY66_MCQS,
-    67: DAY67_MCQS,
-    68: [], // Missing data for Topic 68
-    69: [], // Missing data for Topic 69
-    70: [], // Missing data for Topic 70
-    71: [], // Missing data for Topic 71
-    72: [], // Missing data for Topic 72
-    73: [], // Missing data for Topic 73
-    74: [], // Missing data for Topic 74
-    75: [], // Missing data for Topic 75
-    76: [], // Missing data for Topic 76
-    77: [], // Missing data for Topic 77
-    78: [], // Missing data for Topic 78
-    79: [], // Missing data for Topic 79
-    80: [], // Missing data for Topic 80
-    81: [], // Missing data for Topic 81
-    82: [], // Missing data for Topic 82
-    83: [], // Missing data for Topic 83
-    84: [], // Missing data for Topic 84
-    85: [], // Missing data for Topic 85
-    86: [], // Missing data for Topic 86
-    87: [], // Missing data for Topic 87
-    88: [], // Missing data for Topic 88
-    89: [], // Missing data for Topic 89
-    90: [], // Missing data for Topic 90
-    91: [], // Missing data for Topic 91
-    92: [], // Missing data for Topic 92
-    93: [], // Missing data for Topic 93
-    94: [], // Missing data for Topic 94
-    95: [], // Missing data for Topic 95
+    1: TOPIC_1_MCQS || [],
+    2: TOPIC_2_MCQS || [],
+    3: TOPIC_3_MCQS || [],
+    4: TOPIC_4_MCQS || [],
+    5: TOPIC_5_MCQS || [],
+    6: TOPIC_6_MCQS || [],
+    7: TOPIC_7_MCQS || [],
+    8: TOPIC_8_MCQS || [],
+    9: TOPIC_9_MCQS || [],
+    10: TOPIC_10_MCQS || [],
+    11: TOPIC_11_MCQS || [],
+    12: TOPIC_12_MCQS || [],
+    13: TOPIC_13_MCQS || [],
+    14: TOPIC_14_MCQS || [],
+    15: TOPIC_15_MCQS || [],
+    16: TOPIC_16_MCQS || [],
+    17: TOPIC_17_MCQS || [],
+    18: TOPIC_18_MCQS || [],
+    19: TOPIC_19_MCQS || [],
+    20: TOPIC_20_MCQS || [],
+    21: TOPIC_21_MCQS || [],
+    22: TOPIC_22_MCQS || [],
+    23: TOPIC_23_MCQS || [],
+    24: TOPIC_24_MCQS || [],
+    25: TOPIC_25_MCQS || [],
+    26: TOPIC_26_MCQS || [],
+    27: TOPIC_27_MCQS || [],
+    28: TOPIC_28_MCQS || [],
+    29: TOPIC_29_MCQS || [],
+    30: TOPIC_30_MCQS || [],
+    31: TOPIC_31_MCQS || [],
+    32: TOPIC_32_MCQS || [],
+    33: TOPIC_33_MCQS || [],
+    34: TOPIC_34_MCQS || [],
+    35: TOPIC_35_MCQS || [],
+    36: TOPIC_36_MCQS || [],
+    37: TOPIC_37_MCQS || [],
+    38: TOPIC_38_MCQS || [],
+    39: TOPIC_39_MCQS || [],
+    40: TOPIC_40_MCQS || [],
+    41: TOPIC_41_MCQS || [],
+    42: TOPIC_42_MCQS || [],
+    43: TOPIC_43_MCQS || [],
+    44: TOPIC_44_MCQS || [],
+    45: TOPIC_45_MCQS || [],
+    46: TOPIC_46_MCQS || [],
+    47: TOPIC_47_MCQS || [],
+    48: TOPIC_48_MCQS || [],
+    49: TOPIC_49_MCQS || [],
+    50: TOPIC_50_MCQS || [],
+    51: TOPIC_51_MCQS || [],
+    52: TOPIC_52_MCQS || [],
+    53: TOPIC_53_MCQS || [],
+    54: TOPIC_54_MCQS || [],
+    55: [], // Missing Data
+    56: TOPIC_56_MCQS || [],
+    57: TOPIC_57_MCQS || [],
+    58: TOPIC_58_MCQS || [],
+    59: TOPIC_59_MCQS || [],
+    60: TOPIC_60_MCQS || [],
+    61: TOPIC_61_MCQS || [],
+    62: TOPIC_62_MCQS || [],
+    63: TOPIC_63_MCQS || [],
+    64: TOPIC_64_MCQS || [],
+    65: TOPIC_65_MCQS || [],
+    66: TOPIC_66_MCQS || [],
+    67: TOPIC_67_MCQS || [],
+    68: TOPIC_68_MCQS || [],
+    69: TOPIC_69_MCQS || [],
+    70: TOPIC_70_MCQS || [],
+    71: [], // Missing Data
+    72: [], // Missing Data
+    73: TOPIC_73_MCQS || [],
+    74: TOPIC_74_MCQS || [],
+    75: TOPIC_75_MCQS || [],
+    76: TOPIC_76_MCQS || [],
+    77: TOPIC_77_MCQS || [],
+    78: TOPIC_78_MCQS || [],
+    79: TOPIC_79_MCQS || [],
+    80: TOPIC_80_MCQS || [],
+    81: TOPIC_81_MCQS || [],
+    82: TOPIC_82_MCQS || [],
+    83: TOPIC_83_MCQS || [],
+    84: TOPIC_84_MCQS || [],
+    85: [], // Missing Data
+    86: TOPIC_86_MCQS || [],
+    87: TOPIC_87_MCQS || [],
+    88: TOPIC_88_MCQS || [],
+    89: TOPIC_89_MCQS || [],
+    90: TOPIC_90_MCQS || [],
+    91: [], // Missing Data
+    92: [], // Missing Data
+    93: [], // Missing Data
+    94: [], // Missing Data
+    95: TOPIC_95_MCQS || [],
 };
 
 export function getChapterLevels(topicId: number): FormattedChapterLevelData | undefined {
     const questions = CHAPTER_MCQS[topicId];
-    if (!questions || questions.length === 0) return undefined;
+    if (!questions || !Array.isArray(questions) || questions.length === 0) return undefined;
 
-    // The new standard format splits questions by difficulty_tier
-    const level1 = questions.filter(q => q.difficulty_tier === 'Level_1' || q.level === 'Easy');
-    const level2 = questions.filter(q => q.difficulty_tier === 'Level_2' || q.level === 'Moderate');
-    const level3 = questions.filter(q => q.difficulty_tier === 'Level_3' || q.level === 'Tough');
+    const level1 = questions.filter(q => q.difficulty_tier === 'Level_1' || q.level === 'Easy' || q.difficulty === 'easy' || q.difficulty === 'Easy');
+    const level2 = questions.filter(q => q.difficulty_tier === 'Level_2' || q.level === 'Moderate' || q.difficulty === 'medium' || q.difficulty === 'Medium');
+    const level3 = questions.filter(q => q.difficulty_tier === 'Level_3' || q.level === 'Tough' || q.difficulty === 'hard' || q.difficulty === 'Hard');
 
     const mapToLevelQuestion = (q: MCQ): LevelQuestion => ({
         id: q.id,

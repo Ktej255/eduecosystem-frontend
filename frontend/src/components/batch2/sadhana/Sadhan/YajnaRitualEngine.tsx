@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Flame, CheckCircle2, Circle, ArrowRight, ArrowLeft, Wind, Droplets, Sparkles, BookOpen } from 'lucide-react';
 import { useBatch2UI } from '@/components/batch2/context/Batch2UIContext';

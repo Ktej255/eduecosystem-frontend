@@ -1,4 +1,5 @@
 import { Question } from '../../types';
+import { contentRegistry as ANCIENT_CONTENT_MAP } from '../data/ancient/content-registry';
 import { MODERN_CHAPTER_1_MCQS } from '../data/modern/chapter1';
 import { MODERN_CHAPTER_2_MCQS } from '../data/modern/chapter2';
 import { MODERN_CHAPTER_3_MCQS } from '../data/modern/chapter3';
@@ -113,8 +114,18 @@ export const getAllQuestions = (): QuestionBankItem[] => {
         ...enhanceQuestions(MODERN_CHAPTER_38_MCQS, 38, 'Nehru\'s Vision of a Modern India'),
         ...enhanceQuestions(MODERN_CHAPTER_39_MCQS, 39, 'The Challenge of Succession & 1965 War'),
         // Add more chapters here
-
     ];
+
+    // Dynamically add Ancient History MCQs
+    Object.keys(ANCIENT_CONTENT_MAP).forEach(key => {
+        const k = parseInt(key);
+        if (ANCIENT_CONTENT_MAP[k]?.mcqs) {
+            allQuestions.push(
+                ...enhanceQuestions(ANCIENT_CONTENT_MAP[k].mcqs, k, ANCIENT_CONTENT_MAP[k].title || `Ancient Chapter ${k}`, 'ancient')
+            );
+        }
+    });
+
     return allQuestions;
 };
 

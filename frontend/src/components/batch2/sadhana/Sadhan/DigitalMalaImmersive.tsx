@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, useAnimation, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 import { TranceToggle } from '@/components/batch2/context/TranceToggle';
 import { useBatch2UI } from '@/components/batch2/context/Batch2UIContext';
 import { useSadhanaProgress } from '../hooks/useSadhanaProgress';
@@ -158,12 +159,20 @@ export function DigitalMalaImmersive() {
                         >
                             <div className="text-amber-500 text-9xl font-serif mb-8 drop-shadow-[0_0_30px_rgba(245,158,11,0.5)]">ॐ</div>
                             <h3 className="text-white text-2xl tracking-[0.5em] uppercase font-light">Samapti</h3>
-                            <button
-                                onClick={() => { setCount(0); setIsComplete(false); }}
-                                className="mt-12 text-stone-500 hover:text-white transition-colors tracking-widest uppercase text-xs border border-stone-800 px-6 py-3 rounded-full"
-                            >
-                                Begin New Round
-                            </button>
+                            <div className="mt-12 flex flex-col items-center gap-4">
+                                <Link
+                                    href="/student/batch2/sadhana"
+                                    className="text-white tracking-widest uppercase text-xs border border-white px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                                >
+                                    Return to Hub
+                                </Link>
+                                <button
+                                    onClick={() => { setCount(0); setIsComplete(false); }}
+                                    className="text-stone-500 hover:text-white transition-colors tracking-widest uppercase text-[10px] border border-stone-800 px-6 py-3 rounded-full"
+                                >
+                                    Begin New Round
+                                </button>
+                            </div>
                         </motion.div>
                     )}
                 </AnimatePresence>

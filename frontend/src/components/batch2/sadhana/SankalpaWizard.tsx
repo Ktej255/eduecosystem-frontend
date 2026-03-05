@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Flame, ChevronRight, CheckCircle2, AlertTriangle, Shield, BookOpen } from 'lucide-react';
+import Link from 'next/link';
 import { CORE_SADHANAS, PRAYASHCHITTA_METHODS } from './data/sadhana-data';
 import { useSadhanaProgress } from './hooks/useSadhanaProgress';
 import { useBatch2UI } from "@/components/batch2/context/Batch2UIContext";
@@ -38,8 +39,10 @@ export default function SankalpaWizard() {
 
     const selectedSadhana = CORE_SADHANAS.find(s => s.id === selectedSadhanaId);
 
+    const isValidCommitment = confirmText.trim().toLowerCase() === 'i commit' || confirmText.trim().length >= 8;
+
     const handleSeal = () => {
-        if (confirmText.toLowerCase() === 'i commit' && selectedSadhanaId) {
+        if (isValidCommitment && selectedSadhanaId) {
             signSankalpa(selectedSadhanaId);
             setStep('sealed');
         }
@@ -159,7 +162,7 @@ export default function SankalpaWizard() {
 
                             <div className="bg-white/60 rounded-2xl p-4 border border-amber-200">
                                 <label className="text-xs font-bold uppercase tracking-widest text-amber-800/60 block mb-2">
-                                    Type &quot;I commit&quot; to seal your vow
+                                    Type &quot;I commit&quot; or type your own vow to seal it
                                 </label>
                                 <input
                                     type="text"
@@ -173,8 +176,8 @@ export default function SankalpaWizard() {
 
                         <button
                             onClick={handleSeal}
-                            disabled={confirmText.toLowerCase() !== 'i commit'}
-                            className={`w-full py-4 font-bold text-lg rounded-2xl transition-all shadow-lg ${confirmText.toLowerCase() === 'i commit'
+                            disabled={!isValidCommitment}
+                            className={`w-full py-4 font-bold text-lg rounded-2xl transition-all shadow-lg ${isValidCommitment
                                 ? 'bg-orange-600 text-white hover:bg-orange-700'
                                 : 'bg-stone-200 text-stone-400 cursor-not-allowed'
                                 }`}
@@ -199,12 +202,20 @@ export default function SankalpaWizard() {
                                         Sankalpa ID: <code className="bg-white px-2 py-1 rounded text-amber-700 border border-amber-200">{progress.activeSadhanaId}-{Date.now().toString(36)}</code>
                                     </p>
 
-                                    <button
-                                        onClick={handleBreakVow}
-                                        className="text-sm text-red-600 hover:text-red-800 font-medium underline"
-                                    >
-                                        I need to break this vow...
-                                    </button>
+                                    <div className="flex flex-col items-center gap-4 mb-4 mt-6">
+                                        <Link
+                                            href="/student/batch2/sadhana"
+                                            className="px-10 py-4 bg-emerald-600 text-white font-bold rounded-xl text-lg hover:bg-emerald-700 hover:shadow-xl transition-all shadow-md w-full"
+                                        >
+                                            Proceed to Journey
+                                        </Link>
+                                        <button
+                                            onClick={handleBreakVow}
+                                            className="text-sm text-red-600 hover:text-red-800 font-medium underline"
+                                        >
+                                            I need to break this vow...
+                                        </button>
+                                    </div>
                                 </>
                             )}
 

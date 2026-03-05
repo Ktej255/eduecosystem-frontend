@@ -155,18 +155,33 @@ export function CymaticResonanceSimulator({ level, isActive, name, mantra }: Cym
 
             {/* Controls Overlay */}
             <div className="mt-8 flex items-center gap-6">
-                <button
-                    onClick={toggleAudio}
-                    className={`flex items-center gap-3 px-6 py-3 rounded-full border transition-all ${isAudioEnabled
-                            ? "bg-amber-500 border-amber-400 text-black shadow-[0_0_20px_rgba(245,158,11,0.4)]"
-                            : "bg-white/5 border-white/10 text-white/40 hover:text-white"
-                        }`}
-                >
-                    {isAudioEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
-                    <span className="text-[10px] font-black uppercase tracking-widest">
-                        {isAudioEnabled ? `Attuning: ${currentMode.freq}Hz` : "Activate Tuning Frequency"}
-                    </span>
-                </button>
+                {!isAudioEnabled ? (
+                    <button
+                        onClick={toggleAudio}
+                        className="flex items-center gap-3 px-6 py-3 rounded-full border transition-all bg-white/5 border-white/10 text-white/40 hover:text-white hover:border-white/30"
+                    >
+                        <Volume2 className="w-4 h-4" />
+                        <span className="text-[10px] font-black uppercase tracking-widest">
+                            Activate Tuning Frequency
+                        </span>
+                    </button>
+                ) : (
+                    <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 px-6 py-3 rounded-full border transition-all bg-amber-500 border-amber-400 text-black shadow-[0_0_20px_rgba(245,158,11,0.4)]">
+                            <Activity className="w-4 h-4 animate-pulse" />
+                            <span className="text-[10px] font-black uppercase tracking-widest">
+                                Attuning: {currentMode.freq}Hz
+                            </span>
+                        </div>
+                        <button
+                            onClick={toggleAudio}
+                            className="w-11 h-11 rounded-full border-2 border-red-500/50 bg-red-500/20 text-red-500 flex items-center justify-center hover:bg-red-500 hover:text-white hover:border-red-500 transition-all shadow-[0_0_15px_rgba(239,68,68,0.3)]"
+                            title="Stop Audio"
+                        >
+                            <div className="w-3.5 h-3.5 bg-current rounded-[2px]" />
+                        </button>
+                    </div>
+                )}
 
                 <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10">
                     <Zap className="w-3 h-3 text-amber-500" />

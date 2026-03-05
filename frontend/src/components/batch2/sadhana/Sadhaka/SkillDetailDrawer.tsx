@@ -19,7 +19,7 @@ interface SkillDetailDrawerProps {
 }
 
 export function SkillDetailDrawer({ skillId, onClose }: SkillDetailDrawerProps) {
-    const { skills } = useSadhanaSkillTracker();
+    const { skillProgress: skills } = useSadhanaSkillTracker();
 
     if (!skillId) return null;
 

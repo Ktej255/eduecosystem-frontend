@@ -3,6 +3,7 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Volume2, VolumeX, Pause, Play, Activity, CheckCircle2, RotateCcw } from 'lucide-react';
+import Link from 'next/link';
 import { useSadhanaProgress } from '../hooks/useSadhanaProgress';
 import { useBatch2UI } from '@/components/batch2/context/Batch2UIContext';
 import { TranceToggle } from '@/components/batch2/context/TranceToggle';
@@ -152,7 +153,7 @@ export default function DigitalMala() {
     }
 
     return (
-        <div className="max-w-4xl mx-auto min-h-[80vh] flex flex-col justify-between py-8 relative">
+        <div className="max-w-4xl mx-auto h-[calc(100vh-120px)] flex flex-col justify-between py-4 md:py-8 relative overflow-hidden">
 
             {/* Global Toggle for Digital Mala */}
             <div className="absolute top-0 right-0 z-50">
@@ -160,7 +161,7 @@ export default function DigitalMala() {
             </div>
 
             {/* Header / Mode Selector */}
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12 mt-12 md:mt-0">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6 mt-8 md:mt-0 flex-shrink-0">
                 <div>
                     <h1 className="text-3xl font-serif font-bold text-amber-950">Digital Mala</h1>
                     <p className="text-amber-800/70 text-sm mt-1">
@@ -206,13 +207,21 @@ export default function DigitalMala() {
                             <h2 className="text-4xl font-serif font-bold text-amber-950 mb-2">Round Complete</h2>
                             <p className="text-amber-800/70 mb-8">You have completed 108 chants in {formatTime(sessionTime)}.</p>
 
-                            <button
-                                onClick={handleReset}
-                                className="flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-amber-600/20 transition-all mx-auto"
-                            >
-                                <RotateCcw className="w-5 h-5" />
-                                Begin Next Round
-                            </button>
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mx-auto mt-6">
+                                <Link
+                                    href="/student/batch2/sadhana"
+                                    className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-emerald-600/20 transition-all font-sans w-full sm:w-auto text-center justify-center"
+                                >
+                                    Conclude Practice
+                                </Link>
+                                <button
+                                    onClick={handleReset}
+                                    className="flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-amber-600/20 transition-all w-full sm:w-auto justify-center"
+                                >
+                                    <RotateCcw className="w-5 h-5" />
+                                    Begin Next Round
+                                </button>
+                            </div>
                         </motion.div>
                     ) : (
                         <motion.div
@@ -286,7 +295,7 @@ export default function DigitalMala() {
 
             {/* Footer Stats */}
             {!isComplete && (
-                <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto w-full mt-12 bg-card p-4 rounded-2xl border border-amber-200 shadow-sm">
+                <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-lg mx-auto w-full mt-6 bg-card p-3 sm:p-4 rounded-2xl border border-amber-200 shadow-sm flex-shrink-0">
                     <div className="text-center border-r border-amber-100">
                         <div className="text-[10px] font-bold uppercase tracking-wider text-amber-800/50 mb-1">Rhythm</div>
                         <div className="font-mono text-lg text-amber-950">{rhythm > 0 ? `${(rhythm / 1000).toFixed(1)}s` : '—'}</div>
