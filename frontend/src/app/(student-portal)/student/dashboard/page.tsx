@@ -248,6 +248,7 @@ export default function StudentDashboard() {
                         { name: 'Evening Section', href: '/student/batch1-1/evening', emoji: '🔦', color: 'from-purple-500 to-pink-600', accessKey: 'batch1' },
                         { name: 'Revision', href: '/student/revision', emoji: '🧠', color: 'from-amber-500 to-orange-600', accessKey: 'revisionPortal' },
                         { name: 'Polity Study', href: '/student/batch1-1/polity', emoji: '📚', color: 'from-blue-500 to-cyan-600', accessKey: 'batch1Polity' },
+                        { name: 'Geography Study', href: '/student/batch1/geography', emoji: '🌍', color: 'from-emerald-500 to-green-600', accessKey: 'batch1' },
                         { name: 'Ancient History', href: '/student/batch1-1/ancient-history', emoji: '🏛️', color: 'from-stone-500 to-amber-700', accessKey: 'batch1Polity' },
                         { name: 'Deep Report', href: '/student/batch1-1/deep-report', emoji: '📊', color: 'from-indigo-500 to-violet-600', accessKey: 'batch1' },
                     ]

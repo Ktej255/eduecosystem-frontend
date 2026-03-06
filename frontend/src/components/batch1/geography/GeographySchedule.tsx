@@ -45,7 +45,7 @@ export default function GeographySchedule() {
                 </h2>
                 <p className="text-muted-foreground dark:text-muted-foreground max-w-2xl mx-auto">
                     Comprehensive coverage of Geomorphology, Climatology, Oceanography, Indian, and Human Geography.
-                    Feb 6 - Feb 26.
+                    Mar 6 - Mar 26.
                 </p>
             </div>
 

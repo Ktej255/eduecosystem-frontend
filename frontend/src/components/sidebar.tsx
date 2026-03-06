@@ -111,6 +111,22 @@ const routes: Route[] = [
     children: [],
   },
   {
+    label: "Polity 95",
+    icon: Shield,
+    href: "/student/batch1-1/polity",
+    color: "text-blue-500",
+    badge: "LIVE",
+    children: [],
+  },
+  {
+    label: "Geography Study",
+    icon: Globe,
+    href: "/student/batch1/geography",
+    color: "text-emerald-500",
+    badge: "NEW",
+    children: [],
+  },
+  {
     label: "Create Course",
     icon: PlusCircle,
     href: "/lms/courses/create",
@@ -321,6 +337,10 @@ export default function Sidebar() {
 
       // Allow Revision Portal access
       if (route.href === "/revision") return true;
+
+      // Allow Geography and Polity access for students
+      if (route.href === "/student/batch1/geography") return true;
+      if (route.href === "/student/batch1-1/polity") return true;
 
       return false;
     }

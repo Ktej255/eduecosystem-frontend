@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
     Search, ChevronDown, ChevronRight, BookOpen, CheckCircle2,
-    Target, LayoutGrid, List, Sparkles, BarChart2, StickyNote, Flame, Bot, Scale, Rainbow, AlertTriangle
+    Target, LayoutGrid, List, Sparkles, BarChart2, StickyNote, Flame, Bot, Scale, Rainbow, AlertTriangle, Play
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -462,22 +462,40 @@ export default function PolityUnifiedDashboard({ registryMode = '50' }: PolityUn
                                                         <CheckCircle2 className="w-4 h-4" />
                                                     </button>
                                                     <div className="flex-1">
-                                                        <div className="flex items-center gap-2">
-                                                            <h4 className={`font-semibold text-sm ${isCompleted ? 'text-muted-foreground line-through' : 'text-foreground'}`}>
-                                                                {topic.title}
-                                                            </h4>
-                                                            {isNew && (
-                                                                <Badge className="bg-purple-500 text-[10px] px-1.5 py-0 h-4">New</Badge>
+                                                        <div className="flex items-center justify-between gap-2">
+                                                            <div className="flex items-center gap-2">
+                                                                <h4 className={`font-semibold text-sm ${isCompleted ? 'text-muted-foreground line-through' : 'text-foreground'}`}>
+                                                                    {topic.title}
+                                                                </h4>
+                                                                {isNew && (
+                                                                    <Badge className="bg-purple-500 text-[10px] px-1.5 py-0 h-4">New</Badge>
+                                                                )}
+                                                            </div>
+                                                            {registryMode === '95' && topic.id % 2 !== 0 && (
+                                                                <Button
+                                                                    size="sm"
+                                                                    variant="outline"
+                                                                    className="h-7 px-2 text-[10px] font-black border-2 border-slate-900 bg-amber-400 hover:bg-amber-500 text-slate-900 shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none transition-all"
+                                                                    onClick={(e) => {
+                                                                        e.stopPropagation();
+                                                                        const blockId = Math.ceil(topic.id / 2);
+                                                                        router.push(`/student/batch1-1/polity/session?block=${blockId}`);
+                                                                    }}
+                                                                >
+                                                                    <Play className="w-3 h-3 mr-1 fill-current" /> LAUNCH BLOCK
+                                                                </Button>
                                                             )}
+                                                        </div>
+                                                        <div className="flex items-center gap-2 mt-0.5">
+                                                            <div className="text-[10px] text-muted-foreground font-mono">
+                                                                Topic #{topic.id}
+                                                            </div>
                                                             {hasUpdates && (
                                                                 <div className="flex items-center text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded text-[10px] font-bold border border-amber-200" title="Current Affairs Update Available">
                                                                     <Flame size={10} className="mr-0.5 fill-amber-600" />
                                                                     Update
                                                                 </div>
                                                             )}
-                                                        </div>
-                                                        <div className="text-[10px] text-muted-foreground mt-0.5 font-mono">
-                                                            Topic #{topic.id}
                                                         </div>
                                                     </div>
                                                 </div>

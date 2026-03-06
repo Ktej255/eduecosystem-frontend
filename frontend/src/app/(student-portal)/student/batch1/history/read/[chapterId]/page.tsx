@@ -7,7 +7,7 @@ import { ArrowLeft, ZoomIn, ZoomOut, Pencil, ChevronLeft, ChevronRight } from 'l
 import { Button } from '@/components/ui/button';
 import { MODERN_HISTORY_CONTENT } from '@/components/batch1/history/data/modern/content-registry';
 import { MEDIEVAL_CONTENT_MAP } from '@/components/batch1/history/data/medieval/content-registry';
-import { ANCIENT_CONTENT_MAP } from '@/components/batch1/history/data/ancient/content-registry';
+import { contentRegistry as ANCIENT_CONTENT_MAP } from '@/components/batch1/history/data/ancient/content-registry';
 import { isHistoryChapterComplete, markHistoryChapterComplete } from '@/lib/history-progress-store';
 import ConfidencePoll from '@/components/shared/ConfidencePoll';
 import { CheckCircle } from 'lucide-react';

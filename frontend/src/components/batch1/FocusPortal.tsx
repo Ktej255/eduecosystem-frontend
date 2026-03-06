@@ -34,6 +34,7 @@ const FocusAnalyticsDashboard = dynamic(() => import('@/components/batch1/FocusA
 const Batch1DeepReport = dynamic(() => import('@/components/batch1-1/reports/Batch1DeepReport'), { loading: () => <div>Loading Report...</div> });
 
 const SubjectPomodoro = dynamic(() => import('@/components/batch1-1/pomodoro/SubjectPomodoro'), { loading: () => <div>Loading Subject Pomodoro...</div> });
+const GeographyDashboard = dynamic(() => import('@/components/batch1/geography/GeographyDashboard'), { loading: () => <div>Loading Geography...</div> });
 
 type FocusTab = 'pomodoro' | 'subject_pomodoro' | 'study' | 'analytics' | 'retention';
 type Subject = 'polity' | 'history' | 'geography' | 'science';
@@ -323,11 +324,12 @@ export default function FocusPortal() {
 
                                 {selectedSubject === 'polity' && <PolityHome embedded={true} />}
                                 {selectedSubject === 'history' && <HistoryHome embedded={true} />}
-                                {(selectedSubject === 'geography' || selectedSubject === 'science') && (
+                                {selectedSubject === 'geography' && <GeographyDashboard />}
+                                {selectedSubject === 'science' && (
                                     <div className="p-12 text-center bg-card dark:bg-[#111] rounded-2xl border border-dashed border-border">
                                         <BookOpen className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
                                         <h3 className="text-lg font-medium text-foreground">
-                                            {selectedSubject.charAt(0).toUpperCase() + selectedSubject.slice(1)} Module
+                                            Science & Tech Module
                                         </h3>
                                         <p className="text-muted-foreground">Content loading...</p>
                                     </div>

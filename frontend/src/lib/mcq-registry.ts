@@ -8,6 +8,7 @@ import { SPECTRUM_MODERN_HISTORY } from '@/components/batch1/history/data/spectr
 import { ANCIENT_SCHEDULE } from '@/components/batch1/history/data/ancient-schedule-data';
 import { MEDIEVAL_SCHEDULE } from '@/components/batch1/history/data/medieval-schedule-data';
 import { TOPIC_TITLES } from '@/components/batch1-1/polity/data/polity-types-95';
+import { CHAPTER_MCQS } from '@/components/batch1-1/polity/data/chapter-level-index';
 
 // Environment Imports
 import { ENVIRONMENT_SYLLABUS } from '@/components/batch1/environment/data/environment-schedule-data';
@@ -83,9 +84,9 @@ export const getSubjectChapters = (subject: 'history' | 'polity' | 'geography' |
         return TOPIC_TITLES.map(topic => ({
             id: topic.id,
             title: topic.title,
-            mcqCount: 0, // Placeholder
+            mcqCount: CHAPTER_MCQS[topic.id]?.length || 0,
             subject: 'polity'
-        })).filter(ch => ch.id <= 55);
+        })).filter(ch => ch.mcqCount > 0);
     }
 };
 
@@ -100,11 +101,12 @@ export const getHistoryStats = (): SubjectMCQMeta => {
 };
 
 export const getPolityStats = (): SubjectMCQMeta => {
+    const chapters = getSubjectChapters('polity');
     return {
         subject: 'Polity',
         totalChapters: 95,
-        activeChapters: 55,
-        totalQuestions: 0
+        activeChapters: chapters.length,
+        totalQuestions: chapters.reduce((acc, curr) => acc + curr.mcqCount, 0)
     };
 };
 
