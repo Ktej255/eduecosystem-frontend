@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import SessionTimer, { Topic } from '@/components/shared/SessionTimer';
 import { TOPIC_TITLES as TOPIC_TITLES_95 } from '@/components/batch1-1/polity/data/polity-types-95';
 import { toast } from 'sonner';
 
-export default function PolitySessionPage() {
+function PolitySessionContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
     const blockId = searchParams.get('block');
@@ -30,7 +30,7 @@ export default function PolitySessionPage() {
                 router.push('/student/batch1-1/polity');
             }
         }
-    }, [blockId]);
+    }, [blockId, router]);
 
     const handleComplete = (completedTopics: Topic[]) => {
         // Mark as completed in polity_95_progress
@@ -53,14 +53,22 @@ export default function PolitySessionPage() {
     if (topics.length === 0) return null;
 
     return (
+        <SessionTimer
+            topics={topics}
+            subject="Polity 95"
+            accentColor="blue"
+            backPath="/student/batch1-1/polity"
+            onComplete={handleComplete}
+        />
+    );
+}
+
+export default function PolitySessionPage() {
+    return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
-            <SessionTimer
-                topics={topics}
-                subject="Polity 95"
-                accentColor="blue"
-                backPath="/student/batch1-1/polity"
-                onComplete={handleComplete}
-            />
+            <Suspense fallback={<div className="flex items-center justify-center p-20 text-indigo-600 font-bold">Loading Session...</div>}>
+                <PolitySessionContent />
+            </Suspense>
         </div>
     );
 }
