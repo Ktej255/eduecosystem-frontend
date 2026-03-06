@@ -47,9 +47,19 @@ export default function UniversalQuestionBank({ initialSubject = 'history' }: Un
         );
     }, [selectedSubject, searchQuery]);
 
+    const [reportsData, setReportsData] = useState<any[]>([]);
+
+    useEffect(() => {
+        async function fetchReports() {
+            const data = await getChapterReports(selectedSubject);
+            setReportsData(data || []);
+        }
+        fetchReports();
+    }, [selectedSubject]);
+
     const getReportBadge = (chapterId: number | string) => {
-        const reports = getChapterReports(selectedSubject);
-        const chapterReports = reports.filter(r => r.chapterId === chapterId);
+        if (!Array.isArray(reportsData)) return null;
+        const chapterReports = reportsData.filter(r => r.chapterId === chapterId);
         if (chapterReports.length === 0) return null;
 
         const bestAcc = Math.max(...chapterReports.map(r => r.accuracy));

@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, Body, Response
+from fastapi import APIRouter, Depends, HTTPException, Body, Response, Request
 from sqlalchemy.orm import Session
 from typing import Any
 import pyotp
@@ -84,6 +84,7 @@ def disable_2fa(
 @router.post("/verify-login")
 @limiter.limit(RATE_LIMITS["auth"])
 def verify_2fa_login(
+    request: Request,
     response: Response,
     code: str = Body(..., embed=True),
     email: str = Body(..., embed=True),

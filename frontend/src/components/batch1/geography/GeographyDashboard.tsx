@@ -60,13 +60,14 @@ export default function GeographyDashboard() {
     ];
 
     const stats = useMemo(() => {
+        const safeCompleted = Array.isArray(completedTopics) ? completedTopics : [];
         const total = GEOGRAPHY_REGISTRY.length;
-        const totalCompleted = completedTopics.length;
+        const totalCompleted = safeCompleted.length;
         const overallProgress = total > 0 ? (totalCompleted / total) * 100 : 0;
 
         const branchStats = branches.map(branch => {
             const branchTopics = GEOGRAPHY_REGISTRY.filter(t => t.branch === branch);
-            const branchCompleted = branchTopics.filter(t => completedTopics.includes(t.id)).length;
+            const branchCompleted = branchTopics.filter(t => safeCompleted.includes(t.id)).length;
             return {
                 name: branch,
                 total: branchTopics.length,
@@ -183,6 +184,7 @@ export default function GeographyDashboard() {
                             <ScrollArea className="h-[550px]">
                                 <div className="divide-y divide-border">
                                     {filteredTopics.length > 0 ? (
+                                        Array.isArray(filteredTopics) && Array.isArray(completedTopics) &&
                                         filteredTopics.map((topic, idx) => {
                                             const isCompleted = completedTopics.includes(topic.id);
                                             return (

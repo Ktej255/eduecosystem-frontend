@@ -1,0 +1,250 @@
+{
+    "65": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 17555,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "66": {
+        "exists": true,
+        "title": "Electoral Reforms",
+        "approx_questions": 7,
+        "size_bytes": 15146,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "67": {
+        "exists": true,
+        "title": "Voting Behaviour",
+        "approx_questions": 6,
+        "size_bytes": 5533,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "68": {
+        "exists": true,
+        "title": "[Inferred from Q1]: Which of the following is NOT a characteristic feature of a political party?\",",
+        "approx_questions": 6,
+        "size_bytes": 5434,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "69": {
+        "exists": true,
+        "title": "[Inferred from Q1]: The National Integration Council (NIC) was first constituted in which year?\",",
+        "approx_questions": 8,
+        "size_bytes": 4590,
+        "l2_exists": true,
+        "l3_exists": false
+    },
+    "70": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 15694,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "71": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 17391,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "72": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 16723,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "73": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 15995,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "74": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 16105,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "75": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 7,
+        "size_bytes": 15281,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "76": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 7,
+        "size_bytes": 15530,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "77": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 7,
+        "size_bytes": 15221,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "78": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 15768,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "79": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 15534,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "80": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 15174,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "81": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 15836,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "82": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 14879,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "83": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 7,
+        "size_bytes": 15341,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "84": {
+        "exists": true,
+        "title": "[Inferred from Q1]: The study of voting behaviour is technically known as:\",",
+        "approx_questions": 6,
+        "size_bytes": 4972,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "85": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 5,
+        "size_bytes": 18871,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "86": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 19131,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "87": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 16317,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "88": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 14770,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "89": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 14914,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "90": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 7,
+        "size_bytes": 15240,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "91": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 16229,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "92": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 15685,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "93": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 15486,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "94": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 6,
+        "size_bytes": 16090,
+        "l2_exists": true,
+        "l3_exists": true
+    },
+    "95": {
+        "exists": true,
+        "title": null,
+        "approx_questions": 7,
+        "size_bytes": 14262,
+        "l2_exists": true,
+        "l3_exists": true
+    }
+}

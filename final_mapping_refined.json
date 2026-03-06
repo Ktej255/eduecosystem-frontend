@@ -1,0 +1,686 @@
+{
+    "1": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day1-mcqs.ts",
+        "title": "Historical Background",
+        "score": 1.0,
+        "source_ch": "1",
+        "l3_sources": []
+    },
+    "2": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day2-mcqs.ts",
+        "title": "Making of the Constitution",
+        "score": 1.0,
+        "source_ch": "2",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch2.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch2.ts"
+        ]
+    },
+    "3": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day10-mcqs.ts",
+        "title": "Concept of the Constitution",
+        "score": 0.8214285714285714,
+        "source_ch": "10",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch10.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch10.ts"
+        ]
+    },
+    "4": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day3-mcqs.ts",
+        "title": "Salient Features of the Constitution",
+        "score": 1.0,
+        "source_ch": "3",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch3.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch3.ts"
+        ]
+    },
+    "5": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day4-mcqs.ts",
+        "title": "Preamble of the Constitution",
+        "score": 1.0,
+        "source_ch": "4",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch4.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch4.ts"
+        ]
+    },
+    "6": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day5-mcqs.ts",
+        "title": "Union and its Territory",
+        "score": 1.0,
+        "source_ch": "5",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch5.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch5.ts"
+        ]
+    },
+    "7": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day6-mcqs.ts",
+        "title": "Citizenship",
+        "score": 1.0,
+        "source_ch": "6",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch6.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch6.ts"
+        ]
+    },
+    "8": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day7-mcqs.ts",
+        "title": "Fundamental Rights",
+        "score": 1.0,
+        "source_ch": "7",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch7.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch7.ts"
+        ]
+    },
+    "9": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day8-mcqs.ts",
+        "title": "Directive Principles of State Policy",
+        "score": 1.0,
+        "source_ch": "8",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch8.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch8.ts"
+        ]
+    },
+    "10": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day9-mcqs.ts",
+        "title": "Fundamental Duties",
+        "score": 1.0,
+        "source_ch": "9",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch9.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch9.ts"
+        ]
+    },
+    "11": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day10-mcqs.ts",
+        "title": "Amendment of the Constitution",
+        "score": 1.0,
+        "source_ch": "10",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch10.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch10.ts"
+        ]
+    },
+    "12": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day11-mcqs.ts",
+        "title": "Basic Structure of the Constitution",
+        "score": 1.0,
+        "source_ch": "11",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch11.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch11.ts"
+        ]
+    },
+    "13": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day12-mcqs.ts",
+        "title": "Parliamentary System",
+        "score": 1.0,
+        "source_ch": "12",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch12.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch12.ts"
+        ]
+    },
+    "14": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day13-mcqs.ts",
+        "title": "Federal System",
+        "score": 1.0,
+        "source_ch": "13",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch13.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch13.ts"
+        ]
+    },
+    "15": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day14-mcqs.ts",
+        "title": "Centre-State Relations",
+        "score": 1.0,
+        "source_ch": "14",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch14.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch14.ts"
+        ]
+    },
+    "16": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day15-mcqs.ts",
+        "title": "Inter-State Relations",
+        "score": 1.0,
+        "source_ch": "15",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch15.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch15.ts"
+        ]
+    },
+    "17": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day16-mcqs.ts",
+        "title": "Emergency Provisions",
+        "score": 1.0,
+        "source_ch": "16",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch16.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch16.ts"
+        ]
+    },
+    "18": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day17-mcqs.ts",
+        "title": "President",
+        "score": 1.0,
+        "source_ch": "17",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch17.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch17.ts"
+        ]
+    },
+    "19": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day18-mcqs.ts",
+        "title": "Vice-President",
+        "score": 1.0,
+        "source_ch": "18",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch18.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch18.ts"
+        ]
+    },
+    "20": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day19-mcqs.ts",
+        "title": "Prime Minister",
+        "score": 1.0,
+        "source_ch": "19",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch19.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch19.ts"
+        ]
+    },
+    "21": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day20-mcqs.ts",
+        "title": "Central Council of Ministers",
+        "score": 1.0,
+        "source_ch": "20",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch20.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch20.ts"
+        ]
+    },
+    "22": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day21-mcqs.ts",
+        "title": "Cabinet Committees",
+        "score": 1.0,
+        "source_ch": "21",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch21.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch21.ts"
+        ]
+    },
+    "23": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day22-mcqs.ts",
+        "title": "Parliament",
+        "score": 1.0,
+        "source_ch": "22",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch22.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch22.ts"
+        ]
+    },
+    "24": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day23-mcqs.ts",
+        "title": "Parliamentary Committees",
+        "score": 1.0,
+        "source_ch": "23",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch23.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch23.ts"
+        ]
+    },
+    "25": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day25-mcqs.ts",
+        "title": "Indian Parliamentary Group",
+        "score": 1.0,
+        "source_ch": "25",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch25.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch25.ts"
+        ]
+    },
+    "26": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day26-mcqs.ts",
+        "title": "Supreme Court",
+        "score": 1.0,
+        "source_ch": "26",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch26.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch26.ts"
+        ]
+    },
+    "27": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day27-mcqs.ts",
+        "title": "Judicial Review",
+        "score": 1.0,
+        "source_ch": "27",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch27.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch27.ts"
+        ]
+    },
+    "28": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day28-mcqs.ts",
+        "title": "Judicial Activism",
+        "score": 1.0,
+        "source_ch": "28",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch28.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch28.ts"
+        ]
+    },
+    "29": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day29-mcqs.ts",
+        "title": "Public Interest Litigation",
+        "score": 1.0,
+        "source_ch": "29",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch29.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch29.ts"
+        ]
+    },
+    "30": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day30-mcqs.ts",
+        "title": "Governor",
+        "score": 1.0,
+        "source_ch": "30",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch30.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch30.ts"
+        ]
+    },
+    "31": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day31-mcqs.ts",
+        "title": "Chief Minister",
+        "score": 1.0,
+        "source_ch": "31",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch31.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch31.ts"
+        ]
+    },
+    "32": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day32-mcqs.ts",
+        "title": "State Council of Ministers",
+        "score": 1.0,
+        "source_ch": "32",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch32.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch32.ts"
+        ]
+    },
+    "33": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day33-mcqs.ts",
+        "title": "State Legislature",
+        "score": 1.0,
+        "source_ch": "33",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch33.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch33.ts"
+        ]
+    },
+    "34": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day34-mcqs.ts",
+        "title": "High Court",
+        "score": 1.0,
+        "source_ch": "34",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch34.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch34.ts"
+        ]
+    },
+    "35": {
+        "l1_source": null,
+        "title": "Subordinate Courts",
+        "score": 0
+    },
+    "36": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day35-mcqs.ts",
+        "title": "Tribunals",
+        "score": 1.0,
+        "source_ch": "35",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch35.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch35.ts"
+        ]
+    },
+    "37": {
+        "l1_source": null,
+        "title": "Consumer Commissions",
+        "score": 0
+    },
+    "38": {
+        "l1_source": null,
+        "title": "Lok Adalats and Other Courts",
+        "score": 0
+    },
+    "39": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day36-mcqs.ts",
+        "title": "Panchayati Raj",
+        "score": 1.0,
+        "source_ch": "36",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch36.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch36.ts"
+        ]
+    },
+    "40": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day37-mcqs.ts",
+        "title": "Municipalities",
+        "score": 1.0,
+        "source_ch": "37",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch37.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch37.ts"
+        ]
+    },
+    "41": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day38-mcqs.ts",
+        "title": "Union Territories",
+        "score": 1.0,
+        "source_ch": "38",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch38.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch38.ts"
+        ]
+    },
+    "42": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day39-mcqs.ts",
+        "title": "Scheduled and Tribal Areas",
+        "score": 1.0,
+        "source_ch": "39",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch39.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch39-p1.ts",
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch39-p2.ts"
+        ]
+    },
+    "43": {
+        "l1_source": null,
+        "title": "Election Commission",
+        "score": 0
+    },
+    "44": {
+        "l1_source": null,
+        "title": "Union Public Service Commission (UPSC)",
+        "score": 0
+    },
+    "45": {
+        "l1_source": null,
+        "title": "State Public Service Commission (SPSC)",
+        "score": 0
+    },
+    "46": {
+        "l1_source": null,
+        "title": "Finance Commission",
+        "score": 0
+    },
+    "47": {
+        "l1_source": null,
+        "title": "Goods and Services Tax (GST) Council",
+        "score": 0
+    },
+    "48": {
+        "l1_source": null,
+        "title": "National Commission for SCs",
+        "score": 0
+    },
+    "49": {
+        "l1_source": null,
+        "title": "National Commission for STs",
+        "score": 0
+    },
+    "50": {
+        "l1_source": null,
+        "title": "National Commission for BCs",
+        "score": 0
+    },
+    "51": {
+        "l1_source": null,
+        "title": "Special Officer for Linguistic Minorities",
+        "score": 0
+    },
+    "52": {
+        "l1_source": null,
+        "title": "Comptroller and Auditor General of India (CAG)",
+        "score": 0
+    },
+    "53": {
+        "l1_source": null,
+        "title": "Attorney General of India",
+        "score": 0
+    },
+    "54": {
+        "l1_source": null,
+        "title": "Advocate General of the State",
+        "score": 0
+    },
+    "55": {
+        "l1_source": null,
+        "title": "Constitutional Bodies Buffer",
+        "score": 0
+    },
+    "56": {
+        "l1_source": null,
+        "title": "NITI Aayog",
+        "score": 0
+    },
+    "57": {
+        "l1_source": null,
+        "title": "National Human Rights Commission (NHRC)",
+        "score": 0
+    },
+    "58": {
+        "l1_source": null,
+        "title": "State Human Rights Commission (SHRC)",
+        "score": 0
+    },
+    "59": {
+        "l1_source": null,
+        "title": "National Commission for Women",
+        "score": 0
+    },
+    "60": {
+        "l1_source": null,
+        "title": "National Commission for Protection of Child Rights",
+        "score": 0
+    },
+    "61": {
+        "l1_source": null,
+        "title": "National Commission for Minorities",
+        "score": 0
+    },
+    "62": {
+        "l1_source": null,
+        "title": "Central Information Commission",
+        "score": 0
+    },
+    "63": {
+        "l1_source": null,
+        "title": "State Information Commission",
+        "score": 0
+    },
+    "64": {
+        "l1_source": null,
+        "title": "Central Vigilance Commission",
+        "score": 0
+    },
+    "65": {
+        "l1_source": null,
+        "title": "Central Bureau of Investigation",
+        "score": 0
+    },
+    "66": {
+        "l1_source": null,
+        "title": "Lokpal and Lokayuktas",
+        "score": 0
+    },
+    "67": {
+        "l1_source": null,
+        "title": "National Investigation Agency",
+        "score": 0
+    },
+    "68": {
+        "l1_source": null,
+        "title": "National Disaster Management Authority",
+        "score": 0
+    },
+    "69": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day32-mcqs.ts",
+        "title": "Bar Council of India",
+        "score": 0.6956521739130435,
+        "source_ch": "32",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch32.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch32.ts"
+        ]
+    },
+    "70": {
+        "l1_source": null,
+        "title": "Law Commission of India",
+        "score": 0
+    },
+    "71": {
+        "l1_source": null,
+        "title": "Delimitation Commission of India",
+        "score": 0
+    },
+    "72": {
+        "l1_source": null,
+        "title": "North Eastern Council",
+        "score": 0
+    },
+    "73": {
+        "l1_source": null,
+        "title": "Co-operative Societies",
+        "score": 0
+    },
+    "74": {
+        "l1_source": null,
+        "title": "Official Language",
+        "score": 0
+    },
+    "75": {
+        "l1_source": null,
+        "title": "Public Services",
+        "score": 0
+    },
+    "76": {
+        "l1_source": null,
+        "title": "Rights and Liabilities of the Government",
+        "score": 0
+    },
+    "77": {
+        "l1_source": null,
+        "title": "Special Provisions Relating to Certain Classes",
+        "score": 0
+    },
+    "78": {
+        "l1_source": null,
+        "title": "Special Provisions for Some States",
+        "score": 0
+    },
+    "79": {
+        "l1_source": null,
+        "title": "Political Parties",
+        "score": 0
+    },
+    "80": {
+        "l1_source": null,
+        "title": "Role of Regional Parties",
+        "score": 0
+    },
+    "81": {
+        "l1_source": null,
+        "title": "Elections",
+        "score": 0
+    },
+    "82": {
+        "l1_source": null,
+        "title": "Election Laws",
+        "score": 0
+    },
+    "83": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day66-mcqs.ts",
+        "title": "Electoral Reforms",
+        "score": 1.0,
+        "source_ch": "66",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch66.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch66-p1.ts",
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch66-p2.ts"
+        ]
+    },
+    "84": {
+        "l1_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\day67-mcqs.ts",
+        "title": "Voting Behaviour",
+        "score": 1.0,
+        "source_ch": "67",
+        "l2_source": "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l2-ch67.ts",
+        "l3_sources": [
+            "D:\\Graphology\\Master Software\\Eduecosystem\\frontend\\src\\components\\batch1\\polity\\data\\raw_mcqs\\l3-ch67.ts"
+        ]
+    },
+    "85": {
+        "l1_source": null,
+        "title": "Coalition Government",
+        "score": 0
+    },
+    "86": {
+        "l1_source": null,
+        "title": "Anti-Defection Law",
+        "score": 0
+    },
+    "87": {
+        "l1_source": null,
+        "title": "Pressure Groups",
+        "score": 0
+    },
+    "88": {
+        "l1_source": null,
+        "title": "National Integration",
+        "score": 0
+    },
+    "89": {
+        "l1_source": null,
+        "title": "Foreign Policy",
+        "score": 0
+    },
+    "90": {
+        "l1_source": null,
+        "title": "National Commission to Review the Working of the Constitution",
+        "score": 0
+    },
+    "91": {
+        "l1_source": null,
+        "title": "Landmark Judgements and Their Impact",
+        "score": 0
+    },
+    "92": {
+        "l1_source": null,
+        "title": "Judgements Expanding the Scope of Article 21",
+        "score": 0
+    },
+    "93": {
+        "l1_source": null,
+        "title": "Judgements Relating to the Amendments",
+        "score": 0
+    },
+    "94": {
+        "l1_source": null,
+        "title": "Important Doctrines of Constitutional Interpretation",
+        "score": 0
+    },
+    "95": {
+        "l1_source": null,
+        "title": "World Constitutions",
+        "score": 0
+    }
+}
