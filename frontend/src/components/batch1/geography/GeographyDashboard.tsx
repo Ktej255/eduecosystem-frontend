@@ -22,12 +22,14 @@ import { useRouter } from 'next/navigation';
 import { GEOGRAPHY_REGISTRY } from './data/geography-registry';
 import { GeographyTopic, GeographyBranch } from './data/geography-types';
 import { toast } from 'sonner';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 export default function GeographyDashboard() {
     const router = useRouter();
     const [searchQuery, setSearchQuery] = useState("");
     const [completedTopics, setCompletedTopics] = useState<number[]>([]);
     const [activeBranch, setActiveBranch] = useState<GeographyBranch | 'All'>('All');
+    const [comingSoonFeature, setComingSoonFeature] = useState<string | null>(null);
     const [viewMode, setViewMode] = useState<'sheet' | 'planner' | 'visual'>('sheet');
 
     // Load progress from localStorage
@@ -141,12 +143,14 @@ export default function GeographyDashboard() {
 
             {viewMode === 'sheet' ? (
                 <div className="space-y-6">
-                    {/* Stats HUD */}
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                        <StatHUDCard title="Overall Progress" value={`${Math.round(stats.overallProgress)}%`} subtext={`${stats.totalCompleted}/${stats.total} Topics`} icon={<TargetIcon className="text-indigo-600" />} />
-                        <StatHUDCard title="Geomorphism" value={`${Math.round(stats.branchStats.find(b => b.name === 'Geomorphology')?.progress || 0)}%`} subtext="Branch Progress" icon={<Mountain className="text-amber-600" />} />
-                        <StatHUDCard title="Oceanography" value={`${Math.round(stats.branchStats.find(b => b.name === 'Oceanography')?.progress || 0)}%`} subtext="Branch Progress" icon={<Waves className="text-blue-600" />} />
-                        <StatHUDCard title="Indian Geo" value={`${Math.round(stats.branchStats.find(b => b.name === 'Indian Geography')?.progress || 0)}%`} subtext="Branch Progress" icon={<Map className="text-emerald-600" />} />
+                    {/* Stats HUD — All 5 Branches */}
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                        <StatHUDCard title="Overall" value={`${Math.round(stats.overallProgress)}%`} subtext={`${stats.totalCompleted}/${stats.total} Topics`} icon={<TargetIcon className="text-indigo-600" />} />
+                        <StatHUDCard title="Geomorphology" value={`${Math.round(stats.branchStats.find(b => b.name === 'Geomorphology')?.progress || 0)}%`} subtext={`${stats.branchStats.find(b => b.name === 'Geomorphology')?.completed || 0} done`} icon={<Mountain className="text-amber-600" />} />
+                        <StatHUDCard title="Climatology" value={`${Math.round(stats.branchStats.find(b => b.name === 'Climatology')?.progress || 0)}%`} subtext={`${stats.branchStats.find(b => b.name === 'Climatology')?.completed || 0} done`} icon={<Wind className="text-sky-600" />} />
+                        <StatHUDCard title="Oceanography" value={`${Math.round(stats.branchStats.find(b => b.name === 'Oceanography')?.progress || 0)}%`} subtext={`${stats.branchStats.find(b => b.name === 'Oceanography')?.completed || 0} done`} icon={<Waves className="text-blue-600" />} />
+                        <StatHUDCard title="Resource Geo" value={`${Math.round(stats.branchStats.find(b => b.name === 'Resource Geography')?.progress || 0)}%`} subtext={`${stats.branchStats.find(b => b.name === 'Resource Geography')?.completed || 0} done`} icon={<GraduationCap className="text-rose-600" />} />
+                        <StatHUDCard title="Indian Geo" value={`${Math.round(stats.branchStats.find(b => b.name === 'Indian Geography')?.progress || 0)}%`} subtext={`${stats.branchStats.find(b => b.name === 'Indian Geography')?.completed || 0} done`} icon={<Map className="text-emerald-600" />} />
                     </div>
 
                     {/* Main Content: Tracking Sheet */}
@@ -273,33 +277,39 @@ export default function GeographyDashboard() {
             ) : (
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <FeatureCard
-                            title="Interactive Maps"
-                            desc="Explore geographic terrain in 3D."
-                            icon={<Globe2 className="w-6 h-6" />}
-                            color="bg-indigo-600"
-                        />
-                        <FeatureCard
-                            title="Climatology Sim"
-                            desc="Real-time Koppen classifications."
-                            icon={<Wind className="w-6 h-6" />}
-                            color="bg-emerald-600"
-                        />
-                        <FeatureCard
-                            title="Ocean Lab"
-                            desc="Track complex current patterns."
-                            icon={<Waves className="w-6 h-6" />}
-                            color="bg-blue-600"
-                        />
-                        <FeatureCard
-                            title="Resource Atlas"
-                            desc="Mineral deposits across India."
-                            icon={<Mountain className="w-6 h-6" />}
-                            color="bg-amber-600"
-                        />
+                        <FeatureCard title="Interactive Maps" desc="Explore geographic terrain in 3D." icon={<Globe2 className="w-6 h-6" />} color="bg-indigo-600" onClick={() => setComingSoonFeature('Interactive Maps')} />
+                        <FeatureCard title="Climatology Sim" desc="Real-time Koppen classifications." icon={<Wind className="w-6 h-6" />} color="bg-emerald-600" onClick={() => setComingSoonFeature('Climatology Simulator')} />
+                        <FeatureCard title="Ocean Lab" desc="Track complex current patterns." icon={<Waves className="w-6 h-6" />} color="bg-blue-600" onClick={() => setComingSoonFeature('Ocean Lab')} />
+                        <FeatureCard title="Resource Atlas" desc="Mineral deposits across India." icon={<Mountain className="w-6 h-6" />} color="bg-amber-600" onClick={() => setComingSoonFeature('Resource Atlas')} />
                     </div>
                 </div>
             )}
+
+            {/* Coming Soon Modal */}
+            <Dialog open={!!comingSoonFeature} onOpenChange={() => setComingSoonFeature(null)}>
+                <DialogContent className="sm:max-w-md rounded-3xl">
+                    <DialogHeader>
+                        <div className="text-center space-y-4 py-4">
+                            <div className="text-5xl">🚀</div>
+                            <DialogTitle className="text-2xl font-black uppercase tracking-tight">
+                                {comingSoonFeature} — Coming Soon
+                            </DialogTitle>
+                            <DialogDescription className="text-base text-muted-foreground leading-relaxed">
+                                You have early <span className="font-bold text-indigo-600">Founding Member Access</span>. We are building {comingSoonFeature} specifically for deep UPSC geography practice. You'll be notified the moment it goes live.
+                            </DialogDescription>
+                            <div className="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-800 rounded-xl p-4 text-sm text-indigo-700 dark:text-indigo-300 font-medium">
+                                Estimated launch: <span className="font-black">March 20, 2026</span>
+                            </div>
+                            <button
+                                onClick={() => setComingSoonFeature(null)}
+                                className="w-full py-3 bg-slate-900 hover:bg-indigo-600 text-white rounded-xl font-black text-sm uppercase tracking-widest transition-all"
+                            >
+                                Got It — I'll Check Back Soon
+                            </button>
+                        </div>
+                    </DialogHeader>
+                </DialogContent>
+            </Dialog>
         </div>
     );
 }
@@ -319,9 +329,9 @@ function StatHUDCard({ title, value, subtext, icon }: { title: string, value: st
     );
 }
 
-function FeatureCard({ title, desc, icon, color }: { title: string, desc: string, icon: React.ReactNode, color: string }) {
+function FeatureCard({ title, desc, icon, color, onClick }: { title: string, desc: string, icon: React.ReactNode, color: string, onClick: () => void }) {
     return (
-        <Card className="group hover:shadow-xl transition-all cursor-pointer border-border overflow-hidden rounded-[1.5rem]">
+        <Card className="group hover:shadow-xl transition-all cursor-pointer border-border overflow-hidden rounded-[1.5rem]" onClick={onClick}>
             <CardContent className="p-6 space-y-4">
                 <div className={`w-12 h-12 ${color} rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform`}>
                     {icon}
@@ -330,8 +340,8 @@ function FeatureCard({ title, desc, icon, color }: { title: string, desc: string
                     <h3 className="text-lg font-black uppercase tracking-tight">{title}</h3>
                     <p className="text-xs text-muted-foreground font-medium leading-relaxed">{desc}</p>
                 </div>
-                <div className="flex items-center gap-2 text-[10px] font-black text-indigo-600 uppercase tracking-widest">
-                    Enter Module <ChevronRight className="w-3 h-3" />
+                <div className="flex items-center gap-2 text-[10px] font-black text-amber-600 uppercase tracking-widest">
+                    🚀 Coming March 20 <ChevronRight className="w-3 h-3" />
                 </div>
             </CardContent>
         </Card>

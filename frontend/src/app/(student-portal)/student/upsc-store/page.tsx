@@ -1,93 +1,149 @@
 "use client";
 
-import React, { useState } from 'react';
-import { ShoppingBag, Star, Zap, Shield, BookOpen, BrainCircuit, CheckCircle, Lock } from 'lucide-react';
-import { upscSynapseService } from '@/services/upscSynapseService';
-import { useRouter } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
+import { ShoppingBag, Star, Zap, Shield, BookOpen, BrainCircuit, CheckCircle, Lock, Globe2, Map, Leaf, Cpu, ArrowRight } from 'lucide-react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { motion } from 'framer-motion';
+import { Suspense } from 'react';
 
-export default function UPSCStorePage() {
+// Product catalog — mirrors backend SUBJECT_PRODUCTS
+const PRODUCTS = [
+    {
+        id: 'geography',
+        title: "Geography for UPSC 2026",
+        price: 499,
+        originalPrice: 1999,
+        description: "Complete NCERT Geography in 21 days. 400+ topics, statement-based MCQs, 21-day study schedule, and current affairs integration — all in one place.",
+        features: [
+            "400+ Topics (Complete NCERT Class 6–12)",
+            "UPSC Statement-Based MCQs (3-Tier)",
+            "21-Day Structured Schedule",
+            "Lesson Viewer with Concept Notes",
+            "Current Affairs → Concept Linking",
+            "Lifetime Access"
+        ],
+        icon: Globe2,
+        color: "from-blue-500 to-indigo-700",
+        bestValue: true,
+        badge: "🔥 New Launch"
+    },
+    {
+        id: 'level2',
+        title: "Logic Masterclass (Polity)",
+        price: 499,
+        originalPrice: 1999,
+        description: "Master the 'Why' behind every constitutional article. Statement-based MCQs for all 95 chapters.",
+        features: ["95 Chapters (Laxmikanth)", "Statement MCQ Drills", "Revision Flashcards"],
+        icon: BrainCircuit,
+        color: "from-amber-500 to-orange-600",
+        bestValue: false,
+        badge: null
+    },
+    {
+        id: 'history_modern',
+        title: "Modern History (Spectrum)",
+        price: 299,
+        originalPrice: 999,
+        description: "Chapter-wise Pomodoro logic & tiered MCQs mapped to Spectrum by Rajiv Ahir.",
+        features: ["Spectrum Coverage", "25/5 Session Timer", "Chapter 1 Free Preview"],
+        icon: BookOpen,
+        color: "from-rose-500 to-red-600",
+        bestValue: false,
+        badge: null
+    },
+    {
+        id: 'full_upsc',
+        title: "Full UPSC Bundle",
+        price: 2499,
+        originalPrice: 7999,
+        description: "All subjects. All tiers. Geography + Polity + History + Economy + Environment + SciTech. One payment, lifetime access.",
+        features: [
+            "All 6 Subjects Unlocked",
+            "1,500+ MCQs Total",
+            "All Study Schedules",
+            "Priority Support",
+            "New Subjects Added Free"
+        ],
+        icon: Star,
+        color: "from-purple-600 to-pink-600",
+        bestValue: false,
+        badge: "💎 Best Value"
+    },
+    {
+        id: 'grapho',
+        title: "Graphotherapy Kit",
+        price: 299,
+        originalPrice: 599,
+        description: "Fix your mindset physically. Tools to improve focus and handwriting speed for UPSC Mains.",
+        features: ["30-Day Practice Sheets", "Focus Audio Tracks", "Daily Tracker"],
+        icon: Zap,
+        color: "from-blue-500 to-indigo-600",
+        bestValue: false,
+        badge: null
+    }
+];
+
+function StorePageContent() {
     const router = useRouter();
+    const searchParams = useSearchParams();
     const [purchasing, setPurchasing] = useState<string | null>(null);
-
-    const PRODUCTS = [
-        {
-            id: 'level2',
-            title: "Logic Masterclass (Polity)",
-            price: 499,
-            originalPrice: 1999,
-            description: "Move beyond rote learning. Master the 'Why' and 'How' behind every article.",
-            features: ["50+ Logic Modules", "Video Explanations", "Assertion-Reasoning Drills"],
-            icon: BrainCircuit,
-            color: "from-amber-500 to-orange-600",
-            bestValue: true
-        },
-        {
-            id: 'level3',
-            title: "Prelims Simulator Pro",
-            price: 999,
-            originalPrice: 2499,
-            description: "Train under pressure. High-fidelity exam simulation with Stress Engine analysis.",
-            features: ["Real-time Stress Tracking", "Negative Marking Logic", "All-India Ranking"],
-            icon: Shield,
-            color: "from-red-600 to-rose-600",
-            bestValue: false
-        },
-        {
-            id: 'history_modern',
-            title: "Modern History (Spectrum)",
-            price: 299,
-            originalPrice: 999,
-            description: "Beginner Friendly. Chapter-wise Pomodoro logic & Mock Tests.",
-            features: ["Spectrum Coverage", "Pomodoro Synced", "Chapter 1 Free"],
-            icon: BookOpen,
-            color: "from-indigo-500 to-blue-600",
-            bestValue: false
-        },
-        {
-            id: 'grapho',
-            title: "Graphotherapy Kit",
-            price: 299,
-            originalPrice: 599,
-            description: "Fix your mindset physically. Tools to improve focus and handwriting speed.",
-            features: ["30-Day Practice Sheets", "Focus Audio Tracks", "Daily Tracker"],
-            icon: Zap,
-            color: "from-blue-500 to-indigo-600",
-            bestValue: false
-        }
-    ];
+    const [error, setError] = useState<string | null>(null);
+    const highlightSubject = searchParams.get('subject');
 
     const handlePurchase = async (productId: string, price: number) => {
         setPurchasing(productId);
-
-        // Simulate fake payment delay
-        await new Promise(resolve => setTimeout(resolve, 1500));
-
+        setError(null);
         try {
-            // For Prototype: All purchases redirect to the Polity Synapse Engine
-            // This simulates "Unlocking" the module and going there.
-            try {
-                // Determine level to unlock based on product
-                let levelToUnlock: 'level2' | 'level3' | null = null;
-                if (productId === 'level2') levelToUnlock = 'level2';
-                if (productId === 'level3') levelToUnlock = 'level3';
-
-                if (levelToUnlock) {
-                    const profile = await upscSynapseService.getProfile();
-                    await upscSynapseService.unlockLevel(profile.id, levelToUnlock, price);
-                }
-            } catch (e) {
-                console.warn("Backend connect failed, using mock success", e);
+            const token = localStorage.getItem('token');
+            if (!token) {
+                router.push('/login');
+                return;
             }
 
-            // Redirect to the Synapse Engine Page (or History for that product)
-            if (productId === 'history_modern') {
-                router.push('/student/upsc-store/history');
+            // Create real Cashfree order
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/payments/create-order`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ subject_id: productId })
+            });
+
+            if (!res.ok) {
+                const errData = await res.json();
+                throw new Error(errData.detail || 'Order creation failed');
+            }
+
+            const { order_id, payment_session_id } = await res.json();
+
+            // Load Cashfree JS SDK and open payment
+            // @ts-ignore
+            if (typeof window !== 'undefined' && window.Cashfree) {
+                // @ts-ignore
+                const cf = await window.Cashfree({ mode: process.env.NEXT_PUBLIC_CASHFREE_ENV === 'production' ? 'production' : 'sandbox' });
+                cf.checkout({ paymentSessionId: payment_session_id }).then(async (result: any) => {
+                    if (result.error) {
+                        setError(result.error.message || 'Payment cancelled');
+                    } else if (result.paymentDetails) {
+                        // Verify on backend
+                        const vRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/payments/verify/${order_id}`, {
+                            headers: { 'Authorization': `Bearer ${token}` }
+                        });
+                        if (vRes.ok) {
+                            const vData = await vRes.json();
+                            if (vData.status === 'success') {
+                                router.push(`/student/batch1/${productId === 'level2' ? 'polity' : productId === 'history_modern' ? 'history' : productId}?unlocked=1`);
+                            }
+                        }
+                    }
+                });
             } else {
-                router.push('/student/upsc-store/polity');
+                // Fallback if Cashfree SDK not loaded
+                setError('Payment system loading. Please refresh the page and try again.');
             }
-
-        } catch (error) {
-            alert("Payment failed.");
+        } catch (err: any) {
+            setError(err.message || 'Something went wrong. Please try again.');
         } finally {
             setPurchasing(null);
         }
@@ -95,91 +151,127 @@ export default function UPSCStorePage() {
 
     return (
         <div className="min-h-screen bg-muted dark:bg-[#0a0a0a] pb-24">
-            {/* HERDER */}
-            <div className="bg-[#0f172a] text-white pt-12 pb-24 px-6 relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-32 bg-blue-500/20 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
-                <div className="max-w-7xl mx-auto relative z-10 text-center">
-                    <div className="inline-flex items-center gap-2 bg-card/10 border border-white/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-                        <ShoppingBag className="w-3 h-3" /> UPSC Arsenal
+            {/* Cashfree JS SDK */}
+            <script src="https://sdk.cashfree.com/js/v3/cashfree.js" async />
+
+            {/* Hero */}
+            <div className="bg-[#0f172a] text-white pt-12 pb-28 px-6 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/10 blur-3xl rounded-full -translate-x-1/2 translate-y-1/2 pointer-events-none" />
+                <div className="max-w-6xl mx-auto relative z-10 text-center">
+                    <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
+                        <ShoppingBag className="w-3 h-3" /> UPSC Arsenal — Subject-Wise Access
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                        Upgrade Your Preparation
+                    <h1 className="text-4xl md:text-6xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
+                        Pay Only for What<br />You Actually Need
                     </h1>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                        Unlock advanced cognitive engines, stress management tools, and logic masterclasses.
+                    <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+                        No ₹1 lakh course. Buy the exact subject you're struggling with, starting at ₹299. Lifetime access. Real results.
                     </p>
                 </div>
             </div>
 
-            {/* PRODUCT GRID */}
+            {/* Product Grid */}
             <div className="max-w-7xl mx-auto px-6 -mt-16 relative z-20">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {PRODUCTS.map((product) => (
-                        <div
-                            key={product.id}
-                            className={`bg-card dark:bg-[#111] rounded-3xl p-8 border hover:scale-105 transition-all duration-300 shadow-xl flex flex-col ${product.bestValue ? 'border-amber-500 ring-4 ring-amber-500/10' : 'border-border'}`}
-                        >
-                            {product.bestValue && (
-                                <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold uppercase tracking-widest py-1.5 px-3 rounded-full w-fit mb-4">
-                                    Most Popular
-                                </div>
-                            )}
+                {error && (
+                    <div className="mb-6 p-4 bg-red-50 border border-red-200 dark:bg-red-900/20 dark:border-red-800 rounded-xl text-red-600 dark:text-red-400 text-sm font-medium text-center">
+                        {error}
+                    </div>
+                )}
 
-                            <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${product.color} flex items-center justify-center text-white mb-6 shadow-lg`}>
-                                <product.icon className="w-7 h-7" />
-                            </div>
-
-                            <h3 className="text-2xl font-bold text-foreground mb-2">
-                                {product.title}
-                            </h3>
-                            <p className="text-muted-foreground dark:text-muted-foreground text-sm mb-6 flex-1">
-                                {product.description}
-                            </p>
-
-                            <div className="flex items-end gap-2 mb-8">
-                                <span className="text-4xl font-black text-foreground">₹{product.price}</span>
-                                <span className="text-lg text-muted-foreground line-through mb-1">₹{product.originalPrice}</span>
-                            </div>
-
-                            <ul className="space-y-3 mb-8">
-                                {product.features.map((feat, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-sm text-muted-foreground dark:text-muted-foreground">
-                                        <CheckCircle className="w-4 h-4 text-green-500 shrink-0" />
-                                        {feat}
-                                    </li>
-                                ))}
-                            </ul>
-
-                            <button
-                                onClick={() => handlePurchase(product.id, product.price)}
-                                disabled={purchasing === product.id}
-                                className={`w-full py-4 rounded-xl font-bold text-lg shadow-xl flex items-center justify-center gap-2 transition-all ${purchasing === product.id
-                                    ? 'bg-muted text-muted-foreground cursor-not-allowed'
-                                    : 'bg-gray-900 dark:bg-card text-white dark:text-black hover:opacity-90 active:scale-95'
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {PRODUCTS.map((product, idx) => {
+                        const isHighlighted = highlightSubject === product.id;
+                        const Icon = product.icon;
+                        return (
+                            <motion.div
+                                key={product.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: idx * 0.07 }}
+                                className={`bg-card dark:bg-[#111] rounded-3xl p-7 border flex flex-col transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 ${isHighlighted
+                                        ? 'border-blue-500 ring-4 ring-blue-500/20'
+                                        : product.bestValue
+                                            ? 'border-amber-400/50 ring-2 ring-amber-400/10'
+                                            : 'border-border'
                                     }`}
                             >
-                                {purchasing === product.id ? (
-                                    <>Processing...</>
-                                ) : (
-                                    <>Unlock Access <Lock className="w-4 h-4" /></>
+                                {/* Badge */}
+                                {(product.badge || isHighlighted) && (
+                                    <div className={`bg-gradient-to-r ${product.color} text-white text-xs font-bold uppercase tracking-widest py-1.5 px-3 rounded-full w-fit mb-4`}>
+                                        {isHighlighted ? '⭐ Recommended for You' : product.badge}
+                                    </div>
                                 )}
-                            </button>
-                        </div>
-                    ))}
+
+                                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${product.color} flex items-center justify-center text-white mb-5 shadow-lg`}>
+                                    <Icon className="w-7 h-7" />
+                                </div>
+
+                                <h3 className="text-xl font-black text-foreground mb-2">{product.title}</h3>
+                                <p className="text-muted-foreground text-sm mb-5 flex-1 leading-relaxed">{product.description}</p>
+
+                                <ul className="space-y-2 mb-6">
+                                    {product.features.map((feat, i) => (
+                                        <li key={i} className="flex items-center gap-3 text-sm text-muted-foreground">
+                                            <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
+                                            {feat}
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                <div className="flex items-baseline gap-2 mb-5">
+                                    <span className="text-3xl font-black text-foreground">₹{product.price}</span>
+                                    <span className="text-muted-foreground line-through">₹{product.originalPrice}</span>
+                                    <span className="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-0.5 rounded-full">
+                                        {Math.round((1 - product.price / product.originalPrice) * 100)}% OFF
+                                    </span>
+                                </div>
+
+                                <button
+                                    onClick={() => handlePurchase(product.id, product.price)}
+                                    disabled={purchasing === product.id}
+                                    className={`w-full py-4 rounded-xl font-bold text-base shadow-lg flex items-center justify-center gap-2 transition-all active:scale-95 ${purchasing === product.id
+                                            ? 'bg-muted text-muted-foreground cursor-not-allowed'
+                                            : `bg-gradient-to-r ${product.color} text-white hover:opacity-90`
+                                        }`}
+                                >
+                                    {purchasing === product.id ? (
+                                        'Creating Order...'
+                                    ) : (
+                                        <>Unlock Access <ArrowRight className="w-4 h-4" /></>
+                                    )}
+                                </button>
+                                <p className="text-center text-xs text-muted-foreground mt-2">Secure · Instant Access · Lifetime</p>
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
 
-            {/* TRUST BADGES */}
-            <div className="max-w-4xl mx-auto mt-24 text-center">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-50 grayscale hover:grayscale-0 transition-all">
-                    {[1, 2, 3, 4].map((_, i) => (
+            {/* Trust Badges */}
+            <div className="max-w-4xl mx-auto mt-20 text-center px-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    {[
+                        { icon: Shield, label: "Secure Payment" },
+                        { icon: CheckCircle, label: "Instant Access" },
+                        { icon: Star, label: "Lifetime Updates" },
+                        { icon: Lock, label: "No Subscription" },
+                    ].map(({ icon: Icon, label }, i) => (
                         <div key={i} className="flex flex-col items-center gap-2">
-                            <Shield className="w-8 h-8 text-muted-foreground" />
-                            <span className="text-xs font-bold uppercase text-muted-foreground">Secure Payment</span>
+                            <Icon className="w-8 h-8 text-muted-foreground" />
+                            <span className="text-xs font-bold uppercase text-muted-foreground tracking-wide">{label}</span>
                         </div>
                     ))}
                 </div>
             </div>
         </div>
+    );
+}
+
+export default function UPSCStorePage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading store...</div>}>
+            <StorePageContent />
+        </Suspense>
     );
 }

@@ -103,17 +103,37 @@ export default function GeographySchedule() {
                                             </p>
 
                                             <div className="flex flex-wrap items-center gap-2 mt-auto">
-                                                <Link href={`/student/batch1/geography/${day.day}`}>
-                                                    {/* Note: This assumes we have day-based routing setup, 
-                                                    or we can use query params on the dashboard 
-                                                    e.g. /student/batch1/geography?view=lesson&day=${day.day} */}
-                                                    <Button size="sm" className="gap-2 bg-blue-600 hover:bg-blue-700">
-                                                        <PlayCircle className="h-4 w-4" /> Start Session
-                                                    </Button>
-                                                </Link>
-                                                <Button size="sm" variant="outline" className="gap-2">
+                                                <Button
+                                                    size="sm"
+                                                    className="gap-2 bg-blue-600 hover:bg-blue-700"
+                                                    onClick={() => {
+                                                        // Store day topics in localStorage for the session timer
+                                                        localStorage.setItem('current-geo-block', JSON.stringify({
+                                                            day: day.day,
+                                                            title: day.title,
+                                                            moduleId: day.moduleId,
+                                                            topics: day.topics || []
+                                                        }));
+                                                        // Navigate to the geography home with session view
+                                                        window.location.href = `/student/batch1/geography?view=session&day=${day.day}&module=${day.moduleId}`;
+                                                    }}
+                                                >
+                                                    <PlayCircle className="h-4 w-4" /> Start Session
+                                                </Button>
+                                                <Button
+                                                    size="sm"
+                                                    variant="outline"
+                                                    className="gap-2"
+                                                    onClick={() => {
+                                                        const topicId = Array.isArray(day.topics) && day.topics[0];
+                                                        if (topicId) {
+                                                            window.location.href = `/student/batch1/geography?view=lesson&topicId=${topicId}`;
+                                                        }
+                                                    }}
+                                                >
                                                     <Layers className="h-4 w-4" /> Resources
                                                 </Button>
+
                                             </div>
                                         </div>
                                     </CardContent>
