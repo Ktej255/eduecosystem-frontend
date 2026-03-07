@@ -349,6 +349,7 @@ def migrate_database(current_user=Depends(get_current_superuser) if get_current_
         ("group_id", "ALTER TABLE users ADD COLUMN IF NOT EXISTS group_id INTEGER NULL"),
         ("username", "ALTER TABLE users ADD COLUMN IF NOT EXISTS username VARCHAR NULL"),
         ("created_at", "ALTER TABLE users ADD COLUMN IF NOT EXISTS created_at TIMESTAMP DEFAULT NOW()"),
+        ("purchased_subjects", "ALTER TABLE users ADD COLUMN IF NOT EXISTS purchased_subjects JSON DEFAULT '[]'"),
     ]
 
     try:
