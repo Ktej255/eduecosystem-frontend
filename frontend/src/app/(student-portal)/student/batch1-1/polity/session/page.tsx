@@ -32,21 +32,7 @@ function PolitySessionContent() {
         }
     }, [blockId, router]);
 
-    const handleComplete = (completedTopics: Topic[]) => {
-        // Mark as completed in polity_95_progress
-        const storageKey = 'polity_95_progress';
-        const saved = localStorage.getItem(storageKey);
-        let progress = saved ? JSON.parse(saved) : {};
-
-        completedTopics.forEach(t => {
-            const id = Number(t.id);
-            if (!progress[id]) progress[id] = {};
-            progress[id].completed = true;
-            progress[id].lastViewed = new Date().toISOString();
-        });
-
-        localStorage.setItem(storageKey, JSON.stringify(progress));
-        toast.success("Session progress saved!");
+    const handleClose = () => {
         router.push('/student/batch1-1/polity');
     };
 
@@ -56,9 +42,10 @@ function PolitySessionContent() {
         <SessionTimer
             topics={topics}
             subject="Polity 95"
-            accentColor="blue"
-            backPath="/student/batch1-1/polity"
-            onComplete={handleComplete}
+            blockId={blockId || undefined}
+            accentColor="amber"
+            storagePrefix="polity_95"
+            onClose={handleClose}
         />
     );
 }

@@ -394,8 +394,6 @@ export default function FundamentalRightsModule({ onComplete, isCompleted }: Fun
                 </CaseFileCard>
             </div>
 
-            {/* PYQ PRACTICE SECTION */}
-            <ChapterPYQSection pyqData={FUNDAMENTAL_RIGHTS_PYQS} />
 
             {/* FOOTER */}
             <div className="mt-12 text-center pb-8 border-t border-slate-800 pt-8">

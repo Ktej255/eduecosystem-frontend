@@ -198,74 +198,75 @@ export const POLITY_PARTS: PolityPart[] = [
 ];
 
 // All 95 topic titles organized by Part
-export const TOPIC_TITLES: { id: number; title: string; part: PartId; blockId: number }[] = [
+// All 95 topic titles organized by Part
+export const TOPIC_TITLES: { id: number; title: string; part: PartId }[] = [
     // Part I: Constitutional Framework (1-12)
-    { id: 1, title: 'Historical Background', part: 'I', blockId: 1 },
-    { id: 2, title: 'Making of the Constitution', part: 'I', blockId: 1 },
-    { id: 3, title: 'Concept of the Constitution', part: 'I', blockId: 2 },
-    { id: 4, title: 'Salient Features of the Constitution', part: 'I', blockId: 2 },
-    { id: 5, title: 'Preamble of the Constitution', part: 'I', blockId: 3 },
-    { id: 6, title: 'Union and its Territory', part: 'I', blockId: 3 },
-    { id: 7, title: 'Citizenship', part: 'I', blockId: 4 },
-    { id: 8, title: 'Fundamental Rights', part: 'I', blockId: 4 },
-    { id: 9, title: 'Directive Principles of State Policy', part: 'I', blockId: 5 },
-    { id: 10, title: 'Fundamental Duties', part: 'I', blockId: 5 },
-    { id: 11, title: 'Amendment of the Constitution', part: 'I', blockId: 6 },
-    { id: 12, title: 'Basic Structure of the Constitution', part: 'I', blockId: 6 },
+    { id: 1, title: 'Historical Background', part: 'I' },
+    { id: 2, title: 'Making of the Constitution', part: 'I' },
+    { id: 3, title: 'Concept of the Constitution', part: 'I' },
+    { id: 4, title: 'Salient Features of the Constitution', part: 'I' },
+    { id: 5, title: 'Preamble of the Constitution', part: 'I' },
+    { id: 6, title: 'Union and its Territory', part: 'I' },
+    { id: 7, title: 'Citizenship', part: 'I' },
+    { id: 8, title: 'Fundamental Rights', part: 'I' },
+    { id: 9, title: 'Directive Principles of State Policy', part: 'I' },
+    { id: 10, title: 'Fundamental Duties', part: 'I' },
+    { id: 11, title: 'Amendment of the Constitution', part: 'I' },
+    { id: 12, title: 'Basic Structure of the Constitution', part: 'I' },
 
     // Part II: System of Government (13-17)
-    { id: 13, title: 'Parliamentary System', part: 'II', blockId: 7 },
-    { id: 14, title: 'Federal System', part: 'II', blockId: 7 },
-    { id: 15, title: 'Centre-State Relations', part: 'II', blockId: 8 },
-    { id: 16, title: 'Inter-State Relations', part: 'II', blockId: 8 },
-    { id: 17, title: 'Emergency Provisions', part: 'II', blockId: 9 },
+    { id: 13, title: 'Parliamentary System', part: 'II' },
+    { id: 14, title: 'Federal System', part: 'II' },
+    { id: 15, title: 'Centre-State Relations', part: 'II' },
+    { id: 16, title: 'Inter-State Relations', part: 'II' },
+    { id: 17, title: 'Emergency Provisions', part: 'II' },
 
     // Part III: Central Government (18-29)
-    { id: 18, title: 'President', part: 'III', blockId: 9 },
-    { id: 19, title: 'Vice-President', part: 'III', blockId: 10 },
-    { id: 20, title: 'Prime Minister', part: 'III', blockId: 10 },
-    { id: 21, title: 'Central Council of Ministers', part: 'III', blockId: 11 },
-    { id: 22, title: 'Cabinet Committees', part: 'III', blockId: 11 },
-    { id: 23, title: 'Parliament', part: 'III', blockId: 12 },
-    { id: 24, title: 'Parliamentary Committees', part: 'III', blockId: 12 },
-    { id: 25, title: 'Indian Parliamentary Group', part: 'III', blockId: 13 },
-    { id: 26, title: 'Supreme Court', part: 'III', blockId: 13 },
-    { id: 27, title: 'Judicial Review', part: 'III', blockId: 14 },
-    { id: 28, title: 'Judicial Activism', part: 'III', blockId: 14 },
-    { id: 29, title: 'Public Interest Litigation', part: 'III', blockId: 15 },
+    { id: 18, title: 'President', part: 'III' },
+    { id: 19, title: 'Vice-President', part: 'III' },
+    { id: 20, title: 'Prime Minister', part: 'III' },
+    { id: 21, title: 'Central Council of Ministers', part: 'III' },
+    { id: 22, title: 'Cabinet Committees', part: 'III' },
+    { id: 23, title: 'Parliament', part: 'III' },
+    { id: 24, title: 'Parliamentary Committees', part: 'III' },
+    { id: 25, title: 'Indian Parliamentary Group', part: 'III' },
+    { id: 26, title: 'Supreme Court', part: 'III' },
+    { id: 27, title: 'Judicial Review', part: 'III' },
+    { id: 28, title: 'Judicial Activism', part: 'III' },
+    { id: 29, title: 'Public Interest Litigation', part: 'III' },
 
     // Part IV: State Government (30-38)
-    { id: 30, title: 'Governor', part: 'IV', blockId: 15 },
-    { id: 31, title: 'Chief Minister', part: 'IV', blockId: 16 },
-    { id: 32, title: 'State Council of Ministers', part: 'IV', blockId: 16 },
-    { id: 33, title: 'State Legislature', part: 'IV', blockId: 17 },
-    { id: 34, title: 'High Court', part: 'IV', blockId: 17 },
-    { id: 35, title: 'Subordinate Courts', part: 'IV', blockId: 18 },
-    { id: 36, title: 'Tribunals', part: 'IV', blockId: 18 },
-    { id: 37, title: 'Consumer Commissions', part: 'IV', blockId: 19 },
-    { id: 38, title: 'Lok Adalats and Other Courts', part: 'IV', blockId: 19 },
+    { id: 30, title: 'Governor', part: 'IV' },
+    { id: 31, title: 'Chief Minister', part: 'IV' },
+    { id: 32, title: 'State Council of Ministers', part: 'IV' },
+    { id: 33, title: 'State Legislature', part: 'IV' },
+    { id: 34, title: 'High Court', part: 'IV' },
+    { id: 35, title: 'Subordinate Courts', part: 'IV' },
+    { id: 36, title: 'Tribunals', part: 'IV' },
+    { id: 37, title: 'Consumer Commissions', part: 'IV' },
+    { id: 38, title: 'Lok Adalats and Other Courts', part: 'IV' },
 
     // Part V: Local Government (39-40)
-    { id: 39, title: 'Panchayati Raj', part: 'V', blockId: 20 },
-    { id: 40, title: 'Municipalities', part: 'V', blockId: 20 },
+    { id: 39, title: 'Panchayati Raj', part: 'V' },
+    { id: 40, title: 'Municipalities', part: 'V' },
 
     // Part VI: Union Territories and Special Areas (41-42)
-    { id: 41, title: 'Union Territories', part: 'VI', blockId: 21 },
-    { id: 42, title: 'Scheduled and Tribal Areas', part: 'VI', blockId: 21 },
+    { id: 41, title: 'Union Territories', part: 'VI' },
+    { id: 42, title: 'Scheduled and Tribal Areas', part: 'VI' },
 
     // Part VII: Constitutional Bodies (43-55)
-    { id: 43, title: 'Election Commission', part: 'VII', blockId: 22 },
-    { id: 44, title: 'Union Public Service Commission (UPSC)', part: 'VII', blockId: 22 },
-    { id: 45, title: 'State Public Service Commission (SPSC)', part: 'VII', blockId: 23 },
-    { id: 46, title: 'Finance Commission', part: 'VII', blockId: 23 },
-    { id: 47, title: 'Goods and Services Tax (GST) Council', part: 'VII', blockId: 24 },
-    { id: 48, title: 'National Commission for SCs', part: 'VII', blockId: 24 },
-    { id: 49, title: 'National Commission for STs', part: 'VII', blockId: 25 },
-    { id: 50, title: 'National Commission for BCs', part: 'VII', blockId: 25 },
-    { id: 51, title: 'Special Officer for Linguistic Minorities', part: 'VII', blockId: 26 },
-    { id: 52, title: 'Comptroller and Auditor General of India (CAG)', part: 'VII', blockId: 26 },
-    { id: 53, title: 'Attorney General of India', part: 'VII', blockId: 27 },
-    { id: 54, title: 'Advocate General of the State', part: 'VII', blockId: 27 },
+    { id: 43, title: 'Election Commission', part: 'VII' },
+    { id: 44, title: 'Union Public Service Commission (UPSC)', part: 'VII' },
+    { id: 45, title: 'State Public Service Commission (SPSC)', part: 'VII' },
+    { id: 46, title: 'Finance Commission', part: 'VII' },
+    { id: 47, title: 'Goods and Services Tax (GST) Council', part: 'VII' },
+    { id: 48, title: 'National Commission for SCs', part: 'VII' },
+    { id: 49, title: 'National Commission for STs', part: 'VII' },
+    { id: 50, title: 'National Commission for BCs', part: 'VII' },
+    { id: 51, title: 'Special Officer for Linguistic Minorities', part: 'VII' },
+    { id: 52, title: 'Comptroller and Auditor General of India (CAG)', part: 'VII' },
+    { id: 53, title: 'Attorney General of India', part: 'VII' },
+    { id: 54, title: 'Advocate General of the State', part: 'VII' },
 
     // Part VIII: Non-Constitutional Bodies (56-72)
     // NOTE: User explicitly requested this section to start from 56
@@ -283,59 +284,59 @@ export const TOPIC_TITLES: { id: number; title: string; part: PartId; blockId: n
     // However, I will map strictly to user's numbers. 
     // If user says "56. NITI Aayog", then 55 is a gap or ghost topic.
     // I will insert a placeholder for 55 to maintain index integrity.
-    { id: 55, title: 'Constitutional Bodies Buffer', part: 'VII', blockId: 28 }, // Placeholder/Buffer
+    { id: 55, title: 'Constitutional Bodies Buffer', part: 'VII' }, // Placeholder/Buffer
 
-    { id: 56, title: 'NITI Aayog', part: 'VIII', blockId: 28 },
-    { id: 57, title: 'National Human Rights Commission (NHRC)', part: 'VIII', blockId: 29 },
-    { id: 58, title: 'State Human Rights Commission (SHRC)', part: 'VIII', blockId: 29 },
-    { id: 59, title: 'National Commission for Women', part: 'VIII', blockId: 30 },
-    { id: 60, title: 'National Commission for Protection of Child Rights', part: 'VIII', blockId: 30 },
-    { id: 61, title: 'National Commission for Minorities', part: 'VIII', blockId: 31 },
-    { id: 62, title: 'Central Information Commission', part: 'VIII', blockId: 31 },
-    { id: 63, title: 'State Information Commission', part: 'VIII', blockId: 32 },
-    { id: 64, title: 'Central Vigilance Commission', part: 'VIII', blockId: 32 },
-    { id: 65, title: 'Central Bureau of Investigation', part: 'VIII', blockId: 33 },
-    { id: 66, title: 'Lokpal and Lokayuktas', part: 'VIII', blockId: 33 },
-    { id: 67, title: 'National Investigation Agency', part: 'VIII', blockId: 34 },
-    { id: 68, title: 'National Disaster Management Authority', part: 'VIII', blockId: 34 },
-    { id: 69, title: 'Bar Council of India', part: 'VIII', blockId: 35 },
-    { id: 70, title: 'Law Commission of India', part: 'VIII', blockId: 35 },
-    { id: 71, title: 'Delimitation Commission of India', part: 'VIII', blockId: 36 },
-    { id: 72, title: 'North Eastern Council', part: 'VIII', blockId: 36 },
+    { id: 56, title: 'NITI Aayog', part: 'VIII' },
+    { id: 57, title: 'National Human Rights Commission (NHRC)', part: 'VIII' },
+    { id: 58, title: 'State Human Rights Commission (SHRC)', part: 'VIII' },
+    { id: 59, title: 'National Commission for Women', part: 'VIII' },
+    { id: 60, title: 'National Commission for Protection of Child Rights', part: 'VIII' },
+    { id: 61, title: 'National Commission for Minorities', part: 'VIII' },
+    { id: 62, title: 'Central Information Commission', part: 'VIII' },
+    { id: 63, title: 'State Information Commission', part: 'VIII' },
+    { id: 64, title: 'Central Vigilance Commission', part: 'VIII' },
+    { id: 65, title: 'Central Bureau of Investigation', part: 'VIII' },
+    { id: 66, title: 'Lokpal and Lokayuktas', part: 'VIII' },
+    { id: 67, title: 'National Investigation Agency', part: 'VIII' },
+    { id: 68, title: 'National Disaster Management Authority', part: 'VIII' },
+    { id: 69, title: 'Bar Council of India', part: 'VIII' },
+    { id: 70, title: 'Law Commission of India', part: 'VIII' },
+    { id: 71, title: 'Delimitation Commission of India', part: 'VIII' },
+    { id: 72, title: 'North Eastern Council', part: 'VIII' },
 
     // Part IX: Other Constitutional Dimensions (73-78)
-    { id: 73, title: 'Co-operative Societies', part: 'IX', blockId: 37 },
-    { id: 74, title: 'Official Language', part: 'IX', blockId: 37 },
-    { id: 75, title: 'Public Services', part: 'IX', blockId: 38 },
-    { id: 76, title: 'Rights and Liabilities of the Government', part: 'IX', blockId: 38 },
-    { id: 77, title: 'Special Provisions Relating to Certain Classes', part: 'IX', blockId: 39 },
-    { id: 78, title: 'Special Provisions for Some States', part: 'IX', blockId: 39 },
+    { id: 73, title: 'Co-operative Societies', part: 'IX' },
+    { id: 74, title: 'Official Language', part: 'IX' },
+    { id: 75, title: 'Public Services', part: 'IX' },
+    { id: 76, title: 'Rights and Liabilities of the Government', part: 'IX' },
+    { id: 77, title: 'Special Provisions Relating to Certain Classes', part: 'IX' },
+    { id: 78, title: 'Special Provisions for Some States', part: 'IX' },
 
     // Part X: Political Dynamics (79-89)
-    { id: 79, title: 'Political Parties', part: 'X', blockId: 40 },
-    { id: 80, title: 'Role of Regional Parties', part: 'X', blockId: 40 },
-    { id: 81, title: 'Elections', part: 'X', blockId: 41 },
-    { id: 82, title: 'Election Laws', part: 'X', blockId: 41 },
-    { id: 83, title: 'Electoral Reforms', part: 'X', blockId: 42 },
-    { id: 84, title: 'Voting Behaviour', part: 'X', blockId: 42 },
-    { id: 85, title: 'Coalition Government', part: 'X', blockId: 43 },
-    { id: 86, title: 'Anti-Defection Law', part: 'X', blockId: 43 },
-    { id: 87, title: 'Pressure Groups', part: 'X', blockId: 44 },
-    { id: 88, title: 'National Integration', part: 'X', blockId: 44 },
-    { id: 89, title: 'Foreign Policy', part: 'X', blockId: 45 },
+    { id: 79, title: 'Political Parties', part: 'X' },
+    { id: 80, title: 'Role of Regional Parties', part: 'X' },
+    { id: 81, title: 'Elections', part: 'X' },
+    { id: 82, title: 'Election Laws', part: 'X' },
+    { id: 83, title: 'Electoral Reforms', part: 'X' },
+    { id: 84, title: 'Voting Behaviour', part: 'X' },
+    { id: 85, title: 'Coalition Government', part: 'X' },
+    { id: 86, title: 'Anti-Defection Law', part: 'X' },
+    { id: 87, title: 'Pressure Groups', part: 'X' },
+    { id: 88, title: 'National Integration', part: 'X' },
+    { id: 89, title: 'Foreign Policy', part: 'X' },
 
     // Part XI: Working of the Constitution (90)
-    { id: 90, title: 'National Commission to Review the Working of the Constitution', part: 'XI', blockId: 45 },
+    { id: 90, title: 'National Commission to Review the Working of the Constitution', part: 'XI' },
 
     // Part XII: Judgements & Doctrines (91-94)
     // NOTE: User lists this as Part XII
-    { id: 91, title: 'Landmark Judgements and Their Impact', part: 'XI', blockId: 46 }, // Keeping PartID struct for compatibility
-    { id: 92, title: 'Judgements Expanding the Scope of Article 21', part: 'XI', blockId: 46 },
-    { id: 93, title: 'Judgements Relating to the Amendments', part: 'XI', blockId: 47 },
-    { id: 94, title: 'Important Doctrines of Constitutional Interpretation', part: 'XI', blockId: 47 },
+    { id: 91, title: 'Landmark Judgements and Their Impact', part: 'XI' }, // Keeping PartID struct for compatibility
+    { id: 92, title: 'Judgements Expanding the Scope of Article 21', part: 'XI' },
+    { id: 93, title: 'Judgements Relating to the Amendments', part: 'XI' },
+    { id: 94, title: 'Important Doctrines of Constitutional Interpretation', part: 'XI' },
 
     // Part XIII: Comparison (95)
-    { id: 95, title: 'World Constitutions', part: 'XI', blockId: 48 },
+    { id: 95, title: 'World Constitutions', part: 'XI' },
 ];
 
 // Helper functions

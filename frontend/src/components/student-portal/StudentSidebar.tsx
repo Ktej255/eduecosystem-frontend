@@ -20,6 +20,7 @@ import {
     GraduationCap,
     BarChart3,
     ShoppingBag,
+    Globe2,
 } from "lucide-react";
 import { getStudentStats, StudentStats } from "@/services/progressStorage";
 import { useAuth } from "@/contexts/auth-context";
@@ -121,6 +122,12 @@ const menuItems = [
         icon: Layers,
         accessKey: "revisionPortal", // Maps to UserAccess.revisionPortal
     },
+    {
+        name: "Geography",
+        href: "/student/batch1/geography",
+        icon: Globe2,
+        accessKey: "geography",
+    },
 ];
 
 const bottomMenuItems = [
@@ -154,9 +161,12 @@ interface StudentSidebarProps {
     onToggle: () => void;
 }
 
+import { useSubjectAccess } from "@/hooks/useSubjectAccess";
+
 export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebarProps) {
     const pathname = usePathname();
     const { user } = useAuth();
+    const { hasAccess: hasDynamicAccess } = useSubjectAccess();
 
     // Get user access configuration from centralized config
     const userAccess = getUserAccess(user?.email);
@@ -245,6 +255,12 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                     .filter((item) => {
                         // Use centralized access config for filtering
                         const accessKey = item.accessKey as keyof typeof userAccess.access;
+
+                        // Special check for geography to use dynamic access from hook
+                        if (accessKey === 'geography') {
+                            return hasDynamicAccess('geography');
+                        }
+
                         return userAccess.access[accessKey] === true;
                     })
                     .map((item) => {

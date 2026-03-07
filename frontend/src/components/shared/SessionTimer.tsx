@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import {
     Clock, Play, Pause, CheckCircle2,
-    ArrowRight, BookOpen, Mic,
+    BookOpen, Mic,
     Camera, ChevronRight, GraduationCap,
     AlertCircle
 } from 'lucide-react';
@@ -22,34 +22,44 @@ type SessionPhase = 'Teaching' | 'Recall' | 'Complete';
 export interface Topic {
     id: number | string;
     title: string;
-    branch?: string;
-    blockId?: number | string;
 }
 
 interface SessionTimerProps {
     topics: Topic[];
     subject: string;
-    onComplete: (topics: Topic[]) => void;
-    backPath: string;
+    blockId?: string | number;
+    onClose: () => void;
+    storagePrefix?: string; // e.g., 'geography', 'polity_95'
+    progressKey?: string; // e.g., 'geography-progress'
+    confidenceKey?: string; // e.g., 'geography-confidence'
     accentColor?: 'indigo' | 'emerald' | 'blue' | 'rose' | 'amber';
 }
 
 export default function SessionTimer({
     topics,
     subject,
-    onComplete,
-    backPath,
+    blockId,
+    onClose,
+    storagePrefix,
+    progressKey: propProgressKey,
+    confidenceKey: propConfidenceKey,
     accentColor = 'indigo'
 }: SessionTimerProps) {
     const router = useRouter();
-
     const [phase, setPhase] = useState<SessionPhase>('Teaching');
     const [timeLeft, setTimeLeft] = useState(TEACH_TIME);
     const [isActive, setIsActive] = useState(false);
 
+    // Derived keys
+    const finalProgressKey = propProgressKey || `${storagePrefix}_progress`;
+    const finalConfidenceKey = propConfidenceKey || `${storagePrefix}_confidence`;
+
     // For audio/photo uploads
     const [photoUploaded, setPhotoUploaded] = useState(false);
     const [audioUploaded, setAudioUploaded] = useState(false);
+
+    // Confidence rating
+    const [confidence, setConfidence] = useState<'high' | 'medium' | 'low' | null>(null);
 
     useEffect(() => {
         let interval: any = null;
@@ -82,6 +92,60 @@ export default function SessionTimer({
         toast.info("Entering 5-minute Recall Phase. Prepare your notes or audio summary.");
     };
 
+    const handleComplete = () => {
+        if (!confidence) {
+            toast.error("Please select a confidence rating first.");
+            return;
+        }
+
+        // Mark these topics as complete in localStorage
+        const savedProgressStr = localStorage.getItem(finalProgressKey);
+        let progress: any = {};
+
+        try {
+            if (savedProgressStr) {
+                progress = JSON.parse(savedProgressStr);
+            }
+        } catch (e) {
+            console.error("Failed to parse progress", e);
+        }
+
+        // Handle both Array (Geography) and Object (Polity) formats
+        if (Array.isArray(progress)) {
+            // Geography uses array of IDs
+            const topicIds = topics.map(t => Number(t.id));
+            progress = Array.from(new Set([...progress, ...topicIds]));
+        } else {
+            // Polity uses object { id: { completed: true } }
+            topics.forEach(t => {
+                if (!progress[t.id]) progress[t.id] = { completed: false };
+                progress[t.id].completed = true;
+                progress[t.id].lastViewed = new Date().toISOString();
+            });
+        }
+        localStorage.setItem(finalProgressKey, JSON.stringify(progress));
+
+        // Save confidence rating
+        const savedConfidenceStr = localStorage.getItem(finalConfidenceKey);
+        let confidenceData: any = {};
+
+        try {
+            if (savedConfidenceStr) {
+                confidenceData = JSON.parse(savedConfidenceStr);
+            }
+        } catch (e) {
+            console.error("Failed to parse confidence", e);
+        }
+
+        topics.forEach(t => {
+            confidenceData[t.id] = confidence;
+        });
+        localStorage.setItem(finalConfidenceKey, JSON.stringify(confidenceData));
+
+        toast.success("Topics marked as complete!");
+        onClose();
+    };
+
     const colorClasses = {
         indigo: { primary: 'bg-indigo-600', border: 'border-indigo-600', bg: 'bg-indigo-100', text: 'text-indigo-700', ring: 'ring-indigo-600', textPrimary: 'text-indigo-600' },
         emerald: { primary: 'bg-emerald-600', border: 'border-emerald-600', bg: 'bg-emerald-100', text: 'text-emerald-700', ring: 'ring-emerald-600', textPrimary: 'text-emerald-600' },
@@ -97,7 +161,7 @@ export default function SessionTimer({
         : ((RECALL_TIME - timeLeft) / RECALL_TIME) * 100;
 
     return (
-        <div className="max-w-4xl mx-auto px-4 py-12 min-h-screen flex flex-col items-center">
+        <div className="fixed inset-0 z-[100] bg-white dark:bg-slate-950 overflow-y-auto px-4 py-12 flex flex-col items-center">
 
             {/* Session Header */}
             <div className="text-center space-y-4 mb-12">
@@ -105,11 +169,12 @@ export default function SessionTimer({
                     <Badge variant="secondary" className={`${theme.bg} ${theme.text} hover:${theme.bg} font-bold px-3`}>
                         {subject}
                     </Badge>
-                    {topics[0]?.blockId && (
+                    {blockId && (
                         <Badge variant="outline" className={`border-${accentColor}-200 ${theme.textPrimary} font-bold px-3`}>
-                            Block {topics[0].blockId}
+                            Block {blockId}
                         </Badge>
                     )}
+                    <Button variant="ghost" size="sm" onClick={onClose} className="ml-4 text-muted-foreground">Exit Session</Button>
                 </div>
                 <h1 className="text-4xl font-black text-slate-900 dark:text-white uppercase tracking-tight">
                     Topic Session
@@ -258,7 +323,7 @@ export default function SessionTimer({
                                 <span className="text-sm font-bold text-muted-foreground uppercase">Topics Mastered</span>
                                 <Badge className="bg-emerald-600 text-white">{topics.length}</Badge>
                             </div>
-                            <div className="space-y-3">
+                            <div className="space-y-3 mb-6">
                                 {topics.map(t => (
                                     <div key={t.id} className="flex items-center gap-3 p-3 bg-muted rounded-lg font-bold text-slate-700 text-sm">
                                         <CheckCircle2 className="w-4 h-4 text-emerald-500" />
@@ -266,14 +331,38 @@ export default function SessionTimer({
                                     </div>
                                 ))}
                             </div>
+
+                            <div className="space-y-3 border-t border-border pt-6">
+                                <span className="text-sm font-bold text-muted-foreground uppercase flex justify-center text-center">How confident are you?</span>
+                                <div className="grid grid-cols-3 gap-3">
+                                    <Button
+                                        variant={confidence === 'high' ? 'default' : 'outline'}
+                                        className={`h-12 ${confidence === 'high' ? 'bg-emerald-600 hover:bg-emerald-700' : 'hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200'}`}
+                                        onClick={() => setConfidence('high')}
+                                    >
+                                        High (90%+)
+                                    </Button>
+                                    <Button
+                                        variant={confidence === 'medium' ? 'default' : 'outline'}
+                                        className={`h-12 ${confidence === 'medium' ? 'bg-amber-500 hover:bg-amber-600 text-white' : 'hover:bg-amber-50 hover:text-amber-700 hover:border-amber-200'}`}
+                                        onClick={() => setConfidence('medium')}
+                                    >
+                                        Medium (50-50)
+                                    </Button>
+                                    <Button
+                                        variant={confidence === 'low' ? 'default' : 'outline'}
+                                        className={`h-12 ${confidence === 'low' ? 'bg-rose-500 hover:bg-rose-600 text-white' : 'hover:bg-rose-50 hover:text-rose-700 hover:border-rose-200'}`}
+                                        onClick={() => setConfidence('low')}
+                                    >
+                                        Low (Blind)
+                                    </Button>
+                                </div>
+                            </div>
                         </Card>
 
                         <div className="flex flex-col gap-3">
-                            <Button size="lg" className={`${theme.primary} hover:opacity-90 text-white font-black h-16 uppercase tracking-widest`} onClick={() => onComplete(topics)}>
+                            <Button size="lg" className={`${theme.primary} hover:opacity-90 text-white font-black h-16 uppercase tracking-widest`} onClick={handleComplete}>
                                 Complete & Back to Dashboard
-                            </Button>
-                            <Button size="lg" variant="outline" className="h-16 font-black uppercase tracking-widest border-2" onClick={() => router.push(backPath)}>
-                                Exit to Subject Portal <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                         </div>
                     </motion.div>

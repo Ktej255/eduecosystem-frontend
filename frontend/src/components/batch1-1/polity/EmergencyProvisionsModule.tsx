@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import ChapterPYQSection from "./revision/ChapterPYQSection";
 import { EMERGENCY_PYQS } from "./data/pyq-data";
 
 interface EmergencyProvisionsModuleProps {
@@ -313,7 +312,6 @@ export default function EmergencyProvisionsModule({ onComplete, isCompleted }: E
             </div>
 
             {/* PYQ PRACTICE SECTION */}
-            <ChapterPYQSection pyqData={EMERGENCY_PYQS} />
 
             {/* FOOTER: 44TH AMENDMENT */}
             <div className="pt-12 pb-8">

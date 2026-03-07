@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
     Search, ChevronDown, ChevronRight, BookOpen, CheckCircle2,
-    Target, LayoutGrid, List, Sparkles, BarChart2, StickyNote, Flame, Bot, Scale, Rainbow, AlertTriangle, Play
+    Target, LayoutGrid, List, Sparkles, BarChart2, StickyNote, Flame, Bot, Scale, Rainbow, AlertTriangle
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -17,20 +17,9 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-    POLITY_PARTS as POLITY_PARTS_95,
-    TOPIC_TITLES as TOPIC_TITLES_95,
-    getPartColors,
-    getTopicsByPart as getTopicsByPart95,
-    PartId
-} from "@/components/batch1-1/polity/data/polity-types-95";
-import {
-    POLITY_MODULES as POLITY_PARTS_50,
-    POLITY_TOPICS as TOPIC_DATA_50
-} from "@/components/batch1/polity/data/polity-registry";
+import { POLITY_PARTS, TOPIC_TITLES, getPartColors, getTopicsByPart, PartId } from "@/components/batch1-1/polity/data/polity-types-95";
 import { MAJOR_CURRENT_AFFAIRS } from "@/components/batch1-1/polity/data/MajorCurrentAffairsRegistry";
 import { getSRSStats } from "@/components/batch1/polity/revision/srs-engine";
-import { getAllProgress } from "@/components/batch1/polity/revision/progress-utils";
 import TopicAnalyticsModal from "./TopicAnalyticsModal";
 
 interface TopicProgress {
@@ -44,11 +33,7 @@ interface TopicProgress {
     };
 }
 
-interface PolityUnifiedDashboardProps {
-    registryMode?: '50' | '95';
-}
-
-export default function PolityUnifiedDashboard({ registryMode = '50' }: PolityUnifiedDashboardProps) {
+export default function PolityUnifiedDashboard() {
     const router = useRouter();
     const [expandedParts, setExpandedParts] = useState<Record<string, boolean>>({});
     const [searchQuery, setSearchQuery] = useState("");
@@ -57,61 +42,18 @@ export default function PolityUnifiedDashboard({ registryMode = '50' }: PolityUn
     const [filterCompleted, setFilterCompleted] = useState<'all' | 'completed' | 'pending'>('all');
     const [selectedReportTopic, setSelectedReportTopic] = useState<number | null>(null);
 
-    // Select Data Source
-    const POLITY_PARTS = registryMode === '95' ? POLITY_PARTS_95 : POLITY_PARTS_50.map(m => ({
-        id: m.id,
-        number: parseInt(m.id), // Assuming IDs are '1', '2' etc. for 50-topic
-        title: m.name,
-        description: m.description,
-        color: m.color,
-        topicRange: m.topicRange,
-        icon: '📜', // Default icon for 50-topic
-        topicCount: m.topicRange[1] - m.topicRange[0] + 1
-    }));
-
-    const TOPIC_TITLES = registryMode === '95' ? TOPIC_TITLES_95 : TOPIC_DATA_50.map(t => ({
-        id: t.id,
-        title: t.title,
-        part: t.module as any
-    }));
-
-    const getTopicsByPart = (partId: string) => {
-        return TOPIC_TITLES.filter(t => t.part === partId);
-    };
-
     // Load progress from localStorage
     const [srsDueCount, setSrsDueCount] = useState(0);
 
     useEffect(() => {
-        const storageKey = registryMode === '95' ? 'polity_95_progress' : 'polity_50_progress';
-        let parsedProgress: TopicProgress = {};
-        const saved = localStorage.getItem(storageKey);
+        const saved = localStorage.getItem('polity_95_progress');
         if (saved) {
             try {
-                parsedProgress = JSON.parse(saved);
+                setProgress(JSON.parse(saved));
             } catch (e) {
                 console.error("Failed to parse polity progress", e);
             }
         }
-
-        // Sync MCQ scores from revision progress to Deep Reports
-        if (typeof window !== 'undefined') {
-            try {
-                const revisionProgress = getAllProgress('polity');
-                Object.keys(revisionProgress).forEach(strId => {
-                    const id = Number(strId);
-                    if (!parsedProgress[id]) {
-                        parsedProgress[id] = { completed: false };
-                    }
-                    if (typeof revisionProgress[id].mcqHighScore === 'number') {
-                        parsedProgress[id].score = revisionProgress[id].mcqHighScore;
-                        parsedProgress[id].mcqsDone = true;
-                    }
-                });
-            } catch (e) { console.error("Could not sync revision progress", e); }
-        }
-
-        setProgress(parsedProgress);
         // Expand first part by default
         setExpandedParts({ 'I': true });
 
@@ -132,9 +74,8 @@ export default function PolityUnifiedDashboard({ registryMode = '50' }: PolityUn
     }, []);
 
     // Calculate statistics
-    const totalTopicsCount = registryMode === '95' ? 95 : 50;
     const totalCompleted = Object.values(progress).filter(p => p.completed).length;
-    const overallProgress = Math.round((totalCompleted / totalTopicsCount) * 100);
+    const overallProgress = Math.round((totalCompleted / 95) * 100);
 
     // Filter topics based on search and filter
     const filteredTopics = TOPIC_TITLES.filter(topic => {
@@ -172,29 +113,22 @@ export default function PolityUnifiedDashboard({ registryMode = '50' }: PolityUn
 
         const newProgress = { ...progress, [topicId]: updated };
         setProgress(newProgress);
-        const storageKey = registryMode === '95' ? 'polity_95_progress' : 'polity_50_progress';
-        localStorage.setItem(storageKey, JSON.stringify(newProgress));
+        localStorage.setItem('polity_95_progress', JSON.stringify(newProgress));
     };
 
     const navigateToTopic = (topicId: number) => {
-        if (registryMode === '95') {
-            router.push(`/student/batch1-1/polity/${topicId}`);
-        } else {
-            router.push(`/student/batch1/polity/topic/${topicId}`);
-        }
+        router.push(`/student/batch1-1/polity/${topicId}`);
     };
 
-    const handleAction = (e: React.MouseEvent, type: 'flashcard' | 'mcq' | 'report', topicId: number, level?: number) => {
+    const handleAction = (e: React.MouseEvent, type: 'flashcard' | 'mcq' | 'report', topicId: number) => {
         e.stopPropagation();
 
-        const basePath = registryMode === '95' ? '/student/batch1-1/polity' : '/student/batch1/polity/topic';
         if (type === 'flashcard') {
             updateTopicProgress(topicId, { flashcardsDone: true });
-            router.push(`${basePath}/${topicId}/flashcards`);
+            router.push(`/student/batch1-1/polity/${topicId}/flashcards`);
         } else if (type === 'mcq') {
             updateTopicProgress(topicId, { mcqsDone: true });
-            const levelQuery = level ? `?level=${level}` : '';
-            router.push(`${basePath}/${topicId}/mcq${levelQuery}`);
+            router.push(`/student/batch1-1/polity/${topicId}/mcq`);
         } else if (type === 'report') {
             setSelectedReportTopic(topicId);
         }
@@ -240,10 +174,10 @@ export default function PolityUnifiedDashboard({ registryMode = '50' }: PolityUn
                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
                             <BookOpen className="h-6 w-6" />
                         </div>
-                        {registryMode === '95' ? 'UPSC Polity 95' : 'Indian Polity'}
+                        Indian Polity
                     </h1>
                     <p className="text-muted-foreground dark:text-muted-foreground mt-1 ml-1">
-                        {registryMode === '95' ? '95 Topics • 11 Parts • Comprehensive Coverage' : '50 Topics • 5 Phases • Core Foundation'}
+                        95 Topics • 11 Parts • Comprehensive Coverage
                     </p>
                 </div>
                 <div className="flex gap-2 flex-wrap justify-end">
@@ -433,8 +367,8 @@ export default function PolityUnifiedDashboard({ registryMode = '50' }: PolityUn
                                     {filteredPartTopics.map((topic) => {
                                         const topicProgress = progress[topic.id];
                                         const isCompleted = topicProgress?.completed;
-                                        const isNew = registryMode === '95' && topic.id >= 85;
-                                        const hasUpdates = registryMode === '95' && MAJOR_CURRENT_AFFAIRS.some(ca => ca.topicIds.includes(topic.id));
+                                        const isNew = topic.id >= 85;
+                                        const hasUpdates = MAJOR_CURRENT_AFFAIRS.some(ca => ca.topicIds.includes(topic.id));
 
                                         return (
                                             <div
@@ -462,40 +396,22 @@ export default function PolityUnifiedDashboard({ registryMode = '50' }: PolityUn
                                                         <CheckCircle2 className="w-4 h-4" />
                                                     </button>
                                                     <div className="flex-1">
-                                                        <div className="flex items-center justify-between gap-2">
-                                                            <div className="flex items-center gap-2">
-                                                                <h4 className={`font-semibold text-sm ${isCompleted ? 'text-muted-foreground line-through' : 'text-foreground'}`}>
-                                                                    {topic.title}
-                                                                </h4>
-                                                                {isNew && (
-                                                                    <Badge className="bg-purple-500 text-[10px] px-1.5 py-0 h-4">New</Badge>
-                                                                )}
-                                                            </div>
-                                                            {registryMode === '95' && topic.id % 2 !== 0 && (
-                                                                <Button
-                                                                    size="sm"
-                                                                    variant="outline"
-                                                                    className="h-7 px-2 text-[10px] font-black border-2 border-slate-900 bg-amber-400 hover:bg-amber-500 text-slate-900 shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none transition-all"
-                                                                    onClick={(e) => {
-                                                                        e.stopPropagation();
-                                                                        const blockId = Math.ceil(topic.id / 2);
-                                                                        router.push(`/student/batch1-1/polity/session?block=${blockId}`);
-                                                                    }}
-                                                                >
-                                                                    <Play className="w-3 h-3 mr-1 fill-current" /> LAUNCH BLOCK
-                                                                </Button>
+                                                        <div className="flex items-center gap-2">
+                                                            <h4 className={`font-semibold text-sm ${isCompleted ? 'text-muted-foreground line-through' : 'text-foreground'}`}>
+                                                                {topic.title}
+                                                            </h4>
+                                                            {isNew && (
+                                                                <Badge className="bg-purple-500 text-[10px] px-1.5 py-0 h-4">New</Badge>
                                                             )}
-                                                        </div>
-                                                        <div className="flex items-center gap-2 mt-0.5">
-                                                            <div className="text-[10px] text-muted-foreground font-mono">
-                                                                Topic #{topic.id}
-                                                            </div>
                                                             {hasUpdates && (
                                                                 <div className="flex items-center text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded text-[10px] font-bold border border-amber-200" title="Current Affairs Update Available">
                                                                     <Flame size={10} className="mr-0.5 fill-amber-600" />
                                                                     Update
                                                                 </div>
                                                             )}
+                                                        </div>
+                                                        <div className="text-[10px] text-muted-foreground mt-0.5 font-mono">
+                                                            Topic #{topic.id}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -529,7 +445,7 @@ export default function PolityUnifiedDashboard({ registryMode = '50' }: PolityUn
 
                                                     {/* 3. Level 1 */}
                                                     <button
-                                                        onClick={(e) => handleAction(e, 'mcq', topic.id, 1)}
+                                                        onClick={(e) => handleAction(e, 'mcq', topic.id)}
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Level 1 MCQs"
                                                     >
@@ -541,7 +457,7 @@ export default function PolityUnifiedDashboard({ registryMode = '50' }: PolityUn
 
                                                     {/* 4. Level 2 */}
                                                     <button
-                                                        onClick={(e) => handleAction(e, 'mcq', topic.id, 2)}
+                                                        onClick={(e) => handleAction(e, 'mcq', topic.id)}
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Level 2 MCQs (Pro)"
                                                     >
@@ -553,7 +469,7 @@ export default function PolityUnifiedDashboard({ registryMode = '50' }: PolityUn
 
                                                     {/* 5. Level 3 */}
                                                     <button
-                                                        onClick={(e) => handleAction(e, 'mcq', topic.id, 3)}
+                                                        onClick={(e) => handleAction(e, 'mcq', topic.id)}
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Level 3 MCQs (Exam)"
                                                     >
@@ -565,14 +481,7 @@ export default function PolityUnifiedDashboard({ registryMode = '50' }: PolityUn
 
                                                     {/* 6. Current Affairs */}
                                                     <button
-                                                        onClick={(e) => {
-                                                            e.stopPropagation();
-                                                            if (registryMode === '95') {
-                                                                router.push(`/student/batch1-1/polity/${topic.id}/current-affairs`);
-                                                            } else {
-                                                                router.push(`/student/batch1/current-affairs`);
-                                                            }
-                                                        }}
+                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1-1/polity/${topic.id}/current-affairs`); }}
                                                         className={`flex flex-col items-center gap-0.5 group/btn ${hasUpdates ? '' : 'opacity-40'}`}
                                                         title={hasUpdates ? "View Current Affairs" : "No Current Affairs for this chapter"}
                                                     >
@@ -609,15 +518,15 @@ export default function PolityUnifiedDashboard({ registryMode = '50' }: PolityUn
                 isOpen={!!selectedReportTopic}
                 onClose={() => setSelectedReportTopic(null)}
                 topicId={selectedReportTopic}
-                topicTitle={selectedReportTopic ? TOPIC_TITLES.find(t => t.id === selectedReportTopic)?.title : undefined}
                 data={selectedReportTopic ? progress[selectedReportTopic] : null}
                 onAction={(type) => {
                     if (selectedReportTopic) {
-                        const basePath = registryMode === '95' ? '/student/batch1-1/polity' : '/student/batch1/polity/topic';
                         if (type === 'read') navigateToTopic(selectedReportTopic);
                         else {
-                            if (type === 'flashcard') router.push(`${basePath}/${selectedReportTopic}/flashcards`);
-                            if (type === 'mcq') router.push(`${basePath}/${selectedReportTopic}/mcq`);
+                            // Map 'flashcard' -> 'flashcards' for URL if needed, but router push in handleAction used 'flashcards'
+                            // Let's reuse logic or specific push
+                            if (type === 'flashcard') router.push(`/student/batch1-1/polity/${selectedReportTopic}/flashcards`);
+                            if (type === 'mcq') router.push(`/student/batch1-1/polity/${selectedReportTopic}/mcq`);
                         }
                         setSelectedReportTopic(null); // Close modal on nav
                     }

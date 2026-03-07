@@ -95,6 +95,11 @@ import ConstitutionalDoctrinesModule from "@/components/batch1-1/polity/Constitu
 import CabinetCommitteesModule from "@/components/batch1-1/polity/CabinetCommitteesModule";
 import WorldConstitutionsModule from "@/components/batch1-1/polity/WorldConstitutionsModule";
 import HistoryModule from "@/components/batch1-1/polity/HistoryModule";
+import ChapterCurrentAffairsSection from "@/components/batch1-1/polity/revision/ChapterCurrentAffairsSection";
+import ChapterLevelGame from "@/components/batch1-1/polity/revision/ChapterLevelGame";
+import TopicPYQWidget from "@/components/batch1-1/polity/revision/TopicPYQWidget";
+import GenericPremiumModule from "@/components/batch1-1/polity/GenericPremiumModule";
+import { TOPICS_DATA } from "@/components/batch1-1/polity/data/topics";
 
 export default function TopicViewerPage() {
     const params = useParams();
@@ -374,221 +379,50 @@ export default function TopicViewerPage() {
             ) : topicId === 95 ? (
                 <WorldConstitutionsModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : (
-                <Card className={`bg-gradient-to-r ${colors.gradient} text-white border-0 shadow-xl`}>
-                    <CardContent className="p-6">
-                        <div className="flex items-start justify-between">
-                            <div className="flex items-start gap-4">
-                                <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center text-3xl">
-                                    {part.icon}
-                                </div>
-                                <div>
-                                    <div className="flex items-center gap-2 mb-1">
-                                        <Badge variant="secondary" className="bg-white/20 text-white border-0">
-                                            Part {part.number}
-                                        </Badge>
-                                        <Badge variant="secondary" className="bg-white/20 text-white border-0">
-                                            Topic {topicId}
-                                        </Badge>
-                                        {isNew && (
-                                            <Badge className="bg-purple-500 text-white">
-                                                <Sparkles className="h-3 w-3 mr-1" />
-                                                New
-                                            </Badge>
-                                        )}
-                                    </div>
-                                    <h1 className="text-2xl md:text-3xl font-bold">{topic.title}</h1>
-                                    <p className="text-sm opacity-90 mt-1">{part.title}</p>
-                                </div>
-                            </div>
-                            {isCompleted ? (
-                                <div className="flex items-center gap-2 bg-green-500 px-4 py-2 rounded-lg">
-                                    <CheckCircle2 className="h-5 w-5" />
-                                    <span className="font-medium">Completed</span>
-                                </div>
-                            ) : (
-                                <Button
-                                    onClick={markComplete}
-                                    className="bg-white text-gray-800 hover:bg-gray-100"
-                                >
-                                    <CheckCircle2 className="h-4 w-4 mr-2" />
-                                    Mark Complete
-                                </Button>
-                            )}
-                        </div>
-                    </CardContent>
-                </Card>
+                <GenericPremiumModule
+                    topicId={topicId}
+                    title={topic.title}
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                    staticFocus={topicData?.staticFocus ? [topicData.staticFocus] : []}
+                    keyConcepts={topicData?.keyConcepts?.map((c: any) => c.term + ": " + c.definition) || []}
+                    prelimsPointers={topicData?.prelimsPointers?.map((p: any) => p.fact) || []}
+                />
             )}
 
-            {/* Content Tabs (Hidden for topics using Special Modules) */}
-            {(topicId > 0 && ![1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 56, 57, 58, 62, 63, 64, 65, 66, 67, 68, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95].includes(topicId)) && (
-                <Tabs defaultValue="overview" className="w-full">
-                    <TabsList className="grid w-full grid-cols-4">
-                        <TabsTrigger value="overview">
-                            <FileText className="h-4 w-4 mr-2" />
-                            Overview
-                        </TabsTrigger>
-                        <TabsTrigger value="concepts">
-                            <Brain className="h-4 w-4 mr-2" />
-                            Key Concepts
-                        </TabsTrigger>
-                        <TabsTrigger value="prelims">
-                            <Target className="h-4 w-4 mr-2" />
-                            Prelims Points
-                        </TabsTrigger>
-                        <TabsTrigger value="practice">
-                            <BookOpen className="h-4 w-4 mr-2" />
-                            Practice
-                        </TabsTrigger>
-                    </TabsList>
+            {/* Centralized Practice & Updates Footer (Restoring "Fantastic UI" for all 95 Chapters) */}
+            <div className="mt-12 space-y-12 border-t-2 border-slate-100 pt-12 pb-24">
+                <div className="text-center space-y-2">
+                    <Badge variant="outline" className="text-indigo-600 bg-indigo-50 border-indigo-200 uppercase tracking-widest text-[10px] font-black">
+                        Mastery & Updates
+                    </Badge>
+                    <h2 className="text-3xl font-black text-slate-900 leading-tight">Practice & Recent Developments</h2>
+                    <p className="text-slate-500 max-w-lg mx-auto text-sm">
+                        Master the static concepts with Level-wise MCQs and stay updated with the latest Constitutional developments.
+                    </p>
+                </div>
 
-                    <TabsContent value="overview" className="mt-6">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2">
-                                    <FileText className="h-5 w-5" />
-                                    Topic Overview
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-4">
-                                <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                                    <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-2">
-                                        Static Focus Area
-                                    </h4>
-                                    {topicData ? (
-                                        <div className="whitespace-pre-line text-gray-700 dark:text-gray-300">
-                                            {topicData.staticFocus}
-                                        </div>
-                                    ) : (
-                                        <>
-                                            <p className="text-gray-700 dark:text-gray-300">
-                                                Content will be loaded here. You can provide detailed content for this topic including:
-                                            </p>
-                                            <ul className="list-disc list-inside mt-2 text-gray-600 dark:text-gray-400 space-y-1">
-                                                <li>Core articles and constitutional provisions</li>
-                                                <li>Key definitions and concepts</li>
-                                                <li>Historical context and evolution</li>
-                                                <li>Recent amendments and updates</li>
-                                            </ul>
-                                        </>
-                                    )}
-                                </div>
+                <div className="grid gap-12">
+                    {/* Chapter-wise Current Affairs (The "Reflecting Data" fix) */}
+                    <Card className="border-0 shadow-none bg-transparent">
+                        <ChapterCurrentAffairsSection topicId={topicId} />
+                    </Card>
 
-                                {topicData?.coreArticles && topicData.coreArticles.length > 0 && (
-                                    <div className="space-y-3">
-                                        <h4 className="font-semibold text-gray-700 dark:text-gray-300">Core Articles/Provisions</h4>
-                                        <div className="grid gap-3">
-                                            {topicData.coreArticles.map((art: any, i: number) => (
-                                                <div key={i} className="p-3 border rounded-lg bg-gray-50 dark:bg-gray-800/40">
-                                                    <div className="font-medium text-blue-600 dark:text-blue-400">{art.number}</div>
-                                                    <div className="text-sm font-semibold mt-1">{art.title}</div>
-                                                    <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">{art.description}</div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
+                    {/* Level 1, 2, 3 MCQs (The "10,000 Questions" fix) */}
+                    <Card className="border-2 border-indigo-100 p-6 rounded-3xl bg-white shadow-xl shadow-indigo-100/50">
+                        <ChapterLevelGame topicId={topicId} onComplete={(level, score) => {
+                            console.log(`Level ${level} completed with score ${score}`);
+                        }} />
+                    </Card>
 
-                                <div className="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
-                                    <h4 className="font-semibold text-amber-700 dark:text-amber-300 mb-2">
-                                        Current Affairs
-                                    </h4>
-                                    {topicData?.currentAffairs && topicData.currentAffairs.length > 0 ? (
-                                        <div className="space-y-3">
-                                            {topicData.currentAffairs.map((ca: any, i: number) => (
-                                                <div key={i} className="text-sm">
-                                                    <div className="font-medium">{ca.headline}</div>
-                                                    <div className="text-xs text-gray-500 mt-1">{ca.date} • {ca.source}</div>
-                                                    <div className="text-xs italic mt-1 text-gray-600 dark:text-gray-400">"{ca.teachingHook}"</div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    ) : (
-                                        <p className="text-gray-600 dark:text-gray-400">
-                                            Recent news and developments related to {topic.title} will be displayed here.
-                                        </p>
-                                    )}
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </TabsContent>
+                    {/* UPSC Past Year Questions */}
+                    <Card className="border-0 shadow-none bg-transparent">
+                        <TopicPYQWidget topicId={topicId} />
+                    </Card>
+                </div>
+            </div>
 
-                    <TabsContent value="concepts" className="mt-6">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2">
-                                    <Brain className="h-5 w-5" />
-                                    Key Concepts
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                {topicData?.keyConcepts && topicData.keyConcepts.length > 0 ? (
-                                    <div className="grid gap-4">
-                                        {topicData.keyConcepts.map((concept: any, i: number) => (
-                                            <div key={i} className="p-4 border rounded-lg">
-                                                <h4 className="font-semibold text-lg mb-1">{concept.term}</h4>
-                                                <p className="text-gray-700 dark:text-gray-300">{concept.definition}</p>
-                                                {concept.example && (
-                                                    <div className="mt-2 text-sm text-gray-600 bg-gray-50 p-2 rounded">
-                                                        Example: {concept.example}
-                                                    </div>
-                                                )}
-                                            </div>
-                                        ))}
-                                    </div>
-                                ) : (
-                                    <p className="text-gray-500 italic">No key concepts defined for this topic yet.</p>
-                                )}
-                            </CardContent>
-                        </Card>
-                    </TabsContent>
 
-                    <TabsContent value="prelims" className="mt-6">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2">
-                                    <Target className="h-5 w-5" />
-                                    Prelims Pointers
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                {topicData?.prelimsPointers && topicData?.prelimsPointers.length > 0 ? (
-                                    <ul className="space-y-3">
-                                        {topicData.prelimsPointers.map((pointer: any, i: number) => (
-                                            <li key={i} className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
-                                                <Badge variant="outline" className="bg-white shrink-0 mt-0.5">
-                                                    {pointer.category}
-                                                </Badge>
-                                                <span className="text-gray-800">{pointer.fact}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                ) : (
-                                    <p className="text-gray-500 italic">No prelims pointers defined for this topic yet.</p>
-                                )}
-                            </CardContent>
-                        </Card>
-                    </TabsContent>
-
-                    <TabsContent value="practice" className="mt-6">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2">
-                                    <BookOpen className="h-5 w-5" />
-                                    Practice Questions
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <div className="text-center py-10">
-                                    <p className="text-gray-500 mb-4">Practice questions will be available here.</p>
-                                    <Button variant="outline">
-                                        Start Quiz
-                                    </Button>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </TabsContent>
-                </Tabs>
-            )}
         </div>
     );
 }

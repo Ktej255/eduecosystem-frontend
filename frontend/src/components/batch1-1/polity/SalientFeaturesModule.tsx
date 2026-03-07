@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import ChapterLevelGame from "./revision/ChapterLevelGame";
 
 interface SalientFeaturesModuleProps {
     onComplete?: () => void;
@@ -430,7 +429,6 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
                         <BadgeCheck size={14} /> Practice Arena
                     </span>
                 </div>
-                <ChapterLevelGame topicId={3} />
             </div>
 
             {/* Quality Control Footer */}

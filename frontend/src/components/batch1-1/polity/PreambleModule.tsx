@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import ChapterLevelGame from "./revision/ChapterLevelGame";
 
 interface PreambleModuleProps {
     onComplete?: () => void;
@@ -296,7 +295,6 @@ export default function PreambleModule({ onComplete, isCompleted }: PreambleModu
                         <Flag size={14} /> Practice Arena
                     </span>
                 </div>
-                <ChapterLevelGame topicId={4} />
             </section>
 
             {/* FOOTER */}

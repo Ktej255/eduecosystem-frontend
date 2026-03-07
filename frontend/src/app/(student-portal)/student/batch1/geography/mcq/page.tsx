@@ -6,8 +6,8 @@ import { Loader2, Target } from 'lucide-react';
 import { geographyMCQs } from '@/components/batch1/geography/data/mcqs/geography-mcqs';
 
 // Standard Components
-import StandardMCQInterface, { MCQ, QuestionResult } from '@/components/common/mcq/StandardMCQInterface';
-import StandardTestReport, { TestResult } from '@/components/common/reports/StandardTestReport';
+import StandardMCQInterface, { MCQ } from '@/components/common/mcq/StandardMCQInterface';
+import StandardTestReport, { TestResult, QuestionResult } from '@/components/common/reports/StandardTestReport';
 import { saveChapterReport } from '@/lib/report-persistence';
 import { toast } from 'sonner';
 
@@ -16,6 +16,7 @@ function GeographyMCQContent() {
     const router = useRouter();
     const chapterParam = searchParams.get('chapter');
     const levelParam = searchParams.get('level');
+    const patternParam = searchParams.get('pattern') || 'standard';
     const level = levelParam ? parseInt(levelParam) : 1;
 
     const chapterIds = chapterParam
@@ -33,7 +34,8 @@ function GeographyMCQContent() {
                 // In geography-mcqs.ts, the chapter field is a number or string
                 const filtered = geographyMCQs.filter(m =>
                     chapterIds.includes(Number(m.chapter)) &&
-                    (m.difficulty === (level === 3 ? 'Hard' : level === 2 ? 'Moderate' : 'Easy'))
+                    (m.difficulty === (level === 3 ? 'hard' : level === 2 ? 'medium' : 'easy')) &&
+                    (patternParam === 'statement_based' ? m.question_type === 'statement_based' : m.question_type !== 'statement_based')
                 );
 
                 const formattedMCQs: MCQ[] = filtered.map((m, idx) => ({
@@ -44,7 +46,7 @@ function GeographyMCQContent() {
                     explanation: m.explanation || "No explanation provided.",
                     chapter: `Day ${m.chapter}`,
                     subtopic: m.topic || "General",
-                    difficulty: m.difficulty as any
+                    difficulty: level === 3 ? 'Hard' : level === 2 ? 'Moderate' : 'Easy'
                 }));
 
                 setQuestions(formattedMCQs);
@@ -69,6 +71,7 @@ function GeographyMCQContent() {
             score: correct * 2,
             accuracy,
             timeTaken,
+            totalTimeTaken: timeTaken,
             topicBreakdown: { "Geography": { total: questions.length, correct } },
             questionAnalysis: results.map(r => ({ questionId: r.id, wasted: !r.isCorrect && r.timeSpent > 60 }))
         };

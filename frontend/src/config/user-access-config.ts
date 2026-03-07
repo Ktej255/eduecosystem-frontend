@@ -25,6 +25,7 @@ export interface UserAccess {
     productivity: boolean;
     community: boolean;
     leaderboard: boolean;
+    geography: boolean;
 }
 
 
@@ -51,6 +52,7 @@ export const DEFAULT_USER_ACCESS: UserAccess = {
     productivity: true, // Enabled for all by default to encourage engagement
     community: true,
     leaderboard: true,
+    geography: false,
 };
 
 
@@ -70,6 +72,7 @@ const MASTER_ACCESS: UserAccess = {
     productivity: true,
     community: true,
     leaderboard: true,
+    geography: true,
 };
 
 
@@ -89,6 +92,7 @@ const BATCH1_STUDENT_ACCESS: UserAccess = {
     productivity: true,
     community: true,
     leaderboard: true,
+    geography: true,
 };
 
 
@@ -108,6 +112,7 @@ const BATCH2_STUDENT_ACCESS: UserAccess = {
     productivity: true,
     community: true,
     leaderboard: true,
+    geography: false,
 };
 
 // RAS Student access (Chitra)
@@ -126,6 +131,7 @@ const RAS_STUDENT_ACCESS: UserAccess = {
     productivity: true,
     community: true,
     leaderboard: true,
+    geography: false,
 };
 
 /**

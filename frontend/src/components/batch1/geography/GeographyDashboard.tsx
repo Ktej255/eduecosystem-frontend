@@ -31,6 +31,7 @@ export default function GeographyDashboard() {
     const [activeBranch, setActiveBranch] = useState<GeographyBranch | 'All'>('All');
     const [comingSoonFeature, setComingSoonFeature] = useState<string | null>(null);
     const [viewMode, setViewMode] = useState<'sheet' | 'planner' | 'visual'>('sheet');
+    const [confidenceRatings, setConfidenceRatings] = useState<Record<number, string>>({});
 
     // Load progress from localStorage
     useEffect(() => {
@@ -40,6 +41,14 @@ export default function GeographyDashboard() {
                 setCompletedTopics(JSON.parse(saved));
             } catch (e) {
                 console.error("Failed to load geography progress", e);
+            }
+        }
+        const savedConf = localStorage.getItem('geography-confidence');
+        if (savedConf) {
+            try {
+                setConfidenceRatings(JSON.parse(savedConf));
+            } catch (e) {
+                console.error("Failed to load geography confidence", e);
             }
         }
     }, []);
@@ -153,6 +162,56 @@ export default function GeographyDashboard() {
                         <StatHUDCard title="Indian Geo" value={`${Math.round(stats.branchStats.find(b => b.name === 'Indian Geography')?.progress || 0)}%`} subtext={`${stats.branchStats.find(b => b.name === 'Indian Geography')?.completed || 0} done`} icon={<Map className="text-emerald-600" />} />
                     </div>
 
+                    {/* NCERT Coverage Tracker */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <Card className="border-none shadow-md overflow-hidden relative">
+                            <CardContent className="p-6">
+                                <h3 className="text-sm font-black uppercase tracking-widest text-slate-500 mb-4 flex items-center gap-2">
+                                    <BookOpen className="w-4 h-4 text-emerald-600" /> NCERT Class 11 Coverage
+                                </h3>
+                                <div className="space-y-4">
+                                    <div>
+                                        <div className="flex justify-between text-xs font-bold text-slate-600 mb-1">
+                                            <span>Fundamentals of Physical Geo</span>
+                                            <span>{Math.round(((stats.branchStats.find(b => b.name === 'Geomorphology')?.progress || 0) + (stats.branchStats.find(b => b.name === 'Climatology')?.progress || 0) + (stats.branchStats.find(b => b.name === 'Oceanography')?.progress || 0)) / 3)}%</span>
+                                        </div>
+                                        <Progress value={((stats.branchStats.find(b => b.name === 'Geomorphology')?.progress || 0) + (stats.branchStats.find(b => b.name === 'Climatology')?.progress || 0) + (stats.branchStats.find(b => b.name === 'Oceanography')?.progress || 0)) / 3} className="h-2" />
+                                    </div>
+                                    <div>
+                                        <div className="flex justify-between text-xs font-bold text-slate-600 mb-1">
+                                            <span>Indian Physical Environment</span>
+                                            <span>{Math.round(stats.branchStats.find(b => b.name === 'Indian Geography')?.progress || 0)}%</span>
+                                        </div>
+                                        <Progress value={stats.branchStats.find(b => b.name === 'Indian Geography')?.progress || 0} className="h-2" />
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                        <Card className="border-none shadow-md overflow-hidden relative">
+                            <CardContent className="p-6">
+                                <h3 className="text-sm font-black uppercase tracking-widest text-slate-500 mb-4 flex items-center gap-2">
+                                    <BookOpen className="w-4 h-4 text-blue-600" /> NCERT Class 12 Coverage
+                                </h3>
+                                <div className="space-y-4">
+                                    <div>
+                                        <div className="flex justify-between text-xs font-bold text-slate-600 mb-1">
+                                            <span>Fundamentals of Human Geo</span>
+                                            <span>{Math.round(stats.branchStats.find(b => b.name === 'Miscellaneous')?.progress || 0)}%</span>
+                                        </div>
+                                        <Progress value={stats.branchStats.find(b => b.name === 'Miscellaneous')?.progress || 0} className="h-2" />
+                                    </div>
+                                    <div>
+                                        <div className="flex justify-between text-xs font-bold text-slate-600 mb-1">
+                                            <span>India: People and Economy</span>
+                                            <span>{Math.round(stats.branchStats.find(b => b.name === 'Resource Geography')?.progress || 0)}%</span>
+                                        </div>
+                                        <Progress value={stats.branchStats.find(b => b.name === 'Resource Geography')?.progress || 0} className="h-2" />
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </div>
+
                     {/* Main Content: Tracking Sheet */}
                     <Card className="border-border shadow-2xl bg-card overflow-hidden rounded-[2rem]">
                         <CardHeader className="bg-slate-50 dark:bg-slate-900 border-b border-border py-6 px-8">
@@ -210,22 +269,33 @@ export default function GeographyDashboard() {
                                                     </div>
 
                                                     <div className="flex-1 min-w-0">
-                                                        <div className="flex items-center gap-3">
-                                                            <h4 className={`text-base font-bold truncate ${isCompleted ? 'text-slate-400 line-through' : 'text-slate-800 dark:text-slate-100'}`}>
-                                                                {topic.title}
-                                                            </h4>
-                                                            <Badge className={`text-[9px] font-black uppercase py-0.5 px-2 rounded-md ${isCompleted ? 'bg-slate-100 text-slate-400' : 'bg-slate-100 text-slate-600'} border-0`}>
-                                                                {topic.branch}
-                                                            </Badge>
-                                                        </div>
-                                                        <div className="flex items-center gap-4 mt-1.5">
-                                                            <span className="text-[10px] text-muted-foreground font-black uppercase tracking-wider flex items-center gap-1.5">
-                                                                <Clock className="w-3.5 h-3.5 text-indigo-400" /> Teaching Block {topic.blockId}
-                                                            </span>
-                                                            <span className="w-1 h-1 rounded-full bg-slate-300" />
-                                                            <span className={`text-[10px] font-black uppercase tracking-wider flex items-center gap-1.5 ${isCompleted ? 'text-emerald-600' : 'text-amber-500'}`}>
-                                                                <GraduationCap className="w-3.5 h-3.5" /> {isCompleted ? 'Mastered' : 'Ready to Learn'}
-                                                            </span>
+                                                        <div className="flex flex-col md:flex-row gap-6 md:items-center justify-between">
+                                                            <div className="flex items-center gap-3">
+                                                                <h4 className={`text-base font-bold truncate ${isCompleted ? 'text-slate-400 line-through' : 'text-slate-800 dark:text-slate-100'}`}>
+                                                                    {topic.title}
+                                                                </h4>
+                                                                <Badge className={`text-[9px] font-black uppercase py-0.5 px-2 rounded-md ${isCompleted ? 'bg-slate-100 text-slate-400' : 'bg-slate-100 text-slate-600'} border-0`}>
+                                                                    {topic.branch}
+                                                                </Badge>
+                                                                {isCompleted && confidenceRatings[topic.id] && (
+                                                                    <div
+                                                                        className={`w-2.5 h-2.5 rounded-full ${confidenceRatings[topic.id] === 'high' ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]' :
+                                                                                confidenceRatings[topic.id] === 'medium' ? 'bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]' :
+                                                                                    'bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.5)]'
+                                                                            }`}
+                                                                        title={`Confidence: ${confidenceRatings[topic.id]}`}
+                                                                    />
+                                                                )}
+                                                            </div>
+                                                            <div className="flex items-center gap-4 mt-1.5 md:mt-0">
+                                                                <span className="text-[10px] text-muted-foreground font-black uppercase tracking-wider flex items-center gap-1.5">
+                                                                    <Clock className="w-3.5 h-3.5 text-indigo-400" /> Teaching Block {topic.blockId}
+                                                                </span>
+                                                                <span className="w-1 h-1 rounded-full bg-slate-300" />
+                                                                <span className={`text-[10px] font-black uppercase tracking-wider flex items-center gap-1.5 ${isCompleted ? 'text-emerald-600' : 'text-amber-500'}`}>
+                                                                    <GraduationCap className="w-3.5 h-3.5" /> {isCompleted ? 'Mastered' : 'Ready to Learn'}
+                                                                </span>
+                                                            </div>
                                                         </div>
                                                     </div>
 

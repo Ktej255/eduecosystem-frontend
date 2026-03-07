@@ -1068,3 +1068,61 @@ export const CURRENT_AFFAIRS_DATA: CurrentAffairItem[] = [
 
 export const SUBJECT_FILTERS = ['All', 'History', 'Polity', 'Economy', 'Environment', 'Science', 'Geography', 'IR'];
 export const MONTH_FILTERS = ['All', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+export const GEOGRAPHY_CURRENT_AFFAIRS: CurrentAffairItem[] = [
+    {
+        id: 'ca-geo-001',
+        title: "Cyclone Dana Makes Landfall in Odisha — October 2025",
+        description: "Very Severe Cyclonic Storm 'Dana' struck the Odisha coast near Bhitarkanika. Pre-monsoon warming of the Bay of Bengal creates favorable conditions for cyclogenesis.",
+        subject: 'Geography',
+        date: "2025-10-25",
+        month: "October",
+        tags: ['Cyclone', 'Climatology', 'Bay of Bengal', 'Disaster Management'],
+        source: "IMD",
+        related_topic_id: 'tropical-cyclones'
+    },
+    {
+        id: 'ca-geo-002',
+        title: "El Niño Transition to ENSO Neutral",
+        description: "The strong 2023-24 El Niño shifted to ENSO-neutral, potentially transitioning to La Niña. Shows the dynamic nature of Walker Circulation.",
+        subject: 'Geography',
+        date: "2024-04-12",
+        month: "April",
+        tags: ['El Nino', 'ENSO', 'Climatology', 'Monsoon'],
+        source: "WMO",
+        related_topic_id: 'atmospheric-circulation'
+    },
+    {
+        id: 'ca-geo-003',
+        title: "Iceland Volcanic Eruptions on Reykjanes Peninsula",
+        description: "Multiple fissure eruptions occurred as magma breached the surface along the Mid-Atlantic Ridge, highlighting divergent plate boundary activity.",
+        subject: 'Geography',
+        date: "2024-03-16",
+        month: "March",
+        tags: ['Volcano', 'Geomorphology', 'Plate Tectonics'],
+        source: "IMO",
+        related_topic_id: 'volcanism'
+    },
+    {
+        id: 'ca-geo-004',
+        title: "Great Barrier Reef Mass Bleaching",
+        description: "A severe mass coral bleaching event triggered by abnormal sea surface temperatures. Links to ocean acidification and marine ecological vulnerability.",
+        subject: 'Geography',
+        date: "2024-04-05",
+        month: "April",
+        tags: ['Coral Reef', 'Oceanography', 'Marine Ecology'],
+        source: "GBRMPA",
+        related_topic_id: 'coral-reefs'
+    },
+    {
+        id: 'ca-geo-005',
+        title: "Suez Canal Drought & Red Sea Maritime Issues",
+        description: "Combined impact of Panama Canal drought and Red Sea security altering global shipping routes, emphasizing importance of maritime choke points.",
+        subject: 'Geography',
+        date: "2024-01-20",
+        month: "January",
+        tags: ['Maritime', 'Trade Routes', 'Economic Geography'],
+        source: "SCA",
+        related_topic_id: 'transport-trade'
+    }
+];

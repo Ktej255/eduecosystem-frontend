@@ -5,6 +5,7 @@ import { ShoppingBag, Star, Zap, Shield, BookOpen, BrainCircuit, CheckCircle, Lo
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Suspense } from 'react';
+import PaymentFunnelModal from '@/components/upsc/PaymentFunnelModal';
 
 // Product catalog — mirrors backend SUBJECT_PRODUCTS
 const PRODUCTS = [
@@ -88,10 +89,26 @@ function StorePageContent() {
     const searchParams = useSearchParams();
     const [purchasing, setPurchasing] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
+    const [funnelItem, setFunnelItem] = useState<{ id: string; title: string; price: number } | null>(null);
     const highlightSubject = searchParams.get('subject');
 
-    const handlePurchase = async (productId: string, price: number) => {
-        setPurchasing(productId);
+    const handlePurchase = (productId: string, price: number) => {
+        const product = PRODUCTS.find(p => p.id === productId);
+        if (product) {
+            setFunnelItem({ id: product.id, title: product.title, price: product.price });
+        }
+    };
+
+    const handleFunnelComplete = async (items: string[], finalPrice: number, subjectIds: string[]) => {
+        // Map combinations to backend bundle IDs
+        let finalId = subjectIds[0];
+        if (subjectIds.includes('geography') && subjectIds.includes('level2')) {
+            finalId = 'geography_polity';
+        } else if (subjectIds.includes('geography') && subjectIds.includes('history_modern')) {
+            finalId = 'geography_history';
+        }
+
+        setPurchasing(finalId);
         setError(null);
         try {
             const token = localStorage.getItem('token');
@@ -100,14 +117,13 @@ function StorePageContent() {
                 return;
             }
 
-            // Create real Cashfree order
             const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/payments/create-order`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify({ subject_id: productId })
+                body: JSON.stringify({ subject_id: finalId })
             });
 
             if (!res.ok) {
@@ -117,7 +133,6 @@ function StorePageContent() {
 
             const { order_id, payment_session_id } = await res.json();
 
-            // Load Cashfree JS SDK and open payment
             // @ts-ignore
             if (typeof window !== 'undefined' && window.Cashfree) {
                 // @ts-ignore
@@ -126,24 +141,22 @@ function StorePageContent() {
                     if (result.error) {
                         setError(result.error.message || 'Payment cancelled');
                     } else if (result.paymentDetails) {
-                        // Verify on backend
                         const vRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/payments/verify/${order_id}`, {
                             headers: { 'Authorization': `Bearer ${token}` }
                         });
                         if (vRes.ok) {
                             const vData = await vRes.json();
                             if (vData.status === 'success') {
-                                router.push(`/student/batch1/${productId === 'level2' ? 'polity' : productId === 'history_modern' ? 'history' : productId}?unlocked=1`);
+                                router.push(`/student/batch1/${subjectIds[0] === 'level2' ? 'polity' : subjectIds[0] === 'history_modern' ? 'history' : subjectIds[0]}?unlocked=1`);
                             }
                         }
                     }
                 });
             } else {
-                // Fallback if Cashfree SDK not loaded
-                setError('Payment system loading. Please refresh the page and try again.');
+                setError('Payment system loading. Please refresh and try again.');
             }
         } catch (err: any) {
-            setError(err.message || 'Something went wrong. Please try again.');
+            setError(err.message || 'Something went wrong.');
         } finally {
             setPurchasing(null);
         }
@@ -190,10 +203,10 @@ function StorePageContent() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: idx * 0.07 }}
                                 className={`bg-card dark:bg-[#111] rounded-3xl p-7 border flex flex-col transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 ${isHighlighted
-                                        ? 'border-blue-500 ring-4 ring-blue-500/20'
-                                        : product.bestValue
-                                            ? 'border-amber-400/50 ring-2 ring-amber-400/10'
-                                            : 'border-border'
+                                    ? 'border-blue-500 ring-4 ring-blue-500/20'
+                                    : product.bestValue
+                                        ? 'border-amber-400/50 ring-2 ring-amber-400/10'
+                                        : 'border-border'
                                     }`}
                             >
                                 {/* Badge */}
@@ -231,8 +244,8 @@ function StorePageContent() {
                                     onClick={() => handlePurchase(product.id, product.price)}
                                     disabled={purchasing === product.id}
                                     className={`w-full py-4 rounded-xl font-bold text-base shadow-lg flex items-center justify-center gap-2 transition-all active:scale-95 ${purchasing === product.id
-                                            ? 'bg-muted text-muted-foreground cursor-not-allowed'
-                                            : `bg-gradient-to-r ${product.color} text-white hover:opacity-90`
+                                        ? 'bg-muted text-muted-foreground cursor-not-allowed'
+                                        : `bg-gradient-to-r ${product.color} text-white hover:opacity-90`
                                         }`}
                                 >
                                     {purchasing === product.id ? (
@@ -247,6 +260,15 @@ function StorePageContent() {
                     })}
                 </div>
             </div>
+
+            {funnelItem && (
+                <PaymentFunnelModal
+                    isOpen={!!funnelItem}
+                    onClose={() => setFunnelItem(null)}
+                    baseItem={funnelItem}
+                    onComplete={handleFunnelComplete}
+                />
+            )}
 
             {/* Trust Badges */}
             <div className="max-w-4xl mx-auto mt-20 text-center px-6">

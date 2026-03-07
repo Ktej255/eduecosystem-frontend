@@ -34,6 +34,7 @@ export default function UniversalQuestionBank({ initialSubject = 'history' }: Un
     const stats = getGlobalMCQStats();
     const [selectedSubject, setSelectedSubject] = useState<'history' | 'polity' | 'geography' | 'economy' | 'environment' | 'scitech'>(initialSubject);
     const [searchQuery, setSearchQuery] = useState('');
+    const [questionPattern, setQuestionPattern] = useState<'standard' | 'statement_based'>('standard');
 
     const currentStats = useMemo(() =>
         stats.find(s => s.subject.toLowerCase().replace(' & ', '').replace(' ', '') === selectedSubject.toLowerCase()) || stats[0],
@@ -110,6 +111,32 @@ export default function UniversalQuestionBank({ initialSubject = 'history' }: Un
                 </div>
             </div>
 
+            {/* Geography Specific Toggles */}
+            {selectedSubject === 'geography' && (
+                <div className="flex justify-center border-b border-neutral-200 dark:border-neutral-800 pb-4">
+                    <div className="flex bg-neutral-100 dark:bg-neutral-800 p-1 rounded-xl">
+                        <button
+                            onClick={() => setQuestionPattern('standard')}
+                            className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${questionPattern === 'standard'
+                                    ? 'bg-white dark:bg-neutral-900 text-blue-600 shadow-sm'
+                                    : 'text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300'
+                                }`}
+                        >
+                            Standard MCQs
+                        </button>
+                        <button
+                            onClick={() => setQuestionPattern('statement_based')}
+                            className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${questionPattern === 'statement_based'
+                                    ? 'bg-white dark:bg-neutral-900 text-indigo-600 shadow-sm'
+                                    : 'text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300'
+                                }`}
+                        >
+                            UPSC Pattern
+                        </button>
+                    </div>
+                </div>
+            )}
+
             {/* Quick Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <Card className="bg-gradient-to-br from-indigo-500 to-purple-600 text-white border-none shadow-lg overflow-hidden relative">
@@ -183,7 +210,7 @@ export default function UniversalQuestionBank({ initialSubject = 'history' }: Un
                                         onClick={() => {
                                             const path = selectedSubject === 'polity'
                                                 ? `/student/batch1-1/polity/${chapter.id}/mcq`
-                                                : `/student/batch1/${selectedSubject}/mcq?chapter=${chapter.id}&level=1`;
+                                                : `/student/batch1/${selectedSubject}/mcq?chapter=${chapter.id}&level=1${selectedSubject === 'geography' ? `&pattern=${questionPattern}` : ''}`;
                                             router.push(path);
                                         }}
                                     >
@@ -196,7 +223,7 @@ export default function UniversalQuestionBank({ initialSubject = 'history' }: Un
                                         onClick={() => {
                                             const path = selectedSubject === 'polity'
                                                 ? `/student/batch1-1/polity/${chapter.id}/mcq`
-                                                : `/student/batch1/${selectedSubject}/mcq?chapter=${chapter.id}&level=2`;
+                                                : `/student/batch1/${selectedSubject}/mcq?chapter=${chapter.id}&level=2${selectedSubject === 'geography' ? `&pattern=${questionPattern}` : ''}`;
                                             router.push(path);
                                         }}
                                     >
@@ -209,7 +236,7 @@ export default function UniversalQuestionBank({ initialSubject = 'history' }: Un
                                         onClick={() => {
                                             const path = selectedSubject === 'polity'
                                                 ? `/student/batch1-1/polity/${chapter.id}/mcq`
-                                                : `/student/batch1/${selectedSubject}/mcq?chapter=${chapter.id}&level=3`;
+                                                : `/student/batch1/${selectedSubject}/mcq?chapter=${chapter.id}&level=3${selectedSubject === 'geography' ? `&pattern=${questionPattern}` : ''}`;
                                             router.push(path);
                                         }}
                                     >

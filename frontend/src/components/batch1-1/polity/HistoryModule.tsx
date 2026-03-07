@@ -8,7 +8,6 @@ import {
     ArrowDown, Scale, Vote, Flag, BookOpen, Star
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ChapterLevelGame from "./revision/ChapterLevelGame";
 
 interface HistoryModuleProps {
     onComplete: () => void;
@@ -457,7 +456,6 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                             <Star size={14} /> Practice Arena
                         </span>
                     </div>
-                    <ChapterLevelGame topicId={1} />
                 </section>
 
                 {/* Completion Button */}

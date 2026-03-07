@@ -2,30 +2,37 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle, ShieldCheck, Star, X, ArrowRight, Gift } from 'lucide-react';
+import { CheckCircle, ShieldCheck, Star, X, ArrowRight, Gift, ShoppingBag } from 'lucide-react';
 import Confetti from 'react-confetti';
 
 interface PaymentFunnelProps {
     isOpen: boolean;
     onClose: () => void;
-    baseItem: { title: string; price: number };
+    baseItem: { title: string; price: number; id: string };
+    onComplete: (items: string[], finalPrice: number, subjectIds: string[]) => void;
 }
 
-export default function PaymentFunnelModal({ isOpen, onClose, baseItem }: PaymentFunnelProps) {
+export default function PaymentFunnelModal({ isOpen, onClose, baseItem, onComplete }: PaymentFunnelProps) {
     const [step, setStep] = useState<'checkout' | 'upsell1' | 'downsell1' | 'success'>('checkout');
     const [totalPrice, setTotalPrice] = useState(baseItem.price);
     const [items, setItems] = useState([baseItem.title]);
+    const [subjectIds, setSubjectIds] = useState([baseItem.id]);
+
+    const isGeography = baseItem.id === 'geography';
 
     const handleBasePurchase = () => {
-        // Simulate payment processing
-        setTimeout(() => {
-            setStep('upsell1');
-        }, 1500);
+        // Move to upsell instead of immediate success
+        setStep('upsell1');
     };
 
     const handleUpsellAccept = () => {
-        setTotalPrice(prev => prev + 2449); // Bundle price delta
-        setItems(prev => [...prev, "All 10 Subjects Bundle"]);
+        const upPrice = isGeography ? 299 : 2449;
+        const upTitle = isGeography ? "Polity Masterclass Add-on" : "All 10 Subjects Bundle";
+        const upId = isGeography ? "level2" : "full_upsc";
+
+        setTotalPrice(prev => prev + upPrice);
+        setItems(prev => [...prev, upTitle]);
+        setSubjectIds(prev => [...prev, upId]);
         setStep('success');
     };
 
@@ -34,156 +41,183 @@ export default function PaymentFunnelModal({ isOpen, onClose, baseItem }: Paymen
     };
 
     const handleDownsellAccept = () => {
-        setTotalPrice(prev => prev + 1999); // Discounted bundle
-        setItems(prev => [...prev, "Polity + History Pack"]);
+        const downPrice = isGeography ? 249 : 1999;
+        const downTitle = isGeography ? "History (Spectrum) Add-on" : "Polity + History Pack";
+        const downId = isGeography ? "history_modern" : "pack_history_polity";
+
+        setTotalPrice(prev => prev + downPrice);
+        setItems(prev => [...prev, downTitle]);
+        setSubjectIds(prev => [...prev, downId]);
         setStep('success');
+    };
+
+    const handleFinalDone = () => {
+        onComplete(items, totalPrice, subjectIds);
+        onClose();
     };
 
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
             <AnimatePresence mode="wait">
                 <motion.div
                     key={step}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    className="bg-card dark:bg-[#111] rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden border border-border"
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, y: -20 }}
+                    className="bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-3xl max-w-lg w-full overflow-hidden border border-slate-200 dark:border-slate-800"
                 >
                     {/* Header */}
-                    <div className="bg-muted px-6 py-4 flex justify-between items-center border-b border-border">
-                        <div className="flex items-center gap-2 text-sm font-bold text-muted-foreground">
-                            <ShieldCheck className="w-4 h-4 text-green-500" />
-                            Secure Checkout
+                    <div className="bg-slate-50 dark:bg-slate-800/50 px-8 py-5 flex justify-between items-center border-b border-slate-100 dark:border-slate-800">
+                        <div className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-500">
+                            <ShieldCheck className="w-4 h-4 text-emerald-500" />
+                            Secure Infrastructure
                         </div>
-                        <button onClick={onClose} className="text-muted-foreground hover:text-muted-foreground">
+                        <button onClick={onClose} className="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full transition-colors">
                             <X className="w-5 h-5" />
                         </button>
                     </div>
 
                     {step === 'checkout' && (
-                        <div className="p-8">
-                            <div className="text-center mb-8">
-                                <h2 className="text-2xl font-bold mb-2">Confirm Your Order</h2>
-                                <p className="text-muted-foreground">You are purchasing <span className="font-bold text-foreground">{baseItem.title}</span></p>
+                        <div className="p-10">
+                            <div className="text-center mb-10">
+                                <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <ShoppingBag className="w-8 h-8 text-blue-600" />
+                                </div>
+                                <h2 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Confirm Access</h2>
+                                <p className="text-slate-500 font-medium">You are unlocking <span className="text-indigo-600 font-bold">{baseItem.title}</span></p>
                             </div>
 
-                            <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border border-blue-100 dark:border-blue-800 mb-8 flex justify-between items-center">
-                                <span className="font-bold text-blue-900 dark:text-blue-100">Total Amount</span>
-                                <span className="text-2xl font-bold text-blue-700 dark:text-blue-400">₹{baseItem.price}</span>
+                            <div className="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-800 mb-10 flex justify-between items-center">
+                                <span className="font-bold text-slate-500 uppercase tracking-widest text-xs">Total Commitment</span>
+                                <span className="text-4xl font-black text-slate-900 dark:text-white font-mono">₹{baseItem.price}</span>
                             </div>
 
                             <button
                                 onClick={handleBasePurchase}
-                                className="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg flex items-center justify-center gap-2 group"
+                                className="w-full h-16 bg-slate-900 dark:bg-indigo-600 hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-2xl flex items-center justify-center gap-3 group transition-all"
                             >
-                                Pay ₹{baseItem.price} & Access
+                                Proceed to Checkout
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </button>
+                            <p className="text-center text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-6">Instant Activation Post-Payment</p>
                         </div>
                     )}
 
                     {step === 'upsell1' && (
-                        <div className="p-8 relative">
-                            <div className="absolute top-0 left-0 w-full h-2 bg-muted">
-                                <div className="h-full bg-green-500 w-[80%]"></div>
+                        <div className="p-10 relative">
+                            {/* Progress bar */}
+                            <div className="absolute top-0 left-0 w-full h-1.5 bg-slate-100 dark:bg-slate-800">
+                                <motion.div
+                                    className="h-full bg-emerald-500"
+                                    initial={{ width: "30%" }}
+                                    animate={{ width: "85%" }}
+                                    transition={{ duration: 1 }}
+                                />
                             </div>
 
-                            <div className="text-center mb-6 mt-4">
-                                <h2 className="text-2xl font-bold text-green-600 mb-1">Wait! Your Order is 80% Complete</h2>
-                                <p className="text-muted-foreground">Don't miss this one-time offer.</p>
-                            </div>
-
-                            <div className="border-2 border-dashed border-red-500 bg-red-50 dark:bg-red-900/10 rounded-2xl p-6 mb-6 relative">
-                                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase">
-                                    One Time Offer
+                            <div className="text-center mb-8 mt-4">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-black uppercase tracking-widest mb-4">
+                                    <Star className="w-3 h-3 fill-emerald-700" />
+                                    One-Time Exclusive
                                 </div>
-                                <h3 className="font-bold text-lg text-center mb-2">Upgrade to All 10 Subjects Bundle?</h3>
-                                <p className="text-sm text-center text-muted-foreground dark:text-muted-foreground mb-4">
-                                    Get Polity, History, Geography + 7 more subjects for just ₹2449 more! (Save ₹5000)
+                                <h2 className="text-3xl font-black text-slate-900 dark:text-white uppercase leading-tight tracking-tight">
+                                    Wait! Maximize Your <br /><span className="text-emerald-600">Preparation.</span>
+                                </h2>
+                            </div>
+
+                            <div className="bg-emerald-50 dark:bg-emerald-900/10 rounded-[2.5rem] p-8 mb-8 border-2 border-dashed border-emerald-300 dark:border-emerald-700 relative group">
+                                <h3 className="font-black text-xl text-slate-900 dark:text-white mb-2 uppercase tracking-tight">
+                                    {isGeography ? "Add Polity Masterclass?" : "Upgrade to Full Bundle?"}
+                                </h3>
+                                <p className="text-slate-600 dark:text-slate-400 text-sm font-medium mb-6 leading-relaxed">
+                                    {isGeography
+                                        ? "Master all 95 chapters of Indian Polity (Laxmikanth) for just ₹299 more. Normally ₹1,999."
+                                        : "Get all 10 UPSC subjects unlock with one click for just ₹2,449 extra."}
                                 </p>
-                                <div className="text-center">
-                                    <span className="text-muted-foreground line-through mr-2">₹2990</span>
-                                    <span className="text-3xl font-bold text-red-600">₹2449</span>
+                                <div className="flex items-baseline gap-2">
+                                    <span className="text-slate-400 line-through font-bold">₹1,999</span>
+                                    <span className="text-4xl font-black text-emerald-600">₹{isGeography ? "299" : "2,449"}</span>
                                 </div>
                             </div>
 
-                            <div className="space-y-3">
+                            <div className="space-y-4">
                                 <button
                                     onClick={handleUpsellAccept}
-                                    className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg"
+                                    className="w-full h-16 bg-emerald-600 hover:bg-emerald-500 text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl shadow-emerald-600/20"
                                 >
-                                    YES! Add to My Order
+                                    YES! ADD TO MY ACCESS
                                 </button>
                                 <button
                                     onClick={handleUpsellDecline}
-                                    className="w-full text-muted-foreground hover:text-muted-foreground text-sm font-medium"
+                                    className="w-full text-slate-400 hover:text-slate-600 text-xs font-black uppercase tracking-widest transition-colors"
                                 >
-                                    No thanks, I'll pass on this huge savings
+                                    No thanks, I'll pass on this 85% discount
                                 </button>
                             </div>
                         </div>
                     )}
 
                     {step === 'downsell1' && (
-                        <div className="p-8">
-                            <div className="text-center mb-6">
-                                <Gift className="w-12 h-12 text-blue-500 mx-auto mb-2" />
-                                <h2 className="text-xl font-bold">How about a smaller pack?</h2>
-                                <p className="text-muted-foreground text-sm">Get just History & Geography with your Polity.</p>
+                        <div className="p-10">
+                            <div className="text-center mb-8">
+                                <div className="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <Gift className="w-8 h-8 text-indigo-600" />
+                                </div>
+                                <h2 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Last Chance Offer</h2>
+                                <p className="text-slate-500 font-medium">Add {isGeography ? "Modern History" : "Core subjects"} for an extra edge.</p>
                             </div>
 
-                            <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border border-blue-200 mb-6 text-center">
-                                <h3 className="font-bold mb-1">Mini-Bundle Offer</h3>
-                                <div className="text-2xl font-bold text-blue-700">Add for ₹1999</div>
+                            <div className="bg-indigo-50 dark:bg-indigo-900/10 p-8 rounded-3xl border border-indigo-100 dark:border-indigo-800 mb-8 text-center">
+                                <div className="text-[10px] font-black uppercase tracking-widest text-indigo-600 mb-2">Dynamic Selection</div>
+                                <h3 className="font-black text-xl text-slate-900 dark:text-white mb-1 uppercase">Add for ₹{isGeography ? "249" : "1,999"}</h3>
                             </div>
 
-                            <div className="space-y-3">
+                            <div className="space-y-4">
                                 <button
                                     onClick={handleDownsellAccept}
-                                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold shadow-lg"
+                                    className="w-full h-16 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl shadow-indigo-600/20"
                                 >
-                                    Yes, Add This Pack
+                                    Build My Bundle
                                 </button>
                                 <button
                                     onClick={() => setStep('success')}
-                                    className="w-full text-muted-foreground hover:text-muted-foreground text-sm"
+                                    className="w-full text-slate-400 hover:text-slate-600 text-xs font-black uppercase tracking-widest"
                                 >
-                                    No thanks, just the single subject
+                                    Proceed with single subject only
                                 </button>
                             </div>
                         </div>
                     )}
 
                     {step === 'success' && (
-                        <div className="p-8 text-center relative">
-                            <Confetti numberOfPieces={200} recycle={false} />
-                            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <CheckCircle className="w-10 h-10 text-green-600" />
+                        <div className="p-10 text-center relative">
+                            <Confetti numberOfPieces={100} recycle={false} />
+                            <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <CheckCircle className="w-10 h-10 text-emerald-600" />
                             </div>
-                            <h2 className="text-2xl font-bold mb-2">Order Confirmed!</h2>
-                            <p className="text-muted-foreground mb-6">Thank you for your purchase.</p>
+                            <h2 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">READY TO UNLOCK</h2>
+                            <p className="text-slate-500 font-medium mb-8 uppercase text-[10px] tracking-widest">Final Order Verification</p>
 
-                            <div className="bg-muted rounded-xl p-4 mb-6 text-left">
-                                <p className="text-xs font-bold uppercase text-muted-foreground mb-2">Order Summary</p>
+                            <div className="bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-6 mb-8 text-left border border-slate-100 dark:border-slate-800">
                                 {items.map((item, idx) => (
-                                    <div key={idx} className="flex justify-between items-center py-2 border-b border-border last:border-0">
-                                        <span className="font-medium">{item}</span>
-                                        <CheckCircle className="w-4 h-4 text-green-500" />
+                                    <div key={idx} className="flex justify-between items-center py-3 border-b border-slate-200 dark:border-slate-700 last:border-0">
+                                        <span className="font-bold text-slate-700 dark:text-slate-200 text-sm uppercase tracking-tight">{item}</span>
+                                        <CheckCircle className="w-4 h-4 text-emerald-500" />
                                     </div>
                                 ))}
-                                <div className="mt-4 pt-2 border-t border-border flex justify-between font-bold">
-                                    <span>Total Paid</span>
-                                    <span>₹{totalPrice}</span>
+                                <div className="mt-6 pt-6 border-t border-slate-300 dark:border-slate-600 flex justify-between items-baseline">
+                                    <span className="font-black text-xs uppercase tracking-widest text-slate-400">Total Payable</span>
+                                    <span className="text-3xl font-black text-slate-900 dark:text-white font-mono">₹{totalPrice}</span>
                                 </div>
                             </div>
 
                             <button
-                                onClick={onClose}
-                                className="w-full bg-gray-900 dark:bg-card text-white dark:text-black py-3 rounded-xl font-bold"
+                                onClick={handleFinalDone}
+                                className="w-full h-16 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-black uppercase tracking-widest text-sm shadow-2xl transition-transform active:scale-95"
                             >
-                                Go to Dashboard
+                                Initiate Secure Payment
                             </button>
                         </div>
                     )}

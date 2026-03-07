@@ -237,9 +237,19 @@ function CurrentAffairsCentralContent() {
                                         <BookOpen className="w-3 h-3 mr-2" />
                                         Attempt in L3 Drill
                                     </Button>
+                                ) : item.related_topic_id && item.subject === 'Geography' ? (
+                                    <Button
+                                        variant="default"
+                                        size="sm"
+                                        className="bg-blue-600 hover:bg-blue-700 text-white text-xs whitespace-nowrap"
+                                        onClick={() => router.push(`/student/batch1/geography?view=lesson&topicId=${item.related_topic_id}`)}
+                                    >
+                                        <BookOpen className="w-3 h-3 mr-2" />
+                                        Revise This Concept →
+                                    </Button>
                                 ) : (
-                                    <Button variant="ghost" disabled size="sm" className="text-xs text-muted-foreground">
-                                        No Drill Link
+                                    <Button variant="ghost" disabled size="sm" className="text-xs text-muted-foreground whitespace-nowrap">
+                                        No Link Available
                                     </Button>
                                 )}
                             </div>
