@@ -1,4 +1,4 @@
-import { Flashcard, MCQ, HandwrittenNote, TimelineEvent } from "../../ancient-types-27"; 
+import { Flashcard, MCQ, HandwrittenNote, TimelineEvent } from "../../ancient-types-27";
 
 export const CH6_SUMMARY = "Human Evolution: The Old Stone Age";
 export const CH6_KEY_POINTS = [
@@ -1492,5 +1492,23 @@ export const CH6_L3_MCQS: MCQ[] = [
         "tags": [
             "history"
         ]
+    }
+];
+
+export const CH6_CURRENT_AFFAIRS = [
+    {
+        title: "Dholavira: UNESCO World Heritage Status",
+        date: "July 2021",
+        summary: "Dholavira, the Harappan city in Gujarat, was inscribed on the UNESCO World Heritage List. It is the first site of the ancient Indus Valley Civilization in India to receive this tag. The city is known for its unique water management system and multi-layered defensive mechanisms."
+    },
+    {
+        title: "Rakhigarhi Excavations: DNA Analysis",
+        date: "2019-2023",
+        summary: "Recent DNA analysis of skeletal remains from Rakhigarhi (Haryana) has challenged existing theories about Aryan migration. The study suggests a local origin for the Harappan people and provides insights into their dietary habits and genetic ancestry."
+    },
+    {
+        title: "Ancient 'Dairy' Processing in Gujarat",
+        date: "2020",
+        summary: "Molecular analysis of ceramic vessels from Kotada Bhadli (Gujarat) confirmed the processing of dairy products by Harappans as early as 2500 BC, providing the earliest direct evidence of dairy processing in the Indus Valley Civilization."
     }
 ];

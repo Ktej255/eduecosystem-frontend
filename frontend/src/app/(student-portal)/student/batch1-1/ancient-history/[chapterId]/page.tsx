@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { useParams, useRouter } from "next/navigation";
 import {
-    ArrowLeft, BookOpen, CheckCircle2, ChevronRight, ChevronLeft,
+    ArrowLeft, ArrowRight, BookOpen, CheckCircle2, ChevronRight, ChevronLeft,
     FileText, Brain, Target, Compass, Zap, Layers,
     GraduationCap, RotateCcw, Clock, Lightbulb, AlertTriangle, Newspaper, Swords, History, MapPin, Map
 } from "lucide-react";
@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
     ANCIENT_TOPICS, getAncientPartById,
-    SECTION_STATUS_COLORS, SectionStatus, ChapterProgress, MCQ, Flashcard
+    SECTION_STATUS_COLORS, SectionStatus, ChapterProgress, MCQ, Flashcard, SequenceQuestion, SpacedRepetitionData
 } from "@/components/batch1/history/data/ancient-types-27";
 import { useLanguageStore } from "@/lib/language-store";
 import { ancientChapterData } from "@/components/batch1/history/data/mcqs/ancient/registry";
@@ -21,6 +21,7 @@ import { ANCIENT_COMPARISONS } from "@/components/batch1/history/data/mcqs/ancie
 import { ANCIENT_TRENDS } from "@/components/batch1/history/data/mcqs/ancient/trends";
 import { ANCIENT_TRAVELERS } from "@/components/batch1/history/data/mcqs/ancient/travelers";
 import { ANCIENT_ARTIFACTS } from "@/components/batch1/history/data/mcqs/ancient/artifacts";
+import { ANCIENT_MAINS_ANGLES } from "@/components/batch1/history/data/mcqs/ancient/mains";
 
 // Helper color mapper
 const getPartColors = (colorStr: string) => {
@@ -52,7 +53,9 @@ const TAB_META: { key: keyof ChapterProgress; label: string; icon: React.Element
 function StatusDot({ status }: { status: SectionStatus }) {
     return (
         <span className={`inline-block w-2.5 h-2.5 rounded-full ${status === 'not-started' ? 'bg-zinc-500' :
-            status === 'in-progress' ? 'bg-amber-400 animate-pulse' : 'bg-emerald-400'
+            status === 'in-progress' ? 'bg-amber-400 animate-pulse' :
+                status === 'platinum' ? 'bg-zinc-100 shadow-[0_0_8px_rgba(255,255,255,0.5)]' :
+                    'bg-emerald-400'
             }`} />
     );
 }
@@ -323,6 +326,21 @@ function ArtifactGallery({ artifacts }: { artifacts: any[] }) {
                                     <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest block mb-1">UPSC Significance</span>
                                     <p className="text-indigo-100 text-sm leading-relaxed italic font-medium">&quot;{selected.upscSignificance}&quot;</p>
                                 </div>
+                                {selected.relatedPyqIds && (
+                                    <div className="p-4 bg-zinc-800/50 border border-zinc-700/50 rounded-2xl">
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <Target className="h-3 w-3 text-orange-400" />
+                                            <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest">Related Past Years Questions</span>
+                                        </div>
+                                        <div className="space-y-2">
+                                            {selected.relatedPyqIds.map((pyq: string, pIdx: number) => (
+                                                <div key={pIdx} className="text-[10px] py-1 px-3 bg-zinc-800 rounded-lg text-zinc-300 font-bold border border-zinc-700/50">
+                                                    {pyq}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                             <Button className="w-full mt-6 bg-zinc-100 text-zinc-900 font-black hover:bg-white" onClick={() => setSelected(null)}>
                                 Close Inspection
@@ -330,6 +348,145 @@ function ArtifactGallery({ artifacts }: { artifacts: any[] }) {
                         </div>
                     </div>
                 </div>
+            )}
+        </div>
+    );
+}
+
+// ============= In the News: Current Affairs Bridge =============
+function AncientHistoryNews({ news }: { news: any[] }) {
+    if (!news || news.length === 0) return null;
+
+    return (
+        <div className="mt-12 p-8 bg-zinc-950/40 border border-zinc-800/60 rounded-3xl relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-all pointer-events-none">
+                <Newspaper className="h-32 w-32 rotate-12" />
+            </div>
+
+            <div className="relative z-10 space-y-6">
+                <div className="flex items-center gap-2">
+                    <div className="p-2 bg-rose-950/30 rounded-lg border border-rose-500/20">
+                        <Newspaper className="h-4 w-4 text-rose-400" />
+                    </div>
+                    <h3 className="text-lg font-black text-zinc-100 uppercase tracking-tighter">In the News: Current Affairs Bridge</h3>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {news.map((item, i) => (
+                        <div key={i} className="flex flex-col gap-3 p-5 rounded-2xl bg-zinc-900 border border-zinc-800/80 hover:border-rose-500/30 transition-all">
+                            <div className="flex items-center justify-between">
+                                <span className="text-[10px] font-black text-rose-500 uppercase tracking-widest bg-rose-500/10 px-2 py-0.5 rounded-full">{item.date}</span>
+                                {item.link && (
+                                    <Badge variant="outline" className="text-[8px] border-zinc-700 text-zinc-500">Official Link</Badge>
+                                )}
+                            </div>
+                            <h4 className="text-sm font-bold text-zinc-100 group-hover:text-rose-200 transition-colors leading-tight">{item.title}</h4>
+                            <p className="text-xs text-zinc-400 leading-relaxed line-clamp-3">{item.summary}</p>
+                            <Button variant="ghost" size="sm" className="mt-auto h-8 text-[10px] uppercase font-black tracking-widest text-zinc-500 hover:text-rose-400 hover:bg-rose-500/5 justify-start p-0">
+                                View Full Context <ArrowRight className="h-3 w-3 ml-1.5" />
+                            </Button>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// ============= Chronological Drill Component =============
+function ChronologicalDrill({ drills }: { drills: SequenceQuestion[] }) {
+    const [currentIdx, setCurrentIdx] = useState(0);
+    const [userOrder, setUserOrder] = useState<string[]>([]);
+    const [showResult, setShowResult] = useState(false);
+    const [isCorrect, setIsCorrect] = useState(false);
+
+    const drill = drills[currentIdx];
+
+    const handleItemClick = (id: string) => {
+        if (userOrder.includes(id)) {
+            setUserOrder(userOrder.filter(i => i !== id));
+        } else if (userOrder.length < drill.items.length) {
+            setUserOrder([...userOrder, id]);
+        }
+    };
+
+    const checkOrder = () => {
+        const correct = JSON.stringify(userOrder) === JSON.stringify(drill.correctOrder);
+        setIsCorrect(correct);
+        setShowResult(true);
+    };
+
+    const nextDrill = () => {
+        setShowResult(false);
+        setUserOrder([]);
+        setCurrentIdx((currentIdx + 1) % drills.length);
+    };
+
+    return (
+        <div className="p-6 bg-zinc-900/80 border border-zinc-800 rounded-3xl space-y-6">
+            <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                    <div className="p-2 bg-purple-900/30 rounded-lg border border-purple-500/20">
+                        <History className="h-4 w-4 text-purple-400" />
+                    </div>
+                    <h3 className="text-lg font-black text-zinc-100 uppercase tracking-tighter">Chronological Drill</h3>
+                </div>
+                <Badge className="bg-purple-500/10 text-purple-400 border-purple-500/20 text-[10px] px-3">
+                    {currentIdx + 1} / {drills.length}
+                </Badge>
+            </div>
+
+            <p className="text-zinc-100 font-bold leading-relaxed">{drill.question}</p>
+
+            <div className="space-y-3">
+                <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest block mb-2">Select items in correct chronological order:</span>
+                <div className="grid grid-cols-1 gap-2">
+                    {drill.items.map((item) => {
+                        const orderIdx = userOrder.indexOf(item.id);
+                        return (
+                            <div
+                                key={item.id}
+                                onClick={() => !showResult && handleItemClick(item.id)}
+                                className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-center justify-between group
+                                    ${orderIdx !== -1
+                                        ? 'bg-purple-900/20 border-purple-500'
+                                        : 'bg-zinc-800/50 border-zinc-700 hover:border-zinc-500'}`}
+                            >
+                                <span className={`text-sm font-medium ${orderIdx !== -1 ? 'text-white' : 'text-zinc-400'}`}>
+                                    {item.content}
+                                </span>
+                                {orderIdx !== -1 && (
+                                    <div className="h-6 w-6 rounded-full bg-purple-500 flex items-center justify-center text-[10px] font-black text-white">
+                                        {orderIdx + 1}
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+
+            {showResult ? (
+                <div className={`p-6 rounded-2xl border animate-in slide-in-from-top-2 duration-300 ${isCorrect ? 'bg-emerald-900/20 border-emerald-500/50' : 'bg-red-900/20 border-red-500/50'}`}>
+                    <div className="flex items-center gap-3 mb-3">
+                        {isCorrect ? <CheckCircle2 className="h-5 w-5 text-emerald-400" /> : <AlertTriangle className="h-5 w-5 text-red-400" />}
+                        <h4 className={`font-black ${isCorrect ? 'text-emerald-400' : 'text-red-400'}`}>
+                            {isCorrect ? 'EXCELLENT!' : 'NOT QUITE...'}
+                        </h4>
+                    </div>
+                    <p className="text-sm text-zinc-300 leading-relaxed mb-4">{drill.explanation}</p>
+                    <Button onClick={nextDrill} className="w-full bg-zinc-100 text-zinc-900 hover:bg-white font-black">
+                        Next Sequence
+                    </Button>
+                </div>
+            ) : (
+                <Button
+                    disabled={userOrder.length !== drill.items.length}
+                    onClick={checkOrder}
+                    className="w-full bg-purple-500 hover:bg-purple-600 text-white font-black"
+                >
+                    Lock Sequence
+                </Button>
             )}
         </div>
     );
@@ -367,6 +524,24 @@ function TravelerLog({ traveler }: { traveler: any }) {
                     </div>
                 ))}
             </div>
+
+            {/* Primary Observation Bank */}
+            {traveler.primaryObservations && traveler.primaryObservations.length > 0 && (
+                <div className="pt-6 border-t border-zinc-800/50 space-y-4">
+                    <div className="flex items-center gap-2 text-[10px] font-black text-zinc-500 uppercase tracking-widest">
+                        <History className="h-3 w-3" /> Verbatim Observation Bank
+                    </div>
+                    <div className="space-y-3">
+                        {traveler.primaryObservations.map((obs: string, i: number) => (
+                            <div key={i} className="bg-purple-950/10 border-l-2 border-purple-500/50 p-3 rounded-r-xl">
+                                <p className="text-xs text-zinc-300 leading-relaxed font-serif italic">
+                                    {obs}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
@@ -416,6 +591,51 @@ function DynastyCompare({ currentCh, compareCh }: { currentCh: number; compareCh
                         </div>
                     );
                 })}
+            </div>
+        </div>
+    );
+}
+
+// ============= Revision Engine: Platinum Mastery =============
+function PlatinumMastery({ spacing }: { spacing?: SpacedRepetitionData }) {
+    if (!spacing) return null;
+
+    return (
+        <div className="mt-12 p-8 bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-500/30 rounded-3xl relative overflow-hidden group">
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none" />
+            <div className="absolute top-0 right-0 p-8 opacity-20 group-hover:opacity-40 transition-all">
+                <Zap className="h-32 w-32 text-zinc-400 blur-sm" />
+            </div>
+
+            <div className="relative z-10 space-y-6">
+                <div className="flex items-center gap-3">
+                    <div className="p-3 bg-zinc-100 rounded-xl shadow-lg shadow-white/5">
+                        <Zap className="h-5 w-5 text-zinc-900" />
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-black text-white italic uppercase tracking-tighter">Platinum Mastery Status</h3>
+                        <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">Advanced Spaced Repetition Active</p>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="p-4 rounded-2xl bg-zinc-800/40 border border-zinc-700/50">
+                        <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Last Revised</span>
+                        <p className="text-white font-bold">{new Date(spacing.lastRevised).toLocaleDateString()}</p>
+                    </div>
+                    <div className="p-4 rounded-2xl bg-zinc-800/40 border border-zinc-700/50">
+                        <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Next Revision Peak</span>
+                        <p className="text-amber-400 font-bold">{new Date(spacing.nextRevision).toLocaleDateString()}</p>
+                    </div>
+                    <div className="p-4 rounded-2xl bg-zinc-100 border-0">
+                        <span className="text-[10px] font-black text-zinc-900 uppercase tracking-widest">Revision Streak</span>
+                        <p className="text-zinc-900 font-black text-lg">{spacing.streak} Cycles</p>
+                    </div>
+                </div>
+
+                <p className="text-xs text-zinc-400 leading-relaxed max-w-xl">
+                    You have reached <strong className="text-white">Platinum Mastery</strong>. This chapter is now in your long-term memory. The next revision is scheduled for the optimal decay point to ensure zero-loss retention.
+                </p>
             </div>
         </div>
     );
@@ -549,6 +769,12 @@ export default function AncientHistoryChapterPage() {
             case 'l3': return data[`CH${chapterId}_L3_MCQS`] || [];
             default: return [];
         }
+    };
+
+    const getSequenceDrills = (): SequenceQuestion[] => {
+        const data = ancientChapterData[chapterId];
+        if (!data) return [];
+        return data[`CH${chapterId}_SEQUENCE_DRILLS`] || [];
     };
 
     const startMegaDrill = () => {
@@ -779,6 +1005,63 @@ export default function AncientHistoryChapterPage() {
                                         {ANCIENT_ARTIFACTS[chapterId] && (
                                             <ArtifactGallery artifacts={ANCIENT_ARTIFACTS[chapterId]} />
                                         )}
+
+                                        {/* UPSC MAINS ANGLE (Conditional) */}
+                                        {ANCIENT_MAINS_ANGLES[chapterId] && (
+                                            <div className="mt-12 p-8 bg-zinc-950/50 border border-zinc-800 rounded-3xl relative overflow-hidden group">
+                                                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-all">
+                                                    <BookOpen className="h-32 w-32 -rotate-12" />
+                                                </div>
+                                                <div className="relative z-10 space-y-6">
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="p-2 bg-orange-950/30 rounded-lg border border-orange-500/20">
+                                                            <Target className="h-4 w-4 text-orange-400" />
+                                                        </div>
+                                                        <h3 className="text-lg font-black text-zinc-100 uppercase tracking-tighter">Mains Mastery Angle</h3>
+                                                    </div>
+
+                                                    <div className="space-y-4">
+                                                        <div className="space-y-2">
+                                                            <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Probable Question</span>
+                                                            <p className="text-zinc-100 font-bold leading-relaxed">{ANCIENT_MAINS_ANGLES[chapterId].likelyQuestion}</p>
+                                                        </div>
+
+                                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                            <div className="space-y-3">
+                                                                <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Strategic Points</span>
+                                                                <ul className="space-y-2">
+                                                                    {ANCIENT_MAINS_ANGLES[chapterId].keyPoints.map((pt, i) => (
+                                                                        <li key={i} className="flex gap-2 text-sm text-zinc-400">
+                                                                            <ChevronRight className="h-4 w-4 text-orange-500/50 shrink-0 mt-0.5" />
+                                                                            {pt}
+                                                                        </li>
+                                                                    ))}
+                                                                </ul>
+                                                            </div>
+                                                            <div className="space-y-3">
+                                                                <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Killer Vocabulary</span>
+                                                                <div className="flex flex-wrap gap-2">
+                                                                    {ANCIENT_MAINS_ANGLES[chapterId].vocabulary.map((voc, i) => (
+                                                                        <Badge key={i} variant="outline" className="bg-orange-500/5 border-orange-500/20 text-orange-200 text-[10px] font-black uppercase tracking-widest py-1">
+                                                                            {voc}
+                                                                        </Badge>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {/* IN THE NEWS: Current Affairs Bridge (Conditional) */}
+                                        {ancientChapterData[chapterId][`CH${chapterId}_CURRENT_AFFAIRS`] && (
+                                            <AncientHistoryNews news={ancientChapterData[chapterId][`CH${chapterId}_CURRENT_AFFAIRS`]} />
+                                        )}
+
+                                        {/* PLATINUM MASTERY: Spaced Repetition (Conditional) */}
+                                        {part.readSection === 'platinum' && (
+                                            <PlatinumMastery spacing={part.spacing} />
+                                        )}
                                     </>
                                 ) : (
                                     <div className="text-center py-16 space-y-4">
@@ -867,18 +1150,28 @@ export default function AncientHistoryChapterPage() {
                                     )}
                                 </div>
                                 {(() => {
+                                    const drills = getSequenceDrills();
                                     const mcqs = getChapterMCQs(activeTab);
-                                    if (mcqs.length > 0) {
-                                        return <MCQEngine questions={mcqs} title={activeTab.toUpperCase()} />;
-                                    }
+
                                     return (
-                                        <div className="text-center py-16 space-y-4">
-                                            <div className={`inline-flex items-center justify-center p-4 rounded-full mb-4 ${activeTab === 'l1' ? 'bg-green-900/30' : activeTab === 'l2' ? 'bg-orange-900/30' : 'bg-red-900/30'
-                                                }`}>
-                                                <Target className={`h-10 w-10 ${activeTab === 'l1' ? 'text-green-400' : activeTab === 'l2' ? 'text-orange-400' : 'text-red-400'}`} />
-                                            </div>
-                                            <h3 className="text-2xl font-semibold text-zinc-200">MCQs Loading</h3>
-                                            <p className="text-zinc-500 max-w-md mx-auto">Questions for this chapter are being forged.</p>
+                                        <div className="space-y-12">
+                                            {/* Priority Drill: Chronological Ordering */}
+                                            {drills.length > 0 && activeTab === 'l1' && (
+                                                <ChronologicalDrill drills={drills} />
+                                            )}
+
+                                            {mcqs.length > 0 ? (
+                                                <MCQEngine questions={mcqs} title={activeTab.toUpperCase()} />
+                                            ) : (
+                                                <div className="text-center py-16 space-y-4">
+                                                    <div className={`inline-flex items-center justify-center p-4 rounded-full mb-4 ${activeTab === 'l1' ? 'bg-green-900/30' : activeTab === 'l2' ? 'bg-orange-900/30' : 'bg-red-900/30'
+                                                        }`}>
+                                                        <Target className={`h-10 w-10 ${activeTab === 'l1' ? 'text-green-400' : activeTab === 'l2' ? 'text-orange-400' : 'text-red-400'}`} />
+                                                    </div>
+                                                    <h3 className="text-2xl font-semibold text-zinc-200">MCQs Loading</h3>
+                                                    <p className="text-zinc-500 max-w-md mx-auto">Questions for this chapter are being forged.</p>
+                                                </div>
+                                            )}
                                         </div>
                                     );
                                 })()}

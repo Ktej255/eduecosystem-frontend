@@ -1,4 +1,4 @@
-import { Flashcard, MCQ, HandwrittenNote, TimelineEvent } from "../../ancient-types-27"; 
+import { Flashcard, MCQ, HandwrittenNote, TimelineEvent, SequenceQuestion } from "../../ancient-types-27";
 
 export const CH14_SUMMARY = "The Maurya Age";
 export const CH14_KEY_POINTS = [
@@ -1390,5 +1390,47 @@ export const CH14_L3_MCQS: MCQ[] = [
         "tags": [
             "history"
         ]
+    }
+];
+
+export const CH14_SEQUENCE_DRILLS: SequenceQuestion[] = [
+    {
+        id: "ch14-seq-1",
+        question: "Arrange the following Mauryan rulers in their correct chronological order of succession:",
+        items: [
+            { id: "seq-1-a", content: "Bindusara" },
+            { id: "seq-1-b", content: "Chandragupta Maurya" },
+            { id: "seq-1-c", content: "Brihadratha" },
+            { id: "seq-1-d", content: "Asoka" }
+        ],
+        correctOrder: ["seq-1-b", "seq-1-a", "seq-1-d", "seq-1-c"],
+        explanation: "Chandragupta Maurya founded the empire (c. 321 BC), followed by his son Bindusara, then Asoka the Great. Brihadratha was the last Mauryan ruler, assassinated in 185 BC.",
+        difficulty: "easy"
+    },
+    {
+        id: "ch14-seq-2",
+        question: "Order the following events of Asoka's life chronologically:",
+        items: [
+            { id: "seq-2-a", content: "Kalinga War" },
+            { id: "seq-2-b", content: "Coronation (Abhisheka)" },
+            { id: "seq-2-c", content: "Remorse and Adoption of Dhamma" },
+            { id: "seq-2-d", content: "Appointment of Dhamma Mahamattas" }
+        ],
+        correctOrder: ["seq-2-b", "seq-2-a", "seq-2-c", "seq-2-d"],
+        explanation: "Asoka was crowned in 269 BC. The Kalinga war happened in his 8th regnal year (c. 261 BC), followed by his deep remorse and conversion, and later the appointment of Dhamma Mahamattas in his 13th regnal year.",
+        difficulty: "moderate"
+    }
+];
+
+export const CH14_CURRENT_AFFAIRS = [
+    {
+        title: "Relevance of Arthasastra in Modern Diplomacy",
+        date: "2023",
+        summary: "The Indian Ministry of External Affairs has increasingly referenced Kautilya's Arthasastra as a foundational text for Indian strategic thought. Scholars are bridging ancient 'Mandala' theory with modern realpolitik and neighborhood-first policies."
+    },
+    {
+        title: "Maurya-era Artefacts found in Bihar",
+        date: "2022",
+        summary: "New excavations near Pataliputra (modern Patna) have unearthed polished sandstone pillars and pottery shards that confirm the city's sophisticated drainage and palatial architecture as described by Megasthenes."
     }
 ];

@@ -4,7 +4,7 @@
 
 export type PartId = 'I' | 'II' | 'III' | 'IV';
 export type Priority = 'High' | 'Medium' | 'Low';
-export type SectionStatus = 'not-started' | 'in-progress' | 'completed';
+export type SectionStatus = 'not-started' | 'in-progress' | 'completed' | 'platinum';
 
 export interface TimelineEvent {
     year: string;
@@ -48,6 +48,22 @@ export interface MCQ {
     };
 }
 
+export interface SequenceQuestion {
+    id: string;
+    question: string;
+    items: { id: string; content: string }[];
+    correctOrder: string[]; // Array of IDs in correct sequence
+    explanation: string;
+    difficulty: 'easy' | 'moderate' | 'tough';
+}
+
+export interface SpacedRepetitionData {
+    lastRevised: string; // ISO Date
+    nextRevision: string; // ISO Date
+    interval: number; // in days
+    streak: number;
+}
+
 export interface ChapterProgress {
     readSection: SectionStatus;
     flashcards: SectionStatus;
@@ -55,6 +71,7 @@ export interface ChapterProgress {
     l1: SectionStatus;
     l2: SectionStatus;
     l3: SectionStatus;
+    spacing?: SpacedRepetitionData;
 }
 
 export interface AncientTopic27 {
@@ -74,6 +91,13 @@ export interface AncientTopic27 {
     l1Mcqs?: MCQ[];      // Foundation - book recall only
     l2Mcqs?: MCQ[];      // UPSC Moderate
     l3Mcqs?: MCQ[];      // UPSC Tough + Current Affairs
+    sequenceDrills?: SequenceQuestion[]; // Chronological Ordering Drills
+    currentAffairsNews?: {
+        title: string;
+        date: string;
+        link?: string;
+        summary: string;
+    }[];
 
     // Metadata
     priority: Priority;
