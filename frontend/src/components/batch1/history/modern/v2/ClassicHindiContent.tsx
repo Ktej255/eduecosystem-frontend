@@ -49,7 +49,7 @@ export default function ClassicHindiContent({ data, fontSize }: ClassicHindiCont
             </div>
 
             {/* Support for Mind Map data as a summary list if it exists */}
-            {data.mindMapBranches && (
+            {data?.mindMapBranches && (
                 <div className="bg-orange-50 p-6 rounded-xl border border-orange-200 mb-8">
                     <h3 className="text-lg font-bold text-orange-800 mb-3 border-b border-orange-200 pb-1">
                         {data.sourcesCenter || "Key Areas"}
@@ -64,7 +64,7 @@ export default function ClassicHindiContent({ data, fontSize }: ClassicHindiCont
                 </div>
             )}
 
-            {data.sections.map((section, sidx) => (
+            {data?.sections?.map((section, sidx) => (
                 <div key={sidx} className="mb-10">
                     {section.title && (
                         <h2 className="text-2xl font-bold text-blue-900 mb-4 border-l-4 border-blue-900 pl-4">

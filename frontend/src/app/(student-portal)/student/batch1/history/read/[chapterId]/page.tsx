@@ -106,11 +106,11 @@ function HistoryReadContent() {
     useEffect(() => {
         if (searchParams.get('v') === '2') {
             const v2Supported = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39'];
-            if (v2Supported.includes(chapterId)) {
+            if (v2Supported.includes(chapterId) && section === 'modern') {
                 setVersion('v2');
             }
         }
-    }, [searchParams, chapterId]);
+    }, [searchParams, chapterId, section]);
 
     const handlePrevious = () => {
         const currentId = parseInt(chapterId);
@@ -243,7 +243,7 @@ function HistoryReadContent() {
                         <Button
                             variant="ghost"
                             size="sm"
-                            onClick={() => router.push(`/student/batch1/history?tab=dashboard&section=${section}`)}
+                            onClick={() => router.back()}
                             className="text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                         >
                             <ArrowLeft className="w-5 h-5 mr-1" /> <span className="hidden sm:inline">Back</span>
@@ -352,7 +352,7 @@ function HistoryReadContent() {
                             {/* Content */}
                             <div className="md:pl-8 relative z-10">
                                 {language === 'hi' ? (
-                                    ALL_MODERN_TRANSLATIONS[chapterId] ? (
+                                    section === 'modern' && ALL_MODERN_TRANSLATIONS[chapterId] && ALL_MODERN_TRANSLATIONS[chapterId].hi ? (
                                         <ClassicHindiContent
                                             data={ALL_MODERN_TRANSLATIONS[chapterId].hi}
                                             fontSize={fontSize}
