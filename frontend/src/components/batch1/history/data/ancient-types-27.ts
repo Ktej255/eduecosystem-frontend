@@ -191,5 +191,6 @@ export function getAncientTopicById(topicId: number) {
 export const SECTION_STATUS_COLORS: Record<SectionStatus, { bg: string; text: string; border: string }> = {
     'not-started': { bg: 'bg-zinc-800/50', text: 'text-zinc-400', border: 'border-zinc-700' },
     'in-progress': { bg: 'bg-amber-900/30', text: 'text-amber-400', border: 'border-amber-600' },
-    'completed': { bg: 'bg-emerald-900/30', text: 'text-emerald-400', border: 'border-emerald-600' }
+    'completed': { bg: 'bg-emerald-900/30', text: 'text-emerald-400', border: 'border-emerald-600' },
+    'platinum': { bg: 'bg-zinc-100/5', text: 'text-zinc-100', border: 'border-zinc-400' },
 };

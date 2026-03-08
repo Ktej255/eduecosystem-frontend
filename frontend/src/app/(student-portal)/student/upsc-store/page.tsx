@@ -53,6 +53,24 @@ const PRODUCTS = [
         badge: null
     },
     {
+        id: 'history_ancient',
+        title: "Ancient History (R.S. Sharma)",
+        price: 299,
+        originalPrice: 999,
+        description: "Master 27 chapters of India's Ancient Past. 2,700+ MCQs, AI Artifact Gallery, Traveler's Log, VS Battle Mode & Spaced Repetition.",
+        features: [
+            "27 Chapters (R.S. Sharma) + 2,700+ MCQs",
+            "3-Level Difficulty Engine (L1/L2/L3)",
+            "AI Artifact Gallery with PYQ Linking",
+            "Dynasty Battle (VS) Engine",
+            "Platinum Mastery (Spaced Repetition)"
+        ],
+        icon: BookOpen,
+        color: "from-stone-500 to-amber-700",
+        bestValue: false,
+        badge: "🏛️ New"
+    },
+    {
         id: 'full_upsc',
         title: "Full UPSC Bundle",
         price: 2499,
@@ -147,7 +165,11 @@ function StorePageContent() {
                         if (vRes.ok) {
                             const vData = await vRes.json();
                             if (vData.status === 'success') {
-                                router.push(`/student/batch1/${subjectIds[0] === 'level2' ? 'polity' : subjectIds[0] === 'history_modern' ? 'history' : subjectIds[0]}?unlocked=1`);
+                                router.push(`/student/batch1/${subjectIds[0] === 'level2' ? 'polity' :
+                                        subjectIds[0] === 'history_modern' ? 'history' :
+                                            subjectIds[0] === 'history_ancient' ? 'batch1-1/ancient-history' :
+                                                subjectIds[0]
+                                    }?unlocked=1`);
                             }
                         }
                     }

@@ -696,6 +696,22 @@ function FlashcardDeck({ cards }: { cards: Flashcard[] }) {
                     Next <ChevronRight className="h-4 w-4 ml-1" />
                 </Button>
             </div>
+
+            {/* End-of-Deck CTA */}
+            {currentIdx === cards.length - 1 && (
+                <div className="mt-6 pt-6 border-t border-zinc-800 text-center space-y-3">
+                    <p className="text-sm text-emerald-400 font-bold">🎉 All {cards.length} flashcards reviewed!</p>
+                    <div className="flex justify-center gap-3">
+                        <Button
+                            size="sm"
+                            onClick={() => { setCurrentIdx(0); setFlipped(false); }}
+                            className="bg-zinc-800 hover:bg-zinc-700 text-zinc-300 border border-zinc-700"
+                        >
+                            <RotateCcw className="h-3 w-3 mr-1" /> Restart
+                        </Button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
@@ -708,7 +724,7 @@ export default function AncientHistoryChapterPage() {
 
     const [activeTab, setActiveTab] = useState('readSection');
     const [progress, setProgress] = useState<ChapterProgress>(DEFAULT_PROGRESS);
-    const [language, setLanguage] = useState<'en' | 'hi'>('en');
+    const { language, setLanguage } = useLanguageStore();
     const [isMegaDrill, setIsMegaDrill] = useState(false);
     const [megaQuestions, setMegaQuestions] = useState<MCQ[]>([]);
     const [isRecallMode, setIsRecallMode] = useState(false);
