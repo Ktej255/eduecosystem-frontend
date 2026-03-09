@@ -1,0 +1,27 @@
+version: "2"
+type: frontend
+tech_stack:
+  - typescript
+  - next.js
+  - react
+routes:
+  - path: /login
+    file: src/app/(auth)/login/page.tsx
+    auth_required: false
+    description: User login page
+  - path: /register
+    file: src/app/(auth)/register/page.tsx
+    auth_required: false
+    description: User registration
+features:
+  - name: User Login
+    description: Login with email and password credentials
+    files:
+      - src/app/(auth)/login/page.tsx
+    entry_route: /login
+    user_interactions:
+      - Fill email input field
+      - Fill password input field
+      - Click Login button to submit
+    auth_required: false
+known_limitations: []

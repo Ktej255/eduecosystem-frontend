@@ -35,6 +35,7 @@ from app.api.api_v1.endpoints import (
     quizzes,
     assignments,
     holistic,
+    payment,
 )
 
 
@@ -314,6 +315,10 @@ api_router.include_router(live_classes.router, prefix="/live-classes", tags=["li
 # Orders
 from app.api.api_v1.endpoints import order
 api_router.include_router(order.router, prefix="/orders", tags=["orders"])
+
+# Payment Gateway
+from app.api.api_v1.endpoints import payment
+api_router.include_router(payment.router, prefix="/payment", tags=["payment"])
 
 # Cart
 from app.api.api_v1.endpoints import cart

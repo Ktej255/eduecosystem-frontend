@@ -19,12 +19,12 @@ def run_command(cmd):
         result = subprocess.run(cmd, shell=True, check=True, capture_output=True, text=True)
         return result.stdout.strip()
     except subprocess.CalledProcessError as e:
-        print(f"❌ Command Failed: {cmd}")
+        print(f"Command Failed: {cmd}")
         print(f"Error: {e.stderr}")
         sys.exit(1)
 
 def make_zip_file(source_dir, output_filename):
-    print(f"📦 Zipping {source_dir} -> {output_filename}...")
+    print(f"Zipping {source_dir} -> {output_filename}...")
     with zipfile.ZipFile(output_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
         for root, dirs, files in os.walk(source_dir):
             # Prune directories
@@ -42,27 +42,27 @@ def make_zip_file(source_dir, output_filename):
                 file_path = os.path.join(root, file)
                 arcname = os.path.relpath(file_path, source_dir)
                 zipf.write(file_path, arcname)
-    print("✅ Zip created.")
+    print("Zip created.")
 
 def deploy():
-    print("🚀 Starting AWS CLI Deployment Pipeline...")
+    print("Starting AWS CLI Deployment Pipeline...")
     
     # 1. Zip
     zip_path = "backend_deploy.zip"
     make_zip_file(BACKEND_DIR, zip_path)
     
     # 2. Upload
-    print(f"📤 Uploading to s3://{BUCKET_NAME}/{S3_KEY}...")
+    print(f"Uploading to s3://{BUCKET_NAME}/{S3_KEY}...")
     run_command(f"aws s3 cp {zip_path} s3://{BUCKET_NAME}/{S3_KEY} --region {REGION}")
-    print("✅ Upload Complete.")
+    print("Upload Complete.")
     
     # 3. Trigger Build
-    print(f"🔨 Triggering CodeBuild project: {PROJECT_NAME}...")
+    print(f"Triggering CodeBuild project: {PROJECT_NAME}...")
     build_json = run_command(f"aws codebuild start-build --project-name {PROJECT_NAME} --region {REGION} --output json")
     build_data = json.loads(build_json)
     build_id = build_data['build']['id']
-    print(f"✅ Build Started: {build_id}")
-    print("⏳ Waiting for build to complete (this takes ~3-5 mins)...")
+    print(f"Build Started: {build_id}")
+    print("Waiting for build to complete (this takes ~3-5 mins)...")
     
     # 4. Monitor Build
     while True:
@@ -74,20 +74,20 @@ def deploy():
         print(f"   Status: {status} (Phase: {phase})")
         
         if status == 'SUCCEEDED':
-            print("✅ Build SUCCEEDED! New image pushed to ECR.")
+            print("Build SUCCEEDED! New image pushed to ECR.")
             break
         elif status in ['FAILED', 'FAULT', 'STOPPED', 'TIMED_OUT']:
-            print(f"❌ Build Failed. Status: {status}")
+            print(f"Build Failed. Status: {status}")
             sys.exit(1)
             
         time.sleep(15)
 
     # 5. Trigger App Runner
-    print(f"🚀 Triggering App Runner Deployment for {SERVICE_ARN}...")
+    print(f"Triggering App Runner Deployment for {SERVICE_ARN}...")
     deploy_json = run_command(f"aws apprunner start-deployment --service-arn {SERVICE_ARN} --region {REGION} --output json")
     deploy_data = json.loads(deploy_json)
     op_id = deploy_data['OperationId']
-    print(f"✅ Deployment Started! Operation ID: {op_id}")
+    print(f"Deployment Started! Operation ID: {op_id}")
     print("The backend is now pulling the new image and re-deploying.")
 
 if __name__ == "__main__":

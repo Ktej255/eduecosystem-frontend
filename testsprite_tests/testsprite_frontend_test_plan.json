@@ -1,0 +1,979 @@
+[
+  {
+    "id": "TC001",
+    "title": "Register a new Student account and reach verification/onboarding screen",
+    "description": "Verifies a new user can register as a Student and is taken to an email verification prompt or onboarding/welcome screen.",
+    "category": "User Registration",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /register"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Register\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"new.student+1@example.com\" into the email input field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"ValidPass!234\" into the password input field"
+      },
+      {
+        "type": "action",
+        "description": "Select \"Student\" from the account type dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Register\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Verify your email\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Register a new Teacher account and reach verification/onboarding screen",
+    "description": "Verifies a new user can register as a Teacher and is taken to an email verification prompt or onboarding/welcome screen.",
+    "category": "User Registration",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /register"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Register\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"new.teacher+1@example.com\" into the email input field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"ValidPass!234\" into the password input field"
+      },
+      {
+        "type": "action",
+        "description": "Select \"Teacher\" from the account type dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Register\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Verify your email\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "Required field validation appears when submitting empty registration form",
+    "description": "Verifies the form prevents submission and shows required-field errors when no inputs are provided.",
+    "category": "User Registration",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /register"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Register\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Email is required\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Password is required\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/register\""
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Invalid email format is rejected during registration",
+    "description": "Verifies the email field validates format and blocks submission when an invalid email is entered.",
+    "category": "User Registration",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /register"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"not-an-email\" into the email input field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"ValidPass!234\" into the password input field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Register\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Enter a valid email\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/register\""
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Weak password is rejected with helpful guidance",
+    "description": "Verifies password strength rules are enforced and an explanatory message is shown for weak passwords.",
+    "category": "User Registration",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /register"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"new.student+weakpass@example.com\" into the email input field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"123\" into the password input field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Register\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Password is too weak\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/register\""
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Additional registration fields must be completed before submission",
+    "description": "Verifies the registration flow blocks submission until additional required fields (beyond email/password) are completed.",
+    "category": "User Registration",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /register"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"new.user+missingfields@example.com\" into the email input field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"ValidPass!234\" into the password input field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Register\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"This field is required\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/register\""
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "User can navigate from Register page to Login page",
+    "description": "Verifies the registration page provides a working path to the login page.",
+    "category": "User Registration",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /register"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/login\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Login\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Start Evening Session Pomodoro timer and verify countdown UI begins",
+    "description": "Verifies a Batch 1 student can start the Evening Session Pomodoro timer and sees the timer/countdown UI and progress indicator.",
+    "category": "Batch 1 Evening Session (Pomodoro Timer)",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student@example.com\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Batch 1\" entry in the student portal"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Evening Session\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start Pomodoro Timer\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Pomodoro timer countdown\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Complete Pomodoro session and verify summary and coins/achievement awarded",
+    "description": "Verifies that completing the Pomodoro session shows a session summary and visible reward (coins and/or achievement).",
+    "category": "Batch 1 Evening Session (Pomodoro Timer)",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student@example.com\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Batch 1\" entry in the student portal"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Evening Session\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start Pomodoro Timer\""
+      },
+      {
+        "type": "action",
+        "description": "Wait for the Pomodoro session to complete and the completion UI to appear"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Session Summary\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Coins\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Rewards visibility: verify achievement/coins messaging appears on completion screen",
+    "description": "Verifies the completion state clearly displays a reward message (coins and/or achievement unlocked) after session completion.",
+    "category": "Batch 1 Evening Session (Pomodoro Timer)",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student@example.com\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Batch 1\" entry in the student portal"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Evening Session\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start Pomodoro Timer\""
+      },
+      {
+        "type": "action",
+        "description": "Wait for the Pomodoro session to complete and the completion UI to appear"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Achievement\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Loading state: skeleton/loader visible while timer data is fetching",
+    "description": "Verifies that a loading state (skeleton loader or loading message) appears while the Evening Session timer initializes.",
+    "category": "Batch 1 Evening Session (Pomodoro Timer)",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student@example.com\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Batch 1\" entry in the student portal"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Evening Session\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start Pomodoro Timer\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Loading\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "RAS PYQ Viewer: Complete MCQ test and view results/analytics",
+    "description": "Verifies an authorized RAS student can start a PYQ MCQ test, answer questions, submit, and see results and session analytics.",
+    "category": "RAS Portal and PYQ Viewer",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student@example.com\" into the username/email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/ras\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"PYQ Viewer\""
+      },
+      {
+        "type": "action",
+        "description": "Click on a PYQ set in the list"
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "RAS PYQ Viewer: Start MCQ test from selected PYQ set",
+    "description": "Verifies the user can open a PYQ set and start the MCQ test from that set.",
+    "category": "RAS Portal and PYQ Viewer",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student@example.com\" into the username/email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click \"PYQ Viewer\""
+      },
+      {
+        "type": "action",
+        "description": "Click on a PYQ set in the list"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start MCQ Test\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Question 1\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "RAS PYQ Viewer: Answer questions sequentially using Next",
+    "description": "Verifies the MCQ test supports sequential answering and navigation through questions.",
+    "category": "RAS Portal and PYQ Viewer",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student@example.com\" into the username/email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click \"PYQ Viewer\""
+      },
+      {
+        "type": "action",
+        "description": "Click on a PYQ set in the list"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start MCQ Test\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Next\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "RAS PYQ Viewer: Submit test and see results screen",
+    "description": "Verifies the user can submit a completed/ongoing test and is shown a results summary.",
+    "category": "RAS Portal and PYQ Viewer",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student@example.com\" into the username/email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click \"PYQ Viewer\""
+      },
+      {
+        "type": "action",
+        "description": "Click on a PYQ set in the list"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start MCQ Test\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Submit Test\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Results\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC016",
+    "title": "RAS PYQ Viewer: Access denied when opening gated PYQ set (no feature flag/subscription)",
+    "description": "Verifies a user without access cannot open a gated PYQ set and sees an access-denied/subscription gate message.",
+    "category": "RAS Portal and PYQ Viewer",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student@example.com\" into the username/email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click \"PYQ Viewer\""
+      },
+      {
+        "type": "action",
+        "description": "Click on a PYQ set that appears locked or marked as restricted"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Access Denied\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Contact support\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC017",
+    "title": "RAS PYQ Viewer: Subscription gate prompts purchase/upgrade messaging",
+    "description": "Verifies the subscription gate provides a clear prompt to purchase/upgrade access when attempting to open restricted content.",
+    "category": "RAS Portal and PYQ Viewer",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student@example.com\" into the username/email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click \"PYQ Viewer\""
+      },
+      {
+        "type": "action",
+        "description": "Click on a PYQ set that appears locked or marked as restricted"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Purchase\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Upgrade\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC018",
+    "title": "Login and access Meditation Portal entry via in-app navigation",
+    "description": "Verifies an authenticated student can reach the Meditation Portal landing experience from the application UI.",
+    "category": "Meditation Portal",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student@example.com\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL does not contain \"/login\""
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Meditation\" navigation item (header/side menu)"
+      }
+    ]
+  },
+  {
+    "id": "TC019",
+    "title": "Admin updates global announcement and sees success confirmation",
+    "description": "Verifies an admin can edit and save announcement content from Global Settings and sees a success message plus the updated content.",
+    "category": "Admin Portal - Global Settings & Announcements",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"admin@example.com\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"admin123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Global Settings\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Updated announcement for cohort A\" into the announcement content field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Save\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Success\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC020",
+    "title": "Admin saved announcement content remains visible after page refresh",
+    "description": "Verifies that after saving an announcement, the updated announcement content is still visible after reloading the admin page.",
+    "category": "Admin Portal - Global Settings & Announcements",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"admin@example.com\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"admin123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Global Settings\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Persistent announcement check\" into the announcement content field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Save\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Persistent announcement check\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC021",
+    "title": "Attempt to save empty announcement content shows a validation error",
+    "description": "Verifies the Global Settings form prevents saving an empty announcement and displays an error message.",
+    "category": "Admin Portal - Global Settings & Announcements",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"admin@example.com\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"admin123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Global Settings\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"\" into the announcement content field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Save\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"required\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC022",
+    "title": "Attempt to save extremely long announcement shows an error or prevents save",
+    "description": "Verifies the announcement editor handles unusually long content without breaking and provides an error or blocks save if limits exist.",
+    "category": "Admin Portal - Global Settings & Announcements",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"admin@example.com\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"admin123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Global Settings\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL\" into the announcement content field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Save\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"error\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC023",
+    "title": "Non-admin account cannot access Global Settings from admin portal entry",
+    "description": "Verifies a non-admin user is denied access when attempting to open Global Settings (message shown or redirected).",
+    "category": "Admin Portal - Global Settings & Announcements",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student@example.com\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Global Settings\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Access denied\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/dashboard\""
+      }
+    ]
+  },
+  {
+    "id": "TC024",
+    "title": "Non-admin access attempt shows redirect to appropriate dashboard (no Global Settings UI)",
+    "description": "Verifies that if a non-admin user attempts admin navigation, they are redirected away and do not see Global Settings controls.",
+    "category": "Admin Portal - Global Settings & Announcements",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student@example.com\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/dashboard\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Global Settings\" is not visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Access denied\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC025",
+    "title": "Admin can open Global Settings and view existing announcement content",
+    "description": "Verifies the Global Settings page loads for an admin and displays the announcement editor/content area.",
+    "category": "Admin Portal - Global Settings & Announcements",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"admin@example.com\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"admin123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Log in\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Global Settings\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Announcement\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"announcement content field\" is visible"
+      }
+    ]
+  }
+]

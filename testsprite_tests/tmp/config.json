@@ -1,0 +1,18 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3001",
+  "executionArgs": {
+    "projectName": "Eduecosystem",
+    "projectPath": "d:\\Graphology\\Master Software\\Eduecosystem",
+    "testIds": [],
+    "additionalInstruction": "Run the full suite. All backend 500 validations and React undefined exceptions are patched. Use `ktej255@gmail.com` and `Tej@1106`. Validate that dashboard and app features are successfully rendered inside the user session.",
+    "serverMode": "development",
+    "envs": {
+      "API_KEY": "sk-user-LopYcdRophTEbJ8yggpqVARI5K_JOJsCMzDCuUhiKzX6Whb8rthV1i-UGJMk0rlXInMfg5Drk9XkhEs7d3Q1ygTqRDVodQA8_36swK6F3fHZCED_yBnrQ-ughtIlJun_dWs"
+    }
+  },
+  "serverPort": 52871,
+  "proxy": "http://6ad3b3c7-cf31-46e6-a0c0-a1d70dd79730:EexTz6KKaPVVsZ6RHVc8w9XvOnCuMCdn@tun.testsprite.com:8080"
+}

@@ -17,6 +17,7 @@ import ChronologyMaster, { EraData } from './ChronologyMaster';
 import PersonalityHub, { Personality } from './PersonalityHub';
 import BattleAnalytics, { Battle } from './BattleAnalytics';
 import ArtCultureVisualizer from './ArtCultureVisualizer';
+import ArtifactGalleryVisualizer from './ArtifactGalleryVisualizer';
 import HistoryExaminersTrap, { Trap } from './HistoryExaminersTrap';
 
 import { MODERN_HISTORY_REVISION } from './modern-revision-data';
@@ -195,6 +196,11 @@ export default function HistoryRevisionDashboard({ section = 'modern' }: History
                             <TabsTrigger value="battles" className="px-4 py-2 rounded-xl data-[state=active]:bg-stone-800 data-[state=active]:text-white data-[state=active]:shadow-md font-bold flex items-center gap-2 border border-transparent data-[state=active]:border-stone-900 transition-all">
                                 <Sword size={18} /> Battle Analytics
                             </TabsTrigger>
+                            {safeSection === 'ancient' && (
+                                <TabsTrigger value="artifacts" className="px-4 py-2 rounded-xl data-[state=active]:bg-yellow-700 data-[state=active]:text-white data-[state=active]:shadow-md font-bold flex items-center gap-2 border border-transparent data-[state=active]:border-yellow-800 transition-all">
+                                    <Sparkles size={18} /> Artifact Gallery
+                                </TabsTrigger>
+                            )}
                             <TabsTrigger value="art-culture" className="px-4 py-2 rounded-xl data-[state=active]:bg-indigo-800 data-[state=active]:text-white data-[state=active]:shadow-md font-bold flex items-center gap-2 border border-transparent data-[state=active]:border-indigo-900 transition-all">
                                 <Landmark size={18} /> Art & Culture
                             </TabsTrigger>
@@ -218,6 +224,12 @@ export default function HistoryRevisionDashboard({ section = 'modern' }: History
                     <TabsContent value="battles" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
                         <BattleAnalytics battles={data?.battles} />
                     </TabsContent>
+
+                    {safeSection === 'ancient' && (
+                        <TabsContent value="artifacts" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
+                            <ArtifactGalleryVisualizer />
+                        </TabsContent>
+                    )}
 
                     <TabsContent value="art-culture" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
                         <ArtCultureVisualizer />

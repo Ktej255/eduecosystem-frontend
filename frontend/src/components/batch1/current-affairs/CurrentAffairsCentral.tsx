@@ -11,6 +11,7 @@ import { CURRENT_AFFAIRS_DATA, SUBJECT_FILTERS, MONTH_FILTERS, CurrentAffairItem
 import { motion } from 'framer-motion';
 
 import { MODERN_HISTORY_CHAPTERS } from '../history/data/modern/history-chapters';
+import { ANCIENT_HISTORY_CHAPTERS } from '../history/data/ancient/history-chapters';
 
 export default function CurrentAffairsCentral() {
     return (
@@ -27,6 +28,7 @@ function CurrentAffairsCentralContent() {
     // Get initial query params
     const initialSubject = searchParams.get('subject') || 'All';
     const initialSource = searchParams.get('source'); // e.g., 'history_hub', 'polity_chapter_5'
+    const initialSection = searchParams.get('section'); // e.g., 'ancient', 'modern'
     const initialChapter = searchParams.get('chapter'); // Optional initial chapter filter
 
     const [selectedSubject, setSelectedSubject] = useState(initialSubject);
@@ -105,12 +107,21 @@ function CurrentAffairsCentralContent() {
     };
 
     // Generate Chapter List based on Subject
-    // Currently only History has a mapped list, others can be generic or hidden
+    // Generate Chapter List based on Subject & Section
     const getChapterOptions = () => {
         if (selectedSubject === 'History' || selectedSubject === 'All') {
-            return MODERN_HISTORY_CHAPTERS;
+            if (initialSection === 'ancient') return ANCIENT_HISTORY_CHAPTERS;
+            return MODERN_HISTORY_CHAPTERS; // Default
         }
         return [];
+    };
+
+    // Helper to get chapter title dynamically based on section
+    const getChapterTitle = (chId: string | number) => {
+        const id = typeof chId === 'string' ? parseInt(chId) : chId;
+        const opts = getChapterOptions();
+        const ch = opts.find(c => c.id === id);
+        return ch ? ch.title : `Chapter ${id}`;
     };
 
     return (
@@ -159,7 +170,7 @@ function CurrentAffairsCentralContent() {
                             <SelectValue>
                                 {selectedChapter === 'All'
                                     ? "All Chapters"
-                                    : MODERN_HISTORY_CHAPTERS.find(c => c.id.toString() === selectedChapter)?.title.substring(0, 25) + "..." || `Chapter ${selectedChapter}`}
+                                    : getChapterTitle(selectedChapter).substring(0, 25) + "..."}
                             </SelectValue>
                         </SelectTrigger>
                         <SelectContent className="max-h-[300px]">
@@ -221,7 +232,7 @@ function CurrentAffairsCentralContent() {
                                     ))}
                                     {item.chapter && (
                                         <Badge variant="secondary" className="bg-indigo-50 text-indigo-700 border-indigo-100 font-normal">
-                                            {MODERN_HISTORY_CHAPTERS.find(c => c.id === item.chapter)?.title || `Chapter ${item.chapter}`}
+                                            {getChapterTitle(item.chapter)}
                                         </Badge>
                                     )}
                                 </div>
