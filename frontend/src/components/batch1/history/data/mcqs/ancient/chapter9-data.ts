@@ -19,70 +19,70 @@ export const CH9_TIMELINE: TimelineEvent[] = [
     { year: "300 B.C.", event: "First Jaina Council", description: "Held at Pataliputra; led to the compilation of the 12 Angas." }
 ];
 export const CH9_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch9-fc-1",
         "front": "How many religious sects are reported to have arisen in the middle Gangetic basin in the sixth century B.C.?",
         "back": "62\n\nContext: The text states, \\\"We hear of as many as 62 religious sects in this period.\\\"",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch9-fc-2",
         "front": "Which varna was assigned the functions of priests and teachers and claimed the highest status in the post-Vedic society?",
         "back": "Brahmanas\n\nContext: The brahmanas, who were given the functions of priests and teachers, claimed the highest status in society.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch9-fc-3",
         "front": "Both Vardhamana Mahavira and Gautama Buddha belonged to which varna?",
         "back": "Kshatriya\n\nContext: The text notes that both Mahavira and Gautama Buddha belonged to the kshatriya clan.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch9-fc-4",
         "front": "The widespread use of which metal in the middle Gangetic basin around 600 B.C. made large-scale clearance and agriculture possible?",
         "back": "Iron\n\nContext: In the middle Gangetic basin large-scale habitations began from about 600 B.C. when iron came to be used, making clearance and agriculture possible.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch9-fc-5",
         "front": "The earliest coins in India, which belonged to the fifth century B.C., are known as:?",
         "back": "Punch-marked coins\n\nContext: The earliest coins belonged to the fifth century B.C., and they are called punch-marked coins.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch9-fc-6",
         "front": "In the age of the Buddha, the merchants who made handsome gifts to Gautama Buddha and his disciples were called:?",
         "back": "Setthis\n\nContext: The merchants, called the setthis, made handsome gifts to Gautama Buddha and his disciples.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch9-fc-7",
         "front": "Vardhamana Mahavira was born in 540 B.C. in a village near which prominent city?",
         "back": "Vaisali\n\nContext: Mahavira was born in 540 B.C. in a village near Vaisali, which is identical with Basarh in north Bihar.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch9-fc-8",
         "front": "Mahavira attained perfect knowledge, through which he conquered misery and happiness, at the age of 42. This perfect knowledge is called:?",
         "back": "Kaivalya\n\nContext: He abandoned his clothes altogether when he attained perfect knowledge or kaivalya at the age of 42.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch9-fc-9",
         "front": "Vardhamana Mahavira passed away at the age of 72 in 468 B.C. at a place called:?",
         "back": "Pavapuri\n\nContext: He passed away at the age of 72 in 468 B.C. at a place called Pavapuri near modern Rajgir.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch9-fc-10",
         "front": "Which of the following doctrines was added by Mahavira to the four doctrines taught by his predecessor, Parsva?",
         "back": "Observe continence (brahmacharya)\n\nContext: Jainism taught five doctrines; it is said that only the fifth doctrine (observe continence) was added by Mahavira.",
         "tags": [
@@ -1459,5 +1459,71 @@ export const CH9_L3_MCQS: MCQ[] = [
         "tags": [
             "history"
         ]
+    }
+];
+
+import { SequenceQuestion } from "../../ancient-types-27";
+
+export interface CurrentAffairsItem {
+    headline: string;
+    source: string;
+    year: string;
+    connection: string;
+    chapter_link: string;
+}
+
+export const CH9_CURRENT_AFFAIRS: CurrentAffairsItem[] = [
+    {
+        headline: "Mahabodhi Temple in Bodh Gaya added to UNESCO World Heritage list",
+        source: "UNESCO / PIB",
+        year: "2002 (frequently in news for conservation)",
+        connection: "Bodh Gaya is where Gautama Buddha attained enlightenment (Bodhi). Chapter 9 covers the life, teachings and spread of Buddhism.",
+        chapter_link: "Buddhism - Life of Gautama Buddha"
+    },
+    {
+        headline: "Sarnath's Ashokan Pillar � India's National Emblem origin debated in Parliament",
+        source: "The Hindu",
+        year: "2022",
+        connection: "Sarnath is where Buddha delivered his first sermon (Dhammachakra Parivartan). The Ashokan Lion Capital from Sarnath became India's national emblem.",
+        chapter_link: "Buddhism - Spread & Ashoka's Role"
+    },
+    {
+        headline: "Lumbini Development Project � India funds Nepal's Buddhist circuit",
+        source: "MEA / PIB",
+        year: "2022",
+        connection: "Lumbini (modern Nepal) is the birthplace of Gautama Buddha. Part of India's Buddhist diplomacy (Soft Power).",
+        chapter_link: "Buddhism - Origin of Gautama Buddha"
+    }
+];
+
+export const CH9_SEQUENCE_DRILLS: SequenceQuestion[] = [
+    {
+        id: "ch9-seq-1",
+        question: "Arrange the following events in the life of Gautama Buddha chronologically:",
+        items: [
+            { id: "a", content: "Birth at Kapilavastu (Lumbini)" },
+            { id: "b", content: "Renunciation of worldly life at 29" },
+            { id: "c", content: "Attainment of Nirvana (Enlightenment) at Bodh Gaya" },
+            { id: "d", content: "First sermon at Sarnath (Dhammachakraparivartan)" },
+            { id: "e", content: "Mahaparinirvana at Kusinagar at age 80" }
+        ],
+        correctOrder: ["a", "b", "c", "d", "e"],
+        explanation: "563 BC (Birth) ? 534 BC (Renunciation at 29) ? 528 BC (Enlightenment) ? 528 BC (First sermon at Sarnath) ? 483 BC (Mahaparinirvana)."
+    ,
+        difficulty: "moderate"
+    },
+    {
+        id: "ch9-seq-2",
+        question: "Arrange the Buddhist Councils in the correct chronological order:",
+        items: [
+            { id: "a", content: "First Council at Rajgriha (Ajatashatru's patronage)" },
+            { id: "b", content: "Second Council at Vaisali (100 years after Buddha)" },
+            { id: "c", content: "Third Council at Pataliputra (Ashoka's patronage)" },
+            { id: "d", content: "Fourth Council in Kashmir (Kanishka's patronage)" }
+        ],
+        correctOrder: ["a", "b", "c", "d"],
+        explanation: "483 BC (First) ? 383 BC (Second) ? 250 BC (Third) ? 72 AD (Fourth under Kanishka)."
+    ,
+        difficulty: "moderate"
     }
 ];

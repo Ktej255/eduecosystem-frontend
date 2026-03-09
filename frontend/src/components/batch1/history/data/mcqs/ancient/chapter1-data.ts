@@ -19,70 +19,70 @@ export const CH1_TIMELINE: TimelineEvent[] = [
     { year: "1922", event: "Mohenjo-daro Discovery", description: "R.D. Banerji identifies the second major Harappan site." }
 ];
 export const CH1_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch1-fc-1",
         "front": "The ancient name 'Bharatavarsha' was applied to the Indian subcontinent after the name of an ancient tribe called:?",
         "back": "Bharata\n\nContext: The land of Bharata was named after the ancient Bharata tribe.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch1-fc-2",
         "front": "The people of ancient India were called 'Bharatasantati', which translates to:?",
         "back": "The descendants of Bharata\n\nContext: The text specifies that the people were called Bharatasantati, meaning the descendants of Bharata.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch1-fc-3",
         "front": "Ancient kings who tried to establish their authority from the Himalayas to Cape Comorin were known as:?",
         "back": "Chakravartins\n\nContext: Universal monarchs who strove for political unity across the subcontinent were called chakravartins.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch1-fc-4",
         "front": "In the third century B.C., which ruler extended his empire over the whole country except for the extreme south?",
         "back": "Ashoka\n\nContext: Ashoka attained this kind of political unity in the third century B.C.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch1-fc-5",
         "front": "In the fourth century A.D., which king carried his victorious arms from the Ganga to the borders of the Tamil Land?",
         "back": "Samudragupta\n\nContext: Samudragupta achieved this military feat in the 4th century A.D.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch1-fc-6",
         "front": "Which Chalukya king defeated Harshavardhana in the seventh century?",
         "back": "Pulakesin\n\nContext: Pulakesin defeated Harshavardhana, the lord of the whole of north India.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch1-fc-7",
         "front": "The word 'Hind' is derived from which Sanskrit term?",
         "back": "Sindhu\n\nContext: Foreigners named the country after the Sindhu river, which became 'Hind' in Persian and Arabic.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch1-fc-8",
         "front": "In the third century B.C., which language served as the lingua franca of the country?",
         "back": "Prakrit\n\nContext: Prakrit was the lingua franca and was used for Ashoka's inscriptions.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch1-fc-9",
         "front": "During which period did Sanskrit become prominent as the state language?",
         "back": "Gupta period\n\nContext: The process of Sanskrit acquiring the position of a state language became prominent in the Gupta period (4th century A.D.).",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch1-fc-10",
         "front": "In the post-Gupta period, when the country was divided into numerous small states, official documents were written in:?",
         "back": "Sanskrit\n\nContext: Despite political division in the post-Gupta period, official documents continued to be written in Sanskrit.",
         "tags": [

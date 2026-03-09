@@ -20,70 +20,70 @@ export const CH15_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH15_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch15-fc-1",
         "front": "After the decline of the Mauryas, which were the first foreign group to cross the Hindu Kush and invade India?",
         "back": "Indo-Greeks",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch15-fc-2",
         "front": "The most famous Indo-Greek ruler, who is known to have stabilized his power in the Punjab region, was:?",
         "back": "Menander",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch15-fc-3",
         "front": "Menander’s philosophical queries to a Buddhist monk are recorded in the text Milinda Panho. Who was this monk?",
         "back": "Nagasena",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch15-fc-4",
         "front": "Which of the following dynasties was the first to issue gold coins in India on a significant scale?",
         "back": "Indo-Greeks",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch15-fc-5",
         "front": "The Indo-Greeks introduced Hellenistic art features into India, which ultimately culminated in the development of:?",
         "back": "Gandhara Art",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch15-fc-6",
         "front": "The Shakas (Scythians) came to India from Central Asia. How many main branches of the Shakas settled in India and Afghanistan?",
         "back": "Five",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch15-fc-7",
         "front": "In 58 BC, a king of Ujjain supposedly defeated the Shakas and established a new era. What is the name of this era?",
         "back": "Vikram Samvat",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch15-fc-8",
         "front": "The most famous Shaka ruler in India, known for his military conquests and public works, was:?",
         "back": "Rudradaman I",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch15-fc-9",
         "front": "Rudradaman I is famously known for repairing the Sudarshana Lake, which was originally constructed by the:?",
         "back": "Mauryas",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch15-fc-10",
         "front": "The first ever long inscription in pure Sanskrit is attributed to which ruler?",
         "back": "Rudradaman I",
         "tags": [

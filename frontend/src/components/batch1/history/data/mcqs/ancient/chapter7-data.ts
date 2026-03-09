@@ -20,70 +20,70 @@ export const CH7_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH7_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch7-fc-1",
         "front": "The Aryans originally spoke which group of languages?",
         "back": "Indo-European\n\nContext: The text states that the Aryans spoke the Indo-European languages, which are current in changed forms all over Europe, Iran, and the Indian subcontinent.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch7-fc-2",
         "front": "The original home of the Aryans is believed to have been located in Eurasia, specifically in the area east of the:?",
         "back": "Alps\n\nContext: Originally the Aryans seem to have lived somewhere in the area east of the Alps, in the region known as Eurasia.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch7-fc-3",
         "front": "The original home of the Aryans is believed to have been located in Eurasia, specifically in the area east of the:?",
         "back": "Alps\n\nContext: Originally the Aryans seem to have lived somewhere in the area east of the Alps, in the region known as Eurasia.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch7-fc-4",
         "front": "Which of the following words exists only in a few Aryan languages, indicating that the Aryans crossed them but did not have a universal term for them?",
         "back": "Mountains\n\nContext: The text notes that curiously enough, common words for mountains exist only in a few Aryan languages although the Aryans crossed many hills.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch7-fc-5",
         "front": "Which of the following words exists only in a few Aryan languages, indicating that the Aryans crossed them but did not have a universal term for them?",
         "back": "Mountains\n\nContext: The text notes that curiously enough, common words for mountains exist only in a few Aryan languages although the Aryans crossed many hills.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch7-fc-6",
         "front": "On their way to India, the Aryans first appeared in which region where they lived for a long time?",
         "back": "Iran\n\nContext: On their way to India the Aryans first appeared in Iran, where the Indo-Iranians lived for a long time.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch7-fc-7",
         "front": "On their way to India, the Aryans first appeared in which region where they lived for a long time?",
         "back": "Iran\n\nContext: On their way to India the Aryans first appeared in Iran, where the Indo-Iranians lived for a long time.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch7-fc-8",
         "front": "Which text is considered the oldest in the Iranian language and shares many things in common with the Rig Veda?",
         "back": "Zend Avesta\n\nContext: The Avesta is the oldest text in the Iranian language and uses the same names for several gods and social classes as the Rig Veda.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch7-fc-9",
         "front": "Which text is considered the oldest in the Iranian language and shares many things in common with the Rig Veda?",
         "back": "Zend Avesta\n\nContext: The Avesta is the oldest text in the Iranian language and uses the same names for several gods and social classes as the Rig Veda.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch7-fc-10",
         "front": "The Kassite inscriptions of 1600 B.C. and the Mitanni inscriptions of the 14th century B.C., which contain Aryan names, were found in:?",
         "back": "Iraq\n\nContext: These inscriptions, suggesting a branch of Aryans moved west from Iran, were found in Iraq.",
         "tags": [

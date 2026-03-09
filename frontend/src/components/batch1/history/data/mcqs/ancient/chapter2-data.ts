@@ -25,70 +25,70 @@ export const CH2_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH2_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch2-fc-1",
         "front": "The science that enables us to dig old mounds systematically and form an idea of the material life of the people is called:?",
         "back": "Archaeology\n\nContext: Archaeology is the science of digging old mounds in successive layers to study material life.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch2-fc-2",
         "front": "In south India, the graves encircled by big pieces of stone containing the dead along with their tools, weapons, and pottery are called:?",
         "back": "Megaliths\n\nContext: These stone-encircled graves are called megaliths, providing knowledge of Deccan life from the iron age onwards.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch2-fc-3",
         "front": "The history of climate and vegetation in ancient times is known through the examination of plant residues, specifically through:?",
         "back": "Pollen-analysis\n\nContext: Pollen-analysis of plant residues helps determine the history of climate and vegetation.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch2-fc-4",
         "front": "The study of ancient coins is known as:?",
         "back": "Numismatics\n\nContext: Numismatics is the formal study of coins.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch2-fc-5",
         "front": "During which period were the largest number of coin moulds made of burnt clay used in ancient India?",
         "back": "Kushan period\n\nContext: Most coin moulds discovered belong to the Kushan period (first three Christian centuries).",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch2-fc-6",
         "front": "The Guptas are known for issuing the largest number of coins made of which metal?",
         "back": "Gold\n\nContext: The Guptas issued the largest number of gold coins, indicating flourishing trade and commerce.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch2-fc-7",
         "front": "The study of the old writing used in inscriptions and other ancient records is called:?",
         "back": "Palaeography\n\nContext: Palaeography is the study of old writing used in inscriptions.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch2-fc-8",
         "front": "The earliest inscriptions in the country as a whole were recorded on:?",
         "back": "Stone\n\nContext: The earliest inscriptions in India were recorded on stone.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch2-fc-9",
         "front": "Ashokan inscriptions in the north-western part of India were primarily incised in which script?",
         "back": "Kharosthi\n\nContext: While Brahmi prevailed in most of the country, Kharosthi (written right to left) was used in the north-west.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch2-fc-10",
         "front": "The Ashokan inscriptions were first deciphered in 1837 by:?",
         "back": "James Prinsep\n\nContext: James Prinsep, a civil servant in Bengal, deciphered the Ashokan inscriptions in 1837.",
         "tags": [

@@ -14,70 +14,70 @@ export const CH21_KEY_POINTS = [
 export const CH21_HANDWRITTEN_NOTES: HandwrittenNote[] = [];
 export const CH21_TIMELINE: TimelineEvent[] = [];
 export const CH21_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch21-fc-1",
         "front": "The region of ancient Kalinga roughly corresponds to which modern Indian state?",
         "back": "Odisha",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch21-fc-2",
         "front": "Which powerful king of Kalinga in the 1st century BC left a famous inscription at Hathigumpha?",
         "back": "Kharavela",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch21-fc-3",
         "front": "In the 4th and 5th centuries AD, parts of northern and western Odisha were ruled by the:?",
         "back": "Matharas",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch21-fc-4",
         "front": "The Matharas of Kalinga divided their kingdom into administrative units known as:?",
         "back": "Aharas",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch21-fc-5",
         "front": "Which major river forms the deltaic region that was crucial for early state formation in ancient Bengal?",
         "back": "Ganga and Brahmaputra",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch21-fc-6",
         "front": "The ancient region of Pundravardhana corresponds to which part of modern Bengal?",
         "back": "Northern Bengal",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch21-fc-7",
         "front": "The ancient region of Samatata generally referred to:?",
         "back": "Eastern and southern Bengal",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch21-fc-8",
         "front": "Which empire exercised direct administrative control over northern Bengal (Pundravardhana Bhukti) during the 4th and 5th centuries AD?",
         "back": "Guptas",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch21-fc-9",
         "front": "The first powerful independent king of Bengal, who ruled in the early 7th century AD and established his capital at Karnasuvarna, was:?",
         "back": "Shashanka",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch21-fc-10",
         "front": "The ancient name of Assam, mentioned in the Allahabad Pillar inscription of Samudragupta, is:?",
         "back": "Kamarupa",
         "tags": [

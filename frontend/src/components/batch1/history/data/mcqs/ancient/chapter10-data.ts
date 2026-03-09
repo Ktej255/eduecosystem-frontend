@@ -25,70 +25,70 @@ export const CH10_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH10_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch10-fc-1",
         "front": "From the sixth century B.C., the formation of large territorial states in eastern Uttar Pradesh and western Bihar was primarily facilitated by the widespread use of which metal?",
         "back": "Iron\n\nContext: The widespread use of iron facilitated the formation of large territorial states, as new agricultural tools produced surplus foodgrains and iron weapons empowered the warrior class.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch10-fc-2",
         "front": "In the age of the Buddha, how many large territorial states or mahajanapadas existed?",
         "back": "16\n\nContext: The text states, \\\"In the age of the Buddha we find 16 large states called mahajanapadas.\\\"",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch10-fc-3",
         "front": "The kingdom of Anga covered which of the following modern districts?",
         "back": "Monghyr and Bhagalpur\n\nContext: The kingdom of Anga covered the modern districts of Monghyr and Bhagalpur.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch10-fc-4",
         "front": "What was the capital of the kingdom of Anga?",
         "back": "Champa\n\nContext: Anga had its capital at Champa, which shows signs of habitation from the sixth century B.C.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch10-fc-5",
         "front": "The kingdom of Magadha embraced which of the following modern regions?",
         "back": "Patna, Gaya, and parts of Shahabad\n\nContext: Magadha embraced the modern districts of Patna, Gaya, and parts of Shahabad.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch10-fc-6",
         "front": "The state of the Vajjis, situated north of the Ganga in the division of Tirhut, included how many clans?",
         "back": "Eight\n\nContext: The state of the Vajjis included eight clans.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch10-fc-7",
         "front": "Who were the most powerful clan among the Vajjis?",
         "back": "Lichchhavis\n\nContext: The most powerful among the Vajjis were the Lichchhavis with their capital at Vaisali.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch10-fc-8",
         "front": "The capital of the Lichchhavis, Vaisali, is identical with which modern village?",
         "back": "Basarh\n\nContext: Vaisali is identical with the village of Basarh in the district of Vaisali.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch10-fc-9",
         "front": "Excavations at Rajghat show that the earliest habitation of the kingdom of Kasi started around:?",
         "back": "700 B.C.\n\nContext: Excavations at Rajghat show that the earliest habitation of Kasi (Varanasi) started around 700 B.C.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch10-fc-10",
         "front": "The kingdom of Kosala had its capital at Sravasti, which is identical with the modern location of:?",
         "back": "Sahet-Mahet\n\nContext: The capital of Kosala was Sravasti, which is identical with Sahet-Mahet.",
         "tags": [

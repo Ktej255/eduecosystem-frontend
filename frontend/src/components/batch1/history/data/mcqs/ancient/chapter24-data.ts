@@ -25,70 +25,70 @@ export const CH24_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH24_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch24-fc-1",
         "front": "According to ancient Indian texts, what was the general name given to the region of Burma and the Malay Peninsula?",
         "back": "Suvarnabhumi",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch24-fc-2",
         "front": "The ancient Indian term Yavadvipa refers to which modern South-East Asian island?",
         "back": "Java",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch24-fc-3",
         "front": "The greatest Buddhist temple in the world, featuring a massive stupa with numerous terraces, is located at:?",
         "back": "Borobudur",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch24-fc-4",
         "front": "Borobudur was constructed in the 8th-9th century AD under the patronage of the:?",
         "back": "Sailendra dynasty",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch24-fc-5",
         "front": "The largest Hindu temple complex in the world, dedicated originally to Vishnu, is:?",
         "back": "Angkor Wat",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch24-fc-6",
         "front": "The Angkor Wat temple is situated in which modern country?",
         "back": "Cambodia (Kambuja)",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch24-fc-7",
         "front": "Which ancient Indian dynasty's script (often called the Grantha/Brahmi script) became the basis for the early alphabets of South-East Asia?",
         "back": "Pallava",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch24-fc-8",
         "front": "In the early centuries of the Christian era, the first important Indianized state to emerge in Indo-China (modern Cambodia/Vietnam border) was:?",
         "back": "Funan",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch24-fc-9",
         "front": "The ancient kingdom of Champa roughly corresponds to the central and southern parts of modern:?",
         "back": "Vietnam",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch24-fc-10",
         "front": "The official language of the royal courts and inscriptions in early Kambuja and Champa was:?",
         "back": "Sanskrit",
         "tags": [

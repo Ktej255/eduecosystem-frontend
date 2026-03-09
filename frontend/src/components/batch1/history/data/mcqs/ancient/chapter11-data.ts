@@ -20,70 +20,70 @@ export const CH11_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH11_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch11-fc-1",
         "front": "In the first half of the sixth century B.C., which of the following principalities was NOT mentioned as fighting one another in north-west India?",
         "back": "Lichchhavis\n\nContext: The text mentions the Kambojas, Gandharas, and Madras fighting one another in the north-west. The Lichchhavis were located in eastern India (Vaisali).",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch11-fc-2",
         "front": "Which Iranian ruler penetrated into north-west India in 516 B.C. and annexed Panjab and Sindh?",
         "back": "Darius\n\nContext: The Iranian ruler Darius penetrated into north-west India in 516 B.C. and annexed Panjab, west of the Indus, and Sindh.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch11-fc-3",
         "front": "The Indian region annexed by the Iranian empire constituted which number province (satrapy) of Iran?",
         "back": "Twentieth\n\nContext: This area constituted the twentieth province or satrapy of Iran.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch11-fc-4",
         "front": "What was the total number of satrapies in the Iranian empire?",
         "back": "28\n\nContext: The total number of satrapies in the Iranian empire was 28.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch11-fc-5",
         "front": "The Indian satrapy paid a massive tribute to the Iranian empire amounting to:?",
         "back": "360 talents of gold\n\nContext: It paid a tribute of 360 talents of gold.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch11-fc-6",
         "front": "The tribute paid by the Indian satrapy accounted for what proportion of the total revenue of Iran from its Asian provinces?",
         "back": "One-third\n\nContext: The 360 talents of gold accounted for one-third of the total revenue of Iran from its Asian provinces.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch11-fc-7",
         "front": "Which Iranian ruler employed Indians in the long war against the Greeks?",
         "back": "Xerxes\n\nContext: Xerxes, the successor of Darius, employed the Indians in the long war against the Greeks.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch11-fc-8",
         "front": "How long did the Indo-Iranian contact last?",
         "back": "About 200 years\n\nContext: The Indo-Iranian contact lasted for about 200 years.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch11-fc-9",
         "front": "The Iranian scribes brought into India a form of writing which came to be known as:?",
         "back": "Kharosthi script\n\nContext: The Iranian scribes brought into India a form of writing which came to be known as the Kharosthi script.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch11-fc-10",
         "front": "The Kharosthi script was written in which direction?",
         "back": "Right to left\n\nContext: It was written from right to left like the Arabic.",
         "tags": [

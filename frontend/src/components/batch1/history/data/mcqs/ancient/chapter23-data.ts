@@ -25,70 +25,70 @@ export const CH23_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH23_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch23-fc-1",
         "front": "The Satavahana empire in the eastern Deccan (Krishna-Guntur region) was succeeded by which local dynasty?",
         "back": "Ikshvakus",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch23-fc-2",
         "front": "The Ikshvakus were renowned for their monumental patronage of which religion, leaving numerous monuments at Nagarjunakonda?",
         "back": "Buddhism",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch23-fc-3",
         "front": "In northern Maharashtra and Vidarbha, the Satavahanas were succeeded by a powerful local dynasty known as the:?",
         "back": "Vakatakas",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch23-fc-4",
         "front": "The Vakataka power was contemporary with, and politically allied through marriage to, which major North Indian empire?",
         "back": "Guptas",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch23-fc-5",
         "front": "Which Vakataka king is credited with the performance of numerous Vedic sacrifices, including four Ashvamedhas?",
         "back": "Pravarasena I",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch23-fc-6",
         "front": "The Pallavas, who played a major role in the political history of South India, established their capital at:?",
         "back": "Kanchipuram",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch23-fc-7",
         "front": "Which dynasty established its power in northern Karnataka and the Konkan coast in the 4th century AD?",
         "back": "Kadambas",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch23-fc-8",
         "front": "The Kadamba dynasty was founded by a Brahmana who gave up his traditional profession to take up arms. His name was:?",
         "back": "Mayurasharman",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch23-fc-9",
         "front": "The capital of the Kadambas was situated at:?",
         "back": "Vaijayanti (Banavasi)",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch23-fc-10",
         "front": "The Gangas, who ruled in southern Karnataka (roughly modern Mysore), initially had their capital at:?",
         "back": "Kolar",
         "tags": [

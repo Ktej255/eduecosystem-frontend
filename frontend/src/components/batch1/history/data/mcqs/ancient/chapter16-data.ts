@@ -20,70 +20,70 @@ export const CH16_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH16_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch16-fc-1",
         "front": "The Satavahanas are identified with which of the following tribes mentioned in the Puranas?",
         "back": "Andhras",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch16-fc-2",
         "front": "Who was the founder of the Satavahana dynasty?",
         "back": "Simuka",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch16-fc-3",
         "front": "The most famous Satavahana king, who claimed to have destroyed the Kshatrapas (Sakas) and restored the glory of his race, was:?",
         "back": "Gautamiputra Satakarni",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch16-fc-4",
         "front": "The capital of the Satavahanas was located at Pratishthana or Paithan. On the banks of which river was it situated?",
         "back": "Godavari",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch16-fc-5",
         "front": "Which Satavahana ruler’s coins feature the motif of a ship, indicating a deep interest in maritime trade and navigation?",
         "back": "Yajna Sri Satakarni",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch16-fc-6",
         "front": "The Satavahanas were the first rulers in India to issue coins predominantly made of:?",
         "back": "Lead",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch16-fc-7",
         "front": "Under the Satavahanas, rural administration was placed in the hands of a military official known as:?",
         "back": "Gaulmika",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch16-fc-8",
         "front": "A Gaulmika in the Satavahana administration headed a military regiment consisting of:?",
         "back": "9 chariots, 9 elephants, 25 horses, and 45 foot-soldiers",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch16-fc-9",
         "front": "The Satavahanas are renowned for starting the practice of granting tax-free villages to:?",
         "back": "Brahmanas and Buddhist monks",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch16-fc-10",
         "front": "The official language of the Satavahanas was:?",
         "back": "Prakrit",
         "tags": [

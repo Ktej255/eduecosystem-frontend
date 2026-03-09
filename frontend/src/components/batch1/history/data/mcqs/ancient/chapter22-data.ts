@@ -20,70 +20,70 @@ export const CH22_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH22_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch22-fc-1",
         "front": "The Pushyabhuti dynasty, to which Harsha belonged, originally had its capital at:?",
         "back": "Thanesar",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch22-fc-2",
         "front": "Harsha ascended the throne in which year, marking the beginning of the Harsha Era?",
         "back": "AD 606",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch22-fc-3",
         "front": "Who was the court poet of Harsha that wrote his biography, the Harshacharita?",
         "back": "Banabhatta",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch22-fc-4",
         "front": "Harsha shifted his capital from Thanesar to which city to better control the Gangetic doab?",
         "back": "Kanauj",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch22-fc-5",
         "front": "Which prominent Chinese Buddhist pilgrim visited India during the reign of Harsha?",
         "back": "Hiuen Tsang (Xuanzang)",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch22-fc-6",
         "front": "Harsha’s southward military expansion was decisively halted at the banks of the Narmada river by which Chalukya king?",
         "back": "Pulakesin II",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch22-fc-7",
         "front": "Harsha's sister, Rajyashri, was married to the Maukhari ruler of Kanauj named:?",
         "back": "Grahavarman",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch22-fc-8",
         "front": "Which ruler of Gauda (Bengal) treacherousy killed Harsha's elder brother, Rajyavardhana?",
         "back": "Shashanka",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch22-fc-9",
         "front": "According to Banabhatta, the imperial army of Harsha was commanded by an officer known as:?",
         "back": "Mahabaladhikrita",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch22-fc-10",
         "front": "Harsha is credited with the authorship of three Sanskrit plays. Which of the following is NOT one of them?",
         "back": "Malatimadhava",
         "tags": [

@@ -35,70 +35,70 @@ export const CH13_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH13_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch13-fc-1",
         "front": "The Maurya dynasty was founded by Chandragupta Maurya, who overthrew the rule of the:?",
         "back": "Nandas\n\nContext: Chandragupta Maurya overthrew the Nandas and established the Maurya empire.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch13-fc-2",
         "front": "The Greek administrator who was defeated by Chandragupta Maurya, leading to the acquisition of eastern Afghanistan, Baluchistan, and the area west of the Indus, was:?",
         "back": "Seleucus Nicator\n\nContext: Chandragupta Maurya defeated Seleucus Nicator, the Greek viceroy of Alexander, securing these vast territories.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch13-fc-3",
         "front": "The Greek ambassador sent by Seleucus to the court of Chandragupta Maurya was:?",
         "back": "Megasthenes\n\nContext: Megasthenes was the Greek ambassador sent by Seleucus to the court of Chandragupta Maurya at Pataliputra.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch13-fc-4",
         "front": "The account written by Megasthenes detailing Maurya administration and society is called:?",
         "back": "Indika\n\nContext: Megasthenes wrote an account of India and its administration in his book called Indika.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch13-fc-5",
         "front": "The most important literary source for the Maurya period, authored by Kautilya, is the:?",
         "back": "Arthasastra\n\nContext: Kautilya's Arthasastra is a primary text on statecraft and economy for the Maurya period.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch13-fc-6",
         "front": "According to Jaina tradition, Chandragupta Maurya embraced Jainism towards the end of his life and migrated to:?",
         "back": "Sravanabelagola\n\nContext: Jaina tradition states he gave up the throne, became a Jaina ascetic, and went to Sravanabelagola in Karnataka.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch13-fc-7",
         "front": "The famous Kalinga War, which deeply impacted Asoka, was fought in which year?",
         "back": "261 B.C.\n\nContext: Asoka fought the Kalinga War in 261 B.C., in the ninth year of his reign.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch13-fc-8",
         "front": "According to Asokan inscriptions, how many people were killed in the Kalinga War?",
         "back": "100,000\n\nContext: The inscriptions state that 100,000 people were killed and 150,000 were taken captive.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch13-fc-9",
         "front": "After the Kalinga War, Asoka abandoned the policy of physical conquest (bherighosha) in favor of cultural conquest, known as:?",
         "back": "Dhammaghosha\n\nContext: He replaced bherighosha (sound of the drum) with dhammaghosha (sound of peace and morality).",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch13-fc-10",
         "front": "Which Asokan inscription provides clear evidence of his conversion to Buddhism?",
         "back": "Bhabru Inscription\n\nContext: The Bhabru inscription explicitly demonstrates his conversion to Buddhism and his reverence for the Buddha, Dhamma, and Sangha.",
         "tags": [
@@ -1507,5 +1507,71 @@ export const CH13_L3_MCQS: MCQ[] = [
         "tags": [
             "history"
         ]
+    }
+];
+
+import { SequenceQuestion } from "../../ancient-types-27";
+
+export interface CurrentAffairsItem {
+    headline: string;
+    source: string;
+    year: string;
+    connection: string;
+    chapter_link: string;
+}
+
+export const CH13_CURRENT_AFFAIRS: CurrentAffairsItem[] = [
+    {
+        headline: "Archaeological Survey of India excavates new Mauryan-era site in UP",
+        source: "ASI / The Hindu",
+        year: "2023",
+        connection: "The Mauryan Empire had its heartland in Magadha. New archaeological sites reveal the reach of Mauryan administration.",
+        chapter_link: "Age of the Mauryas � Administrative Network"
+    },
+    {
+        headline: "Ashokan Edict re-discovered in Pakistan's Shahbazgarhi",
+        source: "Dawn / PIB",
+        year: "2020",
+        connection: "Ashoka's edicts are primary evidence of Mauryan administration, dhamma policy, and territorial extent. Frequently asked in UPSC Prelims.",
+        chapter_link: "Age of the Mauryas � Ashoka's Dhamma"
+    },
+    {
+        headline: "Patna (Pataliputra) Smart City Project uncovers Mauryan-era wooden walls",
+        source: "ASI Report",
+        year: "2022",
+        connection: "Pataliputra was the capital of the Mauryan Empire. Megasthenes described it in his Indica as a fortified city.",
+        chapter_link: "Age of the Mauryas � Megasthenes Account"
+    }
+];
+
+export const CH13_SEQUENCE_DRILLS: SequenceQuestion[] = [
+    {
+        id: "ch13-seq-1",
+        question: "Arrange the following Mauryan rulers in the correct chronological order:",
+        items: [
+            { id: "a", content: "Chandragupta Maurya (Founder)" },
+            { id: "b", content: "Bindusara" },
+            { id: "c", content: "Ashoka" },
+            { id: "d", content: "Brihadratha (Last Mauryan king)" }
+        ],
+        correctOrder: ["a", "b", "c", "d"],
+        explanation: "321 BC (Chandragupta) ? 298 BC (Bindusara) ? 268 BC (Ashoka) ? 185 BC (Brihadratha, killed by Pushyamitra Sunga)."
+    ,
+        difficulty: "moderate"
+    },
+    {
+        id: "ch13-seq-2",
+        question: "Arrange the following events in Ashoka's reign in the correct chronological order:",
+        items: [
+            { id: "a", content: "Coronation of Ashoka as Mauryan Emperor" },
+            { id: "b", content: "Kalinga War" },
+            { id: "c", content: "Ashoka's conversion to Buddhism" },
+            { id: "d", content: "Third Buddhist Council at Pataliputra" },
+            { id: "e", content: "Ashoka sends missionaries to Sri Lanka (son Mahendra)" }
+        ],
+        correctOrder: ["a", "b", "c", "d", "e"],
+        explanation: "268 BC (Coronation) ? 260 BC (Kalinga War) ? 260 BC (Conversion after Kalinga shock) ? 250 BC (Third Council) ? 250 BC (Mahendra to Sri Lanka)."
+    ,
+        difficulty: "moderate"
     }
 ];

@@ -14,70 +14,70 @@ export const CH14_KEY_POINTS = [
 export const CH14_HANDWRITTEN_NOTES: HandwrittenNote[] = [];
 export const CH14_TIMELINE: TimelineEvent[] = [];
 export const CH14_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch14-fc-1",
         "front": "Which Maurya ruler is credited with replacing the policy of Bherighosha with Dhammaghosha?",
         "back": "Asoka",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch14-fc-2",
         "front": "The Arthasastra, a key source for Maurya administration, was compiled by:?",
         "back": "Kautilya",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch14-fc-3",
         "front": "According to Megasthenes, the administration of Pataliputra was managed by how many committees?",
         "back": "Six",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch14-fc-4",
         "front": "The Maurya state brought virgin land under cultivation with the help of:?",
         "back": "Cultivators and sudra labourers",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch14-fc-5",
         "front": "During the Maurya period, taxes collected from the peasants generally varied from:?",
         "back": "1/4 to 1/6 of the produce",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch14-fc-6",
         "front": "The state enjoyed a monopoly in which of the following economic activities during the Maurya rule?",
         "back": "All of the above",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch14-fc-7",
         "front": "Which of the following regions was NOT included in the Maurya Empire under Asoka?",
         "back": "Deep South (Kerala, Tamil Nadu)",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch14-fc-8",
         "front": "The Maurya military administration was carried out by a board consisting of how many officers?",
         "back": "30 officers",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch14-fc-9",
         "front": "In Asokan inscriptions, the script used in the north-western part of the empire was:?",
         "back": "Kharosthi",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch14-fc-10",
         "front": "Asoka’s conversion to Buddhism and his remorse over the Kalinga War is mentioned in which rock edict?",
         "back": "Major Rock Edict XIII",
         "tags": [

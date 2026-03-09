@@ -548,49 +548,50 @@ function TravelerLog({ traveler }: { traveler: any }) {
 
 // ============= Dynasty Comparison Engine =============
 function DynastyCompare({ currentCh, compareCh }: { currentCh: number; compareCh: number }) {
-    const currentData = ANCIENT_COMPARISONS[currentCh];
-    const compareData = ANCIENT_COMPARISONS[compareCh];
+    // Currently hardcoded to show Maurya vs Gupta if Ch13/14 or Ch19/20 is active
+    let comparisonId = null;
+    if (currentCh === 13 || currentCh === 14 || compareCh === 13 || compareCh === 14) {
+        if (currentCh === 19 || currentCh === 20 || compareCh === 19 || compareCh === 20) {
+            comparisonId = "mau-v-gup";
+        }
+    }
 
-    if (!currentData) return <div className="text-zinc-500 p-12 text-center">Comparative data for this chapter is coming soon. Select a chapter like 14 (Maurya) or 20 (Gupta) to see the engine in action.</div>;
+    // Default to the first comparison if testing
+    const data = ANCIENT_COMPARISONS.find(c => c.id === comparisonId) || ANCIENT_COMPARISONS[0];
 
-    const categories = ["Administration", "Economy", "Religion", "Military", "Architecture"];
+    if (!data) return <div className="text-zinc-500 p-12 text-center">Comparative data for this chapter is coming soon. Select a chapter like 14 (Maurya) or 20 (Gupta) to see the engine in action.</div>;
 
     return (
         <div className="space-y-8 animate-in fade-in duration-500">
             <div className="grid grid-cols-2 gap-4">
                 <div className="bg-amber-950/20 border border-amber-800/40 rounded-2xl p-6 text-center">
-                    <div className="text-[10px] font-black text-amber-500 uppercase tracking-widest mb-1">Current Period</div>
-                    <h3 className="text-xl font-black text-zinc-100">{currentData.name}</h3>
+                    <div className="text-[10px] font-black text-amber-500 uppercase tracking-widest mb-1">Subject 1</div>
+                    <h3 className="text-xl font-black text-zinc-100">{data.subjects[0]}</h3>
                 </div>
                 <div className="bg-blue-950/20 border border-blue-800/40 rounded-2xl p-6 text-center">
-                    <div className="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1">Comparing Against</div>
-                    <h3 className="text-xl font-black text-zinc-100">{compareData?.name || `Chapter ${compareCh}`}</h3>
+                    <div className="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1">Subject 2</div>
+                    <h3 className="text-xl font-black text-zinc-100">{data.subjects[1]}</h3>
                 </div>
             </div>
 
             <div className="space-y-4">
-                {categories.map((cat, idx) => {
-                    const currentPt = currentData.points.find(p => p.category === cat);
-                    const comparePt = compareData?.points.find(p => p.category === cat);
-
-                    return (
-                        <div key={idx} className="group transition-all duration-300">
-                            <div className="flex items-center justify-center mb-2">
-                                <span className="px-3 py-1 rounded-full bg-zinc-800 text-[10px] font-black text-zinc-500 border border-zinc-700 uppercase tracking-widest group-hover:border-amber-500/50 group-hover:text-amber-400 transition-colors">
-                                    {cat}
-                                </span>
+                {data.metrics.map((metric, idx) => (
+                    <div key={idx} className="group transition-all duration-300">
+                        <div className="flex items-center justify-center mb-2">
+                            <span className="px-3 py-1 rounded-full bg-zinc-800 text-[10px] font-black text-zinc-500 border border-zinc-700 uppercase tracking-widest group-hover:border-amber-500/50 group-hover:text-amber-400 transition-colors">
+                                {metric.label}
+                            </span>
+                        </div>
+                        <div className="grid grid-cols-2 gap-0 border border-zinc-800 rounded-2xl overflow-hidden bg-zinc-900/50">
+                            <div className="p-5 border-r border-zinc-800">
+                                <p className="text-sm text-zinc-300 leading-relaxed italic">{metric.val1}</p>
                             </div>
-                            <div className="grid grid-cols-2 gap-0 border border-zinc-800 rounded-2xl overflow-hidden bg-zinc-900/50">
-                                <div className="p-5 border-r border-zinc-800">
-                                    <p className="text-sm text-zinc-300 leading-relaxed italic">{currentPt?.description || "Data being compiled..."}</p>
-                                </div>
-                                <div className="p-5 bg-blue-950/10">
-                                    <p className="text-sm text-zinc-300 leading-relaxed italic">{comparePt?.description || "Select a valid comparative chapter (14, 20, 23)."}</p>
-                                </div>
+                            <div className="p-5 bg-blue-950/10">
+                                <p className="text-sm text-zinc-300 leading-relaxed italic">{metric.val2}</p>
                             </div>
                         </div>
-                    );
-                })}
+                    </div>
+                ))}
             </div>
         </div>
     );
@@ -1075,8 +1076,8 @@ export default function AncientHistoryChapterPage() {
                                         )}
 
                                         {/* PLATINUM MASTERY: Spaced Repetition (Conditional) */}
-                                        {part.readSection === 'platinum' && (
-                                            <PlatinumMastery spacing={part.spacing} />
+                                        {progress.readSection === 'platinum' && (
+                                            <PlatinumMastery spacing={progress.spacing} />
                                         )}
                                     </>
                                 ) : (

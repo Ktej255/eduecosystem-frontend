@@ -25,70 +25,70 @@ export const CH27_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH27_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch27-fc-1",
         "front": "Which ancient Indian mathematician was the first to calculate the value of pi (π) accurately to four decimal places (3.1416)?",
         "back": "Aryabhata",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch27-fc-2",
         "front": "The concept of the 'Decimal System' was invented in ancient India. The Arabs borrowed this system and called it:?",
         "back": "Hindsa",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch27-fc-3",
         "front": "Who is the author of the Brihat Samhita, an encyclopedic work on astronomy, astrology, geography, and architecture?",
         "back": "Varahamihira",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch27-fc-4",
         "front": "The most famous ancient Indian text on medicine, focusing on plants, herbs, and the treatment of diseases, is the:?",
         "back": "Charaka Samhita",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch27-fc-5",
         "front": "Which ancient Indian text is renowned as the primary treatise on surgery, including early plastic surgery (rhinoplasty)?",
         "back": "Sushruta Samhita",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch27-fc-6",
         "front": "The philosophical school of ancient India that explicitly promoted materialism and denied the existence of heaven, hell, and the soul was:?",
         "back": "Lokayata (Charvaka)",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch27-fc-7",
         "front": "According to the text, which of the following is considered the greatest ancient Indian epic, ultimately expanding to 100,000 verses?",
         "back": "Mahabharata",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch27-fc-8",
         "front": "The rust-resistant Iron Pillar, a marvel of ancient Indian metallurgy, is located in:?",
         "back": "Mehrauli (Delhi)",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch27-fc-9",
         "front": "Ancient Indian mathematicians were the first to use which crucial mathematical concept that revolutionized global arithmetic?",
         "back": "The concept of Zero",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch27-fc-10",
         "front": "The primary language used for classical secular literature, scientific texts, and royal epigraphs in ancient India was:?",
         "back": "Sanskrit",
         "tags": [

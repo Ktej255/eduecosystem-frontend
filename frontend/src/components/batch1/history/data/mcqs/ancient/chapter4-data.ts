@@ -20,70 +20,70 @@ export const CH4_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH4_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch4-fc-1",
         "front": "According to the text, man has been living in India roughly from:?",
         "back": "500,000 B.C.\n\nContext: The text states that man has been living in India roughly from 500,000 B.C.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch4-fc-2",
         "front": "Early Palaeolithic sites yielding unpolished, undressed rough stones are prominently found in which river valley in Pakistan?",
         "back": "Soan (Sohan)\n\nContext: Tools of unpolished, rough stones have been found in the Soan or Sohan river valley in Pakistan.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch4-fc-3",
         "front": "Palaeolithic tools that could be as old as 100,000 B.C. have been found in which of the following plateaus?",
         "back": "Chotanagpur plateau\n\nContext: Palaeolithic tools as old as 100,000 B.C. have been found in the Chotanagpur plateau.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch4-fc-4",
         "front": "In which district of Andhra Pradesh have tools belonging to 25,000 B.C.–10,000 B.C. been found along with bone implements?",
         "back": "Kurnool\n\nContext: Such tools and bone implements have been found in Kurnool district in Andhra Pradesh.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch4-fc-5",
         "front": "Animal remains indicating the domestication of goats, sheep, and cattle around 25,000 B.C. have been found in the Belan valley located in:?",
         "back": "Mirzapur district, Uttar Pradesh\n\nContext: The text explicitly mentions the Belan valley in Mirzapur district in Uttar Pradesh.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch4-fc-6",
         "front": "The Old Stone Age in India developed during which geological period?",
         "back": "Pleistocene\n\nContext: The Palaeolithic culture developed in the Pleistocene period or the Ice Age.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch4-fc-7",
         "front": "The geological period in which we currently live, which began about 10,000 years ago, is called:?",
         "back": "Holocene\n\nContext: The Holocene or recent period began about 10,000 years ago.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch4-fc-8",
         "front": "The Lower Palaeolithic or Early Old Stone Age is characterized primarily by the use of: A) Flakes and borers B) Blades and burins C) Microliths D) Hand-axes and cleavers Answer: D | Explanation: Its characteristic feature is the use of hand-axes and cleavers. Q9. In the Soan valley, the Early Old Stone Age artifacts are associated with which Himalayan glaciation?",
         "back": "Second\n\nContext: Hand-axes have been found in a deposit of the time of the second Himalayan glaciation.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch4-fc-9",
         "front": "The Middle Palaeolithic industries are primarily based upon:?",
         "back": "Flakes\n\nContext: The Middle Old Stone Age industries are all based upon flakes.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch4-fc-10",
         "front": "During the Middle Old Stone Age, artifacts found in the Soan Valley are contemporary with which Himalayan glaciation?",
         "back": "Third\n\nContext: We notice a crude pebble industry in strata contemporary with the third Himalayan glaciation.",
         "tags": [

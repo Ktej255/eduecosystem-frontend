@@ -20,70 +20,70 @@ export const CH25_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH25_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch25-fc-1",
         "front": "The period marking the transformation of the ancient phase to the early medieval phase in Indian history is generally identified as:?",
         "back": "5th to 7th century AD",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch25-fc-2",
         "front": "The most striking political development of the late ancient and early medieval period was the rise of:?",
         "back": "Landed intermediaries and the Samanta (feudatory) system",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch25-fc-3",
         "front": "The practice of granting land to priests and temples became prevalent. These grants were universally known as:?",
         "back": "Brahmadeya / Agrahara",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch25-fc-4",
         "front": "Along with the revenues of the land, the king also transferred which of the following rights to the Brahmanas in these land grants?",
         "back": "Administrative and judicial (police) rights",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch25-fc-5",
         "front": "The peasants in the donated villages were asked to stay in the village and hand over their taxes to the donee. This practice eventually led to the subjection of the peasants, turning them into:?",
         "back": "Semi-serfs tied to the land",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch25-fc-6",
         "front": "The term Vishti, which became highly prevalent during this transitional phase, refers to:?",
         "back": "Forced labor extracted by the state or the landlord",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch25-fc-7",
         "front": "The decline of trade and commerce in this period is most visibly supported by the archaeological evidence of:?",
         "back": "The decay and desertion of ancient urban centers/towns",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch25-fc-8",
         "front": "Because of the decline of towns and long-distance trade, artisans and merchants lost their mobility and were forced to migrate to:?",
         "back": "Villages to cater to local agrarian needs",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch25-fc-9",
         "front": "The localized, self-sufficient village economy where artisans were attached to agricultural estates and paid in kind (grain) is an early precursor to the:?",
         "back": "Jajmani system",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch25-fc-10",
         "front": "The Varna system underwent a massive transformation during this period, primarily characterized by the proliferation of:?",
         "back": "Numerous sub-castes (Jatis)",
         "tags": [

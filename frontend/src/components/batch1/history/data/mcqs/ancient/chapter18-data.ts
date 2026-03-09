@@ -20,70 +20,70 @@ export const CH18_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH18_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch18-fc-1",
         "front": "The Buddhist text Milinda Panho mentions how many types of occupations during the post-Mauryan period?",
         "back": "75",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch18-fc-2",
         "front": "The Mahavastu, a Buddhist text, catalogues crafts residing in which ancient city, listing around 36 kinds of workers?",
         "back": "Rajgir",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch18-fc-3",
         "front": "Which ancient city was highly famous for the manufacture of a special type of cloth called Shataka?",
         "back": "Mathura",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch18-fc-4",
         "front": "During the post-Mauryan period, the craft of making objects from which material reached its zenith, often associated with women's ornamentation?",
         "back": "Terracotta",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch18-fc-5",
         "front": "Who discovered the monsoon sea route to India around AD 46, which revolutionized Indo-Roman trade?",
         "back": "Hippalus",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch18-fc-6",
         "front": "According to Pliny, which country was the chief importer of Indian luxury goods, leading to a massive drain of their gold?",
         "back": "Rome",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch18-fc-7",
         "front": "Which of the following ports was located on the eastern coast of India and handled trade with Southeast Asia?",
         "back": "Tamralipti",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch18-fc-8",
         "front": "The terms Sreni, Nigama, and Puga in ancient Indian economic history refer to:?",
         "back": "Guilds of artisans and merchants",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch18-fc-9",
         "front": "The guilds of the post-Mauryan period acted as banks. What was a common practice regarding investments in these guilds?",
         "back": "The principal was kept intact, and only the interest was used to support religious endowments.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch18-fc-10",
         "front": "The Roman historian who lamented the drain of Roman wealth to India in his work Natural History was:?",
         "back": "Pliny",
         "tags": [

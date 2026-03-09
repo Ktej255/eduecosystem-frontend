@@ -20,70 +20,70 @@ export const CH20_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH20_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch20-fc-1",
         "front": "In the Gupta administration, the officer responsible for the collection of tolls on commodities was known as:?",
         "back": "Shaulkika",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch20-fc-2",
         "front": "The officer who maintained the records of land transactions in the Gupta district administration was called:?",
         "back": "Pustapala",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch20-fc-3",
         "front": "According to the inscriptions of the Gupta period, the guilds of artisans, merchants, and bankers were known as:?",
         "back": "Shrenis",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch20-fc-4",
         "front": "The famous Mandasor inscription records the history of a guild of:?",
         "back": "Silk weavers",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch20-fc-5",
         "front": "Which of the following varnas did the Gupta kings most likely belong to, according to historical consensus?",
         "back": "Vaishya",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch20-fc-6",
         "front": "The Chinese traveler Fa-hsien noted the severe social segregation of which specific group, who were forced to live outside the village boundaries?",
         "back": "Chandalas",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch20-fc-7",
         "front": "The earliest epigraphic evidence of the practice of Sati (widow immolation) is found in an inscription dated AD 510 at:?",
         "back": "Eran",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch20-fc-8",
         "front": "During the Gupta age, women of the upper classes were generally allowed to retain certain types of property given at marriage, known as:?",
         "back": "Stridhana",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch20-fc-9",
         "front": "The Gupta emperors were devout followers of which major religious sect?",
         "back": "Bhagavatism (Vaishnavism)",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch20-fc-10",
         "front": "The text containing the philosophical teachings of Lord Krishna to Arjuna, which attained its final form during the Gupta period, is the:?",
         "back": "Bhagavad Gita",
         "tags": [
@@ -1396,5 +1396,49 @@ export const CH20_L3_MCQS: MCQ[] = [
         "tags": [
             "history"
         ]
+    }
+];
+
+import { SequenceQuestion } from "../../ancient-types-27";
+
+export interface CurrentAffairsItem {
+    headline: string;
+    source: string;
+    year: string;
+    connection: string;
+    chapter_link: string;
+}
+
+export const CH20_CURRENT_AFFAIRS: CurrentAffairsItem[] = [
+    {
+        headline: "Kalidasa Festival held in Ujjain � celebrating India's Shakespeare",
+        source: "MP Tourism / The Hindu",
+        year: "Annual",
+        connection: "Kalidasa, author of Abhijnanasakuntalam and Meghaduta, lived during the Gupta Age (Chandragupta II). Represents the Golden Age of Sanskrit literature.",
+        chapter_link: "Life in Gupta Age � Literature & Kalidasa"
+    },
+    {
+        headline: "India celebrates National Mathematics Day � Aryabhata credited with zero",
+        source: "PIB",
+        year: "Annual (December 22)",
+        connection: "Aryabhata wrote Aryabhatiya during the Gupta period. He calculated pi, proposed heliocentric theory, and explained solar/lunar eclipses scientifically.",
+        chapter_link: "Life in Gupta Age � Science & Aryabhata"
+    }
+];
+
+export const CH20_SEQUENCE_DRILLS: SequenceQuestion[] = [
+    {
+        id: "ch20-seq-1",
+        question: "Arrange these Gupta-age intellectual achievements in the order they are described by R.S. Sharma (from broad topics to specific):",
+        items: [
+            { id: "a", content: "Court of Chandragupta II � Nine Gems (Navaratnas)" },
+            { id: "b", content: "Kalidasa's famous literary works (Meghaduta, Shakuntala)" },
+            { id: "c", content: "Aryabhata's scientific treatise (Aryabhatiya, 499 AD)" },
+            { id: "d", content: "Brahmagupta's contributions to mathematics and zero" }
+        ],
+        correctOrder: ["a", "b", "c", "d"],
+        explanation: "The Gupta Golden Age is described moving from court patronage ? literature ? astronomy/math sequentially in R.S. Sharma."
+    ,
+        difficulty: "moderate"
     }
 ];

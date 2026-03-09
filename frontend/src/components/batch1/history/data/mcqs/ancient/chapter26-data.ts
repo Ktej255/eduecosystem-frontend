@@ -25,70 +25,70 @@ export const CH26_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH26_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch26-fc-1",
         "front": "According to the sequence of social changes in ancient India, the first major urban society emerged during the:?",
         "back": "Harappan period",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch26-fc-2",
         "front": "The Harappan society was characterized by a sharp class division. Which feature archaeologically indicates this?",
         "back": "The citadel for the ruling class and lower town for the commoners",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch26-fc-3",
         "front": "The early Vedic (Rig Vedic) society was primarily:?",
         "back": "Pastoral, semi-nomadic, and tribal",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch26-fc-4",
         "front": "In the Rig Vedic society, the primary form of wealth was:?",
         "back": "Cattle",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch26-fc-5",
         "front": "The term Varna originally referred to:?",
         "back": "Color (distinguishing the fair Aryans from the dark Dasyus)",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch26-fc-6",
         "front": "In the Later Vedic period, the society transitioned from being pastoral to:?",
         "back": "Sedentary and agrarian",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch26-fc-7",
         "front": "Which two Varnas emerged as the dominant classes in the Later Vedic agrarian society?",
         "back": "Brahmanas and Kshatriyas",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch26-fc-8",
         "front": "During the Later Vedic phase, who constituted the principal tax-paying producing class?",
         "back": "Vaishyas (Vis)",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch26-fc-9",
         "front": "The primary duty assigned to the Shudras in the Later Vedic and Dharmashastra texts was:?",
         "back": "Serving the upper three Varnas",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch26-fc-10",
         "front": "Which period saw the firm establishment of the rigid four-fold Varna system and the emergence of the untouchables (Chandalas)?",
         "back": "Pre-Mauryan / Age of Buddha",
         "tags": [

@@ -14,70 +14,70 @@ export const CH17_KEY_POINTS = [
 export const CH17_HANDWRITTEN_NOTES: HandwrittenNote[] = [];
 export const CH17_TIMELINE: TimelineEvent[] = [];
 export const CH17_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch17-fc-1",
         "front": "The early history of southern India is traced through large stone burials known as:?",
         "back": "Megaliths",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch17-fc-2",
         "front": "Which metal was predominantly used by the Megalithic builders of south India for their tools and weapons?",
         "back": "Iron",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch17-fc-3",
         "front": "The Megalithic people of the south were distinguished by their use of a specific type of pottery known as:?",
         "back": "Black-and-red Ware",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch17-fc-4",
         "front": "The three early kingdoms that arose in the deep south were the Cholas, the Pandyas, and the:?",
         "back": "Cheras",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch17-fc-5",
         "front": "The Pandya kingdom, situated in the southern part of the Tamil peninsula, had its capital at:?",
         "back": "Madurai",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch17-fc-6",
         "front": "The Chola kingdom was situated between the Pennar and the Velar rivers. Their chief centre of political power initially was:?",
         "back": "Uraiyur",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch17-fc-7",
         "front": "Which of the following ports served as the great Chola port and an alternative capital?",
         "back": "Puhar (Kaveripattinam)",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch17-fc-8",
         "front": "The Chera kingdom covered the portions of modern:?",
         "back": "Kerala and western parts of Tamil Nadu",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch17-fc-9",
         "front": "The Roman emperor whose gold and silver coins are found in abundance in the Tamil country, indicating flourishing trade, was:?",
         "back": "Augustus",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch17-fc-10",
         "front": "The most important item of export from the early Tamil kingdoms to the Roman Empire was:?",
         "back": "Spices (especially pepper)",
         "tags": [
@@ -1310,5 +1310,61 @@ export const CH17_L3_MCQS: MCQ[] = [
         "tags": [
             "history"
         ]
+    }
+];
+
+import { SequenceQuestion } from "../../ancient-types-27";
+
+export interface CurrentAffairsItem {
+    headline: string;
+    source: string;
+    year: string;
+    connection: string;
+    chapter_link: string;
+}
+
+export const CH17_CURRENT_AFFAIRS: CurrentAffairsItem[] = [
+    {
+        headline: "Kumari Kandam theory refuted � scientists confirm Sangam-age settlements",
+        source: "The Hindu / Nature",
+        year: "2023",
+        connection: "The Sangam Age (300 BC - 300 AD) marked the golden era of Tamil literature and Chola/Pandya/Chera kingdoms. R.S. Sharma Chapter 17 covers their polity, economy, and culture.",
+        chapter_link: "Dawn of History in Deep South � Sangam Age"
+    },
+    {
+        headline: "Tamil Nadu government declares Silappadikaram a state heritage document",
+        source: "TN Government / The Hindu",
+        year: "2022",
+        connection: "Silappadikaram is one of the 'Five Epics' of Tamil Sangam literature, evidence for trade, town-life, and society in the Sangam period.",
+        chapter_link: "Sangam Literature � Social Evidence"
+    }
+];
+
+export const CH17_SEQUENCE_DRILLS: SequenceQuestion[] = [
+    {
+        id: "ch17-seq-1",
+        question: "Arrange the three Sangam kingdoms in order of their general territory from North to South along the peninsula:",
+        items: [
+            { id: "a", content: "Cheras (Kerala Coast � Malabar)" },
+            { id: "b", content: "Cholas (Tamil Nadu � Kaveri delta)" },
+            { id: "c", content: "Pandyas (Southernmost tip � Madurai)" }
+        ],
+        correctOrder: ["a", "b", "c"],
+        explanation: "Cheras (northwest coast / Kerala) ? Cholas (northeast / Kaveri delta / Uraiyur) ? Pandyas (southernmost / Madurai / pearl fishery)."
+    ,
+        difficulty: "moderate"
+    },
+    {
+        id: "ch17-seq-2",
+        question: "Arrange the Sangam assemblies in the traditional chronological order (per Tamil literary tradition):",
+        items: [
+            { id: "a", content: "First Sangam (at Madurai � submerged)" },
+            { id: "b", content: "Second Sangam (at Kapadapuram � submerged)" },
+            { id: "c", content: "Third Sangam (at Madurai � survived, produced existing texts)" }
+        ],
+        correctOrder: ["a", "b", "c"],
+        explanation: "According to Tamil tradition: First ? Second ? Third Sangam. Only the Third Sangam's literature survives as what we call Sangam literature today."
+    ,
+        difficulty: "moderate"
     }
 ];

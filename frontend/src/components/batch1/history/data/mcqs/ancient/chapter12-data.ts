@@ -35,70 +35,70 @@ export const CH12_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH12_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch12-fc-1",
         "front": "Archaeologically, the sixth century B.C. marks the beginning of the NBP phase. What does the abbreviation NBP stand for?",
         "back": "Northern Black Polished Ware\n\nContext: The abbreviation NBP stands for the Northern Black Polished Ware, which was a very glossy, shining type of pottery.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch12-fc-2",
         "front": "The NBP phase in the middle Gangetic basin marked the beginning of:?",
         "back": "The second urbanization in India\n\nContext: The NBP phase marked the beginning of the second urbanization in India.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch12-fc-3",
         "front": "According to the text, how long was the gap between the disappearance of Harappan towns and the beginning of the second urbanization?",
         "back": "1,000 years\n\nContext: The Harappan towns finally disappeared in about 1500 B.C. After that for about 1,000 years we do not find any towns in India.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch12-fc-4",
         "front": "The use of burnt bricks and ringwells appeared in the middle of the NBP phase, which corresponds to which century?",
         "back": "Third century B.C.\n\nContext: The use of burnt bricks and ringwells appeared in the middle of the NBP phase, i.e., in the third century B.C.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch12-fc-5",
         "front": "In the age of the Buddha, how many guilds of artisans do the texts mention?",
         "back": "18\n\nContext: We hear of 18 guilds of artisans but only the guilds of smiths, carpenters, leather workers and painters are specified.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch12-fc-6",
         "front": "According to the texts, Saddalaputta at Vaisali possessed 500 shops belonging to which craft?",
         "back": "Potters\n\nContext: At some places there was concentration of artisans; Saddalaputta at Vaisali had 500 potters' shops.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch12-fc-7",
         "front": "In Varanasi, the specific street inhabited by merchants was known as:?",
         "back": "Vessa's street\n\nContext: Both artisans and merchants lived in fixed localities in towns. We hear of vessa's or merchants' street in Varanasi.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch12-fc-8",
         "front": "The earliest metallic coins in India belonged to the fifth century B.C. and are called:?",
         "back": "Punch-marked coins\n\nContext: Coins made of metal appear first in the age of Gautama Buddha... They are called punch-marked because pieces of these metals were punched with certain marks.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch12-fc-9",
         "front": "The earliest hoards of punch-marked coins have been found in:?",
         "back": "Eastern Uttar Pradesh and Magadha\n\nContext: The earliest hoards of these coins have been found in eastern Uttar Pradesh and Magadha, although some early coins are also found in Taxila.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch12-fc-10",
         "front": "The Pali texts speak of how many types or categories of villages?",
         "back": "Three\n\nContext: The Pali texts speak of three types of villages: typical villages, suburban craft villages, and border villages.",
         "tags": [

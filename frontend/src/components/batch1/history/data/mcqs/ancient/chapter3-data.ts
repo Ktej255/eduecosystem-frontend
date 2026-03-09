@@ -25,70 +25,70 @@ export const CH3_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH3_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch3-fc-1",
         "front": "According to the text, the Indian subcontinent is as large in area as:?",
         "back": "Europe without Russia\n\nContext: The text states the Indian subcontinent is as large in area as Europe without Russia.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch3-fc-2",
         "front": "Which of the following mountain ranges is in southward continuation with the Himalayas on the north-west?",
         "back": "Sulaiman ranges\n\nContext: On the north-west, the Sulaiman mountain ranges are in southward continuation with the Himalayas.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch3-fc-3",
         "front": "The Khyber and Gomal passes are situated in which mountain ranges?",
         "back": "Sulaiman ranges\n\nContext: The Sulaiman mountain ranges could be crossed through the Khyber and Gomal passes.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch3-fc-4",
         "front": "The Bolan pass, which allowed two-way traffic between India and Central Asia, is located in the:?",
         "back": "Kirthar ranges in Baluchistan\n\nContext: The Sulaiman ranges are joined southward in Baluchistan by the Kirthar ranges, which could be crossed through the Bolan pass.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch3-fc-5",
         "front": "Which plateau did not prevent the Kashmir valley from becoming a transmitting centre of Buddhism to adjacent areas?",
         "back": "Pamir plateau\n\nContext: The Pamir plateau did not prevent Kashmir from becoming a transmitting centre of Buddhism for Central Asia.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch3-fc-6",
         "front": "The earliest agricultural settlements and states in the sixth century B.C. were founded in the:?",
         "back": "Foothills of the Himalayas\n\nContext: The earliest routes skirted along the foothills because jungles were easier to clear there, leading to early settlements and states.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch3-fc-7",
         "front": "As one proceeds from the plains of the Indus system to the Brahmaputra basin, the annual rainfall:?",
         "back": "Gradually increases from 25 cm to over 250 cm\n\nContext: The annual rainfall gradually increases from 25 cm in the Indus plains to over 250 cm in the Brahmaputra basin.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch3-fc-8",
         "front": "In ancient times, the middle Gangetic vegetation (60 to 125 cm rainfall) could only be cleared effectively with the help of:?",
         "back": "Iron implements\n\nContext: The thickly forested areas with hard soil in the middle/lower Gangetic basin could be cleared only with the help of iron implements.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch3-fc-9",
         "front": "The Indus and the western Gangetic plains mainly produced:?",
         "back": "Wheat and barley\n\nContext: The text specifies that the Indus and the western Gangetic plains mainly produced wheat and barley.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch3-fc-10",
         "front": "Which culture originated in the Panjab and flourished in the western Gangetic basin?",
         "back": "Vedic culture\n\nContext: The Vedic culture originated in the Panjab and flourished in the western Gangetic basin.",
         "tags": [

@@ -30,70 +30,70 @@ export const CH5_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH5_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch5-fc-1",
         "front": "Towards the end of the neolithic period, which metal was the first to be utilized by early cultures?",
         "back": "Copper\n\nContext: The text states that towards the end of the neolithic period began the use of metals, and the metal to be used first was copper.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch5-fc-2",
         "front": "A culture based on the combined use of stone and copper implements is archaeologically termed as:?",
         "back": "Chalcolithic\n\nContext: Several cultures were based on the use of stone and copper implements; such a culture is called chalcolithic.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch5-fc-3",
         "front": "Which of the following pairs of chalcolithic sites were excavated in the dry zones of the Banas valley in south-eastern Rajasthan?",
         "back": "Ahar and Gilund\n\nContext: In south-eastern Rajasthan, two sites, one at Ahar and the other at Gilund, have been excavated. They lie in the dry zones of the Banas valley.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch5-fc-4",
         "front": "The chalcolithic sites of Kayatha and Eran are located in which historical region?",
         "back": "Malwa (Western Madhya Pradesh)\n\nContext: In western Madhya Pradesh, in Malwa, Kayatha and Eran have been exposed.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch5-fc-5",
         "front": "Which of the following rivers is associated with the chalcolithic site of Navdatoli?",
         "back": "Narmada\n\nContext: Navdatoli is situated on the Narmada river.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch5-fc-6",
         "front": "The chalcolithic site of Chirand is situated on the banks of the:?",
         "back": "Ganga\n\nContext: In eastern India, besides Chirand on the Ganga, mention may be made of Pandu Rajar Dhibi.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch5-fc-7",
         "front": "Pandu Rajar Dhibi and Mahishdal are important chalcolithic sites located in the modern state of:?",
         "back": "West Bengal\n\nContext: Pandu Rajar Dhibi is in Burdwan district and Mahishdal in Midnapore district in West Bengal.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch5-fc-8",
         "front": "At which of the following chalcolithic sites are stone axes or blades completely absent, with a proliferation of copper objects due to local availability?",
         "back": "Ahar\n\nContext: At Ahar stone axes or blades are completely absent; copper objects are numerous because raw copper is locally available.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch5-fc-9",
         "front": "Flat, rectangular copper axes and copper chisels are prominently found at which of the following Maharashtra sites?",
         "back": "Chandoli and Jorwe\n\nContext: Flat, rectangular copper axes are found in Jorwe and Chandoli in Maharashtra, and copper chisels at Chandoli.",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch5-fc-10",
         "front": "The widely prevalent pottery of the stone-copper phase, which was thrown on a wheel and occasionally painted with white linear designs, is known as:?",
         "back": "Black-and-red ware\n\nContext: The people of the stone-copper phase used different types of pottery, one of which is called black-and-red and was occasionally painted with white linear designs.",
         "tags": [

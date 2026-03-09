@@ -14,70 +14,70 @@ export const CH19_KEY_POINTS = [
 export const CH19_HANDWRITTEN_NOTES: HandwrittenNote[] = [];
 export const CH19_TIMELINE: TimelineEvent[] = [];
 export const CH19_FLASHCARDS: Flashcard[] = [
-    {
+    { "id": "ch19-fc-1",
         "front": "The Gupta Empire emerged on the ruins of which two major empires?",
         "back": "Kushans and Satavahanas",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch19-fc-2",
         "front": "Who was the first important king of the Gupta dynasty who laid the foundation of the empire?",
         "back": "Chandragupta I",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch19-fc-3",
         "front": "The Gupta era, marking the accession of Chandragupta I, started in which year?",
         "back": "AD 319-320",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch19-fc-4",
         "front": "Chandragupta I married a princess from which famous republic, greatly enhancing his power and prestige?",
         "back": "Lichchhavis",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch19-fc-5",
         "front": "Which Gupta ruler is often referred to as the \\\"Napoleon of India\\\" due to his extensive military conquests?",
         "back": "Samudragupta",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch19-fc-6",
         "front": "The detailed record of Samudragupta’s conquests is preserved in a long inscription composed by his court poet. Who was this poet?",
         "back": "Harisena",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch19-fc-7",
         "front": "Where is the famous inscription detailing Samudragupta's achievements located?",
         "back": "Allahabad (Prayag)",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch19-fc-8",
         "front": "Samudragupta’s campaigns in the south (Dakshinapatha) involved defeating how many kings?",
         "back": "Twelve",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch19-fc-9",
         "front": "Which Gupta king adopted the famous title of 'Vikramaditya'?",
         "back": "Chandragupta II",
         "tags": [
             "history"
         ]
     },
-    {
+    { "id": "ch19-fc-10",
         "front": "Chandragupta II made which city his second capital?",
         "back": "Ujjain",
         "tags": [
@@ -1358,5 +1358,50 @@ export const CH19_L3_MCQS: MCQ[] = [
         "tags": [
             "history"
         ]
+    }
+];
+
+import { SequenceQuestion } from "../../ancient-types-27";
+
+export interface CurrentAffairsItem {
+    headline: string;
+    source: string;
+    year: string;
+    connection: string;
+    chapter_link: string;
+}
+
+export const CH19_CURRENT_AFFAIRS: CurrentAffairsItem[] = [
+    {
+        headline: "ASI discovers Gupta-era copper coin hoard in Madhya Pradesh",
+        source: "ASI / Mint",
+        year: "2023",
+        connection: "Gupta rulers issued gold coins (Dinars) considered the finest in Indian numismatic history. The find affirms Gupta monetary prosperity.",
+        chapter_link: "Rise of Gupta Empire � Economy & Coins"
+    },
+    {
+        headline: "Nalanda University revival project inaugurated by PM Modi",
+        source: "PIB",
+        year: "2024",
+        connection: "Nalanda University flourished during the Gupta period. It received patronage from Gupta kings and later from Harsha.",
+        chapter_link: "Gupta Empire � Education & Buddhism"
+    }
+];
+
+export const CH19_SEQUENCE_DRILLS: SequenceQuestion[] = [
+    {
+        id: "ch19-seq-1",
+        question: "Arrange the following Gupta rulers in the correct chronological order:",
+        items: [
+            { id: "a", content: "Chandragupta I (Founder of Gupta Empire)" },
+            { id: "b", content: "Samudragupta (the Napoleon of India)" },
+            { id: "c", content: "Chandragupta II (Vikramaditya)" },
+            { id: "d", content: "Kumaragupta I" },
+            { id: "e", content: "Skandagupta (Last great Gupta ruler)" }
+        ],
+        correctOrder: ["a", "b", "c", "d", "e"],
+        explanation: "320 AD (Chandragupta I) ? 335 AD (Samudragupta) ? 375 AD (Chandragupta II) ? 415 AD (Kumaragupta) ? 455 AD (Skandagupta)."
+    ,
+        difficulty: "moderate"
     }
 ];
