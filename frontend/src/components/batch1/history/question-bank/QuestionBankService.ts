@@ -1,5 +1,7 @@
 import { Question } from '../../types';
 import { ancientChapterData as ANCIENT_MCQ_MAP } from '../data/mcqs/ancient/registry';
+import { contentRegistry as LEGACY_ANCIENT_MAP } from '../data/ancient/content-registry';
+import { MEDIEVAL_CONTENT_MAP } from '../data/medieval/content-registry';
 import { MODERN_CHAPTER_1_MCQS } from '../data/modern/chapter1';
 // [Note: Keep all other modern imports intact up to line 41]
 import { MODERN_CHAPTER_2_MCQS } from '../data/modern/chapter2';
@@ -119,7 +121,7 @@ export const getAllQuestions = (): QuestionBankItem[] => {
         // Add more chapters here
     ];
 
-    // Dynamically add Ancient History MCQs
+    // 2. Dynamically add Ancient History MCQs from new registry
     Object.keys(ANCIENT_MCQ_MAP).forEach(key => {
         const k = parseInt(key);
         const chapterData = ANCIENT_MCQ_MAP[k] as any;
@@ -134,6 +136,26 @@ export const getAllQuestions = (): QuestionBankItem[] => {
             if (chapterData[`CH${k}_L3_MCQS`]) {
                 allQuestions.push(...enhanceQuestions(chapterData[`CH${k}_L3_MCQS`], k, chName, 'ancient', 3));
             }
+        }
+    });
+
+    // 3. Add Ancient History MCQs from legacy registry (the 2700 batch)
+    Object.keys(LEGACY_ANCIENT_MAP).forEach(key => {
+        const k = parseInt(key);
+        const chapterData = LEGACY_ANCIENT_MAP[k];
+        if (chapterData && chapterData.mcqs) {
+            const chName = `Ancient Chapter ${k}`;
+            allQuestions.push(...enhanceQuestions(chapterData.mcqs, k, chName, 'ancient'));
+        }
+    });
+
+    // 4. Add Medieval History MCQs from legacy registry
+    Object.keys(MEDIEVAL_CONTENT_MAP).forEach(key => {
+        const k = parseInt(key);
+        const chapterData = MEDIEVAL_CONTENT_MAP[k];
+        if (chapterData && chapterData.mcqs) {
+            const chName = `Medieval Chapter ${k}`;
+            allQuestions.push(...enhanceQuestions(chapterData.mcqs, k, chName, 'medieval'));
         }
     });
 

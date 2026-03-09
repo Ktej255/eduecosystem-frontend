@@ -8,7 +8,7 @@ export interface AncientArtifact {
 }
 
 export const ANCIENT_ARTIFACTS: Record<number, AncientArtifact[]> = {
-    4: [
+    6: [
         {
             id: "pashupati-seal",
             name: "Pashupati Seal (Mohenjo-daro)",

@@ -80,6 +80,12 @@ export default function UPSCLandingPage() {
         }
     }, []);
 
+    const handleFunnelComplete = async (items: string[], finalPrice: number, subjectIds: string[]) => {
+        // Simple mock/redirect for the landing page funnel
+        // In the store page it hits the API; here we can redirect to the checkout or show success
+        router.push(`/student/upsc-store?subject=${subjectIds[0]}`);
+    };
+
     return (
         <div className="min-h-screen bg-muted dark:bg-[#0a0a0a] p-4 md:p-8">
             <header className="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -308,7 +314,11 @@ export default function UPSCLandingPage() {
                 <PaymentFunnelModal
                     isOpen={funnelOpen}
                     onClose={() => setFunnelOpen(false)}
-                    baseItem={funnelItem}
+                    baseItem={{
+                        ...funnelItem,
+                        id: UPSC_CATALOG.find(s => s.title === funnelItem.title.split(' - ')[0])?.id || 'unknown'
+                    }}
+                    onComplete={handleFunnelComplete}
                 />
             )}
         </div>

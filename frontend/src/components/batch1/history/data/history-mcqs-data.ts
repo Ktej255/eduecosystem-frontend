@@ -28,11 +28,41 @@ Object.keys(MEDIEVAL_CONTENT_MAP).forEach(key => {
     }
 });
 
+import { ancientChapterData as NEW_ANCIENT_MCQ_MAP } from './mcqs/ancient/registry';
+
 export const ANCIENT_MCQS_DATA: Record<number, any[]> = {};
+
+// 1. Load from legacy source (the 2700 question batch)
 Object.keys(ANCIENT_CONTENT_MAP).forEach(key => {
     const k = parseInt(key);
     if (ANCIENT_CONTENT_MAP[k]?.mcqs) {
-        ANCIENT_MCQS_DATA[k] = ANCIENT_CONTENT_MAP[k].mcqs.map((m: any) => ({ ...m, correctIndex: m.correctAnswer }));
+        if (!ANCIENT_MCQS_DATA[k]) ANCIENT_MCQS_DATA[k] = [];
+        ANCIENT_MCQS_DATA[k].push(...ANCIENT_CONTENT_MAP[k].mcqs.map((m: any) => ({
+            ...m,
+            correctAnswer: m.correctAnswer,
+            correctIndex: m.correctAnswer // Legacy compatibility
+        })));
+    }
+});
+
+// 2. Load and merge from new source (additional recently added questions)
+Object.keys(NEW_ANCIENT_MCQ_MAP).forEach(key => {
+    const k = parseInt(key);
+    const chapterData = NEW_ANCIENT_MCQ_MAP[k] as any;
+    if (chapterData) {
+        if (!ANCIENT_MCQS_DATA[k]) ANCIENT_MCQS_DATA[k] = [];
+
+        const pool = [
+            ...(chapterData[`CH${k}_L1_MCQS`] || []),
+            ...(chapterData[`CH${k}_L2_MCQS`] || []),
+            ...(chapterData[`CH${k}_L3_MCQS`] || [])
+        ];
+
+        ANCIENT_MCQS_DATA[k].push(...pool.map((m: any) => ({
+            ...m,
+            correctAnswer: m.correctIndex, // New data uses correctIndex
+            correctIndex: m.correctIndex
+        })));
     }
 });
 

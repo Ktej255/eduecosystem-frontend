@@ -24,6 +24,43 @@ import {
     ChapterProgress,
     SectionStatus
 } from "@/components/batch1/history/data/ancient-types-27";
+import { ANCIENT_TRENDS } from "@/components/batch1/history/data/mcqs/ancient/trends";
+
+function YieldHeatmap() {
+    return (
+        <Card className="border-2 border-stone-200 bg-white overflow-hidden">
+            <CardHeader className="bg-stone-50 border-b border-stone-100 pb-3">
+                <CardTitle className="text-sm font-bold text-stone-800 flex items-center gap-2">
+                    <Sparkles className="h-4 w-4 text-amber-500" />
+                    UPSC High-Yield Visualizer (Heatmap)
+                </CardTitle>
+            </CardHeader>
+            <CardContent className="p-4">
+                <div className="grid grid-cols-9 sm:grid-cols-14 md:grid-cols-14 lg:grid-cols-27 gap-1.5">
+                    {Array.from({ length: 27 }, (_, i) => i + 1).map(num => {
+                        const trend = ANCIENT_TRENDS[num];
+                        const yieldColor = trend?.yield === 'High' ? 'bg-rose-500 shadow-[0_0_10px_rgba(244,63,94,0.3)]' :
+                            trend?.yield === 'Medium' ? 'bg-amber-400' : 'bg-stone-200';
+                        return (
+                            <div key={num} className="group relative">
+                                <div className={`aspect-square rounded-sm ${yieldColor} transition-transform hover:scale-110 cursor-help`} />
+                                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-32 p-2 bg-stone-900 text-white text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity z-50 pointer-events-none">
+                                    <div className="font-bold border-b border-white/10 pb-1 mb-1">Ch {num}: {trend?.yield} Yield</div>
+                                    <div className="text-stone-400">Focus: {trend?.focus}</div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+                <div className="mt-4 flex flex-wrap gap-4 items-center justify-center text-[10px] font-bold text-stone-500 uppercase tracking-widest">
+                    <div className="flex items-center gap-1.5"><div className="w-2.5 h-2.5 rounded-sm bg-rose-500" /> High Yield</div>
+                    <div className="flex items-center gap-1.5"><div className="w-2.5 h-2.5 rounded-sm bg-amber-400" /> Medium</div>
+                    <div className="flex items-center gap-1.5"><div className="w-2.5 h-2.5 rounded-sm bg-stone-200" /> Low Yield</div>
+                </div>
+            </CardContent>
+        </Card>
+    );
+}
 
 const SECTION_KEYS: (keyof ChapterProgress)[] = ['readSection', 'flashcards', 'drill', 'l1', 'l2', 'l3'];
 const SECTION_LABELS = ['R', 'F', 'D', '1', '2', '3'];
@@ -38,8 +75,8 @@ function SectionDots({ progress }: { progress?: ChapterProgress }) {
                         key={key}
                         title={`${SECTION_LABELS[i]}: ${status}`}
                         className={`w-2 h-2 rounded-full ${status === 'completed' ? 'bg-emerald-500' :
-                                status === 'in-progress' ? 'bg-amber-400' :
-                                    'bg-stone-300'
+                            status === 'in-progress' ? 'bg-amber-400' :
+                                'bg-stone-300'
                             }`}
                     />
                 );
@@ -199,6 +236,25 @@ export default function AncientHistoryDashboard() {
                         <Button className="w-full mt-6 bg-stone-800 hover:bg-stone-700 text-white font-bold h-12 text-md shadow-lg shadow-stone-800/20">
                             Resume Session <ArrowRight className="h-5 w-5 ml-2" />
                         </Button>
+                    </CardContent>
+                </Card>
+            </div>
+
+            {/* Impact & Insights Row */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pb-2">
+                <div className="lg:col-span-8">
+                    <YieldHeatmap />
+                </div>
+                <Card className="lg:col-span-4 border-2 border-stone-200 bg-stone-900 text-white overflow-hidden group">
+                    <CardContent className="p-6 h-full flex flex-col justify-center">
+                        <div className="flex items-center gap-2 mb-3">
+                            <Zap className="h-4 w-4 text-amber-400" />
+                            <span className="text-[10px] font-black uppercase tracking-widest text-stone-400">Strategy Spotlight</span>
+                        </div>
+                        <h3 className="text-xl font-bold mb-2 group-hover:text-amber-400 transition-colors">Art, Culture & Ethics</h3>
+                        <p className="text-xs text-stone-400 leading-relaxed italic">
+                            "Chapters 14 (Ashoka), 20 (Gupta Art), and 8 (Buddhism) account for 60% of Ancient PYQs in the last decade. Prioritize these for 2025."
+                        </p>
                     </CardContent>
                 </Card>
             </div>

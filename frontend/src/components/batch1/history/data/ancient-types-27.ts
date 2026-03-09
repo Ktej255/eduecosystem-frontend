@@ -85,6 +85,18 @@ export interface AncientTopic27 {
     maps?: MapCoordinate[];
     handwrittenNotes?: HandwrittenNote[];
 
+    // Artifacts & Visuals
+    handwrittenNotes?: HandwrittenNote[];
+    artifactGallery?: boolean; // Toggle for the gallery widget
+
+    // V2 Enhancements
+    mainsAngle?: {
+        likelyQuestion: string;
+        structure: string[];
+        keywords: string[];
+    };
+    currentAffairsTags?: string[];
+
     // Study Assets
     flashcards?: Flashcard[];
     drillMcqs?: MCQ[];   // 60-question composite drill

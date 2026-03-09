@@ -1065,7 +1065,7 @@ export default function AncientHistoryChapterPage() {
                                                             <div className="space-y-3">
                                                                 <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Strategic Points</span>
                                                                 <ul className="space-y-2">
-                                                                    {ANCIENT_MAINS_ANGLES[chapterId].keyPoints.map((pt, i) => (
+                                                                    {ANCIENT_MAINS_ANGLES[chapterId].structure.map((pt, i) => (
                                                                         <li key={i} className="flex gap-2 text-sm text-zinc-400">
                                                                             <ChevronRight className="h-4 w-4 text-orange-500/50 shrink-0 mt-0.5" />
                                                                             {pt}
@@ -1076,7 +1076,7 @@ export default function AncientHistoryChapterPage() {
                                                             <div className="space-y-3">
                                                                 <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Killer Vocabulary</span>
                                                                 <div className="flex flex-wrap gap-2">
-                                                                    {ANCIENT_MAINS_ANGLES[chapterId].vocabulary.map((voc, i) => (
+                                                                    {ANCIENT_MAINS_ANGLES[chapterId].keywords.map((voc, i) => (
                                                                         <Badge key={i} variant="outline" className="bg-orange-500/5 border-orange-500/20 text-orange-200 text-[10px] font-black uppercase tracking-widest py-1">
                                                                             {voc}
                                                                         </Badge>

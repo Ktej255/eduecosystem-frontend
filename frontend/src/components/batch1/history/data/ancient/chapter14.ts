@@ -140,3 +140,15 @@ export const ANCIENT_CHAPTER_14_CONTENT = `
 - **Cultural Spread:** Carried Buddhism, Brahmi script, and urban culture to the Far South and Central Asia.
 - **Decipherment:** James Prinsep (1837) unlocked Ashokan Brahmi, revealing a lost era of Indian history.
 `;
+export const ANCIENT_CHAPTER_14_MAINS_ANGLE = {
+    likelyQuestion: "Discuss the role of Kautilya's Arthashastra in shaping the administrative centralized character of the Mauryan Empire.",
+    structure: [
+        "Centralized bureaucracy and the hierarchical role of Adhyakshas (Superintendents).",
+        "The establishment of a sophisticated intelligence and espionage network (Gudha Purushas).",
+        "State control and monopolies over critical economic resources like mines and forests.",
+        "Saptanga theory as the organic conception of the state."
+    ],
+    keywords: ["Bureaucratic Despotism", "Saptanga Theory", "Realpolitik", "Dharmasthiya"]
+};
+
+export const ANCIENT_CHAPTER_14_CA_TAGS = ['Mauryan Administration', 'Arthashastra Re-interpretation', 'Ashokan Edicts'];

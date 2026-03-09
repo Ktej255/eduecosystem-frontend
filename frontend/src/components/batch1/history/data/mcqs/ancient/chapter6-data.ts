@@ -20,70 +20,80 @@ export const CH6_TIMELINE: TimelineEvent[] = [
     }
 ];
 export const CH6_FLASHCARDS: Flashcard[] = [
-    { "id": "ch6-fc-1",
+    {
+        "id": "ch6-fc-1",
         "front": "The Harappan civilization was first discovered in 1921 at the modern site of Harappa, which is situated in the province of:?",
         "back": "West Panjab\n\nContext: The text states that the civilization was discovered first in 1921 at the modern site of Harappa situated in the province of West Panjab in Pakistan.",
         "tags": [
             "history"
         ]
     },
-    { "id": "ch6-fc-2",
+    {
+        "id": "ch6-fc-2",
         "front": "The geographical area of the Harappan culture accounted for approximately how many square kilometres?",
         "back": "1,299,600\n\nContext: The area formed a triangle and accounted for about 1,299,600 square kilometres, making it larger than Pakistan, ancient Egypt, and Mesopotamia.",
         "tags": [
             "history"
         ]
     },
-    { "id": "ch6-fc-3",
+    {
+        "id": "ch6-fc-3",
         "front": "The distance between the two most important cities, Harappa and Mohenjo-daro, which were linked together by the Indus river, was:?",
         "back": "483 kilometres\n\nContext: Situated at a distance of 483 kilometres, they were linked together by the Indus.",
         "tags": [
             "history"
         ]
     },
-    { "id": "ch6-fc-4",
+    {
+        "id": "ch6-fc-4",
         "front": "Which Harappan city was situated about 130 km south of Mohenjo-daro in Sindh?",
         "back": "Chanhu-daro\n\nContext: A third city lay at Chanhu-daro about 130 km south of Mohenjo-daro in Sindh.",
         "tags": [
             "history"
         ]
     },
-    { "id": "ch6-fc-5",
+    {
+        "id": "ch6-fc-5",
         "front": "The later Harappan phase is predominantly found in which of the following regions?",
         "back": "Rangpur and Rojdi in the Kathiawar peninsula\n\nContext: The later Harappan phase is found in Rangpur and Rojdi in the Kathiawar peninsula in Gujarat.",
         "tags": [
             "history"
         ]
     },
-    { "id": "ch6-fc-6",
+    {
+        "id": "ch6-fc-6",
         "front": "The Great Bath, the most important public place in Mohenjo-daro, measures:?",
         "back": "11.88 x 7.01 metres and 2.43 metres deep\n\nContext: The Great Bath measures 11.88 x 7.01 metres and is 2.43 metres deep.",
         "tags": [
             "history"
         ]
     },
-    { "id": "ch6-fc-7",
+    {
+        "id": "ch6-fc-7",
         "front": "In the citadel of Harappa, how many granaries were found built on a series of brick platforms?",
         "back": "Twelve granaries in two rows of six\n\nContext: In the citadel of Harappa, we find as many as six granaries in two rows (twelve units in total), with each measuring 15.23 x 6.09 metres.",
         "tags": [
             "history"
         ]
     },
-    { "id": "ch6-fc-8",
+    {
+        "id": "ch6-fc-8",
         "front": "According to the text, the Indus people sowed seeds in the flood plains in which month when the flood water receded?",
         "back": "November\n\nContext: The Indus people sowed seeds in the flood plains in November when the flood water receded, and reaped their harvests in April.",
         "tags": [
             "history"
         ]
     },
-    { "id": "ch6-fc-9",
+    {
+        "id": "ch6-fc-9",
         "front": "The remains of rice, dating as early as 1800 B.C., have been found at which Harappan site?",
         "back": "Lothal\n\nContext: It seems that as early as 1800 B.C., the people of Lothal used rice whose remains have been found.",
         "tags": [
             "history"
         ]
     },
-    { "id": "ch6-fc-10",
+    {
+        "id": "ch6-fc-10",
         "front": "The Greeks called cotton 'sindon' because it was first produced in:?",
         "back": "Sindh\n\nContext: Because cotton was first produced in this area, the Greeks called it sindon, which is derived from Sindh.",
         "tags": [
@@ -1497,14 +1507,14 @@ export const CH6_L3_MCQS: MCQ[] = [
 
 export const CH6_CURRENT_AFFAIRS = [
     {
-        title: "Dholavira: UNESCO World Heritage Status",
-        date: "July 2021",
-        summary: "Dholavira, the Harappan city in Gujarat, was inscribed on the UNESCO World Heritage List. It is the first site of the ancient Indus Valley Civilization in India to receive this tag. The city is known for its unique water management system and multi-layered defensive mechanisms."
+        title: "DNA Analysis at Rakhigarhi",
+        date: "2024-05",
+        summary: "New genetic evidence from Rakhigarhi suggests a continuous indigenous ancestry, challenging previous theories of large-scale Aryan migration and emphasizing internal socio-cultural evolution."
     },
     {
-        title: "Rakhigarhi Excavations: DNA Analysis",
-        date: "2019-2023",
-        summary: "Recent DNA analysis of skeletal remains from Rakhigarhi (Haryana) has challenged existing theories about Aryan migration. The study suggests a local origin for the Harappan people and provides insights into their dietary habits and genetic ancestry."
+        title: "Dholavira's Water Management Heritage",
+        date: "2024-08",
+        summary: "UNESCO recognition of Dholavira highlights its unique water conservation systems (reservoirs and check dams) as a lesson for modern arid-zone urban planning."
     },
     {
         title: "Ancient 'Dairy' Processing in Gujarat",

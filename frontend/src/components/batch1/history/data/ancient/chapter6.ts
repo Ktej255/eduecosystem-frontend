@@ -143,3 +143,14 @@ export const ANCIENT_CHAPTER_6_CONTENT = `
 - **Causes:** Climate change (aridity), drying of Sarasvati (Ghaggar), river shifts (Indus floods), resource exhaustion.
 - **Legacy:** Religious motifs (Swastika, Shiva symbols), artisan traditions, and agricultural patterns survived urban collapse.
 `;
+export const ANCIENT_CHAPTER_6_MAINS_ANGLE = {
+    likelyQuestion: "To what extent did the geographical factors influence the emergence and decline of the Indus Valley Civilization?",
+    structure: [
+        "Role of Indus floods in agricultural surplus and supporting urbanization.",
+        "Strategic location near coastal routes facilitating maritime trade with Mesopotamia (Meluha).",
+        "Environmental degradation and hydrological shifts (drying of Sarasvati) as a primary cause of urban collapse."
+    ],
+    keywords: ["Hydrological shift", "Urbanization", "Bronze Age", "Recessional Farming"]
+};
+
+export const ANCIENT_CHAPTER_6_CA_TAGS = ['Rakhigarhi DNA', 'Dholavira UNESCO', 'IVC Maritime Trade'];
