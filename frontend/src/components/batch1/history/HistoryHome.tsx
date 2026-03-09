@@ -3,10 +3,11 @@
 import React, { useState } from 'react';
 import HistoryMainsPractice from './HistoryMainsPractice';
 import HistoryDashboard from './HistoryDashboard';
-import { Layout, PenTool, Sparkles, Flag, Scroll, Landmark } from 'lucide-react';
+import { Layout, PenTool, Sparkles, Flag, Scroll, Landmark, Clock } from 'lucide-react';
 import HistorySectionPlanner from './HistorySectionPlanner';
 import { HistorySection } from './data/history-schedule-registry';
 import HistoryRevisionDashboard from './revision/HistoryRevisionDashboard';
+import { HISTORY_CONFIG } from './data/history-config';
 
 import { useSearchParams } from 'next/navigation';
 
