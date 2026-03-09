@@ -112,18 +112,28 @@ function HistoryReadContent() {
         }
     }, [searchParams, chapterId, section]);
 
+    // Section-aware max chapters
+    const getMaxChapter = () => {
+        switch (section) {
+            case 'ancient': return 27;
+            case 'medieval': return 18;
+            case 'art_culture': return 15;
+            default: return 39; // modern
+        }
+    };
+    const maxChapter = getMaxChapter();
+
     const handlePrevious = () => {
         const currentId = parseInt(chapterId);
         if (currentId > 1) {
-            router.push(`/student/batch1/history/read/${currentId - 1}`);
+            router.push(`/student/batch1/history/read/${currentId - 1}?section=${section}`);
         }
     };
 
     const handleNext = () => {
         const currentId = parseInt(chapterId);
-        // Assuming max 24 for now based on registry. Ideally check keys.
-        if (currentId < 39) {
-            router.push(`/student/batch1/history/read/${currentId + 1}`);
+        if (currentId < maxChapter) {
+            router.push(`/student/batch1/history/read/${currentId + 1}?section=${section}`);
         }
     };
 
@@ -254,6 +264,7 @@ function HistoryReadContent() {
                             <button
                                 onClick={handlePrevious}
                                 disabled={parseInt(chapterId) <= 1}
+                                title={`Previous Chapter (${section})`}
                                 className="flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-bold transition-all hover:bg-white hover:shadow-sm text-gray-600 hover:text-gray-900 disabled:opacity-40 disabled:cursor-not-allowed"
                             >
                                 <ChevronLeft className="w-3.5 h-3.5" />
@@ -264,7 +275,7 @@ function HistoryReadContent() {
                             </span>
                             <button
                                 onClick={handleNext}
-                                disabled={parseInt(chapterId) >= 39}
+                                disabled={parseInt(chapterId) >= maxChapter}
                                 className="flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-bold transition-all hover:bg-white hover:shadow-sm text-gray-600 hover:text-gray-900 disabled:opacity-40 disabled:cursor-not-allowed"
                             >
                                 <span className="hidden md:inline">Ch {parseInt(chapterId) + 1}</span>
@@ -413,6 +424,7 @@ function HistoryReadContent() {
                     <Button
                         onClick={handlePrevious}
                         disabled={parseInt(chapterId) <= 1}
+                        title={`Previous Chapter (${section})`}
                         className="bg-stone-100 hover:bg-stone-200 text-stone-800 shadow hover:shadow-md transition-all border border-stone-300 disabled:opacity-50"
                         size="lg"
                     >
@@ -421,7 +433,7 @@ function HistoryReadContent() {
 
                     <Button
                         onClick={handleNext}
-                        disabled={parseInt(chapterId) >= 39}
+                        disabled={parseInt(chapterId) >= maxChapter}
                         className="bg-stone-800 hover:bg-stone-700 text-amber-50 shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
                         size="lg"
                     >

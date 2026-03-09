@@ -20,6 +20,7 @@ import ArtCultureVisualizer from './ArtCultureVisualizer';
 import HistoryExaminersTrap, { Trap } from './HistoryExaminersTrap';
 
 import { MODERN_HISTORY_REVISION } from './modern-revision-data';
+import { ANCIENT_HISTORY_REVISION } from './ancient-revision-data';
 import { HistorySection } from '../data/history-schedule-registry';
 
 interface HistoryRevisionDashboardProps {
@@ -87,6 +88,60 @@ export default function HistoryRevisionDashboard({ section = 'modern' }: History
                         color: 'text-red-600',
                         bg: 'bg-red-50',
                         border: 'border-red-200'
+                    })) as Trap[]
+                };
+            }
+
+            if (safeSection === 'ancient' && ANCIENT_HISTORY_REVISION) {
+                return {
+                    eraData: [
+                        {
+                            id: 'ancient',
+                            title: 'Ancient History',
+                            subtitle: '3300 BCE - 712 CE',
+                            color: 'bg-amber-600',
+                            textColor: 'text-amber-600',
+                            borderColor: 'border-amber-200',
+                            lightBg: 'bg-amber-50',
+                            events: (ANCIENT_HISTORY_REVISION.timeline || []).map(e => ({
+                                year: e.year,
+                                title: e.event,
+                                detail: e.significance
+                            }))
+                        }
+                    ],
+                    personalities: (ANCIENT_HISTORY_REVISION.personalities || []).map(p => ({
+                        name: p.name,
+                        title: p.title,
+                        era: 'Ancient',
+                        keyWorks: p.keyWork,
+                        ideology: p.ideology,
+                        organization: p.org,
+                        bg: 'bg-amber-50',
+                        border: 'border-amber-100',
+                        color: 'text-amber-600'
+                    })) as Personality[],
+                    battles: (ANCIENT_HISTORY_REVISION.battles || []).map(b => ({
+                        name: b.name,
+                        year: b.name.match(/\d+/)?.[0] || '261',
+                        parties: typeof b.parties === 'string' ? b.parties.split(' vs ') : ['Party A', 'Party B'],
+                        outcome: b.impact,
+                        strategicKey: b.strategicKey,
+                        impact: b.impact,
+                        location: 'India',
+                        color: 'text-amber-600',
+                        bg: 'bg-amber-50',
+                        border: 'border-amber-200'
+                    })) as Battle[],
+                    traps: (ANCIENT_HISTORY_REVISION.traps || []).map(t => ({
+                        title: t.topic,
+                        scenario: t.trap,
+                        wrongWay: t.trap,
+                        rightWay: t.fix,
+                        trick: t.fix,
+                        color: 'text-amber-600',
+                        bg: 'bg-amber-50',
+                        border: 'border-amber-200'
                     })) as Trap[]
                 };
             }

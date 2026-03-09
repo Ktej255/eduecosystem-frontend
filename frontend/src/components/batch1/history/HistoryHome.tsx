@@ -152,9 +152,9 @@ function HistoryHomeContent({ embedded = false }: { embedded?: boolean }) {
             )
             }
 
-            {/* Sub-Nav for Study Dashboard */}
+            {/* Sub-Nav for Study Dashboard & Revision Hub */}
             {
-                activeTab === 'dashboard' && (
+                (activeTab === 'dashboard' || activeTab === 'revision') && (
                     <div className="bg-card/50 backdrop-blur-sm border-b border-neutral-200 dark:bg-neutral-900/50 dark:border-neutral-800 animate-in fade-in slide-in-from-top-4 duration-300">
                         <div className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-center gap-8">
                             {sections.map((sec) => (

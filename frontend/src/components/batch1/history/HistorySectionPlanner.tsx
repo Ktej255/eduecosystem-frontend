@@ -43,6 +43,28 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
         if (selectedDay) {
             const dayData = config.schedule.find(d => d.day === selectedDay);
             if (dayData) {
+                // Try to restore from localStorage first
+                const storageKey = `history-checklist-${section}-${selectedDay}`;
+                const savedState = localStorage.getItem(storageKey);
+
+                if (savedState) {
+                    try {
+                        const parsed = JSON.parse(savedState);
+                        if (Array.isArray(parsed) && parsed.length === dayData.chapterNames.length) {
+                            setChecklist(parsed);
+                            // Still load progress for display purposes
+                            const progressMap: Record<number, import('@/lib/history-progress-store').ChapterProgress> = {};
+                            dayData.chapters.forEach((chId: number) => {
+                                const prog = store.chapters[chId];
+                                if (prog) progressMap[chId] = prog;
+                            });
+                            setChapterProgress(progressMap);
+                            return; // Used localStorage state, skip default
+                        }
+                    } catch (e) { /* ignore parse errors */ }
+                }
+
+                // Fallback: initialize from progress store
                 const initialChecks = new Array(dayData.chapterNames.length).fill(false);
                 const progressMap: Record<number, import('@/lib/history-progress-store').ChapterProgress> = {};
 
@@ -66,6 +88,12 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
         const newChecklist = [...checklist];
         newChecklist[index] = !newChecklist[index];
         setChecklist(newChecklist);
+
+        // Persist to localStorage
+        if (selectedDay) {
+            const storageKey = `history-checklist-${section}-${selectedDay}`;
+            localStorage.setItem(storageKey, JSON.stringify(newChecklist));
+        }
 
         const chId = dayData?.chapters[index];
         if (chId) {
