@@ -1,15 +1,9 @@
 "use client";
 
 import React, { useState } from 'react';
-import SubjectPlanner from '../framework/SubjectPlanner';
-import { HISTORY_CONFIG } from './data/history-config';
-import HistoryTimeline from './HistoryTimeline';
 import HistoryMainsPractice from './HistoryMainsPractice';
 import HistoryDashboard from './HistoryDashboard';
-import HistoryVisuals from './HistoryVisuals';
-import HistoryQuestionBank from './HistoryQuestionBank';
-import UniversalQuestionBank from '@/components/common/mcq/UniversalQuestionBank';
-import { Layout, Clock, PenTool, BookOpen, Map, Target, Landmark, Scroll, Flag, Sparkles, Flame, FileQuestion } from 'lucide-react';
+import { Layout, PenTool, Sparkles, Flag, Scroll, Landmark } from 'lucide-react';
 import HistorySectionPlanner from './HistorySectionPlanner';
 import { HistorySection } from './data/history-schedule-registry';
 import HistoryRevisionDashboard from './revision/HistoryRevisionDashboard';
@@ -29,13 +23,8 @@ function HistoryHomeContent({ embedded = false }: { embedded?: boolean }) {
     const initialTab = (searchParams.get('tab') as any) || 'dashboard';
     const initialSection = (searchParams.get('section') as HistorySection) || 'modern';
 
-    const [activeTab, setActiveTab] = useState<'dashboard' | 'overview' | 'syllabus' | 'timeline' | 'mains' | 'visuals' | 'question_bank' | 'revision'>(initialTab);
+    const [activeTab, setActiveTab] = useState<'dashboard' | 'overview' | 'mains' | 'revision'>(initialTab);
     const [selectedSection, setSelectedSection] = useState<HistorySection>(initialSection);
-
-    const handleTopicSelect = (topicId: number) => {
-        console.log("Timeline selected topic:", topicId);
-        setActiveTab('syllabus');
-    };
 
     const sections = [
         { id: 'modern', name: 'Modern', icon: Flag, color: 'text-indigo-500' },
@@ -89,26 +78,6 @@ function HistoryHomeContent({ embedded = false }: { embedded?: boolean }) {
                                     Overview
                                 </button>
                                 <button
-                                    onClick={() => setActiveTab('syllabus')}
-                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'syllabus'
-                                        ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200'
-                                        : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
-                                        }`}
-                                >
-                                    <BookOpen className="w-4 h-4" />
-                                    Syllabus Map
-                                </button>
-                                <button
-                                    onClick={() => setActiveTab('timeline')}
-                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all hidden md:flex items-center gap-2 ${activeTab === 'timeline'
-                                        ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200'
-                                        : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
-                                        }`}
-                                >
-                                    <Layout className="w-4 h-4" />
-                                    Timeline
-                                </button>
-                                <button
                                     onClick={() => setActiveTab('mains')}
                                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all hidden md:flex items-center gap-2 ${activeTab === 'mains'
                                         ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200'
@@ -117,26 +86,6 @@ function HistoryHomeContent({ embedded = false }: { embedded?: boolean }) {
                                 >
                                     <PenTool className="w-4 h-4" />
                                     Mains
-                                </button>
-                                <button
-                                    onClick={() => setActiveTab('visuals')}
-                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all hidden md:flex items-center gap-2 ${activeTab === 'visuals'
-                                        ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200'
-                                        : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
-                                        }`}
-                                >
-                                    <Map className="w-4 h-4" />
-                                    Visuals
-                                </button>
-                                <button
-                                    onClick={() => setActiveTab('question_bank')}
-                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all hidden md:flex items-center gap-2 ${activeTab === 'question_bank'
-                                        ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200'
-                                        : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
-                                        }`}
-                                >
-                                    <FileQuestion className="w-4 h-4" />
-                                    Question Bank
                                 </button>
                                 <button
                                     onClick={() => window.location.href = '/student/batch1/current-affairs?subject=History'}
@@ -177,26 +126,6 @@ function HistoryHomeContent({ embedded = false }: { embedded?: boolean }) {
             }
 
             <div className="w-full">
-                {activeTab === 'syllabus' && (
-                    <SubjectPlanner config={HISTORY_CONFIG} />
-                )}
-
-                {activeTab === 'timeline' && (
-                    <div className="max-w-7xl mx-auto p-6 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <div className="text-center py-8">
-                            <h1 className="text-4xl font-bold text-neutral-900 mb-2">Detailed Timeline</h1>
-                            <p className="text-neutral-500">Navigate through the ages of Indian History</p>
-                        </div>
-                        <HistoryTimeline config={HISTORY_CONFIG} onSelectTopic={handleTopicSelect} />
-                    </div>
-                )}
-
-                {activeTab === 'mains' && (
-                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <HistoryMainsPractice config={HISTORY_CONFIG} />
-                    </div>
-                )}
-
                 {activeTab === 'dashboard' && (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <HistorySectionPlanner section={selectedSection} />
@@ -207,12 +136,10 @@ function HistoryHomeContent({ embedded = false }: { embedded?: boolean }) {
                     <HistoryDashboard />
                 )}
 
-                {activeTab === 'visuals' && (
-                    <HistoryVisuals />
-                )}
-
-                {activeTab === 'question_bank' && (
-                    <UniversalQuestionBank initialSubject="history" />
+                {activeTab === 'mains' && (
+                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        <HistoryMainsPractice config={HISTORY_CONFIG} />
+                    </div>
                 )}
 
                 {activeTab === 'revision' && (

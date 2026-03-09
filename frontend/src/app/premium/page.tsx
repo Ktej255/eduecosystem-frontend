@@ -61,7 +61,7 @@ export default function SubscriptionPage() {
       await loadCashfreeScript();
 
       const cashfree = window.Cashfree({
-        mode: process.env.NEXT_PUBLIC_ENVIRONMENT === "production" ? "production" : "sandbox",
+        mode: process.env.NEXT_PUBLIC_CASHFREE_ENV === "production" ? "production" : "sandbox",
       });
 
       let checkoutOptions = {

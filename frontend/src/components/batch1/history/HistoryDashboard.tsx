@@ -60,6 +60,13 @@ const HISTORY_ERAS = [
     }
 ];
 
+import HistoryGapHeatmap from './analytics/HistoryGapHeatmap';
+import HistoryTimeline from './HistoryTimeline';
+import SubjectPlanner from '../framework/SubjectPlanner';
+import { HISTORY_CONFIG } from './data/history-config';
+
+// ... (existing imports)
+
 export default function HistoryDashboard() {
     const { language, setLanguage } = useLanguageStore();
     return (
@@ -69,9 +76,9 @@ export default function HistoryDashboard() {
                 <div>
                     <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
                         <Scroll className="h-8 w-8 text-amber-600" />
-                        History Dashboard
+                        History Overview Hub
                     </h1>
-                    <p className="text-muted-foreground dark:text-muted-foreground">Track your journey across Ancient, Medieval, and Modern India.</p>
+                    <p className="text-muted-foreground dark:text-muted-foreground">Master Reference: Syllabus, Timeline, Maps & PYQ Analytics.</p>
                 </div>
                 <div className="flex gap-3">
                     <div className="flex items-center bg-muted rounded-lg p-1 border border-border">
@@ -97,57 +104,24 @@ export default function HistoryDashboard() {
                 </div>
             </div>
 
-            {/* Header Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <StatCard
-                    label="Current Focus"
-                    value="Modern India"
-                    color="text-blue-600"
-                    icon={<Scroll className="w-5 h-5 text-blue-600" />}
-                />
-                <StatCard
-                    label="Key Battles"
-                    value="58 Major"
-                    color="text-red-500"
-                    icon={<Sword className="w-5 h-5 text-red-500" />}
-                />
-                <StatCard
-                    label="Dynasties"
-                    value="24 Recorded"
-                    color="text-amber-600"
-                    icon={<Crown className="w-5 h-5 text-amber-600" />}
-                />
-            </div>
+            {/* Cognitive Heatmap Section */}
+            <HistoryGapHeatmap />
 
             <Tabs defaultValue="overview" className="space-y-6">
                 <TabsList className="bg-muted p-1 rounded-xl">
-                    <TabsTrigger value="overview" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">Overview</TabsTrigger>
+                    <TabsTrigger value="overview" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">Visual Hub</TabsTrigger>
+                    <TabsTrigger value="syllabus" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">Syllabus Map</TabsTrigger>
+                    <TabsTrigger value="timeline" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">Detailed Timeline</TabsTrigger>
                     <TabsTrigger value="bank" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">Question Bank</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="overview">
-                    {/* Main Content Grid: Modern History (Left) + Eras (Right/Bottom) */}
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        {/* Modern History Detailed Timeline (Takes 2 columns) */}
                         <div className="lg:col-span-2 space-y-8">
-                            {/* Interactive Empire Map - Phase M */}
                             <EmpireMapViz />
-
-                            <Card className="border-amber-100 dark:border-amber-900/50 overflow-hidden">
-                                <CardHeader className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30">
-                                    <CardTitle className="text-amber-900 dark:text-amber-100">Modern History Syllabus Tracker</CardTitle>
-                                    <CardDescription>Based on Spectrum (Rajiv Ahir)</CardDescription>
-                                </CardHeader>
-                                <CardContent className="p-0">
-                                    <ModernHistoryTimeline />
-                                </CardContent>
-                            </Card>
-
-                            {/* 3D History Tunnel - Phase M */}
                             <HistoryTunnelViz />
                         </div>
 
-                        {/* Ancient & Medieval Summaries (Takes 1 column) */}
                         <div className="space-y-6">
                             <h3 className="text-xl font-bold text-foreground">Historical Eras</h3>
                             {HISTORY_ERAS.map((era) => (
@@ -176,22 +150,20 @@ export default function HistoryDashboard() {
                                     </CardContent>
                                 </Card>
                             ))}
-
-                            <Card className="bg-indigo-50 border-indigo-200 dark:bg-indigo-900/20 dark:border-indigo-800">
-                                <CardContent className="p-6 text-center">
-                                    <h4 className="font-bold text-indigo-800 dark:text-indigo-200 mb-2">Ready to Practice?</h4>
-                                    <p className="text-sm text-indigo-600 dark:text-indigo-300 mb-4">
-                                        Test your knowledge with Previous Year Questions.
-                                    </p>
-                                    <Link href="/student/pyq">
-                                        <Button className="w-full bg-indigo-600 hover:bg-indigo-700">
-                                            Launch PYQ Bank
-                                        </Button>
-                                    </Link>
-                                </CardContent>
-                            </Card>
                         </div>
                     </div>
+                </TabsContent>
+
+                <TabsContent value="syllabus">
+                    <Card className="border-none shadow-none bg-transparent">
+                        <SubjectPlanner config={HISTORY_CONFIG} />
+                    </Card>
+                </TabsContent>
+
+                <TabsContent value="timeline">
+                    <Card className="p-6">
+                        <HistoryTimeline config={HISTORY_CONFIG} onSelectTopic={() => { }} />
+                    </Card>
                 </TabsContent>
 
                 <TabsContent value="bank">
