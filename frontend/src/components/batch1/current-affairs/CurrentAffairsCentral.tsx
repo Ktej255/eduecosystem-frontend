@@ -109,8 +109,8 @@ function CurrentAffairsCentralContent() {
     // Generate Chapter List based on Subject
     // Generate Chapter List based on Subject & Section
     const getChapterOptions = () => {
-        if (selectedSubject === 'History' || selectedSubject === 'All') {
-            if (initialSection === 'ancient') return ANCIENT_HISTORY_CHAPTERS;
+        if (selectedSubject === 'History' || (selectedSubject === 'All' && initialSection === 'ancient')) {
+            if (initialSection === 'ancient' || initialSource?.includes('ancient')) return ANCIENT_HISTORY_CHAPTERS;
             return MODERN_HISTORY_CHAPTERS; // Default
         }
         return [];

@@ -32,7 +32,9 @@ import { ancientChapterData as NEW_ANCIENT_MCQ_MAP } from './mcqs/ancient/regist
 
 export const ANCIENT_MCQS_DATA: Record<number, any[]> = {};
 
-// 1. Load from legacy source (the 2700 question batch)
+// 1. Skip legacy source (the 2700 question batch) which contains mixed-chapter pollution as reported by user.
+// We are now relying entirely on NEW_ANCIENT_MCQ_MAP for 100% chapter accuracy.
+/*
 Object.keys(ANCIENT_CONTENT_MAP).forEach(key => {
     const k = parseInt(key);
     if (ANCIENT_CONTENT_MAP[k]?.mcqs) {
@@ -44,6 +46,7 @@ Object.keys(ANCIENT_CONTENT_MAP).forEach(key => {
         })));
     }
 });
+*/
 
 // 2. Load and merge from new source (additional recently added questions)
 Object.keys(NEW_ANCIENT_MCQ_MAP).forEach(key => {

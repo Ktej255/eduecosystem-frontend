@@ -42,15 +42,50 @@ export interface ChapterMeta {
 
 export const getSubjectChapters = (subject: 'history' | 'polity' | 'geography' | 'economy' | 'environment' | 'scitech'): ChapterMeta[] => {
     if (subject === 'history') {
-        const allSchedules = [...SPECTRUM_MODERN_HISTORY, ...ANCIENT_SCHEDULE, ...MEDIEVAL_SCHEDULE];
-        const allMCQs = { ...MODERN_MCQS_DATA, ...MEDIEVAL_MCQS_DATA, ...ANCIENT_MCQS_DATA };
+        const historyChapters: ChapterMeta[] = [];
 
-        return allSchedules.map(ch => ({
-            id: ch.id,
-            title: ch.title,
-            mcqCount: allMCQs[ch.id]?.length || 0,
-            subject: 'history'
-        })).filter(ch => ch.mcqCount > 0);
+        // Add Modern History
+        SPECTRUM_MODERN_HISTORY.forEach(ch => {
+            if (MODERN_MCQS_DATA[ch.id]) {
+                historyChapters.push({
+                    id: `modern-${ch.id}`,
+                    title: `Modern Ch ${ch.id}: ${ch.title}`,
+                    mcqCount: MODERN_MCQS_DATA[ch.id]?.length || 0,
+                    subject: 'history'
+                });
+            }
+        });
+
+        // Add Ancient History
+        ANCIENT_SCHEDULE.forEach(ch => {
+            // Mapping from ANCIENT_SCHEDULE chapters array to consolidated ANCIENT_MCQS_DATA
+            ch.chapters.forEach(chId => {
+                if (ANCIENT_MCQS_DATA[chId]) {
+                    historyChapters.push({
+                        id: `ancient-${chId}`,
+                        title: `Ancient Ch ${chId}: ${ch.chapterNames[ch.chapters.indexOf(chId)]?.split(': ')[1] || 'Chapter ' + chId}`,
+                        mcqCount: ANCIENT_MCQS_DATA[chId]?.length || 0,
+                        subject: 'history'
+                    });
+                }
+            });
+        });
+
+        // Add Medieval History
+        MEDIEVAL_SCHEDULE.forEach(ch => {
+            ch.chapters.forEach(chId => {
+                if (MEDIEVAL_MCQS_DATA[chId]) {
+                    historyChapters.push({
+                        id: `medieval-${chId}`,
+                        title: `Medieval Ch ${chId}: ${ch.chapterNames[ch.chapters.indexOf(chId)]?.split(': ')[1] || 'Chapter ' + chId}`,
+                        mcqCount: MEDIEVAL_MCQS_DATA[chId]?.length || 0,
+                        subject: 'history'
+                    });
+                }
+            });
+        });
+
+        return historyChapters;
     } else if (subject === 'geography') {
         return GEOGRAPHY_SCHEDULE.map(day => ({
             id: day.day,
