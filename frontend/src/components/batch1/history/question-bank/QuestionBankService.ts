@@ -1,6 +1,7 @@
 import { Question } from '../../types';
-import { contentRegistry as ANCIENT_CONTENT_MAP } from '../data/ancient/content-registry';
+import { ancientChapterData as ANCIENT_MCQ_MAP } from '../data/mcqs/ancient/registry';
 import { MODERN_CHAPTER_1_MCQS } from '../data/modern/chapter1';
+// [Note: Keep all other modern imports intact up to line 41]
 import { MODERN_CHAPTER_2_MCQS } from '../data/modern/chapter2';
 import { MODERN_CHAPTER_3_MCQS } from '../data/modern/chapter3';
 import { MODERN_CHAPTER_4_MCQS } from '../data/modern/chapter4';
@@ -41,7 +42,6 @@ import { MODERN_CHAPTER_38_MCQS } from '../data/modern/chapter38';
 import { MODERN_CHAPTER_39_MCQS } from '../data/modern/chapter39';
 // ... import other chapters as they are ready ...
 
-
 export interface QuestionBankItem extends Question {
     chapterId: number;
     chapterName: string;
@@ -51,15 +51,18 @@ export interface QuestionBankItem extends Question {
 
 // Helper to add chapter metadata
 const enhanceQuestions = (
-    questions: any[], // Accepting any to handle legacy inline types
+    questions: any[],
     chapterId: number,
     chapterName: string,
-    section: 'ancient' | 'medieval' | 'modern' = 'modern'
+    section: 'ancient' | 'medieval' | 'modern' = 'modern',
+    forcedLevel?: number
 ): QuestionBankItem[] => {
     return questions.map(q => {
-        let level = 1;
-        if (q.difficulty === 'Moderate') level = 2;
-        if (q.difficulty === 'Hard') level = 3;
+        let level = forcedLevel || 1;
+        if (!forcedLevel) {
+            if (q.difficulty === 'Moderate') level = 2;
+            if (q.difficulty === 'Hard') level = 3;
+        }
 
         return {
             ...q,
@@ -117,12 +120,20 @@ export const getAllQuestions = (): QuestionBankItem[] => {
     ];
 
     // Dynamically add Ancient History MCQs
-    Object.keys(ANCIENT_CONTENT_MAP).forEach(key => {
+    Object.keys(ANCIENT_MCQ_MAP).forEach(key => {
         const k = parseInt(key);
-        if (ANCIENT_CONTENT_MAP[k]?.mcqs) {
-            allQuestions.push(
-                ...enhanceQuestions(ANCIENT_CONTENT_MAP[k].mcqs, k, ANCIENT_CONTENT_MAP[k].title || `Ancient Chapter ${k}`, 'ancient')
-            );
+        const chapterData = ANCIENT_MCQ_MAP[k] as any;
+        if (chapterData) {
+            const chName = `Ancient Chapter ${k}`;
+            if (chapterData[`CH${k}_L1_MCQS`]) {
+                allQuestions.push(...enhanceQuestions(chapterData[`CH${k}_L1_MCQS`], k, chName, 'ancient', 1));
+            }
+            if (chapterData[`CH${k}_L2_MCQS`]) {
+                allQuestions.push(...enhanceQuestions(chapterData[`CH${k}_L2_MCQS`], k, chName, 'ancient', 2));
+            }
+            if (chapterData[`CH${k}_L3_MCQS`]) {
+                allQuestions.push(...enhanceQuestions(chapterData[`CH${k}_L3_MCQS`], k, chName, 'ancient', 3));
+            }
         }
     });
 
