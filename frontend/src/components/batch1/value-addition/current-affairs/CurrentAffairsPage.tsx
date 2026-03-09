@@ -1,13 +1,25 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, FileText, Calendar, Book } from "lucide-react";
+import { ArrowLeft, FileText, Calendar, Book, Target, Play } from "lucide-react";
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { QuestionBankService, QuestionBankItem } from "@/components/batch1/history/question-bank/QuestionBankService";
+import { useRouter } from 'next/navigation';
 
 export default function CurrentAffairsPage() {
+    const router = useRouter();
+    const [l3Questions, setL3Questions] = useState<QuestionBankItem[]>([]);
+
+    useEffect(() => {
+        // Fetch all L3 (Current Affairs / Tough) questions across subjects
+        const q = QuestionBankService.getQuestionsByFilter({ level: '3' });
+        // Shuffle and pick top 6 for the dashboard
+        setL3Questions(q.sort(() => 0.5 - Math.random()).slice(0, 6));
+    }, []);
+
     return (
         <div className="min-h-screen bg-muted dark:bg-black p-4 md:p-8 text-foreground">
             <div className="max-w-5xl mx-auto space-y-8">
@@ -21,9 +33,9 @@ export default function CurrentAffairsPage() {
                     <div>
                         <h1 className="text-2xl font-bold flex items-center gap-2">
                             <FileText className="h-6 w-6 text-rose-600" />
-                            PIB & India Year Book
+                            Current Affairs & Updates
                         </h1>
-                        <p className="text-sm text-muted-foreground">Official data summaries for Prelims 2026.</p>
+                        <p className="text-sm text-muted-foreground">Official data summaries and Level 3 MCQs for Prelims 2026.</p>
                     </div>
                 </div>
 
@@ -76,6 +88,61 @@ export default function CurrentAffairsPage() {
                             </div>
                         </CardContent>
                     </Card>
+                </div>
+
+                {/* Level 3 Current Affairs MCQs */}
+                <div className="mt-12 space-y-6">
+                    <div className="flex items-center justify-between">
+                        <h2 className="text-xl font-bold flex items-center gap-2">
+                            <Target className="h-6 w-6 text-red-500" />
+                            Level 3: Current Affairs & Applied MCQs
+                        </h2>
+                        <Button
+                            variant="outline"
+                            className="border-red-500/20 text-red-500 hover:bg-red-500/10"
+                            onClick={() => router.push('/student/history/question-bank?level=3')}
+                        >
+                            View All in Question Bank
+                        </Button>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {l3Questions.map((q, idx) => (
+                            <Card key={idx} className="group hover:border-red-500/50 transition-all cursor-pointer bg-card hover:shadow-md dark:bg-zinc-900/50">
+                                <CardHeader className="pb-3">
+                                    <div className="flex justify-between items-start gap-2">
+                                        <Badge className="bg-red-500/10 text-red-500 border-red-500/20">
+                                            L3 Applied Update
+                                        </Badge>
+                                    </div>
+                                    <CardTitle className="text-sm font-medium leading-relaxed mt-3 line-clamp-3">
+                                        {q.question}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="flex items-center justify-between text-xs text-muted-foreground mt-2">
+                                        <div className="flex items-center gap-1">
+                                            <Book className="w-3 h-3" />
+                                            <span className="capitalize">{q.section} History</span>
+                                        </div>
+                                    </div>
+                                    <Button
+                                        className="w-full mt-4 bg-muted hover:bg-red-500/10 text-muted-foreground hover:text-red-500 border border-border hover:border-red-500/30"
+                                        variant="outline"
+                                        onClick={() => router.push(`/student/batch1/history/mcq?chapter=${q.chapterId}&section=${q.section}`)}
+                                    >
+                                        <Play className="w-3 h-3 mr-2" />
+                                        Practice Detail
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        ))}
+                        {l3Questions.length === 0 && (
+                            <div className="col-span-full text-center py-12 text-muted-foreground bg-muted/50 rounded-xl">
+                                No Current Affairs MCQs available at this time.
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>

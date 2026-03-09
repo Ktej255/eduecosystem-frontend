@@ -16,10 +16,13 @@ SUBJECT_PRODUCTS = {
     "geography": {"name": "Geography for UPSC 2026", "price": 499.0},
     "polity": {"name": "Polity (Laxmikanth 95 Chapters)", "price": 499.0},
     "history": {"name": "Modern History (Spectrum)", "price": 299.0},
+    "history_ancient": {"name": "Ancient History (R.S. Sharma)", "price": 299.0},
     "economy": {"name": "Economy for UPSC 2026", "price": 499.0},
     "environment": {"name": "Environment & Ecology", "price": 399.0},
     "scitech": {"name": "Science & Technology", "price": 399.0},
     "full_upsc": {"name": "Full UPSC Bundle (All Subjects)", "price": 2499.0},
+    "geography_polity": {"name": "Geography + Polity Bundle", "price": 798.0},
+    "geography_history": {"name": "Geography + History Bundle", "price": 748.0},
 }
 
 
@@ -190,6 +193,17 @@ def _unlock_from_note(user: User, note: str, db: Session):
             user.is_premium = True
             user.subscription_status = "active"
             user.is_batch2_authorized = True
+        
+        # Bundle unlocks
+        elif subject_id == "geography_polity":
+            for s in ["geography", "polity"]:
+                if s not in existing: existing.append(s)
+            user.purchased_subjects = existing
+        
+        elif subject_id == "geography_history":
+            for s in ["geography", "history"]:
+                if s not in existing: existing.append(s)
+            user.purchased_subjects = existing
 
     elif note.startswith("TIER:premium"):
         user.is_premium = True

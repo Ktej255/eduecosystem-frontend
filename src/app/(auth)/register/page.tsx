@@ -13,6 +13,7 @@ export default function RegisterPage() {
   const [role, setRole] = useState("student");
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [isRegistered, setIsRegistered] = useState(false);
   const { register, loading } = useAuth();
 
   const handleRegister = async (e: React.FormEvent) => {
@@ -23,11 +24,14 @@ export default function RegisterPage() {
     try {
       const result = await register(email, password, fullName, role);
 
-      // If teacher/admin, show pending approval message
-      if (result?.pending_approval) {
-        setSuccessMessage(result.message || "Your account is pending approval. You will receive an email once approved.");
+      if (result) {
+        setIsRegistered(true);
+        if (result.pending_approval) {
+          setSuccessMessage(result.message || "Your account is pending approval. You will receive an email once approved.");
+        } else {
+          setSuccessMessage("Registration successful! Please verify your email and log in to continue.");
+        }
       }
-      // If student, the register function will handle redirect
     } catch (err: any) {
       console.error(err);
       const detail = err.response?.data?.detail;
@@ -40,6 +44,28 @@ export default function RegisterPage() {
       }
     }
   };
+
+  if (isRegistered) {
+    return (
+      <div className="flex min-h-screen flex-col items-center justify-center bg-black text-white">
+        <div className="w-full max-w-md space-y-8 p-10 border border-gray-800 rounded-xl bg-gray-900/50 backdrop-blur-sm text-center">
+          <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
+            Welcome to Eduecosystem!
+          </h2>
+          <div className="mt-4 p-4 rounded-lg bg-green-900/20 border border-green-500/30 text-green-400">
+            {successMessage}
+          </div>
+          <div className="mt-8">
+            <Link href="/login">
+              <Button className="w-full bg-cyan-600 hover:bg-cyan-700 text-white">
+                Go to Login
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-black text-white">

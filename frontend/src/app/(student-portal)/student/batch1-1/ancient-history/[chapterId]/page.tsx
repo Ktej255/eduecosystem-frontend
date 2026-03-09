@@ -45,7 +45,7 @@ const TAB_META: { key: keyof ChapterProgress; label: string; icon: React.Element
     { key: 'drill', label: '⚡ Drill', icon: Zap, description: '60-Q drill' },
     { key: 'l1', label: 'L1', icon: BookOpen, description: 'Book recall' },
     { key: 'l2', label: 'L2', icon: GraduationCap, description: 'UPSC moderate' },
-    { key: 'l3', label: 'L3', icon: Target, description: 'Tough + CA' },
+    { key: 'l3', label: '📰 CA / L3', icon: Target, description: 'Tough + News' },
     { key: 'vsMode', label: '⚔️ VS', icon: Swords, description: 'Dynasty Battle' } as any,
 ];
 
@@ -354,8 +354,8 @@ function ArtifactGallery({ artifacts }: { artifacts: any[] }) {
 }
 
 // ============= In the News: Current Affairs Bridge =============
-function AncientHistoryNews({ news }: { news: any[] }) {
-    if (!news || news.length === 0) return null;
+function AncientHistoryNews({ news, l3Questions = [] }: { news: any[], l3Questions?: MCQ[] }) {
+    if ((!news || news.length === 0) && (!l3Questions || l3Questions.length === 0)) return null;
 
     return (
         <div className="mt-12 p-8 bg-zinc-950/40 border border-zinc-800/60 rounded-3xl relative overflow-hidden group">
@@ -371,23 +371,41 @@ function AncientHistoryNews({ news }: { news: any[] }) {
                     <h3 className="text-lg font-black text-zinc-100 uppercase tracking-tighter">In the News: Current Affairs Bridge</h3>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {news.map((item, i) => (
-                        <div key={i} className="flex flex-col gap-3 p-5 rounded-2xl bg-zinc-900 border border-zinc-800/80 hover:border-rose-500/30 transition-all">
-                            <div className="flex items-center justify-between">
-                                <span className="text-[10px] font-black text-rose-500 uppercase tracking-widest bg-rose-500/10 px-2 py-0.5 rounded-full">{item.date}</span>
-                                {item.link && (
-                                    <Badge variant="outline" className="text-[8px] border-zinc-700 text-zinc-500">Official Link</Badge>
-                                )}
+                {news && news.length > 0 && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {news.map((item, i) => (
+                            <div key={i} className="flex flex-col gap-3 p-5 rounded-2xl bg-zinc-900 border border-zinc-800/80 hover:border-rose-500/30 transition-all">
+                                <div className="flex items-center justify-between">
+                                    <span className="text-[10px] font-black text-rose-500 uppercase tracking-widest bg-rose-500/10 px-2 py-0.5 rounded-full">{item.date}</span>
+                                    {item.link && (
+                                        <Badge variant="outline" className="text-[8px] border-zinc-700 text-zinc-500">Official Link</Badge>
+                                    )}
+                                </div>
+                                <h4 className="text-sm font-bold text-zinc-100 group-hover:text-rose-200 transition-colors leading-tight">{item.title}</h4>
+                                <p className="text-xs text-zinc-400 leading-relaxed line-clamp-3">{item.summary}</p>
+                                <Button variant="ghost" size="sm" className="mt-auto h-8 text-[10px] uppercase font-black tracking-widest text-zinc-500 hover:text-rose-400 hover:bg-rose-500/5 justify-start p-0">
+                                    View Full Context <ArrowRight className="h-3 w-3 ml-1.5" />
+                                </Button>
                             </div>
-                            <h4 className="text-sm font-bold text-zinc-100 group-hover:text-rose-200 transition-colors leading-tight">{item.title}</h4>
-                            <p className="text-xs text-zinc-400 leading-relaxed line-clamp-3">{item.summary}</p>
-                            <Button variant="ghost" size="sm" className="mt-auto h-8 text-[10px] uppercase font-black tracking-widest text-zinc-500 hover:text-rose-400 hover:bg-rose-500/5 justify-start p-0">
-                                View Full Context <ArrowRight className="h-3 w-3 ml-1.5" />
-                            </Button>
+                        ))}
+                    </div>
+                )}
+
+                {l3Questions && l3Questions.length > 0 && (
+                    <div className="mt-8 pt-8 border-t border-zinc-800/50">
+                        <h4 className="text-sm font-bold text-red-400 flex items-center gap-2 mb-4 uppercase tracking-wider">
+                            <Target className="w-4 h-4" /> Related Level 3 Current Affairs MCQs
+                        </h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {l3Questions.slice(0, 2).map((q, i) => (
+                                <div key={i} className="p-4 rounded-xl bg-red-950/10 border border-red-900/30 relative">
+                                    <Badge className="absolute -top-2 -right-2 bg-red-950 text-red-400 border border-red-800/50 text-[8px]">L3 APPLIED</Badge>
+                                    <p className="text-sm text-zinc-200 font-medium mb-3 pr-4 leading-relaxed line-clamp-3">{q.question}</p>
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
+                    </div>
+                )}
             </div>
         </div>
     );
@@ -1071,8 +1089,11 @@ export default function AncientHistoryChapterPage() {
                                             </div>
                                         )}
                                         {/* IN THE NEWS: Current Affairs Bridge (Conditional) */}
-                                        {ancientChapterData[chapterId][`CH${chapterId}_CURRENT_AFFAIRS`] && (
-                                            <AncientHistoryNews news={ancientChapterData[chapterId][`CH${chapterId}_CURRENT_AFFAIRS`]} />
+                                        {(ancientChapterData[chapterId][`CH${chapterId}_CURRENT_AFFAIRS`] || getChapterMCQs('l3').length > 0) && (
+                                            <AncientHistoryNews
+                                                news={ancientChapterData[chapterId][`CH${chapterId}_CURRENT_AFFAIRS`] || []}
+                                                l3Questions={getChapterMCQs('l3')}
+                                            />
                                         )}
 
                                         {/* PLATINUM MASTERY: Spaced Repetition (Conditional) */}

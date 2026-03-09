@@ -124,9 +124,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       };
     }
 
-    // Auto-login after registration for students
-    await login(email, password);
-    return { pending_approval: false };
+    // Auto-login after registration for students removed to allow Verification UI
+    return { pending_approval: false, success: true };
   };
 
   const logout = () => {
