@@ -156,6 +156,14 @@ const routes: Route[] = [
     ],
   },
   {
+    label: "PYQ Explorer",
+    icon: History,
+    href: "/student/pyq",
+    color: "text-amber-500",
+    badge: "FREE",
+    children: [],
+  },
+  {
     label: "Manage",
     icon: Wrench,
     href: "/manage",
@@ -341,6 +349,7 @@ export default function Sidebar() {
       // Allow Geography and Polity access for students
       if (route.href === "/student/batch1/geography") return true;
       if (route.href === "/student/batch1-1/polity") return true;
+      if (route.href === "/student/pyq") return true;
 
       return false;
     }
@@ -421,7 +430,10 @@ function SidebarItem({
       >
         <Link
           href={hasChildren ? "#" : route.href}
-          className="flex items-center flex-1"
+          className={cn(
+            "flex items-center flex-1",
+            route.label === "PYQ Explorer" && "relative group/pyq"
+          )}
           onClick={(e) => {
             if (hasChildren) {
               e.preventDefault();
@@ -429,10 +441,21 @@ function SidebarItem({
             }
           }}
         >
+          {route.label === "PYQ Explorer" && (
+            <div className="absolute inset-0 bg-amber-500/10 blur-md rounded-lg animate-pulse -z-10 group-hover/pyq:bg-amber-500/20" />
+          )}
           <route.icon className={cn("h-5 w-5 mr-3", isActive ? "text-white" : route.color)} />
-          <span className="flex-1">{route.label}</span>
+          <span className={cn(
+            "flex-1",
+            route.label === "PYQ Explorer" && "font-bold text-amber-600 dark:text-amber-500"
+          )}>{route.label}</span>
           {route.badge && (
-            <span className="ml-auto bg-emerald-500/10 text-emerald-500 text-[10px] font-medium px-1.5 py-0.5 rounded border border-emerald-500/20">
+            <span className={cn(
+              "ml-auto text-[10px] font-medium px-1.5 py-0.5 rounded border",
+              route.label === "PYQ Explorer" 
+                ? "bg-amber-500 text-white border-amber-600 shadow-sm"
+                : "bg-emerald-500/10 text-emerald-500 border-emerald-500/20"
+            )}>
               {route.badge}
             </span>
           )}

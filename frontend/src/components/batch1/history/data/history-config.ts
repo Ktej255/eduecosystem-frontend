@@ -138,6 +138,14 @@ The urban planning of the IVC reflects a sophisticated understanding of civil en
             { id: "M1Q4", question: "Critically evaluate the claim that the Gupta period was the 'Golden Age' of ancient India.", marks: 15 }
         ]
     },
+    { id: 8, title: "Post-Gupta Period (Pushyabhutis, Maukharis)", moduleId: "1", priority: "Medium", staticFocus: "Harshavardhana, Hiuen Tsang accounts.", keyConcepts: ["Kannauj Assembly", "Nalanda"], currentAffairsCount: 0 },
+    { id: 9, title: "South Indian Kingdoms (Pallavas, Chalukyas)", moduleId: "1", priority: "High", staticFocus: "Rock-cut architecture, Shore Temple, Pulakesin II.", keyConcepts: ["Vatapi", "Mamallapuram"], currentAffairsCount: 1 },
+    { id: 10, title: "Ancient Indian Society & Religion", moduleId: "1", priority: "Medium", staticFocus: "Varna, Untouchability, Position of Women.", keyConcepts: ["Dharmashastras"], currentAffairsCount: 0 },
+    { id: 11, title: "Ancient Science & Technology", moduleId: "1", priority: "Medium", staticFocus: "Aryabhatta, Varahamihira, Metallurgy (Iron Pillar).", keyConcepts: ["Zero", "Decimals", "Ayurveda"], currentAffairsCount: 1 },
+    { id: 12, title: "Early Medieval Transition", moduleId: "1", priority: "Low", staticFocus: "Feudalism debate, Land grants.", keyConcepts: ["Agraharas"], currentAffairsCount: 0 },
+    { id: 13, title: "Tripartite Struggle (Palas, Pratiharas, Rashtrakutas)", moduleId: "1", priority: "Medium", staticFocus: "Struggle for Kannauj, Cultural patronage.", keyConcepts: ["Vikramshila", "Ellora"], currentAffairsCount: 0 },
+    { id: 14, title: "The Rajputs & Chahamanas", moduleId: "1", priority: "Medium", staticFocus: "Prithviraj Chauhan, Feudal structure, Rajput Valour.", keyConcepts: ["Jauhar", "Agni-Kula Theory"], currentAffairsCount: 0 },
+    { id: 15, title: "The Cholas (Imperial)", moduleId: "1", priority: "High", staticFocus: "Local self-government, Naval power, Bronzes.", keyConcepts: ["Uttaramerur Inscription", "Nataraja"], currentAffairsCount: 1 },
 
     // --- Medieval India (Module 2) ---
     {

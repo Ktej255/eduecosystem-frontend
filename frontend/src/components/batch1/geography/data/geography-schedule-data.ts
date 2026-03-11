@@ -1,43 +1,205 @@
-import { Module } from "./geography-syllabus-data";
-
-export interface GeographyDay {
+export interface GeographyDaySchedule {
     day: number;
-    date: string;
     title: string;
-    moduleId: string;
-    topics: string[]; // Topic IDs from syllabus
-    description: string;
+    phase: number;
+    topics: string[];
+    strategy: string;
+    chapters: string[];
+    isRevisionDay?: boolean;
 }
 
-export const GEOGRAPHY_SCHEDULE: GeographyDay[] = [
-    // MODULE A: GEOMORPHOLOGY (7 Days)
-    { day: 1, date: "Mar 6", title: "Universe & Solar System", moduleId: "geomorphology", topics: ["universe-solar-system"], description: "Origin of Universe, Stars, Solar System, and Moon." },
-    { day: 2, date: "Mar 7", title: "Evolution of Earth", moduleId: "geomorphology", topics: ["evolution-earth"], description: "Geological Time Scale and Evolution of Spheres." },
-    { day: 3, date: "Mar 8", title: "Interior of Earth", moduleId: "geomorphology", topics: ["interior-earth"], description: "Crust, Mantle, Core, and Seismic Waves." },
-    { day: 4, date: "Mar 9", title: "Oceans & Continents", moduleId: "geomorphology", topics: ["distribution-oceans-continents"], description: "Continental Drift and Plate Tectonics." },
-    { day: 5, date: "Mar 10", title: "Endogenic Processes", moduleId: "geomorphology", topics: ["endogenic-processes"], description: "Folding, Faulting, Volcanism, and Earthquakes." },
-    { day: 6, date: "Mar 11", title: "Exogenic Processes", moduleId: "geomorphology", topics: ["exogenic-processes"], description: "Weathering, Mass Movements, and Soil Formation." },
-    { day: 7, date: "Mar 12", title: "Landforms & Evolution", moduleId: "geomorphology", topics: ["landforms-evolution"], description: "Fluvial, Aeolian, Glacial, Karst, and Coastal Landforms." },
-
-    // MODULE B: CLIMATOLOGY (5 Days)
-    { day: 8, date: "Mar 13", title: "Atmosphere Structure", moduleId: "climatology", topics: ["atmosphere-structure"], description: "Composition and Structure of the Atmosphere." },
-    { day: 9, date: "Mar 14", title: "Insolation & Heat", moduleId: "climatology", topics: ["insolation-heat"], description: "Heat Budget and Temperature Distribution." },
-    { day: 10, date: "Mar 15", title: "Atmospheric Circulation", moduleId: "climatology", topics: ["atmospheric-circulation"], description: "Pressure Belts, Winds, and Jet Streams." },
-    { day: 11, date: "Mar 16", title: "Water, Air Masses & Fronts", moduleId: "climatology", topics: ["water-atmosphere", "air-masses-cyclones"], description: "Humidity, Clouds, Precip, Air Masses, and Cyclones." },
-    { day: 12, date: "Mar 17", title: "Climatic Regions", moduleId: "climatology", topics: ["climatic-regions"], description: "World Climate Zones and Koppen Classification." },
-
-    // MODULE C: OCEANOGRAPHY (3 Days)
-    { day: 13, date: "Mar 18", title: "Ocean Relief & Properties", moduleId: "oceanography", topics: ["ocean-relief", "ocean-properties"], description: "Ocean bottom relief, Temperature, and Salinity." },
-    { day: 14, date: "Mar 19", title: "Water Movement", moduleId: "oceanography", topics: ["water-movement"], description: "Currents, Waves, and Tides." },
-    { day: 15, date: "Mar 20", title: "Marine Resources", moduleId: "oceanography", topics: ["marine-resources"], description: "Resources, Coral Reefs, and Law of the Sea." },
-
-    // MODULE D: INDIAN GEOGRAPHY (4 Days)
-    { day: 16, date: "Mar 21", title: "India: Location & Physiography", moduleId: "indian-geography", topics: ["india-location", "india-physiography"], description: "Physical setting and major physiographic divisions." },
-    { day: 17, date: "Mar 22", title: "Drainage System", moduleId: "indian-geography", topics: ["india-drainage"], description: "Himalayan and Peninsular River Systems." },
-    { day: 18, date: "Mar 23", title: "Climate of India", moduleId: "indian-geography", topics: ["india-climate"], description: "Monsoon mechanism and Seasons." },
-    { day: 19, date: "Mar 24", title: "Vegetation & Soils", moduleId: "indian-geography", topics: ["india-vegetation-soils"], description: "Forest types and Soil classification." },
-
-    // MODULE E: HUMAN GEOGRAPHY (2 Days)
-    { day: 20, date: "Mar 25", title: "Human Geography", moduleId: "human-geography", topics: ["world-population", "human-development"], description: "Population, Migration, and Human Development." },
-    { day: 21, date: "Mar 26", title: "Economic Geography", moduleId: "human-geography", topics: ["economic-activities", "transport-trade"], description: "Economic activities, Transport, and Trade." },
+export const GEOGRAPHY_PHASES = [
+    { id: 1, title: "Physical Foundations", days: "1-7", description: "Mastering the fundamental processes of Geomorphology and Climatology." },
+    { id: 2, title: "Oceanography & World Regions", days: "8-12", description: "Deep dive into oceanic systems and global geographic distributions." },
+    { id: 3, title: "Indian Geography", days: "13-18", description: "Comprehensive study of the Indian subcontinent's physical and human landscape." },
+    { id: 4, title: "Human Geography & Final Revision", days: "19-21", description: "Population dynamics and integrated revision for UPSC readiness." }
 ];
+
+export const GEOGRAPHY_SCHEDULE: GeographyDaySchedule[] = [
+    // Phase 1: Physical Foundations (Days 1-7)
+    {
+        day: 1,
+        phase: 1,
+        title: "Origin of Earth & Interior",
+        topics: ["The Big Bang Theory", "Nebular Hypothesis", "Internal Structure of Earth"],
+        strategy: "Focus on seismic wave behavior and chemical composition of layers.",
+        chapters: ["geo-ch-01"]
+    },
+    {
+        day: 2,
+        phase: 1,
+        title: "Plate Tectonics & Continental Drift",
+        topics: ["Alfred Wegener's Theory", "Sea Floor Spreading", "Plate Boundaries"],
+        strategy: "Visualize the 7 major plates and 3 types of boundaries.",
+        chapters: ["geo-ch-02"]
+    },
+    {
+        day: 3,
+        phase: 1,
+        title: "Rocks & Landform Development",
+        topics: ["Igneous, Sedimentary, Metamorphic", "Weathering & Erosion", "Fluvial Landforms"],
+        strategy: "Understand the rock cycle and erosional vs depositional landforms.",
+        chapters: ["geo-ch-03"]
+    },
+    {
+        day: 4,
+        phase: 1,
+        title: "Atmosphere: Composition & Structure",
+        topics: ["Layers of Atmosphere", "Insolation", "Heat Budget of Earth"],
+        strategy: "Memorize the lapse rate and ozone layer location (Stratosphere).",
+        chapters: ["geo-ch-04"]
+    },
+    {
+        day: 5,
+        phase: 1,
+        title: "Pressure Belts & Wind Systems",
+        topics: ["Planetary Winds", "Jet Streams", "Local Winds (Loo, Mistral, etc.)"],
+        strategy: "Correlate pressure belts with global climate zones.",
+        chapters: ["geo-ch-05"]
+    },
+    {
+        day: 6,
+        phase: 1,
+        title: "Humidity & Precipitation",
+        topics: ["Types of Rainfall", "Cyclones & Anticyclones", "Air Masses"],
+        strategy: "Focus on Tropical vs Temperate Cyclones (UPSC favorite).",
+        chapters: ["geo-ch-06"]
+    },
+    {
+        day: 7,
+        phase: 1,
+        title: "Physical Geography Revision",
+        topics: ["Geomorphology Review", "Climatology Review", "Full Phase 1 MCQ Drill"],
+        strategy: "Consolidate all L1/L2 concepts from the first week.",
+        chapters: [],
+        isRevisionDay: true
+    },
+
+    // Phase 2: Oceanography & World Regions (Days 8-12)
+    {
+        day: 8,
+        phase: 2,
+        title: "Ocean Floor & Salinity",
+        topics: ["Continental Shelf", "Abyssal Plains", "Factors affecting Salinity"],
+        strategy: "Understand the vertical and horizontal distribution of salinity.",
+        chapters: ["geo-ch-07"]
+    },
+    {
+        day: 9,
+        phase: 2,
+        title: "Ocean Currents & Tides",
+        topics: ["Warm vs Cold Currents", "El Niño & La Niña", "Tidal Theories"],
+        strategy: "Map the major ocean currents and their impact on coastal climates.",
+        chapters: ["geo-ch-08"]
+    },
+    {
+        day: 10,
+        phase: 2,
+        title: "World Climate Regions (I)",
+        topics: ["Equatorial Region", "Tropical Monsoon", "Savanna Type"],
+        strategy: "Focus on vegetation and economic activities associated with each.",
+        chapters: ["geo-ch-09"]
+    },
+    {
+        day: 11,
+        phase: 2,
+        title: "World Climate Regions (II)",
+        topics: ["Mediterranean Climate", "Steppe Type", "Tundra"],
+        strategy: "High yield: Mediterranean region's winter rainfall and citrus fruits.",
+        chapters: ["geo-ch-10"]
+    },
+    {
+        day: 12,
+        phase: 2,
+        title: "Phase 2 Consolidation",
+        topics: ["Oceanography Review", "World Climates Review"],
+        strategy: "Attempt the World Geography module in the Question Bank.",
+        chapters: [],
+        isRevisionDay: true
+    },
+
+    // Phase 3: Indian Geography (Days 13-18)
+    {
+        day: 13,
+        phase: 3,
+        title: "Physiography of India (I)",
+        topics: ["The Himalayas", "Northern Plains", "Peninsular Plateau"],
+        strategy: "Master the regional divisions of Himalayas (Srinagar to Arunachal).",
+        chapters: ["geo-ch-11"]
+    },
+    {
+        day: 14,
+        phase: 3,
+        title: "Physiography of India (II)",
+        topics: ["Coastal Plains", "Indian Islands", "Desert Region"],
+        strategy: "Compare Western vs Eastern Ghats and Coastal Plains.",
+        chapters: ["geo-ch-12"]
+    },
+    {
+        day: 15,
+        phase: 3,
+        title: "Indian Drainage System",
+        topics: ["Himalayan Rivers", "Peninsular Rivers", "Interlinking Projects"],
+        strategy: "Map the tributaries: Left bank vs Right bank (Ganga/Indus/Brahmaputra).",
+        chapters: ["geo-ch-13"]
+    },
+    {
+        day: 16,
+        phase: 3,
+        title: "Climate of India",
+        topics: ["Indian Monsoon Mechanism", "Western Disturbances", "Retreating Monsoon"],
+        strategy: "Understand Tibertan Plateau heating and Somali Jet impact.",
+        chapters: ["geo-ch-14"]
+    },
+    {
+        day: 17,
+        phase: 3,
+        title: "Soils & Natural Vegetation",
+        topics: ["Alluvial, Black, Red Soils", "Tropical Evergreen vs Deciduous"],
+        strategy: "Associate soil types with specific crop requirements (e.g. Cotton).",
+        chapters: ["geo-ch-15"]
+    },
+    {
+        day: 18,
+        phase: 3,
+        title: "Minerals & Energy Resources",
+        topics: ["Iron Ore, Coal, Bauxite", "Renewable Energy Potential", "Nuclear Sites"],
+        strategy: "Memorize locations: Gondwana coal fields vs Tertiary fields.",
+        chapters: ["geo-ch-16"]
+    },
+
+    // Phase 4: Human Geography & Final Revision (Days 19-21)
+    {
+        day: 19,
+        phase: 4,
+        title: "Population & Settlement",
+        topics: ["Demographic Transition", "Migration Patterns", "Urbanization Trends"],
+        strategy: "Focus on Census 2011 data vs latest NFHS trends.",
+        chapters: ["geo-ch-17"]
+    },
+    {
+        day: 20,
+        phase: 4,
+        title: "Integrated Map Work",
+        topics: ["Major Ports", "National Highways", "Protected Areas (NP/WLS)"],
+        strategy: "Practice locating Biosphere Reserves from North to South.",
+        chapters: ["geo-ch-18"]
+    },
+    {
+        day: 21,
+        phase: 4,
+        title: "Grand Final Mock Test",
+        topics: ["Full Syllabus Simulation", "Previous Year Question Drill"],
+        strategy: "Solve 100 MCQs in 120 minutes. Review every wrong answer.",
+        chapters: [],
+        isRevisionDay: true
+    }
+];
+
+export const GEOGRAPHY_START_DATE = new Date(); // Dynamic start date or static as needed
+
+export function getCurrentDayNumber(): number {
+    // Basic logic to determine current day based on start date
+    // Placeholder returning 1
+    return 1;
+}

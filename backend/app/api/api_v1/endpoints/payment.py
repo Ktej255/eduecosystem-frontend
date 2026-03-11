@@ -7,6 +7,8 @@ from app.services.cashfree_service import cashfree_service
 import os
 import json
 
+FRONTEND_URL = os.getenv("FRONTEND_URL", "https://eduecosystem-frontend.vercel.app")
+
 router = APIRouter()
 
 from app.models.user import User
@@ -90,11 +92,18 @@ def create_order(
             "customer_name": getattr(current_user, "full_name", current_user.email.split("@")[0]) or "User"
         }
 
+        # Build return_url for Cashfree redirect after payment
+        base_url = os.getenv("BASE_URL", "https://a7z4kjysmp.us-east-1.awsapprunner.com")
+
         cashfree_order = cashfree_service.create_order(
             order_amount=amount,
             order_currency="INR",
             customer_details=customer_details,
             order_note=note,
+            order_meta={
+                "return_url": f"{FRONTEND_URL}/student/payment/status?order_id={{order_id}}",
+                "notify_url": f"{base_url}/api/v1/payment/webhook"
+            }
         )
 
         return {

@@ -1,6 +1,5 @@
 "use client";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TerraLabLayout from "./TerraLabLayout";
 import GeographyGlobe from "./3d/GeographyGlobe";
 import GeographyDashboard from "./GeographyDashboard";
@@ -9,9 +8,27 @@ import SyllabusListView from "./components/SyllabusListView";
 import LessonView from "./components/LessonView";
 import { MicroTopic, GEOGRAPHY_SYLLABUS } from "./data/geography-syllabus-data";
 import { Button } from "@/components/ui/button";
-import { Compass, Globe, BookOpen, Layers, BarChart2, ArrowLeft, CalendarRange, Database } from "lucide-react";
+import { 
+    Compass, 
+    ChevronRight, 
+    Target, 
+    BookOpen, 
+    Clock, 
+    Award, 
+    BarChart2, 
+    PlayCircle, 
+    Globe, 
+    CheckCircle,
+    CalendarRange,
+    ClipboardList,
+    History as HistoryIcon,
+    Layers,
+    Database,
+    Zap
+} from 'lucide-react';
 import { LessonContent } from "./content/types";
 import UniversalQuestionBank from "@/components/common/mcq/UniversalQuestionBank";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Content Imports
 import { ORIGIN_OF_UNIVERSE_CONTENT } from "./content/universe-data";
@@ -48,10 +65,6 @@ export default function GeographyHome({ initialModuleId = 'geomorphology', initi
 
     const handleStartLearning = (topic: MicroTopic) => {
         let content: LessonContent | null = null;
-
-        // Content Mapping Strategy
-        // We match topic IDs to imported content objects.
-        // This is a simplified lookup for brevity.
 
         switch (topic.id) {
             // --- GEOMORPHOLOGY ---
@@ -200,7 +213,6 @@ export default function GeographyHome({ initialModuleId = 'geomorphology', initi
             case 'industrial-regions': content = industryTransportData; break;
 
             default:
-                // Fallback for sub-topics mapping to same parent content
                 if (topic.id.startsWith('india-')) content = indiaLocationData;
                 break;
         }
@@ -208,144 +220,186 @@ export default function GeographyHome({ initialModuleId = 'geomorphology', initi
         if (content) {
             setLessonContent(content);
             setView('lesson');
-        } else {
-            console.log("No content found for", topic.id);
         }
     };
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.1 }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { y: -10, opacity: 0 },
+        visible: { y: 0, opacity: 1 }
+    };
+
     return (
-        <div className="min-h-screen bg-muted dark:bg-black font-sans">
+        <div className="min-h-screen bg-muted dark:bg-black font-sans relative overflow-hidden">
+            {/* Ambient Background Elements */}
+            <div className="fixed inset-0 pointer-events-none opacity-20 dark:opacity-40">
+                <motion.div 
+                    animate={{ 
+                        x: [0, 50, 0], 
+                        y: [0, 30, 0],
+                        rotate: [0, 10, 0]
+                    }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="absolute top-[10%] left-[5%]"
+                >
+                    <Compass className="w-64 h-64 text-blue-500/10" />
+                </motion.div>
+                <motion.div 
+                    animate={{ 
+                        x: [0, -40, 0], 
+                        y: [0, 50, 0],
+                        rotate: [0, -15, 0]
+                    }}
+                    transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                    className="absolute bottom-[10%] right-[5%]"
+                >
+                    <Globe className="w-80 h-80 text-emerald-500/10" />
+                </motion.div>
+            </div>
+
             {/* Header */}
             <header className="sticky top-0 z-50 w-full border-b bg-card/95 dark:bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-card/60">
                 <div className="container flex h-16 items-center justify-between">
-                    <div className="flex items-center gap-2 font-bold text-xl tracking-tight">
-                        <div className="p-2 bg-blue-600 rounded-xl text-white">
-                            <Compass className="h-5 w-5 animate-spin-slow" />
-                        </div>
+                    <motion.div 
+                        initial={{ x: -20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        className="flex items-center gap-2 font-bold text-xl tracking-tight"
+                    >
+                        <motion.div 
+                            whileHover={{ rotate: 90 }}
+                            className="p-2 bg-blue-600 rounded-xl text-white relative overflow-hidden group"
+                        >
+                            <Compass className="h-5 w-5" />
+                            <motion.div 
+                                animate={{ left: ["-100%", "100%"] }}
+                                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                                className="absolute top-0 w-full h-full bg-white/20 -skew-x-12"
+                            />
+                        </motion.div>
                         <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                             TerraLab
                         </span>
-                    </div>
+                    </motion.div>
 
-                    <div className="flex items-center gap-1 bg-muted p-1 rounded-lg border border-border">
-                        <Button
-                            variant={view === 'dashboard' ? 'secondary' : 'ghost'}
-                            size="sm"
-                            onClick={() => setView('dashboard')}
-                            className="gap-2 text-xs font-semibold"
-                        >
-                            <BarChart2 className="h-4 w-4" />
-                            Dashboard
-                        </Button>
-                        <Button
-                            variant={view === 'schedule' ? 'secondary' : 'ghost'}
-                            size="sm"
-                            onClick={() => setView('schedule')}
-                            className="gap-2 text-xs font-semibold"
-                        >
-                            <CalendarRange className="h-4 w-4" />
-                            Schedule
-                        </Button>
-                        <Button
-                            variant={view === 'syllabus' ? 'secondary' : 'ghost'}
-                            size="sm"
-                            onClick={() => setView('syllabus')}
-                            className="gap-2 text-xs font-semibold"
-                        >
-                            <Layers className="h-4 w-4" />
-                            Syllabus
-                        </Button>
-                        <Button
-                            variant={view === 'globe' ? 'secondary' : 'ghost'}
-                            size="sm"
-                            onClick={() => setView('globe')}
-                            className="gap-2 text-xs font-semibold"
-                        >
-                            <Globe className="h-4 w-4" />
-                            3D Globe
-                        </Button>
-                        <Button
-                            variant={view === 'question_bank' ? 'secondary' : 'ghost'}
-                            size="sm"
-                            onClick={() => setView('question_bank')}
-                            className="gap-2 text-xs font-semibold"
-                        >
-                            <Database className="h-4 w-4" />
-                            Question Bank
-                        </Button>
-                        <Button
-                            variant='ghost'
-                            size="sm"
-                            onClick={() => window.location.href = '/student/batch1/current-affairs?subject=Geography'}
-                            className="gap-2 text-xs font-semibold text-rose-600 hover:text-rose-700 hover:bg-rose-50 dark:hover:bg-rose-900/20"
-                        >
-                            <BarChart2 className="h-4 w-4" />
-                            Current Affairs
-                        </Button>
-                    </div>
+                    <motion.div 
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="visible"
+                        className="flex items-center gap-1 bg-muted p-1 rounded-lg border border-border"
+                    >
+                        {[
+                            { id: 'dashboard', label: 'Dashboard', icon: BarChart2 },
+                            { id: 'schedule', label: 'Schedule', icon: CalendarRange },
+                            { id: 'syllabus', label: 'Syllabus', icon: Layers },
+                            { id: 'globe', label: '3D Globe', icon: Globe },
+                            { id: 'question_bank', label: 'Question Bank', icon: Database }
+                        ].map((btn) => (
+                            <motion.div key={btn.id} variants={itemVariants}>
+                                <Button
+                                    variant={view === btn.id ? 'secondary' : 'ghost'}
+                                    size="sm"
+                                    onClick={() => setView(btn.id as any)}
+                                    className="gap-2 text-xs font-semibold relative overflow-hidden"
+                                >
+                                    <btn.icon className="h-4 w-4" />
+                                    {btn.label}
+                                    {view === btn.id && (
+                                        <motion.div 
+                                            layoutId="nav-glow"
+                                            className="absolute inset-0 bg-blue-500/10 pointer-events-none"
+                                        />
+                                    )}
+                                </Button>
+                            </motion.div>
+                        ))}
+                        <motion.div variants={itemVariants}>
+                            <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => window.open('/student/pyq?subject=Geography', '_blank')}
+                                className="gap-2 text-xs font-semibold text-amber-600 hover:text-amber-700"
+                            >
+                                <HistoryIcon className="h-4 w-4" />
+                                PYQ Archive
+                            </Button>
+                        </motion.div>
+                        <motion.div variants={itemVariants}>
+                            <Button
+                                variant='ghost'
+                                size="sm"
+                                onClick={() => window.location.href = '/student/batch1/current-affairs?subject=Geography'}
+                                className="gap-2 text-xs font-semibold text-rose-600 hover:text-rose-700 hover:bg-rose-50 dark:hover:bg-rose-900/20"
+                            >
+                                <Zap className="h-4 w-4" />
+                                Current Affairs
+                            </Button>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </header>
 
-            <main className="container py-8">
-                {/* View Switching */}
-                {view === 'dashboard' && (
-                    <GeographyDashboard />
-                )}
-
-                {view === 'schedule' && (
-                    <GeographySchedule />
-                )}
-
-                {view === 'syllabus' && (
-                    <div className="flex flex-col lg:flex-row gap-8 h-[calc(100vh-8rem)]">
-                        {/* Module Sidebar */}
-                        <div className="lg:w-64 space-y-2 overflow-y-auto pr-2">
-                            {GEOGRAPHY_SYLLABUS.map(module => (
-                                <button
-                                    key={module.id}
-                                    onClick={() => setActiveModuleId(module.id)}
-                                    className={`w-full text-left px-4 py-3 rounded-xl transition-all font-medium text-sm flex items-center gap-3 ${activeModuleId === module.id
-                                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20'
-                                        : 'hover:bg-muted dark:hover:bg-slate-800 text-muted-foreground dark:text-muted-foreground'
-                                        }`}
-                                >
-                                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: module.color }} />
-                                    {module.title}
-                                </button>
-                            ))}
-                        </div>
-
-                        {/* Syllabus List */}
-                        <div className="flex-1 rounded-2xl overflow-hidden border border-border bg-slate-950">
-                            <SyllabusListView
-                                activeModuleId={activeModuleId}
-                                onSelectTopic={handleStartLearning}
-                            />
-                        </div>
-                    </div>
-                )}
-
-                {view === 'globe' && (
-                    <div className="h-[calc(100vh-8rem)] rounded-2xl overflow-hidden border border-border shadow-2xl relative">
-                        <GeographyGlobe
-                            activeModuleId={activeModuleId}
-                            onSelectTopic={handleStartLearning}
-                        />
-                    </div>
-                )}
-
-                {view === 'question_bank' && (
-                    <UniversalQuestionBank initialSubject="geography" />
-                )}
-
-                {view === 'lesson' && lessonContent && (
-                    <div className="fixed inset-0 z-50 bg-card dark:bg-black">
-                        <LessonView
-                            content={lessonContent}
-                            onClose={() => setView('syllabus')}
-                        />
-                    </div>
-                )}
+            <main className="container py-8 relative z-10">
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={view}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        {view === 'dashboard' && <GeographyDashboard />}
+                        {view === 'schedule' && <GeographySchedule />}
+                        {view === 'syllabus' && (
+                            <div className="flex flex-col lg:flex-row gap-8 h-[calc(100vh-8rem)]">
+                                <div className="lg:w-64 space-y-2 overflow-y-auto pr-2">
+                                    {GEOGRAPHY_SYLLABUS.map(module => (
+                                        <button
+                                            key={module.id}
+                                            onClick={() => setActiveModuleId(module.id)}
+                                            className={`w-full text-left px-4 py-3 rounded-xl transition-all font-medium text-sm flex items-center gap-3 ${activeModuleId === module.id
+                                                ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20'
+                                                : 'hover:bg-muted dark:hover:bg-slate-800 text-muted-foreground dark:text-muted-foreground'
+                                                }`}
+                                        >
+                                            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: module.color }} />
+                                            {module.title}
+                                        </button>
+                                    ))}
+                                </div>
+                                <div className="flex-1 rounded-2xl overflow-hidden border border-border bg-slate-950">
+                                    <SyllabusListView
+                                        activeModuleId={activeModuleId}
+                                        onSelectTopic={handleStartLearning}
+                                    />
+                                </div>
+                            </div>
+                        )}
+                        {view === 'globe' && (
+                            <div className="h-[calc(100vh-8rem)] rounded-2xl overflow-hidden border border-border shadow-2xl relative">
+                                <GeographyGlobe
+                                    activeModuleId={activeModuleId}
+                                    onSelectTopic={handleStartLearning}
+                                />
+                            </div>
+                        )}
+                        {view === 'question_bank' && <UniversalQuestionBank initialSubject="geography" />}
+                        {view === 'lesson' && lessonContent && (
+                            <div className="fixed inset-0 z-50 bg-card dark:bg-black">
+                                <LessonView
+                                    content={lessonContent}
+                                    onClose={() => setView('syllabus')}
+                                />
+                            </div>
+                        )}
+                    </motion.div>
+                </AnimatePresence>
             </main>
         </div>
     );

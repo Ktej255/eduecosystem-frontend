@@ -1,5 +1,5 @@
 
-export type ContentBlockType = 'text' | 'image' | 'video' | 'callout' | 'quiz' | 'simulation';
+export type ContentBlockType = 'text' | 'image' | 'video' | 'callout' | 'quiz' | 'simulation' | 'map_anchor';
 
 export type SimulationType = 'ganga-river' | 'brahmaputra-river' | 'monsoon' | 'plate-tectonics' | 'volcano' | 'glacial-landforms' | 'earth-layers-interactive';
 

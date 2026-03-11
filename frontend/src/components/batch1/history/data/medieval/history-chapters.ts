@@ -1,0 +1,20 @@
+export const MEDIEVAL_HISTORY_CHAPTERS = [
+    { id: 1, title: "The Tripartite Struggle & The Cholas" },
+    { id: 2, title: "Palas, Pratiharas, Rashtrakutas" },
+    { id: 3, title: "Arab Conquest & Rajput States" },
+    { id: 4, title: "Delhi Sultanate: Slave & Khilji Dynasties" },
+    { id: 5, title: "Alauddin Khilji's Market Reforms" },
+    { id: 6, title: "Delhi Sultanate: Tughlaqs (MBT & FST)" },
+    { id: 7, title: "Delhi Sultanate: Sayyid & Lodi Dynasties" },
+    { id: 8, title: "Vijayanagara Empire" },
+    { id: 9, title: "Bahmani Kingdoms" },
+    { id: 10, title: "Bhakti & Sufi Movements" },
+    { id: 11, title: "Mughal Empire: Babur & Humayun" },
+    { id: 12, title: "Sher Shah Suri & Sur Empire" },
+    { id: 13, title: "Akbar the Great (Administration & Policy)" },
+    { id: 14, title: "Jahangir & Shah Jahan" },
+    { id: 15, title: "Aurangzeb & Decline of Mughals" },
+    { id: 16, title: "Maratha Empire: Shivaji Maharaj" },
+    { id: 17, title: "Later Mughals & Regional States" },
+    { id: 18, title: "Advent of Europeans (Medieval Context)" }
+];

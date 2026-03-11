@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ArrowLeft, BookOpen, Lightbulb, Play, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, BookOpen, Lightbulb, Play, CheckCircle2, Map as MapIcon } from "lucide-react";
 import { LessonContent, ContentBlock, SimulationType } from "../content/types";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -10,6 +10,7 @@ import dynamic from "next/dynamic";
 import { activityService } from "@/services/activityService";
 import ConfidencePoll from "@/components/shared/ConfidencePoll";
 import DOMPurify from "dompurify";
+import RelatedPYQs from "./RelatedPYQs";
 
 // Dynamic import for SimulationView (heavy 3D content)
 const SimulationView = dynamic(
@@ -128,6 +129,9 @@ export default function LessonView({ content, onClose }: LessonViewProps) {
                         ))}
                     </div>
 
+                    {/* Related PYQs */}
+                    <RelatedPYQs topic={content.title} />
+
                     {/* Completion Footer */}
                     <div className="mt-20 pt-10 border-t border-white/10 flex justify-center">
                         <div className="text-center space-y-6">
@@ -234,6 +238,31 @@ function ContentBlockRenderer({ block, onLaunchSimulation }: ContentBlockRendere
                             </Button>
                         </div>
                     </div>
+                </div>
+            );
+
+        case 'map_anchor':
+            return (
+                <div className="my-10 p-1 rounded-2xl bg-gradient-to-br from-indigo-500/20 via-blue-500/10 to-transparent border border-indigo-500/30 overflow-hidden shadow-2xl">
+                    <div className="flex items-center gap-3 px-5 py-3 bg-indigo-500/10 border-b border-indigo-500/20">
+                        <div className="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center">
+                            <MapIcon className="w-5 h-5 text-indigo-400" />
+                        </div>
+                        <span className="text-sm font-black tracking-widest uppercase text-indigo-300">Map Anchor — Spatial Visual</span>
+                    </div>
+                    <div className="bg-slate-900/40 p-1">
+                        <img
+                            src={block.content}
+                            alt={block.alt || 'Map Anchor'}
+                            className="w-full h-auto rounded-xl filter contrast-125 brightness-90 hover:brightness-100 transition-all duration-700"
+                        />
+                    </div>
+                    {block.caption && (
+                        <div className="p-4 text-sm text-slate-400 bg-black/20 flex items-start gap-3">
+                            <Lightbulb className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                            <p>{block.caption}</p>
+                        </div>
+                    )}
                 </div>
             );
 

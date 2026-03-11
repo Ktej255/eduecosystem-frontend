@@ -21,8 +21,11 @@ import { ActivityLogger } from '@/lib/analytics/ActivityLogger';
 import { saveChapterReport } from '@/lib/report-persistence';
 import { toast } from 'sonner';
 
+import { useSearchParams } from 'next/navigation';
+
 export default function PYQExplorer() {
-    const [activeSubject, setActiveSubject] = useState("Polity");
+    const searchParams = useSearchParams();
+    const [activeSubject, setActiveSubject] = useState(searchParams.get('subject') || "Polity");
     const [selectedYears, setSelectedYears] = useState<number[]>([]);
     const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
     const [userAnswers, setUserAnswers] = useState<Record<string, number>>({});

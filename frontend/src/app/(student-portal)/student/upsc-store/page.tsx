@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Star, Zap, Shield, BookOpen, BrainCircuit, CheckCircle, Lock, Globe2, Map, Leaf, Cpu, ArrowRight } from 'lucide-react';
+import { ShoppingBag, Star, Zap, Shield, BookOpen, BrainCircuit, CheckCircle, Lock, Globe2, Map, Leaf, Cpu, ArrowRight, Coins } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Suspense } from 'react';
@@ -29,12 +29,12 @@ const PRODUCTS = [
         badge: "🔥 New Launch"
     },
     {
-        id: 'level2',
+        id: 'polity',
         title: "Logic Masterclass (Polity)",
         price: 499,
         originalPrice: 1999,
-        description: "Master the 'Why' behind every constitutional article. Statement-based MCQs for all 95 chapters.",
-        features: ["95 Chapters (Laxmikanth)", "Statement MCQ Drills", "Revision Flashcards"],
+        description: "Master the 'Why' behind every constitutional article. Statement-based MCQs for all 80+ chapters (Laxmikanth Standard).",
+        features: ["80+ Chapters (Laxmikanth)", "Statement MCQ Drills", "Revision Flashcards"],
         icon: BrainCircuit,
         color: "from-amber-500 to-orange-600",
         bestValue: false,
@@ -57,18 +57,36 @@ const PRODUCTS = [
         title: "Ancient History (R.S. Sharma)",
         price: 299,
         originalPrice: 999,
-        description: "Master 27 chapters of India's Ancient Past. 2,700+ MCQs, AI Artifact Gallery, Traveler's Log, VS Battle Mode & Spaced Repetition.",
+        description: "Master 27 chapters of India's Ancient Past. 2,400+ UPSC-standard MCQs with 3-level difficulty, comprehensive timeline, and detailed score reports.",
         features: [
-            "27 Chapters (R.S. Sharma) + 2,700+ MCQs",
+            "27 Chapters (R.S. Sharma) + 2,400+ MCQs",
             "3-Level Difficulty Engine (L1/L2/L3)",
-            "AI Artifact Gallery with PYQ Linking",
-            "Dynasty Battle (VS) Engine",
-            "Platinum Mastery (Spaced Repetition)"
+            "Chapter-wise Read + Practice Mode",
+            "Full Ancient History Timeline",
+            "Post-Session Score Reports"
         ],
         icon: BookOpen,
         color: "from-stone-500 to-amber-700",
         bestValue: false,
         badge: "🏛️ New"
+    },
+    {
+        id: 'economy',
+        title: "Economy Masterclass 2026",
+        price: 499,
+        originalPrice: 1999,
+        description: "Master Indian Economy through systematic practice. 210+ statement-based MCQs across National Income, Banking, External Sector, and Social Development.",
+        features: [
+            "210+ UPSC-Standard MCQs",
+            "6 Comprehensive Modules (Social Dev Added)",
+            "High-Yield 'Trend' Analysis (2024-2026)",
+            "Detailed Explanations for Every Q",
+            "Practice & Mock Test Modes"
+        ],
+        icon: Coins,
+        color: "from-indigo-500 to-blue-700",
+        bestValue: false,
+        badge: "💰 High Yield"
     },
     {
         id: 'full_upsc',
@@ -78,7 +96,7 @@ const PRODUCTS = [
         description: "All subjects. All tiers. Geography + Polity + History + Economy + Environment + SciTech. One payment, lifetime access.",
         features: [
             "All 6 Subjects Unlocked",
-            "1,500+ MCQs Total",
+            "8,000+ MCQs Total",
             "All Study Schedules",
             "Priority Support",
             "New Subjects Added Free"
@@ -120,7 +138,7 @@ function StorePageContent() {
     const handleFunnelComplete = async (items: string[], finalPrice: number, subjectIds: string[]) => {
         // Map combinations to backend bundle IDs
         let finalId = subjectIds[0];
-        if (subjectIds.includes('geography') && subjectIds.includes('level2')) {
+        if (subjectIds.includes('geography') && subjectIds.includes('polity')) {
             finalId = 'geography_polity';
         } else if (subjectIds.includes('geography') && subjectIds.includes('history_modern')) {
             finalId = 'geography_history';
@@ -135,7 +153,7 @@ function StorePageContent() {
                 return;
             }
 
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/payments/create-order`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/create-order`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -151,23 +169,33 @@ function StorePageContent() {
 
             const { order_id, payment_session_id } = await res.json();
 
+            console.log('[CASHFREE DEBUG] Order created:', { order_id, payment_session_id });
+            console.log('[CASHFREE DEBUG] payment_session_id is:', payment_session_id ? 'PRESENT' : '⚠️ NULL/UNDEFINED');
+
             // @ts-ignore
             if (typeof window !== 'undefined' && window.Cashfree) {
+                console.log('[CASHFREE DEBUG] SDK detected. Initializing with mode:', process.env.NEXT_PUBLIC_CASHFREE_ENV);
                 // @ts-ignore
                 const cf = await window.Cashfree({ mode: process.env.NEXT_PUBLIC_CASHFREE_ENV === 'production' ? 'production' : 'sandbox' });
+                console.log('[CASHFREE DEBUG] Calling cf.checkout with paymentSessionId:', payment_session_id);
                 cf.checkout({ paymentSessionId: payment_session_id }).then(async (result: any) => {
+                    console.log('[CASHFREE DEBUG] Checkout result:', JSON.stringify(result, null, 2));
                     if (result.error) {
+                        console.error('[CASHFREE DEBUG] Checkout error:', result.error);
                         setError(result.error.message || 'Payment cancelled');
                     } else if (result.paymentDetails) {
-                        const vRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/payments/verify/${order_id}`, {
+                        console.log('[CASHFREE DEBUG] Payment details received, verifying order:', order_id);
+                        const vRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/verify/${order_id}`, {
                             headers: { 'Authorization': `Bearer ${token}` }
                         });
                         if (vRes.ok) {
                             const vData = await vRes.json();
+                            console.log('[CASHFREE DEBUG] Verification response:', vData);
                             if (vData.status === 'success') {
-                                router.push(`/student/batch1/${subjectIds[0] === 'level2' ? 'polity' :
+                                router.push(`/student/batch1/${subjectIds[0] === 'polity' || subjectIds[0] === 'level2' ? 'polity' :
                                         subjectIds[0] === 'history_modern' ? 'history' :
                                             subjectIds[0] === 'history_ancient' ? 'batch1-1/ancient-history' :
+                                            subjectIds[0] === 'economy' ? 'economy' :
                                                 subjectIds[0]
                                     }?unlocked=1`);
                             }
@@ -175,6 +203,7 @@ function StorePageContent() {
                     }
                 });
             } else {
+                console.error('[CASHFREE DEBUG] ⚠️ window.Cashfree is NOT loaded! SDK script may not have loaded yet.');
                 setError('Payment system loading. Please refresh and try again.');
             }
         } catch (err: any) {

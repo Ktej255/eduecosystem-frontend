@@ -12,6 +12,7 @@ import { motion } from 'framer-motion';
 
 import { MODERN_HISTORY_CHAPTERS } from '../history/data/modern/history-chapters';
 import { ANCIENT_HISTORY_CHAPTERS } from '../history/data/ancient/history-chapters';
+import { MEDIEVAL_HISTORY_CHAPTERS } from '../history/data/medieval/history-chapters';
 
 export default function CurrentAffairsCentral() {
     return (
@@ -48,7 +49,15 @@ function CurrentAffairsCentralContent() {
         let data = CURRENT_AFFAIRS_DATA;
 
         if (selectedSubject !== 'All') {
-            data = data.filter(item => item.subject === selectedSubject);
+            if ((selectedSubject as any) === 'History') {
+                data = data.filter(item => 
+                    item.subject === 'Ancient History' || 
+                    item.subject === 'Medieval History' || 
+                    item.subject === 'Modern History'
+                );
+            } else {
+                data = data.filter(item => item.subject === selectedSubject);
+            }
         }
 
         if (selectedMonth !== 'All') {
@@ -87,7 +96,8 @@ function CurrentAffairsCentralContent() {
 
     const handleReadArticle = (item: CurrentAffairItem) => {
         // Navigate to related chapter MCQs or Detail page
-        if (item.chapter && item.subject === 'History') {
+        const isHistory = item.subject === 'Ancient History' || item.subject === 'Medieval History' || item.subject === 'Modern History';
+        if (item.chapter && isHistory) {
             router.push(`/student/batch1/history/mcq?chapterId=${item.chapter}&level=3`);
         } else {
             // For now, maybe just show a toast or expand (placeholder)
@@ -97,8 +107,10 @@ function CurrentAffairsCentralContent() {
 
     const getSubjectColor = (subject: string) => {
         switch (subject) {
-            case 'History': return 'bg-amber-100 text-amber-800 border-amber-200';
-            case 'Polity': return 'bg-rose-100 text-rose-800 border-rose-200';
+            case 'Modern History': return 'bg-rose-100 text-rose-800 border-rose-200';
+            case 'Medieval History': return 'bg-purple-100 text-purple-800 border-purple-200';
+            case 'Ancient History': return 'bg-amber-100 text-amber-800 border-amber-200';
+            case 'Polity': return 'bg-indigo-100 text-indigo-800 border-indigo-200';
             case 'Economy': return 'bg-emerald-100 text-emerald-800 border-emerald-200';
             case 'Environment': return 'bg-green-100 text-green-800 border-green-200';
             case 'Science': return 'bg-blue-100 text-blue-800 border-blue-200';
@@ -109,11 +121,20 @@ function CurrentAffairsCentralContent() {
     // Generate Chapter List based on Subject
     // Generate Chapter List based on Subject & Section
     const getChapterOptions = () => {
-        if (selectedSubject === 'History' || (selectedSubject === 'All' && initialSection === 'ancient')) {
-            if (initialSection === 'ancient' || initialSource?.includes('ancient')) return ANCIENT_HISTORY_CHAPTERS;
-            return MODERN_HISTORY_CHAPTERS; // Default
+        if (selectedSubject === 'Ancient History' || (selectedSubject === 'All' && initialSection === 'ancient')) {
+            return ANCIENT_HISTORY_CHAPTERS;
         }
-        return [];
+        if (selectedSubject === 'Medieval History' || (selectedSubject === 'All' && initialSection === 'medieval')) {
+            return MEDIEVAL_HISTORY_CHAPTERS;
+        }
+        if (selectedSubject === 'Modern History' || (selectedSubject === 'All' && initialSection === 'modern')) {
+            return MODERN_HISTORY_CHAPTERS;
+        }
+        
+        // Fallback for generic 'History' source or if nothing selected, default to combined or empty
+        if (selectedSubject === 'All') return [];
+        
+        return MODERN_HISTORY_CHAPTERS; 
     };
 
     // Helper to get chapter title dynamically based on section
@@ -238,7 +259,7 @@ function CurrentAffairsCentralContent() {
                                 </div>
                             </div>
                             <div className="p-4 bg-muted border-t border-slate-100 flex justify-end">
-                                {item.chapter && item.subject === 'History' ? (
+                                {item.chapter && (item.subject.includes('History')) ? (
                                     <Button
                                         variant="default"
                                         size="sm"

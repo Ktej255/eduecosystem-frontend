@@ -95,7 +95,7 @@ export default function HistoryDashboard() {
                             हिंदी
                         </button>
                     </div>
-                    <Link href="/student/pyq">
+                    <Link href="/student/pyq?subject=History">
                         <Button variant="outline" className="border-amber-500 text-amber-700 hover:bg-amber-50 dark:text-amber-300 dark:hover:bg-amber-900/20">
                             <BookOpen className="mr-2 h-4 w-4" />
                             Access PYQ Portal

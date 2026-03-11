@@ -16,7 +16,7 @@ import {
 import { GEOGRAPHY_SCHEDULE, GEOGRAPHY_PHASES, getCurrentDayNumber, GEOGRAPHY_START_DATE, GeographyDaySchedule } from './data/geography-schedule-data';
 import Link from 'next/link';
 
-export default function GeographySchedule() {
+export default function GeographyScheduleView() {
     const [selectedPhase, setSelectedPhase] = useState(1);
     const [completedDays, setCompletedDays] = useState<number[]>(() => {
         if (typeof window !== 'undefined') {

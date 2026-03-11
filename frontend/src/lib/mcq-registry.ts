@@ -159,7 +159,7 @@ export const getEconomyStats = (): SubjectMCQMeta => {
     const chapters = getSubjectChapters('economy');
     return {
         subject: 'Economy',
-        totalChapters: 5,
+        totalChapters: 6,
         activeChapters: chapters.length,
         totalQuestions: chapters.reduce((acc, curr) => acc + curr.mcqCount, 0)
     };

@@ -89,6 +89,19 @@ export const ECONOMY_SYLLABUS: EconomyTopic[] = [
         ],
         days: 4,
         category: 'Sectoral'
+    },
+    {
+        id: 'social-dev',
+        title: "Social Development & Inclusion",
+        description: "Poverty, Employment, Health, and Education metrics.",
+        subtopics: [
+            "Multidimensional Poverty Index",
+            "MGNREGA & Skill India",
+            "Health & Education Reforms",
+            "Demographic Dividend"
+        ],
+        days: 3,
+        category: 'Sectoral'
     }
 ];
 

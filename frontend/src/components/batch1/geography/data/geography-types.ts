@@ -18,6 +18,8 @@ export interface GeographyTopic {
     blockId: number; // 25-minute teaching block assigned to this topic
     subtopics?: string[];
     isCompleted?: boolean; // For tracking
+    referenceChapter?: string; // e.g. "Savindra Singh Ch. 1"
+    referenceLevel?: number; // e.g. 2 or 3
 }
 
 // 25-minute Teaching Block
