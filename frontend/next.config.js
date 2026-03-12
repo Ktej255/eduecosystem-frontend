@@ -10,12 +10,16 @@ const nextConfig = {
     optimizeCss: false,
     workerThreads: false,
     cpus: 1,
+    memoryBasedWorkersCount: true,
   },
   staticPageGenerationTimeout: 300,
 
 
   turbopack: {},
   webpack: (config, { dev, isServer }) => {
+    // Force webpack to clear memory usage aggressively
+    config.cache = false;
+    
     if (!dev) {
       config.optimization.minimize = true;
     }
