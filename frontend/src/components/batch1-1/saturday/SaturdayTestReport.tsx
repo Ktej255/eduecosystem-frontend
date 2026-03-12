@@ -247,7 +247,7 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                             </div>
                         </div>
 
-                        <Button className="w-full mt-8 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 border-none">
+                        <Button onClick={() => window.print()} className="w-full mt-8 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 border-none">
                             Download Detailed PDF
                         </Button>
                     </Card>

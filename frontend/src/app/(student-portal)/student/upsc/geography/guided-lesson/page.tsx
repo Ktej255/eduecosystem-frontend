@@ -167,6 +167,7 @@ function GuidedLessonContent() {
                                 </p>
                                 <Button 
                                     variant="outline"
+                                    onClick={() => router.push(`/student/upsc/geography?day=${day}&practice=true`)}
                                     className="w-full bg-white dark:bg-black border-emerald-300 hover:bg-emerald-50 text-emerald-700 transition-colors"
                                 >
                                     Proceed to Testing
