@@ -14,9 +14,11 @@ import {
     Globe
 } from 'lucide-react';
 import { GEOGRAPHY_SCHEDULE, GEOGRAPHY_PHASES, getCurrentDayNumber, GEOGRAPHY_START_DATE, GeographyDaySchedule } from './data/geography-schedule-data';
-import Link from 'next/link';
+import StudyModeModal from '@/components/upsc/common/StudyModeModal';
+import { useRouter } from 'next/navigation';
 
 export default function GeographyScheduleView() {
+    const router = useRouter();
     const [selectedPhase, setSelectedPhase] = useState(1);
     const [completedDays, setCompletedDays] = useState<number[]>(() => {
         if (typeof window !== 'undefined') {
@@ -25,6 +27,10 @@ export default function GeographyScheduleView() {
         }
         return [];
     });
+
+    // Modal State
+    const [isModeModalOpen, setIsModeModalOpen] = useState(false);
+    const [activeDayData, setActiveDayData] = useState<GeographyDaySchedule | null>(null);
 
     const currentDayNumber = useMemo(() => getCurrentDayNumber(), []);
     const phaseDays = useMemo(() => GEOGRAPHY_SCHEDULE.filter(d => d.phase === selectedPhase), [selectedPhase]);
@@ -37,6 +43,23 @@ export default function GeographyScheduleView() {
         if (typeof window !== 'undefined') {
             localStorage.setItem('geography_completed_days', JSON.stringify(newSet));
         }
+    };
+
+    const handleLearnClick = (dayData: GeographyDaySchedule) => {
+        setActiveDayData(dayData);
+        setIsModeModalOpen(true);
+    };
+
+    const handleSelectSelfStudy = () => {
+        if (!activeDayData) return;
+        setIsModeModalOpen(false);
+        router.push(`/student/upsc/geography/pomodoro?day=${activeDayData.day}&title=${encodeURIComponent(activeDayData.title)}`);
+    };
+
+    const handleSelectGuided = () => {
+        if (!activeDayData) return;
+        setIsModeModalOpen(false);
+        router.push(`/student/upsc/geography/guided-lesson?day=${activeDayData.day}`);
     };
 
     const progressPercent = Math.round((completedDays.length / GEOGRAPHY_SCHEDULE.length) * 100);
@@ -119,20 +142,31 @@ export default function GeographyScheduleView() {
                                 isCompleted={completedDays.includes(day.day)}
                                 isCurrent={day.day === currentDayNumber}
                                 onToggle={() => toggleDayCompletion(day.day)}
+                                onLearn={() => handleLearnClick(day)}
                             />
                         ))}
                     </div>
                 </motion.div>
             </AnimatePresence>
+
+            <StudyModeModal
+                isOpen={isModeModalOpen}
+                onClose={() => setIsModeModalOpen(false)}
+                dayTitle={activeDayData?.title || ""}
+                dayNumber={activeDayData?.day || 1}
+                onSelectSelfStudy={handleSelectSelfStudy}
+                onSelectGuided={handleSelectGuided}
+            />
         </div>
     );
 }
 
-function DayCard({ dayData, isCompleted, isCurrent, onToggle }: {
+function DayCard({ dayData, isCompleted, isCurrent, onToggle, onLearn }: {
     dayData: GeographyDaySchedule;
     isCompleted: boolean;
     isCurrent: boolean;
     onToggle: () => void;
+    onLearn: () => void;
 }) {
     return (
         <div className={`rounded-2xl border p-5 transition-all group hover:shadow-md
@@ -195,12 +229,12 @@ function DayCard({ dayData, isCompleted, isCurrent, onToggle }: {
                     </span>
                 </div>
                 {dayData.chapters.length > 0 && (
-                    <Link
-                        href={`/student/upsc/geography/portal?day=${dayData.day}`}
+                    <button
+                        onClick={onLearn}
                         className="text-[10px] font-black uppercase tracking-wider text-emerald-600 hover:text-emerald-700 flex items-center gap-1 group/btn"
                     >
                         Learn <Play className="w-2.5 h-2.5 group-hover/btn:translate-x-0.5 transition-transform" />
-                    </Link>
+                    </button>
                 )}
             </div>
         </div>
