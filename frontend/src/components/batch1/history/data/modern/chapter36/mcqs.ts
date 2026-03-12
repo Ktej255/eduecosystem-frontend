@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_36_MCQS: any[] = [
   },
   {
     id: '36-34',
-    question: "Consider the following statements regarding 'Sir Syed Ahmed Khan': 1. He was a lifelong opponent of Western education and science. 2. Initially, he spoke of Hindus and Muslims as the \"two eyes of a beautiful bride\" (India). 3. Later in life, he argued that the interests of the two communities were divergent and that Hindus would dominate Muslims in a democratic setup. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding 'Sir Syed Ahmed Khan':\n1. He was a lifelong opponent of Western education and science.\n2. Initially, he spoke of Hindus and Muslims as the \"two eyes of a beautiful bride\" (India). 3. Later in life, he argued that the interests of the two communities were divergent and that Hindus would dominate Muslims in a democratic setup. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 1,
     explanation: "2 and 3 only. Sir Syed was actually a pioneer of Western education (Aligarh Movement), but his political views shifted toward separatism as the Congress grew.",
@@ -346,7 +346,7 @@ export const MODERN_CHAPTER_36_MCQS: any[] = [
   },
   {
     id: '36-39',
-    question: "Consider the following regarding the 'Three Stages of Communalism' as defined by historians like Bipan Chandra: 1. Liberal Communalism: Belief that communal interests are different but can be accommodated. 2. Extremist Communalism: Belief that communal interests are inherently antagonistic. 3. Fascist Communalism: Belief that the other community is an enemy and cannot coexist. How many of the above are correctly defined?",
+    question: "Consider the following regarding the 'Three Stages of Communalism' as defined by historians like Bipan Chandra:\n1. Liberal Communalism: Belief that communal interests are different but can be accommodated.\n2. Extremist Communalism: Belief that communal interests are inherently antagonistic.\n3. Fascist Communalism: Belief that the other community is an enemy and cannot coexist. How many of the above are correctly defined?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three. (Jinnah's career moved through all three stages).",
@@ -364,7 +364,7 @@ export const MODERN_CHAPTER_36_MCQS: any[] = [
   },
   {
     id: '36-41',
-    question: "Match the following 'Ideological Shifts' with the 'Period': 1. 1906\u20131915 \u2014",
+    question: "Match the following 'Ideological Shifts' with the 'Period':\n1. 1906\u20131915 \u2014",
     options: ["Elite communalism (Demanding jobs/electorates) 2. 1920\u20131937 \u2014", "Liberal communalism (Bargaining for safeguards) 3. 1937\u20131947 \u2014", "Mass communalism (Demanding a separate nation) Select the correct matching code:", "1-A, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C.",
@@ -436,7 +436,7 @@ export const MODERN_CHAPTER_36_MCQS: any[] = [
   },
   {
     id: '36-49',
-    question: "Consider the following regarding 'M.A. Jinnah\u2019s' 14 Points (1929): 1. One-third representation for Muslims in the Central Legislature. 2. Residuary powers to be vested in the Provinces. 3. Separation of Sindh from Bombay. How many of the above were included in his demands?",
+    question: "Consider the following regarding 'M.A. Jinnah\u2019s' 14 Points (1929):\n1. One-third representation for Muslims in the Central Legislature.\n2. Residuary powers to be vested in the Provinces.\n3. Separation of Sindh from Bombay. How many of the above were included in his demands?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -490,7 +490,7 @@ export const MODERN_CHAPTER_36_MCQS: any[] = [
   },
   {
     id: '36-55',
-    question: "Consider the following regarding the 'Lucknow Pact' (1916): 1. It was the only time the Congress and the League officially agreed on a common constitutional scheme. 2. The Congress conceded 'Weightage' to Muslims in provinces where they were a minority (like UP). 3. The Pact successfully ended communalism in India for the next 30 years. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Lucknow Pact' (1916):\n1. It was the only time the Congress and the League officially agreed on a common constitutional scheme.\n2. The Congress conceded 'Weightage' to Muslims in provinces where they were a minority (like UP).\n3. The Pact successfully ended communalism in India for the next 30 years. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; the pact was a temporary \"marriage of convenience\" that fell apart within a decade).",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_36_MCQS: any[] = [
   },
   {
     id: '36-66',
-    question: "Match the following 'Communal Organizations' with their 'Core Ideology': 1. Muslim League (Post-1940) \u2014",
+    question: "Match the following 'Communal Organizations' with their 'Core Ideology':\n1. Muslim League (Post-1940) \u2014",
     options: ["Separate sovereign state (Pakistan) 2. Hindu Mahasabha (Savarkar) \u2014", "Hindu Rashtra (India as a Hindu Nation) 3. Akali Dal (Tara Singh) \u2014", "Azad Punjab / Sikh Rights Select the correct matching code:", "1-A, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C.",
@@ -616,7 +616,7 @@ export const MODERN_CHAPTER_36_MCQS: any[] = [
   },
   {
     id: '36-69',
-    question: "Consider the following regarding the '1945\u201346 Elections': 1. The Congress won the \"General\" seats but the League won 30/30 Muslim seats in the Central Assembly. 2. The elections proved that there was no \"Middle Ground\" left in Indian politics. 3. The elections were fought on the single issue of 'Pakistan' by the League. How many of the above are correct?",
+    question: "Consider the following regarding the '1945\u201346 Elections':\n1. The Congress won the \"General\" seats but the League won 30/30 Muslim seats in the Central Assembly. 2. The elections proved that there was no \"Middle Ground\" left in Indian politics. 3. The elections were fought on the single issue of 'Pakistan' by the League. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",

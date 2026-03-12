@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
   },
   {
     id: '5-62',
-    question: "Consider the following statements regarding the factors that contributed to the success of the British against Indian powers: 1. The English possessed superior military tactics, utilizing the musket and disciplined infantry squares, whereas Indian armies relied heavily on slow-moving artillery and traditional cavalry. 2. The East India Company maintained a highly stable financial base through its booming global trade, ensuring that its soldiers and officers were paid regular salaries. 3. The British officers instilled a strong sense of nationalist pride and material reward among their troops, while Indian armies were often composed of mercenaries whose loyalty shifted with delayed payments. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the factors that contributed to the success of the British against Indian powers:\n1. The English possessed superior military tactics, utilizing the musket and disciplined infantry squares, whereas Indian armies relied heavily on slow-moving artillery and traditional cavalry.\n2. The East India Company maintained a highly stable financial base through its booming global trade, ensuring that its soldiers and officers were paid regular salaries.\n3. The British officers instilled a strong sense of nationalist pride and material reward among their troops, while Indian armies were often composed of mercenaries whose loyalty shifted with delayed payments. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three All three factors (superior arms/tactics, regular financial backing, and strong civil/military leadership coupled with national pride) were structural advantages highlighted in the text for the Company's success.",
@@ -571,7 +571,7 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
   },
   {
     id: '5-64',
-    question: "Consider the following provisions of the Treaties of Allahabad (August 1765) signed by Robert Clive: 1. Nawab Shuja-ud-Daulah of Awadh was forced to surrender Allahabad and Kara to Emperor Shah Alam II. 2. Emperor Shah Alam II issued a farman granting the Diwani of Bengal, Bihar, and Orissa to the East India Company. 3. Awadh was entirely annexed into the British Empire to serve as a buffer state against the Marathas. How many of the above provisions are correct?",
+    question: "Consider the following provisions of the Treaties of Allahabad (August 1765) signed by Robert Clive:\n1. Nawab Shuja-ud-Daulah of Awadh was forced to surrender Allahabad and Kara to Emperor Shah Alam II.\n2. Emperor Shah Alam II issued a farman granting the Diwani of Bengal, Bihar, and Orissa to the East India Company.\n3. Awadh was entirely annexed into the British Empire to serve as a buffer state against the Marathas. How many of the above provisions are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; Awadh was not annexed. It was intentionally kept as an independent buffer state to protect Bengal from Maratha and Afghan invasions.",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
   },
   {
     id: '5-65',
-    question: "Arrange the following treaties related to the Anglo-Maratha struggle in chronological order: 1. Treaty of Salbai 2. Treaty of Purandhar 3. Treaty of Bassein 4. Treaty of Surat Select the correct answer using the code given below:",
+    question: "Arrange the following treaties related to the Anglo-Maratha struggle in chronological order:\n1. Treaty of Salbai\n2. Treaty of Purandhar\n3. Treaty of Bassein\n4. Treaty of Surat Select the correct answer using the code given below:",
     options: ["4 \u2014 2 \u2014 1 \u2014 3", "2 \u2014 4 \u2014 1 \u2014 3", "4 \u2014 1 \u2014 2 \u2014 3", "1 \u2014 4 \u2014 2 \u2014 3"],
     correctAnswer: 0,
     explanation: "4 \u2014 2 \u2014 1 \u2014 3 Treaty of Surat (1775) -> Treaty of Purandhar (1776) -> Treaty of Salbai (1782) -> Treaty of Bassein (1802).",
@@ -598,7 +598,7 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
   },
   {
     id: '5-67',
-    question: "Regarding the state of Mysore under Haidar Ali and Tipu Sultan, consider the following statements: 1. Haidar Ali established a modern arms factory at Dindigul with the help of French experts to counter the Marathas and the British. 2. Tipu Sultan planted a 'Tree of Liberty' at Seringapatam and became a member of the French Jacobin Club. 3. Tipu Sultan completely ignored naval power, focusing exclusively on a massive land-based cavalry. How many of the above statements are correct?",
+    question: "Regarding the state of Mysore under Haidar Ali and Tipu Sultan, consider the following statements:\n1. Haidar Ali established a modern arms factory at Dindigul with the help of French experts to counter the Marathas and the British.\n2. Tipu Sultan planted a 'Tree of Liberty' at Seringapatam and became a member of the French Jacobin Club.\n3. Tipu Sultan completely ignored naval power, focusing exclusively on a massive land-based cavalry. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; Tipu Sultan recognized the importance of naval power, set up a Board of Admiralty in 1796, and planned for a fleet of ships to protect his maritime trade.",
@@ -607,7 +607,7 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
   },
   {
     id: '5-68',
-    question: "Consider the following pairs of Anglo-Mysore Wars and the Treaties that concluded them: 1. First Anglo-Mysore War \u2014 Treaty of Madras 2. Second Anglo-Mysore War \u2014 Treaty of Mangalore 3. Third Anglo-Mysore War \u2014 Treaty of Seringapatam How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of Anglo-Mysore Wars and the Treaties that concluded them:\n1. First Anglo-Mysore War \u2014 Treaty of Madras\n2. Second Anglo-Mysore War \u2014 Treaty of Mangalore\n3. Third Anglo-Mysore War \u2014 Treaty of Seringapatam How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "All three pairs", "None"],
     correctAnswer: 2,
     explanation: "All three pairs",
@@ -616,7 +616,7 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
   },
   {
     id: '5-69',
-    question: "The Treaty of Bassein (1802) is a watershed moment in Indian history. Which of the following were provisions accepted by Peshwa Bajirao II under this treaty? 1. To receive a native infantry (subsidiary force) with European artillerymen permanently stationed in his territories. 2. To surrender the city of Surat entirely to the Company. 3. To subject all his relations with other states to the control of the English (surrender of foreign policy). How many of the above provisions are correct?",
+    question: "The Treaty of Bassein (1802) is a watershed moment in Indian history. Which of the following were provisions accepted by Peshwa Bajirao II under this treaty?\n1. To receive a native infantry (subsidiary force) with European artillerymen permanently stationed in his territories.\n2. To surrender the city of Surat entirely to the Company.\n3. To subject all his relations with other states to the control of the English (surrender of foreign policy). How many of the above provisions are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three The Treaty of Bassein was effectively a Subsidiary Alliance that stripped the Peshwa of his independence and made the British the paramount power in the Deccan.",
@@ -634,7 +634,7 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
   },
   {
     id: '5-71',
-    question: "With reference to the British annexation of Sindh in 1843, consider the following: 1. The annexation was executed by Sir Charles Napier following the disastrous British retreat from the First Anglo-Afghan War. 2. The Amirs of Sindh had violated the Tripartite Treaty of 1838 by openly allying with the Russian Empire. 3. The annexation was widely condemned even by several British officials (including Outram) as a blatant, unprovoked act of imperialist aggression. How many of the above statements are correct?",
+    question: "With reference to the British annexation of Sindh in 1843, consider the following:\n1. The annexation was executed by Sir Charles Napier following the disastrous British retreat from the First Anglo-Afghan War.\n2. The Amirs of Sindh had violated the Tripartite Treaty of 1838 by openly allying with the Russian Empire.\n3. The annexation was widely condemned even by several British officials (including Outram) as a blatant, unprovoked act of imperialist aggression. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the Amirs did not ally with Russia. The British merely used forced treaties and fabricated pretexts to annex Sindh to compensate for their humiliation in Afghanistan.",
@@ -670,7 +670,7 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
   },
   {
     id: '5-75',
-    question: "Arrange the following states annexed by Lord Dalhousie under the Doctrine of Lapse in chronological order: 1. Jhansi 2. Satara 3. Nagpur 4. Sambalpur Select the correct answer using the code given below:",
+    question: "Arrange the following states annexed by Lord Dalhousie under the Doctrine of Lapse in chronological order:\n1. Jhansi\n2. Satara\n3. Nagpur\n4. Sambalpur Select the correct answer using the code given below:",
     options: ["2 \u2014 4 \u2014 1 \u2014 3", "2 \u2014 1 \u2014 4 \u2014 3", "4 \u2014 2 \u2014 1 \u2014 3", "1 \u2014 2 \u2014 3 \u2014 4"],
     correctAnswer: 0,
     explanation: "2 \u2014 4 \u2014 1 \u2014 3 Satara (1848) -> Sambalpur (1849) -> Bhagat (1850) -> Udaipur (1852) -> Jhansi (1853) -> Nagpur (1854).",
@@ -679,7 +679,7 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
   },
   {
     id: '5-76',
-    question: "The annexation of Awadh (Oudh) in 1856 was a highly controversial act that fueled the Revolt of 1857. Consider the following regarding Awadh's annexation: 1. It was annexed under the strict application of the Doctrine of Lapse, as Nawab Wajid Ali Shah had no natural heir. 2. It was annexed on the grounds of chronic misgovernance and maladministration, supposedly to relieve the suffering of the people. 3. The annexation resulted in thousands of Awadh's nobles, retainers, and soldiers losing their livelihoods, deeply embittering the local population. How many of the above statements are correct?",
+    question: "The annexation of Awadh (Oudh) in 1856 was a highly controversial act that fueled the Revolt of 1857. Consider the following regarding Awadh's annexation:\n1. It was annexed under the strict application of the Doctrine of Lapse, as Nawab Wajid Ali Shah had no natural heir.\n2. It was annexed on the grounds of chronic misgovernance and maladministration, supposedly to relieve the suffering of the people.\n3. The annexation resulted in thousands of Awadh's nobles, retainers, and soldiers losing their livelihoods, deeply embittering the local population. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 2 and 3 are correct. Statement 1 is incorrect; Wajid Ali Shah had numerous heirs. Awadh was annexed specifically on the pretext of \"misgovernance,\" not Lapse.",
@@ -706,7 +706,7 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
   },
   {
     id: '5-79',
-    question: "Consider the following pairs of British Policies and the Governor-Generals primarily associated with them: 1. Ring-Fence Policy \u2014 Warren Hastings 2. Subsidiary Alliance \u2014 Lord Wellesley 3. Doctrine of Lapse \u2014 Lord Dalhousie How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of British Policies and the Governor-Generals primarily associated with them:\n1. Ring-Fence Policy \u2014 Warren Hastings\n2. Subsidiary Alliance \u2014 Lord Wellesley\n3. Doctrine of Lapse \u2014 Lord Dalhousie How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "All three pairs", "None"],
     correctAnswer: 2,
     explanation: "All three pairs All three policies correctly map to the respective Governor-Generals who initiated or most aggressively executed them.",
@@ -724,7 +724,7 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
   },
   {
     id: '5-81',
-    question: "During the expansionist phase, the British utilized various treaties. Match the Treaty with the corresponding Indian power it was signed with: 1. Treaty of Amritsar (1809) \u2014",
+    question: "During the expansionist phase, the British utilized various treaties. Match the Treaty with the corresponding Indian power it was signed with:\n1. Treaty of Amritsar (1809) \u2014",
     options: ["Marathas 2. Treaty of Seringapatam (1792) \u2014", "Awadh 3. Treaty of Salbai (1782) \u2014", "Sikhs 4. Treaty of Allahabad (1765) \u2014", "Mysore Select the correct code:"],
     correctAnswer: 0,
     explanation: "1-C (Sikhs), 2-D (Mysore), 3-A (Marathas), 4-B (Awadh).",
@@ -733,7 +733,7 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
   },
   {
     id: '5-82',
-    question: "Consider the following statements regarding the administration of Punjab post-annexation (1849): 1. It was initially governed by a three-member Board of Administration consisting of the Lawrence brothers (John and Henry) and Charles Mansel. 2. The Board successfully dismantled the Sikh army, disarmed the population, and established a strong revenue and judicial system. 3. Due to widespread rebellions against the Board, Punjab was handed back to the Sikh chiefs in 1853. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the administration of Punjab post-annexation (1849):\n1. It was initially governed by a three-member Board of Administration consisting of the Lawrence brothers (John and Henry) and Charles Mansel.\n2. The Board successfully dismantled the Sikh army, disarmed the population, and established a strong revenue and judicial system.\n3. Due to widespread rebellions against the Board, Punjab was handed back to the Sikh chiefs in 1853. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; the Board was successful and Punjab remained firmly under British control (becoming a Chief Commissioner's province in 1853), playing a loyalist role for the British during the 1857 revolt.",
@@ -778,7 +778,7 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
   },
   {
     id: '5-87',
-    question: "Consider the following consequences of the Battle of Plassey (1757): 1. The British East India Company secured massive financial resources from Bengal, which they used to fund their wars in South India and purchase Indian goods for export. 2. The French political and commercial influence in Bengal was permanently eradicated. 3. The Mughal Emperor formally recognized the absolute sovereignty of the British Crown over India. How many of the above statements are correct?",
+    question: "Consider the following consequences of the Battle of Plassey (1757):\n1. The British East India Company secured massive financial resources from Bengal, which they used to fund their wars in South India and purchase Indian goods for export.\n2. The French political and commercial influence in Bengal was permanently eradicated.\n3. The Mughal Emperor formally recognized the absolute sovereignty of the British Crown over India. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; the British did not formally claim sovereignty over India under the Crown until after the 1857 Revolt (Government of India Act 1858). The Company ruled under the fiction of Mughal authority for a long time.",

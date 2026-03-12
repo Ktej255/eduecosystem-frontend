@@ -28,7 +28,7 @@ Object.keys(MEDIEVAL_CONTENT_MAP).forEach(key => {
     }
 });
 
-import { ancientChapterData as NEW_ANCIENT_MCQ_MAP } from './mcqs/ancient/registry';
+import { ancientChapterData as NEW_ANCIENT_MCQ_MAP } from '@/components/batch1/history/data/mcqs/ancient/registry';
 
 export const ANCIENT_MCQS_DATA: Record<number, any[]> = {};
 

@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_59_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 59,
+
         question: "The NIA was established under the NIA Act of which year?",
         options: ["2005", "2008", "2010", "2013"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_59_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 59,
+
         question: "Which Ministry oversees the NIA?",
         options: [
             "Ministry of Personnel",
@@ -26,7 +26,7 @@ export const CHAPTER_59_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 59,
+
         question: "Unlike the CBI, the NIA:",
         options: [
             "Requires state consent for all cases",
@@ -40,7 +40,7 @@ export const CHAPTER_59_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 59,
+
         question: "Which of the following was added to NIA's schedule in 2019?",
         options: [
             "Human Trafficking",
@@ -54,7 +54,7 @@ export const CHAPTER_59_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 59,
+
         question: "NIA Special Courts are presided over by a judge appointed by:",
         options: [
             "The Chief Justice of India",
@@ -68,7 +68,7 @@ export const CHAPTER_59_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 59,
+
         question: "If a person is unhappy with the NIA Special Court's judgment, they can appeal to:",
         options: ["Another Special Court", "The High Court", "The Supreme Court", "The Home Ministry"],
         correctAnswer: 1,
@@ -77,7 +77,7 @@ export const CHAPTER_59_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 59,
+
         question: "NIA has jurisdiction over crimes against Indian citizens outside India. This was enabled by:",
         options: [
             "The original 2008 Act",
@@ -91,7 +91,7 @@ export const CHAPTER_59_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 59,
+
         question: "Who heads the NIA?",
         options: ["A Cabinet Minister", "Director General", "Commissioner", "Chief Secretary"],
         correctAnswer: 1,
@@ -100,7 +100,7 @@ export const CHAPTER_59_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 59,
+
         question: "Counterfeit currency involving _____ quality is under NIA's jurisdiction.",
         options: ["Low", "High", "All types", "Foreign only"],
         correctAnswer: 1,
@@ -109,7 +109,7 @@ export const CHAPTER_59_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 59,
+
         question: "The NIA's functioning is often compared with which USA agency?",
         options: ["CIA", "FBI", "NSA", "DEA"],
         correctAnswer: 1,

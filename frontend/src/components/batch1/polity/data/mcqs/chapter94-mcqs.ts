@@ -4,7 +4,7 @@ import { MCQ } from '../mcq-utils';
 export const CHAPTER_94_MCQS: MCQ[] = [
     {
         "id": "ch94_l1_1",
-        "chapterId": 94,
+        
         "question": "Which doctrine is used to determine the true nature of a law when it seems to encroach upon a subject in another list?",
         "options": [
             "Doctrine of Eclipse.",
@@ -18,7 +18,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_2",
-        "chapterId": 94,
+        
         "question": "The phrase 'What cannot be done directly, cannot be done indirectly' is the basis of which doctrine?",
         "options": [
             "Doctrine of Pith and Substance.",
@@ -32,7 +32,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_3",
-        "chapterId": 94,
+        
         "question": "Which doctrine allows the court to strike down only the 'invalid' portion of a law while keeping the 'valid' portion alive?",
         "options": [
             "Doctrine of Severability.",
@@ -46,7 +46,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_4",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Eclipse' applies to which type of laws?",
         "options": [
             "Post-constitutional laws.",
@@ -60,7 +60,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_5",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Territorial Nexus' is primarily related to which Article?",
         "options": [
             "Article 14.",
@@ -74,7 +74,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_6",
-        "chapterId": 94,
+        
         "question": "Which doctrine requires that the provisions of a statute should be read to avoid conflict between various parts of the same law or constitution?",
         "options": [
             "Doctrine of Harmonious Construction.",
@@ -88,7 +88,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_7",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Waiver' implies that a citizen can give up their fundamental rights voluntarily. Does this apply in India?",
         "options": [
             "Yes.",
@@ -102,7 +102,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_8",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Pleasure' is related to which service in India?",
         "options": [
             "Military services only.",
@@ -116,7 +116,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_9",
-        "chapterId": 94,
+        
         "question": "Which doctrine is used when the motive of a legislature is irrelevant, but its 'competence' to pass the law is the main issue?",
         "options": [
             "Colorable Legislation.",
@@ -130,7 +130,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_10",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Laches' is related to:",
         "options": [
             "Lying in court.",
@@ -144,7 +144,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_11",
-        "chapterId": 94,
+        
         "question": "Which doctrine says that when the Centre and State make laws on a concurrent subject and they conflict, the Central law prevails?",
         "options": [
             "Repugnancy (Article 254).",
@@ -158,7 +158,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_12",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Basic Structure' was first propounded as an interpretative tool in:",
         "options": [
             "Golak Nath case.",
@@ -172,7 +172,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_13",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Incidental or Ancillary Powers' suggests that a legislature has the power to:",
         "options": [
             "Do anything.",
@@ -186,7 +186,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_14",
-        "chapterId": 94,
+        
         "question": "Which doctrine is based on the maxim 'Ut res magis valeat quam pereat' (It is better for a thing to have effect than to perish)?",
         "options": [
             "Doctrine of Harmony.",
@@ -200,7 +200,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_15",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Ejusdem Generis' means:",
         "options": [
             "Of the same kind/nature.",
@@ -214,7 +214,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_16",
-        "chapterId": 94,
+        
         "question": "Wait. Which doctrine is most used by the SC to resolve conflicts between entries in the Seventh Schedule?",
         "options": [
             "Pith and Substance.",
@@ -228,7 +228,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_17",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Res Judicata' means:",
         "options": [
             "A matter once decided by a competent court cannot be reopened by the same parties.",
@@ -242,7 +242,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_18",
-        "chapterId": 94,
+        
         "question": "Which doctrine supports the idea that the Constitution must be interpreted as a 'Living Document'?",
         "options": [
             "Strict Interpretation.",
@@ -256,7 +256,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_19",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Sovereign Immunity' suggests that:",
         "options": [
             "The State cannot be sued for its official acts (now mostly discarded in human rights cases).",
@@ -270,7 +270,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_20",
-        "chapterId": 94,
+        
         "question": "Wait. Which doctrine is used to determine if an individual piece of evidence is admissible?",
         "options": [
             "Doctrine of Relevance.",
@@ -284,7 +284,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_21",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Legitimate Expectation' arises when:",
         "options": [
             "A person hopes for a job.",
@@ -298,7 +298,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_22",
-        "chapterId": 94,
+        
         "question": "Which doctrine is associated with the 'Golden Rule' of interpretation (Literal meaning)?",
         "options": [
             "Harmonious Construction.",
@@ -312,7 +312,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_23",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Reasonable Restriction' applies to:",
         "options": [
             "Fundamental Duties.",
@@ -326,7 +326,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_24",
-        "chapterId": 94,
+        
         "question": "Wait. In which case was the 'Doctrine of Territorial Nexus' most famously explained regarding a state tax on 'Lotteries'?",
         "options": [
             "State of Bombay vs R.M.D. Chamarbaugwala (1957).",
@@ -340,7 +340,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_25",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Precedent' (Stare Decisis) means:",
         "options": [
             "The court must follow its earlier decisions.",
@@ -354,7 +354,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_26",
-        "chapterId": 94,
+        
         "question": "Which doctrine allows the President to fire a civil servant without a formal inquiry in special cases (Sec 311)?",
         "options": [
             "Doctrine of Pleasure.",
@@ -368,7 +368,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_27",
-        "chapterId": 94,
+        
         "question": "Wait. Does the 'Doctrine of Eclipse' apply to the 'Entire' law?",
         "options": [
             "Yes.",
@@ -382,7 +382,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_28",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Prospected Overruling' means:",
         "options": [
             "The judgment applies only to future cases, not past ones.",
@@ -396,7 +396,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_29",
-        "chapterId": 94,
+        
         "question": "Which doctrine is used when two different statutes seem to cover the same 'Subject' and conflict?",
         "options": [
             "Harmony.",
@@ -410,7 +410,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l1_30",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Political Question' suggests that:",
         "options": [
             "Courts should not interfere in purely political matters (rarely used in India).",
@@ -424,7 +424,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_1",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Pith and Substance' is derived from which system of jurisprudence?",
         "options": [
             "American Constitution.",
@@ -438,7 +438,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_2",
-        "chapterId": 94,
+        
         "question": "Assertion (A): The 'Doctrine of Colorable Legislation' is not about the 'Motive' of the legislature but about its 'Competence'.\nReason (R): Even if the motive is pure, a law will be struck down if the legislature has no power to enact it under the VII Schedule.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -452,7 +452,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_3",
-        "chapterId": 94,
+        
         "question": "Which doctrine was used in the 'A.K. Gopalan' case to reject the challenge to the Preventive Detention Act?",
         "options": [
             "Doctrine of Pith and Substance.",
@@ -466,7 +466,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_4",
-        "chapterId": 94,
+        
         "question": "In the 'Bhikaji Narain vs State of MP' (1955) case, the 'Doctrine of Eclipse' was used for a pre-constitutional law. What happens if the 'Eclipse' is removed by a later constitutional amendment?",
         "options": [
             "The law must be re-passed by Parliament.",
@@ -480,7 +480,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_5",
-        "chapterId": 94,
+        
         "question": "Wait. Which doctrine is expressed by the maxim 'Equity acts in personam'?",
         "options": [
             "Doctrine of Pleasure.",
@@ -494,7 +494,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_6",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Harmonious Construction' is applied when there is an apparent conflict between Part III (FR) and:",
         "options": [
             "Part IV (DPSP).",
@@ -508,7 +508,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_7",
-        "chapterId": 94,
+        
         "question": "In 'State of Bihar vs Kameshwar Singh' (1952), the SC used which doctrine to strike down a provision that 'pretended' to provide compensation for land reforms but was actually an attempt to avoid it?",
         "options": [
             "Pith and Substance.",
@@ -522,7 +522,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_8",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Territorial Nexus' requires the 'Nexus' (connection) to be:",
         "options": [
             "Imaginary.",
@@ -536,7 +536,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_9",
-        "chapterId": 94,
+        
         "question": "Which doctrine implies that the power of sub-delegation must be explicitly mentioned in the parent act?",
         "options": [
             "Delegatus non potest delegare (A delegate cannot further delegate).",
@@ -550,7 +550,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_10",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Necessity' was famously used by the SC in the 'Rati Lal' case to justify an 'unconstitutional' action by which authority?",
         "options": [
             "The President.",
@@ -564,7 +564,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_11",
-        "chapterId": 94,
+        
         "question": "Wait. In which case did the SC hold that 'Harmony and Balance between FR and DPSP is a basic feature'?",
         "options": [
             "Kesavananda case.",
@@ -578,7 +578,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_12",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Pith and Substance' is NOT applied when:",
         "options": [
             "The encroachment is significant.",
@@ -592,7 +592,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_13",
-        "chapterId": 94,
+        
         "question": "Which doctrine prevents the 'Legislature' from passing a law that says 'I have the power to pass any law'?",
         "options": [
             "Doctrine of Limited Power (Basic Structure).",
@@ -606,7 +606,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_14",
-        "chapterId": 94,
+        
         "question": "Regarding 'Article 13(1)', does the SC apply 'Doctrine of Severeability' to check the validity of individual sentences of a pre-constitutional law?",
         "options": [
             "Yes.",
@@ -620,7 +620,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_15",
-        "chapterId": 94,
+        
         "question": "Assertion (A): The 'Doctrine of Res Judicata' applies to 'Writ Petitions' in the High Court.\nReason (R): If a person loses a case in HC on merits, they cannot file a fresh petition on the same facts in the SC under Art 32 (Daryao vs State of UP).",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -634,7 +634,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_16",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Pleasure' (Art 310) is subject to which specific fundamental right as per post-independence cases?",
         "options": [
             "Article 14 (Protection against arbitrary firing).",
@@ -648,7 +648,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_17",
-        "chapterId": 94,
+        
         "question": "Wait. Which doctrine is the opposite of 'Strict Interpretation'?",
         "options": [
             "Purposive Interpretation.",
@@ -662,7 +662,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_18",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Legitimate Expectation' can be defeated if:",
         "options": [
             "The PM says no.",
@@ -676,7 +676,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_19",
-        "chapterId": 94,
+        
         "question": "Which doctrine is associated with 'Article 254' (Concurrent list conflicts)?",
         "options": [
             "Doctrine of Repugnancy.",
@@ -690,7 +690,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_20",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Ancillary Powers' suggests that a law relating to 'Banks' can also provide for 'Penalties' for non-compliance. Why?",
         "options": [
             "Because banks are rich.",
@@ -704,7 +704,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_21",
-        "chapterId": 94,
+        
         "question": "Wait. In which case did the SC use the 'Doctrine of Harmonious Construction' to resolve conflict between Art 19 (Free speech) and Art 105 (Privileges)?",
         "options": [
             "M.S.M. Sharma vs Krishna Sinha (Searchlight case, 1959).",
@@ -718,7 +718,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_22",
-        "chapterId": 94,
+        
         "question": "What is the result when 'Severeability' is NOT possible (the valid and invalid parts are inextricably mixed)?",
         "options": [
             "The whole law is struck down.",
@@ -732,7 +732,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_23",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Territorial Nexus' applies to which of the following 'Instruments' primarily?",
         "options": [
             "Taxation laws.",
@@ -746,7 +746,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_24",
-        "chapterId": 94,
+        
         "question": "Assertion (A): The 'Doctrine of Prosperity' is a part of Indian Constitutional interpretation.\nReason (R): Actually, this is not a recognized legal doctrine; the correct term might be 'Doctrine of Progressive Interpretation'.",
         "options": [
             "Both A and R are false.",
@@ -760,7 +760,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_25",
-        "chapterId": 94,
+        
         "question": "Wait. Which doctrine is most associated with 'Article 13' of the Constitution?",
         "options": [
             "Doctrine of Judicial Review.",
@@ -774,7 +774,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_26",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Proper Law' is usually applied in which area of constitutional practice?",
         "options": [
             "Emergency.",
@@ -788,7 +788,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_27",
-        "chapterId": 94,
+        
         "question": "Regarding 'Article 14', the 'Doctrine of Reasonable Classification' implies that:",
         "options": [
             "Everyone must be treated exactly same.",
@@ -802,7 +802,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_28",
-        "chapterId": 94,
+        
         "question": "Wait. Which doctrine is used when the motive of a person while being 'punitively' transferred is checked by the court?",
         "options": [
             "Doctrine of Malafide.",
@@ -816,7 +816,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_29",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Incidental Power' ensures that the Constitution is not a:",
         "options": [
             "Suicide pact.",
@@ -830,7 +830,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l2_30",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Non-Retrospectivity' of the Constitution means:",
         "options": [
             "Constitution is old.",
@@ -844,7 +844,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_1",
-        "chapterId": 94,
+        
         "question": "Analyze the 'Strategic' use of the 'Doctrine of Pith and Substance'. How does the court decide the 'Pith' (essence) of a law when it overlaps with multiple entries?",
         "options": [
             "By looking at the title only.",
@@ -858,7 +858,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_2",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Colorable Legislation' is focused on which specific Article of the Seventh Schedule and Part XI?",
         "options": [
             "Article 245 only.",
@@ -872,7 +872,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_3",
-        "chapterId": 94,
+        
         "question": "In 'Behram Khurshid vs State of Bombay' (1955), the SC held that a law declared void under Art 13 is 'not dead' but is 'still-born' for its current form. How does this 'Eclipse' logic differ for Citizens vs Non-citizens?",
         "options": [
             "It doesn't differ.",
@@ -886,7 +886,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_4",
-        "chapterId": 94,
+        
         "question": "Assertion (A): The 'Doctrine of Territorial Nexus' can result in 'Double Taxation' on the same subject by two different states.\nReason (R): Both states may have a 'sufficient' nexus (e.g., place of production vs place of consumption) to justify their respective taxes.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -900,7 +900,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_5",
-        "chapterId": 94,
+        
         "question": "In 'State of WB vs Committee for Protection of Democratic Rights' (2010), the SC used which doctrine to hold that the SC/HC can order a CBI inquiry into a state matter without state consent?",
         "options": [
             "Doctrine of Pleasure.",
@@ -914,7 +914,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_6",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Severability' uses the 'Wood from the trees' test. In which case was this test specifically elaborated regarding the 'Golden Triangle'?",
         "options": [
             "Maneka Gandhi case.",
@@ -928,7 +928,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_7",
-        "chapterId": 94,
+        
         "question": "Evaluate the 'Doctrine of Harmonious Construction' as applied to the conflict between Fundamental Rights and Directive Principles in 'Minerva Mills'. What was the SC's 'Formula'?",
         "options": [
             "FR are supreme.",
@@ -942,7 +942,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_8",
-        "chapterId": 94,
+        
         "question": "In the 'Noise Pollution' (2005) judgment, the SC used the 'Doctrine of Liberty' to restrict loudspeakers. How was the 'Right to Sleep' (Art 21) balanced with the 'Right to Profession' (Art 19-1-g)?",
         "options": [
             "Profession wins.",
@@ -956,7 +956,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_9",
-        "chapterId": 94,
+        
         "question": "Analysis of 'Article 312' (All India Services) and the 'Doctrine of Delegation'. In the 'D.S. Garewal' (1959) case, the SC held that 'Delegation' is permissible if:",
         "options": [
             "The PM says so.",
@@ -970,7 +970,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_10",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Laches' (Delay) is applied more 'Flexibly' in which type of cases?",
         "options": [
             "Tax cases.",
@@ -984,7 +984,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_11",
-        "chapterId": 94,
+        
         "question": "Wait. In which case did the SC use the 'Doctrine of Necessity' to justify its 'own' interference in a purely administrative selection process?",
         "options": [
             "Election Commission of India vs Ashok Kumar (2000).",
@@ -998,7 +998,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_12",
-        "chapterId": 94,
+        
         "question": "Which doctrine forbids a legislature from trying to 'Amplify' its list powers by using a 'vague' entry in the list?",
         "options": [
             "Doctrine of Pith and Substance.",
@@ -1012,7 +1012,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_13",
-        "chapterId": 94,
+        
         "question": "In the 'Repugnancy' cases (Art 254), if a state law receives 'Presidential Assent', it prevails over the Central law. Is this 'prevailing' status absolute?",
         "options": [
             "Yes.",
@@ -1026,7 +1026,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_14",
-        "chapterId": 94,
+        
         "question": "Analyze 'Doctrine of Waiver'. Why did 'Basheshar Nath vs CIT' (1959) hold that Article 14 cannot be waived?",
         "options": [
             "Too complicated.",
@@ -1040,7 +1040,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_15",
-        "chapterId": 94,
+        
         "question": "Assertion (A): The 'Doctrine of Ejusdem Generis' cannot be used to restrict the 'plenary' (full) power of a constitutional provision.\nReason (R): Constitutional words are always interpreted liberally (broadly) rather than strictly.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -1054,7 +1054,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_16",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Sovereign Immunity' in 'Nilabati Behera' (1993). What was the SC's final take on state liability?",
         "options": [
             "State is never liable.",
@@ -1068,7 +1068,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_17",
-        "chapterId": 94,
+        
         "question": "Wait. Which doctrine is most used to check the 'Proportionality' of a restriction?",
         "options": [
             "Doctrine of Proportionality (as seen in the Aadhaar Case and Internet Shutdown case).",
@@ -1082,7 +1082,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_18",
-        "chapterId": 94,
+        
         "question": "Review 'Doctrine of Pleasure' vs 'Principles of Natural Justice'. Can a civil servant be removed without any 'opportunity to be heard'?",
         "options": [
             "Never.",
@@ -1096,7 +1096,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_19",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Ancillary Power' uses which 'Presumption' regarding the legislature?",
         "options": [
             "Presumption of Ignorance.",
@@ -1110,7 +1110,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_20",
-        "chapterId": 94,
+        
         "question": "In 'Anuradha Bhasin vs Union of India', why did the SC 'Refuse' to use the 'Doctrine of National Security' as a blanket shield for the government?",
         "options": [
             "Because they didn't believe in security.",
@@ -1124,7 +1124,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_21",
-        "chapterId": 94,
+        
         "question": "Wait. In which case was the 'Doctrine of Legal Expectation' first introduced in Indian Constitutional Law?",
         "options": [
             "State of Kerala vs K.G. Madhavan Pillai (1988).",
@@ -1138,7 +1138,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_22",
-        "chapterId": 94,
+        
         "question": "Critically analyze 'Doctrine of Pleasure'. Is the President's 'Objective satisfaction' regarding Art 311 exclusions subject to judicial review?",
         "options": [
             "No.",
@@ -1152,7 +1152,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_23",
-        "chapterId": 94,
+        
         "question": "Analysis of 'Article 245' and 'Doctrine of Territorial Nexus'. If a state passes a law with 'Extra-territorial' operation without nexus, is it valid?",
         "options": [
             "Yes.",
@@ -1166,7 +1166,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_24",
-        "chapterId": 94,
+        
         "question": "How is the 'Doctrine of Severability' related to the 'Constitutionality' of the Article 370 removal?",
         "options": [
             "It doesn't apply.",
@@ -1180,7 +1180,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_25",
-        "chapterId": 94,
+        
         "question": "The 'Doctrine of Incidental Power' ensures that the interpretation of the Seventh Schedule should be:",
         "options": [
             "Narrow.",
@@ -1194,7 +1194,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_26",
-        "chapterId": 94,
+        
         "question": "Wait. Which case held that 'Rule of Law requires the State to pay for the 'Wrongs' of its servants'?",
         "options": [
             "Kasturi Lal vs State of UP (which initially upheld immunity).",
@@ -1208,7 +1208,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_27",
-        "chapterId": 94,
+        
         "question": "Evaluate 'Doctrine of Harmony'. Between which two specific parts was harmony sought in 'Sajjan Singh vs State of Rajasthan'?",
         "options": [
             "Part III and Art 368.",
@@ -1222,7 +1222,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_28",
-        "chapterId": 94,
+        
         "question": "Does 'Doctrine of Prosperity' (Progressive construction) allow the court to 'Create' NEW fundamental rights?",
         "options": [
             "No.",
@@ -1236,7 +1236,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_29",
-        "chapterId": 94,
+        
         "question": "Who is the 'Final interpreter' of these doctrines in India?",
         "options": [
             "The Parliament.",
@@ -1250,7 +1250,7 @@ export const CHAPTER_94_MCQS: MCQ[] = [
     },
     {
         "id": "ch94_l3_30",
-        "chapterId": 94,
+        
         "question": "Final Conclusion: Which doctrine stands as the 'Grand Norm' of the Indian constitutional order?",
         "options": [
             "Pith and Substance.",

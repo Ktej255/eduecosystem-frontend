@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_58_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 58,
+
         question: "The term 'Ombudsman' originated in which country?",
         options: ["India", "USA", "Sweden", "UK"],
         correctAnswer: 2,
@@ -12,7 +12,7 @@ export const CHAPTER_58_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 58,
+
         question: "The Lokpal and Lokayuktas Act, 2013 received Presidential assent in:",
         options: ["Dec 2012", "Jan 2014", "May 2013", "Aug 2015"],
         correctAnswer: 1,
@@ -21,7 +21,7 @@ export const CHAPTER_58_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 58,
+
         question: "Who among the following is NOT part of the selection committee for Lokpal?",
         options: ["PM", "Speaker of LS", "CJI", "Union Home Minister"],
         correctAnswer: 3,
@@ -30,7 +30,7 @@ export const CHAPTER_58_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 58,
+
         question: "Lokpal cannot inquire into the Prime Minister in matters related to:",
         options: ["Atomic Energy", "Space", "International Relations", "All of the above"],
         correctAnswer: 3,
@@ -39,7 +39,7 @@ export const CHAPTER_58_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 58,
+
         question: "Minimum age required to be a member of Lokpal is:",
         options: ["35 years", "45 years", "50 years", "No minimum age"],
         correctAnswer: 1,
@@ -48,7 +48,7 @@ export const CHAPTER_58_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 58,
+
         question: "The first administrative reforms commission (1966) recommended the setup of Lokpal based on the report of:",
         options: ["Morarji Desai", "K. Hanumanthaiya", "M.C. Setalvad", "L.M. Singhvi"],
         correctAnswer: 0,
@@ -57,7 +57,7 @@ export const CHAPTER_58_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 58,
+
         question: "Lokayuktas are appointed in states by:",
         options: ["President", "Governor", "Chief Minister", "Chief Justice of HC"],
         correctAnswer: 1,
@@ -66,7 +66,7 @@ export const CHAPTER_58_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 58,
+
         question: "The salary of Lokpal Chairperson is equivalent to that of:",
         options: ["Prime Minister", "Chief Justice of India", "Speaker of Lok Sabha", "President"],
         correctAnswer: 1,
@@ -75,7 +75,7 @@ export const CHAPTER_58_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 58,
+
         question: "Who coined the term 'Lokpal' in India?",
         options: ["Anna Hazare", "L.M. Singhvi", "Jawaharlal Nehru", "Indira Gandhi"],
         correctAnswer: 1,
@@ -84,7 +84,7 @@ export const CHAPTER_58_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 58,
+
         question: "What is the limitation period for filing a complaint before Lokpal from the date of offence?",
         options: ["3 years", "5 years", "7 years", "10 years"],
         correctAnswer: 2,

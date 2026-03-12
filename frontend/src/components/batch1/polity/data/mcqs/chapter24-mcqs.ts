@@ -3,7 +3,7 @@ import { MCQ } from "../RevisionRegistry";
 export const CHAPTER_24_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 24,
+
         question: "Regarding 'Features of Cabinet Committees', which statement is strictly mentioned in the text?\n1. Extra-constitutional in emergence.\n2. Found in Rules of Business.\n3. Only Cabinet Ministers can be members.\n4. Set up by PM according to exigencies.",
         options: [
             "1, 2, and 4 only",
@@ -17,7 +17,7 @@ export const CHAPTER_24_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 24,
+
         question: "Who usually chairs the Cabinet Committee on Parliamentary Affairs?",
         options: [
             "The Prime Minister",
@@ -31,7 +31,7 @@ export const CHAPTER_24_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 24,
+
         question: "Consider statements regarding membership:\n1. Membership varies from 3 to 8.\n2. Ministers not of Cabinet rank can be members.\n3. PM is a member of all Cabinet Committees.\nWhich are correct?",
         options: [
             "1 only",
@@ -45,7 +45,7 @@ export const CHAPTER_24_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 24,
+
         question: "If the Prime Minister is not a member of a Cabinet Committee, who generally chairs it?",
         options: [
             "The Home Minister",
@@ -59,7 +59,7 @@ export const CHAPTER_24_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 24,
+
         question: "Which committee is described as the 'Super-Cabinet'?",
         options: [
             "Cabinet Committee on Economic Affairs",
@@ -73,7 +73,7 @@ export const CHAPTER_24_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 24,
+
         question: "Match Committee to Function:\n1. Appointments Committee\n2. CCA (Accommodation)\n3. CCPA (Parliamentary Affairs)\n4. CCEA (Economic Affairs)\nFunctions:\n(a) Progress of govt business in Parliament.\n(b) Higher-level appointments.\n(c) Allotment of accommodation.\n(d) Economic sphere coordination.",
         options: [
             "1-(b), 2-(c), 3-(a), 4-(d)",
@@ -87,7 +87,7 @@ export const CHAPTER_24_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 24,
+
         question: "Which committee reviews the schedule of Parliament sessions?",
         options: [
             "Political Affairs Committee",
@@ -101,7 +101,7 @@ export const CHAPTER_24_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 24,
+
         question: "Primary reason for abolition of GoMs/EGoMs in 2014?",
         options: [
             "Found unconstitutional.",
@@ -115,7 +115,7 @@ export const CHAPTER_24_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 24,
+
         question: "Difference between GoMs and EGoMs:",
         options: [
             "GoMs permanent, EGoMs ad hoc.",
@@ -129,7 +129,7 @@ export const CHAPTER_24_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 24,
+
         question: "Which two NEW Cabinet Committees were constituted in 2019?\n1. Investment and Growth\n2. Employment and Skill Development\n3. Infrastructure\n4. Digital Economy",
         options: [
             "1 and 2 only",
@@ -143,7 +143,7 @@ export const CHAPTER_24_MCQS: MCQ[] = [
     },
     {
         id: 11,
-        chapterId: 24,
+
         question: "Objective of Cabinet Committee on Investment and Growth (CCIG):",
         options: [
             "Identify key projects for time-bound implementation.",
@@ -157,7 +157,7 @@ export const CHAPTER_24_MCQS: MCQ[] = [
     },
     {
         id: 12,
-        chapterId: 24,
+
         question: "Who are members of the Cabinet Committee on Security (CCS)?",
         options: [
             "PM, Home, Defense, Finance only.",
@@ -171,7 +171,7 @@ export const CHAPTER_24_MCQS: MCQ[] = [
     },
     {
         id: 13,
-        chapterId: 24,
+
         question: "Main advantage of Cabinet Committees as 'organisational devices':\n1. In-depth examination.\n2. Division of labour.\n3. Reduce workload.\n4. Effective delegation.",
         options: [
             "1, 2, and 3 only",
@@ -185,7 +185,7 @@ export const CHAPTER_24_MCQS: MCQ[] = [
     },
     {
         id: 14,
-        chapterId: 24,
+
         question: "Decisions of Cabinet Committees are subject to:",
         options: [
             "Approval by President.",
@@ -199,7 +199,7 @@ export const CHAPTER_24_MCQS: MCQ[] = [
     },
     {
         id: 15,
-        chapterId: 24,
+
         question: "Regarding Cabinet Committee on Accommodation:\n1. Chaired by PM.\n2. Consists of Home, Finance, Law ministers (example).\n3. Determines accommodation allotment.",
         options: [
             "1 and 2 only",

@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_14_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 14,
+
         question: "In which of the following cases did the Supreme Court first mention that there are certain 'basic features' of the Constitution which cannot be amended?",
         options: ["Sajjan Singh case", "Golaknath case", "Kesavananda Bharati case", "Minerva Mills case"],
         correctAnswer: 2,
@@ -12,7 +12,7 @@ export const CHAPTER_14_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 14,
+
         question: "Which Constitutional Amendment's validity was challenged in the Kesavananda Bharati case?",
         options: ["24th Amendment", "25th Amendment", "29th Amendment", "All of the above"],
         correctAnswer: 3,
@@ -21,7 +21,7 @@ export const CHAPTER_14_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 14,
+
         question: "According to the Supreme Court in the Minerva Mills case, the Indian Constitution is founded on the bedrock of the balance between:",
         options: [
             "Union and States",
@@ -35,7 +35,7 @@ export const CHAPTER_14_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 14,
+
         question: "Which of the following is NOT an element of 'Basic Structure' of the Constitution?",
         options: ["Secularism", "Parliamentary system", "Presidential system", "Rule of Law"],
         correctAnswer: 2,
@@ -44,7 +44,7 @@ export const CHAPTER_14_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 14,
+
         question: "The power of Parliament to amend the Constitution under Article 368 is:",
         options: ["Unlimited", "Absence of any power", "Limited", "Subject to approval of the President only"],
         correctAnswer: 2,
@@ -53,7 +53,7 @@ export const CHAPTER_14_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 14,
+
         question: "In the Golaknath case, the Supreme Court ruled that:",
         options: [
             "FRs can be amended by Art 368",
@@ -67,7 +67,7 @@ export const CHAPTER_14_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 14,
+
         question: "Which of the following cases established that 'Judicial Review' is a basic feature?",
         options: ["Indira Nehru Gandhi case", "S.R. Bommai case", "L. Chandra Kumar case", "All of the above"],
         correctAnswer: 3,
@@ -76,7 +76,7 @@ export const CHAPTER_14_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 14,
+
         question: "The 'Basic Structure' doctrine has helped in:",
         options: [
             "Preserving the spirit of the Constitution",
@@ -90,7 +90,7 @@ export const CHAPTER_14_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 14,
+
         question: "Who was the first judge to use the term 'Basic Structure' in his dissenting judgment in the Sajjan Singh case (1965)?",
         options: ["Justice Hidayatullah", "Justice Mudholkar", "Justice Khanna", "Justice Chandrachud"],
         correctAnswer: 1,
@@ -99,7 +99,7 @@ export const CHAPTER_14_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 14,
+
         question: "Which of the following describes the power under Article 32 as a Basic Structure?",
         options: ["Election Commission", "Supreme Court", "High Court", "Attorney General"],
         correctAnswer: 1,

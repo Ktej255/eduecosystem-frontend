@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_78_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 78,
+
         question: "The Government of India may sue or be sued by the name of:",
         options: ["The President", "The Prime Minister", "Union of India", "Bharat"],
         correctAnswer: 2,
@@ -12,7 +12,7 @@ export const CHAPTER_78_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 78,
+
         question: "Article 299 requires that all contracts made by the Government must be in the name of:",
         options: ["Secretary of Department", "President or Governor", "Union or State", "Attorney General"],
         correctAnswer: 1,
@@ -21,7 +21,7 @@ export const CHAPTER_78_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 78,
+
         question: "Immunity from criminal proceedings is granted to which of the following during their term?",
         options: ["Prime Minister", "Chief Minister", "Governor", "All of the above"],
         correctAnswer: 2,
@@ -30,7 +30,7 @@ export const CHAPTER_78_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 78,
+
         question: "Before instituting civil proceedings against the President, what is the notice requirement?",
         options: ["1 month", "2 months", "3 months", "No notice"],
         correctAnswer: 1,
@@ -39,7 +39,7 @@ export const CHAPTER_78_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 78,
+
         question: "The 'Doctrine of Sovereign Immunity' in India was significantly discussed in which case?",
         options: ["Kasturi Lal v. State of UP", "Kesavananda Bharati", "Golaknath", "Maneka Gandhi"],
         correctAnswer: 0,
@@ -48,7 +48,7 @@ export const CHAPTER_78_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 78,
+
         question: "Which of the following describes 'Bona Vacantia'?",
         options: [
             "Property acquired by war",
@@ -62,7 +62,7 @@ export const CHAPTER_78_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 78,
+
         question: "Are Ministers personally liable for their official acts?",
         options: [
             "Yes, they can be sued",
@@ -76,7 +76,7 @@ export const CHAPTER_78_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 78,
+
         question: "Article 300 of the Constitution deals with:",
         options: ["Suits and Proceedings", "Amendment", "Emergency", "Finance Commission"],
         correctAnswer: 0,
@@ -85,7 +85,7 @@ export const CHAPTER_78_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 78,
+
         question: "Acquiring property through 'Eminent Domain' means:",
         options: [
             "State taking property for public use",
@@ -99,7 +99,7 @@ export const CHAPTER_78_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 78,
+
         question: "Liability for torts in 'Non-Sovereign' functions is:",
         options: ["Full liability for Government", "No liability", "Limited liability", "Liability only if employee is arrested"],
         correctAnswer: 0,

@@ -3,7 +3,7 @@ import { MCQ } from "../RevisionRegistry";
 export const CHAPTER_29_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 29,
+
         question: "With reference to the evolution of the 'Collegium System', consider the following:\n1. First Judges Case (1982): Consultation ≠ Concurrence.\n2. Second Judges Case (1993): Consultation = Concurrence.\n3. Third Judges Case (1998): Consultation requires opinion of plurality (CJI + 4).\nWhich are correct?",
         options: [
             "1 and 2 only",
@@ -17,7 +17,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 29,
+
         question: "Regarding 'Qualifications' for SC Judge, which is STRICTLY mentioned in the text?\n1. Judge of High Court for 5 years.\n2. Advocate of High Court for 10 years.\n3. Distinguished jurist (President's opinion).\n4. Minimum age of 35 years.",
         options: [
             "1, 2, and 3 only",
@@ -31,7 +31,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 29,
+
         question: "Regarding 'Removal of Judges':\n1. Grounds: 'proved misbehaviour' or 'incapacity'.\n2. Motion signed by 100 (LS) or 50 (RS) members.\n3. Special Majority required.\n4. No judge has been impeached so far.",
         options: [
             "1, 2, and 3 only",
@@ -45,7 +45,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 29,
+
         question: "Who can appoint an 'Ad Hoc Judge' of the Supreme Court?",
         options: [
             "The President of India.",
@@ -59,7 +59,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 29,
+
         question: "Who appoints the 'Acting Chief Justice of India'?",
         options: [
             "Senior-most judge of SC.",
@@ -73,7 +73,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 29,
+
         question: "Which is NOT a safeguard for Independence of Supreme Court?",
         options: [
             "Salaries charged on Consolidated Fund.",
@@ -87,7 +87,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 29,
+
         question: "Regarding 'Ban on Practice after Retirement' (Article 124):",
         options: [
             "Retired judges can practice in HCs where they were not judges.",
@@ -101,7 +101,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 29,
+
         question: "Regarding 'Freedom to Appoint Staff':",
         options: [
             "CJI appoints staff without executive interference.",
@@ -115,7 +115,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 29,
+
         question: "'Original Jurisdiction' is 'Exclusive'. What does 'Exclusive' mean?",
         options: [
             "SC can hear in first instance.",
@@ -129,7 +129,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 29,
+
         question: "Original Jurisdiction does NOT extend to:\n1. Inter-state river water disputes.\n2. Finance Commission matters.\n3. Adjustment of expenses/pensions.\n4. Commercial nature disputes.",
         options: [
             "1, 2, and 3 only",
@@ -143,7 +143,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 11,
-        chapterId: 29,
+
         question: "Compare Writ Jurisdiction (SC vs HC):\n1. SC original but not exclusive.\n2. SC only for Fundamental Rights.\n3. HC for Fundamental Rights and 'any other purpose'.\n4. HC jurisdiction is wider.",
         options: [
             "1, 2, and 3 only",
@@ -157,7 +157,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 12,
-        chapterId: 29,
+
         question: "Appeal to SC lies as a 'matter of right' (Criminal) if High Court:",
         options: [
             "Reversed acquittal and sentenced to death.",
@@ -171,7 +171,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 13,
-        chapterId: 29,
+
         question: "Regarding 'Special Leave Petition' (Article 136):",
         options: [
             "It is discretionary.",
@@ -184,7 +184,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 14,
-        chapterId: 29,
+
         question: "Under Article 143 (Advisory Jurisdiction):",
         options: [
             "SC is bound to give opinion on any matter.",
@@ -198,7 +198,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 15,
-        chapterId: 29,
+
         question: "Two powers of 'Court of Record':\n1. Records have evidentiary value.\n2. ?",
         options: [
             "Power to review judgements.",
@@ -212,7 +212,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 16,
-        chapterId: 29,
+
         question: "Distinguish Civil vs Criminal Contempt:\n1. Civil = Wilful disobedience.\n2. Criminal = Scandalising the court.\n3. Criminal = Interfering with judicial proceeding.",
         options: [
             "1 and 2 only",
@@ -226,7 +226,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 17,
-        chapterId: 29,
+
         question: "Grounds for Judicial Review (Unconstitutionality):",
         options: [
             "Infringes Fundamental Rights.",
@@ -240,7 +240,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 18,
-        chapterId: 29,
+
         question: "Regarding 'Seat of Supreme Court':",
         options: [
             "Constitution declares Delhi as seat. CJI can appoint other places.",
@@ -254,7 +254,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 19,
-        chapterId: 29,
+
         question: "Minimum judges for Constitutional Bench?",
         options: [
             "Three",
@@ -268,7 +268,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 20,
-        chapterId: 29,
+
         question: "Which Advocates are entitled to FILE any matter/document before Supreme Court?",
         options: [
             "Senior Advocates",
@@ -282,7 +282,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 21,
-        chapterId: 29,
+
         question: "Article 141 provides that:",
         options: [
             "Law declared by SC is binding on all courts in India.",
@@ -296,7 +296,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 22,
-        chapterId: 29,
+
         question: "Why is Article 137 (Review Power) necessary?",
         options: [
             "SC is not bound by previous decisions; can depart in interest of justice.",
@@ -310,7 +310,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 23,
-        chapterId: 29,
+
         question: "Which Article says 'All authorities... shall act in aid of Supreme Court'?",
         options: [
             "Article 141",
@@ -324,7 +324,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 24,
-        chapterId: 29,
+
         question: "Significance of Article 142:",
         options: [
             "Power to do 'complete justice' (enforcement of decrees).",
@@ -338,7 +338,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 25,
-        chapterId: 29,
+
         question: "Who administers the oath to a judge of the Supreme Court?",
         options: [
             "Chief Justice of India",
@@ -352,7 +352,7 @@ export const CHAPTER_29_MCQS: MCQ[] = [
     },
     {
         id: 26,
-        chapterId: 29,
+
         question: "Which doctrine is NOT used by SC for Constitutional Interpretation?",
         options: [
             "Doctrine of Pith and Substance",

@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_25_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 25,
+
         question: "Which of the following describes the Rajya Sabha correctly?",
         options: [
             "It is a permanent body and not subject to dissolution",
@@ -17,7 +17,7 @@ export const CHAPTER_25_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 25,
+
         question: "The 'Joint Sitting' of the Parliament can be called for which of the following?",
         options: [
             "Ordinary Bill",
@@ -31,7 +31,7 @@ export const CHAPTER_25_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 25,
+
         question: "A Money Bill passed by Lok Sabha and sent to Rajya Sabha must be returned within:",
         options: ["10 days", "14 days", "30 days", "6 months"],
         correctAnswer: 1,
@@ -40,7 +40,7 @@ export const CHAPTER_25_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 25,
+
         question: "Who among the following can participate in the proceedings of Parliament without being a member?",
         options: [
             "Solicitor General of India",
@@ -54,7 +54,7 @@ export const CHAPTER_25_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 25,
+
         question: "The quorum for either House of Parliament is fixed at:",
         options: [
             "1/10th of the total members",
@@ -68,7 +68,7 @@ export const CHAPTER_25_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 25,
+
         question: "The Speaker of Lok Sabha can be removed by a resolution passed by:",
         options: [
             "Effective Majority of the House",
@@ -82,7 +82,7 @@ export const CHAPTER_25_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 25,
+
         question: "Which of the following bills DOES NOT lapse on the dissolution of Lok Sabha?",
         options: [
             "A bill pending in Lok Sabha",
@@ -96,7 +96,7 @@ export const CHAPTER_25_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 25,
+
         question: "In the absence of the Speaker and Deputy Speaker of Lok Sabha, who presides over a Joint Sitting?",
         options: [
             "Chairman of Rajya Sabha",
@@ -110,7 +110,7 @@ export const CHAPTER_25_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 25,
+
         question: "The power to 'adjourn sine die' belongs to:",
         options: ["The President", "The Presiding Officer of the House", "The PM", "The Parliamentary Affairs Minister"],
         correctAnswer: 1,
@@ -119,7 +119,7 @@ export const CHAPTER_25_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 25,
+
         question: "Which Articles deal with the 'Sessions of Parliament'?",
         options: ["Article 80", "Article 85", "Article 100", "Article 110"],
         correctAnswer: 1,

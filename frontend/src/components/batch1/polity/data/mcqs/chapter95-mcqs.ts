@@ -4,7 +4,6 @@ import { MCQ } from '../mcq-utils';
 export const CHAPTER_95_MCQS: MCQ[] = [
     {
         "id": "ch95_l1_1",
-        "chapterId": 95,
         "question": "Which country is known for having an 'Unwritten' Constitution based on conventions and statutes?",
         "options": [
             "USA.",
@@ -18,7 +17,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_2",
-        "chapterId": 95,
         "question": "The concept of 'Federalism' in India is most similar to which of the following constitutions?",
         "options": [
             "UK.",
@@ -32,7 +30,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_3",
-        "chapterId": 95,
         "question": "Which country's constitution is the 'Oldest Written Constitution' in the world?",
         "options": [
             "UK.",
@@ -46,7 +43,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_4",
-        "chapterId": 95,
         "question": "The 'Separation of Powers' in its strictest form is a feature of which constitution?",
         "options": [
             "UK.",
@@ -60,7 +56,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_5",
-        "chapterId": 95,
         "question": "In the UK, which body is considered 'Supreme' or 'Sovereign'?",
         "options": [
             "The Monarch.",
@@ -74,7 +69,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_6",
-        "chapterId": 95,
         "question": "Which country has a 'Semi-Presidential' system where both the President and PM have significant powers?",
         "options": [
             "USA.",
@@ -88,7 +82,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_7",
-        "chapterId": 95,
         "question": "The 'Basic Law' (Grundgesetz) is the name of the constitution of which country?",
         "options": [
             "Germany.",
@@ -102,7 +95,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_8",
-        "chapterId": 95,
         "question": "Which country's constitution explicitly 'Renounces War' as a sovereign right (Article 9)?",
         "options": [
             "Germany.",
@@ -116,7 +108,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_9",
-        "chapterId": 95,
         "question": "The 'Magna Carta' (1215) is a foundational document for the constitution of:",
         "options": [
             "USA.",
@@ -130,7 +121,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_10",
-        "chapterId": 95,
         "question": "Which country has a 'Dual Citizenship' system (States and Federal) unlike India's 'Single' citizenship?",
         "options": [
             "UK.",
@@ -144,7 +134,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_11",
-        "chapterId": 95,
         "question": "Wait. Which country's upper house is called the 'House of Lords' and is mostly non-elected?",
         "options": [
             "Canada.",
@@ -158,7 +147,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_12",
-        "chapterId": 95,
         "question": "The 'Bill of Rights' which inspired Indian Fundamental Rights belongs to which constitution?",
         "options": [
             "UK.",
@@ -172,7 +160,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_13",
-        "chapterId": 95,
         "question": "In France, the 'Conseil Constitutionnel' (Constitutional Council) is primarily responsible for:",
         "options": [
             "Declaring war.",
@@ -186,7 +173,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_14",
-        "chapterId": 95,
         "question": "The 'National Diet' is the name of the parliament of which country?",
         "options": [
             "Germany.",
@@ -200,7 +186,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_15",
-        "chapterId": 95,
         "question": "Which country's constitution is characterized by 'Secularism' (Laïcité) in a very strict sense?",
         "options": [
             "USA.",
@@ -214,7 +199,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_16",
-        "chapterId": 95,
         "question": "The 'Bundestag' and 'Bundesrat' are the two houses of which country's parliament?",
         "options": [
             "Japan.",
@@ -228,7 +212,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_17",
-        "chapterId": 95,
         "question": "Wait. Which country is a 'Constitutional Monarchy' with the British King/Queen as the formal head of state?",
         "options": [
             "USA.",
@@ -242,7 +225,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_18",
-        "chapterId": 95,
         "question": "The 'Veto Power' of the President is most significant in which of the following?",
         "options": [
             "UK.",
@@ -256,7 +238,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_19",
-        "chapterId": 95,
         "question": "In which country can the 'Upper House' (Senate) block a money bill indefinitely?",
         "options": [
             "USA.",
@@ -270,7 +251,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_20",
-        "chapterId": 95,
         "question": "The 'Meiji Constitution' (1889) was the previous constitution of which country?",
         "options": [
             "China.",
@@ -284,7 +264,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_21",
-        "chapterId": 95,
         "question": "Which country follows a 'Fixed-term' for the executive (President) regardless of parliamentary support?",
         "options": [
             "UK.",
@@ -298,7 +277,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_22",
-        "chapterId": 95,
         "question": "Wait. Which country's constitution allows 'Direct Democracy' tools like referendums (referral to people)?",
         "options": [
             "UK.",
@@ -312,7 +290,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_23",
-        "chapterId": 95,
         "question": "The 'Chancellor' is the head of government in which of these countries?",
         "options": [
             "Germany.",
@@ -326,7 +303,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_24",
-        "chapterId": 95,
         "question": "Which country has a 'Unicameral' parliament (only one house)?",
         "options": [
             "USA.",
@@ -340,7 +316,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_25",
-        "chapterId": 95,
         "question": "The 'Constitution Act, 1982' gave full independence to which country to amend its own constitution?",
         "options": [
             "Australia.",
@@ -354,7 +329,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_26",
-        "chapterId": 95,
         "question": "The 'Rule of Law' (A.V. Dicey's concept) is a cornerstone of which constitution?",
         "options": [
             "USA.",
@@ -368,7 +342,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_27",
-        "chapterId": 95,
         "question": "Wait. Which country's President is the 'Supreme Commander' of the Armed Forces?",
         "options": [
             "USA.",
@@ -382,7 +355,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_28",
-        "chapterId": 95,
         "question": "Which country uses a 'Social Market Economy' principle in its Basic Law?",
         "options": [
             "USA.",
@@ -396,7 +368,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_29",
-        "chapterId": 95,
         "question": "The 'Emperor' of Japan is defined by the constitution as the:",
         "options": [
             "God of Japan.",
@@ -410,7 +381,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l1_30",
-        "chapterId": 95,
         "question": "Which country follows the 'Cabinet system' where the executive is responsible to the legislature?",
         "options": [
             "UK.",
@@ -424,7 +394,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_1",
-        "chapterId": 95,
         "question": "The UK constitution is often described as 'Constitutionalism without a Constitution'. What does this imply?",
         "options": [
             "There are no laws in the UK.",
@@ -438,7 +407,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_2",
-        "chapterId": 95,
         "question": "Assertion (A): The US Senate is more powerful than the Indian Rajya Sabha.\nReason (R): The US Senate has equal powers with the House of Representatives in passing money bills and also has exclusive powers like confirming treaties and high appointments.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -452,7 +420,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_3",
-        "chapterId": 95,
         "question": "In France, the 'Cohabitation' period refers to which political situation?",
         "options": [
             "President and PM living in the same house.",
@@ -466,7 +433,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_4",
-        "chapterId": 95,
         "question": "The 'Germany' system of 'Constructive Vote of No-Confidence' (Art 67) means that the Bundestag can dismiss the Chancellor ONLY if:",
         "options": [
             "The President agrees.",
@@ -480,7 +446,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_5",
-        "chapterId": 95,
         "question": "Wait. Which country uses a 'Preferential' or 'Proportional' voting system for its lower house unlike India's 'First Past the Post'?",
         "options": [
             "USA.",
@@ -494,7 +459,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_6",
-        "chapterId": 95,
         "question": "In Japan, the 'Cabinet' is responsible to which house of the Diet?",
         "options": [
             "House of Councillors.",
@@ -508,7 +472,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_7",
-        "chapterId": 95,
         "question": "The 'Canadian' model of federalism is called 'Asymmetrical Federalism' because:",
         "options": [
             "Some provinces (like Quebec) have special status/rights to protect their identity.",
@@ -522,7 +485,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_8",
-        "chapterId": 95,
         "question": "Which country's constitution allows the 'Federal Government' to take over state matters during emergency (similar to Art 356)?",
         "options": [
             "USA.",
@@ -536,7 +498,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_9",
-        "chapterId": 95,
         "question": "In the UK, the 'Shadow Cabinet' is a unique feature of the:",
         "options": [
             "Ruling party.",
@@ -550,7 +511,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_10",
-        "chapterId": 95,
         "question": "The 'Veto' of the US President can be 'Overridden' by the Congress by a:",
         "options": [
             "Simple majority.",
@@ -564,7 +524,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_11",
-        "chapterId": 95,
         "question": "Wait. Which country does 'Not' have an explicit 'Fundamental Rights' chapter in its original 1867 constitution?",
         "options": [
             "USA.",
@@ -578,7 +537,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_12",
-        "chapterId": 95,
         "question": "The 'Germany' constitution (Basic Law) has an 'Eternity Clause' (Art 79). What does this protect from ANY amendment?",
         "options": [
             "Currency.",
@@ -592,7 +550,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_13",
-        "chapterId": 95,
         "question": "In France, the President is elected through which method?",
         "options": [
             "Indirect election (like India).",
@@ -606,7 +563,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_14",
-        "chapterId": 95,
         "question": "The 'Japan' Diet has a 'House of Councillors'. What is its term?",
         "options": [
             "4 years.",
@@ -620,7 +576,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_15",
-        "chapterId": 95,
         "question": "Assertion (A): The 'Attorney General' in the USA is a member of the President's Cabinet.\nReason (R): In the US Presidential system, the AG is the head of the Department of Justice and a political appointee.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -634,7 +589,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_16",
-        "chapterId": 95,
         "question": "Wait. Which country's constitution is known as the 'Rigid' constitution because it requires a heavy majority plus state ratification for any change?",
         "options": [
             "UK.",
@@ -648,7 +602,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_17",
-        "chapterId": 95,
         "question": "In Canada, the 'Residuary Powers' (unlisted subjects) belong to:",
         "options": [
             "Provinces (States).",
@@ -662,7 +615,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_18",
-        "chapterId": 95,
         "question": "The 'Supreme Court of the UK' was established in which year, replacing the Law Lords' judicial role?",
         "options": [
             "1947.",
@@ -676,7 +628,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_19",
-        "chapterId": 95,
         "question": "Which country has a 'Council of States' where states have 'Equal' representation regardless of population?",
         "options": [
             "India.",
@@ -690,7 +641,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_20",
-        "chapterId": 95,
         "question": "The 'France' system of 'Administrative Courts' (Droit Administratif) means that:",
         "options": [
             "There are no courts.",
@@ -704,7 +654,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_21",
-        "chapterId": 95,
         "question": "Wait. In which country can the 'Speaker' of the Lower House remain strictly 'Neutral' and resign from their political party?",
         "options": [
             "USA.",
@@ -718,7 +667,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_22",
-        "chapterId": 95,
         "question": "The 'Germany' system of 'Federalism' is often called 'Executive Federalism' because:",
         "options": [
             "States only execute (administer) the laws made by the Centre.",
@@ -732,7 +680,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_23",
-        "chapterId": 95,
         "question": "Who is the 'Head of State' in the Republic of Germany?",
         "options": [
             "The Chancellor.",
@@ -746,7 +693,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_24",
-        "chapterId": 95,
         "question": "Which country follows the 'Due Process of Law' (Substantive) as a core constitutional principle?",
         "options": [
             "UK.",
@@ -760,7 +706,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_25",
-        "chapterId": 95,
         "question": "The 'Liberal-Democratic Party' (LDP) has dominated the politics of which country for decades?",
         "options": [
             "Germany.",
@@ -774,7 +719,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_26",
-        "chapterId": 95,
         "question": "Assertion (A): Unlike India, the US President can be 'Removed' only through Impeachment for high crimes.\nReason (R): There is no 'No-Confidence Motion' in the US Congress against the President.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -788,7 +732,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_27",
-        "chapterId": 95,
         "question": "Wait. Which country has a 'Charter of Rights and Freedoms' (1982) that allows the legislature to override certain rights Temporarily?",
         "options": [
             "USA.",
@@ -802,7 +745,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_28",
-        "chapterId": 95,
         "question": "The 'Germany' system features a 'Federal Constitutional Court' (Karlsruhe). What is unique about it?",
         "options": [
             "It is part of the Army.",
@@ -816,7 +758,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_29",
-        "chapterId": 95,
         "question": "Which country's constitution was 'Imposed' or 'Written' under the supervision of US occupation forces (General MacArthur)?",
         "options": [
             "Germany.",
@@ -830,7 +771,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l2_30",
-        "chapterId": 95,
         "question": "The 'Joint Sitting' for money bills is a feature of which constitution?",
         "options": [
             "USA.",
@@ -844,7 +784,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_1",
-        "chapterId": 95,
         "question": "Analyze the 'Constitutional Conventions' in the UK. Why are they binding even though they are 'unwritten' and not 'enforced' by courts?",
         "options": [
             "Because the King says so.",
@@ -858,7 +797,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_2",
-        "chapterId": 95,
         "question": "Critically compare 'Judicial Review' in the USA and UK. What is the fundamental difference created by 'Parliamentary Sovereignty'?",
         "options": [
             "No difference.",
@@ -872,7 +810,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_3",
-        "chapterId": 95,
         "question": "The 'Germany' system of 'Bundestag' elections uses 'Override Seats' (Überhangmandate). What is their purpose?",
         "options": [
             "To help the Chancellor.",
@@ -886,7 +823,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_4",
-        "chapterId": 95,
         "question": "In France, Article 16 of the Constitution gives the President 'Emergency Powers'. How does it differ from India's Art 352?",
         "options": [
             "It is same.",
@@ -900,7 +836,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_5",
-        "chapterId": 95,
         "question": "Analysis of 'Article 9' (Japan). How has 'Interpretation' allowed Japan to maintain a 'Self-Defense Force' (SDF) despite the 'Renunciation of War' clause?",
         "options": [
             "They ignored the constitution.",
@@ -914,7 +849,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_6",
-        "chapterId": 95,
         "question": "Critically evaluate the 'Notwithstanding Clause' (Sec 33) of the Canadian Charter. Does it apply to 'all' rights?",
         "options": [
             "Yes.",
@@ -928,7 +862,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_7",
-        "chapterId": 95,
         "question": "Assertion (A): Unlike India, the US Constitution does not have a separate 'DPSP' chapter.\nReason (R): The US philosophy is one of 'Negative Liberty' (freedom from state) while India's includes 'Positive Liberty' (state's duty to provide).",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -942,7 +875,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_8",
-        "chapterId": 95,
         "question": "In the UK, the 'Constitutional Reform Act 2005' significantly modified which ancient office?",
         "options": [
             "Prime Minister.",
@@ -956,7 +888,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_9",
-        "chapterId": 95,
         "question": "How does 'Federalism' in Germany differ from the USA regarding the 'Administration' of federal laws?",
         "options": [
             "It is same.",
@@ -970,7 +901,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_10",
-        "chapterId": 95,
         "question": "Analysis of 'Japan's Judiciary'. Why is the 'Supreme Court' of Japan often described as 'highly conservative' in Constitutional cases?",
         "options": [
             "Because the judges are old.",
@@ -984,7 +914,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_11",
-        "chapterId": 95,
         "question": "Wait. Which country is a 'Republic' where the Head of State is the 'Arbiter' who ensures the 'regular functioning' of public authorities (Art 5)?",
         "options": [
             "India.",
@@ -998,7 +927,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_12",
-        "chapterId": 95,
         "question": "Evaluate the '5% Threshold' (Sperrklausel) in German elections. What is its 'Constitutional Purpose'?",
         "options": [
             "To prevent small parties from winning.",
@@ -1012,7 +940,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_13",
-        "chapterId": 95,
         "question": "In the US, the 'Tenth Amendment' specifies that 'Powers not delegated to the United States... are reserved to':",
         "options": [
             "The President.",
@@ -1026,7 +953,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_14",
-        "chapterId": 95,
         "question": "Analysis of 'Canada's Senate'. Why is it NOT as powerful as the US Senate despite having some 'Blocking' powers?",
         "options": [
             "Because it is too small.",
@@ -1040,7 +966,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_15",
-        "chapterId": 95,
         "question": "Assertion (A): The UK does not have a 'Code' of Fundamental Rights similar to India's Part III.\nReason (R): The 'Human Rights Act 1998' incorporated the European Convention on Human Rights (ECHR) into UK domestic law, providing a modern statutory framework for rights.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -1054,7 +979,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_16",
-        "chapterId": 95,
         "question": "In France, 'L'état c'est moi' (I am the state) was the old monarchical rule. Which modern concept replaced this in the 1789 Declaration?",
         "options": [
             "Constitutional Morality.",
@@ -1068,7 +992,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_17",
-        "chapterId": 95,
         "question": "Wait. Which country uses 'Gerrymandering' as a term for political manipulation of electoral boundaries?",
         "options": [
             "UK.",
@@ -1082,7 +1005,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_18",
-        "chapterId": 95,
         "question": "Evaluate 'German Federalism'. What is the 'Bundesrat's' power regarding bills that affect state interests (Zustimmungsgesetze)?",
         "options": [
             "Only can delay.",
@@ -1096,7 +1018,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_19",
-        "chapterId": 95,
         "question": "In Japan, the 'Designation' of the Prime Minister is done by the Diet. If the two houses disagree on the person, which house's decision prevails?",
         "options": [
             "House of Councillors.",
@@ -1110,7 +1031,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_20",
-        "chapterId": 95,
         "question": "Critically analyze 'Due Process' (USA) vs 'Procedure Established by Law' (Japan/Original India). Which provides more protection against 'unjust' laws?",
         "options": [
             "Procedure Established by Law.",
@@ -1124,7 +1044,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_21",
-        "chapterId": 95,
         "question": "Wait. Which country is known for the 'Doctrine of Pre-promulgation Review' by a non-judicial council?",
         "options": [
             "UK.",
@@ -1138,7 +1057,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_22",
-        "chapterId": 95,
         "question": "Analysis of 'Militant Democracy' (Streitbare Demokratie). This is a core concept of which constitution?",
         "options": [
             "USA.",
@@ -1152,7 +1070,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_23",
-        "chapterId": 95,
         "question": "In Canada, how are 'Judges of the Superior Courts' appointed?",
         "options": [
             "Elected by people.",
@@ -1166,7 +1083,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_24",
-        "chapterId": 95,
         "question": "The 'USA' President cannot 'Dissolve' the Congress. What is the impact of this on 'Political Party Discipline'?",
         "options": [
             "Makes it stronger.",
@@ -1180,7 +1096,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_25",
-        "chapterId": 95,
         "question": "Who is the 'Father' of the US Constitution (primary author)?",
         "options": [
             "George Washington.",
@@ -1194,7 +1109,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_26",
-        "chapterId": 95,
         "question": "Wait. Which country follows 'Double Judicial Review' (State supreme courts review state laws; Federal SC reviews federal/nexus laws)?",
         "options": [
             "India.",
@@ -1208,7 +1122,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_27",
-        "chapterId": 95,
         "question": "Evaluate 'UK Parliamentary Sovereignty' vs 'EU Membership'. How did the 'European Communities Act 1972' affect sovereignty?",
         "options": [
             "No affect.",
@@ -1222,7 +1135,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_28",
-        "chapterId": 95,
         "question": "In France, who appoints the Prime Minister?",
         "options": [
             "The people.",
@@ -1236,7 +1148,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_29",
-        "chapterId": 95,
         "question": "Does the 'Japan' constitution have a provision for 'Constitutional Courts' separate from ordinary courts?",
         "options": [
             "Yes.",
@@ -1250,7 +1161,6 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         "id": "ch95_l3_30",
-        "chapterId": 95,
         "question": "Final Analysis: Which constitution serves as the 'Closest' reference for the 'Welfare State' provisions in the Indian Constitution?",
         "options": [
             "USA.",

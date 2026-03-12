@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Brain, ArrowRight, Eye, Pulse } from "lucide-react";
+import { Sparkles, Brain, ArrowRight, Eye, Activity } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useBatch2UI } from "@/components/batch2/context/Batch2UIContext";
 import { TranceToggle } from "@/components/batch2/context/TranceToggle";

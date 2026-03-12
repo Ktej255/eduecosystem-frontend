@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_33_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 33,
+
         question: "The power to exercise 'control' over subordinate courts (postings, leave, etc.) lies with:",
         options: ["The Governor", "The State Government", "The High Court", "The State Public Service Commission"],
         correctAnswer: 2,
@@ -12,7 +12,7 @@ export const CHAPTER_33_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 33,
+
         question: "Who is the 'Sessions Judge' in a district?",
         options: [
             "The District Judge when hearing civil cases",
@@ -26,7 +26,7 @@ export const CHAPTER_33_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 33,
+
         question: "Lok Adalats are primarily aimed at:",
         options: [
             "Increasing court fees for government",
@@ -40,7 +40,7 @@ export const CHAPTER_33_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 33,
+
         question: "Gram Nyayalayas are presided over by a:",
         options: ["Sarpanch", "Nyayadhikari", "District Judge", "Munsiff"],
         correctAnswer: 1,
@@ -49,7 +49,7 @@ export const CHAPTER_33_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 33,
+
         question: "Articles 233 to 237 of the Constitution deal with:",
         options: ["The High Courts", "The Subordinate Courts", "The Panchayats", "The Municipalities"],
         correctAnswer: 1,

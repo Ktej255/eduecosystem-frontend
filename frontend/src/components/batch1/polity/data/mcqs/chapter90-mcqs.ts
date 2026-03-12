@@ -4,7 +4,7 @@ import { MCQ } from '../mcq-utils';
 export const CHAPTER_90_MCQS: MCQ[] = [
     {
         "id": "ch90_l1_1",
-        "chapterId": 90,
+
         "question": "The 'National Commission to Review the Working of the Constitution' (NCRWC) was set up in which year?",
         "options": [
             "1990",
@@ -18,7 +18,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_2",
-        "chapterId": 90,
+
         "question": "Who was the 'Chairman' of the NCRWC?",
         "options": [
             "Justice J.S. Verma",
@@ -32,7 +32,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_3",
-        "chapterId": 90,
+
         "question": "The NCRWC was mandated to review the working of the Constitution. Did it have the power to 'Rewrite' the Constitution?",
         "options": [
             "Yes",
@@ -46,7 +46,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_4",
-        "chapterId": 90,
+
         "question": "How many 'Members' (including the chairman) were part of the NCRWC?",
         "options": [
             "5",
@@ -60,7 +60,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_5",
-        "chapterId": 90,
+
         "question": "The NCRWC submitted its report in which year?",
         "options": [
             "2000",
@@ -74,7 +74,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_6",
-        "chapterId": 90,
+
         "question": "The Commission identified 'Ten crucial areas' for its inquiry. Which of the following was NOT one of them?",
         "options": [
             "Strengthening of institutions of parliamentary democracy.",
@@ -88,7 +88,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_7",
-        "chapterId": 90,
+
         "question": "Regarding 'Fundamental Rights', the NCRWC recommended the inclusion of which right?",
         "options": [
             "Right to bear arms.",
@@ -102,7 +102,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_8",
-        "chapterId": 90,
+
         "question": "One of the recommendations of NCRWC was to fix the 'Term' of the Lok Sabha and State Assemblies to:",
         "options": [
             "4 years",
@@ -116,7 +116,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_9",
-        "chapterId": 90,
+
         "question": "Did the NCRWC recommend that the PM should be 'Elected' directly by the people?",
         "options": [
             "Yes",
@@ -130,7 +130,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_10",
-        "chapterId": 90,
+
         "question": "Regarding 'Article 356' (President's Rule), what did the NCRWC recommend?",
         "options": [
             "Its frequent use.",
@@ -144,7 +144,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_11",
-        "chapterId": 90,
+
         "question": "The NCRWC suggested that a 'Chief Minister' should be elected by:",
         "options": [
             "The Governor.",
@@ -158,7 +158,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_12",
-        "chapterId": 90,
+
         "question": "Who was the 'Secretary-General' of the Commission?",
         "options": [
             "Subhash Kashyap",
@@ -172,7 +172,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_13",
-        "chapterId": 90,
+
         "question": "The NCRWC's report consists of how many volumes?",
         "options": [
             "One",
@@ -186,7 +186,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_14",
-        "chapterId": 90,
+
         "question": "One of the members of the NCRWC, P.A. Sangma, later resigned. He was a former:",
         "options": [
             "Chief Justice",
@@ -200,7 +200,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_15",
-        "chapterId": 90,
+
         "question": "The NCRWC recommended that the 'President' should be elected by:",
         "options": [
             "Direct vote.",
@@ -214,7 +214,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_16",
-        "chapterId": 90,
+
         "question": "Regarding 'Judicial Appointments', the NCRWC recommended the creation of:",
         "options": [
             "A National Judicial Commission.",
@@ -228,7 +228,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_17",
-        "chapterId": 90,
+
         "question": "Was the 'National Integration Council' (NIC) part of the NCRWC's study?",
         "options": [
             "Yes, as part of institutions of stability.",
@@ -242,7 +242,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_18",
-        "chapterId": 90,
+
         "question": "The NCRWC suggested that the 'Governor' should be appointed after consultation with:",
         "options": [
             "The President.",
@@ -256,7 +256,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_19",
-        "chapterId": 90,
+
         "question": "Did the NCRWC recommend any changes to the 'Preamble'?",
         "options": [
             "Yes, adding more words.",
@@ -270,7 +270,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_20",
-        "chapterId": 90,
+
         "question": "The Commission recommended that 'Defectors' should be:",
         "options": [
             "Given a medal.",
@@ -284,7 +284,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_21",
-        "chapterId": 90,
+
         "question": "Wait. Was 'Art 370' suggested for deletion by NCRWC?",
         "options": [
             "Yes.",
@@ -298,7 +298,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_22",
-        "chapterId": 90,
+
         "question": "The NCRWC recommended that the 'Speaker' of Lok Sabha should be:",
         "options": [
             "Appointed for life.",
@@ -312,7 +312,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_23",
-        "chapterId": 90,
+
         "question": "Which of the following describes the 'Socio-economic' focus of the commission?",
         "options": [
             "Eliminating the rich.",
@@ -326,7 +326,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_24",
-        "chapterId": 90,
+
         "question": "The NCRWC's research papers were published in how many volumes?",
         "options": [
             "One volume (Vol 2).",
@@ -340,7 +340,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_25",
-        "chapterId": 90,
+
         "question": "Did the NCRWC recommend 'Compulsory Voting' in India?",
         "options": [
             "Yes.",
@@ -354,7 +354,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_26",
-        "chapterId": 90,
+
         "question": "The term of ' Rajya Sabha' as per recommendations should be:",
         "options": [
             "6 years (Status quo).",
@@ -368,7 +368,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_27",
-        "chapterId": 90,
+
         "question": "Wait. Can the recommendations of NCRWC be 'Enforced' by the Supreme Court?",
         "options": [
             "Yes.",
@@ -382,7 +382,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_28",
-        "chapterId": 90,
+
         "question": "The NCRWC suggested that 'Inter-State Council' should be:",
         "options": [
             "Abolished.",
@@ -396,7 +396,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_29",
-        "chapterId": 90,
+
         "question": "Which of the following was a member of the commission who was an 'Industrialist'?",
         "options": [
             "Justice Venkatachaliah",
@@ -410,7 +410,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l1_30",
-        "chapterId": 90,
+
         "question": "The NCRWC and Sarkaria Commission both emphasized:",
         "options": [
             "The role of Governor.",
@@ -424,7 +424,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_1",
-        "chapterId": 90,
+
         "question": "The NCRWC's appointment in 2000 was controversial. What was the main 'Political' fear among the opposition parties at that time?",
         "options": [
             "That the commission would increase taxes.",
@@ -438,7 +438,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_2",
-        "chapterId": 90,
+
         "question": "Regarding 'Article 356' (President's Rule), the NCRWC recommended that the words 'OR OTHERWISE' should be deleted. What would be the effect of this?",
         "options": [
             "The President could never impose his rule.",
@@ -452,7 +452,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_3",
-        "chapterId": 90,
+
         "question": "Assertion (A): The NCRWC recommended the insertion of Art 21A (Right to Education) into the Constitution.\nReason (R): It wanted to make the state responsible for providing free and compulsory education to all children aged 6 to 14 years.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -466,7 +466,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_4",
-        "chapterId": 90,
+
         "question": "The Commission recommended that 'Right to Informatics' (Right to Information) should be made a:",
         "options": [
             "Legal right.",
@@ -480,7 +480,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_5",
-        "chapterId": 90,
+
         "question": "Wait. Can the NCRWC's members be 'Politicians'?",
         "options": [
             "No.",
@@ -494,7 +494,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_6",
-        "chapterId": 90,
+
         "question": "One of the recommendations on 'Elections' was the disqualification of a candidate who fails to poll a minimum percentage of votes. What was the suggested percentage?",
         "options": [
             "10%",
@@ -508,7 +508,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_7",
-        "chapterId": 90,
+
         "question": "How does the NCRWC view the 'Basic Structure' of the Constitution?",
         "options": [
             "It wanted it abolished.",
@@ -522,7 +522,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_8",
-        "chapterId": 90,
+
         "question": "The Commission recommended that the 'President's Rule' should NOT lead to the 'Dissolution' of a State Assembly until:",
         "options": [
             "The PM agrees.",
@@ -536,7 +536,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_9",
-        "chapterId": 90,
+
         "question": "The NCRWC suggested that 'Inter-State Council' should be established as a 'Permanent' body. Is it not already permanent?",
         "options": [
             "Yes.",
@@ -550,7 +550,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_10",
-        "chapterId": 90,
+
         "question": "Regarding 'Fundamental Duties' (Art 51A), the NCRWC recommended adding a duty to:",
         "options": [
             "Join the army.",
@@ -564,7 +564,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_11",
-        "chapterId": 90,
+
         "question": "Analyze the suggestion on 'Stability of Governments'. How did the NCRWC propose to handle the 'No-Confidence Motion'?",
         "options": [
             "Banning it.",
@@ -578,7 +578,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_12",
-        "chapterId": 90,
+
         "question": "The Commission recommended that the 'Total number of Ministers' in a Council of Ministers should be limited. To what percentage?",
         "options": [
             "10% of total house strength.",
@@ -592,7 +592,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_13",
-        "chapterId": 90,
+
         "question": "Did the NCRWC recommend any 'Reservation' for women in legislatures?",
         "options": [
             "Yes, 33% seats in Lok Sabha and State Assemblies.",
@@ -606,7 +606,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_14",
-        "chapterId": 90,
+
         "question": "The NCRWC suggested that 'Treaty Making Power' of the executive should be subject to:",
         "options": [
             "Approval by the Supreme Court.",
@@ -620,7 +620,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_15",
-        "chapterId": 90,
+
         "question": "Which of the following describes the 'Judicial' reforms suggested by NCRWC?",
         "options": [
             "Lowering the retirement age.",
@@ -634,7 +634,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_16",
-        "chapterId": 90,
+
         "question": "Wait. Did the NCRWC recommend the 'Abolition' of the Rajya Sabha?",
         "options": [
             "Yes.",
@@ -648,7 +648,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_17",
-        "chapterId": 90,
+
         "question": "The Commission recommended that the 'Electoral College' for the President should include:",
         "options": [
             "Only MPs.",
@@ -662,7 +662,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_18",
-        "chapterId": 90,
+
         "question": "Regarding 'Anti-Defection Law', the NCRWC suggested that an 'Entire Political Party' should be:",
         "options": [
             "Banned if it splits.",
@@ -676,7 +676,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_19",
-        "chapterId": 90,
+
         "question": "Who was the 'Prime Minister' who set up the NCRWC?",
         "options": [
             "P.W. Narasimha Rao",
@@ -690,7 +690,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_20",
-        "chapterId": 90,
+
         "question": "The NCRWC recommended that the 'Comptroller and Auditor General' (CAG) should be part of a:",
         "options": [
             "Judicary.",
@@ -704,7 +704,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_21",
-        "chapterId": 90,
+
         "question": "The Commission suggested that 'Fundamental Rights' should be made enforceable against 'Private Corporations' that perform public duties. Is this already the case?",
         "options": [
             "Yes, for all rights.",
@@ -718,7 +718,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_22",
-        "chapterId": 90,
+
         "question": "Wait. Which 'Zone' does the state of 'Gujarat' belong to as per Zonal Council re-grouping suggested for efficiency?",
         "options": [
             "Western.",
@@ -732,7 +732,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_23",
-        "chapterId": 90,
+
         "question": "Regarding 'Inter-State Water Disputes', the NCRWC recommended that the Tribunal should give its final award within:",
         "options": [
             "One month.",
@@ -746,7 +746,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_24",
-        "chapterId": 90,
+
         "question": "The NCRWC's consultation paper on 'Pace of Socio-Economic Change' highlighted the failure of:",
         "options": [
             "The private sector.",
@@ -760,7 +760,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_25",
-        "chapterId": 90,
+
         "question": "Did the NCRWC recommend that the PM should always be from the 'Lok Sabha'?",
         "options": [
             "Yes.",
@@ -774,7 +774,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_26",
-        "chapterId": 90,
+
         "question": "One of the recommendations for 'Electoral Reforms' was to prevent 'Criminalisation of Politics'. It suggested:",
         "options": [
             "A complete ban on politicians.",
@@ -788,7 +788,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_27",
-        "chapterId": 90,
+
         "question": "Wait. Did the NCRWC recommend that the PM's office should be 'Fixed' for 5 years without a No-confidence motion?",
         "options": [
             "Yes.",
@@ -802,7 +802,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_28",
-        "chapterId": 90,
+
         "question": "The NCRWC suggested that the 'Finance Commission' should be:",
         "options": [
             "Abolished.",
@@ -816,7 +816,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_29",
-        "chapterId": 90,
+
         "question": "Was the 'Right to Freedom of Press' suggested as a separate Fundamental Right?",
         "options": [
             "Yes (within Art 19-1a).",
@@ -830,7 +830,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l2_30",
-        "chapterId": 90,
+
         "question": "The NCRWC report is often cited as a 'Lost Opportunity' because:",
         "options": [
             "It was poorly written.",
@@ -844,7 +844,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_1",
-        "chapterId": 90,
+
         "question": "Analyze the 'Institutional Design' suggested by NCRWC for judicial transparency. Which of the following 'Body' was proposed to replace the 'Collegium' for the appointment of SC judges?",
         "options": [
             "The President alone.",
@@ -858,7 +858,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_2",
-        "chapterId": 90,
+
         "question": "Critical evaluation of 'Article 311' (Protection to Civil Servants). What was the NCRWC's recommendation to check the misuse of this protection by corrupt officers?",
         "options": [
             "Abolish Art 311 completely.",
@@ -872,7 +872,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_3",
-        "chapterId": 90,
+
         "question": "The NCRWC examined 'Article 105' and 'Article 194' (Parliamentary Privileges). What was its recommendation regarding 'Codification'?",
         "options": [
             "Privileges should never be codified.",
@@ -886,7 +886,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_4",
-        "chapterId": 90,
+
         "question": "Assertion (A): The NCRWC recommended the deletion of 'Article 16(4)' (Reservation in Promotion).\nReason (R): It held that reservation should be limited to initial recruitment to maintain an efficient administration.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -900,7 +900,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_5",
-        "chapterId": 90,
+
         "question": "Analyze the 'Presidential vs Parliamentary' debate as handled by NCRWC. Why did it 'Reject' the presidential model for India?",
         "options": [
             "Because the PM refused.",
@@ -914,7 +914,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_6",
-        "chapterId": 90,
+
         "question": "The NCRWC proposed the insertion of a new Article (300B) for 'Liability of the State'. What was the aim?",
         "options": [
             "Starting more state companies.",
@@ -928,7 +928,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_7",
-        "chapterId": 90,
+
         "question": "Evaluate the 'Article 263' (Inter-State Council) reforms. How did the NCRWC suggest changing its 'Composition'?",
         "options": [
             "Reducing members.",
@@ -942,7 +942,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_8",
-        "chapterId": 90,
+
         "question": "The Commission recommended that 'Every Minister' should, on appointment, 'Divest' themselves of all interest in:",
         "options": [
             "His family.",
@@ -956,7 +956,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_9",
-        "chapterId": 90,
+
         "question": "Analysis of 'Article 80'. The NCRWC recommended that the '12 Nominated Members' of Rajya Sabha should be:",
         "options": [
             "Abolished.",
@@ -970,7 +970,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_10",
-        "chapterId": 90,
+
         "question": "The NCRWC's consultation paper on 'Pace of Socio-Economic Change' noted that the 'Land Reforms' were a failure because of:",
         "options": [
             "Lack of land.",
@@ -984,7 +984,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_11",
-        "chapterId": 90,
+
         "question": "Which of the following describes the 'Functional' change suggested for the 'Controller of Accounts'?",
         "options": [
             "Merging with the RBI.",
@@ -998,7 +998,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_12",
-        "chapterId": 90,
+
         "question": "Analysis of 'Article 312' (All India Services). The NCRWC recommended starting which new service?",
         "options": [
             "Indian Medical Service.",
@@ -1012,7 +1012,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_13",
-        "chapterId": 90,
+
         "question": "The Commission recommended that 'Gram Panchayats' should be given more 'Fiscal' power, including:",
         "options": [
             "Printing their own currency.",
@@ -1026,7 +1026,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_14",
-        "chapterId": 90,
+
         "question": "In case of a 'Hung Parliament', the NCRWC suggested that the 'President' should appoint as PM:",
         "options": [
             "Whomever he likes.",
@@ -1040,7 +1040,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_15",
-        "chapterId": 90,
+
         "question": "Assertion (A): The NCRWC suggested that 'Fundamental Rights' (Art 15/16) should include 'Non-discrimination' on grounds of 'Handicap' and 'Sexual Orientation'.\nReason (R): It wanted to align the Indian Constitution with the modern global human rights standards.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -1054,7 +1054,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_16",
-        "chapterId": 90,
+
         "question": "What was the NCRWC's take on 'President's power to grant Pardon' (Art 72)?",
         "options": [
             "Pardon should be abolished.",
@@ -1068,7 +1068,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_17",
-        "chapterId": 90,
+
         "question": "Evaluation of 'Article 51'. Did the NCRWC suggest adding 'Commitment to International Human Rights' to this article?",
         "options": [
             "Yes.",
@@ -1082,7 +1082,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_18",
-        "chapterId": 90,
+
         "question": "The Commission recommended that 'Governors' should be removed from office ONLY after:",
         "options": [
             "The PM says so.",
@@ -1096,7 +1096,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_19",
-        "chapterId": 90,
+
         "question": "Critically analyze the 'Parliamentary Calendar' recommendation. How many days did the NCRWC suggest the Lok Sabha should meet annually?",
         "options": [
             "No limit.",
@@ -1110,7 +1110,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_20",
-        "chapterId": 90,
+
         "question": "Who chaired the sub-committee on 'Fundamental Rights' within the NCRWC?",
         "options": [
             "Justice Venkatachaliah.",
@@ -1124,7 +1124,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_21",
-        "chapterId": 90,
+
         "question": "Did the NCRWC recommend that 'Art 356' should be amended to make the 'Governor's report' mandatory before proclamation?",
         "options": [
             "Yes.",
@@ -1138,7 +1138,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_22",
-        "chapterId": 90,
+
         "question": "The NCRWC suggested that 'Directives' to the states (Art 256/257) should be used:",
         "options": [
             "Every day.",
@@ -1152,7 +1152,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_23",
-        "chapterId": 90,
+
         "question": "Analysis of 'Article 365'. What was the NCRWC's view?",
         "options": [
             "Abolish it (as it is the stick used with Art 356).",
@@ -1166,7 +1166,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_24",
-        "chapterId": 90,
+
         "question": "Which of the following describes the 'Constitutional Council' proposed for appointing the 'Election Commissioners'?",
         "options": [
             "PM, Leader of Opposition, and Chief Justice of India.",
@@ -1180,7 +1180,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_25",
-        "chapterId": 90,
+
         "question": "Critically analyze 'Stability of House'. Why did the NCRWC oppose 'Fixed terms' for legislatures?",
         "options": [
             "Because it would make the PM too powerful.",
@@ -1194,7 +1194,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_26",
-        "chapterId": 90,
+
         "question": "Wait. Which 'Volume' of the report contains the 'Financial' impact analysis of proposals?",
         "options": [
             "Volume I.",
@@ -1208,7 +1208,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_27",
-        "chapterId": 90,
+
         "question": "The NCRWC suggested that 'Language' of the Courts (Art 348) should be expanded to include:",
         "options": [
             "Only English.",
@@ -1222,7 +1222,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_28",
-        "chapterId": 90,
+
         "question": "Did the NCRWC recommend that the 'Attorney General' should be a member of the Cabinet?",
         "options": [
             "Yes.",
@@ -1236,7 +1236,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_29",
-        "chapterId": 90,
+
         "question": "Analyze the 'Fifth Schedule' and 'Sixth Schedule' review. The NCRWC recommended:",
         "options": [
             "Abolishing them.",
@@ -1250,7 +1250,7 @@ export const CHAPTER_90_MCQS: MCQ[] = [
     },
     {
         "id": "ch90_l3_30",
-        "chapterId": 90,
+
         "question": "Who was the 'Vice-Chairman' of the Commission?",
         "options": [
             "Subhash Kashyap.",

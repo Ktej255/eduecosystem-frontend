@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_28_MCQS: any[] = [
   },
   {
     id: '28-34',
-    question: "Consider the following statements regarding 'Ishwar Chandra Vidyasagar': 1. He was the primary architect of the Hindu Widows' Remarriage Act, 1856. 2. He used ancient scriptures to prove that widow remarriage was permitted in Hinduism. 3. He was a strict opponent of Western education. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding 'Ishwar Chandra Vidyasagar':\n1. He was the primary architect of the Hindu Widows' Remarriage Act, 1856.\n2. He used ancient scriptures to prove that widow remarriage was permitted in Hinduism.\n3. He was a strict opponent of Western education. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only. Statement 3 is incorrect; Vidyasagar was a great proponent of Western science and logic as a supplement to Indian classical studies.",
@@ -355,7 +355,7 @@ export const MODERN_CHAPTER_28_MCQS: any[] = [
   },
   {
     id: '28-40',
-    question: "Consider the following regarding 'Swami Vivekananda': 1. He emphasized 'Social Service' and 'Action' over mere ritualistic worship. 2. He believed that no religion was superior and that they were all different paths to the same truth. 3. He advocated for the total Westernization of the Indian masses. How many of the above statements are correct?",
+    question: "Consider the following regarding 'Swami Vivekananda':\n1. He emphasized 'Social Service' and 'Action' over mere ritualistic worship.\n2. He believed that no religion was superior and that they were all different paths to the same truth.\n3. He advocated for the total Westernization of the Indian masses. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; he wanted a synthesis of Western material science and Indian spiritualism).",
@@ -391,7 +391,7 @@ export const MODERN_CHAPTER_28_MCQS: any[] = [
   },
   {
     id: '28-44',
-    question: "Consider the following pairs of 'Reform Movement' and their 'Primary Objective': 1. Dharma Sabha \u2014 Defense of Orthodox Hinduism 2. Seva Sadan \u2014 Protection of vulnerable women 3. Rahnumai Mazdayasnan Sabha \u2014 Modernization of Parsi social customs How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of 'Reform Movement' and their 'Primary Objective':\n1. Dharma Sabha \u2014 Defense of Orthodox Hinduism\n2. Seva Sadan \u2014 Protection of vulnerable women\n3. Rahnumai Mazdayasnan Sabha \u2014 Modernization of Parsi social customs How many of the above pairs are correctly matched?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -436,7 +436,7 @@ export const MODERN_CHAPTER_28_MCQS: any[] = [
   },
   {
     id: '28-49',
-    question: "Consider the following regarding 'Dr. B.R. Ambedkar\u2019s' reform strategy: 1. He emphasized political empowerment and legal rights as the primary tools for the liberation of Dalits. 2. He organized the 'Mahad Satyagraha' to assert the right to use public water tanks. 3. He believed that Hinduism could be reformed from within to eliminate untouchability. How many of the above are correct?",
+    question: "Consider the following regarding 'Dr. B.R. Ambedkar\u2019s' reform strategy:\n1. He emphasized political empowerment and legal rights as the primary tools for the liberation of Dalits.\n2. He organized the 'Mahad Satyagraha' to assert the right to use public water tanks.\n3. He believed that Hinduism could be reformed from within to eliminate untouchability. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; eventually, he concluded that the caste system was inherent to Hinduism and led his followers to convert to Buddhism).",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_28_MCQS: any[] = [
   },
   {
     id: '28-62',
-    question: "Consider the following statements regarding the 'Brahmo Samaj' and its theological foundation: 1. It relied on the twin pillars of 'Reason' and the 'Vedas/Upanishads', but it did not consider the scriptures as infallible. 2. It was primarily a \"new religion\" that sought to replace Hinduism with a blend of Christianity and Islam. 3. It rejected the concept of 'Incarnation' (Avatara) and the 'Transmigration of Souls'. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Brahmo Samaj' and its theological foundation:\n1. It relied on the twin pillars of 'Reason' and the 'Vedas/Upanishads', but it did not consider the scriptures as infallible.\n2. It was primarily a \"new religion\" that sought to replace Hinduism with a blend of Christianity and Islam. 3. It rejected the concept of 'Incarnation' (Avatara) and the 'Transmigration of Souls'. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; Rammohan Roy never intended to create a new religion but sought to reform Hinduism from within by stripping it of later-day corruptions.",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_28_MCQS: any[] = [
   },
   {
     id: '28-66',
-    question: "Consider the following regarding 'Swami Vivekananda\u2019s' views on the caste system: 1. He defended the original 'Varna' system as a functional division of labor but condemned the modern 'Caste' system as a stagnant and exclusionary structure. 2. He believed that the only way to uplift the masses was through \"Root-and-Branch\" reform involving religious conversion. 3. He famously stated that \"Religion is not for empty stomachs.\" How many of the above are correct?",
+    question: "Consider the following regarding 'Swami Vivekananda\u2019s' views on the caste system:\n1. He defended the original 'Varna' system as a functional division of labor but condemned the modern 'Caste' system as a stagnant and exclusionary structure.\n2. He believed that the only way to uplift the masses was through \"Root-and-Branch\" reform involving religious conversion. 3. He famously stated that \"Religion is not for empty stomachs.\" How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 2 is incorrect; he believed in social/educational empowerment rather than conversion).",
@@ -625,7 +625,7 @@ export const MODERN_CHAPTER_28_MCQS: any[] = [
   },
   {
     id: '28-70',
-    question: "Consider the following pairs of 'Muslim Reformers' and their 'Philosophy': 1. Sir Syed Ahmed Khan \u2014",
+    question: "Consider the following pairs of 'Muslim Reformers' and their 'Philosophy':\n1. Sir Syed Ahmed Khan \u2014",
     options: ["Reconciliation of Quran with modern science 2. Mirza Ghulam Ahmad \u2014", "Prophethood based on universal peace 3. Shah Waliullah \u2014", "18th-century precursor to Islamic revivalism Select the correct matching code:", "1-A, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C.",
@@ -670,7 +670,7 @@ export const MODERN_CHAPTER_28_MCQS: any[] = [
   },
   {
     id: '28-75',
-    question: "Consider the following regarding the 'Theosophical Society' under Annie Besant: 1. It promoted the study of comparative religion and philosophy. 2. It emphasized the doctrine of 'Transmigration of Souls'. 3. It rejected the idea of 'Universal Brotherhood'. How many of the above are correct?",
+    question: "Consider the following regarding the 'Theosophical Society' under Annie Besant:\n1. It promoted the study of comparative religion and philosophy.\n2. It emphasized the doctrine of 'Transmigration of Souls'.\n3. It rejected the idea of 'Universal Brotherhood'. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; Universal Brotherhood was their core principle).",
@@ -706,7 +706,7 @@ export const MODERN_CHAPTER_28_MCQS: any[] = [
   },
   {
     id: '28-79',
-    question: "Match the 'Reformist Tool' with its 'Pioneer': 1. Samvad Kaumudi \u2014",
+    question: "Match the 'Reformist Tool' with its 'Pioneer':\n1. Samvad Kaumudi \u2014",
     options: ["Ishwar Chandra Vidyasagar 2. Soma Prakasha \u2014", "Raja Rammohan Roy 3. Bahishkrit Bharat \u2014", "B.R. Ambedkar Select the correct matching code:", "1-B, 2-A, 3-C"],
     correctAnswer: 0,
     explanation: "1-B, 2-A, 3-C.",
@@ -742,7 +742,7 @@ export const MODERN_CHAPTER_28_MCQS: any[] = [
   },
   {
     id: '28-83',
-    question: "Consider the following regarding the 'Aligarh Movement' and the 'Ulama': 1. The Aligarh movement represented the 'New' educated elite. 2. The Ulama (Deoband) represented the 'Traditional' religious leadership. 3. Both groups were always in perfect agreement on politics. How many of the above are correct?",
+    question: "Consider the following regarding the 'Aligarh Movement' and the 'Ulama':\n1. The Aligarh movement represented the 'New' educated elite.\n2. The Ulama (Deoband) represented the 'Traditional' religious leadership.\n3. Both groups were always in perfect agreement on politics. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; they were often at loggerheads, especially regarding loyalty to the British).",

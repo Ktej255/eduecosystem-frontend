@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_62_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 62,
+
         question: "The NCPCR functions under the administrative control of which Ministry?",
         options: [
             "Ministry of Home Affairs",
@@ -17,7 +17,7 @@ export const CHAPTER_62_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 62,
+
         question: "Out of the 6 members of NCPCR, at least how many must be women?",
         options: ["1", "2", "3", "Half"],
         correctAnswer: 1,
@@ -26,7 +26,7 @@ export const CHAPTER_62_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 62,
+
         question: "The age limit for a member (not chairperson) of NCPCR is:",
         options: ["60 years", "62 years", "65 years", "70 years"],
         correctAnswer: 0,
@@ -35,7 +35,7 @@ export const CHAPTER_62_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 62,
+
         question: "NCPCR was established to monitor the implementation of which major Act?",
         options: ["RTE Act, 2009", "POCSO Act, 2012", "Juvenile Justice Act", "All of the above"],
         correctAnswer: 3,
@@ -44,7 +44,7 @@ export const CHAPTER_62_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 62,
+
         question: "Under the CPCR Act, 2005, 'child' means a person between:",
         options: ["0 to 14 years", "6 to 14 years", "0 to 18 years", "0 to 21 years"],
         correctAnswer: 2,
@@ -53,7 +53,7 @@ export const CHAPTER_62_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 62,
+
         question: "The Commission (NCPCR) submits its annual report to:",
         options: ["The President", "The Parliament", "The Central Government", "Prime Minister's Office"],
         correctAnswer: 2,
@@ -62,7 +62,7 @@ export const CHAPTER_62_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 62,
+
         question: "Who was the first Chairperson of NCPCR?",
         options: ["Shantha Sinha", "Kushal Singh", "Stuti Kacker", "Priyank Kanoongo"],
         correctAnswer: 0,
@@ -71,7 +71,7 @@ export const CHAPTER_62_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 62,
+
         question: "Can SCPCR (State Commission) inquire into a case already being looked at by NCPCR?",
         options: ["Yes", "No", "Only if Governor permits", "Only if High Court directs"],
         correctAnswer: 1,
@@ -80,7 +80,7 @@ export const CHAPTER_62_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 62,
+
         question: "NCPCR has the power of a civil court, including:",
         options: [
             "Summoning and enforcing attendance",
@@ -94,7 +94,7 @@ export const CHAPTER_62_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 62,
+
         question: "The chairperson of NCPCR is appointed by a committee headed by:",
         options: [
             "Prime Minister",

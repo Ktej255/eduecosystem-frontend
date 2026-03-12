@@ -3,7 +3,7 @@ import { MCQ } from "../RevisionRegistry";
 export const CHAPTER_27_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 29, // Mapping to Schedule ID 29 (Judicial Activism)
+ // Mapping to Schedule ID 29 (Judicial Activism)
         question: "The term 'Judicial Activism' was coined by which of the following individuals?",
         options: [
             "Justice P.N. Bhagwati",
@@ -17,7 +17,7 @@ export const CHAPTER_27_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 29,
+
         question: "Regarding 'Concept of Judicial Activism':\n1. Proactive role in protecting citizen rights.\n2. Often referred to as 'Judicial Dynamism'.\n3. Originated and developed first in UK, then India.",
         options: [
             "1 and 2 only",
@@ -31,7 +31,7 @@ export const CHAPTER_27_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 29,
+
         question: "Regarding 'Judicial Restraint':\n1. Encourages limiting exercise of power.\n2. Hesitate to strike down laws unless obviously unconstitutional.\n3. Based on 'Separation of Powers'.",
         options: [
             "1 and 2 only",
@@ -45,7 +45,7 @@ export const CHAPTER_27_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 29,
+
         question: "According to Dr. B.L. Wadhera, which is NOT a reason for growth of judicial activism?",
         options: [
             "Legislature fails to discharge responsibilities.",
@@ -59,7 +59,7 @@ export const CHAPTER_27_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 29,
+
         question: "Justification of Judicial Activism includes:\n1. Preservation of democratic system.\n2. Remedy when administrative agencies fail.\n3. Allows judiciary to act as 'super-legislature'.",
         options: [
             "1 and 2 only",
@@ -73,7 +73,7 @@ export const CHAPTER_27_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 29,
+
         question: "Critique of Judicial Activism identifies which major concern?",
         options: [
             "Dilution of 'Separation of Powers'.",
@@ -87,7 +87,7 @@ export const CHAPTER_27_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 29,
+
         question: "Justice A.S. Anand observed court must be careful NOT to:",
         options: [
             "Enforce Fundamental Rights.",
@@ -101,7 +101,7 @@ export const CHAPTER_27_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 29,
+
         question: "What is 'Judicial Overreach'?",
         options: [
             "Use of writ jurisdiction.",
@@ -115,7 +115,7 @@ export const CHAPTER_27_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 29,
+
         question: "Example of 'Judicial Overreach'?",
         options: [
             "Striking down laws violating Fundamental Rights.",
@@ -129,7 +129,7 @@ export const CHAPTER_27_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 29,
+
         question: "Supreme Court Guidelines on 'Self-Restraint' mean:\n1. Not taking over legislative functions.\n2. Respecting policy decisions unless unconstitutional.\n3. Not creating law to enforce it.",
         options: [
             "1 and 2 only",
@@ -143,7 +143,7 @@ export const CHAPTER_27_MCQS: MCQ[] = [
     },
     {
         id: 11,
-        chapterId: 29,
+
         question: "Upendra Baxi's typology of activators includes:\n1. Civil Rights Activists.\n2. Consumer Rights Groups.\n3. Environmental Groups.\n4. Shareholder Activists.",
         options: [
             "1, 2, and 3 only",
@@ -157,7 +157,7 @@ export const CHAPTER_27_MCQS: MCQ[] = [
     },
     {
         id: 12,
-        chapterId: 29,
+
         question: "Judicial Activism is also known as:",
         options: [
             "Judicial Discretion",
@@ -171,7 +171,7 @@ export const CHAPTER_27_MCQS: MCQ[] = [
     },
     {
         id: 13,
-        chapterId: 29,
+
         question: "2007 SC Guidelines on Restraint arguments:\n1. Broad separation of powers.\n2. Judges must know limits.\n3. Activism should not become adventurism.\n4. Cannot create law and enforce it.",
         options: [
             "1, 2, and 4 only",
@@ -185,7 +185,7 @@ export const CHAPTER_27_MCQS: MCQ[] = [
     },
     {
         id: 14,
-        chapterId: 29,
+
         question: "Assumption of Judicial Restraint that is INCORRECT:",
         options: [
             "Court is undemocratic/non-responsive compared to legislature.",

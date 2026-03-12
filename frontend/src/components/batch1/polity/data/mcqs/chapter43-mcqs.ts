@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_43_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 43,
+
         question: "Regarding SPSC, which is strictly correct?",
         options: [
             "Chairman appointed by Governor.",
@@ -17,7 +17,7 @@ export const CHAPTER_43_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 43,
+
         question: "Who removes the Chairman of an SPSC?",
         options: [
             "Governor",
@@ -31,7 +31,7 @@ export const CHAPTER_43_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 43,
+
         question: "Which of the following describes the Independence of SPSC?\n1. Conditions not varied to disadvantage.\n2. Expenses charged on Consolidated Fund of India.\n3. Chairman eligible for UPSC Chairman.",
         options: [
             "1 only",
@@ -45,7 +45,7 @@ export const CHAPTER_43_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 43,
+
         question: "SPSC is consulted on:",
         options: [
             "State service recruitment methods.",
@@ -59,7 +59,7 @@ export const CHAPTER_43_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 43,
+
         question: "Can Governor suspend an SPSC member?",
         options: [
             "No, only President can.",

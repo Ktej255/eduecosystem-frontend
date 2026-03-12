@@ -6,7 +6,7 @@ import { MCQ } from './chapter1-mcqs';
 export const CHAPTER_2_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 2,
+
         question: "Who was the first to put forward the idea of a Constituent Assembly for India?",
         options: [
             "Mahatma Gandhi",
@@ -20,7 +20,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 2,
+
         question: "When did the Constituent Assembly hold its first meeting?",
         options: [
             "August 15, 1947",
@@ -34,7 +34,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 2,
+
         question: "Who was elected as the temporary Chairman of the Constituent Assembly?",
         options: [
             "Dr. Rajendra Prasad",
@@ -48,7 +48,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 2,
+
         question: "Who was the permanent President of the Constituent Assembly?",
         options: [
             "Jawaharlal Nehru",
@@ -62,7 +62,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 2,
+
         question: "What was the total strength of the Constituent Assembly as per the Cabinet Mission Plan?",
         options: [
             "299",
@@ -76,7 +76,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 2,
+
         question: "Who moved the 'Objectives Resolution' in the Constituent Assembly?",
         options: [
             "Dr. Rajendra Prasad",
@@ -90,7 +90,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 2,
+
         question: "When was the Drafting Committee set up?",
         options: [
             "December 9, 1946",
@@ -104,7 +104,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 2,
+
         question: "How many members were there in the Drafting Committee?",
         options: [
             "5",
@@ -118,7 +118,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 2,
+
         question: "Who among the following was NOT a member of the Drafting Committee?",
         options: [
             "N. Gopalaswamy Ayyangar",
@@ -132,7 +132,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 2,
+
         question: "When was the Constitution of India adopted?",
         options: [
             "January 26, 1950",
@@ -146,7 +146,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 11,
-        chapterId: 2,
+
         question: "How many members actually signed the Constitution?",
         options: [
             "389",
@@ -160,7 +160,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 12,
-        chapterId: 2,
+
         question: "Why was January 26 chosen as the date for enforcement of the Constitution?",
         options: [
             "It was Mahatma Gandhi's birthday",
@@ -174,7 +174,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 13,
-        chapterId: 2,
+
         question: "Who was the Constitutional Advisor (Legal Advisor) to the Constituent Assembly?",
         options: [
             "Dr. B.R. Ambedkar",
@@ -188,7 +188,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 14,
-        chapterId: 2,
+
         question: "Who was the Chief Draftsman of the Constitution?",
         options: [
             "Dr. B.R. Ambedkar",
@@ -202,7 +202,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 15,
-        chapterId: 2,
+
         question: "Who wrote (calligraphed) the original Constitution by hand?",
         options: [
             "Nand Lal Bose",
@@ -216,7 +216,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 16,
-        chapterId: 2,
+
         question: "How many sessions did the Constituent Assembly hold?",
         options: [
             "9",
@@ -230,7 +230,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 17,
-        chapterId: 2,
+
         question: "What was the total expenditure incurred on making the Constitution?",
         options: [
             "₹32 lakh",
@@ -244,7 +244,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 18,
-        chapterId: 2,
+
         question: "What was the original structure of the Constitution (1949)?",
         options: [
             "Preamble, 395 Articles, 8 Schedules",
@@ -258,7 +258,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 19,
-        chapterId: 2,
+
         question: "Who was the Chairman of the Provincial Constitution Committee?",
         options: [
             "Jawaharlal Nehru",
@@ -272,7 +272,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 20,
-        chapterId: 2,
+
         question: "Who was the Chairman of the Union Powers Committee?",
         options: [
             "Sardar Patel",
@@ -286,7 +286,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 21,
-        chapterId: 2,
+
         question: "Which of the following statements about the Constituent Assembly is correct?",
         options: [
             "Members were directly elected by the people",
@@ -300,7 +300,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 22,
-        chapterId: 2,
+
         question: "The method of voting in the Constituent Assembly elections was:",
         options: [
             "First-past-the-post",
@@ -314,7 +314,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 23,
-        chapterId: 2,
+
         question: "What was the symbol (seal) of the Constituent Assembly?",
         options: [
             "Lion",
@@ -328,7 +328,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 24,
-        chapterId: 2,
+
         question: "When was the national flag adopted by the Constituent Assembly?",
         options: [
             "August 15, 1947",
@@ -342,7 +342,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 25,
-        chapterId: 2,
+
         question: "When was the national anthem adopted?",
         options: [
             "August 15, 1947",
@@ -356,7 +356,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 26,
-        chapterId: 2,
+
         question: "Who became the first President of India?",
         options: [
             "Jawaharlal Nehru",
@@ -370,7 +370,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 27,
-        chapterId: 2,
+
         question: "Dr. B.R. Ambedkar is known as:",
         options: [
             "Father of the Nation",
@@ -384,7 +384,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 28,
-        chapterId: 2,
+
         question: "How many amendments were proposed in the Constituent Assembly during the discussion of the Draft Constitution?",
         options: [
             "2,473",
@@ -398,7 +398,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 29,
-        chapterId: 2,
+
         question: "Constitution Day (Samvidhan Divas) is celebrated on:",
         options: [
             "January 26",
@@ -412,7 +412,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 30,
-        chapterId: 2,
+
         question: "Consider the following statements:\n1. The Constituent Assembly was created under the Cabinet Mission Plan\n2. The Muslim League boycotted the first meeting of the Constituent Assembly\n3. The Preamble was enacted before the rest of the Constitution\nWhich of the above statements are correct?",
         options: [
             "1 and 2 only",
@@ -426,7 +426,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 31,
-        chapterId: 2,
+
         question: "Who decorated and beautified the original Constitution?",
         options: [
             "Artists from JNU",
@@ -440,7 +440,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 32,
-        chapterId: 2,
+
         question: "Who illuminated and ornamented the original Preamble?",
         options: [
             "Nand Lal Bose",
@@ -454,7 +454,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 33,
-        chapterId: 2,
+
         question: "How many constitutions of the world were studied by the Constitution-makers?",
         options: [
             "About 20",
@@ -468,7 +468,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 34,
-        chapterId: 2,
+
         question: "Match the following committees with their Chairman:\nA. Drafting Committee - 1. Jawaharlal Nehru\nB. Union Constitution Committee - 2. Dr. B.R. Ambedkar\nC. Provincial Constitution Committee - 3. Sardar Patel",
         options: [
             "A-2, B-1, C-3",
@@ -482,7 +482,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 35,
-        chapterId: 2,
+
         question: "Who was the Chairman of the Fundamental Rights Sub-Committee?",
         options: [
             "Sardar Patel",
@@ -496,7 +496,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 36,
-        chapterId: 2,
+
         question: "How many women members were there in the Constituent Assembly?",
         options: [
             "10",
@@ -510,7 +510,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 37,
-        chapterId: 2,
+
         question: "When did the Constituent Assembly become the Dominion Legislature?",
         options: [
             "December 9, 1946",
@@ -524,7 +524,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 38,
-        chapterId: 2,
+
         question: "The authoritative text of the Constitution in Hindi was provided for by which Amendment Act?",
         options: [
             "42nd Amendment Act",
@@ -538,7 +538,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 39,
-        chapterId: 2,
+
         question: "Who said that the Constituent Assembly was 'a body of Hindus'?",
         options: [
             "Winston Churchill",
@@ -552,7 +552,7 @@ export const CHAPTER_2_MCQS: MCQ[] = [
     },
     {
         id: 40,
-        chapterId: 2,
+
         question: "Who coined the term 'Drifting Committee' for the Drafting Committee?",
         options: [
             "Winston Churchill",

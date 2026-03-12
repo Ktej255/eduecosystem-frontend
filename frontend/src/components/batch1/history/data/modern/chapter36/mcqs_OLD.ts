@@ -669,7 +669,7 @@ export const MODERN_CHAPTER_36_MCQS: MCQ[] = [
   },
   {
     id: 75,
-    question: "Match: 1. League (Pakistan), 2. Mahasabha (Hindu Rashtra), 3. Akali (Azad Punjab).",
+    question: "Match:\n1. League (Pakistan),\n2. Mahasabha (Hindu Rashtra),\n3. Akali (Azad Punjab).",
     options: ["1-A, 2-B, 3-C","1-B, 2-A, 3-C","1-C, 2-B, 3-A","1-D"],
     correctAnswer: 0,
     difficulty: "Hard",

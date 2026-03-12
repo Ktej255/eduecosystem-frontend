@@ -1,0 +1,635 @@
+
+import { PYQQuestion } from '@/lib/pyq/pyq-types';
+
+export const IR_PYQS: PYQQuestion[] = [
+    // 2024
+    {
+        id: 'ir_2024_1',
+        year: 2024,
+        subject: 'International Relations',
+        topic: 'Defence & Security',
+        question: "Operations undertaken by the Army towards upliftment of the local population in remote areas to include addressing of their basic needs is called:",
+        options: ["Operations Sankalp", "Operation Maitri", "Operation Sadbhavana", "Operation Madad"],
+        correctIndex: 2,
+        explanation: "Operation Sadbhavana (Goodwill) is a unique humane initiative undertaken by the Indian Army in Jammu & Kashmir and Ladakh to address the aspirations of people affected by terrorism.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'ir_2024_2',
+        year: 2024,
+        subject: 'International Relations',
+        topic: 'Defence & Security',
+        question: "Which of the following is/are correctly matched in terms of equivalent rank in the three services of Indian Defence forces?\n\nArmy | Airforce | Navy\n1. Brigadier | Air Commodore | Commander\n2. Major General | Air Vice Marshal | Vice Admiral\n3. Major | Squadron Leader | Lieutenant commander\n4. Lieutenant Colonel | Group Captain | Captain\nSelect the correct answer using the code given below:",
+        options: ["1 and 4", "1 and 3", "2, 3 and 4", "3 only"],
+        correctIndex: 3,
+        explanation: "3 is correct. 1 is wrong (Navy equiv to Brigadier is Commodore). 2 is wrong (Navy equiv to Maj Gen is Rear Admiral). 4 is wrong (Navy equiv to Lt Col is Commander).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2024_3',
+        year: 2024,
+        subject: 'International Relations',
+        topic: 'Defence & Security',
+        question: "Which of the following statements about ‘Exercise Mitra Shakti-2023’ are correct?\n\n1. This was a joint military exercise between India and Bangladesh.\n2. It commenced in Aundh (Pune).\n3. Joint response during counter-terrorism operations was a goal of this operation.\n4. Indian Air Force was a part of this exercise\nSelect the answer using the code given below:",
+        options: ["1, 2 and 3", "1, 2 and 4", "1, 3 and 4", "2, 3 and 4"],
+        correctIndex: 3,
+        explanation: "Statement 1 is incorrect: Mitra Shakti is between India and Sri Lanka (not Bangladesh). S2, S3, S4 are correct.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2024_4',
+        year: 2024,
+        subject: 'International Relations',
+        topic: 'Books & Authors',
+        question: "Who of the following is the author of the books “The India Way” and “Why Bharat Matters”?",
+        options: ["Bhupender Yadav", "Nalin Mehta", "Shashi Tharoor", "Subrahmanyam Jaishankar"],
+        correctIndex: 3,
+        explanation: "Both books are authored by S. Jaishankar, the External Affairs Minister of India.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'ir_2024_5',
+        year: 2024,
+        subject: 'International Relations',
+        topic: 'International Events',
+        question: "Consider the following pairs:\n\nCountry | Reason for being in the news\n1. Argentina | Worst economic crisis\n2. Sudan Forces | War between the country’s regular army and paramilitary\n3. Turkey | Rescinded its membership of NATO\nHow many of the pairs given above are correctly matched?",
+        options: ["Only one pair", "Only two pairs", "All three pairs", "None of the pairs"],
+        correctIndex: 1,
+        explanation: "1 matches (Argentina inflation crisis). 2 matches (Sudan conflict). 3 is incorrect (Turkey is a key NATO member).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2024_6',
+        year: 2024,
+        subject: 'International Relations',
+        topic: 'Geography & Places',
+        question: "Consider the following statements:\n\nStatement-I : Sumed pipeline is a strategic route for Persian Gulf oil and natural gas shipments to Europe.\nStatement-II : Sumed pipeline connects the Red Sea with the Mediterranean Sea.\n\nWhich one of the following is correct in respect of the above statements?",
+        options: ["Both Statement-I and Statement-II are correct and Statement-II explains Statement-I", "Both Statement-I and Statement-II are correct, but Statement-II does not explain Statement-I", "Statement-I is correct, but Statement-II is incorrect", "Statement-I is incorrect, but Statement-II is correct"],
+        correctIndex: 0,
+        explanation: "Sumed pipeline connects Ains Sukhna (Red Sea) to Sidi Kerir (Mediterranean), bypassing Suez Canal, thus strategic for shipments.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2024_7',
+        year: 2024,
+        subject: 'International Relations',
+        topic: 'International Organizations',
+        question: "Consider the following statements:\n1. India is a member of the International Grains Council.\n2. A country needs to be a member of the International Grains Council for exporting or importing rice and wheat.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 0,
+        explanation: "India is a member. Membership is not mandatory for trade.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2024_8',
+        year: 2024,
+        subject: 'International Relations',
+        topic: 'International Events',
+        question: "Consider the following statements:\n\nStatement-I : There is instability and worsening security situation in the Sahel region.\nStatement-II : There have been military takeovers/coups d’etat in several countries of the Sahel region in the recent past.\n\nWhich one of the following is correct in respect of the above statements?",
+        options: ["Both Statement-I and Statement-II are correct and Statement-II explains Statement-I", "Both Statement-I and Statement-II are correct, but Statement-II does not explain Statement-I", "Statement-I is correct, but Statement-II is incorrect", "Statement-I is incorrect, but Statement-II in correct"],
+        correctIndex: 0,
+        explanation: "The coups (Mali, Burkina Faso, Niger) have contributed to instability and hindered security cooperation.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2024_9',
+        year: 2024,
+        subject: 'International Relations',
+        topic: 'International Organizations',
+        question: "Consider the following statements regarding World Toilet Organization:\n1. It is one of the agencies of the United Nations.\n2. World Toilet Summit, World Toilet Day and World Toilet College are the initiatives of this organization, to inspire action to tackle the global sanitation crisis.\n3. The main focus of its function is to grant funds to the least developed countries and developing countries to achieve the end of open defecation.\nWhich of the statements given above is/are correct?",
+        options: ["2 only", "3 only", "1 and 2", "2 and 3"],
+        correctIndex: 0,
+        explanation: "S1 False (It is a non-profit NGO). S2 Correct. S3 False (Focus is advocacy/training, not granting funds).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2023
+    {
+        id: 'ir_2023_1',
+        year: 2023,
+        subject: 'International Relations',
+        topic: 'International Events',
+        question: "Consider the following pairs :\n\nRegions often mentioned in news | Reason for being in news\n1. North Kivu and Ituri | War between Armenia and Azerbaijan\n2. Nagorno-Karabakh | Insurgency in Mozambique\n3. Kherson and Zaporizhzhia | Dispute between Israel and Lebanon\nHow many of the above pairs are correctly matched?",
+        options: ["Only one", "Only two", "All three", "None"],
+        correctIndex: 3,
+        explanation: "North Kivu (DRC), Nagorno-Karabakh (Armenia-Azerbaijan), Kherson (Ukraine). None match.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2023_2',
+        year: 2023,
+        subject: 'International Relations',
+        topic: 'International Events',
+        question: "Consider the following pairs :\n\nArea of conflict mentioned in news | Country where it is located\n1. Donbas | Syria\n2. Kachin | Ethiopia\n3. Tigray | North Yemen\nHow many of the above pairs are correctly matched?",
+        options: ["Only one", "Only two", "All three", "None"],
+        correctIndex: 3,
+        explanation: "Donbas (Ukraine), Kachin (Myanmar), Tigray (Ethiopia). None match correctly.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2023_3',
+        year: 2023,
+        subject: 'International Relations',
+        topic: 'Infrastructure',
+        question: "With reference to India’s projects on connectivity, consider the following statements :\n1. East-West Corridor under Golden Quadrilateral Project connects Dibrugarh and Surat.\n2. Trilateral Highway connects Moreh in Manipur and Chiang Mai in Thailand via Myanmar.\n3. Bangladesh-China-India-Myanmar Economic Corridor connects Varanasi in Uttar Pradesh with Kunming in China.\nHow many of the above statements are correct?",
+        options: ["Only one", "Only two", "All three", "None"],
+        correctIndex: 3,
+        explanation: "1 False (Silchar to Porbandar). 2 False (Moreh to Mae Sot). 3 False (Kolkata to Kunming).",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'ir_2023_4',
+        year: 2023,
+        subject: 'International Relations',
+        topic: 'Geography & Places',
+        question: "Consider the following countries :\n1. Bulgaria\n2. Czech Republic\n3. Hungary\n4. Latvia\n5. Lithuania\n6. Romania\nHow many of the above-mentioned countnes share a land border with Ukraine?",
+        options: ["Only two", "Only three", "Only four", "Only five"],
+        correctIndex: 0,
+        explanation: "Of the list, only Hungary and Romania share a border with Ukraine.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2023_5',
+        year: 2023,
+        subject: 'International Relations',
+        topic: 'International Organizations',
+        question: "Consider the following statements :\n1. Recently, all the countries of the United Nations have adopted the first-ever compact for international migration, the ‘Global Compact for Safe, Orderly and Regular Migration (GCM)’.\n2. The objectives and commitments stated in the GCM are binding on the UN member countries.\n3. The GCM addresses internal migration or internally displaced people also in its objectives and commitments.\nHow many of the above statements are correct?",
+        options: ["Only one", "Only two", "All three", "None"],
+        correctIndex: 0,
+        explanation: "S1 Correct. S2 False (Non-binding). S3 False (International only).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2023_6',
+        year: 2023,
+        subject: 'International Relations',
+        topic: 'International Events',
+        question: "Consider the fqllowing statements :\n\nStatement-I : Israel has established diplomatic relations with some Arab States.\nStatement-II : The ‘Arab Peace Initiative’ mediated by Saudi Arabia was signed by Israel and Arab League.\n\nWhich one of the following is correct in respect of the above statements?",
+        options: ["Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I", "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I", "Statement-I is correct but Statement-II is incorrect", "Statement-I is incorrect but Statement- II is correct"],
+        correctIndex: 2,
+        explanation: "Statement I is correct (Abraham Accords). Statement II is incorrect (Israel has not signed the Arab Peace Initiative).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2023_7',
+        year: 2023,
+        subject: 'International Relations',
+        topic: 'International Events',
+        question: "In the recent years Chad, Guinea, Mali and Sudan caught the international attention for which one of the following reasons common to all of them?",
+        options: ["Discovery of rich deposits of rare earth elements", "Establishment of Chinese military bases.", "Southward expansion of Sahara Desert", "Successful coups"],
+        correctIndex: 3,
+        explanation: "All experienced coups d'etat recently.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'ir_2023_8',
+        year: 2023,
+        subject: 'International Relations',
+        topic: 'International Organizations',
+        question: "Consider the following statements about G-20:\n1. The G-20 group was originally established as a platform for the Finance Ministers and Central Bank Governors to discuss the international economic and financial issues.\n2. Digital public infrastructure is one of India’s G-20 priorities.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 2,
+        explanation: "Both statements are correct.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+
+    // 2022
+    {
+        id: 'ir_2022_1',
+        year: 2022,
+        subject: 'International Relations',
+        topic: 'International Events',
+        question: "Consider the following statements:\n1. Bidibidi is a large refugee settlement in north-western Kenya.\n2. Some people who fled from South Sudan civil war live in Bidibidi.\n3. Some people who fled from civil war in Somalia live in Dadaab refugee complex in Kenya.\nWhich of the statements given above is/are correct?",
+        options: ["1 and 2", "2 only", "2 and 3", "3 only"],
+        correctIndex: 3,
+        explanation: "Bidibidi is in Uganda (S1 False). Dadaab is in Kenya regarding Somalia (S3 Correct). Use code (d) 3 only.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2022_2',
+        year: 2022,
+        subject: 'International Relations',
+        topic: 'International Organizations',
+        question: "Consider the following countries:\n1. Armenia\n2. Azerbaijan\n3. Croatia\n4. Romania\n5. Uzbekistan\nWhich of the above are members of the Organization of Turkic States?",
+        options: ["1, 2 and 4", "1 and 3", "2 and 5", "3, 4 and 5"],
+        correctIndex: 2,
+        explanation: "Azerbaijan and Uzbekistan are members.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2022_3',
+        year: 2022,
+        subject: 'International Relations',
+        topic: 'International Law',
+        question: "With reference to the United Nations Convention on the Law of Sea, consider the following statements:\n1. A coastal state has the right to establish the breadth of its territorial sea up to a limit not exceeding 12 nautical miles, measured from baseline determined in accordance with the convention.\n2. Ships of all states, whether coastal or land-locked, enjoy the right of innocent passage through the territorial sea.\n3. The Exclusive Economic Zone shall not extend beyond 200 nautical miles from the baseline from which the breadth of the territorial sea is measured.\nWhich of the statements given above are correct?",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"],
+        correctIndex: 3,
+        explanation: "All statements are consistent with UNCLOS provisions.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'ir_2022_4',
+        year: 2022,
+        subject: 'International Relations',
+        topic: 'International Disputes',
+        question: "Which one of the following statements best reflects the issue with Senkaku Islands, sometimes mentioned in the news?",
+        options: ["It is generally believed that they are artificial islands made by a country around South China Sea.", "China and Japan engage in maritime disputes over these islands in East China Sea.", "A permanent American military base has been set up there to help Taiwan to increase its defence capabilities.", "Though International Court of Justice declared them as no man’s land, some South-East Asian countries claim them."],
+        correctIndex: 1,
+        explanation: "Senkaku (Diaoyu) are disputed islands between China and Japan in the East China Sea.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'ir_2022_5',
+        year: 2022,
+        subject: 'International Relations',
+        topic: 'International Events',
+        question: "Consider the following pairs:\n\nCountry | Important reason for being in the news recently\n1. Chad | Setting up of permanent military base by China\n2. Guinea | Suspension of Constitution and Government by military\n3. Lebanon | Severe and prolonged economic depression\n4. Tunisia | Suspension of Parliament by President\nHow many pairs given above are correctly, matched?",
+        options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
+        correctIndex: 2,
+        explanation: "Guinea, Lebanon, and Tunisia are correctly matched. Chad is incorrect regarding Chinese base.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2022_6',
+        year: 2022,
+        subject: 'International Relations',
+        topic: 'Geography & Places',
+        question: "Consider the following pairs:\n\nRegion often mentioned in the news | Country\n1. Anatolia | Turkey\n2. Amhara | Ethiopia\n3. Cabo Delgado | Spain\n4. Catalonia | Italy\nHow many pairs given above are correctly matched?",
+        options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
+        correctIndex: 1,
+        explanation: "Anatolia (Turkey) - Correct. Amhara (Ethiopia) - Correct. Cabo Delgado (Mozambique) - Incorrect. Catalonia (Spain) - Incorrect.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'ir_2022_7',
+        year: 2022,
+        subject: 'International Relations',
+        topic: 'International Organizations',
+        question: "With reference to the “United Nations Credentials Committee”, consider the following statements:\n1. It is a committee set up by the UN Security Council and works under its supervision.\n2. It traditionally meets in March, June and September every year.\n3. It assesses the credentials of all UN members before submitting a report to the General Assembly for approval.\nWhich of the statements given above is/are correct?",
+        options: ["3 only", "1 and 3", "2 and 3", "1 and 2"],
+        correctIndex: 0,
+        explanation: "S1 False (UNGA committee). S2 False (Beginning of GA session). S3 Correct.",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'ir_2022_8',
+        year: 2022,
+        subject: 'International Relations',
+        topic: 'International Law',
+        question: "Which one of the following statements best describes the ‘Polar Code’?",
+        options: ["It is the international code of safety for ships operating in polar waters.", "It is the agreement of the countries around the North Pole regarding the demarcation of their territories in the polar region.", "It is a set of norms to be followed by the countries whose scientists undertake research studies in the North Pole and South Pole.", "It is a trade and security agreement of the member countries of the Arctic Council."],
+        correctIndex: 0,
+        explanation: "Polar Code covers design, construction, equipment, and training for ships in polar waters.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'ir_2022_9',
+        year: 2022,
+        subject: 'International Relations',
+        topic: 'International Organizations',
+        question: "With reference to the United Nations General Assembly, consider the following statements:\n1. The UN General Assembly can grant observer status to the non-member States.\n2. Inter-governmental organisations can seek observer status in the UN General Assembly.\n3. Permanent Observers in the UN General Assembly can maintain missions at the UN headquarters.\nWhich of the statements given above are correct?",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"],
+        correctIndex: 3,
+        explanation: "All statements are correct.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2022_10',
+        year: 2022,
+        subject: 'International Relations',
+        topic: 'International Organizations',
+        question: "Consider the following:\n1. Asian Infrastructure Investment Bank\n2. Missile Technology Control Regime\n3. Shanghai Cooperation Organisation\nIndia is a member of which of the above?",
+        options: ["1 and 2 only", "3 only", "2 and 3 only", "1, 2 and 3"],
+        correctIndex: 3,
+        explanation: "India is a member of all three.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'ir_2022_11',
+        year: 2022,
+        subject: 'International Relations',
+        topic: 'International Economics',
+        question: "Consider the following statements:\n1. Vietnam has been one of the fastest growing economies in the world in the recent years.\n2. Vietnam is led by a multi-party political system.\n3. Vietnam’s economic growth is linked to its integration with global supply chains and focus on exports.\n4. For a long time Vietnam’s low labour costs and stable exchange rates have attracted global manufacturers.\n5. Vietnam has the most productive e-service sector in the Indo-Pacific region.\nWhich of the statements given above are correct?",
+        options: ["2 and 4", "3 and 5", "1, 3 and 4", "1 and 2"],
+        correctIndex: 2,
+        explanation: "Vietnam is a one-party state (S2 False). 1, 3, 4 are correct features.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2022_12',
+        year: 2022,
+        subject: 'International Relations',
+        topic: 'International Organizations',
+        question: "Consider the following statements:\n1. “The Climate Group” is an international non-profit organization that drives climate action by building large networks and runs them.\n2. The International Energy Agency in partnership with the Climate Group launched a global initiative “EP100”.\n3. EP100 brings together leading companies committed to driving innovation in energy efficiency and increasing competitiveness while delivering on emission reduction goals.\n4. Some Indian companies are members of EP100.\n5. The International Energy Agency is the Secretariat to the ‘Under2 Coalition’.\nWhich of the statements given above are correct?",
+        options: ["1, 2, 4 and 5", "1, 3 and 4 only", "2, 3 and 5 only", "1, 2, 3, 4 and 5"],
+        correctIndex: 1,
+        explanation: "S2 False (EP100 is Climate Group + Alliance to Save Energy/others, not IEA). S5 False (Climate Group acts as secretariat).",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'ir_2022_13',
+        year: 2022,
+        subject: 'International Relations',
+        topic: 'International Economics',
+        question: "“Rapid Financing Instrument” and “Rapid Credit Facility” are related to the provisions of lending by which one of the following?",
+        options: ["Asian Development Bank", "International Monetary Fund", "United Nations Environment Programme Finance Initiative", "World Bank"],
+        correctIndex: 1,
+        explanation: "They are IMF lending windows.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2022_14',
+        year: 2022,
+        subject: 'International Relations',
+        topic: 'International Economics',
+        question: "With reference to the “G20 Common Framework”, consider the following statements:\n1. It is an initiative endorsed by the G20 together with the Paris Club.\n2. It is an initiavtive to support Low Income Countries with unsustainable debt.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 2,
+        explanation: "Both statements are correct.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2021
+    {
+        id: 'ir_2021_1',
+        year: 2021,
+        subject: 'International Relations',
+        topic: 'Defence & Security',
+        question: "‘Communications Compatibility and Security Agreement (COMCASA)’, recently seen in news relates to:",
+        options: ["USA", "European Union", "SAARC", "ASEAN"],
+        correctIndex: 0,
+        explanation: "COMCASA is an India-USA foundational defence agreement.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'ir_2021_2',
+        year: 2021,
+        subject: 'International Relations',
+        topic: 'International Organizations',
+        question: "With reference to ‘BIMSTEC’, consider the following:\n1. It is a regional organization comprising seven Member States lying in the littoral and adjacent areas of the Bay of Bengal constituting a contiguous regional unity.\n2. It constitutes seven Member States: five deriving from South Asia, including Bangladesh, Bhutan, India, Nepal, Sri Lanka, and two from Southeast Asia, including Myanmar and Indonesia.\n3. Sri Lanka to host 5th BIMSTEC Summit\nWhich of the above statements is/are correct?",
+        options: ["1 only", "1 and 3 only", "1 and 2 only", "All of the above"],
+        correctIndex: 0,
+        explanation: "S2 False (Thailand, not Indonesia). S3 correct (at that time).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2021_3',
+        year: 2021,
+        subject: 'International Relations',
+        topic: 'International Organizations',
+        question: "With reference to ‘Financial Action Task Force (FATF)’, which of the following statements is/are correct?\n1. India is not a full member of FATF but it has partial membership status of this organization.\n2. All permanent members of the Security Council except China are members of FATF.\nSelect the correct answer using the codes given below.",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 3,
+        explanation: "S1 False (India is full member). S2 False (China is a member).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2021_4',
+        year: 2021,
+        subject: 'International Relations',
+        topic: 'Defence & Security',
+        question: "Exercise Khanjar is a joint military exercise between",
+        options: ["India-Kyrgyzstan", "India-Kazakhstan", "India-Uzbekistan", "India-Turkmenistan"],
+        correctIndex: 0,
+        explanation: "Khanjar is India-Kyrgyzstan.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'ir_2021_5',
+        year: 2021,
+        subject: 'International Relations',
+        topic: 'International Organizations',
+        question: "Consider the following statements about the Shanghai Cooperation Organisation:\n1. It is an intergovernmental organization to promote cooperation in trade, politics, and culture.\n2. The Anti-Terrorist structure of SCO is located in Beijing.\nWhich of the above statement is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 0,
+        explanation: "RATS is in Tashkent, Uzbekistan.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2020
+    {
+        id: 'ir_2020_1',
+        year: 2020,
+        subject: 'International Relations',
+        topic: 'International Agreements',
+        question: "Consider the following pairs:\n\nInternational agreement/ set-up | Subject\n1. Alma-Ata Declaration | Healthcare of the people\n2. Hague Convention | Biological and Chemical Weapons\n3. Talanoa Dialogue | Global Climate Change\n4. Under2 Coalition | Child Rights\nWhich of the pairs given above is/are correctly matched?",
+        options: ["1 and 2 only", "4 only", "1 and 3 only", "2, 3 and 4 only"],
+        correctIndex: 2,
+        explanation: "1 and 3 are correct. Under2 is Climate. Hague is not Bio Weapons.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2020_2',
+        year: 2020,
+        subject: 'International Relations',
+        topic: 'International Economics',
+        question: "Consider the following statements\n1. The value of Indo-Sri Lanka Trade has consistently increased in the last decade.\n2. “Textile and textile articles constitute an important item of trade between India and Bangladesh\n3. In the last five years, Nepal has been the largest trading partner of India in South Asia\nWhich of the statements given above is/are correct?",
+        options: ["1 and 2 only", "2 only", "3 only", "1 ,2, and 3"],
+        correctIndex: 1,
+        explanation: "S1 False (not consistent). S3 False (Bangladesh is largest).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2020_3',
+        year: 2020,
+        subject: 'International Relations',
+        topic: 'International Organizations',
+        question: "In which one of the following groups are all the four countries members of G20?",
+        options: ["Argentina Mexico, South Africa and Turkey.", "Australia Canada, Malaysia and New Zealand", "Brazil, Iran, Saudi Arabia and Vietnam", "Indonesia Japan Singapore and South Korea"],
+        correctIndex: 0,
+        explanation: "All 4 in option A are G20 members.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'ir_2020_4',
+        year: 2020,
+        subject: 'International Relations',
+        topic: 'International Economics',
+        question: "The term ‘West Taxes Intermediate’, sometimes found in news to a grade of",
+        options: ["Crude oil", "Bullion", "Rare earth elements", "Uranium"],
+        correctIndex: 0,
+        explanation: "WTI is a grade of Crude Oil.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+
+    // 2019
+    {
+        id: 'ir_2019_1',
+        year: 2019,
+        subject: 'International Relations',
+        topic: 'Global Indices',
+        question: "The Global Competitiveness Report is published by the:",
+        options: ["International Monetary Fund", "United Nations Conference on Trade and Development", "World Economic Forum", "World Bank"],
+        correctIndex: 2,
+        explanation: "The Global Competitiveness Report (GCR) is a yearly report published by the World Economic Forum (WEF).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2019_2',
+        year: 2019,
+        subject: 'International Relations',
+        topic: 'International Organizations',
+        question: "With reference to Asian Infrastructure Investment Bank (AIIB), consider the following statements:\n1. AIIB has more than 80 member nations.\n2. India is the largest shareholder in AIIB.\n3. AIIB does not have any members from outside Asia.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"],
+        correctIndex: 0,
+        explanation: "AIIB has over 100 members. China is the largest shareholder (~30%), followed by India (~8%). It includes many non-regional members from outside Asia (e.g., Canada, Germany).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2018
+    {
+        id: 'ir_2018_1',
+        year: 2018,
+        subject: 'International Relations',
+        topic: 'Middle East Affairs',
+        question: "The term 'two-state solution' is sometimes mentioned in the news in the context of the affairs of:",
+        options: ["China", "Israel", "Iraq", "Yemen"],
+        correctIndex: 1,
+        explanation: "The two-state solution is the proposed framework for resolving the Israeli-Palestinian conflict by establishing an independent State of Palestine alongside the State of Israel.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2018_2',
+        year: 2018,
+        subject: 'International Relations',
+        topic: 'International Treaties',
+        question: "International Labour Organization’s Conventions 138 and 182 are related to:",
+        options: ["Child labour", "Adaptation of agriculture practices to global climate change", "Regulation of food prices and food security", "Gender parity at the workplace"],
+        correctIndex: 0,
+        explanation: "Convention 138 relates to the Minimum Age for employment, and Convention 182 relates to the Worst Forms of Child Labour.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2017
+    {
+        id: 'ir_2017_1',
+        year: 2017,
+        subject: 'International Relations',
+        topic: 'Security Cooperation',
+        question: "Consider the following in respect of Indian Ocean Naval Symposium (IONS):\n1. Inaugural IONS was held in India in 2015 under the chairmanship of the Indian Navy.\n2. IONS is a voluntary initiative that seeks to increase maritime co-operation among navies of the littoral states of the Indian Ocean Region.\nWhich of the above statements is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 1,
+        explanation: "The inaugural IONS was held in New Delhi, India, in 2008, not 2015. It is indeed a voluntary initiative for maritime cooperation in the IOR.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2016
+    {
+        id: 'ir_2016_1',
+        year: 2016,
+        subject: 'International Relations',
+        topic: 'Regional Conflicts',
+        question: "Community sometimes mentioned in the news in the affairs of:\n1. Kurd : Bangladesh\n2. Madhesi : Nepal\n3. Rohingya : Myanmar\nWhich of the pairs given above is/are correctly matched?",
+        options: ["1 and 2", "2 only", "2 and 3", "3 only"],
+        correctIndex: 2,
+        explanation: "Kurds are primarily in the Middle East (Turkey, Iraq, Syria, Iran). Madhesis are in Nepal, and Rohingya are in Myanmar.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2015
+    {
+        id: 'ir_2015_1',
+        year: 2015,
+        subject: 'International Relations',
+        topic: 'BRICS',
+        question: "The 'Fortaleza Declaration' recently in the news, is related to the affairs of:",
+        options: ["ASEAN", "BRICS", "OECD", "WTO"],
+        correctIndex: 1,
+        explanation: "The Fortaleza Declaration was signed at the 6th BRICS summit in 2014, leading to the creation of the New Development Bank (NDB).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2014
+    {
+        id: 'ir_2014_1',
+        year: 2014,
+        subject: 'International Relations',
+        topic: 'Regional Uprisings',
+        question: "Recently, a series of uprisings of people referred to as 'Arab Spring' originally started from:",
+        options: ["Egypt", "Lebanon", "Syria", "Tunisia"],
+        correctIndex: 3,
+        explanation: "The Arab Spring began in Tunisia in December 2010 with the self-immolation of Mohamed Bouazizi.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2012
+    {
+        id: 'ir_2012_1',
+        year: 2012,
+        subject: 'International Relations',
+        topic: 'Sustainable Development',
+        question: "The 'Rio+20' conference is the short name for the United Nations Conference on:",
+        options: ["Sustainable Development", "Environment and Development", "Human Environment", "Climate Change"],
+        correctIndex: 0,
+        explanation: "Rio+20 was the UN Conference on Sustainable Development (UNCSD) held in Brazil in 2012.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2011
+    {
+        id: 'ir_2011_1',
+        year: 2011,
+        subject: 'International Relations',
+        topic: 'Nuclear Treaties',
+        question: "The 'New START' treaty was in the news. What is this treaty?",
+        options: [
+            "It is a bilateral strategic nuclear arms reduction treaty between the USA and the Russian Federation",
+            "It is a multilateral energy security cooperation treaty among the members of the G20",
+            "It is a treaty between the Russian Federation and the European Union for the energy security",
+            "It is a treaty between the USA and China for the trade security"
+        ],
+        correctIndex: 0,
+        explanation: "New START (Strategic Arms Reduction Treaty) is a nuclear arms reduction treaty between the United States and the Russian Federation.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    }
+];

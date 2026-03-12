@@ -1,4 +1,4 @@
-import { MCQ } from '../types';
+import { MCQ } from './mcq-utils';
 
 export const day67Mcqs: MCQ[] = [
   {
@@ -10,7 +10,7 @@ export const day67Mcqs: MCQ[] = [
       "Philately",
       "Demography"
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "Psephology is the statistical study of elections and trends in voting.",
     "level": "Easy",
     "chapter": "Voting Behaviour"
@@ -24,7 +24,7 @@ export const day67Mcqs: MCQ[] = [
       "Foreign Policy",
       "Environmental issues"
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "Caste remains a deep-seated and pervasive factor in Indian voting behaviour, particularly in rural constituencies.",
     "level": "Easy",
     "chapter": "Voting Behaviour"
@@ -38,7 +38,7 @@ export const day67Mcqs: MCQ[] = [
       "Votes only for the winner.",
       "Never votes."
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "A committed voter is one whose loyalty to a party is fixed by ideology or tradition, and who remains relatively unaffected by shifting campaigns or candidates.",
     "level": "Easy",
     "chapter": "Voting Behaviour"
@@ -52,7 +52,7 @@ export const day67Mcqs: MCQ[] = [
       "The legal right of a minister to vote.",
       "The use of government machinery by the ruling party."
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "While 'incumbency' refers to holding office, in the Indian context, the 'anti-incumbency' effect is very common, where voters often vote against the sitting government due to dissatisfaction.",
     "level": "Easy",
     "chapter": "Voting Behaviour"
@@ -66,7 +66,7 @@ export const day67Mcqs: MCQ[] = [
       "Fiscal Deficit",
       "Space Research"
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "Religion and communal identities have often acted as potent emotional triggers in Indian electoral mobilization.",
     "level": "Easy",
     "chapter": "Voting Behaviour"
@@ -80,7 +80,7 @@ export const day67Mcqs: MCQ[] = [
       "Women being barred from contesting.",
       "The number of women in the Cabinet."
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "The gender gap typically refers to the difference in turnout between male and female voters.",
     "level": "Easy",
     "chapter": "Voting Behaviour"
@@ -94,7 +94,7 @@ export const day67Mcqs: MCQ[] = [
       "2000s",
       "1960s"
     ],
-    "answer": 2,
+    "correctAnswer": 2,
     "explanation": "The 2000s saw a shift in several states towards 'performance-based' or developmental voting, often termed 'Vikas' politics.",
     "level": "Easy",
     "chapter": "Voting Behaviour"
@@ -108,7 +108,7 @@ export const day67Mcqs: MCQ[] = [
       "1996 and 1998",
       "All elections are waves"
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "Elections in 1971 (Indira wave), 1984 (Sympathy/Rajiv wave), and 2014 (Modi wave) are classic examples where charismatic leadership defined the outcome.",
     "level": "Easy",
     "chapter": "Voting Behaviour"
@@ -122,7 +122,7 @@ export const day67Mcqs: MCQ[] = [
       "Only in Union Territories",
       "It has no influence"
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "Linguistic identity is a major factor in South Indian states and the North-East, often driving regional party formations.",
     "level": "Easy",
     "chapter": "Voting Behaviour"
@@ -136,7 +136,7 @@ export const day67Mcqs: MCQ[] = [
       "Votes while travelling on a boat.",
       "Votes for two parties at once."
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "Floating voters are those who do not have a fixed party allegiance and make their choice based on the prevailing situation or campaign promises.",
     "level": "Easy",
     "chapter": "Voting Behaviour"
@@ -150,7 +150,7 @@ export const day67Mcqs: MCQ[] = [
       "Political parties form alliances based on caste equations (e.g., social engineering).",
       "All of the above."
     ],
-    "answer": 3,
+    "correctAnswer": 3,
     "explanation": "Caste influences elections through candidate selection, voter preference, and the strategic formation of socio-political alliances.",
     "level": "Moderate",
     "chapter": "Voting Behaviour"
@@ -164,7 +164,7 @@ export const day67Mcqs: MCQ[] = [
       "The increase in the price of gold.",
       "The use of social media for the first time in 1951."
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "Identity politics involves political mobilization based on the interests and perspectives of social groups defined by specific identity markers.",
     "level": "Moderate",
     "chapter": "Voting Behaviour"
@@ -178,7 +178,7 @@ export const day67Mcqs: MCQ[] = [
       "Sells their vote for a high price.",
       "Votes for all candidates on the ballot."
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "Tactical voting is a strategic choice made to ensure a preferred outcome (or prevent a worse one) when the voter's absolute favorite has little chance of winning.",
     "level": "Moderate",
     "chapter": "Voting Behaviour"
@@ -192,7 +192,7 @@ export const day67Mcqs: MCQ[] = [
       "It has reduced the voter turnout.",
       "It has made the role of regional parties irrelevant."
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "As literacy increases, voters tend to evaluate governments based on performance, services, and developmental outcomes rather than just traditional identities.",
     "level": "Moderate",
     "chapter": "Voting Behaviour"
@@ -206,7 +206,7 @@ export const day67Mcqs: MCQ[] = [
       "Threatening the voters.",
       "Listing the personal assets of the party leader."
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "A manifesto is a public declaration of policy and aims, issued before an election, intended to win voter support through concrete promises.",
     "level": "Moderate",
     "chapter": "Voting Behaviour"
@@ -220,7 +220,7 @@ export const day67Mcqs: MCQ[] = [
       "Men losing interest in voting.",
       "The abolition of the secret ballot."
     ],
-    "answer": 0,
+    "correctAnswer": 0,
     "explanation": "Rising female turnout and 'labharthi' (beneficiary) politics targeted at women have made them a crucial and independent voting segment.",
     "level": "Moderate",
     "chapter": "Voting Behaviour"
@@ -234,7 +234,7 @@ export const day67Mcqs: MCQ[] = [
       "Accessibility and performance of the local MLA",
       "The name of the Prime Minister"
     ],
-    "answer": 2,
+    "correctAnswer": 2,
     "explanation": "In state-level assembly elections, local issues and the direct accessibility of the candidate (MLA) are more significant than in national parliamentary polls.",
     "level": "Moderate",
     "chapter": "Voting Behaviour"
@@ -248,7 +248,7 @@ export const day67Mcqs: MCQ[] = [
       "Investing in the Stock Market.",
       "Reducing the income tax for everyone."
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "Immediate distributive measures on the eve of elections are often used to sway undecided or poor voters, despite being illegal under the MCC.",
     "level": "Moderate",
     "chapter": "Voting Behaviour"
@@ -262,7 +262,7 @@ export const day67Mcqs: MCQ[] = [
       "Third Estate",
       "Fourth Estate"
     ],
-    "answer": 3,
+    "correctAnswer": 3,
     "explanation": "The press (and now digital media) is traditionally referred to as the 'Fourth Estate' due to its power to shape public opinion and hold the state accountable.",
     "level": "Moderate",
     "chapter": "Voting Behaviour"
@@ -276,7 +276,7 @@ export const day67Mcqs: MCQ[] = [
       "Only if there is a war.",
       "It is the only factor considered."
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "Issues like national security and foreign policy are usually 'low-salience' for rural voters, who prioritize 'bijli-sadak-pani' and agrarian concerns.",
     "level": "Moderate",
     "chapter": "Voting Behaviour"
@@ -290,7 +290,7 @@ export const day67Mcqs: MCQ[] = [
       "1 and 3 only",
       "1, 2, and 3"
     ],
-    "answer": 2,
+    "correctAnswer": 2,
     "explanation": "Statement 2 is incorrect. The EC bans 'Exit Polls' during the polling period, but 'Opinion Polls' are restricted only for 48 hours ending with the conclusion of the poll.",
     "level": "Hard",
     "chapter": "Voting Behaviour"
@@ -304,7 +304,7 @@ export const day67Mcqs: MCQ[] = [
       "Are physically unable to speak.",
       "Vote only through postal ballots."
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "Silent voters are those who keep their political preference private, often leading to surprises in survey outcomes or 'waves' that were not captured by polls.",
     "level": "Hard",
     "chapter": "Voting Behaviour"
@@ -318,7 +318,7 @@ export const day67Mcqs: MCQ[] = [
       "Development has no impact on voting.",
       "Only religious issues matter in cities."
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "Voters are increasingly sophisticated, often rewarding a party at the national level while punishing it at the state level (or vice versa) based on performance.",
     "level": "Hard",
     "chapter": "Voting Behaviour"
@@ -332,7 +332,7 @@ export const day67Mcqs: MCQ[] = [
       "A is true but R is false.",
       "A is false but R is true."
     ],
-    "answer": 0,
+    "correctAnswer": 0,
     "explanation": "In India, caste status often aligns with economic standing, so demands for 'Social Justice' encompass both identity recognition and economic redistribution.",
     "level": "Hard",
     "chapter": "Voting Behaviour"
@@ -346,7 +346,7 @@ export const day67Mcqs: MCQ[] = [
       "1 and 3 only",
       "1, 2, and 3"
     ],
-    "answer": 3,
+    "correctAnswer": 3,
     "explanation": "Modern elections are heavily influenced by algorithmic targeting, social media echo chambers, and the use of influencers to shape voter perception.",
     "level": "Hard",
     "chapter": "Voting Behaviour"
@@ -360,7 +360,7 @@ export const day67Mcqs: MCQ[] = [
       "Urban turnout is always 100%.",
       "There is no difference in their concerns."
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "Urban and rural electorates have distinct priorities: urban voters emphasize ease of living and services, while rural voters focus on agriculture and community ties.",
     "level": "Hard",
     "chapter": "Voting Behaviour"
@@ -374,7 +374,7 @@ export const day67Mcqs: MCQ[] = [
       "The 1975 Emergency history.",
       "Re-introduction of the monarchy."
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "Youth voters are less bound by traditional loyalties and are highly focused on 'aspirational' issues like jobs, education, and the digital future.",
     "level": "Hard",
     "chapter": "Voting Behaviour"
@@ -388,7 +388,7 @@ export const day67Mcqs: MCQ[] = [
       "Moving the polling booth to the North Pole.",
       "Encouraging everyone to pray before voting."
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "Polarization is a strategy used to sharpen social divisions, ensuring that the majority or minority votes as a consolidated block.",
     "level": "Hard",
     "chapter": "Voting Behaviour"
@@ -402,7 +402,7 @@ export const day67Mcqs: MCQ[] = [
       "Candidates traveling in a wagon to campaign.",
       "A ban on all political rallies."
     ],
-    "answer": 0,
+    "correctAnswer": 0,
     "explanation": "The 'Bandwagon Effect' occurs when voters flock to a candidate or party simply because they appear to be leading or are perceived as the inevitable winner.",
     "level": "Hard",
     "chapter": "Voting Behaviour"
@@ -416,9 +416,10 @@ export const day67Mcqs: MCQ[] = [
       "Replacing the Election Commission with a computer.",
       "Forcing people to vote through their smartwatches."
     ],
-    "answer": 1,
+    "correctAnswer": 1,
     "explanation": "Algorithm-driven campaigning uses big data and AI to personalize political messages, effectively targeting individual psychological profiles.",
     "level": "Hard",
     "chapter": "Voting Behaviour"
   }
 ];
+

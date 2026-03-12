@@ -1,0 +1,1149 @@
+import { PYQQuestion } from '@/lib/pyq/pyq-types';
+
+export const HISTORY_PYQS: PYQQuestion[] = [
+    // 2024
+    {
+        id: 'hist_2024_1',
+        year: 2024,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "Which one of the following is a work attributed to playwright Bhasa?",
+        options: ["Kavyalankara", "Natyashastra", "Madhyama vyayoga", "Mahabhashya"],
+        correctIndex: 2,
+        explanation: "Bhasa (circa 2nd-3rd century CE) is one of the earliest known Sanskrit playwrights. 'Madhyama-vyayoga' (The Middle One) is a one-act play attributed to him. 'Kavyalankara' is by Bhamaha, 'Natyashastra' by Bharata Muni, and 'Mahabhashya' by Patanjali.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2024_2',
+        year: 2024,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "Sanghabhuti, an Indian Buddhist monk, who travelled to China at the end of the fourth century AD, was the author of a commentary on:",
+        options: ["Prajnaparamita Sutra", "Visuddhimagga", "Sarvastivada Vinaya", "Lalitavistara"],
+        correctIndex: 2,
+        explanation: "Sanghabhuti (or Sanghadeva) was a Kashmir monk who traveled to China in 381 AD. He translated the Sarvastivada Vinaya (Monastic Rules) and wrote a commentary on it.",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'hist_2024_3',
+        year: 2024,
+        subject: 'History',
+        topic: 'Art & Culture',
+        question: "Consider the following properties included in the World Heritage List released by UNESCO:\n1. Shantiniketan\n2. Rani-ki-Vav\n3. Sacred Ensembles of the Hoysalas\n4. Mahabodhi Temple Complex at Bodhgaya\nHow many of the above properties were included in 2023?",
+        options: ["Only one", "Only two", "Only three", "All four"],
+        correctIndex: 1,
+        explanation: "In 2023, Shantiniketan (West Bengal) and the Sacred Ensembles of the Hoysalas (Karnataka) were added to the UNESCO World Heritage List. Rani-ki-Vav was added in 2014, and Mahabodhi Temple in 2002.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2024_4',
+        year: 2024,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "With reference to ancient India, Gautama Buddha was generally known by which of the following epithets?\n1. Nayaputta\n2. Shakyamuni\n3. Tathagata\nSelect the correct answer using the code given below:",
+        options: ["1 only", "2 and 3 only", "1, 2 and 3", "None of the above are epithets of Gautama Buddha"],
+        correctIndex: 1,
+        explanation: "'Nayaputta' refers to Nigantha Nataputta (Mahavira). Shakyamuni (Sage of the Shakyas) and Tathagata (One who has thus gone) are well-known epithets of Gautama Buddha.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'hist_2024_5',
+        year: 2024,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "Consider the following information –> Archaeological Site: State Description\n1. Salihundam - Andhra Pradesh - Rock-cut cave shrines\n2. Chandraketugarh - Odisha - Trading Port town\n3. Inamgaon - Maharashtra - Chalcolithic site\n4. Mangadu - Kerala - Megalithic site\nIn which of the above rows is the given information correctly matched?",
+        options: ["1 and 2", "2 and 3", "3 and 4", "1 and 4"],
+        correctIndex: 2,
+        explanation: "1: Salihundam (AP) is famous for Stupas, not primarily rock-cut caves. 2: Chandraketugarh is in West Bengal, not Odisha (though it was a port). 3: Inamgaon (Maharashtra) is a major Chalcolithic settlement. 4: Mangadu (Kerala) has Megalithic urn burials. Thus, 3 and 4 are correct matches.",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'hist_2024_6',
+        year: 2024,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "Consider the following statements:\n1. There are parables in Upanishads.\n2. Upanishads were composed earlier than the Puranas\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither I nor 2"],
+        correctIndex: 2,
+        explanation: "1: Upanishads (e.g., Chandogya, Kena) contain parables/stories (Yakshopkhyana, Satyakama Jabala). 2: Principal Upanishads generally date 800-500 BCE, while Puranas reached their classical form in the Gupta period (300-600 CE).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2024_7',
+        year: 2024,
+        subject: 'History',
+        topic: 'Art & Culture',
+        question: "Which one of the following was the latest inclusion in the Intangible Cultural Heritage List of UNESCO?",
+        options: ["Chhau dance", "Durga puja", "Garba dance", "Kumbh mela"],
+        correctIndex: 2,
+        explanation: "'Garba of Gujarat' was inscribed on the UNESCO Representative List of the Intangible Cultural Heritage of Humanity in 2023. Durga Puja was 2021, Kumbh Mela 2017, Chhau 2010.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'hist_2024_8',
+        year: 2024,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "With reference to the Indian freedom struggle, consider the following statements regarding the 'Royal Indian Navy Mutiny' of 1946:\n1. It was triggered by the general service conditions and racial discrimination.\n2. The mutineers surrendered after the mediation of Vallabhbhai Patel and M.A. Jinnah.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 2,
+        explanation: "The RIN Mutiny was triggered by poor conditions and racial slurs. It ended after political leaders like Patel and Jinnah persuaded them to surrender.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2024_9',
+        year: 2024,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Who of the following rulers of medieval India gave permission to the Portuguese to build a fort at Bhatkal?",
+        options: ["Krishnadevaraya", "Narasimha Saluva", "Muhammad Shah III", "Yusuf Adil Shah"],
+        correctIndex: 0,
+        explanation: "Krishnadevaraya gave permission to the Portuguese (Albuquerque) to build a fort at Bhatkal in 1510.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2023
+    {
+        id: 'hist_2023_1',
+        year: 2023,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "In which one of the following regions was Dhanyakataka, which flourished as a prominent Buddhist centre under the Mahasanghikas, located?",
+        options: ["Andhra", "Gandhara", "Kalinga", "Magadha"],
+        correctIndex: 0,
+        explanation: "Dhanyakataka (modern Dharanikota/Amaravati) is in Andhra Pradesh and was a major Buddhist centre under the Satavahanas.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2023_2',
+        year: 2023,
+        subject: 'History',
+        topic: 'Art & Culture',
+        question: "With reference to ancient India, consider the following statements :\n1. The concept of Stupa is Buddhist in origin.\n2. Stupa was generally a repository of relics.\n3. Stupa was a votive and commemorative structure in Buddhist tradition.\nHow many of the statements given above are correct?",
+        options: ["Only one", "Only two", "All three", "None"],
+        correctIndex: 1,
+        explanation: "Statement 1 is incorrect: The concept of Stupa (mound burial/Hiranya Stupa) existed in Rigvedic times and pre-Buddhist traditions. S2 and S3 are correct.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2023_3',
+        year: 2023,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "With reference to ancient South India, Korkai, Poompuhar and Muchiri were well known as",
+        options: ["capital cities", "ports", "centres of iron-and-steel making", "shrines of Jain Tirthankaras"],
+        correctIndex: 1,
+        explanation: "Korkai (Pandya), Poompuhar (Chola), and Muchiri (Chera) were celebrated ancient ports.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'hist_2023_4',
+        year: 2023,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "Which one of the following explains the practice of ‘Vattakirutal’ as mentioned in Sangam poems?",
+        options: ["Kings employing women body guards", "Learned persons assembling in royal courts to discuss religious and philosophical matters", "Young girls keeping watch over agricultural fields and driving away birds and animals", "A king defeated in a battle committing ritual suicide by starving himself to death"],
+        correctIndex: 3,
+        explanation: "Vattakirutal was a Sangam age practice where a defeated king would commit ritual suicide by starving, facing North.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2023_5',
+        year: 2023,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "With reference to ancient Indian History, consider the following pairs :\nLiterary work | Author\n1. Deuichandragupta | Bilhana\n2. Hammira-Mahakauya | Nayachandra Suri\n3. Milinda-panha | Nagarjuna\n4. Nitivakyamrita | Somadeva Suri\nHow many of the above pairs are correctly matched?",
+        options: ["Only one", "Only two", "Only three", "All four"],
+        correctIndex: 1,
+        explanation: "1 is incorrect (Visakhadatta). 2 is correct (Nayachandra Suri). 3 is incorrect (Nagasena). 4 is correct (Somadeva Suri). Two pairs match.",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'hist_2023_6',
+        year: 2023,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "“Souls are not only the property of animal and plant life, but also of rocks, running water and many other natural objects not looked on as living by other religious sects.” The above statement reflects one of the core beliefs of which one of the following religious sects of ancient India?",
+        options: ["Buddhism", "Jainism", "Shaivism", "Vaishnavism"],
+        correctIndex: 1,
+        explanation: "Jainism believes in 'Jiva' (soul) existing in all things, including stones, water, and wind (Hylozoism).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2023_7',
+        year: 2023,
+        subject: 'History',
+        topic: 'Art & Culture',
+        question: "Consider the following pairs :\nSite | Well known for\n1. Besnagar | Shaivite cave shrine\n2. Bhaja | Buddhist cave shrine\n3. Sittanavasal | Jain cave shrine\nHow many of the above pairs are correctly matched?",
+        options: ["Only one", "Only two", "All three", "None"],
+        correctIndex: 1,
+        explanation: "1 is incorrect: Besnagar (Vidisha) is famous for the Heliodorus Pillar (Vaishnavite/Bhagavata). 2 is correct. 3 is correct. Two pairs.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2023_8',
+        year: 2023,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "Which of the following dynasties established the kingdom of 'Vijayayanagara'?",
+        options: ["Sangama Dynasty", "Suluva Dynasty", "Tuluva Dynasty", "Aravidu Dynasty"],
+        correctIndex: 0,
+        explanation: "The Vijayanagara Empire was founded by Harihara I and Bukka Raya I of the Sangama Dynasty in 1336.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'hist_2023_9',
+        year: 2023,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Consider the following dynasties:\n1. Hoysala\n2. Gahadavala\n3. Kakatiya\n4. Yadava\nHow many of the above dynasties established their kingdoms in early eighth century AD?",
+        options: ["Only one", "Only two", "Only three", "None"],
+        correctIndex: 3,
+        explanation: "None of these dynasties were established in the early 8th century (700s AD). They rose in the 10th-12th centuries.",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'hist_2023_10',
+        year: 2023,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Who among the following rulers of Vijayanagara Empire constructed a large dam across Tungabhadra River and a canal-cum-aqueduct several kilometres long from the river to the capital city?",
+        options: ["Devaraya I", "Mallikarjuna", "Vira Vijaya", "Virupaksha"],
+        correctIndex: 0,
+        explanation: "Devaraya I constructed a dam across the Tungabhadra river to bring a canal into the city.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2023_11',
+        year: 2023,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Who among the following rulers of medieval Gujarat surrendered Diu to Portuguese?",
+        options: ["Ahmad Shah", "Mahmud Begarha", "Bahadur Shah", "Muhammad Shah"],
+        correctIndex: 2,
+        explanation: "Bahadur Shah surrendered Diu to the Portuguese by the Treaty of Bassein (1534).",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+
+    // 2022
+    {
+        id: 'hist_2022_1',
+        year: 2022,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "According to Kautilya’s Arthashastra, which of the following are correct?\n1. A person could be a slave as a result of a judicial punishment.\n2. If a female slave bore her master a son, she was legally free.\n3. If a son born to a female slave was fathered by her master, the son was entitled to the legal status of the master’s son.\nWhich of the statements given above are correct?",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"],
+        correctIndex: 3,
+        explanation: "Arthashastra allows slavery by judicial decree (Dandadasa). It also states that if a Dasi bears a son to the master, she and the child are free, and the son gets legal status.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2022_2',
+        year: 2022,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "With reference to Indian history, consider the following pairs:\nHistorical person | Known as\n1. Aryadeva | Jaina scholar\n2. Dignaga | Buddhist scholar\n3. Nathamuni | Vaishnava scholar\nHow many pairs given above are correctly matched ?",
+        options: ["None of the pairs", "Only one pair", "Only two pairs", "All three pairs"],
+        correctIndex: 2,
+        explanation: "1 is incorrect: Aryadeva was a Buddhist scholar (Madhyamaka). 2 is correct (Logician). 3 is correct (Vishishtadvaita precursor). Two pairs.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2022_3',
+        year: 2022,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "With reference to Indian history, consider the following texts:\n1. Nettipakarana\n2. Parishishtaparvan\n3. Avadanashataka\n4. Trishashtilakshana Mahapurana\nWhich of the above are Jaina texts",
+        options: ["1, 2 and 3", "2 and 4 only", "1, 3 and 4", "2, 3 and 4"],
+        correctIndex: 1,
+        explanation: "Nettipakarana and Avadanashataka are Buddhist texts. Parishishtaparvan (Hemachandra) and Trishashtilakshana Mahapurana (Jinasena/Gunabhadra) are Jain texts.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2022_4',
+        year: 2022,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "Consider the following pairs:\nSite of Ashoka’s major rock edicts | Location in the State of\n1. Dhauli | Odisha\n2. Erragudi | Andhra Pradesh\n3. Jaugada | Madhya Pradesh\n4. Kalsi | Karnataka\nHow many pairs given above are correctly matched?",
+        options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
+        correctIndex: 1,
+        explanation: "Dhauli (Odisha) - Match. Erragudi (AP) - Match. Jaugada (Odisha, not MP). Kalsi (Uttarakhand, not Karnataka). Two pairs correct.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2022_5',
+        year: 2022,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "Which one of the following statements about Sangam literature in ancient South India is correct?",
+        options: ["Sangam poems are devoid of any reference to material culture.", "The social classification of Varna was known to Sangam poets.", "Sangam poems have no reference to warrior ethic.", "Sangam literature refers to magical forces as irrational."],
+        correctIndex: 1,
+        explanation: "Sangam literature does mention the four-fold Varna system (Arasar, Antanar, Vanikar, Vellalar), although it wasn't as rigid as in the north.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2022_6',
+        year: 2022,
+        subject: 'History',
+        topic: 'Art & Culture',
+        question: "The Prime Minister recently inaugurated the new Circuit House near Somnath Temple Veraval. Which of the following statements are correct regarding Somnath Temple?\n1. Somnath Temple is one of the Jyotirlinga shrines.\n2. A description of Somnath Temple was given by Al-Biruni.\n3. Pran Pratishtha of Somnath Temple (installation of the present day temple) was done by President S. Radhakrishnan.\nSelect the correct answer using the code given below:",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"],
+        correctIndex: 0,
+        explanation: "Statements 1 and 2 are correct. Statement 3 is incorrect; the Pran Pratishtha was done by President Dr. Rajendra Prasad in 1951.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'hist_2022_7',
+        year: 2022,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "With reference to the 'Fanam' in medieval India, what was it?",
+        options: ["A measure of land", "A type of coin", "A religious sect", "A judicial officer"],
+        correctIndex: 1,
+        explanation: "Fanam was a small gold or silver coin used in Southern India during the medieval period.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2022_8',
+        year: 2022,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "With reference to Indian history, consider the following statements:\n1. The first Mongol invasion of India happened during the reign of Jalal-ud-din Khalji.\n2. During the reign of Ala-ud-din Khalji, one Mongol assault marched up to Delhi and besieged the city.\n3. Muhammad-bin-Tughlaq temporarily lost portions of north-west of his kingdom to Mongols.\nWhich of the statements given above is/are correct?",
+        options: ["1 and 2", "2 only", "1 and 3", "3 only"],
+        correctIndex: 1,
+        explanation: "S1 False (First invasion was earlier, e.g., 1221 or 1241). S2 Correct (Targhi, 1303). S3 False/Debatable (MBT faced invasion but didn't lose territory permanently). Official Key likely '2 only'.",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'hist_2022_9',
+        year: 2022,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "With reference to Indian history, who of the following were known as “Kulah-Daran”?",
+        options: ["Arab merchants", "Qalandars", "Persian calligraphists", "Sayyids"],
+        correctIndex: 3,
+        explanation: "Sayyids were known as Kulah-Daran (Wearers of the pointed cap or Kulah).",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'hist_2022_10',
+        year: 2022,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Consider the following pairs:\n\nKing - Dynasty\n1. Nannuka - Chandela\n2. Jayashakti - Paramara\n3. Nagabhata II - Gurjara-Pratihara\n4. Bhoja - Rashtrakuta\nHow many pairs given above are correctly matched?",
+        options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
+        correctIndex: 1,
+        explanation: "1 and 3 are correct. Jayashakti was Chandela. Bhoja was Pratihara/Paramara (not Rashtrakuta).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2022_11',
+        year: 2022,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "“Yogavãsistha” was translated into Persian by Nizamuddin Panipati during the reign of:",
+        options: ["Akbar", "Humayun", "Shahjahan", "Aurangzeb"],
+        correctIndex: 0,
+        explanation: "It was translated during Akbar's reign.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2022_12',
+        year: 2022,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "The world’s second tallest statue in sitting pose of Ramanuja was inaugurated by the Prime Minister of India at Hyderabad recently. Which one of the following statements correctly represents the teachings of Ramanuja?",
+        options: ["The best means of salvation was devotion.", "Vedas are eternal, self-existent and wholly authoritative.", "Logical arguments were meant for the highest bliss.", "Salvation was to be obtained through meditation."],
+        correctIndex: 0,
+        explanation: "Ramanuja (Vishishtadvaita) emphasized Bhakti (Devotion) as the means to salvation.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+
+    // 2021
+    {
+        id: 'hist_2021_1',
+        year: 2021,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "Which one of the following ancient towns is well known for its elaborate system of water harvesting and management by building a series of dams and channelising water into connected reservoirs?",
+        options: ["Dholavira", "Kalibangan", "Rakhigarhi", "Ropar"],
+        correctIndex: 0,
+        explanation: "Dholavira (Gujarat) is famous for its unique water management system, including dams and reservoirs.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'hist_2021_2',
+        year: 2021,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "From the decline of Guptas until the rise of Harshavardhana in the early seventh century, which of the following kingdoms were holding power in Northern India?\n1. The Guptas of Magadha\n2. The Paramaras of Malwa\n3. The Pushyabhutis of Thanesar\n4. The Maukharis of Kanauj\n5. The Yadavas of Devagiri\n6. The Maitrakas of Valabhi\nSelect the correct answer using the code given below:",
+        options: ["1, 2 and 5", "1, 3, 4 and 6", "2, 3 and 4", "5 and 6"],
+        correctIndex: 1,
+        explanation: "Kingdoms in this period: Guptas of Magadha (Later Guptas), Maukharis of Kanauj, Pushyabhutis of Thanesar, Maitrakas of Valabhi. Paramaras and Yadavas came much later (Early Medieval).",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'hist_2021_3',
+        year: 2021,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "With reference to the history of ancient India, which of the following statements is/are correct?\n1. Mitakshara was the civil law for upper castes and Dayabhaga was the civil law for lower castes.\n2. In the Mitakshara system, the sons can claim the right to the property during the lifetime of the father, whereas in the Dayabhaga system, it is only after the death of the father that the sons can claim the right to the property.\n3. The Mitakshara system deals with matters related to the property held by male members only of a family, whereas the Dayabhaga system deals with the matters related to the property held by both male and female members of a family.\nSelect the correct answer using the code given below:",
+        options: ["1 and 2", "2 only", "1 and 3", "3 only"],
+        correctIndex: 1,
+        explanation: "Statement 1 is false (geographical difference). Statement 2 is correct (Birthright vs Succession). Statement 3 is false.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2021_4',
+        year: 2021,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "With reference to the history of ancient India, Bhavabhuti, Hastimalla and Kshemeshvara were famous",
+        options: ["Jain monks", "playwrights", "temple architects", "philosophers"],
+        correctIndex: 1,
+        explanation: "They were famous Sanskrit playwrights/poets.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2021_5',
+        year: 2021,
+        subject: 'History',
+        topic: 'Art & Culture',
+        question: "With reference to Chausath Yogini Temple situated near Morena, consider the following statements:\n1. It is a circular temple built during the reign of Kachchhapaghata Dynasty.\n2. It is the only circular temple built in India.\n3. It was meant to promote the Vaishnava cult in the region.\n4. Its design has given rise to a popular belief that it was the inspiration behind the Indian Parliament building.\nWhich of the statements given above are correct?",
+        options: ["1 and 2", "2 and 3 only", "1 and 4", "2, 3 and 4"],
+        correctIndex: 2,
+        explanation: "1 and 4 are correct. It is not the only circular temple, and it was for the Yogini (Shiva/Shakti) cult, not Vaishnava.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2021_6',
+        year: 2021,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "Consider the following pairs:\nHistorical place | Well-known for\n(1) Burzahom | Rock-cut shrines\n(2) Chandraketugarh | Terracotta art\n(3) Ganeshwar | Copper artefacts\nWhich of the pairs given above is/are correctly matched?",
+        options: ["1 only", "1 and 2", "3 only", "2 and 3"],
+        correctIndex: 3,
+        explanation: "Burzahom is a Neolithic site famous for pit dwellings (not rock cut shrines). Chandraketugarh is famous for Terracotta. Ganeshwar is a Chalcolithic copper site.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2021_7',
+        year: 2021,
+        subject: 'History',
+        topic: 'Art & Culture',
+        question: "Which one of the following statements is correct?",
+        options: ["Ajanta Caves lie in the gorge of the Waghora river.", "Sanchi Stupa lies in the gorge of the Chambal river.", "Pandu – lena cave shrines lie in the gorge of the Narmada river.", "Amaravati Stupa lies in the gorge of the Godavari river."],
+        correctIndex: 0,
+        explanation: "Ajanta Caves are situated in the gorge of the Waghora river.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2021_8',
+        year: 2021,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Consider the following statements:\n1. 21st February is declared to be International Mother Language Day by UNICEF.\n2. The demand that Bangla has to be one of the national languages was raised in the Constituent Assembly of Pakistan.\nWhich of the above statements is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 1,
+        explanation: "S1 is incorrect: Declared by UNESCO, not UNICEF. S2 is correct (Dhirendranath Datta raised it).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2021_9',
+        year: 2021,
+        subject: 'History',
+        topic: 'Art & Culture',
+        question: "With reference to India, the terms ‘Halbi, Ho and Kui’ pertain to",
+        options: ["dance forms of Northwest India", "musical instruments", "pre-historic cave paintings", "tribal languages"],
+        correctIndex: 3,
+        explanation: "Halbi, Ho, and Kui are tribal languages.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2021_10',
+        year: 2021,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Who among the following was associated with the 'Song from Prison', a translation of ancient Indian religious lyrics in English?",
+        options: ["Bal Gangadhar Tilak", "Jawaharlal Nehru", "Mohandas Karamchand Gandhi", "Sarojini Naidu"],
+        correctIndex: 2,
+        explanation: "Mahatma Gandhi wrote 'Songs from Prison' while he was in Yerwada Jail.",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'hist_2021_11',
+        year: 2021,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "According to Portuguese writer Nuniz, the women in the Vijayanagara empire were experts in which the following areas?\n1. Wrestling\n2. Astrology\n3. Accounting\n4. Soothsaying\nSelect the correct answer using the code given below:",
+        options: ["1, 2, and 3 only", "1, 3, and 4 only", "2 and 4 only", "1, 2, 3 and 4"],
+        correctIndex: 3,
+        explanation: "Nuniz explicitly mentions women in Vijayanagara were experts in wrestling, astrology, accounting, and soothsaying.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2021_12',
+        year: 2021,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Consider the following statements:\n1. It was during the reign of Iltumish that Chengiz Khan reached the Indus in pursuit of the fugitive Khwarezm prince.\n2. It was during the reign of Muhammad bin Tughluq that Taimur occupied Multan and crossed the Indus.\n3. It was during the reign of Deva Raya II of the Vijayanagara Empire that Vasco da Gama reached the coast of Kerala.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "1 and 2", "3 only", "2 and 3"],
+        correctIndex: 0,
+        explanation: "S1 Correct. S2 False (Taimur in 1398, MBT died 1351). S3 False (Vasco in 1498, Deva Raya II died 1446).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2021_13',
+        year: 2021,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "With reference to medieval India, which one of the following is the correct sequence in ascending order in terms of size?",
+        options: ["Paragana – Sarkar – Suba", "Sarkar – Paragana – Suba", "Suba – Sarkar – Paragana", "Paragana – Suba – Sarkar"],
+        correctIndex: 0,
+        explanation: "Hierarchy: Suba (Province) > Sarkar (District) > Pargana (Sub-district). Ascending: Pargana < Sarkar < Suba.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'hist_2021_14',
+        year: 2021,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "With reference to Indian history, which of the following statements is/are correct?\n1. The Nizamat of Arcot emerged out of Hyderabad state.\n2. The Mysore Kingdom emerged out of the Vijayanagara empire.\n3. Rohilkhand kingdom was formed out of the territories occupied by Ahmad Shah Durrani.\nSelect the correct answer using the codes given below:",
+        options: ["1 and 2", "2 only", "2 and 3", "3 only"],
+        correctIndex: 0,
+        explanation: "S1 Correct. S2 Correct. S3 False (Rohilkhand by Ali Muhammad Khan).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2020
+    {
+        id: 'hist_2020_1',
+        year: 2020,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "Which of the following phrases defines the nature of the ‘Hundi’ generally referred to in the sources of the post-Harsha period?",
+        options: ["An advisory issued by the king to his subordinates", "A diary to be maintained for daily accounts", "A bill of exchange", "An order from the feudal lord to his subordinates"],
+        correctIndex: 2,
+        explanation: "Hundi was a bill of exchange or financial instrument used for trade.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2020_2',
+        year: 2020,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "Who among the following rulers advised his subjects through this inscription? “Whosoever praises his religious sect or blames other sects out of excessive devotion to his own sect, with the view of glorifying his own sect, he rather injures his own sect very severely.”",
+        options: ["Ashoka", "Samudragupta", "Harshavardhana", "Krishnadeva Raya"],
+        correctIndex: 0,
+        explanation: "This is from Ashoka's Major Rock Edict XII.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'hist_2020_3',
+        year: 2020,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "With reference to the period of the Gupta dynasty in ancient India, the towns Ghantasala, Kadura and Chaul were well known as",
+        options: ["ports handling foreign trade", "capitals of powerful kingdoms", "places of exquisite stone art and architecture", "important Buddhist pilgrimage centres"],
+        correctIndex: 0,
+        explanation: "These were important ports dealing in foreign trade during the Gupta and post-Gupta periods.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2020_4',
+        year: 2020,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "With reference to the religious history of India, consider the following statements:\n1. Sthaviravadins belong to Mahayana Buddhism\n2. Lokottaravadin sect was an offshoot of the Mahasanghika sect of Buddhism\n3. The deification of Buddha by Mahasanghikas fostered Mahayana Buddhism\nWhich of the statements given above is/are correct?",
+        options: ["1 and 2 only", "2 and 3 only", "3 only", "1, 2 and 3"],
+        correctIndex: 1,
+        explanation: "S1 is false (Sthaviravadins are Theravada/Hinayana). S2 and S3 are correct.",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'hist_2020_5',
+        year: 2020,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "With reference to the cultural history of India, consider the following pairs:\n1. Parivrajaka — Renunciant and Wanderer\n2. Shramana — Priest with a high status\n3. Upasaka — Lay follower of Buddhism\nWhich of the pairs given above are correctly matched?",
+        options: ["1 and 2 only", "1 and 3 only", "2 and 3 only", "1, 2 and 3"],
+        correctIndex: 1,
+        explanation: "1 and 3 are correct. Shramana refers to ascetics/strivers (like Jain/Buddhist monks), not high-status priests (Brahmins).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2020_6',
+        year: 2020,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "With reference to the cultural history of India, which one of the following is the correct description of the term ‘paramitas’?",
+        options: ["The earliest Dharmashastra texts written in aphoristic (sutra) style", "Philosophical schools that did not accept the authority of Vedas", "Perfections whose attainment led to the Bodhisattva path", "Powerful merchant guilds of early medieval South India"],
+        correctIndex: 2,
+        explanation: "Paramitas refer to the perfections or virtues (like Dana, Shila, Prajna) cultivated by a Bodhisattva.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2020_7',
+        year: 2020,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "With reference to the scholars/literateurs of ancient India, consider the following statements:\n1. Pānini is associated with Pushyamitra Shunga.\n2. Amarasimha is associated with Harshavardhana.\n3. Kālidāsa is associated with Chandra Gupta-II.\nWhich of the statements given above is/are correct?",
+        options: ["1 and 2 only", "2 and 3 only", "3 only", "1, 2 and 3"],
+        correctIndex: 2,
+        explanation: "Statement 1 is incorrect (Panini was much earlier). Statement 2 is incorrect (Amarasimha was in Chandra Gupta II's court). Statement 3 is correct (Kalidasa was one of the Navaratnas of Chandra Gupta II).",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'hist_2020_8',
+        year: 2020,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Consider the following events in the history of India :\n1. Rise of Pratiharas under King Bhoja\n2. Establishment of Pallava power under Mahendravarman – I\n3. Establishment of Chola power by Parantaka – I\n4. The Pala dynasty was founded by Gopala\nWhat is the correct chronological order of the above events, starting from the earliest time?",
+        options: ["2-1-4-3", "3-1-4-2", "2-4-1-3", "3-4-1-2"],
+        correctIndex: 2,
+        explanation: "Mahendravarman I (600 AD) -> Gopala (750 AD) -> Bhoja (836 AD) -> Parantaka I (907 AD). Order: 2-4-1-3.",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'hist_2020_9',
+        year: 2020,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "With reference to the history of India, the terms “kulyavapa” and “dronavapa” denote",
+        options: ["measurement of land", "coins of different monetary value", "classification of urban land", "religious rituals"],
+        correctIndex: 0,
+        explanation: "They were land measurement units in the Gupta period.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2019
+    {
+        id: 'hist_2019_1',
+        year: 2019,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "With reference to Mughal India, what is/are the difference/differences between Jagirdar and Zamindar?\n1. Jagirdars were holders of land assignments in lieu of judicial and police duties, whereas Zamindars were holders of revenue rights without obligation to perform any duty other than revenue collection.\n2. Land assignments to Jagirdars were hereditary and revenue rights of Zamindars were not hereditary.\nSelect the correct answer using the code given below.",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 3,
+        explanation: "S1 False (Zamindars had local duties, Jagirdars primarily revenue though could have duties). S2 False (Jagirs not hereditary, Zamindari was).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2019_2',
+        year: 2019,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Consider the following statements:\n1. In the revenue administration of Delhi Sultanate, the in-charge of revenue collection was known as ‘Amil’.\n2. The lqta system of Sultans of Delhi was an ancient indigenous institution.\n3. The office of ‘Mir Bakshi’ came into existence during the reign of Khalji Sultans of Delhi.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "1 and 2 only", "3 only", "1, 2 and 3"],
+        correctIndex: 0,
+        explanation: "S1 Correct. S2 False (Central Asian origin). S3 False (Mughal origin).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2019_3',
+        year: 2019,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Consider the following statements:\n1. Saint Nimbarka was a contemporary of Akbar.\n2. Saint Kabir was greatly influenced by Shaikh Ahmad Sirhindi.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 3,
+        explanation: "S1 False (Nimbarka was earlier). S2 False (Sirhindi was later).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2019_4',
+        year: 2019,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "With reference to Mian Tansen, which one of the following statements is not correct?",
+        options: [
+            "Tansen was the title given to him by Emperor Akbar.",
+            "Tansen composed Dhrupads on Hindu gods and goddesses.",
+            "Tansen composed songs on his patrons.",
+            "Tansen invented many Ragas."
+        ],
+        correctIndex: 0,
+        explanation: "The title Tansen was given by Raja Ramchandra Singh of Rewa, not Akbar.",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'hist_2019_5',
+        year: 2019,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Who among the following Mughal Emperors shifted emphasis from illustrated manuscripts to album and individual portrait?",
+        options: ["Humayun", "Akbar", "Jahangir", "Shah Jahan"],
+        correctIndex: 2,
+        explanation: "Jahangir focused on portraiture and albums (Muraqqa).",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+
+    // 2018
+    {
+        id: 'hist_2018_1',
+        year: 2018,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Which one of the following foreign travellers elaborately discussed about diamonds and diamond mines of India?",
+        options: ["Francois Bernier", "Jean-Baptiste Tavernier", "Jean de Thevenot", "Abbe Barthelemy Carre"],
+        correctIndex: 1,
+        explanation: "Tavernier (Jeweller) wrote about diamonds (Golconda).",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+
+    // 2017
+    {
+        id: 'hist_2017_1',
+        year: 2017,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Which one of the following was a very important seaport in the Kakatiya kingdom?",
+        options: ["Kakinada", "Motupalli", "Machilipatnam (Masulipatnam)", "Nelluru"],
+        correctIndex: 1,
+        explanation: "Motupalli was the main port of Kakatiyas.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2016
+    {
+        id: 'hist_2016_1',
+        year: 2016,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "With reference to the economic history of medieval India, the term ‘Araghatta’ refers to",
+        options: ["bonded labour", "land grants made to military officers", "waterwheel used in the irrigation of land", "wasteland converted to cultivated land"],
+        correctIndex: 2,
+        explanation: "Araghatta (Persian Wheel) is a waterwheel for irrigation.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'hist_2016_2',
+        year: 2016,
+        subject: 'History',
+        topic: 'Ancient India',
+        question: "With reference to the cultural history of India, the memorizing of chronicles, dynastic histories and epic tales was the profession of who of the following?",
+        options: ["Shramana", "Parivraajaka", "Agrahaarika", "Maagadha"],
+        correctIndex: 3,
+        explanation: "Maagadha (or Suta) memorized genealogies and history.",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'hist_2016_3',
+        year: 2016,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Regarding the taxation system of Krishna Deva, the ruler of Vijayanagar, consider the following statements:\n1. The tax rate on land was fixed depending on the quality of the land.\n2. Private owners of workshops paid an industries tax.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 2,
+        explanation: "Both statements are correct for Vijayanagara taxation.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2016_4',
+        year: 2016,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Banjaras during the medieval period of Indian history were generally",
+        options: ["agriculturists", "warriors", "weavers", "traders"],
+        correctIndex: 3,
+        explanation: "Banjaras were trader-nomads (Caravans).",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+
+    // 2015
+    {
+        id: 'hist_2015_1',
+        year: 2015,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Consider the following pairs:\n\nMedieval Indian State - Present Region\n1. Champaka - Central India\n2. Durgara - Jammu\n3. Kuluta - Malabar\nWhich of the above pairs is/are correctly matched?",
+        options: ["1 and 2", "2 only", "1 and 3", "3 only"],
+        correctIndex: 1,
+        explanation: "Champaka (Chamba, HP), Durgara (Jammu), Kuluta (Kullu, HP). Only 2 is correct.",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'hist_2015_2',
+        year: 2015,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Consider the following: The arrival of Babur into India led to the\n1. introduction of gunpowder in the subcontinent\n2. introduction of the arch and dome in the region’s architecture\n3. establishment of Timurid dynasty in the region\nSelect the correct answer using the code given below:",
+        options: ["1 and 2 only", "3 only", "1 and 3 only", "1, 2 and 3"],
+        correctIndex: 1,
+        explanation: "S1 False (Gunpowder used earlier). S2 False (Arch/Dome used earlier by Sultans). S3 Correct (Mughals were Timurids).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2015_3',
+        year: 2015,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "With reference to Indian history, which of the following is/are the essential element/elements of the feudal system?\n1. A very strong centralized political authority and a very weak provincial or local political authority\n2. Emergence of administrative structure based on control and possession of land\n3. Creation of lord-vassal relationship between the feudal lord and his overlord\nSelect the correct answer using the code given below:",
+        options: ["1 and 2 only", "2 and 3 only", "3 only", "1, 2 and 3"],
+        correctIndex: 1,
+        explanation: "Feudalism implies decentralized power (weak center, strong local). S1 False. S2/S3 Correct.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'hist_2015_4',
+        year: 2015,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Who of the following founded a new city on the south bank of a tributary to river Krishna and undertook to rule his new kingdom as the agent of a deity to whom all the land south of the river Krishna was supposed to belong?",
+        options: ["Amoghavarsha I", "Ballala II", "Harihara I", "Prataparudra II"],
+        correctIndex: 2,
+        explanation: "Harihara I (Vijayanagara) on banks of Tungabhadra (Krishna tributary), as agent of Virupaksha.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2014
+    {
+        id: 'hist_2014_1',
+        year: 2014,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Ibadat Khana at Fatehpur Sikri was",
+        options: [
+            "the mosque for the use of Royal Family",
+            "Akbar’s private prayer chamber",
+            "the hall in which Akbar held discussions with scholars of various religions",
+            "the room in which the nobles belonging to different religions gathered to discuss religious affairs"
+        ],
+        correctIndex: 2,
+        explanation: "Ibadat Khana was for religious discussions with scholars.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'hist_2014_2',
+        year: 2014,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "In medieval India, the designations ‘Mahattara’ and ‘Pattakila’ were used for",
+        options: ["military officers", "village headmen", "specialists in Vedic rituals", "chiefs of craft guilds"],
+        correctIndex: 1,
+        explanation: "They were village headmen.",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+
+    // 2013
+    {
+        id: 'hist_2013_1',
+        year: 2013,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "Consider the following Bhakti Saints:\n1. Dadu Dayal\n2. Guru Nanak\n3. Tyagaraja\nWho among the above was/were preaching when the Lodi dynasty fell and Babur took over?",
+        options: ["1 and 3", "2 only", "2 and 3", "1 and 2"],
+        correctIndex: 1,
+        explanation: "Guru Nanak (1469-1539) witnessed Babur's invasion (Babur Bani). Dadu (1544-1603), Tyagaraja (1767-1847).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2012
+    {
+        id: 'hist_2012_1',
+        year: 2012,
+        subject: 'History',
+        topic: 'Medieval India',
+        question: "With reference to the religious history of medieval India, the Sufi mystics were known to pursue which of the following practices?\n1. Meditation and control of breath\n2. Severe ascetic exercises in a lonely place\n3. Recitation of holy songs to arouse a state of ecstasy in their audience\nSelect the correct answer using the codes given below:",
+        options: ["1 and 2 only", "2 and 3 only", "3 only", "1, 2 and 3"],
+        correctIndex: 3,
+        explanation: "Sufis adopted many practices including breath control (Pranayama), ascetic zeal, and Sama (music).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2019 - Modern India
+    {
+        id: 'modern_history_2019_1',
+        year: 2019,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Consider the following pairs: Movement/Organization - Leader\n1. All India Anti-Untouchability League - Mahatma Gandhi\n2. All India Kisan Sabha - Swami Sahajanand Saraswati\n3. Self-Respect Movement - Naicker E.V. Ramaswami\nWhich of the pairs given above is/are correctly matched?",
+        options: ["1 only", "1 and 2 only", "2 and 3 only", "1, 2 and 3"],
+        correctIndex: 3,
+        explanation: "All three pairs are correctly matched. Mahatma Gandhi set up the All India Anti-Untouchability League in 1932. The All India Kisan Sabha was formed in 1936 with Swami Sahajanand Saraswati as President. The Self-Respect Movement was started by E.V. Ramaswamy Naicker in 1925.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2018 - Modern India
+    {
+        id: 'modern_history_2018_1',
+        year: 2018,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Which of the following led to the introduction of English Education in India?\n1. Charter Act of 1813\n2. General Committee of Public Instruction, 1823\n3. Orientalist and Anglicist Controversy\nSelect the correct answer using the code given below:",
+        options: ["1 and 2 only", "2 only", "1 and 3 only", "1, 2 and 3"],
+        correctIndex: 3,
+        explanation: "All three factors contributed to the introduction of English education. The Charter Act of 1813 first allotted funds for education. The 1823 Committee was responsible for implementing education policy, which eventually favored the Anglicist view over the Orientalist one.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2018_2',
+        year: 2018,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Which one of the following statements does not apply to the system of Subsidiary Alliance introduced by Lord Wellesley?",
+        options: [
+            "To maintain a large standing army at others expense",
+            "To keep India safe from Napoleonic danger",
+            "To secure a fixed income for the Company",
+            "To establish British paramountcy over the Indian States"
+        ],
+        correctIndex: 2,
+        explanation: "The Subsidiary Alliance was aimed at strategic and military dominance, not at securing a 'fixed income' for the Company. It focused on maintaining British troops at the expense of Indian rulers and eliminating French influence.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2018_3',
+        year: 2018,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Which of the following were the founders of the Hind Mazdoor Sabha established in 1948?",
+        options: [
+            "B. Krishna Pillai, E.M.S. Namboodiripad and K.C. George",
+            "Jayaprakash Narayan, Deen Dayal Upadhyay and M.N. Roy",
+            "C.P. Ramaswamy Iyer, K. Kamaraj and Veeresalingam Pantulu",
+            "Ashok Mehta, T.S. Ramanujam and G.G. Mehta"
+        ],
+        correctIndex: 3,
+        explanation: "The Hind Mazdoor Sabha (HMS) was founded in 1948 in Howrah by socialist leaders including Ashok Mehta, T.S. Ramanujam, and G.G. Mehta.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2018_4',
+        year: 2018,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "With reference to the Government of India Act 1935, consider the following statements:\n1. It provided for the establishment of an All-India Federation.\n2. Residuary powers were given to the Provincial Legislatures.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 0,
+        explanation: "Statement 1 is correct as it proposed an All-India Federation of provinces and princely states. Statement 2 is incorrect because residuary powers were vested in the Governor-General.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2017 - Modern India
+    {
+        id: 'modern_history_2017_1',
+        year: 2017,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Who among the following was/were associated with the introduction of Ryotwari Settlement in India during the British rule?\n1. Lord Cornwallis\n2. Alexander Read\n3. Thomas Munro\nSelect the correct answer using the code given below:",
+        options: ["1 only", "1 and 3 only", "2 and 3 only", "1, 2 and 3"],
+        correctIndex: 2,
+        explanation: "Ryotwari Settlement was introduced by Alexander Read and Thomas Munro. Lord Cornwallis was associated with the Permanent Settlement.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2017_2',
+        year: 2017,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Consider the following pairs:\n1. Radhakanta Deb — First President of the British Indian Association\n2. Gazulu Lakshmi Narasu Chetty — Founder of the Madras Mahajana Sabha\n3. Surendranath Banerjee — Founder of the Indian Association\nWhich of the above pairs is/are correctly matched?",
+        options: ["1 only", "1 and 3 only", "2 and 3 only", "1, 2 and 3"],
+        correctIndex: 1,
+        explanation: "Pairs 1 and 3 are correct. Radhakanta Deb was the first president of the British Indian Association. Surendranath Banerjee founded the Indian Association of Calcutta. Gazulu Lakshmi Narasu Chetty founded the Madras Native Association, not the Madras Mahajana Sabha.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2017_3',
+        year: 2017,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "The object of the Butler Committee of 1927 was to?",
+        options: [
+            "Define the jurisdiction of the Central and Provincial Governments",
+            "Define the powers of the Secretary of State for India",
+            "Impose censorship on national press",
+            "Improve the relationship between the Government of India and the Indian States"
+        ],
+        correctIndex: 3,
+        explanation: "The Hartog or Butler Committee was aimed at examining the relationship between the Paramount Power (British) and the Indian Princely States.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2016 - Modern India
+    {
+        id: 'modern_history_2016_1',
+        year: 2016,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Satya Shodhak Samaj organized?",
+        options: [
+            "a movement for upliftment of tribals in Bihar",
+            "a temple-entry movement in Gujarat",
+            "an anti-caste movement in Maharashtra",
+            "a peasant movement in Punjab"
+        ],
+        correctIndex: 2,
+        explanation: "Founded by Jyotirao Phule in 1873, Satya Shodhak Samaj was an anti-caste movement in Maharashtra aimed at the social upliftment of lower castes.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2016_2',
+        year: 2016,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "The Montague-Chelmsford Proposals were related to?",
+        options: [
+            "social reforms",
+            "educational reforms",
+            "reforms in public administration",
+            "constitutional reforms"
+        ],
+        correctIndex: 3,
+        explanation: "The Montague-Chelmsford Proposals of 1918 were for constitutional reforms, which resulted in the Government of India Act 1919.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2016_3',
+        year: 2016,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Consider the following:\n1. Calcutta Unitarian Committee\n2. Tabernacle of New Dispensation\n3. Indian Reform Association\nKeshab Chandra Sen is associated with the establishment of which of the above?",
+        options: ["1 and 3 only", "2 and 3 only", "3 only", "1, 2 and 3"],
+        correctIndex: 1,
+        explanation: "Keshab Chandra Sen was associated with the Tabernacle of New Dispensation and the Indian Reform Association. The Calcutta Unitarian Committee was established by Raja Ram Mohan Roy and others.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2015 - Modern India
+    {
+        id: 'modern_history_2015_1',
+        year: 2015,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "With reference to Rowlatt Satyagraha, which of the following statements is/are correct?\n1. The Rowlatt Act was based on the recommendations of the ‘Sedition Committee’.\n2. In Rowlatt Satyagraha, Gandhiji tried to utilize the Home Rule League.\n3. Demonstrations against the arrival of Simon Commission coincided with Rowlatt Satyagraha.\nSelect the correct answer using the code given below.",
+        options: ["1 only", "1 and 2 only", "2 and 3 only", "1, 2 and 3"],
+        correctIndex: 1,
+        explanation: "Statements 1 and 2 are correct. The 1919 Rowlatt Act was based on the Sedition Committee's report. Gandhiji used the organizational network of the Home Rule League for the Satyagraha. Statement 3 is wrong as the Simon Commission arrived in 1928.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2015_2',
+        year: 2015,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Who of the following organized a march on the Tanjore coast to break the Salt Law in April 1930?",
+        options: ["V. O. Chidambaram Pillai", "C. Rajagopalachari", "K. Kamaraj", "Annie Besant"],
+        correctIndex: 1,
+        explanation: "In 1930, C. Rajagopalachari led the Salt Satyagraha march from Trichinopoly to Vedaranyam on the Tanjore coast in Tamil Nadu.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2015_3',
+        year: 2015,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Consider the following statements:\n1. The first woman President of the Indian National Congress was Sarojini Naidu.\n2. The first Muslim President of the Indian National Congress was Badruddin Tyabji.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 1,
+        explanation: "Statement 1 is incorrect; Annie Besant was the first woman President (1917). Sarojini Naidu was the first Indian woman President (1925). Statement 2 is correct; Badruddin Tyabji was the first Muslim President in 1887.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2014 - Modern India
+    {
+        id: 'modern_history_2014_1',
+        year: 2014,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "The Ghadar was a?",
+        options: [
+            "revolutionary association of Indians with headquarters at San Francisco",
+            "nationalist organization operating from Singapore",
+            "militant organization with headquarters at Berlin",
+            "communist movement for India's freedom with headquarters at Tashkent"
+        ],
+        correctIndex: 0,
+        explanation: "The Ghadar Party was an Indian revolutionary organization founded in 1913 in San Francisco by Lala Hardayal and others.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    }
+];

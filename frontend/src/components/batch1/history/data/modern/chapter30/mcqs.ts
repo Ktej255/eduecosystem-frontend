@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_30_MCQS: any[] = [
   },
   {
     id: '30-34',
-    question: "Consider the following statements regarding the 'Pabna Agrarian Leagues' (1873): 1. The peasants claimed they were \"subjects of Her Majesty the Queen and of Her only,\" seeking to use British law against the Zamindars. 2. The movement was a violent communal riot between Hindu landlords and Muslim tenants. 3. It led to the passing of the Bengal Tenancy Act of 1885. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Pabna Agrarian Leagues' (1873):\n1. The peasants claimed they were \"subjects of Her Majesty the Queen and of Her only,\" seeking to use British law against the Zamindars. 2. The movement was a violent communal riot between Hindu landlords and Muslim tenants. 3. It led to the passing of the Bengal Tenancy Act of 1885. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 2,
     explanation: "1 and 3 only. Despite the religious profile of the participants, the movement was strictly agrarian and economic, not communal.",
@@ -355,7 +355,7 @@ export const MODERN_CHAPTER_30_MCQS: any[] = [
   },
   {
     id: '30-40',
-    question: "Consider the following regarding 'Swami Sahajanand Saraswati': 1. He founded the Bihar Provincial Kisan Sabha in 1929. 2. He was the key figure behind the 'All India Kisan Sabha' (1936). 3. He believed that the peasants must maintain a distance from the Congress to stay pure. How many of the above are correct?",
+    question: "Consider the following regarding 'Swami Sahajanand Saraswati':\n1. He founded the Bihar Provincial Kisan Sabha in 1929.\n2. He was the key figure behind the 'All India Kisan Sabha' (1936).\n3. He believed that the peasants must maintain a distance from the Congress to stay pure. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; he initially worked closely with the Congress but later grew frustrated with its moderate agrarian policy).",
@@ -400,7 +400,7 @@ export const MODERN_CHAPTER_30_MCQS: any[] = [
   },
   {
     id: '30-45',
-    question: "Match the following 'Peasant Leaders' with their 'Region of Activity': 1. Baba Ramchandra \u2014",
+    question: "Match the following 'Peasant Leaders' with their 'Region of Activity':\n1. Baba Ramchandra \u2014",
     options: ["United Provinces (Oudh) 2. Kunwarji Mehta \u2014", "Gujarat (Bardoli) 3. N.G. Ranga \u2014", "Andhra Pradesh 4. Nana Patil \u2014", "Maharashtra (Satara) Select the correct matching code:"],
     correctAnswer: 0,
     explanation: "All are correctly matched.",
@@ -436,7 +436,7 @@ export const MODERN_CHAPTER_30_MCQS: any[] = [
   },
   {
     id: '30-49',
-    question: "Consider the following regarding 'Baba Ramchandra': 1. He was an indentured laborer who returned from Fiji. 2. He organized the peasants of Oudh by using the 'Ramayana' to recite verses and build unity. 3. He was a strict supporter of the Zamindari system. How many of the above are correct?",
+    question: "Consider the following regarding 'Baba Ramchandra':\n1. He was an indentured laborer who returned from Fiji.\n2. He organized the peasants of Oudh by using the 'Ramayana' to recite verses and build unity.\n3. He was a strict supporter of the Zamindari system. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; he was an anti-landlord leader).",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_30_MCQS: any[] = [
   },
   {
     id: '30-62',
-    question: "Consider the following statements regarding the 'Indigo Revolt' (1859-60): 1. It was characterized by a rare \"inter-class\" alliance between the peasantry and the urban intelligentsia. 2. The planters used the 'Dadni' system (advance payments) to trap peasants in a cycle of debt. 3. The revolt was entirely spontaneous and lacked any form of local leadership or planning. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Indigo Revolt' (1859-60):\n1. It was characterized by a rare \"inter-class\" alliance between the peasantry and the urban intelligentsia. 2. The planters used the 'Dadni' system (advance payments) to trap peasants in a cycle of debt. 3. The revolt was entirely spontaneous and lacked any form of local leadership or planning. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; the revolt had a strong organizational base led by former employees of planters and local zamindars like Digambar and Bishnu Biswas.",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_30_MCQS: any[] = [
   },
   {
     id: '30-65',
-    question: "Arrange the following commissions/acts in the correct chronological order of their enactment/appointment: 1. Deccan Agriculturists' Relief Act 2. Indigo Commission 3. Bengal Tenancy Act 4. Punjab Land Alienation Act Select the correct code:",
+    question: "Arrange the following commissions/acts in the correct chronological order of their enactment/appointment:\n1. Deccan Agriculturists' Relief Act\n2. Indigo Commission\n3. Bengal Tenancy Act\n4. Punjab Land Alienation Act Select the correct code:",
     options: ["2 \u2014 1 \u2014 3 \u2014 4", "1 \u2014 2 \u2014 3 \u2014 4", "2 \u2014 3 \u2014 1 \u2014 4", "4 \u2014 2 \u2014 1 \u2014 3"],
     correctAnswer: 0,
     explanation: "2 \u2014 1 \u2014 3 \u2014 4 (Indigo Comm: 1860; Deccan Act: 1879; Bengal Act: 1885; Punjab Act: 1900).",
@@ -679,7 +679,7 @@ export const MODERN_CHAPTER_30_MCQS: any[] = [
   },
   {
     id: '30-76',
-    question: "Which of the following 'Peasant Leaders' is correctly matched with their publication/work? 1. Swami Sahajanand \u2014 Mera Jivan Sangharsh (Autobiography) 2. N.G. Ranga \u2014 Modern Indian Peasant 3. Indulal Yagnik \u2014 Kisan Sabha activities in Gujarat Select the correct matching code:",
+    question: "Which of the following 'Peasant Leaders' is correctly matched with their publication/work?\n1. Swami Sahajanand \u2014 Mera Jivan Sangharsh (Autobiography)\n2. N.G. Ranga \u2014 Modern Indian Peasant\n3. Indulal Yagnik \u2014 Kisan Sabha activities in Gujarat Select the correct matching code:",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 3,
     explanation: "All are correctly matched.",
@@ -724,7 +724,7 @@ export const MODERN_CHAPTER_30_MCQS: any[] = [
   },
   {
     id: '30-81',
-    question: "Match the 'Movement' with the 'Principal Antagonist': 1. Indigo Revolt \u2014",
+    question: "Match the 'Movement' with the 'Principal Antagonist':\n1. Indigo Revolt \u2014",
     options: ["European Planters 2. Deccan Riots \u2014", "Marwari/Gujarati Moneylenders 3. Telangana Movement \u2014", "Nizam\u2019s Deshmukhs/Jagirdars Select the correct matching code:", "1-A, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C.",

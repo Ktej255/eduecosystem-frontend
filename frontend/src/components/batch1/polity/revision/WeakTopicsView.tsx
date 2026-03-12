@@ -30,11 +30,14 @@ export default function WeakTopicsView() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // Analyze topics
-        const topics = analyzeWeakTopics();
-        setWeakTopics(topics);
-        setMetrics(getPerformanceMetrics());
-        setIsLoading(false);
+        const load = async () => {
+            setIsLoading(true);
+            const topics = await analyzeWeakTopics();
+            setWeakTopics(topics);
+            setMetrics(await getPerformanceMetrics());
+            setIsLoading(false);
+        };
+        load();
     }, []);
 
     const filteredTopics = weakTopics.filter(t => {

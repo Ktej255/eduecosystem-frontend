@@ -4,7 +4,7 @@ import { Question } from '../../../../types';
 export const MODERN_CHAPTER_13_MCQS: any[] = [
   {
     id: '12-56',
-    question: "The 'Ghadarites' failed to achieve their objective of a 1915 uprising primarily because: 1. Their plan was leaked by a traitor (Kripal Singh) within their ranks. 2. They had no support from any international powers like Germany or Turkey. 3. The British government effectively used the 'Defence of India Act' to arrest the key leaders before the date of the revolt. Select the correct answer using the code given below:",
+    question: "The 'Ghadarites' failed to achieve their objective of a 1915 uprising primarily because:\n1. Their plan was leaked by a traitor (Kripal Singh) within their ranks.\n2. They had no support from any international powers like Germany or Turkey.\n3. The British government effectively used the 'Defence of India Act' to arrest the key leaders before the date of the revolt. Select the correct answer using the code given below:",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "All of the above"],
     correctAnswer: 2,
     explanation: "1 and 3 only Statement 2 is incorrect; they did have support from Germany (the Zimmermann Plan) and parts of the Ottoman Empire.",
@@ -292,7 +292,7 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
   },
   {
     id: '13-33',
-    question: "Consider the following statements regarding the organizational structure of the Home Rule Leagues: 1. Tilak\u2019s League was organized on a linguistic basis and was more compact compared to Annie Besant\u2019s League. 2. Annie Besant\u2019s League was loosely organized and covered the parts of India not covered by Tilak\u2019s League. 3. Both leaders merged their leagues into a single unified organization in 1917 to ensure better coordination. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the organizational structure of the Home Rule Leagues:\n1. Tilak\u2019s League was organized on a linguistic basis and was more compact compared to Annie Besant\u2019s League.\n2. Annie Besant\u2019s League was loosely organized and covered the parts of India not covered by Tilak\u2019s League.\n3. Both leaders merged their leagues into a single unified organization in 1917 to ensure better coordination. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only Statement 3 is incorrect. Tilak and Besant chose not to merge their leagues because, as Tilak noted, some of his followers did not like Besant and vice versa; however, they worked in close cooperation.",
@@ -337,7 +337,7 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
   },
   {
     id: '13-38',
-    question: "Consider the following regarding the social base of the Home Rule Movement: 1. It saw significant participation from the urban educated middle class and professional groups. 2. It gained substantial traction among the students who acted as messengers for the league. 3. The Anglo-Indians, most Muslims, and non-Brahmins from South India largely stayed away, fearing it would lead to 'Brahmin Raj'. How many of the above statements are correct?",
+    question: "Consider the following regarding the social base of the Home Rule Movement:\n1. It saw significant participation from the urban educated middle class and professional groups.\n2. It gained substantial traction among the students who acted as messengers for the league.\n3. The Anglo-Indians, most Muslims, and non-Brahmins from South India largely stayed away, fearing it would lead to 'Brahmin Raj'. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -382,7 +382,7 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
   },
   {
     id: '13-43',
-    question: "Consider the following pairs of leaders and their roles in the Home Rule era: 1. George Arundale \u2014 Organizing secretary of Besant\u2019s League. 2. S. Subramania Aiyar \u2014 Renounced knighthood after Besant's arrest. 3. Joseph Baptista \u2014 First President of Tilak\u2019s League. How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of leaders and their roles in the Home Rule era:\n1. George Arundale \u2014 Organizing secretary of Besant\u2019s League.\n2. S. Subramania Aiyar \u2014 Renounced knighthood after Besant's arrest.\n3. Joseph Baptista \u2014 First President of Tilak\u2019s League. How many of the above pairs are correctly matched?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -418,7 +418,7 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
   },
   {
     id: '13-47',
-    question: "Consider the following statements regarding the Home Rule League Movement (1916-1918): 1. Tilak\u2019s League was first to be established and its headquarters were located at Poona. 2. The movement aimed at the overthrow of the British Crown and the establishment of an independent Indian Republic. 3. While the Moderates initially stayed away, the arrest of Annie Besant in 1917 forced many of them to join the League. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the Home Rule League Movement (1916-1918):\n1. Tilak\u2019s League was first to be established and its headquarters were located at Poona.\n2. The movement aimed at the overthrow of the British Crown and the establishment of an independent Indian Republic.\n3. While the Moderates initially stayed away, the arrest of Annie Besant in 1917 forced many of them to join the League. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the Home Rule movement did not aim for an independent Republic. It demanded 'Self-Government' or 'Home Rule' within the British Empire, similar to the status enjoyed by Canada and Australia.",
@@ -436,7 +436,7 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
   },
   {
     id: '13-49',
-    question: "Arrange the following events of the First World War era in the correct chronological order: 1. Death of Pherozeshah Mehta. 2. The August Declaration (Montagu\u2019s Statement). 3. The Lucknow Session of the INC. 4. Formation of Tilak\u2019s Home Rule League. Select the correct answer using the code given below:",
+    question: "Arrange the following events of the First World War era in the correct chronological order:\n1. Death of Pherozeshah Mehta.\n2. The August Declaration (Montagu\u2019s Statement).\n3. The Lucknow Session of the INC.\n4. Formation of Tilak\u2019s Home Rule League. Select the correct answer using the code given below:",
     options: ["1 \u2014 4 \u2014 3 \u2014 2", "1 \u2014 3 \u2014 4 \u2014 2", "4 \u2014 1 \u2014 2 \u2014 3", "1 \u2014 4 \u2014 2 \u2014 3"],
     correctAnswer: 0,
     explanation: "1 \u2014 4 \u2014 3 \u2014 2 Death of Mehta (Nov 1915) -> Tilak\u2019s League (April 1916) -> Lucknow Session (Dec 1916) -> August Declaration (Aug 1917).",
@@ -445,7 +445,7 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
   },
   {
     id: '13-50',
-    question: "Consider the following pairs of Leaders and the Journals they used for the Home Rule campaign: 1. Annie Besant \u2014 Commonweal 2. Bal Gangadhar Tilak \u2014 The Mahratta 3. S. Subramania Aiyar \u2014 New India How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of Leaders and the Journals they used for the Home Rule campaign:\n1. Annie Besant \u2014 Commonweal\n2. Bal Gangadhar Tilak \u2014 The Mahratta\n3. S. Subramania Aiyar \u2014 New India How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "All three pairs", "None"],
     correctAnswer: 1,
     explanation: "Only two pairs Pairs 1 and 2 are correct. Pair 3 is incorrect; New India was also started and edited by Annie Besant. S. Subramania Aiyar was a prominent supporter and former judge who renounced his knighthood.",
@@ -454,7 +454,7 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
   },
   {
     id: '13-51',
-    question: "The 'August Declaration' (1917) by Edwin Montagu is significant because: 1. It for the first time officially defined 'Responsible Government' as the goal of British rule in India. 2. It was a direct response to the pressure created by the Home Rule Leagues. 3. It granted universal adult franchise to all Indian citizens. Select the correct answer using the code given below:",
+    question: "The 'August Declaration' (1917) by Edwin Montagu is significant because:\n1. It for the first time officially defined 'Responsible Government' as the goal of British rule in India.\n2. It was a direct response to the pressure created by the Home Rule Leagues.\n3. It granted universal adult franchise to all Indian citizens. Select the correct answer using the code given below:",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "All of the above"],
     correctAnswer: 0,
     explanation: "1 and 2 only Statement 3 is incorrect; the declaration and the subsequent 1919 Act provided a very limited franchise based on property and education.",
@@ -481,7 +481,7 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
   },
   {
     id: '13-54',
-    question: "Match the following regions with the respective Home Rule League influence: 1. Karnataka \u2014",
+    question: "Match the following regions with the respective Home Rule League influence:\n1. Karnataka \u2014",
     options: ["Annie Besant\u2019s League 2. United Provinces \u2014", "Tilak\u2019s League 3. Bihar \u2014", "No League activity 4. Central Provinces \u2014", "Both Leagues active (shared) Select the correct matching code (Note: Tilak had specific jurisdictions):"],
     correctAnswer: 0,
     explanation: "1-B, 2-A, 3-A, 4-B Tilak\u2019s League was restricted to Maharashtra (excluding Bombay), Karnataka, Central Provinces, and Berar. The rest of India was under Besant\u2019s League.",
@@ -490,7 +490,7 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
   },
   {
     id: '13-55',
-    question: "Consider the following regarding the 'Lucknow Session' (1916): 1. It saw the return of the Extremists to the Congress after nine years. 2. It was the first session where the Congress and the Muslim League met simultaneously and approved the 'Lucknow Pact'. 3. It was presided over by Annie Besant. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Lucknow Session' (1916):\n1. It saw the return of the Extremists to the Congress after nine years.\n2. It was the first session where the Congress and the Muslim League met simultaneously and approved the 'Lucknow Pact'.\n3. It was presided over by Annie Besant. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; the session was presided over by Ambica Charan Mazumdar. Annie Besant presided over the 1917 Calcutta session.",

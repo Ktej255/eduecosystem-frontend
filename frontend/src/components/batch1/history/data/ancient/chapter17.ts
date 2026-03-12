@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_17_SUBTOPICS: Subtopic[] = [
@@ -141,3 +142,4 @@ export const ANCIENT_CHAPTER_17_CONTENT = `
 - **Hero-Worship:** Erection of **Nadukals** (Hero Stones) to deify fallen warriors.
 - **Synthesis:** Peaceful entry of Brahmanism, Jainism, and Buddhism into the peninsular South.
 `;
+

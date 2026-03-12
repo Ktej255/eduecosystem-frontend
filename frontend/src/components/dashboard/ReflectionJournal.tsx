@@ -23,22 +23,27 @@ export function ReflectionJournal() {
         }
 
         const SpeechRecognition = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition;
-        if (!SpeechRecognition) return;
-        recognitionRef.current = new SpeechRecognition();
-        recognitionRef.current.continuous = true;
-        recognitionRef.current.interimResults = true;
+        if (!SpeechRecognition) {
+            toast.error("Speech recognition API not found.");
+            return;
+        }
 
-        recognitionRef.current.onstart = () => setIsRecording(true);
-        recognitionRef.current.onend = () => setIsRecording(false);
-        recognitionRef.current.onresult = (event: SpeechRecognitionEvent) => {
-            const transcript = Array.from(event.results)
-                .map((result) => result[0])
-                .map((result) => result.transcript)
+        const recognition = new SpeechRecognition();
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognitionRef.current = recognition;
+
+        recognition.onstart = () => setIsRecording(true);
+        recognition.onend = () => setIsRecording(false);
+        recognition.onresult = (event: any) => {
+            const transcript = Array.from(event.results as any[])
+                .map((result: any) => result[0])
+                .map((result: any) => result.transcript)
                 .join("");
             setReflection(transcript);
         };
 
-        recognitionRef.current.start();
+        recognition.start();
     };
 
     const stopRecording = () => {

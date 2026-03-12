@@ -41,110 +41,113 @@ export default function DailyDrillMode() {
 
     // Initialize Drill
     useEffect(() => {
-        const drillItems: DrillItem[] = [];
+        const initDrill = async () => {
+            const drillItems: DrillItem[] = [];
 
-        // 1. Get 5 SRS Cards (or random flashcards if none due)
-        const due = getDueCards();
-        let srsCount = 0;
+            // 1. Get 5 SRS Cards (or random flashcards if none due)
+            const due = await getDueCards();
+            let srsCount = 0;
 
-        // Add Due SRS Cards
-        due.forEach(card => {
-            if (srsCount >= 5) return;
-            const ch = POLITY_REVISION_CHAPTERS.find(c => c.id === card.chapterId);
-            const fc = ch?.flashcards?.[card.flashcardIdx];
-            if (fc) {
-                drillItems.push({
-                    id: `srs-${card.chapterId}-${card.flashcardIdx}`,
-                    type: 'srs',
-                    content: { ...card, flashcard: fc },
-                    chapterId: card.chapterId,
-                    chapterTitle: ch?.title
-                });
-                srsCount++;
-            }
-        });
-
-        // Fill remaining with random flashcards if needed
-        if (srsCount < 5) {
-            const allFlashcards: any[] = [];
-            POLITY_REVISION_CHAPTERS.forEach(ch => {
-                ch.flashcards?.forEach((fc, idx) => {
-                    // Avoid duplicates if already added from due list (simplified check)
-                    allFlashcards.push({ fc, ch, idx });
-                });
-            });
-
-            // Shuffle
-            const shuffled = allFlashcards.sort(() => Math.random() - 0.5);
-
-            for (const item of shuffled) {
-                if (srsCount >= 5) break;
-                // Check if already added (basic check by ID logic)
-                const id = `srs-${item.ch.id}-${item.idx}`;
-                if (!drillItems.find(i => i.id === id)) {
+            // Add Due SRS Cards
+            due.forEach(card => {
+                if (srsCount >= 5) return;
+                const ch = POLITY_REVISION_CHAPTERS.find(c => c.id === card.chapterId);
+                const fc = ch?.flashcards?.[card.flashcardIdx];
+                if (fc) {
                     drillItems.push({
-                        id: id,
+                        id: `srs-${card.chapterId}-${card.flashcardIdx}`,
                         type: 'srs',
-                        content: {
-                            chapterId: item.ch.id,
-                            flashcardIdx: item.idx,
-                            flashcard: item.fc,
-                            easeFactor: 2.5, // Default for non-srs
-                            interval: 0,
-                            repetitions: 0
-                        },
-                        chapterId: item.ch.id,
-                        chapterTitle: item.ch.title
+                        content: { ...card, flashcard: fc },
+                        chapterId: card.chapterId,
+                        chapterTitle: ch?.title
                     });
                     srsCount++;
                 }
+            });
+
+            // Fill remaining with random flashcards if needed
+            if (srsCount < 5) {
+                const allFlashcards: any[] = [];
+                POLITY_REVISION_CHAPTERS.forEach(ch => {
+                    ch.flashcards?.forEach((fc, idx) => {
+                        // Avoid duplicates if already added from due list (simplified check)
+                        allFlashcards.push({ fc, ch, idx });
+                    });
+                });
+
+                // Shuffle
+                const shuffled = allFlashcards.sort(() => Math.random() - 0.5);
+
+                for (const item of shuffled) {
+                    if (srsCount >= 5) break;
+                    // Check if already added (basic check by ID logic)
+                    const id = `srs-${item.ch.id}-${item.idx}`;
+                    if (!drillItems.find(i => i.id === id)) {
+                        drillItems.push({
+                            id: id,
+                            type: 'srs',
+                            content: {
+                                chapterId: item.ch.id,
+                                flashcardIdx: item.idx,
+                                flashcard: item.fc,
+                                easeFactor: 2.5, // Default for non-srs
+                                interval: 0,
+                                repetitions: 0
+                            },
+                            chapterId: item.ch.id,
+                            chapterTitle: item.ch.title
+                        });
+                        srsCount++;
+                    }
+                }
             }
-        }
 
-        // 2. Get 3 Random Facts
-        const allFacts = [
-            ...POLITY_SUMMARY_FACTS.dates.map(d => ({ ...d, type: 'date' })),
-            ...POLITY_SUMMARY_FACTS.persons.map(p => ({ ...p, type: 'person' })),
-            ...POLITY_SUMMARY_FACTS.acts.map(a => ({ ...a, type: 'act' }))
-        ];
-        const shuffledFacts = allFacts.sort(() => Math.random() - 0.5).slice(0, 3);
-        shuffledFacts.forEach((fact, i) => {
-            drillItems.push({
-                id: `fact-${i}`,
-                type: 'fact',
-                content: fact,
-                chapterTitle: 'General Facts'
+            // 2. Get 3 Random Facts
+            const allFacts = [
+                ...POLITY_SUMMARY_FACTS.dates.map(d => ({ ...d, type: 'date' })),
+                ...POLITY_SUMMARY_FACTS.persons.map(p => ({ ...p, type: 'person' })),
+                ...POLITY_SUMMARY_FACTS.acts.map(a => ({ ...a, type: 'act' }))
+            ];
+            const shuffledFacts = allFacts.sort(() => Math.random() - 0.5).slice(0, 3);
+            shuffledFacts.forEach((fact, i) => {
+                drillItems.push({
+                    id: `fact-${i}`,
+                    type: 'fact',
+                    content: fact,
+                    chapterTitle: 'General Facts'
+                });
             });
-        });
 
-        // 3. Get 2 MCQs (Random for now, could be weak topics)
-        const allMcqs: any[] = [];
-        POLITY_REVISION_CHAPTERS.forEach(ch => {
-            ch.mcqs?.forEach((mcq, idx) => {
-                allMcqs.push({ mcq, ch, idx });
+            // 3. Get 2 MCQs (Random for now, could be weak topics)
+            const allMcqs: any[] = [];
+            POLITY_REVISION_CHAPTERS.forEach(ch => {
+                ch.mcqs?.forEach((mcq, idx) => {
+                    allMcqs.push({ mcq, ch, idx });
+                });
             });
-        });
-        const shuffledMcqs = allMcqs.sort(() => Math.random() - 0.5).slice(0, 2);
-        shuffledMcqs.forEach((item, i) => {
-            drillItems.push({
-                id: `mcq-${i}`,
-                type: 'mcq',
-                content: item.mcq,
-                chapterId: item.ch.id,
-                chapterTitle: item.ch.title
+            const shuffledMcqs = allMcqs.sort(() => Math.random() - 0.5).slice(0, 2);
+            shuffledMcqs.forEach((item, i) => {
+                drillItems.push({
+                    id: `mcq-${i}`,
+                    type: 'mcq',
+                    content: item.mcq,
+                    chapterId: item.ch.id,
+                    chapterTitle: item.ch.title
+                });
             });
-        });
 
-        // Shuffle the whole mix or keep ordered? Let's shuffle the mix for variety
-        setItems(drillItems.sort(() => Math.random() - 0.5));
+            // Shuffle the whole mix or keep ordered? Let's shuffle the mix for variety
+            setItems(drillItems.sort(() => Math.random() - 0.5));
+        };
+        initDrill();
     }, []);
 
-    const handleSrsResponse = (quality: Quality) => {
+    const handleSrsResponse = async (quality: Quality) => {
         const currentItem = items[currentIndex];
         const card = currentItem.content;
 
         // Update SRS engine
-        reviewCard(card.chapterId, card.flashcardIdx, quality);
+        await reviewCard(card.chapterId, card.flashcardIdx, quality);
 
         if (quality >= 3) {
             setScore(prev => ({ ...prev, correct: prev.correct + 1 }));
@@ -191,11 +194,11 @@ export default function DailyDrillMode() {
         }, 1500);
     };
 
-    const nextItem = () => {
+    const nextItem = async () => {
         setShowAnswer(false);
         if (currentIndex >= items.length - 1) {
             setSessionComplete(true);
-            updateStreak(); // Mark day as studied
+            await updateStreak(); // Mark day as studied
         } else {
             setCurrentIndex(prev => prev + 1);
         }

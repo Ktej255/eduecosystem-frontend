@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_65_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 65,
+
         question: "The first Law Commission in 1834 was established under which Act?",
         options: ["Regulating Act 1773", "Charter Act 1833", "Pitts India Act 1784", "Govt of India Act 1858"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_65_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 65,
+
         question: "The Law Commission of India is a/an:",
         options: ["Constitutional body", "Statutory body", "Executive body", "NGO"],
         correctAnswer: 2,
@@ -21,7 +21,7 @@ export const CHAPTER_65_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 65,
+
         question: "The Delimitation Commission is appointed by:",
         options: ["Supreme Court", "Parliament", "Election Commission", "President"],
         correctAnswer: 3,
@@ -30,7 +30,7 @@ export const CHAPTER_65_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 65,
+
         question: "Which of the following describes the finality of Delimitation Commission orders?",
         options: [
             "Can be revised by Parliament",
@@ -44,7 +44,7 @@ export const CHAPTER_65_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 65,
+
         question: "How many Delimitation Commissions have been set up in India so far (up to 2020)?",
         options: ["2", "4", "5", "6"],
         correctAnswer: 1,
@@ -53,7 +53,7 @@ export const CHAPTER_65_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 65,
+
         question: "The first Law Commission of independent India (1955) was chaired by:",
         options: ["M.C. Setalvad", "C.K. Daphtary", "K.V.K. Sundaram", "B.K. Mukherjea"],
         correctAnswer: 0,
@@ -62,7 +62,7 @@ export const CHAPTER_65_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 65,
+
         question: "Article 82 of the Constitution provides for:",
         options: [
             "Appointment of PM",
@@ -76,7 +76,7 @@ export const CHAPTER_65_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 65,
+
         question: "The Law Commission's tenure is usually:",
         options: ["3 years", "5 years", "6 years", "No fixed tenure"],
         correctAnswer: 0,
@@ -85,7 +85,7 @@ export const CHAPTER_65_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 65,
+
         question: "Which amendment provided for delimitation of constituencies on the basis of 2001 census without changing total seats?",
         options: ["42nd", "84th", "87th", "91st"],
         correctAnswer: 2,
@@ -94,7 +94,7 @@ export const CHAPTER_65_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 65,
+
         question: "The Delimitation Commission works in coordination with:",
         options: [
             "Ministry of Home Affairs",

@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_27_SUBTOPICS: Subtopic[] = [
@@ -142,3 +143,4 @@ This chapter is RS Sharma's final synthesis, detailing the structural transforma
 ## 🏁 RS Sharma's Conclusion
 Ancient India's greatest mechanism for survival—the **Caste System**—was also its greatest tragedy. It brilliantly integrated massively diverse populations without genocide, providing stability. However, by brutally separating intellectual knowledge from physical labor, and killing social mobility, it eventually plunged India into centuries of technological stagnation and political vulnerability.
 `;
+

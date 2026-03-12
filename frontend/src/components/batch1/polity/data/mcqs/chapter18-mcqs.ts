@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_18_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 18,
+
         question: "Which Article empowers the President to establish an Inter-State Council?",
         options: ["Article 261", "Article 262", "Article 263", "Article 264"],
         correctAnswer: 2,
@@ -12,7 +12,7 @@ export const CHAPTER_18_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 18,
+
         question: "The Inter-State Council was established in 1990 on the recommendation of:",
         options: [
             "Punchhi Commission",
@@ -26,7 +26,7 @@ export const CHAPTER_18_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 18,
+
         question: "Who among the following is NOT a member of the Inter-State Council?",
         options: [
             "Prime Minister",
@@ -40,7 +40,7 @@ export const CHAPTER_18_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 18,
+
         question: "Zonal Councils are established by:",
         options: [
             "An Amendment of the Constitution",
@@ -54,7 +54,7 @@ export const CHAPTER_18_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 18,
+
         question: "Which of the following bodies is NOT a constitutional body?",
         options: [
             "Inter-State Council",
@@ -68,7 +68,7 @@ export const CHAPTER_18_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 18,
+
         question: "In which of the following cases can Parliament exclude the jurisdiction of all courts, including the Supreme Court?",
         options: [
             "Fundamental Rights violations",
@@ -82,7 +82,7 @@ export const CHAPTER_18_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 18,
+
         question: "The 'Southern Zonal Council' includes which of the following?",
         options: [
             "Andhra Pradesh, Karnataka, Kerala, TN and Telangana",
@@ -96,7 +96,7 @@ export const CHAPTER_18_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 18,
+
         question: "Freedom of trade and commerce is provided under Part:",
         options: ["Part XI", "Part XII", "Part XIII", "Part XIV"],
         correctAnswer: 2,
@@ -105,7 +105,7 @@ export const CHAPTER_18_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 18,
+
         question: "Public Acts, Records and Judicial Proceedings of the Centre and States enjoy:",
         options: [
             "Universal validity",
@@ -119,7 +119,7 @@ export const CHAPTER_18_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 18,
+
         question: "The North-Eastern Council was created to address the specific needs of:",
         options: [
             "Seven Sisters only",

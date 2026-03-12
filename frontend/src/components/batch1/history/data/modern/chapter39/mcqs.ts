@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_39_MCQS: any[] = [
   },
   {
     id: '39-34',
-    question: "Consider the following statements regarding the 'Integration of States': 1. Sardar Patel used the 'Standstill Agreement' to maintain the status quo while negotiations for accession continued. 2. The 'Instrument of Accession' initially limited the Union's power over the states to Defense, External Affairs, and Communications. 3. Every single Princely State joined India before August 15, 1947. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Integration of States':\n1. Sardar Patel used the 'Standstill Agreement' to maintain the status quo while negotiations for accession continued.\n2. The 'Instrument of Accession' initially limited the Union's power over the states to Defense, External Affairs, and Communications.\n3. Every single Princely State joined India before August 15, 1947. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only. Statement 3 is incorrect; Junagadh, Hyderabad, and Kashmir joined after August 15, 1947.",
@@ -355,7 +355,7 @@ export const MODERN_CHAPTER_39_MCQS: any[] = [
   },
   {
     id: '39-40',
-    question: "Consider the following regarding the 'First General Elections' (1951-52): 1. It was the world's largest democratic experiment at the time. 2. The Congress party won a landslide victory under Nehru's leadership. 3. Only men were allowed to vote in the first election. How many of the above are correct?",
+    question: "Consider the following regarding the 'First General Elections' (1951-52):\n1. It was the world's largest democratic experiment at the time.\n2. The Congress party won a landslide victory under Nehru's leadership.\n3. Only men were allowed to vote in the first election. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; women were granted equal voting rights from the very first day).",
@@ -445,7 +445,7 @@ export const MODERN_CHAPTER_39_MCQS: any[] = [
   },
   {
     id: '39-50',
-    question: "Consider the following regarding the 'Reorganization of States' (1950s): 1. The 'Dhar Commission' and 'JVP Committee' initially opposed the creation of states on a linguistic basis. 2. The death of Potti Sreeramulu led to the immediate creation of the first linguistic state, Andhra, in 1953. 3. The States Reorganization Act (1956) was based on the recommendations of the Fazal Ali Commission. How many of the above are correct?",
+    question: "Consider the following regarding the 'Reorganization of States' (1950s):\n1. The 'Dhar Commission' and 'JVP Committee' initially opposed the creation of states on a linguistic basis.\n2. The death of Potti Sreeramulu led to the immediate creation of the first linguistic state, Andhra, in 1953.\n3. The States Reorganization Act (1956) was based on the recommendations of the Fazal Ali Commission. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -499,7 +499,7 @@ export const MODERN_CHAPTER_39_MCQS: any[] = [
   },
   {
     id: '39-56',
-    question: "Match the following 'Integration Methods' with the 'States': 1. Plebiscite \u2014",
+    question: "Match the following 'Integration Methods' with the 'States':\n1. Plebiscite \u2014",
     options: ["Junagadh 2. Police Action (Operation Polo) \u2014", "Hyderabad 3. Instrument of Accession (under invasion) \u2014", "Jammu & Kashmir Select the correct matching code:", "1-A, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C.",

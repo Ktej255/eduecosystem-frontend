@@ -16,6 +16,7 @@ import { SCIENCE_PYQS } from '../science-tech/data/science-pyqs';
 import { ENVIRONMENT_PYQS } from '../environment/data/environment-pyqs';
 import { IR_PYQS } from '../international-relations/data/ir-pyqs';
 import { PYQQuestion } from '@/lib/pyq/pyq-types';
+import { QuestionResult } from '@/components/common/reports/StandardTestReport';
 import { awardXP } from '@/lib/gamification/xp-engine';
 import { ActivityLogger } from '@/lib/analytics/ActivityLogger';
 import { saveChapterReport } from '@/lib/report-persistence';
@@ -85,16 +86,24 @@ export default function PYQExplorer() {
                 score,
                 totalQuestions,
                 accuracy,
-                timeTaken: 0, // PYQ doesn't track time
+                timeTaken: 0,
+                totalTimeTaken: 0,
+                correctCount: score,
+                incorrectCount: totalQuestions - score,
+                unansweredCount: 0,
                 questions: answeredQuestions.map((q, i) => ({
                     id: typeof q.id === 'number' ? q.id : i,
                     question: q.question,
                     options: q.options,
                     correctAnswer: q.correctIndex,
-                    selectedAnswer: userAnswers[String(q.id)] ?? -1,
+                    userAnswer: userAnswers[String(q.id)] ?? null,
                     isCorrect: userAnswers[String(q.id)] === q.correctIndex,
-                    explanation: q.explanation || ''
-                }))
+                    explanation: q.explanation || '',
+                    chapter: activeSubject,
+                    subtopic: q.topic,
+                    confidence: null,
+                    timeSpent: 0
+                })) as QuestionResult[]
             }, 0); // Level 0 = PYQ
 
             setLastSavedCount(answeredCount);

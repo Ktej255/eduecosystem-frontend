@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_52_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 52,
+
         question: "Which of the following is NOT part of the committee recommending NHRC appointments?",
         options: ["Prime Minister", "CJI", "Union Home Minister", "Speaker of Lok Sabha"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_52_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 52,
+
         question: "The Protection of Human Rights Act, 1993 was last amended in:",
         options: ["2006", "2014", "2017", "2019"],
         correctAnswer: 3,
@@ -21,7 +21,7 @@ export const CHAPTER_52_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 52,
+
         question: "What is the age limit for the Chairman of NHRC?",
         options: ["62 years", "65 years", "70 years", "No limit"],
         correctAnswer: 2,
@@ -30,7 +30,7 @@ export const CHAPTER_52_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 52,
+
         question: "NHRC has the power to inquire into violations of human rights within:",
         options: ["6 months", "1 year", "2 years", "3 years"],
         correctAnswer: 1,
@@ -39,7 +39,7 @@ export const CHAPTER_52_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 52,
+
         question: "Who among the following are ex-officio members of NHRC?",
         options: [
             "Chairperson, National Commission for Women",
@@ -53,7 +53,7 @@ export const CHAPTER_52_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 52,
+
         question: "Before 2019, who could be the Chairman of NHRC?",
         options: ["Any Judge of SC", "Only Retired CJI", "Any High Court CJ", "PM of India"],
         correctAnswer: 1,
@@ -62,7 +62,7 @@ export const CHAPTER_52_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 52,
+
         question: "The Chairman and members of NHRC are:",
         options: ["Eligible for further employment under Govt", "Not eligible for further employment", "Eligible for reappointment", "Both 2 and 3"],
         correctAnswer: 3,
@@ -71,7 +71,7 @@ export const CHAPTER_52_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 52,
+
         question: "NHRC has the power of a:",
         options: ["Criminal Court", "Civil Court", "High Court", "Sessions Court"],
         correctAnswer: 1,
@@ -80,7 +80,7 @@ export const CHAPTER_52_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 52,
+
         question: "The NHRC headquarters is at:",
         options: ["Mumbai", "Kolkata", "Chennai", "New Delhi"],
         correctAnswer: 3,
@@ -89,7 +89,7 @@ export const CHAPTER_52_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 52,
+
         question: "Is NHRC a multi-member body?",
         options: ["Yes", "No", "Only during emergency", "Depends on President"],
         correctAnswer: 0,

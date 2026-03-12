@@ -11,25 +11,17 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { LAXMIKANTH_CHAPTERS, ChapterSchedule, generateWeeklySchedule } from '@/components/batch1/polity/data/polity-schedule-data';
+import { POMODORO_SUBJECTS, PomodoroSubjectId, PomodoroChapter, getChaptersForSubject } from '@/components/upsc/platform/pomodoro/subject-schedule-configs';
 import { getProgressStore as getPolityProgress, getCompletedChapterIds as getPolityCompleted } from '@/lib/polity-progress-store';
 import { ActivityLogger } from '@/lib/analytics/ActivityLogger';
 import PomodoroSessionView from './PomodoroSessionView';
 
 // ========== TYPES ==========
-type SubjectId = 'polity' | 'history';
+type SubjectId = PomodoroSubjectId;
 type DashboardView = 'subject_select' | 'mode_select' | 'chapter_select' | 'planner_view' | 'custom_view' | 'session';
 type StudyMode = 'independent' | 'planner' | 'custom';
 
-interface SubjectConfig {
-    id: SubjectId;
-    label: string;
-    icon: string;
-    color: string;
-    gradient: string;
-    borderColor: string;
-    totalChapters: number;
-    description: string;
-}
+type SubjectConfig = typeof POMODORO_SUBJECTS[number];
 
 interface SelectedChapter {
     id: number;
@@ -48,28 +40,7 @@ interface CustomPreset {
 // ========== CONFIG ==========
 const CUSTOM_PRESETS_KEY = 'subject_pomodoro_presets';
 
-const SUBJECTS: SubjectConfig[] = [
-    {
-        id: 'polity',
-        label: 'Indian Polity',
-        icon: '🏛️',
-        color: 'text-indigo-600',
-        gradient: 'from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20',
-        borderColor: 'border-indigo-200',
-        totalChapters: 95,
-        description: 'Laxmikanth — Full Coverage'
-    },
-    {
-        id: 'history',
-        label: 'Modern Indian History',
-        icon: '📜',
-        color: 'text-amber-600',
-        gradient: 'from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20',
-        borderColor: 'border-amber-200',
-        totalChapters: 28,
-        description: 'Spectrum — Full Coverage'
-    },
-];
+const SUBJECTS = POMODORO_SUBJECTS;
 
 const MODES: { id: StudyMode; label: string; icon: React.ElementType; description: string; color: string; gradient: string; border: string }[] = [
     {
@@ -110,6 +81,25 @@ function getPolityChaptersByGroup(): Record<string, ChapterSchedule[]> {
         groups[group].push(ch);
     });
     return groups;
+}
+
+// Get chapter groups for any subject
+function getChapterGroupsForSubject(subjectId: SubjectId): Record<string, Array<{ chapter: number; topic: string; group: string; pages?: number; slots?: number }>> {
+    if (subjectId === 'polity') {
+        return getPolityChaptersByGroup() as any;
+    }
+    const chapterGroups = getChaptersForSubject(subjectId);
+    const result: Record<string, Array<{ chapter: number; topic: string; group: string; pages?: number; slots?: number }>> = {};
+    for (const [group, chapters] of Object.entries(chapterGroups)) {
+        result[group] = chapters.map(ch => ({
+            chapter: ch.id,
+            topic: ch.topic,
+            group: ch.group,
+            pages: 0,
+            slots: 1
+        }));
+    }
+    return result;
 }
 
 function loadPresets(): CustomPreset[] {
@@ -641,7 +631,7 @@ export default function SubjectPomodoro() {
     // ========== CHAPTER SELECT VIEW (Independent & Create Preset) ==========
     if (view === 'chapter_select' && selectedSubject) {
         const subjectConfig = SUBJECTS.find(s => s.id === selectedSubject)!;
-        const chapterGroups = selectedSubject === 'polity' ? getPolityChaptersByGroup() : {};
+        const chapterGroups = getChapterGroupsForSubject(selectedSubject);
 
         const filteredGroups = Object.entries(chapterGroups).reduce((acc, [group, chapters]) => {
             const filtered = chapters.filter(ch =>

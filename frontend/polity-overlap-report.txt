@@ -1,0 +1,209 @@
+Polity MCQ Deduplication Report
+--------------------------------
+Total MCQs extracted from subjects (batch1): 7246
+Total MCQs extracted from platform (batch1-1): 8277
+Exact text overlap count: 1598
+
+This means 1598 identical questions exist in BOTH the day-based files (batch1) and chapter-based files (batch1-1).
+
+Sample Overlaps:
+Overlap: "which of the following acts was the first step taken by the british go..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "which act provided for the establishment of a supreme court at calcutt..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "the amending act of 1781 was passed to rectify the defects of the regu..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "which of the following acts established a system of double government ..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "in 1786 lord cornwallis was appointed as the governorgeneral of bengal..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "who was the first governorgeneral of india..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "the charter act of 1833 ended the activities of the east india company..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "which act for the first time separated the legislative and executive f..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "the government of india act of 1858 is also known by which of the foll..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "under the government of india act of 1858 the designation of the gover..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "who was the first viceroy of india..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "which of the following bodies were abolished by the government of indi..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "the government of india act of 1858 created a new office called the se..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "the indian councils act of 1861 initiated the process of decentralizat..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "what was the lifespan of an ordinance issued by the viceroy during an ..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "according to the indian councils act of 1892 which of the following ne..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "the indian councils act of 1909 is also popularly known by which name..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "under the act of 1909 who became the first indian to join the viceroy’..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "the government of india act of 1919 divided the provincial subjects in..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "which act introduced for the first time bicameralism and direct electi..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "in 1926 which body was set up for recruiting civil servants as provide..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-1.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day1-mcqs.ts
+
+Overlap: "which part and article of the indian constitution deal with the power ..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "the procedure for the amendment of the constitution as laid down in ar..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "who can initiate an amendment of the constitution under article 368..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "can a state legislature initiate a bill to amend the constitution of i..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "does the introduction of a constitutional amendment bill require the p..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "in the context of article 368 what kind of majority is required in eac..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "if there is a disagreement between the lok sabha and the rajya sabha o..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "if an amendment bill seeks to change the federal provisions of the con..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "when a constitutional amendment bill properly passed by parliament and..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "which constitutional amendment act made it strictly obligatory for the..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "how many ways are there to amend the constitution of india taking into..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "which of the following matters can be amended by a simple majority of ..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "the abolition or creation of legislative councils in states can be don..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "which of the following requires a special majority of parliament but n..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "which of the following provisions requires ratification by half of the..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "to amend article 368 itself which procedure must be followed..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "is there a time limit prescribed in the constitution within which the ..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "can an amendment bill be introduced by a private member of parliament..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "does the constitution provide for a special body like a constitutional..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "if half of the states ratify an amendment bill concerning the federal ..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "according to the supreme court ruling in the kesavananda bharati case ..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "the power to amend the constitution rests almost entirely with the par..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "can a state legislature after ratifying a constitutional amendment bil..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-11.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day10-mcqs.ts
+
+Overlap: "in which constitutional case was the question of whether fundamental r..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-12.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day11-mcqs.ts
+
+Overlap: "in the shankari prasad case 1951 the supreme court ruled that the powe..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-12.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day11-mcqs.ts
+
+Overlap: "in which case did the supreme court invalidate the provision of the 42..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-12.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day11-mcqs.ts
+
+Overlap: "in the waman rao case 1981 the supreme court clarified the retrospecti..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-12.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day11-mcqs.ts
+
+Overlap: "which of the following values was recognized as a part of the basic st..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-12.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day11-mcqs.ts
+
+Overlap: "in the indira nehru gandhi v raj narain case 1975 the supreme court st..."
+  Platform file: [platform-batch1-1] platform\polity\data\chapters\chapter-12.ts
+  Subjects file: [subjects-batch1] subjects\polity\data\day11-mcqs.ts
+

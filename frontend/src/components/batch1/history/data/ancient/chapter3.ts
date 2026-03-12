@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_3_SUBTOPICS: Subtopic[] = [
@@ -152,3 +153,4 @@ export const ANCIENT_CHAPTER_3_CONTENT = `
 - **Trade Routes:** Uttarapatha (N), Dakshinapatha (S), Maritime (coast)
 - **Regionalism:** Geographic barriers → political fragmentation → diverse cultures
 `;
+

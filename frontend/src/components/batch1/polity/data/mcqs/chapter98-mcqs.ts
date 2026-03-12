@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_98_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 98,
+
         question: "Regarding evolution of UTs:\n1. 'Union Territory' introduced by 7th Amendment (1956).\n2. Originally classified as 'Part D States' only.\n3. Governor of adjoining State can be Administrator.",
         options: [
             "1 and 2 only",
@@ -17,7 +17,7 @@ export const CHAPTER_98_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 98,
+
         question: "Parliament's power to make laws on State List subjects extends to:",
         options: [
             "UTs without legislature only.",
@@ -31,7 +31,7 @@ export const CHAPTER_98_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 98,
+
         question: "Regarding Delhi Administration (Art 239-AA):",
         options: [
             "CM appointed by LG.",
@@ -45,7 +45,7 @@ export const CHAPTER_98_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 98,
+
         question: "President's Regulation Making Power (Art 240):",
         options: [
             "Applicable to Delhi.",
@@ -59,7 +59,7 @@ export const CHAPTER_98_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 98,
+
         question: "Comparison: Delhi vs Puducherry",
         options: [
             "Puducherry can legislate on all State List subjects.",
@@ -73,7 +73,7 @@ export const CHAPTER_98_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 98,
+
         question: "Judicial System in UTs:",
         options: [
             "Every UT must have separate HC.",
@@ -87,7 +87,7 @@ export const CHAPTER_98_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 98,
+
         question: "Practice Q: 1. President makes regulations for all UTs. 2. Parliamentary law prevails over Delhi law.",
         options: [
             "1 only",

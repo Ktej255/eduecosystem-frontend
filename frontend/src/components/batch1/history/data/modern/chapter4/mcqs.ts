@@ -562,7 +562,7 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
   },
   {
     id: '4-63',
-    question: "Consider the following statements regarding the socio-economic conditions of 18th-century India: 1. The Indian economy was predominantly agricultural and self-sufficient at the village level, but it lacked a modern industrial bourgeoisie. 2. The export surplus of Indian manufactured goods (like cotton textiles and silk) was so massive that India was known globally as a 'sink of precious metals'. 3. The traditional Indian education system, while widespread, was thoroughly modernized in the 18th century by incorporating Western sciences and geography under the patronage of regional Nawabs. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the socio-economic conditions of 18th-century India:\n1. The Indian economy was predominantly agricultural and self-sufficient at the village level, but it lacked a modern industrial bourgeoisie.\n2. The export surplus of Indian manufactured goods (like cotton textiles and silk) was so massive that India was known globally as a 'sink of precious metals'.\n3. The traditional Indian education system, while widespread, was thoroughly modernized in the 18th century by incorporating Western sciences and geography under the patronage of regional Nawabs. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; the traditional education system (Tols, Madrasas) was stagnant, relying entirely on rote learning of literature, law, and theology, and completely ignored modern physical sciences and geography.",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
   },
   {
     id: '4-65',
-    question: "Arrange the following Later Mughal Emperors in the correct chronological order of their reign: 1. Farrukhsiyar 2. Jahandar Shah 3. Alamgir II 4. Muhammad Shah 'Rangeela' Select the correct answer using the code given below:",
+    question: "Arrange the following Later Mughal Emperors in the correct chronological order of their reign:\n1. Farrukhsiyar\n2. Jahandar Shah\n3. Alamgir II\n4. Muhammad Shah 'Rangeela' Select the correct answer using the code given below:",
     options: ["2 \u2014 1 \u2014 4 \u2014 3", "1 \u2014 2 \u2014 3 \u2014 4", "2 \u2014 4 \u2014 1 \u2014 3", "1 \u2014 4 \u2014 2 \u2014 3"],
     correctAnswer: 0,
     explanation: "2 \u2014 1 \u2014 4 \u2014 3 Jahandar Shah (1712-13) -> Farrukhsiyar (1713-19) -> Muhammad Shah (1719-48) -> Alamgir II (1754-59).",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
   },
   {
     id: '4-66',
-    question: "Consider the following statements regarding the 'Sayyid Brothers' (Abdullah Khan and Hussain Ali Khan): 1. They abolished the Jizya and the pilgrim tax in an effort to conciliate the Hindu nobles, Rajputs, and Marathas. 2. They successfully assassinated Emperor Farrukhsiyar in 1719, marking the first time a Mughal Emperor was killed by his nobles. 3. They were staunch orthodox Sunnis who invited Nadir Shah to India to crush the rising Shia power in Awadh. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Sayyid Brothers' (Abdullah Khan and Hussain Ali Khan):\n1. They abolished the Jizya and the pilgrim tax in an effort to conciliate the Hindu nobles, Rajputs, and Marathas.\n2. They successfully assassinated Emperor Farrukhsiyar in 1719, marking the first time a Mughal Emperor was killed by his nobles.\n3. They were staunch orthodox Sunnis who invited Nadir Shah to India to crush the rising Shia power in Awadh. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is entirely false; they pursued a secular/tolerant policy to build a broad coalition and had nothing to do with Nadir Shah's invasion (which happened later in 1739 after they were dead).",
@@ -598,7 +598,7 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
   },
   {
     id: '4-67',
-    question: "Consider the following pairs of Regional States and their Founders: 1. Awadh \u2014 Saadat Khan (Burhan-ul-Mulk) 2. Hyderabad \u2014 Kilich Khan (Nizam-ul-Mulk Asaf Jah) 3. Rohilkhand \u2014 Ali Muhammad Khan 4. Bharatpur (Jat State) \u2014 Suraj Mal How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of Regional States and their Founders:\n1. Awadh \u2014 Saadat Khan (Burhan-ul-Mulk)\n2. Hyderabad \u2014 Kilich Khan (Nizam-ul-Mulk Asaf Jah)\n3. Rohilkhand \u2014 Ali Muhammad Khan\n4. Bharatpur (Jat State) \u2014 Suraj Mal How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
     correctAnswer: 2,
     explanation: "Only three pairs Pairs 1, 2, and 3 are correct. Pair 4 is technically incorrect regarding the founder; the Jat state was founded by Churaman and Badan Singh, though it reached its zenith under Suraj Mal.",
@@ -625,7 +625,7 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
   },
   {
     id: '4-70',
-    question: "Consider the following structural weaknesses of the Maratha Empire that prevented them from replacing the Mughals: 1. They lacked a positive, pan-Indian political and administrative program, focusing primarily on extracting revenue from conquered territories. 2. They completely ignored artillery and modern firearms, fighting exclusively with traditional cavalry. 3. The confederacy was fundamentally decentralized, with powerful chiefs (Sindhia, Holkar, Bhonsle, Gaekwad) often fighting among themselves. How many of the above statements are correct?",
+    question: "Consider the following structural weaknesses of the Maratha Empire that prevented them from replacing the Mughals:\n1. They lacked a positive, pan-Indian political and administrative program, focusing primarily on extracting revenue from conquered territories.\n2. They completely ignored artillery and modern firearms, fighting exclusively with traditional cavalry.\n3. The confederacy was fundamentally decentralized, with powerful chiefs (Sindhia, Holkar, Bhonsle, Gaekwad) often fighting among themselves. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the Marathas (like Mahadji Sindhia) did heavily invest in modern artillery and European-trained infantry later on, but their political structure was too disjointed to utilize it systematically on a national level.",
@@ -634,7 +634,7 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
   },
   {
     id: '4-71',
-    question: "Consider the following statements regarding the literary and cultural developments of the 18th century: 1. The famous romantic epic 'Heer Ranjha' was composed by Waris Shah in the Punjabi language. 2. Shah Abdul Latif composed 'Risalo', a collection of poems in the Sindhi language. 3. Tayumanavar, a prominent Sittar poet, wrote verses protesting against the caste system and temple rule in the Tamil language. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the literary and cultural developments of the 18th century:\n1. The famous romantic epic 'Heer Ranjha' was composed by Waris Shah in the Punjabi language.\n2. Shah Abdul Latif composed 'Risalo', a collection of poems in the Sindhi language.\n3. Tayumanavar, a prominent Sittar poet, wrote verses protesting against the caste system and temple rule in the Tamil language. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three All statements correctly identify the rich regional literary developments of the 18th century, showcasing that while the central political empire declined, regional culture flourished.",
@@ -652,7 +652,7 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
   },
   {
     id: '4-73',
-    question: "Arrange the following decisive battles of the 18th century in chronological order: 1. Battle of Buxar 2. Battle of Karnal 3. Third Battle of Panipat 4. Battle of Plassey Select the correct answer using the code given below:",
+    question: "Arrange the following decisive battles of the 18th century in chronological order:\n1. Battle of Buxar\n2. Battle of Karnal\n3. Third Battle of Panipat\n4. Battle of Plassey Select the correct answer using the code given below:",
     options: ["2 \u2014 4 \u2014 3 \u2014 1", "4 \u2014 2 \u2014 3 \u2014 1", "2 \u2014 3 \u2014 4 \u2014 1", "3 \u2014 2 \u2014 4 \u2014 1"],
     correctAnswer: 0,
     explanation: "2 \u2014 4 \u2014 3 \u2014 1 Battle of Karnal (1739, Nadir Shah) -> Battle of Plassey (1757) -> Third Battle of Panipat (1761, Abdali vs Marathas) -> Battle of Buxar (1764).",
@@ -661,7 +661,7 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
   },
   {
     id: '4-74',
-    question: "Consider the following statements regarding the institution of Slavery in 18th-century India: 1. Slaves were predominantly used for large-scale agricultural plantation labor, similar to the American South. 2. European trading companies operating in India actively participated in purchasing and exporting Indian slaves to their other colonies. 3. Abyssinian slaves were frequently imported into India from Africa. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the institution of Slavery in 18th-century India:\n1. Slaves were predominantly used for large-scale agricultural plantation labor, similar to the American South.\n2. European trading companies operating in India actively participated in purchasing and exporting Indian slaves to their other colonies.\n3. Abyssinian slaves were frequently imported into India from Africa. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 2 and 3 are correct. Statement 1 is incorrect; in India, slaves were mostly treated as hereditary family servants and used for domestic work, not large-scale agricultural plantations.",
@@ -706,7 +706,7 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
   },
   {
     id: '4-79',
-    question: "With reference to 18th-century naval developments, consider the following: 1. The Marathas under Kanhoji Angre possessed a formidable navy that successfully challenged European ships on the western coast. 2. Haidar Ali and Tipu Sultan completely ignored naval warfare, focusing only on cavalry. 3. The shipbuilding industry flourished in Maharashtra, the Andhra region, and Bengal. How many of the above statements are correct?",
+    question: "With reference to 18th-century naval developments, consider the following:\n1. The Marathas under Kanhoji Angre possessed a formidable navy that successfully challenged European ships on the western coast.\n2. Haidar Ali and Tipu Sultan completely ignored naval warfare, focusing only on cavalry.\n3. The shipbuilding industry flourished in Maharashtra, the Andhra region, and Bengal. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; Tipu Sultan later did realize the importance of a navy and attempted to build a Board of Admiralty and dockyards.",
@@ -733,7 +733,7 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
   },
   {
     id: '4-82',
-    question: "Consider the following statements regarding the state of Mysore in the 18th century: 1. It emerged as a powerful state under the Wadiyar dynasty, but real power was usurped by Haidar Ali. 2. Haidar Ali allied with the French to establish a modern arsenal at Dindigul. 3. Mysore's power was built on a highly oppressive revenue system that completely alienated the peasantry, leading to constant internal rebellions. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the state of Mysore in the 18th century:\n1. It emerged as a powerful state under the Wadiyar dynasty, but real power was usurped by Haidar Ali.\n2. Haidar Ali allied with the French to establish a modern arsenal at Dindigul.\n3. Mysore's power was built on a highly oppressive revenue system that completely alienated the peasantry, leading to constant internal rebellions. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; Haidar Ali and Tipu Sultan actually introduced efficient revenue systems, eliminated intermediaries (poligars), and protected the peasantry, making their economic base incredibly strong compared to other states.",
@@ -742,7 +742,7 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
   },
   {
     id: '4-83',
-    question: "Match the Mughal Emperors with the significant historical events during their reign: 1. Jahandar Shah \u2014",
+    question: "Match the Mughal Emperors with the significant historical events during their reign:\n1. Jahandar Shah \u2014",
     options: ["Abolished Jizya permanently 2. Farrukhsiyar \u2014", "Granted the Magna Carta to the EIC 3. Alamgir II \u2014", "Battle of Plassey 4. Shah Alam II \u2014", "Battle of Buxar Select the correct code:"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C, 4-D (Direct chronological/event mapping).",
@@ -787,7 +787,7 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
   },
   {
     id: '4-88',
-    question: "Consider the impact of Nadir Shah\u2019s invasion (1739): 1. It exposed the hidden weakness of the Mughal Empire to the European trading companies. 2. It permanently attached the strategic territories west of the river Indus to the Persian Empire. 3. It completely emptied the Mughal treasury, bankrupting the central administration. How many of the above statements are correct?",
+    question: "Consider the impact of Nadir Shah\u2019s invasion (1739):\n1. It exposed the hidden weakness of the Mughal Empire to the European trading companies.\n2. It permanently attached the strategic territories west of the river Indus to the Persian Empire.\n3. It completely emptied the Mughal treasury, bankrupting the central administration. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three Nadir Shah's invasion was the death knell for the Mughal Empire's prestige, wealth, and its strategic northwestern frontier.",

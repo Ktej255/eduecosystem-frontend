@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_32_MCQS: any[] = [
   },
   {
     id: '32-34',
-    question: "Consider the following statements regarding the 'Civil Liberties' during the Congress rule (1937-39): 1. Emergency powers acquired by the provincial governments during the Civil Disobedience era were repealed. 2. The ban on several radical organizations like the Communist Party remained in place in most provinces. 3. Confiscated arms licenses and lands were restored to the original owners in many cases. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Civil Liberties' during the Congress rule (1937-39):\n1. Emergency powers acquired by the provincial governments during the Civil Disobedience era were repealed.\n2. The ban on several radical organizations like the Communist Party remained in place in most provinces.\n3. Confiscated arms licenses and lands were restored to the original owners in many cases. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 2,
     explanation: "1 and 3 only. Statement 2 is incorrect; one of the first acts of the ministries was to lift bans on political organizations and books, though the ban on the CP remained a Central (British) subject.",
@@ -355,7 +355,7 @@ export const MODERN_CHAPTER_32_MCQS: any[] = [
   },
   {
     id: '32-40',
-    question: "Consider the following regarding the 'Constitutional Crisis' in Bihar and UP (1938): 1. The Ministries resigned because the Governors refused to release political prisoners involved in revolutionary activities. 2. The crisis was resolved when the Viceroy and Governors eventually gave in, realizing that the Congress was prepared for a massive agitation. 3. Gandhi initially opposed the resignation. How many of the above are correct?",
+    question: "Consider the following regarding the 'Constitutional Crisis' in Bihar and UP (1938):\n1. The Ministries resigned because the Governors refused to release political prisoners involved in revolutionary activities.\n2. The crisis was resolved when the Viceroy and Governors eventually gave in, realizing that the Congress was prepared for a massive agitation.\n3. Gandhi initially opposed the resignation. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; Gandhi fully supported the ministries' stand on prisoner release).",
@@ -481,7 +481,7 @@ export const MODERN_CHAPTER_32_MCQS: any[] = [
   },
   {
     id: '32-54',
-    question: "Consider the following regarding the 'Office Acceptance' debate: 1. The 'Right-Wing' (Patel/Rajagopalachari) argued that accepting office would provide a \"short-term relief\" to the masses and prove Indian administrative capability. 2. The 'Left-Wing' (Nehru/Bose) argued that it would lead to \"co-option\" into the colonial structure. 3. Mahatma Gandhi acted as the final mediator, suggesting that office should be accepted but with the spirit of \"non-cooperation from within.\" How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Office Acceptance' debate:\n1. The 'Right-Wing' (Patel/Rajagopalachari) argued that accepting office would provide a \"short-term relief\" to the masses and prove Indian administrative capability. 2. The 'Left-Wing' (Nehru/Bose) argued that it would lead to \"co-option\" into the colonial structure. 3. Mahatma Gandhi acted as the final mediator, suggesting that office should be accepted but with the spirit of \"non-cooperation from within.\" How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -535,7 +535,7 @@ export const MODERN_CHAPTER_32_MCQS: any[] = [
   },
   {
     id: '32-60',
-    question: "Consider the following regarding the 'National Planning Committee' (1938): 1. It was the first formal attempt by an Indian political body to envision a \"mixed economy.\" 2. It emphasized \"Industrialization\" while also supporting \"Cottage Industries\" as a transitional necessity. 3. It was chaired by Subhash Chandra Bose. How many of the above are correct?",
+    question: "Consider the following regarding the 'National Planning Committee' (1938):\n1. It was the first formal attempt by an Indian political body to envision a \"mixed economy.\" 2. It emphasized \"Industrialization\" while also supporting \"Cottage Industries\" as a transitional necessity. 3. It was chaired by Subhash Chandra Bose. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; Nehru was the Chairman).",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_32_MCQS: any[] = [
   },
   {
     id: '32-66',
-    question: "Match the following 'Challenges' with the 'Response' of the Congress Ministries: 1. Rural Indebtedness \u2014",
+    question: "Match the following 'Challenges' with the 'Response' of the Congress Ministries:\n1. Rural Indebtedness \u2014",
     options: ["Prohibition 2. Low Literacy \u2014", "Debt Conciliation Acts 3. Social Evils (Drinking) \u2014", "Vidya Mandir/Basic Education Select the correct matching code:", "1-B, 2-C, 3-A"],
     correctAnswer: 0,
     explanation: "1-B, 2-C, 3-A.",

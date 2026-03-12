@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_21_SUBTOPICS: Subtopic[] = [
@@ -136,3 +137,4 @@ export const ANCIENT_CHAPTER_21_CONTENT = `
 - **Agriculture:** Intense **Rice** cultivation supported a population boom.
 - **Trade:** Shifted from the declining Roman market toward **Southeast Asia** (Suvarnabhumi) via ports like **Tamralipti**.
 `;
+

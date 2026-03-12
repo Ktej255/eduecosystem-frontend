@@ -3,7 +3,7 @@ import { MCQ } from "../RevisionRegistry";
 export const CHAPTER_26_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 26,
+
         question: "Regarding the 'Public Accounts Committee (PAC)', which of the following statements is strictly mentioned in the text?\n1. It consists of 22 members (15 from Lok Sabha and 7 from Rajya Sabha).\n2. A minister cannot be elected as a member of the committee.\n3. The chairman of the committee is invariably appointed from the ruling party.\n4. The term of office of the members is one year.\nSelect the correct answer:",
         options: [
             "1, 2, and 4 only",
@@ -17,7 +17,7 @@ export const CHAPTER_26_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 26,
+
         question: "The 'Estimates Committee' is often referred to as the 'Continuous Economy Committee'. In this context, consider the following:\n1. It is the largest committee of the Parliament.\n2. All its 30 members are drawn exclusively from the Lok Sabha.\n3. It can suggest alternative policies to bring about efficiency and economy.\n4. It examines the budget estimates only after they have been voted by the Parliament.\nWhich are correct?",
         options: [
             "1, 2, and 3 only",
@@ -31,7 +31,7 @@ export const CHAPTER_26_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 26,
+
         question: "With reference to the 'Committee on Public Undertakings', which of the following is correct?",
         options: [
             "It was created in 1964 on the recommendation of the Estimates Committee.",
@@ -45,7 +45,7 @@ export const CHAPTER_26_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 26,
+
         question: "Who is described as the 'friend, philosopher, and guide' of the Public Accounts Committee?",
         options: [
             "Speaker of Lok Sabha",
@@ -59,7 +59,7 @@ export const CHAPTER_26_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 26,
+
         question: "Consider statements regarding 'Departmental Standing Committees' (DRSCs):\n1. Currently 24 DRSCs covering all ministries.\n2. Each has 31 members (21 LS, 10 RS).\n3. LS members nominated by Speaker, RS members by Chairman.\n4. A minister can be a member but not Chairman.\nCorrect statements?",
         options: [
             "1, 2, and 3 only",
@@ -73,7 +73,7 @@ export const CHAPTER_26_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 26,
+
         question: "Which is NOT a function of Departmental Standing Committees?",
         options: [
             "To consider demands for grants.",
@@ -87,7 +87,7 @@ export const CHAPTER_26_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 26,
+
         question: "Match Committee with Function:\n1. Committee on Subordinate Legislation\n2. Ethics Committee\n3. Committee on Government Assurances\n4. Business Advisory Committee\nFunctions:\n(a) Examines delegated legislation rules.\n(b) Allocates time for discussion.\n(c) Enforces Code of Conduct.\n(d) Scrutinizes promises/assurances.",
         options: [
             "1-(a), 2-(c), 3-(d), 4-(b)",
@@ -101,7 +101,7 @@ export const CHAPTER_26_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 26,
+
         question: "Which is true regarding the 'Committee on Private Members' Bills' in Rajya Sabha?",
         options: [
             "Rajya Sabha has an identical committee.",
@@ -115,7 +115,7 @@ export const CHAPTER_26_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 26,
+
         question: "Regarding 'Business Advisory Committee':\n1. LS committee has 15 members (Speaker as Chairman).\n2. RS committee has 11 members (Chairman as Chairman).\n3. It regulates the programme and time-table.",
         options: [
             "1 and 2 only",
@@ -129,7 +129,7 @@ export const CHAPTER_26_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 26,
+
         question: "With reference to 'Rules Committee':\n1. Considers procedure/conduct matters.\n2. LS: 15 members nominated by Speaker.\n3. RS: 16 members including Chairman as ex-officio chairman.",
         options: [
             "1 and 2 only",
@@ -143,7 +143,7 @@ export const CHAPTER_26_MCQS: MCQ[] = [
     },
     {
         id: 11,
-        chapterId: 26,
+
         question: "Regarding 'Committee on Absence of Members' in Rajya Sabha:",
         options: [
             "Joint committee of 15 members.",
@@ -157,7 +157,7 @@ export const CHAPTER_26_MCQS: MCQ[] = [
     },
     {
         id: 12,
-        chapterId: 26,
+
         question: "Which 'House-Keeping Committee' is chaired by the Deputy Speaker in the Lok Sabha?",
         options: [
             "General Purposes Committee",
@@ -171,7 +171,7 @@ export const CHAPTER_26_MCQS: MCQ[] = [
     },
     {
         id: 13,
-        chapterId: 26,
+
         question: "Regarding 'Consultative Committees':\n1. Attached to ministries.\n2. Chaired by Minister in-charge.\n3. Forum for informal discussion.\n4. Are parliamentary committees in strict sense.",
         options: [
             "1, 2, and 3 only",
@@ -185,7 +185,7 @@ export const CHAPTER_26_MCQS: MCQ[] = [
     },
     {
         id: 14,
-        chapterId: 26,
+
         question: "Maximum membership of a Consultative Committee is fixed at:",
         options: [
             "15 members",
@@ -199,7 +199,7 @@ export const CHAPTER_26_MCQS: MCQ[] = [
     },
     {
         id: 15,
-        chapterId: 26,
+
         question: "Regarding 'Ethics Committee':\n1. Constituted in RS in 1997, LS in 2000.\n2. Examines complaints of unethical conduct.\n3. Can take up matters suo motu.",
         options: [
             "1 and 2 only",

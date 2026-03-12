@@ -6,7 +6,7 @@ import { MCQ } from './chapter1-mcqs';
 export const CHAPTER_4_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 4,
+
         question: "Which of the following is NOT a reason for the elephantine size of the Indian Constitution?",
         options: [
             "Geographical factors (vastness and diversity)",
@@ -20,7 +20,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 4,
+
         question: "Which Amendment Act is popularly known as the 'Mini-Constitution'?",
         options: [
             "42nd Amendment Act",
@@ -34,7 +34,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 4,
+
         question: "The 'Rule of Law' and 'Cabinet System' were borrowed from which constitution?",
         options: [
             "US Constitution",
@@ -48,7 +48,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 4,
+
         question: "Fundamental Rights and the independence of the judiciary were inspired by:",
         options: [
             "British Constitution",
@@ -62,7 +62,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 4,
+
         question: "The Directive Principles of State Policy (DPSP) were borrowed from:",
         options: [
             "Canadian Constitution",
@@ -76,7 +76,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 4,
+
         question: "A 'Federation with a strong Centre' is a feature borrowed from:",
         options: [
             "USA",
@@ -90,7 +90,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 4,
+
         question: "In the Kesavananda Bharati case (1973), the Supreme Court ruled that:",
         options: [
             "Fundamental Rights are superior to DPSPs",
@@ -104,7 +104,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 4,
+
         question: "Which feature of the Indian Parliamentary system distinguishes it from the British system?",
         options: [
             "Presence of a nominal head of state",
@@ -118,7 +118,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 4,
+
         question: "The 'Judicial Review' power in India is:",
         options: [
             "Broader than that in the USA",
@@ -132,7 +132,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 4,
+
         question: "Which Fundamental Right was deleted by the 44th Amendment Act (1978)?",
         options: [
             "Right to Freedom of Religion",
@@ -146,7 +146,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 11,
-        chapterId: 4,
+
         question: "The Directive Principles of State Policy are aimed at establishing:",
         options: [
             "Political democracy",
@@ -160,7 +160,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 12,
-        chapterId: 4,
+
         question: "Fundamental Duties were added to the Constitution on the recommendation of:",
         options: [
             "Verma Committee",
@@ -174,7 +174,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 13,
-        chapterId: 4,
+
         question: "India is a 'Secular State' means:",
         options: [
             "The State is anti-religion",
@@ -188,7 +188,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 14,
-        chapterId: 4,
+
         question: "Universal Adult Franchise was introduced in India with the voting age of 21. It was reduced to 18 by which amendment?",
         options: [
             "42nd Amendment",
@@ -202,7 +202,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 15,
-        chapterId: 4,
+
         question: "The 'Single Citizenship' feature in India is aimed at:",
         options: [
             "Promoting communalism",
@@ -216,7 +216,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 16,
-        chapterId: 4,
+
         question: "Which of the following are 'Independent Bodies' established by the Constitution?\n1. Election Commission\n2. CAG\n3. UPSC\n4. Finance Commission",
         options: [
             "1, 2 and 3 only",
@@ -230,7 +230,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 17,
-        chapterId: 4,
+
         question: "Which Amendment Acts added the 'Third Tier' of government (Local Government) to the Indian Constitution?",
         options: [
             "42nd and 44th",
@@ -244,7 +244,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 18,
-        chapterId: 4,
+
         question: "The 97th Constitutional Amendment Act of 2011 is related to:",
         options: [
             "GST",
@@ -258,7 +258,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 19,
-        chapterId: 4,
+
         question: "According to Granville Austin, the 'Conscience of the Constitution' is formed by:",
         options: [
             "Preamble and Fundamental Rights",
@@ -272,7 +272,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 20,
-        chapterId: 4,
+
         question: "The power to declare a National Emergency resides with the President under which Article?",
         options: [
             "Article 352",
@@ -286,7 +286,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 21,
-        chapterId: 4,
+
         question: "The 'Procedure established by Law' is a feature borrowed from:",
         options: [
             "British Constitution",
@@ -300,7 +300,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 22,
-        chapterId: 4,
+
         question: "Which of the following are considered 'Federal' features of the Indian Constitution?\n1. Dual Government\n2. Written Constitution\n3. Independent Judiciary\n4. Single Citizenship",
         options: [
             "1, 2 and 3",
@@ -314,7 +314,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 23,
-        chapterId: 4,
+
         question: "The 'Emergency provisions' in the Indian Constitution are unique because:",
         options: [
             "They transform the federal structure into unitary without a formal amendment",
@@ -328,7 +328,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 24,
-        chapterId: 4,
+
         question: "The 'Joint sitting of the two Houses of Parliament' is borrowed from:",
         options: [
             "British Constitution",
@@ -342,7 +342,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 25,
-        chapterId: 4,
+
         question: "Which of the following cases established the idea that 'The Indian Constitution is founded on the bed-rock of the balance between the Fundamental Rights and the Directive Principles'?",
         options: [
             "Golaknath case",
@@ -356,7 +356,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 26,
-        chapterId: 4,
+
         question: "The 'Suspension of Fundamental Rights during Emergency' is a feature borrowed from:",
         options: [
             "US Constitution",
@@ -370,7 +370,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 27,
-        chapterId: 4,
+
         question: "Which part of the Constitution deals with the 'Fundamental Duties'?",
         options: [
             "Part III",
@@ -384,7 +384,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 28,
-        chapterId: 4,
+
         question: "The Indian Constitution provides for a 'Single Judiciary'. This means:",
         options: [
             "There is only one judge in the country",
@@ -398,7 +398,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 29,
-        chapterId: 4,
+
         question: "The 'Appointment of State Governors by the Centre' is a feature borrowed from:",
         options: [
             "USA",
@@ -412,7 +412,7 @@ export const CHAPTER_4_MCQS: MCQ[] = [
     },
     {
         id: 30,
-        chapterId: 4,
+
         question: "The 'Bicameralism' at the Centre was first introduced by:",
         options: [
             "Government of India Act, 1919",

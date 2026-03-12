@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_50_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 50,
+
         question: "Regarding CAG, which is strictly correct?\n1. Holds office during pleasure of President.\n2. Eligible for further office to ensure continuity.\n3. Administrative expenses charged on Consolidated Fund of India.\n4. Constitution has not prescribed qualifications.",
         options: [
             "1, 2, and 3 only",
@@ -17,7 +17,7 @@ export const CHAPTER_50_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 50,
+
         question: "Regarding removal of CAG, consider:\n1. Removed by President at any time.\n2. Removed only by process identical to SC Judge.\n3. Governor can remove for state audits.\n4. Removed by simple majority.",
         options: [
             "1 only",
@@ -31,7 +31,7 @@ export const CHAPTER_50_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 50,
+
         question: "CAG audits accounts related to expenditure from:",
         options: [
             "Consolidated Fund of India & States.",
@@ -45,7 +45,7 @@ export const CHAPTER_50_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 50,
+
         question: "Which is NOT one of the 3 Audit Reports submitted by CAG?",
         options: [
             "Audit report on appropriation accounts",
@@ -59,7 +59,7 @@ export const CHAPTER_50_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 50,
+
         question: "Article 150 deals with:",
         options: [
             "Audit of Local Bodies.",
@@ -73,7 +73,7 @@ export const CHAPTER_50_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 50,
+
         question: "What does 'Propriety Audit' imply?",
         options: [
             "Checking rules and regulations.",
@@ -87,7 +87,7 @@ export const CHAPTER_50_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 50,
+
         question: "Why is 'Comptroller' a misnomer in India?",
         options: [
             "No power to audit states.",
@@ -101,7 +101,7 @@ export const CHAPTER_50_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 50,
+
         question: "Match Audit Nature to Body:\n1. Direct/Total Audit\n2. Supplementary Audit\n3. Private Audit (No CAG)\n\n(a) LIC, RBI\n(b) ONGC, DVC\n(c) Central Warehousing Corp",
         options: [
             "1-(b), 2-(c), 3-(a)",
@@ -115,7 +115,7 @@ export const CHAPTER_50_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 50,
+
         question: "Limitation regarding 'Secret Service Expenditure':",
         options: [
             "No authority to audit at all.",

@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_11_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 11,
+
         question: "Which of the following describes DPSP as 'Novel Features' of the Indian Constitution?",
         options: ["Jawaharlal Nehru", "Dr. B.R. Ambedkar", "Mahatma Gandhi", "Sardar Patel"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_11_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 11,
+
         question: "The Directive Principles of State Policy are fundamental in the:",
         options: ["Administration of the country", "Governance of the country", "Justice system of the country", "Political system of the country"],
         correctAnswer: 1,
@@ -21,7 +21,7 @@ export const CHAPTER_11_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 11,
+
         question: "Which Article under DPSP deals with the promotion of cottage industries?",
         options: ["Article 41", "Article 42", "Article 43", "Article 44"],
         correctAnswer: 2,
@@ -30,7 +30,7 @@ export const CHAPTER_11_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 11,
+
         question: "Uniform Civil Code (Article 44) has been implemented in which Indian state?",
         options: ["Kerala", "Goa", "Sikkim", "Maharashtra"],
         correctAnswer: 1,
@@ -39,7 +39,7 @@ export const CHAPTER_11_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 11,
+
         question: "Which of the following was NOT added by the 42nd Amendment Act to the DPSP?",
         options: [
             "Article 39A: Evaluation of free legal aid",
@@ -53,7 +53,7 @@ export const CHAPTER_11_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 11,
+
         question: "Consider the following statements:\n1. DPSPs aim at establishing political democracy.\n2. Fundamental Rights aim at establishing social and economic democracy.",
         options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 3,
@@ -62,7 +62,7 @@ export const CHAPTER_11_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 11,
+
         question: "Which Article was amended to restrict education only for children below 6 years in 2002?",
         options: ["Article 44", "Article 45", "Article 46", "Article 51"],
         correctAnswer: 1,
@@ -71,7 +71,7 @@ export const CHAPTER_11_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 11,
+
         question: "Protection of monuments and places of national importance is provided in:",
         options: ["Article 48", "Article 49", "Article 50", "Article 51"],
         correctAnswer: 1,
@@ -80,7 +80,7 @@ export const CHAPTER_11_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 11,
+
         question: "Which Gandhian Principle aims at prohibiting the consumption of intoxicating drinks?",
         options: ["Article 45", "Article 46", "Article 47", "Article 48"],
         correctAnswer: 2,
@@ -89,7 +89,7 @@ export const CHAPTER_11_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 11,
+
         question: "The Directive Principle for 'equal pay for equal work' for both men and women is a/an:",
         options: [
             "Liberal-Intellectual Principle",

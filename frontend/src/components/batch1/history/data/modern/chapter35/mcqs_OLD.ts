@@ -399,7 +399,7 @@ export const MODERN_CHAPTER_35_MCQS: MCQ[] = [
   },
   {
     id: 45,
-    question: "Match the following: 1. Whitley (Labor), 2. Sapru (Constitutional), 3. Cabinet Mission (Federal Structure).",
+    question: "Match the following:\n1. Whitley (Labor),\n2. Sapru (Constitutional),\n3. Cabinet Mission (Federal Structure).",
     options: ["1-A, 2-B, 3-C","1-B, 2-A, 3-C","1-C, 2-B, 3-A","1-D"],
     correctAnswer: 0,
     difficulty: "Moderate",
@@ -696,7 +696,7 @@ export const MODERN_CHAPTER_35_MCQS: MCQ[] = [
   },
   {
     id: 78,
-    question: "True/False about Boundary Commission: 1. Hindu/Muslim judges, 2. Map released after Aug 15.",
+    question: "True/False about Boundary Commission:\n1. Hindu/Muslim judges,\n2. Map released after Aug 15.",
     options: ["Only 1","Both correct","None","Only 2"],
     correctAnswer: 1,
     difficulty: "Hard",

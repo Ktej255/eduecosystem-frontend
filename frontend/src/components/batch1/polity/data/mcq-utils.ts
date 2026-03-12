@@ -6,7 +6,7 @@ export interface MCQ {
     correctIndex?: number; // Alias for correctAnswer (used in polity-mcqs-data)
     explanation?: string;
     level?: string; // e.g. "Easy", "Moderate", "Tough"
-    difficulty?: 'Easy' | 'Moderate' | 'Tough'; // Alias for level
+    difficulty?: 'Easy' | 'Moderate' | 'Tough' | 'easy' | 'medium' | 'hard'; // Alias for level
 
     // Metadata
     topic?: string;
@@ -21,6 +21,6 @@ export interface MCQ {
         page_ref?: number; // e.g. 45
     };
     difficulty_tier?: 'Level_1' | 'Level_2' | 'Level_3';
-    cognitive_tag?: 'Knowledge' | 'Understanding' | 'Accuracy';
+    cognitive_tag?: 'Knowledge' | 'Understanding' | 'Accuracy' | 'Fact' | 'fact';
     associated_product_id?: string;
 }

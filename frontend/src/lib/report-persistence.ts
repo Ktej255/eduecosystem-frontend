@@ -4,7 +4,7 @@ export interface ChapterReportEntry {
     id: string; // unique ID
     timestamp: string;
     chapterId: number;
-    subject: 'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'scitech';
+    subject: 'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'science-tech' | 'international-relations' | 'csat';
     score: number;
     totalQuestions: number;
     accuracy: number;
@@ -117,7 +117,7 @@ export async function getChapterReports(subject: ChapterReportEntry['subject']):
 
 export async function getAllChapterReports(): Promise<Record<string, ChapterReportEntry[]>> {
     if (typeof window === 'undefined') return {};
-    const subjects = ['polity', 'history', 'geography', 'economy', 'environment', 'scitech'] as const;
+    const subjects = ['polity', 'history', 'geography', 'economy', 'environment', 'science-tech', 'international-relations', 'csat'] as const;
     const all: Record<string, ChapterReportEntry[]> = {};
 
     for (const sub of subjects) {

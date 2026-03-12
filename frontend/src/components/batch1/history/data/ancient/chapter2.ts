@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_2_SUBTOPICS: Subtopic[] = [
@@ -165,3 +166,4 @@ Ancient Indian history is reconstructed from **four broad categories of sources*
 3. Oral transmission → interpolation risk
 4. Tropical climate destroyed organic evidence
 `;
+

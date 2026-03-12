@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_73_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 73,
+
         question: "Which of the following describes the difference between a political party and a pressure group?",
         options: [
             "Pressure groups aim to capture power, parties don't",
@@ -17,7 +17,7 @@ export const CHAPTER_73_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 73,
+
         question: "FICCI and ASSOCHAM are examples of:",
         options: ["Trade Unions", "Agrarian Groups", "Business Groups", "Student Wings"],
         correctAnswer: 2,
@@ -26,7 +26,7 @@ export const CHAPTER_73_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 73,
+
         question: "The technique of 'Lobbying' is most common in:",
         options: ["Parliamentary corridors", "Village panchayats", "Judicial courts", "Army barracks"],
         correctAnswer: 0,
@@ -35,7 +35,7 @@ export const CHAPTER_73_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 73,
+
         question: "Which of the following is an agrarian pressure group?",
         options: ["ABVP", "Bharatiya Kisan Union (BKU)", "INTUC", "IMA"],
         correctAnswer: 1,
@@ -44,7 +44,7 @@ export const CHAPTER_73_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 73,
+
         question: "Professional pressure groups include:",
         options: ["Bar Council of India", "Indian Medical Association", "Institute of Chartered Accountants", "All of the above"],
         correctAnswer: 3,
@@ -53,7 +53,7 @@ export const CHAPTER_73_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 73,
+
         question: "The role of pressure groups in 'Publicity' involves:",
         options: [
             "Rigging elections",
@@ -67,7 +67,7 @@ export const CHAPTER_73_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 73,
+
         question: "AITUC (All India Trade Union Congress) is historically associated with which ideology/party?",
         options: ["BJP", "INC", "Communist Party", "BSP"],
         correctAnswer: 2,
@@ -76,7 +76,7 @@ export const CHAPTER_73_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 73,
+
         question: "The use of 'Gherao' and 'Dharna' by groups belongs to which technique?",
         options: ["Lobbying", "Propaganda", "Direct Action", "Litigation"],
         correctAnswer: 2,
@@ -85,7 +85,7 @@ export const CHAPTER_73_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 73,
+
         question: "Which of the following is a criticism of pressure groups?",
         options: [
             "They promote pluralism",
@@ -99,7 +99,7 @@ export const CHAPTER_73_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 73,
+
         question: "Which pressure group is known for its role in the Anti-Corruption movement (2011)?",
         options: ["FICCI", "India Against Corruption (IAC)", "CII", "RSS"],
         correctAnswer: 1,

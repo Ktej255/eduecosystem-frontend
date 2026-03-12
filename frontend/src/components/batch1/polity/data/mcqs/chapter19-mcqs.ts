@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_19_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 19,
+
         question: "Under Article 352, the President can declare a National Emergency when he is satisfied that there is a threat to the security of India on grounds of:",
         options: [
             "Armed rebellion",
@@ -17,7 +17,7 @@ export const CHAPTER_19_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 19,
+
         question: "A resolution for the revocation of a National Emergency can be passed by which of the following?",
         options: [
             "Rajya Sabha with special majority",
@@ -31,7 +31,7 @@ export const CHAPTER_19_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 19,
+
         question: "Article 358 of the Constitution deals with the suspension of:",
         options: [
             "Enforcement of all Fundamental Rights",
@@ -45,7 +45,7 @@ export const CHAPTER_19_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 19,
+
         question: "The maximum period for which President's Rule can be extended in a state is:",
         options: ["1 year", "2 years", "3 years", "Indefinite"],
         correctAnswer: 2,
@@ -54,7 +54,7 @@ export const CHAPTER_19_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 19,
+
         question: "Financial Emergency (Article 360) requires the approval of Parliament within:",
         options: ["1 month", "2 months", "3 months", "6 months"],
         correctAnswer: 1,
@@ -63,7 +63,7 @@ export const CHAPTER_19_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 19,
+
         question: "During a Financial Emergency, the President can issue directions for the reduction of salaries of:",
         options: [
             "All Central Government employees",
@@ -77,7 +77,7 @@ export const CHAPTER_19_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 19,
+
         question: "Which of the following is NOT a consequence of President's Rule?",
         options: [
             "Parliament can pass laws on subjects in the State List",
@@ -91,7 +91,7 @@ export const CHAPTER_19_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 19,
+
         question: "The 'Bommai Case' (1994) is associated with which type of emergency?",
         options: ["National Emergency", "President's Rule", "Financial Emergency", "All of the above"],
         correctAnswer: 1,
@@ -100,7 +100,7 @@ export const CHAPTER_19_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 19,
+
         question: "Who was the President of India when National Emergency was declared in 1975?",
         options: ["V.V. Giri", "Fakhruddin Ali Ahmed", "Zail Singh", "S. Radhakrishnan"],
         correctAnswer: 1,
@@ -109,7 +109,7 @@ export const CHAPTER_19_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 19,
+
         question: "The mandate of Article 356 can be applied to a state based on the report of:",
         options: ["The Prime Minister", "The Governor of the State", "The Chief Minister", "The Chief Justice of the state"],
         correctAnswer: 1,

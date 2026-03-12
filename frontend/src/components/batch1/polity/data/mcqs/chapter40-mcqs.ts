@@ -4,7 +4,7 @@ export const CHAPTER_40_MCQS: MCQ[] = [
     // Phase 1: Evolution
     {
         id: 1,
-        chapterId: 40,
+
         question: "Chronological order of Urban Local Govt milestones:\n1. Lord Ripon's Resolution\n2. First Municipal Corp (Madras)\n3. Municipal Corps (Bombay/Calcutta)\n4. Provincial Subject (GoI Act 1935)",
         options: [
             "2-3-1-4",
@@ -18,7 +18,7 @@ export const CHAPTER_40_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 40,
+
         question: "Father of Local Self-Government in India?",
         options: [
             "Lord Mayo",
@@ -33,7 +33,7 @@ export const CHAPTER_40_MCQS: MCQ[] = [
     // Phase 2: 74th Amendment
     {
         id: 3,
-        chapterId: 40,
+
         question: "Regarding 74th Amendment:\n1. Added Part IX-A & 12th Schedule.\n2. Three types: Nagar Panchayat, Council, Corporation.\n3. Governor specifies transition areas based on criteria.\n4. Industrial townships can be exempt.",
         options: [
             "1 and 2 only",
@@ -47,7 +47,7 @@ export const CHAPTER_40_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 40,
+
         question: "Regarding Composition (Art 243-R):",
         options: [
             "All members elected indirectly.",
@@ -61,7 +61,7 @@ export const CHAPTER_40_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 40,
+
         question: "Mandatory provision(s) of 74th Amendment:\n1. 1/3rd reservation for women.\n2. SC/ST reservation (Pop based).\n3. Ward Committees (Pop > 3 Lakhs).\n4. OBC Reservation.",
         options: [
             "1 and 2 only",
@@ -76,7 +76,7 @@ export const CHAPTER_40_MCQS: MCQ[] = [
     // Phase 3: Technical Committees
     {
         id: 6,
-        chapterId: 40,
+
         question: "Primary function of District Planning Committee (DPC)?",
         options: [
             "Conduct judicial inquiries.",
@@ -90,7 +90,7 @@ export const CHAPTER_40_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 40,
+
         question: "DPC vs MPC Composition:\n1. DPC: 4/5ths elected from elected members.\n2. MPC: 2/3rds elected from elected members.",
         options: [
             "1 only",
@@ -105,7 +105,7 @@ export const CHAPTER_40_MCQS: MCQ[] = [
     // Phase 4: Types of ULBs
     {
         id: 8,
-        chapterId: 40,
+
         question: "Match Urban Body:\nA. Notified Area: 1. Military areas (Ministry of Defence)\nB. Cantonment: 2. Fast-developing / Not yet fit for municipality\nC. Port Trust: 3. PSU townships\nD. Township: 4. Port areas (Act of Parliament)",
         options: [
             "A-2, B-1, C-4, D-3",
@@ -119,7 +119,7 @@ export const CHAPTER_40_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 40,
+
         question: "Chief Executive Authority of Municipal Corporation?",
         options: [
             "The Mayor",
@@ -133,7 +133,7 @@ export const CHAPTER_40_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 40,
+
         question: "True about 'Special Purpose Agency':",
         options: [
             "Area-based body.",
@@ -148,7 +148,7 @@ export const CHAPTER_40_MCQS: MCQ[] = [
     // Phase 5: Powers & Finance
     {
         id: 11,
-        chapterId: 40,
+
         question: "NOT a 12th Schedule item?",
         options: [
             "Urban poverty alleviation.",
@@ -162,7 +162,7 @@ export const CHAPTER_40_MCQS: MCQ[] = [
     },
     {
         id: 12,
-        chapterId: 40,
+
         question: "Regarding Disqualifications (Art 243-V):",
         options: [
             "Min age to contest is 25.",
@@ -176,7 +176,7 @@ export const CHAPTER_40_MCQS: MCQ[] = [
     },
     {
         id: 13,
-        chapterId: 40,
+
         question: "State Finance Commission makes recommendations on:",
         options: [
             "Distribution of taxes.",
@@ -191,7 +191,7 @@ export const CHAPTER_40_MCQS: MCQ[] = [
     // Adding Q11 from user set (Ministries)
     {
         id: 14,
-        chapterId: 40,
+
         question: "Central Ministries associated with Urban Local Govt:\n1. Housing and Urban Affairs.\n2. Defence.\n3. Home Affairs.",
         options: [
             "1 only",

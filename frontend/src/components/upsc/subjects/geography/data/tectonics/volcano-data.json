@@ -1,0 +1,118 @@
+{
+    "name": "Volcano Structure & Eruption",
+    "description": "Cross-sectional view of a composite volcano showing magma chamber, conduit, and crater",
+    "source": "NCERT / USGS Volcano Hazards Program",
+    "volcanoTypes": [
+        {
+            "id": "shield",
+            "name": "Shield Volcano",
+            "lavaType": "Basic (Basaltic)",
+            "shape": "Broad, gently sloping",
+            "eruption": "Quiet, effusive",
+            "example": "Mauna Loa, Hawaii"
+        },
+        {
+            "id": "composite",
+            "name": "Composite/Strato Volcano",
+            "lavaType": "Intermediate to Acidic",
+            "shape": "Steep, symmetrical cone",
+            "eruption": "Explosive",
+            "example": "Mt. Fuji, Vesuvius"
+        },
+        {
+            "id": "cinder",
+            "name": "Cinder Cone",
+            "lavaType": "Basaltic",
+            "shape": "Small, steep cone",
+            "eruption": "Strombolian",
+            "example": "Paricutin, Mexico"
+        },
+        {
+            "id": "caldera",
+            "name": "Caldera",
+            "lavaType": "Highly explosive",
+            "shape": "Large depression",
+            "eruption": "Catastrophic collapse",
+            "example": "Yellowstone, Crater Lake"
+        }
+    ],
+    "structure": {
+        "layers": [
+            {
+                "id": "magma-chamber",
+                "name": "Magma Chamber",
+                "depth": "5-30 km below surface",
+                "description": "Underground pool of molten rock"
+            },
+            {
+                "id": "conduit",
+                "name": "Conduit/Pipe",
+                "depth": "Surface to magma chamber",
+                "description": "Main channel through which magma rises"
+            },
+            {
+                "id": "vent",
+                "name": "Vent",
+                "depth": "Surface",
+                "description": "Opening where lava exits"
+            },
+            {
+                "id": "crater",
+                "name": "Crater",
+                "depth": "Surface",
+                "description": "Bowl-shaped depression at summit"
+            },
+            {
+                "id": "lava-layers",
+                "name": "Alternating Lava & Ash Layers",
+                "depth": "Building the cone",
+                "description": "Evidence of past eruptions"
+            }
+        ]
+    },
+    "eruptionPhases": [
+        {
+            "id": "dormant",
+            "name": "Dormant",
+            "description": "Volcano is quiet, magma accumulating",
+            "activity": "Minimal surface activity"
+        },
+        {
+            "id": "pre-eruption",
+            "name": "Pre-Eruption",
+            "description": "Increased seismic activity, ground swelling",
+            "activity": "Gas emissions, minor tremors"
+        },
+        {
+            "id": "eruption",
+            "name": "Active Eruption",
+            "description": "Magma reaches surface as lava",
+            "activity": "Lava flows, pyroclastic material, ash cloud"
+        },
+        {
+            "id": "post-eruption",
+            "name": "Post-Eruption",
+            "description": "Activity subsides",
+            "activity": "Fumaroles, crater lake formation"
+        }
+    ],
+    "products": [
+        {
+            "name": "Lava",
+            "description": "Molten rock on surface"
+        },
+        {
+            "name": "Pyroclastic Material",
+            "description": "Fragmented rock: ash, lapilli, bombs"
+        },
+        {
+            "name": "Volcanic Gases",
+            "description": "Water vapor, CO2, SO2, H2S"
+        }
+    ],
+    "ringOfFire": {
+        "description": "A horseshoe-shaped zone of intense seismic and volcanic activity around the Pacific Ocean",
+        "volcanoes": "75% of world's active volcanoes",
+        "length": "40,000 km"
+    }
+}

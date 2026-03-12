@@ -22,17 +22,17 @@ const SUBJECT_CONFIGS = [
     { id: 'geography', title: 'Geography', icon: Globe, color: 'text-blue-600', bg: 'bg-blue-50', subjectKey: 'geography' as const },
     { id: 'economy', title: 'Economy', icon: Palette, color: 'text-emerald-600', bg: 'bg-emerald-50', subjectKey: 'economy' as const },
     { id: 'environment', title: 'Environment', icon: Leaf, color: 'text-green-600', bg: 'bg-green-50', subjectKey: 'environment' as const },
-    { id: 'scitech', title: 'Sci-Tech', icon: Atom, color: 'text-purple-600', bg: 'bg-purple-50', subjectKey: 'scitech' as const },
+    { id: 'science-tech', title: 'Sci-Tech', icon: Atom, color: 'text-purple-600', bg: 'bg-purple-50', subjectKey: 'science-tech' as const },
 ];
 
 interface UniversalQuestionBankProps {
-    initialSubject?: 'history' | 'polity' | 'geography' | 'economy' | 'environment' | 'scitech';
+    initialSubject?: 'history' | 'polity' | 'geography' | 'economy' | 'environment' | 'science-tech';
 }
 
 export default function UniversalQuestionBank({ initialSubject = 'history' }: UniversalQuestionBankProps) {
     const router = useRouter();
     const stats = getGlobalMCQStats();
-    const [selectedSubject, setSelectedSubject] = useState<'history' | 'polity' | 'geography' | 'economy' | 'environment' | 'scitech'>(initialSubject);
+    const [selectedSubject, setSelectedSubject] = useState<'history' | 'polity' | 'geography' | 'economy' | 'environment' | 'science-tech'>(initialSubject as any);
     const [searchQuery, setSearchQuery] = useState('');
     const [questionPattern, setQuestionPattern] = useState<'standard' | 'statement_based'>('standard');
     const [historySection, setHistorySection] = useState<'all' | 'ancient' | 'medieval' | 'modern'>('all');
@@ -244,11 +244,11 @@ export default function UniversalQuestionBank({ initialSubject = 'history' }: Un
                                                 router.push(`/student/batch1-1/polity/${chapter.id}/mcq`);
                                             } else {
                                                 let chId = chapter.id.toString();
-                                                let section = selectedSubject;
+                                                let section: any = selectedSubject;
                                                 if (selectedSubject === 'history' && chId.includes('-')) {
                                                     [section, chId] = chId.split('-');
                                                 }
-                                                router.push(`/student/batch1/${section as any}/mcq?chapter=${chId}&level=1${selectedSubject === 'geography' ? `&pattern=${questionPattern}` : ''}`);
+                                                router.push(`/student/batch1/${section}/mcq?chapter=${chId}&level=1${selectedSubject === 'geography' ? `&pattern=${questionPattern}` : ''}`);
                                             }
                                         }}
                                     >
@@ -263,11 +263,11 @@ export default function UniversalQuestionBank({ initialSubject = 'history' }: Un
                                                 router.push(`/student/batch1-1/polity/${chapter.id}/mcq`);
                                             } else {
                                                 let chId = chapter.id.toString();
-                                                let section = selectedSubject;
+                                                let section: any = selectedSubject;
                                                 if (selectedSubject === 'history' && chId.includes('-')) {
                                                     [section, chId] = chId.split('-');
                                                 }
-                                                router.push(`/student/batch1/${section as any}/mcq?chapter=${chId}&level=2${selectedSubject === 'geography' ? `&pattern=${questionPattern}` : ''}`);
+                                                router.push(`/student/batch1/${section}/mcq?chapter=${chId}&level=2${selectedSubject === 'geography' ? `&pattern=${questionPattern}` : ''}`);
                                             }
                                         }}
                                     >
@@ -282,11 +282,11 @@ export default function UniversalQuestionBank({ initialSubject = 'history' }: Un
                                                 router.push(`/student/batch1-1/polity/${chapter.id}/mcq`);
                                             } else {
                                                 let chId = chapter.id.toString();
-                                                let section = selectedSubject;
+                                                let section: any = selectedSubject;
                                                 if (selectedSubject === 'history' && chId.includes('-')) {
                                                     [section, chId] = chId.split('-');
                                                 }
-                                                router.push(`/student/batch1/${section as any}/mcq?chapter=${chId}&level=3${selectedSubject === 'geography' ? `&pattern=${questionPattern}` : ''}`);
+                                                router.push(`/student/batch1/${section}/mcq?chapter=${chId}&level=3${selectedSubject === 'geography' ? `&pattern=${questionPattern}` : ''}`);
                                             }
                                         }}
                                     >

@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_48_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 48,
+
         question: "Which Amendment granted constitutional status to NCBC?",
         options: [
             "101st Amendment, 2016",
@@ -17,7 +17,7 @@ export const CHAPTER_48_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 48,
+
         question: "Correct statements regarding NCBC:\n1. Originally statutory (1993).\n2. 102nd Amd inserted Art 338-B.\n3. Structure 1+1+5.\n4. Term is 3 years.",
         options: [
             "1, 2, and 4 only",
@@ -31,7 +31,7 @@ export const CHAPTER_48_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 48,
+
         question: "Significance of 105th Constitutional Amendment (2021):",
         options: [
             "Power to punish for discrimination.",
@@ -45,7 +45,7 @@ export const CHAPTER_48_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 48,
+
         question: "Civil Court powers of NCBC include:\n1. Summoning attendance.\n2. Discovery of documents.\n3. Issuing arrest warrants.\n4. Receiving evidence on affidavits.",
         options: [
             "1, 2, and 3 only",

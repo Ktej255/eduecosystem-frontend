@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_11_SUBTOPICS: Subtopic[] = [
@@ -137,3 +138,4 @@ export const ANCIENT_CHAPTER_11_CONTENT = `
 - **Political:** Destroyed decentralized tribal republics in the Panjab, clearing the way for **Chandragupta Maurya** to unify the region.
 - **Culture:** Led to the **Gandhara School of Art** (Greek-influenced Buddhist art) and introduced Hellenistic science/astronomy notes (Yavanika/Horasastra).
 `;
+

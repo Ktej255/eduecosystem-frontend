@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_19_MCQS: any[] = [
   },
   {
     id: '19-62',
-    question: "Consider the following statements regarding the 'Federal Legislature' under the Government of India Act 1935: 1. The Council of State (Upper House) was a permanent body, with one-third of its members retiring every third year. 2. The Federal Assembly (Lower House) had a tenure of five years, but it could be dissolved earlier by the Governor-General. 3. For the first time, a system of 'Direct Elections' was introduced for both the Upper and Lower Houses at the Federal level. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Federal Legislature' under the Government of India Act 1935:\n1. The Council of State (Upper House) was a permanent body, with one-third of its members retiring every third year.\n2. The Federal Assembly (Lower House) had a tenure of five years, but it could be dissolved earlier by the Governor-General.\n3. For the first time, a system of 'Direct Elections' was introduced for both the Upper and Lower Houses at the Federal level. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; the 1935 Act provided for indirect elections for the Federal Assembly and direct elections for the Council of State, a reversal of the usual democratic logic.",
@@ -562,7 +562,7 @@ export const MODERN_CHAPTER_19_MCQS: any[] = [
   },
   {
     id: '19-63',
-    question: "With reference to the 'Special Responsibilities' of the Governor-General under the 1935 Act, which of the following were included? 1. The prevention of any grave menace to the peace or tranquility of India. 2. The safeguarding of the financial stability and credit of the Federal Government. 3. The protection of the legitimate interests of minorities. 4. The prevention of commercial discrimination against British imports. Select the correct answer using the code given below:",
+    question: "With reference to the 'Special Responsibilities' of the Governor-General under the 1935 Act, which of the following were included?\n1. The prevention of any grave menace to the peace or tranquility of India.\n2. The safeguarding of the financial stability and credit of the Federal Government.\n3. The protection of the legitimate interests of minorities.\n4. The prevention of commercial discrimination against British imports. Select the correct answer using the code given below:",
     options: ["1, 2, and 3 only", "2, 3, and 4 only", "1 and 4 only", "All of the above"],
     correctAnswer: 3,
     explanation: "All of the above.",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_19_MCQS: any[] = [
   },
   {
     id: '19-65',
-    question: "Arrange the following events in the correct chronological order: 1. Formation of the National Planning Committee. 2. The resignation of Congress Ministries. 3. The Tripuri Session of the Congress. 4. The Haripura Session of the Congress. Select the correct answer using the code given below:",
+    question: "Arrange the following events in the correct chronological order:\n1. Formation of the National Planning Committee.\n2. The resignation of Congress Ministries.\n3. The Tripuri Session of the Congress.\n4. The Haripura Session of the Congress. Select the correct answer using the code given below:",
     options: ["4 \u2014 1 \u2014 3 \u2014 2", "1 \u2014 4 \u2014 3 \u2014 2", "4 \u2014 3 \u2014 1 \u2014 2", "3 \u2014 4 \u2014 1 \u2014 2"],
     correctAnswer: 0,
     explanation: "4 \u2014 1 \u2014 3 \u2014 2 (Haripura: Feb 1938; NPC: Late 1938; Tripuri: March 1939; Resignation: Oct 1939).",
@@ -598,7 +598,7 @@ export const MODERN_CHAPTER_19_MCQS: any[] = [
   },
   {
     id: '19-67',
-    question: "Consider the following pairs regarding the Congress Ministries (1937\u201339) and their specific reforms: 1. United Provinces \u2014 Tenancy (Amendment) Act 1939 2. Madras \u2014 Removal of Civil Disabilities Act (for Harijans) 3. Bombay \u2014 Industrial Disputes Act 1938 4. Bihar \u2014 Restoration of Bakasht Lands How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs regarding the Congress Ministries (1937\u201339) and their specific reforms:\n1. United Provinces \u2014 Tenancy (Amendment) Act 1939\n2. Madras \u2014 Removal of Civil Disabilities Act (for Harijans)\n3. Bombay \u2014 Industrial Disputes Act 1938\n4. Bihar \u2014 Restoration of Bakasht Lands How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
     correctAnswer: 3,
     explanation: "All four pairs.",
@@ -616,7 +616,7 @@ export const MODERN_CHAPTER_19_MCQS: any[] = [
   },
   {
     id: '19-69',
-    question: "The 'Reserve Bank of India' (RBI) was established following the 1935 Act to: 1. Regulate the issue of Bank notes. 2. Secure monetary stability in India. 3. Operate the currency and credit system of the country to its advantage. Select the correct answer using the code given below:",
+    question: "The 'Reserve Bank of India' (RBI) was established following the 1935 Act to:\n1. Regulate the issue of Bank notes.\n2. Secure monetary stability in India.\n3. Operate the currency and credit system of the country to its advantage. Select the correct answer using the code given below:",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "All of the above"],
     correctAnswer: 3,
     explanation: "All of the above.",
@@ -634,7 +634,7 @@ export const MODERN_CHAPTER_19_MCQS: any[] = [
   },
   {
     id: '19-71',
-    question: "The 'August Offer' (1940) by Lord Linlithgow included which of the following for the first time? 1. Recognition of the right of Indians to frame their own Constitution. 2. Setting up of a representative Constitution-making body after the war. 3. Immediate grant of Dominion Status. Select the correct answer using the code given below:",
+    question: "The 'August Offer' (1940) by Lord Linlithgow included which of the following for the first time?\n1. Recognition of the right of Indians to frame their own Constitution.\n2. Setting up of a representative Constitution-making body after the war.\n3. Immediate grant of Dominion Status. Select the correct answer using the code given below:",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "All of the above"],
     correctAnswer: 0,
     explanation: "1 and 2 only (Dominion Status was promised for the \"unspecified future\").",
@@ -643,7 +643,7 @@ export const MODERN_CHAPTER_19_MCQS: any[] = [
   },
   {
     id: '19-72',
-    question: "Regarding the 'Federal Court' established in 1937, which of the following is true? 1. It consisted of a Chief Justice and not more than six puisne judges. 2. Its decisions were final and could not be appealed anywhere else. 3. It had the power to interpret the Constitution and settle disputes between provinces. Select the correct answer using the code given below:",
+    question: "Regarding the 'Federal Court' established in 1937, which of the following is true?\n1. It consisted of a Chief Justice and not more than six puisne judges.\n2. Its decisions were final and could not be appealed anywhere else.\n3. It had the power to interpret the Constitution and settle disputes between provinces. Select the correct answer using the code given below:",
     options: ["1 and 2 only", "1 and 3 only", "2 and 3 only", "All of the above"],
     correctAnswer: 1,
     explanation: "1 and 3 only (Decisions could be appealed to the Privy Council in London).",
@@ -670,7 +670,7 @@ export const MODERN_CHAPTER_19_MCQS: any[] = [
   },
   {
     id: '19-75',
-    question: "The 'Legislative Powers' of the Governor-General under the 1935 Act included: 1. Power to promulgate ordinances when the legislature was not in session. 2. Power to enact 'Governor-General\u2019s Acts' which had the same force as regular laws. 3. Power to veto any bill passed by the Federal Legislature. How many of the above are correct?",
+    question: "The 'Legislative Powers' of the Governor-General under the 1935 Act included:\n1. Power to promulgate ordinances when the legislature was not in session.\n2. Power to enact 'Governor-General\u2019s Acts' which had the same force as regular laws.\n3. Power to veto any bill passed by the Federal Legislature. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -688,7 +688,7 @@ export const MODERN_CHAPTER_19_MCQS: any[] = [
   },
   {
     id: '19-77',
-    question: "Match the following 'Committees/Reports' with their purpose: 1. Pirpur Committee \u2014",
+    question: "Match the following 'Committees/Reports' with their purpose:\n1. Pirpur Committee \u2014",
     options: ["Educational reforms (Nai Talim) 2. Zakir Hussain Committee \u2014", "Muslim grievances against Congress ministries 3. National Planning Committee \u2014", "Industrial development of India Select the correct matching code:", "1-B, 2-A, 3-C"],
     correctAnswer: 0,
     explanation: "1-B, 2-A, 3-C.",
@@ -760,7 +760,7 @@ export const MODERN_CHAPTER_19_MCQS: any[] = [
   },
   {
     id: '19-85',
-    question: "Consider the following regarding the 'Resignation of Congress Ministries' in 1939: 1. It was a protest against the unilateral declaration of India's entry into WWII. 2. It was criticized by Jinnah as a tactical mistake by the Congress. 3. It paved the way for the British to rely more on the Muslim League for support during the war. How many of the above are correct?",
+    question: "Consider the following regarding the 'Resignation of Congress Ministries' in 1939:\n1. It was a protest against the unilateral declaration of India's entry into WWII.\n2. It was criticized by Jinnah as a tactical mistake by the Congress.\n3. It paved the way for the British to rely more on the Muslim League for support during the war. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",

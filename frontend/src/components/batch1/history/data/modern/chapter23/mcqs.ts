@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
   },
   {
     id: '23-34',
-    question: "Consider the following statements regarding the 'Charter Act of 1833': 1. It made the Governor-General of Bengal the Governor-General of India. 2. It vested all civil and military powers in the Governor-General of India. 3. It attempted to introduce a system of open competition for selection of civil servants but was opposed by the Court of Directors. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Charter Act of 1833':\n1. It made the Governor-General of Bengal the Governor-General of India.\n2. It vested all civil and military powers in the Governor-General of India.\n3. It attempted to introduce a system of open competition for selection of civil servants but was opposed by the Court of Directors. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 3,
     explanation: "1, 2, and 3.",
@@ -355,7 +355,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
   },
   {
     id: '23-40',
-    question: "Consider the following regarding the 'Morley-Minto Reforms' (1909): 1. It increased the size of the legislative councils at both the Central and Provincial levels. 2. It introduced separate electorates for Muslims, thus legalizing communalism. 3. It allowed the councils to pass resolutions on the budget. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Morley-Minto Reforms' (1909):\n1. It increased the size of the legislative councils at both the Central and Provincial levels.\n2. It introduced separate electorates for Muslims, thus legalizing communalism.\n3. It allowed the councils to pass resolutions on the budget. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -436,7 +436,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
   },
   {
     id: '23-49',
-    question: "Consider the following regarding the 'Federal Court' of 1935: 1. It had original, appellate, and advisory jurisdiction. 2. It settled disputes between the Centre and the Provinces. 3. The final appeal from its decisions lay with the Privy Council in London. How many of the above are correct?",
+    question: "Consider the following regarding the 'Federal Court' of 1935:\n1. It had original, appellate, and advisory jurisdiction.\n2. It settled disputes between the Centre and the Provinces.\n3. The final appeal from its decisions lay with the Privy Council in London. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
   },
   {
     id: '23-62',
-    question: "Consider the following statements regarding the 'Regulating Act of 1773': 1. It subjected the Company\u2019s service to the control of the British Cabinet through the 'Secretary of State'. 2. It prohibited the servants of the Company from engaging in any private trade or accepting presents from 'natives'. 3. It provided for a 'Collegiate Government' where the Governor-General was bound by the decision of the majority of his council. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Regulating Act of 1773':\n1. It subjected the Company\u2019s service to the control of the British Cabinet through the 'Secretary of State'.\n2. It prohibited the servants of the Company from engaging in any private trade or accepting presents from 'natives'.\n3. It provided for a 'Collegiate Government' where the Governor-General was bound by the decision of the majority of his council. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 2 and 3 are correct. Statement 1 is incorrect; the 1773 Act required the Court of Directors to report to the Treasury and the Secretary of State, but the office of the 'Secretary of State for India' was only created in 1858.",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
   },
   {
     id: '23-65',
-    question: "The 'Charter Act of 1793' contained which of the following significant provisions? 1. It extended the Company\u2019s trade monopoly for another twenty years. 2. It provided that the home government\u2019s 'Board of Control' were to be paid out of Indian revenues. 3. It allowed the Governor-General to override his council in extraordinary circumstances. Select the correct answer using the code given below:",
+    question: "The 'Charter Act of 1793' contained which of the following significant provisions?\n1. It extended the Company\u2019s trade monopoly for another twenty years.\n2. It provided that the home government\u2019s 'Board of Control' were to be paid out of Indian revenues.\n3. It allowed the Governor-General to override his council in extraordinary circumstances. Select the correct answer using the code given below:",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "All of the above"],
     correctAnswer: 3,
     explanation: "All of the above.",
@@ -598,7 +598,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
   },
   {
     id: '23-67',
-    question: "With reference to the 'Charter Act of 1833', consider the following statements: 1. It introduced a 'Law Member' in the Governor-General's Council. 2. It robbed the Governors of Bombay and Madras of their legislative powers. 3. It directed the Governor-General-in-Council to take steps for the \"mitigation of slavery.\" How many of the above are correct?",
+    question: "With reference to the 'Charter Act of 1833', consider the following statements:\n1. It introduced a 'Law Member' in the Governor-General's Council.\n2. It robbed the Governors of Bombay and Madras of their legislative powers.\n3. It directed the Governor-General-in-Council to take steps for the \"mitigation of slavery.\" How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -625,7 +625,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
   },
   {
     id: '23-70',
-    question: "Consider the following regarding the 'Indian Councils Act 1861': 1. It introduced the 'Portfolio System' where members were responsible for specific departments. 2. it initiated the policy of 'Association of Indians' with the administration through nomination. 3. It gave the Viceroy the power to issue ordinances in case of emergency. How many of the above are correct?",
+    question: "Consider the following regarding the 'Indian Councils Act 1861':\n1. It introduced the 'Portfolio System' where members were responsible for specific departments.\n2. it initiated the policy of 'Association of Indians' with the administration through nomination.\n3. It gave the Viceroy the power to issue ordinances in case of emergency. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -679,7 +679,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
   },
   {
     id: '23-76',
-    question: "Consider the following regarding the 'Central Legislature' under the 1919 Act: 1. It was bicameral, consisting of the Council of State and the Legislative Assembly. 2. The Governor-General could stop any bill if he deemed it harmful to the safety and tranquility of India. 3. The legislature had the power to vote on the entire budget. How many of the above are correct?",
+    question: "Consider the following regarding the 'Central Legislature' under the 1919 Act:\n1. It was bicameral, consisting of the Council of State and the Legislative Assembly.\n2. The Governor-General could stop any bill if he deemed it harmful to the safety and tranquility of India.\n3. The legislature had the power to vote on the entire budget. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; only part of the budget was votable).",
@@ -706,7 +706,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
   },
   {
     id: '23-79',
-    question: "Match the following 'Judicial' developments: 1. Supreme Court of 1774 \u2014",
+    question: "Match the following 'Judicial' developments:\n1. Supreme Court of 1774 \u2014",
     options: ["High Courts in Presidencies 2. Cornwallis Code 1793 \u2014", "Established at Calcutta 3. Indian High Courts Act 1861 \u2014", "Separation of Revenue/Judiciary Select the correct matching code:", "1-B, 2-C, 3-A"],
     correctAnswer: 0,
     explanation: "1-B, 2-C, 3-A.",

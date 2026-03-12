@@ -4,7 +4,7 @@ import { Question } from '../../../../types';
 export const MODERN_CHAPTER_3_MCQS: any[] = [
   {
     id: '2-91',
-    question: "Consider the following regarding the Historiography of Modern India: 1. The Colonial approach justified British rule as a civilizing mission. 2. The Nationalist approach successfully united all regional, caste, and class narratives into one flawless historical account. 3. The Subaltern approach seeks to restore agency to the marginalized groups ignored by both Colonial and Nationalist historians. How many of the above statements are correct?",
+    question: "Consider the following regarding the Historiography of Modern India:\n1. The Colonial approach justified British rule as a civilizing mission.\n2. The Nationalist approach successfully united all regional, caste, and class narratives into one flawless historical account.\n3. The Subaltern approach seeks to restore agency to the marginalized groups ignored by both Colonial and Nationalist historians. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; a major flaw of the Nationalist approach was that it often ignored or glossed over regional, caste, and class differences to present a unified front.",
@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-34',
-    question: "Consider the following statements regarding Alfonso de Albuquerque: 1. He acquired Goa from the Sultan of Bijapur in 1510. 2. He encouraged his men to take local Indian wives to create a permanent Portuguese population in India. 3. He introduced the permanent settlement of land revenue in Portuguese territories. Which of the statements given above is/are correct?",
+    question: "Consider the following statements regarding Alfonso de Albuquerque:\n1. He acquired Goa from the Sultan of Bijapur in 1510.\n2. He encouraged his men to take local Indian wives to create a permanent Portuguese population in India.\n3. He introduced the permanent settlement of land revenue in Portuguese territories. Which of the statements given above is/are correct?",
     options: ["1 only", "1 and 2 only", "2 and 3 only", "1, 2, and 3"],
     correctAnswer: 1,
     explanation: "1 and 2 only Albuquerque (the real founder of Portuguese power) acquired Goa and encouraged intermarriage. He did not introduce the permanent settlement (that was Lord Cornwallis much later in Bengal).",
@@ -346,7 +346,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-39',
-    question: "Consider the following European powers and the location of their first factory in India: 1. Portuguese \u2014 Calicut 2. Dutch \u2014 Surat 3. English \u2014 Masulipatnam 4. French \u2014 Surat How many of the above pairs are correctly matched?",
+    question: "Consider the following European powers and the location of their first factory in India:\n1. Portuguese \u2014 Calicut\n2. Dutch \u2014 Surat\n3. English \u2014 Masulipatnam\n4. French \u2014 Surat How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
     correctAnswer: 1,
     explanation: "Only two pairs Pair 1 is correct (Cabral at Calicut, 1500). Pair 4 is correct (Caron at Surat, 1668). Pair 2 is incorrect (Dutch first factory was at Masulipatnam, 1605). Pair 3 is incorrect (English first temporary factory was Masulipatnam 1611, but first permanent was Surat 1613).",
@@ -391,7 +391,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-44',
-    question: "Consider the following statements regarding the East India Company's Magna Carta (1715-17): 1. It was granted by the Mughal Emperor Farrukhsiyar after he was cured of a painful disease by an English surgeon, William Hamilton. 2. It allowed the Company to issue its own coins from the Bombay mint which would have currency throughout the Mughal Empire. 3. It granted the English the right to trade duty-free in Bengal in lieu of an annual payment of Rs 3,000. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the East India Company's Magna Carta (1715-17):\n1. It was granted by the Mughal Emperor Farrukhsiyar after he was cured of a painful disease by an English surgeon, William Hamilton.\n2. It allowed the Company to issue its own coins from the Bombay mint which would have currency throughout the Mughal Empire.\n3. It granted the English the right to trade duty-free in Bengal in lieu of an annual payment of Rs 3,000. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three All statements perfectly describe the privileges granted by Farrukhsiyar's farman, which John Surman secured.",
@@ -472,7 +472,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-53',
-    question: "Match the following European settlements with the power that established them: 1. Tranquebar \u2014",
+    question: "Match the following European settlements with the power that established them:\n1. Tranquebar \u2014",
     options: ["Portuguese 2. Chinsura \u2014", "Danish 3. Hooghly (initial) \u2014", "Dutch 4. Goa \u2014", "English * Select the correct matching:"],
     correctAnswer: 0,
     explanation: "1-B (Danish), 2-C (Dutch), 3-A (Portuguese initial settlement), 4-A (Portuguese) (Self-Correction/Refinement for MCQ Format): Correct mapping: Tranquebar -> Danish; Chinsura -> Dutch; Hooghly -> Portuguese (initially); Goa -> Portuguese.",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-62',
-    question: "Consider the following structural reasons why the English succeeded against the French in India: 1. The English Company was financially far superior and carried out a much larger volume of trade than the French Company. 2. The English had three important bases (Calcutta, Madras, Bombay) compared to the French who only had one major base (Pondicherry). 3. The English naval superiority in the Indian Ocean isolated the French forces from receiving reinforcements from Europe. How many of the above statements are correct?",
+    question: "Consider the following structural reasons why the English succeeded against the French in India:\n1. The English Company was financially far superior and carried out a much larger volume of trade than the French Company.\n2. The English had three important bases (Calcutta, Madras, Bombay) compared to the French who only had one major base (Pondicherry).\n3. The English naval superiority in the Indian Ocean isolated the French forces from receiving reinforcements from Europe. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three All three statements correctly identify the strategic, financial, and geographical advantages the English EIC had over the French Compagnie des Indes.",
@@ -562,7 +562,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-63',
-    question: "Consider the following statements regarding the Portuguese strategy in the Indian Ocean during the 16th century: 1. The 'Cartaz' system was a naval pass that non-Portuguese ships had to purchase to ensure protection from Portuguese pirate attacks and confiscation. 2. The Portuguese established 'Feitorias' (factories) which were massive inland manufacturing hubs designed to replace indigenous Indian industries. 3. Francisco De Almeida\u2019s \u2018Blue Water Policy\u2019 aimed to fortify the Indian mainland and expand the territorial empire deeply into the Deccan. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the Portuguese strategy in the Indian Ocean during the 16th century:\n1. The 'Cartaz' system was a naval pass that non-Portuguese ships had to purchase to ensure protection from Portuguese pirate attacks and confiscation.\n2. The Portuguese established 'Feitorias' (factories) which were massive inland manufacturing hubs designed to replace indigenous Indian industries.\n3. Francisco De Almeida\u2019s \u2018Blue Water Policy\u2019 aimed to fortify the Indian mainland and expand the territorial empire deeply into the Deccan. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 0,
     explanation: "Only one Statement 1 is correct. Statement 2 is incorrect; 'Feitorias' were coastal fortified trading posts/warehouses, not inland manufacturing hubs. Statement 3 is incorrect; the 'Blue Water Policy' aimed at establishing naval mastery in the Indian Ocean, specifically avoiding deep inland territorial conquests.",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-65',
-    question: "Arrange the following events related to the decline of the Portuguese in correct chronological order: 1. The Mughal Emperor Shah Jahan ordered the capture of the Portuguese settlement at Hooghly. 2. The Marathas captured Salsette and Bassein from the Portuguese. 3. The English defeated the Portuguese fleet at the Battle of Swally Hole. Select the correct answer using the code given below:",
+    question: "Arrange the following events related to the decline of the Portuguese in correct chronological order:\n1. The Mughal Emperor Shah Jahan ordered the capture of the Portuguese settlement at Hooghly.\n2. The Marathas captured Salsette and Bassein from the Portuguese.\n3. The English defeated the Portuguese fleet at the Battle of Swally Hole. Select the correct answer using the code given below:",
     options: ["3 \u2014 1 \u2014 2", "1 \u2014 3 \u2014 2", "3 \u2014 2 \u2014 1", "1 \u2014 2 \u2014 3"],
     correctAnswer: 0,
     explanation: "3 \u2014 1 \u2014 2 Battle of Swally Hole (1612) -> Capture of Hooghly by Qasim Khan under Shah Jahan's orders (1632) -> Marathas capture Salsette and Bassein (1739).",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-66',
-    question: "Consider the following pairs of European powers and their primary centers in India before British consolidation: 1. Dutch \u2014 Pulicat (later moved to Nagapatnam) 2. Danes \u2014 Serampore 3. French \u2014 Chandernagore How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of European powers and their primary centers in India before British consolidation:\n1. Dutch \u2014 Pulicat (later moved to Nagapatnam)\n2. Danes \u2014 Serampore\n3. French \u2014 Chandernagore How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "All three pairs", "None"],
     correctAnswer: 2,
     explanation: "All three pairs All pairs correctly match the European companies with their major settlements.",
@@ -598,7 +598,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-67',
-    question: "Regarding the Dutch East India Company (VOC) in India, consider the following statements: 1. The Dutch primarily established their factories on the Coromandel Coast to export Indian textiles, which they used as barter for spices in the Indonesian archipelago. 2. The Battle of Colachel (1741) marked a decisive victory for the Dutch, allowing them to completely monopolize the pepper trade in Kerala. 3. The Battle of Bidara (1759) resulted in a crushing defeat for the Dutch at the hands of the English, ending their political ambitions in India. How many of the above statements are correct?",
+    question: "Regarding the Dutch East India Company (VOC) in India, consider the following statements:\n1. The Dutch primarily established their factories on the Coromandel Coast to export Indian textiles, which they used as barter for spices in the Indonesian archipelago.\n2. The Battle of Colachel (1741) marked a decisive victory for the Dutch, allowing them to completely monopolize the pepper trade in Kerala.\n3. The Battle of Bidara (1759) resulted in a crushing defeat for the Dutch at the hands of the English, ending their political ambitions in India. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the Dutch were decisively defeated at the Battle of Colachel by Marthanda Varma of Travancore.",
@@ -607,7 +607,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-68',
-    question: "Consider the following privileges granted by the Mughal Emperor Farrukhsiyar's Farman (1717) to the English East India Company: 1. In Bengal, the Company\u2019s exports and imports were exempted from additional customs duties in exchange for an annual payment of Rs 3,000. 2. The Company was permitted to rent more lands around Calcutta. 3. The coins minted by the Company at Bombay were to have currency throughout the Mughal Empire. How many of the above privileges were included in the Farman?",
+    question: "Consider the following privileges granted by the Mughal Emperor Farrukhsiyar's Farman (1717) to the English East India Company:\n1. In Bengal, the Company\u2019s exports and imports were exempted from additional customs duties in exchange for an annual payment of Rs 3,000.\n2. The Company was permitted to rent more lands around Calcutta.\n3. The coins minted by the Company at Bombay were to have currency throughout the Mughal Empire. How many of the above privileges were included in the Farman?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three This Farman is often called the Magna Carta of the Company because it granted all these extensive privileges, drastically boosting English trade.",
@@ -634,7 +634,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-71',
-    question: "With reference to the Anglo-French rivalry, consider the following matches of Carnatic Wars and their associated European Treaties: 1. First Carnatic War \u2014 Treaty of Aix-la-Chapelle 2. Second Carnatic War \u2014 Treaty of Ryswick 3. Third Carnatic War \u2014 Treaty of Peace of Paris How many of the above pairs are correctly matched?",
+    question: "With reference to the Anglo-French rivalry, consider the following matches of Carnatic Wars and their associated European Treaties:\n1. First Carnatic War \u2014 Treaty of Aix-la-Chapelle\n2. Second Carnatic War \u2014 Treaty of Ryswick\n3. Third Carnatic War \u2014 Treaty of Peace of Paris How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "All three pairs", "None"],
     correctAnswer: 1,
     explanation: "Only two pairs Pairs 1 and 3 are correctly matched. Pair 2 is incorrect; the Second Carnatic War ended with the Treaty of Pondicherry (1754). The Treaty of Ryswick (1697) was much earlier, relating to the restoration of Pondicherry to the French from the Dutch.",
@@ -643,7 +643,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-72',
-    question: "Consider the following statements regarding the First Carnatic War (1740-1748): 1. It was an immediate consequence of the outbreak of the Seven Years' War in Europe. 2. The Battle of St. Thome proved the superiority of a small, disciplined European infantry over a massive traditional Indian army. 3. Under the peace treaty, Madras was handed back to the English in exchange for the French receiving territories in North America. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the First Carnatic War (1740-1748):\n1. It was an immediate consequence of the outbreak of the Seven Years' War in Europe.\n2. The Battle of St. Thome proved the superiority of a small, disciplined European infantry over a massive traditional Indian army.\n3. Under the peace treaty, Madras was handed back to the English in exchange for the French receiving territories in North America. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 2 and 3 are correct. Statement 1 is incorrect; the First Carnatic War was an extension of the Austrian War of Succession, not the Seven Years' War (which caused the Third Carnatic War).",
@@ -670,7 +670,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-75',
-    question: "Consider the following factors responsible for the ultimate success of the English East India Company over the French in India: 1. The English Company was a private enterprise with a dynamic board of directors, whereas the French Company was a state department suffering from bureaucratic delays and government control. 2. The English had three strong naval bases (Calcutta, Bombay, Madras) compared to the single major French base at Pondicherry. 3. The English strictly avoided all political interference in Indian affairs, focusing solely on trade, which earned them the loyalty of Indian rulers. How many of the above factors are correct?",
+    question: "Consider the following factors responsible for the ultimate success of the English East India Company over the French in India:\n1. The English Company was a private enterprise with a dynamic board of directors, whereas the French Company was a state department suffering from bureaucratic delays and government control.\n2. The English had three strong naval bases (Calcutta, Bombay, Madras) compared to the single major French base at Pondicherry.\n3. The English strictly avoided all political interference in Indian affairs, focusing solely on trade, which earned them the loyalty of Indian rulers. How many of the above factors are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is entirely false; the English actively interfered in Indian politics (e.g., Battle of Plassey, Carnatic Wars) to secure their economic interests.",
@@ -688,7 +688,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-77',
-    question: "Consider the following pairs of English establishments and their founding figures: 1. Fort St. George (Madras) \u2014 Francis Day 2. Fort William (Calcutta) \u2014 Job Charnock 3. Bombay \u2014 Robert Clive How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of English establishments and their founding figures:\n1. Fort St. George (Madras) \u2014 Francis Day\n2. Fort William (Calcutta) \u2014 Job Charnock\n3. Bombay \u2014 Robert Clive How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "All three pairs", "None"],
     correctAnswer: 1,
     explanation: "Only two pairs Pairs 1 and 2 are correctly matched. Pair 3 is incorrect; Bombay was acquired as a royal dowry for King Charles II (1662) and handed over to the East India Company in 1668, long before Robert Clive's time.",
@@ -733,7 +733,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-82',
-    question: "Consider the following statements regarding the European impact on the Indian economy in the 17th and early 18th centuries: 1. The Europeans introduced the practice of paying for Indian goods (like textiles and spices) entirely with European manufactured goods, stopping the flow of bullion into India. 2. The arrival of Europeans significantly stimulated Indian agricultural production and commercialization, as they demanded massive quantities of indigo, raw silk, and saltpetre. Which of the statements given above is/are correct?",
+    question: "Consider the following statements regarding the European impact on the Indian economy in the 17th and early 18th centuries:\n1. The Europeans introduced the practice of paying for Indian goods (like textiles and spices) entirely with European manufactured goods, stopping the flow of bullion into India.\n2. The arrival of Europeans significantly stimulated Indian agricultural production and commercialization, as they demanded massive quantities of indigo, raw silk, and saltpetre. Which of the statements given above is/are correct?",
     options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
     correctAnswer: 1,
     explanation: "2 only Statement 1 is incorrect; Europe had very little that India wanted to buy. Therefore, the Europeans had to pay for Indian goods with massive imports of precious metals (gold and silver bullion).",
@@ -742,7 +742,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-83',
-    question: "Arrange the establishment of the following European trading companies in India in correct chronological order: 1. French East India Company 2. English East India Company 3. Dutch East India Company 4. Portuguese Estado da India Select the correct answer using the code given below:",
+    question: "Arrange the establishment of the following European trading companies in India in correct chronological order:\n1. French East India Company\n2. English East India Company\n3. Dutch East India Company\n4. Portuguese Estado da India Select the correct answer using the code given below:",
     options: ["4 \u2014 2 \u2014 3 \u2014 1", "4 \u2014 3 \u2014 2 \u2014 1", "4 \u2014 2 \u2014 1 \u2014 3", "2 \u2014 4 \u2014 3 \u2014 1"],
     correctAnswer: 0,
     explanation: "4 \u2014 2 \u2014 3 \u2014 1 Portuguese (1498) -> English EIC (1600) -> Dutch VOC (1602) -> French Compagnie (1664).",
@@ -769,7 +769,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-86',
-    question: "Consider the following statements regarding the Portuguese contributions to India: 1. They brought the first printing press to India in 1556. 2. They introduced the cultivation of tobacco and cashew nuts to the Indian subcontinent. 3. They were the first Europeans to initiate the systematic scientific mapping of the Himalayas. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the Portuguese contributions to India:\n1. They brought the first printing press to India in 1556.\n2. They introduced the cultivation of tobacco and cashew nuts to the Indian subcontinent.\n3. They were the first Europeans to initiate the systematic scientific mapping of the Himalayas. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; the British (Survey of India) initiated the systematic scientific mapping of the subcontinent, not the Portuguese.",
@@ -787,7 +787,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
   },
   {
     id: '3-88',
-    question: "Consider the following pairs of Battles and their direct consequences: 1. Battle of Swally Hole \u2014 Ended Portuguese naval dominance. 2. Battle of Bidara \u2014 Crushed Dutch political ambitions in India. 3. Battle of Wandiwash \u2014 Defeated the French decisively in the Carnatic. How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of Battles and their direct consequences:\n1. Battle of Swally Hole \u2014 Ended Portuguese naval dominance.\n2. Battle of Bidara \u2014 Crushed Dutch political ambitions in India.\n3. Battle of Wandiwash \u2014 Defeated the French decisively in the Carnatic. How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "All three pairs", "None"],
     correctAnswer: 2,
     explanation: "All three pairs All three naval/land battles perfectly match their historical consequences for the respective European powers.",

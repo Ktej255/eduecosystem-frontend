@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_21_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 21,
+
         question: "The Vice-President's electoral college consists of:",
         options: [
             "Elected members of Parliament only",
@@ -17,7 +17,7 @@ export const CHAPTER_21_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 21,
+
         question: "Who among the following does NOT have the right to vote in the election of the Vice-President?",
         options: [
             "Nominated members of Rajya Sabha",
@@ -31,7 +31,7 @@ export const CHAPTER_21_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 21,
+
         question: "To remove the Vice-President, a resolution must be initiated in:",
         options: ["Either House of Parliament", "Lok Sabha only", "Rajya Sabha only", "Joint Session of Parliament"],
         correctAnswer: 2,
@@ -40,7 +40,7 @@ export const CHAPTER_21_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 21,
+
         question: "What is the 'Effective Majority' required in Rajya Sabha for VP's removal?",
         options: [
             "Majority of members present and voting",
@@ -54,7 +54,7 @@ export const CHAPTER_21_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 21,
+
         question: "When the Vice-President acts as President, he draws the salary of:",
         options: ["Vice-President", "Chairman of Rajya Sabha", "President", "Both VP and President"],
         correctAnswer: 2,
@@ -63,7 +63,7 @@ export const CHAPTER_21_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 21,
+
         question: "Which of the following statements is FALSE?",
         options: [
             "The VP is the ex-officio chairman of Rajya Sabha",
@@ -77,7 +77,7 @@ export const CHAPTER_21_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 21,
+
         question: "The oath of office to the Vice-President is administered by:",
         options: ["Chief Justice of India", "The President", "The Speaker of Lok Sabha", "The Prime Minister"],
         correctAnswer: 1,
@@ -86,7 +86,7 @@ export const CHAPTER_21_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 21,
+
         question: "If a dispute arises regarding the election of the Vice-President, who decides it?",
         options: ["The Election Commission", "The Supreme Court", "A Special Tribunal", "The Parliament"],
         correctAnswer: 1,
@@ -95,7 +95,7 @@ export const CHAPTER_21_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 21,
+
         question: "The VP can hold office beyond his term of five years until:",
         options: ["The end of the financial year", "His successor enters upon his office", "Parliament decides to remove him", "Fresh elections are notified"],
         correctAnswer: 1,
@@ -104,7 +104,7 @@ export const CHAPTER_21_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 21,
+
         question: "Which Constitutional Article deals with the election of the Vice-President?",
         options: ["Article 63", "Article 64", "Article 66", "Article 67"],
         correctAnswer: 2,

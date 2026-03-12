@@ -1,17 +1,7 @@
-export interface Subtopic {
-    id: string;
-    name: string;
-}
+import { Subtopic, Question } from '../ancient-types-27';
 
-export interface Question {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation: string;
-    subtopic: string;
-    difficulty?: 'Easy' | 'Moderate' | 'Hard';
-}
+
+
 
 export const ANCIENT_CHAPTER_1_SUBTOPICS: Subtopic[] = [
     { id: 'importance', name: 'Why Study Ancient Indian History' },
@@ -162,3 +152,4 @@ Ancient Indian history helps us understand the **foundations of modern Indian so
 - **Marxist/Materialist:** DD Kosambi, RS Sharma, Romila Thapar
 - **Modern:** Socio-economic periodization (Ancient-Medieval-Modern)
 `;
+

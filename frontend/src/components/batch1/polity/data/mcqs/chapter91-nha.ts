@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_91_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 91,
+
         question: "The National Health Authority (NHA) was reconstituted in its current form in which year?",
         options: ["2014", "2016", "2018", "2019"],
         correctAnswer: 3,
@@ -12,7 +12,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 91,
+
         question: "Ayushman Bharat PM-JAY provides an annual health cover of:",
         options: ["₹1 lakh per family", "₹2 lakh per family", "₹5 lakh per family", "₹10 lakh per individual"],
         correctAnswer: 2,
@@ -21,7 +21,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 91,
+
         question: "Which of the following is NOT a responsibility of the NHA?",
         options: [
             "Implementing PM-JAY",
@@ -35,7 +35,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 91,
+
         question: "The Governing Board of NHA is chaired by:",
         options: ["The Prime Minister", "Health Minister", "Cabinet Secretary", "CEO of NITI Aayog"],
         correctAnswer: 1,
@@ -44,7 +44,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 91,
+
         question: "Beneficiaries of AB PM-JAY are identified based on:",
         options: [
             "Income tax status",
@@ -58,7 +58,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 91,
+
         question: "NHA is an attached office of which ministry?",
         options: ["Electronics & IT", "Social Justice", "Health and Family Welfare", "NITI Aayog"],
         correctAnswer: 2,
@@ -67,7 +67,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 91,
+
         question: "State agencies that implement the health scheme at the state level are called:",
         options: ["NHA", "SHA (State Health Agency)", "DHA", "State Medical Board"],
         correctAnswer: 1,
@@ -76,7 +76,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 91,
+
         question: "Ayushman Bharat Digital Mission (ABDM) aims to provide every citizen a:",
         options: ["UAN Number", "Digital Health ID (ABHA Number)", "Credit Card", "Voting Right"],
         correctAnswer: 1,
@@ -85,7 +85,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 91,
+
         question: "PM-JAY is a ________ scheme.",
         options: [
             "Central Sector Scheme",
@@ -99,7 +99,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 91,
+
         question: "How many Health and Wellness Centres (HWCs) are being set up under Ayushman Bharat to provide primary care?",
         options: ["50,000", "1,00,000", "1,50,000", "2,00,000"],
         correctAnswer: 2,

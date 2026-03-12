@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_22_SUBTOPICS: Subtopic[] = [
@@ -134,3 +135,4 @@ export const ANCIENT_CHAPTER_22_CONTENT = `
 - **Assemblies:** Grand religious assemblies at **Kannauj** (to honor Hiuen Tsang) and **Prayag** (for charity).
 - **Nalanda:** A world-renowned university supported by Harsha's endowments, focusing on Buddhism and logic.
 `;
+

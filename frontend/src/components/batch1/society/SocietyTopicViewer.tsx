@@ -19,7 +19,7 @@ interface SocietyTopicViewerProps {
 
 export default function SocietyTopicViewer({ content }: SocietyTopicViewerProps) {
     const router = useRouter();
-    const [activeSection, setActiveSection] = useState<string>(content.sections[0]?.heading || '');
+    const [activeSection, setActiveSection] = useState<string>(content.sections?.[0]?.heading || '');
     const [isCompleted, setIsCompleted] = useState(false);
 
     useEffect(() => {
@@ -83,7 +83,7 @@ export default function SocietyTopicViewer({ content }: SocietyTopicViewerProps)
                                     <CardTitle className="text-xs uppercase tracking-wider text-rose-800 dark:text-rose-300 font-bold">Flow of Thought</CardTitle>
                                 </CardHeader>
                                 <CardContent className="space-y-1 p-2">
-                                    {content.sections.map((sec, idx) => (
+                                    {content.sections?.map((sec, idx) => (
                                         <button
                                             key={idx}
                                             onClick={() => {
@@ -106,7 +106,7 @@ export default function SocietyTopicViewer({ content }: SocietyTopicViewerProps)
 
                     {/* Main Content */}
                     <div className="lg:col-span-3 space-y-8">
-                        {content.sections.map((sec, idx) => (
+                        {content.sections?.map((sec, idx) => (
                             <section
                                 key={idx}
                                 id={`section-${idx}`}

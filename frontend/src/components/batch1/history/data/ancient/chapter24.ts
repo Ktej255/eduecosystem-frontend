@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_24_SUBTOPICS: Subtopic[] = [
@@ -155,3 +156,4 @@ Developed to defend Vedic authority against Buddhism and Jainism.
 - **Charvaka / Lokayata:** Pure materialism. Rejected the Vedas, God, soul, and afterlife. Argued consciousness is just a byproduct of matter. Advocated that physical enjoyment is the only true goal of life.
 - **Jainism & Buddhism:** Emphasized the cycle of Karma but rejected Vedic authority and elaborate rituals, offering alternative paths to liberation.
 `;
+

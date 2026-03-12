@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_23_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 23,
+
         question: "The strength of the Council of Ministers was limited to 15% of the Lok Sabha strength by:",
         options: ["86th Amendment", "91st Amendment", "42nd Amendment", "44th Amendment"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_23_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 23,
+
         question: "The Council of Ministers is 'collectively responsible' to:",
         options: ["The President", "The Parliament", "The Lok Sabha", "The Prime Minister"],
         correctAnswer: 2,
@@ -21,7 +21,7 @@ export const CHAPTER_23_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 23,
+
         question: "A minister who is not a member of either House for 6 consecutive months:",
         options: [
             "Can continue if the PM allows",
@@ -35,7 +35,7 @@ export const CHAPTER_23_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 23,
+
         question: "Which of the following bodies is the supreme policy-making body of the Central Government?",
         options: [
             "Council of Ministers",
@@ -49,7 +49,7 @@ export const CHAPTER_23_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 23,
+
         question: "The duty of a minister to resign if he/she disagrees with a cabinet decision comes under:",
         options: [
             "Collective Responsibility",
@@ -63,7 +63,7 @@ export const CHAPTER_23_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 23,
+
         question: "Who among the following does NOT have the right to vote in the Rajya Sabha if they are a member of Lok Sabha?",
         options: ["Prime Minister", "Cabinet Minister", "Speaker", "Deputy Speaker"],
         correctAnswer: 1,
@@ -72,7 +72,7 @@ export const CHAPTER_23_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 23,
+
         question: "Which Article says 'Minister shall hold office during the pleasure of the President'?",
         options: ["Article 74", "Article 75", "Article 77", "Article 78"],
         correctAnswer: 1,
@@ -81,7 +81,7 @@ export const CHAPTER_23_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 23,
+
         question: "The 'Kitchen Cabinet' is composed of:",
         options: [
             "All Cabinet Ministers",
@@ -95,7 +95,7 @@ export const CHAPTER_23_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 23,
+
         question: "Is there any provision for 'Legal Responsibility' of ministers in the Indian Constitution?",
         options: [
             "Yes, like in Britain",
@@ -109,7 +109,7 @@ export const CHAPTER_23_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 23,
+
         question: "A No-Confidence Motion can be moved only in:",
         options: ["Lok Sabha", "Rajya Sabha", "Joint Session", "Parliamentary Committee"],
         correctAnswer: 0,

@@ -28,6 +28,7 @@ export interface SadhanaPath {
         mantraCount: number;
         dailyRounds: number;
     }[];
+    actions?: SkillAction[];
 }
 
 export interface SkillAction {
@@ -68,6 +69,7 @@ export interface SadhanaProgress {
     skills: SkillProgress[];
     journalEntries: number;
     consistencyScore: number;
+    points: number;
 }
 
 export const DEFAULT_SADHANA_PROGRESS: SadhanaProgress = {
@@ -80,7 +82,8 @@ export const DEFAULT_SADHANA_PROGRESS: SadhanaProgress = {
     bhaktiTier: 'External',
     skills: [],
     journalEntries: 0,
-    consistencyScore: 0
+    consistencyScore: 0,
+    points: 0
 };
 
 export const CORE_SADHANAS: SadhanaPath[] = [

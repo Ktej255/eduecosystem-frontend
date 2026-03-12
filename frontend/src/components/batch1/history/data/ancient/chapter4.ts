@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_4_SUBTOPICS: Subtopic[] = [
@@ -151,3 +152,4 @@ export const ANCIENT_CHAPTER_4_CONTENT = `
 - Pottery = indicator of settled life
 - Different regions developed independently (wheat in NW, rice in E, millet in S)
 `;
+

@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
   },
   {
     id: '17-34',
-    question: "Consider the following statements regarding the boycott of the Simon Commission: 1. The Congress, the Hindu Mahasabha, and the Liberal Federation all joined the boycott. 2. The Muslim League remained united in its decision to fully support the Commission. 3. The Justice Party in Madras and the Punjab Unionists chose to cooperate with the Commission. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the boycott of the Simon Commission:\n1. The Congress, the Hindu Mahasabha, and the Liberal Federation all joined the boycott.\n2. The Muslim League remained united in its decision to fully support the Commission.\n3. The Justice Party in Madras and the Punjab Unionists chose to cooperate with the Commission. Which of the statements given above are correct?",
     options: ["1 and 2 only", "1 and 3 only", "2 and 3 only", "1, 2, and 3"],
     correctAnswer: 1,
     explanation: "1 and 3 only Statement 2 is incorrect. The Muslim League split over this issue; the faction led by Jinnah boycotted it, while the faction led by Muhammad Shafi supported it.",
@@ -346,7 +346,7 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
   },
   {
     id: '17-39',
-    question: "Jinnah\u2019s 'Three Amendments' to the Nehru Report included which of the following? 1. One-third representation for Muslims in the Central Legislature. 2. Reservation for Muslims in Bengal and Punjab on the basis of population. 3. Residuary powers to be vested in the Provinces. Select the correct answer using the code given below:",
+    question: "Jinnah\u2019s 'Three Amendments' to the Nehru Report included which of the following?\n1. One-third representation for Muslims in the Central Legislature.\n2. Reservation for Muslims in Bengal and Punjab on the basis of population.\n3. Residuary powers to be vested in the Provinces. Select the correct answer using the code given below:",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 3,
     explanation: "1, 2, and 3",
@@ -391,7 +391,7 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
   },
   {
     id: '17-44',
-    question: "Consider the following regarding the 'Independence for India League' (1928): 1. It was founded by Jawaharlal Nehru and Subhash Chandra Bose. 2. It acted as a pressure group within the Congress to move away from the 'Dominion Status' objective. 3. It was funded by the Simon Commission to divide the Congress. Which of the statements given above are correct?",
+    question: "Consider the following regarding the 'Independence for India League' (1928):\n1. It was founded by Jawaharlal Nehru and Subhash Chandra Bose.\n2. It acted as a pressure group within the Congress to move away from the 'Dominion Status' objective.\n3. It was funded by the Simon Commission to divide the Congress. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
   },
   {
     id: '17-62',
-    question: "Consider the following statements regarding the appointment of the Simon Commission: 1. It was a statutory requirement under the Government of India Act, 1919, to appoint a commission every ten years to review the constitutional progress. 2. The Conservative government in Britain advanced the appointment by two years to prevent the Labour Party from handling the Indian constitutional question. 3. Lord Birkenhead, the Secretary of State, believed that Indians would never be able to produce an agreed scheme of constitutional reforms. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the appointment of the Simon Commission:\n1. It was a statutory requirement under the Government of India Act, 1919, to appoint a commission every ten years to review the constitutional progress.\n2. The Conservative government in Britain advanced the appointment by two years to prevent the Labour Party from handling the Indian constitutional question.\n3. Lord Birkenhead, the Secretary of State, believed that Indians would never be able to produce an agreed scheme of constitutional reforms. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three",
@@ -571,7 +571,7 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
   },
   {
     id: '17-64',
-    question: "Which of the following parties/groups supported the Simon Commission? 1. Justice Party (Madras) 2. All India Muslim League (Shafi faction) 3. Punjab Unionists 4. Central Sikh League Select the correct answer using the code given below:",
+    question: "Which of the following parties/groups supported the Simon Commission?\n1. Justice Party (Madras)\n2. All India Muslim League (Shafi faction)\n3. Punjab Unionists\n4. Central Sikh League Select the correct answer using the code given below:",
     options: ["1, 2, and 3 only", "2, 3, and 4 only", "1 and 4 only", "All of the above"],
     correctAnswer: 0,
     explanation: "1, 2, and 3 only (Central Sikh League boycotted it).",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
   },
   {
     id: '17-65',
-    question: "Arrange the following events in the correct chronological order: 1. Appointment of the Simon Commission 2. Appointment of the Butler Committee 3. Nehru Report submission 4. Jinnah\u2019s Fourteen Points Select the correct answer using the code given below:",
+    question: "Arrange the following events in the correct chronological order:\n1. Appointment of the Simon Commission\n2. Appointment of the Butler Committee\n3. Nehru Report submission\n4. Jinnah\u2019s Fourteen Points Select the correct answer using the code given below:",
     options: ["1 \u2014 2 \u2014 3 \u2014 4", "2 \u2014 1 \u2014 3 \u2014 4", "1 \u2014 3 \u2014 2 \u2014 4", "1 \u2014 2 \u2014 4 \u2014 3"],
     correctAnswer: 0,
     explanation: "1 \u2014 2 \u2014 3 \u2014 4 (Simon: Nov 1927; Butler: Dec 1927; Nehru: Aug 1928; Jinnah: March 1929).",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
   },
   {
     id: '17-66',
-    question: "Consider the following statements regarding the 'Nehru Report' (1928): 1. It was the first Indian effort at drafting a constitutional framework. 2. It recommended a federal structure with residuary powers vested in the Provinces. 3. It proposed a list of nineteen fundamental rights, including the right to vote for all adults. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Nehru Report' (1928):\n1. It was the first Indian effort at drafting a constitutional framework.\n2. It recommended a federal structure with residuary powers vested in the Provinces.\n3. It proposed a list of nineteen fundamental rights, including the right to vote for all adults. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 2 is incorrect; it recommended residuary powers to the Centre).",
@@ -598,7 +598,7 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
   },
   {
     id: '17-67',
-    question: "The 'Delhi Proposals' (1927) suggested that Muslims would give up separate electorates if: 1. Sindh was made a separate province. 2. NWFP was treated as a full province. 3. Muslims were given 1/3rd representation in the Central Legislature. Select the correct answer using the code given below:",
+    question: "The 'Delhi Proposals' (1927) suggested that Muslims would give up separate electorates if:\n1. Sindh was made a separate province.\n2. NWFP was treated as a full province.\n3. Muslims were given 1/3rd representation in the Central Legislature. Select the correct answer using the code given below:",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "All of the above"],
     correctAnswer: 3,
     explanation: "All of the above",
@@ -616,7 +616,7 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
   },
   {
     id: '17-69',
-    question: "Consider the following pairs regarding the Nehru Committee members: 1. Tej Bahadur Sapru \u2014 Liberal Federation 2. M.S. Aney \u2014 Hindu Mahasabha 3. Shuaib Qureshi \u2014 Muslim League 4. Mangal Singh \u2014 Sikh community How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs regarding the Nehru Committee members:\n1. Tej Bahadur Sapru \u2014 Liberal Federation\n2. M.S. Aney \u2014 Hindu Mahasabha\n3. Shuaib Qureshi \u2014 Muslim League\n4. Mangal Singh \u2014 Sikh community How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
     correctAnswer: 3,
     explanation: "All four pairs",
@@ -724,7 +724,7 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
   },
   {
     id: '17-81',
-    question: "Consider the following statements regarding the Nehru Report\u2019s view on religion: 1. It proposed that there should be no state religion. 2. It guaranteed full protection for the religious and cultural interests of Muslims. 3. It suggested that religious education should be mandatory in schools. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the Nehru Report\u2019s view on religion:\n1. It proposed that there should be no state religion.\n2. It guaranteed full protection for the religious and cultural interests of Muslims.\n3. It suggested that religious education should be mandatory in schools. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; it advocated for secularism).",
@@ -733,7 +733,7 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
   },
   {
     id: '17-82',
-    question: "Match the following locations of Simon Commission protests with the leaders: 1. Lucknow \u2014",
+    question: "Match the following locations of Simon Commission protests with the leaders:\n1. Lucknow \u2014",
     options: ["Lala Lajpat Rai 2. Lahore \u2014", "Jawaharlal Nehru and G.B. Pant 3. Madras \u2014", "T. Prakasam Select the correct code:", "1-B, 2-A, 3-C"],
     correctAnswer: 0,
     explanation: "1-B, 2-A, 3-C",
@@ -778,7 +778,7 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
   },
   {
     id: '17-87',
-    question: "Consider the following regarding the Nehru Report\u2019s 'House of Representatives': 1. It was to have 500 members. 2. It was to be elected by universal adult suffrage. 3. Its tenure was to be 10 years. How many of the above statements are correct?",
+    question: "Consider the following regarding the Nehru Report\u2019s 'House of Representatives':\n1. It was to have 500 members.\n2. It was to be elected by universal adult suffrage.\n3. Its tenure was to be 10 years. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; tenure was 5 years).",

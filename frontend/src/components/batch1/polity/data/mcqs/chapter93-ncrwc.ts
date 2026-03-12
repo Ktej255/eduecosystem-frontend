@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_93_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 93,
+
         question: "The National Commission to Review the Working of the Constitution (NCRWC) was established in 2000 during the tenure of:",
         options: ["P.V. Narasimha Rao", "Atal Bihari Vajpayee", "Dr. Manmohan Singh", "H.D. Deve Gowda"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 93,
+
         question: "Who among the following headed the NCRWC?",
         options: ["Justice V.R. Krishna Iyer", "Justice M.N. Venkatachaliah", "Justice Ranganath Misra", "Justice J.S. Verma"],
         correctAnswer: 1,
@@ -21,7 +21,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 93,
+
         question: "Which of the following was NOT recommended by the NCRWC?",
         options: [
             "Explicit Right to Education",
@@ -35,7 +35,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 93,
+
         question: "NCRWC suggested that Article 19 should be amended to explicitly include:",
         options: ["Right to Strike", "Freedom of Media", "Right to Property", "Right to Internet"],
         correctAnswer: 1,
@@ -44,7 +44,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 93,
+
         question: "Regarding the appointment of the Governor, NCRWC recommended consultation with:",
         options: ["The President", "The Chief Justice of India", "The Chief Minister", "The Leader of Opposition"],
         correctAnswer: 2,
@@ -53,7 +53,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 93,
+
         question: "The NCRWC submitted its report in 11 volumes in:",
         options: ["2001", "2002", "2003", "2005"],
         correctAnswer: 1,
@@ -62,7 +62,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 93,
+
         question: "The NCRWC suggested that political parties should be:",
         options: ["Banned", "Regulated by law", "Exempt from taxes", "Subsidized by the UN"],
         correctAnswer: 1,
@@ -71,7 +71,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 93,
+
         question: "Constructive vote of no-confidence means:",
         options: [
             "Parliament cannot reject a government",
@@ -85,7 +85,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 93,
+
         question: "How many members were there in the NCRWC including the Chairman?",
         options: ["9", "11", "13", "15"],
         correctAnswer: 1,
@@ -94,7 +94,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 93,
+
         question: "The NCRWC was mandated to suggest changes without affecting:",
         options: ["The Preamble", "Fundamental Duties", "The Basic Structure", "The Civil Service"],
         correctAnswer: 2,

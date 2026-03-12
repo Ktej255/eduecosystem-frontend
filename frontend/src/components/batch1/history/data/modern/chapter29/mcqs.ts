@@ -292,7 +292,7 @@ export const MODERN_CHAPTER_29_MCQS: any[] = [
   },
   {
     id: '29-33',
-    question: "Consider the following statements regarding 'Dr. B.R. Ambedkar\u2019s' stance at the Round Table Conferences: 1. He argued that the 'Depressed Classes' were a distinct element in Indian society, separate from the Hindus. 2. He demanded separate electorates for the Dalits to ensure their true political representation. 3. He initially supported Gandhi\u2019s 'Harijan' terminology as a respectful alternative. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding 'Dr. B.R. Ambedkar\u2019s' stance at the Round Table Conferences:\n1. He argued that the 'Depressed Classes' were a distinct element in Indian society, separate from the Hindus.\n2. He demanded separate electorates for the Dalits to ensure their true political representation.\n3. He initially supported Gandhi\u2019s 'Harijan' terminology as a respectful alternative. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only. Statement 3 is incorrect; Ambedkar strongly rejected the term 'Harijan', viewing it as patronizing and a way to keep Dalits within the fold of the very religion that oppressed them.",
@@ -337,7 +337,7 @@ export const MODERN_CHAPTER_29_MCQS: any[] = [
   },
   {
     id: '29-38',
-    question: "Consider the following regarding the 'Mahad Satyagraha' (1927): 1. It was an assertion of 'Civil Rights' rather than just a religious demand. 2. During this movement, Ambedkar and his followers publicly burned the 'Manusmriti'. 3. The Satyagraha was immediately successful in ending untouchability in Mahad. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Mahad Satyagraha' (1927):\n1. It was an assertion of 'Civil Rights' rather than just a religious demand.\n2. During this movement, Ambedkar and his followers publicly burned the 'Manusmriti'.\n3. The Satyagraha was immediately successful in ending untouchability in Mahad. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; while it was a massive psychological victory, the legal and social battle for the tank continued for years).",
@@ -355,7 +355,7 @@ export const MODERN_CHAPTER_29_MCQS: any[] = [
   },
   {
     id: '29-40',
-    question: "Match the following 'Social Movements' with their 'Region': 1. Satyashodhak Samaj \u2014",
+    question: "Match the following 'Social Movements' with their 'Region':\n1. Satyashodhak Samaj \u2014",
     options: ["Maharashtra 2. Self-Respect Movement \u2014", "Tamil Nadu 3. SNDP Yogam \u2014", "Kerala 4. Namasudra Movement \u2014", "Bengal Select the correct matching code:"],
     correctAnswer: 0,
     explanation: "All are correctly matched.",
@@ -409,7 +409,7 @@ export const MODERN_CHAPTER_29_MCQS: any[] = [
   },
   {
     id: '29-46',
-    question: "Consider the following regarding 'Mahatma Gandhi\u2019s' approach to Caste: 1. He believed that 'Untouchability' was a sin and a blot on Hinduism that must be removed. 2. He initially defended the 'Varna' system as a healthy social order while attacking its current \"degenerate\" form. 3. He advocated for the total destruction of the Hindu religion to end caste. How many of the above are correct?",
+    question: "Consider the following regarding 'Mahatma Gandhi\u2019s' approach to Caste:\n1. He believed that 'Untouchability' was a sin and a blot on Hinduism that must be removed.\n2. He initially defended the 'Varna' system as a healthy social order while attacking its current \"degenerate\" form. 3. He advocated for the total destruction of the Hindu religion to end caste. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; Gandhi wanted to purify Hinduism, whereas Ambedkar wanted to transcend it).",

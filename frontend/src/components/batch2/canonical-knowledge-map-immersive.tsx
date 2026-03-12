@@ -1,5 +1,5 @@
 "use client";
-
+    
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useBatch2UI } from "@/components/batch2/context/Batch2UIContext";
 import { TranceToggle } from "@/components/batch2/context/TranceToggle";
@@ -25,7 +25,7 @@ export function CanonicalKnowledgeMapImmersive() {
     const [error, setError] = useState<string | null>(null);
     const [hoverNode, setHoverNode] = useState<any | null>(null);
     const [isGuidedMode, setIsGuidedMode] = useState(false);
-    const fgRef = useRef<any>();
+    const fgRef = useRef<any>(null);
 
     useEffect(() => {
         if (mode !== 'immersive') return;

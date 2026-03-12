@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
   },
   {
     id: '18-34',
-    question: "Consider the following statements regarding the 'Dandi March': 1. Gandhi gave the 'Eleven Demands' to Lord Irwin before starting the march. 2. The march was extensively covered by the international press, significantly damaging British moral prestige. 3. The movement remained strictly restricted to the coastline of Gujarat. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Dandi March':\n1. Gandhi gave the 'Eleven Demands' to Lord Irwin before starting the march.\n2. The march was extensively covered by the international press, significantly damaging British moral prestige.\n3. The movement remained strictly restricted to the coastline of Gujarat. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only Statement 3 is incorrect. While the march was in Gujarat, it triggered illegal salt making and law-breaking across the entire country.",
@@ -436,7 +436,7 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
   },
   {
     id: '18-49',
-    question: "Consider the following regarding the 'Vaikom Satyagraha' (1924-25) and its relation to Gandhi: 1. It was a struggle for the right of untouchables to use the roads near the Vaikom temple. 2. Gandhi visited Vaikom and supported the movement, which set the stage for his later Harijan work. 3. The movement resulted in the total abolition of the caste system in Kerala. Which of the statements given above are correct?",
+    question: "Consider the following regarding the 'Vaikom Satyagraha' (1924-25) and its relation to Gandhi:\n1. It was a struggle for the right of untouchables to use the roads near the Vaikom temple.\n2. Gandhi visited Vaikom and supported the movement, which set the stage for his later Harijan work.\n3. The movement resulted in the total abolition of the caste system in Kerala. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only.",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
   },
   {
     id: '18-62',
-    question: "Consider the following statements regarding the 'Purna Swaraj' resolution of 1929: 1. It authorized the Congress Working Committee to launch a program of Civil Disobedience including non-payment of taxes. 2. It declared that the \"Emperor of India\" was no longer recognized as the sovereign. 3. It called upon all members of legislatures to resign their seats immediately. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Purna Swaraj' resolution of 1929:\n1. It authorized the Congress Working Committee to launch a program of Civil Disobedience including non-payment of taxes.\n2. It declared that the \"Emperor of India\" was no longer recognized as the sovereign. 3. It called upon all members of legislatures to resign their seats immediately. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statements 1 and 3 are correct. The resolution didn't technically address the legal person of the Emperor but rejected British sovereignty over India as a whole.)",
@@ -562,7 +562,7 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
   },
   {
     id: '18-63',
-    question: "With reference to Gandhi\u2019s 'Eleven Demands' (1930), which of the following were included? 1. 50% reduction in land revenue. 2. Abolition of the Salt Tax and government salt monopoly. 3. Protection of the indigenous textile industry through tariffs. 4. Total prohibition of intoxicants. Select the correct answer using the code given below:",
+    question: "With reference to Gandhi\u2019s 'Eleven Demands' (1930), which of the following were included?\n1. 50% reduction in land revenue.\n2. Abolition of the Salt Tax and government salt monopoly.\n3. Protection of the indigenous textile industry through tariffs.\n4. Total prohibition of intoxicants. Select the correct answer using the code given below:",
     options: ["1, 2, and 4 only", "2 and 3 only", "1, 3, and 4 only", "All of the above"],
     correctAnswer: 3,
     explanation: "All of the above.",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
   },
   {
     id: '18-65',
-    question: "Arrange the following regional Civil Disobedience activities in correct chronological order: 1. Raid on the Dharasana Salt Works. 2. Chittagong Armoury Raid. 3. Vedaranyam Salt Satyagraha. 4. Peshawar Uprising (Garhwal Rifles episode). Select the correct answer using the code given below:",
+    question: "Arrange the following regional Civil Disobedience activities in correct chronological order:\n1. Raid on the Dharasana Salt Works.\n2. Chittagong Armoury Raid.\n3. Vedaranyam Salt Satyagraha.\n4. Peshawar Uprising (Garhwal Rifles episode). Select the correct answer using the code given below:",
     options: ["4 \u2014 2 \u2014 3 \u2014 1", "2 \u2014 4 \u2014 3 \u2014 1", "4 \u2014 3 \u2014 2 \u2014 1", "2 \u2014 3 \u2014 4 \u2014 1"],
     correctAnswer: 0,
     explanation: "4 \u2014 2 \u2014 3 \u2014 1 (Peshawar: April 23; Chittagong: April 18; Vedaranyam: April 30; Dharasana: May 21).",
@@ -598,7 +598,7 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
   },
   {
     id: '18-67',
-    question: "Consider the following pairs of leaders and their respective CDM activities: 1. Surya Sen \u2014 Indian Republican Army (Chittagong) 2. K. Kelappan \u2014 Vaikom Satyagraha (1924) & Payyanur March (1930) 3. P. Krishna Pillai \u2014 Defending the National Flag in Calicut 4. Sarojini Naidu \u2014 Dharasana Raid How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of leaders and their respective CDM activities:\n1. Surya Sen \u2014 Indian Republican Army (Chittagong)\n2. K. Kelappan \u2014 Vaikom Satyagraha (1924) & Payyanur March (1930)\n3. P. Krishna Pillai \u2014 Defending the National Flag in Calicut\n4. Sarojini Naidu \u2014 Dharasana Raid How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
     correctAnswer: 3,
     explanation: "All four pairs.",
@@ -607,7 +607,7 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
   },
   {
     id: '18-68',
-    question: "With reference to the 'First Round Table Conference', consider the following statements: 1. It was the first conference where Indians and Britishers met as \"equals\" in status. 2. The Congress boycotted it, but the Princely States, Muslim League, and Hindu Mahasabha attended. 3. It reached a definitive agreement on the federation and the communal question. How many of the above statements are correct?",
+    question: "With reference to the 'First Round Table Conference', consider the following statements:\n1. It was the first conference where Indians and Britishers met as \"equals\" in status. 2. The Congress boycotted it, but the Princely States, Muslim League, and Hindu Mahasabha attended. 3. It reached a definitive agreement on the federation and the communal question. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; it failed to resolve the communal deadlock).",
@@ -616,7 +616,7 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
   },
   {
     id: '18-69',
-    question: "The 'Gandhi-Irwin Pact' allowed for: 1. The immediate release of all political prisoners, including those convicted of violence. 2. The right to make salt for personal consumption in coastal villages. 3. Peaceful picketing of liquor and foreign cloth shops. Select the correct answer using the code given below:",
+    question: "The 'Gandhi-Irwin Pact' allowed for:\n1. The immediate release of all political prisoners, including those convicted of violence.\n2. The right to make salt for personal consumption in coastal villages.\n3. Peaceful picketing of liquor and foreign cloth shops. Select the correct answer using the code given below:",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "All of the above"],
     correctAnswer: 1,
     explanation: "2 and 3 only (Prisoners convicted of violence were not released).",
@@ -634,7 +634,7 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
   },
   {
     id: '18-71',
-    question: "The 'Karachi Session' (1931) resolution on Fundamental Rights included which of the following? 1. Neutrality of the state in regard to all religions. 2. Protection of women workers and adequate wage for laborers. 3. Total control of key industries by the state. 4. Universal adult franchise. Select the correct answer using the code given below:",
+    question: "The 'Karachi Session' (1931) resolution on Fundamental Rights included which of the following?\n1. Neutrality of the state in regard to all religions.\n2. Protection of women workers and adequate wage for laborers.\n3. Total control of key industries by the state.\n4. Universal adult franchise. Select the correct answer using the code given below:",
     options: ["1, 2, and 4 only", "2, 3, and 4 only", "1 and 3 only", "All of the above"],
     correctAnswer: 3,
     explanation: "All of the above.",
@@ -643,7 +643,7 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
   },
   {
     id: '18-72',
-    question: "Regarding the 'Communal Award' (1932), which of the following statements is/are correct? 1. It treated the Depressed Classes as a minority community entitled to separate electorates. 2. It was based on the findings of the Lothian Committee on Franchise. 3. It was rejected by the Muslim League. Select the correct answer using the code given below:",
+    question: "Regarding the 'Communal Award' (1932), which of the following statements is/are correct?\n1. It treated the Depressed Classes as a minority community entitled to separate electorates.\n2. It was based on the findings of the Lothian Committee on Franchise.\n3. It was rejected by the Muslim League. Select the correct answer using the code given below:",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "All of the above"],
     correctAnswer: 0,
     explanation: "1 and 2 only (The League generally accepted the Award as it protected their interests).",
@@ -661,7 +661,7 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
   },
   {
     id: '18-74',
-    question: "Consider the following regarding the 'Harijan' tour of Gandhi (1933-34): 1. He traveled over 20,000 km across India. 2. He faced opposition from orthodox Hindus (Sanatanists). 3. He argued that Shastras did not support untouchability. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Harijan' tour of Gandhi (1933-34):\n1. He traveled over 20,000 km across India.\n2. He faced opposition from orthodox Hindus (Sanatanists).\n3. He argued that Shastras did not support untouchability. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -688,7 +688,7 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
   },
   {
     id: '18-77',
-    question: "Match the following 'Round Table' features: 1. First RTC \u2014",
+    question: "Match the following 'Round Table' features:\n1. First RTC \u2014",
     options: ["Gandhi as sole Congress representative 2. Second RTC \u2014", "Discussed the Communal Award 3. Third RTC \u2014", "Total Congress Boycott Select the correct matching code:", "1-B, 2-A, 3-C"],
     correctAnswer: 0,
     explanation: "1-B, 2-A, 3-C.",
@@ -706,7 +706,7 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
   },
   {
     id: '18-79',
-    question: "Consider the following statements about 'Rani Gaidinliu': 1. She led the Heraka religious movement which turned into a political rebellion against the British. 2. Jawaharlal Nehru gave her the title of 'Rani'. 3. She was released from jail immediately after the Gandhi-Irwin Pact. Which of the statements given above are correct?",
+    question: "Consider the following statements about 'Rani Gaidinliu':\n1. She led the Heraka religious movement which turned into a political rebellion against the British.\n2. Jawaharlal Nehru gave her the title of 'Rani'.\n3. She was released from jail immediately after the Gandhi-Irwin Pact. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only (She was released only in 1947 after independence).",

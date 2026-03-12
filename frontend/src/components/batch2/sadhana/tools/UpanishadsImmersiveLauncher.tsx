@@ -25,9 +25,9 @@ interface ExperienceMeta {
     title: string;
     subtitle: string;
     description: string;
-    icon: React.ElementType;
+    icon: any;
     color: string;
-    component: React.ElementType;
+    component: any;
 }
 
 const EXPERIENCES: ExperienceMeta[] = [

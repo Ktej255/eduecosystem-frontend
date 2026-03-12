@@ -337,7 +337,7 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
   },
   {
     id: '6-38',
-    question: "Match the prominent Rebel Leaders with their respective centers of revolt: 1. Begum Hazrat Mahal \u2014 Lucknow 2. Kunwar Singh \u2014 Bihar (Jagdishpur) 3. Khan Bahadur \u2014 Bareilly How many of the above pairs are correctly matched?",
+    question: "Match the prominent Rebel Leaders with their respective centers of revolt:\n1. Begum Hazrat Mahal \u2014 Lucknow\n2. Kunwar Singh \u2014 Bihar (Jagdishpur)\n3. Khan Bahadur \u2014 Bareilly How many of the above pairs are correctly matched?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
   },
   {
     id: '6-62',
-    question: "Consider the following statements regarding the socio-religious causes of the Revolt of 1857: 1. The Religious Disabilities Act (Lex Loci Act) of 1850 explicitly stripped all property rights from Indians who converted to Christianity. 2. The aggressive proselytizing activities of Christian missionaries were often openly supported by British officials and military officers. The taxing of lands belonging to mosques and temples, which had previously been tax-exempt, deeply alienated the religious clergy. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the socio-religious causes of the Revolt of 1857:\n1. The Religious Disabilities Act (Lex Loci Act) of 1850 explicitly stripped all property rights from Indians who converted to Christianity.\n2. The aggressive proselytizing activities of Christian missionaries were often openly supported by British officials and military officers. The taxing of lands belonging to mosques and temples, which had previously been tax-exempt, deeply alienated the religious clergy. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three 3.", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 2 and 3 are correct. Statement 1 is incorrect; the Lex Loci Act actually protected the property rights of Christian converts, allowing them to inherit ancestral property, which orthodox Indians viewed as a direct state incentive to convert.",
@@ -571,7 +571,7 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
   },
   {
     id: '6-64',
-    question: "Consider the following statements regarding the annexation of Awadh and its impact on the Revolt: 1. Lord Dalhousie annexed Awadh in 1856 on the grounds of the Doctrine of Lapse, as Nawab Wajid Ali Shah had no natural heir. 2. The annexation led to the disbanding of the Nawab's army, leaving thousands of soldiers and retainers unemployed. The newly introduced summary revenue settlement by the British in Awadh deliberately bypassed the traditional Talukdars, leading to their active participation in the rebellion. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the annexation of Awadh and its impact on the Revolt:\n1. Lord Dalhousie annexed Awadh in 1856 on the grounds of the Doctrine of Lapse, as Nawab Wajid Ali Shah had no natural heir.\n2. The annexation led to the disbanding of the Nawab's army, leaving thousands of soldiers and retainers unemployed. The newly introduced summary revenue settlement by the British in Awadh deliberately bypassed the traditional Talukdars, leading to their active participation in the rebellion. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three 3.", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 2 and 3 are correct. Statement 1 is incorrect; Awadh was annexed on the pretext of chronic misgovernance, not the Doctrine of Lapse (Wajid Ali Shah had heirs, notably Birjis Qadir).",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
   },
   {
     id: '6-65',
-    question: "Match the rebel leaders of 1857 with the specific local grievance that drove them to revolt: 1. Nana Saheb \u2014",
+    question: "Match the rebel leaders of 1857 with the specific local grievance that drove them to revolt:\n1. Nana Saheb \u2014",
     options: ["Annexation of the state due to failure in subsidiary payments. 2. Rani Lakshmibai \u2014", "Refusal of the British to recognize her adopted son's right to the throne. 3. Begum Hazrat Mahal \u2014", "Refusal of the British to grant the pension of the former Peshwa. Kunwar Singh \u2014", "Confiscation of his large zamindari estates by the Board of Revenue. Select the correct code:"],
     correctAnswer: 0,
     explanation: "1-C, 2-B, 3-A, 4-D (Assuming A refers broadly to Awadh's annexation issues).",
@@ -607,7 +607,7 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
   },
   {
     id: '6-68',
-    question: "Consider the following groups and their stance during the Revolt of 1857: 1. The Sindhia of Gwalior 2. The Holkar of Indore 3. The Nizam of Hyderabad The Sikh chieftains of Punjab How many of the above actively supported the British in suppressing the revolt?",
+    question: "Consider the following groups and their stance during the Revolt of 1857:\n1. The Sindhia of Gwalior\n2. The Holkar of Indore\n3. The Nizam of Hyderabad The Sikh chieftains of Punjab How many of the above actively supported the British in suppressing the revolt?",
     options: ["Only one", "Only two", "Only three 4.", "All four"],
     correctAnswer: 3,
     explanation: "All four These rulers remained loyal to the British. Lord Canning famously noted that they acted as \"breakwaters to the storm which would have otherwise swept us away in one great wave.\"",
@@ -616,7 +616,7 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
   },
   {
     id: '6-69',
-    question: "The British effectively crushed the revolt using superior military organization. Match the British Commander with the major center they recaptured: 1. John Nicholson \u2014",
+    question: "The British effectively crushed the revolt using superior military organization. Match the British Commander with the major center they recaptured:\n1. John Nicholson \u2014",
     options: ["Kanpur 2. Sir Colin Campbell \u2014", "Jhansi Sir Hugh Rose \u2014", "Delhi Select the correct code:", "1-C, 2-A, 3-B"],
     correctAnswer: 0,
     explanation: "1-C (Nicholson recaptured Delhi), 2-A (Campbell recaptured Kanpur/Lucknow), 3-B (Rose recaptured Jhansi).",
@@ -625,7 +625,7 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
   },
   {
     id: '6-70',
-    question: "Consider the following statements regarding the historiography of the 1857 Revolt: 1. V.D. Savarkar characterized it as the \"First War of Indian Independence\" in his 1909 book. 2. S.N. Sen, the official historian of the Government of India, concluded that the movement began as a military mutiny but ended as a war of independence. R.C. Majumdar argued that it was a fully unified, pan-India national struggle that only failed due to a lack of modern weapons. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the historiography of the 1857 Revolt:\n1. V.D. Savarkar characterized it as the \"First War of Indian Independence\" in his 1909 book. 2. S.N. Sen, the official historian of the Government of India, concluded that the movement began as a military mutiny but ended as a war of independence. R.C. Majumdar argued that it was a fully unified, pan-India national struggle that only failed due to a lack of modern weapons. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three 3.", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; R.C. Majumdar famously argued it was \"neither the first, nor national, nor a war of independence,\" highlighting its fragmented and feudal nature.",
@@ -643,7 +643,7 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
   },
   {
     id: '6-72',
-    question: "Consider the following promises made in Queen Victoria\u2019s Proclamation (1858): 1. Unconditional pardon to all rebels, including those directly involved in the murder of British subjects. 2. Strict non-interference in the religious beliefs and customs of the Indian people. Respect for the ancient rights, usages, and customs of India, particularly regarding the rights of the native princes. How many of the above promises were actually part of the Proclamation?",
+    question: "Consider the following promises made in Queen Victoria\u2019s Proclamation (1858):\n1. Unconditional pardon to all rebels, including those directly involved in the murder of British subjects.\n2. Strict non-interference in the religious beliefs and customs of the Indian people. Respect for the ancient rights, usages, and customs of India, particularly regarding the rights of the native princes. How many of the above promises were actually part of the Proclamation?",
     options: ["Only one", "Only two", "All three 3.", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 2 and 3 are correct. Statement 1 is incorrect; the pardon was granted to rebels except those who had directly participated in the murder of British subjects.",
@@ -661,7 +661,7 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
   },
   {
     id: '6-74',
-    question: "Arrange the following events of 1857 in the correct chronological order: 1. The mutiny of sepoys at Meerut. 2. Mangal Pandey firing at his sergeant major in Barrackpore. 3. The recapture of Delhi by British forces. The proclamation of Bahadur Shah Zafar as the Emperor of India. Select the correct answer using the code given below:",
+    question: "Arrange the following events of 1857 in the correct chronological order:\n1. The mutiny of sepoys at Meerut.\n2. Mangal Pandey firing at his sergeant major in Barrackpore.\n3. The recapture of Delhi by British forces. The proclamation of Bahadur Shah Zafar as the Emperor of India. Select the correct answer using the code given below:",
     options: ["1 \u2014 2 \u2014 4 \u2014 3", "2 \u2014 1 \u2014 4 \u2014 3", "2 \u2014 4 \u2014 1 \u2014 3 4.", "1 \u2014 4 \u2014 2 \u2014 3"],
     correctAnswer: 1,
     explanation: "2 \u2014 1 \u2014 4 \u2014 3 Barrackpore incident (March 1857) -> Meerut Mutiny (May 10) -> Proclamation of Bahadur Shah in Delhi (May 11) -> Recapture of Delhi (September 1857).",
@@ -688,7 +688,7 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
   },
   {
     id: '6-77',
-    question: "Consider the following statements regarding the British policy towards the Indian Princely States after 1858: 1. The British completely abandoned the policy of annexation to use the Princes as \"breakwaters\" against future mass uprisings. 2. The British formally recognized the Princes' absolute sovereignty, relinquishing the claim of British Paramountcy. The British officially acknowledged the Princes' right to adopt heirs. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the British policy towards the Indian Princely States after 1858:\n1. The British completely abandoned the policy of annexation to use the Princes as \"breakwaters\" against future mass uprisings. 2. The British formally recognized the Princes' absolute sovereignty, relinquishing the claim of British Paramountcy. The British officially acknowledged the Princes' right to adopt heirs. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three 3.", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the British did not relinquish Paramountcy. In fact, the Crown's paramountcy was made more explicit, reducing princes to subordinate agents of the British Empire.",
@@ -760,7 +760,7 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
   },
   {
     id: '6-85',
-    question: "Consider the following regarding the ultimate fate of the major rebel leaders: 1. Bahadur Shah Zafar \u2014 Exiled to Rangoon. 2. Nana Saheb \u2014 Escaped to Nepal and his final fate is unknown. Begum Hazrat Mahal \u2014 Surrendered to the British and was pensioned off in Calcutta. How many of the above are correctly stated?",
+    question: "Consider the following regarding the ultimate fate of the major rebel leaders:\n1. Bahadur Shah Zafar \u2014 Exiled to Rangoon.\n2. Nana Saheb \u2014 Escaped to Nepal and his final fate is unknown. Begum Hazrat Mahal \u2014 Surrendered to the British and was pensioned off in Calcutta. How many of the above are correctly stated?",
     options: ["Only one", "Only two", "All three 3.", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; Begum Hazrat Mahal refused to surrender and also escaped to Nepal, where she eventually died.",

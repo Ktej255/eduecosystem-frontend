@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_9_SUBTOPICS: Subtopic[] = [
@@ -149,3 +150,4 @@ export const ANCIENT_CHAPTER_9_CONTENT = `
 - **Ethics:** Popularized Ahimsa, which significantly reduced animal slaughter in India.
 - **Education:** Birth of universities like **Nalanda** and Vikramshila.
 `;
+

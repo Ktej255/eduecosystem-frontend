@@ -6,7 +6,7 @@ import { MCQ } from './chapter1-mcqs';
 export const CHAPTER_3_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 3,
+
         question: "The term 'Constitution' is derived from which Latin word?",
         options: [
             "Constituere",
@@ -20,7 +20,7 @@ export const CHAPTER_3_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 3,
+
         question: "Which of the following is an example of an 'Unwritten' or 'Uncodified' constitution?",
         options: [
             "USA",
@@ -34,7 +34,7 @@ export const CHAPTER_3_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 3,
+
         question: "Who gave the classification of constitutions into 'Rigid' and 'Flexible'?",
         options: [
             "A.V. Dicey",
@@ -48,7 +48,7 @@ export const CHAPTER_3_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 3,
+
         question: "A 'Rigid' constitution is one which:",
         options: [
             "Cannot be amended at all",
@@ -62,7 +62,7 @@ export const CHAPTER_3_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 3,
+
         question: "The Indian Constitution is described as:",
         options: [
             "Purely Rigid",
@@ -76,7 +76,7 @@ export const CHAPTER_3_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 3,
+
         question: "According to K.C. Wheare, the Indian Constitution is:",
         options: [
             "Unitary",
@@ -90,7 +90,7 @@ export const CHAPTER_3_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 3,
+
         question: "The concept of 'Constitutionalism' primarily implies:",
         options: [
             "Having a written constitution",
@@ -104,7 +104,7 @@ export const CHAPTER_3_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 3,
+
         question: "Which of the following is NOT an element of Constitutionalism according to Louis Henkin?",
         options: [
             "Popular sovereignty",
@@ -118,7 +118,7 @@ export const CHAPTER_3_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 3,
+
         question: "A constitution that defines legal structures and limits government power without necessarily imposing societal goals is called:",
         options: [
             "Prescriptive Constitution",
@@ -132,7 +132,7 @@ export const CHAPTER_3_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 3,
+
         question: "The 'Evolved' or 'Cumulative' type of constitution is best exemplified by:",
         options: [
             "The American Constitution",
@@ -146,7 +146,7 @@ export const CHAPTER_3_MCQS: MCQ[] = [
     },
     {
         id: 11,
-        chapterId: 3,
+
         question: "What is the primary function of a constitution according to modern political theory?",
         options: [
             "To give absolute power to the King",
@@ -160,7 +160,7 @@ export const CHAPTER_3_MCQS: MCQ[] = [
     },
     {
         id: 12,
-        chapterId: 3,
+
         question: "The classification of 'Written' and 'Unwritten' constitutions was first popularized in which country?",
         options: [
             "USA",
@@ -174,7 +174,7 @@ export const CHAPTER_3_MCQS: MCQ[] = [
     },
     {
         id: 13,
-        chapterId: 3,
+
         question: "Which of the following is a quality of a good constitution?",
         options: [
             "Extreme length",
@@ -188,7 +188,7 @@ export const CHAPTER_3_MCQS: MCQ[] = [
     },
     {
         id: 14,
-        chapterId: 3,
+
         question: "The idea that a constitution should express the national identity and values of the people is a feature of:",
         options: [
             "Unitary government",
@@ -202,7 +202,7 @@ export const CHAPTER_3_MCQS: MCQ[] = [
     },
     {
         id: 15,
-        chapterId: 3,
+
         question: "Consider the following statements:\n1. A country with a written constitution always has constitutionalism.\n2. Constitutionalism implies limited government powers.\nWhich of the above is/are correct?",
         options: [
             "1 only",

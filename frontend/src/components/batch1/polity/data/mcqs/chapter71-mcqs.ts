@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_71_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 71,
+
         question: "Psephology is the study of:",
         options: ["Public policy", "Election statistics", "Political philosophies", "International law"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_71_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 71,
+
         question: "Which factor is famously used as a determinant of voting behaviour in India when candidates are chosen based on their community?",
         options: ["Ideology", "Caste", "Education", "Income"],
         correctAnswer: 1,
@@ -21,7 +21,7 @@ export const CHAPTER_71_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 71,
+
         question: "The term 'Charismatic Leadership' in voting behaviour refers to:",
         options: ["The wealth of the leader", "The age of the leader", "The personality and appeal of the leader", "The family background only"],
         correctAnswer: 2,
@@ -30,7 +30,7 @@ export const CHAPTER_71_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 71,
+
         question: "Political Socialization starts primarily at:",
         options: ["School", "Workplace", "Family", "Parliament"],
         correctAnswer: 2,
@@ -39,7 +39,7 @@ export const CHAPTER_71_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 71,
+
         question: "Which of the following describes the phenomenon where voters vote in favor of the current government because they are happy with its work?",
         options: ["Anti-incumbency", "Pro-incumbency", "Gerrymandering", "Filibustering"],
         correctAnswer: 1,
@@ -48,7 +48,7 @@ export const CHAPTER_71_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 71,
+
         question: "Which technology has recently revolutionized political socialization and voting behaviour in India?",
         options: ["Radio", "Newspapers", "Social Media", "Telegrams"],
         correctAnswer: 2,
@@ -57,7 +57,7 @@ export const CHAPTER_71_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 71,
+
         question: "The 'None of the Above' (NOTA) button on EVMs reflects which aspect of voting behavior?",
         options: [
             "Indifference",
@@ -71,7 +71,7 @@ export const CHAPTER_71_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 71,
+
         question: "Opinion polls are usually conducted:",
         options: ["After the result", "During the counting", "Before the election", "By the President"],
         correctAnswer: 2,
@@ -80,7 +80,7 @@ export const CHAPTER_71_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 71,
+
         question: "The 'Bread and Butter' issues like inflation and unemployment fall under which determinant?",
         options: ["Identity Politics", "Economic Performance", "Charisma", "Religious belief"],
         correctAnswer: 1,
@@ -89,7 +89,7 @@ export const CHAPTER_71_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 71,
+
         question: "Which group of people usually has the highest voter turnout in Indian elections (relatively)?",
         options: ["Urban rich", "Rural poor", "NRI voters", "Corporate employees"],
         correctAnswer: 1,

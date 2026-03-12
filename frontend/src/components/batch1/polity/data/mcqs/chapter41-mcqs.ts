@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_41_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 41,
+
         question: "With reference to Article 324, consider the following:\n1. EC is responsible for Panchayats and Municipalities elections.\n2. President determines number of ECs.\n3. When other EC appointed, CEC acts as Chairman.\n4. Constitution prescribes 10 years administrative experience for ECs.",
         options: [
             "1, 2, and 3 only",
@@ -17,7 +17,7 @@ export const CHAPTER_41_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 41,
+
         question: "Regarding 'Evolution of Multi-member Commission':",
         options: [
             "EC has been multi-member since inception.",
@@ -31,7 +31,7 @@ export const CHAPTER_41_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 41,
+
         question: "Regarding 'Independence', which is strictly a constitutional safeguard?",
         options: [
             "1, 2, and 3 only",
@@ -45,7 +45,7 @@ export const CHAPTER_41_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 41,
+
         question: "If a difference of opinion arises between CEC and other ECs, how is it settled?",
         options: [
             "CEC opinion prevails.",
@@ -59,7 +59,7 @@ export const CHAPTER_41_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 41,
+
         question: "ECI has 'Advisory Jurisdiction' in which matters?\n1. Disqualification of MPs.\n2. Disqualification of State Legislators.\n3. Extension of President's Rule.\n4. Validity of election petition.",
         options: [
             "1 and 2 only",
@@ -73,7 +73,7 @@ export const CHAPTER_41_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 41,
+
         question: "Which is a 'Quasi-Judicial' function of the EC?",
         options: [
             "Preparing electoral rolls.",
@@ -87,7 +87,7 @@ export const CHAPTER_41_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 41,
+
         question: "According to the 2023 Act, who are the members of the Selection Committee?\n1. PM (Chair)\n2. Leader of Opposition\n3. CJI\n4. Cabinet Minister nominated by PM",
         options: [
             "1, 2, and 3 only",
@@ -101,7 +101,7 @@ export const CHAPTER_41_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 41,
+
         question: "What is the role of the 'Search Committee' in the 2023 appointment process?",
         options: [
             "Conduct final interview.",
@@ -115,7 +115,7 @@ export const CHAPTER_41_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 41,
+
         question: "Which are 'flaws' in the constitutional provisions regarding EC?\n1. No qualifications prescribed.\n2. No term specified.\n3. No debarment from further employment.\n4. Equal security of tenure for all ECs.",
         options: [
             "1, 2, and 3 only",
@@ -129,7 +129,7 @@ export const CHAPTER_41_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 41,
+
         question: "Guiding Principles of ECI include:",
         options: [
             "Uphold equality, equity, impartiality.",

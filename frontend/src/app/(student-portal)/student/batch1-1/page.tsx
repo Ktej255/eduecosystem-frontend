@@ -28,8 +28,8 @@ const WEEKDAYS = [
     { id: 6, name: "Saturday", short: "Sat", isSaturday: true },
 ];
 
-import { MoodTrackerModal } from "@/components/batch1-1/productivity/MoodTrackerModal";
-import DailyProtocolTimeline from "@/components/batch1/components/DailyProtocolTimeline";
+import { MoodTrackerModal } from "@/components/upsc/platform/productivity/MoodTrackerModal";
+import DailyProtocolTimeline from "@/components/upsc/common/components/DailyProtocolTimeline";
 
 export default function Batch11Page() {
     const router = useRouter();
@@ -167,7 +167,7 @@ export default function Batch11Page() {
                             <BookOpen className="h-5 w-5" />
                         </Button>
                     </Link>
-                    <Link href="/student/batch1-1/deep-report">
+                    <Link href="/student/upsc/deep-report">
                         <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-purple-600 hover:bg-purple-50 rounded-full">
                             <BarChart3 className="h-5 w-5" />
                         </Button>

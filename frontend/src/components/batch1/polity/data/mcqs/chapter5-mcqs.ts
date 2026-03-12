@@ -6,7 +6,7 @@ import { MCQ } from './chapter1-mcqs';
 export const CHAPTER_5_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 5,
+
         question: "The 'Objectives Resolution', which became the basis of the Preamble, was moved by whom?",
         options: [
             "Dr. B.R. Ambedkar",
@@ -20,7 +20,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 5,
+
         question: "How many times has the Preamble been amended so far?",
         options: [
             "Once",
@@ -34,7 +34,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 5,
+
         question: "Which three words were added to the Preamble by the 42nd Amendment Act (1976)?",
         options: [
             "Socialist, Secular and Democratic",
@@ -48,7 +48,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 5,
+
         question: "Who called the Preamble the 'Identity card of the Constitution'?",
         options: [
             "N.A. Palkhivala",
@@ -62,7 +62,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 5,
+
         question: "The source of authority of the Constitution, as per the Preamble, lies with:",
         options: [
             "The Parliament",
@@ -76,7 +76,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 5,
+
         question: "India is a 'Republic'. This means:",
         options: [
             "The head of the state is hereditary",
@@ -90,7 +90,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 5,
+
         question: "Which of the following forms of Justice is NOT mentioned in the Preamble?",
         options: [
             "Social Justice",
@@ -104,7 +104,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 5,
+
         question: "The ideals of 'Liberty, Equality and Fraternity' in our Preamble have been taken from:",
         options: [
             "Russian Revolution",
@@ -118,7 +118,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 5,
+
         question: "The ideal of 'Justice (Social, Economic and Political)' has been taken from:",
         options: [
             "French Revolution",
@@ -132,7 +132,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 5,
+
         question: "In which case did the Supreme Court first held that the Preamble is NOT a part of the Constitution?",
         options: [
             "Berubari Union case (1960)",
@@ -146,7 +146,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 11,
-        chapterId: 5,
+
         question: "In which landmark case did the Supreme Court reverse its earlier opinion and held that 'Preamble is a part of the Constitution'?",
         options: [
             "Berubari Union case",
@@ -160,7 +160,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 12,
-        chapterId: 5,
+
         question: "Which of the following statements about the Preamble is/are correct?\n1. It is a source of power to the legislature.\n2. It is a prohibition upon the powers of the legislature.\n3. It is non-justiciable.\n4. Its provisions are not enforceable in courts of law.",
         options: [
             "1 and 2 only",
@@ -174,7 +174,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 13,
-        chapterId: 5,
+
         question: "The Preamble was enacted by the Constituent Assembly:",
         options: [
             "Before the rest of the Constitution",
@@ -188,7 +188,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 14,
-        chapterId: 5,
+
         question: "Who described the Preamble as the 'Horoscope of our sovereign democratic republic'?",
         options: [
             "Jawaharlal Nehru",
@@ -202,7 +202,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 15,
-        chapterId: 5,
+
         question: "The word 'Socialist' in the Preamble means that Indian socialism is:",
         options: [
             "Communistic Socialism",
@@ -216,7 +216,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 16,
-        chapterId: 5,
+
         question: "Which of the following is NOT correct regarding 'Secular' as mentioned in the Preamble?",
         options: [
             "The word was added by 42nd Amendment",
@@ -230,7 +230,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 17,
-        chapterId: 5,
+
         question: "The date given in the Preamble as the date of adoption of the Constitution is:",
         options: [
             "August 15, 1947",
@@ -244,7 +244,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 18,
-        chapterId: 5,
+
         question: "Which of the following is the correct sequence of keywords in the Preamble?",
         options: [
             "Sovereign, Democratic, Socialist, Secular, Republic",
@@ -258,7 +258,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 19,
-        chapterId: 5,
+
         question: "Who called the Preamble the 'Key-note to the Constitution'?",
         options: [
             "Ernest Barker",
@@ -272,7 +272,7 @@ export const CHAPTER_5_MCQS: MCQ[] = [
     },
     {
         id: 20,
-        chapterId: 5,
+
         question: "Consider the following statements about the Preamble:\n1. It is a part of the Constitution.\n2. It can be amended under Article 368.\n3. The 'Basic Structure' of the Preamble can be amended.\nWhich of the above are correct?",
         options: [
             "1 and 2 only",

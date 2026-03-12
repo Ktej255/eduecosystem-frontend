@@ -4,7 +4,7 @@ export const CHAPTER_39_MCQS: MCQ[] = [
     // Phase 1: Evolution & Committees
     {
         id: 1,
-        chapterId: 39,
+
         question: "Match Committee with Recommendation:\nA. Balwant Rai Mehta: 1. Constitutional status\nB. Ashok Mehta: 2. 3-tier 'Democratic Decentralization'\nC. G.V.K. Rao: 3. 2-tier system, political party participation\nD. L.M. Singhvi: 4. 'Grass without roots', DDC post",
         options: [
             "A-2, B-3, C-4, D-1",
@@ -18,7 +18,7 @@ export const CHAPTER_39_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 39,
+
         question: "Which committee(s) recommended 'Nyaya Panchayats'?\n1. Ashok Mehta\n2. L.M. Singhvi\n3. G.V.K. Rao",
         options: [
             "1 only",
@@ -33,7 +33,7 @@ export const CHAPTER_39_MCQS: MCQ[] = [
     // Phase 2: Compulsory vs Voluntary
     {
         id: 3,
-        chapterId: 39,
+
         question: "Which is NOT a compulsory provision of 73rd Amendment?",
         options: [
             "State Finance Commission every 5 years.",
@@ -47,7 +47,7 @@ export const CHAPTER_39_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 39,
+
         question: "Regarding Election of Chairpersons:",
         options: [
             "Village level always directly elected.",
@@ -62,7 +62,7 @@ export const CHAPTER_39_MCQS: MCQ[] = [
     // Phase 3: Reservations & Tenure
     {
         id: 5,
-        chapterId: 39,
+
         question: "Regarding Article 243-D (Women Reservation):",
         options: [
             "Applies only to membership, not Chairpersons.",
@@ -76,7 +76,7 @@ export const CHAPTER_39_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 39,
+
         question: "If a Panchayat is dissolved prematurely (e.g., in 3rd year):",
         options: [
             "New Panchayat continues for full 5 years.",
@@ -91,7 +91,7 @@ export const CHAPTER_39_MCQS: MCQ[] = [
     // Phase 4: Powers, Finance & Disqualifications
     {
         id: 7,
-        chapterId: 39,
+
         question: "Which is NOT among the 29 functional items of 11th Schedule?",
         options: [
             "Technical training.",
@@ -105,7 +105,7 @@ export const CHAPTER_39_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 39,
+
         question: "Disqualified from Panchayat membership if:\n1. Less than 25 years age.\n2. Disqualified under State Law.\n3. Less than 21 years age.",
         options: [
             "2 and 3 only",
@@ -119,7 +119,7 @@ export const CHAPTER_39_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 39,
+
         question: "State Finance Commission reviews/recommends:\n1. Tax distribution.\n2. Assignment of taxes/duties.\n3. Grants-in-aid.",
         options: [
             "1 and 2 only",
@@ -134,7 +134,7 @@ export const CHAPTER_39_MCQS: MCQ[] = [
     // Phase 5: PESA Act
     {
         id: 10,
-        chapterId: 39,
+
         question: "PESA Act extends Part IX to Scheduled Areas of how many states?",
         options: [
             "5 states",
@@ -148,7 +148,7 @@ export const CHAPTER_39_MCQS: MCQ[] = [
     },
     {
         id: 11,
-        chapterId: 39,
+
         question: "Under PESA, Gram Sabha consultation is MANDATORY for:",
         options: [
             "Education laws.",
@@ -162,7 +162,7 @@ export const CHAPTER_39_MCQS: MCQ[] = [
     },
     {
         id: 12,
-        chapterId: 39,
+
         question: "Power NOT specifically granted to Gram Sabha under PESA?",
         options: [
             "Prevent alienation of land.",
@@ -177,7 +177,7 @@ export const CHAPTER_39_MCQS: MCQ[] = [
     // Phase 6: Miscellaneous
     {
         id: 13,
-        chapterId: 39,
+
         question: "State Election Commission (Art 243-K) is responsible for:\n1. Electoral rolls for Panchayats.\n2. Conduct of all Panchayat elections.\n3. Conduct of State Legislature elections.",
         options: [
             "1 and 2 only",
@@ -191,7 +191,7 @@ export const CHAPTER_39_MCQS: MCQ[] = [
     },
     {
         id: 14,
-        chapterId: 39,
+
         question: "Article 243-O bar on courts means:",
         options: [
             "Delimitation validity cannot be questioned.",
@@ -205,7 +205,7 @@ export const CHAPTER_39_MCQS: MCQ[] = [
     },
     {
         id: 15,
-        chapterId: 39,
+
         question: "Exempted areas from Part IX:",
         options: [
             "Nagaland, Meghalaya, Mizoram.",

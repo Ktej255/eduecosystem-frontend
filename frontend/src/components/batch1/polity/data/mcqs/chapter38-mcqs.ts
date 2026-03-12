@@ -3,7 +3,7 @@ import { MCQ } from "../RevisionRegistry";
 export const CHAPTER_38_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 38,
+
         question: "With reference to the 'Abolition or Creation of Legislative Councils' (Article 169), consider the following statements:\n1. The Parliament can abolish or create a Legislative Council if the Legislative Assembly of the concerned state passes a resolution to that effect.\n2. Such a resolution must be passed by the State Assembly by a special majority.\n3. An Act of Parliament for this purpose is considered an amendment of the Constitution under Article 368.\nWhich of the statements given above are correct?",
         options: [
             "1 and 2 only",
@@ -17,7 +17,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 38,
+
         question: "Regarding the 'Composition of the Legislative Assembly', which of the following statements is incorrect?",
         options: [
             "The maximum strength is fixed at 500 and the minimum strength at 60.",
@@ -31,7 +31,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 38,
+
         question: "Consider the following statements regarding 'Territorial Constituencies' and 'Readjustment after each Census':\n1. The 42nd Amendment Act of 1976 froze the total number of seats in the assembly of each state until the year 2000.\n2. The 84th Amendment Act of 2001 empowered the government to undertake readjustment and rationalisation of territorial constituencies on the basis of the 2001 census.\n3. The 87th Amendment Act of 2003 provided for the delimitation of constituencies on the basis of the 2001 census without altering the total number of seats.\nWhich of the statements given above is/are correct?",
         options: [
             "1 only",
@@ -45,7 +45,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 38,
+
         question: "The members of the Legislative Council (Vidhan Parishad) are elected indirectly. Match the following electoral colleges with their respective representation:\n1. Members of local bodies\n2. Graduates of 3 years' standing\n3. Teachers of 3 years' standing\n4. Members of Legislative Assembly\nSelect the correct matching for proportions:",
         options: [
             "1-(1/3), 2-(1/12), 3-(1/12), 4-(1/3)",
@@ -59,7 +59,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 38,
+
         question: "Regarding the 'Nominated Members' of the Legislative Council, from which of the following fields are they nominated by the Governor?\n1. Literature\n2. Science\n3. Art\n4. Social Service\n5. Cooperative Movement",
         options: [
             "1, 2, 3, and 4 only",
@@ -73,7 +73,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 38,
+
         question: "Which of the following statements regarding the 'Duration of the Legislative Council' is true?",
         options: [
             "It is subject to dissolution by the Governor after every five years.",
@@ -87,7 +87,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 38,
+
         question: "A person shall be disqualified for being chosen as a member of the State Legislature under the Tenth Schedule (Anti-Defection Law) if:\n1. An elected member voluntarily gives up the membership of his political party.\n2. An independent member joins any political party after the election.\n3. A nominated member joins any political party before the expiry of six months.\nWhich of the statements given above are correct?",
         options: [
             "1 and 2 only",
@@ -101,7 +101,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 38,
+
         question: "According to the Representation of the People Act (1951), a person is disqualified if he/she has been convicted for any offence resulting in imprisonment for:",
         options: [
             "One year or more.",
@@ -115,7 +115,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 38,
+
         question: "Consider the following statements regarding the 'Speaker of the Legislative Assembly':\n1. He/she vacates his office if he/she ceases to be a member of the assembly.\n2. He/she can resign by writing to the Governor of the state.\n3. He/she can be removed by a resolution passed by a majority of all the then members of the assembly.\nWhich of the statements given above are correct?",
         options: [
             "1 and 2 only",
@@ -129,7 +129,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 38,
+
         question: "The 'Speaker Pro Tem' of the Assembly is:",
         options: [
             "Elected by the members of the newly elected Assembly.",
@@ -143,7 +143,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 11,
-        chapterId: 38,
+
         question: "With reference to 'Prorogation' and 'Dissolution' of the State Legislative Assembly, which of the following statements is correct?",
         options: [
             "Prorogation terminates a sitting but not the session of the House.",
@@ -157,7 +157,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 12,
-        chapterId: 38,
+
         question: "Regarding 'Quorum' and 'Voting' in the State Legislature, consider the following:\n1. The quorum for a meeting of either House is ten members or one-tenth of the total number of members, whichever is less.\n2. In the absence of a quorum, it is the duty of the presiding officer to adjourn the House.\n3. All questions are decided by a majority of votes of members present and voting.\nWhich are correct?",
         options: [
             "1 and 2 only",
@@ -171,7 +171,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 13,
-        chapterId: 38,
+
         question: "Introduction of Ordinary Bill: If the Assembly passes a bill again (second time) and transmits it to the Legislative Council, how long can the Council delay the bill in this second instance?",
         options: [
             "Six months",
@@ -185,7 +185,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 14,
-        chapterId: 38,
+
         question: "When an Ordinary Bill is passed by the State Legislature and presented to the Governor, which of the following is NOT an alternative available to him?",
         options: [
             "He may give his assent to the bill.",
@@ -199,7 +199,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 15,
-        chapterId: 38,
+
         question: "Consider the following statements regarding 'Money Bills' in the State Legislature:\n1. A Money Bill can be introduced in either the Legislative Assembly or the Legislative Council.\n2. The Legislative Council cannot reject or amend a Money Bill.\n3. If the Council does not return the bill within 14 days, it is deemed passed.\nCorrect statements?",
         options: [
             "1 and 2 only",
@@ -213,7 +213,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 16,
-        chapterId: 38,
+
         question: "The Legislative Council is unique compared to Rajya Sabha in that:",
         options: [
             "It has no power to vote on demands for grants.",
@@ -227,7 +227,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 17,
-        chapterId: 38,
+
         question: "Regarding the 'Override Power' of the Legislative Assembly, which statement is true?",
         options: [
             "The Assembly can override the Council's opposition to a Money Bill only.",
@@ -241,7 +241,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 18,
-        chapterId: 38,
+
         question: "Which of the following is a 'Collective Privilege' of the State Legislature?",
         options: [
             "Freedom from arrest of members in civil cases during the session.",
@@ -255,7 +255,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 19,
-        chapterId: 38,
+
         question: "Under the Constitution, the 'Advocate General' of a state has the right to:\n1. Speak in the proceedings of either House.\n2. Take part in the proceedings of any committee to which he is named.\n3. Vote in the House of which he is a member.\nSelect the correct answer:",
         options: [
             "1 and 2 only",
@@ -269,7 +269,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 20,
-        chapterId: 38,
+
         question: "When the Governor reserves a bill for the consideration of the President, the President may:",
         options: [
             "Give his assent, withhold his assent, or return the bill for reconsideration.",
@@ -283,7 +283,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 21,
-        chapterId: 38,
+
         question: "When a bill is reserved by the Governor for the President (Art 201), which is true?\n1. President may give or withhold assent.\n2. If not a Money Bill, President may direct return for reconsideration.\n3. If passed again by House, President is bound to give assent.\n4. State Legislature must reconsider within 6 months.",
         options: [
             "1, 2, and 3 only",
@@ -297,7 +297,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 22,
-        chapterId: 38,
+
         question: "In which case is the Governor OBLIGATED to reserve a bill for the President?",
         options: [
             "When the bill deals with compulsory acquisition of property.",
@@ -311,7 +311,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 23,
-        chapterId: 38,
+
         question: "Regarding 'Language' in State Legislature (Art 210):\n1. Originally designated Hindi or English.\n2. Provision for English was to cease after 15 years unless legislature provided otherwise.\n3. Presiding Officer has no power to permit mother tongue if member knows Hindi/English.",
         options: [
             "1 and 2 only",
@@ -325,7 +325,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 24,
-        chapterId: 38,
+
         question: "A Minister who is not a member of either House of the State Legislature has the right to:",
         options: [
             "Speak and take part in proceedings of both Houses but cannot vote in either.",
@@ -339,7 +339,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 25,
-        chapterId: 38,
+
         question: "In which matters are powers of Legislative Council EQUAL to Assembly?\n1. Introduction of Ordinary Bills.\n2. Approval of ordinances.\n3. Selection of Ministers.\n4. Consideration of SPSC reports.",
         options: [
             "1 and 3 only",
@@ -353,7 +353,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 26,
-        chapterId: 38,
+
         question: "Why is the Legislative Council considered a 'subordinate' body rather than a 'revising' body like Rajya Sabha?",
         options: [
             "Because the Assembly has the power to override the Council's amendments to an ordinary bill.",
@@ -367,7 +367,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 27,
-        chapterId: 38,
+
         question: "Individual Privileges of members include:\n1. Freedom from civil arrest during session (and 40 days before/after).\n2. Absolute freedom of speech in House.\n3. Exemption from jury service during session.",
         options: [
             "1 and 2 only",
@@ -381,7 +381,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 28,
-        chapterId: 38,
+
         question: "If a question arises on disqualification of a member (Art 191), whose decision is final?",
         options: [
             "The Speaker/Chairman.",
@@ -395,7 +395,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 29,
-        chapterId: 38,
+
         question: "What happens to a bill pending in Legislative Council which has NOT been passed by Legislative Assembly, when limits Assembly dissolves?",
         options: [
             "It lapses.",
@@ -409,7 +409,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 30,
-        chapterId: 38,
+
         question: "Which statement regarding Money Bills at state level is INCORRECT?",
         options: [
             "It cannot be introduced in Legislative Council.",
@@ -423,7 +423,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 31,
-        chapterId: 38,
+
         question: "With reference to 106th Constitutional Amendment Act (Women's Reservation):\n1. Provides 1/3rd reservation in Legislative Assemblies.\n2. Provides 1/3rd reservation in Legislative Councils.\n3. Effective after first census after Act is published.",
         options: [
             "1 and 2 only",
@@ -437,7 +437,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 32,
-        chapterId: 38,
+
         question: "Duration of women's reservation in State Assemblies under 106th Amendment Act:",
         options: [
             "Permanent.",
@@ -451,7 +451,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 33,
-        chapterId: 38,
+
         question: "Which states currently have a bicameral legislature (Legislative Council)?\n1. Andhra Pradesh & Telangana\n2. Bihar & Uttar Pradesh\n3. Karnataka & Maharashtra\n4. Tamil Nadu & West Bengal",
         options: [
             "1, 2, and 3 only",
@@ -465,7 +465,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 34,
-        chapterId: 38,
+
         question: "During 'Second Reading' of a bill, what happens at the 'Consideration Stage'?",
         options: [
             "General discussion on principles.",
@@ -479,7 +479,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 35,
-        chapterId: 38,
+
         question: "In the 'Third Reading' of an ordinary bill:",
         options: [
             "No amendments allowed; debate confined to acceptance/rejection of bill as whole.",
@@ -493,7 +493,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 36,
-        chapterId: 38,
+
         question: "Power enjoyed by Speaker of Assembly but NOT by Chairman of Council:",
         options: [
             "Preside and maintain order.",
@@ -507,7 +507,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 37,
-        chapterId: 38,
+
         question: "Regarding removal of Speaker and Chairman:",
         options: [
             "Passed by simple majority of present and voting.",
@@ -521,7 +521,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 38,
-        chapterId: 38,
+
         question: "Who is the final authority to decide disqualification under 10th Schedule (Anti-Defection)?",
         options: [
             "Governor.",
@@ -535,7 +535,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 39,
-        chapterId: 38,
+
         question: "The decision of the Presiding Officer on disqualification under 10th Schedule is:",
         options: [
             "Final and cannot be questioned.",
@@ -549,7 +549,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 40,
-        chapterId: 38,
+
         question: "If there is no quorum during a sitting, the Presiding Officer must:",
         options: [
             "Continue if Leader agrees.",
@@ -563,7 +563,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 41,
-        chapterId: 38,
+
         question: "Double Membership (ROPA 1951): If a person is elected to both Houses of State Legislature:",
         options: [
             "Must choose within 10 days, else Assembly seat vacant.",
@@ -577,7 +577,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 42,
-        chapterId: 38,
+
         question: "Vacation of Seat due to Absence (Art 190):",
         options: [
             "House may declare seat vacant if absent for 60 days without permission.",
@@ -591,7 +591,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 43,
-        chapterId: 38,
+
         question: "Regarding 'Panel of Chairmen':\n1. Nominated by Speaker/Chairman.\n2. Can preside when office of Speaker/Chairman is VACANT.\n3. Have same powers as Speaker/Chairman when presiding.",
         options: [
             "1 and 2 only",
@@ -605,7 +605,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 44,
-        chapterId: 38,
+
         question: "Rule regarding 'Acceptance of Resignation' of a member:",
         options: [
             "Must accept immediately.",
@@ -619,7 +619,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 45,
-        chapterId: 38,
+
         question: "Which of these bills LAPSES on dissolution of Assembly?",
         options: [
             "Pending in Council, not passed by Assembly.",
@@ -633,7 +633,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 46,
-        chapterId: 38,
+
         question: "Which bill does NOT lapse on dissolution of Assembly?",
         options: [
             "Originated in Assembly, pending in Assembly.",
@@ -647,7 +647,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 47,
-        chapterId: 38,
+
         question: "Regarding Financial Bills at State Level:",
         options: [
             "Financial Bill (I) introduced in Council.",
@@ -661,7 +661,7 @@ export const CHAPTER_38_MCQS: MCQ[] = [
     },
     {
         id: 48,
-        chapterId: 38,
+
         question: "Match Article to Subject:\n1. Art 169\n2. Art 171\n3. Art 200\n4. Art 210",
         options: [
             "1-(Abolition), 2-(Composition), 3-(Assent), 4-(Language)",

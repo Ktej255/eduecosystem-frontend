@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_15_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 15,
+
         question: "The 'Collective Responsibility' of the cabinet is to:",
         options: ["The President", "The Parliament", "The Lok Sabha", "The Prime Minister"],
         correctAnswer: 2,
@@ -12,7 +12,7 @@ export const CHAPTER_15_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 15,
+
         question: "Which of the following is NOT a feature of the Presidential system?",
         options: [
             "Single executive",
@@ -26,7 +26,7 @@ export const CHAPTER_15_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 15,
+
         question: "The Indian Parliamentary system is based on the:",
         options: ["American model", "British model", "Swiss model", "French model"],
         correctAnswer: 1,
@@ -35,7 +35,7 @@ export const CHAPTER_15_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 15,
+
         question: "In which of the following cases is the Prime Minister's leadership MOST crucial?",
         options: ["Presidential System", "Parliamentary System", "Federal System", "Unitary System"],
         correctAnswer: 1,
@@ -44,7 +44,7 @@ export const CHAPTER_15_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 15,
+
         question: "Which of the following describes the Indian Parliament correctly?",
         options: [
             "It is a sovereign body like the British Parliament",
@@ -58,7 +58,7 @@ export const CHAPTER_15_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 15,
+
         question: "The 'Dictatorship of the Cabinet' is a criticism of which system?",
         options: ["Parliamentary System", "Presidential System", "Monarchy", "Direct Democracy"],
         correctAnswer: 0,
@@ -67,7 +67,7 @@ export const CHAPTER_15_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 15,
+
         question: "In Britain, a minister MUST be from:",
         options: ["Upper House only", "Lower House only", "Either House", "None (outside professionals)"],
         correctAnswer: 2,
@@ -76,7 +76,7 @@ export const CHAPTER_15_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 15,
+
         question: "The principle of 'Double Membership' in India means:",
         options: [
             "A person can be in two parties",
@@ -90,7 +90,7 @@ export const CHAPTER_15_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 15,
+
         question: "Which of the following is a merit of the parliamentary system?",
         options: [
             "Stability of government",
@@ -104,7 +104,7 @@ export const CHAPTER_15_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 15,
+
         question: "The 'Kitchen Cabinet' is a term used for:",
         options: [
             "The official cabinet",

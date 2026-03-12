@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_54_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 54,
+
         question: "The Central Information Commission falls under which Ministry?",
         options: [
             "Ministry of Home Affairs",
@@ -17,7 +17,7 @@ export const CHAPTER_54_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 54,
+
         question: "The maximum number of Information Commissioners in the CIC (excluding the Chief) is:",
         options: ["5", "10", "12", "15"],
         correctAnswer: 1,
@@ -26,7 +26,7 @@ export const CHAPTER_54_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 54,
+
         question: "Who among the following is NOT a member of the selection committee for the CIC?",
         options: [
             "Prime Minister",
@@ -40,7 +40,7 @@ export const CHAPTER_54_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 54,
+
         question: "The 2019 amendment to the RTI Act gave the power to determine the term of office of CIC members to:",
         options: ["The Parliament", "The President", "The Central Government", "The Supreme Court"],
         correctAnswer: 2,
@@ -49,7 +49,7 @@ export const CHAPTER_54_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 54,
+
         question: "A person can serve as Chief Information Commissioner until the age of:",
         options: ["62 years", "65 years", "70 years", "No age limit"],
         correctAnswer: 1,
@@ -58,7 +58,7 @@ export const CHAPTER_54_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 54,
+
         question: "Which of the following powers is NOT possessed by the CIC?",
         options: [
             "Power to search and seize documents",
@@ -72,7 +72,7 @@ export const CHAPTER_54_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 54,
+
         question: "The CIC submits its annual report to:",
         options: ["The President", "The Parliament", "The Central Government", "The PMO"],
         correctAnswer: 2,
@@ -81,7 +81,7 @@ export const CHAPTER_54_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 54,
+
         question: "Information Commissioners are:",
         options: [
             "Eligible for reappointment as Information Commissioner",
@@ -95,7 +95,7 @@ export const CHAPTER_54_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 54,
+
         question: "The RTI Act was passed in which year?",
         options: ["2002", "2005", "2008", "2010"],
         correctAnswer: 1,
@@ -104,7 +104,7 @@ export const CHAPTER_54_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 54,
+
         question: "Can CIC take up a case 'suomotu'?",
         options: ["Yes", "No", "Only if President allows", "Only if PM directs"],
         correctAnswer: 0,

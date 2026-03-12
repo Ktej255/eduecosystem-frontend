@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_25_SUBTOPICS: Subtopic[] = [
@@ -145,3 +146,4 @@ Indian architectural concepts (like Mount Meru) blended with local genius to cre
 - **The Epics:** The **Ramayana** and Mahabharata became deeply embedded in Southeast Asian culture (e.g., Wayang Kulit shadow puppets in Java). 
 - **Languages:** The Pallava script (Grantha) birthed many Southeast Asian writing systems. Sanskrit provided the advanced vocabulary for statecraft and religion.
 `;
+

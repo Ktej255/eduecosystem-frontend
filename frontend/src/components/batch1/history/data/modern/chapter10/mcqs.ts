@@ -319,7 +319,7 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
   },
   {
     id: '10-36',
-    question: "Consider the following statements regarding the 'Landholders' Society' (1838): 1. It was the first political organization in India to use constitutional agitation for its demands. 2. It was a broad-based nationalist organization that fought for the rights of the landless peasantry. 3. It was founded primarily to protect the interests of the landlords of Bengal, Bihar, and Orissa. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Landholders' Society' (1838):\n1. It was the first political organization in India to use constitutional agitation for its demands.\n2. It was a broad-based nationalist organization that fought for the rights of the landless peasantry.\n3. It was founded primarily to protect the interests of the landlords of Bengal, Bihar, and Orissa. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 2,
     explanation: "1 and 3 only Statement 2 is incorrect. The society was narrow in its social base, focusing exclusively on the interests of the wealthy landed class.",
@@ -436,7 +436,7 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
   },
   {
     id: '10-49',
-    question: "Consider the following pairs of early political organizations and their founders: 1. Madras Mahajan Sabha \u2014 P. Anandacharlu 2. Bombay Presidency Association \u2014 Pherozeshah Mehta 3. East India Association \u2014 Surendranath Banerjea How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of early political organizations and their founders:\n1. Madras Mahajan Sabha \u2014 P. Anandacharlu\n2. Bombay Presidency Association \u2014 Pherozeshah Mehta\n3. East India Association \u2014 Surendranath Banerjea How many of the above pairs are correctly matched?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Pair 3 is incorrect. The East India Association was founded by Dadabhai Naoroji in London.",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
   },
   {
     id: '10-62',
-    question: "Consider the following statements regarding the factors that promoted the growth of Nationalism in India: 1. The British introduced a uniform system of law and administration which helped in the emotional and political integration of the people. 2. The development of modern means of transport like railways was primarily intended by the British to facilitate the movement of Indian agricultural produce to local markets. 3. The emergence of a modern intelligentsia, who were exposed to the works of Western liberal thinkers like Milton, Shelley, and Bentham, provided the ideological leadership for the movement. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the factors that promoted the growth of Nationalism in India:\n1. The British introduced a uniform system of law and administration which helped in the emotional and political integration of the people.\n2. The development of modern means of transport like railways was primarily intended by the British to facilitate the movement of Indian agricultural produce to local markets.\n3. The emergence of a modern intelligentsia, who were exposed to the works of Western liberal thinkers like Milton, Shelley, and Bentham, provided the ideological leadership for the movement. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the primary motive for developing railways was to facilitate British commercial interests (exporting raw materials) and for military/strategic troop movements, not to help local Indian markets.",
@@ -571,7 +571,7 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
   },
   {
     id: '10-64',
-    question: "Arrange the following pre-Congress political associations in correct chronological order of their establishment: 1. Poona Sarvajanik Sabha 2. Indian Association of Calcutta 3. Bombay Presidency Association 4. Madras Mahajan Sabha Select the correct answer using the code given below:",
+    question: "Arrange the following pre-Congress political associations in correct chronological order of their establishment:\n1. Poona Sarvajanik Sabha\n2. Indian Association of Calcutta\n3. Bombay Presidency Association\n4. Madras Mahajan Sabha Select the correct answer using the code given below:",
     options: ["1 \u2014 2 \u2014 4 \u2014 3", "1 \u2014 2 \u2014 3 \u2014 4", "2 \u2014 1 \u2014 4 \u2014 3", "4 \u2014 1 \u2014 2 \u2014 3"],
     correctAnswer: 0,
     explanation: "1 \u2014 2 \u2014 4 \u2014 3 Poona Sarvajanik Sabha (1870) -> Indian Association (1876) -> Madras Mahajan Sabha (1884) -> Bombay Presidency Association (1885).",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
   },
   {
     id: '10-65',
-    question: "Consider the following pairs of Organizations and their primary Objectives: 1. Landholders' Society \u2014 To protect the interests of the zamindars through constitutional agitation. 2. East India Association \u2014 To foster political awareness among the Indian peasantry in rural districts. 3. Indian Association \u2014 To unify Indian people on a common political program and create a strong public opinion. How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of Organizations and their primary Objectives:\n1. Landholders' Society \u2014 To protect the interests of the zamindars through constitutional agitation.\n2. East India Association \u2014 To foster political awareness among the Indian peasantry in rural districts.\n3. Indian Association \u2014 To unify Indian people on a common political program and create a strong public opinion. How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "All three pairs", "None"],
     correctAnswer: 1,
     explanation: "Only two pairs Pairs 1 and 3 are correct. Pair 2 is incorrect; the East India Association was founded by Naoroji in London specifically to inform the British public and Parliament about Indian grievances.",
@@ -598,7 +598,7 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
   },
   {
     id: '10-67',
-    question: "Consider the following regarding the 'Drain of Wealth' theory propounded by early nationalists: 1. It argued that a large part of India's national wealth was being exported to Britain without any economic or material return. 2. 'Home Charges' were a major component of this drain, including pensions of British officers and interest on the public debt of India. 3. The early nationalists believed that this drain was the fundamental cause of the recurring famines and chronic poverty in India. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Drain of Wealth' theory propounded by early nationalists:\n1. It argued that a large part of India's national wealth was being exported to Britain without any economic or material return.\n2. 'Home Charges' were a major component of this drain, including pensions of British officers and interest on the public debt of India.\n3. The early nationalists believed that this drain was the fundamental cause of the recurring famines and chronic poverty in India. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three",
@@ -607,7 +607,7 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
   },
   {
     id: '10-68',
-    question: "Match the early Nationalist Leaders with their specific contributions/titles: 1. Dadabhai Naoroji \u2014",
+    question: "Match the early Nationalist Leaders with their specific contributions/titles:\n1. Dadabhai Naoroji \u2014",
     options: ["Organizer of the Indian National Conference (1883) 2. Surendranath Banerjea \u2014", "Proponent of the 'Drain of Wealth' theory 3. Pherozeshah Mehta \u2014", "The \"Lion of Bombay\" who dominated the Congress for years 4. G.K. Gokhale \u2014", "Founded the 'Servants of India Society' Select the correct code:"],
     correctAnswer: 0,
     explanation: "1-B, 2-A, 3-C, 4-D",
@@ -625,7 +625,7 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
   },
   {
     id: '10-70',
-    question: "Consider the following regarding the 'Moderate' phase (1885-1905) of the INC: 1. They believed in the basic sense of justice and fair play of the British people. 2. Their methodology was limited to '3 Ps': Petition, Prayer, and Protest. 3. They demanded 'Purna Swaraj' or complete independence as their immediate goal in the 1886 session. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Moderate' phase (1885-1905) of the INC:\n1. They believed in the basic sense of justice and fair play of the British people.\n2. Their methodology was limited to '3 Ps': Petition, Prayer, and Protest.\n3. They demanded 'Purna Swaraj' or complete independence as their immediate goal in the 1886 session. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; the Moderates initially demanded only 'Self-Government' within the British Empire and administrative reforms.",
@@ -661,7 +661,7 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
   },
   {
     id: '10-74',
-    question: "Consider the following statements about the 'Vernacular Press Act' (1878): 1. It was repealed by Lord Ripon in 1882. 2. It empowered the District Magistrate to call upon the printer and publisher of any vernacular newspaper to enter into a bond. 3. The Amrita Bazar Patrika turned into an English-language newspaper overnight to escape the Act. How many of the above statements are correct?",
+    question: "Consider the following statements about the 'Vernacular Press Act' (1878):\n1. It was repealed by Lord Ripon in 1882.\n2. It empowered the District Magistrate to call upon the printer and publisher of any vernacular newspaper to enter into a bond.\n3. The Amrita Bazar Patrika turned into an English-language newspaper overnight to escape the Act. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three",
@@ -688,7 +688,7 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
   },
   {
     id: '10-77',
-    question: "Match the pre-Congress associations with their primary founders: 1. Bangabhasha Prakashika Sabha \u2014",
+    question: "Match the pre-Congress associations with their primary founders:\n1. Bangabhasha Prakashika Sabha \u2014",
     options: ["Associates of Raja Rammohan Roy 2. East India Association \u2014", "Dadabhai Naoroji 3. Bombay Association \u2014", "Jagannath Shankarsheth 4. Madras Native Association \u2014", "Gazulu Lakshminarasu Chetty Select the correct code:"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C, 4-D",
@@ -697,7 +697,7 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
   },
   {
     id: '10-78',
-    question: "Consider the following regarding 'Economic Nationalism': 1. It was based on the realization that British rule was fundamentally colonial and exploitative in nature. 2. It was articulated by early leaders like R.C. Dutt, Dadabhai Naoroji, and M.G. Ranade. 3. It completely ignored the role of the railways in the Indian economy. How many of the above statements are correct?",
+    question: "Consider the following regarding 'Economic Nationalism':\n1. It was based on the realization that British rule was fundamentally colonial and exploitative in nature.\n2. It was articulated by early leaders like R.C. Dutt, Dadabhai Naoroji, and M.G. Ranade.\n3. It completely ignored the role of the railways in the Indian economy. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; economic nationalists actually criticized the railways as being part of the 'drain', as they were built with Indian money but designed primarily for British profit.",
@@ -724,7 +724,7 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
   },
   {
     id: '10-81',
-    question: "Consider the following regarding the 'moderate' phase and administrative reforms: 1. They demanded the repeal of the Arms Act of 1878. 2. They advocated for an increase in the military expenditure of the British Indian government to protect the frontiers. 3. They demanded the separation of the executive from the judiciary. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'moderate' phase and administrative reforms:\n1. They demanded the repeal of the Arms Act of 1878.\n2. They advocated for an increase in the military expenditure of the British Indian government to protect the frontiers.\n3. They demanded the separation of the executive from the judiciary. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the Moderates consistently demanded a reduction in military expenditure so that the funds could be used for education and social welfare.",
@@ -760,7 +760,7 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
   },
   {
     id: '10-85',
-    question: "Consider the following regarding the first session of the INC: 1. It was presided over by W.C. Bonnerjee. 2. It passed resolutions demanding the abolition of the Council of India in London. 3. It was attended by almost all prominent leaders, including Surendranath Banerjea. How many of the above statements are correct?",
+    question: "Consider the following regarding the first session of the INC:\n1. It was presided over by W.C. Bonnerjee.\n2. It passed resolutions demanding the abolition of the Council of India in London.\n3. It was attended by almost all prominent leaders, including Surendranath Banerjea. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; Surendranath Banerjea was absent from the first session because he was simultaneously presiding over the second session of the 'Indian National Conference' in Calcutta.",
@@ -787,7 +787,7 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
   },
   {
     id: '10-88',
-    question: "Consider the following statements regarding the early nationalists' view on civil liberties: 1. They were fierce defenders of the freedom of the press and speech. 2. They supported the arrest of Tilak in 1897 to maintain peace. 3. They fought against the 'Gagging Acts' of the Lytton administration. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the early nationalists' view on civil liberties:\n1. They were fierce defenders of the freedom of the press and speech.\n2. They supported the arrest of Tilak in 1897 to maintain peace.\n3. They fought against the 'Gagging Acts' of the Lytton administration. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the Moderates (and the entire nation) were outraged by Tilak's arrest in 1897 and defended his right to freedom of speech.",

@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_70_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 70,
+
         question: "Which of the following committees was NOT related to electoral reforms?",
         options: ["Dinesh Goswami", "Tarkunde", "Vohra", "Sarkaria"],
         correctAnswer: 3,
@@ -12,7 +12,7 @@ export const CHAPTER_70_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 70,
+
         question: "The 61st Amendment (1988) followed the recommendation of which committee to lower voting age?",
         options: ["Tarkunde", "Goswami", "Gupta", "NCRWC"],
         correctAnswer: 0,
@@ -21,7 +21,7 @@ export const CHAPTER_70_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 70,
+
         question: "In 1996, election to a constituency is countermanded ONLY if a candidate of a _____ party dies.",
         options: ["Independent", "Registered unrecognized", "Recognized", "Any"],
         correctAnswer: 2,
@@ -30,7 +30,7 @@ export const CHAPTER_70_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 70,
+
         question: "State funding of elections (partial) was recommended by:",
         options: [
             "Indrajit Gupta Committee",
@@ -44,7 +44,7 @@ export const CHAPTER_70_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 70,
+
         question: "The NOTA (None of the Above) option was first implemented on the direction of:",
         options: ["Parliament", "Election Commission", "Supreme Court", "President"],
         correctAnswer: 2,
@@ -53,7 +53,7 @@ export const CHAPTER_70_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 70,
+
         question: "Maximum limit for contesting from more than 2 constituencies was imposed in:",
         options: ["1951", "1976", "1996", "2003"],
         correctAnswer: 2,
@@ -62,7 +62,7 @@ export const CHAPTER_70_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 70,
+
         question: "Electoral Bonds were introduced in which year?",
         options: ["2014", "2016", "2018", "2020"],
         correctAnswer: 2,
@@ -71,7 +71,7 @@ export const CHAPTER_70_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 70,
+
         question: "Open ballot system (instead of secret ballot) for RS elections was introduced to prevent:",
         options: ["Muscle power", "Paid news", "Cross-voting (corruption)", "NOTA misuse"],
         correctAnswer: 2,
@@ -80,7 +80,7 @@ export const CHAPTER_70_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 70,
+
         question: "Vohra Committee (1993) reported on:",
         options: [
             "Tax reforms",
@@ -94,7 +94,7 @@ export const CHAPTER_70_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 70,
+
         question: "The time for campaigning was reduced to ___ days (before the polling) in 1996.",
         options: ["10 days", "14 days", "21 days", "7 days"],
         correctAnswer: 1,

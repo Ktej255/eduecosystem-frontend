@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_72_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 72,
+
         question: "The Anti-Defection Law was enacted during the Prime Ministership of:",
         options: ["Indira Gandhi", "Rajiv Gandhi", "V.P. Singh", "P.V. Narasimha Rao"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_72_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 72,
+
         question: "Disqualification on ground of defection for a member of Parliament is decided by:",
         options: ["The President", "The Election Commission", "The Speaker/Chairman of the House", "CJI"],
         correctAnswer: 2,
@@ -21,7 +21,7 @@ export const CHAPTER_72_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 72,
+
         question: "Which Amendment removed the provision related to 'split' in a political party?",
         options: ["42nd", "52nd", "91st", "97th"],
         correctAnswer: 2,
@@ -30,7 +30,7 @@ export const CHAPTER_72_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 72,
+
         question: "A nominated member of the House becomes disqualified if they join a political party after:",
         options: ["1 month", "3 months", "6 months", "1 year"],
         correctAnswer: 2,
@@ -39,7 +39,7 @@ export const CHAPTER_72_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 72,
+
         question: "If a member votes contrary to the party 'Whip', the party must condone it within ____ days for the member to avoid disqualification.",
         options: ["7 days", "10 days", "15 days", "30 days"],
         correctAnswer: 2,
@@ -48,7 +48,7 @@ export const CHAPTER_72_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 72,
+
         question: "The Kihoto Hollohan case (1992) is related to:",
         options: [
             "Fundamental Rights",
@@ -62,7 +62,7 @@ export const CHAPTER_72_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 72,
+
         question: "Percentage of members required for a valid merger today is:",
         options: ["1/3rd", "1/2", "2/3rd", "3/4th"],
         correctAnswer: 2,
@@ -71,7 +71,7 @@ export const CHAPTER_72_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 72,
+
         question: "Can the Speaker decide on his/her own disqualification under defection?",
         options: ["Yes", "No, decided by President", "No, decided by a member elected by the House", "No, decided by SC"],
         correctAnswer: 2,
@@ -80,7 +80,7 @@ export const CHAPTER_72_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 72,
+
         question: "A person disqualified under the 10th Schedule is also disqualified from being appointed as:",
         options: ["Governor", "Minister", "Ambassador", "UPSC Member"],
         correctAnswer: 1,
@@ -89,7 +89,7 @@ export const CHAPTER_72_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 72,
+
         question: "Which of the following is NOT a ground for disqualification under 10th Schedule?",
         options: [
             "Voluntary resign from party",

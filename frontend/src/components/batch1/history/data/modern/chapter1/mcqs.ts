@@ -274,7 +274,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-31',
-    question: "Consider the following statements regarding the National Archives of India (NAI): 1. It is the repository of the non-current records of the Government of India. 2. It was originally established in New Delhi in 1891 and remained there ever since. Which of the statements given above is/are correct?",
+    question: "Consider the following statements regarding the National Archives of India (NAI):\n1. It is the repository of the non-current records of the Government of India.\n2. It was originally established in New Delhi in 1891 and remained there ever since. Which of the statements given above is/are correct?",
     options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
     correctAnswer: 0,
     explanation: "1 only While statement 1 is true (from book knowledge), statement 2 is false. The NAI was originally established as the Imperial Record Department in Calcutta in 1891, and its transfer to New Delhi was completed only in 1926 following the shift of the capital in 1911.",
@@ -427,7 +427,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-48',
-    question: "Consider the following regarding 'Company Paintings' (Patna Kalam): 1. They emerged under the patronage of the English East India Company. 2. They exclusively depicted British officials and completely ignored Indian artisans, festivals, and commoners. Which of the statements is/are correct?",
+    question: "Consider the following regarding 'Company Paintings' (Patna Kalam):\n1. They emerged under the patronage of the English East India Company.\n2. They exclusively depicted British officials and completely ignored Indian artisans, festivals, and commoners. Which of the statements is/are correct?",
     options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
     correctAnswer: 0,
     explanation: "1 only Statement 2 is incorrect. The text explicitly mentions that Patna Kalam painters painted everyday life, trades, festivals, and common people alongside Company officials.",
@@ -526,7 +526,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-59',
-    question: "Consider the following pairs of Historical travelers/writers and their focus areas: 1. James Burnes - Sindh 2. John Butler - Assam 3. Abbe Dubois - Punjab Which of the pairs given above is/are correctly matched?",
+    question: "Consider the following pairs of Historical travelers/writers and their focus areas:\n1. James Burnes - Sindh\n2. John Butler - Assam\n3. Abbe Dubois - Punjab Which of the pairs given above is/are correctly matched?",
     options: ["1 only", "1 and 2 only", "2 and 3 only", "1, 2, and 3"],
     correctAnswer: 1,
     explanation: "1 and 2 only Abbe Dubois focused on South India (Mysore/Madras), not Punjab.",
@@ -544,7 +544,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-61',
-    question: "Consider the following statements regarding the preservation of India's historical records, recently in the news due to the Central Vista and heritage digitisation projects: 1. The National Archives of India (NAI) functions as an attached office under the Ministry of Home Affairs. 2. The Public Records Act, 1993 legally mandates the regular transfer of non-current records of national importance to the NAI. 3. The 'Home Political' series of archives, starting from 1907, is preserved at the NAI and is crucial for studying the anti-colonial struggle. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the preservation of India's historical records, recently in the news due to the Central Vista and heritage digitisation projects:\n1. The National Archives of India (NAI) functions as an attached office under the Ministry of Home Affairs.\n2. The Public Records Act, 1993 legally mandates the regular transfer of non-current records of national importance to the NAI.\n3. The 'Home Political' series of archives, starting from 1907, is preserved at the NAI and is crucial for studying the anti-colonial struggle. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statement 1 is incorrect; the NAI is an attached office of the Ministry of Culture, not Home Affairs. Statements 2 and 3 are correct. The NAI is currently undergoing massive digitisation.",
@@ -562,7 +562,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-63',
-    question: "Match the following historical archival repositories with their primary historical significance: Repository | Significance --- | --- 1. Peshwa Daftar | A. Records of the Kingdom of Lahore (1800-1849) 2. Khalsa Darbar | B. Maratha administrative and military history in Modi script 3. Bikaner Archives | C. History of the Dogra rule from 1846 onwards 4. Jammu Archives | D. History of princely states like Jaipur, Jodhpur, and Udaipur Select the correct matching code:",
+    question: "Match the following historical archival repositories with their primary historical significance: Repository | Significance --- | ---\n1. Peshwa Daftar | A. Records of the Kingdom of Lahore (1800-1849)\n2. Khalsa Darbar | B. Maratha administrative and military history in Modi script\n3. Bikaner Archives | C. History of the Dogra rule from 1846 onwards\n4. Jammu Archives | D. History of princely states like Jaipur, Jodhpur, and Udaipur Select the correct matching code:",
     options: ["1-B, 2-A, 3-D, 4-C", "1-A, 2-B, 3-C, 4-D", "1-B, 2-D, 3-A, 4-C", "1-C, 2-A, 3-D, 4-B"],
     correctAnswer: 0,
     explanation: "1-B, 2-A, 3-D, 4-C Direct factual correlation from the state archives section of the text.",
@@ -571,7 +571,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-64',
-    question: "Consider the following regarding the judicial archives of colonial India: 1. The pre-Plassey records of the Mayor\u2019s Court at Fort William have been meticulously preserved and recently digitised by the Supreme Court of India. 2. The earliest available judicial records pertain to the Mayor\u2019s Court at Fort St. George, beginning in AD 1689. 3. The records of the Supreme Court of Bengal (1774-1861) are housed in the Calcutta High Court. How many of the above statements are correct?",
+    question: "Consider the following regarding the judicial archives of colonial India:\n1. The pre-Plassey records of the Mayor\u2019s Court at Fort William have been meticulously preserved and recently digitised by the Supreme Court of India.\n2. The earliest available judicial records pertain to the Mayor\u2019s Court at Fort St. George, beginning in AD 1689.\n3. The records of the Supreme Court of Bengal (1774-1861) are housed in the Calcutta High Court. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statement 1 is incorrect; the pre-Plassey records of Fort William were lost during the sack of Calcutta (1756). Statements 2 and 3 are correct. (Current context: The Supreme Court's recent push to digitise pre-independence judicial records makes this highly relevant).",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-65',
-    question: "Consider the following statements regarding European archival sources in India: 1. The Portuguese archives relating to their possessions in India from 1700 to 1900 are mostly preserved in Lisbon, leaving almost no primary records in Goa. 2. The Danish possessions of Tranquebar and Serampore were sold to the English East India Company in 1845, and the remaining Danish records were housed in the Madras Record Office. 3. The French archives of Chandernagore and Pondicherry were taken to Paris before the relinquishment of these settlements. How many of the above statements are correct?",
+    question: "Consider the following statements regarding European archival sources in India:\n1. The Portuguese archives relating to their possessions in India from 1700 to 1900 are mostly preserved in Lisbon, leaving almost no primary records in Goa.\n2. The Danish possessions of Tranquebar and Serampore were sold to the English East India Company in 1845, and the remaining Danish records were housed in the Madras Record Office.\n3. The French archives of Chandernagore and Pondicherry were taken to Paris before the relinquishment of these settlements. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statement 1 is incorrect; a vast and valuable collection of Portuguese records (1700-1900) is preserved in Goa. Statements 2 and 3 are correct.",
@@ -607,7 +607,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-68',
-    question: "With reference to the evolution of the Press as a historical source, consider the following events: 1. James Augustus Hickey published The Bengal Gazette. 2. William Bolts made the first unsuccessful attempt to start a newspaper. 3. The passing of the Vernacular Press Act to curb nationalist media. 4. The publication of Anandamath by Bankim Chandra Chatterjee. What is the correct chronological sequence of the above events?",
+    question: "With reference to the evolution of the Press as a historical source, consider the following events:\n1. James Augustus Hickey published The Bengal Gazette.\n2. William Bolts made the first unsuccessful attempt to start a newspaper.\n3. The passing of the Vernacular Press Act to curb nationalist media.\n4. The publication of Anandamath by Bankim Chandra Chatterjee. What is the correct chronological sequence of the above events?",
     options: ["2 - 1 - 3 - 4", "1 - 2 - 4 - 3", "2 - 1 - 4 - 3", "1 - 2 - 3 - 4"],
     correctAnswer: 0,
     explanation: "2 - 1 - 3 - 4 William Bolts' attempt (1776) -> Hickey's Gazette (1780) -> Vernacular Press Act (1878) -> Anandamath published (1882).",
@@ -634,7 +634,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-71',
-    question: "Consider the following pairs of travel writers and the regions they primarily documented: 1. James Burnes \u2014 Sindh 2. Alexander Burnes \u2014 Central Asia and Kabul 3. John Butler \u2014 Assam How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of travel writers and the regions they primarily documented:\n1. James Burnes \u2014 Sindh\n2. Alexander Burnes \u2014 Central Asia and Kabul\n3. John Butler \u2014 Assam How many of the above pairs are correctly matched?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three All three explorers and their respective regions of documentation are explicitly mentioned in the text.",
@@ -643,7 +643,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-72',
-    question: "Oral history is often debated among historians. Regarding its utility as a source for modern Indian history, consider the following: 1. It is considered an exact, objective science that perfectly mirrors official archival data. 2. It helps corroborate \"non-official\" or subaltern perspectives that are often missing from colonial administrative records. 3. It has been extensively used to document the socio-psychological impact of the Partition of India. How many of the above statements are correct?",
+    question: "Oral history is often debated among historians. Regarding its utility as a source for modern Indian history, consider the following:\n1. It is considered an exact, objective science that perfectly mirrors official archival data.\n2. It helps corroborate \"non-official\" or subaltern perspectives that are often missing from colonial administrative records. 3. It has been extensively used to document the socio-psychological impact of the Partition of India. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statement 1 is incorrect; oral history is often criticized for lacking strict objectivity and chronological exactness compared to written archives, as human memory can be subjective. Statements 2 and 3 are correct.",
@@ -688,7 +688,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-77',
-    question: "Consider the following statements regarding the 'Foreign Political' series of records housed in the National Archives of India: 1. They primarily deal with the internal land revenue settlements and agrarian policies of the British Indian provinces. 2. They are an invaluable source for tracing the diplomatic relations of the British Indian government with neighboring foreign powers and Indian Princely States. Which of the statements given above is/are correct?",
+    question: "Consider the following statements regarding the 'Foreign Political' series of records housed in the National Archives of India:\n1. They primarily deal with the internal land revenue settlements and agrarian policies of the British Indian provinces.\n2. They are an invaluable source for tracing the diplomatic relations of the British Indian government with neighboring foreign powers and Indian Princely States. Which of the statements given above is/are correct?",
     options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
     correctAnswer: 1,
     explanation: "2 only The 'Foreign Political' series strictly deals with diplomatic and geopolitical relations, not internal land revenue (which falls under Revenue/Home departments).",
@@ -697,7 +697,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-78',
-    question: "With reference to regional state archives, consider the following statements: 1. The Alienation Office in Pune houses the Peshwa Daftar, which is predominantly written in the Modi script. 2. The historical records of the Dogra rule, crucial for understanding the geopolitics of the Kashmir region from 1846 onwards, are preserved in the Bikaner Archives. Which of the statements given above is/are correct?",
+    question: "With reference to regional state archives, consider the following statements:\n1. The Alienation Office in Pune houses the Peshwa Daftar, which is predominantly written in the Modi script.\n2. The historical records of the Dogra rule, crucial for understanding the geopolitics of the Kashmir region from 1846 onwards, are preserved in the Bikaner Archives. Which of the statements given above is/are correct?",
     options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
     correctAnswer: 0,
     explanation: "1 only Statement 2 is incorrect. The records of the Dogra rule are housed in Jammu, while the Bikaner Archives house the records of princely states like Jaipur, Jodhpur, and Udaipur.",
@@ -706,7 +706,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-79',
-    question: "Colonial paintings serve as significant historical sources. Consider the following statements: 1. Paintings like Relief of Lucknow (1859) were commissioned to critique the aggressive expansionist policies of the East India Company. 2. Joseph Noel Paton's painting In Memoriam was designed to evoke sympathy for English women and children, thereby acting as visual propaganda to justify brutal British reprisals during the 1857 revolt. Which of the statements given above is/are correct?",
+    question: "Colonial paintings serve as significant historical sources. Consider the following statements:\n1. Paintings like Relief of Lucknow (1859) were commissioned to critique the aggressive expansionist policies of the East India Company.\n2. Joseph Noel Paton's painting In Memoriam was designed to evoke sympathy for English women and children, thereby acting as visual propaganda to justify brutal British reprisals during the 1857 revolt. Which of the statements given above is/are correct?",
     options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
     correctAnswer: 1,
     explanation: "2 only Statement 1 is incorrect. Relief of Lucknow (by Thomas Jones Barker) was painted to glorify British heroism and celebrate the suppression of the revolt, not to critique the Company.",
@@ -715,7 +715,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-80',
-    question: "Consider the following literary works and the historical events they primarily highlight: 1. Anandamath \u2014 Sanyasi Rebellion 2. Nil Darpan \u2014 Indigo Revolt 3. Hindu Manners and Customs \u2014 Munda Ulgulan How many of the above pairs are correctly matched?",
+    question: "Consider the following literary works and the historical events they primarily highlight:\n1. Anandamath \u2014 Sanyasi Rebellion\n2. Nil Darpan \u2014 Indigo Revolt\n3. Hindu Manners and Customs \u2014 Munda Ulgulan How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "All three pairs", "None"],
     correctAnswer: 1,
     explanation: "Only two pairs Pairs 1 and 2 are correctly matched. Pair 3 is incorrect; Hindu Manners and Customs was written by Abbe Dubois and details the socio-economic and religious life of South India in the early 19th century, not the Munda Ulgulan.",
@@ -724,7 +724,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-81',
-    question: "Consider the following statements regarding the archival footprints of European missionaries and trading companies: 1. The Serampore Mission Press, established by Danish missionaries, was instrumental in early vernacular journalism in Bengal. 2. The Danish possessions of Tranquebar and Serampore were ultimately sold to the French East India Company in 1845. Which of the statements given above is/are correct?",
+    question: "Consider the following statements regarding the archival footprints of European missionaries and trading companies:\n1. The Serampore Mission Press, established by Danish missionaries, was instrumental in early vernacular journalism in Bengal.\n2. The Danish possessions of Tranquebar and Serampore were ultimately sold to the French East India Company in 1845. Which of the statements given above is/are correct?",
     options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
     correctAnswer: 0,
     explanation: "1 only Statement 2 is incorrect. The Danish possessions were sold to the English East India Company in 1845, not the French.",
@@ -733,7 +733,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-82',
-    question: "With reference to the linguistic diversity of Indian archival sources, consider the following statements: 1. The early records of the Maratha administration in the Peshwa Daftar are exclusively recorded in the Devanagari script. 2. The Khalsa Darbar records, essential for reconstructing the history of the Kingdom of Lahore (1800\u20131849), are largely maintained in the Persian language. Which of the statements given above is/are correct?",
+    question: "With reference to the linguistic diversity of Indian archival sources, consider the following statements:\n1. The early records of the Maratha administration in the Peshwa Daftar are exclusively recorded in the Devanagari script.\n2. The Khalsa Darbar records, essential for reconstructing the history of the Kingdom of Lahore (1800\u20131849), are largely maintained in the Persian language. Which of the statements given above is/are correct?",
     options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
     correctAnswer: 1,
     explanation: "2 only Statement 1 is incorrect. The Peshwa Daftar records are predominantly written in the cursive Modi script, not standard Devanagari.",
@@ -751,7 +751,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-84',
-    question: "Consider the following statements regarding the preservation of Dutch archival sources in India: 1. The records of the Dutch East India Company relating to their settlement in Chinsura are currently preserved in the State Archives of West Bengal. 2. The Dutch records pertaining to Cochin and Malabar are presently housed in the Goa State Archives. Which of the statements given above is/are correct?",
+    question: "Consider the following statements regarding the preservation of Dutch archival sources in India:\n1. The records of the Dutch East India Company relating to their settlement in Chinsura are currently preserved in the State Archives of West Bengal.\n2. The Dutch records pertaining to Cochin and Malabar are presently housed in the Goa State Archives. Which of the statements given above is/are correct?",
     options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
     correctAnswer: 0,
     explanation: "1 only Statement 2 is incorrect. The Dutch records of Cochin and Malabar are preserved in the Madras Record Office, not Goa.",
@@ -760,7 +760,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-85',
-    question: "With reference to the historical significance of the literary work Anandamath, consider the following statements: 1. It was authored by Bankim Chandra Chatterjee in 1882. 2. It was originally written in the Marathi language to inspire the revolutionary activities of the Chapekar brothers. 3. The iconic national song 'Vande Mataram' was popularized through this novel. How many of the above statements are correct?",
+    question: "With reference to the historical significance of the literary work Anandamath, consider the following statements:\n1. It was authored by Bankim Chandra Chatterjee in 1882.\n2. It was originally written in the Marathi language to inspire the revolutionary activities of the Chapekar brothers.\n3. The iconic national song 'Vande Mataram' was popularized through this novel. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the novel was written in Bengali and set against the backdrop of the Sanyasi Rebellion in Bengal.",
@@ -778,7 +778,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-87',
-    question: "Regarding the archives of the early English settlements, consider the following statements: 1. The administrative records of the Madras Presidency have survived largely intact from the year 1670 onwards. 2. The pre-Plassey records of Fort William (Bengal) were meticulously preserved and form the bulk of the early 18th-century archives at the National Archives today. Which of the statements given above is/are correct?",
+    question: "Regarding the archives of the early English settlements, consider the following statements:\n1. The administrative records of the Madras Presidency have survived largely intact from the year 1670 onwards.\n2. The pre-Plassey records of Fort William (Bengal) were meticulously preserved and form the bulk of the early 18th-century archives at the National Archives today. Which of the statements given above is/are correct?",
     options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
     correctAnswer: 0,
     explanation: "1 only Statement 2 is incorrect. The pre-Plassey records of Fort William were lost during the sack of Calcutta by Siraj-ud-Daulah in 1756.",
@@ -796,7 +796,7 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
   },
   {
     id: '1-89',
-    question: "In the methodology of historical research for modern India, which of the following is strictly classified as a 'Primary Source'? 1. The factory records and official dispatches of the English East India Company. 2. A modern historian's analytical biography of Mahatma Gandhi published in 2020. 3. The original manuscript of Dinabandhu Mitra's Nil Darpan. Select the correct answer using the code given below:",
+    question: "In the methodology of historical research for modern India, which of the following is strictly classified as a 'Primary Source'?\n1. The factory records and official dispatches of the English East India Company.\n2. A modern historian's analytical biography of Mahatma Gandhi published in 2020.\n3. The original manuscript of Dinabandhu Mitra's Nil Darpan. Select the correct answer using the code given below:",
     options: ["1 and 2 only", "1 and 3 only", "2 and 3 only", "1, 2, and 3"],
     correctAnswer: 1,
     explanation: "1 and 3 only Primary sources are original documents or contemporary artifacts created at the time of the event (like factory records and original manuscripts). A modern historian's book is a 'Secondary Source'.",

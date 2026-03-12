@@ -100,7 +100,7 @@ export default function SkillHub() {
                     </div>
                 )}
                 {filteredSkills.map((skill, idx) => {
-                    const Icon = ICON_MAP[skill.icon] || Sparkles;
+                    const Icon = (ICON_MAP[skill.icon] || Sparkles) as any;
                     return (
                         <motion.div
                             key={skill.id}

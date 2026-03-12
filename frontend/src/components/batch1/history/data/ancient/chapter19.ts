@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_19_SUBTOPICS: Subtopic[] = [
@@ -140,3 +141,4 @@ export const ANCIENT_CHAPTER_19_CONTENT = `
 - **Decentralization:** Increasing reliance on local councils (**Adhishthanas**) and merchant bodies.
 - **Religion:** Staunch patrons of **Vaishnavism** (Devotees of Vishnu/Garuda emblem).
 `;
+

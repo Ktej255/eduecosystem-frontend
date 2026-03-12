@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_97_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 97,
+
         question: "Regarding Advocate General of a State, correct statement:",
         options: [
             "Appointed by Governor; removed like HC Judge.",
@@ -17,7 +17,7 @@ export const CHAPTER_97_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 97,
+
         question: "Rights of Advocate General:",
         options: [
             "Can be member of any State Legislature Committee.",
@@ -34,7 +34,7 @@ export const CHAPTER_97_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 97,
+
         question: "Consider statements on Advocate General:\n1. Retirement age fixed at 62.\n2. Member of any Legislature Committee.\n3. Remuneration by State Legislature Act.",
         options: [
             "1 and 2 only",

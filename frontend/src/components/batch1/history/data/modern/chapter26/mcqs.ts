@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_26_MCQS: any[] = [
   },
   {
     id: '26-34',
-    question: "Consider the following statements regarding 'Bharatendu Harishchandra': 1. He is known for bridging the gap between traditional Brajbhasha and modern Khadi Boli Hindi. 2. His play Andher Nagri was a sharp satire on the irrationality and corruption of the British administration. 3. He advocated for the complete rejection of Indian culture in favor of Westernization. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding 'Bharatendu Harishchandra':\n1. He is known for bridging the gap between traditional Brajbhasha and modern Khadi Boli Hindi.\n2. His play Andher Nagri was a sharp satire on the irrationality and corruption of the British administration.\n3. He advocated for the complete rejection of Indian culture in favor of Westernization. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only.",
@@ -355,7 +355,7 @@ export const MODERN_CHAPTER_26_MCQS: any[] = [
   },
   {
     id: '26-40',
-    question: "Consider the following regarding 'Subramania Bharati': 1. He translated the Bhagavad Gita into Tamil. 2. He wrote poems like Swadesa Geethangal which combined spiritualism with intense patriotism. 3. He was a moderate leader who never went into exile. Which of the statements given above are correct?",
+    question: "Consider the following regarding 'Subramania Bharati':\n1. He translated the Bhagavad Gita into Tamil.\n2. He wrote poems like Swadesa Geethangal which combined spiritualism with intense patriotism.\n3. He was a moderate leader who never went into exile. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only (He lived in exile in Pondicherry to escape British arrest).",
@@ -409,7 +409,7 @@ export const MODERN_CHAPTER_26_MCQS: any[] = [
   },
   {
     id: '26-46',
-    question: "Consider the following pairs of 'Modern Writers' and their 'Language': 1. Maithili Sharan Gupt \u2014 Hindi 2. Bhai Vir Singh \u2014 Punjabi 3. Vallathol Narayana Menon \u2014 Malayalam 4. Gurazada Apparao \u2014 Telugu How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of 'Modern Writers' and their 'Language':\n1. Maithili Sharan Gupt \u2014 Hindi\n2. Bhai Vir Singh \u2014 Punjabi\n3. Vallathol Narayana Menon \u2014 Malayalam\n4. Gurazada Apparao \u2014 Telugu How many of the above pairs are correctly matched?",
     options: ["Only two", "Only three", "All four", "None"],
     correctAnswer: 2,
     explanation: "All four.",
@@ -472,7 +472,7 @@ export const MODERN_CHAPTER_26_MCQS: any[] = [
   },
   {
     id: '26-53',
-    question: "Match the following 'Social Themes' with the 'Literary Work': 1. Plight of Indigo Farmers \u2014",
+    question: "Match the following 'Social Themes' with the 'Literary Work':\n1. Plight of Indigo Farmers \u2014",
     options: ["Godan 2. Exploitation of Peasantry \u2014", "Nil Darpan 3. Caste Discrimination \u2014", "Gulamgiri Select the correct code:", "1-B, 2-A, 3-C"],
     correctAnswer: 0,
     explanation: "1-B, 2-A, 3-C.",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_26_MCQS: any[] = [
   },
   {
     id: '26-62',
-    question: "Consider the following statements regarding the 'Development of Modern Bengali Prose': 1. Raja Rammohan Roy used Bengali prose as a tool for polemical debates against orthodox practices like Sati. 2. Ishwar Chandra Vidyasagar is credited with standardizing the Bengali alphabet and creating a lucid, elegant prose style. 3. The 'Fort William College' played a critical role in the development of vernacular prose by commissioning textbooks for British officers. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Development of Modern Bengali Prose':\n1. Raja Rammohan Roy used Bengali prose as a tool for polemical debates against orthodox practices like Sati.\n2. Ishwar Chandra Vidyasagar is credited with standardizing the Bengali alphabet and creating a lucid, elegant prose style.\n3. The 'Fort William College' played a critical role in the development of vernacular prose by commissioning textbooks for British officers. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_26_MCQS: any[] = [
   },
   {
     id: '26-65',
-    question: "Arrange the following literary milestones in the correct chronological order: 1. Publication of Dinabandhu Mitra\u2019s Nil Darpan. 2. Publication of Bankim\u2019s Anandamath. 3. Release of Bharatendu Harishchandra\u2019s Andher Nagri. 4. Formation of the Progressive Writers' Association. Select the correct answer using the code given below:",
+    question: "Arrange the following literary milestones in the correct chronological order:\n1. Publication of Dinabandhu Mitra\u2019s Nil Darpan.\n2. Publication of Bankim\u2019s Anandamath.\n3. Release of Bharatendu Harishchandra\u2019s Andher Nagri.\n4. Formation of the Progressive Writers' Association. Select the correct answer using the code given below:",
     options: ["1 \u2014 3 \u2014 2 \u2014 4", "1 \u2014 2 \u2014 3 \u2014 4", "3 \u2014 1 \u2014 2 \u2014 4", "1 \u2014 3 \u2014 4 \u2014 2"],
     correctAnswer: 0,
     explanation: "1 \u2014 3 \u2014 2 \u2014 4 (Nil Darpan: 1860; Andher Nagri: 1881; Anandamath: 1882; PWA: 1936).",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_26_MCQS: any[] = [
   },
   {
     id: '26-66',
-    question: "Regarding the 'Malayalam Literary Renaissance,' consider the following statements: 1. O. Chandu Menon\u2019s Indulekha was the first modern novel in Malayalam to emphasize the need for English education to overcome social decay. 2. Vallathol Narayana Menon used his poetry to bridge the gap between traditional aesthetics and modern nationalist aspirations. 3. The movement was strictly confined to the upper-caste Namboothiris. How many of the above statements are correct?",
+    question: "Regarding the 'Malayalam Literary Renaissance,' consider the following statements:\n1. O. Chandu Menon\u2019s Indulekha was the first modern novel in Malayalam to emphasize the need for English education to overcome social decay.\n2. Vallathol Narayana Menon used his poetry to bridge the gap between traditional aesthetics and modern nationalist aspirations.\n3. The movement was strictly confined to the upper-caste Namboothiris. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; the movement was a major catalyst for social reform across various communities, especially Nairs and Ezhavas).",
@@ -625,7 +625,7 @@ export const MODERN_CHAPTER_26_MCQS: any[] = [
   },
   {
     id: '26-70',
-    question: "Match the following 'Regional Literature' pioneers with their 'Focus Area': 1. Fakir Mohan Senapati (Odia) \u2014",
+    question: "Match the following 'Regional Literature' pioneers with their 'Focus Area':\n1. Fakir Mohan Senapati (Odia) \u2014",
     options: ["Critique of the Zamindari system 2. Narmad (Gujarati) \u2014", "Social reform and regional pride 3. Bhai Vir Singh (Punjabi) \u2014", "Sikh cultural and religious revival Select the correct matching code:", "1-A, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C.",
@@ -652,7 +652,7 @@ export const MODERN_CHAPTER_26_MCQS: any[] = [
   },
   {
     id: '26-73',
-    question: "Consider the following regarding the 'Nationalist Poetry' of Subramania Bharati: 1. He broke the traditional shackles of Tamil poetry by using simple, forceful language. 2. He visualized India as a single entity (Bharat-Desh) even before the formal political concept was fully mature. 3. He was an active member of the 'Home Rule League' and the 'Extremist' faction of the Congress. How many of the above are correct?",
+    question: "Consider the following regarding the 'Nationalist Poetry' of Subramania Bharati:\n1. He broke the traditional shackles of Tamil poetry by using simple, forceful language.\n2. He visualized India as a single entity (Bharat-Desh) even before the formal political concept was fully mature.\n3. He was an active member of the 'Home Rule League' and the 'Extremist' faction of the Congress. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -706,7 +706,7 @@ export const MODERN_CHAPTER_26_MCQS: any[] = [
   },
   {
     id: '26-79',
-    question: "Match the 'Work' with its 'Central Theme': 1. Gora (Tagore) \u2014",
+    question: "Match the 'Work' with its 'Central Theme':\n1. Gora (Tagore) \u2014",
     options: ["Plight of the landless laborer 2. Godan (Premchand) \u2014", "Conflict between narrow nationalism and universal humanism 3. Indulekha (Chandu Menon) \u2014", "Clash between traditionalism and modern education Select the correct matching code:", "1-B, 2-A, 3-C"],
     correctAnswer: 0,
     explanation: "1-B, 2-A, 3-C.",

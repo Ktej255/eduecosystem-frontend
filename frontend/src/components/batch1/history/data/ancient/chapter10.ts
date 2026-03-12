@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_10_SUBTOPICS: Subtopic[] = [
@@ -147,3 +148,4 @@ Magadha emerged supreme over rivals (Kashi, Kosala, Avanti) due to:
 - **Monarchy:** Kings claimed quasi-divinity and centralized power.
 - **Varna:** Became the legal and social framework; Shudras as the primary labor force.
 `;
+

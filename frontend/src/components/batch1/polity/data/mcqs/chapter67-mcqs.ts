@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_67_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 67,
+
         question: "The rise of regional parties in India is most closely associated with:",
         options: ["Unitary tendencies", "Democratic decentralization", "Weakening of Federalism", "Foreign influence"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_67_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 67,
+
         question: "Which of the following regional parties was formed as a splinter group of the Indian National Congress?",
         options: ["DMK", "Trinamool Congress (TMC)", "Akali Dal", "Telugu Desam Party (TDP)"],
         correctAnswer: 1,
@@ -21,7 +21,7 @@ export const CHAPTER_67_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 67,
+
         question: "Regional parties play a crucial role in forming ______ governments at the centre.",
         options: ["Majority", "Coalition", "Interim", "Presidential"],
         correctAnswer: 1,
@@ -30,7 +30,7 @@ export const CHAPTER_67_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 67,
+
         question: "The DMK (Dravida Munnetra Kazhagam) originated from which social movement?",
         options: ["Dravidian Movement", "Arya Samaj", "Chipko Movement", "Bhoodan Movement"],
         correctAnswer: 0,
@@ -39,7 +39,7 @@ export const CHAPTER_67_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 67,
+
         question: "Which factor is primarily responsible for the growth of parties like BSP and SP in North India?",
         options: ["Language", "Caste and Class labels", "Foreign Policy", "Economic Liberalization"],
         correctAnswer: 1,
@@ -48,7 +48,7 @@ export const CHAPTER_67_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 67,
+
         question: "The Akali Dal is a regional party representing which state?",
         options: ["Haryana", "Punjab", "Rajasthan", "Himachal Pradesh"],
         correctAnswer: 1,
@@ -57,7 +57,7 @@ export const CHAPTER_67_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 67,
+
         question: "A major criticism of regional parties is that they promote:",
         options: ["National Integrity", "Universalism", "Parochialism", "Secularism"],
         correctAnswer: 2,
@@ -66,7 +66,7 @@ export const CHAPTER_67_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 67,
+
         question: "Shiv Sena's emergence in the 1960s was based on the ideology of:",
         options: ["Sons of the soil", "Classical Liberalism", "Communism", "Imperialism"],
         correctAnswer: 0,
@@ -75,7 +75,7 @@ export const CHAPTER_67_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 67,
+
         question: "Which commission noted that regional parties are a natural outcome of pluralism?",
         options: ["Finance Commission", "Sarkaria Commission", "Election Commission", "Planning Commission"],
         correctAnswer: 1,
@@ -84,7 +84,7 @@ export const CHAPTER_67_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 67,
+
         question: "The Aam Aadmi Party (AAP) first emerged in which territory/state?",
         options: ["Punjab", "Delhi", "Goa", "Gujarat"],
         correctAnswer: 1,

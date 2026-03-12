@@ -15,19 +15,19 @@ import {
 import dynamic from 'next/dynamic';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const FocusPortal = dynamic(() => import('@/components/batch1/FocusPortal'), { loading: () => <div>Loading Focus Area...</div> });
-const PolityHome = dynamic(() => import('@/components/batch1/polity/PolityHome'), { loading: () => <div>Loading Polity...</div> });
-const HistoryHome = dynamic(() => import('@/components/batch1/history/HistoryHome'), { loading: () => <div>Loading History...</div> });
-const GeographyHome = dynamic(() => import('@/components/batch1/geography/GeographyHome'), { loading: () => <div>Loading Geography...</div> });
-const EconomyHome = dynamic(() => import('@/components/batch1/economy/EconomyHome'), { loading: () => <div>Loading Economy...</div> });
-const EnvironmentHome = dynamic(() => import('@/components/batch1/environment/EnvironmentHome'), { loading: () => <div>Loading Environment...</div> });
-const ScienceTechHome = dynamic(() => import('@/components/batch1/science-tech/ScienceTechHome'), { loading: () => <div>Loading Science & Tech...</div> });
-const ArtCultureHome = dynamic(() => import('@/components/batch1/art-culture/ArtCultureHome'), { loading: () => <div>Loading Art & Culture...</div> });
-const EthicsDashboard = dynamic(() => import('@/components/batch1/ethics/EthicsDashboard'), { loading: () => <div>Loading Ethics...</div> });
-const SecurityDashboard = dynamic(() => import('@/components/batch1/security/SecurityDashboard'), { loading: () => <div>Loading Security...</div> });
-const SocietyDashboard = dynamic(() => import('@/components/batch1/society/SocietyDashboard'), { loading: () => <div>Loading Society...</div> });
-const ValueAdditionDashboard = dynamic(() => import('@/components/batch1/value-addition/ValueAdditionDashboard'), { loading: () => <div>Loading Value Addition...</div> });
-const IrHome = dynamic(() => import('@/components/batch1/international-relations/IrHome'), { loading: () => <div>Loading IR...</div> });
+const FocusPortal = dynamic(() => import('@/components/upsc/common/FocusPortal'), { loading: () => <div>Loading Focus Area...</div> });
+const PolityHome = dynamic(() => import('@/components/upsc/subjects/polity/PolityHome'), { loading: () => <div>Loading Polity...</div> });
+const HistoryHome = dynamic(() => import('@/components/upsc/subjects/history/HistoryHome'), { loading: () => <div>Loading History...</div> });
+const GeographyHome = dynamic(() => import('@/components/upsc/subjects/geography/GeographyHome'), { loading: () => <div>Loading Geography...</div> });
+const EconomyHome = dynamic(() => import('@/components/upsc/subjects/economy/EconomyHome'), { loading: () => <div>Loading Economy...</div> });
+const EnvironmentHome = dynamic(() => import('@/components/upsc/subjects/environment/EnvironmentHome'), { loading: () => <div>Loading Environment...</div> });
+const ScienceTechHome = dynamic(() => import('@/components/upsc/subjects/science-tech/ScienceTechHome'), { loading: () => <div>Loading Science & Tech...</div> });
+const ArtCultureHome = dynamic(() => import('@/components/upsc/subjects/art-culture/ArtCultureHome'), { loading: () => <div>Loading Art & Culture...</div> });
+const EthicsDashboard = dynamic(() => import('@/components/upsc/subjects/ethics/EthicsDashboard'), { loading: () => <div>Loading Ethics...</div> });
+const SecurityDashboard = dynamic(() => import('@/components/upsc/subjects/security/SecurityDashboard'), { loading: () => <div>Loading Security...</div> });
+const SocietyDashboard = dynamic(() => import('@/components/upsc/subjects/society/SocietyDashboard'), { loading: () => <div>Loading Society...</div> });
+const ValueAdditionDashboard = dynamic(() => import('@/components/upsc/subjects/value-addition/ValueAdditionDashboard'), { loading: () => <div>Loading Value Addition...</div> });
+const IrHome = dynamic(() => import('@/components/upsc/subjects/international-relations/IrHome'), { loading: () => <div>Loading IR...</div> });
 
 import { GlobalErrorBoundary } from '@/components/GlobalErrorBoundary';
 

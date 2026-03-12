@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_34_MCQS: any[] = [
   },
   {
     id: '34-34',
-    question: "Consider the following statements regarding the 'Quit India Movement': 1. It was the first time Gandhi did not condemn the violence of the masses, putting the blame instead on the \"Leonine Violence\" of the state. 2. The movement saw the participation of the 'Underground' Socialists like J.P. Narayan and Ram Manohar Lohia. 3. The movement was a total success in terms of achieving its immediate goal of British withdrawal. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Quit India Movement':\n1. It was the first time Gandhi did not condemn the violence of the masses, putting the blame instead on the \"Leonine Violence\" of the state. 2. The movement saw the participation of the 'Underground' Socialists like J.P. Narayan and Ram Manohar Lohia. 3. The movement was a total success in terms of achieving its immediate goal of British withdrawal. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only. While the movement was a massive moral victory, it did not lead to immediate British withdrawal (immediate success); that happened in 1947.",
@@ -346,7 +346,7 @@ export const MODERN_CHAPTER_34_MCQS: any[] = [
   },
   {
     id: '34-39',
-    question: "Consider the following regarding the 'Underground Radio' of 1942: 1. It was broadcast from various hidden locations in Bombay. 2. It provided news about the movement that the British-controlled media suppressed. 3. It was caught by the British within two days. How many of the above are correct?",
+    question: "Consider the following regarding the 'Underground Radio' of 1942:\n1. It was broadcast from various hidden locations in Bombay.\n2. It provided news about the movement that the British-controlled media suppressed.\n3. It was caught by the British within two days. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; it operated for nearly three months before Usha Mehta and others were arrested).",
@@ -364,7 +364,7 @@ export const MODERN_CHAPTER_34_MCQS: any[] = [
   },
   {
     id: '34-41',
-    question: "Match the following 'Parallel Governments' with their 'Key Leaders': 1. Ballia (UP) \u2014",
+    question: "Match the following 'Parallel Governments' with their 'Key Leaders':\n1. Ballia (UP) \u2014",
     options: ["Chittu Pandey 2. Satara (Maharashtra) \u2014", "Nana Patil / Y.B. Chavan 3. Tamluk (Bengal) \u2014", "Satish Samanta Select the correct matching code:", "1-A, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C.",
@@ -409,7 +409,7 @@ export const MODERN_CHAPTER_34_MCQS: any[] = [
   },
   {
     id: '34-46',
-    question: "Consider the following regarding 'Women' in the Quit India Movement: 1. Aruna Asaf Ali became a legendary figure of the underground movement. 2. Usha Mehta managed the secret radio. 3. Matangini Hazra died while carrying the national flag in Bengal. How many of the above are correct?",
+    question: "Consider the following regarding 'Women' in the Quit India Movement:\n1. Aruna Asaf Ali became a legendary figure of the underground movement.\n2. Usha Mehta managed the secret radio.\n3. Matangini Hazra died while carrying the national flag in Bengal. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -517,7 +517,7 @@ export const MODERN_CHAPTER_34_MCQS: any[] = [
   },
   {
     id: '34-58',
-    question: "Consider the following regarding the 'Communist Party of India' (CPI) during 1942: 1. They were legalised by the British in July 1942 for the first time since 1934. 2. They actively helped the British in identifying and arresting underground Congress workers. 3. They supported the demand for Pakistan during this period based on the \"Right of Nationalities to Self-Determination.\" How many of the above are correct?",
+    question: "Consider the following regarding the 'Communist Party of India' (CPI) during 1942:\n1. They were legalised by the British in July 1942 for the first time since 1934.\n2. They actively helped the British in identifying and arresting underground Congress workers.\n3. They supported the demand for Pakistan during this period based on the \"Right of Nationalities to Self-Determination.\" How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three. (This was the most controversial phase of the CPI).",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_34_MCQS: any[] = [
   },
   {
     id: '34-66',
-    question: "Consider the following regarding the 'Vidyut Vahini' in Tamluk: 1. It was an armed volunteer corps of the parallel government. 2. It included a dedicated women's wing. 3. It was primarily used for robbery. Which of the statements given above are correct?",
+    question: "Consider the following regarding the 'Vidyut Vahini' in Tamluk:\n1. It was an armed volunteer corps of the parallel government.\n2. It included a dedicated women's wing.\n3. It was primarily used for robbery. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only.",
@@ -616,7 +616,7 @@ export const MODERN_CHAPTER_34_MCQS: any[] = [
   },
   {
     id: '34-69',
-    question: "Match the 'Movement Figure' with their 'Contribution in 1942': 1. Sucheta Kripalani \u2014",
+    question: "Match the 'Movement Figure' with their 'Contribution in 1942':\n1. Sucheta Kripalani \u2014",
     options: ["Leading the underground women\u2019s wing 2. Achyut Patwardhan \u2014", "Evading arrest and managing the 'Central Directorate' 3. Chhotubhai Puranik \u2014", "Organizing the movement in Gujarat Select the correct matching code:", "1-A, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C.",

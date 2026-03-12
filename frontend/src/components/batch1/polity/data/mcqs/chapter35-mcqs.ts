@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_35_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 35,
+
         question: "Which of the following statements about the Governor is INCORRECT?",
         options: [
             "He is the constitutional head of the state",
@@ -17,7 +17,7 @@ export const CHAPTER_35_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 35,
+
         question: "The 7th Constitutional Amendment Act of 1956 facilitated:",
         options: [
             "The removal of the Governor by the State Legislature",
@@ -31,7 +31,7 @@ export const CHAPTER_35_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 35,
+
         question: "Under Article 213, the Governor can promulgate an ordinance when:",
         options: [
             "The State Legislative Assembly is in session",
@@ -45,7 +45,7 @@ export const CHAPTER_35_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 35,
+
         question: "The Governor's pardon power under Article 161 differs from the President's in that:",
         options: [
             "The Governor cannot pardon a death sentence",
@@ -59,7 +59,7 @@ export const CHAPTER_35_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 35,
+
         question: "Which of the following bills the Governor MUST reserve for the consideration of the President?",
         options: [
             "Money Bill",
@@ -73,7 +73,7 @@ export const CHAPTER_35_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 35,
+
         question: "Who can remove the Governor from office?",
         options: [
             "The State Legislature",
@@ -87,7 +87,7 @@ export const CHAPTER_35_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 35,
+
         question: "The Governor is consulted by the President during the appointment of:",
         options: [
             "Chief Minister",
@@ -101,7 +101,7 @@ export const CHAPTER_35_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 35,
+
         question: "When a bill is returned by the Governor for reconsideration and is passed again by the Legislature (with or without amendment):",
         options: [
             "The Governor can withhold assent again",
@@ -115,7 +115,7 @@ export const CHAPTER_35_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 35,
+
         question: "If the office of the Governor falls vacant, who performs his functions?",
         options: [
             "Chief CM of the State",
@@ -129,7 +129,7 @@ export const CHAPTER_35_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 35,
+
         question: "The Governor's annual discretionary report on the state's administration is sent to:",
         options: ["The CM", "The State Legislature", "The President", "The UPSC"],
         correctAnswer: 2,

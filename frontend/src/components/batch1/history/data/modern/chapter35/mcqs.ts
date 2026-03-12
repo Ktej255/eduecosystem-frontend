@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_35_MCQS: any[] = [
   },
   {
     id: '35-34',
-    question: "Consider the following statements regarding the 'Cabinet Mission Plan' (1946): 1. It proposed a weak center with powers limited to Defense, Foreign Affairs, and Communications. 2. It gave provinces the right to form 'Groups' (A, B, and C) with their own legislatures and executives. 3. It officially accepted the Muslim League's demand for a sovereign Pakistan. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Cabinet Mission Plan' (1946):\n1. It proposed a weak center with powers limited to Defense, Foreign Affairs, and Communications.\n2. It gave provinces the right to form 'Groups' (A, B, and C) with their own legislatures and executives.\n3. It officially accepted the Muslim League's demand for a sovereign Pakistan. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only.",
@@ -355,7 +355,7 @@ export const MODERN_CHAPTER_35_MCQS: any[] = [
   },
   {
     id: '35-40',
-    question: "Consider the following regarding the 'Direct Action Day' (1946): 1. It was launched by Jinnah after the Muslim League withdrew its acceptance of the Cabinet Mission Plan. 2. Its goal was to demonstrate the strength of the Muslim demand for Pakistan through \"Direct Action\" outside the constitutional process. 3. It was a non-violent protest similar to Gandhi\u2019s Satyagraha. How many of the above are correct?",
+    question: "Consider the following regarding the 'Direct Action Day' (1946):\n1. It was launched by Jinnah after the Muslim League withdrew its acceptance of the Cabinet Mission Plan.\n2. Its goal was to demonstrate the strength of the Muslim demand for Pakistan through \"Direct Action\" outside the constitutional process. 3. It was a non-violent protest similar to Gandhi\u2019s Satyagraha. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; it led to horrific communal violence, starting with the Great Calcutta Killings).",
@@ -409,7 +409,7 @@ export const MODERN_CHAPTER_35_MCQS: any[] = [
   },
   {
     id: '35-46',
-    question: "Match the following 'Committees/Missions' with their 'Context': 1. Whitley Commission \u2014",
+    question: "Match the following 'Committees/Missions' with their 'Context':\n1. Whitley Commission \u2014",
     options: ["Labour conditions (1929) 2. Sapru Committee \u2014", "Constitutional proposals (1944-45) 3. Cabinet Mission \u2014", "Three-tier federal structure (1946) Select the correct matching code:", "1-A, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C.",
@@ -490,7 +490,7 @@ export const MODERN_CHAPTER_35_MCQS: any[] = [
   },
   {
     id: '35-55',
-    question: "Consider the following regarding the 'Plan Balkan' (May 1947): 1. It was the initial plan proposed by Mountbatten that suggested the transfer of power to individual provinces. 2. It allowed each province to choose to join India, Pakistan, or remain independent. 3. Jawaharlal Nehru rejected it vehemently, calling it a blueprint for the \"fragmentation of India.\" How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Plan Balkan' (May 1947):\n1. It was the initial plan proposed by Mountbatten that suggested the transfer of power to individual provinces.\n2. It allowed each province to choose to join India, Pakistan, or remain independent.\n3. Jawaharlal Nehru rejected it vehemently, calling it a blueprint for the \"fragmentation of India.\" How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three. (This led to the revised 'June 3rd Plan').",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_35_MCQS: any[] = [
   },
   {
     id: '35-66',
-    question: "Match the following 'Events' with their 'Date of Occurrence': 1. Wavell Plan / Simla Conference \u2014",
+    question: "Match the following 'Events' with their 'Date of Occurrence':\n1. Wavell Plan / Simla Conference \u2014",
     options: ["June 1945 2. RIN Mutiny Spark \u2014", "Feb 1946 3. Attlee\u2019s Deadline Statement \u2014", "Feb 1947 Select the correct code:", "1-A, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C.",
@@ -616,7 +616,7 @@ export const MODERN_CHAPTER_35_MCQS: any[] = [
   },
   {
     id: '35-69',
-    question: "Consider the following regarding the 'Boundary Commission' (1947): 1. It consisted of two Hindu and two Muslim judges, with Radcliffe as the Chairman. 2. The judges were in perfect agreement on the borders. 3. The maps were released after Independence Day (August 17) to avoid disrupting the celebrations. How many of the above are correct?",
+    question: "Consider the following regarding the 'Boundary Commission' (1947):\n1. It consisted of two Hindu and two Muslim judges, with Radcliffe as the Chairman.\n2. The judges were in perfect agreement on the borders.\n3. The maps were released after Independence Day (August 17) to avoid disrupting the celebrations. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 2 is incorrect; the judges were totally deadlocked, forcing Radcliffe to make the final arbitrary decisions).",

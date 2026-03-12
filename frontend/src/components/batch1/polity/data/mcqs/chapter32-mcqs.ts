@@ -3,7 +3,7 @@ import { MCQ } from "../RevisionRegistry";
 export const CHAPTER_32_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 32,
+
         question: "Regarding 'Organisation of High Courts', which is correct?\n1. Separate HC for each state without exception.\n2. 7th Amendment (1956) authorized common High Courts.\n3. Currently 25 High Courts; 5 have jurisdiction over more than one state.\n4. Only Delhi and J&K among UTs have separate High Courts.",
         options: [
             "1 and 2 only",
@@ -17,7 +17,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 32,
+
         question: "Regarding 'Appointment of High Court Judges':\n1. CJ of HC appointed by President consulting CJI and Governor.\n2. Common HC: Governors of all concerned states consulted.\n3. Third Judges Case: CJI consults collegium of 4 senior-most judges.",
         options: [
             "1 and 2 only",
@@ -31,7 +31,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 32,
+
         question: "Which is strictly a 'Qualification' for High Court Judge?",
         options: [
             "Distinguished jurist in opinion of President.",
@@ -45,7 +45,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 32,
+
         question: "Which distinction is true regarding Salaries and Pensions?",
         options: [
             "Both charged on Consolidated Fund of State.",
@@ -59,7 +59,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 32,
+
         question: "Regarding 'Tenure of Judges':",
         options: [
             "Holds office until age of 65.",
@@ -73,7 +73,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 32,
+
         question: "Regarding 'Removal of High Court Judges':\n1. Removed by order of President.\n2. Grounds: 'proved misbehaviour' or 'incapacity'.\n3. Regulated by Judges Enquiry Act (1968).\n4. No HC judge impeached so far.",
         options: [
             "1, 2, and 3 only",
@@ -87,7 +87,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 32,
+
         question: "Consultation for Transfer of a Judge involves CJI and:",
         options: [
             "Collegium of 2 senior-most SC judges.",
@@ -101,7 +101,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 32,
+
         question: "Regarding 'Additional and Acting Judges':\n1. Additional Judge for max 2 years.\n2. For temporary increase/arrears.\n3. Acting Judge for absence of permanent judge.\n4. Cannot hold office after 62 years.",
         options: [
             "1 and 2 only",
@@ -115,7 +115,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 32,
+
         question: "Which is a safeguard for 'Independence of High Court'?",
         options: [
             "Salaries determined by Governor.",
@@ -129,7 +129,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 32,
+
         question: "Compare Writ Jurisdiction (HC vs SC):\n1. HC wider than SC.\n2. HC for Fundamental Rights and 'any other purpose'.\n3. HC jurisdiction is part of basic structure.\n4. Citizen must approach HC first.",
         options: [
             "1 and 2 only",
@@ -143,7 +143,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 11,
-        chapterId: 32,
+
         question: "Supervisory Jurisdiction (Article 227) involves:\n1. Superintendence over courts/tribunals.\n2. Both administrative and judicial.\n3. Extends to military courts.\n4. Can act suo motu.",
         options: [
             "1, 2, and 3 only",
@@ -157,7 +157,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 12,
-        chapterId: 32,
+
         question: "Control over Subordinate Courts involves consultation on:",
         options: [
             "Appointment of district judges.",
@@ -171,7 +171,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 13,
-        chapterId: 32,
+
         question: "Regarding High Court as 'Court of Record':",
         options: [
             "Judgements have evidentiary value; cannot be questioned in subordinate court.",
@@ -185,7 +185,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 14,
-        chapterId: 32,
+
         question: "Power of Judicial Review of High Court was curtailed by:",
         options: [
             "42nd Amendment (1976)",
@@ -199,7 +199,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 15,
-        chapterId: 32,
+
         question: "Territorial Jurisdiction Match:\nA. Guwahati HC : Assam, Nagaland, Mizoram, Tripura\nB. Kerala HC : Kerala, Lakshadweep\nC. Bombay HC : Maharashtra, Goa, Daman & Diu, Lakshadweep\nD. Punjab & Haryana HC : Punjab, Haryana, Delhi",
         options: [
             "A",
@@ -213,7 +213,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 16,
-        chapterId: 32,
+
         question: "Civil Appellate Jurisdiction:",
         options: [
             "First appeal on law and fact.",
@@ -227,7 +227,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 17,
-        chapterId: 32,
+
         question: "Second Appeal in Criminal Matters lies to High Court:",
         options: [
             "If sentence > 7 years.",
@@ -241,7 +241,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 18,
-        chapterId: 32,
+
         question: "Administrative Expenses of High Court:",
         options: [
             "Salaries charged on Consolidated Fund of State.",
@@ -255,7 +255,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 19,
-        chapterId: 32,
+
         question: "Under Supervisory Jurisdiction, High Court can:",
         options: [
             "Call for returns.",
@@ -269,7 +269,7 @@ export const CHAPTER_32_MCQS: MCQ[] = [
     },
     {
         id: 20,
-        chapterId: 32,
+
         question: "Which article makes law declared by High Court binding on subordinate courts?",
         options: [
             "Article 225",

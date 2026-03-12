@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_23_SUBTOPICS: Subtopic[] = [
@@ -141,3 +142,4 @@ export const ANCIENT_CHAPTER_23_CONTENT = `
 - **Languages:** Sanskrit was the court language, while Tamil flourished as the language of devotional literature.
 - **Foreign Contacts:** Kanchi had trade links with Southeast Asia and China.
 `;
+

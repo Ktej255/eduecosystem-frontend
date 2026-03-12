@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_15_SUBTOPICS: Subtopic[] = [
@@ -141,3 +142,4 @@ export const ANCIENT_CHAPTER_15_CONTENT = `
 - **Gold Dinaras:** Issued gold coins modeled on Roman Aureus to facilitate global trade.
 - **International Trade:** Intensive contact with the Roman Empire led to a massive influx of gold to India.
 `;
+

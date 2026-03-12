@@ -786,7 +786,7 @@ export const MODERN_CHAPTER_38_MCQS: MCQ[] = [
   },
   {
     id: 88,
-    question: "True/False: 1. INA reached Imphal, 2. INA had local support in Manipur, 3. Bose surrendered.",
+    question: "True/False:\n1. INA reached Imphal,\n2. INA had local support in Manipur,\n3. Bose surrendered.",
     options: ["1 & 2 only","All correct","Only 3","None"],
     correctAnswer: 0,
     difficulty: "Hard",

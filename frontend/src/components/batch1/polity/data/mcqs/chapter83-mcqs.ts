@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_83_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 83,
+
         question: "The doctrine 'What cannot be done directly, cannot be done indirectly' refers to:",
         options: ["Severability", "Pith and Substance", "Colourable Legislation", "Eclipse"],
         correctAnswer: 2,
@@ -12,7 +12,7 @@ export const CHAPTER_83_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 83,
+
         question: "Which doctrine allows the valid part of an act to remain in force if the invalid portion is removed?",
         options: ["Doctrine of Eclipse", "Doctrine of Severability", "Doctrine of Waiver", "Doctrine of Pleasure"],
         correctAnswer: 1,
@@ -21,7 +21,7 @@ export const CHAPTER_83_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 83,
+
         question: "The Doctrine of Pith and Substance is used to:",
         options: [
             "Interpret Fundamental Rights",
@@ -35,7 +35,7 @@ export const CHAPTER_83_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 83,
+
         question: "The Doctrine of Eclipse is primarily based on which Article?",
         options: ["Article 13", "Article 14", "Article 21", "Article 32"],
         correctAnswer: 0,
@@ -44,7 +44,7 @@ export const CHAPTER_83_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 83,
+
         question: "A state law that taxes a company outside the state because the company does business within the state is valid under:",
         options: ["Doctrine of Severability", "Doctrine of Territorial Nexus", "Doctrine of Laches", "Doctrine of Colourable Legislation"],
         correctAnswer: 1,
@@ -53,7 +53,7 @@ export const CHAPTER_83_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 83,
+
         question: "Which doctrine prevents a legislature from masking its true intention while enacting a law?",
         options: ["Pith and Substance", "Colourable Legislation", "Eclipse", "Laches"],
         correctAnswer: 1,
@@ -62,7 +62,7 @@ export const CHAPTER_83_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 83,
+
         question: "In the context of interpretation, 'Pith' means:",
         options: ["Length", "Summary", "True nature/Essence", "Enforcement"],
         correctAnswer: 2,
@@ -71,7 +71,7 @@ export const CHAPTER_83_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 83,
+
         question: "If a law becomes dormant because it violates a Fundamental Right, it can be revived if the constitution is amended. This is:",
         options: ["Doctrine of Waiver", "Doctrine of Eclipse", "Doctrine of Severability", "Doctrine of Pith"],
         correctAnswer: 1,
@@ -80,7 +80,7 @@ export const CHAPTER_83_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 83,
+
         question: "Which of the following describes the Doctrine of Waiver?",
         options: [
             "A person can waive their fundamental rights",
@@ -94,7 +94,7 @@ export const CHAPTER_83_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 83,
+
         question: "Incidental encroachment is permitted under which doctrine?",
         options: ["Colourable Legislation", "Pith and Substance", "Territorial Nexus", "Severability"],
         correctAnswer: 1,

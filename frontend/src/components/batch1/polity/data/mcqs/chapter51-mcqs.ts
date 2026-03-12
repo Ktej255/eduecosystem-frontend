@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_51_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 51,
+
         question: "With reference to the 'Nature and Establishment' of NITI Aayog, which of the following statements is strictly correct?",
         options: [
             "It was established through a Constitutional Amendment Act under Article 280.",
@@ -17,7 +17,7 @@ export const CHAPTER_51_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 51,
+
         question: "The NITI Aayog is based on which of the following principles of governance?",
         options: [
             "Top-down approach to planning.",
@@ -31,7 +31,7 @@ export const CHAPTER_51_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 51,
+
         question: "Regarding the 'Composition of NITI Aayog', consider the following statements:\n1. Vice-Chairperson is appointed by President and has Cabinet rank.\n2. Governing Council comprises CMs of all States and Lt. Governors of UTs.\n3. CEO is appointed by PM for fixed tenure in rank of Secretary.\n4. Ex-officio members are nominated by PM from Union Council of Ministers (max 4).",
         options: [
             "1, 2, and 3 only",
@@ -45,7 +45,7 @@ export const CHAPTER_51_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 51,
+
         question: "Who presides over the 'Regional Councils' of NITI Aayog?",
         options: [
             "The Prime Minister of India.",
@@ -59,7 +59,7 @@ export const CHAPTER_51_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 51,
+
         question: "Which is a key functional difference between 'NITI Aayog' and the erstwhile 'Planning Commission'?",
         options: [
             "NITI Aayog has power to allocate funds to states.",
@@ -73,7 +73,7 @@ export const CHAPTER_51_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 51,
+
         question: "NITI Aayog provides advice on which of the following?\n1. Strategic and long-term policy frameworks.\n2. Development of mechanisms for village-level plans.\n3. National security interests in economic policy.\n4. Inter-state and inter-departmental issues.",
         options: [
             "1 and 2 only",
@@ -87,7 +87,7 @@ export const CHAPTER_51_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 51,
+
         question: "Match the Specialized Wings:\n1. Research Wing\n2. Consultancy Wing\n3. Team India Wing\n\n(a) Interface with States/UTs\n(b) Domain knowledge/Strategic policy\n(c) Marketplace for expertise",
         options: [
             "1-(a), 2-(b), 3-(c)",
@@ -101,7 +101,7 @@ export const CHAPTER_51_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 51,
+
         question: "Which of the following is NOT one of the 'Seven Pillars of Effective Governance' of NITI Aayog?",
         options: [
             "Pro-People",
@@ -115,7 +115,7 @@ export const CHAPTER_51_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 51,
+
         question: "The pillar of 'Inclusion of all' primarily focuses on:",
         options: [
             "Inclusion of foreign investors.",
@@ -129,7 +129,7 @@ export const CHAPTER_51_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 51,
+
         question: "In 'Strategy for New India @ 75', 'Antyodaya' signifies:",
         options: [
             "Urban infrastructure priority.",
@@ -143,7 +143,7 @@ export const CHAPTER_51_MCQS: MCQ[] = [
     },
     {
         id: 11,
-        chapterId: 51,
+
         question: "At the core of NITI Aayog are two 'Hubs'. Correctly matched?",
         options: [
             "Team India Hub: Leads engagement of states with Center.",

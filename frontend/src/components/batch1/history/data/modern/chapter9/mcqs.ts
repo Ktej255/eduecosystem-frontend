@@ -292,7 +292,7 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
   },
   {
     id: '9-33',
-    question: "Consider the following statements regarding the 'Deoband Movement': 1. It was established as a liberal, pro-British movement to counter the Aligarh Movement. 2. It aimed at the religious regeneration of the Muslim community through the propagation of pure Islamic teachings. 3. It welcomed the formation of the Indian National Congress and issued a fatwa against Sir Syed\u2019s United Indian Patriotic Association. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Deoband Movement':\n1. It was established as a liberal, pro-British movement to counter the Aligarh Movement.\n2. It aimed at the religious regeneration of the Muslim community through the propagation of pure Islamic teachings.\n3. It welcomed the formation of the Indian National Congress and issued a fatwa against Sir Syed\u2019s United Indian Patriotic Association. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 1,
     explanation: "2 and 3 only",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
   },
   {
     id: '9-62',
-    question: "Consider the following statements regarding the 'Aligarh Movement' and Sir Syed Ahmed Khan: 1. Sir Syed Ahmed Khan\u2019s primary objective was to reconcile Western scientific education with the teachings of the Quran to ensure the material progress of Muslims. 2. He founded the 'United Indian Patriotic Association' to encourage Muslims to participate in the activities of the Indian National Congress. 3. He argued that the Quran alone was the authoritative guidance for Muslims and all later additions (Ahadis) should be examined in the light of reason. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Aligarh Movement' and Sir Syed Ahmed Khan:\n1. Sir Syed Ahmed Khan\u2019s primary objective was to reconcile Western scientific education with the teachings of the Quran to ensure the material progress of Muslims.\n2. He founded the 'United Indian Patriotic Association' to encourage Muslims to participate in the activities of the Indian National Congress.\n3. He argued that the Quran alone was the authoritative guidance for Muslims and all later additions (Ahadis) should be examined in the light of reason. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the United Indian Patriotic Association was founded specifically to oppose the Congress and demonstrate Muslim loyalty to the British Crown.",
@@ -571,7 +571,7 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
   },
   {
     id: '9-64',
-    question: "Arrange the following movements related to Islamic reform in correct chronological order of their inception: 1. Ahmadiyya Movement 2. Wahabi Movement 3. Aligarh Movement 4. Deoband Movement Select the correct answer using the code given below:",
+    question: "Arrange the following movements related to Islamic reform in correct chronological order of their inception:\n1. Ahmadiyya Movement\n2. Wahabi Movement\n3. Aligarh Movement\n4. Deoband Movement Select the correct answer using the code given below:",
     options: ["2 \u2014 4 \u2014 3 \u2014 1", "2 \u2014 3 \u2014 4 \u2014 1", "4 \u2014 2 \u2014 1 \u2014 3", "2 \u2014 4 \u2014 1 \u2014 3"],
     correctAnswer: 0,
     explanation: "2 \u2014 4 \u2014 3 \u2014 1 Wahabi Movement (early 19th century) -> Deoband (1866) -> Aligarh (1875) -> Ahmadiyya (1889).",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
   },
   {
     id: '9-65',
-    question: "Consider the following pairs of Reform Organizations and their associated leaders: 1. Rahnumai Mazdayasnan Sabha \u2014 Naoroji Furdonji 2. Tattvabodhini Sabha \u2014 Keshab Chandra Sen 3. Seva Samiti \u2014 Hridayanath Kunzru 4. SNDP Yogam \u2014 Sahodaran Ayyappan How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of Reform Organizations and their associated leaders:\n1. Rahnumai Mazdayasnan Sabha \u2014 Naoroji Furdonji\n2. Tattvabodhini Sabha \u2014 Keshab Chandra Sen\n3. Seva Samiti \u2014 Hridayanath Kunzru\n4. SNDP Yogam \u2014 Sahodaran Ayyappan How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
     correctAnswer: 1,
     explanation: "Only two pairs Pairs 1 and 3 are correct. Pair 2 is incorrect (founded by Debendranath Tagore). Pair 4 is incorrect (founded by Sri Narayana Guru; Sahodaran Ayyappan was a disciple who led a more radical splinter group).",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
   },
   {
     id: '9-66',
-    question: "Regarding the 'Ahmadiyya Movement', consider the following statements: 1. It was founded by Mirza Ghulam Ahmad, who claimed to be the 'Messiah' and a manifestation of both Muhammad and Krishna. 2. It was a militant revivalist movement that advocated for the immediate 'Dar-ul-Islam' through armed Jihad. 3. The movement followed the principles of the Brahmo Samaj in its emphasis on universalism and peaceful coexistence. How many of the above statements are correct?",
+    question: "Regarding the 'Ahmadiyya Movement', consider the following statements:\n1. It was founded by Mirza Ghulam Ahmad, who claimed to be the 'Messiah' and a manifestation of both Muhammad and Krishna.\n2. It was a militant revivalist movement that advocated for the immediate 'Dar-ul-Islam' through armed Jihad.\n3. The movement followed the principles of the Brahmo Samaj in its emphasis on universalism and peaceful coexistence. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the Ahmadiyya movement was strictly non-militant and emphasized the peaceful spread of Islam.",
@@ -616,7 +616,7 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
   },
   {
     id: '9-69',
-    question: "Consider the following statements regarding the 'Akali Movement' of the 1920s: 1. It was a non-violent movement aimed at liberating the Gurdwaras from the control of corrupt, British-supported 'Udasi Mahants'. 2. The movement led to the passing of the Sikh Gurdwaras Act of 1925. 3. The movement resulted in the Shiromani Akali Dal becoming the primary political representative of the Sikhs. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Akali Movement' of the 1920s:\n1. It was a non-violent movement aimed at liberating the Gurdwaras from the control of corrupt, British-supported 'Udasi Mahants'.\n2. The movement led to the passing of the Sikh Gurdwaras Act of 1925.\n3. The movement resulted in the Shiromani Akali Dal becoming the primary political representative of the Sikhs. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three",
@@ -625,7 +625,7 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
   },
   {
     id: '9-70',
-    question: "Consider the following pairs of Journals and the community reforms they represented: 1. Rast Goftar \u2014 Parsi Social Reform 2. Mooknayak \u2014 Dalit Rights 3. Tahzib-ul-Akhlaq \u2014 Muslim Educational Reform How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of Journals and the community reforms they represented:\n1. Rast Goftar \u2014 Parsi Social Reform\n2. Mooknayak \u2014 Dalit Rights\n3. Tahzib-ul-Akhlaq \u2014 Muslim Educational Reform How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "All three pairs", "None"],
     correctAnswer: 2,
     explanation: "All three pairs",
@@ -652,7 +652,7 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
   },
   {
     id: '9-73',
-    question: "Consider the following movements and their regional focus: 1. Aravippuram Movement \u2014 Kerala 2. Self-Respect Movement \u2014 Tamil Nadu 3. Vaikom Satyagraha \u2014 Andhra Pradesh 4. Satyashodhak Samaj \u2014 Maharashtra How many of the above pairs are correctly matched?",
+    question: "Consider the following movements and their regional focus:\n1. Aravippuram Movement \u2014 Kerala\n2. Self-Respect Movement \u2014 Tamil Nadu\n3. Vaikom Satyagraha \u2014 Andhra Pradesh\n4. Satyashodhak Samaj \u2014 Maharashtra How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
     correctAnswer: 2,
     explanation: "Only three pairs Vaikom Satyagraha took place in Kerala (Travancore), not Andhra Pradesh.",
@@ -706,7 +706,7 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
   },
   {
     id: '9-79',
-    question: "Consider the following statements regarding the 'Singh Sabha Movement': 1. It sought to restore Sikhism to its pristine purity by removing non-Sikh accretions like idol worship. 2. It promoted the study of modern Western sciences while preserving the Gurmukhi script. 3. It was strictly anti-British and refused to accept any government grants for its schools. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Singh Sabha Movement':\n1. It sought to restore Sikhism to its pristine purity by removing non-Sikh accretions like idol worship.\n2. It promoted the study of modern Western sciences while preserving the Gurmukhi script.\n3. It was strictly anti-British and refused to accept any government grants for its schools. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statement 3 is incorrect; the Singh Sabha movement was generally pro-government and actively sought British support to protect Sikh interests.",
@@ -805,7 +805,7 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
   },
   {
     id: '9-90',
-    question: "Consider the 'Rahnumai Mazdayasnan Sabha's' impact on the Parsi community: 1. It successfully reduced the age of marriage for Parsi girls. 2. It led to the complete abolition of the Parsi religion in favor of secularism. 3. It modernized the Parsi social structure, making them the most Westernized community in India by the late 19th century. How many of the above statements are correct?",
+    question: "Consider the 'Rahnumai Mazdayasnan Sabha's' impact on the Parsi community:\n1. It successfully reduced the age of marriage for Parsi girls.\n2. It led to the complete abolition of the Parsi religion in favor of secularism.\n3. It modernized the Parsi social structure, making them the most Westernized community in India by the late 19th century. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. The movement aimed at reform, not abolition of the religion.",

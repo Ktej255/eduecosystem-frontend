@@ -292,7 +292,7 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
   },
   {
     id: '14-33',
-    question: "Consider the following statements regarding the 'Champaran Satyagraha' (1917): 1. It was Gandhi\u2019s first experiment with Satyagraha on Indian soil. 2. The primary issue was the Tinkathia system, where peasants were forced to grow indigo on $3/20$th of their holdings. 3. Gandhi demanded and successfully achieved the complete abolition of all taxes for the peasants of Champaran. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Champaran Satyagraha' (1917):\n1. It was Gandhi\u2019s first experiment with Satyagraha on Indian soil.\n2. The primary issue was the Tinkathia system, where peasants were forced to grow indigo on $3/20$th of their holdings.\n3. Gandhi demanded and successfully achieved the complete abolition of all taxes for the peasants of Champaran. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only Statement 3 is incorrect. Gandhi reached a compromise where the planters were to refund $25\\%$ of the money they had illegally taken from the peasants, rather than a total tax abolition.",
@@ -364,7 +364,7 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
   },
   {
     id: '14-41',
-    question: "Consider the following regarding the early Gandhian movements: 1. Champaran \u2014 First Civil Disobedience 2. Ahmedabad \u2014 First Hunger Strike 3. Kheda \u2014 First Non-Cooperation How many of the above pairs are correctly matched in their 'type' of struggle?",
+    question: "Consider the following regarding the early Gandhian movements:\n1. Champaran \u2014 First Civil Disobedience\n2. Ahmedabad \u2014 First Hunger Strike\n3. Kheda \u2014 First Non-Cooperation How many of the above pairs are correctly matched in their 'type' of struggle?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -418,7 +418,7 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
   },
   {
     id: '14-47',
-    question: "Consider the following statements regarding the 'Champaran Satyagraha' (1917): 1. It was the first time Gandhi used the method of 'Civil Disobedience' in India by refusing to obey an official order to leave the district. 2. The Tinkathia system required peasants to cultivate indigo on $3/20$th of their total landholdings under pain of illegal exactions. 3. The European planters eventually agreed to refund the entire amount of illegally collected money to the peasants to avoid further unrest. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Champaran Satyagraha' (1917):\n1. It was the first time Gandhi used the method of 'Civil Disobedience' in India by refusing to obey an official order to leave the district.\n2. The Tinkathia system required peasants to cultivate indigo on $3/20$th of their total landholdings under pain of illegal exactions.\n3. The European planters eventually agreed to refund the entire amount of illegally collected money to the peasants to avoid further unrest. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; as a compromise, the planters agreed to refund only 25% of the money taken illegally, a move Gandhi accepted to break the planters' prestige.",
@@ -436,7 +436,7 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
   },
   {
     id: '14-49',
-    question: "Arrange the following events related to the early Gandhian phase in correct chronological order: 1. Foundation of the Satyagraha Sabha. 2. The Ahmedabad Mill Strike. 3. The Kheda Satyagraha. 4. The Champaran Satyagraha. Select the correct answer using the code given below:",
+    question: "Arrange the following events related to the early Gandhian phase in correct chronological order:\n1. Foundation of the Satyagraha Sabha.\n2. The Ahmedabad Mill Strike.\n3. The Kheda Satyagraha.\n4. The Champaran Satyagraha. Select the correct answer using the code given below:",
     options: ["4 \u2014 2 \u2014 3 \u2014 1", "4 \u2014 3 \u2014 2 \u2014 1", "2 \u2014 4 \u2014 3 \u2014 1", "4 \u2014 2 \u2014 1 \u2014 3"],
     correctAnswer: 0,
     explanation: "4 \u2014 2 \u2014 3 \u2014 1 Champaran (1917) -> Ahmedabad (March 1918) -> Kheda (June 1918) -> Satyagraha Sabha (Feb 1919).",
@@ -445,7 +445,7 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
   },
   {
     id: '14-50',
-    question: "Consider the following pairs of leaders and the early Gandhian movements they were associated with: 1. Raj Kumar Shukla \u2014 Champaran Satyagraha 2. Anusuya Sarabhai \u2014 Ahmedabad Mill Strike 3. Indulal Yagnik \u2014 Kheda Satyagraha 4. Mahadev Desai \u2014 Rowlatt Satyagraha How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of leaders and the early Gandhian movements they were associated with:\n1. Raj Kumar Shukla \u2014 Champaran Satyagraha\n2. Anusuya Sarabhai \u2014 Ahmedabad Mill Strike\n3. Indulal Yagnik \u2014 Kheda Satyagraha\n4. Mahadev Desai \u2014 Rowlatt Satyagraha How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
     correctAnswer: 3,
     explanation: "All four pairs",
@@ -454,7 +454,7 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
   },
   {
     id: '14-51',
-    question: "Regarding the 'Rowlatt Act' (1919), consider the following statements: 1. It allowed the government to search any premises without a warrant and detain suspects for two years without trial. 2. The Act was passed unanimously by the Imperial Legislative Council with the support of both Indian and British members. 3. Gandhi organized the first all-India 'Hartal' (strike) on April 6, 1919, as a form of non-violent protest against the Act. How many of the above statements are correct?",
+    question: "Regarding the 'Rowlatt Act' (1919), consider the following statements:\n1. It allowed the government to search any premises without a warrant and detain suspects for two years without trial.\n2. The Act was passed unanimously by the Imperial Legislative Council with the support of both Indian and British members.\n3. Gandhi organized the first all-India 'Hartal' (strike) on April 6, 1919, as a form of non-violent protest against the Act. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; every single Indian member of the council (including Jinnah, Malaviya, and Mazhar-ul-Haq) voted against it.",
@@ -481,7 +481,7 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
   },
   {
     id: '14-54',
-    question: "Match the following 'Firsts' of Gandhi's political career in India: 1. First Civil Disobedience \u2014",
+    question: "Match the following 'Firsts' of Gandhi's political career in India:\n1. First Civil Disobedience \u2014",
     options: ["Kheda Satyagraha 2. First Hunger Strike \u2014", "Rowlatt Satyagraha 3. First Non-Cooperation \u2014", "Champaran Satyagraha 4. First All-India Mass Strike \u2014", "Ahmedabad Mill Strike Select the correct matching code:"],
     correctAnswer: 0,
     explanation: "1-C, 2-D, 3-A, 4-B",
@@ -490,7 +490,7 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
   },
   {
     id: '14-55',
-    question: "Consider the following regarding Gandhi's struggle in South Africa (1893-1914): 1. He founded the Natal Indian Congress and started the journal Indian Opinion. 2. He used the method of 'Passive Resistance' for the first time against the Asiatic Registration Act. 3. The struggle culminated in the Indian Relief Act, which abolished the $3$ pound poll tax and recognized Indian marriages. How many of the above statements are correct?",
+    question: "Consider the following regarding Gandhi's struggle in South Africa (1893-1914):\n1. He founded the Natal Indian Congress and started the journal Indian Opinion.\n2. He used the method of 'Passive Resistance' for the first time against the Asiatic Registration Act.\n3. The struggle culminated in the Indian Relief Act, which abolished the $3$ pound poll tax and recognized Indian marriages. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three",

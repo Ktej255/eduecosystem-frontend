@@ -4,7 +4,7 @@ import { MCQ } from '../mcq-utils';
 export const CHAPTER_89_MCQS: MCQ[] = [
     {
         "id": "ch89_l1_1",
-        "chapterId": 89,
+
         "question": "Which Article of the Indian Constitution directs the State to promote international peace and security?",
         "options": [
             "Article 14",
@@ -18,7 +18,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_2",
-        "chapterId": 89,
+
         "question": "The 'Panchsheel' (Five Principles of Peaceful Co-existence) was first formally signed between India and which country?",
         "options": [
             "Pakistan",
@@ -32,7 +32,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_3",
-        "chapterId": 89,
+
         "question": "The policy of 'Non-Alignment' (NAM) means:",
         "options": [
             "Isolation from world affairs.",
@@ -46,7 +46,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_4",
-        "chapterId": 89,
+
         "question": "Who is the primary architect of India's foreign policy after independence?",
         "options": [
             "Sardar Patel",
@@ -60,7 +60,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_5",
-        "chapterId": 89,
+
         "question": "The 'Gujral Doctrine' is related to India's relations with:",
         "options": [
             "Global Superpowers.",
@@ -74,7 +74,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_6",
-        "chapterId": 89,
+
         "question": "Which of the following is NOT one of the five principles of 'Panchsheel'?",
         "options": [
             "Mutual respect for territorial integrity.",
@@ -88,7 +88,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_7",
-        "chapterId": 89,
+
         "question": "The 'Look East Policy' was first launched by which Prime Minister?",
         "options": [
             "Indira Gandhi",
@@ -102,7 +102,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_8",
-        "chapterId": 89,
+
         "question": "The 'Act East Policy' (AEP) is an evolved version of 'Look East'. Who launched it in 2014?",
         "options": [
             "Manmohan Singh",
@@ -116,7 +116,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_9",
-        "chapterId": 89,
+
         "question": "Which country is India's 'Time-tested' and 'Strategic Partner' from the Cold War era?",
         "options": [
             "USA",
@@ -130,7 +130,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_10",
-        "chapterId": 89,
+
         "question": "India's 'Nuclear Doctrine' is primarily based on the principle of:",
         "options": [
             "First Strike.",
@@ -144,7 +144,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_11",
-        "chapterId": 89,
+
         "question": "The 'Shimla Agreement' (1972) was signed between India and:",
         "options": [
             "China",
@@ -158,7 +158,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_12",
-        "chapterId": 89,
+
         "question": "India is a founding member of which international organization dedicated to South Asian cooperation?",
         "options": [
             "ASEAN",
@@ -172,7 +172,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_13",
-        "chapterId": 89,
+
         "question": "What is the primary objective of India's 'Neighbourhood First' policy?",
         "options": [
             "Managing borders only.",
@@ -186,7 +186,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_14",
-        "chapterId": 89,
+
         "question": "The 'Vande Bharat Mission' during COVID-19 was related to:",
         "options": [
             "Railway development.",
@@ -200,7 +200,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_15",
-        "chapterId": 89,
+
         "question": "Does the Indian Parliament have the power to 'Ratify' all international treaties?",
         "options": [
             "Yes, always.",
@@ -214,7 +214,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_16",
-        "chapterId": 89,
+
         "question": "Which Ministry handles India's relations with other countries?",
         "options": [
             "Ministry of Home Affairs",
@@ -228,7 +228,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_17",
-        "chapterId": 89,
+
         "question": "India's support for 'Decolonization' and 'Anti-Apartheid' were key features of its policy in which era?",
         "options": [
             "Post-1991",
@@ -242,7 +242,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_18",
-        "chapterId": 89,
+
         "question": "The 'G20 Presidency' in 2023 was held by:",
         "options": [
             "USA",
@@ -256,7 +256,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_19",
-        "chapterId": 89,
+
         "question": "What is the 'Full Form' of NAM?",
         "options": [
             "National Army Mission",
@@ -270,7 +270,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_20",
-        "chapterId": 89,
+
         "question": "Which country does India have the longest land border with?",
         "options": [
             "China",
@@ -284,7 +284,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_21",
-        "chapterId": 89,
+
         "question": "Wait. Is India a permanent member of the UN Security Council (UNSC)?",
         "options": [
             "Yes",
@@ -298,7 +298,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_22",
-        "chapterId": 89,
+
         "question": "The 'Soft Power' of India includes:",
         "options": [
             "Yoga, Bollywood, and Diaspora.",
@@ -312,7 +312,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_23",
-        "chapterId": 89,
+
         "question": "Which of the following is a key 'Domestic' constraint on foreign policy?",
         "options": [
             "Public opinion and coalition politics.",
@@ -326,7 +326,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_24",
-        "chapterId": 89,
+
         "question": "The 'Operation Ganga' (2022) was conducted to evacuate Indians from:",
         "options": [
             "Afghanistan",
@@ -340,7 +340,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_25",
-        "chapterId": 89,
+
         "question": "India's policy towards the 'Arab-Israel' conflict has shifted towards 'De-hyphenation'. This means:",
         "options": [
             "Opposing both.",
@@ -354,7 +354,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_26",
-        "chapterId": 89,
+
         "question": "The 'Bandung Conference' (1955) was a precursor to:",
         "options": [
             "UN",
@@ -368,7 +368,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_27",
-        "chapterId": 89,
+
         "question": "Wait. Can the 'Governor' of a state enter into a treaty with a foreign country?",
         "options": [
             "Yes.",
@@ -382,7 +382,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_28",
-        "chapterId": 89,
+
         "question": "Which of the following is a forum for 'Emerging Economies' including India?",
         "options": [
             "G7",
@@ -396,7 +396,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_29",
-        "chapterId": 89,
+
         "question": "The 'Indus Waters Treaty' (1960) regulates water sharing between India and:",
         "options": [
             "China",
@@ -410,7 +410,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l1_30",
-        "chapterId": 89,
+
         "question": "The concept of 'Strategic Autonomy' refers to:",
         "options": [
             "Dependence on one superpower.",
@@ -424,7 +424,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_1",
-        "chapterId": 89,
+
         "question": "The 'Gujral Doctrine' is unique because it is based on 'Non-reciprocal' concessions. Which of the following is NOT one of its core principles?",
         "options": [
             "No South Asian nation shall allow its territory to be used against another.",
@@ -438,7 +438,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_2",
-        "chapterId": 89,
+
         "question": "Analyze the 'Constitutional position' of treaties. Article 253 gives Parliament the power to make laws for implementing:",
         "options": [
             "Any international agreement, treaty or convention.",
@@ -452,7 +452,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_3",
-        "chapterId": 89,
+
         "question": "Which of the following describes the 'Strategic' reason behind India's 'Connect Central Asia' policy?",
         "options": [
             "To export Bollywood movies.",
@@ -466,7 +466,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_4",
-        "chapterId": 89,
+
         "question": "Assertion (A): NAM is not the same as 'Neutrality'.\nReason (R): Neutrality is a passive state of remaining out of war, whereas NAM is an active policy of taking independent stands on merits while avoiding blocs.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -480,7 +480,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_5",
-        "chapterId": 89,
+
         "question": "In the context of 'Nuclear Policy', what does 'Credible Minimum Deterrence' imply?",
         "options": [
             "Having thousands of warheads.",
@@ -494,7 +494,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_6",
-        "chapterId": 89,
+
         "question": "Which of the following is a 'Functional' pillar of the Act East Policy that was missing in Look East?",
         "options": [
             "Only trade.",
@@ -508,7 +508,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_7",
-        "chapterId": 89,
+
         "question": "The 'International Day of Yoga' (June 21) was declared by the UN following a proposal by:",
         "options": [
             "The WHO",
@@ -522,7 +522,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_8",
-        "chapterId": 89,
+
         "question": "Wait. Which 'Agreement' established the 'Line of Control' (LoC) in J&K?",
         "options": [
             "Karachi Agreement (1949).",
@@ -536,7 +536,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_9",
-        "chapterId": 89,
+
         "question": "Which 'Doctrine' mentions that India will not tolerate 'interference' by outside powers in the affairs of the South Asian region?",
         "options": [
             "Monroe Doctrine.",
@@ -550,7 +550,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_10",
-        "chapterId": 89,
+
         "question": "The 'Coalition for Disaster Resilient Infrastructure' (CDRI) is an international initiative launched by which country?",
         "options": [
             "Japan",
@@ -564,7 +564,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_11",
-        "chapterId": 89,
+
         "question": "Does Article 51 of the Constitution mandate the 'Automatic' enforcement of international law in Indian courts?",
         "options": [
             "Yes.",
@@ -578,7 +578,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_12",
-        "chapterId": 89,
+
         "question": "The 'G4' group seeking UNSC permanent seats includes India, Japan, Germany and:",
         "options": [
             "South Africa",
@@ -592,7 +592,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_13",
-        "chapterId": 89,
+
         "question": "Why did India refuse to sign the 'Non-Proliferation Treaty' (NPT) in 1968?",
         "options": [
             "Because it wanted to make a bomb immediately.",
@@ -606,7 +606,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_14",
-        "chapterId": 89,
+
         "question": "The 'Panchsheel' principles were added to the 'Preamble' of which organisation's charter?",
         "options": [
             "UN",
@@ -620,7 +620,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_15",
-        "chapterId": 89,
+
         "question": "The 'QUAD' (Quadrilateral Security Dialogue) involves India, USA, Japan and:",
         "options": [
             "UK",
@@ -634,7 +634,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_16",
-        "chapterId": 89,
+
         "question": "The 'Look West' policy of India focuses on relations with:",
         "options": [
             "USA and Canada.",
@@ -648,7 +648,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_17",
-        "chapterId": 89,
+
         "question": "Is India a member of the 'Nuclear Suppliers Group' (NSG)?",
         "options": [
             "Yes.",
@@ -662,7 +662,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_18",
-        "chapterId": 89,
+
         "question": "The 'Teesta' river dispute is a major issue between India and:",
         "options": [
             "China",
@@ -676,7 +676,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_19",
-        "chapterId": 89,
+
         "question": "During the 'Kargil War' (1999), India's policy on the LoC was summarized as:",
         "options": [
             "Full scale invasion.",
@@ -690,7 +690,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_20",
-        "chapterId": 89,
+
         "question": "What is the 'Diaspora' policy of the current Indian government characterized by?",
         "options": [
             "Ignoring them.",
@@ -704,7 +704,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_21",
-        "chapterId": 89,
+
         "question": "Wait. Which 'Agreement' allows for 'Visa-free' travel for Indian and Nepalese citizens?",
         "options": [
             "Indo-Nepal Treaty of Peace and Friendship, 1950.",
@@ -718,7 +718,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_22",
-        "chapterId": 89,
+
         "question": "India's 'Grand Strategy' is moving from 'Non-Alignment' to 'Multi-Alignment'. What does this mean?",
         "options": [
             "Joining all military blocs.",
@@ -732,7 +732,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_23",
-        "chapterId": 89,
+
         "question": "The 'Colombo Security Conclave' includes India, Sri Lanka, Mauritius, and:",
         "options": [
             "Pakistan",
@@ -746,7 +746,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_24",
-        "chapterId": 89,
+
         "question": "The 'I2U2' group is often called the 'West Asian Quad'. It includes India, Israel, USA, and:",
         "options": [
             "UK",
@@ -760,7 +760,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_25",
-        "chapterId": 89,
+
         "question": "Is India a member of the 'Shanghai Cooperation Organisation' (SCO)?",
         "options": [
             "Yes, full member since 2017.",
@@ -774,7 +774,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_26",
-        "chapterId": 89,
+
         "question": "The 'SAGAR' vision (Security and Growth for All in the Region) focuses on:",
         "options": [
             "Central Asia.",
@@ -788,7 +788,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_27",
-        "chapterId": 89,
+
         "question": "Does the 'President' of India have to consult the 'Council of Ministers' before declaring a war?",
         "options": [
             "No.",
@@ -802,7 +802,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_28",
-        "chapterId": 89,
+
         "question": "Which of the following is an 'International boundary' that India does NOT accept as final?",
         "options": [
             "Radcliffe Line.",
@@ -816,7 +816,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l2_29",
-        "chapterId": 89,
+
         "question": "The 'Commonwealth of Nations' is an organisation of:",
         "options": [
             "Only European countries.",
@@ -830,7 +830,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_30",
-        "chapterId": 89,
+
         "question": "Which city is known as the 'Diplomatic Capital' of the world where the UN is based?",
         "options": [
             "Geneva",
@@ -844,7 +844,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_1",
-        "chapterId": 89,
+
         "question": "Analyze the 'Constitutional Parity' of international law in India. Which of the following is correct regarding the implementation of international treaties as per the Supreme Court's jurisprudence?",
         "options": [
             "Treaties are automatically part of Indian law (Monism).",
@@ -858,7 +858,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_2",
-        "chapterId": 89,
+
         "question": "The 'Panchsheel' agreement of 1954 is often criticized today. What was its 'Fatal' omission according to strategic experts?",
         "options": [
             "It did not include trade.",
@@ -872,7 +872,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_3",
-        "chapterId": 89,
+
         "question": "India's 'Grand Strategy' during the Cold War was described as 'Moralistic' but 'Pragmatic'. How was the 1971 'Indo-Soviet Treaty' a departure from pure Non-Alignment?",
         "options": [
             "India became a communist state.",
@@ -886,7 +886,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_4",
-        "chapterId": 89,
+
         "question": "Analyze the 'Nuclear Command Authority' (NCA) of India. Who is the head of the 'Political Council' that finalizes the decision to use nuclear weapons?",
         "options": [
             "The President (Supreme Commander).",
@@ -900,7 +900,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_5",
-        "chapterId": 89,
+
         "question": "Assertion (A): The 'Look East' policy was primarily an economic survival strategy after the Cold War.\nReason (R): The collapse of the USSR and the balance of payments crisis of 1991 forced India to integrate with the booming economies of East and South-East Asia.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -914,7 +914,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_6",
-        "chapterId": 89,
+
         "question": "Evaluate the 'Belt and Road Initiative' (BRI) from India's perspective. Why has India consistently refused to join it?",
         "options": [
             "Because India is not interested in trade.",
@@ -928,7 +928,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_7",
-        "chapterId": 89,
+
         "question": "The 'Gujral Doctrine' was based on the premise of 'Asymmetry'. What is the 'Asymmetric' obligation of the larger power (India)?",
         "options": [
             "India will buy more weapons.",
@@ -942,7 +942,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_8",
-        "chapterId": 89,
+
         "question": "Consider 'Article 253' and 'Article 51'. In case of a conflict between a 'Treaty' provision and a 'Fundamental Right', which prevails in an Indian court?",
         "options": [
             "The Treaty.",
@@ -956,7 +956,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_9",
-        "chapterId": 89,
+
         "question": "The '100th Constitutional Amendment Act' (2015) was a landmark in India's foreign policy. What did it achieve?",
         "options": [
             "Signing of a nuclear deal.",
@@ -970,7 +970,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_10",
-        "chapterId": 89,
+
         "question": "Analyze the 'De-hyphenation' of India's West Asia policy. Contrast it with the earlier 'Zero-sum' approach.",
         "options": [
             "Earlier India only supported Israel.",
@@ -984,7 +984,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_11",
-        "chapterId": 89,
+
         "question": "What is the 'Full form' and 'Strategic context' of BIMSTEC?",
         "options": [
             "Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation; It is seen as an alternative to SAARC (excluding Pakistan).",
@@ -998,7 +998,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_12",
-        "chapterId": 89,
+
         "question": "Analysis of Art 51(c). 'Foster respect for international law and treaty obligations in the dealings of organised peoples with one another'. Does this include 'Individuals'?",
         "options": [
             "Yes.",
@@ -1012,7 +1012,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_13",
-        "chapterId": 89,
+
         "question": "Review the 'Nuclear Sovereignty' concept. Why did India conduct 'Pokhran-II' (1998)?",
         "options": [
             "To start a war.",
@@ -1026,7 +1026,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_14",
-        "chapterId": 89,
+
         "question": "The 'Integrated Integrated Check Posts' (ICPs) on the borders are an example of which policy in action?",
         "options": [
             "Act East.",
@@ -1040,7 +1040,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_15",
-        "chapterId": 89,
+
         "question": "Assertion (A): The President of India is the 'Supreme Commander' of the Armed Forces.\nReason (R): The civilian control over the military is a 'Basic Feature' of India's foreign and security policy.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -1054,7 +1054,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_16",
-        "chapterId": 89,
+
         "question": "Analysis of 'Article 51'. Does it mention 'Extradition'?",
         "options": [
             "Yes.",
@@ -1068,7 +1068,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_17",
-        "chapterId": 89,
+
         "question": "The 'Civil Nuclear Deal' (123 Agreement) with the USA (2008) gave India:",
         "options": [
             "Nuclear weapons technology.",
@@ -1082,7 +1082,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_18",
-        "chapterId": 89,
+
         "question": "Evaluate the 'Vasudhaiva Kutumbakam' (The World is One Family) philosophy in modern diplomacy. How was it used during 'Vaccine Maitri'?",
         "options": [
             "By selling vaccines at the highest price.",
@@ -1096,7 +1096,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_19",
-        "chapterId": 89,
+
         "question": "Which of the following describes the 'Functional' difference between the G7 and the G20?",
         "options": [
             "G7 is only for Asia; G20 is for Europe.",
@@ -1110,7 +1110,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_20",
-        "chapterId": 89,
+
         "question": "The 'Connect Central Asia' policy (2012) emphasizes the use of which port for bypassing Pakistan?",
         "options": [
             "Gwadar Port.",
@@ -1124,7 +1124,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_21",
-        "chapterId": 89,
+
         "question": "Review the 'Special Relationship' with 'Bhutan'. Under which treaty does India assist Bhutan in its 'External Affairs'?",
         "options": [
             "Panchsheel Agreement.",
@@ -1138,7 +1138,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_22",
-        "chapterId": 89,
+
         "question": "Analysis of 'Article 51'. Does it support 'International Arbitration' for settling disputes?",
         "options": [
             "No.",
@@ -1152,7 +1152,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_23",
-        "chapterId": 89,
+
         "question": "Has India the power to 'Cede' territory to a foreign state through a treaty WITHOUT a constitutional amendment?",
         "options": [
             "Yes.",
@@ -1166,7 +1166,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_24",
-        "chapterId": 89,
+
         "question": "The 'International Solar Alliance' (ISA) is a joint initiative of India and:",
         "options": [
             "USA",
@@ -1180,7 +1180,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_25",
-        "chapterId": 89,
+
         "question": "Consider the 'Act East Policy'. Why did India withdraw from the 'RCEP' trade agreement in 2019?",
         "options": [
             "Because China was not a member.",
@@ -1194,7 +1194,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_26",
-        "chapterId": 89,
+
         "question": "Wait. Is 'UN Security Council' reform part of India's 'Official' foreign policy goals?",
         "options": [
             "Yes, it's a core priority.",
@@ -1208,7 +1208,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_27",
-        "chapterId": 89,
+
         "question": "The 'Diaspora-Diplomacy' of India includes which of the following 'Legal' categories?",
         "options": [
             "NRI (Non-Resident Indians).",
@@ -1222,7 +1222,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_28",
-        "chapterId": 89,
+
         "question": "Does India support a 'Rules-based international order'?",
         "options": [
             "Yes, but with 'Inclusive' governance that reflects contemporary realities (Multilateralism).",
@@ -1236,7 +1236,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_29",
-        "chapterId": 89,
+
         "question": "The 'Bilateralism' vs 'Multilateralism' debate in SAARC. Why has India shifted focus away from SAARC?",
         "options": [
             "Lack of interest.",
@@ -1250,7 +1250,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         "id": "ch89_l3_30",
-        "chapterId": 89,
+
         "question": "Who summarized India's foreign policy as 'The sum total of our national interests and our cultural values'?",
         "options": [
             "External Affairs Minister.",

@@ -4,7 +4,7 @@ import { MCQ } from '../mcq-utils';
 export const CHAPTER_92_MCQS: MCQ[] = [
     {
         "id": "ch92_l1_1",
-        "chapterId": 92,
+
         "question": "Which Article of the Indian Constitution is known as the 'Residuary Room' of Fundamental Rights due to its broad judicial expansion?",
         "options": [
             "Article 14",
@@ -18,7 +18,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_2",
-        "chapterId": 92,
+
         "question": "The landmark 'Maneka Gandhi Case' (1978) established that 'Life' in Article 21 means more than 'Animal Existence'. It means:",
         "options": [
             "Only the right to breathe.",
@@ -32,7 +32,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_3",
-        "chapterId": 92,
+
         "question": "Which of the following is an implied right under Article 21 as declared by the Supreme Court?",
         "options": [
             "Right to go abroad.",
@@ -46,7 +46,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_4",
-        "chapterId": 92,
+
         "question": "The 'Right to a Speedy Trial' was first recognized as a fundamental right in which case?",
         "options": [
             "Hussainara Khatoon vs Home Secretary, State of Bihar (1979).",
@@ -60,7 +60,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_5",
-        "chapterId": 92,
+
         "question": "Does Article 21 include the 'Right to a Clean Environment'?",
         "options": [
             "Yes, as held in the M.C. Mehta vs Union of India cases.",
@@ -74,7 +74,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_6",
-        "chapterId": 92,
+
         "question": "The 'Right to Privacy' was declared a Fundamental Right in which landmark judgment?",
         "options": [
             "Aruna Shanbaug case.",
@@ -88,7 +88,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_7",
-        "chapterId": 92,
+
         "question": "Which of the following rights is NOT included under Article 21 by the SC?",
         "options": [
             "Right to free legal aid.",
@@ -102,7 +102,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_8",
-        "chapterId": 92,
+
         "question": "The 'Right to Livelihood' was recognized as part of Art 21 in which case?",
         "options": [
             "Olga Tellis vs Bombay Municipal Corporation (1985).",
@@ -116,7 +116,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_9",
-        "chapterId": 92,
+
         "question": "The 'Right against Public Hanging' was declared a fundamental right in which case?",
         "options": [
             "Attorney General of India vs Lachma Devi (1989).",
@@ -130,7 +130,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_10",
-        "chapterId": 92,
+
         "question": "The expansion of Article 21 illustrates the shift from 'Procedure Established by Law' to:",
         "options": [
             "Dictatorship.",
@@ -144,7 +144,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_11",
-        "chapterId": 92,
+
         "question": "Is the 'Right to have a Family' considered a fundamental right under Art 21?",
         "options": [
             "Yes.",
@@ -158,7 +158,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_12",
-        "chapterId": 92,
+
         "question": "The 'Right against Handcuffing' (unless absolutely necessary for security) was established in:",
         "options": [
             "Prem Shankar Shukla vs Delhi Administration (1980).",
@@ -172,7 +172,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_13",
-        "chapterId": 92,
+
         "question": "Does Article 21 provide the 'Right to Marriage'?",
         "options": [
             "Yes, the right to choose a life partner is a fundamental right.",
@@ -186,7 +186,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_14",
-        "chapterId": 92,
+
         "question": "The 'Right to Reproductive Autonomy' belongs to which Article?",
         "options": [
             "Article 14",
@@ -200,7 +200,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_15",
-        "chapterId": 92,
+
         "question": "Which of the following describes the SC's view of 'Article 21' during the 1975-77 Emergency (ADM Jabalpur case)?",
         "options": [
             "The right could not be suspended.",
@@ -214,7 +214,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_16",
-        "chapterId": 92,
+
         "question": "The 'Right to Compensation' for illegal detention was established in which case?",
         "options": [
             "Rudal Sah vs State of Bihar (1983).",
@@ -228,7 +228,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_17",
-        "chapterId": 92,
+
         "question": "Wait. Is 'Right to Sleep' a fundamental right?",
         "options": [
             "Yes, as declared by the SC in the Ramlila Maidan Incident (2012).",
@@ -242,7 +242,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_18",
-        "chapterId": 92,
+
         "question": "The 'Right to Electricity' has been recognized by various High Courts as a facet of:",
         "options": [
             "Right to entertainment.",
@@ -256,7 +256,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_19",
-        "chapterId": 92,
+
         "question": "In 'Francis Coralie Mullin vs The Administrator' (1981), the SC held that Art 21 includes the right to 'commingle' with:",
         "options": [
             "Foreigners.",
@@ -270,7 +270,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_20",
-        "chapterId": 92,
+
         "question": "The 'Right to Health' includes the right of a worker to:",
         "options": [
             "Free medical insurance.",
@@ -284,7 +284,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_21",
-        "chapterId": 92,
+
         "question": "Wait. Can 'Article 21' be suspended during a National Emergency now?",
         "options": [
             "Yes.",
@@ -298,7 +298,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_22",
-        "chapterId": 92,
+
         "question": "The 'Right against Bonded Labour' is derived from Articles 23 and:",
         "options": [
             "Article 14.",
@@ -312,7 +312,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_23",
-        "chapterId": 92,
+
         "question": "In 'Chameli Singh vs State of UP' (1996), the SC held that 'Shelter' means:",
         "options": [
             "A mere roof.",
@@ -326,7 +326,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_24",
-        "chapterId": 92,
+
         "question": "The 'Right to a Fair Trial' is a right of:",
         "options": [
             "Only the victim.",
@@ -340,7 +340,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_25",
-        "chapterId": 92,
+
         "question": "The 'Right to Information' (RTI) has its roots in Art 19(1)(a) and:",
         "options": [
             "Article 14.",
@@ -354,7 +354,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_26",
-        "chapterId": 92,
+
         "question": "The 'Right to Social Security' for workers was emphasized in which case?",
         "options": [
             "Bangalore Water Supply case.",
@@ -368,7 +368,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_27",
-        "chapterId": 92,
+
         "question": "Wait. Does Art 21 protect the 'Right to Reputation'?",
         "options": [
             "Yes, reputation is an integral part of one's personality and dignity.",
@@ -382,7 +382,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_28",
-        "chapterId": 92,
+
         "question": "The 'Right against Bar Fetters' (chaining of prisoners) was restricted by the SC in:",
         "options": [
             "Sunil Batra vs Delhi Administration.",
@@ -396,7 +396,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_29",
-        "chapterId": 92,
+
         "question": "Which of the following is an 'Economic' right derived from Art 21?",
         "options": [
             "Right to wealth.",
@@ -410,7 +410,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l1_30",
-        "chapterId": 92,
+
         "question": "The 'Doctrine of Sovereign Immunity' (State not liable for Torts) was rejected by the SC regarding Fundamental Rights in:",
         "options": [
             "Saheli vs Commissioner of Police (1990).",
@@ -424,7 +424,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_1",
-        "chapterId": 92,
+
         "question": "The 'Procedure Established by Law' (Art 21) was interpreted narrowly in the A.K. Gopalan case (1950). What was the 'Substantive' shift in the Maneka Gandhi case (1978)?",
         "options": [
             "The court held that law must be enacted by Parliament.",
@@ -438,7 +438,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_2",
-        "chapterId": 92,
+
         "question": "Assertion (A): The 'Right to Pollution-free Water and Air' is a fundamental right under Article 21.\nReason (R): The SC in Subhash Kumar vs State of Bihar (1991) held that right to life is a 'living' right that includes the enjoyment of pollution-free surroundings.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -452,7 +452,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_3",
-        "chapterId": 92,
+
         "question": "The 'Navtej Singh Johar' case (2018) linked 'Sexual Orientation' primarily to which facet of Article 21?",
         "options": [
             "Right to food.",
@@ -466,7 +466,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_4",
-        "chapterId": 92,
+
         "question": "In 'Hussainara Khatoon' (1979), the court emphasized that 'Speedy Trial' is an essential ingredient of 'Reasonable, Just and Fair' procedure. To whom does this right apply?",
         "options": [
             "Only the convicts.",
@@ -480,7 +480,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_5",
-        "chapterId": 92,
+
         "question": "Wait. Which case established that a person being arrested has the 'Right to inform' his relative/friend?",
         "options": [
             "Joginder Kumar vs State of UP (1994).",
@@ -494,7 +494,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_6",
-        "chapterId": 92,
+
         "question": "The 'Olga Tellis' case (1985) on pavement dwellers held that 'Right to Life' would be 'Hollow' without the:",
         "options": [
             "Right to property.",
@@ -508,7 +508,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_7",
-        "chapterId": 92,
+
         "question": "Does Article 21 include the 'Right to receive adequate Medical Aid' in government hospitals?",
         "options": [
             "Yes, it is the 'Total obligation' of the state as held in Paschim Banga Khet Mazdoor Samity (1996).",
@@ -522,7 +522,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_8",
-        "chapterId": 92,
+
         "question": "The 'Ramlila Maidan Incident' (2012) case declared that the 'Right to Sleep' is a facet of life. How did the SC describe 'Sleep'?",
         "options": [
             "As a leisure activity.",
@@ -536,7 +536,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_9",
-        "chapterId": 92,
+
         "question": "The 'Right against Solitary Confinement' was emphasized in which famous 'Prisons' case?",
         "options": [
             "Sunil Batra vs Delhi Administration (1978).",
@@ -550,7 +550,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_10",
-        "chapterId": 92,
+
         "question": "In 'Mohd. Arif vs Reg. SC of India' (2014), the court expanded the rights of 'Death Row' convicts. What was the main right granted?",
         "options": [
             "Right to escape.",
@@ -564,7 +564,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_11",
-        "chapterId": 92,
+
         "question": "Wait. Which case is related to 'Right to Free Legal Aid' as a part of Article 21?",
         "options": [
             "M.H. Hoskot vs State of Maharashtra (1978).",
@@ -578,7 +578,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_12",
-        "chapterId": 92,
+
         "question": "Regarding 'Education', the 86th amendment made it a fundamental right (Art 21A). Before this, where was it mentioned?",
         "options": [
             "Only in Preamble.",
@@ -592,7 +592,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_13",
-        "chapterId": 92,
+
         "question": "The 'Right to a Fair Trial' includes which of the following 'Evidence' rules?",
         "options": [
             "Presumption of guilt.",
@@ -606,7 +606,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_14",
-        "chapterId": 92,
+
         "question": "The 'Shakti Vahini' case (2018) deals with the 'Right to Choose a Partner'. To which Article did the court primarily anchor this?",
         "options": [
             "Article 14 only.",
@@ -620,7 +620,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_15",
-        "chapterId": 92,
+
         "question": "Assertion (A): Article 21 protects a person even from 'Inordinate Delay' in the decision of their Mercy Petition by the President.\nReason (R): Shatrughan Chauhan vs Union of India (2014) held that 'cruel and inhuman' delay can be a ground to commute a death sentence to life imprisonment.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -634,7 +634,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_16",
-        "chapterId": 92,
+
         "question": "The 'Right to Social and Economic Justice' (empowerment of Dalits/STs) was linked to Art 21 in which case?",
         "options": [
             "Indra Sawhney.",
@@ -648,7 +648,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_17",
-        "chapterId": 92,
+
         "question": "Wait. Does the 'Right to Life' include the 'Right to a decent burial/cremation'?",
         "options": [
             "Yes, as part of dignity even after death (Pandit Parmanand Katara vs Union of India, 1995).",
@@ -662,7 +662,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_18",
-        "chapterId": 92,
+
         "question": "Regarding 'Public Health', the SC in the 'Ratlam Municipality' case held that the state must provide 'Cesspools-free' localities. This is a:",
         "options": [
             "Fundamental duty of the citizen.",
@@ -676,7 +676,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_19",
-        "chapterId": 92,
+
         "question": "What is the 'Golden Triangle' as defined by the SC in multiple cases like Minerva Mills?",
         "options": [
             "Art 1, 2, 3.",
@@ -690,7 +690,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_20",
-        "chapterId": 92,
+
         "question": "The 'Right to a clean environment' (Art 21) includes the right to 'Quiet' and 'Freedom from Noise'. Which case upheld this against loud-speakers?",
         "options": [
             "M.C. Mehta cases.",
@@ -704,7 +704,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_21",
-        "chapterId": 92,
+
         "question": "In 'Anuradha Bhasin vs Union of India' (2020), the internet's role was linked to Article 19. How did the SC link it to Article 21?",
         "options": [
             "By saying internet is life.",
@@ -718,7 +718,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_22",
-        "chapterId": 92,
+
         "question": "Wait. Which case is related to the 'Right to emergency aid for road-accident victims'?",
         "options": [
             "Pandit Parmanand Katara vs Union of India (1989).",
@@ -732,7 +732,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_23",
-        "chapterId": 92,
+
         "question": "The 'Right to Privacy' (Puttaswamy 2017) overruled which specific part of the 'Kharak Singh' judgment (1962)?",
         "options": [
             "The part that said 'Privacy is not a FR'.",
@@ -746,7 +746,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_24",
-        "chapterId": 92,
+
         "question": "Does Article 21 provide a 'Right to be not excluded' from public spaces solely on religious grounds?",
         "options": [
             "Yes, as seen in the Sabarimala and Trupti Desai cases.",
@@ -760,7 +760,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_25",
-        "chapterId": 92,
+
         "question": "The 'Right to Food' was dramatically expanded in which PIL by the PUCL?",
         "options": [
             "The 'Right to Food Case' (PUCL vs Union of India, 2001).",
@@ -774,7 +774,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_26",
-        "chapterId": 92,
+
         "question": "Assertion (A): Article 21 is available to both 'Citizens' and 'Foreigners'.\nReason (R): The wording of the article uses 'Every Person' rather than 'Every Citizen'.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -788,7 +788,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_27",
-        "chapterId": 92,
+
         "question": "Wait. In which case did the SC hold that 'Reproductive right of a woman is a part of her personal liberty'?",
         "options": [
             "Suchita Srivastava vs Chandigarh Administration (2009).",
@@ -802,7 +802,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_28",
-        "chapterId": 92,
+
         "question": "Regarding 'Prisons', the SC has held that a 'Transfer to a distant jail' without reason violates:",
         "options": [
             "The jail map.",
@@ -816,7 +816,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_29",
-        "chapterId": 92,
+
         "question": "The 'Right to a Fair Trial' includes the right to 'Self-Representation' or a 'Competent Lawyer'. If the accused cannot afford one, the State must:",
         "options": [
             "Convict them immediately.",
@@ -830,7 +830,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l2_30",
-        "chapterId": 92,
+
         "question": "The 'Doctrine of Reasonable expectation' as applied to Art 21 implies that:",
         "options": [
             "Expectations don't matter.",
@@ -844,7 +844,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_1",
-        "chapterId": 92,
+
         "question": "Analyze the 'Substantive Due Process' as applied to Article 21. How did the SC in the 'Maneka Gandhi' case change the relationship between Articles 14, 19, and 21?",
         "options": [
             "It kept them separate.",
@@ -858,7 +858,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_2",
-        "chapterId": 92,
+
         "question": "The 'K.S. Puttaswamy' (2017) judgment defined Privacy as a 'Bundle of Rights'. Which of the following is NOT a pillar of privacy identified by the court?",
         "options": [
             "Bodily integrity and Personal Autonomy.",
@@ -872,7 +872,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_3",
-        "chapterId": 92,
+
         "question": "In 'Common Cause vs Union of India' (2018), the SC held that the 'Right to Die with Dignity' is a part of Article 21. How does this 'Dignity' apply to a patient in a permanent vegetative state?",
         "options": [
             "It requires them to be kept alive forever.",
@@ -886,7 +886,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_4",
-        "chapterId": 92,
+
         "question": "Assertion (A): The 'Right to Livelihood' is not an absolute right that prevents all evictions from public land.\nReason (R): In 'Olga Tellis', the SC held that while livelihood is a facet of life, it can be restricted by 'Fair Procedure' in the interest of the general public.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -900,7 +900,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_5",
-        "chapterId": 92,
+
         "question": "Analyze the 'Right to Information' (RTI) as a derivative of Art 21. How does the 'Right to Know' impact the 'Personal Liberty' of a citizen?",
         "options": [
             "It has no impact.",
@@ -914,7 +914,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_6",
-        "chapterId": 92,
+
         "question": "In 'Unnikrishnan J.P.' (1993), the court held that the right to education is a fundamental right. To what level was this right initially 'Guaranteed' for free?",
         "options": [
             "Post-graduation.",
@@ -928,7 +928,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_7",
-        "chapterId": 92,
+
         "question": "Evaluate the 'Right to a Green Environment' as a facet of 'Inter-generational Equity'. What does this imply for Art 21?",
         "options": [
             "Only the current generation matters.",
@@ -942,7 +942,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_8",
-        "chapterId": 92,
+
         "question": "In 'Selvi vs State of Karnataka' (2010), the SC linked 'Mental Privacy' to Art 21. This was a response to which investigative technique?",
         "options": [
             "DNA testing.",
@@ -956,7 +956,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_9",
-        "chapterId": 92,
+
         "question": "The 'Right against Public Hanging' in 'Lachma Devi' (1989). Why was it seen as a 'Life and Liberty' issue?",
         "options": [
             "Because it costs too much.",
@@ -970,7 +970,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_10",
-        "chapterId": 92,
+
         "question": "Analysis of 'Article 21' and 'Prison Reforms'. In 'Sunil Batra (II)', the SC allowed which group to approach the court for prisoners' rights?",
         "options": [
             "Only the prisoner's family.",
@@ -984,7 +984,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_11",
-        "chapterId": 92,
+
         "question": "The 'Right to Reputation' in 'Subramanian Swamy' (2016). How did the court balance it with 'Freedom of Speech' (Art 19-1a)?",
         "options": [
             "Reputation is above everything.",
@@ -998,7 +998,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_12",
-        "chapterId": 92,
+
         "question": "In 'Hussainara Khatoon (IV)', the SC held that 'No Under-trial should be kept in jail for a period exceeding the maximum sentence for that offence'. This is an application of:",
         "options": [
             "Right to wealth.",
@@ -1012,7 +1012,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_13",
-        "chapterId": 92,
+
         "question": "Evaluate the 'Right to Reproductive Choice'. In which case did the SC say 'A woman's right to her body is a facet of her personal liberty'?",
         "options": [
             "Suchita Srivastava vs Chandigarh Administration.",
@@ -1026,7 +1026,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_14",
-        "chapterId": 92,
+
         "question": "The 'Right against Custodial Violence' (D.K. Basu). Why is this considered 'Substantive' and not just 'Procedural'?",
         "options": [
             "Because it deals with police cars.",
@@ -1040,7 +1040,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_15",
-        "chapterId": 92,
+
         "question": "Assertion (A): Article 21 includes the 'Right to receive adequate wages for work done'.\nReason (R): In 'People's Union for Democratic Rights' (1982), the SC held that denial of minimum wages to workers (Asiad projects) is a form of 'Forced Labour' and a violation of dignity.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -1054,7 +1054,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_16",
-        "chapterId": 92,
+
         "question": "What is the 'Full Spectrum' of Article 21 according to Justice Bhagwati?",
         "options": [
             "Only physical life.",
@@ -1068,7 +1068,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_17",
-        "chapterId": 92,
+
         "question": "Review the 'Right to Sleep'. Is this right applicable to a person 'Under Interrogation' by the police?",
         "options": [
             "Yes, forced sleep deprivation is a form of 'Third-degree torture' and violates Art 21.",
@@ -1082,7 +1082,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_18",
-        "chapterId": 92,
+
         "question": "The 'Right to Social Security' (Art 21) was used to protect whom in the 'Consumer Education' case?",
         "options": [
             "Consumers of milk.",
@@ -1096,7 +1096,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_19",
-        "chapterId": 92,
+
         "question": "Which case is associated with the 'Right to move freely within and outside the country' as a part of Art 21?",
         "options": [
             "Satwant Singh vs Assistant Passport Officer (1967).",
@@ -1110,7 +1110,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_20",
-        "chapterId": 92,
+
         "question": "The 'Right to a Fair Trial' includes the 'Right of an Accused to be Not Tried twice' for the same offence. This is Art 20(2). How is it related to Art 21?",
         "options": [
             "It is not related.",
@@ -1124,7 +1124,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_21",
-        "chapterId": 92,
+
         "question": "Wait. Does the 'Right to have access to Justice' (through courts) belong to Art 21?",
         "options": [
             "Yes, as an 'Effective and Meaningful' trial is impossible without access (Anita Kushwaha vs Pushpa Sadan, 2016).",
@@ -1138,7 +1138,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_22",
-        "chapterId": 92,
+
         "question": "Critically analyze the 'Doctrine of Waiver'. Can a person 'Waive' (give up) their right under Article 21?",
         "options": [
             "Yes, if they sign a bond.",
@@ -1152,7 +1152,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_23",
-        "chapterId": 92,
+
         "question": "Analysis of 'Article 21' and 'Foreigners'. In which case did the SC say 'The life of a foreigner in India is as sacred as that of a citizen'?",
         "options": [
             "Chakma Refugees case (NHRC vs State of Arunachal Pradesh, 1996).",
@@ -1166,7 +1166,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_24",
-        "chapterId": 92,
+
         "question": "What is the status of 'Marital Rape' as a violation of Art 21 in India?",
         "options": [
             "It is fully criminalized.",
@@ -1180,7 +1180,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_25",
-        "chapterId": 92,
+
         "question": "The 'Right against Bar Fetters' in 'Sunil Batra' was based on the fact that chain-iron:",
         "options": [
             "Was too heavy.",
@@ -1194,7 +1194,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_26",
-        "chapterId": 92,
+
         "question": "Wait. In which case did the SC hold that 'Speedy justice is part of the common law and Indian constitutional law'?",
         "options": [
             "Kedar Nath case.",
@@ -1208,7 +1208,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_27",
-        "chapterId": 92,
+
         "question": "The 'Right to a Green Environment' includes the principle of 'The Polluter Pays'. This means:",
         "options": [
             "Govt pays for pollution.",
@@ -1222,7 +1222,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_28",
-        "chapterId": 92,
+
         "question": "Does Article 21 provide a 'Right to work'?",
         "options": [
             "No, not as a direct fundamental right, though the state must direct policy towards it (Art 41).",
@@ -1236,7 +1236,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_29",
-        "chapterId": 92,
+
         "question": "Which of the following is an 'Inviolate' part of Art 21 that can NEVER be taken away according to post-1978 jurisprudence?",
         "options": [
             "Freedom from arbitrary arrest.",
@@ -1250,7 +1250,7 @@ export const CHAPTER_92_MCQS: MCQ[] = [
     },
     {
         "id": "ch92_l3_30",
-        "chapterId": 92,
+
         "question": "Who summarized Art 21 as 'A source of many substantive and procedural rights that give meaning to the lives of people'?",
         "options": [
             "Justice P.N. Bhagwati.",

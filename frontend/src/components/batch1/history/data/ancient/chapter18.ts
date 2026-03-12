@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_18_SUBTOPICS: Subtopic[] = [
@@ -141,3 +142,4 @@ export const ANCIENT_CHAPTER_18_CONTENT = `
 - **Planned Cities:** Greek-Kushan grid-planning in sites like **Taxila** (Sirkap).
 - **Secular Art:** Terracotta figurines depicted common man’s fashions and hairstyles.
 `;
+

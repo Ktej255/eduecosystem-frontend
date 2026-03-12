@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_33_MCQS: any[] = [
   },
   {
     id: '33-34',
-    question: "Consider the following statements regarding the 'Forward Bloc': 1. It was formed as a separate party within the Congress to consolidate the Leftist forces. 2. Bose intended it to be a \"vanguard\" party to lead a radical struggle against British imperialism. 3. It was immediately supported by Jawaharlal Nehru and the Congress Socialists. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Forward Bloc':\n1. It was formed as a separate party within the Congress to consolidate the Leftist forces.\n2. Bose intended it to be a \"vanguard\" party to lead a radical struggle against British imperialism. 3. It was immediately supported by Jawaharlal Nehru and the Congress Socialists. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only. Statement 3 is incorrect; while Nehru and the Socialists shared Bose's ideology, they refused to join the Forward Bloc because they feared it would break the unity of the Congress.",
@@ -346,7 +346,7 @@ export const MODERN_CHAPTER_33_MCQS: any[] = [
   },
   {
     id: '33-39',
-    question: "Consider the following regarding the 'Tripuri Crisis': 1. Subhas Chandra Bose accused the 'Right Wing' of the Congress of planning a secret deal with the British for Dominion Status. 2. The crisis resulted in the isolation of Bose and his eventual exit from the Congress. 3. Gandhi remained neutral during the entire election process. How many of the above are correct?",
+    question: "Consider the following regarding the 'Tripuri Crisis':\n1. Subhas Chandra Bose accused the 'Right Wing' of the Congress of planning a secret deal with the British for Dominion Status.\n2. The crisis resulted in the isolation of Bose and his eventual exit from the Congress.\n3. Gandhi remained neutral during the entire election process. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; Gandhi was actively involved and viewed Pattabhi's defeat as a personal rejection).",
@@ -364,7 +364,7 @@ export const MODERN_CHAPTER_33_MCQS: any[] = [
   },
   {
     id: '33-41',
-    question: "Match the following 'Positions' during the early WWII years: 1. Subhas Chandra Bose \u2014",
+    question: "Match the following 'Positions' during the early WWII years:\n1. Subhas Chandra Bose \u2014",
     options: ["\"Britain's difficulty is India's opportunity\" (Immediate Struggle) 2. Jawaharlal Nehru \u2014", "\"Neither support for war nor embarrassment to Britain\" (Mixed feelings) 3. Mahatma Gandhi \u2014", "\"Moral support to Britain, but no active participation\" (Ethical stand) Select the correct matching code:", "1-A, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C.",
@@ -409,7 +409,7 @@ export const MODERN_CHAPTER_33_MCQS: any[] = [
   },
   {
     id: '33-46',
-    question: "Consider the following regarding 'Individual Satyagraha': 1. It was the first mass movement since the Civil Disobedience Movement. 2. It emphasized 'Quality' of Satyagrahis over 'Quantity'. 3. The Satyagrahis were required to preach against participation in the war effort. How many of the above are correct?",
+    question: "Consider the following regarding 'Individual Satyagraha':\n1. It was the first mass movement since the Civil Disobedience Movement.\n2. It emphasized 'Quality' of Satyagrahis over 'Quantity'.\n3. The Satyagrahis were required to preach against participation in the war effort. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 1 is incorrect; it was specifically designed NOT to be a mass movement, but a symbolic, individual protest).",
@@ -526,7 +526,7 @@ export const MODERN_CHAPTER_33_MCQS: any[] = [
   },
   {
     id: '33-59',
-    question: "Consider the following regarding the 'Tripuri Crisis': 1. Bose\u2019s health was so poor that he was carried on a stretcher during the session. 2. The Congress Socialists (CSP) remained neutral during the Pant Resolution, which led to Bose's defeat. 3. Gandhi attended the Tripuri session in person to oppose Bose. How many of the above are correct?",
+    question: "Consider the following regarding the 'Tripuri Crisis':\n1. Bose\u2019s health was so poor that he was carried on a stretcher during the session.\n2. The Congress Socialists (CSP) remained neutral during the Pant Resolution, which led to Bose's defeat.\n3. Gandhi attended the Tripuri session in person to oppose Bose. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; Gandhi stayed away from Tripuri, choosing to be in Rajkot instead, but his presence was felt through the 'Old Guard').",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_33_MCQS: any[] = [
   },
   {
     id: '33-66',
-    question: "Match the following 'Phases of WWII' with the 'Indian Political Response': 1. Phoney War (1939-40) \u2014",
+    question: "Match the following 'Phases of WWII' with the 'Indian Political Response':\n1. Phoney War (1939-40) \u2014",
     options: ["Individual Satyagraha 2. Fall of France (1940) \u2014", "August Offer & Internal debate on violence 3. Japanese Threat (1941) \u2014", "Suspension of Satyagraha & Cripps Mission background Select the correct matching code:", "1-A, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C.",

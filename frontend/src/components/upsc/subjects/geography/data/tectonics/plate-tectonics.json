@@ -1,0 +1,350 @@
+{
+    "name": "Plate Tectonics",
+    "description": "The theory that Earth's lithosphere is divided into several plates that move over the asthenosphere",
+    "source": "NCERT Class 11 Geography / USGS",
+    "majorPlates": [
+        {
+            "id": "pacific",
+            "name": "Pacific Plate",
+            "color": "#1E88E5",
+            "area": "103.3 million km²",
+            "type": "oceanic",
+            "centerCoords": [
+                0,
+                -150
+            ],
+            "movement": {
+                "direction": "NW",
+                "speed": "7-11 cm/year"
+            }
+        },
+        {
+            "id": "north-american",
+            "name": "North American Plate",
+            "color": "#43A047",
+            "area": "75.9 million km²",
+            "type": "continental",
+            "centerCoords": [
+                45,
+                -100
+            ],
+            "movement": {
+                "direction": "W",
+                "speed": "2.3 cm/year"
+            }
+        },
+        {
+            "id": "eurasian",
+            "name": "Eurasian Plate",
+            "color": "#FDD835",
+            "area": "67.8 million km²",
+            "type": "continental",
+            "centerCoords": [
+                50,
+                80
+            ],
+            "movement": {
+                "direction": "E",
+                "speed": "2.1 cm/year"
+            }
+        },
+        {
+            "id": "african",
+            "name": "African Plate",
+            "color": "#E53935",
+            "area": "61.3 million km²",
+            "type": "continental",
+            "centerCoords": [
+                5,
+                20
+            ],
+            "movement": {
+                "direction": "NE",
+                "speed": "2.15 cm/year"
+            }
+        },
+        {
+            "id": "antarctic",
+            "name": "Antarctic Plate",
+            "color": "#ECEFF1",
+            "area": "60.9 million km²",
+            "type": "continental",
+            "centerCoords": [
+                -80,
+                0
+            ],
+            "movement": {
+                "direction": "stationary",
+                "speed": "~0"
+            }
+        },
+        {
+            "id": "indo-australian",
+            "name": "Indo-Australian Plate",
+            "color": "#FF7043",
+            "area": "58.9 million km²",
+            "type": "continental",
+            "centerCoords": [
+                -25,
+                130
+            ],
+            "movement": {
+                "direction": "NE",
+                "speed": "6-7 cm/year"
+            }
+        },
+        {
+            "id": "south-american",
+            "name": "South American Plate",
+            "color": "#AB47BC",
+            "area": "43.6 million km²",
+            "type": "continental",
+            "centerCoords": [
+                -15,
+                -55
+            ],
+            "movement": {
+                "direction": "W",
+                "speed": "2.7 cm/year"
+            }
+        }
+    ],
+    "minorPlates": [
+        {
+            "id": "nazca",
+            "name": "Nazca Plate",
+            "type": "oceanic",
+            "location": "Off the coast of South America",
+            "movement": "NE at 7.7 cm/yr"
+        },
+        {
+            "id": "cocos",
+            "name": "Cocos Plate",
+            "type": "oceanic",
+            "location": "Off the coast of Central America",
+            "movement": "NE at 8.0 cm/yr"
+        },
+        {
+            "id": "arabian",
+            "name": "Arabian Plate",
+            "type": "continental",
+            "location": "Arabian Peninsula",
+            "movement": "N at 2.5 cm/yr"
+        },
+        {
+            "id": "philippine",
+            "name": "Philippine Plate",
+            "type": "oceanic",
+            "location": "East of Philippines",
+            "movement": "NW at 6.0 cm/yr"
+        },
+        {
+            "id": "caroline",
+            "name": "Caroline Plate",
+            "type": "oceanic",
+            "location": "North of New Guinea",
+            "movement": "NW at 2.0 cm/yr"
+        },
+        {
+            "id": "juan-de-fuca",
+            "name": "Juan de Fuca Plate",
+            "type": "oceanic",
+            "location": "Off the coast of NE USA",
+            "movement": "NE at 2.8 cm/yr"
+        },
+        {
+            "id": "scotia",
+            "name": "Scotia Plate",
+            "type": "oceanic",
+            "location": "South Atlantic",
+            "movement": "E at 2.2 cm/yr"
+        }
+    ],
+    "boundaries": [
+        {
+            "id": "mid-atlantic",
+            "name": "Mid-Atlantic Ridge",
+            "type": "divergent",
+            "description": "North American & Eurasian plates moving apart",
+            "path": [
+                [
+                    65,
+                    -18
+                ],
+                [
+                    50,
+                    -30
+                ],
+                [
+                    30,
+                    -40
+                ],
+                [
+                    0,
+                    -15
+                ],
+                [
+                    -30,
+                    -10
+                ],
+                [
+                    -55,
+                    -5
+                ]
+            ],
+            "color": "#4CAF50"
+        },
+        {
+            "id": "san-andreas",
+            "name": "San Andreas Fault",
+            "type": "transform",
+            "description": "Pacific & North American plates sliding past each other",
+            "path": [
+                [
+                    40,
+                    -124
+                ],
+                [
+                    37,
+                    -122
+                ],
+                [
+                    34,
+                    -118
+                ],
+                [
+                    32,
+                    -115
+                ]
+            ],
+            "color": "#FF9800"
+        },
+        {
+            "id": "himalayan",
+            "name": "Himalayan Collision Zone",
+            "type": "convergent",
+            "description": "Indo-Australian & Eurasian plates colliding",
+            "path": [
+                [
+                    28,
+                    72
+                ],
+                [
+                    30,
+                    80
+                ],
+                [
+                    28,
+                    88
+                ],
+                [
+                    27,
+                    95
+                ]
+            ],
+            "color": "#F44336"
+        },
+        {
+            "id": "ring-of-fire-west",
+            "name": "Ring of Fire (Western Pacific)",
+            "type": "convergent",
+            "description": "Pacific plate subducting under continental plates",
+            "path": [
+                [
+                    55,
+                    160
+                ],
+                [
+                    45,
+                    145
+                ],
+                [
+                    35,
+                    140
+                ],
+                [
+                    20,
+                    125
+                ],
+                [
+                    0,
+                    130
+                ],
+                [
+                    -15,
+                    150
+                ],
+                [
+                    -40,
+                    175
+                ]
+            ],
+            "color": "#F44336"
+        },
+        {
+            "id": "ring-of-fire-east",
+            "name": "Ring of Fire (Eastern Pacific)",
+            "type": "convergent",
+            "description": "Pacific plate subducting under American plates",
+            "path": [
+                [
+                    55,
+                    -165
+                ],
+                [
+                    45,
+                    -130
+                ],
+                [
+                    20,
+                    -105
+                ],
+                [
+                    -5,
+                    -80
+                ],
+                [
+                    -35,
+                    -75
+                ],
+                [
+                    -50,
+                    -75
+                ]
+            ],
+            "color": "#F44336"
+        }
+    ],
+    "boundaryTypes": {
+        "divergent": {
+            "name": "Divergent Boundary",
+            "description": "Plates move apart, new crust forms",
+            "features": [
+                "Mid-ocean ridges",
+                "Rift valleys",
+                "Volcanic activity"
+            ],
+            "example": "Mid-Atlantic Ridge"
+        },
+        "convergent": {
+            "name": "Convergent Boundary",
+            "description": "Plates collide, one may subduct",
+            "features": [
+                "Mountains",
+                "Trenches",
+                "Earthquakes",
+                "Volcanoes"
+            ],
+            "example": "Himalayas, Mariana Trench"
+        },
+        "transform": {
+            "name": "Transform Boundary",
+            "description": "Plates slide past each other horizontally",
+            "features": [
+                "Earthquakes",
+                "Fault lines"
+            ],
+            "example": "San Andreas Fault"
+        }
+    }
+}

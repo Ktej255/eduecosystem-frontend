@@ -292,7 +292,7 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
   },
   {
     id: '12-33',
-    question: "Consider the following statements regarding the 'Anushilan Samiti': 1. It started as a secret society in Bengal aimed at promoting physical culture and revolutionary ideas. 2. The Dacca Anushilan Samiti, led by Pulin Das, had over 500 branches and was highly organized. 3. It strictly prohibited its members from reading any Western political literature. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Anushilan Samiti':\n1. It started as a secret society in Bengal aimed at promoting physical culture and revolutionary ideas.\n2. The Dacca Anushilan Samiti, led by Pulin Das, had over 500 branches and was highly organized.\n3. It strictly prohibited its members from reading any Western political literature. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only Statement 3 is incorrect. Members were encouraged to read revolutionary literature from across the world, including the history of the Irish struggle and the Russian nihilists.",
@@ -346,7 +346,7 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
   },
   {
     id: '12-39',
-    question: "Consider the following pairs of revolutionaries and the acts they are associated with: 1. Madan Lal Dhingra \u2014 Assassination of Curzon Wyllie in London. 2. Anant Kanhere \u2014 Assassination of A.M.T. Jackson in Nasik. 3. Khudiram Bose \u2014 Bombing of the Central Legislative Assembly. How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of revolutionaries and the acts they are associated with:\n1. Madan Lal Dhingra \u2014 Assassination of Curzon Wyllie in London.\n2. Anant Kanhere \u2014 Assassination of A.M.T. Jackson in Nasik.\n3. Khudiram Bose \u2014 Bombing of the Central Legislative Assembly. How many of the above pairs are correctly matched?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Pair 3 is incorrect. Khudiram Bose attempted to assassinate Judge Kingsford at Muzaffarpur. The bombing of the Central Legislative Assembly was done by Bhagat Singh and Batukeshwar Dutt much later (1929).",
@@ -418,7 +418,7 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
   },
   {
     id: '12-47',
-    question: "Consider the following statements regarding the ideological underpinnings of the first phase of revolutionary activities (1907\u20131917): 1. The revolutionaries drew inspiration from the Irish Fenians, the Russian Nihilists, and the Italian Carbonari. 2. Their primary strategy was to organize a pan-India mass uprising of the peasantry and industrial workers. 3. They believed in \"Propaganda by Deed\"\u2014the use of individual heroic actions to inspire the masses and paralyze the colonial administration. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the ideological underpinnings of the first phase of revolutionary activities (1907\u20131917):\n1. The revolutionaries drew inspiration from the Irish Fenians, the Russian Nihilists, and the Italian Carbonari.\n2. Their primary strategy was to organize a pan-India mass uprising of the peasantry and industrial workers.\n3. They believed in \"Propaganda by Deed\"\u2014the use of individual heroic actions to inspire the masses and paralyze the colonial administration. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the first phase was characterized by a lack of mass base. They focused on individual assassinations and small-group actions because they believed the masses were not yet ready for a full-scale revolution.",
@@ -436,7 +436,7 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
   },
   {
     id: '12-49',
-    question: "Regarding the 'Ghadar Party' (1913), consider the following statements: 1. It was established by Lala Hardayal, but its first President was Sohan Singh Bhakna. 2. The movement remained strictly restricted to the Sikh community and used religious symbols to mobilize its members. 3. The Ghadarites aimed to exploit the First World War to trigger a mutiny among Indian soldiers in the British Army. How many of the above statements are correct?",
+    question: "Regarding the 'Ghadar Party' (1913), consider the following statements:\n1. It was established by Lala Hardayal, but its first President was Sohan Singh Bhakna.\n2. The movement remained strictly restricted to the Sikh community and used religious symbols to mobilize its members.\n3. The Ghadarites aimed to exploit the First World War to trigger a mutiny among Indian soldiers in the British Army. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the Ghadar movement was deeply secular. It included Hindus, Muslims, and Sikhs, and explicitly forbade religious discussions that could cause communal divides.",
@@ -445,7 +445,7 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
   },
   {
     id: '12-50',
-    question: "Arrange the following revolutionary events in the correct chronological order: 1. The assassination of Curzon Wyllie in London by Madan Lal Dhingra. 2. The Muzaffarpur Bombing by Khudiram Bose and Prafulla Chaki. 3. The Komagata Maru incident. 4. The Alipore Conspiracy Case. Select the correct answer using the code given below:",
+    question: "Arrange the following revolutionary events in the correct chronological order:\n1. The assassination of Curzon Wyllie in London by Madan Lal Dhingra.\n2. The Muzaffarpur Bombing by Khudiram Bose and Prafulla Chaki.\n3. The Komagata Maru incident.\n4. The Alipore Conspiracy Case. Select the correct answer using the code given below:",
     options: ["2 \u2014 4 \u2014 1 \u2014 3", "2 \u2014 1 \u2014 4 \u2014 3", "4 \u2014 2 \u2014 3 \u2014 1", "1 \u2014 2 \u2014 4 \u2014 3"],
     correctAnswer: 0,
     explanation: "2 \u2014 4 \u2014 1 \u2014 3 Muzaffarpur (April 1908) -> Alipore Case (May 1908) -> Curzon Wyllie (July 1909) -> Komagata Maru (1914).",
@@ -454,7 +454,7 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
   },
   {
     id: '12-51',
-    question: "Consider the following regarding the 'Zimmermann Plan' (Indo-German Conspiracy): 1. It was a plan by the German Foreign Office to support Indian revolutionaries with arms and funds during World War I. 2. The plan involved landing a massive shipment of arms at Rai Mangal in the Sunderbans and Hatia. 3. Bagha Jatin (Jatindranath Mukherjee) was the key leader chosen to coordinate the uprising in Bengal using these arms. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Zimmermann Plan' (Indo-German Conspiracy):\n1. It was a plan by the German Foreign Office to support Indian revolutionaries with arms and funds during World War I.\n2. The plan involved landing a massive shipment of arms at Rai Mangal in the Sunderbans and Hatia.\n3. Bagha Jatin (Jatindranath Mukherjee) was the key leader chosen to coordinate the uprising in Bengal using these arms. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three This was a highly sophisticated plan that unfortunately failed due to the British intercepting the communications (the \"Maverick\" ship incident).",
@@ -472,7 +472,7 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
   },
   {
     id: '12-53',
-    question: "Match the Revolutionary Centers with their respective Organizations/Leaders: 1. London \u2014",
+    question: "Match the Revolutionary Centers with their respective Organizations/Leaders:\n1. London \u2014",
     options: ["Bharat Mata Society (Ajit Singh) 2. Nasik \u2014", "India House (Shyamji Krishnavarma) 3. Punjab \u2014", "Abhinav Bharat (Savarkar) 4. San Francisco \u2014", "Ghadar Party (Lala Hardayal) Select the correct matching code:"],
     correctAnswer: 0,
     explanation: "1-B, 2-C, 3-A, 4-D",

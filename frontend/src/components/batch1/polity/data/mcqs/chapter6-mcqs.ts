@@ -6,7 +6,7 @@ import { MCQ } from './chapter1-mcqs';
 export const CHAPTER_6_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 6,
+
         question: "Which Articles of the Constitution deal with the Union and its Territory?",
         options: [
             "Articles 1 to 4",
@@ -20,7 +20,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 6,
+
         question: "Article 1 describes India as a:",
         options: [
             "Federation of States",
@@ -34,7 +34,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 6,
+
         question: "Which of the following describes the phrase 'Union of States' as per Dr. B.R. Ambedkar?\n1. Indian Federation is not the result of an agreement among states.\n2. States have no right to secede from the federation.",
         options: [
             "1 only",
@@ -48,7 +48,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 6,
+
         question: "The 'Territory of India' is a wider expression than the 'Union of India' because it includes:",
         options: [
             "Only States",
@@ -62,7 +62,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 6,
+
         question: "Article 2 of the Constitution relates to:",
         options: [
             "Internal reorganization of states",
@@ -76,7 +76,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 6,
+
         question: "Article 3 relates to:",
         options: [
             "Admission of foreign territories",
@@ -90,7 +90,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 6,
+
         question: "A bill for the formation of new states or alteration of boundaries can be introduced in the Parliament:",
         options: [
             "Only with the prior recommendation of the President",
@@ -104,7 +104,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 6,
+
         question: "The views of the state legislature regarding a bill under Article 3 are:",
         options: [
             "Binding on the President and Parliament",
@@ -118,7 +118,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 6,
+
         question: "India is described as an 'indestructible union of destructible states'. This means:",
         options: [
             "States can destroy the union",
@@ -132,7 +132,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 6,
+
         question: "Laws made under Articles 2 and 3 can be passed by:",
         options: [
             "Simple majority of the Parliament",
@@ -146,7 +146,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 11,
-        chapterId: 6,
+
         question: "In the Berubari Union case (1960), the Supreme Court held that:",
         options: [
             "Parliament can cede Indian territory to a foreign state under Article 3",
@@ -160,7 +160,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 12,
-        chapterId: 6,
+
         question: "The 100th Constitutional Amendment Act (2015) was enacted to:",
         options: [
             "Give constitutional status to NCBC",
@@ -174,7 +174,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 13,
-        chapterId: 6,
+
         question: "At the time of independence, there were two categories of political units in India:",
         options: [
             "British Provinces and Princely States",
@@ -188,7 +188,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 14,
-        chapterId: 6,
+
         question: "Who was the first chairperson of the Linguistic Provinces Commission appointed in June 1948?",
         options: [
             "S.K. Dhar",
@@ -202,7 +202,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 15,
-        chapterId: 6,
+
         question: "The JVP Committee (Nehru, Patel, Sitaramayya) formally rejected which basis for state reorganization?",
         options: [
             "Administrative convenience",
@@ -216,7 +216,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 16,
-        chapterId: 6,
+
         question: "Which was the first state to be created on a linguistic basis in 1953?",
         options: [
             "Andhra State",
@@ -230,7 +230,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 17,
-        chapterId: 6,
+
         question: "The Fazl Ali Commission (1953) accepted which factor as the basis for state reorganization?",
         options: [
             "Broadly accepted language",
@@ -244,7 +244,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 18,
-        chapterId: 6,
+
         question: "The States Reorganisation Act (1956) created how many States and UTs?",
         options: [
             "14 States and 6 UTs",
@@ -258,7 +258,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 19,
-        chapterId: 6,
+
         question: "When were Manipur, Tripura and Meghalaya created as states?",
         options: [
             "1966",
@@ -272,7 +272,7 @@ export const CHAPTER_6_MCQS: MCQ[] = [
     },
     {
         id: 20,
-        chapterId: 6,
+
         question: "Currently, how many States and Union Territories are there in India?",
         options: [
             "29 States and 7 UTs",

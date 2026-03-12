@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_80_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 80,
+
         question: "The Consumer Protection Act, 2019 replaced the Consumer Protection Act of which year?",
         options: ["1955", "1986", "2002", "2013"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_80_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 80,
+
         question: "A complaint where the value of goods/services paid is ₹50 lakhs should be filed in:",
         options: ["District Commission", "State Commission", "National Commission", "Supreme Court"],
         correctAnswer: 0,
@@ -21,7 +21,7 @@ export const CHAPTER_80_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 80,
+
         question: "The CCPA stands for:",
         options: [
             "Central Commission for Price Analysis",
@@ -35,7 +35,7 @@ export const CHAPTER_80_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 80,
+
         question: "The State Consumer Commission has jurisdiction over cases with values between:",
         options: ["₹10 lakh to ₹50 lakh", "₹50 lakh to ₹1 crore", "₹1 crore to ₹10 crore", "₹10 crore to ₹100 crore"],
         correctAnswer: 2,
@@ -44,7 +44,7 @@ export const CHAPTER_80_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 80,
+
         question: "An appeal against the order of the State Commission lies with:",
         options: ["High Court", "National Commission", "Supreme Court", "Central Government"],
         correctAnswer: 1,
@@ -53,7 +53,7 @@ export const CHAPTER_80_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 80,
+
         question: "Who is eligible to be the President of the National Consumer Commission?",
         options: [
             "A person who is/has been a Judge of the Supreme Court",
@@ -67,7 +67,7 @@ export const CHAPTER_80_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 80,
+
         question: "Which of the following is a new feature added by 2019 Act?",
         options: ["Product Liability", "Mediation", "E-filing of complaints", "All of the above"],
         correctAnswer: 3,
@@ -76,7 +76,7 @@ export const CHAPTER_80_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 80,
+
         question: "The CCPA can impose a penalty of up to how much for misleading advertisements?",
         options: ["₹1 lakh", "₹5 lakh", "₹10 lakh", "₹50 lakh"],
         correctAnswer: 2,
@@ -85,7 +85,7 @@ export const CHAPTER_80_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 80,
+
         question: "The National Consumer Commission is located in:",
         options: ["Mumbai", "Bengaluru", "New Delhi", "Kolkata"],
         correctAnswer: 2,
@@ -94,7 +94,7 @@ export const CHAPTER_80_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 80,
+
         question: "Product Liability under the 2019 Act means compensation for:",
         options: [
             "Delay in delivery",

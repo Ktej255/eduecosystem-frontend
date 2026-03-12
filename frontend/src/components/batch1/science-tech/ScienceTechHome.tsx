@@ -92,7 +92,7 @@ export default function ScienceTechHome() {
 
                 {activeTab === 'question_bank' && (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 py-8">
-                        <UniversalQuestionBank initialSubject="scitech" />
+                        <UniversalQuestionBank initialSubject="science-tech" />
                     </div>
                 )}
             </div>

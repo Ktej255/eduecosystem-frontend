@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_75_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 75,
+
         question: "Promotion of international peace and security is mentioned in which Article?",
         options: ["Article 44", "Article 50", "Article 51", "Article 52"],
         correctAnswer: 2,
@@ -12,7 +12,7 @@ export const CHAPTER_75_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 75,
+
         question: "Panchsheel was signed between India and which other country?",
         options: ["Pakistan", "China", "Russia", "USA"],
         correctAnswer: 1,
@@ -21,7 +21,7 @@ export const CHAPTER_75_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 75,
+
         question: "Which of the following is NOT a founder of the Non-Aligned Movement (NAM)?",
         options: ["Nehru", "Tito", "Nasser", "Stalin"],
         correctAnswer: 3,
@@ -30,7 +30,7 @@ export const CHAPTER_75_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 75,
+
         question: "The Gujral Doctrine emphasized:",
         options: [
             "Building nuclear weapons",
@@ -44,7 +44,7 @@ export const CHAPTER_75_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 75,
+
         question: "Look East Policy was renamed/elevated to 'Act East Policy' by:",
         options: ["Rajiv Gandhi", "Manmohan Singh", "Narendra Modi", "Atal Bihari Vajpayee"],
         correctAnswer: 2,
@@ -53,7 +53,7 @@ export const CHAPTER_75_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 75,
+
         question: "India's Nuclear Doctrine includes 'Credible Minimum Deterrence' and:",
         options: ["No First Use", "First Strike capability", "No Retaliation", "Disarmament only"],
         correctAnswer: 0,
@@ -62,7 +62,7 @@ export const CHAPTER_75_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 75,
+
         question: "The first NAM summit was held in 1961 at:",
         options: ["New Delhi", "Cairo", "Belgrade", "Jakarta"],
         correctAnswer: 2,
@@ -71,7 +71,7 @@ export const CHAPTER_75_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 75,
+
         question: "Which principle of Panchsheel refers to 'Mutual non-interference'?",
         options: ["1st", "2nd", "3rd", "4th"],
         correctAnswer: 2,
@@ -80,7 +80,7 @@ export const CHAPTER_75_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 75,
+
         question: "India's foreign policy aims to support which type of world order?",
         options: ["Unipolar", "Bipolar", "Multipolar", "Imperialist"],
         correctAnswer: 2,
@@ -89,7 +89,7 @@ export const CHAPTER_75_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 75,
+
         question: "Which neighboring country is NOT covered under the 'unilateral concessions' logic of Gujral Doctrine (due to size/rivalry)?",
         options: ["Bhutan", "Maldives", "Pakistan", "Nepal"],
         correctAnswer: 2,

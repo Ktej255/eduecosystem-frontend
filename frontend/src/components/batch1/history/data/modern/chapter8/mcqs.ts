@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
   },
   {
     id: '8-62',
-    question: "Consider the following statements regarding the 'Brahmo Samaj' of Raja Rammohan Roy: 1. It relied on the power of the human mind to choose between right and wrong, effectively discarding the need for an intermediary priest. 2. It completely denied the divinity of Jesus Christ while acknowledging the ethical teachings of Christianity. 3. It aimed at the creation of a new, separate religion outside the fold of Hinduism. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Brahmo Samaj' of Raja Rammohan Roy:\n1. It relied on the power of the human mind to choose between right and wrong, effectively discarding the need for an intermediary priest.\n2. It completely denied the divinity of Jesus Christ while acknowledging the ethical teachings of Christianity.\n3. It aimed at the creation of a new, separate religion outside the fold of Hinduism. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only Statement 3 is incorrect. Rammohan Roy never intended to establish a new religion; he wanted to purge Hinduism of its later distortions and restore its original monotheistic purity.",
@@ -742,7 +742,7 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
   },
   {
     id: '8-83',
-    question: "Consider the following pairs of Reform Movements and their founders: 1. Deva Samaj \u2014 Shiv Narain Agnihotri 2. Seva Sadan \u2014 B.M. Malabari 3. Social Service League \u2014 N.M. Joshi How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of Reform Movements and their founders:\n1. Deva Samaj \u2014 Shiv Narain Agnihotri\n2. Seva Sadan \u2014 B.M. Malabari\n3. Social Service League \u2014 N.M. Joshi How many of the above pairs are correctly matched?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three",
@@ -823,7 +823,7 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
   },
   {
     id: '8-92',
-    question: "Consider the following statements regarding the evolution of the Brahmo Samaj: 1. The 'Tattvabodhini Sabha', founded by Debendranath Tagore, served as a bridge between the radical ideas of the Young Bengal movement and the traditionalism of the Dharma Sabha. 2. The first major split in the Brahmo Samaj (1866) occurred because Keshab Chandra Sen advocated for a more internationalist and radical social reform agenda, including the inclusion of teachings from all major religions. 3. The 'Sadharan Brahmo Samaj' was established by Shivanath Shastri and Ananda Mohan Bose to restore the democratic functioning of the Samaj after the Cooch Behar marriage controversy. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the evolution of the Brahmo Samaj:\n1. The 'Tattvabodhini Sabha', founded by Debendranath Tagore, served as a bridge between the radical ideas of the Young Bengal movement and the traditionalism of the Dharma Sabha.\n2. The first major split in the Brahmo Samaj (1866) occurred because Keshab Chandra Sen advocated for a more internationalist and radical social reform agenda, including the inclusion of teachings from all major religions.\n3. The 'Sadharan Brahmo Samaj' was established by Shivanath Shastri and Ananda Mohan Bose to restore the democratic functioning of the Samaj after the Cooch Behar marriage controversy. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 2 and 3 are correct. Statement 1 is incorrect; the Tattvabodhini Sabha was founded to systematically study India\u2019s past with a rationalist outlook and propagate Rammohan Roy\u2019s ideas, not to bridge the gap with the orthodox Dharma Sabha.",
@@ -841,7 +841,7 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
   },
   {
     id: '8-94',
-    question: "Match the following Reform Movements with the specific community-based grievance they addressed: 1. Self-Respect Movement \u2014",
+    question: "Match the following Reform Movements with the specific community-based grievance they addressed:\n1. Self-Respect Movement \u2014",
     options: ["Liberation of religious shrines from corrupt Mahants. 2. Akali Movement \u2014", "Countering the \"Brahminical hegemony\" in civil and religious life. 3. Justice Movement \u2014", "Demand for representation in legislature and jobs for non-Brahmins. 4. Aligarh Movement \u2014", "Reconciliation of Islamic faith with modern scientific rationalism. Select the correct matching code:"],
     correctAnswer: 0,
     explanation: "1-B, 2-A, 3-C, 4-D",
@@ -850,7 +850,7 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
   },
   {
     id: '8-95',
-    question: "Consider the following statements regarding the 'Theosophical Society' in the Indian context: 1. It was the only 19th-century movement founded by foreigners that sought to revitalize the ancient Hindu, Buddhist, and Zoroastrian philosophies. 2. Annie Besant\u2019s leadership saw the Society become a major catalyst for the growth of national self-respect and the Home Rule movement. 3. The Society strictly prohibited its members from participating in any form of Indian political activism. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Theosophical Society' in the Indian context:\n1. It was the only 19th-century movement founded by foreigners that sought to revitalize the ancient Hindu, Buddhist, and Zoroastrian philosophies.\n2. Annie Besant\u2019s leadership saw the Society become a major catalyst for the growth of national self-respect and the Home Rule movement.\n3. The Society strictly prohibited its members from participating in any form of Indian political activism. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is false; under Annie Besant, many Theosophists were deeply involved in the nationalist struggle and the Home Rule League.",
@@ -877,7 +877,7 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
   },
   {
     id: '8-98',
-    question: "Consider the following pairs of Reformers and their associated literary works/journals: 1. Dayanand Saraswati \u2014 Satyarth Prakash 2. Gopal Hari Deshmukh \u2014 Lokayata 3. Jyotirao Phule \u2014 Gulamgiri 4. Shiv Narain Agnihotri \u2014 Dev Shastra How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of Reformers and their associated literary works/journals:\n1. Dayanand Saraswati \u2014 Satyarth Prakash\n2. Gopal Hari Deshmukh \u2014 Lokayata\n3. Jyotirao Phule \u2014 Gulamgiri\n4. Shiv Narain Agnihotri \u2014 Dev Shastra How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
     correctAnswer: 2,
     explanation: "Only three pairs Pair 2 is incorrect. Gopal Hari Deshmukh (Lokhitawadi) is famous for his \"Shatapatre\" (Hundred Letters) in the weekly Prabhakar, not Lokayata.",
@@ -895,7 +895,7 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
   },
   {
     id: '8-100',
-    question: "Regarding the 'Self-Respect Movement' (1925), consider the following statements: 1. It sought to achieve a society where backward castes have equal human rights. 2. It encouraged weddings to be performed without the presence of a Brahmin priest. 3. It advocated for the supremacy of the Tamil language over Sanskrit as a tool for Dravidian liberation. How many of the above statements are correct?",
+    question: "Regarding the 'Self-Respect Movement' (1925), consider the following statements:\n1. It sought to achieve a society where backward castes have equal human rights.\n2. It encouraged weddings to be performed without the presence of a Brahmin priest.\n3. It advocated for the supremacy of the Tamil language over Sanskrit as a tool for Dravidian liberation. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three",
@@ -922,7 +922,7 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
   },
   {
     id: '8-103',
-    question: "Arrange the following movements in chronological order of their foundation: 1. Brahmo Samaj 2. Arya Samaj 3. Prarthana Samaj 4. Ramakrishna Mission Select the correct answer using the code given below:",
+    question: "Arrange the following movements in chronological order of their foundation:\n1. Brahmo Samaj\n2. Arya Samaj\n3. Prarthana Samaj\n4. Ramakrishna Mission Select the correct answer using the code given below:",
     options: ["1 \u2014 3 \u2014 2 \u2014 4", "1 \u2014 2 \u2014 3 \u2014 4", "3 \u2014 1 \u2014 2 \u2014 4", "1 \u2014 3 \u2014 4 \u2014 2"],
     correctAnswer: 0,
     explanation: "1 \u2014 3 \u2014 2 \u2014 4 Brahmo Samaj (1828) -> Prarthana Samaj (1867) -> Arya Samaj (1875) -> Ramakrishna Mission (1897).",
@@ -931,7 +931,7 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
   },
   {
     id: '8-104',
-    question: "Consider the following regarding 'Lokhitawadi' (Gopal Hari Deshmukh): 1. He argued that if religion does not sanction social reform, then religion should be changed as it is man-made. 2. He was a pioneer of the concept of economic self-reliance and advocated for the use of Swadeshi long before the Swadeshi movement. 3. He held that rationalism was the only guide for progress. How many of the above statements are correct?",
+    question: "Consider the following regarding 'Lokhitawadi' (Gopal Hari Deshmukh):\n1. He argued that if religion does not sanction social reform, then religion should be changed as it is man-made.\n2. He was a pioneer of the concept of economic self-reliance and advocated for the use of Swadeshi long before the Swadeshi movement.\n3. He held that rationalism was the only guide for progress. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three",
@@ -967,7 +967,7 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
   },
   {
     id: '8-108',
-    question: "With reference to the 'Rahnumai Mazdayasnan Sabha', consider the following: 1. It aimed at the restoration of the Zoroastrian religion to its pristine purity. 2. It promoted modern education among Parsis, especially for girls. 3. Naoroji Furdonji and Dadabhai Naoroji were among its founding members. How many of the above statements are correct?",
+    question: "With reference to the 'Rahnumai Mazdayasnan Sabha', consider the following:\n1. It aimed at the restoration of the Zoroastrian religion to its pristine purity.\n2. It promoted modern education among Parsis, especially for girls.\n3. Naoroji Furdonji and Dadabhai Naoroji were among its founding members. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three",
@@ -976,7 +976,7 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
   },
   {
     id: '8-109',
-    question: "Consider the following statements regarding the 'Ramakrishna Mission': 1. It emphasizes \"service to man is service to God\" as its core spiritual path. 2. Unlike the Arya Samaj, it did not believe in social reform activities like famine relief or education. 3. It acknowledges the truth in all religions and seeks to promote universal religious harmony. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Ramakrishna Mission':\n1. It emphasizes \"service to man is service to God\" as its core spiritual path. 2. Unlike the Arya Samaj, it did not believe in social reform activities like famine relief or education. 3. It acknowledges the truth in all religions and seeks to promote universal religious harmony. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the Mission is world-renowned for its extensive social service and humanitarian work.",
@@ -994,7 +994,7 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
   },
   {
     id: '8-111',
-    question: "Arrange the following split/events in the history of the Brahmo Samaj in correct chronological order: 1. Marriage of Keshab Chandra Sen's daughter to the Maharaja of Cooch Behar. 2. Formation of the Adi Brahmo Samaj. 3. Formation of the Sadharan Brahmo Samaj. 4. Formation of the Brahmo Samaj of India. Select the correct answer using the code given below:",
+    question: "Arrange the following split/events in the history of the Brahmo Samaj in correct chronological order:\n1. Marriage of Keshab Chandra Sen's daughter to the Maharaja of Cooch Behar.\n2. Formation of the Adi Brahmo Samaj.\n3. Formation of the Sadharan Brahmo Samaj.\n4. Formation of the Brahmo Samaj of India. Select the correct answer using the code given below:",
     options: ["2 \u2014 4 \u2014 1 \u2014 3", "4 \u2014 2 \u2014 1 \u2014 3", "1 \u2014 2 \u2014 3 \u2014 4", "2 \u2014 1 \u2014 4 \u2014 3"],
     correctAnswer: 0,
     explanation: "2 \u2014 4 \u2014 1 \u2014 3 Split into Adi Brahmo Samaj & Brahmo Samaj of India (1866) -> Cooch Behar marriage (1878) -> Formation of Sadharan Brahmo Samaj (1878).",
@@ -1030,7 +1030,7 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
   },
   {
     id: '8-115',
-    question: "Consider the following statements regarding the 'Ahmadiyya Movement': 1. It was founded by Mirza Ghulam Ahmad in 1889. 2. It described itself as being based on the principles of the Brahmo Samaj, emphasizing the peaceful spread of Islam. 3. It advocated for the military conquest of India to re-establish the Mughal Empire. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Ahmadiyya Movement':\n1. It was founded by Mirza Ghulam Ahmad in 1889.\n2. It described itself as being based on the principles of the Brahmo Samaj, emphasizing the peaceful spread of Islam.\n3. It advocated for the military conquest of India to re-establish the Mughal Empire. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is false; the movement was known for its peaceful, reformist approach.",
@@ -1048,7 +1048,7 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
   },
   {
     id: '8-117',
-    question: "Consider the following regarding the 'Nair Service Society' (1914) founded by Padmanabha Pillai: 1. It aimed at the social upliftment of the Nair community in Kerala. 2. It fought against the matrilineal system of inheritance (Marumakkathayam). 3. It was an armed revolutionary organization. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Nair Service Society' (1914) founded by Padmanabha Pillai:\n1. It aimed at the social upliftment of the Nair community in Kerala.\n2. It fought against the matrilineal system of inheritance (Marumakkathayam).\n3. It was an armed revolutionary organization. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. It was a social reform body, not an armed revolutionary group.",

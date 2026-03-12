@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_89_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 89,
+
         question: "UIDAI was originally created in 2009 as an attached office of which body?",
         options: ["Home Ministry", "Finance Ministry", "Planning Commission", "Election Commission"],
         correctAnswer: 2,
@@ -12,7 +12,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 89,
+
         question: "The Aadhaar Act was passed in which year to give UIDAI statutory status?",
         options: ["2009", "2012", "2014", "2016"],
         correctAnswer: 3,
@@ -21,7 +21,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 89,
+
         question: "Aadhaar is a proof of:",
         options: ["Citizenship", "Domicile", "Identity", "Both A and C"],
         correctAnswer: 2,
@@ -30,7 +30,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 89,
+
         question: "The 12-digit Aadhaar number is:",
         options: ["Chronological", "Random", "Sequential", "Area-based"],
         correctAnswer: 1,
@@ -39,7 +39,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 89,
+
         question: "Under the SC 2018 judgement, Aadhaar is mandatory for:",
         options: ["Bank Accounts", "Mobile SIM", "PAN and IT Returns", "School Admissions"],
         correctAnswer: 2,
@@ -48,7 +48,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 89,
+
         question: "Which of the following is NOT demographic data for Aadhaar?",
         options: ["Name", "Gender", "Caste", "Address"],
         correctAnswer: 2,
@@ -57,7 +57,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 89,
+
         question: "To get an Aadhaar, a resident must have lived in India for at least:",
         options: ["90 days", "120 days", "182 days", "365 days"],
         correctAnswer: 2,
@@ -66,7 +66,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 89,
+
         question: "The Authority (UIDAI) is currently under which Ministry?",
         options: ["Home Affairs", "Finance", "Social Justice", "Electronics and IT"],
         correctAnswer: 3,
@@ -75,7 +75,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 89,
+
         question: "The Central Identities Data Repository (CIDR) is managed by:",
         options: ["RBI", "Google", "UIDAI", "NIC"],
         correctAnswer: 2,
@@ -84,7 +84,7 @@ export const CHAPTER_89_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 89,
+
         question: "Virtual ID (VID) is a ________ digit temporary number to protect privacy.",
         options: ["10", "12", "16", "20"],
         correctAnswer: 2,

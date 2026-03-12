@@ -4,7 +4,7 @@ import { MCQ } from '../mcq-utils';
 export const CHAPTER_88_MCQS: MCQ[] = [
     {
         "id": "ch88_l1_1",
-        "chapterId": 88,
+
         "question": "The meaning of 'National Integration' in India primarily refers to:",
         "options": [
             "Economic growth of all states.",
@@ -18,7 +18,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_2",
-        "chapterId": 88,
+
         "question": "Which of the following is considered a major 'Obstacle' to National Integration in India?",
         "options": [
             "Secularism",
@@ -32,7 +32,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_3",
-        "chapterId": 88,
+
         "question": "The 'National Integration Council' (NIC) was first constituted in which year?",
         "options": [
             "1950",
@@ -46,7 +46,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_4",
-        "chapterId": 88,
+
         "question": "Who is the 'Chairman' of the National Integration Council (NIC)?",
         "options": [
             "The President",
@@ -60,7 +60,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_5",
-        "chapterId": 88,
+
         "question": "The 'Zonal Councils' were established under which Act?",
         "options": [
             "Constitution of India (Art 263)",
@@ -74,7 +74,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_6",
-        "chapterId": 88,
+
         "question": "How many 'Zonal Councils' were originally established by the States Reorganisation Act, 1956?",
         "options": [
             "3",
@@ -88,7 +88,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_7",
-        "chapterId": 88,
+
         "question": "The 'North-Eastern Council' was created by which Act?",
         "options": [
             "States Reorganisation Act, 1956",
@@ -102,7 +102,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_8",
-        "chapterId": 88,
+
         "question": "Which of the following describes 'Communalism' in the Indian context?",
         "options": [
             "Promoting community service.",
@@ -116,7 +116,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_9",
-        "chapterId": 88,
+
         "question": "The 'Emotional Integration Committee' (1961) was headed by:",
         "options": [
             "K. Santhanam",
@@ -130,7 +130,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_10",
-        "chapterId": 88,
+
         "question": "Which Article of the Constitution promotes 'Common Brotherhood' and the spirit of 'Harmony'?",
         "options": [
             "Article 14",
@@ -144,7 +144,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_11",
-        "chapterId": 88,
+
         "question": "Is the 'National Integration Council' (NIC) a Constitutional body?",
         "options": [
             "Yes",
@@ -158,7 +158,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_12",
-        "chapterId": 88,
+
         "question": "Who is the 'Chairman' of each Zonal Council?",
         "options": [
             "The Chief Minister of the host state.",
@@ -172,7 +172,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_13",
-        "chapterId": 88,
+
         "question": "Who acts as the 'Vice-Chairman' of a Zonal Council?",
         "options": [
             "The Governor.",
@@ -186,7 +186,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_14",
-        "chapterId": 88,
+
         "question": "Which of the following states is included in the 'Southern Zonal Council'?",
         "options": [
             "Maharashtra",
@@ -200,7 +200,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_15",
-        "chapterId": 88,
+
         "question": "Which of the following is a 'Functional' goal of the Zonal Councils?",
         "options": [
             "Planning for defense.",
@@ -214,7 +214,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_16",
-        "chapterId": 88,
+
         "question": "Which of the following is NOT an obstacle to national integration?",
         "options": [
             "Casteism",
@@ -228,7 +228,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_17",
-        "chapterId": 88,
+
         "question": "Which body focuses on state-level integration through 'Zonal' cooperation?",
         "options": [
             "NITI Aayog",
@@ -242,7 +242,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_18",
-        "chapterId": 88,
+
         "question": "A person who puts the interests of their 'region' above the 'nation' is exhibiting:",
         "options": [
             "Nationalism",
@@ -256,7 +256,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_19",
-        "chapterId": 88,
+
         "question": "Which city hosted the 'First National Integration Conference' in 1961?",
         "options": [
             "Mumbai",
@@ -270,7 +270,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_20",
-        "chapterId": 88,
+
         "question": "The 'North-Eastern Council' includes which of the following states?",
         "options": [
             "Only Assam and Sikkim.",
@@ -284,7 +284,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_21",
-        "chapterId": 88,
+
         "question": "Is the 'Zonal Council' advice binding on the member states?",
         "options": [
             "Yes",
@@ -298,7 +298,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_22",
-        "chapterId": 88,
+
         "question": "The 'Secular' character of the Indian state is a tool for:",
         "options": [
             "Communalism",
@@ -312,7 +312,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_23",
-        "chapterId": 88,
+
         "question": "Which Ministry provides the 'Secretariat' functions for the Zonal Councils?",
         "options": [
             "Ministry of Finance",
@@ -326,7 +326,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_24",
-        "chapterId": 88,
+
         "question": "'Linguism' refers to:",
         "options": [
             "The study of languages.",
@@ -340,7 +340,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_25",
-        "chapterId": 88,
+
         "question": "The 16-point 'National Integration Programme' was formulated in which decade?",
         "options": [
             "1950s",
@@ -354,7 +354,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_26",
-        "chapterId": 88,
+
         "question": "Wait. Is 'Terrorism' considered a direct threat to National Integration?",
         "options": [
             "Yes",
@@ -368,7 +368,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_27",
-        "chapterId": 88,
+
         "question": "The 'Preamble' goal of 'Fraternity' promotes:",
         "options": [
             "Individualism",
@@ -382,7 +382,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_28",
-        "chapterId": 88,
+
         "question": "Which of the following is a 'Centripetal' (unifying) force?",
         "options": [
             "Single Citizenship",
@@ -396,7 +396,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_29",
-        "chapterId": 88,
+
         "question": "Are 'Advisors' from NITI Aayog part of the Zonal Council meetings?",
         "options": [
             "Yes, as nominated by the commission/Aayog.",
@@ -410,7 +410,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l1_30",
-        "chapterId": 88,
+
         "question": "Does the 'National Integration Council' meet every month?",
         "options": [
             "Yes",
@@ -424,7 +424,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_1",
-        "chapterId": 88,
+
         "question": "The 'National Integration Council' (NIC) was reconstituted in 2005 after a gap of several years. What was the main reason for its long inactivity?",
         "options": [
             "It was declared unconstitutional by the Supreme Court.",
@@ -438,7 +438,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_2",
-        "chapterId": 88,
+
         "question": "Assertion (A): Zonal Councils are statutory bodies, unlike the Inter-State Council which is a constitutional body.\nReason (R): Zonal Councils were created by the States Reorganisation Act of 1956.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -452,7 +452,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_3",
-        "chapterId": 88,
+
         "question": "Which of the following is an 'Integrated' feature of the Indian Constitution that helps in checking regionalism?",
         "options": [
             "State Legislatures.",
@@ -466,7 +466,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_4",
-        "chapterId": 88,
+
         "question": "The 'National Integration Council' includes which of the following as members?",
         "options": [
             "All Union Cabinet Ministers.",
@@ -480,7 +480,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_5",
-        "chapterId": 88,
+
         "question": "Wait. In which year was 'Sikkim' added to the North-Eastern Council (NEC)?",
         "options": [
             "1971",
@@ -494,7 +494,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_6",
-        "chapterId": 88,
+
         "question": "Which of the following describes the 'Functional' difference between the NIC and the Zonal Councils?",
         "options": [
             "NIC is for international integration; Zonal is for domestic.",
@@ -508,7 +508,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_7",
-        "chapterId": 88,
+
         "question": "The 'Sampurnanand Committee' (1961) on Emotional Integration recommended:",
         "options": [
             "The use of English as a link language only.",
@@ -522,7 +522,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_8",
-        "chapterId": 88,
+
         "question": "The 'Linguistic' reorganisation of states (1956) was done to satisfy regional aspirations. Did it help or hurt National Integration?",
         "options": [
             "It only hurt integration.",
@@ -536,7 +536,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_9",
-        "chapterId": 88,
+
         "question": "Which of the following UTs is a part of the 'Northern Zonal Council'?",
         "options": [
             "Delhi and Chandigarh.",
@@ -550,7 +550,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_10",
-        "chapterId": 88,
+
         "question": "Who appoints the 'Secretary' of each Zonal Council?",
         "options": [
             "The President.",
@@ -564,7 +564,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_11",
-        "chapterId": 88,
+
         "question": "Is 'Casteism' considered a threat to National Integration?",
         "options": [
             "No, it's a social system.",
@@ -578,7 +578,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_12",
-        "chapterId": 88,
+
         "question": "Which of the following describes the 'Plenary' nature of Zonal Councils?",
         "options": [
             "They can pass laws.",
@@ -592,7 +592,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_13",
-        "chapterId": 88,
+
         "question": "The 'Sixteenth Amendment Act' (1963) was related to National Integration. What did it allow?",
         "options": [
             "Creation of separate states.",
@@ -606,7 +606,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_14",
-        "chapterId": 88,
+
         "question": "In the 'National Integration Council', who represents the 'Business' and 'Industry' sector?",
         "options": [
             "Representative of FICCI/ASSOCHAM.",
@@ -620,7 +620,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_15",
-        "chapterId": 88,
+
         "question": "The 'Gujral Doctrine' of non-reciprocity in foreign policy (Ch 89 context) is also a tool for 'Regional' integration. This philosophy is similar to which domestic council's aim?",
         "options": [
             "Inter-state Council.",
@@ -634,7 +634,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_16",
-        "chapterId": 88,
+
         "question": "Regionalism can be 'Positive' when it means:",
         "options": [
             "Demanding a separate country.",
@@ -648,7 +648,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_17",
-        "chapterId": 88,
+
         "question": "Which of the following bodies is 'Extra-Constitutional'?",
         "options": [
             "Finance Commission.",
@@ -662,7 +662,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_18",
-        "chapterId": 88,
+
         "question": "Which Zonal Council includes the state of 'West Bengal'?",
         "options": [
             "Central Zonal Council.",
@@ -676,7 +676,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_19",
-        "chapterId": 88,
+
         "question": "Does the 'Zonal Council' meet in Delhi only?",
         "options": [
             "Yes.",
@@ -690,7 +690,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_20",
-        "chapterId": 88,
+
         "question": "The 'States Reorganisation Act' of 1956 followed the recommendations of which commission?",
         "options": [
             "Dhar Commission.",
@@ -704,7 +704,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_21",
-        "chapterId": 88,
+
         "question": "Is the 'Chairperson of National Commission for Women' a member of the NIC?",
         "options": [
             "Yes, as part of representative leadership.",
@@ -718,7 +718,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_22",
-        "chapterId": 88,
+
         "question": "What is the 'Maximum' number of members in a Zonal Council?",
         "options": [
             "Fixed at 10.",
@@ -732,7 +732,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_23",
-        "chapterId": 88,
+
         "question": "The 'North-Eastern Council' (NEC) differs from Zonal Councils because it can:",
         "options": [
             "Handle International borders directly.",
@@ -746,7 +746,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_24",
-        "chapterId": 88,
+
         "question": "Which of the following documents is 'Handwritten' and beautified, symbolising the unity of Indian art and law? (Ch 2/88 context)",
         "options": [
             "The Original Constitution of India.",
@@ -760,7 +760,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_25",
-        "chapterId": 88,
+
         "question": "The use of 'Religion' in elections is a ground for disqualification under:",
         "options": [
             "The Constitution only.",
@@ -774,7 +774,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_26",
-        "chapterId": 88,
+
         "question": "Wait. Which 'Zone' does 'Madhya Pradesh' and 'Chhattisgarh' belong to?",
         "options": [
             "Northern Zone.",
@@ -788,7 +788,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_27",
-        "chapterId": 88,
+
         "question": "Regionalism can manifest as a demand for a separate 'State' within India. Which Article gives Parliament the power to create new states?",
         "options": [
             "Article 1.",
@@ -802,7 +802,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_28",
-        "chapterId": 88,
+
         "question": "The feeling of 'Alienation' among youth in some regions is addressed by the NIC through:",
         "options": [
             "Police action.",
@@ -816,7 +816,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_29",
-        "chapterId": 88,
+
         "question": "The 'Western Zonal Council' includes which of the following?",
         "options": [
             "Goa, Gujarat, Maharashtra and UTs of Dadra & Nagar Haveli and Daman & Diu.",
@@ -830,7 +830,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l2_30",
-        "chapterId": 88,
+
         "question": "Which of the following is a 'Social' barrier to National Integration?",
         "options": [
             "Unequal economic development.",
@@ -844,7 +844,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_1",
-        "chapterId": 88,
+
         "question": "Analyze the 'National Integration Council' (NIC) from a structural perspective. Which of the following is a major 'Constitutional' criticism of its existence?",
         "options": [
             "It promotes secularism too aggressively.",
@@ -858,7 +858,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_2",
-        "chapterId": 88,
+
         "question": "Evaluate the 'Sovereignty and Integrity of India' as a ground for restriction under Art 19(2). Which amendment added this specific phrase?",
         "options": [
             "1st Amendment, 1951.",
@@ -872,7 +872,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_3",
-        "chapterId": 88,
+
         "question": "The 'Zonal Councils' were envisioned by PM Nehru as a tool for 'Developing a habit of cooperative working'. How do they differ from 'Inter-State Councils' (Art 263)?",
         "options": [
             "Zonal Councils are for security; Inter-State is for economy.",
@@ -886,7 +886,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_4",
-        "chapterId": 88,
+
         "question": "Assertion (A): Communalism is often cited as the biggest threat to Indian secularism and integration.\nReason (R): It encourages the 'Double Identity' of citizens where religious loyalty is placed above national interest.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -900,7 +900,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_5",
-        "chapterId": 88,
+
         "question": "Consider the 'North-Eastern Council' (NEC). Why is it considered a 'unique' regional body compared to other Zonal Councils?",
         "options": [
             "It is the only one with a permanent secretariat.",
@@ -914,7 +914,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_6",
-        "chapterId": 88,
+
         "question": "The 'Sampurnanand Committee' on emotional integration emphasized that integration is not 'Uniformity'. What does this imply?",
         "options": [
             "That everyone must speak one language.",
@@ -928,7 +928,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_7",
-        "chapterId": 88,
+
         "question": "Analyze 'Regionalism' in India. Which of the following is an 'Economic' cause of regionalism?",
         "options": [
             "The use of regional languages.",
@@ -942,7 +942,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_8",
-        "chapterId": 88,
+
         "question": "Could a 'Zonal Council' recommend the merger of two states?",
         "options": [
             "No.",
@@ -956,7 +956,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_9",
-        "chapterId": 88,
+
         "question": "A 'Common Civil Code' (Art 44) is often debated as a tool for National Integration. What is the 'Integratative' argument for it?",
         "options": [
             "It will make everyone Hindus.",
@@ -970,7 +970,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_10",
-        "chapterId": 88,
+
         "question": "Analyze the 'Institutional effectiveness' of the NIC. Why is it often called a 'Talk Shop' by critics?",
         "options": [
             "Because it meets too often.",
@@ -984,7 +984,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_11",
-        "chapterId": 88,
+
         "question": "How does the 'Panchayati Raj' system (73rd/74th Amendment) contribute to National Integration?",
         "options": [
             "By giving more power to the PM.",
@@ -998,7 +998,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_12",
-        "chapterId": 88,
+
         "question": "Is 'Linguism' always a negative force in India?",
         "options": [
             "Yes.",
@@ -1012,7 +1012,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_13",
-        "chapterId": 88,
+
         "question": "The 'States Reorganisation Act' of 1956 group states into zones. Which zone includes 'Rajasthan'?",
         "options": [
             "Western Zone.",
@@ -1026,7 +1026,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_14",
-        "chapterId": 88,
+
         "question": "In the 'Bommai Case' (1994), the SC held that 'Secularism' is a basic feature. How does this impact National Integration?",
         "options": [
             "It allows the govt to interfere in temples.",
@@ -1040,7 +1040,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_15",
-        "chapterId": 88,
+
         "question": "Assertion (A): The North-Eastern Council (NEC) is more powerful than other Zonal Councils.\nReason (R): It has a separate Act (1971) and is headed by a Chairman nominated by the President (usually the Home Minister).",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -1054,7 +1054,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_16",
-        "chapterId": 88,
+
         "question": "Evaluate the 'Sons of the Soil' theory. What is its core premise?",
         "options": [
             "That everyone is equal.",
@@ -1068,7 +1068,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_17",
-        "chapterId": 88,
+
         "question": "Does the 'Zonal Council' have the power to resolve 'River Water' disputes between states?",
         "options": [
             "Yes, they can make final awards.",
@@ -1082,7 +1082,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_18",
-        "chapterId": 88,
+
         "question": "Analysis of 'Nationalist' Regionalism vs 'Secessionist' Regionalism. Which one is unconstitutional?",
         "options": [
             "Both.",
@@ -1096,7 +1096,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_19",
-        "chapterId": 88,
+
         "question": "The 'Committee on Social Integration' during the 1968 NIC meeting recommended:",
         "options": [
             "Creating communal electorates.",
@@ -1110,7 +1110,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_20",
-        "chapterId": 88,
+
         "question": "Who is the 'Adviser' provided by NITI Aayog to the Zonal Councils?",
         "options": [
             "Chief Executive Officer of NITI Aayog.",
@@ -1124,7 +1124,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_21",
-        "chapterId": 88,
+
         "question": "If a member state is 'Aggrieved' by a Zonal Council recommendation, what is its remedy?",
         "options": [
             "Appeal to the SC.",
@@ -1138,7 +1138,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_22",
-        "chapterId": 88,
+
         "question": "Critically analyze 'Linguism'. Is the 'Three-Language Formula' a solution or a problem?",
         "options": [
             "It is a problem for South India.",
@@ -1152,7 +1152,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_23",
-        "chapterId": 88,
+
         "question": "Is 'Caste-based Census' seen as a measure that could hurt National Integration?",
         "options": [
             "Yes, critics argue it will harden caste identities and lead to more divisive politics.",
@@ -1166,7 +1166,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_24",
-        "chapterId": 88,
+
         "question": "The 'Inter-State Council' (Art 263) was finally established in 1990. Does this make Zonal Councils 'Redundant'?",
         "options": [
             "Yes.",
@@ -1180,7 +1180,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_25",
-        "chapterId": 88,
+
         "question": "Evaluate the 'Communal Violence (Prevention...) Bill' which was discussed by the NIC. Why was it opposed by many states?",
         "options": [
             "Because it was too short.",
@@ -1194,7 +1194,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_26",
-        "chapterId": 88,
+
         "question": "Wait. Which 'Zonal Council' has the 'Largest' number of member states?",
         "options": [
             "Southern Zonal Council.",
@@ -1208,7 +1208,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_27",
-        "chapterId": 88,
+
         "question": "Can a 'Union Territory' be a member of more than one Zonal Council?",
         "options": [
             "Yes.",
@@ -1222,7 +1222,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_28",
-        "chapterId": 88,
+
         "question": "Analyze the role of the 'Governor' in the Zonal Council.",
         "options": [
             "He is the Chairman.",
@@ -1236,7 +1236,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_29",
-        "chapterId": 88,
+
         "question": "The phrase 'Unity and Integrity of the Nation' appears in the Preamble. Where else is 'Integrity' specifically mentioned in the Constitution?",
         "options": [
             "Fundamental Rights (Art 19).",
@@ -1250,7 +1250,7 @@ export const CHAPTER_88_MCQS: MCQ[] = [
     },
     {
         "id": "ch88_l3_30",
-        "chapterId": 88,
+
         "question": "Who summarized the goal of NIC as 'A psychological process which involves the development of a feeling of unity'?",
         "options": [
             "Dr. S. Radhakrishnan.",

@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_12_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 12,
+
         question: "Which of the following Fundamental Duties was NOT recommended by the Swaran Singh Committee?",
         options: [
             "Duty to pay taxes",
@@ -17,7 +17,7 @@ export const CHAPTER_12_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 12,
+
         question: "The 86th Constitutional Amendment Act (2002) added a Fundamental Duty which is related to:",
         options: [
             "Protection of environment",
@@ -31,7 +31,7 @@ export const CHAPTER_12_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 12,
+
         question: "The Fundamental Duties were inspired by the Constitution of:",
         options: ["USA", "Canada", "USSR (Russia)", "France"],
         correctAnswer: 2,
@@ -40,7 +40,7 @@ export const CHAPTER_12_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 12,
+
         question: "Which Article of the Indian Constitution defines Fundamental Duties?",
         options: ["Article 50", "Article 51", "Article 51A", "Article 52"],
         correctAnswer: 2,
@@ -49,7 +49,7 @@ export const CHAPTER_12_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 12,
+
         question: "Which of the following is NOT correct regarding Fundamental Duties?",
         options: [
             "They help courts in examining constitutional validity of a law",
@@ -63,7 +63,7 @@ export const CHAPTER_12_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 12,
+
         question: "The 'Verma Committee' (1999) on Fundamental Duties is known for:",
         options: [
             "Recommending more duties",
@@ -77,7 +77,7 @@ export const CHAPTER_12_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 12,
+
         question: "Developing 'scientific temper, humanism and the spirit of inquiry' is a:",
         options: ["Fundamental Right", "Directive Principle", "Fundamental Duty", "Political right"],
         correctAnswer: 2,
@@ -86,7 +86,7 @@ export const CHAPTER_12_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 12,
+
         question: "The Fundamental Duties were incorporated in the Constitution during the Prime Ministership of:",
         options: ["Jawaharlal Nehru", "Morarji Desai", "Indira Gandhi", "Rajiv Gandhi"],
         correctAnswer: 2,
@@ -95,7 +95,7 @@ export const CHAPTER_12_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 12,
+
         question: "Which of the following is a Fundamental Duty?",
         options: [
             "To separate judiciary from executive",
@@ -109,7 +109,7 @@ export const CHAPTER_12_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 12,
+
         question: "How many Fundamental Duties are prescribed in the Constitution of India today?",
         options: ["9", "10", "11", "12"],
         correctAnswer: 2,

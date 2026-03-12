@@ -4,7 +4,7 @@ import { MCQ } from '../mcq-utils';
 export const CHAPTER_91_MCQS: MCQ[] = [
     {
         "id": "ch91_l1_1",
-        "chapterId": 91,
+
         "question": "The landmark 'Kesavananda Bharati Case' (1973) is most famous for establishing which doctrine?",
         "options": [
             "Doctrine of Pleasure.",
@@ -18,7 +18,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_2",
-        "chapterId": 91,
+
         "question": "In which case did the Supreme Court first rule that 'Fundamental Rights' cannot be amended?",
         "options": [
             "Shankari Prasad case (1951).",
@@ -32,7 +32,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_3",
-        "chapterId": 91,
+
         "question": "The 'Minerva Mills Case' (1980) is known for restoring the balance between:",
         "options": [
             "PM and President.",
@@ -46,7 +46,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_4",
-        "chapterId": 91,
+
         "question": "The 'Indra Sawhney Case' (1992) is related to which issue?",
         "options": [
             "Environment protection.",
@@ -60,7 +60,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_5",
-        "chapterId": 91,
+
         "question": "Which case established that 'Secularism' and 'Federalism' are part of the Basic Structure?",
         "options": [
             "A.K. Gopalan case.",
@@ -74,7 +74,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_6",
-        "chapterId": 91,
+
         "question": "The 'Maneka Gandhi Case' (1978) is significant for expanding the scope of which Article?",
         "options": [
             "Article 14",
@@ -88,7 +88,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_7",
-        "chapterId": 91,
+
         "question": "In 'Vishaka vs State of Rajasthan' (1997), the Supreme Court laid down guidelines against:",
         "options": [
             "Child marriage.",
@@ -102,7 +102,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_8",
-        "chapterId": 91,
+
         "question": "Which landmark judgment declared the 'Right to Privacy' as a Fundamental Right?",
         "options": [
             "K.S. Puttaswamy case (2017).",
@@ -116,7 +116,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_9",
-        "chapterId": 91,
+
         "question": "The practice of 'Triple Talaq' was declared unconstitutional in which case?",
         "options": [
             "Shah Bano case (1985).",
@@ -130,7 +130,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_10",
-        "chapterId": 91,
+
         "question": "The 'Navtej Singh Johar Case' (2018) dealt with:",
         "options": [
             "Euthanasia.",
@@ -144,7 +144,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_11",
-        "chapterId": 91,
+
         "question": "In which case did the SC rule that 'Preamble is an integral part of the Constitution'?",
         "options": [
             "Berubari Union case (1960).",
@@ -158,7 +158,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_12",
-        "chapterId": 91,
+
         "question": "The 'Waman Rao Case' (1981) clarified the application of the Basic Structure doctrine to which Schedule?",
         "options": [
             "Seventh Schedule.",
@@ -172,7 +172,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_13",
-        "chapterId": 91,
+
         "question": "Which case is associated with the 'Creamy Layer' concept in OBC reservations?",
         "options": [
             "Indra Sawhney case.",
@@ -186,7 +186,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_14",
-        "chapterId": 91,
+
         "question": "The 'Sabarimala Case' (2018) declared the ban on entry of women of menstruating age as:",
         "options": [
             "Valid.",
@@ -200,7 +200,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_15",
-        "chapterId": 91,
+
         "question": "In 'I.R. Coelho vs State of Tamil Nadu' (2007), the SC held that laws in the 9th Schedule are:",
         "options": [
             "Beyond judicial review.",
@@ -214,7 +214,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_16",
-        "chapterId": 91,
+
         "question": "The 'L. Chandra Kumar Case' (1997) affirmed that 'Judicial Review' under Art 226/227 is:",
         "options": [
             "Discretionary.",
@@ -228,7 +228,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_17",
-        "chapterId": 91,
+
         "question": "Wait. Which case is related to the 'Custodial Torture' guidelines?",
         "options": [
             "Hussainara Khatoon case.",
@@ -242,7 +242,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_18",
-        "chapterId": 91,
+
         "question": "The 'MC Mehta' cases are synonymous with which area of law in India?",
         "options": [
             "Election law.",
@@ -256,7 +256,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_19",
-        "chapterId": 91,
+
         "question": "In 'Shakti Vahini vs Union of India' (2018), the SC ruled against:",
         "options": [
             "Child labour.",
@@ -270,7 +270,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_20",
-        "chapterId": 91,
+
         "question": "Which case legalized 'Passive Euthanasia' and recognized 'Living Wills' in India?",
         "options": [
             "Aruna Shanbaug case.",
@@ -284,7 +284,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_21",
-        "chapterId": 91,
+
         "question": "The 'Shah Bano Case' (1985) was primarily about:",
         "options": [
             "Inheritance.",
@@ -298,7 +298,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_22",
-        "chapterId": 91,
+
         "question": "Wait. Which case established the 'Absolute Liability' principle for hazardous industries?",
         "options": [
             "Rylands vs Fletcher.",
@@ -312,7 +312,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_23",
-        "chapterId": 91,
+
         "question": "The 'ADM Jabalpur Case' (1976), also known as the Habeas Corpus case, is famous for which reason?",
         "options": [
             "It protected citizens' rights during the Emergency.",
@@ -326,7 +326,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_24",
-        "chapterId": 91,
+
         "question": "In which case did the SC rule that 'Adultery' (Sec 497 IPC) is unconstitutional?",
         "options": [
             "Navtej Johar case.",
@@ -340,7 +340,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_25",
-        "chapterId": 91,
+
         "question": "The 'Lily Thomas Case' (2013) is related to:",
         "options": [
             "Conversion of religion.",
@@ -354,7 +354,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_26",
-        "chapterId": 91,
+
         "question": "The 'Nilabati Behera Case' (1993) established the right to:",
         "options": [
             "Free speech.",
@@ -368,7 +368,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_27",
-        "chapterId": 91,
+
         "question": "Wait. In which case did the SC uphold the 'Tenth Schedule' (Anti-defection law)?",
         "options": [
             "Kihoto Hollohan case (1992).",
@@ -382,7 +382,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_28",
-        "chapterId": 91,
+
         "question": "The 'Shankari Prasad Case' (1951) upheld the power of Parliament to:",
         "options": [
             "Amend any part of the Constitution, including Fundamental Rights.",
@@ -396,7 +396,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_29",
-        "chapterId": 91,
+
         "question": "Which case introduced the 'Alternative Dispute Resolution' (ADR) importance in civil cases?",
         "options": [
             "Salem Advocate Bar Association case.",
@@ -410,7 +410,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l1_30",
-        "chapterId": 91,
+
         "question": "The 'National Anthem Case' (Bijoe Emmanuel vs State of Kerala) is related to:",
         "options": [
             "Singing the anthem in movies.",
@@ -424,7 +424,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_1",
-        "chapterId": 91,
+
         "question": "The 'Basic Structure' doctrine (1973) was actually a response to which constitutional amendment that tried to take away the power of judicial review?",
         "options": [
             "24th Amendment Act.",
@@ -438,7 +438,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_2",
-        "chapterId": 91,
+
         "question": "Assertion (A): The 'Golak Nath' case (1967) applied the doctrine of 'Prospective Overruling'.\nReason (R): The SC wanted to ensure that its ruling (that FRs cannot be amended) would not invalidate all previous amendments like the 1st, 4th, and 17th.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -452,7 +452,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_3",
-        "chapterId": 91,
+
         "question": "In 'Minerva Mills vs Union of India' (1980), the SC struck down Section 55 of the 42nd Amendment. What did this section claim?",
         "options": [
             "That the President is supreme.",
@@ -466,7 +466,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_4",
-        "chapterId": 91,
+
         "question": "The 'Indra Sawhney' judgment (1992) capped the 'Total' reservation at 50%. Mention the 'Exception' provided by the court.",
         "options": [
             "For religious minorities.",
@@ -480,7 +480,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_5",
-        "chapterId": 91,
+
         "question": "Wait. Which case established that 'Judicial Review' is a part of the Basic Structure?",
         "options": [
             "Kesavananda Bharati case.",
@@ -494,7 +494,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_6",
-        "chapterId": 91,
+
         "question": "The 'Maneka Gandhi' judgment (1978) overruled which earlier narrow interpretation of Art 21?",
         "options": [
             "A.K. Gopalan vs State of Madras (1950).",
@@ -508,7 +508,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_7",
-        "chapterId": 91,
+
         "question": "In the 'SR Bommai' case, what was the SC's ruling on the 'Dissolution' of a State Legislative Assembly?",
         "options": [
             "It cannot be done.",
@@ -522,7 +522,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_8",
-        "chapterId": 91,
+
         "question": "The 'I.R. Coelho' case (2007) is significant because it held that the 'Nine-Judge Bench' judgment in Kesavananda Bharati is the law. Does it mean ALL laws in the 9th Schedule are now open to review?",
         "options": [
             "Yes.",
@@ -536,7 +536,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_9",
-        "chapterId": 91,
+
         "question": "Regarding 'Freedom of Speech', the 'Romesh Thapar' case (1950) is important because it held that 'Freedom of Press' is implicit in:",
         "options": [
             "Article 14.",
@@ -550,7 +550,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_10",
-        "chapterId": 91,
+
         "question": "The 'SR Bommai' judgment stated that a government's majority must be tested on the 'Floor of the House'. What does this mean?",
         "options": [
             "Counting MLAs in the Governor's bungalow.",
@@ -564,7 +564,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_11",
-        "chapterId": 91,
+
         "question": "In 'Mohd. Ahmed Khan vs Shah Bano Begum' (1985), the SC used which section of the CrPC to grant maintenance?",
         "options": [
             "Section 377.",
@@ -578,7 +578,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_12",
-        "chapterId": 91,
+
         "question": "The 'Puttaswamy' judgment (2017) overthrew which 1954 judgment that had held privacy is not a fundamental right?",
         "options": [
             "M.P. Sharma case (1954).",
@@ -592,7 +592,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_13",
-        "chapterId": 91,
+
         "question": "Assertion (A): The 'NJAC' (99th Amendment) was struck down by the SC in 2015.\nReason (R): The court held that the inclusion of the 'Law Minister' and two 'eminent persons' in the selection panel violated the independence of the judiciary.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -606,7 +606,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_14",
-        "chapterId": 91,
+
         "question": "Wait. In which case did the SC hold that 'Education is a leading instrument for national integration'?",
         "options": [
             "Mohini Jain case.",
@@ -620,7 +620,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_15",
-        "chapterId": 91,
+
         "question": "The 'Vishaka Guidelines' were based on which international convention?",
         "options": [
             "UN Charter.",
@@ -634,7 +634,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_16",
-        "chapterId": 91,
+
         "question": "The 'ADM Jabalpur' majority judgment was finally formally 'Overruled' by which case?",
         "options": [
             "S.R. Bommai case.",
@@ -648,7 +648,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_17",
-        "chapterId": 91,
+
         "question": "In 'Kihoto Hollohan' (1992), the SC struck down which specific paragraph of the 10th Schedule?",
         "options": [
             "Para 1 (Definitions).",
@@ -662,7 +662,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_18",
-        "chapterId": 91,
+
         "question": "What does 'Passive Euthanasia' mean as legalized in the 'Common Cause' case (2018)?",
         "options": [
             "Injecting a lethal drug.",
@@ -676,7 +676,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_19",
-        "chapterId": 91,
+
         "question": "Wait. In which case was the 'Doctrine of Eclips' established?",
         "options": [
             "A.K. Gopalan case.",
@@ -690,7 +690,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_20",
-        "chapterId": 91,
+
         "question": "The 'Sarla Mudgal Case' (1995) is a landmark for the demand of which Constitutional Article?",
         "options": [
             "Article 14.",
@@ -704,7 +704,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_21",
-        "chapterId": 91,
+
         "question": "In 'Union of India vs Association for Democratic Reforms' (2002), the SC made it mandatory for candidates to disclose:",
         "options": [
             "Their marks in school.",
@@ -718,7 +718,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_22",
-        "chapterId": 91,
+
         "question": "The 'Independent Thought vs Union of India' (2017) case criminalized sex with a minor wife. This changed which exception in the IPC?",
         "options": [
             "Exception 1 of Section 300.",
@@ -732,7 +732,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_23",
-        "chapterId": 91,
+
         "question": "Wait. Which case is related to the 'Reservations for Economically Weaker Sections' (EWS)?",
         "options": [
             "Indra Sawhney case.",
@@ -746,7 +746,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_24",
-        "chapterId": 91,
+
         "question": "The 'Shayara Bano' judgment on Triple Talaq was a:",
         "options": [
             "9-0 unanimous decision.",
@@ -760,7 +760,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_25",
-        "chapterId": 91,
+
         "question": "In 'Anuradha Bhasin vs Union of India' (2020), the SC ruled on which modern issue?",
         "options": [
             "Internet shutdowns in J&K.",
@@ -774,7 +774,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_26",
-        "chapterId": 91,
+
         "question": "The 'Ratlam Municipal Council vs Vardhichand' (1980) is a pioneering case for:",
         "options": [
             "Tax reforms.",
@@ -788,7 +788,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_27",
-        "chapterId": 91,
+
         "question": "Wait. Which case is known as the 'First Judges Case'?",
         "options": [
             "S.P. Gupta vs Union of India (1981).",
@@ -802,7 +802,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_28",
-        "chapterId": 91,
+
         "question": "In the 'Second Judges Case' (1993), the SC clarified that 'Consultation' with the CJI means:",
         "options": [
             "Seeking advice only.",
@@ -816,7 +816,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_29",
-        "chapterId": 91,
+
         "question": "The 'Third Judges Case' (1998) was actually a:",
         "options": [
             "Lawsuit by a judge.",
@@ -830,7 +830,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l2_30",
-        "chapterId": 91,
+
         "question": "In 'Olga Tellis vs Bombay Municipal Corporation' (1985), the SC held that 'Right to Life' includes:",
         "options": [
             "Right to luxury.",
@@ -844,7 +844,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_1",
-        "chapterId": 91,
+
         "question": "Analyze the 'Strategic' reversal of the Golak Nath (1967) judgment in the Kesavananda Bharati (1973) case. How did the SC balance Parliamentary supremacy with Constitutional integrity?",
         "options": [
             "By allowing the 24th amendment to stand but subjecting it to the 'Basic Structure' (intrinsic limitation) doctrine.",
@@ -858,7 +858,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_2",
-        "chapterId": 91,
+
         "question": "Evaluate 'Indira Nehru Gandhi vs Raj Narain' (1975). Which specific amendment was struck down because it 'Ousted' the jurisdiction of the court in election matters of the PM and Speaker?",
         "options": [
             "38th Amendment.",
@@ -872,7 +872,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_3",
-        "chapterId": 91,
+
         "question": "The 'Minerva Mills' judgment defined the 'Indian Social Order' as being based on the harmony between FRs and DPSP. It used which specific analogy?",
         "options": [
             "The two sides of a coin.",
@@ -886,7 +886,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_4",
-        "chapterId": 91,
+
         "question": "Assertion (A): The 'Indra Sawhney' (1992) judgment established the 'Efficiency of Administration' (Art 335) as a limit on reservations.\nReason (R): The court explicitly ruled that some technical and super-specialized posts (like nuclear scientists, pilots) should not have any reservation.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -900,7 +900,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_5",
-        "chapterId": 91,
+
         "question": "Consider 'S.R. Bommai vs Union of India' (1994). Why did the SC hold that 'Secularism' is a basic feature, specifically regarding the dismissal of BJP governments in UP/MP/Rajasthan?",
         "options": [
             "Because religion is bad.",
@@ -914,7 +914,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_6",
-        "chapterId": 91,
+
         "question": "Critically analyze 'I.R. Coelho' (2007). How does the 'Direct Impact' test work for 9th Schedule laws?",
         "options": [
             "If the law impacts property, it is valid.",
@@ -928,7 +928,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_7",
-        "chapterId": 91,
+
         "question": "The 'L. Chandra Kumar' case (1997) struck down which portion of the 42nd Amendment related to Tribunals?",
         "options": [
             "Creation of SAT/CAT.",
@@ -942,7 +942,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_8",
-        "chapterId": 91,
+
         "question": "In 'Vishaka vs State of Rajasthan', the SC invoked Article 141. What is the 'Legal' status of the guidelines laid down in such a case?",
         "options": [
             "They are only suggestions.",
@@ -956,7 +956,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_9",
-        "chapterId": 91,
+
         "question": "Evaluation of 'Navtej Singh Johar' (2018). The court used the concept of 'Constitutional Morality' vs 'Social Morality'. Which one prevailed?",
         "options": [
             "Social Morality (tradition).",
@@ -970,7 +970,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_10",
-        "chapterId": 91,
+
         "question": "In the 'Joseph Shine' case (2018), why did the court hold that Section 497 (Adultery) violates Article 14 AND Article 21?",
         "options": [
             "Because it punished women only.",
@@ -984,7 +984,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_11",
-        "chapterId": 91,
+
         "question": "The 'Supreme Court Advocates-on-Record Association vs Union of India' (1993) is a victory for which concept?",
         "options": [
             "Executive Supremacy.",
@@ -998,7 +998,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_12",
-        "chapterId": 91,
+
         "question": "Analysis of 'M. Nagaraj vs Union of India' (2006). What are the 'Three Quantifiable Data' conditions for reservation in promotion?",
         "options": [
             "Age, Caste, Education.",
@@ -1012,7 +1012,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_13",
-        "chapterId": 91,
+
         "question": "In 'Mohini Jain' (1992) and 'Unnikrishnan' (1993), the court linked the 'Right to Education' to which other Right?",
         "options": [
             "Right to Freedom of Speech.",
@@ -1026,7 +1026,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_14",
-        "chapterId": 91,
+
         "question": "Evaluate the 'Common Cause' (2018) judgment. What safeguards were laid down for 'Living Wills'?",
         "options": [
             "No safeguards.",
@@ -1040,7 +1040,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_15",
-        "chapterId": 91,
+
         "question": "Assertion (A): The 'Berubari Union' case (1960) held that the Preamble is a 'Key' to open the minds of the makers.\nReason (R): However, it significantly concluded that the Preamble is NOT a part of the Constitution and has no independent legal force.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -1054,7 +1054,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_16",
-        "chapterId": 91,
+
         "question": "What was the 'Primary' reason for striking down the NJAC (99th Amendment) according to the majority in the NJAC Case (2015)?",
         "options": [
             "It was too expensive.",
@@ -1068,7 +1068,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_17",
-        "chapterId": 91,
+
         "question": "In 'Selvi vs State of Karnataka' (2010), the SC struck down which specific investigative techniques as violative of Art 20(3)?",
         "options": [
             "Lie detector tests.",
@@ -1082,7 +1082,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_18",
-        "chapterId": 91,
+
         "question": "The 'Shah Bano' judgment was criticized as 'judicial interference' in religion. How did the Parliament respond?",
         "options": [
             "By accepting it.",
@@ -1096,7 +1096,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_19",
-        "chapterId": 91,
+
         "question": "Which case is related to the 'Decapitation' of the 39th Amendment (PM's election immunity)?",
         "options": [
             "Minerva Mills.",
@@ -1110,7 +1110,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_20",
-        "chapterId": 91,
+
         "question": "The 'Olga Tellis' case famously said 'The right to life includes the right to livelihood'. Did the court 'Stop' the evictions?",
         "options": [
             "Yes.",
@@ -1124,7 +1124,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_21",
-        "chapterId": 91,
+
         "question": "Wait. In which case did the SC hold that 'National emergency can be questioned in court if based on irrelevant/malafied grounds'?",
         "options": [
             "Minerva Mills case.",
@@ -1138,7 +1138,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_22",
-        "chapterId": 91,
+
         "question": "Critically analyze 'R.C. Cooper vs Union of India' (1970). What did the SC rule regarding 'Bank Nationalisation'?",
         "options": [
             "It was valid.",
@@ -1152,7 +1152,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_23",
-        "chapterId": 91,
+
         "question": "Analysis of 'Article 13' in 'Kesavananda Bharati'. Did the court hold that the word 'Law' in Art 13 includes 'Constitutional Amendment'?",
         "options": [
             "Yes.",
@@ -1166,7 +1166,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_24",
-        "chapterId": 91,
+
         "question": "In 'I.C. Golak Nath vs State of Punjab', the court used which source of 'Jurisprudence' to declare FRs unamendable?",
         "options": [
             "US Constitution.",
@@ -1180,7 +1180,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_25",
-        "chapterId": 91,
+
         "question": "The 'Madhav Rao Scindia Case' (1970) struck down the abolition of:",
         "options": [
             "Zamindari.",
@@ -1194,7 +1194,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_26",
-        "chapterId": 91,
+
         "question": "Wait. In which case did the SC say 'Secularism is a positive concept of equal treatment of all religions'?",
         "options": [
             "St. Xavier's College vs Ahmedabad.",
@@ -1208,7 +1208,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_27",
-        "chapterId": 91,
+
         "question": "Evaluate 'Bijoe Emmanuel' (1986). How did the court balance 'Nationalism' with 'Minority conscience'?",
         "options": [
             "Nationalism always wins.",
@@ -1222,7 +1222,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_28",
-        "chapterId": 91,
+
         "question": "The 'Supreme Court's power of Contempt' (Art 129) was held as a basic feature in which case?",
         "options": [
             "In Re: Vinay Chandra Mishra (1995).",
@@ -1236,7 +1236,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_29",
-        "chapterId": 91,
+
         "question": "In 'I.R. Coelho', how did the court define the 'Golden Triangle'?",
         "options": [
             "Art 1, 2, 3.",
@@ -1250,7 +1250,7 @@ export const CHAPTER_91_MCQS: MCQ[] = [
     },
     {
         "id": "ch91_l3_30",
-        "chapterId": 91,
+
         "question": "Who summarized the Basic Structure as 'A constitutional wall that cannot be breached even by a 100% majority'?",
         "options": [
             "Justice H.R. Khanna.",

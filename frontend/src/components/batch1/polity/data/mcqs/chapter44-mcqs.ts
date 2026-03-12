@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_44_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 44,
+
         question: "Regarding Finance Commission, strictly correct:",
         options: [
             "Permanent constitutional body.",
@@ -17,7 +17,7 @@ export const CHAPTER_44_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 44,
+
         question: "Qualifications for FC Members include:",
         options: [
             "SC Judge qualified.",
@@ -31,7 +31,7 @@ export const CHAPTER_44_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 44,
+
         question: "Functions include recommending:",
         options: [
             "Distribution of net tax proceeds.",
@@ -45,7 +45,7 @@ export const CHAPTER_44_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 44,
+
         question: "Procedure for Report:",
         options: [
             "Submitted to Parliament.",
@@ -59,7 +59,7 @@ export const CHAPTER_44_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 44,
+
         question: "15th FC Criteria with 12.5% weightage:",
         options: [
             "Income Distance",
@@ -73,7 +73,7 @@ export const CHAPTER_44_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 44,
+
         question: "Chairman of 16th Finance Commission:",
         options: [
             "Arvind Panagariya",
@@ -87,7 +87,7 @@ export const CHAPTER_44_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 44,
+
         question: "The body that 'reduced role of FC' historically:",
         options: [
             "NDC",
@@ -101,7 +101,7 @@ export const CHAPTER_44_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 44,
+
         question: "Measures to augment State Consolidated Fund for local bodies are based on:",
         options: [
             "Governor's report",
@@ -115,7 +115,7 @@ export const CHAPTER_44_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 44,
+
         question: "Advisory nature means:",
         options: [
             "Binding on Govt.",
@@ -129,7 +129,7 @@ export const CHAPTER_44_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 44,
+
         question: "Disqualifications for Finance Commission member (1951 Act):",
         options: [
             "Unsound mind",

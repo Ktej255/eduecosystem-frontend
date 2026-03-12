@@ -4,7 +4,7 @@ import { MCQ } from '../mcq-utils';
 export const CHAPTER_93_MCQS: MCQ[] = [
     {
         "id": "ch93_l1_1",
-        "chapterId": 93,
+
         "question": "The '99th Constitutional Amendment Act' created which body that was later struck down by the Supreme Court?",
         "options": [
             "National Judicial Appointments Commission (NJAC).",
@@ -18,7 +18,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_2",
-        "chapterId": 93,
+
         "question": "In which landmark case did the SC strike down the 99th Amendment as unconstitutional?",
         "options": [
             "First Judges Case.",
@@ -32,7 +32,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_3",
-        "chapterId": 93,
+
         "question": "The '103rd Constitutional Amendment Act' (2019) is related to which reservation?",
         "options": [
             "OBC reservation in promotion.",
@@ -46,7 +46,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_4",
-        "chapterId": 93,
+
         "question": "Which case upheld the constitutional validity of the 103rd Amendment (EWS reservation)?",
         "options": [
             "Indra Sawhney case.",
@@ -60,7 +60,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_5",
-        "chapterId": 93,
+
         "question": "The '101st Constitutional Amendment Act' (2016) introduced which major reform?",
         "options": [
             "Right to Education.",
@@ -74,7 +74,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_6",
-        "chapterId": 93,
+
         "question": "Which case clarified the 'powers' of the GST Council established by the 101st Amendment?",
         "options": [
             "Union of India vs Mohit Minerals (2022).",
@@ -88,7 +88,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_7",
-        "chapterId": 93,
+
         "question": "The '97th Constitutional Amendment Act' (2011) gave constitutional status to which bodies?",
         "options": [
             "Tribunals.",
@@ -102,7 +102,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_8",
-        "chapterId": 93,
+
         "question": "The SC struck down part of the 97th Amendment in 'Union of India vs Rajendra Shah' (2021) because it was NOT:",
         "options": [
             "Ratified by the states.",
@@ -116,7 +116,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_9",
-        "chapterId": 93,
+
         "question": "The '52nd Constitutional Amendment Act' (1985) is famous for which provision?",
         "options": [
             "Right to property abolition.",
@@ -130,7 +130,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_10",
-        "chapterId": 93,
+
         "question": "Which case upheld the '10th Schedule' while making the Speaker's decision subject to review?",
         "options": [
             "Kihoto Hollohan case (1992).",
@@ -144,7 +144,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_11",
-        "chapterId": 93,
+
         "question": "The '77th Amendment Act' allowed reservation in 'Promotion' for which groups?",
         "options": [
             "OBCs.",
@@ -158,7 +158,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_12",
-        "chapterId": 93,
+
         "question": "Which case upheld the '81st and 85th' amendments related to 'Backlog' and 'Seniority' for SC/ST reservations?",
         "options": [
             "M. Nagaraj vs Union of India (2006).",
@@ -172,7 +172,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_13",
-        "chapterId": 93,
+
         "question": "The '42nd Constitutional Amendment Act' (1976) is also known as the:",
         "options": [
             "Mini Constitution.",
@@ -186,7 +186,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_14",
-        "chapterId": 93,
+
         "question": "The '44th Constitutional Amendment Act' (1978) reversed many changes made by which amendment?",
         "options": [
             "1st Amendment.",
@@ -200,7 +200,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_15",
-        "chapterId": 93,
+
         "question": "In 'Maratha Reservation Case' (Jaishri Laxmanrao Patil vs CM, Maharashtra, 2021), the SC struck down which amendment as far as it took away state powers to identify OBCs?",
         "options": [
             "102nd Amendment Act (which established NCBC).",
@@ -214,7 +214,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_16",
-        "chapterId": 93,
+
         "question": "The '100th Constitutional Amendment Act' (2015) was regarding:",
         "options": [
             "GST.",
@@ -228,7 +228,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_17",
-        "chapterId": 93,
+
         "question": "Wait. Which amendment gave 'Constitutional Status' to the National Commission for Backward Classes (NCBC)?",
         "options": [
             "101st.",
@@ -242,7 +242,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_18",
-        "chapterId": 93,
+
         "question": "The '104th Constitutional Amendment Act' (2020) abolished reservation for which group in the Lok Sabha?",
         "options": [
             "SCs.",
@@ -256,7 +256,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_19",
-        "chapterId": 93,
+
         "question": "The '1st Constitutional Amendment Act' (1951) introduced which Schedule to protect land reforms from judicial review?",
         "options": [
             "Seventh Schedule.",
@@ -270,7 +270,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_20",
-        "chapterId": 93,
+
         "question": "The '61st Constitutional Amendment Act' (1989) reduced the voting age from 21 years to:",
         "options": [
             "20 years.",
@@ -284,7 +284,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_21",
-        "chapterId": 93,
+
         "question": "Wait. In which case did the SC rule that the 'Amending power is also a limited power'?",
         "options": [
             "Minerva Mills case (1980).",
@@ -298,7 +298,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_22",
-        "chapterId": 93,
+
         "question": "The '73rd and 74th Amendments' (1992) constitutionalized which level of government?",
         "options": [
             "Union government.",
@@ -312,7 +312,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_23",
-        "chapterId": 93,
+
         "question": "The '86th Amendment Act' (2002) dealt with which fundamental right?",
         "options": [
             "Right to Information.",
@@ -326,7 +326,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_24",
-        "chapterId": 93,
+
         "question": "The '91st Amendment Act' (2003) limited the size of the Council of Ministers to:",
         "options": [
             "10% of total house.",
@@ -340,7 +340,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_25",
-        "chapterId": 93,
+
         "question": "The '92nd Amendment Act' (2003) added four languages to the 8th Schedule. Which of the following is NOT one of them?",
         "options": [
             "Bodo.",
@@ -354,7 +354,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_26",
-        "chapterId": 93,
+
         "question": "The '24th Amendment Act' (1971) was a response to which case?",
         "options": [
             "Shankari Prasad case.",
@@ -368,7 +368,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_27",
-        "chapterId": 93,
+
         "question": "Wait. Is the 'NJAC' still in use today?",
         "options": [
             "Yes.",
@@ -382,7 +382,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_28",
-        "chapterId": 93,
+
         "question": "The '31st Amendment Act' (1973) increased the number of seats in the Lok Sabha from 525 to:",
         "options": [
             "530.",
@@ -396,7 +396,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_29",
-        "chapterId": 93,
+
         "question": "Which amendment removed the 'Right to Property' as a Fundamental Right?",
         "options": [
             "42nd Amendment.",
@@ -410,7 +410,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l1_30",
-        "chapterId": 93,
+
         "question": "The '106th Constitutional Amendment Act' (2023) is related to:",
         "options": [
             "Women's Reservation in Lok Sabha and State Assemblies (Nari Shakti Vandan Adhiniyam).",
@@ -424,7 +424,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_1",
-        "chapterId": 93,
+
         "question": "The SC in the 'NJAC Case' (2015) held that 'Independence of Judiciary' is part of the Basic Structure. Why did the presence of the 'Law Minister' on the commission violate this?",
         "options": [
             "Because the Law Minister is a politician.",
@@ -438,7 +438,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_2",
-        "chapterId": 93,
+
         "question": "Assertion (A): The '103rd Amendment' (EWS) was challenged on the ground that it violates the 50% reservation cap set in Indra Sawhney.\nReason (R): The SC in Janhit Abhiyan (2022) held that the 50% cap is not 'inflexible' and applies only to caste-based reservations, not to EWS.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -452,7 +452,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_3",
-        "chapterId": 93,
+
         "question": "The '97th Constitutional Amendment' (Co-operatives) was partially struck down in 2021. Which part 'Survives' today?",
         "options": [
             "Provisions relating to Multi-State Co-operative Societies.",
@@ -466,7 +466,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_4",
-        "chapterId": 93,
+
         "question": "In 'Union of India vs Mohit Minerals', what was the SC's interpretation of 'Article 279A' (GST Council)?",
         "options": [
             "GST Council is the absolute master of tax.",
@@ -480,7 +480,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_5",
-        "chapterId": 93,
+
         "question": "Wait. Which amendment gave the National Commission for Backward Classes (NCBC) the power to 'Investigate' complaints of deprivation of rights?",
         "options": [
             "101st.",
@@ -494,7 +494,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_6",
-        "chapterId": 93,
+
         "question": "The '42nd Amendment' tried to give 'all' Directive Principles precedence over Fundamental Rights. Which case restored the 'Balance' and struck this down?",
         "options": [
             "Kesavananda Bharati.",
@@ -508,7 +508,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_7",
-        "chapterId": 93,
+
         "question": "Regarding 'Anti-Defection', the 10th Schedule (52nd Amendment) initially protected 'Splits' involving 1/3rd of members. Which amendment removed this 'Split' protection?",
         "options": [
             "91st Amendment Act (2003).",
@@ -522,7 +522,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_8",
-        "chapterId": 93,
+
         "question": "Wait. Which case is known as the 'Third Judges Case'?",
         "options": [
             "S.P. Gupta case.",
@@ -536,7 +536,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_9",
-        "chapterId": 93,
+
         "question": "In the 'Janhit Abhiyan' (EWS) case, the majority held that 'Caste' cannot be the 'Sole' criterion for reservation. This means:",
         "options": [
             "Caste is abolished.",
@@ -550,7 +550,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_10",
-        "chapterId": 93,
+
         "question": "The '25th Constitutional Amendment' (1971) sought to protect which laws from judicial review?",
         "options": [
             "Laws giving effect to Art 39(b) and (c) (Socialism).",
@@ -564,7 +564,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_11",
-        "chapterId": 93,
+
         "question": "Wait. Which amendment 'Ousted' the jurisdiction of the courts in the election of the PM and Speaker, and was struck down in 1975?",
         "options": [
             "38th Amendment.",
@@ -578,7 +578,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_12",
-        "chapterId": 93,
+
         "question": "The '7th Constitutional Amendment' (1956) was a response to the recommendations of which commission?",
         "options": [
             "Sarkaria Commission.",
@@ -592,7 +592,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_13",
-        "chapterId": 93,
+
         "question": "The '42nd Amendment' changed the Preamble. Which words were added?",
         "options": [
             "Democratic and Republic.",
@@ -606,7 +606,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_14",
-        "chapterId": 93,
+
         "question": "Assertion (A): The '61st Amendment' significantly increased the 'Electorate' of India.\nReason (R): Decreasing the voting age from 21 to 18 brought millions of young people into the electoral rolls.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -620,7 +620,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_15",
-        "chapterId": 93,
+
         "question": "Wait. Which amendment made the 'Advice of the Council of Ministers' binding on the President?",
         "options": [
             "42nd Amendment.",
@@ -634,7 +634,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_16",
-        "chapterId": 93,
+
         "question": "In the 'Maratha Reservation' case, why did the SC say that states could NOT identify their own OBC lists (after 102nd amendment)?",
         "options": [
             "States were too busy.",
@@ -648,7 +648,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_17",
-        "chapterId": 93,
+
         "question": "The '100th Amendment' (Land Boundary Agreement) required which type of amendment process?",
         "options": [
             "Simple majority.",
@@ -662,7 +662,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_18",
-        "chapterId": 93,
+
         "question": "Wait. Which case held that 'Judicial Review' of the Speaker's decision under 10th Schedule is available 'only after' the final decision is made?",
         "options": [
             "Kihoto Hollohan.",
@@ -676,7 +676,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_19",
-        "chapterId": 93,
+
         "question": "The '52nd Amendment' (Anti-defection) does not apply to which situation?",
         "options": [
             "Voluntary resignation from party.",
@@ -690,7 +690,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_20",
-        "chapterId": 93,
+
         "question": "The '86th Amendment' (Education) added which directive principle?",
         "options": [
             "Article 21A.",
@@ -704,7 +704,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_21",
-        "chapterId": 93,
+
         "question": "Wait. Which amendment 'Banned' the inclusion of 'any' law into the 9th schedule without judicial review for basic structure?",
         "options": [
             "No amendment, this was done by the SC in I.R. Coelho (2007).",
@@ -718,7 +718,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_22",
-        "chapterId": 93,
+
         "question": "The '91st Amendment' also restricted the 'Disqualified member' from:",
         "options": [
             "Voting.",
@@ -732,7 +732,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_23",
-        "chapterId": 93,
+
         "question": "In the 'EWS' case (2022), the dissenters (including the CJI) argued that excluding SCs/STs from EWS violates:",
         "options": [
             "The budget.",
@@ -746,7 +746,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_24",
-        "chapterId": 93,
+
         "question": "The '102nd Amendment' (NCBC) was modeled after which commission's structure?",
         "options": [
             "Election Commission.",
@@ -760,7 +760,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_25",
-        "chapterId": 93,
+
         "question": "The '38th Amendment' (1975) made which of the following 'Non-justiciable' during its time?",
         "options": [
             "Proclamation of Emergency.",
@@ -774,7 +774,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_26",
-        "chapterId": 93,
+
         "question": "Assertion (A): The '93rd Amendment' (2005) enabled reservation in 'Private Unaided' educational institutions.\nReason (R): This was a response to the T.M.A. Pai and P.A. Inamdar judgments which limited state interference in private colleges.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -788,7 +788,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_27",
-        "chapterId": 93,
+
         "question": "Wait. Which amendment gave constitutional status to 'Urban Local Bodies' (Municipalities)?",
         "options": [
             "73rd.",
@@ -802,7 +802,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_28",
-        "chapterId": 93,
+
         "question": "The '51st Amendment' (1984) provided for reservation of seats in the Lok Sabha for STs in:",
         "options": [
             "All of India.",
@@ -816,7 +816,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_29",
-        "chapterId": 93,
+
         "question": "The '106th Amendment' (Women Reservation) will come into effect only after:",
         "options": [
             "The PM signs it.",
@@ -830,7 +830,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l2_30",
-        "chapterId": 93,
+
         "question": "The 'Doctrine of Severability' as applied to amendments means:",
         "options": [
             "The whole amendment must be struck down if one word is wrong.",
@@ -844,7 +844,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_1",
-        "chapterId": 93,
+
         "question": "Analyze the 'Constituent Power' vs 'Legislative Power' distinction as finalized in the 'NJAC' (2015) judgment. Why was the 99th amendment held to be an overreach of constituent power?",
         "options": [
             "Because it costs too much.",
@@ -858,7 +858,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_2",
-        "chapterId": 93,
+
         "question": "In 'Janhit Abhiyan vs Union of India' (2022), the SC examined the 'Identity Test' for EWS. What was the majority's view on excluding SCs/STs from the EWS quota?",
         "options": [
             "It is unconstitutional.",
@@ -872,7 +872,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_3",
-        "chapterId": 93,
+
         "question": "The '97th Amendment' (2011) was stuck down partially in 'Union of India vs Rajendra Shah'. Which 'Principle of Statutory Interpretation' was used to save the multi-state co-operatives?",
         "options": [
             "Doctrine of Eclipse.",
@@ -886,7 +886,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_4",
-        "chapterId": 93,
+
         "question": "Assertion (A): The '101st Amendment' (GST) created a 'Unique' federal power under Art 246A.\nReason (R): Unlike other articles, Art 246A gives 'Simultaneous' power to both Parliament and State Legislatures to make laws with respect to GST, without the usual 'Repugnancy' rule (Art 254) being applied during Council decisions.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -900,7 +900,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_5",
-        "chapterId": 93,
+
         "question": "In the 'Maratha Reservation' case (2021), why did the SC 'Refuse' to overrule the 50% cap set in Indra Sawhney (1992)?",
         "options": [
             "Because the judges were lazy.",
@@ -914,7 +914,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_6",
-        "chapterId": 93,
+
         "question": "Analyze the 'Constitutional Council' proposed (and later struck down via NJAC) for appointments. How did the SC in the 'Fourth Judges Case' define 'Judicial Primacy'?",
         "options": [
             "Primacy of the CJI alone.",
@@ -928,7 +928,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_7",
-        "chapterId": 93,
+
         "question": "Regarding 'Article 31C' (25th Amendment). Which part was struck down in Kesavananda Bharati?",
         "options": [
             "The whole article.",
@@ -942,7 +942,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_8",
-        "chapterId": 93,
+
         "question": "The '42nd Amendment' (1976) tried to make 'Constitutional Amendments' beyond the reach of courts (Art 368-4 and 5). Why did 'Minerva Mills' (1980) find this fatal to the Constitution?",
         "options": [
             "Because it was too long.",
@@ -956,7 +956,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_9",
-        "chapterId": 93,
+
         "question": "In 'Kihoto Hollohan' (1992), why was Para 7 of the 10th Schedule (Anti-defection) considered unconstitutional?",
         "options": [
             "Because it was written in poor English.",
@@ -970,7 +970,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_10",
-        "chapterId": 93,
+
         "question": "Evaluation of '91st Amendment' (2003). How did it change the 'Remedy' for defection?",
         "options": [
             "It increased the fine.",
@@ -984,7 +984,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_11",
-        "chapterId": 93,
+
         "question": "Wait. In which case did the SC hold that 'Parliament cannot use its amending power to destroy the secular character'?",
         "options": [
             "S.R. Bommai case.",
@@ -998,7 +998,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_12",
-        "chapterId": 93,
+
         "question": "Critically analyze 'M. Nagaraj' (2006). What is the 'Ceiling' on the 'Reservation in Promotion' according to the court?",
         "options": [
             "Exactly 22.5%.",
@@ -1012,7 +1012,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_13",
-        "chapterId": 93,
+
         "question": "In 'I.R. Coelho' (2007), the court introduced the 'Direct Impact Test'. If a law in the 9th schedule significantly impairs a Fundamental Right that is part of the basic structure, what happens?",
         "options": [
             "It is still protected.",
@@ -1026,7 +1026,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_14",
-        "chapterId": 93,
+
         "question": "Evaluate the '102nd Amendment'. How did it differ from the earlier 'National Commission for Backward Classes Act, 1993'?",
         "options": [
             "It gave more salary.",
@@ -1040,7 +1040,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_15",
-        "chapterId": 93,
+
         "question": "Assertion (A): The '44th Amendment' replaced 'Internal Disturbance' with 'Armed Rebellion' for National Emergency (Art 352).\nReason (R): The SC in the post-emergency period suggested that the vague 'Internal Disturbance' gave the executive too much arbitrary power to suspend democracy.",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -1054,7 +1054,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_16",
-        "chapterId": 93,
+
         "question": "In 'Union of India vs Mohit Minerals', the SC upheld the 'Leeway' of the states in GST. What did the court say about the 'GST Council's mandate'?",
         "options": [
             "It's a high command.",
@@ -1068,7 +1068,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_17",
-        "chapterId": 93,
+
         "question": "Wait. Which case established that 'Equal opportunity in Public Employment' is a part of the Basic Structure?",
         "options": [
             "M. Nagaraj case.",
@@ -1082,7 +1082,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_18",
-        "chapterId": 93,
+
         "question": "What was the 'Primary' challenge to the '86th Amendment' (Art 21A)?",
         "options": [
             "Cost.",
@@ -1096,7 +1096,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_19",
-        "chapterId": 93,
+
         "question": "Critically analyze 'S.P. Sampath Kumar' (1987) vs 'L. Chandra Kumar' (1997). How did the view on 'Tribunals' change?",
         "options": [
             "Sampath Kumar upheld the 'Exclusion' of HCs; Chandra Kumar overruled it and restored HC's power of judicial review.",
@@ -1110,7 +1110,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_20",
-        "chapterId": 93,
+
         "question": "In 'Raja Ram Pal vs Hon'ble Speaker' (2007), the SC upheld the power of Parliament to 'Expel' its members. What was the constitutional basis?",
         "options": [
             "Article 368.",
@@ -1124,7 +1124,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_21",
-        "chapterId": 93,
+
         "question": "Wait. In which case did the SC hold that 'Parliament can't change the federal balance'?",
         "options": [
             "S.R. Bommai.",
@@ -1138,7 +1138,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_22",
-        "chapterId": 93,
+
         "question": "Analyze the 'Doctrine of Pith and Substance' as applied to the '101st Amendment' (GST). Does it allow for 'Ancillary' taxes?",
         "options": [
             "Yes.",
@@ -1152,7 +1152,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_23",
-        "chapterId": 93,
+
         "question": "What is the status of the '10th Schedule' regarding 'Legislative Council (Vidhan Parishad)'?",
         "options": [
             "It does not apply.",
@@ -1166,7 +1166,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_24",
-        "chapterId": 93,
+
         "question": "Evaluate the 'Ratification' requirement. Which of the following amendments required ratification by states?",
         "options": [
             "73rd/74th (Local govt).",
@@ -1180,7 +1180,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_25",
-        "chapterId": 93,
+
         "question": "In 'Nabam Rebia' (2016), the SC clarified that the Speaker 'cannot' decide on disqualification petitions if:",
         "options": [
             "He is busy.",
@@ -1194,7 +1194,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_26",
-        "chapterId": 93,
+
         "question": "Wait. Which case held that 'Rule of Law' is the soul of the Constitution and can never be taken away?",
         "options": [
             "Indira Gandhi vs Raj Narain.",
@@ -1208,7 +1208,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_27",
-        "chapterId": 93,
+
         "question": "The '4th Amendment Act' (1955) was a response to which case related to compensation for property?",
         "options": [
             "State of West Bengal vs Bela Banerjee.",
@@ -1222,7 +1222,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_28",
-        "chapterId": 93,
+
         "question": "Does an 'Amendment' that has been struck down as unconstitutional 'revive' automatically if the basic structure is later modified?",
         "options": [
             "Yes.",
@@ -1236,7 +1236,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_29",
-        "chapterId": 93,
+
         "question": "Who chaired the committee that recommended the '91st Amendment' (limiting cabinet size)?",
         "options": [
             "Dinesh Goswamy.",
@@ -1250,7 +1250,7 @@ export const CHAPTER_93_MCQS: MCQ[] = [
     },
     {
         "id": "ch93_l3_30",
-        "chapterId": 93,
+
         "question": "Final Analysis: Which has more weight in the Indian system - 'Legislative mandate' or 'Constitutional morality'?",
         "options": [
             "Legislative mandate.",

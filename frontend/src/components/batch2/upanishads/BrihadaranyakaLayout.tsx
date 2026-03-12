@@ -265,7 +265,7 @@ export default function BrihadaranyakaLayout() {
     const [sadhanaActive, setSadhanaActive] = useState(false);
     const [reportActive, setReportActive] = useState(false);
     const { logEvent } = useBatch2Events();
-    const { mode } = useBatch2UI();
+    const { mode, setMode } = useBatch2UI();
 
     useEffect(() => {
         (window as any).showSadhanaTimer = () => {

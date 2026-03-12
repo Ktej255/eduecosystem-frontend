@@ -31,7 +31,7 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
   },
   {
     id: '7-4',
-    question: "Consider the following statements regarding the 'Age of Consent Act' (1891): 1. It was enacted due to the relentless efforts of the Parsi reformer Behramji Malabari. 2. It prohibited the marriage of girls below the age of 12. 3. It was widely supported by conservative nationalist leaders like Bal Gangadhar Tilak. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Age of Consent Act' (1891):\n1. It was enacted due to the relentless efforts of the Parsi reformer Behramji Malabari.\n2. It prohibited the marriage of girls below the age of 12.\n3. It was widely supported by conservative nationalist leaders like Bal Gangadhar Tilak. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only Statement 3 is incorrect. Tilak and other orthodox nationalists opposed the Act, arguing that the British government had no right to interfere in Hindu social and religious customs.",
@@ -85,7 +85,7 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
   },
   {
     id: '7-10',
-    question: "Consider the following regarding the 'Aligarh Movement' led by Sir Syed Ahmed Khan: 1. It aimed at reconciling Western scientific education with the teachings of the Quran. 2. It was strictly revivalist, calling for a return to the primitive Islam of the 7th century. 3. It advocated for the active participation of Muslims in the Indian National Congress. Which of the statements given above is/are correct?",
+    question: "Consider the following regarding the 'Aligarh Movement' led by Sir Syed Ahmed Khan:\n1. It aimed at reconciling Western scientific education with the teachings of the Quran.\n2. It was strictly revivalist, calling for a return to the primitive Islam of the 7th century.\n3. It advocated for the active participation of Muslims in the Indian National Congress. Which of the statements given above is/are correct?",
     options: ["1 only", "1 and 2 only", "2 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 only Sir Syed Ahmed Khan was a reformist (not revivalist) and he advised Muslims to stay away from the Congress in its early years.",
@@ -157,7 +157,7 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
   },
   {
     id: '7-18',
-    question: "Consider the following pairs of reformers and their primary focus area: 1. B.M. Malabari \u2014 Age of Consent 2. D.K. Karve \u2014 Women's University 3. Vishnu Shastri Pandit \u2014 Widow Remarriage How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of reformers and their primary focus area:\n1. B.M. Malabari \u2014 Age of Consent\n2. D.K. Karve \u2014 Women's University\n3. Vishnu Shastri Pandit \u2014 Widow Remarriage How many of the above pairs are correctly matched?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three",
@@ -283,7 +283,7 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
   },
   {
     id: '7-32',
-    question: "Consider the following statements regarding the ideological base of 19th-century reform movements: 1. The reformers aimed at a total rejection of Indian tradition in favor of a complete adoption of Western colonial culture. 2. 'Religious Universalism' was used as a tool to argue that all religions were fundamentally same and that social evils were distortions of original faith. 3. Rationalism was emphasized as the only preceptor, with leaders like Akshay Kumar Dutt arguing that even religious principles must be judged by the laws of nature. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the ideological base of 19th-century reform movements:\n1. The reformers aimed at a total rejection of Indian tradition in favor of a complete adoption of Western colonial culture.\n2. 'Religious Universalism' was used as a tool to argue that all religions were fundamentally same and that social evils were distortions of original faith.\n3. Rationalism was emphasized as the only preceptor, with leaders like Akshay Kumar Dutt arguing that even religious principles must be judged by the laws of nature. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statement 1 is incorrect; the reformers sought a synthesis of the best of the East and the West, not a total rejection of Indian tradition. Statements 2 and 3 are correct.",
@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
   },
   {
     id: '7-34',
-    question: "Arrange the following social reform legislations in the correct chronological order of their enactment: 1. Hindu Widows' Remarriage Act 2. Sarda Act (Child Marriage Restraint Act) 3. Age of Consent Act 4. Native Marriage Act (Civil Marriage Act) Select the correct answer using the code given below:",
+    question: "Arrange the following social reform legislations in the correct chronological order of their enactment:\n1. Hindu Widows' Remarriage Act\n2. Sarda Act (Child Marriage Restraint Act)\n3. Age of Consent Act\n4. Native Marriage Act (Civil Marriage Act) Select the correct answer using the code given below:",
     options: ["1 \u2014 4 \u2014 3 \u2014 2", "4 \u2014 1 \u2014 2 \u2014 3", "1 \u2014 3 \u2014 4 \u2014 2", "4 \u2014 2 \u2014 1 \u2014 3"],
     correctAnswer: 0,
     explanation: "1 \u2014 4 \u2014 3 \u2014 2 Hindu Widows' Remarriage Act (1856) -> Native Marriage Act (1872) -> Age of Consent Act (1891) -> Sarda Act (1929).",
@@ -310,7 +310,7 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
   },
   {
     id: '7-35',
-    question: "Consider the following pairs of Women's Organizations and their Founders: 1. Bharat Stree Mahamandal \u2014 Sarla Devi Chaudhurani 2. Ladies Social Conference (Bharat Mahila Parishad) \u2014 Ramabai Ranade 3. All India Women's Conference (AIWC) \u2014 Margaret Cousins 4. Arya Mahila Samaj \u2014 Pandita Ramabai How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of Women's Organizations and their Founders:\n1. Bharat Stree Mahamandal \u2014 Sarla Devi Chaudhurani\n2. Ladies Social Conference (Bharat Mahila Parishad) \u2014 Ramabai Ranade\n3. All India Women's Conference (AIWC) \u2014 Margaret Cousins\n4. Arya Mahila Samaj \u2014 Pandita Ramabai How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
     correctAnswer: 3,
     explanation: "All four pairs",
@@ -319,7 +319,7 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
   },
   {
     id: '7-36',
-    question: "Regarding the 'Satyashodhak Samaj' founded by Jyotirao Phule, consider the following statements: 1. It sought to provide leadership to the oppressed classes by bypassing the intermediary role of the Brahmin priests. 2. It was primarily funded by the orthodox Brahmin aristocracy of Pune. 3. Phule\u2019s works, such as Gulamgiri, served as the ideological foundation for the movement. How many of the above statements are correct?",
+    question: "Regarding the 'Satyashodhak Samaj' founded by Jyotirao Phule, consider the following statements:\n1. It sought to provide leadership to the oppressed classes by bypassing the intermediary role of the Brahmin priests.\n2. It was primarily funded by the orthodox Brahmin aristocracy of Pune.\n3. Phule\u2019s works, such as Gulamgiri, served as the ideological foundation for the movement. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the movement was aimed against Brahminical hegemony and was supported by the non-Brahmin masses.",
@@ -346,7 +346,7 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
   },
   {
     id: '7-39',
-    question: "Consider the following statements regarding the 'Age of Consent Act' (1891): 1. It was heavily opposed by Bal Gangadhar Tilak on the grounds of foreign interference in Hindu traditions. 2. It prohibited the marriage of girls below the age of 14. 3. The Act was a direct result of the Phulmani Das case in Bengal. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Age of Consent Act' (1891):\n1. It was heavily opposed by Bal Gangadhar Tilak on the grounds of foreign interference in Hindu traditions.\n2. It prohibited the marriage of girls below the age of 14.\n3. The Act was a direct result of the Phulmani Das case in Bengal. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the Act raised the age from 10 to 12, not 14.",
@@ -355,7 +355,7 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
   },
   {
     id: '7-40',
-    question: "Consider the following pairs of Reformers and their associated Journals/Newspapers: 1. Gopal Baba Walangkar \u2014 Vital Vidhvasak 2. B.R. Ambedkar \u2014 Mooknayak 3. Karsandas Mulji \u2014 Satya Prakash How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of Reformers and their associated Journals/Newspapers:\n1. Gopal Baba Walangkar \u2014 Vital Vidhvasak\n2. B.R. Ambedkar \u2014 Mooknayak\n3. Karsandas Mulji \u2014 Satya Prakash How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "All three pairs", "None"],
     correctAnswer: 2,
     explanation: "All three pairs",
@@ -382,7 +382,7 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
   },
   {
     id: '7-43',
-    question: "The 'Temple Entry Movement' reached its peak in the 1920s and 30s. Arrange the following events in chronological order: 1. Vaikom Satyagraha 2. Guruvayur Satyagraha 3. Temple Entry Proclamation by the Maharaja of Travancore Select the correct answer using the code given below:",
+    question: "The 'Temple Entry Movement' reached its peak in the 1920s and 30s. Arrange the following events in chronological order:\n1. Vaikom Satyagraha\n2. Guruvayur Satyagraha\n3. Temple Entry Proclamation by the Maharaja of Travancore Select the correct answer using the code given below:",
     options: ["1 \u2014 2 \u2014 3", "2 \u2014 1 \u2014 3", "3 \u2014 1 \u2014 2", "1 \u2014 3 \u2014 2"],
     correctAnswer: 0,
     explanation: "1 \u2014 2 \u2014 3 Vaikom (1924) -> Guruvayur (1931) -> Proclamation (1936).",
@@ -391,7 +391,7 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
   },
   {
     id: '7-44',
-    question: "Consider the following statements regarding the Arya Samaj: 1. It supported the 'Shuddhi' movement to convert non-Hindus to Hinduism. 2. It emphasized the absolute authority of the Puranas over the Vedas. 3. It promoted the D.A.V. (Dayanand Anglo-Vedic) schools to provide a blend of Western and Vedic education. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the Arya Samaj:\n1. It supported the 'Shuddhi' movement to convert non-Hindus to Hinduism.\n2. It emphasized the absolute authority of the Puranas over the Vedas.\n3. It promoted the D.A.V. (Dayanand Anglo-Vedic) schools to provide a blend of Western and Vedic education. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; Arya Samaj rejected the Puranas and held \"Back to the Vedas\" as its primary slogan.",
@@ -427,7 +427,7 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
   },
   {
     id: '7-48',
-    question: "Which of the following pairs of Women's Journals/Magazines and their associated communities is incorrectly matched? 1. Stri Darpan \u2014 General/Nationalist women 2. Tahzib-e-Niswan \u2014 Muslim women 3. Khatoon \u2014 Sikh women Select the correct answer using the code given below:",
+    question: "Which of the following pairs of Women's Journals/Magazines and their associated communities is incorrectly matched?\n1. Stri Darpan \u2014 General/Nationalist women\n2. Tahzib-e-Niswan \u2014 Muslim women\n3. Khatoon \u2014 Sikh women Select the correct answer using the code given below:",
     options: ["1 only", "3 only", "1 and 2 only", "2 and 3 only"],
     correctAnswer: 1,
     explanation: "3 only Khatoon was also a journal for Muslim women (published from Aligarh), not Sikh women.",
@@ -436,7 +436,7 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
   },
   {
     id: '7-49',
-    question: "Consider the following statements regarding the 'Bahishkrit Hitakarini Sabha' (1924): 1. It was founded by Jyotirao Phule to promote primary education in rural Maharashtra. 2. Its primary goal was to improve the conditions of the Depressed Classes (Dalits) and represent their grievances to the government. 3. It organized the Mahad Satyagraha to assert the right of untouchables to use water from public tanks. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Bahishkrit Hitakarini Sabha' (1924):\n1. It was founded by Jyotirao Phule to promote primary education in rural Maharashtra.\n2. Its primary goal was to improve the conditions of the Depressed Classes (Dalits) and represent their grievances to the government.\n3. It organized the Mahad Satyagraha to assert the right of untouchables to use water from public tanks. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 2 and 3 are correct. Statement 1 is incorrect; it was founded by Dr. B.R. Ambedkar, not Jyotirao Phule.",
@@ -463,7 +463,7 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
   },
   {
     id: '7-52',
-    question: "The 'Self-Respect' weddings (Swayam-Mariyathai) initiated by Periyar were notable because: 1. They were conducted without the presence of a Brahmin priest. 2. They were valid only if conducted in a Hindu temple. 3. They were recognized by the Madras government only after a long legal struggle. How many of the above statements are correct?",
+    question: "The 'Self-Respect' weddings (Swayam-Mariyathai) initiated by Periyar were notable because:\n1. They were conducted without the presence of a Brahmin priest.\n2. They were valid only if conducted in a Hindu temple.\n3. They were recognized by the Madras government only after a long legal struggle. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; they were designed to be secular and could be held anywhere.",
@@ -508,7 +508,7 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
   },
   {
     id: '7-57',
-    question: "Consider the impact of the socio-religious reform movements on the Indian National Movement: 1. They created a sense of self-respect and pride in the Indian heritage. 2. They provided a critique of the decaying traditional social structure that hindered national unity. 3. they led to a complete and permanent end to all communal tensions in India. How many of the above statements are correct?",
+    question: "Consider the impact of the socio-religious reform movements on the Indian National Movement:\n1. They created a sense of self-respect and pride in the Indian heritage.\n2. They provided a critique of the decaying traditional social structure that hindered national unity.\n3. they led to a complete and permanent end to all communal tensions in India. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is false; unfortunately, some movements (especially revivalist and shuddhi/tabligh) contributed to communal polarization later on.",
@@ -526,7 +526,7 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
   },
   {
     id: '7-59',
-    question: "With reference to 'Pandita Ramabai', consider the following statements: 1. She was the first woman to be awarded the title of 'Pandita' and 'Saraswati' by the University of Calcutta. 2. She founded the Sharada Sadan to provide education to child widows. 3. She remained a lifelong orthodox Hindu and fiercely opposed the work of Christian missionaries. How many of the above statements are correct?",
+    question: "With reference to 'Pandita Ramabai', consider the following statements:\n1. She was the first woman to be awarded the title of 'Pandita' and 'Saraswati' by the University of Calcutta.\n2. She founded the Sharada Sadan to provide education to child widows.\n3. She remained a lifelong orthodox Hindu and fiercely opposed the work of Christian missionaries. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; she converted to Christianity, which led to controversy in her later life.",

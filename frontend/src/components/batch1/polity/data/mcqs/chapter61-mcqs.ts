@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_61_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 61,
+
         question: "The National Commission for Women (NCW) was established as a statutory body in:",
         options: ["1990", "1992", "1995", "2000"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_61_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 61,
+
         question: "How many members (excluding the Chairperson and Member-Secretary) are in the NCW?",
         options: ["3", "5", "7", "10"],
         correctAnswer: 1,
@@ -21,7 +21,7 @@ export const CHAPTER_61_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 61,
+
         question: "The members of NCW are nominated by:",
         options: ["The President", "The Prime Minister", "The Central Government", "The Parliament"],
         correctAnswer: 2,
@@ -30,7 +30,7 @@ export const CHAPTER_61_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 61,
+
         question: "What is the tenure of the Chairperson of the National Commission for Women?",
         options: ["3 years", "5 years", "6 years", "Until age 65"],
         correctAnswer: 0,
@@ -39,7 +39,7 @@ export const CHAPTER_61_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 61,
+
         question: "At least one member of NCW must be from:",
         options: ["Scheduled Castes", "Scheduled Tribes", "OBCs", "Both 1 and 2"],
         correctAnswer: 3,
@@ -48,7 +48,7 @@ export const CHAPTER_61_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 61,
+
         question: "Which of the following is NOT a function of the NCW?",
         options: [
             "Reviewing constitutional safeguards for women",
@@ -62,7 +62,7 @@ export const CHAPTER_61_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 61,
+
         question: "Who was the first Chairperson of the NCW?",
         options: ["Jayanti Patnaik", "Mohini Giri", "Vibha Parthasarathi", "Mamta Sharma"],
         correctAnswer: 0,
@@ -71,7 +71,7 @@ export const CHAPTER_61_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 61,
+
         question: "The NCW presents its reports to the Central Government which then lays it before:",
         options: ["The President", "The Supreme Court", "The Parliament", "NITI Aayog"],
         correctAnswer: 2,
@@ -80,7 +80,7 @@ export const CHAPTER_61_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 61,
+
         question: "Which wing was created within NCW in 2005 to look into NRI marriages?",
         options: ["NRI Cell", "Legal Cell", "International Relations Wing", "Safety Wing"],
         correctAnswer: 0,
@@ -89,7 +89,7 @@ export const CHAPTER_61_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 61,
+
         question: "NCW has the power to fund litigation in cases affecting:",
         options: ["Individual women only", "Large body of women", "Political parties", "Only government employees"],
         correctAnswer: 1,

@@ -57,6 +57,27 @@ export interface SequenceQuestion {
     difficulty: 'easy' | 'moderate' | 'tough';
 }
 
+export interface Subtopic {
+    id: string;
+    name: string;
+}
+
+export interface Question {
+    id: number;
+    question: string;
+    options: string[];
+    correctAnswer: number;
+    explanation: string;
+    subtopic: string;
+    difficulty?: 'Easy' | 'Moderate' | 'Hard';
+}
+
+export interface ChapterData {
+    content: string;
+    mcqs: Question[];
+    subtopics: Subtopic[];
+}
+
 export interface SpacedRepetitionData {
     lastRevised: string; // ISO Date
     nextRevision: string; // ISO Date

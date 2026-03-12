@@ -1,0 +1,446 @@
+{
+  "name": "Ganga River System",
+  "description": "Complete hydrological network of the Ganga basin with all major tributaries",
+  "source": {
+    "name": "Ganga (Bhagirathi)",
+    "origin": "Gangotri Glacier, Uttarakhand",
+    "coordinates": [
+      30.99,
+      79.00
+    ],
+    "elevation": 3892
+  },
+  "destination": {
+    "name": "Bay of Bengal (Sunderban Delta)",
+    "coordinates": [
+      21.95,
+      88.90
+    ]
+  },
+  "length": 2525,
+  "nodes": [
+    {
+      "id": "gangotri",
+      "name": "Gangotri Glacier (Gaumukh)",
+      "type": "source",
+      "coordinates": [
+        30.99,
+        79.00
+      ],
+      "description": "Source of Bhagirathi, the main headstream"
+    },
+    {
+      "id": "devprayag",
+      "name": "Devprayag",
+      "type": "confluence",
+      "coordinates": [
+        30.14,
+        78.60
+      ],
+      "description": "Alaknanda + Bhagirathi = Ganga",
+      "tributaryJoining": "Alaknanda"
+    },
+    {
+      "id": "haridwar",
+      "name": "Haridwar",
+      "type": "landmark",
+      "coordinates": [
+        29.95,
+        78.16
+      ],
+      "description": "Ganga enters the Northern Plains"
+    },
+    {
+      "id": "kanpur",
+      "name": "Kanpur",
+      "type": "city",
+      "coordinates": [
+        26.45,
+        80.35
+      ],
+      "tributaryJoining": "Ramganga"
+    },
+    {
+      "id": "prayagraj",
+      "name": "Prayagraj (Triveni Sangam)",
+      "type": "confluence",
+      "coordinates": [
+        25.43,
+        81.85
+      ],
+      "description": "Yamuna + Ganga confluence (Sangam)",
+      "tributaryJoining": "Yamuna"
+    },
+    {
+      "id": "varanasi",
+      "name": "Varanasi",
+      "type": "city",
+      "coordinates": [
+        25.32,
+        83.00
+      ],
+      "description": "Cultural and spiritual capital on Ganga"
+    },
+    {
+      "id": "patna",
+      "name": "Patna",
+      "type": "confluence",
+      "coordinates": [
+        25.60,
+        85.10
+      ],
+      "tributaryJoining": "Gandak"
+    },
+    {
+      "id": "bhagalpur",
+      "name": "Bhagalpur",
+      "type": "confluence",
+      "coordinates": [
+        25.25,
+        86.98
+      ],
+      "tributaryJoining": "Kosi"
+    },
+    {
+      "id": "farakka",
+      "name": "Farakka Barrage",
+      "type": "barrage",
+      "coordinates": [
+        24.80,
+        87.92
+      ],
+      "description": "Major barrage controlling flow to Bangladesh"
+    },
+    {
+      "id": "delta",
+      "name": "Sunderban Delta",
+      "type": "delta",
+      "coordinates": [
+        21.95,
+        88.90
+      ],
+      "description": "World's largest mangrove delta, shared with Bangladesh"
+    }
+  ],
+  "tributaries": {
+    "leftBank": [
+      {
+        "id": "ramganga",
+        "name": "Ramganga",
+        "origin": "Kumaon Hills",
+        "joinsAt": "kanpur",
+        "length": 690,
+        "color": "#81D4FA",
+        "path": [
+          [
+            30.08,
+            79.28
+          ],
+          [
+            29.50,
+            79.00
+          ],
+          [
+            28.50,
+            79.50
+          ],
+          [
+            27.50,
+            79.80
+          ],
+          [
+            26.45,
+            80.35
+          ]
+        ]
+      },
+      {
+        "id": "gomti",
+        "name": "Gomti",
+        "origin": "Gomat Taal, Pilibhit",
+        "joinsAt": "ghazipur-area",
+        "length": 900,
+        "color": "#4FC3F7",
+        "path": [
+          [
+            28.58,
+            80.17
+          ],
+          [
+            28.00,
+            80.50
+          ],
+          [
+            27.00,
+            81.50
+          ],
+          [
+            26.00,
+            82.50
+          ],
+          [
+            25.50,
+            83.20
+          ]
+        ]
+      },
+      {
+        "id": "ghaghara",
+        "name": "Ghaghara (Karnali)",
+        "origin": "Mapchachungo Glacier, Tibet",
+        "joinsAt": "revelganj",
+        "length": 1080,
+        "color": "#0288D1",
+        "path": [
+          [
+            30.67,
+            81.33
+          ],
+          [
+            29.50,
+            81.00
+          ],
+          [
+            28.00,
+            81.50
+          ],
+          [
+            27.00,
+            82.50
+          ],
+          [
+            26.00,
+            83.80
+          ],
+          [
+            25.77,
+            84.73
+          ]
+        ]
+      },
+      {
+        "id": "gandak",
+        "name": "Gandak (Narayani)",
+        "origin": "Nepal Himalayas",
+        "joinsAt": "patna",
+        "length": 630,
+        "color": "#00BCD4",
+        "path": [
+          [
+            28.50,
+            84.50
+          ],
+          [
+            27.50,
+            84.20
+          ],
+          [
+            26.80,
+            84.50
+          ],
+          [
+            26.20,
+            84.80
+          ],
+          [
+            25.60,
+            85.10
+          ]
+        ]
+      },
+      {
+        "id": "kosi",
+        "name": "Kosi (Sorrow of Bihar)",
+        "origin": "Tibet, near Mt. Everest",
+        "joinsAt": "bhagalpur",
+        "length": 720,
+        "note": "Known for frequent course changes and floods",
+        "color": "#26C6DA",
+        "path": [
+          [
+            27.98,
+            87.00
+          ],
+          [
+            27.00,
+            87.20
+          ],
+          [
+            26.50,
+            87.00
+          ],
+          [
+            26.00,
+            86.80
+          ],
+          [
+            25.25,
+            86.98
+          ]
+        ]
+      }
+    ],
+    "rightBank": [
+      {
+        "id": "yamuna",
+        "name": "Yamuna",
+        "origin": "Yamunotri Glacier, Uttarakhand",
+        "joinsAt": "prayagraj",
+        "length": 1376,
+        "majorTributaries": [
+          "Tons",
+          "Chambal",
+          "Betwa",
+          "Ken"
+        ],
+        "color": "#29B6F6",
+        "path": [
+          [
+            30.98,
+            78.45
+          ],
+          [
+            30.50,
+            78.30
+          ],
+          [
+            29.80,
+            78.00
+          ],
+          [
+            28.50,
+            77.50
+          ],
+          [
+            28.61,
+            77.21
+          ],
+          [
+            27.20,
+            78.00
+          ],
+          [
+            26.85,
+            80.90
+          ],
+          [
+            25.43,
+            81.85
+          ]
+        ]
+      },
+      {
+        "id": "son",
+        "name": "Son",
+        "origin": "Amarkantak Plateau",
+        "joinsAt": "patna-area",
+        "length": 784,
+        "color": "#D4E157",
+        "path": [
+          [
+            22.67,
+            81.75
+          ],
+          [
+            23.50,
+            82.00
+          ],
+          [
+            24.50,
+            83.50
+          ],
+          [
+            25.20,
+            84.50
+          ],
+          [
+            25.60,
+            85.10
+          ]
+        ]
+      }
+    ]
+  },
+  "flowPath": [
+    [
+      30.99,
+      79.00
+    ],
+    [
+      30.14,
+      78.60
+    ],
+    [
+      29.95,
+      78.16
+    ],
+    [
+      29.45,
+      78.00
+    ],
+    [
+      28.80,
+      78.20
+    ],
+    [
+      27.90,
+      78.80
+    ],
+    [
+      27.20,
+      79.50
+    ],
+    [
+      26.45,
+      80.35
+    ],
+    [
+      25.80,
+      81.20
+    ],
+    [
+      25.43,
+      81.85
+    ],
+    [
+      25.32,
+      83.00
+    ],
+    [
+      25.50,
+      84.00
+    ],
+    [
+      25.60,
+      85.10
+    ],
+    [
+      25.40,
+      86.00
+    ],
+    [
+      25.25,
+      86.98
+    ],
+    [
+      24.80,
+      87.92
+    ],
+    [
+      24.20,
+      88.30
+    ],
+    [
+      23.50,
+      88.60
+    ],
+    [
+      22.50,
+      88.80
+    ],
+    [
+      21.95,
+      88.90
+    ]
+  ]
+}

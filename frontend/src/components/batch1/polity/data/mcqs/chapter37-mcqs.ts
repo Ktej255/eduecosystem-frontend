@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_37_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 37,
+
         question: "The total number of ministers, including the CM, in a state shall not exceed _________ of the total strength of the Legislative Assembly.",
         options: ["10%", "15%", "20%", "25%"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_37_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 37,
+
         question: "The Council of Ministers in a state is collectively responsible to:",
         options: [
             "The Governor",
@@ -26,7 +26,7 @@ export const CHAPTER_37_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 37,
+
         question: "Which of the following states is NOT required by the Constitution to have a Minister for Tribal Welfare?",
         options: ["Madhya Pradesh", "Odisha", "Bihar", "Jharkhand"],
         correctAnswer: 2,
@@ -35,7 +35,7 @@ export const CHAPTER_37_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 37,
+
         question: "If a question arises whether a matter is in the Governor's discretion or not:",
         options: [
             "The High Court decides",
@@ -49,7 +49,7 @@ export const CHAPTER_37_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 37,
+
         question: "A minister who is not a member of the state legislature for any six consecutive months:",
         options: [
             "Needs a new appointment",
@@ -63,7 +63,7 @@ export const CHAPTER_37_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 37,
+
         question: "Which Article deals with the rights of ministers as respects the Houses of state legislature?",
         options: ["Article 163", "Article 164", "Article 177", "Article 167"],
         correctAnswer: 2,
@@ -72,7 +72,7 @@ export const CHAPTER_37_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 37,
+
         question: "The ministers hold office during:",
         options: ["Pleasure of the CM", "Pleasure of the President", "Pleasure of the Governor", "Fixed term of 5 years"],
         correctAnswer: 2,
@@ -81,7 +81,7 @@ export const CHAPTER_37_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 37,
+
         question: "Who presides over the Cabinet meetings in a state?",
         options: ["The Governor", "The CM", "The Speaker", "The Chief Secretary"],
         correctAnswer: 1,
@@ -90,7 +90,7 @@ export const CHAPTER_37_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 37,
+
         question: "Which of the following categories of ministers are NOT mentioned in the Constitution?",
         options: ["Cabinet Ministers", "Ministers of State", "Deputy Ministers", "All of the above"],
         correctAnswer: 3,
@@ -99,7 +99,7 @@ export const CHAPTER_37_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 37,
+
         question: "The oath of a minister includes secrecy and:",
         options: [
             "Allegiance to the Prime Minister",

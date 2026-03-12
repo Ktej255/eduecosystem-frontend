@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_47_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 47,
+
         question: "Correct statements regarding NCST:\n1. Established by 89th Amd.\n2. Structure 1+1+3.\n3. Chair has rank of Cabinet Minister.\n4. Term is 5 years.",
         options: [
             "1, 2, and 3 only",
@@ -17,7 +17,7 @@ export const CHAPTER_47_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 47,
+
         question: "Mandatory composition requirement:",
         options: [
             "All 5 members must be ST.",
@@ -31,7 +31,7 @@ export const CHAPTER_47_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 47,
+
         question: "Additional Functions (2005) include:\n1. Rights over minor forest produce.\n2. Eliminate shifting cultivation.\n3. Social afforestation involvement.\n4. Rights over mineral/water resources.",
         options: [
             "1, 2, and 3 only",
@@ -45,7 +45,7 @@ export const CHAPTER_47_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 47,
+
         question: "NCST suggests measures for implementation of:",
         options: [
             "Forest Rights Act 2006",
@@ -59,7 +59,7 @@ export const CHAPTER_47_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 47,
+
         question: "Composition Nuance: Which is mandatory?",
         options: [
             "Chairperson must be ST.",
@@ -80,7 +80,7 @@ export const CHAPTER_47_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 47,
+
         question: "Max terms for NCST member:",
         options: [
             "One term",
@@ -94,7 +94,7 @@ export const CHAPTER_47_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 47,
+
         question: "Relief and Rehabilitation measures suggested for displacement by:",
         options: [
             "Natural disasters",

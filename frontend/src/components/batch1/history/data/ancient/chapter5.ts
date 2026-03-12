@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_5_SUBTOPICS: Subtopic[] = [
@@ -148,3 +149,4 @@ export const ANCIENT_CHAPTER_5_CONTENT = `
 - **Health:** High infant mortality and nutritional stress found in bone studies.
 - **Decline:** Widespread aridity around 1200-1000 BCE led to the collapse of these rural systems.
 `;
+

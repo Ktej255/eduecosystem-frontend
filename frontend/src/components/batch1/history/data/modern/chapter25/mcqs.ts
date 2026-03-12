@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_25_MCQS: any[] = [
   },
   {
     id: '25-34',
-    question: "Consider the following statements regarding the 'Metcalfe Act of 1835': 1. It repealed the restrictive 1823 regulations. 2. It required only a declaration from the printer/publisher about the place of the press. 3. It was widely welcomed by both the English and Vernacular press in India. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Metcalfe Act of 1835':\n1. It repealed the restrictive 1823 regulations.\n2. It required only a declaration from the printer/publisher about the place of the press.\n3. It was widely welcomed by both the English and Vernacular press in India. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 3,
     explanation: "1, 2, and 3.",
@@ -364,7 +364,7 @@ export const MODERN_CHAPTER_25_MCQS: any[] = [
   },
   {
     id: '25-41',
-    question: "Consider the following regarding the 'Press Committee' (1921) headed by Tej Bahadur Sapru: 1. It was appointed in response to the pressure of the newly elected members of the Central Legislature. 2. It recommended the repeal of the 1908 and 1910 Press Acts. 3. It suggested that the government should have more power over the press during the Non-Cooperation movement. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Press Committee' (1921) headed by Tej Bahadur Sapru:\n1. It was appointed in response to the pressure of the newly elected members of the Central Legislature.\n2. It recommended the repeal of the 1908 and 1910 Press Acts.\n3. It suggested that the government should have more power over the press during the Non-Cooperation movement. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; the committee actually favored a more liberal approach).",
@@ -400,7 +400,7 @@ export const MODERN_CHAPTER_25_MCQS: any[] = [
   },
   {
     id: '25-45',
-    question: "Consider the following pairs of 'Newspapers' and their 'Political Tendencies': 1. The Hindu \u2014 Moderate Nationalist 2. Kesari \u2014 Extremist Nationalist 3. The Statesman \u2014 Pro-British / Anglo-Indian How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of 'Newspapers' and their 'Political Tendencies':\n1. The Hindu \u2014 Moderate Nationalist\n2. Kesari \u2014 Extremist Nationalist\n3. The Statesman \u2014 Pro-British / Anglo-Indian How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "All three pairs", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_25_MCQS: any[] = [
   },
   {
     id: '25-62',
-    question: "Consider the following statements regarding the 'Licensing Regulations of 1823' (Adam\u2019s Regulations): 1. They were the first to mandate that every printer and publisher obtain a license from the government. 2. The regulations specifically targeted Indian-language (Vernacular) newspapers, while exempting English journals. 3. The Governor-General had the discretionary power to cancel a license or call for a fresh one. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Licensing Regulations of 1823' (Adam\u2019s Regulations):\n1. They were the first to mandate that every printer and publisher obtain a license from the government.\n2. The regulations specifically targeted Indian-language (Vernacular) newspapers, while exempting English journals.\n3. The Governor-General had the discretionary power to cancel a license or call for a fresh one. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the 1823 regulations applied to all publications, though they were practically used to suppress reformist journals like Raja Rammohan Roy's Mirat-ul-Akhbar.",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_25_MCQS: any[] = [
   },
   {
     id: '25-66',
-    question: "Arrange the following Press Legislations in the correct chronological order: 1. Metcalfe Act 2. Vernacular Press Act 3. Licensing Regulations (John Adams) 4. Censorship of Press Act (Wellesley) Select the correct answer using the code given below:",
+    question: "Arrange the following Press Legislations in the correct chronological order:\n1. Metcalfe Act\n2. Vernacular Press Act\n3. Licensing Regulations (John Adams)\n4. Censorship of Press Act (Wellesley) Select the correct answer using the code given below:",
     options: ["4 \u2014 3 \u2014 1 \u2014 2", "3 \u2014 4 \u2014 1 \u2014 2", "4 \u2014 1 \u2014 3 \u2014 2", "4 \u2014 3 \u2014 2 \u2014 1"],
     correctAnswer: 0,
     explanation: "4 \u2014 3 \u2014 1 \u2014 2 (Censorship: 1799; Licensing: 1823; Metcalfe: 1835; VPA: 1878).",
@@ -598,7 +598,7 @@ export const MODERN_CHAPTER_25_MCQS: any[] = [
   },
   {
     id: '25-67',
-    question: "With reference to the 'Indian Press Act, 1910', consider the following statements: 1. It allowed the government to demand a security deposit of Rs. 500 to Rs. 2,000 from owners of new printing presses. 2. The security could be forfeited if the press published any material that brought the government into \"contempt or hatred.\" 3. It provided for the appointment of a 'Press Censor' in every district. How many of the above statements are correct?",
+    question: "With reference to the 'Indian Press Act, 1910', consider the following statements:\n1. It allowed the government to demand a security deposit of Rs. 500 to Rs. 2,000 from owners of new printing presses.\n2. The security could be forfeited if the press published any material that brought the government into \"contempt or hatred.\" 3. It provided for the appointment of a 'Press Censor' in every district. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statements 1 and 2 are correct. It didn't appoint individual censors but empowered the executive to forfeit deposits and seize machinery).",
@@ -616,7 +616,7 @@ export const MODERN_CHAPTER_25_MCQS: any[] = [
   },
   {
     id: '25-69',
-    question: "Consider the following pairs of 'Newspapers' and their 'Founders/Editors': 1. The Leader \u2014 Madan Mohan Malaviya 2. The Bombay Chronicle \u2014 Pherozeshah Mehta 3. Justice \u2014 T.M. Nair and P. Tyagaraya Chetty 4. Talwar \u2014 Birendranath Chattopadhyaya How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of 'Newspapers' and their 'Founders/Editors':\n1. The Leader \u2014 Madan Mohan Malaviya\n2. The Bombay Chronicle \u2014 Pherozeshah Mehta\n3. Justice \u2014 T.M. Nair and P. Tyagaraya Chetty\n4. Talwar \u2014 Birendranath Chattopadhyaya How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
     correctAnswer: 3,
     explanation: "All four pairs.",
@@ -643,7 +643,7 @@ export const MODERN_CHAPTER_25_MCQS: any[] = [
   },
   {
     id: '25-72',
-    question: "The 'Press Enquiry Committee' (1947) recommended the repeal of which of the following? 1. The Indian Press (Emergency Powers) Act, 1931. 2. The Foreign Relations Act, 1932. 3. The Indian States (Protection against Disaffection) Act, 1922. Select the correct answer using the code given below:",
+    question: "The 'Press Enquiry Committee' (1947) recommended the repeal of which of the following?\n1. The Indian Press (Emergency Powers) Act, 1931.\n2. The Foreign Relations Act, 1932.\n3. The Indian States (Protection against Disaffection) Act, 1922. Select the correct answer using the code given below:",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "All of the above"],
     correctAnswer: 3,
     explanation: "All of the above.",
@@ -652,7 +652,7 @@ export const MODERN_CHAPTER_25_MCQS: any[] = [
   },
   {
     id: '25-73',
-    question: "Regarding 'Bal Gangadhar Tilak' and the Press, consider the following: 1. He was the first to use the press to reach the \"lower-middle class, peasants, and workers.\" 2. He was prosecuted for sedition in 1897 for his poems about Shivaji. 3. His journal Mahratta was published in Marathi. How many of the above statements are correct?",
+    question: "Regarding 'Bal Gangadhar Tilak' and the Press, consider the following:\n1. He was the first to use the press to reach the \"lower-middle class, peasants, and workers.\" 2. He was prosecuted for sedition in 1897 for his poems about Shivaji. 3. His journal Mahratta was published in Marathi. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; Mahratta was in English, while Kesari was in Marathi).",
@@ -688,7 +688,7 @@ export const MODERN_CHAPTER_25_MCQS: any[] = [
   },
   {
     id: '25-77',
-    question: "Match the following 'Press Advocates' with their 'Contribution/Concept': 1. James Silk Buckingham \u2014",
+    question: "Match the following 'Press Advocates' with their 'Contribution/Concept':\n1. James Silk Buckingham \u2014",
     options: ["Liberator of the Press 2. Charles Metcalfe \u2014", "First Indian Journalist-Reformer 3. Raja Rammohan Roy \u2014", "Watchdog function of the Press Select the correct matching code:", "1-C, 2-A, 3-B"],
     correctAnswer: 0,
     explanation: "1-C, 2-A, 3-B.",
@@ -724,7 +724,7 @@ export const MODERN_CHAPTER_25_MCQS: any[] = [
   },
   {
     id: '25-81',
-    question: "Consider the following regarding the 'Searchlight' (Patna) and 'The Bombay Chronicle': 1. Both were influential nationalist newspapers. 2. They were often censored or suspended for their support of the Civil Disobedience Movement. 3. They were both started by Mahatma Gandhi. How many of the above are correct?",
+    question: "Consider the following regarding the 'Searchlight' (Patna) and 'The Bombay Chronicle':\n1. Both were influential nationalist newspapers.\n2. They were often censored or suspended for their support of the Civil Disobedience Movement.\n3. They were both started by Mahatma Gandhi. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; Gandhi started Young India, Navjivan, and Harijan).",
@@ -778,7 +778,7 @@ export const MODERN_CHAPTER_25_MCQS: any[] = [
   },
   {
     id: '25-87',
-    question: "Consider the following regarding 'Section 124A' of the Indian Penal Code (Sedition Law): 1. It was introduced in 1870. 2. It was famously used to convict Tilak and Gandhi. 3. It defined sedition as \"exciting or attempting to excite feelings of disaffection towards the government.\" How many of the above are correct?",
+    question: "Consider the following regarding 'Section 124A' of the Indian Penal Code (Sedition Law):\n1. It was introduced in 1870.\n2. It was famously used to convict Tilak and Gandhi.\n3. It defined sedition as \"exciting or attempting to excite feelings of disaffection towards the government.\" How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",

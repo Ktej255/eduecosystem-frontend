@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_10_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 10,
+
         question: "Which of the following is NOT covered under the right to 'propagate' religion in Article 25?",
         options: [
             "Persuading people to join a religion",
@@ -17,7 +17,7 @@ export const CHAPTER_10_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 10,
+
         question: "Every 'religious denomination' has rights under Article 26. Which of the following is NOT a religious denomination as per SC?",
         options: ["Ramakrishna Mission", "Ananda Marga", "Aurobindo Society", "Arya Samaj"],
         correctAnswer: 2,
@@ -26,7 +26,7 @@ export const CHAPTER_10_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 10,
+
         question: "Article 28 distinguishes between four types of educational institutions. In which case is religious instruction permitted only with consent?",
         options: [
             "Institutions wholly maintained by State",
@@ -40,7 +40,7 @@ export const CHAPTER_10_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 10,
+
         question: "Linguistic minorities are recognized for the purpose of which Article?",
         options: ["Article 25", "Article 28", "Article 29", "Article 30"],
         correctAnswer: 3,
@@ -49,7 +49,7 @@ export const CHAPTER_10_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 10,
+
         question: "The power of Supreme Court to issue writs under Article 32 is a part of:",
         options: ["Ordinary jurisdiction", "Advisory jurisdiction", "Basic Structure of the Constitution", "Emergency powers"],
         correctAnswer: 2,
@@ -58,7 +58,7 @@ export const CHAPTER_10_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 10,
+
         question: "Which writ can be issued against a person who holds a public office which he is not entitled to?",
         options: ["Mandamus", "Certiorari", "Quo-Warranto", "Prohibition"],
         correctAnswer: 2,
@@ -67,7 +67,7 @@ export const CHAPTER_10_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 10,
+
         question: "Article 33 gives power to the Parliament to restrict Fundamental Rights of:",
         options: [
             "Members of Armed Forces",
@@ -81,7 +81,7 @@ export const CHAPTER_10_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 10,
+
         question: "The Supreme Court's 'Writ Jurisdiction' under Art 32 is narrower than High Court's under Art 226 because:",
         options: [
             "SC can only issue writs for FRs, High Court for FRs and other legal rights",
@@ -95,7 +95,7 @@ export const CHAPTER_10_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 10,
+
         question: "Habeas Corpus literally means:",
         options: ["We command", "To be certified", "To have the body", "By what authority"],
         correctAnswer: 2,
@@ -104,7 +104,7 @@ export const CHAPTER_10_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 10,
+
         question: "The right provided by Article 25 is available to:",
         options: ["Citizens only", "Aliens only", "Both Citizens and Aliens", "None of the above"],
         correctAnswer: 2,

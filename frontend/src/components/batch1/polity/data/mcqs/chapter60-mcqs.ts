@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_60_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 60,
+
         question: "The NDMA was established in which year?",
         options: ["2001", "2005", "2010", "1999"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_60_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 60,
+
         question: "Who is the Chairperson of the DDMA?",
         options: ["Chief Minister", "District Magistrate/Collector", "Superintendent of Police", "MLA"],
         correctAnswer: 1,
@@ -21,7 +21,7 @@ export const CHAPTER_60_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 60,
+
         question: "The National Disaster Management Authority (NDMA) comes under which Ministry?",
         options: [
             "Ministry of Science and Technology",
@@ -35,7 +35,7 @@ export const CHAPTER_60_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 60,
+
         question: "The SDMA (State level) is chaired by:",
         options: ["The Governor", "The Chief Minister", "The State Home Minister", "The Chief Secretary"],
         correctAnswer: 1,
@@ -44,7 +44,7 @@ export const CHAPTER_60_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 60,
+
         question: "Maximum number of members in NDMA (excluding Chairperson) is:",
         options: ["5", "7", "9", "11"],
         correctAnswer: 2,
@@ -53,7 +53,7 @@ export const CHAPTER_60_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 60,
+
         question: "Who is the Co-chairperson of the DDMA?",
         options: [
             "District Magistrate",
@@ -67,7 +67,7 @@ export const CHAPTER_60_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 60,
+
         question: "The Vice-Chairperson of NDMA is appointed by:",
         options: ["The President", "The Prime Minister", "The Parliament", "Selection Committee"],
         correctAnswer: 1,
@@ -76,7 +76,7 @@ export const CHAPTER_60_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 60,
+
         question: "NDRF members are drawn from:",
         options: [
             "The Indian Army only",
@@ -90,7 +90,7 @@ export const CHAPTER_60_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 60,
+
         question: "NDMA serves as the apex body for disaster management at which level?",
         options: ["State", "District", "National", "International"],
         correctAnswer: 2,
@@ -99,7 +99,7 @@ export const CHAPTER_60_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 60,
+
         question: "The 2005 Act mandates the creation of which fund?",
         options: [
             "National Disaster Response Fund",

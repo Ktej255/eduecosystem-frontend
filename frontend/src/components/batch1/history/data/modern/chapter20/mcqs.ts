@@ -292,7 +292,7 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
   },
   {
     id: '20-33',
-    question: "Consider the following statements regarding the 'Individual Satyagraha' (1940-41): 1. It was designed as a massive, violent uprising to take advantage of Britain's weakness during the war. 2. It aimed to show that the lack of a mass movement was not due to weakness, but a conscious choice not to embarrass the British war effort. 3. Every Satyagrahi was required to inform the local District Magistrate of the time and place of their protest. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Individual Satyagraha' (1940-41):\n1. It was designed as a massive, violent uprising to take advantage of Britain's weakness during the war.\n2. It aimed to show that the lack of a mass movement was not due to weakness, but a conscious choice not to embarrass the British war effort.\n3. Every Satyagrahi was required to inform the local District Magistrate of the time and place of their protest. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 1,
     explanation: "2 and 3 only Statement 1 is incorrect. Gandhi specifically chose a limited \"Individual\" Satyagraha to avoid a massive upheaval that would help the Axis powers (Nazis/Japan) or lead to total chaos.",
@@ -337,7 +337,7 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
   },
   {
     id: '20-38',
-    question: "Consider the following regarding the 'Veto Power' mentioned in the context of the August Offer and Cripps Mission: 1. It referred to the Governor-General\u2019s power to stop any bill. 2. It essentially meant that no constitutional change would be forced upon any \"powerful elements\" (minorities) in India's national life without their consent. 3. It was welcomed by the Congress as a sign of democratic progress. Which of the statements given above are correct?",
+    question: "Consider the following regarding the 'Veto Power' mentioned in the context of the August Offer and Cripps Mission:\n1. It referred to the Governor-General\u2019s power to stop any bill.\n2. It essentially meant that no constitutional change would be forced upon any \"powerful elements\" (minorities) in India's national life without their consent. 3. It was welcomed by the Congress as a sign of democratic progress. Which of the statements given above are correct?",
     options: ["1 only", "2 only", "1 and 2 only", "1, 2, and 3"],
     correctAnswer: 1,
     explanation: "2 only. In this specific historical context, the \"Minority Veto\" was the most critical aspect, as it effectively gave the Muslim League the power to block any progress that didn't meet their demands.",
@@ -409,7 +409,7 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
   },
   {
     id: '20-46',
-    question: "Consider the following pairs of 'Individual Satyagrahis' and their sequence: 1. First \u2014 Vinoba Bhave 2. Second \u2014 Jawaharlal Nehru 3. Third \u2014 Brahma Dutt How many of the above are correctly matched?",
+    question: "Consider the following pairs of 'Individual Satyagrahis' and their sequence:\n1. First \u2014 Vinoba Bhave\n2. Second \u2014 Jawaharlal Nehru\n3. Third \u2014 Brahma Dutt How many of the above are correctly matched?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
   },
   {
     id: '20-62',
-    question: "Consider the following statements regarding the 'August Offer' (1940): 1. It explicitly promised the grant of Dominion Status immediately after the cessation of hostilities. 2. It stated that the future Constitution would be framed by Indians, subject to the fulfillment of British obligations regarding defense and minority rights. 3. It proposed the establishment of a War Advisory Council including representatives from Princely States. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'August Offer' (1940):\n1. It explicitly promised the grant of Dominion Status immediately after the cessation of hostilities.\n2. It stated that the future Constitution would be framed by Indians, subject to the fulfillment of British obligations regarding defense and minority rights.\n3. It proposed the establishment of a War Advisory Council including representatives from Princely States. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 2 and 3 are correct. Statement 1 is incorrect because it promised Dominion Status in the unspecified future, not \"immediately\" after the war.",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
   },
   {
     id: '20-65',
-    question: "Arrange the following events in the correct chronological order: 1. Resignation of Congress Ministries. 2. The Lahore Resolution of the Muslim League. 3. The August Offer. 4. The Fall of Singapore to Japan. Select the correct answer using the code given below:",
+    question: "Arrange the following events in the correct chronological order:\n1. Resignation of Congress Ministries.\n2. The Lahore Resolution of the Muslim League.\n3. The August Offer.\n4. The Fall of Singapore to Japan. Select the correct answer using the code given below:",
     options: ["1 \u2014 2 \u2014 3 \u2014 4", "2 \u2014 1 \u2014 3 \u2014 4", "1 \u2014 3 \u2014 2 \u2014 4", "3 \u2014 1 \u2014 2 \u2014 4"],
     correctAnswer: 0,
     explanation: "1 \u2014 2 \u2014 3 \u2014 4 (Resignation: Oct 1939; Lahore Res: March 1940; August Offer: Aug 1940; Fall of Singapore: Feb 1942).",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
   },
   {
     id: '20-66',
-    question: "Regarding the 'Constituent Assembly' proposed by the Cripps Mission, which of the following is true? 1. Members from British Provinces were to be elected by the lower houses of the provincial legislatures. 2. Members from the Princely States were to be nominated by the Rulers. 3. The British government undertook to accept and implement the Constitution framed by this body immediately. Select the correct answer using the code given below:",
+    question: "Regarding the 'Constituent Assembly' proposed by the Cripps Mission, which of the following is true?\n1. Members from British Provinces were to be elected by the lower houses of the provincial legislatures.\n2. Members from the Princely States were to be nominated by the Rulers.\n3. The British government undertook to accept and implement the Constitution framed by this body immediately. Select the correct answer using the code given below:",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "All of the above"],
     correctAnswer: 0,
     explanation: "1 and 2 only (Implementation was subject to the 'local option' and a treaty regarding minorities).",
@@ -616,7 +616,7 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
   },
   {
     id: '20-69',
-    question: "Match the following 'War-time' developments with their associated leaders/entities: 1. Individual Satyagraha \u2014",
+    question: "Match the following 'War-time' developments with their associated leaders/entities:\n1. Individual Satyagraha \u2014",
     options: ["Lord Linlithgow 2. August Offer \u2014", "Mahatma Gandhi 3. Cripps Mission \u2014", "War Cabinet of Britain Select the correct code:", "1-B, 2-A, 3-C"],
     correctAnswer: 0,
     explanation: "1-B, 2-A, 3-C.",
@@ -643,7 +643,7 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
   },
   {
     id: '20-72',
-    question: "Consider the following regarding the 'Viceroy\u2019s Executive Council' after the August Offer: 1. For the first time, Indians were to be in a majority in the Council. 2. The critical portfolios of Defense and Home remained with the British. 3. The Council became responsible to the Central Legislature. How many of the above are correct?",
+    question: "Consider the following regarding the 'Viceroy\u2019s Executive Council' after the August Offer:\n1. For the first time, Indians were to be in a majority in the Council.\n2. The critical portfolios of Defense and Home remained with the British.\n3. The Council became responsible to the Central Legislature. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; the Council remained responsible only to the Viceroy).",
@@ -679,7 +679,7 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
   },
   {
     id: '20-76',
-    question: "Consider the following regarding the 'Draft Declaration' of the Cripps Mission: 1. It offered the right to secede from the Commonwealth. 2. It promised that the new Constitution would be framed solely by Indians. 3. It required a treaty to be signed between the British and the Constitution-making body regarding the protection of racial and religious minorities. How many of the above are correct?",
+    question: "Consider the following regarding the 'Draft Declaration' of the Cripps Mission:\n1. It offered the right to secede from the Commonwealth.\n2. It promised that the new Constitution would be framed solely by Indians.\n3. It required a treaty to be signed between the British and the Constitution-making body regarding the protection of racial and religious minorities. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -724,7 +724,7 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
   },
   {
     id: '20-81',
-    question: "Match the 'Phase' of the War with the 'Nationalist Strategy': 1. 1939-40 \u2014",
+    question: "Match the 'Phase' of the War with the 'Nationalist Strategy':\n1. 1939-40 \u2014",
     options: ["Cripps Mission & Constitutional Talks 2. 1940-41 \u2014", "Demand for National Government 3. 1942 \u2014", "Individual Satyagraha Select the correct code:", "1-B, 2-C, 3-A"],
     correctAnswer: 0,
     explanation: "1-B, 2-C, 3-A.",

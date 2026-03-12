@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_14_SUBTOPICS: Subtopic[] = [
@@ -152,3 +153,4 @@ export const ANCIENT_CHAPTER_14_MAINS_ANGLE = {
 };
 
 export const ANCIENT_CHAPTER_14_CA_TAGS = ['Mauryan Administration', 'Arthashastra Re-interpretation', 'Ashokan Edicts'];
+

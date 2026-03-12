@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_77_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 77,
+
         question: "All-India Services are common to:",
         options: ["Union only", "States only", "Both Union and States", "UTs only"],
         correctAnswer: 2,
@@ -12,7 +12,7 @@ export const CHAPTER_77_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 77,
+
         question: "Which of the following is NOT an All-India Service?",
         options: ["IAS", "IPS", "Indian Forest Service", "Indian Foreign Service"],
         correctAnswer: 3,
@@ -21,7 +21,7 @@ export const CHAPTER_77_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 77,
+
         question: "Under Article 311, a civil servant cannot be dismissed by an authority:",
         options: [
             "Equal to the appointing authority",
@@ -35,7 +35,7 @@ export const CHAPTER_77_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 77,
+
         question: "The power to create new All-India Services is provided to Parliament under Article:",
         options: ["310", "311", "312", "315"],
         correctAnswer: 2,
@@ -44,7 +44,7 @@ export const CHAPTER_77_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 77,
+
         question: "The doctrine of pleasure for civil servants is explicitly mentioned in:",
         options: ["Article 309", "Article 310", "Article 311", "Article 312"],
         correctAnswer: 1,
@@ -53,7 +53,7 @@ export const CHAPTER_77_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 77,
+
         question: "Which service was created as the third All-India Service in 1966?",
         options: ["Indian Forest Service", "Indian Revenue Service", "Indian Police Service", "Indian Engineering Service"],
         correctAnswer: 0,
@@ -62,7 +62,7 @@ export const CHAPTER_77_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 77,
+
         question: "A resolution in Rajya Sabha for a new All-India Service requires what majority?",
         options: ["Simple majority", "Absolute majority", "2/3rd of members present and voting", "Unanimous"],
         correctAnswer: 2,
@@ -71,7 +71,7 @@ export const CHAPTER_77_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 77,
+
         question: "Who is the 'appointing authority' for members of the All-India Services?",
         options: ["Prime Minister", "CJI", "President", "Chairman UPSC"],
         correctAnswer: 2,
@@ -80,7 +80,7 @@ export const CHAPTER_77_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 77,
+
         question: "Article 311 protection is available to:",
         options: [
             "Civil servants only",
@@ -94,7 +94,7 @@ export const CHAPTER_77_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 77,
+
         question: "Article 312A was added to empower Parliament to vary conditions of service of officers of:",
         options: ["ICS", "IPS", "IAS", "All civil servants"],
         correctAnswer: 0,

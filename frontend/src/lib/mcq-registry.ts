@@ -3,28 +3,28 @@
  * Used by the Centralized Question Bank to scan counts and metadata.
  */
 
-import { MODERN_MCQS_DATA, MEDIEVAL_MCQS_DATA, ANCIENT_MCQS_DATA } from '@/components/batch1/history/data/history-mcqs-data';
-import { SPECTRUM_MODERN_HISTORY } from '@/components/batch1/history/data/spectrum-modern-history';
-import { ANCIENT_SCHEDULE } from '@/components/batch1/history/data/ancient-schedule-data';
-import { MEDIEVAL_SCHEDULE } from '@/components/batch1/history/data/medieval-schedule-data';
-import { TOPIC_TITLES } from '@/components/batch1-1/polity/data/polity-types-95';
-import { CHAPTER_MCQS } from '@/components/batch1-1/polity/data/chapter-level-index';
+import { MODERN_MCQS_DATA, MEDIEVAL_MCQS_DATA, ANCIENT_MCQS_DATA } from '../components/batch1/history/data/history-mcqs-data';
+import { SPECTRUM_MODERN_HISTORY } from '../components/batch1/history/data/spectrum-modern-history';
+import { ANCIENT_SCHEDULE } from '../components/batch1/history/data/ancient-schedule-data';
+import { MEDIEVAL_SCHEDULE } from '../components/batch1/history/data/medieval-schedule-data';
+import { TOPIC_TITLES } from '../components/batch1-1/polity/data/polity-types-95';
+import { CHAPTER_MCQS } from '../components/batch1-1/polity/data/chapter-level-index';
 
 // Environment Imports
-import { ENVIRONMENT_SYLLABUS } from '@/components/batch1/environment/data/environment-schedule-data';
-import { environmentMCQs } from '@/components/batch1/environment/data/mcqs/environment-mcqs';
+import { ENVIRONMENT_SYLLABUS } from '../components/batch1/environment/data/environment-schedule-data';
+import { environmentMCQs } from '../components/batch1/environment/data/mcqs/environment-mcqs';
 
 // Geography Imports
-import { GEOGRAPHY_SCHEDULE } from '@/components/batch1/geography/data/geography-schedule-data';
-import { geographyMCQs } from '@/components/batch1/geography/data/mcqs/geography-mcqs';
+import { GEOGRAPHY_SCHEDULE } from '../components/batch1/geography/data/geography-schedule-data';
+import { geographyMCQs } from '../components/batch1/geography/data/mcqs/geography-mcqs';
 
 // Economy Imports
-import { ECONOMY_SYLLABUS } from '@/components/batch1/economy/data/economy-schedule-data';
-import { economyMCQs } from '@/components/batch1/economy/data/mcqs/economy-mcqs';
+import { ECONOMY_SYLLABUS } from '../components/batch1/economy/data/economy-schedule-data';
+import { economyMCQs } from '../components/batch1/economy/data/mcqs/economy-mcqs';
 
 // Science-Tech Imports
-import { SCI_TECH_SYLLABUS } from '@/components/batch1/science-tech/data/scitech-schedule-data';
-import { sciTechMCQs } from '@/components/batch1/science-tech/data/mcqs/scitech-mcqs';
+import { SCI_TECH_SYLLABUS } from '../components/batch1/science-tech/data/scitech-schedule-data';
+import { sciTechMCQs } from '../components/batch1/science-tech/data/mcqs/scitech-mcqs';
 
 export interface SubjectMCQMeta {
     subject: string;
@@ -40,7 +40,7 @@ export interface ChapterMeta {
     subject: string;
 }
 
-export const getSubjectChapters = (subject: 'history' | 'polity' | 'geography' | 'economy' | 'environment' | 'scitech'): ChapterMeta[] => {
+export const getSubjectChapters = (subject: 'history' | 'polity' | 'geography' | 'economy' | 'environment' | 'science-tech'): ChapterMeta[] => {
     if (subject === 'history') {
         const historyChapters: ChapterMeta[] = [];
 
@@ -107,12 +107,12 @@ export const getSubjectChapters = (subject: 'history' | 'polity' | 'geography' |
             mcqCount: environmentMCQs.filter(m => m.chapter === (idx + 1)).length,
             subject: 'environment'
         })).filter(ch => ch.mcqCount > 0);
-    } else if (subject === 'scitech') {
+    } else if (subject === 'science-tech') {
         return SCI_TECH_SYLLABUS.map((topic, idx) => ({
             id: idx + 1,
             title: topic.title,
             mcqCount: sciTechMCQs.filter(m => m.chapter === (idx + 1)).length,
-            subject: 'scitech'
+            subject: 'science-tech'
         })).filter(ch => ch.mcqCount > 0);
     } else {
         // For Polity, we map via TOPIC_TITLES
@@ -131,7 +131,7 @@ export const getHistoryStats = (): SubjectMCQMeta => {
         subject: 'History',
         totalChapters: 39,
         activeChapters: chapters.length,
-        totalQuestions: chapters.reduce((acc, curr) => acc + curr.mcqCount, 0)
+        totalQuestions: chapters.reduce((acc: number, curr: ChapterMeta) => acc + curr.mcqCount, 0)
     };
 };
 
@@ -141,7 +141,7 @@ export const getPolityStats = (): SubjectMCQMeta => {
         subject: 'Polity',
         totalChapters: 95,
         activeChapters: chapters.length,
-        totalQuestions: chapters.reduce((acc, curr) => acc + curr.mcqCount, 0)
+        totalQuestions: chapters.reduce((acc: number, curr: ChapterMeta) => acc + curr.mcqCount, 0)
     };
 };
 
@@ -151,7 +151,7 @@ export const getGeographyStats = (): SubjectMCQMeta => {
         subject: 'Geography',
         totalChapters: 21,
         activeChapters: chapters.length,
-        totalQuestions: chapters.reduce((acc, curr) => acc + curr.mcqCount, 0)
+        totalQuestions: chapters.reduce((acc: number, curr: ChapterMeta) => acc + curr.mcqCount, 0)
     };
 };
 
@@ -161,7 +161,7 @@ export const getEconomyStats = (): SubjectMCQMeta => {
         subject: 'Economy',
         totalChapters: 6,
         activeChapters: chapters.length,
-        totalQuestions: chapters.reduce((acc, curr) => acc + curr.mcqCount, 0)
+        totalQuestions: chapters.reduce((acc: number, curr: ChapterMeta) => acc + curr.mcqCount, 0)
     };
 };
 
@@ -171,17 +171,17 @@ export const getEnvironmentStats = (): SubjectMCQMeta => {
         subject: 'Environment',
         totalChapters: 4,
         activeChapters: chapters.length,
-        totalQuestions: chapters.reduce((acc, curr) => acc + curr.mcqCount, 0)
+        totalQuestions: chapters.reduce((acc: number, curr: ChapterMeta) => acc + curr.mcqCount, 0)
     };
 };
 
 export const getSciTechStats = (): SubjectMCQMeta => {
-    const chapters = getSubjectChapters('scitech');
+    const chapters = getSubjectChapters('science-tech');
     return {
         subject: 'Science & Tech',
         totalChapters: 5,
         activeChapters: chapters.length,
-        totalQuestions: chapters.reduce((acc, curr) => acc + curr.mcqCount, 0)
+        totalQuestions: chapters.reduce((acc: number, curr: ChapterMeta) => acc + curr.mcqCount, 0)
     };
 };
 

@@ -3,7 +3,7 @@
 
 export interface MCQ {
     id: number;
-    chapterId: number;
+    
     question: string;
     options: string[];
     correctAnswer: number;
@@ -15,7 +15,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     // COMPANY RULE ERA
     {
         id: 1,
-        chapterId: 1,
+
         question: "The Regulating Act of 1773 was significant because:",
         options: [
             "It abolished the East India Company",
@@ -29,7 +29,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 1,
+
         question: "Who was the first Governor-General of Bengal?",
         options: [
             "Lord Cornwallis",
@@ -43,7 +43,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 1,
+
         question: "The Supreme Court at Calcutta was established in which year?",
         options: [
             "1773",
@@ -57,7 +57,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 1,
+
         question: "Pitt's India Act of 1784 introduced which system of governance?",
         options: [
             "Single Government",
@@ -71,7 +71,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 1,
+
         question: "Which Act first used the term 'British possessions in India'?",
         options: [
             "Regulating Act of 1773",
@@ -85,7 +85,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 1,
+
         question: "The Charter Act of 1813 is significant for:",
         options: [
             "Ending the trade monopoly of the East India Company in India",
@@ -99,7 +99,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 1,
+
         question: "Who was the first Governor-General of India?",
         options: [
             "Lord Warren Hastings",
@@ -113,7 +113,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 1,
+
         question: "The Charter Act of 1833 is known as the 'final step towards centralisation' because it:",
         options: [
             "Established the Supreme Court",
@@ -127,7 +127,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 1,
+
         question: "Which Act for the first time separated the legislative and executive functions of the Governor-General's Council?",
         options: [
             "Charter Act of 1833",
@@ -141,7 +141,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 1,
+
         question: "Open competition system for civil services was introduced by:",
         options: [
             "Charter Act of 1833",
@@ -157,7 +157,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     // CROWN RULE ERA
     {
         id: 11,
-        chapterId: 1,
+
         question: "The Government of India Act of 1858 was enacted in the wake of:",
         options: [
             "The First World War",
@@ -171,7 +171,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 12,
-        chapterId: 1,
+
         question: "Who was the first Viceroy of India?",
         options: [
             "Lord Mountbatten",
@@ -185,7 +185,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 13,
-        chapterId: 1,
+
         question: "The portfolio system in India was introduced by:",
         options: [
             "Lord Cornwallis",
@@ -199,7 +199,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 14,
-        chapterId: 1,
+
         question: "Which Act is known for 'legalising communalism' in India?",
         options: [
             "Indian Councils Act of 1892",
@@ -213,7 +213,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 15,
-        chapterId: 1,
+
         question: "Who was the first Indian to join the Viceroy's Executive Council?",
         options: [
             "Dadabhai Naoroji",
@@ -227,7 +227,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 16,
-        chapterId: 1,
+
         question: "The system of 'Dyarchy' was introduced by:",
         options: [
             "Indian Councils Act of 1909",
@@ -241,7 +241,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 17,
-        chapterId: 1,
+
         question: "Bicameralism was introduced in India for the first time by:",
         options: [
             "Indian Councils Act of 1909",
@@ -255,7 +255,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 18,
-        chapterId: 1,
+
         question: "The Central Public Service Commission was established in:",
         options: [
             "1919",
@@ -269,7 +269,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 19,
-        chapterId: 1,
+
         question: "Who headed the Simon Commission?",
         options: [
             "Lord Simon",
@@ -283,7 +283,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 20,
-        chapterId: 1,
+
         question: "The Communal Award of 1932 was announced by:",
         options: [
             "Lord Irwin",
@@ -297,7 +297,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 21,
-        chapterId: 1,
+
         question: "The Poona Pact was signed between:",
         options: [
             "Congress and Muslim League",
@@ -311,7 +311,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 22,
-        chapterId: 1,
+
         question: "The Government of India Act of 1935 provided for the establishment of:",
         options: [
             "Supreme Court",
@@ -325,7 +325,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 23,
-        chapterId: 1,
+
         question: "How many subjects were included in the Federal List under the Government of India Act of 1935?",
         options: [
             "47",
@@ -339,7 +339,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 24,
-        chapterId: 1,
+
         question: "Which Act abolished the Council of India?",
         options: [
             "Government of India Act of 1919",
@@ -353,7 +353,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 25,
-        chapterId: 1,
+
         question: "The Reserve Bank of India was established under the provisions of:",
         options: [
             "Government of India Act of 1919",
@@ -367,7 +367,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 26,
-        chapterId: 1,
+
         question: "Provincial autonomy was introduced by which Act?",
         options: [
             "Indian Councils Act of 1909",
@@ -381,7 +381,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 27,
-        chapterId: 1,
+
         question: "The Mountbatten Plan was announced on:",
         options: [
             "March 24, 1947",
@@ -395,7 +395,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 28,
-        chapterId: 1,
+
         question: "The Indian Independence Act came into force on:",
         options: [
             "July 18, 1947",
@@ -409,7 +409,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 29,
-        chapterId: 1,
+
         question: "Who was the first Governor-General of independent India?",
         options: [
             "C. Rajagopalachari",
@@ -423,7 +423,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 30,
-        chapterId: 1,
+
         question: "Who was the last British Governor-General of India?",
         options: [
             "Lord Irwin",
@@ -437,7 +437,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 31,
-        chapterId: 1,
+
         question: "The boundaries of India and Pakistan were determined by:",
         options: [
             "Simon Commission",
@@ -451,7 +451,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 32,
-        chapterId: 1,
+
         question: "Consider the following statements about the Charter Act of 1833:\n1. It made Governor-General of Bengal as Governor-General of India\n2. It ended activities of East India Company as a commercial body\n3. It introduced open competition for civil services\nWhich of the above statements are correct?",
         options: [
             "1 and 2 only",
@@ -465,7 +465,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 33,
-        chapterId: 1,
+
         question: "Who among the following was the Law Member in the first Cabinet of Independent India?",
         options: [
             "Sardar Vallabhbhai Patel",
@@ -479,7 +479,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 34,
-        chapterId: 1,
+
         question: "Consider the following about Indian Councils Act of 1861:\n1. It initiated decentralisation by restoring legislative powers to Bombay and Madras\n2. It provided for establishment of High Courts\n3. It empowered Viceroy to issue ordinances during emergency\nWhich of the above are correct?",
         options: [
             "1 and 2 only",
@@ -493,7 +493,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 35,
-        chapterId: 1,
+
         question: "Match the following Acts with their features:\nA. Regulating Act 1773 - 1. First Governor-General of Bengal\nB. Charter Act 1833 - 2. First Governor-General of India\nC. GoI Act 1858 - 3. First Viceroy of India",
         options: [
             "A-1, B-2, C-3",
@@ -507,7 +507,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 36,
-        chapterId: 1,
+
         question: "Which of the following statements about Government of India Act 1935 is/are correct?\n1. It provided for an All-India Federation\n2. The Federation actually came into being\n3. It introduced dyarchy at the Centre",
         options: [
             "1 only",
@@ -521,7 +521,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 37,
-        chapterId: 1,
+
         question: "The Indian Independence Act of 1947 provided that:",
         options: [
             "India would remain a dominion forever",
@@ -535,7 +535,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 38,
-        chapterId: 1,
+
         question: "How many provisions of the Government of India Act, 1935 have been incorporated in the Indian Constitution?",
         options: [
             "About 150",
@@ -549,7 +549,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 39,
-        chapterId: 1,
+
         question: "Which portfolio was held by Sardar Vallabhbhai Patel in the first Cabinet of Independent India?",
         options: [
             "External Affairs",
@@ -563,7 +563,7 @@ export const CHAPTER_1_MCQS: MCQ[] = [
     },
     {
         id: 40,
-        chapterId: 1,
+
         question: "Arrange the following Acts in chronological order:\n1. Pitt's India Act\n2. Regulating Act\n3. Charter Act 1833\n4. Charter Act 1813",
         options: [
             "2-1-4-3",

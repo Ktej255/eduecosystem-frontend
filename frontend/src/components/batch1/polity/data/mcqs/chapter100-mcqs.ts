@@ -4,7 +4,7 @@ export const CHAPTER_100_MCQS: MCQ[] = [
     // Phase 1: Mapping
     {
         id: 1,
-        chapterId: 100,
+
         question: "Match Article with State:\nA. 371-A: 1. Manipur\nB. 371-C: 2. Nagaland\nC. 371-F: 3. Mizoram\nD. 371-G: 4. Sikkim",
         options: [
             "A-2, B-1, C-4, D-3",
@@ -18,7 +18,7 @@ export const CHAPTER_100_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 100,
+
         question: "Article added by 98th Amendment (2012) for Hyderabad-Karnataka region?",
         options: [
             "Article 371-I",
@@ -33,7 +33,7 @@ export const CHAPTER_100_MCQS: MCQ[] = [
     // Phase 2: Powers
     {
         id: 3,
-        chapterId: 100,
+
         question: "Regarding Article 371-A (Nagaland):\n1. Parliament acts on religious practices do not apply unless Assembly decides.\n2. Governor has special responsibility for law and order.\n3. Governor acts on aid and advice of Council for this responsibility.",
         options: [
             "1 and 2 only",
@@ -47,7 +47,7 @@ export const CHAPTER_100_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 100,
+
         question: "Article 371-D (Equitable opportunities in employment/education) applies to:",
         options: [
             "Maharashtra and Gujarat",
@@ -62,7 +62,7 @@ export const CHAPTER_100_MCQS: MCQ[] = [
     // Phase 3: Nuances
     {
         id: 5,
-        chapterId: 100,
+
         question: "Regarding Sikkim (371-F):\n1. Assembly not less than 30 members.\n2. Governor has special responsibility for peace.\n3. President can extend any state enactment to Sikkim.",
         options: [
             "1 and 2 only",
@@ -76,7 +76,7 @@ export const CHAPTER_100_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 100,
+
         question: "Which Governor has 'individual judgment' power regarding law and order?",
         options: [
             "Nagaland (during disturbance)",

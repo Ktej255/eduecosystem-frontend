@@ -6,7 +6,7 @@ import { Sparkles, BookOpen, Star, Lock, ArrowRight, Flame, Calculator, Fingerpr
 import Link from "next/link";
 import { useSadhanaProgress } from "./hooks/useSadhanaProgress";
 import SkillsExplorer from "./Sadhaka/SkillsExplorer";
-import { LotusVisualizer } from "./Sadhaka/LotusVisualizer";
+import LotusVisualizer from "./Sadhaka/LotusVisualizer";
 
 // -----------------------------------------------------------------------------------
 // DATA
@@ -256,7 +256,7 @@ export default function SadhanaPortalV5() {
                         <motion.div key="progress" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.98 }} className="flex flex-col md:flex-row gap-8">
                             <div className="md:w-1/2 bg-[var(--sp-surface)] rounded-2xl border border-[var(--sp-border)] p-8 flex flex-col items-center justify-center min-h-[400px]">
                                 <h3 className="text-xl font-serif text-[var(--sp-gold)] mb-8 self-start w-full border-b border-[var(--sp-border)] pb-4">The Flowering Mind</h3>
-                                <LotusVisualizer category="all" scale={1.2} />
+                                <LotusVisualizer />
                             </div>
                             <div className="md:w-1/2 space-y-4">
                                 <div className="bg-[var(--sp-bg)] p-6 rounded-2xl border border-[var(--sp-border)]">

@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_57_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 57,
+
         question: "The CBI derives its powers from which Act?",
         options: ["CBI Act, 1963", "DSPE Act, 1946", "CVC Act, 2003", "Police Act, 1861"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_57_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 57,
+
         question: "The Director of CBI is appointed based on the recommendation of a committee consisting of PM, CJI and:",
         options: ["Home Minister", "Speaker of LS", "Leader of Opposition in LS", "President"],
         correctAnswer: 2,
@@ -21,7 +21,7 @@ export const CHAPTER_57_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 57,
+
         question: "Who was the first Director of CBI?",
         options: ["D.P. Kohli", "V.S. Seetharaman", "J.S. Bajwa", "Rishi Kumar Shukla"],
         correctAnswer: 0,
@@ -30,7 +30,7 @@ export const CHAPTER_57_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 57,
+
         question: "CBI originally functioned under the Ministry of:",
         options: ["Personnel", "Home Affairs", "Law", "Finance"],
         correctAnswer: 1,
@@ -39,7 +39,7 @@ export const CHAPTER_57_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 57,
+
         question: "What is the maximum period of extension for a CBI Director beyond the initial 2 years?",
         options: ["1 year", "2 years", "3 years", "5 years"],
         correctAnswer: 2,
@@ -48,7 +48,7 @@ export const CHAPTER_57_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 57,
+
         question: "CBI is legally considered a ________ department of the Union territory of Delhi.",
         options: ["Special", "Police", "Administrative", "Judicial"],
         correctAnswer: 1,
@@ -57,7 +57,7 @@ export const CHAPTER_57_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 57,
+
         question: "Which of the following is NOT a wing of the CBI?",
         options: [
             "Anti-Corruption Division",
@@ -71,7 +71,7 @@ export const CHAPTER_57_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 57,
+
         question: "CBI can take up a case in the jurisdiction of a State with the consent of:",
         options: ["High Court", "State Government", "Governor", "DGP of state"],
         correctAnswer: 1,
@@ -80,7 +80,7 @@ export const CHAPTER_57_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 57,
+
         question: "CBI as a nodal agency for Interpol represents India at which level?",
         options: ["Local", "National", "Sub-regional", "International"],
         correctAnswer: 1,
@@ -89,7 +89,7 @@ export const CHAPTER_57_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 57,
+
         question: "The Lokpal Act, 2013 amended which Act to change the CBI Director appointment process?",
         options: ["DSPE Act, 1946", "CVC Act, 2003", "Police Act", "None"],
         correctAnswer: 0,

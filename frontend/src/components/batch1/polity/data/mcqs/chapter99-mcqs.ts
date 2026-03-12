@@ -4,7 +4,7 @@ export const CHAPTER_99_MCQS: MCQ[] = [
     // Phase 1: 5th Schedule
     {
         id: 1,
-        chapterId: 99,
+
         question: "Regarding 'Scheduled Areas' (Fifth Schedule):\n1. President empowers to declare area.\n2. Governor can alter boundary after consultation with President.\n3. Executive power of Union extends to giving directions.",
         options: [
             "1 and 2 only",
@@ -18,7 +18,7 @@ export const CHAPTER_99_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 99,
+
         question: "Tribes Advisory Council (TAC):",
         options: [
             "30 members, 3/4ths ST MLAs.",
@@ -33,7 +33,7 @@ export const CHAPTER_99_MCQS: MCQ[] = [
     // Phase 2: 6th Schedule
     {
         id: 3,
-        chapterId: 99,
+
         question: "States with 'Tribal Areas' under Sixth Schedule?",
         options: [
             "Assam, Tripura, Meghalaya, Mizoram",
@@ -47,7 +47,7 @@ export const CHAPTER_99_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 99,
+
         question: "District Councils in Sixth Schedule (ADCs):",
         options: [
             "30 members total.",
@@ -64,7 +64,7 @@ export const CHAPTER_99_MCQS: MCQ[] = [
     // Phase 3: Law Application
     {
         id: 5,
-        chapterId: 99,
+
         question: "Application of Laws in 5th vs 6th Schedule:",
         options: [
             "In 5th Sch, Governor repeals Parliament Act with President assent.",
@@ -79,7 +79,7 @@ export const CHAPTER_99_MCQS: MCQ[] = [
     // Phase 4: Analytical
     {
         id: 6,
-        chapterId: 99,
+
         question: "Common feature of Fifth and Sixth Schedules:",
         options: [
             "Creation of Autonomous District Councils.",

@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_46_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 46,
+
         question: "Regarding NCSC statements:",
         options: [
             "Established by 65th Amendment as separate body.",
@@ -23,7 +23,7 @@ export const CHAPTER_46_MCQS: MCQ[] = [
     },
     {
         id: 2, // Re-doing Q1 properly
-        chapterId: 46,
+
         question: "Which statements are correct for NCSC?\n1. Established by 65th Amd.\n2. Appointed by President by warrant.\n3. Service conditions by Parliament.\n4. Structure: 1+1+3.",
         options: [
             "1, 2, and 4 only",
@@ -37,7 +37,7 @@ export const CHAPTER_46_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 46,
+
         question: "Bifurcation of National Commission for SCs and STs occurred via:",
         options: [
             "65th Amendment, 1990",
@@ -51,7 +51,7 @@ export const CHAPTER_46_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 46,
+
         question: "NCSC has Civil Court powers in which matters?",
         options: [
             "Summoning attendance.",
@@ -65,7 +65,7 @@ export const CHAPTER_46_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 46,
+
         question: "Govt is required to consult NCSC on:",
         options: [
             "All administrative matters.",
@@ -79,7 +79,7 @@ export const CHAPTER_46_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 46,
+
         question: "President lays NCSC report before:",
         options: [
             "Parliament with Action Taken Memo.",
@@ -93,7 +93,7 @@ export const CHAPTER_46_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 46,
+
         question: "NCSC discharges functions for which other community?",
         options: [
             "OBCs",

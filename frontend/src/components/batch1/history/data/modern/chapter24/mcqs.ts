@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
   },
   {
     id: '24-34',
-    question: "Consider the following statements regarding 'Wood\u2019s Despatch' (1854): 1. It emphasized the importance of female education and teacher training. 2. It recommended a system of 'Grants-in-aid' to encourage private enterprise in education. 3. It advocated for the total abolition of vernacular languages at all levels of schooling. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding 'Wood\u2019s Despatch' (1854):\n1. It emphasized the importance of female education and teacher training.\n2. It recommended a system of 'Grants-in-aid' to encourage private enterprise in education.\n3. It advocated for the total abolition of vernacular languages at all levels of schooling. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only. Statement 3 is incorrect; Wood's Despatch actually promoted vernacular languages for primary/school education, while reserving English for higher education.",
@@ -355,7 +355,7 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
   },
   {
     id: '24-40',
-    question: "Consider the following regarding the 'Sargent Plan' (1944): 1. It proposed free and compulsory education for all children between 6 and 14 years. 2. it aimed to achieve universal literacy in India by 1984. 3. It was rejected by the Congress because it was too radical. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Sargent Plan' (1944):\n1. It proposed free and compulsory education for all children between 6 and 14 years.\n2. it aimed to achieve universal literacy in India by 1984.\n3. It was rejected by the Congress because it was too radical. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statements 1 and 2 are correct; it was not rejected for being radical, but for taking too long\u201440 years).",
@@ -400,7 +400,7 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
   },
   {
     id: '24-45',
-    question: "Consider the following pairs of 'Educational Institutions' and their 'Founders': 1. Mohammedan Anglo-Oriental College \u2014 Sir Syed Ahmed Khan 2. Banaras Hindu University \u2014 Madan Mohan Malaviya 3. Deccan Education Society \u2014 G.G. Agarkar and B.G. Tilak How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of 'Educational Institutions' and their 'Founders':\n1. Mohammedan Anglo-Oriental College \u2014 Sir Syed Ahmed Khan\n2. Banaras Hindu University \u2014 Madan Mohan Malaviya\n3. Deccan Education Society \u2014 G.G. Agarkar and B.G. Tilak How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "All three pairs", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -454,7 +454,7 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
   },
   {
     id: '24-51',
-    question: "Consider the following regarding the 'Hunter Commission' (1882): 1. It recommended that the government should withdraw from direct management of secondary schools. 2. It emphasized the importance of physical and vocational training. 3. It suggested that primary education should be the \"primary\" responsibility of the state. How many of the above are correct?",
+    question: "Consider the following regarding the 'Hunter Commission' (1882):\n1. It recommended that the government should withdraw from direct management of secondary schools.\n2. It emphasized the importance of physical and vocational training.\n3. It suggested that primary education should be the \"primary\" responsibility of the state. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
   },
   {
     id: '24-62',
-    question: "Consider the following statements regarding the 'Orientalist-Anglicist' controversy: 1. The Orientalists, led by H.T. Prinsep, advocated for the continuation of traditional education in vernacular languages and classical tongues like Sanskrit and Persian. 2. The Anglicists were a monolithic group that demanded the use of English only as a medium for higher education to create a class of \"brown sahibs.\" 3. The controversy was settled by the 'Macaulay\u2019s Minute' which famously stated that \"a single shelf of a good European library was worth the whole native literature of India and Arabia.\" How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Orientalist-Anglicist' controversy:\n1. The Orientalists, led by H.T. Prinsep, advocated for the continuation of traditional education in vernacular languages and classical tongues like Sanskrit and Persian.\n2. The Anglicists were a monolithic group that demanded the use of English only as a medium for higher education to create a class of \"brown sahibs.\" 3. The controversy was settled by the 'Macaulay\u2019s Minute' which famously stated that \"a single shelf of a good European library was worth the whole native literature of India and Arabia.\" How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect because the Anglicists were divided\u2014one group (led by Macaulay) wanted English as the medium, while another group of Anglicists favored the vernaculars as the medium for the masses but with a Western curriculum.",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
   },
   {
     id: '24-65',
-    question: "The 'Indian Universities Act of 1904' introduced which of the following changes? 1. It empowered the Universities to appoint their own teachers and conduct research. 2. It gave the Government the power to veto the regulations passed by the University Senate. 3. It limited the territorial jurisdiction of each University. 4. It increased the number of 'nominated' members in the Senate relative to 'elected' members. Select the correct answer using the code given below:",
+    question: "The 'Indian Universities Act of 1904' introduced which of the following changes?\n1. It empowered the Universities to appoint their own teachers and conduct research.\n2. It gave the Government the power to veto the regulations passed by the University Senate.\n3. It limited the territorial jurisdiction of each University.\n4. It increased the number of 'nominated' members in the Senate relative to 'elected' members. Select the correct answer using the code given below:",
     options: ["1, 2, and 3 only", "2, 3, and 4 only", "1 and 4 only", "All of the above"],
     correctAnswer: 3,
     explanation: "All of the above.",
@@ -625,7 +625,7 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
   },
   {
     id: '24-70',
-    question: "Match the following 'Committees' with their 'Viceroy Era': 1. Hunter Commission \u2014",
+    question: "Match the following 'Committees' with their 'Viceroy Era':\n1. Hunter Commission \u2014",
     options: ["Lord Curzon 2. Raleigh Commission \u2014", "Lord Ripon 3. Sadler Commission \u2014", "Lord Chelmsford Select the correct matching code:", "1-B, 2-A, 3-C"],
     correctAnswer: 0,
     explanation: "1-B, 2-A, 3-C.",
@@ -670,7 +670,7 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
   },
   {
     id: '24-75',
-    question: "Consider the following regarding 'Lord Curzon\u2019s' educational reforms: 1. He believed that the Universities had become political \"nurseries.\" 2. He increased the government\u2019s power of nomination to the Senates. 3. He focused more on the 'Quality' of higher education rather than its 'Quantity.' How many of the above are correct?",
+    question: "Consider the following regarding 'Lord Curzon\u2019s' educational reforms:\n1. He believed that the Universities had become political \"nurseries.\" 2. He increased the government\u2019s power of nomination to the Senates. 3. He focused more on the 'Quality' of higher education rather than its 'Quantity.' How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",

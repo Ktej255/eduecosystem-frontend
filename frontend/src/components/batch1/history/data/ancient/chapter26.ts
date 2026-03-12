@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_26_SUBTOPICS: Subtopic[] = [
@@ -145,3 +146,4 @@ Society became deeply patriarchal and conservative.
 - **Bhakti & Tantra:** Vedic sacrifices died out. Religion became centered on massive **Temple complexes** (puja) and **Bhakti** (personal devotion to Vishnu or Shiva). **Tantrism**, absorbing tribal goddess fertility cults, deeply influenced all religious practices.
 - **The Temple Economy:** The temple itself functioned as a massive feudal landlord, bank, and center of political legitimation.
 `;
+

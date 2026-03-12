@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_9_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 9,
+
         question: "Which of the following rights is NOT explicitly mentioned in Article 19 but is implied by the Supreme Court?",
         options: ["Freedom of the press", "Right to move freely", "Freedom of assembly", "Freedom of profession"],
         correctAnswer: 0,
@@ -12,7 +12,7 @@ export const CHAPTER_9_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 9,
+
         question: "The 'Due Process of Law' concept, though not explicitly used in the original Constitution, became significant after which case?",
         options: ["AK Gopalan case", "Maneka Gandhi case", "Kesavananda Bharati case", "Berubari Union case"],
         correctAnswer: 1,
@@ -21,7 +21,7 @@ export const CHAPTER_9_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 9,
+
         question: "Article 21A was added to the Constitution to make education a Fundamental Right for children of age:",
         options: ["0 to 6 years", "6 to 14 years", "6 to 18 years", "Birth to 14 years"],
         correctAnswer: 1,
@@ -30,7 +30,7 @@ export const CHAPTER_9_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 9,
+
         question: "Protection against 'Double Jeopardy' means:",
         options: [
             "No person can be arrested twice for the same offense",
@@ -44,7 +44,7 @@ export const CHAPTER_9_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 9,
+
         question: "Which Article prohibits 'Begar' and forced labour?",
         options: ["Article 22", "Article 23", "Article 24", "Article 25"],
         correctAnswer: 1,
@@ -53,7 +53,7 @@ export const CHAPTER_9_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 9,
+
         question: "The protection of Article 20 and Article 21 cannot be suspended even during a National Emergency. This was ensured by:",
         options: ["42nd Amendment", "44th Amendment", "52nd Amendment", "61st Amendment"],
         correctAnswer: 1,
@@ -62,7 +62,7 @@ export const CHAPTER_9_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 9,
+
         question: "Which of the following is NOT a reasonable restriction for Freedom of Speech under Article 19?",
         options: ["Security of State", "Public Order", "Decency or Morality", "Promotion of a specific religion"],
         correctAnswer: 3,
@@ -71,7 +71,7 @@ export const CHAPTER_9_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 9,
+
         question: "The 'Right to Privacy' is a part of which Fundamental Right?",
         options: ["Right to Equality", "Right to Freedom", "Right to Life and Personal Liberty", "Right against Exploitation"],
         correctAnswer: 2,
@@ -80,7 +80,7 @@ export const CHAPTER_9_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 9,
+
         question: "Punitive detention is aimed at:",
         options: [
             "Punishing a person for an offense committed by him after trial",
@@ -94,7 +94,7 @@ export const CHAPTER_9_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 9,
+
         question: "Article 24 prohibits employment of children in hazardous industries up to the age of:",
         options: ["12 years", "14 years", "16 years", "18 years"],
         correctAnswer: 1,

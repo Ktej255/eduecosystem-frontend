@@ -7,14 +7,12 @@ import { POLITY_REVISION_CHAPTERS } from '../data/RevisionRegistry';
 
 export default function RevisionCalendar() {
     // Determine upcoming workload
-    const upcomingSchedule = useMemo(() => {
-        // This is a simplified projection. 
-        // In a real SRS, we'd query the DB for all future due dates.
-        // Here we'll simulate it based on local storage SRS data if possible,
-        // or just use a mock projection for the visual aid as requested "Widget".
+    const [upcomingSchedule, setUpcomingSchedule] = React.useState<any[]>([]);
 
-        // Let's count ACTUAL due items for today
-        const dueToday = getDueCards().length;
+    React.useEffect(() => {
+        const loadSchedule = async () => {
+            const load = await getDueCards();
+            const dueToday = load.length;
 
         const days = [];
         const today = new Date();
@@ -24,8 +22,6 @@ export default function RevisionCalendar() {
             date.setDate(today.getDate() + i);
             const isToday = i === 0;
 
-            // Mock random load for future days to simulate "Heatmap"
-            // For Day 0 use actual due count
             const count = isToday ? dueToday : Math.floor(Math.random() * 15);
 
             let status: 'light' | 'medium' | 'heavy' = 'light';
@@ -40,7 +36,9 @@ export default function RevisionCalendar() {
                 status
             });
         }
-        return days;
+        setUpcomingSchedule(days);
+        };
+        loadSchedule();
     }, []);
 
     const totalDueNext7Days = upcomingSchedule.reduce((sum, d) => sum + d.count, 0);

@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_31_MCQS: any[] = [
   },
   {
     id: '31-34',
-    question: "Consider the following statements regarding the 'All India Trade Union Congress' (AITUC) in its early years: 1. It was formed to give India a representation at the International Labour Organization (ILO). 2. Its first session was presided over by Lala Lajpat Rai, who emphasized that \"Imperialism and Militarism are the twin children of Capitalism.\" 3. It was strictly controlled by the Communist Party from its inception. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'All India Trade Union Congress' (AITUC) in its early years:\n1. It was formed to give India a representation at the International Labour Organization (ILO).\n2. Its first session was presided over by Lala Lajpat Rai, who emphasized that \"Imperialism and Militarism are the twin children of Capitalism.\" 3. It was strictly controlled by the Communist Party from its inception. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only. Statement 3 is incorrect; the AITUC was initially led by nationalist leaders (Congress/Moderates). Communists only gained a dominant influence in the late 1920s.",
@@ -355,7 +355,7 @@ export const MODERN_CHAPTER_31_MCQS: any[] = [
   },
   {
     id: '31-40',
-    question: "Consider the following regarding the 'Working Class' during the Non-Cooperation Movement: 1. The workers of the TISCO (Jamshedpur) went on strike in 1920. 2. The strikes were mostly spontaneous and lacked a centralized national trade union leadership. 3. Gandhi initially discouraged workers from mixing their economic demands with the political movement. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Working Class' during the Non-Cooperation Movement:\n1. The workers of the TISCO (Jamshedpur) went on strike in 1920.\n2. The strikes were mostly spontaneous and lacked a centralized national trade union leadership.\n3. Gandhi initially discouraged workers from mixing their economic demands with the political movement. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -409,7 +409,7 @@ export const MODERN_CHAPTER_31_MCQS: any[] = [
   },
   {
     id: '31-46',
-    question: "Consider the following pairs of 'Labour Leaders' and their 'Political/Ideological Leanings': 1. B.P. Wadia \u2014 Theosophist/Nationalist 2. S.A. Dange \u2014 Communist 3. Gulzarilal Nanda \u2014 Gandhian How many of the above are correctly matched?",
+    question: "Consider the following pairs of 'Labour Leaders' and their 'Political/Ideological Leanings':\n1. B.P. Wadia \u2014 Theosophist/Nationalist\n2. S.A. Dange \u2014 Communist\n3. Gulzarilal Nanda \u2014 Gandhian How many of the above are correctly matched?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -463,7 +463,7 @@ export const MODERN_CHAPTER_31_MCQS: any[] = [
   },
   {
     id: '31-52',
-    question: "Consider the following statements regarding the 'Indian Factories Act, 1881': 1. It was the first legislative attempt to regulate labor, but it excluded tea, coffee, and indigo plantations. 2. It applied only to factories using mechanical power and employing more than 100 workers. 3. It provided for a weekly holiday for all workers, including adults. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Indian Factories Act, 1881':\n1. It was the first legislative attempt to regulate labor, but it excluded tea, coffee, and indigo plantations.\n2. It applied only to factories using mechanical power and employing more than 100 workers.\n3. It provided for a weekly holiday for all workers, including adults. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; the 1881 Act did not provide a weekly holiday for adults; this was only introduced in the 1891 Act.",
@@ -508,7 +508,7 @@ export const MODERN_CHAPTER_31_MCQS: any[] = [
   },
   {
     id: '31-57',
-    question: "Regarding 'Gandhian Trusteeship' in the Ahmedabad Textile Labour Association (TLA), consider the following: 1. It rejected the Marxist concept of \"Class Struggle.\" 2. It advocated for \"Arbitration\" by a third party to resolve disputes. 3. It believed that strikes should only be used as a \"last resort\" after all other means had failed. How many of the above are correct?",
+    question: "Regarding 'Gandhian Trusteeship' in the Ahmedabad Textile Labour Association (TLA), consider the following:\n1. It rejected the Marxist concept of \"Class Struggle.\" 2. It advocated for \"Arbitration\" by a third party to resolve disputes. 3. It believed that strikes should only be used as a \"last resort\" after all other means had failed. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -535,7 +535,7 @@ export const MODERN_CHAPTER_31_MCQS: any[] = [
   },
   {
     id: '31-60',
-    question: "Consider the following regarding the 'Meerut Conspiracy Case' (1929): 1. It lasted for nearly four years and gained international attention (including from Albert Einstein and H.G. Wells). 2. The government used it as a pretext to declare the Communist Party of India illegal. 3. The arrested leaders used the courtroom as a platform to propagate their socialist ideology. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Meerut Conspiracy Case' (1929):\n1. It lasted for nearly four years and gained international attention (including from Albert Einstein and H.G. Wells).\n2. The government used it as a pretext to declare the Communist Party of India illegal.\n3. The arrested leaders used the courtroom as a platform to propagate their socialist ideology. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_31_MCQS: any[] = [
   },
   {
     id: '31-66',
-    question: "Consider the following pairs regarding 'Labor Journals': 1. Langal (The Plow) \u2014 Muzaffar Ahmed (Bengal) 2. Kranthi (Revolution) \u2014 S.S. Mirajkar/Dange (Bombay) 3. Thozhilali (Worker) \u2014 Singaravelu Chettiar (Madras) How many of the above are correctly matched?",
+    question: "Consider the following pairs regarding 'Labor Journals':\n1. Langal (The Plow) \u2014 Muzaffar Ahmed (Bengal)\n2. Kranthi (Revolution) \u2014 S.S. Mirajkar/Dange (Bombay)\n3. Thozhilali (Worker) \u2014 Singaravelu Chettiar (Madras) How many of the above are correctly matched?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -634,7 +634,7 @@ export const MODERN_CHAPTER_31_MCQS: any[] = [
   },
   {
     id: '31-71',
-    question: "Match the 'Labor Movement Event' with its 'Significance': 1. Madras Labour Union (1918) \u2014",
+    question: "Match the 'Labor Movement Event' with its 'Significance':\n1. Madras Labour Union (1918) \u2014",
     options: ["First modern trade union 2. AITUC Formation (1920) \u2014", "Unified national representation 3. Meerut Trial (1929) \u2014", "International ideological impact Select the correct code:", "1-A, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C.",

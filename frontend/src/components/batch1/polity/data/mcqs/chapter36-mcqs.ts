@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_36_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 36,
+
         question: "The Chief Minister of a state is the head of:",
         options: ["The State", "The Government", "The Legislature", "The Judiciary"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_36_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 36,
+
         question: "Article 167 of the Constitution deals with:",
         options: [
             "Appointment of the CM",
@@ -26,7 +26,7 @@ export const CHAPTER_36_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 36,
+
         question: "Who allocates portfolios among the state ministers?",
         options: ["The Governor", "The Chief Minister", "The Speaker", "The President"],
         correctAnswer: 1,
@@ -35,7 +35,7 @@ export const CHAPTER_36_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 36,
+
         question: "In the context of the State Government, who acts as the 'principal channel of communication' between Governor and Council?",
         options: ["Chief Secretary", "Advocate General", "Chief Minister", "Speaker"],
         correctAnswer: 2,
@@ -44,7 +44,7 @@ export const CHAPTER_36_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 36,
+
         question: "The salary and allowances of the Chief Minister are decided by:",
         options: ["The President", "The Governor", "The State Legislature", "The Parliament"],
         correctAnswer: 2,
@@ -53,7 +53,7 @@ export const CHAPTER_36_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 36,
+
         question: "A person can be appointed as CM even if he is not a member of the State Legislature for a period of:",
         options: ["3 months", "6 months", "1 year", "Indefinitely"],
         correctAnswer: 1,
@@ -62,7 +62,7 @@ export const CHAPTER_36_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 36,
+
         question: "Which of the following is NOT a power of the Chief Minister?",
         options: [
             "He advises the Governor with regard to summoning sessions",
@@ -76,7 +76,7 @@ export const CHAPTER_36_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 36,
+
         question: "The Chief Minister is a member of which of the following?",
         options: [
             "National Development Council",
@@ -90,7 +90,7 @@ export const CHAPTER_36_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 36,
+
         question: "If a Chief Minister dies in office and there is no obvious successor:",
         options: [
             "The Governor must allow the party to elect a leader first",
@@ -104,7 +104,7 @@ export const CHAPTER_36_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 36,
+
         question: "Who can dismiss the Chief Minister for lack of majority?",
         options: ["The Speaker", "The President", "The Governor", "The State Election Commission"],
         correctAnswer: 2,

@@ -292,7 +292,7 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
   },
   {
     id: '21-33',
-    question: "Consider the following statements regarding the 'Parallel Governments' formed during 1942: 1. They were established in areas where British authority had temporarily collapsed. 2. The 'Jatiya Sarkar' in Tamluk set up a cyclone relief committee and a separate police force. 3. The 'Prati Sarkar' in Satara survived until 1946 and established 'Nyayadan Mandals' (people's courts). Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Parallel Governments' formed during 1942:\n1. They were established in areas where British authority had temporarily collapsed.\n2. The 'Jatiya Sarkar' in Tamluk set up a cyclone relief committee and a separate police force.\n3. The 'Prati Sarkar' in Satara survived until 1946 and established 'Nyayadan Mandals' (people's courts). Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 3,
     explanation: "1, 2, and 3",
@@ -355,7 +355,7 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
   },
   {
     id: '21-40',
-    question: "Consider the following regarding the 'Rani of Jhansi Regiment': 1. It was the women's wing of the INA. 2. It was led by Captain Lakshmi Sahgal. 3. It fought on the front lines in the Imphal campaign. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Rani of Jhansi Regiment':\n1. It was the women's wing of the INA.\n2. It was led by Captain Lakshmi Sahgal.\n3. It fought on the front lines in the Imphal campaign. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -436,7 +436,7 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
   },
   {
     id: '21-49',
-    question: "Consider the following regarding the 'INA Trials' (1945): 1. They were held at the Red Fort in Delhi. 2. The Congress organized a legal defense team for the INA officers. 3. The trials led to a massive surge of nationalist sentiment across India. How many of the above are correct?",
+    question: "Consider the following regarding the 'INA Trials' (1945):\n1. They were held at the Red Fort in Delhi.\n2. The Congress organized a legal defense team for the INA officers.\n3. The trials led to a massive surge of nationalist sentiment across India. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
   },
   {
     id: '21-62',
-    question: "Consider the following statements regarding the 'Quit India' resolution passed at Gowalia Tank, Bombay (1942): 1. It demanded the immediate withdrawal of British power from India. 2. It provided for the formation of a provisional government after the British withdrawal. 3. It sanctioned a mass struggle on non-violent lines on the widest possible scale under the leadership of Gandhi. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Quit India' resolution passed at Gowalia Tank, Bombay (1942):\n1. It demanded the immediate withdrawal of British power from India.\n2. It provided for the formation of a provisional government after the British withdrawal.\n3. It sanctioned a mass struggle on non-violent lines on the widest possible scale under the leadership of Gandhi. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
   },
   {
     id: '21-65',
-    question: "Arrange the following events in the correct chronological order: 1. Formation of the first INA by Mohan Singh. 2. Subhash Bose's escape from India (The Great Escape). 3. The arrival of the Cripps Mission. 4. The Wavell Plan (Simla Conference). Select the correct answer using the code given below:",
+    question: "Arrange the following events in the correct chronological order:\n1. Formation of the first INA by Mohan Singh.\n2. Subhash Bose's escape from India (The Great Escape).\n3. The arrival of the Cripps Mission.\n4. The Wavell Plan (Simla Conference). Select the correct answer using the code given below:",
     options: ["2 \u2014 1 \u2014 3 \u2014 4", "2 \u2014 3 \u2014 1 \u2014 4", "1 \u2014 2 \u2014 3 \u2014 4", "2 \u2014 1 \u2014 4 \u2014 3"],
     correctAnswer: 0,
     explanation: "2 \u2014 1 \u2014 3 \u2014 4 (Escape: Jan 1941; INA: Sept 1941; Cripps: March 1942; Wavell: June 1945).",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
   },
   {
     id: '21-66',
-    question: "Regarding the 'Azad Hind Fauj' (INA), consider the following statements: 1. The first INA was disbanded due to disagreements between Mohan Singh and the Japanese military authorities. 2. The second INA was revitalized by Subhash Bose with the help of the Indian Independence League in Singapore. 3. The INA soldiers were mainly recruited from the local Indian civilian population in Malaya and Singapore. How many of the above statements are correct?",
+    question: "Regarding the 'Azad Hind Fauj' (INA), consider the following statements:\n1. The first INA was disbanded due to disagreements between Mohan Singh and the Japanese military authorities.\n2. The second INA was revitalized by Subhash Bose with the help of the Indian Independence League in Singapore.\n3. The INA soldiers were mainly recruited from the local Indian civilian population in Malaya and Singapore. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; while civilians joined later, the core strength remained the POWs captured by the Japanese.)",
@@ -598,7 +598,7 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
   },
   {
     id: '21-67',
-    question: "The 'C.R. Formula' (1944) included which of the following provisions? 1. The Muslim League to endorse the demand for independence. 2. Cooperation in forming an interim government. 3. A commission to demarcate contiguous Muslim-majority districts in the North-West and East. 4. A plebiscite on the basis of adult suffrage of the entire population (not just Muslims) in those districts. Select the correct answer using the code given below:",
+    question: "The 'C.R. Formula' (1944) included which of the following provisions?\n1. The Muslim League to endorse the demand for independence.\n2. Cooperation in forming an interim government.\n3. A commission to demarcate contiguous Muslim-majority districts in the North-West and East.\n4. A plebiscite on the basis of adult suffrage of the entire population (not just Muslims) in those districts. Select the correct answer using the code given below:",
     options: ["1, 2, and 4 only", "2 and 3 only", "1, 3, and 4 only", "All of the above"],
     correctAnswer: 3,
     explanation: "All of the above.",
@@ -625,7 +625,7 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
   },
   {
     id: '21-70',
-    question: "Match the following 'Parallel Governments' (1942) with their respective leaders: 1. Ballia \u2014",
+    question: "Match the following 'Parallel Governments' (1942) with their respective leaders:\n1. Ballia \u2014",
     options: ["Nana Patil 2. Satara \u2014", "Chittu Pandey 3. Tamluk \u2014", "Satish Samanta Select the correct matching code:", "1-B, 2-A, 3-C"],
     correctAnswer: 0,
     explanation: "1-B, 2-A, 3-C.",
@@ -643,7 +643,7 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
   },
   {
     id: '21-72',
-    question: "Consider the following regarding 'Usha Mehta': 1. She was a key organizer of the underground 'Congress Radio'. 2. The radio broadcast messages from leaders and news of the movement's progress. 3. She was never caught by the British police. How many of the above are correct?",
+    question: "Consider the following regarding 'Usha Mehta':\n1. She was a key organizer of the underground 'Congress Radio'.\n2. The radio broadcast messages from leaders and news of the movement's progress.\n3. She was never caught by the British police. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; she was arrested in late 1942.)",
@@ -679,7 +679,7 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
   },
   {
     id: '21-76',
-    question: "Consider the following regarding the 'August Kranti' (Quit India): 1. It saw the emergence of a new leadership of Socialists like JP Narayan and Ram Manohar Lohia. 2. The movement remained completely peaceful in the province of Bihar. 3. It led to the mass dismissal of all British officers in the ICS. How many of the above are correct?",
+    question: "Consider the following regarding the 'August Kranti' (Quit India):\n1. It saw the emergence of a new leadership of Socialists like JP Narayan and Ram Manohar Lohia.\n2. The movement remained completely peaceful in the province of Bihar.\n3. It led to the mass dismissal of all British officers in the ICS. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 0,
     explanation: "Only one (Statement 1 is correct; Statement 2 is incorrect as Bihar was a center of intense violence; Statement 3 is incorrect.)",
@@ -706,7 +706,7 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
   },
   {
     id: '21-79',
-    question: "Regarding the 'Wavell Plan', consider the following: 1. It proposed an Executive Council with equal representation for 'Caste Hindus' and Muslims. 2. It gave the Viceroy a \"veto\" over the decisions of the Council. 3. It was rejected by the Congress because it did not mention Purna Swaraj. How many of the above are correct?",
+    question: "Regarding the 'Wavell Plan', consider the following:\n1. It proposed an Executive Council with equal representation for 'Caste Hindus' and Muslims.\n2. It gave the Viceroy a \"veto\" over the decisions of the Council. 3. It was rejected by the Congress because it did not mention Purna Swaraj. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; the Congress rejected it primarily because of the 'Caste Hindu' label and the Muslim nomination issue.)",
@@ -724,7 +724,7 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
   },
   {
     id: '21-81',
-    question: "Match the 'Army Regiment' with its 'Netaji' era classification: 1. Nehru Brigade \u2014",
+    question: "Match the 'Army Regiment' with its 'Netaji' era classification:\n1. Nehru Brigade \u2014",
     options: ["First INA (Mohan Singh) 2. Gandhi Brigade \u2014", "Second INA (Bose) 3. Rani Jhansi \u2014", "Second INA (Bose) Select the correct matching code:", "1-B, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-B, 2-B, 3-C.",
@@ -733,7 +733,7 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
   },
   {
     id: '21-82',
-    question: "The 'Quit India' movement's 'Twelve-Point Program' included: 1. A call to the police and military to refuse to fire on their own people. 2. A call to students to leave schools and participate in the movement. 3. A call to government servants to declare their allegiance to the Congress while remaining in office. Select the correct answer using the code given below:",
+    question: "The 'Quit India' movement's 'Twelve-Point Program' included:\n1. A call to the police and military to refuse to fire on their own people.\n2. A call to students to leave schools and participate in the movement.\n3. A call to government servants to declare their allegiance to the Congress while remaining in office. Select the correct answer using the code given below:",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "All of the above"],
     correctAnswer: 3,
     explanation: "All of the above.",

@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_68_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 68,
+
         question: "Article 326 of the Constitution of India deals with:",
         options: [
             "Powers of Election Commission",
@@ -17,7 +17,7 @@ export const CHAPTER_68_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 68,
+
         question: "The voting age was reduced from 21 to 18 in year ____ following the 61st Amendment.",
         options: ["1976", "1988", "1990", "2001"],
         correctAnswer: 1,
@@ -26,7 +26,7 @@ export const CHAPTER_68_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 68,
+
         question: "Which article forbids court interference in electoral matters like delimitation of constituencies?",
         options: ["Article 324", "Article 325", "Article 327", "Article 329"],
         correctAnswer: 3,
@@ -35,7 +35,7 @@ export const CHAPTER_68_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 68,
+
         question: "Election petitions are heard in the first instance by:",
         options: ["Supreme Court", "High Court", "Election Commission", "District Court"],
         correctAnswer: 1,
@@ -44,7 +44,7 @@ export const CHAPTER_68_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 68,
+
         question: "Who makes the final decision on the disqualification of a member of Parliament (except on grounds of defection)?",
         options: ["Speaker", "Chairman", "President", "Supreme Court"],
         correctAnswer: 2,
@@ -53,7 +53,7 @@ export const CHAPTER_68_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 68,
+
         question: "Delimitation of constituencies is done after every:",
         options: ["Election", "5 years", "10 years / Census", "Year"],
         correctAnswer: 2,
@@ -62,7 +62,7 @@ export const CHAPTER_68_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 68,
+
         question: "Are there separate electorates for religious minorities in India?",
         options: ["Yes", "No", "Only for Muslims", "Only for Christians"],
         correctAnswer: 1,
@@ -71,7 +71,7 @@ export const CHAPTER_68_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 68,
+
         question: "The Election Commission of India does NOT conduct elections for:",
         options: ["President", "Lok Sabha", "State Assemblies", "Municipalities"],
         correctAnswer: 3,
@@ -80,7 +80,7 @@ export const CHAPTER_68_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 68,
+
         question: "Which Article grants Parliament the power to make provisions with respect to elections to legislatures?",
         options: ["Article 327", "Article 328", "Article 324", "Article 326"],
         correctAnswer: 0,
@@ -89,7 +89,7 @@ export const CHAPTER_68_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 68,
+
         question: "A person to be registered as a voter must be at least:",
         options: ["18 years old", "21 years old", "25 years old", "No age limit"],
         correctAnswer: 0,

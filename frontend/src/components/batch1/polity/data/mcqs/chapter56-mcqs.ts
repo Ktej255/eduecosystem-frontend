@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_56_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 56,
+
         question: "The CVC was originally established on the recommendation of which committee?",
         options: ["Santhanam Committee", "Sarkaria Commission", "Punchhi Commission", "Vohra Committee"],
         correctAnswer: 0,
@@ -12,7 +12,7 @@ export const CHAPTER_56_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 56,
+
         question: "The Central Vigilance Commission Act was passed in:",
         options: ["1964", "1998", "2003", "2013"],
         correctAnswer: 2,
@@ -21,7 +21,7 @@ export const CHAPTER_56_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 56,
+
         question: "The tenure of the Central Vigilance Commissioner is:",
         options: ["3 years / 65 age", "4 years / 65 age", "5 years / 65 age", "6 years / 65 age"],
         correctAnswer: 1,
@@ -30,7 +30,7 @@ export const CHAPTER_56_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 56,
+
         question: "Who among the following is NOT part of the committee recommending appointment to CVC?",
         options: ["PM", "Union Home Minister", "LoP in Lok Sabha", "CJI of India"],
         correctAnswer: 3,
@@ -39,7 +39,7 @@ export const CHAPTER_56_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 56,
+
         question: "CVC exercises superintendence over the functioning of which agency in corruption cases?",
         options: ["CBI", "ED", "NIA", "IB"],
         correctAnswer: 0,
@@ -48,7 +48,7 @@ export const CHAPTER_56_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 56,
+
         question: "Members of CVC are removed by:",
         options: ["CJI", "President", "Governor", "Supreme Court"],
         correctAnswer: 1,
@@ -57,7 +57,7 @@ export const CHAPTER_56_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 56,
+
         question: "The jurisdiction of CVC includes All India Service officers serving in connection with:",
         options: ["State affairs", "Union affairs", "Both Union and State", "Foreign services"],
         correctAnswer: 1,
@@ -66,7 +66,7 @@ export const CHAPTER_56_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 56,
+
         question: "Is CVC considered any kind of court?",
         options: ["Civil Court", "Criminal Court", "It has powers of a Civil Court", "None"],
         correctAnswer: 2,
@@ -75,7 +75,7 @@ export const CHAPTER_56_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 56,
+
         question: "CVC submits its annual report to the:",
         options: ["PM", "Parliament", "President", "CJI"],
         correctAnswer: 2,
@@ -84,7 +84,7 @@ export const CHAPTER_56_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 56,
+
         question: "Can there be more than two Vigilance Commissioners?",
         options: ["Yes", "No", "Depends on Load", "Depends on Budget"],
         correctAnswer: 1,

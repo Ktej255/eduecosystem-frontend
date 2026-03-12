@@ -292,7 +292,7 @@ export const MODERN_CHAPTER_27_MCQS: any[] = [
   },
   {
     id: '27-33',
-    question: "Consider the following statements regarding 'Abanindranath Tagore\u2019s' painting 'Bharat Mata' (1905): 1. It was originally titled 'Bangamata' during the Swadeshi movement. 2. The deity is depicted with four arms, holding a book, sheaves of paddy, a piece of white cloth, and a rudraksha mala. 3. It was painted using the 'Wash Technique', influenced by Japanese art. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding 'Abanindranath Tagore\u2019s' painting 'Bharat Mata' (1905):\n1. It was originally titled 'Bangamata' during the Swadeshi movement.\n2. The deity is depicted with four arms, holding a book, sheaves of paddy, a piece of white cloth, and a rudraksha mala.\n3. It was painted using the 'Wash Technique', influenced by Japanese art. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 3,
     explanation: "1, 2, and 3.",
@@ -337,7 +337,7 @@ export const MODERN_CHAPTER_27_MCQS: any[] = [
   },
   {
     id: '27-38',
-    question: "Consider the following regarding the 'Victoria Terminus' (CSMT) in Mumbai: 1. It was designed by F.W. Stevens. 2. It represents a \"Gothic Revival\" style, but incorporates Indian decorative elements like the peacock and lion. 3. It was built specifically to celebrate the end of the 1857 Revolt. Which of the statements given above are correct?",
+    question: "Consider the following regarding the 'Victoria Terminus' (CSMT) in Mumbai:\n1. It was designed by F.W. Stevens.\n2. It represents a \"Gothic Revival\" style, but incorporates Indian decorative elements like the peacock and lion. 3. It was built specifically to celebrate the end of the 1857 Revolt. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only. (It was built to commemorate the Golden Jubilee of Queen Victoria, not the end of the revolt).",
@@ -355,7 +355,7 @@ export const MODERN_CHAPTER_27_MCQS: any[] = [
   },
   {
     id: '27-40',
-    question: "With reference to 'Raja Ravi Varma', consider the following: 1. He set up a 'Lithographic Press' in Mumbai to make his paintings accessible to the masses. 2. His depictions of Hindu deities defined the visual imagery of gods in Indian calendar art for decades. 3. He was a vocal member of the extremist faction of the Congress. How many of the above statements are correct?",
+    question: "With reference to 'Raja Ravi Varma', consider the following:\n1. He set up a 'Lithographic Press' in Mumbai to make his paintings accessible to the masses.\n2. His depictions of Hindu deities defined the visual imagery of gods in Indian calendar art for decades.\n3. He was a vocal member of the extremist faction of the Congress. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; he was a court painter who focused on art rather than active politics).",
@@ -409,7 +409,7 @@ export const MODERN_CHAPTER_27_MCQS: any[] = [
   },
   {
     id: '27-46',
-    question: "Consider the following pairs of 'Architectural Projects' and their 'Designers': 1. High Court of Bombay \u2014 Fuller 2. Victoria Memorial \u2014 William Emerson 3. University of Bombay \u2014 Gilbert Scott How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of 'Architectural Projects' and their 'Designers':\n1. High Court of Bombay \u2014 Fuller\n2. Victoria Memorial \u2014 William Emerson\n3. University of Bombay \u2014 Gilbert Scott How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "All three pairs", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_27_MCQS: any[] = [
   },
   {
     id: '27-62',
-    question: "Consider the following statements regarding the 'Bengal School of Art': 1. It was an aesthetic movement that sought to reject 'Materialism' through the use of the Japanese 'Wash' technique. 2. It was heavily influenced by the spiritual and cultural ideas of E.B. Havell and Sister Nivedita. 3. It promoted the use of large-scale oil canvases as the primary medium for Indian historical subjects. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Bengal School of Art':\n1. It was an aesthetic movement that sought to reject 'Materialism' through the use of the Japanese 'Wash' technique.\n2. It was heavily influenced by the spiritual and cultural ideas of E.B. Havell and Sister Nivedita.\n3. It promoted the use of large-scale oil canvases as the primary medium for Indian historical subjects. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; the Bengal School specifically rejected the \"materialistic\" oil-on-canvas of the West, preferring smaller, more intimate water-color paintings.",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_27_MCQS: any[] = [
   },
   {
     id: '27-65',
-    question: "Arrange the following movements/trends in Indian Art in the correct chronological order: 1. Dominance of the Company School. 2. Rise of the Bengal School of Art. 3. The 'Folk-Revival' of Jamini Roy. 4. The formation of the Progressive Artists' Group (PAG). Select the correct answer using the code given below:",
+    question: "Arrange the following movements/trends in Indian Art in the correct chronological order:\n1. Dominance of the Company School.\n2. Rise of the Bengal School of Art.\n3. The 'Folk-Revival' of Jamini Roy.\n4. The formation of the Progressive Artists' Group (PAG). Select the correct answer using the code given below:",
     options: ["1 \u2014 2 \u2014 3 \u2014 4", "2 \u2014 1 \u2014 3 \u2014 4", "1 \u2014 3 \u2014 2 \u2014 4", "2 \u2014 3 \u2014 1 \u2014 4"],
     correctAnswer: 0,
     explanation: "1 \u2014 2 \u2014 3 \u2014 4 (Company: early 19th c.; Bengal: 1905; Jamini Roy: 1920s/30s; PAG: 1947).",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_27_MCQS: any[] = [
   },
   {
     id: '27-66',
-    question: "Regarding 'Edwin Lutyens' and New Delhi, consider the following statements: 1. Lutyens personally despised Indian architecture, describing it as \"pointless\" and \"clumsy.\" 2. Despite his personal views, he was forced to incorporate Indian motifs like the 'Sanchi Stupa' dome (for the Rashtrapati Bhavan) to satisfy political requirements. 3. The layout of New Delhi was based on a 'Hexagonal' grid to ensure maximum military control over the streets. How many of the above statements are correct?",
+    question: "Regarding 'Edwin Lutyens' and New Delhi, consider the following statements:\n1. Lutyens personally despised Indian architecture, describing it as \"pointless\" and \"clumsy.\" 2. Despite his personal views, he was forced to incorporate Indian motifs like the 'Sanchi Stupa' dome (for the Rashtrapati Bhavan) to satisfy political requirements. 3. The layout of New Delhi was based on a 'Hexagonal' grid to ensure maximum military control over the streets. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -679,7 +679,7 @@ export const MODERN_CHAPTER_27_MCQS: any[] = [
   },
   {
     id: '27-76',
-    question: "Consider the following regarding the 'Victoria Memorial' in Kolkata: 1. It was designed by William Emerson in a 'Folk' style. 2. It was funded by the \"donations\" of Indian Princes and the public, often under British pressure. 3. It was intended to serve as a 'Museum of the Empire.' How many of the above are correct?",
+    question: "Consider the following regarding the 'Victoria Memorial' in Kolkata:\n1. It was designed by William Emerson in a 'Folk' style.\n2. It was funded by the \"donations\" of Indian Princes and the public, often under British pressure. 3. It was intended to serve as a 'Museum of the Empire.' How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 1 is incorrect; it was Indo-Saracenic/Renaissance fusion).",
@@ -706,7 +706,7 @@ export const MODERN_CHAPTER_27_MCQS: any[] = [
   },
   {
     id: '27-79',
-    question: "Match the 'Artistic Philosophy' with the 'Artist': 1. Spiritual Revivalism \u2014",
+    question: "Match the 'Artistic Philosophy' with the 'Artist':\n1. Spiritual Revivalism \u2014",
     options: ["Jamini Roy 2. Folk Modernism \u2014", "Amrita Sher-Gil 3. Poetic Realism (Melancholy) \u2014", "Abanindranath Tagore Select the correct matching code:", "1-C, 2-A, 3-B"],
     correctAnswer: 0,
     explanation: "1-C, 2-A, 3-B.",

@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_22_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 22,
+
         question: "The Prime Minister of India, at the time of his/her appointment:",
         options: [
             "Need not necessarily be a member of one of the Houses but must become a member of LS within 6 months",
@@ -17,7 +17,7 @@ export const CHAPTER_22_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 22,
+
         question: "Who among the following Prime Ministers did NOT enjoy a majority in the Lok Sabha at the time of appointment?",
         options: ["Jawaharlal Nehru", "Indira Gandhi", "Morarji Desai", "Charan Singh"],
         correctAnswer: 3,
@@ -26,7 +26,7 @@ export const CHAPTER_22_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 22,
+
         question: "Which Article of the Constitution deals with the 'Duties of Prime Minister'?",
         options: ["Article 74", "Article 75", "Article 78", "Article 77"],
         correctAnswer: 2,
@@ -35,7 +35,7 @@ export const CHAPTER_22_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 22,
+
         question: "The Prime Minister is the Chairman of which of the following?",
         options: [
             "NITI Aayog",
@@ -49,7 +49,7 @@ export const CHAPTER_22_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 22,
+
         question: "If the Prime Minister of India belonged to the Rajya Sabha:",
         options: [
             "He will not be able to vote in his favour in the event of a No-Confidence Motion",
@@ -63,7 +63,7 @@ export const CHAPTER_22_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 22,
+
         question: "The resignation of the Prime Minister means the resignation of:",
         options: [
             "The PM only",
@@ -77,7 +77,7 @@ export const CHAPTER_22_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 22,
+
         question: "Who is the 'Crisis Manager-in-Chief' at the political level during emergencies?",
         options: ["The President", "The Home Minister", "The Prime Minister", "The Cabinet Secretary"],
         correctAnswer: 2,
@@ -86,7 +86,7 @@ export const CHAPTER_22_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 22,
+
         question: "Which of the following is NOT a power of the Prime Minister?",
         options: [
             "To recommend appointment of ministers",
@@ -100,7 +100,7 @@ export const CHAPTER_22_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 22,
+
         question: "Who called the Prime Minister 'Inter stellas luna minores' (a moon among lesser stars)?",
         options: ["Sir William Vernon Harcourt", "Lord Morley", "Lowell", "Munro"],
         correctAnswer: 0,
@@ -109,7 +109,7 @@ export const CHAPTER_22_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 22,
+
         question: "The salary and allowances of the Prime Minister are determined by:",
         options: ["The Constitution", "The President", "The Parliament", "The Cabinet"],
         correctAnswer: 2,

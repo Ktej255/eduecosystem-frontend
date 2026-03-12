@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_6_SUBTOPICS: Subtopic[] = [
@@ -154,3 +155,4 @@ export const ANCIENT_CHAPTER_6_MAINS_ANGLE = {
 };
 
 export const ANCIENT_CHAPTER_6_CA_TAGS = ['Rakhigarhi DNA', 'Dholavira UNESCO', 'IVC Maritime Trade'];
+

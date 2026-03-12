@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_53_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 53,
+
         question: "The Chairman of SHRC is appointed by the Governor on the recommendation of a committee headed by:",
         options: ["Chief Justice of HC", "Chief Minister", "State Home Minister", "Speaker of Assembly"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_53_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 53,
+
         question: "Which of the following can remove a member of the State Human Rights Commission?",
         options: ["Governor", "Chief Minister", "President", "State Legislature"],
         correctAnswer: 2,
@@ -21,7 +21,7 @@ export const CHAPTER_53_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 53,
+
         question: "SHRC can inquire into violations of human rights related to subjects in:",
         options: ["Union List only", "State List only", "State and Concurrent Lists", "Concurrent List only"],
         correctAnswer: 2,
@@ -30,7 +30,7 @@ export const CHAPTER_53_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 53,
+
         question: "The tenure of SHRC members was changed from 5 to 3 years by which amendment?",
         options: ["2006 Amendment", "2019 Amendment", "2014 Amendment", "Not changed"],
         correctAnswer: 1,
@@ -39,7 +39,7 @@ export const CHAPTER_53_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 53,
+
         question: "Human Rights Courts are established in every district by:",
         options: ["NHRC", "State Government", "High Court", "Supreme Court"],
         correctAnswer: 1,
@@ -48,7 +48,7 @@ export const CHAPTER_53_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 53,
+
         question: "The SHRC submits its annual report to the:",
         options: ["President", "Governor", "State Government", "High Court"],
         correctAnswer: 2,
@@ -57,7 +57,7 @@ export const CHAPTER_53_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 53,
+
         question: "Who can be a member of SHRC with respect to judicial experience?",
         options: ["District Judge with 7 years experience", "Judge of High Court", "Any Advocate with 10 years experience", "Both 1 and 2"],
         correctAnswer: 3,
@@ -66,7 +66,7 @@ export const CHAPTER_53_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 53,
+
         question: "How many states have constituted SHRCs as of now roughly?",
         options: ["10", "15", "26", "28"],
         correctAnswer: 2,
@@ -75,7 +75,7 @@ export const CHAPTER_53_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 53,
+
         question: "The recommendations of SHRC are:",
         options: ["Binding on Govt", "Advisory only", "Mandatory if approved by Governor", "Judicial orders"],
         correctAnswer: 1,
@@ -84,7 +84,7 @@ export const CHAPTER_53_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 53,
+
         question: "Who conducts the recommendation in states having a Legislative Council?",
         options: ["Speaker only", "CM and Speaker only", "Chairman and LoP of Council are also included", "Governor only"],
         correctAnswer: 2,

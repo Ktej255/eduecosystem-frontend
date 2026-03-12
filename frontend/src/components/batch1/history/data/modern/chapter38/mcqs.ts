@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_38_MCQS: any[] = [
   },
   {
     id: '38-34',
-    question: "Consider the following statements regarding the 'Rani Jhansi Regiment': 1. it was the first all-female combat unit in the history of modern Asian warfare. 2. Its members were exclusively recruited from the women of the Indian mainland who escaped to Singapore. 3. It was trained for active combat, including nursing and guerrilla warfare. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Rani Jhansi Regiment':\n1. it was the first all-female combat unit in the history of modern Asian warfare.\n2. Its members were exclusively recruited from the women of the Indian mainland who escaped to Singapore.\n3. It was trained for active combat, including nursing and guerrilla warfare. Which of the statements given above are correct?",
     options: ["1 and 2 only", "1 and 3 only", "2 and 3 only", "1, 2, and 3"],
     correctAnswer: 1,
     explanation: "1 and 3 only. Statement 2 is incorrect; the majority of the recruits were from the Indian diaspora in Southeast Asia (Malaya, Singapore, and Burma), mostly daughters of plantation workers and traders.",
@@ -346,7 +346,7 @@ export const MODERN_CHAPTER_38_MCQS: any[] = [
   },
   {
     id: '38-39',
-    question: "Consider the following regarding the 'INA Trials' (1945-46) and their impact: 1. The British choice of a Hindu, a Muslim, and a Sikh for the first trial (Sahgal, Dhillon, Khan) backfired by creating a unified national outcry. 2. The trials were the first time the Congress and the Muslim League stood on the same legal platform for a common cause. 3. The trials resulted in the immediate execution of all three officers. How many of the above are correct?",
+    question: "Consider the following regarding the 'INA Trials' (1945-46) and their impact:\n1. The British choice of a Hindu, a Muslim, and a Sikh for the first trial (Sahgal, Dhillon, Khan) backfired by creating a unified national outcry.\n2. The trials were the first time the Congress and the Muslim League stood on the same legal platform for a common cause.\n3. The trials resulted in the immediate execution of all three officers. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; due to massive public pressure, their sentences were eventually remitted by the Commander-in-Chief).",
@@ -391,7 +391,7 @@ export const MODERN_CHAPTER_38_MCQS: any[] = [
   },
   {
     id: '38-44',
-    question: "Consider the following regarding the 'Azad Hind Bank' established in Rangoon (1944): 1. It issued its own currency and postage stamps recognized by the Axis powers. 2. It was primarily funded by the voluntary contributions of the Indian diaspora in Southeast Asia. 3. It was a branch of the Imperial Bank of India. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Azad Hind Bank' established in Rangoon (1944):\n1. It issued its own currency and postage stamps recognized by the Axis powers.\n2. It was primarily funded by the voluntary contributions of the Indian diaspora in Southeast Asia.\n3. It was a branch of the Imperial Bank of India. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; it was an independent central bank for the Provisional Government).",
@@ -436,7 +436,7 @@ export const MODERN_CHAPTER_38_MCQS: any[] = [
   },
   {
     id: '38-49',
-    question: "Consider the following regarding the 'Rani Jhansi Regiment' recruitment: 1. It included women from diverse backgrounds, including rubber plantation laborers and medical students. 2. It was the only unit of the INA that was not allowed to carry weapons. 3. The training included advanced tactical maneuvers and night-marching. How many of the above are correct?",
+    question: "Consider the following regarding the 'Rani Jhansi Regiment' recruitment:\n1. It included women from diverse backgrounds, including rubber plantation laborers and medical students.\n2. It was the only unit of the INA that was not allowed to carry weapons.\n3. The training included advanced tactical maneuvers and night-marching. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 2 is incorrect; they were fully armed combatants).",
@@ -454,7 +454,7 @@ export const MODERN_CHAPTER_38_MCQS: any[] = [
   },
   {
     id: '38-51',
-    question: "Match the following 'INA Brigades' with their 'Context': 1. Gandhi Brigade \u2014",
+    question: "Match the following 'INA Brigades' with their 'Context':\n1. Gandhi Brigade \u2014",
     options: ["One of the main guerrilla regiments. 2. Nehru Brigade \u2014", "Named to show respect to the leaders in India. 3. Subhash Brigade \u2014", "The first to reach the Indian soil (Arakan/Manipur). Select the correct matching code:", "1-A, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C.",
@@ -499,7 +499,7 @@ export const MODERN_CHAPTER_38_MCQS: any[] = [
   },
   {
     id: '38-56',
-    question: "Consider the following regarding 'Captain Lakshmi Sahgal': 1. She was a medical doctor before joining the INA. 2. She held a cabinet rank in the Provisional Government as the Minister in charge of Women's Organization. 3. She was the only person to escape the Red Fort Trials. Which of the statements given above are correct?",
+    question: "Consider the following regarding 'Captain Lakshmi Sahgal':\n1. She was a medical doctor before joining the INA.\n2. She held a cabinet rank in the Provisional Government as the Minister in charge of Women's Organization.\n3. She was the only person to escape the Red Fort Trials. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only. (She was tried but her case was handled separately from the 'Big Three').",

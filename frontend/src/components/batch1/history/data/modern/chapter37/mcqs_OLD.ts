@@ -606,7 +606,7 @@ export const MODERN_CHAPTER_37_MCQS: MCQ[] = [
   },
   {
     id: 68,
-    question: "True/False about Tripuri: 1. Bose was ill, 2. First loudspeaker used, 3. Communists supported Pant.",
+    question: "True/False about Tripuri:\n1. Bose was ill,\n2. First loudspeaker used,\n3. Communists supported Pant.",
     options: ["1 & 2 only","All correct","Only 3","None"],
     correctAnswer: 0,
     difficulty: "Hard",

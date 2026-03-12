@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_74_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 74,
+
         question: "Which amendment added the word 'Integrity' to the Preamble?",
         options: ["24th", "42nd", "44th", "73rd"],
         correctAnswer: 1,
@@ -12,7 +12,7 @@ export const CHAPTER_74_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 74,
+
         question: "The National Integration Council (NIC) was first constituted in:",
         options: ["1950", "1961", "1976", "1985"],
         correctAnswer: 1,
@@ -21,7 +21,7 @@ export const CHAPTER_74_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 74,
+
         question: "Who is the ex-officio chairman of the National Integration Council?",
         options: ["President", "Prime Minister", "Home Minister", "CJI"],
         correctAnswer: 1,
@@ -30,7 +30,7 @@ export const CHAPTER_74_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 74,
+
         question: "Which of the following is NOT an obstacle to national integration?",
         options: ["Regionalism", "Casteism", "Fraternity", "Communalism"],
         correctAnswer: 2,
@@ -39,7 +39,7 @@ export const CHAPTER_74_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 74,
+
         question: "The National Foundation for Communal Harmony (NFCH) works under which Ministry?",
         options: ["Ministry of Culture", "Ministry of Home Affairs", "Ministry of Social Justice", "Ministry of HRD"],
         correctAnswer: 1,
@@ -48,7 +48,7 @@ export const CHAPTER_74_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 74,
+
         question: "Single Citizenship in India is a feature borrowed from:",
         options: ["USA", "Britain", "Canada", "Australia"],
         correctAnswer: 1,
@@ -57,7 +57,7 @@ export const CHAPTER_74_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 74,
+
         question: "The concept of 'National Integration' emphasizes:",
         options: [
             "Assimilation and loss of cultural identity",
@@ -71,7 +71,7 @@ export const CHAPTER_74_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 74,
+
         question: "Who among the following are NOT members of NIC?",
         options: ["Chief Ministers", "Leaders of Political Parties", "Ambassadors of other countries", "Union Ministers"],
         correctAnswer: 2,
@@ -80,7 +80,7 @@ export const CHAPTER_74_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 74,
+
         question: "Which Article of the Constitution deals with the duty to uphold the unity and integrity of India?",
         options: ["Article 1", "Article 14", "Article 51A", "Article 356"],
         correctAnswer: 2,
@@ -89,7 +89,7 @@ export const CHAPTER_74_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 74,
+
         question: "Communalism refers to:",
         options: [
             "Love for community project",

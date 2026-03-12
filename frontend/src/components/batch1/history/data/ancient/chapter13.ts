@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_13_SUBTOPICS: Subtopic[] = [
@@ -144,3 +145,4 @@ export const ANCIENT_CHAPTER_13_CONTENT = `
 - **Factors:** Financial crisis, hyper-centralization, weak successors, and Greco-Bactrian invasions.
 - **The End:** In 185 BCE, **Pushyamitra Sunga** assassinated the last Maurya Brihadratha, ending the dynasty.
 `;
+

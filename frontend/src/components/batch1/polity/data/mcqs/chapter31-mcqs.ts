@@ -3,7 +3,7 @@ import { MCQ } from "../RevisionRegistry";
 export const CHAPTER_31_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 30, // Mapping to Schedule ID 30 (PIL)
+ // Mapping to Schedule ID 30 (PIL)
         question: "With reference to 'Public Interest Litigation' (PIL), consider the following statements:\n1. Origin/Developed in UK in early 20th century.\n2. In India, it is a product of judicial innovation.\n3. First reported PIL: Hussainara Khatoon v. Home Secretary, Bihar.",
         options: [
             "1 and 2 only",
@@ -17,7 +17,7 @@ export const CHAPTER_31_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 30,
+
         question: "What does 'Relaxation of Locus Standi' strictly mean in PIL context?",
         options: [
             "Court takes up cases of individual rights violation only.",
@@ -31,7 +31,7 @@ export const CHAPTER_31_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 30,
+
         question: "Which of the following matters is generally NOT entertained as PIL?",
         options: [
             "Bonded Labour matters.",
@@ -45,7 +45,7 @@ export const CHAPTER_31_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 30,
+
         question: "Who are considered the pioneers of PIL in India?",
         options: [
             "Justice V.R. Krishna Iyer and Justice P.N. Bhagwati.",
@@ -59,7 +59,7 @@ export const CHAPTER_31_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 30,
+
         question: "What is 'Epistolary Jurisdiction' in the context of PIL?",
         options: [
             "Court can transfer cases from one Hq to another.",

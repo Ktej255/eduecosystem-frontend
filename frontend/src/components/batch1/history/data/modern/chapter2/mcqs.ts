@@ -4,7 +4,7 @@ import { Question } from '../../../../types';
 export const MODERN_CHAPTER_2_MCQS: any[] = [
   {
     id: '1-91',
-    question: "Consider the following statements regarding 'Oral History' as a source for modern Indian history: 1. It is highly effective in capturing the socio-psychological trauma, localized violence, and subaltern experiences of monumental events like the 1947 Partition. 2. Traditional historians often critique it due to the potential for chronological inaccuracies and the inherent subjectivity of human memory over time. Which of the statements given above is/are correct?",
+    question: "Consider the following statements regarding 'Oral History' as a source for modern Indian history:\n1. It is highly effective in capturing the socio-psychological trauma, localized violence, and subaltern experiences of monumental events like the 1947 Partition.\n2. Traditional historians often critique it due to the potential for chronological inaccuracies and the inherent subjectivity of human memory over time. Which of the statements given above is/are correct?",
     options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
     correctAnswer: 2,
     explanation: "Both 1 and 2 Both statements correctly define the utility and the primary academic limitations of using oral history to supplement official archives.",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
   },
   {
     id: '2-62',
-    question: "Consider the following statements regarding the 'Colonial Approach' to Indian history: 1. It was heavily influenced by the ideology of Social Darwinism, which justified British hegemony as the rule of the \"fittest\". 2. It completely rejected the concept of 'Oriental Despotism', arguing instead that pre-colonial India had strong democratic traditions. 3. It portrayed India as a stagnant society that required the external intervention of 'Pax Britannica' to establish law and order. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Colonial Approach' to Indian history:\n1. It was heavily influenced by the ideology of Social Darwinism, which justified British hegemony as the rule of the \"fittest\". 2. It completely rejected the concept of 'Oriental Despotism', arguing instead that pre-colonial India had strong democratic traditions. 3. It portrayed India as a stagnant society that required the external intervention of 'Pax Britannica' to establish law and order. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; Colonial historiography relied heavily on the concept of 'Oriental Despotism' to justify their rule, claiming pre-colonial India was tyrannical and lacked private property rights.",
@@ -571,7 +571,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
   },
   {
     id: '2-64',
-    question: "Consider the following pairs of Historians and their respective Historiographical Schools: 1. R.C. Majumdar \u2014 Nationalist School 2. Anil Seal \u2014 Cambridge School 3. A.R. Desai \u2014 Subaltern School 4. Ranajit Guha \u2014 Marxist School How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of Historians and their respective Historiographical Schools:\n1. R.C. Majumdar \u2014 Nationalist School\n2. Anil Seal \u2014 Cambridge School\n3. A.R. Desai \u2014 Subaltern School\n4. Ranajit Guha \u2014 Marxist School How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
     correctAnswer: 1,
     explanation: "Only two pairs Pairs 1 and 2 are correctly matched. Pair 3 is incorrect (A.R. Desai belongs to the Marxist school). Pair 4 is incorrect (Ranajit Guha is the founder of the Subaltern school).",
@@ -589,7 +589,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
   },
   {
     id: '2-66',
-    question: "Consider the following statements regarding the 'Marxist Approach' to Indian history: 1. It clearly sees the primary contradiction between the interests of the colonial masters and the subject people. 2. It views the Indian national movement entirely as a structured bourgeois movement that manipulated the masses for elite capitalist gains. 3. Sumit Sarkar praised R.P. Dutt's paradigm as the most flawless and comprehensive application of Marxist theory to Indian history. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Marxist Approach' to Indian history:\n1. It clearly sees the primary contradiction between the interests of the colonial masters and the subject people.\n2. It views the Indian national movement entirely as a structured bourgeois movement that manipulated the masses for elite capitalist gains.\n3. Sumit Sarkar praised R.P. Dutt's paradigm as the most flawless and comprehensive application of Marxist theory to Indian history. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 represent core tenets of the classical Marxist approach. Statement 3 is incorrect; Sumit Sarkar actually criticized R.P. Dutt's paradigm as a \"simplistic version\" of the Marxian class approach.",
@@ -616,7 +616,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
   },
   {
     id: '2-69',
-    question: "Consider the following statements regarding 'Feminist Historiography' in India: 1. It emerged prominently during the social reform movements of the 19th century. 2. It critiques the early social reformers for treating women merely as symbols of 'tradition' or 'modernity' rather than active agents. 3. Works like Pandita Ramabai\u2019s The High Caste Hindu Woman are considered foundational texts for this approach. How many of the above statements are correct?",
+    question: "Consider the following statements regarding 'Feminist Historiography' in India:\n1. It emerged prominently during the social reform movements of the 19th century.\n2. It critiques the early social reformers for treating women merely as symbols of 'tradition' or 'modernity' rather than active agents.\n3. Works like Pandita Ramabai\u2019s The High Caste Hindu Woman are considered foundational texts for this approach. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statement 1 is incorrect; while women's issues were discussed in the 19th century, Feminist historiography as a distinct historical approach emerged much later, gaining momentum with the women's movement of the 1970s. Statements 2 and 3 are correct.",
@@ -625,7 +625,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
   },
   {
     id: '2-70',
-    question: "Consider the following works and their authors, crucial to modern Indian historiography: 1. Social Background of Indian Nationalism \u2014 A.R. Desai 2. India Today \u2014 Rajni Palme Dutt 3. Desher Katha \u2014 Sakharam Ganesh Deuskar How many of the above works are fundamentally grounded in the Marxist historiographical approach?",
+    question: "Consider the following works and their authors, crucial to modern Indian historiography:\n1. Social Background of Indian Nationalism \u2014 A.R. Desai\n2. India Today \u2014 Rajni Palme Dutt\n3. Desher Katha \u2014 Sakharam Ganesh Deuskar How many of the above works are fundamentally grounded in the Marxist historiographical approach?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two A.R. Desai and R.P. Dutt's works (1 and 2) are classic Marxist texts. Desher Katha (3) by Deuskar popularized the early Nationalist economic critique (Drain Theory), not Marxist.",
@@ -661,7 +661,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
   },
   {
     id: '2-74',
-    question: "Consider the following statements regarding Katherine Mayo's Mother India (1927): 1. It was heavily endorsed by the Indian National Congress for its progressive stance on women's rights. 2. It was primarily utilized by colonial apologists to argue that India's social backwardness made it unfit for political independence. Which of the statements given above is/are correct?",
+    question: "Consider the following statements regarding Katherine Mayo's Mother India (1927):\n1. It was heavily endorsed by the Indian National Congress for its progressive stance on women's rights.\n2. It was primarily utilized by colonial apologists to argue that India's social backwardness made it unfit for political independence. Which of the statements given above is/are correct?",
     options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
     correctAnswer: 1,
     explanation: "2 only The nationalist leadership fiercely condemned the book (Gandhi called it a \"drain inspector's report\") because it was used as imperialist propaganda to deny India self-rule.",
@@ -679,7 +679,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
   },
   {
     id: '2-76',
-    question: "Consider the following statements about the evolution of Nationalist historiography: 1. In the pre-independence era, it largely focused on ancient and medieval India to discover a glorious past. 2. It generally downplayed the existence of caste and class exploitation within Indian society to present a unified front against colonialism. 3. In the post-independence era, it completely abandoned the political narrative to focus solely on subaltern environmental history. How many of the above statements are correct?",
+    question: "Consider the following statements about the evolution of Nationalist historiography:\n1. In the pre-independence era, it largely focused on ancient and medieval India to discover a glorious past.\n2. It generally downplayed the existence of caste and class exploitation within Indian society to present a unified front against colonialism.\n3. In the post-independence era, it completely abandoned the political narrative to focus solely on subaltern environmental history. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; post-independence nationalist historiography continued to focus heavily on the political narrative of the freedom struggle, though it broadened somewhat.",
@@ -706,7 +706,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
   },
   {
     id: '2-79',
-    question: "Consider the following statements regarding the historiographical views on the Revolt of 1857: 1. Colonial historians typically described it as a mere 'Sepoy Mutiny' devoid of popular support. 2. Nationalist historians unanimously agreed that it was a highly organized, nationwide, modern war of independence. 3. Marxist historians often analyze it as a complex class struggle involving the peasantry against both British and native feudal landlords. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the historiographical views on the Revolt of 1857:\n1. Colonial historians typically described it as a mere 'Sepoy Mutiny' devoid of popular support.\n2. Nationalist historians unanimously agreed that it was a highly organized, nationwide, modern war of independence.\n3. Marxist historians often analyze it as a complex class struggle involving the peasantry against both British and native feudal landlords. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; Nationalist historians were not unanimous. R.C. Majumdar, a prominent nationalist historian, argued it was neither the first, nor national, nor a war of independence.",
@@ -760,7 +760,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
   },
   {
     id: '2-85',
-    question: "Consider the following statements about A.R. Desai's contribution to Indian historiography: 1. He authored Social Background of Indian Nationalism. 2. He utilized a Marxist framework to trace the growth of the national movement through five distinct phases based on changing class dynamics. 3. He ultimately concluded that the national movement was a bogus elite struggle, aligning with the Subaltern school. How many of the above statements are correct?",
+    question: "Consider the following statements about A.R. Desai's contribution to Indian historiography:\n1. He authored Social Background of Indian Nationalism.\n2. He utilized a Marxist framework to trace the growth of the national movement through five distinct phases based on changing class dynamics.\n3. He ultimately concluded that the national movement was a bogus elite struggle, aligning with the Subaltern school. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; Desai remained a Marxist and analyzed the movement's class character, but did not dismiss it as entirely \"bogus\" in the way the extreme Subaltern critiques later did.",

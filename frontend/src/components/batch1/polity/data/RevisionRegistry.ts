@@ -324,7 +324,6 @@ export interface RevisionFlashcard {
 
 export interface MCQ {
     id: number;
-    chapterId: number;
     question: string;
     options: string[];
     correctAnswer: number;

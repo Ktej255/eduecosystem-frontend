@@ -292,7 +292,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
   },
   {
     id: '11-33',
-    question: "Consider the following statements regarding the 'Moderate' vs 'Extremist' stance on the Swadeshi Movement: 1. The Moderates wanted to restrict the boycott movement to Bengal only. 2. The Extremists, led by Tilak, wanted to take the movement to other parts of India and transform it into a full-fledged political mass struggle for Swaraj. 3. Both groups agreed to include the boycott of government schools and courts from the very beginning. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Moderate' vs 'Extremist' stance on the Swadeshi Movement:\n1. The Moderates wanted to restrict the boycott movement to Bengal only.\n2. The Extremists, led by Tilak, wanted to take the movement to other parts of India and transform it into a full-fledged political mass struggle for Swaraj.\n3. Both groups agreed to include the boycott of government schools and courts from the very beginning. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only Statement 3 is incorrect. The Moderates were highly reluctant to include the boycott of schools and courts, which was a major point of contention leading to the Surat Split.",
@@ -310,7 +310,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
   },
   {
     id: '11-35',
-    question: "During the Swadeshi Movement, several national educational institutions were established. Match the following institutions with their associated personalities: 1. National Council of Education \u2014",
+    question: "During the Swadeshi Movement, several national educational institutions were established. Match the following institutions with their associated personalities:\n1. National Council of Education \u2014",
     options: ["Satish Chandra Mukherjee 2. Dawn Society \u2014", "Aurobindo Ghosh (First Principal) 3. Bengal National College \u2014", "Rashbehari Ghosh (President) Select the correct matching code:", "1-C, 2-A, 3-B"],
     correctAnswer: 0,
     explanation: "1-C, 2-A, 3-B",
@@ -346,7 +346,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
   },
   {
     id: '11-39',
-    question: "Consider the following regarding the 'All India Muslim League' founded in 1906: 1. It was founded in Dacca under the leadership of Nawab Salimullah and Aga Khan. 2. It strongly supported the Swadeshi and Boycott movement. 3. Its primary objective was to promote loyalty to the British government and protect Muslim political rights. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'All India Muslim League' founded in 1906:\n1. It was founded in Dacca under the leadership of Nawab Salimullah and Aga Khan.\n2. It strongly supported the Swadeshi and Boycott movement.\n3. Its primary objective was to promote loyalty to the British government and protect Muslim political rights. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statement 2 is incorrect. The Muslim League initially opposed the Swadeshi movement and supported the Partition of Bengal.",
@@ -391,7 +391,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
   },
   {
     id: '11-44',
-    question: "In the field of literature, the Swadeshi Movement was characterized by a surge in patriotic writings. Which of the following is correctly matched? 1. Amar Sonar Bangla \u2014 Rabindranath Tagore 2. Vande Mataram \u2014 Bankim Chandra Chatterjee (Used as the anthem of the movement) 3. Swadeshi Geethangal \u2014 Subramania Bharati How many of the above pairs are correctly matched?",
+    question: "In the field of literature, the Swadeshi Movement was characterized by a surge in patriotic writings. Which of the following is correctly matched?\n1. Amar Sonar Bangla \u2014 Rabindranath Tagore\n2. Vande Mataram \u2014 Bankim Chandra Chatterjee (Used as the anthem of the movement)\n3. Swadeshi Geethangal \u2014 Subramania Bharati How many of the above pairs are correctly matched?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -418,7 +418,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
   },
   {
     id: '11-47',
-    question: "Consider the following statements regarding the ideological shifts during the Swadeshi Movement: 1. The Extremists emphasized 'Atmashakti' (Self-reliance), which involved the social and economic regeneration of villages through indigenous efforts. 2. Aurobindo Ghosh advocated for 'Passive Resistance', which included the boycott of government schools, courts, and the refusal to pay taxes. 3. The Moderates viewed the boycott of foreign goods as a permanent political weapon to be used across India to achieve 'Purna Swaraj'. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the ideological shifts during the Swadeshi Movement:\n1. The Extremists emphasized 'Atmashakti' (Self-reliance), which involved the social and economic regeneration of villages through indigenous efforts.\n2. Aurobindo Ghosh advocated for 'Passive Resistance', which included the boycott of government schools, courts, and the refusal to pay taxes.\n3. The Moderates viewed the boycott of foreign goods as a permanent political weapon to be used across India to achieve 'Purna Swaraj'. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; the Moderates viewed the boycott as a temporary measure restricted to Bengal to protest the partition, and they were far from demanding 'Purna Swaraj' (Complete Independence) at this stage.",
@@ -436,7 +436,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
   },
   {
     id: '11-49',
-    question: "Arrange the following events related to the rise of militant nationalism in the correct chronological order: 1. Foundation of the Anushilan Samiti in Calcutta. 2. The Alipore Conspiracy Case. 3. The attempt on the life of Magistrate Kingsford by Khudiram Bose and Prafulla Chaki. 4. The publication of 'New Lamps for Old' by Aurobindo Ghosh. Select the correct answer using the code given below:",
+    question: "Arrange the following events related to the rise of militant nationalism in the correct chronological order:\n1. Foundation of the Anushilan Samiti in Calcutta.\n2. The Alipore Conspiracy Case.\n3. The attempt on the life of Magistrate Kingsford by Khudiram Bose and Prafulla Chaki.\n4. The publication of 'New Lamps for Old' by Aurobindo Ghosh. Select the correct answer using the code given below:",
     options: ["4 \u2014 1 \u2014 3 \u2014 2", "1 \u2014 4 \u2014 2 \u2014 3", "4 \u2014 3 \u2014 1 \u2014 2", "1 \u2014 2 \u2014 4 \u2014 3"],
     correctAnswer: 0,
     explanation: "4 \u2014 1 \u2014 3 \u2014 2 'New Lamps for Old' (1893) -> Anushilan Samiti (1902) -> Muzaffarpur Bombings (April 1908) -> Alipore Conspiracy Case (May 1908).",
@@ -445,7 +445,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
   },
   {
     id: '11-50',
-    question: "Consider the following pairs of Swadeshi-era Samitis and their leaders: 1. Swadesh Bandhab Samiti \u2014 Ashwini Kumar Datta 2. Anushilan Samiti (Dacca) \u2014 Pulin Das 3. Anti-Circular Society \u2014 Sachindra Prasad Bose 4. Dawn Society \u2014 Satish Chandra Mukherjee How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of Swadeshi-era Samitis and their leaders:\n1. Swadesh Bandhab Samiti \u2014 Ashwini Kumar Datta\n2. Anushilan Samiti (Dacca) \u2014 Pulin Das\n3. Anti-Circular Society \u2014 Sachindra Prasad Bose\n4. Dawn Society \u2014 Satish Chandra Mukherjee How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
     correctAnswer: 3,
     explanation: "All four pairs",
@@ -454,7 +454,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
   },
   {
     id: '11-51',
-    question: "Regarding the 'Morley-Minto Reforms' (1909), consider the following statements: 1. The Act effectively increased the number of elected members in both the Imperial and Provincial Legislative Councils. 2. It introduced 'Separate Electorates' for Muslims, which was described by Lord Minto as sowing \"dragon's teeth.\" 3. The reforms granted the councils the power to pass resolutions on the budget and ask supplementary questions. How many of the above statements are correct?",
+    question: "Regarding the 'Morley-Minto Reforms' (1909), consider the following statements:\n1. The Act effectively increased the number of elected members in both the Imperial and Provincial Legislative Councils.\n2. It introduced 'Separate Electorates' for Muslims, which was described by Lord Minto as sowing \"dragon's teeth.\" 3. The reforms granted the councils the power to pass resolutions on the budget and ask supplementary questions. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three",
@@ -481,7 +481,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
   },
   {
     id: '11-54',
-    question: "Consider the following regarding the participation of different social groups in the Swadeshi Movement: 1. The students participated in large numbers, defying government circulars and facing rustication. 2. The movement saw the first major participation of women from urban middle-class families in picketing and processions. 3. The Muslim peasantry of East Bengal overwhelmingly supported the boycott movement against British cloth. How many of the above statements are correct?",
+    question: "Consider the following regarding the participation of different social groups in the Swadeshi Movement:\n1. The students participated in large numbers, defying government circulars and facing rustication.\n2. The movement saw the first major participation of women from urban middle-class families in picketing and processions.\n3. The Muslim peasantry of East Bengal overwhelmingly supported the boycott movement against British cloth. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; the Muslim peasantry was largely alienated due to the communal propaganda of the British and the landlord-tenant conflicts, where the landlords were often Hindu and the tenants Muslim.",
@@ -499,7 +499,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
   },
   {
     id: '11-56',
-    question: "Consider the following statements regarding the 'Indian Society of Oriental Art' (1907): 1. It was founded by Abanindranath Tagore to promote indigenous art styles. 2. It offered scholarships to Indian students to study Western naturalism in London. 3. Nandalal Bose was the first recipient of the scholarship provided by this society. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Indian Society of Oriental Art' (1907):\n1. It was founded by Abanindranath Tagore to promote indigenous art styles.\n2. It offered scholarships to Indian students to study Western naturalism in London.\n3. Nandalal Bose was the first recipient of the scholarship provided by this society. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 3 are correct. Statement 2 is incorrect; the society aimed to counter Western influence by promoting Pan-Asian and traditional Indian art forms.",
@@ -517,7 +517,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
   },
   {
     id: '11-58',
-    question: "Match the following regions with the leaders of the Swadeshi Movement there: 1. Punjab \u2014",
+    question: "Match the following regions with the leaders of the Swadeshi Movement there:\n1. Punjab \u2014",
     options: ["Syed Haider Raza 2. Delhi \u2014", "Lala Lajpat Rai & Ajit Singh 3. Madras \u2014", "V.O. Chidambaram Pillai 4. Andhra \u2014", "Mutnuri Krishna Rao Select the correct code:"],
     correctAnswer: 0,
     explanation: "1-B, 2-A, 3-C, 4-D",
@@ -526,7 +526,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
   },
   {
     id: '11-59',
-    question: "With reference to 'Aurobindo Ghosh', consider the following statements: 1. He edited the journal 'Bande Mataram' which became the voice of militant nationalism. 2. He advocated for 'Atmashakti' which emphasized the use of indigenous products and national education. 3. Following the Alipore Conspiracy Case, he retired from politics and moved to Pondicherry to pursue spiritualism. How many of the above statements are correct?",
+    question: "With reference to 'Aurobindo Ghosh', consider the following statements:\n1. He edited the journal 'Bande Mataram' which became the voice of militant nationalism.\n2. He advocated for 'Atmashakti' which emphasized the use of indigenous products and national education.\n3. Following the Alipore Conspiracy Case, he retired from politics and moved to Pondicherry to pursue spiritualism. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three",
@@ -553,7 +553,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
   },
   {
     id: '11-62',
-    question: "The concept of 'Passive Resistance' as defined by the Extremists involved: 1. Boycott of foreign goods. 2. Refusal to assist the British administration in any way. 3. Boycott of government schools and colleges. 4. Armed assassination of British officers. Select the correct answer using the code given below:",
+    question: "The concept of 'Passive Resistance' as defined by the Extremists involved:\n1. Boycott of foreign goods.\n2. Refusal to assist the British administration in any way.\n3. Boycott of government schools and colleges.\n4. Armed assassination of British officers. Select the correct answer using the code given below:",
     options: ["1, 2, and 3 only", "2, 3, and 4 only", "1 and 3 only", "All of the above"],
     correctAnswer: 0,
     explanation: "1, 2, and 3 only Passive resistance did not include armed assassinations; that was the domain of the revolutionary terrorists, not the mainstream Extremists like Tilak or Aurobindo.",
@@ -580,7 +580,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
   },
   {
     id: '11-65',
-    question: "Consider the following regarding the 'All India Muslim League' (1906): 1. Its objectives included promoting loyalty to the British government and protecting the political rights of Muslims. 2. It was initially led by the Aga Khan, Nawab Salimullah of Dacca, and Nawab Mohsin-ul-Mulk. 3. It passed a resolution in its first session supporting the Swadeshi movement and condemning the partition of Bengal. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'All India Muslim League' (1906):\n1. Its objectives included promoting loyalty to the British government and protecting the political rights of Muslims.\n2. It was initially led by the Aga Khan, Nawab Salimullah of Dacca, and Nawab Mohsin-ul-Mulk.\n3. It passed a resolution in its first session supporting the Swadeshi movement and condemning the partition of Bengal. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statement 3 is incorrect; the League initially supported the partition and stayed away from the Swadeshi movement.",
@@ -643,7 +643,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
   },
   {
     id: '11-72',
-    question: "Consider the impact of the Swadeshi Movement on Indian culture: 1. Use of traditional folk theatre like 'Jatras' for political propaganda. 2. Growth of patriotic poetry in vernacular languages (e.g., Rabindranath Tagore, Mukunda Das). 3. The absolute decline of all classical Indian dance forms. How many of the above statements are correct?",
+    question: "Consider the impact of the Swadeshi Movement on Indian culture:\n1. Use of traditional folk theatre like 'Jatras' for political propaganda.\n2. Growth of patriotic poetry in vernacular languages (e.g., Rabindranath Tagore, Mukunda Das).\n3. The absolute decline of all classical Indian dance forms. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. The movement actually revitalized interest in Indian culture rather than causing a decline.",

@@ -1,7 +1,7 @@
 // UPSC Chapter Registry
 // Maps book IDs to their chapter lists, pulling from existing RevisionRegistry
 
-import { POLITY_REVISION_CHAPTERS } from '@/components/batch1/polity/data/RevisionRegistry';
+import { POLITY_REVISION_CHAPTERS } from '../components/batch1/polity/data/RevisionRegistry';
 
 export interface UPSCChapter {
     id: number;

@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_20_SUBTOPICS: Subtopic[] = [
@@ -139,3 +140,4 @@ export const ANCIENT_CHAPTER_20_CONTENT = `
 - **Astronomy:** **Aryabhatta** proved Earth is spherical and rotates. **Varahamihira** wrote the *Brihadsamhita*.
 - **Metallurgy:** Exemplified by the **Mehrauli Iron Pillar** and the copper Sultanganj Buddha.
 `;
+

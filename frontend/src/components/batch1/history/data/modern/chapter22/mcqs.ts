@@ -292,7 +292,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
   },
   {
     id: '22-33',
-    question: "Consider the following statements regarding the 'Royal Indian Navy' (RIN) Mutiny of 1946: 1. It began as a protest against racial discrimination and poor food on the HMIS Talwar. 2. The mutineers hoisted the flags of the Congress, the Muslim League, and the Communist Party together. 3. The mutiny was supported and led by the senior leadership of the Indian National Congress. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Royal Indian Navy' (RIN) Mutiny of 1946:\n1. It began as a protest against racial discrimination and poor food on the HMIS Talwar.\n2. The mutineers hoisted the flags of the Congress, the Muslim League, and the Communist Party together.\n3. The mutiny was supported and led by the senior leadership of the Indian National Congress. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only Statement 3 is incorrect. The senior Congress leadership, including Gandhi and Patel, actually discouraged the mutiny, fearing it would lead to undisciplined violence and anarchy at a time when independence was near.",
@@ -337,7 +337,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
   },
   {
     id: '22-38',
-    question: "Consider the following regarding the 'Interim Government' (1946): 1. It was the first time an all-Indian executive ran the central administration of British India. 2. The Muslim League joined initially but left within a week. 3. The League used its position in the government (specifically the Finance portfolio) to obstruct the functioning of the Congress ministers. Which of the statements given above are correct?",
+    question: "Consider the following regarding the 'Interim Government' (1946):\n1. It was the first time an all-Indian executive ran the central administration of British India.\n2. The Muslim League joined initially but left within a week.\n3. The League used its position in the government (specifically the Finance portfolio) to obstruct the functioning of the Congress ministers. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 2,
     explanation: "1 and 3 only.",
@@ -391,7 +391,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
   },
   {
     id: '22-44',
-    question: "Consider the following regarding the 'Indian Independence Act 1947': 1. It provided for the creation of two independent Dominions, India and Pakistan. 2. It abolished the office of the Secretary of State for India. 3. It declared that the British Paramountcy over the Princely States would lapse, leaving them free to join either dominion or remain independent. How many of the above are correct?",
+    question: "Consider the following regarding the 'Indian Independence Act 1947':\n1. It provided for the creation of two independent Dominions, India and Pakistan.\n2. It abolished the office of the Secretary of State for India.\n3. It declared that the British Paramountcy over the Princely States would lapse, leaving them free to join either dominion or remain independent. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -472,7 +472,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
   },
   {
     id: '22-53',
-    question: "Consider the following regarding the 'Princely States' in 1947: 1. They were given the right to remain independent under the 1947 Act. 2. Most of them joined India or Pakistan before August 15, thanks to the efforts of Sardar Patel. 3. Hyderabad, Junagadh, and Kashmir were the major states that initially resisted accession. How many of the above are correct?",
+    question: "Consider the following regarding the 'Princely States' in 1947:\n1. They were given the right to remain independent under the 1947 Act.\n2. Most of them joined India or Pakistan before August 15, thanks to the efforts of Sardar Patel.\n3. Hyderabad, Junagadh, and Kashmir were the major states that initially resisted accession. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -562,7 +562,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
   },
   {
     id: '22-63',
-    question: "With reference to the 'Cabinet Mission Plan' (1946), consider the following statements regarding the 'Union' (Central) government: 1. The Union was to have a legislature and an executive. 2. The Union's powers were strictly limited to Foreign Affairs, Defense, and Communications. 3. The Union had the power to raise the finances required for the above subjects through taxation. How many of the above statements are correct?",
+    question: "With reference to the 'Cabinet Mission Plan' (1946), consider the following statements regarding the 'Union' (Central) government:\n1. The Union was to have a legislature and an executive.\n2. The Union's powers were strictly limited to Foreign Affairs, Defense, and Communications.\n3. The Union had the power to raise the finances required for the above subjects through taxation. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -598,7 +598,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
   },
   {
     id: '22-67',
-    question: "Arrange the following constitutional proposals in the correct chronological order: 1. Wavell Plan (Simla Conference) 2. Cabinet Mission Plan 3. Mountbatten Plan 4. Attlee\u2019s Statement on the deadline for withdrawal Select the correct code:",
+    question: "Arrange the following constitutional proposals in the correct chronological order:\n1. Wavell Plan (Simla Conference)\n2. Cabinet Mission Plan\n3. Mountbatten Plan\n4. Attlee\u2019s Statement on the deadline for withdrawal Select the correct code:",
     options: ["1 \u2014 2 \u2014 4 \u2014 3", "2 \u2014 1 \u2014 4 \u2014 3", "1 \u2014 4 \u2014 2 \u2014 3", "4 \u2014 1 \u2014 2 \u2014 3"],
     correctAnswer: 0,
     explanation: "1 \u2014 2 \u2014 4 \u2014 3 (Simla: June 1945; Cabinet Mission: March 1946; Attlee: Feb 1947; Mountbatten: June 1947).",
@@ -616,7 +616,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
   },
   {
     id: '22-69',
-    question: "Consider the following statements regarding the 'Interim Government' (September 1946): 1. It was formed under the provisions of the Cabinet Mission Plan. 2. The Muslim League joined the government in October 1946 with the intention of making it a \"battleground\" for Pakistan from within. 3. Jawaharlal Nehru was the President of the Executive Council. How many of the above are correct?",
+    question: "Consider the following statements regarding the 'Interim Government' (September 1946):\n1. It was formed under the provisions of the Cabinet Mission Plan.\n2. The Muslim League joined the government in October 1946 with the intention of making it a \"battleground\" for Pakistan from within. 3. Jawaharlal Nehru was the President of the Executive Council. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; the Viceroy remained the President; Nehru was the Vice-President).",
@@ -661,7 +661,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
   },
   {
     id: '22-74',
-    question: "Consider the following regarding the 'Lapse of Paramountcy' in the 1947 Act: 1. It meant the legal end of British rule over the Princely States. 2. The states were legally free to join either India or Pakistan or remain independent. 3. The Act provided a specific date by which all states had to join a dominion. How many of the above are correct?",
+    question: "Consider the following regarding the 'Lapse of Paramountcy' in the 1947 Act:\n1. It meant the legal end of British rule over the Princely States.\n2. The states were legally free to join either India or Pakistan or remain independent.\n3. The Act provided a specific date by which all states had to join a dominion. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; no deadline was set in the Act, though Mountbatten pressured them to join before Aug 15).",
@@ -706,7 +706,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
   },
   {
     id: '22-79',
-    question: "Consider the following pairs regarding the 'Indian Independence Act 1947': 1. Designation of Monarch \u2014 Emperor of India (Abolished) 2. Office of Secretary of State \u2014 Retained 3. Governor-General \u2014 Constitutional Head How many of the above are correctly matched?",
+    question: "Consider the following pairs regarding the 'Indian Independence Act 1947':\n1. Designation of Monarch \u2014 Emperor of India (Abolished)\n2. Office of Secretary of State \u2014 Retained\n3. Governor-General \u2014 Constitutional Head How many of the above are correctly matched?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 2 is incorrect; the office of the Secretary of State was abolished).",
@@ -724,7 +724,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
   },
   {
     id: '22-81',
-    question: "Match the 'Plan' with its 'Alternate Name': 1. Mountbatten Plan \u2014",
+    question: "Match the 'Plan' with its 'Alternate Name':\n1. Mountbatten Plan \u2014",
     options: ["Plan Balkan 2. Dickie Bird Plan \u2014", "June 3rd Plan 3. Cabinet Mission \u2014", "Three-Tier Plan Select the correct matching code:", "1-B, 2-A, 3-C"],
     correctAnswer: 0,
     explanation: "1-B, 2-A, 3-C.",
@@ -733,7 +733,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
   },
   {
     id: '22-82',
-    question: "The 'Indian Independence Act' of 1947 empowered the 'Constituent Assembly' of each dominion to: 1. Frame and adopt any constitution. 2. Repeal any act of the British Parliament, including the Independence Act itself. 3. Rule as a sovereign legislature until the new constitution came into force. Select the correct answer using the code given below:",
+    question: "The 'Indian Independence Act' of 1947 empowered the 'Constituent Assembly' of each dominion to:\n1. Frame and adopt any constitution.\n2. Repeal any act of the British Parliament, including the Independence Act itself.\n3. Rule as a sovereign legislature until the new constitution came into force. Select the correct answer using the code given below:",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "All of the above"],
     correctAnswer: 3,
     explanation: "All of the above.",
@@ -760,7 +760,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
   },
   {
     id: '22-85',
-    question: "Consider the following regarding the 'Boundary Commission' (1947): 1. It was chaired by Sir Cyril Radcliffe. 2. It consisted of two members each from the Congress and the Muslim League. 3. The final award was published after August 15, 1947. How many of the above are correct?",
+    question: "Consider the following regarding the 'Boundary Commission' (1947):\n1. It was chaired by Sir Cyril Radcliffe.\n2. It consisted of two members each from the Congress and the Muslim League.\n3. The final award was published after August 15, 1947. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three (Award published on Aug 17).",

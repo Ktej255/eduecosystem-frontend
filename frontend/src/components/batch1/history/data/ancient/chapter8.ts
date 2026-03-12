@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_8_SUBTOPICS: Subtopic[] = [
@@ -144,3 +145,4 @@ export const ANCIENT_CHAPTER_8_CONTENT = `
 - **Ritualism:** Became extremely complex, expensive, and centered on animal sacrifice.
 - **Upanishads (Vedanta):** Philosophical reaction against rituals; focus on **Atman** (Self) and **Brahman** (Universal Truth).
 `;
+

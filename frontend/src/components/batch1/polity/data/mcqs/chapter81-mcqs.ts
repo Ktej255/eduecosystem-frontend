@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_81_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 81,
+
         question: "The Bar Council of India was established under the provisions of:",
         options: ["Indian Council Act, 1861", "Government of India Act, 1935", "Advocates Act, 1961", "Constitution of India"],
         correctAnswer: 2,
@@ -12,7 +12,7 @@ export const CHAPTER_81_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 81,
+
         question: "Who among the following is an ex-officio member of the BCI?",
         options: ["Chief Justice of India", "Law Minister", "Attorney General of India", "President of India"],
         correctAnswer: 2,
@@ -21,7 +21,7 @@ export const CHAPTER_81_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 81,
+
         question: "The Chairman of the Bar Council of India is elected for a term of:",
         options: ["1 year", "2 years", "3 years", "5 years"],
         correctAnswer: 1,
@@ -30,7 +30,7 @@ export const CHAPTER_81_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 81,
+
         question: "Which section of the Advocates Act, 1961 deals with the establishment of BCI?",
         options: ["Section 3", "Section 4", "Section 5", "Section 7"],
         correctAnswer: 1,
@@ -39,7 +39,7 @@ export const CHAPTER_81_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 81,
+
         question: "The standards of professional conduct and etiquette for advocates are laid down by:",
         options: ["Supreme Court", "High Court", "Bar Council of India", "Law Commission"],
         correctAnswer: 2,
@@ -48,7 +48,7 @@ export const CHAPTER_81_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 81,
+
         question: "State Bar Councils are responsible for:",
         options: [
             "Appointing Judges",
@@ -62,7 +62,7 @@ export const CHAPTER_81_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 81,
+
         question: "The All India Bar Examination (AIBE) is conducted by:",
         options: ["UPSC", "NTA", "Ministry of Law", "Bar Council of India"],
         correctAnswer: 3,
@@ -71,7 +71,7 @@ export const CHAPTER_81_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 81,
+
         question: "An appeal against the order of the Disciplinary Committee of a State Bar Council lies to:",
         options: ["High Court", "Supreme Court", "Bar Council of India", "Civil Court"],
         correctAnswer: 2,
@@ -80,7 +80,7 @@ export const CHAPTER_81_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 81,
+
         question: "Which of the following is NOT a function of BCI?",
         options: [
             "Promoting legal aid to poor",
@@ -94,7 +94,7 @@ export const CHAPTER_81_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 81,
+
         question: "The Bar Council of India has its headquarters in:",
         options: ["Kolkata", "Mumbai", "New Delhi", "Chennai"],
         correctAnswer: 2,

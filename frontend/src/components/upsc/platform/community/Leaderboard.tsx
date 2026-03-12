@@ -1,0 +1,115 @@
+"use client";
+
+import { useEffect, useState } from 'react';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { Trophy, Flame, Star } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+interface LeaderboardEntry {
+    rank: number;
+    user_id: number;
+    name: string;
+    xp: number;
+    streak: number;
+    avatar: string;
+}
+
+export default function Leaderboard() {
+    const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        // Force offline mode while backend is down
+        const mockData: LeaderboardEntry[] = [
+            { rank: 1, user_id: 101, name: "Sidharth M.", xp: 15400, streak: 45, avatar: "" },
+            { rank: 2, user_id: 102, name: "Tara S.", xp: 14200, streak: 32, avatar: "" },
+            { rank: 3, user_id: 103, name: "Rohan K.", xp: 12800, streak: 28, avatar: "" },
+            { rank: 4, user_id: 104, name: "Vihaan", xp: 11500, streak: 12, avatar: "" },
+            { rank: 5, user_id: 105, name: "Kavya", xp: 10900, streak: 10, avatar: "" },
+        ];
+        setEntries(mockData);
+        setLoading(false);
+
+        /*
+        const fetchLeaderboard = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/community/leaderboard`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (!response.ok) throw new Error("API Error");
+                const data = await response.json();
+                if (!Array.isArray(data)) throw new Error("Invalid Data");
+                setEntries(data);
+            } catch (error) {
+                console.error(error);
+                // Mock Fallback
+                setEntries([
+                    { rank: 1, user_id: 101, name: "Sidharth M.", xp: 15400, streak: 45, avatar: "" },
+                    { rank: 2, user_id: 102, name: "Tara S.", xp: 14200, streak: 32, avatar: "" },
+                    { rank: 3, user_id: 103, name: "Rohan K.", xp: 12800, streak: 28, avatar: "" },
+                    { rank: 4, user_id: 104, name: "Vihaan", xp: 11500, streak: 12, avatar: "" },
+                    { rank: 5, user_id: 105, name: "Kavya", xp: 10900, streak: 10, avatar: "" },
+                ]);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchLeaderboard();
+        */
+    }, []);
+
+    return (
+        <Card className="border-indigo-100 dark:border-indigo-900 shadow-sm overflow-hidden">
+            <CardHeader className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10">
+                <CardTitle className="flex items-center gap-2 text-yellow-700 dark:text-yellow-400">
+                    <Trophy className="h-5 w-5" /> Top Scholars
+                </CardTitle>
+            </CardHeader>
+            <CardContent className="p-0">
+                {loading ? (
+                    <div className="p-4 text-center text-sm text-muted-foreground">Loading ranks...</div>
+                ) : (
+                    <div className="divide-y divide-border dark:divide-gray-800">
+                        {entries.map((entry, index) => (
+                            <motion.div
+                                key={entry.user_id}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0, transition: { delay: index * 0.1 } }}
+                                className="flex items-center p-4 hover:bg-muted dark:hover:bg-gray-800/50 transition-colors"
+                            >
+                                <div className={`flex-shrink-0 w-8 h-8 flex items-center justify-center font-bold rounded-full mr-4 ${entry.rank === 1 ? 'bg-yellow-100 text-yellow-600' :
+                                    entry.rank === 2 ? 'bg-muted text-muted-foreground' :
+                                        entry.rank === 3 ? 'bg-orange-100 text-orange-600' :
+                                            'text-muted-foreground'
+                                    }`}>
+                                    {entry.rank}
+                                </div>
+
+                                <Avatar className="h-10 w-10 border border-border">
+                                    <AvatarImage src={entry.avatar} />
+                                    <AvatarFallback>{entry.name[0]}</AvatarFallback>
+                                </Avatar>
+
+                                <div className="ml-3 flex-1 min-w-0">
+                                    <p className="text-sm font-medium text-foreground truncate">
+                                        {entry.name}
+                                    </p>
+                                    <div className="flex items-center gap-3 mt-0.5">
+                                        <span className="text-xs text-indigo-600 dark:text-indigo-400 font-medium flex items-center">
+                                            <Star className="h-3 w-3 mr-1" fill="currentColor" /> {entry.xp.toLocaleString()} XP
+                                        </span>
+                                        <span className="text-xs text-orange-600 dark:text-orange-400 font-medium flex items-center">
+                                            <Flame className="h-3 w-3 mr-1" fill="currentColor" /> {entry.streak} Days
+                                        </span>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                )}
+            </CardContent>
+        </Card>
+    );
+}

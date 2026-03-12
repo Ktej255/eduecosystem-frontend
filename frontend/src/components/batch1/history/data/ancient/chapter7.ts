@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_7_SUBTOPICS: Subtopic[] = [
@@ -149,3 +150,4 @@ export const ANCIENT_CHAPTER_7_CONTENT = `
 - **Sacrifice (Yajna):** Performed for material benefits (sons, cattle, victory).
 - **Gayatri Mantra:** Found in 3rd Mandala of Rig Veda.
 `;
+

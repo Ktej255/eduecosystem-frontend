@@ -292,7 +292,7 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
   },
   {
     id: '16-33',
-    question: "Consider the following statements regarding the 'Swaraj Party' and its relationship with the Congress: 1. The Swaraj Party was formed as a separate political party outside the organizational umbrella of the Indian National Congress. 2. Mahatma Gandhi, after his release in 1924, initially opposed council entry but eventually reached a compromise (the Belgaum Session) to maintain Congress unity. 3. The Swarajists agreed to work as an integral part of the Congress, following its basic principles of non-violence. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Swaraj Party' and its relationship with the Congress:\n1. The Swaraj Party was formed as a separate political party outside the organizational umbrella of the Indian National Congress.\n2. Mahatma Gandhi, after his release in 1924, initially opposed council entry but eventually reached a compromise (the Belgaum Session) to maintain Congress unity.\n3. The Swarajists agreed to work as an integral part of the Congress, following its basic principles of non-violence. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 1,
     explanation: "2 and 3 only Statement 1 is incorrect. The Swaraj Party was established as a group within the Congress to avoid another disastrous split like the one in 1907.",
@@ -346,7 +346,7 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
   },
   {
     id: '16-39',
-    question: "Consider the following regarding the 'Bardoli Satyagraha' (1928): 1. It was a protest against the 22% increase in land revenue by the Bombay government. 2. Vallabhbhai Patel led the movement and successfully organized a total boycott of revenue payment. 3. The movement resulted in the government reducing the revenue hike to approximately 6%. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Bardoli Satyagraha' (1928):\n1. It was a protest against the 22% increase in land revenue by the Bombay government.\n2. Vallabhbhai Patel led the movement and successfully organized a total boycott of revenue payment.\n3. The movement resulted in the government reducing the revenue hike to approximately 6%. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -391,7 +391,7 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
   },
   {
     id: '16-44',
-    question: "Consider the following pairs of 'New Forces' in the 1920s and their leaders: 1. Communist Party of India \u2014 M.N. Roy 2. Self-Respect Movement \u2014 E.V. Ramaswamy 'Periyar' 3. Bahishkrit Hitakarini Sabha \u2014 B.R. Ambedkar How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of 'New Forces' in the 1920s and their leaders:\n1. Communist Party of India \u2014 M.N. Roy\n2. Self-Respect Movement \u2014 E.V. Ramaswamy 'Periyar'\n3. Bahishkrit Hitakarini Sabha \u2014 B.R. Ambedkar How many of the above pairs are correctly matched?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -418,7 +418,7 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
   },
   {
     id: '16-47',
-    question: "Consider the following statements regarding the 'Swarajist' strategy within the Central Legislative Assembly: 1. Their primary tactic was 'Uniform, Continuous, and Consistent Obstruction' to make the governance under the 1919 Act impossible. 2. They successfully defeated the government on several proposals, including the 'Public Safety Bill' in 1928. 3. The Swarajists remained a monolithic block until 1930, strictly adhering to the policy of non-participation in any government committees. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Swarajist' strategy within the Central Legislative Assembly:\n1. Their primary tactic was 'Uniform, Continuous, and Consistent Obstruction' to make the governance under the 1919 Act impossible.\n2. They successfully defeated the government on several proposals, including the 'Public Safety Bill' in 1928.\n3. The Swarajists remained a monolithic block until 1930, strictly adhering to the policy of non-participation in any government committees. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. The Swarajists, with the help of independents, famously defeated the Public Safety Bill (which was aimed at curbing communists). Statement 3 is incorrect; the party suffered internal dissension, leading to the rise of Responsivists who wanted to accept offices, and some members did join committees like the Skeen Committee.",
@@ -436,7 +436,7 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
   },
   {
     id: '16-49',
-    question: "Arrange the following revolutionary legal cases in the correct chronological order: 1. Meerut Conspiracy Case 2. Kakori Train Robbery Case 3. Kanpur Bolshevik Conspiracy Case 4. Lahore Conspiracy Case (Trial of Bhagat Singh, Rajguru, and Sukhdev) Select the correct answer using the code given below:",
+    question: "Arrange the following revolutionary legal cases in the correct chronological order:\n1. Meerut Conspiracy Case\n2. Kakori Train Robbery Case\n3. Kanpur Bolshevik Conspiracy Case\n4. Lahore Conspiracy Case (Trial of Bhagat Singh, Rajguru, and Sukhdev) Select the correct answer using the code given below:",
     options: ["3 \u2014 2 \u2014 1 \u2014 4", "3 \u2014 1 \u2014 2 \u2014 4", "2 \u2014 3 \u2014 4 \u2014 1", "3 \u2014 2 \u2014 4 \u2014 1"],
     correctAnswer: 0,
     explanation: "3 \u2014 2 \u2014 1 \u2014 4 Kanpur (1924) -> Kakori (1925) -> Meerut (1929) -> Lahore (1929-1931).",
@@ -445,7 +445,7 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
   },
   {
     id: '16-50',
-    question: "Consider the following pairs of 'New Organizations' and their Founders/Leaders in the 1920s: 1. Workers and Peasants Party (WPP) \u2014 S.S. Mirajkar and K.N. Joglekar 2. Bahishkrit Hitakarini Sabha \u2014 B.R. Ambedkar 3. Naujawan Bharat Sabha \u2014 Bhagat Singh 4. All India Trade Union Congress (AITUC) \u2014 N.M. Joshi (General Secretary) How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of 'New Organizations' and their Founders/Leaders in the 1920s:\n1. Workers and Peasants Party (WPP) \u2014 S.S. Mirajkar and K.N. Joglekar\n2. Bahishkrit Hitakarini Sabha \u2014 B.R. Ambedkar\n3. Naujawan Bharat Sabha \u2014 Bhagat Singh\n4. All India Trade Union Congress (AITUC) \u2014 N.M. Joshi (General Secretary) How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
     correctAnswer: 3,
     explanation: "All four pairs",
@@ -463,7 +463,7 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
   },
   {
     id: '16-52',
-    question: "Regarding the 'Chittagong Armoury Raid' (1930) led by Surya Sen, consider the following statements: 1. The revolutionaries succeeded in capturing two armories and cutting off communication with the rest of India for a few days. 2. Surya Sen famously declared a Provisional Revolutionary Government of India and hoisted the National Flag. 3. The group included a significant number of women revolutionaries like Pritilata Waddedar and Kalpana Datta. How many of the above statements are correct?",
+    question: "Regarding the 'Chittagong Armoury Raid' (1930) led by Surya Sen, consider the following statements:\n1. The revolutionaries succeeded in capturing two armories and cutting off communication with the rest of India for a few days.\n2. Surya Sen famously declared a Provisional Revolutionary Government of India and hoisted the National Flag.\n3. The group included a significant number of women revolutionaries like Pritilata Waddedar and Kalpana Datta. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three",
@@ -481,7 +481,7 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
   },
   {
     id: '16-54',
-    question: "Match the following HSRA members with their specific contributions/events: 1. Jatin Das \u2014",
+    question: "Match the following HSRA members with their specific contributions/events:\n1. Jatin Das \u2014",
     options: ["Author of The Philosophy of the Bomb 2. Bhagwati Charan Vohra \u2014", "Martyrdom after a 64-day hunger strike 3. Chandrashekhar Azad \u2014", "Reorganized HRA into HSRA 4. Batukeshwar Dutt \u2014", "Accompanied Bhagat Singh to the Assembly bombing Select the correct matching code:"],
     correctAnswer: 0,
     explanation: "1-B, 2-A, 3-C, 4-D",
@@ -490,7 +490,7 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
   },
   {
     id: '16-55',
-    question: "Consider the following regarding 'Socialist' ideas within the Congress in the late 1920s: 1. Jawaharlal Nehru and Subhash Chandra Bose were the primary advocates of a socialist future for independent India. 2. They founded the 'Independence for India League' in 1928 to pressure the Congress to adopt 'Purna Swaraj' and socialist principles. 3. Mahatma Gandhi was the first to propose a socialist economic model in the 1924 Belgaum session. How many of the above statements are correct?",
+    question: "Consider the following regarding 'Socialist' ideas within the Congress in the late 1920s:\n1. Jawaharlal Nehru and Subhash Chandra Bose were the primary advocates of a socialist future for independent India.\n2. They founded the 'Independence for India League' in 1928 to pressure the Congress to adopt 'Purna Swaraj' and socialist principles.\n3. Mahatma Gandhi was the first to propose a socialist economic model in the 1924 Belgaum session. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; while Gandhi had his own \"Trusteeship\" model, he was wary of Western socialism/Marxism and prioritized the \"Constructive Program.\"",

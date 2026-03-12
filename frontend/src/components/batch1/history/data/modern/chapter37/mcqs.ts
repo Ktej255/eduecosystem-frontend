@@ -301,7 +301,7 @@ export const MODERN_CHAPTER_37_MCQS: any[] = [
   },
   {
     id: '37-34',
-    question: "Consider the following statements regarding the 'Left Consolidation Committee' (LCC): 1. It was formed by Bose to unify diverse groups like the Congress Socialists, Communists, and the Royists (followers of M.N. Roy). 2. Its goal was to present a united front against the \"Compromising\" policy of the Right Wing. 3. It successfully converted the Congress into a Socialist party by 1940. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Left Consolidation Committee' (LCC):\n1. It was formed by Bose to unify diverse groups like the Congress Socialists, Communists, and the Royists (followers of M.N. Roy).\n2. Its goal was to present a united front against the \"Compromising\" policy of the Right Wing. 3. It successfully converted the Congress into a Socialist party by 1940. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 0,
     explanation: "1 and 2 only. While the LCC was a powerful idea, it failed to permanently transform the Congress because the different Leftist groups (like the CSP and Communists) had internal rivalries and eventually prioritized \"National Unity\" under Gandhi over a split.",
@@ -346,7 +346,7 @@ export const MODERN_CHAPTER_37_MCQS: any[] = [
   },
   {
     id: '37-39',
-    question: "Consider the following regarding the 'Ramgarh Anti-Compromise Conference' (1940): 1. It was held simultaneously with the official Congress session at Ramgarh. 2. It was organized by the Forward Bloc and the Kisan Sabhas. 3. It called for the immediate launch of a \"National Struggle\" against the war. How many of the above are correct?",
+    question: "Consider the following regarding the 'Ramgarh Anti-Compromise Conference' (1940):\n1. It was held simultaneously with the official Congress session at Ramgarh.\n2. It was organized by the Forward Bloc and the Kisan Sabhas.\n3. It called for the immediate launch of a \"National Struggle\" against the war. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -364,7 +364,7 @@ export const MODERN_CHAPTER_37_MCQS: any[] = [
   },
   {
     id: '37-41',
-    question: "Match the following 'Leaders' with their 'Stance' during the Tripuri Crisis: 1. Vallabhbhai Patel \u2014",
+    question: "Match the following 'Leaders' with their 'Stance' during the Tripuri Crisis:\n1. Vallabhbhai Patel \u2014",
     options: ["Staunch defender of the \"Old Guard\" and Gandhi's authority. 2. Subhas Chandra Bose \u2014", "Advocate for an immediate \"Time-Bound\" struggle. 3. Jayaprakash Narayan \u2014", "Initially supported Bose but later prioritized Congress unity (CSP leader). Select the correct matching code:", "1-A, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C.",
@@ -436,7 +436,7 @@ export const MODERN_CHAPTER_37_MCQS: any[] = [
   },
   {
     id: '37-49',
-    question: "Consider the following regarding the 'Tripuri Session' (1939): 1. Bose was so ill that he had to be examined by a medical board of doctors. 2. The session saw the use of the first \"Loudspeaker\" system in Congress history. 3. The 'Ajoy Ghosh' faction of the Communists supported the Pant Resolution. How many of the above are correct?",
+    question: "Consider the following regarding the 'Tripuri Session' (1939):\n1. Bose was so ill that he had to be examined by a medical board of doctors.\n2. The session saw the use of the first \"Loudspeaker\" system in Congress history. 3. The 'Ajoy Ghosh' faction of the Communists supported the Pant Resolution. How many of the above are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two (Statement 3 is incorrect; the Communists generally opposed the Pant Resolution as it curbed the Leftist President's power).",
@@ -454,7 +454,7 @@ export const MODERN_CHAPTER_37_MCQS: any[] = [
   },
   {
     id: '37-51',
-    question: "Match the following 'Committees/Resolutions' with their 'Outcome': 1. Pant Resolution \u2014",
+    question: "Match the following 'Committees/Resolutions' with their 'Outcome':\n1. Pant Resolution \u2014",
     options: ["Re-established Gandhi\u2019s executive authority. 2. Haripura Resolution \u2014", "Support for Praja Mandals in Princely States. 3. Wardha Resolution (1939) \u2014", "Refusal to cooperate in the war without independence. Select the correct matching code:", "1-A, 2-B, 3-C"],
     correctAnswer: 0,
     explanation: "1-A, 2-B, 3-C.",

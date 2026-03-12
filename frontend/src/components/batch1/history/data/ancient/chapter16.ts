@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_16_SUBTOPICS: Subtopic[] = [
@@ -141,3 +142,4 @@ export const ANCIENT_CHAPTER_16_CONTENT = `
 - **Currency:** Issued coins in **Lead**, Potin, and Copper; few silver coins.
 - **Guilds:** Powerful merchant guilds (**Nigamas**) acted as local banks and social patrons.
 `;
+

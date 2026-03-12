@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_95_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 95,
+
         question: "Which Constitutional Amendment removed the 'Right to Property' from the list of Fundamental Rights?",
         options: ["24th", "42nd", "44th", "52nd"],
         correctAnswer: 2,
@@ -12,7 +12,7 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 95,
+
         question: "A 'Whip' in Parliament is:",
         options: ["A tool for physical punishment", "A directive for party discipline", "A title for the Speaker", "A type of budget document"],
         correctAnswer: 1,
@@ -21,7 +21,7 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 95,
+
         question: "The 74th Constitutional Amendment Act is related to:",
         options: ["Anti-Defection", "Panchayats", "Municipalities", "Official Language"],
         correctAnswer: 2,
@@ -30,7 +30,7 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 95,
+
         question: "Which amendment inserted Article 21A (Right to Education) in the Constitution?",
         options: ["86th", "91st", "97th", "100th"],
         correctAnswer: 0,
@@ -39,7 +39,7 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 95,
+
         question: "The number of ministers in the Council of Ministers (including PM) cannot exceed 15% of Lok Sabha strength. This was added by:",
         options: ["89th Amendment", "91st Amendment", "93rd Amendment", "95th Amendment"],
         correctAnswer: 1,
@@ -48,7 +48,7 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 95,
+
         question: "What happens when a 'Guillotine' is applied in Parliament?",
         options: [
             "The PM resigns",
@@ -62,7 +62,7 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 95,
+
         question: "Which amendment provided constitutional status to the National Commission for Backward Classes (NCBC)?",
         options: ["101st", "102nd", "103rd", "104th"],
         correctAnswer: 1,
@@ -71,7 +71,7 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 95,
+
         question: "The 'States Reorganisation Act, 1956' was passed following which amendment?",
         options: ["1st", "7th", "14th", "21st"],
         correctAnswer: 1,
@@ -80,7 +80,7 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 95,
+
         question: "Adjournment Sine Die means:",
         options: [
             "Adjourning the house for 1 hour",
@@ -94,7 +94,7 @@ export const CHAPTER_95_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 95,
+
         question: "The current total number of amendments to the Indian Constitution is around:",
         options: ["80", "106", "128", "150"],
         correctAnswer: 1,

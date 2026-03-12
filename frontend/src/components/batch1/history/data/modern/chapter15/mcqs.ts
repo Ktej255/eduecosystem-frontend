@@ -292,7 +292,7 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
   },
   {
     id: '15-33',
-    question: "Consider the following statements regarding the 'Nagpur Session' of the Congress (December 1920): 1. The Congress goal was changed from 'Self-government within the Empire' to 'Swaraj through peaceful and legitimate means'. 2. The Congress organization was restructured with the formation of a 15-member Working Committee (CWC) to lead the party daily. 3. Provincial Congress Committees were reorganized on a linguistic basis. Which of the statements given above are correct?",
+    question: "Consider the following statements regarding the 'Nagpur Session' of the Congress (December 1920):\n1. The Congress goal was changed from 'Self-government within the Empire' to 'Swaraj through peaceful and legitimate means'.\n2. The Congress organization was restructured with the formation of a 15-member Working Committee (CWC) to lead the party daily.\n3. Provincial Congress Committees were reorganized on a linguistic basis. Which of the statements given above are correct?",
     options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
     correctAnswer: 3,
     explanation: "1, 2, and 3 These changes transformed the Congress from a deliberative assembly into a compact, fighting political organization.",
@@ -337,7 +337,7 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
   },
   {
     id: '15-38',
-    question: "Consider the following regarding the 'Constructive Program' of the Non-Cooperation Movement: 1. Promotion of Khadi and the use of Charkha. 2. Campaign against the consumption of liquor. 3. Establishment of national schools and colleges. How many of the above were part of Gandhi's constructive efforts?",
+    question: "Consider the following regarding the 'Constructive Program' of the Non-Cooperation Movement:\n1. Promotion of Khadi and the use of Charkha.\n2. Campaign against the consumption of liquor.\n3. Establishment of national schools and colleges. How many of the above were part of Gandhi's constructive efforts?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -391,7 +391,7 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
   },
   {
     id: '15-44',
-    question: "Consider the following pairs of 'National Institutions' founded during NCM and their locations: 1. Jamia Millia Islamia \u2014 Aligarh (later Delhi) 2. Kashi Vidyapeeth \u2014 Varanasi 3. Gujarat Vidyapith \u2014 Ahmedabad How many of the above are correctly matched?",
+    question: "Consider the following pairs of 'National Institutions' founded during NCM and their locations:\n1. Jamia Millia Islamia \u2014 Aligarh (later Delhi)\n2. Kashi Vidyapeeth \u2014 Varanasi\n3. Gujarat Vidyapith \u2014 Ahmedabad How many of the above are correctly matched?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 2,
     explanation: "All three.",
@@ -418,7 +418,7 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
   },
   {
     id: '15-47',
-    question: "Consider the following statements regarding the 'Nagpur Session' of the Indian National Congress (1920): 1. It marked the definitive transition of the Congress from a middle-class pressure group to a mass-based revolutionary organization. 2. The Congress formally adopted a new constitution that reduced the membership fee to four annas to allow the poor to join. 3. It rejected the idea of linguistic reorganization of Provincial Congress Committees to maintain national unity. How many of the above statements are correct?",
+    question: "Consider the following statements regarding the 'Nagpur Session' of the Indian National Congress (1920):\n1. It marked the definitive transition of the Congress from a middle-class pressure group to a mass-based revolutionary organization.\n2. The Congress formally adopted a new constitution that reduced the membership fee to four annas to allow the poor to join.\n3. It rejected the idea of linguistic reorganization of Provincial Congress Committees to maintain national unity. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; the Nagpur session actually approved the reorganization of Provincial Congress Committees on a linguistic basis to reach the masses in their own languages.",
@@ -436,7 +436,7 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
   },
   {
     id: '15-49',
-    question: "Arrange the following events related to the Non-Cooperation era in correct chronological order: 1. The Visit of the Prince of Wales to India. 2. The Moplah Rebellion in Malabar. 3. The All India Khilafat Conference in Delhi electing Gandhi as President. 4. The Bardoli Resolution. Select the correct answer using the code given below:",
+    question: "Arrange the following events related to the Non-Cooperation era in correct chronological order:\n1. The Visit of the Prince of Wales to India.\n2. The Moplah Rebellion in Malabar.\n3. The All India Khilafat Conference in Delhi electing Gandhi as President.\n4. The Bardoli Resolution. Select the correct answer using the code given below:",
     options: ["3 \u2014 2 \u2014 1 \u2014 4", "3 \u2014 1 \u2014 2 \u2014 4", "2 \u2014 3 \u2014 1 \u2014 4", "3 \u2014 2 \u2014 4 \u2014 1"],
     correctAnswer: 0,
     explanation: "3 \u2014 2 \u2014 1 \u2014 4 Khilafat Conference (Nov 1919) -> Moplah Rebellion (Aug 1921) -> Prince of Wales Visit (Nov 1921) -> Bardoli Resolution (Feb 1922).",
@@ -445,7 +445,7 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
   },
   {
     id: '15-50',
-    question: "Consider the following pairs of 'Alternative Education' centers and their associated regions during NCM: 1. Bihar Vidyapeeth \u2014 Patna 2. Kashi Vidyapeeth \u2014 Varanasi 3. National College \u2014 Lahore 4. Bengal National University \u2014 Calcutta How many of the above pairs are correctly matched?",
+    question: "Consider the following pairs of 'Alternative Education' centers and their associated regions during NCM:\n1. Bihar Vidyapeeth \u2014 Patna\n2. Kashi Vidyapeeth \u2014 Varanasi\n3. National College \u2014 Lahore\n4. Bengal National University \u2014 Calcutta How many of the above pairs are correctly matched?",
     options: ["Only one pair", "Only two pairs", "Only three pairs", "All four pairs"],
     correctAnswer: 3,
     explanation: "All four pairs",
@@ -454,7 +454,7 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
   },
   {
     id: '15-51',
-    question: "Regarding the withdrawal of the Non-Cooperation Movement, consider the following statements: 1. Gandhi withdrew the movement because he realized the British were about to grant 'Dominion Status' and further struggle was unnecessary. 2. The Chauri Chaura incident involved a mob setting fire to a police station, killing 22 policemen. 3. Many younger leaders like Subhash Chandra Bose and Jawaharlal Nehru were critical of the sudden withdrawal, calling it a \"national calamity.\" How many of the above statements are correct?",
+    question: "Regarding the withdrawal of the Non-Cooperation Movement, consider the following statements:\n1. Gandhi withdrew the movement because he realized the British were about to grant 'Dominion Status' and further struggle was unnecessary.\n2. The Chauri Chaura incident involved a mob setting fire to a police station, killing 22 policemen.\n3. Many younger leaders like Subhash Chandra Bose and Jawaharlal Nehru were critical of the sudden withdrawal, calling it a \"national calamity.\" How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 2 and 3 are correct. Statement 1 is incorrect; Gandhi withdrew the movement because of the violence at Chauri Chaura, fearing the movement was losing its non-violent character and would be easily crushed by the state.",
@@ -481,7 +481,7 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
   },
   {
     id: '15-54',
-    question: "Match the following agrarian movements that coincided with the Non-Cooperation Movement: 1. Eka Movement \u2014",
+    question: "Match the following agrarian movements that coincided with the Non-Cooperation Movement:\n1. Eka Movement \u2014",
     options: ["Alluri Sitarama Raju 2. Awadh Kisan Sabha \u2014", "Madari Pasi 3. Rampa Rebellion \u2014", "Baba Ramchandra Select the correct matching code:", "1-B, 2-C, 3-A"],
     correctAnswer: 0,
     explanation: "1-B, 2-C, 3-A",
@@ -490,7 +490,7 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
   },
   {
     id: '15-55',
-    question: "Consider the following regarding the 'Swaraj within one year' promise of Gandhi: 1. It was contingent upon the total success of the triple boycott (schools, courts, and councils). 2. It required the masses to strictly adhere to the discipline of non-violence. 3. It was based on the hope that the British would voluntarily leave India out of moral guilt. How many of the above statements are correct?",
+    question: "Consider the following regarding the 'Swaraj within one year' promise of Gandhi:\n1. It was contingent upon the total success of the triple boycott (schools, courts, and councils).\n2. It required the masses to strictly adhere to the discipline of non-violence.\n3. It was based on the hope that the British would voluntarily leave India out of moral guilt. How many of the above statements are correct?",
     options: ["Only one", "Only two", "All three", "None"],
     correctAnswer: 1,
     explanation: "Only two Statements 1 and 2 are correct. Statement 3 is incorrect; Gandhi believed that if India withdrew its cooperation, the British administration would collapse structurally, making it impossible for them to rule.",

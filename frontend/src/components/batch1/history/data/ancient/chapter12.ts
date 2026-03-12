@@ -1,3 +1,4 @@
+import { Subtopic, Question } from '../ancient-types-27';
 import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_12_SUBTOPICS: Subtopic[] = [
@@ -142,3 +143,4 @@ export const ANCIENT_CHAPTER_12_CONTENT = `
 - **Justice:** Vyavaharika Mahamatras (Judges) settled disputes in towns based on custom and Dharmasutras.
 - **Nature of Law:** Law was not egalitarian; punishments varied according to the varna of the perpetrator and the victim.
 `;
+

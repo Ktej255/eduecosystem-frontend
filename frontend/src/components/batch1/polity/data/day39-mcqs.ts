@@ -15,7 +15,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 2, // C
         explanation: "Article 244 in Part X of the Constitution deals with the administration of the Scheduled Areas and Tribal Areas.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Article 244"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 2,
@@ -28,7 +28,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 1, // B
         explanation: "The Fifth Schedule of the Constitution deals with the administration and control of scheduled areas and scheduled tribes in any state except the four states of Assam, Meghalaya, Tripura and Mizoram.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fifth Schedule Exception AMTM"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 3,
@@ -41,7 +41,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 1, // B
         explanation: "The Sixth Schedule of the Constitution deals with the administration of the tribal areas in the four north-eastern states of Assam, Meghalaya, Tripura and Mizoram.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Sixth Schedule States AMTM"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 4,
@@ -54,7 +54,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 2, // C
         explanation: "The President is empowered to declare an area to be a scheduled area. He can also alter its boundaries after consulting the governor of the state.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Declaration of Scheduled Area President"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 5,
@@ -67,7 +67,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 1, // B
         explanation: "The executive power of a state extends to the scheduled areas therein. But the governor has a special responsibility regarding such areas.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Governor Special Responsibility"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 6,
@@ -80,7 +80,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 2, // C
         explanation: "The governor has to submit a report to the president regarding the administration of such areas, annually or whenever so required by the president.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Governor Annual Report to President"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 7,
@@ -93,7 +93,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 2, // C
         explanation: "Each state having scheduled areas has to establish a tribes advisory council to advise on welfare and advancement of the scheduled tribes.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Tribes Advisory Council Creation"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 8,
@@ -106,7 +106,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 2, // C
         explanation: "It is to consist of 20 members, three-fourths of whom are to be the representatives of the scheduled tribes in the state legislative assembly.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "TAC Member Count 20"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 9,
@@ -119,7 +119,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 2, // C
         explanation: "Three-fourths of the members of the TAC are to be the representatives of the scheduled tribes in the state legislative assembly.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "TAC ST Representatives Fraction"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 10,
@@ -132,7 +132,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 1, // B
         explanation: "The governor is empowered to direct that any particular act of Parliament or the state legislature does not apply to a scheduled area or apply with specified modifications and exceptions.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Governor Power to Restrict Acts"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 11,
@@ -145,7 +145,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 1, // B
         explanation: "The governor can make regulations for the peace and good government of a scheduled area after consulting the tribes advisory council.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Governor Regulations Consulting TAC"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 12,
@@ -158,7 +158,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 2, // C
         explanation: "Such a regulation may repeal or amend any act of Parliament or the state legislature, which is applicable to the area in question. But, all such regulations require the assent of the president.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Regulation Amending Act President Assent"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 13,
@@ -171,7 +171,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 0, // A
         explanation: "The Constitution requires the president to appoint a commission... The first commission was appointed in 1960 and was headed by U.N. Dhebar. (The second was in 2002 under Dilip Singh Bhuria).",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Dhebar Commission First"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 14,
@@ -184,7 +184,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 1, // B
         explanation: "The tribal areas in the four states of Assam, Meghalaya, Tripura and Mizoram have been constituted as autonomous districts.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Sixth Schedule Autonomous Districts"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 15,
@@ -197,7 +197,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 1, // B
         explanation: "But, they do not fall outside the executive authority of the state concerned.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Autonomous Districts within State Executive Power"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 16,
@@ -210,7 +210,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 1, // B
         explanation: "The governor is empowered to organise and re-organise the autonomous districts. Thus, he can increase or decrease their areas or change their names or define their boundaries.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Governor Power Organize Autonomous Districts"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 17,
@@ -223,7 +223,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 1, // B
         explanation: "If there are different tribes in an autonomous district, the governor can divide the district into several autonomous regions.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Governor Create Autonomous Regions"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 18,
@@ -236,7 +236,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 2, // C
         explanation: "Each autonomous district has a district council consisting of 30 members.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "District Council Total Members"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 19,
@@ -249,7 +249,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 1, // B
         explanation: "Each autonomous district has a district council consisting of 30 members, of whom four are nominated by the governor and the remaining 26 are elected on the basis of adult franchise.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "District Council Nominated Members Count"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 20,
@@ -262,7 +262,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 2, // C
         explanation: "The elected members hold office for a term of five years (unless the council is dissolved earlier).",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "District Council Elected Members Term"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 21,
@@ -275,7 +275,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 2, // C
         explanation: "The nominated members hold office during the pleasure of the governor.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "District Council Nominated Members Tenure"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 22,
@@ -288,7 +288,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 1, // B
         explanation: "The district and regional councils administer the areas under their jurisdiction. They can make laws on certain specified matters like land, forests... But all such laws require the assent of the governor.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Governor Assent District Council Laws"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 23,
@@ -301,7 +301,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 1, // B
         explanation: "The district and regional councils within their territorial jurisdictions can constitute village councils or courts for trial of suits and cases between the tribes.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "District Council Village Courts"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 24,
@@ -314,7 +314,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 1, // B
         explanation: "The district council can establish, construct or manage primary schools, dispensaries, markets, ferries, fisheries, roads and so on in the district.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "District Council Socio-Economic Functions"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 25,
@@ -327,7 +327,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 2, // C
         explanation: "The district and regional councils are empowered to assess and collect land revenue and to impose certain specified taxes.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "District Council Taxation Power"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 26,
@@ -340,7 +340,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 1, // B
         explanation: "The acts of Parliament or the state legislature do not apply to autonomous districts... or apply with specified modifications. The power of direction, in this regard, lies either with the President or Governor. For Assam, it is the Governor.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Assam Governor Modify Acts"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 27,
@@ -353,7 +353,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 1, // B
         explanation: "The governor can appoint a commission to examine and report on any matter relating to the administration of the autonomous districts... He may dissolve a district or regional council on the recommendation of the commission.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Governor Dissolve District Council Commission"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 28,
@@ -366,7 +366,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 2, // C
         explanation: "The purpose of the 6th Schedule is to provide a degree of 'self-government' to the tribes to preserve their unique customs, allowing them to largely govern themselves according to their traditional laws.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Sixth Schedule Core Purpose Self Government"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 29,
@@ -379,7 +379,7 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 1, // B
         explanation: "Article 244A was added (by the 22nd Amendment Act 1969) to empower Parliament to form an autonomous state comprising certain tribal areas in Assam and create separate local legislature or Council of Ministers for it.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Article 244A Autonomous State Assam"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     },
     {
         id: 30,
@@ -392,6 +392,6 @@ export const DAY39_MCQS: MCQ[] = [
         ],
         correctAnswer: 2, // C
         explanation: "At present (as of the latest official declarations), 10 States have Scheduled Areas: Andhra Pradesh, Telangana, Jharkhand, Chhattisgarh, Gujarat, Himachal Pradesh, Madhya Pradesh, Maharashtra, Odisha and Rajasthan.",
-        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fifth Schedule State Count 10"
+        level: "Easy", topic: "Scheduled and Tribal Areas", difficulty_tier: "Level_1", cognitive_tag: "Fact"
     }
 ];

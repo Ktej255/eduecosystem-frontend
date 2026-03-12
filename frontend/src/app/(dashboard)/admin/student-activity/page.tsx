@@ -3,6 +3,7 @@
 
 import { toast } from "sonner";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -19,7 +20,8 @@ import {
     Award,
     Calendar,
     ChevronRight,
-    Activity
+    Activity,
+    Zap
 } from "lucide-react";
 import api from "@/lib/api";
 
@@ -42,7 +44,9 @@ interface StudentActivity {
 }
 
 export default function StudentActivityPage() {
+    const router = useRouter();
     const [students, setStudents] = useState<StudentActivity[]>([]);
+    // ... rest of the state
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [search, setSearch] = useState("");
@@ -305,7 +309,17 @@ export default function StudentActivityPage() {
                             <CardHeader className="pb-2">
                                 <div className="flex items-center justify-between">
                                     <CardTitle className="text-lg">Activity Timeline</CardTitle>
-                                    <Button variant="ghost" size="sm" onClick={() => setSelectedStudent(null)}>Close</Button>
+                                    <div className="flex gap-2">
+                                        <Button 
+                                            size="sm" 
+                                            variant="outline" 
+                                            className="h-8 text-[10px] font-black uppercase tracking-widest bg-indigo-600 text-white hover:bg-indigo-700 border-none flex items-center gap-1 px-3"
+                                            onClick={() => router.push(`/admin/interventions?studentId=${selectedStudent.id}`)}
+                                        >
+                                            <Zap className="w-3 h-3" /> Intervene
+                                        </Button>
+                                        <Button variant="ghost" size="sm" onClick={() => setSelectedStudent(null)}>Close</Button>
+                                    </div>
                                 </div>
                                 <p className="text-xs text-muted-foreground">{selectedStudent.full_name}</p>
                             </CardHeader>

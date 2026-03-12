@@ -3,7 +3,7 @@ import { MCQ } from '../RevisionRegistry';
 export const CHAPTER_42_MCQS: MCQ[] = [
     {
         id: 1,
-        chapterId: 42,
+
         question: "Which statement is strictly correct regarding UPSC?",
         options: [
             "Constitution specifies strength as 11.",
@@ -17,7 +17,7 @@ export const CHAPTER_42_MCQS: MCQ[] = [
     },
     {
         id: 2,
-        chapterId: 42,
+
         question: "When can President appoint an 'Acting Chairman'?",
         options: [
             "Office of Chairman is vacant.",
@@ -31,7 +31,7 @@ export const CHAPTER_42_MCQS: MCQ[] = [
     },
     {
         id: 3,
-        chapterId: 42,
+
         question: "Procedure for removal on ground of 'misbehaviour':",
         options: [
             "Summary inquiry by Cabinet.",
@@ -45,7 +45,7 @@ export const CHAPTER_42_MCQS: MCQ[] = [
     },
     {
         id: 4,
-        chapterId: 42,
+
         question: "Which are correct regarding Independence?\n1. Expenses charged on Consolidated Fund of India.\n2. Member eligible for SPSC Chairman.\n3. Chairman eligible for second term.\n4. Consulted on all recruitment methods.",
         options: [
             "1, 2, and 4 only",
@@ -59,7 +59,7 @@ export const CHAPTER_42_MCQS: MCQ[] = [
     },
     {
         id: 5,
-        chapterId: 42,
+
         question: "UPSC is consulted on:",
         options: [
             "Recruitment methods for civil services.",
@@ -73,7 +73,7 @@ export const CHAPTER_42_MCQS: MCQ[] = [
     },
     {
         id: 6,
-        chapterId: 42,
+
         question: "UPSC is NOT consulted on:",
         options: [
             "Reservations for backward classes.",
@@ -87,7 +87,7 @@ export const CHAPTER_42_MCQS: MCQ[] = [
     },
     {
         id: 7,
-        chapterId: 42,
+
         question: "UPSC consultation is not required for temporary appointments less than:",
         options: [
             "6 months",
@@ -101,7 +101,7 @@ export const CHAPTER_42_MCQS: MCQ[] = [
     },
     {
         id: 8,
-        chapterId: 42,
+
         question: "Disciplinary matters consulted include:",
         options: [
             "Censure",
@@ -115,7 +115,7 @@ export const CHAPTER_42_MCQS: MCQ[] = [
     },
     {
         id: 9,
-        chapterId: 42,
+
         question: "Regarding consultation in disciplinary matters, SC has ruled:",
         options: [
             "Mandatory; failure invalidates order.",
@@ -129,7 +129,7 @@ export const CHAPTER_42_MCQS: MCQ[] = [
     },
     {
         id: 10,
-        chapterId: 42,
+
         question: "Role of Appointments Committee of Cabinet (ACC):",
         options: [
             "Appoints members.",
@@ -143,7 +143,7 @@ export const CHAPTER_42_MCQS: MCQ[] = [
     },
     {
         id: 11,
-        chapterId: 42,
+
         question: "Conflict between UPSC and CVC:",
         options: [
             "CVC prevails.",
