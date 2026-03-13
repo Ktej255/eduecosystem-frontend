@@ -8,7 +8,7 @@ import {
     GraduationCap, Play, CheckCircle2, Circle,
     Target, ArrowRight, BarChart3, Clock,
     BadgeCheck, Trophy, Target as TargetIcon,
-    Wind, ChevronRight, Activity, Thermometer, Layers, Droplets
+    Wind, ChevronRight, Activity, Thermometer, Layers, Droplets, MapPin, Pickaxe
 } from 'lucide-react';
 import { SimulationType } from './content/types';
 import dynamic from 'next/dynamic';
@@ -421,11 +421,13 @@ export default function GeographyDashboard() {
                 </div>
             ) : (
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <FeatureCard title="Interactive Maps" desc="Explore geographic terrain in 3D." icon={<Globe2 className="w-6 h-6" />} color="bg-indigo-600" onClick={() => setComingSoonFeature('Interactive Maps')} />
-                        <FeatureCard title="Climatology Sim" desc="Real-time Koppen classifications." icon={<Wind className="w-6 h-6" />} color="bg-emerald-600" onClick={() => setComingSoonFeature('Climatology Simulator')} />
-                        <FeatureCard title="Ocean Lab" desc="Track complex current patterns." icon={<Waves className="w-6 h-6" />} color="bg-blue-600" onClick={() => setComingSoonFeature('Ocean Lab')} />
-                        <FeatureCard title="Resource Atlas" desc="Mineral deposits across India." icon={<Mountain className="w-6 h-6" />} color="bg-amber-600" onClick={() => setComingSoonFeature('Resource Atlas')} />
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <FeatureCard title="Interactive India Atlas" desc="Master 500+ UPSC Locations." icon={<MapPin className="w-6 h-6" />} color="bg-indigo-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/india-map')} />
+                        <FeatureCard title="Monsoon Simulator" desc="Interactive El Niño & ITCZ dynamics." icon={<Wind className="w-6 h-6" />} color="bg-emerald-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/monsoon')} />
+                        <FeatureCard title="Ocean Lab" desc="Track complex current patterns." icon={<Waves className="w-6 h-6" />} color="bg-blue-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/ocean-currents')} />
+                        <FeatureCard title="Climate Zone Explorer" desc="Köppen Classifications & Biomes." icon={<Globe2 className="w-6 h-6" />} color="bg-amber-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/climate-zones')} />
+                        <FeatureCard title="Plate Tectonics Sim" desc="Global Lithospheric Boundaries." icon={<Layers className="w-6 h-6" />} color="bg-red-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/tectonics')} />
+                        <FeatureCard title="Resource Atlas" desc="India's Mineral & Energy Map." icon={<Pickaxe className="w-6 h-6" />} color="bg-yellow-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/resource-atlas')} />
                     </div>
                 </div>
             )}
@@ -577,9 +579,10 @@ function StatHUDCard({ title, value, subtext, icon }: { title: string, value: st
     );
 }
 
-function FeatureCard({ title, desc, icon, color, onClick }: { title: string, desc: string, icon: React.ReactNode, color: string, onClick: () => void }) {
+function FeatureCard({ title, desc, icon, color, status, onClick }: { title: string, desc: string, icon: React.ReactNode, color: string, status?: string, onClick: () => void }) {
+    const isLive = status === "Live Now";
     return (
-        <Card className="group hover:shadow-xl transition-all cursor-pointer border-border overflow-hidden rounded-[1.5rem]" onClick={onClick}>
+        <Card className={`group hover:shadow-xl transition-all cursor-pointer overflow-hidden rounded-[1.5rem] ${isLive ? 'border-emerald-500/50 shadow-emerald-900/10' : 'border-border'}`} onClick={onClick}>
             <CardContent className="p-6 space-y-4">
                 <div className={`w-12 h-12 ${color} rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform`}>
                     {icon}
@@ -588,8 +591,8 @@ function FeatureCard({ title, desc, icon, color, onClick }: { title: string, des
                     <h3 className="text-lg font-black uppercase tracking-tight">{title}</h3>
                     <p className="text-xs text-muted-foreground font-medium leading-relaxed">{desc}</p>
                 </div>
-                <div className="flex items-center gap-2 text-[10px] font-black text-amber-600 uppercase tracking-widest">
-                    🚀 Coming March 20 <ChevronRight className="w-3 h-3" />
+                <div className={`flex items-center gap-2 text-[10px] font-black uppercase tracking-widest ${isLive ? 'text-emerald-500' : 'text-amber-600'}`}>
+                    {isLive ? '✨ Play Now' : `🚀 ${status || 'Coming March 20'}`} <ChevronRight className="w-3 h-3" />
                 </div>
             </CardContent>
         </Card>

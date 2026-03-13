@@ -1,5 +1,5 @@
-import CurrentAffairsPage from "@/components/batch1/value-addition/current-affairs/CurrentAffairsPage";
+import PibYearEndPage from "@/components/upsc/subjects/value-addition/PibYearEndPage";
 
 export default function Page() {
-    return <CurrentAffairsPage />;
+    return <PibYearEndPage />;
 }

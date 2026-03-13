@@ -1,5 +1,5 @@
-import GovernancePage from "@/components/batch1/value-addition/governance/GovernancePage";
+import MinistriesPage from "@/components/upsc/subjects/value-addition/MinistriesPage";
 
 export default function Page() {
-    return <GovernancePage />;
+    return <MinistriesPage />;
 }

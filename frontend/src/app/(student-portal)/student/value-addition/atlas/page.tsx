@@ -1,5 +1,5 @@
-import InteractiveAtlasPage from "@/components/batch1/value-addition/atlas/InteractiveAtlasPage";
+import AtlasDashboard from "@/components/upsc/subjects/value-addition/AtlasDashboard";
 
 export default function Page() {
-    return <InteractiveAtlasPage />;
+    return <AtlasDashboard />;
 }

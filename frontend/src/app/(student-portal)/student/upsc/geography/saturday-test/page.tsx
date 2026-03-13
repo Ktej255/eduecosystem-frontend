@@ -1,77 +1,78 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Clock, Target, BookOpen, Lock, ArrowRight, CheckCircle2, AlertTriangle } from "lucide-react";
+import { ArrowLeft, Clock, Target, BookOpen, Lock, ArrowRight, CheckCircle2 } from "lucide-react";
 
-import { geographyMCQs } from '@/components/upsc/subjects/geography/data/mcqs/geography-mcqs';
-import { ncertMcqBank } from '@/components/upsc/subjects/geography/data/mcqs/ncert-mcqs';
-import SaturdayTestSession from '@/components/batch1-1/saturday/SaturdayTestSession';
-import SaturdayTestReport from '@/components/batch1-1/saturday/SaturdayTestReport';
+// Data Imports — Dedicated Paper 1 & Paper 2 MCQ Banks
+import { saturdayTestPaper1 } from '@/components/upsc/subjects/geography/data/mcqs/saturday-test-paper1';
+import { saturdayTestPaper2 } from '@/components/upsc/subjects/geography/data/mcqs/saturday-test-paper2';
+
+// UPSC Platform Components — Rich test experience with confidence tracking, question grid, analytics
+import SaturdayTestSession from '@/components/upsc/platform/saturday/SaturdayTestSession';
+import SaturdayTestReport from '@/components/upsc/platform/saturday/SaturdayTestReport';
+
+// Registry Types & Utilities
+import type { WeeklyTestConfig, ModuleMCQ } from '@/components/upsc/platform/data/saturday-test-registry';
+import { createSubjectBlock, createMultiSubjectTest } from '@/components/upsc/platform/data/saturday-test-registry';
+
+// Helper: Convert StandardMCQ[] to ModuleMCQ[] (assigns numeric IDs)
+function toModuleMCQs(questions: any[], subjectLabel?: string): ModuleMCQ[] {
+    return questions.map((q, idx) => ({
+        id: idx + 1,
+        question: q.question,
+        options: q.options,
+        correctAnswer: q.correctAnswer,
+        explanation: q.explanation,
+        chapter: q.chapter,
+        subtopic: q.subtopic,
+        subject: subjectLabel,
+    }));
+}
 
 export default function SaturdayTestPage() {
     const router = useRouter();
     
-    // Test Configurations
+    // Test State
     const [testPhase, setTestPhase] = useState<'landing' | 'taking' | 'report'>('landing');
     const [currentPaper, setCurrentPaper] = useState<'paper1' | 'paper2' | null>(null);
-    const [questions, setQuestions] = useState<any[]>([]);
+    const [testConfig, setTestConfig] = useState<WeeklyTestConfig | null>(null);
     const [testResults, setTestResults] = useState<any>(null);
     
     const nowHours = new Date().getHours();
     
-    // The two requested slots
-    const isPaper1Time = nowHours >= 9 && nowHours < 12;   // 9:00 AM to 11:59 AM (Giving 1 hr buffer)
+    // Time-based access control
+    const isPaper1Time = nowHours >= 9 && nowHours < 12;   // 9:00 AM to 11:59 AM
     const isPaper2Time = nowHours >= 12 && nowHours < 15;  // 12:00 PM to 2:59 PM
     
-    // Allow override for testing purposes if not saturday or wrong time temporarily
+    // Dev override for testing
     const IS_DEV = true; 
 
+    // Build WeeklyTestConfig from the dedicated data files
+    const paper1Config = useMemo<WeeklyTestConfig>(() => {
+        const questions = toModuleMCQs(saturdayTestPaper1, 'Geomorphology');
+        const block = createSubjectBlock('geography', 'Geomorphology (Savindra Singh)', questions, 120);
+        return createMultiSubjectTest(1, 'Saturday Mega Test — Paper 1: Geomorphology', [block], {
+            negativeMarking: true,
+            negativeMarkRatio: 0.33,
+        });
+    }, []);
+
+    const paper2Config = useMemo<WeeklyTestConfig>(() => {
+        const questions = toModuleMCQs(saturdayTestPaper2, 'Climatology & Oceanography');
+        const block = createSubjectBlock('geography', 'Climatology & Oceanography', questions, 120);
+        return createMultiSubjectTest(2, 'Saturday Mega Test — Paper 2: Climatology & Oceanography', [block], {
+            negativeMarking: true,
+            negativeMarkRatio: 0.33,
+        });
+    }, []);
+
     const handleStartTest = (paper: 'paper1' | 'paper2') => {
-        // Construct the 100 Question test depending on the paper
-        let generatedQuestions = [];
-        
-        if (paper === 'paper1') {
-            const coreQs = geographyMCQs
-                .filter(q => q.module === 'physical' && 
-                    (q.topic.includes('Geomorphology') || q.topic.includes('Climo') || q.topic.includes('Ocean')))
-                .slice(0, 50);
-            const ncertQs = ncertMcqBank
-                .filter(q => ['2', '3', '4', '5', '6'].includes(q.chapter))
-                .slice(0, 50);
-            
-            generatedQuestions = [...coreQs, ...ncertQs].map((q, idx) => ({
-                id: q.id || `q-${idx}`,
-                question: q.question,
-                options: q.options,
-                explanation: q.explanation || "Detailed explanation available in the reading material.",
-                chapter: q.topic || q.chapter || "Geography Syllabus",
-                subtopic: q.subtopic || "UPSC Core",
-                correctAnswer: q.correctAnswer || 0,
-            }));
-        } else {
-            // Paper 2 Mock (Could be CSAT later, doing Indian Geo vs Resource Geo for now as placeholder)
-            const coreQs = geographyMCQs.filter(q => q.module === 'indian').slice(0, 100);
-            generatedQuestions = coreQs.map((q, idx) => ({
-                id: q.id || `q-${idx}`,
-                question: q.question,
-                options: q.options,
-                explanation: q.explanation || "Detailed explanation available in the reading material.",
-                chapter: q.topic || q.chapter || "Geography Syllabus",
-                subtopic: q.subtopic || "UPSC Core",
-                correctAnswer: q.correctAnswer || 0,
-            }));
-        }
-
-        // If we don't naturally have 100, duplicate or pad (Only for dev/mock, real will have 100)
-        while(generatedQuestions.length < 100 && generatedQuestions.length > 0) {
-            generatedQuestions.push({...generatedQuestions[generatedQuestions.length - 1], id: `pad-${generatedQuestions.length}`});
-        }
-
-        setQuestions(generatedQuestions.slice(0, 100)); // Ensure exactly 100
+        const config = paper === 'paper1' ? paper1Config : paper2Config;
+        setTestConfig(config);
         setCurrentPaper(paper);
         setTestPhase('taking');
     };
@@ -81,11 +82,10 @@ export default function SaturdayTestPage() {
         setTestPhase('report');
     };
 
-    if (testPhase === 'taking') {
+    if (testPhase === 'taking' && testConfig) {
         return (
             <SaturdayTestSession 
-                questions={questions}
-                testTitle={`Saturday Target Test - ${currentPaper === 'paper1' ? 'GS Paper 1' : 'GS Paper 2'}`}
+                config={testConfig}
                 onComplete={handleTestComplete}
                 onCancel={() => setTestPhase('landing')}
             />
@@ -132,7 +132,7 @@ export default function SaturdayTestPage() {
                                 <CardContent className="p-0 flex flex-col h-full">
                                     <div className="flex justify-between items-start mb-4">
                                         <div>
-                                            <h3 className="text-xl font-black uppercase text-white tracking-tight">Paper 1: Core GS</h3>
+                                            <h3 className="text-xl font-black uppercase text-white tracking-tight">Paper 1: Geomorphology</h3>
                                             <p className="text-sm font-bold text-indigo-400 mt-1 flex items-center gap-2">
                                                 <Clock className="w-4 h-4" /> 09:00 AM – 11:00 AM
                                             </p>
@@ -143,9 +143,9 @@ export default function SaturdayTestPage() {
                                     </div>
                                     
                                     <div className="space-y-2 mb-8">
-                                        <div className="flex items-center gap-2 text-sm text-slate-300"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> 100 Questions (L1 + L2/L3)</div>
+                                        <div className="flex items-center gap-2 text-sm text-slate-300"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> 100 Questions (Savindra Singh)</div>
                                         <div className="flex items-center gap-2 text-sm text-slate-300"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> 120 Minutes Duration</div>
-                                        <div className="flex items-center gap-2 text-sm text-slate-300"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> Geomorphology, Climatology, Oceanography</div>
+                                        <div className="flex items-center gap-2 text-sm text-slate-300"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> Tectonics, Rocks, Landforms, Weathering</div>
                                     </div>
                                     
                                     <div className="mt-auto">
@@ -170,7 +170,7 @@ export default function SaturdayTestPage() {
                                 <CardContent className="p-0 flex flex-col h-full">
                                     <div className="flex justify-between items-start mb-4">
                                         <div>
-                                            <h3 className="text-xl font-black uppercase text-white tracking-tight">Paper 2: CSAT / Applied</h3>
+                                            <h3 className="text-xl font-black uppercase text-white tracking-tight">Paper 2: Climatology & Oceanography</h3>
                                             <p className="text-sm font-bold text-emerald-400 mt-1 flex items-center gap-2">
                                                 <Clock className="w-4 h-4" /> 12:00 PM – 02:00 PM
                                             </p>
@@ -181,9 +181,9 @@ export default function SaturdayTestPage() {
                                     </div>
                                     
                                     <div className="space-y-2 mb-8">
-                                        <div className="flex items-center gap-2 text-sm text-slate-300"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> 100 Questions (L2/L3)</div>
+                                        <div className="flex items-center gap-2 text-sm text-slate-300"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> 100 Questions (Savindra Singh)</div>
                                         <div className="flex items-center gap-2 text-sm text-slate-300"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> 120 Minutes Duration</div>
-                                        <div className="flex items-center gap-2 text-sm text-slate-300"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> Case Studies & Map Based Facts</div>
+                                        <div className="flex items-center gap-2 text-sm text-slate-300"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> Atmosphere, Oceans, Climate Patterns</div>
                                     </div>
                                     
                                     <div className="mt-auto">
