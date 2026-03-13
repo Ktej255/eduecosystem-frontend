@@ -5,7 +5,7 @@ import { ComposableMap, Geographies, Geography, ZoomableGroup, Line, Marker } fr
 import { MAJOR_PLATES, MINOR_PLATES, TECTONIC_BOUNDARIES, MAJOR_HAZARDS } from '../data/tectonics-data';
 import { TectonicPlate, TectonicBoundary, GeoHazard } from '../data/tectonics-types';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldAlert, Crosshair, Map, Info, Activity, Mountain, Volcano, Zap, Waves, Target, Layers, ChevronRight } from 'lucide-react';
+import { ShieldAlert, Crosshair, Map, Info, Activity, Mountain, Flame, Zap, Waves, Target, Layers, ChevronRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
@@ -70,7 +70,7 @@ export default function PlateTectonicsSimulator() {
                 : 'bg-slate-800 hover:bg-slate-700 text-orange-500 border border-orange-900/50'
             }`}
           >
-            <Volcano className={`w-4 h-4 ${ringOfFireActive ? 'animate-bounce' : ''}`} />
+            <Flame className={`w-4 h-4 ${ringOfFireActive ? 'animate-bounce' : ''}`} />
             {ringOfFireActive ? 'Disable Pacific Ring' : 'Illuminate Ring of Fire'}
           </button>
 
@@ -317,7 +317,7 @@ export default function PlateTectonicsSimulator() {
                 <div className="p-8 overflow-y-auto flex-1 custom-scrollbar">
                     <div className="w-16 h-16 rounded-2xl flex items-center justify-center font-black text-2xl shadow-lg shrink-0 mb-6 bg-orange-500/20 text-orange-400 border border-orange-500/30">
                       {selectedHazard.type === 'earthquake' ? <Activity className="w-8 h-8" /> : 
-                       selectedHazard.type === 'volcano' ? <Volcano className="w-8 h-8" /> : 
+                       selectedHazard.type === 'volcano' ? <Flame className="w-8 h-8" /> : 
                        <Waves className="w-8 h-8" />}
                     </div>
                     <Badge className="bg-orange-600 text-white mb-2 uppercase tracking-widest border-0 text-[9px] font-black">{selectedHazard.type}</Badge>

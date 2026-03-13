@@ -175,7 +175,7 @@ export default function TeacherQuestionsPage() {
                             </div>
                             <div>
                                 <h2 className="text-2xl font-bold text-foreground">Bulk MCQ Engine v2.0</h2>
-                                <p className="text-muted-foreground">Upload CSV -> Preview -> AI Tagging -> Database</p>
+                                <p className="text-muted-foreground">Upload CSV → Preview → AI Tagging → Database</p>
                             </div>
                         </div>
 

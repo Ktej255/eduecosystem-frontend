@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { CloudRain, Sun, Wind, Activity, ThermometerSun, ThermometerSnow, AlertTriangle, CheckCircle, Info } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CloudRain, Sun, Wind, Activity, ThermometerSun, Thermometer, AlertTriangle, CheckCircle, Info } from 'lucide-react';
 
 interface Toggles {
   itcz: boolean;
@@ -16,7 +16,7 @@ interface Toggles {
 const TOGGLE_INFO = {
   itcz: { name: "ITCZ Active", icon: CloudRain, desc: "Inter Tropical Convergence Zone moves over Ganga plains. Acts as a magnet for monsoon winds, enhancing rainfall." },
   elnino: { name: "El Niño", icon: ThermometerSun, desc: "Warming of central/eastern Pacific Ocean. Subsiding air over India suppresses cloud formation and monsoon rainfall." },
-  lanina: { name: "La Niña", icon: ThermometerSnow, desc: "Cooling of eastern Pacific. Enhances the Walker Circulation, pushing intense moisture and heavy rainfall toward India." },
+  lanina: { name: "La Niña", icon: Thermometer, desc: "Cooling of eastern Pacific. Enhances the Walker Circulation, pushing intense moisture and heavy rainfall toward India." },
   posIod: { name: "Positive IOD", icon: Activity, desc: "Western Indian Ocean becomes warmer than the eastern part. Pushes moisture toward India, often compensating for El Niño." },
   negIod: { name: "Negative IOD", icon: Activity, desc: "Eastern Indian Ocean becomes warmer. Pulls moisture away from India towards Indonesia, suppressing monsoon." },
   mjo: { name: "MJO Active Phase", icon: Wind, desc: "Madden-Julian Oscillation brings a pulse of clouds and rainfall moving eastward. Activates the monsoon burst." }

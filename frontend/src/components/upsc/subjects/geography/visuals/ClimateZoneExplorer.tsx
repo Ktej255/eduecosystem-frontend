@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import { ComposableMap, Geographies, Geography, ZoomableGroup, Polygon } from 'react-simple-maps';
+import { ComposableMap, Geographies, Geography, ZoomableGroup } from 'react-simple-maps';
 import { CLIMATE_ZONES } from '../data/climate-zone-data';
 import { ClimateZone, MajorClimateGroup } from '../data/climate-types';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -119,9 +119,13 @@ export default function ClimateZoneExplorer() {
                 const baseColor = KOPPEN_COLORS[zone.code] || '#fff';
                 
                 return zone.visual_paths.map((polygonCoords, i) => (
-                  <Polygon 
+                  <Geography 
                     key={`${zone.id}-${i}`}
-                    coordinates={polygonCoords}
+                    geography={{
+                      type: "Feature",
+                      geometry: { type: "Polygon", coordinates: [polygonCoords] },
+                      properties: {}
+                    }}
                     fill={baseColor}
                     fillOpacity={isSelected ? 0.6 : 0.3}
                     stroke={isSelected ? '#ffffff' : baseColor}
