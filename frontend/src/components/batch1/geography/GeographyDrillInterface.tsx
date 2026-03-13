@@ -25,7 +25,7 @@ export default function GeographyDrillInterface() {
             ...m,
             // Map geography specific fields to standard interface
             chapter: m.module || 'General',
-            subtopic: m.topic || 'General',
+            subtopic: String(m.topic) || 'General',
             difficulty: (m.difficulty === 'easy' ? 'Easy' : m.difficulty === 'medium' ? 'Moderate' : 'Hard') as 'Easy' | 'Moderate' | 'Hard'
         }));
 
@@ -101,7 +101,8 @@ export default function GeographyDrillInterface() {
 
             <StandardMCQInterface
                 questions={filteredMCQs}
-                subject="Geography"
+                title="Geography Practice Drill"
+                subtitle={branch ? `Focused on ${branch}` : "All Geography Modules"}
                 onComplete={handleComplete}
                 onExit={() => router.back()}
             />

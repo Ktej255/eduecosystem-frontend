@@ -145,7 +145,7 @@ export default function ForeignPolicyModule({ onComplete, isCompleted, chapterNu
                     className={`px-12 py-6 rounded-full text-xl font-black font-['Kalam'] transition-all transform hover:scale-105 ${isCompleted ? 'bg-slate-300 text-muted-foreground' : 'bg-[#1e40af] text-white hover:bg-blue-800'
                         }`}
                 >
-                    {isCompleted ? "Treaty Signed" : "Shake Hands"}
+                    {isCompleted ? "Treaty Signed" : `MARK CHAPTER ${chapterNumber} COMPLETE`}
                 </Button>
             </div>
         </ScrapbookContainer>

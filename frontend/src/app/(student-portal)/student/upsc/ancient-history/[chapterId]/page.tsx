@@ -36,17 +36,18 @@ const getPartColors = (colorStr: string) => {
 
 const DEFAULT_PROGRESS: ChapterProgress = {
     readSection: 'not-started', flashcards: 'not-started', drill: 'not-started',
-    l1: 'not-started', l2: 'not-started', l3: 'not-started',
+    l1: 'not-started', l2: 'not-started', l3: 'not-started', vsMode: 'not-started',
+    spacing: undefined
 };
 
-const TAB_META: { key: keyof ChapterProgress; label: string; icon: React.ElementType; description: string }[] = [
+const TAB_META: { key: Exclude<keyof ChapterProgress, 'spacing'>; label: string; icon: React.ElementType; description: string }[] = [
     { key: 'readSection', label: '📖 Read', icon: FileText, description: '2-3 min revision' },
     { key: 'flashcards', label: '🃏 Cards', icon: RotateCcw, description: 'UPSC flashcards' },
     { key: 'drill', label: '⚡ Drill', icon: Zap, description: '60-Q drill' },
     { key: 'l1', label: 'L1', icon: BookOpen, description: 'Book recall' },
     { key: 'l2', label: 'L2', icon: GraduationCap, description: 'UPSC moderate' },
     { key: 'l3', label: '📰 CA / L3', icon: Target, description: 'Tough + News' },
-    { key: 'vsMode', label: '⚔️ VS', icon: Swords, description: 'Dynasty Battle' } as any,
+    { key: 'vsMode', label: '⚔️ VS', icon: Swords, description: 'Dynasty Battle' },
 ];
 
 // ============= Status/Progress Badge =============
@@ -774,8 +775,11 @@ export default function AncientHistoryChapterPage() {
 
     useEffect(() => {
         const sectionKey = activeTab as keyof ChapterProgress;
-        if (progress[sectionKey] === 'not-started') {
-            updateSectionStatus(sectionKey, 'in-progress');
+        if (sectionKey in progress) {
+            const status = progress[sectionKey];
+            if (typeof status === 'string' && status === 'not-started') {
+                updateSectionStatus(sectionKey, 'in-progress');
+            }
         }
     }, [activeTab, progress, updateSectionStatus]);
 
@@ -893,7 +897,10 @@ export default function AncientHistoryChapterPage() {
                                 <div className="text-3xl font-black">{progressPercent}%</div>
                                 <div className="text-xs text-white/70">{completedCount}/6 Sections</div>
                                 <div className="flex gap-1 mt-1">
-                                    {TAB_META.map(tab => <StatusDot key={tab.key} status={progress[tab.key]} />)}
+                                    {TAB_META.map(tab => {
+                                        const status = progress[tab.key as keyof ChapterProgress];
+                                        return <StatusDot key={tab.key} status={typeof status === 'string' ? (status as SectionStatus) : 'not-started'} />;
+                                    })}
                                 </div>
                             </div>
                         </div>
@@ -903,15 +910,17 @@ export default function AncientHistoryChapterPage() {
                 {/* Tab Cards */}
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
                     {TAB_META.map(tab => {
-                        const status = progress[tab.key];
+                        const statusVal = progress[tab.key as keyof ChapterProgress];
+                        const status: SectionStatus = (typeof statusVal === 'string' ? statusVal : 'not-started') as SectionStatus;
                         const sc = SECTION_STATUS_COLORS[status];
                         const Icon = tab.icon;
                         return (
-                            <button key={tab.key} onClick={() => setActiveTab(tab.key)}
+                            <button key={tab.key} onClick={() => setActiveTab(tab.key as any)}
                                 className={`rounded-xl p-4 border transition-all duration-200 text-left ${sc.bg} ${sc.border} ${activeTab === tab.key ? 'ring-2 ring-offset-2 ring-offset-zinc-950 ring-amber-500 scale-[1.02]' : 'hover:scale-[1.01]'
                                     }`}
                             >
                                 <div className="flex items-center gap-2 mb-2">
+                                    {/* @ts-ignore */}
                                     <Icon className={`h-4 w-4 ${sc.text}`} />
                                     <StatusDot status={status} />
                                 </div>

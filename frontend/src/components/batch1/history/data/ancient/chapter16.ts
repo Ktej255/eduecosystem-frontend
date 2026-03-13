@@ -1,5 +1,4 @@
 import { Subtopic, Question } from '../ancient-types-27';
-import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_16_SUBTOPICS: Subtopic[] = [
     { id: 'origin_growth', name: 'Origin & Growth of Satavahanas' },

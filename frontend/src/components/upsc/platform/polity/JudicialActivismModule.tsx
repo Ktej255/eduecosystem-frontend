@@ -5,12 +5,13 @@ import {
     Megaphone, Gavel, Scale, AlertTriangle,
     CheckSquare, PenTool, Swords, Mic2,
     Construction, ArrowRight, Ban, Activity,
-    Flame
+    Flame, CheckCircle2
 } from "lucide-react";
 
 interface JudicialActivismModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Gavel & The Line (Protest & Activism) ---
@@ -63,13 +64,14 @@ const FencePost = ({ label, type }: { label: string, type: "good" | "bad" }) => 
     </div>
 );
 
-export default function JudicialActivismModule({ onComplete, isCompleted }: JudicialActivismModuleProps) {
+export default function JudicialActivismModule({ onComplete, isCompleted, chapterNumber = "28" }: JudicialActivismModuleProps) {
     return (
         <ActivismContainer>
             {/* HERO */}
             <div className="text-center py-12 relative">
                 <div className="inline-block relative rotate-[-2deg]">
                     <div className="bg-orange-600 text-white px-8 py-2 text-4xl md:text-6xl font-black uppercase tracking-widest shadow-xl transform skew-x-[-10deg]">
+                        <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-black text-white px-3 py-1 text-xs font-bold tracking-widest">CHAPTER {chapterNumber}</div>
                         Judicial Activism
                     </div>
                     <div className="absolute -top-8 -right-8 text-foreground rotate-[15deg]">
@@ -268,7 +270,10 @@ export default function JudicialActivismModule({ onComplete, isCompleted }: Judi
                             }
                         `}
                     >
-                        {isCompleted ? "ORDER PASSED" : "FILE PIL NOW"}
+                        {isCompleted ? 
+                            <span className="flex items-center gap-2 justify-center"><CheckCircle2 size={18} /> CHAPTER {chapterNumber} COMPLETED</span> : 
+                            <span className="flex items-center gap-2 justify-center"><Megaphone size={18} /> MARK CHAPTER {chapterNumber} COMPLETE</span>
+                        }
                     </button>
                 </div>
             </div>

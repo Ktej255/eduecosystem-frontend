@@ -570,8 +570,1127 @@ export const CH14_L1_MCQS: MCQ[] = [
         "tags": [
             "history"
         ]
-    }
-];
+    },
+    {
+        "id": "ch14-d-v6-500",
+        "question": "Which Maury",
+        "options": [
+                "ruler is credited with replacing the policy of Bherighosha with Dhammaghosha?\nA) Chandragupta Maurya",
+                "Bindusara",
+                "Asoka",
+                "with replacing the policy of Bherighosha with Dhammaghosha?\nA) Chandragupta Maurya B) Bindusara C) Asoka D) Dasaratha"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-501",
+        "question": "The Arthasastra,",
+        "options": [
+                "key source for Maurya administration, was compiled by:\nA) Megasthenes",
+                "Kautilya",
+                "Visakhadatta",
+                "by:\nA) Megasthenes B) Kautilya C) Visakhadatta D) Banabhatta"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-502",
+        "question": "According to Megasthenes, the administration of Pataliputr",
+        "options": [
+                "was managed by how many committees?\nA) Four",
+                "Five",
+                "Six",
+                "by how many committees?\nA) Four B) Five C) Six D) Seven"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-503",
+        "question": "The Maury",
+        "options": [
+                "state brought virgin land under cultivation with the help of:\nA) Prisoners of war",
+                "Foreign slaves",
+                "Cultivators an",
+                "under cultivation with the help of:\nA) Prisoners of war B) Foreign slaves C) Cultivators and sudra labourers D) Brahmanas"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-504",
+        "question": "During the Maury",
+        "options": [
+                "period, taxes collected from the peasants generally varied from:\nA) 1/2 to 1/3 of the produce",
+                "1/4 to 1/6 of the produce",
+                "1/8 to 1/10 of the produce",
+                "from the peasants generally varied from:\nA) 1/2 to 1/3 of the produce B) 1/4 to 1/6 of the produce C) 1/8 to 1/10 of the produce D) 1/10 to 1/12 of the produce"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-505",
+        "question": "The state enjoyed",
+        "options": [
+                "monopoly in which of the following economic activities during the Maurya rule?\nA) Mining and metallurgy",
+                "Sale of liquor",
+                "activities during the Maurya rule?\nA) Mining an",
+                "a monopoly in which of the following economic activities during the Maurya rule?\nA) Mining and metallurgy B) Sale of liquor C) Manufacture of arms D) All of the above"
+        ],
+        "correctIndex": 3,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-506",
+        "question": "Which of the following regions was NOT included in the Maury",
+        "options": [
+                "Empire under Asoka?\nA) Eastern Afghanistan",
+                "Baluchistan",
+                "Deep South (Kerala, Tamil Nadu)",
+                "in the Maurya Empire under Asoka?\nA) Eastern Afghanistan B) Baluchistan C) Deep South (Kerala, Tamil Nadu) D) Bengal"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-507",
+        "question": "The Maury",
+        "options": [
+                "military administration was carried out by a board consisting of how many officers?\nA) 20 officers",
+                "30 officers",
+                "40 officers",
+                "out by a board consisting of how many officers?\nA) 20 officers B) 30 officers C) 40 officers D) 50 officers"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-508",
+        "question": "Asoka\u2019s conversion to Buddhism and his remorse over the Kaling",
+        "options": [
+                "War is mentioned in which rock edict?\nA) Major Rock Edict XIII",
+                "Major Rock Edict X",
+                "Minor Rock Edict I",
+                "his remorse over the Kalinga War is mentioned in which rock edict?\nA) Major Rock Edict XIII B) Major Rock Edict X C) Minor Rock Edict I D) Pillar Edict VII"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-509",
+        "question": "The Maury",
+        "options": [
+                "officers entrusted with the regulation of weights and measures were part of the administration of:\nA) The central military",
+                "The provincial capitals",
+                "The city of Pataliputra",
+                "with the regulation of weights and measures were part of the administration of:\nA) The central military B) The provincial capitals C) The city of Pataliputra D) The royal harem"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-510",
+        "question": "Who was the Greek ambassador sent by Seleucus to the court of Chandragupt",
+        "options": [
+                "Maurya?\nA) Deimachus",
+                "Ptolemy",
+                "Megasthenes",
+                "Arrian"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-511",
+        "question": "According to Pliny, Chandragupt",
+        "options": [
+                "Maurya's army consisted of how many foot-soldiers?\nA) 300,000",
+                "400,000",
+                "500,000",
+                "of how many foot-soldiers?\nA) 300,000 B) 400,000 C) 500,000 D) 600,000"
+        ],
+        "correctIndex": 3,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-512",
+        "question": "The term Dhammamahamattas in the Maury",
+        "options": [
+                "period referred to:\nA) Revenue collectors",
+                "Military generals",
+                "Officials appointe",
+                "referred to:\nA) Revenue collectors B) Military generals C) Officials appointed to propagate Dhamma D) Judges of the criminal court"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-513",
+        "question": "The material culture of the Maury",
+        "options": [
+                "period was characterized by the widespread use of:\nA) Bronze tools",
+                "Northern Black Polished Ware (NBPW)",
+                "Painte",
+                "was characterized by the widespread use of:\nA) Bronze tools B) Northern Black Polished Ware (NBPW) C) Painted Grey Ware (PGW) D) Copper Hoards"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-514",
+        "question": "Punch-marked coins of the Maury",
+        "options": [
+                "period were predominantly made of:\nA) Gold",
+                "Silver",
+                "Lea",
+                "coins of the Maurya period were predominantly made of:\nA) Gold B) Silver C) Lead D) Potin"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-515",
+        "question": "Which of the following was",
+        "options": [
+                "major cause for the fall of the Maurya Empire according to R.S. Sharma?\nA) Brahmanical reaction",
+                "Financial crisis",
+                "Oppressive rule in provinces",
+                "All of the above"
+        ],
+        "correctIndex": 3,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-516",
+        "question": "The Maury",
+        "options": [
+                "king who claimed that \"in the happiness of his subjects lay his happiness\" was:\nA) Bimbisara",
+                "Chandragupta Maurya",
+                "Asoka",
+                "that \"in the happiness of his subjects lay his happiness\" was:\nA) Bimbisara B) Chandragupta Maurya C) Asoka D) Brihadratha"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-517",
+        "question": "Which of the following cities was NOT",
+        "options": [
+                "major provincial center during the Maurya period?\nA) Taxila",
+                "Ujjain",
+                "Tosali",
+                "Kanchipuram"
+        ],
+        "correctIndex": 3,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-518",
+        "question": "The last Maury",
+        "options": [
+                "ruler, Brihadratha, was assassinated by his commander-in-chief named:\nA) Agnimitra Sunga",
+                "Pushyamitra Sunga",
+                "Vasudeva Kanva",
+                "by his commander-in-chief named:\nA) Agnimitra Sunga B) Pushyamitra Sunga C) Vasudeva Kanva D) Simuka"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-519",
+        "question": "Maury",
+        "options": [
+                "administration maintained a strict control over artisans. What was the punishment for causing the loss of a hand or an eye to a craftsman?\nA) Heavy fine",
+                "Exile",
+                "Death",
+                "a strict control over artisans. What was the punishment for causing the loss of a hand or an eye to a craftsman?\nA) Heavy fine B) Exile C) Death D) Imprisonment"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-520",
+        "question": "Which Prakrit language served as the lingu",
+        "options": [
+                "franca of the Maurya Empire?\nA) Sauraseni",
+                "Magadhi",
+                "Maharashtri",
+                "as the lingua franca of the Maurya Empire?\nA) Sauraseni B) Magadhi C) Maharashtri D) Paisachi"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-521",
+        "question": "To deal with the problem of floods and irrigation, the Mauryas built the famous Sudarshan",
+        "options": [
+                "Lake in:\nA) Magadha",
+                "Saurashtra",
+                "Kalinga",
+                "irrigation, the Mauryas built the famous Sudarshana Lake in:\nA) Magadha B) Saurashtra C) Kalinga D) Avanti"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-522",
+        "question": "The Mauryan state employed spies widely. They were referred to in the Arthasastr",
+        "options": [
+                "as:\nA) Gudhapurushas",
+                "Rajukas",
+                "Yuktas",
+                "spies widely. They were referred to in the Arthasastra as:\nA) Gudhapurushas B) Rajukas C) Yuktas D) Amatyas"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-523",
+        "question": "The practice of granting land to priests as",
+        "options": [
+                "regular administrative practice:\nA) Peaked under Asoka",
+                "Was common under Chandragupta",
+                "Was virtually absent in the Maurya perio",
+                "to priests as a regular administrative practice:\nA) Peaked under Asoka B) Was common under Chandragupta C) Was virtually absent in the Maurya period D) Replaced cash salaries"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-524",
+        "question": "Consider the following statements regarding the Maury",
+        "options": [
+                "economy:\n\n\nThe state maintained a monopoly over the sale of liquor and the manufacture of arms.\n\n\nThe state actively participated in agriculture by employing slaves and laborers on royal lands (Sita).\n\n\nLand grants to brahmanas were the primary method of revenue collection.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only",
+                "2 and 3 only",
+                "1 an",
+                "a monopoly over the sale of liquor and the manufacture of arms.\n\n\nThe state actively participated in agriculture by employing slaves and laborers on royal lands (Sita).\n\n\nLand grants to brahmanas were the primary method of revenue collection.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only B) 2 and 3 only C) 1 and 3 only D) 1, 2, and 3"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-525",
+        "question": "Which of the following is/are correct regarding the decline of the Maury",
+        "options": [
+                "Empire?\n\n\nAsoka\u2019s pacifist policies completely dismantled the Maurya army.\n\n\nThe massive expenditure on the army and bureaucracy led to a financial crisis.\n\n\nThe oppressive rule of provincial viceroys alienated the subjects.\nSelect the correct answer:\nA) 1 and 2",
+                "2 and 3",
+                "1 an",
+                "the Maurya army.\n\n\nThe massive expenditure on the army and bureaucracy led to a financial crisis.\n\n\nThe oppressive rule of provincial viceroys alienated the subjects.\nSelect the correct"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-526",
+        "question": "With reference to Asoka's Dhamma, consider the following statements:\n\n\nIt was heavily derived from the core metaphysical concepts of Buddhism and aimed at attaining Nirvan",
+        "options": [
+                "It emphasized social responsibility, tolerance among sects, and humane treatment of servants.\nWhich of the statements is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "from the core metaphysical concepts of Buddhism and aimed at attaining Nirvana.\n\n\nIt emphasized social responsibility, tolerance among sects, and humane treatment of servants.\nWhich of the statements is/are correct?\nA) 1 only B) 2 only C) Both 1 and 2 D) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-527",
+        "question": "Match List I (Officials in Maury",
+        "options": [
+                "Administration) with List II (Functions):\nList I\na. Samaharta",
+                "Sannidhata",
+                "Sitadhyaksha",
+                "Rajuka\nList II\n\n\nSuperintendent of agriculture\n\n\nChief custodian of the state treasury\n\n\nCollector General of revenue\n\n\nProvincial officer responsible for justice and land measurement\nOptions:\nA) a-3, b-2, c-1, d-4 B) a-2, b-3, c-1, d-4 C) a-3, b-2, c-4, d-1 D) a-1, b-4, c-3, d-2"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-528",
+        "question": "The spread of Northern Black Polished Ware (NBPW) during the Maury",
+        "options": [
+                "period indicates:\nA) The spread of a uniform material culture across the empire",
+                "The spread of Greek artisti",
+                "influences C) The decline of iron technology",
+                "of Northern Black Polished Ware (NBPW) during the Maurya period indicates:\nA) The spread of a uniform material culture across the empire B) The spread of Greek artistic influences C) The decline of iron technology D) The restriction of trade exclusively to the Gangetic valley"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-529",
+        "question": "Consider the following statements regarding Maury",
+        "options": [
+                "art:\n\n\nThe use of stone for monuments was popularized on a grand scale by Asoka.\n\n\nThe animal capitals on Asokan pillars demonstrate a high degree of artistic polish and realism.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "polish an",
+                "on a grand scale by Asoka.\n\n\nThe animal capitals on Asokan pillars demonstrate a high degree of artistic polish and realism.\nWhich of the statements given above is/are correct?\nA) 1 only B) 2 only C) Both 1 and 2 D) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-530",
+        "question": "In the context of Maury",
+        "options": [
+                "administration, what was the primary function of the Kantakasodhana?\nA) To maintain roads and highways",
+                "To act as criminal courts to protect the state and people",
+                "To regulate foreign trade",
+                "highways B) To act as criminal courts to protect the state and people C) To regulate foreign trade D) To manage the royal elephants"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-531",
+        "question": "Which rock edict of Asok",
+        "options": [
+                "directly mentions the names of Hellenistic kings like Ptolemy, Antigonus, and Magas?\nA) Major Rock Edict I",
+                "Major Rock Edict XIII",
+                "kings like Ptolemy, Antigonus, an",
+                "Magas?\nA) Major Rock Edict I B) Major Rock Edict XIII C) Pillar Edict VII D) Minor Rock Edict II"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-532",
+        "question": "Assertion (",
+        "options": [
+                ": The Mauryan Empire experienced a severe financial crisis in its later stages.\nReason (R): The Mauryan state maintained a massive bureaucracy and a standing army, and Asoka made huge donations to the Buddhist sangha.\nA) Both A and R are true and R is the correct explanation of A",
+                "Both A and R are true but R is not the correct explanation of A",
+                "A is true but R is false",
+                "a severe financial crisis in its later stages.\nReason (R): The Mauryan state maintained a massive bureaucracy and a standing army, and Asoka made huge donations to the Buddhist sangha.\nA) Both A and R are true and R is the correct explanation of A\nB) Both A and R are true but R is not the correct explanation of A\nC) A is true but R is false\nD) A is false but R is true"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-533",
+        "question": "The concept of \"Welfare State\" in the Mauryan period is best reflected by:",
+        "options": [
+                "The monopoly over mining",
+                "The appointment of Dhamma Mahamattas and the creation of medical centers for men and animals",
+                "The strict espionage system",
+                "is best reflected by:\nA) The monopoly over mining B) The appointment of Dhamma Mahamattas and the creation of medical centers for men and animals C) The strict espionage system D) The centralization of the military"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-534",
+        "question": "The strategic importance of Pataliputr",
+        "options": [
+                "as the Maurya capital was due to:\nA) Its location on the Silk Road",
+                "Its proximity to the sea",
+                "importance of Pataliputra as the Maurya capital was due to:\nA) Its location on the Silk Roa",
+                "B) Its proximity to the sea C) Its position as a 'Jaladurga' (water fort) at the confluence of major rivers D) Its elevation in the Vindhya mountains"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-535",
+        "question": "Consider the following regarding the social implications of the Maury",
+        "options": [
+                "rule:\n\n\nIt marked the pinnacle of the orthodox Varna system where Shudras were barred from agricultural labor.\n\n\nThe state actively utilized Shudras as cultivators to expand the agrarian base.\nWhich is correct?\nA) 1 only",
+                "2 only",
+                "Both",
+                "the pinnacle of the orthodox Varna system where Shudras were barred from agricultural labor.\n\n\nThe state actively utilized Shudras as cultivators to expand the agrarian base.\nWhich is correct?\nA) 1 only B) 2 only C) Both D) None"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-536",
+        "question": "Which Greek writer noted that there was no slavery in Indi",
+        "options": [
+                "during the Maurya period?\nA) Strabo",
+                "Megasthenes",
+                "Arrian",
+                "that there was no slavery in India during the Maurya period?\nA) Strabo B) Megasthenes C) Arrian D) Plutarch"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-537",
+        "question": "The Kaling",
+        "options": [
+                "War was a turning point in Asoka's life. Kalinga is located in present-day:\nA) Gujarat",
+                "Bengal",
+                "Odisha",
+                "in present-day:\nA) Gujarat B) Bengal C) Odisha D) Andhra Pradesh"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-538",
+        "question": "In Maury",
+        "options": [
+                "administration, the Pradesikas were:\nA) Village headmen",
+                "District level administrators responsible for revenue and law",
+                "City mayors",
+                "law C) City mayors D) Chief priests"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-539",
+        "question": "The Mauryan art represents",
+        "options": [
+                "transition from:\nA) Stone to wood",
+                "Wood to stone",
+                "Bronze to iron",
+                "B) Wood to stone C) Bronze to iron D) Terracotta to gold"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-540",
+        "question": "The term Bag",
+        "options": [
+                "and Bali during the Maurya period pertained to:\nA) Military ranks",
+                "Sources of royal revenue",
+                "Types of agricultural tools",
+                "Bali during the Maurya period pertained to:\nA) Military ranks B) Sources of royal revenue C) Types of agricultural tools D) Religious rituals"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-541",
+        "question": "The Barabar Hill caves were donated by Asok",
+        "options": [
+                "to which sect?\nA) Buddhists",
+                "Ajivikas",
+                "Jainas",
+                "by Asoka to which sect?\nA) Buddhists B) Ajivikas C) Jainas D) Brahmanas"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-542",
+        "question": "Which of the following is true about the Maury",
+        "options": [
+                "espionage system?\nA) It was practically non-existent.",
+                "It consisted of both stationary and wandering spies.",
+                "Spies were strictly forbidden from listening to public conversations.",
+                "of both stationary and wandering spies. C) Spies were strictly forbidden from listening to public conversations. D) Women were not allowed to act as spies."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-543",
+        "question": "The decline of the Maury",
+        "options": [
+                "Empire was immediately followed by the rise of which dynasty in Magadha?\nA) The Satavahanas",
+                "The Kushans",
+                "The Sungas",
+                "by the rise of which dynasty in Magadha?\nA) The Satavahanas B) The Kushans C) The Sungas D) The Guptas"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-544",
+        "question": "Asoka's Dhamm",
+        "options": [
+                "was essentially:\nA) A sectarian Buddhist doctrine",
+                "A political philosophy",
+                "A moral an",
+                "ethical code of conduct D) A compilation of Vedic rituals"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-545",
+        "question": "Under the Mauryas, the officer known as Rupadarshak",
+        "options": [
+                "was responsible for:\nA) Inspecting prostitutes",
+                "Examining coins",
+                "Supervising royal mints",
+                "Ensuring quality of textiles"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-546",
+        "question": "The widespread use of burnt bricks and ring wells in the Maury",
+        "options": [
+                "period indicates:\nA) The decline of rural agriculture",
+                "The growth of dense urban settlements requiring better sanitation and structures",
+                "Foreign architectural imports",
+                "use of burnt bricks and ring wells in the Maurya period indicates:\nA) The decline of rural agriculture B) The growth of dense urban settlements requiring better sanitation and structures C) Foreign architectural imports D) The need for military fortifications only"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-547",
+        "question": "\"The Maury",
+        "options": [
+                "Empire was not merely an administrative umbrella but an active agent of socio-economic transformation.\" In this context, consider the following statements:\n\n\nThe state established a complex network of economic regulations that penetrated down to the village level, fundamentally altering the tribal egalitarian structures into stratified agrarian societies.\n\n\nThe policy of Dhamma functioned as an ideological tool to consolidate a heterogeneous empire encompassing diverse tribes, sects, and economies.\n\n\nThe absolute centralization of power completely eradicated the existence of local autonomous institutions and guilds.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only",
+                "2 and 3 only",
+                "transformation.\" In this context, consider the following statements:\n\n\nThe state establishe",
+                "a complex network of economic regulations that penetrated down to the village level, fundamentally altering the tribal egalitarian structures into stratified agrarian societies.\n\n\nThe policy of Dhamma functioned as an ideological tool to consolidate a heterogeneous empire encompassing diverse tribes, sects, and economies.\n\n\nThe absolute centralization of power completely eradicated the existence of local autonomous institutions and guilds.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only B) 2 and 3 only C) 1 and 3 only D) 1, 2, and 3"
+        ],
+        "correctIndex": 0,
+        "explanation": "While centralization was strong, guilds and local customs retained internal autonomy; the state did not completely eradicate them.)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-548",
+        "question": "Contemporary debates on the 'Welfare State' often trace indigenous roots to Asokan edicts. Which of the following edict principles aligns closest with the modern concept of public health and environmental ethics?",
+        "options": [
+                "The appointment of Rajukas for rural administration.",
+                "The prohibition of animal sacrifices and the establishment of botanical gardens for medicinal herbs (Major Rock Edict II).",
+                "health an",
+                "environmental ethics?\nA) The appointment of Rajukas for rural administration.\nB) The prohibition of animal sacrifices and the establishment of botanical gardens for medicinal herbs (Major Rock Edict II).\nC) The insistence on respectful behavior toward slaves and servants.\nD) The maintenance of a massive standing army for state defense."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-549",
+        "question": "Analyze the role of iron technology in the expansion of the Maury",
+        "options": [
+                "Empire.\n\n\nThe monopoly over the rich iron ores of the Chotanagpur plateau allowed the Mauryan state to equip its massive army effectively.\n\n\nThe mass production of iron plowshares and axes facilitated the colonization of the dense forests of the middle and lower Gangetic basins.\n\n\nIron technology was completely unknown to the contemporary states of Avanti and Kosala, giving Magadha an exclusive technological edge.\nWhich of the statements is/are correct?\nA) 1 and 2 only",
+                "2 and 3 only",
+                "basins.\n\n\nIron technology was completely unknown to the contemporary states of Avanti an",
+                "the Mauryan state to equip its massive army effectively.\n\n\nThe mass production of iron plowshares and axes facilitated the colonization of the dense forests of the middle and lower Gangetic basins.\n\n\nIron technology was completely unknown to the contemporary states of Avanti and Kosala, giving Magadha an exclusive technological edge.\nWhich of the statements is/are correct?\nA) 1 and 2 only B) 2 and 3 only C) 1 only D) 1, 2, and 3"
+        ],
+        "correctIndex": 0,
+        "explanation": "Iron was known to Avanti (Ujjain was a major iron working center), so Magadha did not have an exclusive technological edge, but its proximity to the richest mines was a massive advantage.)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-550",
+        "question": "Historiographically, the decline of the Maury",
+        "options": [
+                "Empire is highly debated. Match the historian/scholar with their primary theory of the empire's decline:\nList I\na. Haraprasad Sastri",
+                "Hemchandra Raychaudhuri",
+                "",
+                "Match the historian/scholar with their primary theory of the empire's decline:\nList I\na. Haraprasad Sastri\nb. Hemchandra Raychaudhuri\nc. D.D. Kosambi\nd. Romila Thapar\nList II\n\n\nEconomic crisis and top-heavy administration\n\n\nBrahmanical reaction against Asoka's pro-Buddhist policies\n\n\nExtreme centralization and lack of national consciousness\n\n\nAsoka's pacifist policies (Ahimsa) weakening the military\nOptions:\nA) a-2, b-4, c-1, d-3 B) a-4, b-2, c-3, d-1 C) a-2, b-1, c-4, d-3 D) a-3, b-4, c-1, d-2"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-551",
+        "question": "Consider the following statements regarding the geo-political strategies of the Mauryan State:\n\n\nThe Arthasastr",
+        "options": [
+                "advocates the Mandala theory, recognizing neighboring states as natural enemies and their neighbors as natural allies.\n\n\nAsoka's foreign policy post-Kalinga was purely isolationist, severing all diplomatic ties with Hellenistic kingdoms to focus on internal Dhamma.\nWhich is/are correct?\nA) 1 only",
+                "2 only",
+                "ties with Hellenistic kingdoms to focus on internal Dhamma.\nWhich is/are correct?\nA) 1 only B) 2 only C) Both 1 an",
+                "their neighbors as natural allies.\n\n\nAsoka's foreign policy post-Kalinga was purely isolationist, severing all diplomatic ties with Hellenistic kingdoms to focus on internal Dhamma.\nWhich is/are correct?\nA) 1 only B) 2 only C) Both 1 and 2 D) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Asoka maintained robust diplomatic and cultural ties with Hellenistic kings, as evidenced by his edicts.)",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-552",
+        "question": "The recent archaeological focus on the \"Second Urbanization\" highlights the Mauryan period's role. Which archaeological markers are definitive proof of state-sponsored urbanization during this era?",
+        "options": [
+                "The exclusive use of Copper Hoard implements",
+                "The proliferation of NBPW, punch-marked coins, and ring wells",
+                "The dominance of Painte",
+                "Urbanization\" highlights the Mauryan period's role. Which archaeological markers are definitive proof of state-sponsored urbanization during this era?\nA) The exclusive use of Copper Hoard implements B) The proliferation of NBPW, punch-marked coins, and ring wells C) The dominance of Painted Grey Ware (PGW) D) The emergence of the Indus script"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-553",
+        "question": "With reference to the linguistic and cultural integration under the Mauryas, consider the following:\n\n\nPrakrit, written in Brahmi, functioned as",
+        "options": [
+                "unifying administrative language across the majority of the subcontinent.\n\n\nThe state actively suppressed regional dialects and scripts like Kharosthi to ensure complete uniformity.\nWhich is correct?\nA) 1 only",
+                "2 only",
+                "an",
+                "cultural integration under the Mauryas, consider the following:\n\n\nPrakrit, written in Brahmi, functioned as a unifying administrative language across the majority of the subcontinent.\n\n\nThe state actively suppressed regional dialects and scripts like Kharosthi to ensure complete uniformity.\nWhich is correct?\nA) 1 only B) 2 only C) Both 1 and 2 D) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Asoka used Kharosthi, Greek, and Aramaic in the north-west, showing linguistic pragmatism, not suppression.)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-554",
+        "question": "Which of the following best describes the economic nature of the 'Sita' lands in the Arthasastra?",
+        "options": [
+                "Lands donated exclusively to Buddhist monasteries.",
+                "Crown lands cultivated directly under the supervision of the state using hired laborers, slaves, and prisoners.",
+                "nature of the 'Sita' lands in the Arthasastra?\nA) Lands donate",
+                "exclusively to Buddhist monasteries.\nB) Crown lands cultivated directly under the supervision of the state using hired laborers, slaves, and prisoners.\nC) Waste lands that were deemed unfit for cultivation.\nD) Lands owned communally by tribal republics within the empire."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-555",
+        "question": "The concept of Dandaniti in the Arthasastr",
+        "options": [
+                "emphasizes:\nA) The primacy of religious law over secular law",
+                "The necessity of coercion and state power to maintain order and protect Dharma",
+                "The absolute abolition of capital punishment",
+                "state power to maintain order and protect Dharma C) The absolute abolition of capital punishment D) The decentralized, democratic administration of justice"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-556",
+        "question": "Consider the following regarding the Maury",
+        "options": [
+                "census:\n\n\nThe state maintained demographic data for taxation and military conscription.\n\n\nIt recorded castes, occupations, and livestock.\nA) 1 only",
+                "2 only",
+                "data for taxation an",
+                "demographic data for taxation and military conscription.\n\n\nIt recorded castes, occupations, and livestock.\nA) 1 only B) 2 only C) Both D) None"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-557",
+        "question": "Which of the following reflects",
+        "options": [
+                "continuity from Mauryan administrative practices to modern Indian governance?\nA) Hereditary succession of provincial governors",
+                "The use of the Lion Capital as a state emblem and the concept of a welfare-oriented state",
+                "The monopoly over all manufacturing industries",
+                "the concept of a welfare-oriented state C) The monopoly over all manufacturing industries D) The use of espionage to control economic markets"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-558",
+        "question": "In the context of ancient Indian history, the Mauryan er",
+        "options": [
+                "represents a shift from:\nA) Territorial states (Mahajanapadas) to a Pan-Indian Empire",
+                "Agrarian economy to a purely pastoral economy",
+                "Urbanization to de-urbanization",
+                "Heterodox sects to Vedic orthodoxy"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-559",
+        "question": "According to D.D. Kosambi,",
+        "options": [
+                "major economic reason for the decline of the Mauryan empire was:\nA) The exhaustion of silver leading to debasement of punch-marked coins",
+                "The collapse of the Silk Road trade",
+                "reason for the decline of the Mauryan empire was:\nA) The exhaustion of silver leading to debasement of punch-marke",
+                "D. Kosambi, a major economic reason for the decline of the Mauryan empire was:\nA) The exhaustion of silver leading to debasement of punch-marked coins B) The collapse of the Silk Road trade C) Frequent famines D) The shift from agriculture to trade"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-560",
+        "question": "What impact did the Mauryan state have on the Varn",
+        "options": [
+                "system?\nA) It abolished the Varna system entirely.",
+                "It utilized the Varna system to relegate Shudras to organized agrarian labor, cementing social stratification.",
+                "It made Shudras the ruling class.",
+                "the Mauryan state have on the Varna system?\nA) It abolished the Varna system entirely. B) It utilized the Varna system to relegate Shudras to organized agrarian labor, cementing social stratification. C) It made Shudras the ruling class. D) It forced all Varnas into military service."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-561",
+        "question": "\"Asoka's Dhamm",
+        "options": [
+                "was a pragmatic tool to hold a diverse empire together.\" This view challenges the traditional narrative that Asoka:\nA) Was a shrewd politician",
+                "Became a devout pacifist monk who neglected statecraft",
+                "tool to hol",
+                "a diverse empire together.\" This view challenges the traditional narrative that Asoka:\nA) Was a shrewd politician B) Became a devout pacifist monk who neglected statecraft C) Maintained a large army D) Promoted trade"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-562",
+        "question": "The Maury",
+        "options": [
+                "state\u2019s policy towards forests and tribes was:\nA) Complete non-interference",
+                "Paternalisti",
+                "but strictly monitore",
+                "tribes was:\nA) Complete non-interference B) Paternalistic but strictly monitored to exploit forest resources (elephants, timber) and secure trade routes C) Enslaving all tribal populations D) Converting all forests to agricultural land"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-563",
+        "question": "Which modern constitutional principle resonates with the Mauryan appointment of Ant",
+        "options": [
+                "Mahamattas (officers of the borders)?\nA) Federalism",
+                "Frontier diplomacy and border security integration",
+                "Secularism",
+                "border security integration C) Secularism D) Judicial review"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-564",
+        "question": "Which of the following statements about Megasthenes' Indik",
+        "options": [
+                "is true?\nA) It perfectly mirrors the Arthasastra in all details.",
+                "It inaccurately categorizes Indian society into seven classes based on occupation rather than the traditional four Varnas.",
+                "It provides a detaile",
+                "on occupation rather than the traditional four Varnas. C) It provides a detailed account of Asoka's Dhamma. D) It was written in Sanskrit."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-565",
+        "question": "Consider the role of women in the Mauryan state:\n\n\nWomen were employed as royal bodyguards.\n\n\nThe Arthasastr",
+        "options": [
+                "details laws regarding marriage, divorce, and women's property (Stridhana).\nWhich is correct?\nA) 1 only",
+                "2 only",
+                "Both",
+                "as royal bodyguards.\n\n\nThe Arthasastra details laws regarding marriage, divorce, and women's property (Stridhana).\nWhich is correct?\nA) 1 only B) 2 only C) Both D) None"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-566",
+        "question": "What was the socio-political implication of Asoka's prohibition of festive gatherings (Samaj",
+        "options": [
+                "?\nA) It was an economic measure to save money.",
+                "It was a move to prevent publi",
+                "measure to save money. B) It was a move to prevent public assemblies that coul",
+                "turn into political rebellions and to curb animal sacrifices. C) It aimed to promote Greek culture. D) It was meant to force people to work longer hours."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-567",
+        "question": "The decline of the Maury",
+        "options": [
+                "Empire allowed for the infiltration of Central Asian tribes. The primary structural weakness that facilitated this was:\nA) The total absence of a standing army",
+                "The division of the empire post-Asoka and the lack of a strong central authority",
+                "The complete exhaustion of iron reserves",
+                "for the infiltration of Central Asian tribes. The primary structural weakness that facilitated this was:\nA) The total absence of a standing army B) The division of the empire post-Asoka and the lack of a strong central authority C) The complete exhaustion of iron reserves D) The conversion of the entire population to Buddhism"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-568",
+        "question": "In understanding the Mauryan economy, the term Adevamatrik",
+        "options": [
+                "refers to:\nA) Land depending purely on rainfall",
+                "Land that yields crops with the help of irrigation and does not rely solely on rain",
+                "Lan",
+                "depending purely on rainfall B) Land that yields crops with the help of irrigation and does not rely solely on rain C) Land owned by temples D) Tax-exempt land"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch14-d-v6-569",
+        "question": "\"The Maury",
+        "options": [
+                "state's extreme control over economic life was its greatest strength but also its fatal flaw.\" This argument posits that:\nA) The state became too wealthy, causing inflation.",
+                "The top-heavy bureaucracy and massive army drained the surplus, leading to economi",
+                "life was its greatest strength but also its fatal flaw.\" This argument posits that:\nA) The state became too wealthy, causing inflation. B) The top-heavy bureaucracy an",
+                "massive army drained the surplus, leading to economic exhaustion when expansion halted. C) The state abolished currency. D) The guilds rebelled against the state."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},];
 export const CH14_L2_MCQS: MCQ[] = [
     {
         "id": "ch14-d-32",

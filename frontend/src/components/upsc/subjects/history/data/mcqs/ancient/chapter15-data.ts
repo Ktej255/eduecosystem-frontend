@@ -576,8 +576,999 @@ export const CH15_L1_MCQS: MCQ[] = [
         "tags": [
             "history"
         ]
-    }
-];
+    },
+    {
+        "id": "ch15-d-v6-500",
+        "question": "Menander\u2019s philosophical queries to",
+        "options": [
+                "Buddhist monk are recorded in the text Milinda Panho. Who was this monk?\nA) Ashvaghosha",
+                "Vasumitra",
+                "Nagasena",
+                "in the text Milinda Panho. Who was this monk?\nA) Ashvaghosha B) Vasumitra C) Nagasena D) Nagarjuna"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-501",
+        "question": "Which of the following dynasties was the first to issue gold coins in Indi",
+        "options": [
+                "on a significant scale?\nA) Mauryas",
+                "Indo-Greeks",
+                "Shakas",
+                "coins in India on a significant scale?\nA) Mauryas B) Indo-Greeks C) Shakas D) Guptas"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-502",
+        "question": "The Shakas (Scythians) came to Indi",
+        "options": [
+                "from Central Asia. How many main branches of the Shakas settled in India and Afghanistan?\nA) Three",
+                "Four",
+                "Five",
+                "in India and Afghanistan?\nA) Three B) Four C) Five D) Six"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-503",
+        "question": "In 58 BC,",
+        "options": [
+                "king of Ujjain supposedly defeated the Shakas and established a new era. What is the name of this era?\nA) Shaka Era",
+                "Vikram Samvat",
+                "Gupta Era",
+                "the Shakas and established a new era. What is the name of this era?\nA) Shaka Era B) Vikram Samvat C) Gupta Era D) Harsha Era"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-504",
+        "question": "The most famous Shak",
+        "options": [
+                "ruler in India, known for his military conquests and public works, was:\nA) Nahapana",
+                "Rudradaman I",
+                "works, was:\nA) Nahapana B) Rudradaman I C) Chastana",
+                "public works, was:\nA) Nahapana B) Rudradaman I C) Chastana D) Azes"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-505",
+        "question": "Rudradaman I is famously known for repairing the Sudarshan",
+        "options": [
+                "Lake, which was originally constructed by the:\nA) Indo-Greeks",
+                "Mauryas",
+                "Kushans",
+                "by the:\nA) Indo-Greeks B) Mauryas C) Kushans D) Satavahanas"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-506",
+        "question": "The Parthians (Pahlavas) moved into Indi",
+        "options": [
+                "after the Shakas. The most famous Parthian king was:\nA) Gondophernes",
+                "Maues",
+                "Kadphises",
+                "into India after the Shakas. The most famous Parthian king was:\nA) Gondophernes B) Maues C) Kadphises D) Vasudeva"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-507",
+        "question": "According to Christian tradition, which apostle visited Indi",
+        "options": [
+                "during the reign of the Parthian king Gondophernes?\nA) St. Peter",
+                "St. Paul",
+                "St. Thomas",
+                "India during the reign of the Parthian king Gondophernes?\nA) St. Peter B) St. Paul C) St. Thomas D) St. Mark"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-508",
+        "question": "The Kushan empire in Indi",
+        "options": [
+                "reached its zenith under which ruler?\nA) Kujula Kadphises",
+                "Vima Kadphises",
+                "Kanishka",
+                "its zenith under which ruler?\nA) Kujula Kadphises B) Vima Kadphises C) Kanishka D) Huvishka"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-509",
+        "question": "The Shak",
+        "options": [
+                "Era, which is used as the Indian National Calendar, was founded in:\nA) 58 BC",
+                "78 AD",
+                "B) 78 A",
+                "as the Indian National Calendar, was founded in:\nA) 58 BC B) 78 AD C) 120 AD D) 320 AD"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-510",
+        "question": "Kanishk",
+        "options": [
+                "established his primary capital at Purushapura. What is the modern name of this city?\nA) Lahore",
+                "Kabul",
+                "Peshawar",
+                "his primary capital at Purushapura. What is the modern name of this city?\nA) Lahore B) Kabul C) Peshawar D) Multan"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-511",
+        "question": "Which Buddhist Council was held during the reign of Kanishk",
+        "options": [
+                "in Kashmir?\nA) First",
+                "Second",
+                "Thir",
+                "during the reign of Kanishka in Kashmir?\nA) First B) Second C) Third D) Fourth"
+        ],
+        "correctIndex": 3,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-512",
+        "question": "The Central Asian invaders introduced which of the following items into Indi",
+        "options": [
+                "for the first time?\nA) Chariots",
+                "Iron axes",
+                "Stirrups, boots, an",
+                "which of the following items into India for the first time?\nA) Chariots B) Iron axes C) Stirrups, boots, and long coats D) Elephant warfare"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-513",
+        "question": "The Kushans adopted the title of \"Devaputra\" (Son of Heaven). This concept was borrowed from the:",
+        "options": [
+                "Greeks",
+                "Romans",
+                "Chinese",
+                "the title of \"Devaputra\" (Son of Heaven). This concept was borrowed from the:\nA) Greeks B) Romans C) Chinese D) Persians"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-514",
+        "question": "Which material was predominantly used in the early Mathur",
+        "options": [
+                "School of Art?\nA) Blue-grey schist",
+                "Red sandstone",
+                "White marble",
+                "in the early Mathura School of Art?\nA) Blue-grey schist B) Red sandstone C) White marble D) Granite"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-515",
+        "question": "The Varn",
+        "options": [
+                "system assimilated the Central Asian conquerors (Shakas, Kushans) into Hindu society primarily as:\nA) Brahmanas",
+                "Second-class Kshatriyas (Vratya Kshatriyas)",
+                "Vaishyas",
+                "the Central Asian conquerors (Shakas, Kushans) into Hindu society primarily as:\nA) Brahmanas B) Second-class Kshatriyas (Vratya Kshatriyas) C) Vaishyas D) Shudras"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-516",
+        "question": "Mathur",
+        "options": [
+                "became the second capital of which of the following dynasties?\nA) Indo-Greeks",
+                "Shakas",
+                "Kushans",
+                "capital of which of the following dynasties?\nA) Indo-Greeks B) Shakas C) Kushans D) Parthians"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-517",
+        "question": "The practice of military governorship introduced by the Greeks in Indi",
+        "options": [
+                "was called:\nA) Strategos",
+                "Amatya",
+                "Mahamatra",
+                "by the Greeks in India was called:\nA) Strategos B) Amatya C) Mahamatra D) Rajuka"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-518",
+        "question": "Consider the following statements regarding the Indo-Greeks:\n\n\nThey were the first rulers in Indi",
+        "options": [
+                "to issue coins which can be definitively attributed to kings.\n\n\nThey were the first to issue gold coins in India.\n\n\nMenander, their most famous ruler, was completely hostile to Buddhism and destroyed monasteries.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only",
+                "2 and 3 only",
+                "1 an",
+                "to kings.\n\n\nThey were the first to issue gold coins in India.\n\n\nMenander, their most famous ruler, was completely hostile to Buddhism and destroyed monasteries.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only B) 2 and 3 only C) 1 and 3 only D) 1, 2, and 3"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-519",
+        "question": "Arrange the following foreign invasions of ancient Indi",
+        "options": [
+                "in correct chronological order:\n\n\nShakas\n\n\nIndo-Greeks\n\n\nKushans\n\n\nParthians\nSelect the correct answer using the code given below:\nA) 2-1-4-3",
+                "1-2-3-4",
+                "2-4-1-3",
+                "4-2-1-3"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-520",
+        "question": "With reference to the impact of Central Asian contacts on Indian warfare, which of the following statements is/are correct?\n\n\nThe Shakas and Kushans introduced better cavalry by using reins, saddles, and toe-stirrups.\n\n\nThey introduced the use of turbans and simple dhotis for cavalrymen to ensure agility.\nSelect the correct answer:",
+        "options": [
+                "1 only",
+                "2 only",
+                "Both 1 an",
+                "Kushans introduced better cavalry by using reins, saddles, and toe-stirrups.\n\n\nThey introduced the use of turbans and simple dhotis for cavalrymen to ensure agility.\nSelect the correct"
+        ],
+        "correctIndex": 0,
+        "explanation": "They introduced tunics, trousers, and heavy long coats/boots for riding, not dhotis).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-521",
+        "question": "Match List-I (Ruler) with List-II (Associated Fact):\nList-I",
+        "options": [
+                "Menander",
+                "Rudradaman I",
+                "Gondophernes",
+                "Fact):\nList-I\na. Menander\nb. Rudradaman I\nc. Gondophernes\nd. Kanishka\nList-II\n\n\nRebuilding of Sudarshana Lake\n\n\nArrival of St. Thomas\n\n\nPatron of the Fourth Buddhist Council\n\n\nDialogue with Nagasena\nOptions:\nA) a-4, b-1, c-2, d-3 B) a-1, b-4, c-3, d-2 C) a-4, b-2, c-1, d-3 D) a-3, b-1, c-2, d-4"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-522",
+        "question": "Assertion (",
+        "options": [
+                ": The Kushan period witnessed a massive boom in trade and commerce.\nReason (R): The Kushans controlled the Silk Route passing through Central Asia, which brought immense wealth through tolls and taxes.\nA) Both A and R are true and R is the correct explanation of A",
+                "Both A and R are true but R is not the correct explanation of A",
+                "A is true but R is false",
+                "witnessed a massive boom in trade and commerce.\nReason (R): The Kushans controlled the Silk Route passing through Central Asia, which brought immense wealth through tolls and taxes.\nA) Both A and R are true and R is the correct explanation of A\nB) Both A and R are true but R is not the correct explanation of A\nC) A is true but R is false\nD) A is false but R is true"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-523",
+        "question": "Consider the following statements about the Mathur",
+        "options": [
+                "School of Art:\n\n\nIt was heavily influenced by Hellenistic (Greek) techniques and motifs.\n\n\nIt primarily used red sandstone.\n\n\nIt produced images of not only Buddha but also of Mahavira and Brahmanical deities.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only",
+                "2 and 3 only",
+                "(Greek) techniques an",
+                "by Hellenistic (Greek) techniques and motifs.\n\n\nIt primarily used red sandstone.\n\n\nIt produced images of not only Buddha but also of Mahavira and Brahmanical deities.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only B) 2 and 3 only C) 1 and 3 only D) 1, 2, and 3"
+        ],
+        "correctIndex": 1,
+        "explanation": "Gandhara art was influenced by Hellenistic features; Mathura was primarily indigenous).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-524",
+        "question": "The Junagarh Rock Inscription of Rudradaman is significant for ancient Indian history because:",
+        "options": [
+                "It records the victory of Ashoka over Kalinga.",
+                "It is the first major royal inscription in classical, chaste Sanskrit.",
+                "It documents the invasion of Alexander the Great.",
+                "It outlines the exact trade route to the Roman Empire."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-525",
+        "question": "In the context of ancient Indian polity, the \"Satrap\" system introduced by the Shakas and Kushans meant:",
+        "options": [
+                "Absolute centralization of power in the hands of the king.",
+                "A system where the empire was divided into provinces, each ruled by a military governor (Satrap) who enjoyed considerable autonomy.",
+                "Rule by an oligarchy of merchants.",
+                "by the Shakas and Kushans meant:\nA) Absolute centralization of power in the hands of the king. B) A system where the empire was divided into provinces, each ruled by a military governor (Satrap) who enjoyed considerable autonomy. C) Rule by an oligarchy of merchants. D) A democratic republic at the village level."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-526",
+        "question": "Consider the following statements regarding the Mahayan",
+        "options": [
+                "sect of Buddhism:\n\n\nIt emerged heavily during the Kushan period.\n\n\nIt advocated the worship of Buddha as a god using images.\n\n\nIt rejected the concept of Bodhisattvas.\nWhich of the statements is/are correct?\nA) 1 and 2 only",
+                "2 and 3 only",
+                "1 an",
+                "heavily during the Kushan period.\n\n\nIt advocated the worship of Buddha as a god using images.\n\n\nIt rejected the concept of Bodhisattvas.\nWhich of the statements is/are correct?\nA) 1 and 2 only B) 2 and 3 only C) 1 and 3 only D) 1, 2, and 3"
+        ],
+        "correctIndex": 0,
+        "explanation": "Mahayana actually introduced and emphasized the concept of Bodhisattvas).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-527",
+        "question": "Which of the following technological or cultural items was NOT introduced by the Central Asian contacts during the post-Mauryan era?",
+        "options": [
+                "Use of burnt bricks for flooring and roofing",
+                "Leather shoes and boots",
+                "Iron metallurgy",
+                "by the Central Asian contacts during the post-Mauryan era?\nA) Use of burnt bricks for flooring and roofing B) Leather shoes and boots C) Iron metallurgy D) Equestrian equipment like saddles"
+        ],
+        "correctIndex": 2,
+        "explanation": "Iron was already widely used since the Later Vedic and Mauryan periods).\n\n\n(Questions 41-60 follow the same moderate format testing conceptual clarity on economy, administration, and socio-religious changes).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-528",
+        "question": "The term 'Yavanika', widely used in ancient Sanskrit literature, refers to:",
+        "options": [
+                "A Greek coin",
+                "A type of silk cloth",
+                "The curtain use",
+                "in ancient Sanskrit literature, refers to:\nA) A Greek coin B) A type of silk cloth C) The curtain used in Indian theatre D) A Central Asian sword"
+        ],
+        "correctIndex": 2,
+        "explanation": "Borrowed from Greek theater practices).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-529",
+        "question": "The joint rule of two kings (",
+        "options": [
+                "father and son) ruling at the same time is a feature primarily associated with:\nA) Mauryas",
+                "Indo-Greeks and Shakas",
+                "Guptas",
+                "son) ruling at the same time is a feature primarily associated with:\nA) Mauryas B) Indo-Greeks and Shakas C) Guptas D) Vardhanas"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-530",
+        "question": "Consider the following texts:\n\n\nMahavastu\n\n\nDivyavadan",
+        "options": [
+                "Saundarananda\nWhich of the above are associated with the Buddhist literary surge during/around the Kushan period?\nA) 1 and 2 only",
+                "2 and 3 only",
+                "1 an",
+                "with the Buddhist literary surge during/around the Kushan period?\nA) 1 and 2 only B) 2 and 3 only C) 1 and 3 only D) 1, 2, and 3"
+        ],
+        "correctIndex": 3,
+        "explanation": "",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-531",
+        "question": "Which one of the following statements about the Gandhar",
+        "options": [
+                "School of Art is incorrect?\nA) It flourished under the patronage of the Kushans.",
+                "The physical features of the Buddha were modeled on Greek gods like Apollo.",
+                "It completely replace",
+                "under the patronage of the Kushans. B) The physical features of the Buddha were modeled on Greek gods like Apollo. C) It completely replaced the indigenous Mathura School of Art. D) It extensively used bluish-grey sandstone and stucco."
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-532",
+        "question": "Who among the following is not considered",
+        "options": [
+                "contemporary of Kanishka?\nA) Ashvaghosha",
+                "Nagarjuna",
+                "Vasumitra",
+                "a contemporary of Kanishka?\nA) Ashvaghosha B) Nagarjuna C) Vasumitra D) Kalidasa"
+        ],
+        "correctIndex": 3,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-533",
+        "question": "The \"Headless statue of Kanishka\" is",
+        "options": [
+                "famous artifact belonging to which school of art?\nA) Gandhara",
+                "Mathura",
+                "Amravati",
+                "Sarnath"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-534",
+        "question": "Central Asian contacts gave",
+        "options": [
+                "massive boost to Indian astronomy. Which Greek term became an Indian term for astrology/horoscope?\nA) Drachma",
+                "Hora",
+                "Yavana",
+                "Strategos"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-535",
+        "question": "The Kushan empire acted as",
+        "options": [
+                "cultural bridge between:\nA) India, China, Persia, and the Greco-Roman world",
+                "India, Southeast Asia, and Australia",
+                "India an",
+                "as a cultural bridge between:\nA) India, China, Persia, and the Greco-Roman world B) India, Southeast Asia, and Australia C) India and Sub-Saharan Africa D) India and the Americas"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-536",
+        "question": "Which Central Asian ruler is famously depicted on his coins wearing",
+        "options": [
+                "tall helmet, heavy coat, and riding a horse or sacrificing at an altar?\nA) Menander",
+                "Rudradaman",
+                "Kanishka",
+                "on his coins wearing a tall helmet, heavy coat, and riding a horse or sacrificing at an altar?\nA) Menander B) Rudradaman C) Kanishka D) Gondophernes"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-537",
+        "question": "The Shakas divided their empire into different satrapies. Which of the following was NOT",
+        "options": [
+                "prominent center of Shaka power?\nA) Taxila",
+                "Mathura",
+                "Ujjain",
+                "their empire into different satrapies. Which of the following was NOT a prominent center of Shaka power?\nA) Taxila B) Mathura C) Ujjain D) Pataliputra"
+        ],
+        "correctIndex": 3,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-538",
+        "question": "Assertion (",
+        "options": [
+                ": The post-Mauryan era saw a decline in the rigid purity of the Brahmanical Varna system in North-Western India.\nReason (R): The continuous influx of Central Asian tribes led to intermixing and their eventual assimilation into Indian society as Kshatriyas.\nA) Both A and R are true and R is the correct explanation of A",
+                "Both A and R are true but R is not the correct explanation of A",
+                "A is true but R is false",
+                "purity of the Brahmanical Varna system in North-Western India.\nReason (R): The continuous influx of Central Asian tribes led to intermixing and their eventual assimilation into Indian society as Kshatriyas.\nA) Both A and R are true and R is the correct explanation of A\nB) Both A and R are true but R is not the correct explanation of A\nC) A is true but R is false\nD) A is false but R is true"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-539",
+        "question": "Ashvaghosha\u2019s Buddhacharit",
+        "options": [
+                "is significant because:\nA) It is the first Buddhist text written purely in Pali.",
+                "It marks a shift towards using Sanskrit for Buddhist literature.",
+                "It is the foundational text of Hinayana Buddhism.",
+                "It contains the earliest reference to the caste system."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-540",
+        "question": "Consider the following regarding trade routes during the Kushan period:\n\n\nThe Kushans ensured the security of the Silk Route from Chinese incursions.\n\n\nIndian merchants extensively participated as middlemen in the silk trade between Chin",
+        "options": [
+                "and the Roman Empire.\nWhich is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "the security of the Silk Route from Chinese incursions.\n\n\nIndian merchants extensively participated as middlemen in the silk trade between China and the Roman Empire.\nWhich is/are correct?\nA) 1 only B) 2 only C) Both 1 and 2 D) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-541",
+        "question": "The concept of \"Devakula\" (royal shrine) where statues of deceased kings were installed for worship was introduced in Indi",
+        "options": [
+                "by the:\nA) Mauryas",
+                "Indo-Greeks",
+                "Kushans",
+                "kings were installed for worship was introduced in India by the:\nA) Mauryas B) Indo-Greeks C) Kushans D) Guptas"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-542",
+        "question": "The term Dinar, denoting",
+        "options": [
+                "gold coin in ancient India, was derived from the:\nA) Greeks",
+                "Romans",
+                "Persians",
+                "coin in ancient India, was derived from the:\nA) Greeks B) Romans C) Persians D) Chinese"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-543",
+        "question": "\"The Central Asian incursions into Indi",
+        "options": [
+                "were not merely destructive raids, but deeply transformative migrations that fundamentally altered the socio-cultural fabric of the subcontinent.\" In this context, consider the following statements:\n\n\nUnlike the British in modern times, the Shakas and Kushans did not drain wealth to a mother country but completely integrated into the Indian agrarian and economic system.\n\n\nThe concept of the divine right of kings was radically altered by the Kushans, shifting from the Mauryan ideal of the king as a 'paternal figure' to the king as a 'God on earth' (Devaputra).\n\n\nThe indigenous Indian population forced the complete abandonment of Central Asian attire and customs by the invaders within a single generation.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only",
+                "2 and 3 only",
+                "of the subcontinent.\" In this context, consider the following statements:\n\n\nUnlike the British in modern times, the Shakas an",
+                "the socio-cultural fabric of the subcontinent.\" In this context, consider the following statements:\n\n\nUnlike the British in modern times, the Shakas and Kushans did not drain wealth to a mother country but completely integrated into the Indian agrarian and economic system.\n\n\nThe concept of the divine right of kings was radically altered by the Kushans, shifting from the Mauryan ideal of the king as a 'paternal figure' to the king as a 'God on earth' (Devaputra).\n\n\nThe indigenous Indian population forced the complete abandonment of Central Asian attire and customs by the invaders within a single generation.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only B) 2 and 3 only C) 1 and 3 only D) 1, 2, and 3"
+        ],
+        "correctIndex": 0,
+        "explanation": "The invaders retained and introduced much of their culture, like riding boots, coats, and horse-riding gear; they did not abandon it, rather Indian society adopted parts of it.)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-544",
+        "question": "The transition of Buddhism from Hinayan",
+        "options": [
+                "to Mahayana during the Kushan period reflects a profound socio-economic shift. Which of the following socio-economic factors best explains this religious transformation?\nA) The absolute poverty of the masses forcing them to pray to a savior deity.",
+                "The patronization by wealthy merchants and foreign kings who required a more inclusive, accommodating, and visually opulent religion than the austere early Buddhism.",
+                "shift. Which of the following socio-economic factors best explains this religious transformation?\nA) The absolute poverty of the masses forcing them to pray to a savior deity.\nB) The patronization by wealthy merchants an",
+                "reflects a profound socio-economic shift. Which of the following socio-economic factors best explains this religious transformation?\nA) The absolute poverty of the masses forcing them to pray to a savior deity.\nB) The patronization by wealthy merchants and foreign kings who required a more inclusive, accommodating, and visually opulent religion than the austere early Buddhism.\nC) The direct military orders of Kanishka to persecute all Hinayana monks.\nD) The complete collapse of the Brahmanical religion, leaving a vacuum for idol worship."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-545",
+        "question": "Historiographically, the assimilation of foreign tribes into the Indian Varn",
+        "options": [
+                "system (as Vratya Kshatriyas) demonstrates:\nA) The rigidity and closed nature of the ancient Indian social system.",
+                "The absolute lack of military resistance by Indian kings.",
+                "The immense absorptive capacity an",
+                "closed nature of the ancient Indian social system.\nB) The absolute lack of military resistance by Indian kings.\nC) The immense absorptive capacity and pragmatic flexibility of the Brahmanical social order when faced with politically dominant outsiders.\nD) The foreign tribes' voluntary submission to the spiritual superiority of the Brahmins."
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-546",
+        "question": "Consider the impact of the Silk Route on the ancient Indian economy during the Kushan er",
+        "options": [
+                "The route bypassed India entirely, but the Kushans collected transit taxes from Central Asian nodes.\n\n\nThe Kushans provided safe passage for merchants, which led to a massive influx of Roman gold into India, an economic reality lamented by Roman historians like Pliny.\n\n\nIndia primarily exported raw silk to Rome, outcompeting China.\nWhich of the statements is/are correct?\nA) 1 and 2",
+                "2 only",
+                "reality lamente",
+                "India entirely, but the Kushans collected transit taxes from Central Asian nodes.\n\n\nThe Kushans provided safe passage for merchants, which led to a massive influx of Roman gold into India, an economic reality lamented by Roman historians like Pliny.\n\n\nIndia primarily exported raw silk to Rome, outcompeting China.\nWhich of the statements is/are correct?\nA) 1 and 2 B) 2 only C) 2 and 3 D) 1, 2, and 3"
+        ],
+        "correctIndex": 1,
+        "explanation": "Route 1 did not bypass India; feeder routes came down the Indus. India exported spices, textiles, and gems, but the silk was Chinese.)",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-547",
+        "question": "The Gandhar",
+        "options": [
+                "and Mathura schools of art flourished simultaneously under the Kushans but represented different ideological and stylistic paradigms. Which of the following is an accurate distinction?\nA) Gandhara art represents the indigenous spiritual abstraction of the Buddha, while Mathura art portrays him as a muscular, physical Greek hero.",
+                "Gandhara art is characterized by realisti",
+                "paradigms. Which of the following is an accurate distinction?\nA) Gandhara art represents the indigenous spiritual abstraction of the Buddha, while Mathura art portrays him as a muscular, physical Greek hero.\nB) Gandhara art is characterize",
+                "Mathura schools of art flourished simultaneously under the Kushans but represented different ideological and stylistic paradigms. Which of the following is an accurate distinction?\nA) Gandhara art represents the indigenous spiritual abstraction of the Buddha, while Mathura art portrays him as a muscular, physical Greek hero.\nB) Gandhara art is characterized by realistic anatomical accuracy, wavy hair, and heavy drapery (Hellenistic influence), while Mathura art depicts the Buddha in a more traditional Indian yogic posture with a shaved head and lighter drapery.\nC) Mathura art exclusively used stucco and clay, whereas Gandhara used red sandstone.\nD) Gandhara art was purely secular, while Mathura was entirely religious."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-548",
+        "question": "With reference to linguistic developments during the Central Asian contact phase, consider the following:\n\n\nThe Shak",
+        "options": [
+                "ruler Rudradaman I patronized pure Sanskrit, marking the rise of Sanskrit as a language of royal epigraphy over Prakrit.\n\n\nThe Kushans used the Bactrian language written in Greek script for administration, alongside indigenous languages.\nWhich is correct?\nA) 1 only",
+                "2 only",
+                "developments during the Central Asian contact phase, consider the following:\n\n\nThe Shaka ruler Rudradaman I patronize",
+                "pure Sanskrit, marking the rise of Sanskrit as a language of royal epigraphy over Prakrit.\n\n\nThe Kushans used the Bactrian language written in Greek script for administration, alongside indigenous languages.\nWhich is correct?\nA) 1 only B) 2 only C) Both 1 and 2 D) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-549",
+        "question": "The medical treatise Charak",
+        "options": [
+                "Samhita, compiled during this era, indicates significant advancements in Indian science. It is particularly noted for:\nA) Being the first text to advocate spiritual healing over physical medicine.",
+                "Detailed classifications of diseases, medicinal plants, and the concept of digestion, metabolism, and immunity (Tridosha theory).",
+                "A complete reliance on Greek medical practices brought by the Indo-Greeks.",
+                "during this era, indicates significant advancements in Indian science. It is particularly noted for:\nA) Being the first text to advocate spiritual healing over physical medicine.\nB) Detailed classifications of diseases, medicinal plants, and the concept of digestion, metabolism, and immunity (Tridosha theory).\nC) A complete reliance on Greek medical practices brought by the Indo-Greeks.\nD) The exclusive use of surgical procedures to the detriment of herbal medicine."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-550",
+        "question": "The concept of Bodhisattv",
+        "options": [
+                "in Mahayana Buddhism marks a paradigm shift because:\nA) It teaches that one should attain Nirvana solely for oneself (Arhat ideal).",
+                "It emphasizes extreme asceticism and forest dwelling.",
+                "It glorifies a compassionate being who delays their own Nirvana to help all other sentient beings achieve salvation.",
+                "attain Nirvana solely for oneself (Arhat ideal).\nB) It emphasizes extreme asceticism and forest dwelling.\nC) It glorifies a compassionate being who delays their own Nirvana to help all other sentient beings achieve salvation.\nD) It represents the violent destruction of earthly desires."
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-551",
+        "question": "The discovery of Roman coin hoards predominantly in South India, but the presence of Roman glass and pottery in Kushan territories, suggests:",
+        "options": [
+                "The Kushans had banned Roman gold.",
+                "South India engaged in direct maritime trade with Rome, while North India participated heavily via the overland Silk Route and coastal intermediaries.",
+                "Romans only trade",
+                "pottery in Kushan territories, suggests:\nA) The Kushans had banned Roman gold. B) South India engaged in direct maritime trade with Rome, while North India participated heavily via the overland Silk Route and coastal intermediaries. C) Romans only traded with the Satavahanas. D) North India had no items of export value for Rome."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-552",
+        "question": "The Milind",
+        "options": [
+                "Panho is an invaluable historical source not just for philosophy but because:\nA) It details the military campaigns of Alexander.",
+                "It provides an exhaustive list of ancient Indian professions, trade guilds, and the bustling urban economy of the Indo-Greek capital, Sagala.",
+                "It is the only text written by Menander himself.",
+                "the bustling urban economy of the Indo-Greek capital, Sagala. C) It is the only text written by Menander himself. D) It predicts the fall of the Roman empire."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-553",
+        "question": "The political title Maharaj",
+        "options": [
+                "Rajatiraja (King of Kings), widely adopted by Kushan rulers, signifies:\nA) A philosophical humility embraced after converting to Buddhism.",
+                "The presence of a hierarchical polity where the supreme king held sway over multiple lesser, semi-autonomous kings (vassals).",
+                "An empty title with no practical political control.",
+                "by Kushan rulers, signifies:\nA) A philosophical humility embraced after converting to Buddhism. B) The presence of a hierarchical polity where the supreme king held sway over multiple lesser, semi-autonomous kings (vassals). C) An empty title with no practical political control. D) Total control over the Roman Empire."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-554",
+        "question": "According to the theory of \"State Formation,\" the Shakas and Kushans contributed to the Indian polity by:",
+        "options": [
+                "Destroying all state structures and returning India to a tribal society.",
+                "Integrating vast tribal hinterlands into the formal agrarian and monetized economy to extract surplus for their massive armies.",
+                "Completely separating the military from the administration.",
+                "Kushans contributed to the Indian polity by:\nA) Destroying all state structures and returning India to a tribal society. B) Integrating vast tribal hinterlands into the formal agrarian and monetized economy to extract surplus for their massive armies. C) Completely separating the military from the administration. D) Abolishing taxation to appease the masses."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-555",
+        "question": "The transformation of the Stup",
+        "options": [
+                "architecture during the post-Mauryan/Kushan period is best characterized by:\nA) A transition from stone back to wood.",
+                "The total abandonment of stupas in favor of rock-cut temples.",
+                "An increase in size, the addition of elaborate stone gateways (Toranas), an",
+                "is best characterized by:\nA) A transition from stone back to wood. B) The total abandonment of stupas in favor of rock-cut temples. C) An increase in size, the addition of elaborate stone gateways (Toranas), and extensive sculptural narratives depicting Jataka tales. D) Building stupas exclusively in the shape of a pyramid."
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-556",
+        "question": "The assimilation of foreign deities into the Indian pantheon during this er",
+        "options": [
+                "is best exemplified by:\nA) The replacement of Indra with Zeus in the Rigveda.",
+                "The iconography of the Sun God (Surya) wearing Central Asian boots and a heavy coat in early Mathura art.",
+                "The complete abandonment of Shiva worship.",
+                "by:\nA) The replacement of Indra with Zeus in the Rigveda. B) The iconography of the Sun God (Surya) wearing Central Asian boots and a heavy coat in early Mathura art. C) The complete abandonment of Shiva worship. D) The translation of the Quran into Sanskrit."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-557",
+        "question": "What was",
+        "options": [
+                "significant demographic outcome of the continuous Central Asian invasions?\nA) A massive depopulation of the Gangetic valley.",
+                "The rise of a highly cosmopolitan urban culture in the Northwest (like Taxila) with mixed populations of Greeks, Scythians, Parthians, and Indians.",
+                "outcome of the continuous Central Asian invasions?\nA) A massive depopulation of the Gangetic valley. B) The rise of a highly cosmopolitan urban culture in the Northwest (like Taxila) with mixe",
+                "populations of Greeks, Scythians, Parthians, and Indians. C) The forced expulsion of all Brahmanas from North India. D) The complete homogenization of Indian languages."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-558",
+        "question": "The literary text Gargi Samhit",
+        "options": [
+                "acknowledges the Greeks (Yavanas) primarily for:\nA) Their military brutality.",
+                "Their expertise in astronomy, stating they are to be revered like Rishis for this knowledge.",
+                "Their contribution to Indian agriculture.",
+                "like Rishis for this knowledge. C) Their contribution to Indian agriculture. D) Their mastery of Vedic rituals."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-559",
+        "question": "Consider the role of the Guilds (Shrenis) during the Kushan period:\n\n\nThey served as banks, receiving deposits and paying interest.\n\n\nThey were strictly prohibited from minting their own localized coins or tokens.\n\n\nThey played",
+        "options": [
+                "crucial role in urban governance and financing religious endowments.\nWhich is correct?\nA) 1 and 2",
+                "1 and 3",
+                "2 an",
+                "as banks, receiving deposits and paying interest.\n\n\nThey were strictly prohibited from minting their own localized coins or tokens.\n\n\nThey played a crucial role in urban governance and financing religious endowments.\nWhich is correct?\nA) 1 and 2 B) 1 and 3 C) 2 and 3 D) 1, 2, and 3"
+        ],
+        "correctIndex": 1,
+        "explanation": "Guilds in this period were highly autonomous and sometimes issued their own seals and localized coin/tokens, hence 2 is incorrect).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-560",
+        "question": "The integration of horse-riding nomads into Indian society had",
+        "options": [
+                "lasting impact on the Indian caste system by:\nA) Creating the new Varna of 'Untouchables'.",
+                "Contributing to the proliferation of numerous sub-castes (Jatis) as different tribes were absorbed at various social levels, often as Rajputs in later periods.",
+                "Destroying the Varna system completely.",
+                "a lasting impact on the Indian caste system by:\nA) Creating the new Varna of 'Untouchables'. B) Contributing to the proliferation of numerous sub-castes (Jatis) as different tribes were absorbed at various social levels, often as Rajputs in later periods. C) Destroying the Varna system completely. D) Making all Indians adopt nomadic pastoralism."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch15-d-v6-561",
+        "question": "Ultimately, the \"Central Asian Contacts\" chapter in Indian history proves that ancient Indi",
+        "options": [
+                "was:\nA) A hermetically sealed civilization with no outside contact.",
+                "A civilization capable of absorbing massive foreign shocks, deeply internalizing foreign technologies and cultures while Indianizing the invaders.",
+                "Continually destroye",
+                "civilization with no outside contact. B) A civilization capable of absorbing massive foreign shocks, deeply internalizing foreign technologies and cultures while Indianizing the invaders. C) Continually destroyed and completely reset by every foreign invasion. D) Only interested in spiritual matters, completely ignoring trade and warfare."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},];
 export const CH15_L2_MCQS: MCQ[] = [
     {
         "id": "ch15-d-32",

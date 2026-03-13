@@ -11,6 +11,7 @@ import {
 interface ChiefMinisterModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The State Captain (Keystone) ---
@@ -44,7 +45,7 @@ const CaptainCard = ({ children, title, icon: Icon, color = "green", className =
     );
 };
 
-export default function ChiefMinisterModule({ onComplete, isCompleted }: ChiefMinisterModuleProps) {
+export default function ChiefMinisterModule({ onComplete, isCompleted, chapterNumber = "31" }: ChiefMinisterModuleProps) {
     return (
         <CaptainContainer>
             {/* HERO */}
@@ -60,9 +61,9 @@ export default function ChiefMinisterModule({ onComplete, isCompleted }: ChiefMi
                         <h1 className="text-5xl md:text-7xl font-black text-emerald-900 font-serif mb-2">
                             CHIEF MINISTER
                         </h1>
-                        <p className="text-xl font-bold uppercase tracking-widest text-muted-foreground">
-                            "The State Captain"
-                        </p>
+                        <div className="bg-emerald-900/10 text-emerald-900 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest border border-emerald-900/20 mb-4">
+                            Chapter {chapterNumber} &bull; "The State Captain"
+                        </div>
                     </div>
                 </div>
             </div>
@@ -265,7 +266,7 @@ export default function ChiefMinisterModule({ onComplete, isCompleted }: ChiefMi
                             }
                         `}
                     >
-                        {isCompleted ? "CONFIDENCE PROVEN" : "PROVE MAJORITY ON FLOOR"}
+                        {isCompleted ? `CHAPTER ${chapterNumber} COMPLETED` : `MARK CHAPTER ${chapterNumber} COMPLETE`}
                     </button>
                 </div>
             </div>

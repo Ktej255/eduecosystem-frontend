@@ -50,11 +50,11 @@ export default function SaturdayTestPage() {
                 explanation: q.explanation || "Detailed explanation available in the reading material.",
                 chapter: q.topic || q.chapter || "Geography Syllabus",
                 subtopic: q.subtopic || "UPSC Core",
-                correctAnswer: q.correctAnswer || q.correct_option || 0,
+                correctAnswer: q.correctAnswer || 0,
             }));
         } else {
             // Paper 2 Mock (Could be CSAT later, doing Indian Geo vs Resource Geo for now as placeholder)
-            const coreQs = geographyMCQs.filter(q => q.module === 'indian' || q.module === 'resource').slice(0, 100);
+            const coreQs = geographyMCQs.filter(q => q.module === 'indian').slice(0, 100);
             generatedQuestions = coreQs.map((q, idx) => ({
                 id: q.id || `q-${idx}`,
                 question: q.question,
@@ -62,7 +62,7 @@ export default function SaturdayTestPage() {
                 explanation: q.explanation || "Detailed explanation available in the reading material.",
                 chapter: q.topic || q.chapter || "Geography Syllabus",
                 subtopic: q.subtopic || "UPSC Core",
-                correctAnswer: q.correctAnswer || q.correct_option || 0,
+                correctAnswer: q.correctAnswer || 0,
             }));
         }
 

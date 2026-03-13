@@ -1,46 +1,32 @@
-import { Flashcard } from "@/types/flashcard";
-
-export const chapter2Flashcards: Flashcard[] = [
+export const MEDIEVAL_CHAPTER_2_FLASHCARDS = [
     {
-        id: 'med-fc-2-1',
-        front: "Who introduced the 'Blood and Iron' policy in the Delhi Sultanate?",
-        back: "Ghiyasuddin Balban.",
-        category: "Slave Dynasty",
-        difficulty: "easy"
+        "id": "mc-ch2-f0",
+        "front": "According to the text, the Pala empire was founded in the eighth century by whom?...",
+        "back": "Gopala",
+        "chapter": 2
     },
     {
-        id: 'med-fc-2-2',
-        front: "What were the 'Sijda' and 'Paibos' ceremonies?",
-        back: "Sijda: Prostration; Paibos: Kissing the Sultan's feet. Introduced by Balban to emphasize royal power.",
-        category: "Slave Dynasty",
-        difficulty: "medium"
+        "id": "mc-ch2-f1",
+        "front": "Which Pala ruler was defeated by the Rashtrakuta king Dhruva, who had briefly campaigned in northern India?...",
+        "back": "Dharmapala",
+        "chapter": 2
     },
     {
-        id: 'med-fc-2-3',
-        front: "Who was the first sultan to pay soldiers in cash and introduce market controls?",
-        back: "Alauddin Khilji.",
-        category: "Khilji Dynasty",
-        difficulty: "easy"
+        "id": "mc-ch2-f2",
+        "front": "The famous university of Vikramasila, second only to Nalanda, was founded by which ruler?...",
+        "back": "Dharmapala",
+        "chapter": 2
     },
     {
-        id: 'med-fc-2-4',
-        front: "What was the 'Turkan-i-Chahalgani'?",
-        back: "A group of 40 powerful Turkish nobles/slaves organized by Iltutmish to secure his rule.",
-        category: "Slave Dynasty",
-        difficulty: "medium"
+        "id": "mc-ch2-f3",
+        "front": "According to the Arab merchant Sulaiman, the Pala kingdom was referred to by which name?...",
+        "back": "Ruhma",
+        "chapter": 2
     },
     {
-        id: 'med-fc-2-5',
-        front: "Why did Muhammad bin Tughlaq shift the capital to Daulatabad?",
-        back: "To have a more central strategic position to control South India and protect from Mongol raids.",
-        category: "Tughlaq Dynasty",
-        difficulty: "medium"
-    },
-    {
-        id: 'med-fc-2-6',
-        front: "Who was the first female ruler of the Delhi Sultanate?",
-        back: "Razia Sultan (1236-1240).",
-        category: "Slave Dynasty",
-        difficulty: "easy"
+        "id": "mc-ch2-f4",
+        "front": "The Tibetan chronicles state that the Pala rulers were great patrons of which religion?...",
+        "back": "Buddhism",
+        "chapter": 2
     }
 ];

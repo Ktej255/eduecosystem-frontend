@@ -570,8 +570,775 @@ export const CH17_L1_MCQS: MCQ[] = [
         "tags": [
             "history"
         ]
-    }
-];
+    },
+    {
+        "id": "ch17-d-v6-500",
+        "question": "The early history of southern Indi",
+        "options": [
+                "is traced through large stone burials known as:\nA) Monoliths",
+                "Microliths",
+                "Megaliths",
+                "through large stone burials known as:\nA) Monoliths B) Microliths C) Megaliths D) Stupas"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-501",
+        "question": "Which metal was predominantly used by the Megalithic builders of south Indi",
+        "options": [
+                "for their tools and weapons?\nA) Copper",
+                "Bronze",
+                "builders of south India for their tools an",
+                "by the Megalithic builders of south India for their tools and weapons?\nA) Copper B) Bronze C) Iron D) Gold"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-502",
+        "question": "The Megalithic people of the south were distinguished by their use of",
+        "options": [
+                "specific type of pottery known as:\nA) Painted Grey Ware",
+                "Northern Black Polished Ware",
+                "people of the south were distinguishe",
+                "by their use of a specific type of pottery known as:\nA) Painted Grey Ware B) Northern Black Polished Ware C) Black-and-red Ware D) Ochre Coloured Pottery"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-503",
+        "question": "The Pandy",
+        "options": [
+                "kingdom, situated in the southern part of the Tamil peninsula, had its capital at:\nA) Uraiyur",
+                "Kanchipuram",
+                "Madurai",
+                "in the southern part of the Tamil peninsula, had its capital at:\nA) Uraiyur B) Kanchipuram C) Madurai D) Puhar"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-504",
+        "question": "The Chol",
+        "options": [
+                "kingdom was situated between the Pennar and the Velar rivers. Their chief centre of political power initially was:\nA) Thanjavur",
+                "Uraiyur",
+                "Vanji",
+                "between the Pennar and the Velar rivers. Their chief centre of political power initially was:\nA) Thanjavur B) Uraiyur C) Vanji D) Korkai"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-505",
+        "question": "Which of the following ports served as the great Chol",
+        "options": [
+                "port and an alternative capital?\nA) Muziris",
+                "Arikamedu",
+                "Puhar (Kaveripattinam)",
+                "as the great Chola port and an alternative capital?\nA) Muziris B) Arikamedu C) Puhar (Kaveripattinam) D) Sopara"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-506",
+        "question": "The Cher",
+        "options": [
+                "kingdom covered the portions of modern:\nA) Andhra Pradesh and Orissa",
+                "Kerala and western parts of Tamil Nadu",
+                "Karnataka an",
+                "the portions of modern:\nA) Andhra Pradesh and Orissa B) Kerala and western parts of Tamil Nadu C) Karnataka and Maharashtra D) Northern Sri Lanka"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-507",
+        "question": "Who among the following was the most famous Chol",
+        "options": [
+                "king of the Sangam age, known for founding Puhar and fighting the battle of Venni?\nA) Senguttuvan",
+                "Nedunchezhiyan",
+                "Karikala",
+                "fighting the battle of Venni?\nA) Senguttuvan B) Nedunchezhiyan C) Karikala D) Elara"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-508",
+        "question": "In the Sangam age, the captains of the army were invested with",
+        "options": [
+                "title upon which they were given a ring and other insignia. This title was:\nA) Vellalar",
+                "Enadi",
+                "Arasar",
+                "with a title upon which they were given a ring and other insignia. This title was:\nA) Vellalar B) Enadi C) Arasar D) Paraiyar"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-509",
+        "question": "The famous Sangam text Tolkappiyam is primarily",
+        "options": [
+                "work on:\nA) Epic poetry",
+                "Tamil grammar and poetics",
+                "poetry B) Tamil grammar an",
+                "poetics C) Ayurvedic medicine D) Buddhist philosophy"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-510",
+        "question": "The sequel to Silappadikaram, called Manimekalai, was authored by",
+        "options": [
+                "grain merchant of Madurai named:\nA) Tolkappiyar",
+                "Sattanar",
+                "Nakkiar",
+                "Manimekalai, was authored by a grain merchant of Madurai named:\nA) Tolkappiyar B) Sattanar C) Nakkiar D) Avvaiyar"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-511",
+        "question": "The Chol",
+        "options": [
+                "capital of Uraiyur was particularly famous for its trade in:\nA) Pearls",
+                "Horses",
+                "Fine cotton cloth",
+                "Iron weapons"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-512",
+        "question": "The Pandy",
+        "options": [
+                "kingdom was most renowned in the ancient world for its trade in:\nA) Elephants",
+                "Pearls",
+                "Silk",
+                "in the ancient world for its trade in:\nA) Elephants B) Pearls C) Silk D) Copper"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-513",
+        "question": "Megasthenes mentions the Pandy",
+        "options": [
+                "kingdom and incorrectly states that it was ruled by:\nA) Greek governors",
+                "Women",
+                "Buddhist monks",
+                "incorrectly states that it was ruled by:\nA) Greek governors B) Women C) Buddhist monks D) A council of 500"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-514",
+        "question": "The famous Cher",
+        "options": [
+                "king Senguttuvan is credited with introducing the worship of Kannagi as the ideal wife. This cult is known as:\nA) Shakti cult",
+                "Pattini cult",
+                "Murugan cult",
+                "with introducing the worship of Kannagi as the ideal wife. This cult is known as:\nA) Shakti cult B) Pattini cult C) Murugan cult D) Korravai cult"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-515",
+        "question": "The practice of burying the dead with their tools, weapons, and pottery in the deep south demonstrates",
+        "options": [
+                "belief in:\nA) Reincarnation as animals",
+                "The afterlife where material goods were needed",
+                "Immediate Nirvana",
+                "with their tools, weapons, and pottery in the deep south demonstrates a belief in:\nA) Reincarnation as animals B) The afterlife where material goods were needed C) Immediate Nirvana D) Offering wealth to the earth goddess"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-516",
+        "question": "Consider the following statements regarding the Megalithic cultures of South India:\n\n\nThey were purely nomadic communities with no knowledge of agriculture.\n\n\nThey possessed",
+        "options": [
+                "rich variety of iron tools including sickles, hoes, and tridents.\n\n\nTheir settlements provide the earliest evidence of paddy cultivation in the deep south.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only",
+                "2 and 3 only",
+                "cultures of South India:\n\n\nThey were purely nomadic communities with no knowledge of agriculture.\n\n\nThey possesse",
+                "a rich variety of iron tools including sickles, hoes, and tridents.\n\n\nTheir settlements provide the earliest evidence of paddy cultivation in the deep south.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only B) 2 and 3 only C) 1 and 3 only D) 1, 2, and 3"
+        ],
+        "correctIndex": 1,
+        "explanation": "They were not purely nomadic; they practiced agriculture, primarily paddy, utilizing tank irrigation in the hard rock areas.)",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-517",
+        "question": "Match List-I (Sangam Epics/Texts) with List-II (Authors):\nList-I",
+        "options": [
+                "Tolkappiyam",
+                "Tirukkural",
+                "Silappadikaram",
+                "Manimekalai\nList-II\n\n\nIlango Adigal\n\n\nSattanar\n\n\nTolkappiyar\n\n\nTiruvalluvar\nOptions:\nA) a-3, b-4, c-1, d-2 B) a-4, b-3, c-1, d-2 C) a-3, b-4, c-2, d-1 D) a-1, b-2, c-3, d-4"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-518",
+        "question": "With reference to the socio-political structure of the Sangam Age, consider the following:\n\n\nThe caste system was as rigidly entrenched as in the Vedic North, with Brahmanas completely dominating the political structure.\n\n\nThe society was divided into broad classes where the Arasar (ruling class) and Vellalas (rich peasants) held prominence.\n\n\nThe Vellalas frequently served as civil and military commanders for the kings.\nWhich of the statements is/are correct?",
+        "options": [
+                "1 and 2",
+                "2 and 3",
+                "North, with Brahmanas completely dominating the political structure.\n\n\nThe society was divide",
+                "as in the Vedic North, with Brahmanas completely dominating the political structure.\n\n\nThe society was divided into broad classes where the Arasar (ruling class) and Vellalas (rich peasants) held prominence.\n\n\nThe Vellalas frequently served as civil and military commanders for the kings.\nWhich of the statements is/are correct?\nA) 1 and 2 B) 2 and 3 C) 1 and 3 D) 1, 2, and 3"
+        ],
+        "correctIndex": 1,
+        "explanation": "The rigid four-fold Varna system of the North had not yet firmly crystallized in the deep south during the early Sangam age; society was more class-based than caste-based.)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-519",
+        "question": "Assertion (",
+        "options": [
+                ": The early Tamil kingdoms maintained a regular, large standing army paid exclusively in cash.\nReason (R): The immense wealth generated from the Indo-Roman trade allowed the Muvendar to establish highly centralized bureaucratic states.\nA) Both A and R are true and R is the correct explanation of A",
+                "Both A and R are true but R is not the correct explanation of A",
+                "states.\nA) Both A an",
+                "a regular, large standing army paid exclusively in cash.\nReason (R): The immense wealth generated from the Indo-Roman trade allowed the Muvendar to establish highly centralized bureaucratic states.\nA) Both A and R are true and R is the correct explanation of A\nB) Both A and R are true but R is not the correct explanation of A\nC) A is true but R is false\nD) Both A and R are false"
+        ],
+        "correctIndex": 3,
+        "explanation": "The early Tamil states did not have a highly centralized bureaucracy or a regular standing army paid in cash. They relied on local militias, mercenaries, and booty from war. It was a transitional state system.)",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-520",
+        "question": "The discovery of an Augustan temple and large hoards of Roman amphorae and Arretine ware at which of the following sites confirms it as",
+        "options": [
+                "major Indo-Roman trading station?\nA) Korkai",
+                "Arikamedu",
+                "Uraiyur",
+                "large hoards of Roman amphorae and Arretine ware at which of the following sites confirms it as a major Indo-Roman trading station?\nA) Korkai B) Arikamedu C) Uraiyur D) Madurai"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-521",
+        "question": "Consider the following statements about the role of women in the Sangam Age:\n\n\nWomen poets like Avvaiyar contributed significantly to the Sangam literature.\n\n\nThe practice of Sati (tippaydal) was prevalent among the higher classes.\n\n\nWomen were strictly confined to households and had no role in agricultural activities.\nWhich is/are correct?",
+        "options": [
+                "1 and 2 only",
+                "2 and 3 only",
+                "1 an",
+                "significantly to the Sangam literature.\n\n\nThe practice of Sati (tippaydal) was prevalent among the higher classes.\n\n\nWomen were strictly confined to households and had no role in agricultural activities.\nWhich is/are correct?\nA) 1 and 2 only B) 2 and 3 only C) 1 and 3 only D) 1, 2, and 3"
+        ],
+        "correctIndex": 0,
+        "explanation": "Women actively participated in agricultural operations like harvesting and guarding the fields.)",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-522",
+        "question": "In the Sangam texts, the ecological zones were divided into five Tinais. Match the Tinai with its dominant economic activity:\nList-I (Tinai)",
+        "options": [
+                "Kurinji (Hills)",
+                "Mullai (Pastoral tracts)",
+                "activity:\nList-I (Tinai)\na. Kurinji (Hills)\nb. Mullai (Pastoral tracts)\nc. Marutam (Riverine plains)",
+                "into five Tinais. Match the Tinai with its dominant economic activity:\nList-I (Tinai)\na. Kurinji (Hills)\nb. Mullai (Pastoral tracts)\nc. Marutam (Riverine plains)\nd. Neytal (Coastal areas)\nList-II (Economic Activity)\n\n\nPlough agriculture\n\n\nHunting and gathering\n\n\nFishing and salt making\n\n\nAnimal husbandry\nOptions:\nA) a-2, b-4, c-1, d-3 B) a-1, b-3, c-2, d-4 C) a-2, b-1, c-4, d-3 D) a-4, b-2, c-3, d-1"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-523",
+        "question": "Which of the following statements about religion in the Sangam age is incorrect?",
+        "options": [
+                "Murugan was the most popular indigenous deity.",
+                "The worship of Vishnu (Mayon) and Indra (Vendon) was entirely unknown to the Tamils.",
+                "Animism, tree worship, an",
+                "Indra (Vendon) was entirely unknown to the Tamils.\nC) Animism, tree worship, and the planting of hero-stones were widespread.\nD) Vedic sacrifices were performed by some kings to legitimize their rule."
+        ],
+        "correctIndex": 1,
+        "explanation": "The Sangam texts show a synthesis where northern deities like Vishnu and Indra were assimilated and worshipped alongside indigenous gods.)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-524",
+        "question": "Pliny,",
+        "options": [
+                "Roman writer of the 1st century AD, famously lamented the drain of wealth from Rome to India. This drain was primarily caused by the Roman import of:\nA) Indian steel and iron",
+                "Indian silk and Chinese porcelain",
+                "Indian spices (pepper), muslin, an",
+                "the drain of wealth from Rome to India. This drain was primarily caused by the Roman import of:\nA) Indian steel and iron B) Indian silk and Chinese porcelain C) Indian spices (pepper), muslin, and pearls D) Indian elephants"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-525",
+        "question": "The narrative of Silappadikaram revolves around Kovalan, his wife Kannagi, and",
+        "options": [
+                "courtesan named:\nA) Vasantsena",
+                "Madhavi",
+                "Ambapali",
+                "Kovalan, his wife Kannagi, and a courtesan named:\nA) Vasantsena B) Madhavi C) Ambapali D) Manimekalai"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-526",
+        "question": "The Cher",
+        "options": [
+                "power declined by the 3rd century AD due to:\nA) The invasion of the Mauryas",
+                "The decline of the Indo-Roman sea trade",
+                "A massive tsunami",
+                "by the 3rd century AD due to:\nA) The invasion of the Mauryas B) The decline of the Indo-Roman sea trade C) A massive tsunami D) The rise of the Satavahanas in the deep south"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-527",
+        "question": "Consider the following regarding the revenue system of the Sangam kingdoms:\n\n\nKarai was the regular land tax.\n\n\nUlgu or Sungkum referred to the customs duties and tolls levied on trade.\n\n\nWar booty was deemed illegal and was never",
+        "options": [
+                "source of state income.\nWhich is/are correct?\nA) 1 and 2 only",
+                "2 and 3 only",
+                "1 an",
+                "tax.\n\n\nUlgu or Sungkum referred to the customs duties and tolls levied on trade.\n\n\nWar booty was deemed illegal and was never a source of state income.\nWhich is/are correct?\nA) 1 and 2 only B) 2 and 3 only C) 1 and 3 only D) 1, 2, and 3"
+        ],
+        "correctIndex": 0,
+        "explanation": "War booty was a massive and legitimate source of state income during this period of constant tribal-territorial conflicts.)",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-528",
+        "question": "Which of the following ancient Tamil works is considered the Bible of Tamil land, consisting of 1330 couplets on morality, statecraft, and love?",
+        "options": [
+                "Tolkappiyam",
+                "Tirukkural",
+                "Pattuppattu",
+                "the Bible of Tamil land, consisting of 1330 couplets on morality, statecraft, and love?\nA) Tolkappiyam B) Tirukkural C) Pattuppattu D) Ettuttokai"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-529",
+        "question": "In the context of early South Indian trade, the Sarthavah",
+        "options": [
+                "equivalent (caravan leaders) and merchant guilds were often referred to in Tamil-Brahmi inscriptions as:\nA) Nigamas",
+                "Umanar (salt merchants) and Vanigar",
+                "Vellalas",
+                "merchant guilds were often referred to in Tamil-Brahmi inscriptions as:\nA) Nigamas B) Umanar (salt merchants) and Vanigar C) Vellalas D) Paraiyars"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-530",
+        "question": "The transition from the Megalithic culture to the Sangam age marks",
+        "options": [
+                "transition from:\nA) A purely urban society to a nomadic pastoral society.",
+                "A tribal, kin-based society to an early territorial state society with social stratification.",
+                "culture to the Sangam age marks a transition from:\nA) A purely urban society to a nomadic pastoral society. B) A tribal, kin-base",
+                "society to an early territorial state society with social stratification. C) A literate society to an illiterate society. D) A monotheistic society to an atheistic society."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-531",
+        "question": "The Chol",
+        "options": [
+                "king Karikala's most significant infrastructural achievement to support agriculture was:\nA) Building a massive network of underground aqueducts.",
+                "Constructing a 160-km embankment along the Kaveri river using labor from Ceylon.",
+                "Building the Brihadeshwara temple.",
+                "aqueducts. B) Constructing a 160-km embankment along the Kaveri river using labor from Ceylon. C) Building the Brihadeshwara temple. D) Creating the Sudarshana lake."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-532",
+        "question": "The concept of \"Anangu\" in early Tamil religion refers to:",
+        "options": [
+                "A sacred, unpredictable power inherent in nature, women, and certain objects that needed to be appeased.",
+                "The supreme creator god.",
+                "A specialize",
+                "certain objects that needed to be appeased. B) The supreme creator god. C) A specialized ritual for rain. D) The architectural style of temples."
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-533",
+        "question": "The Kalabhras' invasion in the 3rd century AD is often referred to as",
+        "options": [
+                "\"Dark Age\" in Tamil history primarily because:\nA) They destroyed all agricultural lands.",
+                "They patronized Buddhism/Jainism, leading to a temporary decline in Brahmanical and royal Sangam patronage, leaving fewer conventional historical records.",
+                "They cause",
+                "century AD is often referred to as a \"Dark Age\" in Tamil history primarily because:\nA) They destroyed all agricultural lands. B) They patronized Buddhism/Jainism, leading to a temporary decline in Brahmanical and royal Sangam patronage, leaving fewer conventional historical records. C) They caused a massive volcanic eruption. D) They completely wiped out the Tamil language."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-534",
+        "question": "The ideological framework of the Sangam state was reinforced by:",
+        "options": [
+                "The king claiming direct descent from the Roman Emperor.",
+                "A symbioti",
+                "relationship where the king patronize",
+                "by:\nA) The king claiming direct descent from the Roman Emperor. B) A symbiotic relationship where the king patronized poets and bards (Panar), who in turn legitimized his rule through eulogies praising his martial valor and generosity. C) A strictly democratic constitution. D) Complete isolation from Northern Vedic traditions."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-535",
+        "question": "\"The early state formation in the deep south during the Sangam age was fundamentally different from the Magadhan model.\"\nEvaluate this statement by identifying the correct paradigm of state formation in Tamilakam:\n\n\nUnlike Magadha, which relied on",
+        "options": [
+                "massive agrarian surplus extracted via a highly organized bureaucracy, the Muvendar states were 'segmentary' or transitional, relying heavily on war booty, coastal tolls, and periodic plunder to sustain the ruling elite.\n\n\nThe political geography was strictly defined by the five Tinais, and the king's authority was absolute only in the Marutam (agrarian) zones, while the hilly (Kurinji) and pastoral (Mullai) tracts were effectively controlled by semi-independent tribal chieftains (Velirs).\n\n\nThe Sangam states completely rejected the Vedic legitimation rituals like the Rajasuya, relying purely on the indigenous Pattini cult for political authority.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only",
+                "2 and 3 only",
+                "plunder to sustain the ruling elite.\n\n\nThe political geography was strictly define",
+                "on a massive agrarian surplus extracted via a highly organized bureaucracy, the Muvendar states were 'segmentary' or transitional, relying heavily on war booty, coastal tolls, and periodic plunder to sustain the ruling elite.\n\n\nThe political geography was strictly defined by the five Tinais, and the king's authority was absolute only in the Marutam (agrarian) zones, while the hilly (Kurinji) and pastoral (Mullai) tracts were effectively controlled by semi-independent tribal chieftains (Velirs).\n\n\nThe Sangam states completely rejected the Vedic legitimation rituals like the Rajasuya, relying purely on the indigenous Pattini cult for political authority.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only B) 2 and 3 only C) 1 and 3 only D) 1, 2, and 3"
+        ],
+        "correctIndex": 0,
+        "explanation": "Sangam kings did adopt Vedic sacrifices to legitimize their rule, e.g., the Chola king Perunarkilli performed the Rajasuya. Thus, statement 3 is incorrect. The state relied heavily on plunder/trade, and authority in peripheral zones was mediated through Velir chiefs.)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-536",
+        "question": "Analyze the socio-economic implications of the Indo-Roman trade on the Sangam society:",
+        "options": [
+                "It led to the immediate industrialization of the deep south and the complete abandonment of agriculture.",
+                "The influx of Roman bullion (gold/silver) was largely hoarded or used by the ruling elite for prestige and gift-giving, rather than being monetized into a deeply penetrating market currency for the agrarian masses, thereby sustaining social inequalities.",
+                "implications of the Indo-Roman trade on the Sangam society:\nA) It le",
+                "to the immediate industrialization of the deep south and the complete abandonment of agriculture.\nB) The influx of Roman bullion (gold/silver) was largely hoarded or used by the ruling elite for prestige and gift-giving, rather than being monetized into a deeply penetrating market currency for the agrarian masses, thereby sustaining social inequalities.\nC) It resulted in Rome establishing formal political colonies along the Malabar coast.\nD) It caused the total collapse of the indigenous craft guilds due to cheap Roman imports."
+        ],
+        "correctIndex": 1,
+        "explanation": "Roman coins are found mostly in hoards, slashed to prevent their use as local currency, indicating they were treated as bullion/prestige wealth by the elite rather than a medium of mass exchange.)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-537",
+        "question": "The literary corpus of the Sangam age represents",
+        "options": [
+                "unique historiographical source. The poems are broadly categorized into Aham and Puram. Which of the following best captures the essence of this division?\nA) Aham deals exclusively with religious philosophy, while Puram deals with secular law.",
+                "Aham represents subjective, interior poetry focusing on love, emotions, and the five ecological landscapes, while Puram represents objective, exterior poetry focusing on war, heroism, kingship, and publi",
+                "life.\nC) Aham poetry was written by Brahmanas, while Puram was written by lower castes.",
+                "into Aham and Puram. Which of the following best captures the essence of this division?\nA) Aham deals exclusively with religious philosophy, while Puram deals with secular law.\nB) Aham represents subjective, interior poetry focusing on love, emotions, and the five ecological landscapes, while Puram represents objective, exterior poetry focusing on war, heroism, kingship, and public life.\nC) Aham poetry was written by Brahmanas, while Puram was written by lower castes.\nD) Aham deals with maritime trade, while Puram deals with inland agriculture."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-538",
+        "question": "The Tamil-Brahmi inscriptions found in the natural caves of the Madurai region are of immense historical significance because:\n\n\nThey provide the earliest epigraphic evidence of the Tamil language, dating back to the 2nd century BC.\n\n\nThey primarily record the names of ordinary people, merchants, and artisans who dedicated cave beds to Jain ascetics, demonstrating the early penetration of heterodox sects and mercantile patronage in the south.\n\n\nThey extensively detail the military campaigns of the Kalabhras.\nWhich is/are correct?",
+        "options": [
+                "1 only",
+                "1 and 2 only",
+                "evidence of the Tamil language, dating back to the 2n",
+                "in the natural caves of the Madurai region are of immense historical significance because:\n\n\nThey provide the earliest epigraphic evidence of the Tamil language, dating back to the 2nd century BC.\n\n\nThey primarily record the names of ordinary people, merchants, and artisans who dedicated cave beds to Jain ascetics, demonstrating the early penetration of heterodox sects and mercantile patronage in the south.\n\n\nThey extensively detail the military campaigns of the Kalabhras.\nWhich is/are correct?\nA) 1 only B) 1 and 2 only C) 2 and 3 only D) 1, 2, and 3"
+        ],
+        "correctIndex": 1,
+        "explanation": "They do not detail Kalabhra campaigns; they are primarily donative records for Jain monks.)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-539",
+        "question": "How does the epic Silappadikaram reflect the changing socio-economic dynamics of the late Sangam/post-Sangam era?",
+        "options": [
+                "It glorifies the absolute divine right of kings and advocates the suppression of merchants.",
+                "By centering a wealthy merchant (Kovalan) and his wife (Kannagi) as the protagonists, rather than kings or warriors, it reflects the immense social elevation and economi",
+                "Silappadikaram reflect the changing socio-economic dynamics of the late Sangam/post-Sangam era?\nA) It glorifies the absolute divine right of kings an",
+                "advocates the suppression of merchants.\nB) By centering a wealthy merchant (Kovalan) and his wife (Kannagi) as the protagonists, rather than kings or warriors, it reflects the immense social elevation and economic power of the mercantile class in the urbanized coastal economy.\nC) It is a purely religious text that outlines the rituals of Vedic sacrifices.\nD) It completely ignores the city of Puhar and focuses only on Madurai."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-540",
+        "question": "The discovery of the Periplus of the Erythraean Se",
+        "options": [
+                "and the Vienna Papyrus (a loan contract between a Muziris merchant and a Alexandrian merchant) radically shifted the historical understanding of Indo-Roman trade by proving that:\nA) The trade was entirely monopolized by Ara",
+                "intermediaries, and Romans never visited India.\nB) The trade involved complex legal, financial, and shipping contracts, indicating a highly sophisticated, institutionalized trans-oceani",
+                "mercantile network rather than just casual barter.\nC) India only importe",
+                "the Vienna Papyrus (a loan contract between a Muziris merchant and a Alexandrian merchant) radically shifted the historical understanding of Indo-Roman trade by proving that:\nA) The trade was entirely monopolized by Arab intermediaries, and Romans never visited India.\nB) The trade involved complex legal, financial, and shipping contracts, indicating a highly sophisticated, institutionalized trans-oceanic mercantile network rather than just casual barter.\nC) India only imported goods and exported nothing.\nD) The Tamil merchants used Roman ships because they had no shipbuilding knowledge."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-541",
+        "question": "\"The transformation of the Velir chieftains is crucial to understanding the political trajectory of the Sangam age.\" Which of the following best describes this transformation?",
+        "options": [
+                "They were completely exterminated by the Mauryas.",
+                "Originally independent hill chieftains, they were gradually subdued by the Muvendar through warfare and matrimonial alliances, integrated as feudatories to secure the frontiers and forest resources.",
+                "They successfully overthrew the Cholas an",
+                "by the Mauryas.\nB) Originally independent hill chieftains, they were gradually subdued by the Muvendar through warfare and matrimonial alliances, integrated as feudatories to secure the frontiers and forest resources.\nC) They successfully overthrew the Cholas and established a democratic republic.\nD) They migrated to Southeast Asia to establish colonies."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-542",
+        "question": "The term Muventar used in Sangam literature to denote the three crowned kings is intrinsically linked to the concept of Mummudichol",
+        "options": [
+                "in later history. This reflects:\nA) The continuous struggle for hegemony where a single king sought to symbolically wear the crowns of all three Tamil lineages.",
+                "A treaty of perpetual peace among the three kingdoms.",
+                "The three capitals of the Chola empire.",
+                "in Sangam literature to denote the three crowned kings is intrinsically linked to the concept of Mummudichola in later history. This reflects:\nA) The continuous struggle for hegemony where a single king sought to symbolically wear the crowns of all three Tamil lineages.\nB) A treaty of perpetual peace among the three kingdoms.\nC) The three capitals of the Chola empire.\nD) The three distinct geographical zones of Tamil Nadu."
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-543",
+        "question": "In the context of early Indian history, the phenomenon of \"Romanization\" in the deep south was:",
+        "options": [
+                "Total; the Tamils adopted Roman religion, language, and laws.",
+                "Non-existent; the Romans never physically reached India.",
+                "Superficial an",
+                "Roman religion, language, and laws.\nB) Non-existent; the Romans never physically reached India.\nC) Superficial and commercial; restricted to mercantile interactions, the adoption of certain urban luxuries, wine, and employment of mercenaries, without fundamentally altering indigenous cultural or political institutions.\nD) Solely restricted to the introduction of Roman agricultural techniques."
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-544",
+        "question": "The Manimekalai represents",
+        "options": [
+                "critical source for understanding the religious milieu of the post-Sangam age because:\nA) It is a purely Brahmanical text establishing the Varna system.",
+                "It vividly portrays the intense philosophical debates and rivalries among various sects (Buddhism, Jainism, Ajivikas, and Brahmanism) in the urban centers of Tamilakam, with a strong pro-Buddhist stance.",
+                "It documents the arrival of Islam in India.",
+                "rivalries among various sects (Buddhism, Jainism, Ajivikas, and Brahmanism) in the urban centers of Tamilakam, with a strong pro-Buddhist stance.\nC) It documents the arrival of Islam in India.\nD) It is an administrative manual for tax collection."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-545",
+        "question": "The extensive references to Yavan",
+        "options": [
+                "wine and amphorae in Sangam poems, corroborated by excavations at Arikamedu, suggest that:\nA) The Tamils had no local intoxicating drinks.",
+                "Imported wine was a highly prized prestige good consumed by the royal court and the elite, serving as a marker of social status and cosmopolitan connections.",
+                "Roman wine completely replace",
+                "amphorae in Sangam poems, corroborated by excavations at Arikamedu, suggest that:\nA) The Tamils had no local intoxicating drinks.\nB) Imported wine was a highly prized prestige good consumed by the royal court and the elite, serving as a marker of social status and cosmopolitan connections.\nC) Roman wine completely replaced the indigenous agricultural economy.\nD) The wine was imported strictly for medicinal purposes in Ayurveda."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-546",
+        "question": "How did the geography of the Malabar coast specifically dictate the geopolitical strategy of the Cher",
+        "options": [
+                "kingdom?\nA) It allowed them to build a massive cavalry force.",
+                "Cut off from the eastern plains by the Western Ghats, their economy and state power were overwhelmingly oriented towards the sea, controlling the lucrative spice (pepper) trade through ports like Muziris and Tyndis.",
+                "It force",
+                "the geography of the Malabar coast specifically dictate the geopolitical strategy of the Chera kingdom?\nA) It allowed them to build a massive cavalry force.\nB) Cut off from the eastern plains by the Western Ghats, their economy and state power were overwhelmingly oriented towards the sea, controlling the lucrative spice (pepper) trade through ports like Muziris and Tyndis.\nC) It forced them to abandon agriculture entirely.\nD) It made them highly vulnerable to land invasions from Magadha."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch17-d-v6-547",
+        "question": "\"The history of the deep south is",
+        "options": [
+                "testament to India's inherent pluralism.\" This is best supported by the Sangam age evidence that:\nA) Only the Tamil language was spoken across the entire Indian subcontinent.",
+                "The region achieved a high degree of urbanization, state formation, and a rich secular literary tradition (emphasizing love and war) completely independent of, yet eventually synthesizing with, the Northern Sanskritic-Vedi",
+                "traditions.\nC) The region was totally isolate",
+                "by the Sangam age evidence that:\nA) Only the Tamil language was spoken across the entire Indian subcontinent.\nB) The region achieved a high degree of urbanization, state formation, and a rich secular literary tradition (emphasizing love and war) completely independent of, yet eventually synthesizing with, the Northern Sanskritic-Vedic traditions.\nC) The region was totally isolated from the rest of the world.\nD) The society was entirely classless and without any social hierarchy."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},];
 export const CH17_L2_MCQS: MCQ[] = [
     {
         "id": "ch17-d-33",

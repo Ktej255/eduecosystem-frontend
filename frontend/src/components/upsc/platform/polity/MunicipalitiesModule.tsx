@@ -12,6 +12,7 @@ import {
 interface MunicipalitiesModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The City Skyline ---
@@ -46,7 +47,7 @@ const BlueprintCard = ({ children, title, icon: Icon, color = "blue", className 
     );
 };
 
-export default function MunicipalitiesModule({ onComplete, isCompleted }: MunicipalitiesModuleProps) {
+export default function MunicipalitiesModule({ onComplete, isCompleted, chapterNumber }: MunicipalitiesModuleProps) {
     const [activeBuilding, setActiveBuilding] = useState<number | null>(null);
 
     const buildings = [

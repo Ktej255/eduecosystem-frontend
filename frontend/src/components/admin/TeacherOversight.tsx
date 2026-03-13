@@ -7,7 +7,8 @@ import { Badge } from "@/components/ui/badge";
 import { 
     GraduationCap, BookOpen, Users, TrendingUp, 
     Mail, MessageSquare, Zap, ExternalLink,
-    Search, Filter, MoreVertical, Loader2
+    Search, Filter, MoreVertical, Loader2,
+    Plus, ChevronRight
 } from "lucide-react";
 import api from "@/lib/api";
 import { toast } from "sonner";
@@ -23,6 +24,7 @@ interface Teacher {
     last_login: string | null;
     composite_score?: number;
     grade?: string;
+    teacher_name?: string; // Add if missing or used
 }
 
 export default function TeacherOversight() {
@@ -48,7 +50,7 @@ export default function TeacherOversight() {
     };
 
     const filteredTeachers = teachers.filter(t => 
-        t.teacher_name?.toLowerCase().includes(searchTerm.toLowerCase())
+        (t.teacher_name || t.full_name || t.email)?.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     if (loading) {
@@ -166,5 +168,3 @@ export default function TeacherOversight() {
         </div>
     );
 }
-
-import { Plus, ChevronRight } from "lucide-react";

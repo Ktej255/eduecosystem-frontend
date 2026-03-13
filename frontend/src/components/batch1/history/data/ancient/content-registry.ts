@@ -25,6 +25,7 @@ import { ANCIENT_CHAPTER_24_CONTENT, ANCIENT_CHAPTER_24_MCQS, ANCIENT_CHAPTER_24
 import { ANCIENT_CHAPTER_25_CONTENT, ANCIENT_CHAPTER_25_MCQS, ANCIENT_CHAPTER_25_SUBTOPICS } from './chapter25';
 import { ANCIENT_CHAPTER_26_CONTENT, ANCIENT_CHAPTER_26_MCQS, ANCIENT_CHAPTER_26_SUBTOPICS } from './chapter26';
 import { ANCIENT_CHAPTER_27_CONTENT, ANCIENT_CHAPTER_27_MCQS, ANCIENT_CHAPTER_27_SUBTOPICS } from './chapter27';
+import { ANCIENT_CHAPTER_28_CONTENT, ANCIENT_CHAPTER_28_MCQS, ANCIENT_CHAPTER_28_SUBTOPICS } from './chapter28';
 import { ChapterData } from '../ancient-types-27';
 
 export const contentRegistry: Record<number, ChapterData> = {
@@ -162,5 +163,10 @@ export const contentRegistry: Record<number, ChapterData> = {
         content: ANCIENT_CHAPTER_27_CONTENT,
         mcqs: ANCIENT_CHAPTER_27_MCQS,
         subtopics: ANCIENT_CHAPTER_27_SUBTOPICS
+    },
+    28: {
+        content: ANCIENT_CHAPTER_28_CONTENT,
+        mcqs: ANCIENT_CHAPTER_28_MCQS,
+        subtopics: ANCIENT_CHAPTER_28_SUBTOPICS
     }
 };

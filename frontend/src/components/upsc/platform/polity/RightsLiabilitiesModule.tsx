@@ -204,7 +204,7 @@ export default function RightsLiabilitiesModule({ onComplete, isCompleted, chapt
                     className={`px-12 py-6 rounded-full text-xl font-black font-['Kalam'] transition-all transform hover:scale-105 ${isCompleted ? 'bg-green-600 text-white' : 'bg-[#171717] text-white hover:bg-slate-800'
                         }`}
                 >
-                    {isCompleted ? "Brief Filed!" : "Sign the Contract"}
+                    {isCompleted ? "Brief Filed!" : `MARK CHAPTER ${chapterNumber} COMPLETE`}
                 </Button>
             </div>
         </ScrapbookContainer>

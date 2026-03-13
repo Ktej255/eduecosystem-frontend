@@ -7,7 +7,7 @@ import HistoryFeaturePlaceholder from '@/components/upsc/subjects/history/Histor
 import GenericFlashcardSession from '@/components/upsc/common/framework/GenericFlashcardSession';
 import { loadHistoryFlashcards } from '@/components/upsc/subjects/history/data/history-flashcard-loader';
 import { Flashcard as SourceFlashcard } from '@/types/flashcard';
-import { Flashcard as SessionFlashcard } from '@/components/upsc/common/framework/flashcard/flashcard-utils';
+import { Flashcard as SessionFlashcard } from '@/components/upsc/infrastructure/flashcard/flashcard-utils';
 import { toast } from 'sonner';
 
 function FlashcardsContent() {

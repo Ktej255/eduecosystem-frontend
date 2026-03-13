@@ -4,12 +4,13 @@ import React from "react";
 import {
     Orbit, Users, Anchor, Circle, User,
     ShieldAlert, FileText, Scale, Coffee,
-    Sailboat, AlertTriangle
+    Sailboat, AlertTriangle, CheckCircle2
 } from "lucide-react";
 
 interface CentralCouncilModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Orbits of Power (Solar System) ---
@@ -47,7 +48,7 @@ const SketchCard = ({ children, title, icon: Icon, color = "purple", className =
     );
 };
 
-export default function CentralCouncilModule({ onComplete, isCompleted }: CentralCouncilModuleProps) {
+export default function CentralCouncilModule({ onComplete, isCompleted, chapterNumber = "21" }: CentralCouncilModuleProps) {
     return (
         <OrbitContainer>
             {/* HERO */}
@@ -57,6 +58,9 @@ export default function CentralCouncilModule({ onComplete, isCompleted }: Centra
                         <Orbit size={120} />
                     </div>
                     <div className="bg-card border-4 border-purple-900 p-8 rounded-full shadow-2xl relative">
+                        <div className="flex items-center justify-center gap-2 text-purple-700 font-bold uppercase tracking-widest text-xs mb-1">
+                            <Orbit size={14} /> Chapter {chapterNumber}
+                        </div>
                         <h1 className="text-4xl md:text-5xl font-black text-purple-900 font-serif mb-2">
                             Central Council
                         </h1>
@@ -270,7 +274,10 @@ export default function CentralCouncilModule({ onComplete, isCompleted }: Centra
                             }
                         `}
                     >
-                        {isCompleted ? "Orbit Stabilized" : "Align the Orbits"}
+                        {isCompleted ? 
+                            <span className="flex items-center gap-2"><CheckCircle2 size={18} /> CHAPTER {chapterNumber} COMPLETED</span> : 
+                            <span className="flex items-center gap-2"><Orbit size={18} /> MARK CHAPTER {chapterNumber} COMPLETE</span>
+                        }
                     </button>
                 </div>
             </div>

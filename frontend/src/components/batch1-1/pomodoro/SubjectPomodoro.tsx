@@ -96,7 +96,7 @@ function getChapterGroupsForSubject(subjectId: SubjectId): Record<string, Array<
             topic: ch.topic,
             group: ch.group,
             pages: 0,
-            slots: 1
+            slots: 1, part: 1
         }));
     }
     return result;
@@ -392,7 +392,7 @@ export default function SubjectPomodoro() {
 
                 <div className="grid grid-cols-1 gap-4">
                     {MODES.map(mode => {
-                        const Icon = mode.icon;
+                        const Icon = mode.icon as any;
                         const hasPresets = mode.id === 'custom' && subjectPresets.length > 0;
                         const hasPlannerData = mode.id === 'planner' && todayPlannerChapters.length > 0;
 
@@ -404,7 +404,7 @@ export default function SubjectPomodoro() {
                             >
                                 <CardContent className="p-6 flex items-center gap-4">
                                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-card/60/60 ${mode.color} shrink-0`}>
-                                        <Icon className="w-6 h-6" />
+                                        <Icon className="w-6 h-6" /> as any
                                     </div>
                                     <div className="flex-1 min-w-0">
                                         <h3 className={`text-lg font-bold ${mode.color}`}>{mode.label}</h3>
@@ -638,7 +638,7 @@ export default function SubjectPomodoro() {
                 ch.topic.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 `chapter ${ch.chapter}`.includes(searchQuery.toLowerCase())
             );
-            if (filtered.length > 0) acc[group] = filtered;
+            if (filtered.length > 0) acc[group] = filtered as any[];
             return acc;
         }, {} as Record<string, ChapterSchedule[]>);
 

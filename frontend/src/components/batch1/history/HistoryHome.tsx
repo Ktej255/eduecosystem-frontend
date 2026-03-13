@@ -57,7 +57,7 @@ function HistoryHomeContent({ embedded = false }: { embedded?: boolean }) {
         visible: {
             y: 0,
             opacity: 1,
-            transition: { type: 'spring', stiffness: 100 }
+            transition: { type: 'spring' as const, stiffness: 100 }
         }
     };
 
@@ -73,7 +73,7 @@ function HistoryHomeContent({ embedded = false }: { embedded?: boolean }) {
                         <motion.div
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            transition={{ duration: 0.8, ease: "easeOut" as const }}
                             className="text-center"
                         >
                             <div className="w-24 h-24 mb-6 mx-auto rounded-full bg-amber-600/20 border-2 border-amber-600/50 flex items-center justify-center">
@@ -96,7 +96,7 @@ function HistoryHomeContent({ embedded = false }: { embedded?: boolean }) {
                 <motion.div 
                     initial={{ y: -50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    transition={{ duration: 0.5, ease: "easeOut" as const }}
                     className="bg-card border-b border-neutral-200 dark:bg-black dark:border-neutral-800 sticky top-0 z-50"
                 >
                     <div className="max-w-7xl mx-auto px-4">
@@ -234,7 +234,7 @@ function HistoryHomeContent({ embedded = false }: { embedded?: boolean }) {
                 key={activeTab + selectedSection}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                transition={{ duration: 0.4, ease: "easeOut" as const }}
                 className="w-full"
             >
                 {activeTab === 'dashboard' && (

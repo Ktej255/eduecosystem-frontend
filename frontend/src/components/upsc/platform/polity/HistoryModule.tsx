@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface HistoryModuleProps {
     onComplete: () => void;
     isCompleted: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System Components ---
@@ -65,7 +66,7 @@ const TimelineNode = ({ side, children }: { side: "left" | "right", children: Re
 
 const doodleStyle = "absolute text-slate-300 opacity-40 pointer-events-none transform";
 
-export default function HistoryModule({ onComplete, isCompleted }: HistoryModuleProps) {
+export default function HistoryModule({ onComplete, isCompleted, chapterNumber = "1" }: HistoryModuleProps) {
     const scrollRef = useRef<HTMLDivElement>(null);
 
     return (
@@ -73,6 +74,9 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
 
             {/* Header */}
             <div className="max-w-3xl mx-auto mb-10 text-center relative z-10">
+                <div className="flex justify-center items-center gap-2 text-xs font-bold text-blue-900/60 uppercase tracking-widest mb-4">
+                    <Scroll size={14} /> Chapter {chapterNumber}
+                </div>
                 <div className="inline-block relative">
                     <h1 className="text-4xl md:text-5xl font-bold text-blue-900 tracking-tight relative z-10">
                         Historical Background
@@ -468,7 +472,11 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                           ${isCompleted ? 'bg-green-600 hover:bg-green-700 text-white ring-4 ring-green-200' : 'bg-gradient-to-r from-blue-900 to-indigo-900 text-white ring-4 ring-blue-200'}
                         `}
                     >
-                        {isCompleted ? <span className="flex items-center gap-2"><CheckCircle2 /> Chapter Completed</span> : <span className="flex items-center gap-2"><Feather /> Mark as Revise-Ready</span>}
+                        {isCompleted ? (
+                            <span className="flex items-center gap-2"><CheckCircle2 /> CHAPTER {chapterNumber} COMPLETED</span>
+                        ) : (
+                            <span className="flex items-center gap-2"><Feather /> MARK CHAPTER {chapterNumber} COMPLETE</span>
+                        )}
                     </Button>
                 </div>
 

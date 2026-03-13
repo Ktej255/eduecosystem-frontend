@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 interface PreambleModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The ID Card & The Lens ---

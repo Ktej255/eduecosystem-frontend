@@ -103,8 +103,8 @@ function MCQContent() {
     const handleComplete = (results: QuestionResult[], timeTaken: number) => {
         // Calculate stats
         const correct = results.filter(r => r.isCorrect).length;
-        const incorrect = results.filter(r => !r.isCorrect && r.selectedAnswer !== null).length;
-        const unanswered = results.filter(r => r.selectedAnswer === null).length;
+        const incorrect = results.filter(r => !r.isCorrect && r.userAnswer !== null).length;
+        const unanswered = results.filter(r => r.userAnswer === null).length;
 
         // Simple scoring: +2 for correct, -0.66 for incorrect
         const score = (correct * 2) - (incorrect * 0.66);
@@ -160,7 +160,7 @@ function MCQContent() {
         // Mark individual questions as solved
         results.forEach(r => {
             if (r.isCorrect) {
-                markQuestionSolved(r.id);
+                markQuestionSolved(String(r.id));
             }
         });
 

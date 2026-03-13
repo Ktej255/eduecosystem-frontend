@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 interface MakingConstitutionV2Props {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Architect's Table ---
@@ -85,7 +86,7 @@ const SectionDivider = ({ title }: { title: string }) => (
     </div>
 );
 
-export default function MakingConstitutionModuleV2({ onComplete, isCompleted }: MakingConstitutionV2Props) {
+export default function MakingConstitutionModuleV2({ onComplete, isCompleted, chapterNumber = "2" }: MakingConstitutionV2Props) {
 
     return (
         <div className="max-w-4xl mx-auto pb-20 font-[family-name:var(--font-kalam)] bg-[#f3f4f6] min-h-screen">
@@ -94,7 +95,7 @@ export default function MakingConstitutionModuleV2({ onComplete, isCompleted }: 
                 <BlueprintGrid />
                 <div className="relative z-10 text-center">
                     <div className="inline-flex items-center gap-2 bg-blue-900/50 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border border-blue-700/50 mb-4 text-blue-200">
-                        <Scale size={14} /> Chapter 2: Construction Phase
+                        <Scale size={14} /> Chapter {chapterNumber}: Construction Phase
                     </div>
                     <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight leading-none text-white drop-shadow-lg">
                         Making of the <br /><span className="text-amber-400">Constitution</span>
@@ -553,8 +554,8 @@ export default function MakingConstitutionModuleV2({ onComplete, isCompleted }: 
           `}
                     >
                         {isCompleted ?
-                            <span className="flex items-center gap-2"><CheckCircle2 /> Architecture Mastered</span> :
-                            <span className="flex items-center gap-2"><BadgeCheck /> Mark Architecture Complete</span>
+                            <span className="flex items-center gap-2"><CheckCircle2 /> CHAPTER {chapterNumber} COMPLETED</span> :
+                            <span className="flex items-center gap-2"><BadgeCheck /> MARK CHAPTER {chapterNumber} COMPLETE</span>
                         }
                     </Button>
                 </div>

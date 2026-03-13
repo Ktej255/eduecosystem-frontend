@@ -1,5 +1,4 @@
 import { Subtopic, Question } from '../ancient-types-27';
-import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_22_SUBTOPICS: Subtopic[] = [
     { id: 'harsha_rise', name: 'Rise of Vardhana Dynasty' },

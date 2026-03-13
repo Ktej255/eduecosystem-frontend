@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 interface PreambleModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The ID Card & The Lens ---
@@ -25,7 +26,7 @@ const IDCardContainer = ({ children }: { children: React.ReactNode }) => (
     </div>
 );
 
-const HeroPreamble = () => (
+const HeroPreamble = ({ chapterNumber }: { chapterNumber?: string }) => (
     <div className="relative bg-[#fffdf5] border-[3px] border-double border-amber-300 p-8 md:p-12 shadow-xl rounded-sm max-w-3xl mx-auto text-center relative overflow-hidden">
         {/* Decorative Corners */}
         <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-amber-600 rounded-tl-3xl opacity-50"></div>
@@ -45,7 +46,7 @@ const HeroPreamble = () => (
                     THE PREAMBLE
                 </h1>
                 <div className="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold mb-8">
-                    Identity Card of the Constitution
+                    Chapter {chapterNumber} &bull; Identity Card of the Constitution
                 </div>
             </div>
 
@@ -112,11 +113,11 @@ const SectionHeading = ({ children }: { children: React.ReactNode }) => (
     </div>
 );
 
-export default function PreambleModule({ onComplete, isCompleted }: PreambleModuleProps) {
+export default function PreambleModule({ onComplete, isCompleted, chapterNumber = "5" }: PreambleModuleProps) {
     return (
         <IDCardContainer>
             {/* HERO */}
-            <HeroPreamble />
+            <HeroPreamble chapterNumber={chapterNumber} />
 
             {/* --- PHASE 1: INGREDIENTS & SOURCE --- */}
             <SectionHeading>Phase 1: Ingredients & Source</SectionHeading>
@@ -308,8 +309,8 @@ export default function PreambleModule({ onComplete, isCompleted }: PreambleModu
           `}
                 >
                     {isCompleted ?
-                        <span className="flex items-center gap-2"><BadgeCheck /> Identity Verified</span> :
-                        <span className="flex items-center gap-2"><BookOpen /> Verify Preamble Study</span>
+                        <span className="flex items-center gap-2"><BadgeCheck /> CHAPTER {chapterNumber} COMPLETED</span> :
+                        <span className="flex items-center gap-2"><BookOpen /> MARK CHAPTER {chapterNumber} COMPLETE</span>
                     }
                 </Button>
             </div>

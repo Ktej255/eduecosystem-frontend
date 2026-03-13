@@ -77,8 +77,8 @@ function RiverScene({
                         ]} />
                         <meshStandardMaterial color="#3b82f6" emissive="#2563eb" emissiveIntensity={0.5} transparent opacity={0.8} />
                     </mesh>
-                    {/* Animated Flow Arrows */}
-                    <FlowArrows start={path.start} end={path.end} />
+                    {/* Animated Flow Arrows - Simplified for 3D topology */}
+                    <FlowArrows id={`flow-${i}`} start={path.start} end={path.end} />
                 </group>
             ))}
 
@@ -87,9 +87,9 @@ function RiverScene({
                 <ConfluenceMarker
                     key={node.id}
                     position={node.pos}
-                    label={node.name}
-                    isMajor={node.type === 'main'}
-                    onClick={() => onSelectNode({ node, position: node.pos })}
+                    name={node.name}
+                    isActive={false}
+                    onSelect={() => onSelectNode({ node, position: node.pos })}
                 />
             ))}
 

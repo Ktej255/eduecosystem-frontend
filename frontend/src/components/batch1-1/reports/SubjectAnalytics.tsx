@@ -26,7 +26,7 @@ export default function SubjectAnalytics() {
     const [trendData, setTrendData] = useState<Record<string, TrendDataPoint[]>>({});
 
     useEffect(() => {
-        setTimeout(() => {
+        const loadData = async () => {
             // Fetch History Progress (Legacy Store)
             const histStore = getHistoryProgressStore();
             const hData = Object.values(histStore.chapters)
@@ -38,11 +38,11 @@ export default function SubjectAnalytics() {
             setHistoryData(hData);
 
             // Fetch Polity Progress (New Universal Store)
-            const pReports = getChapterReports('polity');
+            const pReports = await getChapterReports('polity');
             // Group by chapterId and get max accuracy
             const pMastery: Record<number, number> = {};
             pReports.forEach(r => {
-                pMastery[r.chapterId] = Math.max(pMastery[r.chapterId] || 0, r.accuracy);
+                pMastery[r.chapterId] = Math.max(pMastery[r.chapterId] || 0, r.accuracy || 0);
             });
             const pData = Object.entries(pMastery)
                 .sort((a, b) => parseInt(a[0]) - parseInt(b[0]))
@@ -53,11 +53,16 @@ export default function SubjectAnalytics() {
             setPolityData(pData);
 
             // Fetch Trend Data for both
+            const [hTrend, pTrend] = await Promise.all([
+                getSubjectTrendData('history'),
+                getSubjectTrendData('polity')
+            ]);
             setTrendData({
-                history: getSubjectTrendData('history'),
-                polity: getSubjectTrendData('polity')
+                history: hTrend,
+                polity: pTrend
             });
-        }, 0);
+        };
+        loadData();
     }, []);
 
     const renderChapterChart = (data: { chapter: string; score: number }[], color: string, title: string) => (

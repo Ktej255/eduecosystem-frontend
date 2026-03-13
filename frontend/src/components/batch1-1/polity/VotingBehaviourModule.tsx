@@ -11,7 +11,7 @@ import {
     CircleDashed, GripHorizontal,
     Menu, LayoutGrid, Award,
     Coins, Smartphone, ThumbsUp,
-    ThumbsDown, XCircle
+    ThumbsDown, XCircle, CheckCircle2
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";

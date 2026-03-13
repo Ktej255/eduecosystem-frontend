@@ -21,6 +21,6 @@ export interface MCQ {
         page_ref?: number; // e.g. 45
     };
     difficulty_tier?: 'Level_1' | 'Level_2' | 'Level_3';
-    cognitive_tag?: 'Knowledge' | 'Understanding' | 'Accuracy' | 'Fact' | 'fact';
+    cognitive_tag?: string;
     associated_product_id?: string;
 }

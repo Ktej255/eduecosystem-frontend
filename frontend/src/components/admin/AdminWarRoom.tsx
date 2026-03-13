@@ -8,9 +8,10 @@ import {
     Zap, Activity, Shield, Users, 
     Target, Heart, TrendingUp, AlertTriangle,
     RefreshCw, ChevronRight, ArrowUpRight,
-    Clock, DollarSign, History, Globe
+    Clock, DollarSign, History, Globe, FileText
 } from "lucide-react";
 import api from "@/lib/api";
+import Link from "next/link";
 
 interface PulseData {
     incidents: { failed_logins_hr: number; status: string };
@@ -63,7 +64,7 @@ export default function AdminWarRoom() {
             setLoading(true);
             const [pulseRes, alertsRes, activityRes, revenueRes] = await Promise.all([
                 api.get("/admin/war-room/pulse"),
-                api.get("/admin/smart-alerts"),
+                api.get("/admin/war-room/alerts"),
                 api.get("/admin/war-room/activity-feed"),
                 api.get("/admin/war-room/revenue-ticker")
             ]);
@@ -138,75 +139,83 @@ export default function AdminWarRoom() {
             {/* Pulse Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {/* CRM Portal */}
-                <Card className="bg-slate-900 border-slate-800 hover:border-blue-500/50 transition-colors">
-                    <CardHeader className="pb-2">
-                        <CardTitle className="text-xs font-bold text-blue-400 uppercase flex justify-between">
-                            CRM Command
-                            <Target className="w-4 h-4" />
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-black text-white">{pulse?.crm.new_leads_hr || 0}</div>
-                        <p className="text-[10px] text-muted-foreground uppercase">New Leads (Hr)</p>
-                        <div className="mt-4 flex justify-between items-center text-xs">
-                            <span className="text-muted-foreground">Unassigned:</span>
-                            <span className="font-bold text-amber-500">{pulse?.crm.unassigned_leads || 0}</span>
-                        </div>
-                    </CardContent>
-                </Card>
+                <Link href="/admin/leads" className="block">
+                    <Card className="bg-slate-900 border-slate-800 hover:border-blue-500/50 transition-colors cursor-pointer h-full">
+                        <CardHeader className="pb-2">
+                            <CardTitle className="text-xs font-bold text-blue-400 uppercase flex justify-between">
+                                CRM Command
+                                <Target className="w-4 h-4" />
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="text-2xl font-black text-white">{pulse?.crm.new_leads_hr || 0}</div>
+                            <p className="text-[10px] text-muted-foreground uppercase">New Leads (Hr)</p>
+                            <div className="mt-4 flex justify-between items-center text-xs">
+                                <span className="text-muted-foreground">Unassigned:</span>
+                                <span className="font-bold text-amber-500">{pulse?.crm.unassigned_leads || 0}</span>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </Link>
 
                 {/* LMS Portal */}
-                <Card className="bg-slate-900 border-slate-800 hover:border-indigo-500/50 transition-colors">
-                    <CardHeader className="pb-2">
-                        <CardTitle className="text-xs font-bold text-indigo-400 uppercase flex justify-between">
-                            LMS Live
-                            <Users className="w-4 h-4" />
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-black text-white">{pulse?.lms.live_students || 0}</div>
-                        <p className="text-[10px] text-muted-foreground uppercase">Active Learners</p>
-                        <div className="mt-4 h-1 w-full bg-slate-800 rounded-full overflow-hidden">
-                            <div className="h-full bg-indigo-500" style={{ width: '65%' }} />
-                        </div>
-                    </CardContent>
-                </Card>
+                <Link href="/admin/content-system" className="block">
+                    <Card className="bg-slate-900 border-slate-800 hover:border-indigo-500/50 transition-colors cursor-pointer h-full">
+                        <CardHeader className="pb-2">
+                            <CardTitle className="text-xs font-bold text-indigo-400 uppercase flex justify-between">
+                                LMS Live
+                                <Users className="w-4 h-4" />
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="text-2xl font-black text-white">{pulse?.lms.live_students || 0}</div>
+                            <p className="text-[10px] text-muted-foreground uppercase">Active Learners</p>
+                            <div className="mt-4 h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+                                <div className="h-full bg-indigo-500" style={{ width: '65%' }} />
+                            </div>
+                        </CardContent>
+                    </Card>
+                </Link>
 
                 {/* Wellness Portal */}
-                <Card className="bg-slate-900 border-slate-800 hover:border-emerald-500/50 transition-colors">
-                    <CardHeader className="pb-2">
-                        <CardTitle className="text-xs font-bold text-emerald-400 uppercase flex justify-between">
-                            Wellness
-                            <Heart className="w-4 h-4" />
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-black text-white">{pulse?.wellness.meditation_daily_mins || 0}m</div>
-                        <p className="text-[10px] text-muted-foreground uppercase">Meditation Daily</p>
-                        <div className="mt-4 flex justify-between items-center text-xs">
-                            <span className="text-muted-foreground">Grapho Submissions:</span>
-                            <span className="font-bold text-emerald-500">{pulse?.wellness.grapho_daily || 0}</span>
-                        </div>
-                    </CardContent>
-                </Card>
+                <Link href="/admin/meditation" className="block">
+                    <Card className="bg-slate-900 border-slate-800 hover:border-emerald-500/50 transition-colors cursor-pointer h-full">
+                        <CardHeader className="pb-2">
+                            <CardTitle className="text-xs font-bold text-emerald-400 uppercase flex justify-between">
+                                Wellness
+                                <Heart className="w-4 h-4" />
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="text-2xl font-black text-white">{pulse?.wellness.meditation_daily_mins || 0}m</div>
+                            <p className="text-[10px] text-muted-foreground uppercase">Meditation Daily</p>
+                            <div className="mt-4 flex justify-between items-center text-xs">
+                                <span className="text-muted-foreground">Grapho Submissions:</span>
+                                <span className="font-bold text-emerald-500">{pulse?.wellness.grapho_daily || 0}</span>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </Link>
 
                 {/* Marketing Portal */}
-                <Card className="bg-slate-900 border-slate-800 hover:border-purple-500/50 transition-colors">
-                    <CardHeader className="pb-2">
-                        <CardTitle className="text-xs font-bold text-purple-400 uppercase flex justify-between">
-                            Marketing
-                            <Zap className="w-4 h-4" />
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-black text-white">{pulse?.marketing.messages_24h || 0}</div>
-                        <p className="text-[10px] text-muted-foreground uppercase">Nudges (24h)</p>
-                        <div className="mt-4 flex justify-between items-center text-xs">
-                            <span className="text-muted-foreground">Active Workflows:</span>
-                            <span className="font-bold text-purple-500">{pulse?.marketing.active_workflows || 0}</span>
-                        </div>
-                    </CardContent>
-                </Card>
+                <Link href="/admin/marketing-automation" className="block">
+                    <Card className="bg-slate-900 border-slate-800 hover:border-purple-500/50 transition-colors cursor-pointer h-full">
+                        <CardHeader className="pb-2">
+                            <CardTitle className="text-xs font-bold text-purple-400 uppercase flex justify-between">
+                                Marketing
+                                <Zap className="w-4 h-4" />
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="text-2xl font-black text-white">{pulse?.marketing.messages_24h || 0}</div>
+                            <p className="text-[10px] text-muted-foreground uppercase">Nudges (24h)</p>
+                            <div className="mt-4 flex justify-between items-center text-xs">
+                                <span className="text-muted-foreground">Active Workflows:</span>
+                                <span className="font-bold text-purple-500">{pulse?.marketing.active_workflows || 0}</span>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </Link>
             </div>
 
             {/* Bottom Section: Alerts and Activity Feed */}
@@ -314,7 +323,7 @@ export default function AdminWarRoom() {
                                 className="bg-indigo-600 hover:bg-indigo-700 text-xs text-white"
                                 onClick={async () => {
                                     try {
-                                        await api.post("/admin/meditation/analytics/broadcast-nudge", {
+                                        await api.post("/admin/meditation-analytics/broadcast-nudge", {
                                             message: "System detected 12% drop in meditation streaks. Please take 5 mins to focus before the next session."
                                         });
                                         alert("Global Nudge Broadcasted Successfully!");

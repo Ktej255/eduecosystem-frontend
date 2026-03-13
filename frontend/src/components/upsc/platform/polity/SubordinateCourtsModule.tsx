@@ -11,6 +11,7 @@ import {
 interface SubordinateCourtsModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Foundation (Judicial Pyramid) ---
@@ -45,7 +46,7 @@ const StoneCard = ({ children, title, icon: Icon, color = "brown", className = "
     );
 };
 
-export default function SubordinateCourtsModule({ onComplete, isCompleted }: SubordinateCourtsModuleProps) {
+export default function SubordinateCourtsModule({ onComplete, isCompleted, chapterNumber = "35" }: SubordinateCourtsModuleProps) {
     const [activeSide, setActiveSide] = useState<"civil" | "criminal">("civil");
 
     return (
@@ -60,9 +61,10 @@ export default function SubordinateCourtsModule({ onComplete, isCompleted }: Sub
                     <h1 className="text-4xl md:text-6xl font-black text-[#441c05] font-serif mb-2">
                         SUBORDINATE COURTS
                     </h1>
-                    <p className="text-xl font-bold uppercase tracking-widest text-[#78350f]">
-                        "The Judicial Foundation"
-                    </p>
+                    <div className="flex items-center gap-3 justify-center mb-4">
+                        <span className="bg-[#441c05] text-[#f5f5f4] text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-widest">Chapter {chapterNumber}</span>
+                        <span className="text-xl font-bold uppercase tracking-widest text-[#78350f] italic">"The Judicial Foundation"</span>
+                    </div>
                 </div>
             </div>
 
@@ -248,7 +250,7 @@ export default function SubordinateCourtsModule({ onComplete, isCompleted }: Sub
                             }
                         `}
                     >
-                        {isCompleted ? "Justice at Doorstep" : "Visit Village Court"}
+                        {isCompleted ? `CHAPTER ${chapterNumber} COMPLETED` : `MARK CHAPTER ${chapterNumber} COMPLETE`}
                     </button>
                 </div>
             </div>

@@ -14,6 +14,7 @@ import { Card } from "@/components/ui/card";
 interface InterStateRelationsModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Cooperation Bridge ---
@@ -143,7 +144,7 @@ const BadgeVariant = ({ className, children }: any) => (
 );
 
 
-export default function InterStateRelationsModule({ onComplete, isCompleted }: InterStateRelationsModuleProps) {
+export default function InterStateRelationsModule({ onComplete, isCompleted, chapterNumber = "16" }: InterStateRelationsModuleProps) {
     const [activeZone, setActiveZone] = useState<string>("Northern");
 
     const zones = [
@@ -163,10 +164,10 @@ export default function InterStateRelationsModule({ onComplete, isCompleted }: I
 
                 <div className="relative z-10 flex flex-col items-center text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-900/30 border border-blue-700/50 text-blue-300 text-xs font-bold uppercase tracking-widest mb-6">
-                        <Map size={14} /> Part XI (Art 262-263)
+                        <Map size={14} /> Chapter {chapterNumber}
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black font-serif text-white tracking-tight mb-4">
-                        The Cooperation Bridge
+                        Inter-State <br /> Relations
                     </h1>
                     <p className="text-muted-foreground max-w-2xl text-lg font-handwriting italic">
                         "Bridging the divide between states through adjudication and coordination."
@@ -401,8 +402,8 @@ export default function InterStateRelationsModule({ onComplete, isCompleted }: I
                         `}
                     >
                         {isCompleted ?
-                            <span className="flex items-center gap-2"><CheckCircle2 /> Bridge Constructed</span> :
-                            <span className="flex items-center gap-2"><Anchor className="animate-pulse" /> Build The Bridge</span>
+                            <span className="flex items-center gap-2"><CheckCircle2 /> CHAPTER {chapterNumber} COMPLETED</span> :
+                            <span className="flex items-center gap-2"><Anchor className="animate-pulse" /> MARK CHAPTER {chapterNumber} COMPLETE</span>
                         }
                     </Button>
                 </div>

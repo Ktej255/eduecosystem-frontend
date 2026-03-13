@@ -528,8 +528,1248 @@ export const CH4_L1_MCQS: MCQ[] = [
         "tags": [
             "history"
         ]
-    }
-];
+    },
+    {
+        "id": "ch4-d-new-1",
+        "question": "In the Soan valley, the Early Old Stone Age artifacts are associated with which Himalayan glaciation?",
+        "options": [
+                "First",
+                "Second",
+                "Third",
+                "Fourth"
+        ],
+        "correctIndex": 1,
+        "explanation": "Hand-axes have been found in a deposit of the time of the second Himalayan glaciation.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-new-2",
+        "question": "In India, the Mesolithic Age roughly continued up to:",
+        "options": [
+                "8000 B.C.",
+                "6000 B.C.",
+                "4000 B.C.",
+                "2000 B.C."
+        ],
+        "correctIndex": 2,
+        "explanation": "In the case of India, it started about 8000 B.C. and continued up to about 4000 B.C.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-new-3",
+        "question": "A unique feature of the Burzahom neolithic site is the burial of which animal with its master?",
+        "options": [
+                "Horse",
+                "Cat",
+                "Domestic dog",
+                "Cow"
+        ],
+        "correctIndex": 2,
+        "explanation": "It is interesting that the Burzahom domestic dogs were buried with their masters in their graves.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-new-4",
+        "question": "According to the text, a great limitation of Stone Age people was that they could not found settlements far away from:",
+        "options": [
+                "The coastal plains",
+                "Hilly areas",
+                "Deep forests",
+                "Desert oases"
+        ],
+        "correctIndex": 1,
+        "explanation": "Since they had to depend entirely on stone tools, they could not settle far from the hilly areas where stone was available. Level 2: Moderate UPSC Level (Statement-Based)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-new-5",
+        "question": "Consider the following statements about the Pleistocene period: Ice sheets covered the tropical mountains and the tropical plains entirely. The tropical regions, excepting mountains, underwent a period of great rainfall. Which of the statements given above is/are correct?",
+        "options": [
+                "1 only",
+                "2 only",
+                "Both 1 and 2",
+                "Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because the tropical regions, excepting the mountains, were free from ice. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-new-6",
+        "question": "Which of the following states is NOT explicitly listed in the text as a location where Upper Palaeolithic blades and burins have been found?",
+        "options": [
+                "Andhra",
+                "Karnataka",
+                "Maharashtra",
+                "Punjab"
+        ],
+        "correctIndex": 3,
+        "explanation": "The text lists Andhra, Karnataka, Maharashtra, Bhopal, and the Chotanagpur plateau for Upper Palaeolithic blades/burins, but not Punjab (which is associated with the Soan valley Early/Middle Palaeolithic). Level 3: Tough/Very Tough UPSC Level (Analytical & Applied Concepts)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-new-7",
+        "question": "Evaluate the environmental determinism in ancient Indian lithic cultures: The complete absence of Palaeolithic sites in the alluvial plains of the Indus and Ganga was primarily due to the lack of stone raw materials and dense forest cover. The tropical regions of India experienced severe glaciation during the Pleistocene, forcing humans into cave dwellings like Bhimbetka. The transition to the Holocene brought warmer, drier climates that facilitated the geographic expansion of Mesolithic microlith-using communities. How many of the above statements are correct deductions based on Chapter 4?",
+        "options": [
+                "Only one",
+                "Only two",
+                "All three",
+                "None"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statements 1 and 3 are correct. Statement 2 is incorrect because the text explicitly states that tropical regions (except mountains) were free from ice and instead experienced a period of great rainfall.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-new-8",
+        "question": "\"The people of the Stone Age suffered from one great limitation.\" In this context, consider the following: Statement-I: The demographic expansion of neolithic settlements was strictly confined to hilly river valleys and plateaus. Statement-II: The reliance on polished stone axes completely precluded the generation of an agricultural surplus necessary for urban civilization. Which one of the following is correct in respect of the above statements?",
+        "options": [
+                "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+                "Both Statement-I and Statement-II are correct but Statement-II is not the correct explanation for Statement-I",
+                "Statement-I is correct but Statement-II is incorrect",
+                "Statement-I is incorrect but Statement-II is correct"
+        ],
+        "correctIndex": 0,
+        "explanation": "Both statements are correct. The limitation of stone technology meant they couldn't clear dense plains (I) and couldn't produce more than bare subsistence (II), effectively preventing urban civilization.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-new-9",
+        "question": "Read the following passage: \"They usually settled on the tops of granite hills or on plateaus near the river banks... Fire baked earthen figurines suggest that they kept a large number of cattle... They used rubbing stone querns.\" This description best fits the neolithic people of:",
+        "options": [
+                "The Kashmir Valley",
+                "The Garo Hills",
+                "South India, south of the Godavari",
+                "The Belan Valley"
+        ],
+        "correctIndex": 2,
+        "explanation": "This is the exact description provided for the second group of neolithic people who lived in south India south of the Godavari river.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+        "id": "ch4-d-v5-1",
+        "question": "According to the text, man has been living in Indi",
+        "options": [
+                "roughly from:\nA) 1,000,000",
+                "",
+                "B) 500,000 B.C.\nC) 100,000 B.C.",
+                "50,000 B.C."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text states that man has been living in India roughly from 500,000 B.C.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-2",
+        "question": "In which district of Andhr",
+        "options": [
+                "Pradesh have tools belonging to 25,000",
+                "",
+                "\u201310,000 B.C. been foun",
+                "along with bone implements?\nA) Anantapur\nB) Kurnool\nC) Guntur\nD) Nellore"
+        ],
+        "correctIndex": 1,
+        "explanation": "Such tools and bone implements have been found in Kurnool district in Andhra Pradesh.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-3",
+        "question": "The Old Stone Age in Indi",
+        "options": [
+                "developed during which geological period?\nA) Holocene",
+                "Miocene",
+                "Pleistocene",
+                "Pliocene"
+        ],
+        "correctIndex": 2,
+        "explanation": "The Palaeolithic culture developed in the Pleistocene period or the Ice Age.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-4",
+        "question": "The Lower Palaeolithic or Early Old Stone Age is characterized primarily by the use of:",
+        "options": [
+                "Flakes and borers",
+                "Blades and burins",
+                "Microliths",
+                "Hand-axes and cleavers"
+        ],
+        "correctIndex": 3,
+        "explanation": "Its characteristic feature is the use of hand-axes and cleavers.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-5",
+        "question": "The characteristic tools of the Late Stone Age (Mesolithic) are:",
+        "options": [
+                "Hand-axes",
+                "Cleavers",
+                "Microliths",
+                "Burins"
+        ],
+        "correctIndex": 2,
+        "explanation": "The characteristic tools of the Late Stone Age are microliths.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-6",
+        "question": "Which legendary hero in ancient Indian legends is associated with the stone axe,",
+        "options": [
+                "widely used tool of the Neolithic age?\nA) Rama",
+                "Krishna",
+                "Parasurama",
+                "Arjuna"
+        ],
+        "correctIndex": 2,
+        "explanation": "In ancient legends, Parasurama became an important axe-wielding hero.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-7",
+        "question": "The Neolithic settlement in the valley of Kashmir, known for pit dwellings, is:",
+        "options": [
+                "Pahalgam",
+                "Burzahom",
+                "Anantnag",
+                "Baramulla"
+        ],
+        "correctIndex": 1,
+        "explanation": "The neolithic people lived at a place called Burzahom, at a distance of about 20 km from Srinagar.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-8",
+        "question": "Besides Burzahom, which is the only other place in Indi",
+        "options": [
+                "that has yielded considerable bone implements from the Neolithic phase?\nA) Kalibangan",
+                "Lothal",
+                "Chiran",
+                "D) Rajgir"
+        ],
+        "correctIndex": 2,
+        "explanation": "The only other place which has yielded considerable bone implements in India is Chirand.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-9",
+        "question": "Chirand is situated on the northern side of the Gang",
+        "options": [
+                "in which modern state?\nA) Uttar Pradesh",
+                "Bihar",
+                "West Bengal",
+                "Madhya Pradesh"
+        ],
+        "correctIndex": 1,
+        "explanation": "Chirand is 40 km west of Patna (Bihar) on the northern side of the Ganga.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-10",
+        "question": "The second group of neolithic people in south Indi",
+        "options": [
+                "generally settled on the tops of:\nA) Sandstone hills",
+                "Granite hills",
+                "Limestone plateaus",
+                "Volcanic craters"
+        ],
+        "correctIndex": 1,
+        "explanation": "They usually settled on the tops of granite hills or on plateaus near the river banks.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-11",
+        "question": "Ash mounds and seasonal camps enclosed by cowpens are discovered at which neolithic site in Andhr",
+        "options": [
+                "Pradesh?\nA) Maski",
+                "Brahmagiri",
+                "Piklihal",
+                "Paiyampalli"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both ash mounds and habitation sites have been discovered in Piklihal.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-12",
+        "question": "According to the text,",
+        "options": [
+                "great limitation of Stone Age people was that they could not found settlements far away from:\nA) The coastal plains",
+                "Hilly areas",
+                "Deep forests",
+                "Desert oases"
+        ],
+        "correctIndex": 1,
+        "explanation": "Since they had to depend entirely on stone tools, they could not settle far from the hilly areas where stone was available.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-13",
+        "question": "Consider the following statements about the Pleistocene period:\n\n\nIce sheets covered the tropical mountains and the tropical plains entirely.\n\n\nThe tropical regions, excepting mountains, underwent",
+        "options": [
+                "period of great rainfall.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because the tropical regions, excepting the mountains, were free from ice. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-14",
+        "question": "Consider the following statements about early human occupation in India:\n\n\nHuman remains associated with stone tools in Indi",
+        "options": [
+                "are as old as 3.5 million years ago.\n\n\nThe first human occupation in India is not earlier than the Middle Pleistocene.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 refers to East Africa, not India. Statement 2 is correct for India (began about 500,000 years ago).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-15",
+        "question": "Consider the following statements about the transition to the Mesolithic Age:\n\n\nIt began around 8000 B.C. with the end of the Ice Age.\n\n\nClimatic changes caused changes in flor",
+        "options": [
+                "and fauna, making it impossible for humans to move to new areas.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the text states climatic changes made it possible for human beings to move to new areas.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-16",
+        "question": "Consider the following regarding the Neolithic settlement at Burzahom:\n\n\nThe people were well acquainted with agriculture and the domestication of animals from the very beginning.\n\n\nThey lived on",
+        "options": [
+                "plateau in pit dwellings.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the text says \"They did not seem to have been acquainted with agriculture or domestication of animals.\" Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-17",
+        "question": "Match the following Neolithic sites with their modern states:\n\n\nMaski - Karnatak",
+        "options": [
+                "Paiyampalli - Tamil Nadu\n\n\nUtnur - Andhra Pradesh\nHow many of the above pairs are correctly matched?\nA) Only one pair",
+                "Only two pairs",
+                "All three pairs",
+                "None"
+        ],
+        "correctIndex": 2,
+        "explanation": "The text explicitly locates Maski in Karnataka, Paiyampalli in Tamil Nadu, and Utnur in Andhra Pradesh.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-18",
+        "question": "Assertion (",
+        "options": [
+                ": The people of the Stone Age could not produce much more than what they needed for their bare subsistence.\nReason (R): They had to depend entirely on tools and weapons made of stone.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 0,
+        "explanation": "The text explicitly links their inability to produce surplus and expand geographically to their sole dependence on stone tools.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-19",
+        "question": "Consider the following statements about Palaeolithic tools:\n\n\nThe hand-axes found in Indi",
+        "options": [
+                "are completely different from those of Western Asia and Africa.\n\n\nMiddle Palaeolithic flake industries in India show regional variations.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect (they are more or less similar to those of Western Asia, Europe, and Africa). Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-20",
+        "question": "The bone implements recovered from Chirand belong to",
+        "options": [
+                "late neolithic setup. According to the text, they cannot be dated earlier than:\nA) 2400",
+                "",
+                "B) 1600 B.C.\nC) 1000 B.C.",
+                "6000 B.C."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text states that the bones recovered from Chirand cannot be dated earlier than 1600 B.C.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-21",
+        "question": "Assertion (",
+        "options": [
+                ": Stone Age people could not found settlements in the dense alluvial plains of the Ganga.\nReason (R): They had to depend entirely on tools and weapons made of stone, preventing clearance of hard soil and dense jungles.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 0,
+        "explanation": "The limitation of stone tools prevented them from settling far from hilly areas and clearing the alluvial plains.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-22",
+        "question": "Consider the following statements regarding the end of the Stone Age:\n\n\nThe New Stone Age in Indi",
+        "options": [
+                "faded imperceptibly into the chalcolithic phase in some southern areas.\n\n\nThe Stone Age came to an abrupt and simultaneous end across the entire Indian subcontinent in 1000",
+                "",
+                "Which of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct (mentioned in the context of South India). Statement 2 is incorrect; the transition was staggered, with some neolithic sites continuing as late as 1000 B.C., while others entered the metal age earlier.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-23",
+        "question": "Which of the following states is NOT explicitly listed in the text as",
+        "options": [
+                "location where Upper Palaeolithic blades and burins have been found?\nA) Andhra",
+                "Karnataka",
+                "Maharashtra",
+                "Punjab"
+        ],
+        "correctIndex": 3,
+        "explanation": "The text lists Andhra, Karnataka, Maharashtra, Bhopal, and the Chotanagpur plateau for Upper Palaeolithic blades/burins, but not Punjab (which is associated with the Soan valley Early/Middle Palaeolithic).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-24",
+        "question": "Evaluate the environmental determinism in ancient Indian lithic cultures:\n\n\nThe complete absence of Palaeolithic sites in the alluvial plains of the Indus and Gang",
+        "options": [
+                "was primarily due to the lack of stone raw materials and dense forest cover.\n\n\nThe tropical regions of India experienced severe glaciation during the Pleistocene, forcing humans into cave dwellings like Bhimbetka.\n\n\nThe transition to the Holocene brought warmer, drier climates that facilitated the geographic expansion of Mesolithic microlith-using communities.\nHow many of the above statements are correct deductions based on Chapter 4?\nA) Only one",
+                "Only two",
+                "All three",
+                "None"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statements 1 and 3 are correct. Statement 2 is incorrect because the text explicitly states that tropical regions (except mountains) were free from ice and instead experienced a period of great rainfall.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-25",
+        "question": "Analyze the significance of the neolithic site of Chirand:\n\n\nIt is the only neolithic site in Indi",
+        "options": [
+                "to yield bone implements.\n\n\nIts location at the confluence of four rivers (Ganga, Son, Gandak, Ghaghra) provided open land for settlement despite the 100 cm rainfall zone.\n\n\nThe bone implements found here belong to a very early neolithic phase, dated prior to 2400",
+                "",
+                "Which of the statements given above is/are correct?\nA) 1 an",
+                "2 only\nB) 2 only\nC) 2 and 3 only\nD) 1, 2, and 3"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect (Burzahom also has bone implements). Statement 2 is correct. Statement 3 is incorrect (Chirand bone tools belong to a late neolithic setup, not earlier than 1600 B.C.).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-26",
+        "question": "\"The people of the Stone Age suffered from one great limitation.\" In this context, consider the following:\nStatement-I: The demographic expansion of neolithic settlements was strictly confined to hilly river valleys and plateaus.\nStatement-II: The reliance on polished stone axes completely precluded the generation of an agricultural surplus necessary for urban civilization.\nWhich one of the following is correct in respect of the above statements?",
+        "options": [
+                "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+                "Both Statement-I and Statement-II are correct but Statement-II is not the correct explanation for Statement-I",
+                "Statement-I is correct but Statement-II is incorrect",
+                "Statement-I is incorrect but Statement-II is correct"
+        ],
+        "correctIndex": 0,
+        "explanation": "Both statements are correct. The limitation of stone technology meant they couldn't clear dense plains (I) and couldn't produce more than bare subsistence (II), effectively preventing urban civilization.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-27",
+        "question": "Assess the socio-economic evolution during the Neolithic phase in India:\n\n\nThe practice of pit dwelling at Burzahom indicates an advanced agricultural economy reliant on wheat cultivation.\n\n\nThe discovery of ash mounds at Piklihal suggests",
+        "options": [
+                "pastoral economy where seasonal camps were cleared by burning accumulated cow dung.\n\n\nThe assumption of common property ownership is archaeologically inferred from the construction of circular houses made of mud and reed.\nHow many of the above statements are correct?\nA) Only one",
+                "Only two",
+                "All three",
+                "None"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statements 2 and 3 are correct. Statement 1 is incorrect because the text states the Burzahom people probably had a hunting/fishing economy and were not acquainted with agriculture.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-28",
+        "question": "Trace the chronological and technological progression of the Palaeolithic Age in Indi",
+        "options": [
+                "Which of the following is correctly stated?\nA) The Early Palaeolithic is characterized by flake industries and corresponds to the third Himalayan glaciation.",
+                "The Middle Palaeolithi",
+                "is dominate",
+                "by hand-axes and cleavers.\nC) The Upper Palaeolithic coincides with the last phase of the Ice Age, characterized by burins, blades, and the emergence of Homo sapiens.\nD) The Lower Palaeolithic saw the first widespread use of microliths in the Chotanagpur plateau."
+        ],
+        "correctIndex": 2,
+        "explanation": "Option C correctly identifies the features of the Upper Palaeolithic. A and B mix up the Lower and Middle phases. D confuses Lower Palaeolithic with Mesolithic.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-29",
+        "question": "Consider the following regarding the domestication of animals in prehistoric India:\n\n\nThe Belan valley provides evidence of goat, sheep, and cattle domestication around 25,000 B.C.\n\n\nThe Burzahom site reveals the unique Indian neolithic practice of burying domestic dogs with their masters.\n\n\nThe Piklihal settlers maintained cowpens and accumulated dung, reflecting",
+        "options": [
+                "highly developed cattle-herding culture.\nWhich of the statements given above are correct?\nA) 1 and 2 only",
+                "2 and 3 only",
+                "1 an",
+                "3 only\nD) 1, 2, and 3"
+        ],
+        "correctIndex": 3,
+        "explanation": "All three statements are explicitly supported by the text as key markers of animal domestication across different regions and periods.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-30",
+        "question": "Consider the following statements about the material culture of the New Stone Age:\n\n\nThe widespread use of stone axes was",
+        "options": [
+                "defining feature, later immortalized in legends by the axe-wielding hero Parasurama.\n\n\nEarly neolithic pottery was exclusively wheel-turned, indicating a sudden leap in technological advancement.\n\n\nThe cultivation of ragi and horsegram was prominent among the later neolithic settlers of South India.\nHow many of the above statements are correct?\nA) Only one",
+                "Only two",
+                "All three",
+                "None"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statements 1 and 3 are correct. Statement 2 is incorrect because the text notes that hand-made pottery is found in the early stage, with footwheels being used later.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-31",
+        "question": "The transition from the Upper Palaeolithic to the Mesolithic Age in Indi",
+        "options": [
+                "was accompanied by which of the following ecological changes?\nA) The onset of severe glaciation and the adoption of heavy stone choppers.",
+                "The end of the Pleistocene, leading to a warm and dry climate that altered flora and fauna, allowing human expansion.",
+                "A perio",
+                "of immense rainfall that submerged the peninsular plateaus, forcing migration to the Himalayas.\nD) The complete desertification of the Gangetic plains, preventing any human habitation."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text states that the end of the Ice Age (Pleistocene) around 8000 B.C. brought warm/dry climates and changes in flora/fauna, allowing humans to move to new areas during the Mesolithic.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-32",
+        "question": "Consider the following assertion regarding the origin of agriculture in India:\nAssertion (",
+        "options": [
+                ": The Neolithic age in the Indian subcontinent began much earlier than in Western Asia, around 9000",
+                "",
+                "Reason (R): Sites in Allahaba",
+                "district demonstrate rice cultivation as early as the sixth millennium B.C.\nA) Both A and R are true, and R is the correct explanation of A.\nB) Both A and R are true, but R is not the correct explanation of A.\nC) A is true, but R is false.\nD) A is false, but R is true."
+        ],
+        "correctIndex": 3,
+        "explanation": "A is false because the Neolithic age in Western Asia began much earlier (7000 B.C. / 9000-3000 B.C. progress) than in the Indian subcontinent (6000 B.C.). R is factually true.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-33",
+        "question": "Read the following passage:\n\"They usually settled on the tops of granite hills or on plateaus near the river banks... Fire baked earthen figurines suggest that they kept",
+        "options": [
+                "large number of cattle... They used rubbing stone querns.\"\nThis description best fits the neolithic people of:\nA) The Kashmir Valley",
+                "The Garo Hills",
+                "South India, south of the Godavari",
+                "The Belan Valley"
+        ],
+        "correctIndex": 2,
+        "explanation": "This is the exact description provided for the second group of neolithic people who lived in south India south of the Godavari river.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-34",
+        "question": "Consider the following pairs of sites and their distinguishing features:\n\n\nBhimbetka: Upper Palaeolithic caves and rockshelters\n\n\nBurzahom: Coarse grey pottery and pit dwellings\n\n\nChirand: Neolithic bone implements in",
+        "options": [
+                "100 cm rainfall zone\nHow many of the above pairs are correctly matched?\nA) Only one pair",
+                "Only two pairs",
+                "All three pairs",
+                "None"
+        ],
+        "correctIndex": 2,
+        "explanation": "All three pairs correctly match the site with the specific archaeological features mentioned in the text.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-35",
+        "question": "Consider the following statements regarding early human habitations:\nStatement-I: Palaeolithic sites are completely absent in the alluvial plains of the Indus and the Gang",
+        "options": [
+                "Statement-II: The early humans had to depend entirely on stone tools, preventing them from settling far away from hilly areas where stone was available.\nWhich one of the following is correct?\nA) Both Statement-I and Statement-II are correct and Statement-II explains Statement-I.",
+                "Both Statement-I and Statement-II are correct but Statement-II does not explain Statement-I.",
+                "Statement-I is correct but Statement-II is incorrect.",
+                "Statement-I is incorrect but Statement-II is correct."
+        ],
+        "correctIndex": 0,
+        "explanation": "The absence of sites in the alluvial plains (I) is directly explained by their reliance on stone tools, which tethered them to hilly areas (II) rather than the stone-poor alluvial plains.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-36",
+        "question": "Consider the following about the Neolithic timeline:\n\n\nIn the world context, the New Stone Age began in 7000 B.C.\n\n\nIn the Indian subcontinent, neolithic settlements are not older than 6000 B.C.\n\n\nSome neolithic settlements in southern and eastern Indi",
+        "options": [
+                "are as late as 1000",
+                "",
+                "How many of the above statements are correct?\nA) Only one\nB) Only two\nC) All three",
+                "None"
+        ],
+        "correctIndex": 2,
+        "explanation": "All three statements are accurate chronological anchors provided in the text.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-37",
+        "question": "Analyze the structural evolution of Neolithic settlements:\n\n\nThe earliest settlers at Piklihal were agriculturists living in rectangular mud houses.\n\n\nThe later neolithic settlers in South Indi",
+        "options": [
+                "lived in circular or rectangular houses made of mud and reed.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because the earliest settlers at Piklihal were cattle herders (pastoralists), not agriculturists. Statement 2 is correct for the later neolithic settlers.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-38",
+        "question": "Consider the following assertion regarding the Mesolithic Age:\nAssertion (",
+        "options": [
+                ": The Mesolithic phase is exclusively found in the Himalayan regions.\nReason (R): It intervened as a transitional phase characterized by microliths.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 3,
+        "explanation": "A is false because Mesolithic sites are found in Chotanagpur, central India, and south of the Krishna river, not exclusively in the Himalayas. R is true.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-39",
+        "question": "The presence of microlith blades in the later neolithic settlements of South Indi",
+        "options": [
+                "indicates:\nA) A complete regression to a purely hunting-gathering lifestyle.",
+                "A technological continuity and integration of Mesolithi",
+                "tool types into the food-producing Neolithic economy.\nC) The exclusive use of microliths for monumental architecture.",
+                "A rejection of polished stone axes."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text states that alongside their agricultural life and polished tools, their toolkit \"also included microlith blades,\" showing technological continuity.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v5-40",
+        "question": "The overarching narrative of Chapter 4 (\"The Stone Age\") demonstrates that:",
+        "options": [
+                "India experienced a completely uniform and simultaneous transition through all Stone Age phases across the entire subcontinent.",
+                "The progression of lithi",
+                "technology an",
+                "climatic amelioration gradually enabled human populations to transition from nomadic hunting-gathering to settled, food-producing village economies, albeit geographically limited by stone resources.\nC) The Indian subcontinent bypassed the Mesolithic phase entirely, jumping straight from the Ice Age to the Metal Age.\nD) Agriculture was invented during the Lower Palaeolithic phase but was abandoned until the Chalcolithic period."
+        ],
+        "correctIndex": 1,
+        "explanation": "This summarizes the core thesis of the chapter, detailing the slow evolution from Palaeolithic hunters to Neolithic farmers, highlighting the geographical limitations imposed by their reliance on stone tools.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-500",
+        "question": "Consider the following statements about the Pleistocene period:\n\n\nIce sheets covered the tropical mountains and the tropical plains entirely.\n\n\nThe tropical regions, excepting mountains, underwent",
+        "options": [
+                "period of great rainfall.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "the tropical mountains and the tropical plains entirely.\n\n\nThe tropical regions, excepting mountains, underwent a period of great rainfall.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because the tropical regions, excepting the mountains, were free from ice. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-501",
+        "question": "Consider the following statements about early human occupation in India:\n\n\nHuman remains associated with stone tools in Indi",
+        "options": [
+                "are as old as 3.5 million years ago.\n\n\nThe first human occupation in India is not earlier than the Middle Pleistocene.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "with stone tools in India are as old as 3.5 million years ago.\n\n\nThe first human occupation in India is not earlier than the Middle Pleistocene.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 refers to East Africa, not India. Statement 2 is correct for India (began about 500,000 years ago).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-502",
+        "question": "Consider the following statements about the transition to the Mesolithic Age:\n\n\nIt began around 8000 B.C. with the end of the Ice Age.\n\n\nClimatic changes caused changes in flor",
+        "options": [
+                "and fauna, making it impossible for humans to move to new areas.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "",
+                "Age:\n\n\nIt began aroun",
+                "8000 B.C. with the end of the Ice Age.\n\n\nClimatic changes caused changes in flora and fauna, making it impossible for humans to move to new areas.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the text states climatic changes made it possible for human beings to move to new areas.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-503",
+        "question": "Consider the following regarding the Neolithic settlement at Burzahom:\n\n\nThe people were well acquainted with agriculture and the domestication of animals from the very beginning.\n\n\nThey lived on",
+        "options": [
+                "plateau in pit dwellings.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "settlement at Burzahom:\n\n\nThe people were well acquainte",
+                "with agriculture and the domestication of animals from the very beginning.\n\n\nThey lived on a plateau in pit dwellings.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the text says \"They did not seem to have been acquainted with agriculture or domestication of animals.\" Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-504",
+        "question": "Match the following Neolithic sites with their modern states:\n\n\nMaski - Karnatak",
+        "options": [
+                "Paiyampalli - Tamil Nadu\n\n\nUtnur - Andhra Pradesh\nHow many of the above pairs are correctly matched?\nA) Only one pair",
+                "Only two pairs",
+                "sites with their modern states:\n\n\nMaski - Karnataka\n\n\nPaiyampalli - Tamil Nadu\n\n\nUtnur - Andhra Pradesh\nHow many of the above pairs are correctly matched?\nA) Only one pair\nB) Only two pairs\nC) All three pairs",
+                "None"
+        ],
+        "correctIndex": 2,
+        "explanation": "The text explicitly locates Maski in Karnataka, Paiyampalli in Tamil Nadu, and Utnur in Andhra Pradesh.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-505",
+        "question": "Consider the following statements about Palaeolithic tools:\n\n\nThe hand-axes found in Indi",
+        "options": [
+                "are completely different from those of Western Asia and Africa.\n\n\nMiddle Palaeolithic flake industries in India show regional variations.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "tools:\n\n\nThe hand-axes foun",
+                "in India are completely different from those of Western Asia and Africa.\n\n\nMiddle Palaeolithic flake industries in India show regional variations.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect (they are more or less similar to those of Western Asia, Europe, and Africa). Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-506",
+        "question": "Consider the following statements regarding the end of the Stone Age:\n\n\nThe New Stone Age in Indi",
+        "options": [
+                "faded imperceptibly into the chalcolithic phase in some southern areas.\n\n\nThe Stone Age came to an abrupt and simultaneous end across the entire Indian subcontinent in 1000",
+                "",
+                "phase in some southern areas.\n\n\nThe Stone Age came to an abrupt an",
+                "of the Stone Age:\n\n\nThe New Stone Age in India faded imperceptibly into the chalcolithic phase in some southern areas.\n\n\nThe Stone Age came to an abrupt and simultaneous end across the entire Indian subcontinent in 1000 B.C.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct (mentioned in the context of South India). Statement 2 is incorrect; the transition was staggered, with some neolithic sites continuing as late as 1000 B.C., while others entered the metal age earlier.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-507",
+        "question": "Evaluate the environmental determinism in ancient Indian lithic cultures:\n\n\nThe complete absence of Palaeolithic sites in the alluvial plains of the Indus and Gang",
+        "options": [
+                "was primarily due to the lack of stone raw materials and dense forest cover.\n\n\nThe tropical regions of India experienced severe glaciation during the Pleistocene, forcing humans into cave dwellings like Bhimbetka.\n\n\nThe transition to the Holocene brought warmer, drier climates that facilitated the geographic expansion of Mesolithic microlith-using communities.\nHow many of the above statements are correct deductions based on Chapter 4?\nA) Only one",
+                "Only two",
+                "cultures:\n\n\nThe complete absence of Palaeolithic sites in the alluvial plains of the Indus an",
+                "Ganga was primarily due to the lack of stone raw materials and dense forest cover.\n\n\nThe tropical regions of India experienced severe glaciation during the Pleistocene, forcing humans into cave dwellings like Bhimbetka.\n\n\nThe transition to the Holocene brought warmer, drier climates that facilitated the geographic expansion of Mesolithic microlith-using communities.\nHow many of the above statements are correct deductions based on Chapter 4?\nA) Only one\nB) Only two\nC) All three\nD) None"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statements 1 and 3 are correct. Statement 2 is incorrect because the text explicitly states that tropical regions (except mountains) were free from ice and instead experienced a period of great rainfall.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-508",
+        "question": "Analyze the significance of the neolithic site of Chirand:\n\n\nIt is the only neolithic site in Indi",
+        "options": [
+                "to yield bone implements.\n\n\nIts location at the confluence of four rivers (Ganga, Son, Gandak, Ghaghra) provided open land for settlement despite the 100 cm rainfall zone.\n\n\nThe bone implements found here belong to a very early neolithic phase, dated prior to 2400",
+                "",
+                "site of Chirand:\n\n\nIt is the only neolithic site in India to yiel",
+                "bone implements.\n\n\nIts location at the confluence of four rivers (Ganga, Son, Gandak, Ghaghra) provided open land for settlement despite the 100 cm rainfall zone.\n\n\nThe bone implements found here belong to a very early neolithic phase, dated prior to 2400 B.C.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only\nB) 2 only\nC) 2 and 3 only\nD) 1, 2, and 3"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect (Burzahom also has bone implements). Statement 2 is correct. Statement 3 is incorrect (Chirand bone tools belong to a late neolithic setup, not earlier than 1600 B.C.).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-509",
+        "question": "\"The people of the Stone Age suffered from one great limitation.\" In this context, consider the following:\nStatement-I: The demographic expansion of neolithic settlements was strictly confined to hilly river valleys and plateaus.\nStatement-II: The reliance on polished stone axes completely precluded the generation of an agricultural surplus necessary for urban civilization.\nWhich one of the following is correct in respect of the above statements?",
+        "options": [
+                "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+                "Both Statement-I and Statement-II are correct but Statement-II is not the correct explanation for Statement-I",
+                "expansion of neolithic settlements was strictly confine",
+                "from one great limitation.\" In this context, consider the following:\nStatement-I: The demographic expansion of neolithic settlements was strictly confined to hilly river valleys and plateaus.\nStatement-II: The reliance on polished stone axes completely precluded the generation of an agricultural surplus necessary for urban civilization.\nWhich one of the following is correct in respect of the above statements?\nA) Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I\nB) Both Statement-I and Statement-II are correct but Statement-II is not the correct explanation for Statement-I\nC) Statement-I is correct but Statement-II is incorrect\nD) Statement-I is incorrect but Statement-II is correct"
+        ],
+        "correctIndex": 0,
+        "explanation": "Both statements are correct. The limitation of stone technology meant they couldn't clear dense plains (I) and couldn't produce more than bare subsistence (II), effectively preventing urban civilization.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-510",
+        "question": "Assess the socio-economic evolution during the Neolithic phase in India:\n\n\nThe practice of pit dwelling at Burzahom indicates an advanced agricultural economy reliant on wheat cultivation.\n\n\nThe discovery of ash mounds at Piklihal suggests",
+        "options": [
+                "pastoral economy where seasonal camps were cleared by burning accumulated cow dung.\n\n\nThe assumption of common property ownership is archaeologically inferred from the construction of circular houses made of mud and reed.\nHow many of the above statements are correct?\nA) Only one",
+                "Only two",
+                "evolution during the Neolithic phase in India:\n\n\nThe practice of pit dwelling at Burzahom indicates an advance",
+                "agricultural economy reliant on wheat cultivation.\n\n\nThe discovery of ash mounds at Piklihal suggests a pastoral economy where seasonal camps were cleared by burning accumulated cow dung.\n\n\nThe assumption of common property ownership is archaeologically inferred from the construction of circular houses made of mud and reed.\nHow many of the above statements are correct?\nA) Only one\nB) Only two\nC) All three\nD) None"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statements 2 and 3 are correct. Statement 1 is incorrect because the text states the Burzahom people probably had a hunting/fishing economy and were not acquainted with agriculture.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-511",
+        "question": "Consider the following regarding the domestication of animals in prehistoric India:\n\n\nThe Belan valley provides evidence of goat, sheep, and cattle domestication around 25,000 B.C.\n\n\nThe Burzahom site reveals the unique Indian neolithic practice of burying domestic dogs with their masters.\n\n\nThe Piklihal settlers maintained cowpens and accumulated dung, reflecting",
+        "options": [
+                "highly developed cattle-herding culture.\nWhich of the statements given above are correct?\nA) 1 and 2 only",
+                "",
+                "India:\n\n\nThe Belan valley provides evidence of goat, sheep, an",
+                "cattle domestication around 25,000 B.C.\n\n\nThe Burzahom site reveals the unique Indian neolithic practice of burying domestic dogs with their masters.\n\n\nThe Piklihal settlers maintained cowpens and accumulated dung, reflecting a highly developed cattle-herding culture.\nWhich of the statements given above are correct?\nA) 1 and 2 only\nB) 2 and 3 only\nC) 1 and 3 only\nD) 1, 2, and 3"
+        ],
+        "correctIndex": 3,
+        "explanation": "All three statements are explicitly supported by the text as key markers of animal domestication across different regions and periods.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-512",
+        "question": "Consider the following statements about the material culture of the New Stone Age:\n\n\nThe widespread use of stone axes was",
+        "options": [
+                "defining feature, later immortalized in legends by the axe-wielding hero Parasurama.\n\n\nEarly neolithic pottery was exclusively wheel-turned, indicating a sudden leap in technological advancement.\n\n\nThe cultivation of ragi and horsegram was prominent among the later neolithic settlers of South India.\nHow many of the above statements are correct?\nA) Only one",
+                "Only two",
+                "pottery was exclusively wheel-turned, indicating a sudden leap in technological advancement.\n\n\nThe cultivation of ragi an",
+                "use of stone axes was a defining feature, later immortalized in legends by the axe-wielding hero Parasurama.\n\n\nEarly neolithic pottery was exclusively wheel-turned, indicating a sudden leap in technological advancement.\n\n\nThe cultivation of ragi and horsegram was prominent among the later neolithic settlers of South India.\nHow many of the above statements are correct?\nA) Only one\nB) Only two\nC) All three\nD) None"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statements 1 and 3 are correct. Statement 2 is incorrect because the text notes that hand-made pottery is found in the early stage, with footwheels being used later.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-513",
+        "question": "Consider the following assertion regarding the origin of agriculture in India:\nAssertion (",
+        "options": [
+                ": The Neolithic age in the Indian subcontinent began much earlier than in Western Asia, around 9000",
+                "",
+                "age in the Indian subcontinent began much earlier than in Western Asia, aroun",
+                "9000 B.C.\nReason (R): Sites in Allahabad district demonstrate rice cultivation as early as the sixth millennium B.C.\nA) Both A and R are true, and R is the correct explanation of A.\nB) Both A and R are true, but R is not the correct explanation of A.\nC) A is true, but R is false.\nD) A is false, but R is true."
+        ],
+        "correctIndex": 3,
+        "explanation": "A is false because the Neolithic age in Western Asia began much earlier (7000 B.C. / 9000-3000 B.C. progress) than in the Indian subcontinent (6000 B.C.). R is factually true.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-514",
+        "question": "Read the following passage:\n\"They usually settled on the tops of granite hills or on plateaus near the river banks... Fire baked earthen figurines suggest that they kept",
+        "options": [
+                "large number of cattle... They used rubbing stone querns.\"\nThis description best fits the neolithic people of:\nA) The Kashmir Valley",
+                "The Garo Hills",
+                "people of:\nA) The Kashmir Valley\nB) The Garo Hills\nC) South India, south of the Godavari",
+                "the following passage:\n\"They usually settled on the tops of granite hills or on plateaus near the river banks... Fire baked earthen figurines suggest that they kept a large number of cattle... They used rubbing stone querns.\"\nThis description best fits the neolithic people of:\nA) The Kashmir Valley\nB) The Garo Hills\nC) South India, south of the Godavari\nD) The Belan Valley"
+        ],
+        "correctIndex": 2,
+        "explanation": "This is the exact description provided for the second group of neolithic people who lived in south India south of the Godavari river.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-515",
+        "question": "Consider the following pairs of sites and their distinguishing features:\n\n\nBhimbetka: Upper Palaeolithic caves and rockshelters\n\n\nBurzahom: Coarse grey pottery and pit dwellings\n\n\nChirand: Neolithic bone implements in",
+        "options": [
+                "100 cm rainfall zone\nHow many of the above pairs are correctly matched?\nA) Only one pair",
+                "Only two pairs",
+                "caves an",
+                "their distinguishing features:\n\n\nBhimbetka: Upper Palaeolithic caves and rockshelters\n\n\nBurzahom: Coarse grey pottery and pit dwellings\n\n\nChirand: Neolithic bone implements in a 100 cm rainfall zone\nHow many of the above pairs are correctly matched?\nA) Only one pair\nB) Only two pairs\nC) All three pairs\nD) None"
+        ],
+        "correctIndex": 2,
+        "explanation": "All three pairs correctly match the site with the specific archaeological features mentioned in the text.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-516",
+        "question": "Consider the following statements regarding early human habitations:\nStatement-I: Palaeolithic sites are completely absent in the alluvial plains of the Indus and the Gang",
+        "options": [
+                "Statement-II: The early humans had to depend entirely on stone tools, preventing them from settling far away from hilly areas where stone was available.\nWhich one of the following is correct?\nA) Both Statement-I and Statement-II are correct and Statement-II explains Statement-I.",
+                "Both Statement-I and Statement-II are correct but Statement-II does not explain Statement-I.",
+                "sites are completely absent in the alluvial plains of the Indus an",
+                "the Ganga.\nStatement-II: The early humans had to depend entirely on stone tools, preventing them from settling far away from hilly areas where stone was available.\nWhich one of the following is correct?\nA) Both Statement-I and Statement-II are correct and Statement-II explains Statement-I.\nB) Both Statement-I and Statement-II are correct but Statement-II does not explain Statement-I.\nC) Statement-I is correct but Statement-II is incorrect.\nD) Statement-I is incorrect but Statement-II is correct."
+        ],
+        "correctIndex": 0,
+        "explanation": "The absence of sites in the alluvial plains (I) is directly explained by their reliance on stone tools, which tethered them to hilly areas (II) rather than the stone-poor alluvial plains.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-517",
+        "question": "Consider the following about the Neolithic timeline:\n\n\nIn the world context, the New Stone Age began in 7000 B.C.\n\n\nIn the Indian subcontinent, neolithic settlements are not older than 6000 B.C.\n\n\nSome neolithic settlements in southern and eastern Indi",
+        "options": [
+                "are as late as 1000",
+                "",
+                "timeline:\n\n\nIn the worl",
+                "context, the New Stone Age began in 7000 B.C.\n\n\nIn the Indian subcontinent, neolithic settlements are not older than 6000 B.C.\n\n\nSome neolithic settlements in southern and eastern India are as late as 1000 B.C.\nHow many of the above statements are correct?\nA) Only one\nB) Only two\nC) All three\nD) None"
+        ],
+        "correctIndex": 2,
+        "explanation": "All three statements are accurate chronological anchors provided in the text.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-518",
+        "question": "Analyze the structural evolution of Neolithic settlements:\n\n\nThe earliest settlers at Piklihal were agriculturists living in rectangular mud houses.\n\n\nThe later neolithic settlers in South Indi",
+        "options": [
+                "lived in circular or rectangular houses made of mud and reed.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "settlements:\n\n\nThe earliest settlers at Piklihal were agriculturists living in rectangular mu",
+                "houses.\n\n\nThe later neolithic settlers in South India lived in circular or rectangular houses made of mud and reed.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because the earliest settlers at Piklihal were cattle herders (pastoralists), not agriculturists. Statement 2 is correct for the later neolithic settlers.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-519",
+        "question": "Consider the following assertion regarding the Mesolithic Age:\nAssertion (",
+        "options": [
+                ": The Mesolithic phase is exclusively found in the Himalayan regions.\nReason (R): It intervened as a transitional phase characterized by microliths.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "Age:\nAssertion (A): The Mesolithic phase is exclusively foun",
+                "in the Himalayan regions.\nReason (R): It intervened as a transitional phase characterized by microliths.\nA) Both A and R are true, and R is the correct explanation of A.\nB) Both A and R are true, but R is not the correct explanation of A.\nC) A is true, but R is false.\nD) A is false, but R is true."
+        ],
+        "correctIndex": 3,
+        "explanation": "A is false because Mesolithic sites are found in Chotanagpur, central India, and south of the Krishna river, not exclusively in the Himalayas. R is true.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch4-d-v6-520",
+        "question": "The overarching narrative of Chapter 4 (\"The Stone Age\") demonstrates that:",
+        "options": [
+                "India experienced a completely uniform and simultaneous transition through all Stone Age phases across the entire subcontinent.",
+                "The progression of lithi",
+                "technology an",
+                "a completely uniform and simultaneous transition through all Stone Age phases across the entire subcontinent.\nB) The progression of lithic technology and climatic amelioration gradually enabled human populations to transition from nomadic hunting-gathering to settled, food-producing village economies, albeit geographically limited by stone resources.\nC) The Indian subcontinent bypassed the Mesolithic phase entirely, jumping straight from the Ice Age to the Metal Age.\nD) Agriculture was invented during the Lower Palaeolithic phase but was abandoned until the Chalcolithic period."
+        ],
+        "correctIndex": 1,
+        "explanation": "This summarizes the core thesis of the chapter, detailing the slow evolution from Palaeolithic hunters to Neolithic farmers, highlighting the geographical limitations imposed by their reliance on stone tools.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},];
 export const CH4_L2_MCQS: MCQ[] = [
     {
         "id": "ch4-d-32",

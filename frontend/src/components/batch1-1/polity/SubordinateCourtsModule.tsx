@@ -11,6 +11,7 @@ import {
 interface SubordinateCourtsModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Foundation (Judicial Pyramid) ---

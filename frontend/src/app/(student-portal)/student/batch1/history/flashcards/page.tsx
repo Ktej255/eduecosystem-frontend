@@ -7,7 +7,17 @@ import HistoryFeaturePlaceholder from '@/components/batch1/history/HistoryFeatur
 import GenericFlashcardSession from '@/components/batch1/framework/GenericFlashcardSession';
 import { loadHistoryFlashcards } from '@/components/batch1/history/data/history-flashcard-loader';
 import { Flashcard as SourceFlashcard } from '@/types/flashcard';
-import { Flashcard as SessionFlashcard } from '@/components/batch1/framework/flashcard/flashcard-utils';
+import { Flashcard } from '@/components/batch1/flashcard/flashcard-utils';
+
+interface SessionFlashcard {
+    id: string;
+    front: string;
+    back: string;
+    category: 'fact' | 'concept' | 'event' | 'figure' | 'article' | 'comparison';
+    source: string;
+    highlight: boolean;
+}
+
 import { toast } from 'sonner';
 
 function FlashcardsContent() {
@@ -16,7 +26,7 @@ function FlashcardsContent() {
     const chapterParam = searchParams.get('chapter');
     const section = searchParams.get('section') || 'modern';
 
-    const [flashcards, setFlashcards] = useState<SessionFlashcard[]>([]);
+    const [flashcards, setFlashcards] = useState<Flashcard[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -28,7 +38,6 @@ function FlashcardsContent() {
             }
 
             try {
-                // Handle multiple chapters logic if needed, but for now take first
                 // Or if comma separated, load all?
                 const chapterIds = chapterParam.split(',').map(id => parseInt(id.trim())).filter(id => !isNaN(id));
 
@@ -45,12 +54,11 @@ function FlashcardsContent() {
                     loadedCards.push(...(cards as unknown as SourceFlashcard[]));
                 }
 
-                // Map to SessionFlashcard
-                const mappedCards: SessionFlashcard[] = loadedCards.map((fc, idx) => ({
+                // Map to Flashcard
+                const mappedCards: Flashcard[] = loadedCards.map((fc, idx) => ({
                     id: fc.id || `fc-${idx}-${Date.now()}`,
                     front: fc.front,
                     back: fc.back,
-                    // Map or default to 'fact'
                     category: (fc.category as any) || 'fact',
                     source: `Chapter ${fc.chapterId || chapterIds[0]}`,
                     highlight: false

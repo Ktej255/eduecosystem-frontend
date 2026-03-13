@@ -17,6 +17,7 @@ import { FUNDAMENTAL_RIGHTS_PYQS } from "./data/pyq-data";
 interface FundamentalRightsModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Bill of Rights Vault ---
@@ -80,7 +81,7 @@ const SectionHeader = ({ title, icon: Icon, color = "text-slate-200" }: { title:
     </div>
 );
 
-export default function FundamentalRightsModule({ onComplete, isCompleted }: FundamentalRightsModuleProps) {
+export default function FundamentalRightsModule({ onComplete, isCompleted, chapterNumber = "8" }: FundamentalRightsModuleProps) {
     return (
         <VaultContainer>
             {/* HERO */}
@@ -91,7 +92,7 @@ export default function FundamentalRightsModule({ onComplete, isCompleted }: Fun
                 <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                     <div>
                         <div className="flex items-center gap-2 text-amber-500 font-bold uppercase tracking-widest text-xs mb-2">
-                            <Landmark size={14} /> Part III (Articles 12-35)
+                            <Landmark size={14} /> Chapter {chapterNumber} &bull; Part III (Articles 12-35)
                         </div>
                         <h1 className="text-4xl md:text-6xl font-black text-white mb-2 font-serif text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-600">
                             THE VAULT OF RIGHTS
@@ -410,8 +411,8 @@ export default function FundamentalRightsModule({ onComplete, isCompleted }: Fun
           `}
                 >
                     {isCompleted ?
-                        <span className="flex items-center gap-2"><BadgeCheck /> Vault Secured</span> :
-                        <span className="flex items-center gap-2"><Landmark /> Seal The Vault</span>
+                        <span className="flex items-center gap-2"><BadgeCheck /> CHAPTER {chapterNumber} COMPLETED</span> :
+                        <span className="flex items-center gap-2"><Landmark /> MARK CHAPTER {chapterNumber} COMPLETE</span>
                     }
                 </Button>
             </div>

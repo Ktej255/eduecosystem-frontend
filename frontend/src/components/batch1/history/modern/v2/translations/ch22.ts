@@ -76,6 +76,8 @@ export const ch22Translations = {
         attleeStatementTitle: "Attlee's Statement (Feb 20, 1947)",
         deadlineLabel: "DEADLINE: June 1948.",
         mountbattenNote: "Mountbatten to replace Wavell.",
+        finance: "Finance",
+        law: "Law"
     },
     hi: {
         // Header
@@ -152,5 +154,7 @@ export const ch22Translations = {
         attleeStatementTitle: "एटली का वक्तव्य (20 फरवरी, 1947)",
         deadlineLabel: "समय सीमा: जून 1948।",
         mountbattenNote: "माउंटबेटन वेवेल की जगह लेंगे।",
+        finance: "वित्त",
+        law: "कानून"
     }
 };

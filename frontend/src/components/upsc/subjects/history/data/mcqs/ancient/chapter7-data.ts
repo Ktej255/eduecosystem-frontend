@@ -1040,8 +1040,2319 @@ export const CH7_L1_MCQS: MCQ[] = [
         "tags": [
             "history"
         ]
-    }
-];
+    },
+    {
+        "id": "ch7-d-new-1",
+        "question": "The most important divinity in the Rig Veda, to whom 250 hymns are devoted, is:",
+        "options": [
+                "Agni",
+                "Varuna",
+                "Soma",
+                "Indra"
+        ],
+        "correctIndex": 3,
+        "explanation": "The most important divinity in the Rig Veda is Indra... Two hundred and fifty hymns are devoted to him. Level 2: Moderate UPSC Level (Statement-Based)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-new-2",
+        "question": "Consider the following statements about the origins and expansion of the Aryans: The earliest life of the Aryans was primarily agricultural, with pastoralism acting as a secondary occupation. The swiftness of the horse enabled the Aryans to make successful inroads into Western Asia from about 2000 B.C. onwards. Which of the statements given above is/are correct?",
+        "options": [
+                "1 only",
+                "2 only",
+                "Both 1 and 2",
+                "Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because their earliest life was mainly pastoral, with agriculture being secondary. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-new-3",
+        "question": "Consider the following statements regarding the early Aryans in India: The geographical area of their earliest settlement covered eastern Afghanistan, Panjab, and the fringes of western Uttar Pradesh. The river Ganga is the most frequently mentioned river and is considered the \"river par excellence\" in the Rig Veda. Which of the statements given above is/are correct?",
+        "options": [
+                "1 only",
+                "2 only",
+                "Both 1 and 2",
+                "Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the Sindhu (Indus) is the river par excellence and is repeatedly mentioned, not the Ganga.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-new-4",
+        "question": "The primary motivation for the Rig Vedic people to worship their gods was to:",
+        "options": [
+                "Achieve spiritual upliftment and nirvana.",
+                "End the miseries of existence and break the cycle of rebirth.",
+                "Seek material gains such as children (praja), cattle (pasu), food, and health.",
+                "Fulfill complex ritualistic formulae dictated by the Brahmanas."
+        ],
+        "correctIndex": 2,
+        "explanation": "The text explicitly states, \"They did not worship gods for their spiritual uplift or for ending the miseries of existence. They asked mainly for praja, pasu, food, wealth, health, etc.\" Level 3: Tough/Very Tough UPSC Level (Analytical & Applied Concepts)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-new-5",
+        "question": "Evaluate the linguistic evidence used to trace the origin and early lifestyle of the Aryans: Statement-I: The shared Indo-European terminology for flora and fauna (like pine, maple, goats, dogs) suggests their original homeland was located in a temperate, forested environment like Eurasia. Statement-II: The universal presence of common Indo-European words for mountains and oceans proves that they were originally maritime traders who crossed the Alps. Which one of the following is correct?",
+        "options": [
+                "Both Statement-I and Statement-II are correct and Statement-II explains Statement-I",
+                "Both Statement-I and Statement-II are correct but Statement-II does not explain Statement-I",
+                "Statement-I is correct but Statement-II is incorrect",
+                "Statement-I is incorrect but Statement-II is correct"
+        ],
+        "correctIndex": 2,
+        "explanation": "Statement-I is correct. Statement-II is incorrect because the text explicitly notes that common words for mountains exist only in a few Aryan languages, and there is no evidence of them being maritime traders (the term samudra meant just a collection of water).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-new-6",
+        "question": "Analyze the following statement: \"In the Rig Veda no desire is expressed for daughters, though the desire for children and cattle is a recurrent theme.\" This textual evidence analytically highlights:",
+        "options": [
+                "A society suffering from extreme overpopulation.",
+                "The economic and military imperatives of a patriarchal, warring tribal society that required male manpower.",
+                "The high political status enjoyed by women who did not need religious sanction.",
+                "The exclusive reliance on female slaves for warfare."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text notes that because it was a patriarchal society engaged in frequent wars, they specifically \"prayed to the gods for brave sons to fight the wars,\" explaining the preference for male offspring.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-new-7",
+        "question": "The overarching thesis of Chapter 7 regarding the Rig Vedic Aryans is that they were:",
+        "options": [
+                "A highly urbanized, peaceful society centered around maritime trade and territorial administration.",
+                "A semi-nomadic, pastoral, and patriarchal warrior society whose continuous tribal conflicts and migrations gradually laid the groundwork for later social stratification.",
+                "Indigenous inhabitants of the Gangetic plain who resisted the invading Harappans.",
+                "The founders of the first massive territorial empires relying on iron plough agriculture."
+        ],
+        "correctIndex": 1,
+        "explanation": "This summarizes the core themes of the chapter: pastoral economy, tribal conflicts (gavisthi), patriarchal structure, lack of territorialism, and the slow emergence of social divisions from the spoils of war.Batch 3: Chapter 7 - Advent of the Aryans and the Age of the Rig Veda Level 1: Chapter-Specific Questions (Factual)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-new-8",
+        "question": "The most important divinity in the Rig Veda, to whom 250 hymns are devoted, is:",
+        "options": [
+                "Agni",
+                "Varuna",
+                "Soma",
+                "Indra"
+        ],
+        "correctIndex": 3,
+        "explanation": "The most important divinity in the Rig Veda is Indra... Two hundred and fifty hymns are devoted to him. Level 2: Moderate UPSC Level (Statement-Based)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-new-9",
+        "question": "Consider the following statements about the origins and expansion of the Aryans: The earliest life of the Aryans was primarily agricultural, with pastoralism acting as a secondary occupation. The swiftness of the horse enabled the Aryans to make successful inroads into Western Asia from about 2000 B.C. onwards. Which of the statements given above is/are correct?",
+        "options": [
+                "1 only",
+                "2 only",
+                "Both 1 and 2",
+                "Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because their earliest life was mainly pastoral, with agriculture being secondary. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-new-10",
+        "question": "Consider the following statements regarding the early Aryans in India: The geographical area of their earliest settlement covered eastern Afghanistan, Panjab, and the fringes of western Uttar Pradesh. The river Ganga is the most frequently mentioned river and is considered the \"river par excellence\" in the Rig Veda. Which of the statements given above is/are correct?",
+        "options": [
+                "1 only",
+                "2 only",
+                "Both 1 and 2",
+                "Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the Sindhu (Indus) is the river par excellence and is repeatedly mentioned, not the Ganga.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-new-11",
+        "question": "The primary motivation for the Rig Vedic people to worship their gods was to:",
+        "options": [
+                "Achieve spiritual upliftment and nirvana.",
+                "End the miseries of existence and break the cycle of rebirth.",
+                "Seek material gains such as children (praja), cattle (pasu), food, and health.",
+                "Fulfill complex ritualistic formulae dictated by the Brahmanas."
+        ],
+        "correctIndex": 2,
+        "explanation": "The text explicitly states, \"They did not worship gods for their spiritual uplift or for ending the miseries of existence. They asked mainly for praja, pasu, food, wealth, health, etc.\" Level 3: Tough/Very Tough UPSC Level (Analytical & Applied Concepts)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-new-12",
+        "question": "Evaluate the linguistic evidence used to trace the origin and early lifestyle of the Aryans: Statement-I: The shared Indo-European terminology for flora and fauna (like pine, maple, goats, dogs) suggests their original homeland was located in a temperate, forested environment like Eurasia. Statement-II: The universal presence of common Indo-European words for mountains and oceans proves that they were originally maritime traders who crossed the Alps. Which one of the following is correct?",
+        "options": [
+                "Both Statement-I and Statement-II are correct and Statement-II explains Statement-I",
+                "Both Statement-I and Statement-II are correct but Statement-II does not explain Statement-I",
+                "Statement-I is correct but Statement-II is incorrect",
+                "Statement-I is incorrect but Statement-II is correct"
+        ],
+        "correctIndex": 2,
+        "explanation": "Statement-I is correct. Statement-II is incorrect because the text explicitly notes that common words for mountains exist only in a few Aryan languages, and there is no evidence of them being maritime traders (the term samudra meant just a collection of water).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-new-13",
+        "question": "Analyze the following statement: \"In the Rig Veda no desire is expressed for daughters, though the desire for children and cattle is a recurrent theme.\" This textual evidence analytically highlights:",
+        "options": [
+                "A society suffering from extreme overpopulation.",
+                "The economic and military imperatives of a patriarchal, warring tribal society that required male manpower.",
+                "The high political status enjoyed by women who did not need religious sanction.",
+                "The exclusive reliance on female slaves for warfare."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text notes that because it was a patriarchal society engaged in frequent wars, they specifically \"prayed to the gods for brave sons to fight the wars,\" explaining the preference for male offspring.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+        "id": "ch7-d-v5-1",
+        "question": "The original home of the Aryans is believed to have been located in Eurasia, specifically in the are",
+        "options": [
+                "east of the:\nA) Himalayas",
+                "Alps",
+                "Andes",
+                "Caucasus"
+        ],
+        "correctIndex": 1,
+        "explanation": "Originally the Aryans seem to have lived somewhere in the area east of the Alps, in the region known as Eurasia.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-2",
+        "question": "Which of the following words exists only in",
+        "options": [
+                "few Aryan languages, indicating that the Aryans crossed them but did not have a universal term for them?\nA) Rivers",
+                "Forests",
+                "Mountains",
+                "Deserts"
+        ],
+        "correctIndex": 2,
+        "explanation": "The text notes that curiously enough, common words for mountains exist only in a few Aryan languages although the Aryans crossed many hills.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-3",
+        "question": "On their way to India, the Aryans first appeared in which region where they lived for",
+        "options": [
+                "long time?\nA) Mesopotamia",
+                "Egypt",
+                "Iran",
+                "Bactria"
+        ],
+        "correctIndex": 2,
+        "explanation": "On their way to India the Aryans first appeared in Iran, where the Indo-Iranians lived for a long time.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-4",
+        "question": "The Rig Ved",
+        "options": [
+                "consists of ten mandalas (books). Which of the following books form its earliest portions?\nA) Books I and X",
+                "Books II to VII",
+                "Books VIII an",
+                "IX\nD) Books I to V"
+        ],
+        "correctIndex": 1,
+        "explanation": "The text explicitly states that Books II to VII form the earliest portions of the Rig Veda.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-5",
+        "question": "The river Sarasvati, repeatedly mentioned in the Rig Veda, is currently lost in the sands of Rajasthan and is identified with the are",
+        "options": [
+                "of the:\nA) Luni river",
+                "Ghaggar river",
+                "Chambal river",
+                "Sabarmati river"
+        ],
+        "correctIndex": 1,
+        "explanation": "The area represented by the Sarasvati is covered by the Ghaggar river.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-6",
+        "question": "The indigenous inhabitants whom the Aryans encountered and came into conflict with in Indi",
+        "options": [
+                "were called:\nA) Panis",
+                "Dasas and Dasyus",
+                "Kiratas",
+                "Nishadas"
+        ],
+        "correctIndex": 1,
+        "explanation": "They came into conflict with the indigenous inhabitants called the dasas, dasyus, etc.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-7",
+        "question": "According to the Rig Veda, Divodasa, who belonged to the Bharat",
+        "options": [
+                "clan, defeated:\nA) Trasadasyu",
+                "Sudas",
+                "Sambara",
+                "Purukutsa"
+        ],
+        "correctIndex": 2,
+        "explanation": "The Rig Veda mentions the defeat of Sambara by Divodasa, who belonged to the Bharata clan.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-8",
+        "question": "The term dasyuhaty",
+        "options": [
+                "repeatedly mentioned in the Rig Veda means:\nA) Worshipping the dasyus",
+                "Slaughter of the dasyus",
+                "Alliance with the dasyus",
+                "Taxation of the dasyus"
+        ],
+        "correctIndex": 1,
+        "explanation": "The term dasyuhatya, meaning slaughter of the dasyus, is repeatedly mentioned in the Rig Veda.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-9",
+        "question": "In the Rig Veda, the god Indr",
+        "options": [
+                "is called 'Purandara', which translates to:\nA) Lord of the skies",
+                "Bringer of rains",
+                "Breaker of forts",
+                "Protector of cows"
+        ],
+        "correctIndex": 2,
+        "explanation": "In the Rig Veda, Indra is called Purandara, which means that he was the breaker of forts.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-10",
+        "question": "The term ayas used in the Rig Ved",
+        "options": [
+                "indicates that the Aryans had knowledge of metal-working. What did it specifically denote?\nA) Gold or Silver",
+                "Iron or Steel",
+                "Copper or Bronze",
+                "Lead or Tin"
+        ],
+        "correctIndex": 2,
+        "explanation": "The term ayas used for copper or bronze shows that metal-working was known.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-11",
+        "question": "Painted Grey Ware (PGW) has been found along with 'late Harappan' pottery at",
+        "options": [
+                "13-roomed mud house site in Haryana called:\nA) Alamgirpur",
+                "Hastinapur",
+                "Bhagwanpura",
+                "Atranjikhera"
+        ],
+        "correctIndex": 2,
+        "explanation": "Recently a site called Bhagwanpura has been excavated in Haryana where a thirteen-roomed mud house has been discovered with PGW.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-12",
+        "question": "Which two priests played",
+        "options": [
+                "major part in the time of the Rig Veda?\nA) Agastya and Gautama",
+                "Vasishtha and Visvamitra",
+                "Drona an",
+                "Kripa\nD) Valmiki and Vyasa"
+        ],
+        "correctIndex": 1,
+        "explanation": "The two priests who played a major part in the time of Rig Veda are Vasishtha and Visvamitra.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-13",
+        "question": "The term jan",
+        "options": [
+                "occurs about 275 times in the Rig Veda. How many times does the term janapada (territory) occur?\nA) 100 times",
+                "50 times",
+                "10 times",
+                "Not even once"
+        ],
+        "correctIndex": 3,
+        "explanation": "The term janapada or territory is not used even once, showing attachment to the tribe rather than territory.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-14",
+        "question": "The mass of the tribal people was denoted by the term vis. Which varn",
+        "options": [
+                "eventually arose out of the vis?\nA) Brahmana",
+                "Kshatriya",
+                "Vaisya",
+                "Sudra"
+        ],
+        "correctIndex": 2,
+        "explanation": "The most numerous varna of vaisya arose out of the vis or the mass of the tribal people.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-15",
+        "question": "The term for family, kula, is rarely mentioned in the Rig Ved",
+        "options": [
+                "Instead, the family was frequently indicated by the term:\nA) Grama",
+                "Griha",
+                "Sardha",
+                "Vrata"
+        ],
+        "correctIndex": 1,
+        "explanation": "It seems that family in early Vedic phase was indicated by the term griha, which frequently occurs in this text.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-16",
+        "question": "The Rig Ved",
+        "options": [
+                "contains references to a proposal for establishing love relations made to Yama by his twin-sister named:\nA) Surya",
+                "Rodasi",
+                "Yami",
+                "Aditi"
+        ],
+        "correctIndex": 2,
+        "explanation": "We hear of a proposal made by Yami, the twin-sister of Yama, for establishing love relations.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-17",
+        "question": "Consider the following statements about the origins and expansion of the Aryans:\n\n\nThe earliest life of the Aryans was primarily agricultural, with pastoralism acting as",
+        "options": [
+                "secondary occupation.\n\n\nThe swiftness of the horse enabled the Aryans to make successful inroads into Western Asia from about 2000",
+                "",
+                "onwards.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because their earliest life was mainly pastoral, with agriculture being secondary. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-18",
+        "question": "Consider the following statements regarding the early Aryans in India:\n\n\nThe geographical are",
+        "options": [
+                "of their earliest settlement covered eastern Afghanistan, Panjab, and the fringes of western Uttar Pradesh.\n\n\nThe river Ganga is the most frequently mentioned river and is considered the \"river par excellence\" in the Rig Veda.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the Sindhu (Indus) is the river par excellence and is repeatedly mentioned, not the Ganga.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-19",
+        "question": "With reference to the indigenous peoples encountered by the Aryans, consider the following statements:\n\n\nThe dasas mentioned in the Rig Ved",
+        "options": [
+                "were strictly a non-Aryan tribe with no linguistic connection to the Aryans.\n\n\nThe Aryan chiefs were generally soft towards the dasas but strongly hostile to the dasyus.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the text notes that since the dasas are also mentioned in ancient Iranian literature, they seem to have been an earlier branch of the Aryans. Statement 2 is correct.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-20",
+        "question": "Consider the following regarding the intra-tribal conflicts of the Aryans:\n\n\nThe Aryans were divided into five tribes called panchajan",
+        "options": [
+                "In the Battle of Ten Kings, the Bharata clan was entirely wiped out by the Purus.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the Bharatas under Sudas won the battle, defeating the ten kings (including the Purus).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-21",
+        "question": "Consider the following pairs of Rig Vedic terms and their meanings:\n\n\nPurandar",
+        "options": [
+                "- Breaker of forts\n\n\nVarman - Coat of mail\n\n\nAyas - Iron weapons\nHow many of the above pairs are correctly matched?\nA) Only one",
+                "Only two",
+                "All three",
+                "None"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pairs 1 and 2 are correctly matched. Pair 3 is incorrect because ayas in the Rig Veda meant copper or bronze, not iron.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-22",
+        "question": "Consider the following statements about the material life of the Rig Vedic Aryans:\n\n\nLand formed",
+        "options": [
+                "well-established type of private property, frequently given as gifts to priests.\n\n\nMost of their wars were fought for the sake of cows, indicating a predominantly pastoral economy.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; land did not form a well-established type of private property, and gifts were made in cows/women slaves, rarely land. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-23",
+        "question": "Assertion (",
+        "options": [
+                ": The Rig Vedic Aryans were completely ignorant of crafts and metal-working.\nReason (R): They lived a semi-nomadic, pastoral life focused entirely on cattle rearing.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 3,
+        "explanation": "A is false because the Rig Veda mentions artisans like carpenters, chariot-makers, weavers, and metal-workers (ayas). R is generally true as a description of their primary lifestyle.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-24",
+        "question": "Consider the following statements about the political organization in the Rig Vedic period:\n\n\nThe king (rajan) exercised unlimited, absolute power over his subjects.\n\n\nThe king did not maintain",
+        "options": [
+                "regular or standing army, relying instead on tribal militias during times of war.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the king did not exercise unlimited power and had to reckon with tribal organizations (samiti, sabha). Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-25",
+        "question": "Consider the following administrative functionaries of the Rig Vedic period:\n\n\nSenani\n\n\nPurohit",
+        "options": [
+                "Vrajapati\nWhich of the above was responsible for the collection of regular taxes from the peasants?\nA) 1 and 2",
+                "3 only",
+                "1, 2, an",
+                "3\nD) None of the above"
+        ],
+        "correctIndex": 3,
+        "explanation": "The text explicitly states, \"We do not come across any officer concerned with the collection of taxes.\" Only voluntary offerings (bali) were made.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-26",
+        "question": "Consider the following statements about the social structure in the Rig Vedic period:\n\n\nThe society was patriarchal, and the birth of",
+        "options": [
+                "son was desired to fight wars.\n\n\nWomen were strictly barred from attending tribal assemblies like the sabha and vidatha.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the text states, \"Even women attended the sabha and vidatha in Rig Vedic times.\"",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-27",
+        "question": "Consider the following statements regarding the tribal units of the Rig Veda:\n\n\nThe jan",
+        "options": [
+                "was the primary tribe to which people gave their loyalty.\n\n\nThe vis was divided into smaller fighting units called grama.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct reflections of the tribal structural hierarchy mentioned in the text.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-28",
+        "question": "Assertion (",
+        "options": [
+                ": Slavery was completely unknown to the Rig Vedic Aryans.\nReason (R): The society was largely egalitarian and focused on tribal unity.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 3,
+        "explanation": "A is false because slavery did exist (women slaves were frequently given as gifts to priests for domestic work). R is partially true as a general characteristic, but it doesn't preclude the existence of domestic slavery.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-29",
+        "question": "Consider the following regarding the origins of the Varn",
+        "options": [
+                "system:\n\n\nThe term varna was originally used to denote colour.\n\n\nThe conquest of the indigenous inhabitants (dasas/dasyus) by the Aryans contributed most to the creation of social divisions.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct. The colour distinction and the conquest of the indigenous peoples formed the basis of the early social divisions.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-30",
+        "question": "Match the Rig Vedic deities with their primary associations:\n\n\nAgni - Rain and Thunder\n\n\nVarun",
+        "options": [
+                "- Water and natural order\n\n\nSoma - Plants and intoxicating drink\nHow many of the above pairs are correctly matched?\nA) Only one",
+                "Only two",
+                "All three",
+                "None"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pairs 2 and 3 are correct. Pair 1 is incorrect because Agni is the fire god, not rain/thunder (Indra is associated with rain).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-31",
+        "question": "Consider the following statements about the Dasyus:\n\n\nThe term dasyuhaty",
+        "options": [
+                "indicates a strong hostility towards them.\n\n\nThey possibly worshipped the phallus and did not keep cattle for dairy products.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct inferences about the dasyus explicitly mentioned in the text.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-32",
+        "question": "The excavation at Bhagwanpur",
+        "options": [
+                "reveals which of the following regarding the material culture coinciding with the Rig Vedic phase?\nA) The widespread use of iron swords and chariots.",
+                "The presence of Painted Grey Ware (PGW) along with 'late Harappan' pottery, without iron objects.",
+                "The existence of massive burnt-brick granaries.",
+                "The complete absence of cattle bones."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text explicitly notes that at Bhagwanpura, PGW has been found with 'late Harappan' pottery, but neither iron objects nor cereals have been encountered, indicating a pre-iron PGW phase.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-33",
+        "question": "Evaluate the linguistic evidence used to trace the origin and early lifestyle of the Aryans:\nStatement-I: The shared Indo-European terminology for flor",
+        "options": [
+                "and fauna (like pine, maple, goats, dogs) suggests their original homeland was located in a temperate, forested environment like Eurasia.\nStatement-II: The universal presence of common Indo-European words for mountains and oceans proves that they were originally maritime traders who crossed the Alps.\nWhich one of the following is correct?\nA) Both Statement-I and Statement-II are correct and Statement-II explains Statement-I",
+                "Both Statement-I and Statement-II are correct but Statement-II does not explain Statement-I",
+                "Statement-I is correct but Statement-II is incorrect",
+                "Statement-I is incorrect but Statement-II is correct"
+        ],
+        "correctIndex": 2,
+        "explanation": "Statement-I is correct. Statement-II is incorrect because the text explicitly notes that common words for mountains exist only in a few Aryan languages, and there is no evidence of them being maritime traders (the term samudra meant just a collection of water).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-34",
+        "question": "Analyze the economic transition of the Aryans in the Rig Vedic phase:\n\n\nThe concept of wealth was primarily quantified in terms of land measurement (bighas) rather than movable assets.\n\n\nThe term gavisthi (search for cows) used for war underscores the centrality of pastoralism in their political economy.\n\n\nSlaves were primarily utilized as",
+        "options": [
+                "massive agricultural labor force to cultivate large estates for the tribal chiefs.\nHow many of the above statements are correct?\nA) Only one",
+                "Only two",
+                "All three",
+                "None"
+        ],
+        "correctIndex": 0,
+        "explanation": "Only statement 2 is correct. Statement 1 is incorrect because wealth was stated in terms of cows and slaves, never in land measurement. Statement 3 is incorrect because slaves were used for domestic purposes, not directly in agriculture or producing activities.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-35",
+        "question": "Consider the following regarding the emergence of social stratification in the Rig Vedic period:\nAssertion (",
+        "options": [
+                ": The division of the tribal society into distinct social orders (warriors, priests, commoners) was driven entirely by the colour distinction between the Aryans and the indigenous people.\nReason (R): The unequal distribution of the spoils of war facilitated the economic and social rise of princes and priests at the expense of the common tribal people.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 3,
+        "explanation": "A is false because while colour distinction partially contributed, its importance has been \"exaggerated\" by western writers, and the most contributing factor was conquest and internal economic disparity. R is true and explains the real mechanism of emerging inequality.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-36",
+        "question": "Evaluate the role of the epigraphic evidence from Western Asi",
+        "options": [
+                "(Kassite and Mitanni inscriptions) in Indian history:\nA) They prove that the Aryans migrated out of India to conquer Mesopotamia.",
+                "They establish a definitive chronological anchor (1600-1400 B.",
+                ") for the presence of Indo-Aryan names in the Near East, supporting the theory of their gradual eastwar",
+                "migration to India.\nC) They contain the earliest written copies of the complete Rig Veda.\nD) They demonstrate that the Harappan civilization was destroyed by an Iranian invasion."
+        ],
+        "correctIndex": 1,
+        "explanation": "The inscriptions (1600 BC Kassite, 14th C BC Mitanni) contain Aryan names, suggesting that from Iran a branch moved west, and similarly, another branch moved east to India around 1500 BC, providing a chronological framework.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-37",
+        "question": "Read the following statements concerning the family structure in the early Vedic phase:\nStatement-I: The differentiation in family relationships had not proceeded far, indicating that",
+        "options": [
+                "very large joint family unit lived under the same roof.\nStatement-II: The earliest Indo-European languages used the same term to denote nephew, grandson, and cousin.\nWhich of the following is correct?\nA) Both Statement-I and Statement-II are correct and Statement-II is the archaeological proof for Statement-I.",
+                "Both Statement-I and Statement-II are correct and Statement-II provides linguisti",
+                "evidence for Statement-I.\nC) Statement-I is correct but Statement-II is incorrect.",
+                "Statement-I is incorrect but Statement-II is correct."
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement-II is correct (same term used for nephew, grandson, cousin) and is used by the author as the linguistic evidence to deduce Statement-I (differentiation had not proceeded far; large joint unit).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-38",
+        "question": "Which of the following factors fundamentally prevented the Rig Vedic society from establishing",
+        "options": [
+                "fully developed state system or territorial administration?\nA) The lack of any formidable military technology.",
+                "A strict ideological adherence to absolute non-violence.",
+                "The perpetual state of migration an",
+                "a predominantly pastoral economy that could not generate the regular surpluses required for formal taxation.\nD) The continuous devastation caused by the Indus floods."
+        ],
+        "correctIndex": 2,
+        "explanation": "The text states there was no civil/territorial administration because \"people were in a stage of perpetual expansion, migrating from one area to another,\" and the pastoral economy left little scope for collecting regular tributes.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-39",
+        "question": "Which of the following Rig Vedic phenomen",
+        "options": [
+                "indicates the survival of matrilineal traces within a broadly patriarchal society?\nA) The exclusive inheritance of property by daughters.",
+                "The presence of female warlords leading the jana into battle.",
+                "Instances of polyandry (e.g., Maruts an",
+                "Rodasi) and sons being named after their mothers (e.g., Mamateya).\nD) The complete absence of male deities in the earliest mandalas."
+        ],
+        "correctIndex": 2,
+        "explanation": "The text cites the examples of polyandry (Maruts/Rodasi, Asvins/Surya) and matronymics (Mamateya) as indications that matrilineal traces survived in the patriarchal set-up.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-40",
+        "question": "Consider the role of the Sabh",
+        "options": [
+                "and Samiti in the Rig Vedic period:\n\n\nThey functioned strictly as religious bodies without any military or political mandate.\n\n\nThey acted as vital checks on the power of the rajan, making his authority less than absolute.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because they exercised \"deliberative, military and religious functions.\" Statement 2 is correct as the king \"had to reckon with the tribal organizations\" and eager to win their support.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-41",
+        "question": "What is the historical significance of the term Sudr",
+        "options": [
+                "appearing for the first time in the tenth Book of the Rig Veda?\nA) It proves that the Sudras were the original composers of the earliest mandalas.",
+                "It indicates that the rigid four-tier social division was a later development towards the end of the Rig Vedi",
+                "perio",
+                "C) It demonstrates that the Aryans brought the four-caste system intact from Iran.\nD) It shows that the Sudras eventually conquered the Aryans."
+        ],
+        "correctIndex": 1,
+        "explanation": "Books I and X are the latest additions. The appearance of the term sudra only in the 10th book indicates that this fourth division emerged towards the end of the period, not at the beginning.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-42",
+        "question": "Analyze the following statement: \"In the Rig Ved",
+        "options": [
+                "no desire is expressed for daughters, though the desire for children and cattle is a recurrent theme.\"\nThis textual evidence analytically highlights:\nA) A society suffering from extreme overpopulation.",
+                "The economi",
+                "an",
+                "military imperatives of a patriarchal, warring tribal society that required male manpower.\nC) The high political status enjoyed by women who did not need religious sanction.\nD) The exclusive reliance on female slaves for warfare."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text notes that because it was a patriarchal society engaged in frequent wars, they specifically \"prayed to the gods for brave sons to fight the wars,\" explaining the preference for male offspring.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-43",
+        "question": "The Rig Vedic concept of the Purohit",
+        "options": [
+                "(e.g., Vasishtha and Visvamitra) is best understood politically as:\nA) A passive observer dedicated solely to ascetic meditation.",
+                "A subordinate slave who collected taxes for the king.",
+                "A key tribal functionary who provide",
+                "ideological inspiration and legitimized the chief's military exploits in exchange for redistributed wealth.\nD) The supreme military commander (senani) of the standing army."
+        ],
+        "correctIndex": 2,
+        "explanation": "They \"inspired the tribal chiefs to action and lauded their exploits in return for handsome rewards,\" highlighting their role in legitimizing war and sharing in its economic spoils.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-44",
+        "question": "The original home of the Aryans is believed to have been located in Eurasia, specifically in the are",
+        "options": [
+                "east of the:\nA) Himalayas",
+                "Alps",
+                "Andes",
+                "Caucasus"
+        ],
+        "correctIndex": 1,
+        "explanation": "Originally the Aryans seem to have lived somewhere in the area east of the Alps, in the region known as Eurasia.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-45",
+        "question": "Which of the following words exists only in",
+        "options": [
+                "few Aryan languages, indicating that the Aryans crossed them but did not have a universal term for them?\nA) Rivers",
+                "Forests",
+                "Mountains",
+                "Deserts"
+        ],
+        "correctIndex": 2,
+        "explanation": "The text notes that curiously enough, common words for mountains exist only in a few Aryan languages although the Aryans crossed many hills.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-46",
+        "question": "On their way to India, the Aryans first appeared in which region where they lived for",
+        "options": [
+                "long time?\nA) Mesopotamia",
+                "Egypt",
+                "Iran",
+                "Bactria"
+        ],
+        "correctIndex": 2,
+        "explanation": "On their way to India the Aryans first appeared in Iran, where the Indo-Iranians lived for a long time.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-47",
+        "question": "The Rig Ved",
+        "options": [
+                "consists of ten mandalas (books). Which of the following books form its earliest portions?\nA) Books I and X",
+                "Books II to VII",
+                "Books VIII an",
+                "IX\nD) Books I to V"
+        ],
+        "correctIndex": 1,
+        "explanation": "The text explicitly states that Books II to VII form the earliest portions of the Rig Veda.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-48",
+        "question": "The river Sarasvati, repeatedly mentioned in the Rig Veda, is currently lost in the sands of Rajasthan and is identified with the are",
+        "options": [
+                "of the:\nA) Luni river",
+                "Ghaggar river",
+                "Chambal river",
+                "Sabarmati river"
+        ],
+        "correctIndex": 1,
+        "explanation": "The area represented by the Sarasvati is covered by the Ghaggar river.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-49",
+        "question": "The indigenous inhabitants whom the Aryans encountered and came into conflict with in Indi",
+        "options": [
+                "were called:\nA) Panis",
+                "Dasas and Dasyus",
+                "Kiratas",
+                "Nishadas"
+        ],
+        "correctIndex": 1,
+        "explanation": "They came into conflict with the indigenous inhabitants called the dasas, dasyus, etc.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-50",
+        "question": "According to the Rig Veda, Divodasa, who belonged to the Bharat",
+        "options": [
+                "clan, defeated:\nA) Trasadasyu",
+                "Sudas",
+                "Sambara",
+                "Purukutsa"
+        ],
+        "correctIndex": 2,
+        "explanation": "The Rig Veda mentions the defeat of Sambara by Divodasa, who belonged to the Bharata clan.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-51",
+        "question": "The term dasyuhaty",
+        "options": [
+                "repeatedly mentioned in the Rig Veda means:\nA) Worshipping the dasyus",
+                "Slaughter of the dasyus",
+                "Alliance with the dasyus",
+                "Taxation of the dasyus"
+        ],
+        "correctIndex": 1,
+        "explanation": "The term dasyuhatya, meaning slaughter of the dasyus, is repeatedly mentioned in the Rig Veda.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-52",
+        "question": "In the Rig Veda, the god Indr",
+        "options": [
+                "is called 'Purandara', which translates to:\nA) Lord of the skies",
+                "Bringer of rains",
+                "Breaker of forts",
+                "Protector of cows"
+        ],
+        "correctIndex": 2,
+        "explanation": "In the Rig Veda, Indra is called Purandara, which means that he was the breaker of forts.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-53",
+        "question": "The term ayas used in the Rig Ved",
+        "options": [
+                "indicates that the Aryans had knowledge of metal-working. What did it specifically denote?\nA) Gold or Silver",
+                "Iron or Steel",
+                "Copper or Bronze",
+                "Lead or Tin"
+        ],
+        "correctIndex": 2,
+        "explanation": "The term ayas used for copper or bronze shows that metal-working was known.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-54",
+        "question": "Painted Grey Ware (PGW) has been found along with 'late Harappan' pottery at",
+        "options": [
+                "13-roomed mud house site in Haryana called:\nA) Alamgirpur",
+                "Hastinapur",
+                "Bhagwanpura",
+                "Atranjikhera"
+        ],
+        "correctIndex": 2,
+        "explanation": "Recently a site called Bhagwanpura has been excavated in Haryana where a thirteen-roomed mud house has been discovered with PGW.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-55",
+        "question": "Which two priests played",
+        "options": [
+                "major part in the time of the Rig Veda?\nA) Agastya and Gautama",
+                "Vasishtha and Visvamitra",
+                "Drona an",
+                "Kripa\nD) Valmiki and Vyasa"
+        ],
+        "correctIndex": 1,
+        "explanation": "The two priests who played a major part in the time of Rig Veda are Vasishtha and Visvamitra.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-56",
+        "question": "The term jan",
+        "options": [
+                "occurs about 275 times in the Rig Veda. How many times does the term janapada (territory) occur?\nA) 100 times",
+                "50 times",
+                "10 times",
+                "Not even once"
+        ],
+        "correctIndex": 3,
+        "explanation": "The term janapada or territory is not used even once, showing attachment to the tribe rather than territory.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-57",
+        "question": "The mass of the tribal people was denoted by the term vis. Which varn",
+        "options": [
+                "eventually arose out of the vis?\nA) Brahmana",
+                "Kshatriya",
+                "Vaisya",
+                "Sudra"
+        ],
+        "correctIndex": 2,
+        "explanation": "The most numerous varna of vaisya arose out of the vis or the mass of the tribal people.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-58",
+        "question": "The term for family, kula, is rarely mentioned in the Rig Ved",
+        "options": [
+                "Instead, the family was frequently indicated by the term:\nA) Grama",
+                "Griha",
+                "Sardha",
+                "Vrata"
+        ],
+        "correctIndex": 1,
+        "explanation": "It seems that family in early Vedic phase was indicated by the term griha, which frequently occurs in this text.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-59",
+        "question": "The Rig Ved",
+        "options": [
+                "contains references to a proposal for establishing love relations made to Yama by his twin-sister named:\nA) Surya",
+                "Rodasi",
+                "Yami",
+                "Aditi"
+        ],
+        "correctIndex": 2,
+        "explanation": "We hear of a proposal made by Yami, the twin-sister of Yama, for establishing love relations.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-60",
+        "question": "Consider the following statements about the origins and expansion of the Aryans:\n\n\nThe earliest life of the Aryans was primarily agricultural, with pastoralism acting as",
+        "options": [
+                "secondary occupation.\n\n\nThe swiftness of the horse enabled the Aryans to make successful inroads into Western Asia from about 2000",
+                "",
+                "onwards.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because their earliest life was mainly pastoral, with agriculture being secondary. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-61",
+        "question": "Consider the following statements regarding the early Aryans in India:\n\n\nThe geographical are",
+        "options": [
+                "of their earliest settlement covered eastern Afghanistan, Panjab, and the fringes of western Uttar Pradesh.\n\n\nThe river Ganga is the most frequently mentioned river and is considered the \"river par excellence\" in the Rig Veda.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the Sindhu (Indus) is the river par excellence and is repeatedly mentioned, not the Ganga.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-62",
+        "question": "With reference to the indigenous peoples encountered by the Aryans, consider the following statements:\n\n\nThe dasas mentioned in the Rig Ved",
+        "options": [
+                "were strictly a non-Aryan tribe with no linguistic connection to the Aryans.\n\n\nThe Aryan chiefs were generally soft towards the dasas but strongly hostile to the dasyus.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the text notes that since the dasas are also mentioned in ancient Iranian literature, they seem to have been an earlier branch of the Aryans. Statement 2 is correct.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-63",
+        "question": "Consider the following regarding the intra-tribal conflicts of the Aryans:\n\n\nThe Aryans were divided into five tribes called panchajan",
+        "options": [
+                "In the Battle of Ten Kings, the Bharata clan was entirely wiped out by the Purus.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the Bharatas under Sudas won the battle, defeating the ten kings (including the Purus).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-64",
+        "question": "Consider the following pairs of Rig Vedic terms and their meanings:\n\n\nPurandar",
+        "options": [
+                "- Breaker of forts\n\n\nVarman - Coat of mail\n\n\nAyas - Iron weapons\nHow many of the above pairs are correctly matched?\nA) Only one",
+                "Only two",
+                "All three",
+                "None"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pairs 1 and 2 are correctly matched. Pair 3 is incorrect because ayas in the Rig Veda meant copper or bronze, not iron.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-65",
+        "question": "Consider the following statements about the material life of the Rig Vedic Aryans:\n\n\nLand formed",
+        "options": [
+                "well-established type of private property, frequently given as gifts to priests.\n\n\nMost of their wars were fought for the sake of cows, indicating a predominantly pastoral economy.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; land did not form a well-established type of private property, and gifts were made in cows/women slaves, rarely land. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-66",
+        "question": "Assertion (",
+        "options": [
+                ": The Rig Vedic Aryans were completely ignorant of crafts and metal-working.\nReason (R): They lived a semi-nomadic, pastoral life focused entirely on cattle rearing.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 3,
+        "explanation": "A is false because the Rig Veda mentions artisans like carpenters, chariot-makers, weavers, and metal-workers (ayas). R is generally true as a description of their primary lifestyle.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-67",
+        "question": "Consider the following statements about the political organization in the Rig Vedic period:\n\n\nThe king (rajan) exercised unlimited, absolute power over his subjects.\n\n\nThe king did not maintain",
+        "options": [
+                "regular or standing army, relying instead on tribal militias during times of war.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the king did not exercise unlimited power and had to reckon with tribal organizations (samiti, sabha). Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-68",
+        "question": "Consider the following administrative functionaries of the Rig Vedic period:\n\n\nSenani\n\n\nPurohit",
+        "options": [
+                "Vrajapati\nWhich of the above was responsible for the collection of regular taxes from the peasants?\nA) 1 and 2",
+                "3 only",
+                "1, 2, an",
+                "3\nD) None of the above"
+        ],
+        "correctIndex": 3,
+        "explanation": "The text explicitly states, \"We do not come across any officer concerned with the collection of taxes.\" Only voluntary offerings (bali) were made.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-69",
+        "question": "Consider the following statements about the social structure in the Rig Vedic period:\n\n\nThe society was patriarchal, and the birth of",
+        "options": [
+                "son was desired to fight wars.\n\n\nWomen were strictly barred from attending tribal assemblies like the sabha and vidatha.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the text states, \"Even women attended the sabha and vidatha in Rig Vedic times.\"",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-70",
+        "question": "Consider the following statements regarding the tribal units of the Rig Veda:\n\n\nThe jan",
+        "options": [
+                "was the primary tribe to which people gave their loyalty.\n\n\nThe vis was divided into smaller fighting units called grama.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct reflections of the tribal structural hierarchy mentioned in the text.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-71",
+        "question": "Assertion (",
+        "options": [
+                ": Slavery was completely unknown to the Rig Vedic Aryans.\nReason (R): The society was largely egalitarian and focused on tribal unity.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 3,
+        "explanation": "A is false because slavery did exist (women slaves were frequently given as gifts to priests for domestic work). R is partially true as a general characteristic, but it doesn't preclude the existence of domestic slavery.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-72",
+        "question": "Consider the following regarding the origins of the Varn",
+        "options": [
+                "system:\n\n\nThe term varna was originally used to denote colour.\n\n\nThe conquest of the indigenous inhabitants (dasas/dasyus) by the Aryans contributed most to the creation of social divisions.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct. The colour distinction and the conquest of the indigenous peoples formed the basis of the early social divisions.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-73",
+        "question": "Match the Rig Vedic deities with their primary associations:\n\n\nAgni - Rain and Thunder\n\n\nVarun",
+        "options": [
+                "- Water and natural order\n\n\nSoma - Plants and intoxicating drink\nHow many of the above pairs are correctly matched?\nA) Only one",
+                "Only two",
+                "All three",
+                "None"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pairs 2 and 3 are correct. Pair 1 is incorrect because Agni is the fire god, not rain/thunder (Indra is associated with rain).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-74",
+        "question": "Consider the following statements about the Dasyus:\n\n\nThe term dasyuhaty",
+        "options": [
+                "indicates a strong hostility towards them.\n\n\nThey possibly worshipped the phallus and did not keep cattle for dairy products.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct inferences about the dasyus explicitly mentioned in the text.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-75",
+        "question": "The excavation at Bhagwanpur",
+        "options": [
+                "reveals which of the following regarding the material culture coinciding with the Rig Vedic phase?\nA) The widespread use of iron swords and chariots.",
+                "The presence of Painted Grey Ware (PGW) along with 'late Harappan' pottery, without iron objects.",
+                "The existence of massive burnt-brick granaries.",
+                "The complete absence of cattle bones."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text explicitly notes that at Bhagwanpura, PGW has been found with 'late Harappan' pottery, but neither iron objects nor cereals have been encountered, indicating a pre-iron PGW phase.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-76",
+        "question": "Evaluate the linguistic evidence used to trace the origin and early lifestyle of the Aryans:\nStatement-I: The shared Indo-European terminology for flor",
+        "options": [
+                "and fauna (like pine, maple, goats, dogs) suggests their original homeland was located in a temperate, forested environment like Eurasia.\nStatement-II: The universal presence of common Indo-European words for mountains and oceans proves that they were originally maritime traders who crossed the Alps.\nWhich one of the following is correct?\nA) Both Statement-I and Statement-II are correct and Statement-II explains Statement-I",
+                "Both Statement-I and Statement-II are correct but Statement-II does not explain Statement-I",
+                "Statement-I is correct but Statement-II is incorrect",
+                "Statement-I is incorrect but Statement-II is correct"
+        ],
+        "correctIndex": 2,
+        "explanation": "Statement-I is correct. Statement-II is incorrect because the text explicitly notes that common words for mountains exist only in a few Aryan languages, and there is no evidence of them being maritime traders (the term samudra meant just a collection of water).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-77",
+        "question": "Analyze the economic transition of the Aryans in the Rig Vedic phase:\n\n\nThe concept of wealth was primarily quantified in terms of land measurement (bighas) rather than movable assets.\n\n\nThe term gavisthi (search for cows) used for war underscores the centrality of pastoralism in their political economy.\n\n\nSlaves were primarily utilized as",
+        "options": [
+                "massive agricultural labor force to cultivate large estates for the tribal chiefs.\nHow many of the above statements are correct?\nA) Only one",
+                "Only two",
+                "All three",
+                "None"
+        ],
+        "correctIndex": 0,
+        "explanation": "Only statement 2 is correct. Statement 1 is incorrect because wealth was stated in terms of cows and slaves, never in land measurement. Statement 3 is incorrect because slaves were used for domestic purposes, not directly in agriculture or producing activities.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-78",
+        "question": "Consider the following regarding the emergence of social stratification in the Rig Vedic period:\nAssertion (",
+        "options": [
+                ": The division of the tribal society into distinct social orders (warriors, priests, commoners) was driven entirely by the colour distinction between the Aryans and the indigenous people.\nReason (R): The unequal distribution of the spoils of war facilitated the economic and social rise of princes and priests at the expense of the common tribal people.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 3,
+        "explanation": "A is false because while colour distinction partially contributed, its importance has been \"exaggerated\" by western writers, and the most contributing factor was conquest and internal economic disparity. R is true and explains the real mechanism of emerging inequality.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-79",
+        "question": "Evaluate the role of the epigraphic evidence from Western Asi",
+        "options": [
+                "(Kassite and Mitanni inscriptions) in Indian history:\nA) They prove that the Aryans migrated out of India to conquer Mesopotamia.",
+                "They establish a definitive chronological anchor (1600-1400 B.",
+                ") for the presence of Indo-Aryan names in the Near East, supporting the theory of their gradual eastwar",
+                "migration to India.\nC) They contain the earliest written copies of the complete Rig Veda.\nD) They demonstrate that the Harappan civilization was destroyed by an Iranian invasion."
+        ],
+        "correctIndex": 1,
+        "explanation": "The inscriptions (1600 BC Kassite, 14th C BC Mitanni) contain Aryan names, suggesting that from Iran a branch moved west, and similarly, another branch moved east to India around 1500 BC, providing a chronological framework.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-80",
+        "question": "Read the following statements concerning the family structure in the early Vedic phase:\nStatement-I: The differentiation in family relationships had not proceeded far, indicating that",
+        "options": [
+                "very large joint family unit lived under the same roof.\nStatement-II: The earliest Indo-European languages used the same term to denote nephew, grandson, and cousin.\nWhich of the following is correct?\nA) Both Statement-I and Statement-II are correct and Statement-II is the archaeological proof for Statement-I.",
+                "Both Statement-I and Statement-II are correct and Statement-II provides linguisti",
+                "evidence for Statement-I.\nC) Statement-I is correct but Statement-II is incorrect.",
+                "Statement-I is incorrect but Statement-II is correct."
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement-II is correct (same term used for nephew, grandson, cousin) and is used by the author as the linguistic evidence to deduce Statement-I (differentiation had not proceeded far; large joint unit).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-81",
+        "question": "Which of the following factors fundamentally prevented the Rig Vedic society from establishing",
+        "options": [
+                "fully developed state system or territorial administration?\nA) The lack of any formidable military technology.",
+                "A strict ideological adherence to absolute non-violence.",
+                "The perpetual state of migration an",
+                "a predominantly pastoral economy that could not generate the regular surpluses required for formal taxation.\nD) The continuous devastation caused by the Indus floods."
+        ],
+        "correctIndex": 2,
+        "explanation": "The text states there was no civil/territorial administration because \"people were in a stage of perpetual expansion, migrating from one area to another,\" and the pastoral economy left little scope for collecting regular tributes.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-82",
+        "question": "Which of the following Rig Vedic phenomen",
+        "options": [
+                "indicates the survival of matrilineal traces within a broadly patriarchal society?\nA) The exclusive inheritance of property by daughters.",
+                "The presence of female warlords leading the jana into battle.",
+                "Instances of polyandry (e.g., Maruts an",
+                "Rodasi) and sons being named after their mothers (e.g., Mamateya).\nD) The complete absence of male deities in the earliest mandalas."
+        ],
+        "correctIndex": 2,
+        "explanation": "The text cites the examples of polyandry (Maruts/Rodasi, Asvins/Surya) and matronymics (Mamateya) as indications that matrilineal traces survived in the patriarchal set-up.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-83",
+        "question": "Consider the role of the Sabh",
+        "options": [
+                "and Samiti in the Rig Vedic period:\n\n\nThey functioned strictly as religious bodies without any military or political mandate.\n\n\nThey acted as vital checks on the power of the rajan, making his authority less than absolute.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because they exercised \"deliberative, military and religious functions.\" Statement 2 is correct as the king \"had to reckon with the tribal organizations\" and eager to win their support.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-84",
+        "question": "What is the historical significance of the term Sudr",
+        "options": [
+                "appearing for the first time in the tenth Book of the Rig Veda?\nA) It proves that the Sudras were the original composers of the earliest mandalas.",
+                "It indicates that the rigid four-tier social division was a later development towards the end of the Rig Vedi",
+                "perio",
+                "C) It demonstrates that the Aryans brought the four-caste system intact from Iran.\nD) It shows that the Sudras eventually conquered the Aryans."
+        ],
+        "correctIndex": 1,
+        "explanation": "Books I and X are the latest additions. The appearance of the term sudra only in the 10th book indicates that this fourth division emerged towards the end of the period, not at the beginning.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-85",
+        "question": "Analyze the following statement: \"In the Rig Ved",
+        "options": [
+                "no desire is expressed for daughters, though the desire for children and cattle is a recurrent theme.\"\nThis textual evidence analytically highlights:\nA) A society suffering from extreme overpopulation.",
+                "The economi",
+                "an",
+                "military imperatives of a patriarchal, warring tribal society that required male manpower.\nC) The high political status enjoyed by women who did not need religious sanction.\nD) The exclusive reliance on female slaves for warfare."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text notes that because it was a patriarchal society engaged in frequent wars, they specifically \"prayed to the gods for brave sons to fight the wars,\" explaining the preference for male offspring.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v5-86",
+        "question": "The Rig Vedic concept of the Purohit",
+        "options": [
+                "(e.g., Vasishtha and Visvamitra) is best understood politically as:\nA) A passive observer dedicated solely to ascetic meditation.",
+                "A subordinate slave who collected taxes for the king.",
+                "A key tribal functionary who provide",
+                "ideological inspiration and legitimized the chief's military exploits in exchange for redistributed wealth.\nD) The supreme military commander (senani) of the standing army."
+        ],
+        "correctIndex": 2,
+        "explanation": "They \"inspired the tribal chiefs to action and lauded their exploits in return for handsome rewards,\" highlighting their role in legitimizing war and sharing in its economic spoils.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-500",
+        "question": "Consider the following statements about the origins and expansion of the Aryans:\n\n\nThe earliest life of the Aryans was primarily agricultural, with pastoralism acting as",
+        "options": [
+                "secondary occupation.\n\n\nThe swiftness of the horse enabled the Aryans to make successful inroads into Western Asia from about 2000",
+                "",
+                "onwards.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 an",
+                "expansion of the Ary"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because their earliest life was mainly pastoral, with agriculture being secondary. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-501",
+        "question": "Consider the following statements regarding the early Aryans in India:\n\n\nThe geographical are",
+        "options": [
+                "of their earliest settlement covered eastern Afghanistan, Panjab, and the fringes of western Uttar Pradesh.\n\n\nThe river Ganga is the most frequently mentioned river and is considered the \"river par excellence\" in the Rig Veda.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "eastern Afghanistan, Panjab, and the fringes of western Uttar Pradesh.\n\n\nThe river Ganga is the most frequently mentioned river and is considered the \"river par excellence\" in the Rig Veda.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the Sindhu (Indus) is the river par excellence and is repeatedly mentioned, not the Ganga.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-502",
+        "question": "With reference to the indigenous peoples encountered by the Aryans, consider the following statements:\n\n\nThe dasas mentioned in the Rig Ved",
+        "options": [
+                "were strictly a non-Aryan tribe with no linguistic connection to the Aryans.\n\n\nThe Aryan chiefs were generally soft towards the dasas but strongly hostile to the dasyus.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "connection to the Aryans.\n\n\nThe Aryan chiefs were generally soft towards the dasas but strongly hostile to the dasyus.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 an",
+                "by the Aryans, consider the following statements:\n\n\nThe dasas mentioned in the Rig Veda were strictly a non-Aryan tribe with no linguistic connection to the Aryans.\n\n\nThe Aryan chiefs were generally soft towards the dasas but strongly hostile to the dasyus.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the text notes that since the dasas are also mentioned in ancient Iranian literature, they seem to have been an earlier branch of the Aryans. Statement 2 is correct.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-503",
+        "question": "Consider the following regarding the intra-tribal conflicts of the Aryans:\n\n\nThe Aryans were divided into five tribes called panchajan",
+        "options": [
+                "In the Battle of Ten Kings, the Bharata clan was entirely wiped out by the Purus.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "into five tribes called panchajana.\n\n\nIn the Battle of Ten Kings, the Bharata clan was entirely wiped out by the Purus.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the Bharatas under Sudas won the battle, defeating the ten kings (including the Purus).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-504",
+        "question": "Consider the following pairs of Rig Vedic terms and their meanings:\n\n\nPurandar",
+        "options": [
+                "- Breaker of forts\n\n\nVarman - Coat of mail\n\n\nAyas - Iron weapons\nHow many of the above pairs are correctly matched?\nA) Only one",
+                "Only two",
+                "terms an",
+                "their meanings:\n\n\nPurandara - Breaker of forts\n\n\nVarman - Coat of mail\n\n\nAyas - Iron weapons\nHow many of the above pairs are correctly matched?\nA) Only one\nB) Only two\nC) All three\nD) None"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pairs 1 and 2 are correctly matched. Pair 3 is incorrect because ayas in the Rig Veda meant copper or bronze, not iron.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-505",
+        "question": "Consider the following statements about the material life of the Rig Vedic Aryans:\n\n\nLand formed",
+        "options": [
+                "well-established type of private property, frequently given as gifts to priests.\n\n\nMost of their wars were fought for the sake of cows, indicating a predominantly pastoral economy.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Aryans:\n\n\nLan",
+                "formed a well-established type of private property, frequently given as gifts to priests.\n\n\nMost of their wars were fought for the sake of cows, indicating a predominantly pastoral economy.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; land did not form a well-established type of private property, and gifts were made in cows/women slaves, rarely land. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-506",
+        "question": "Consider the following statements about the political organization in the Rig Vedic period:\n\n\nThe king (rajan) exercised unlimited, absolute power over his subjects.\n\n\nThe king did not maintain",
+        "options": [
+                "regular or standing army, relying instead on tribal militias during times of war.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "period:\n\n\nThe king (rajan) exercise",
+                "unlimited, absolute power over his subjects.\n\n\nThe king did not maintain a regular or standing army, relying instead on tribal militias during times of war.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the king did not exercise unlimited power and had to reckon with tribal organizations (samiti, sabha). Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-507",
+        "question": "Consider the following administrative functionaries of the Rig Vedic period:\n\n\nSenani\n\n\nPurohit",
+        "options": [
+                "Vrajapati\nWhich of the above was responsible for the collection of regular taxes from the peasants?\nA) 1 and 2",
+                "3 only",
+                "period:\n\n\nSenani\n\n\nPurohita\n\n\nVrajapati\nWhich of the above was responsible for the collection of regular taxes from the peasants?\nA) 1 an",
+                "2\nB) 3 only\nC) 1, 2, and 3\nD) None of the above"
+        ],
+        "correctIndex": 3,
+        "explanation": "The text explicitly states, \"We do not come across any officer concerned with the collection of taxes.\" Only voluntary offerings (bali) were made.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-508",
+        "question": "Consider the following statements about the social structure in the Rig Vedic period:\n\n\nThe society was patriarchal, and the birth of",
+        "options": [
+                "son was desired to fight wars.\n\n\nWomen were strictly barred from attending tribal assemblies like the sabha and vidatha.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "period:\n\n\nThe society was patriarchal, an",
+                "the birth of a son was desired to fight wars.\n\n\nWomen were strictly barred from attending tribal assemblies like the sabha and vidatha.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the text states, \"Even women attended the sabha and vidatha in Rig Vedic times.\"",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-509",
+        "question": "Consider the following statements regarding the tribal units of the Rig Veda:\n\n\nThe jan",
+        "options": [
+                "was the primary tribe to which people gave their loyalty.\n\n\nThe vis was divided into smaller fighting units called grama.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "into smaller fighting units called grama.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct reflections of the tribal structural hierarchy mentioned in the text.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-510",
+        "question": "Match the Rig Vedic deities with their primary associations:\n\n\nAgni - Rain and Thunder\n\n\nVarun",
+        "options": [
+                "- Water and natural order\n\n\nSoma - Plants and intoxicating drink\nHow many of the above pairs are correctly matched?\nA) Only one",
+                "Only two",
+                "deities with their primary associations:\n\n\nAgni - Rain an",
+                "Thunder\n\n\nVaruna - Water and natural order\n\n\nSoma - Plants and intoxicating drink\nHow many of the above pairs are correctly matched?\nA) Only one\nB) Only two\nC) All three\nD) None"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pairs 2 and 3 are correct. Pair 1 is incorrect because Agni is the fire god, not rain/thunder (Indra is associated with rain).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-511",
+        "question": "Consider the following statements about the Dasyus:\n\n\nThe term dasyuhaty",
+        "options": [
+                "indicates a strong hostility towards them.\n\n\nThey possibly worshipped the phallus and did not keep cattle for dairy products.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "the phallus and did not keep cattle for dairy products.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct inferences about the dasyus explicitly mentioned in the text.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-512",
+        "question": "Evaluate the linguistic evidence used to trace the origin and early lifestyle of the Aryans:\nStatement-I: The shared Indo-European terminology for flor",
+        "options": [
+                "and fauna (like pine, maple, goats, dogs) suggests their original homeland was located in a temperate, forested environment like Eurasia.\nStatement-II: The universal presence of common Indo-European words for mountains and oceans proves that they were originally maritime traders who crossed the Alps.\nWhich one of the following is correct?\nA) Both Statement-I and Statement-II are correct and Statement-II explains Statement-I",
+                "Both Statement-I and Statement-II are correct but Statement-II does not explain Statement-I",
+                "evidence use",
+                "to trace the origin and early lifestyle of the Ary"
+        ],
+        "correctIndex": 2,
+        "explanation": "Statement-I is correct. Statement-II is incorrect because the text explicitly notes that common words for mountains exist only in a few Aryan languages, and there is no evidence of them being maritime traders (the term samudra meant just a collection of water).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-513",
+        "question": "Analyze the economic transition of the Aryans in the Rig Vedic phase:\n\n\nThe concept of wealth was primarily quantified in terms of land measurement (bighas) rather than movable assets.\n\n\nThe term gavisthi (search for cows) used for war underscores the centrality of pastoralism in their political economy.\n\n\nSlaves were primarily utilized as",
+        "options": [
+                "massive agricultural labor force to cultivate large estates for the tribal chiefs.\nHow many of the above statements are correct?\nA) Only one",
+                "Only two",
+                "transition of the Aryans in the Rig Vedic phase:\n\n\nThe concept of wealth was primarily quantifie",
+                "in terms of land measurement (bighas) rather than movable assets.\n\n\nThe term gavisthi (search for cows) used for war underscores the centrality of pastoralism in their political economy.\n\n\nSlaves were primarily utilized as a massive agricultural labor force to cultivate large estates for the tribal chiefs.\nHow many of the above statements are correct?\nA) Only one\nB) Only two\nC) All three\nD) None"
+        ],
+        "correctIndex": 0,
+        "explanation": "Only statement 2 is correct. Statement 1 is incorrect because wealth was stated in terms of cows and slaves, never in land measurement. Statement 3 is incorrect because slaves were used for domestic purposes, not directly in agriculture or producing activities.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-514",
+        "question": "Consider the following regarding the emergence of social stratification in the Rig Vedic period:\nAssertion (",
+        "options": [
+                ": The division of the tribal society into distinct social orders (warriors, priests, commoners) was driven entirely by the colour distinction between the Aryans and the indigenous people.\nReason (R): The unequal distribution of the spoils of war facilitated the economic and social rise of princes and priests at the expense of the common tribal people.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "period:\nAssertion (A): The division of the tribal society into distinct social orders (warriors, priests, commoners) was driven entirely by the colour distinction between the Aryans an",
+                "the indigenous people.\nReason (R): The unequal distribution of the spoils of war facilitated the economic and social rise of princes and priests at the expense of the common tribal people.\nA) Both A and R are true, and R is the correct explanation of A.\nB) Both A and R are true, but R is not the correct explanation of A.\nC) A is true, but R is false.\nD) A is false, but R is true."
+        ],
+        "correctIndex": 3,
+        "explanation": "A is false because while colour distinction partially contributed, its importance has been \"exaggerated\" by western writers, and the most contributing factor was conquest and internal economic disparity. R is true and explains the real mechanism of emerging inequality.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-515",
+        "question": "Read the following statements concerning the family structure in the early Vedic phase:\nStatement-I: The differentiation in family relationships had not proceeded far, indicating that",
+        "options": [
+                "very large joint family unit lived under the same roof.\nStatement-II: The earliest Indo-European languages used the same term to denote nephew, grandson, and cousin.\nWhich of the following is correct?\nA) Both Statement-I and Statement-II are correct and Statement-II is the archaeological proof for Statement-I.",
+                "Both Statement-I and Statement-II are correct and Statement-II provides linguisti",
+                "phase:\nStatement-I: The differentiation in family relationships ha",
+                "the following statements concerning the family structure in the early Vedic phase:\nStatement-I: The differentiation in family relationships had not proceeded far, indicating that a very large joint family unit lived under the same roof.\nStatement-II: The earliest Indo-European languages used the same term to denote nephew, grandson, and cousin.\nWhich of the following is correct?\nA) Both Statement-I and Statement-II are correct and Statement-II is the archaeological proof for Statement-I.\nB) Both Statement-I and Statement-II are correct and Statement-II provides linguistic evidence for Statement-I.\nC) Statement-I is correct but Statement-II is incorrect.\nD) Statement-I is incorrect but Statement-II is correct."
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement-II is correct (same term used for nephew, grandson, cousin) and is used by the author as the linguistic evidence to deduce Statement-I (differentiation had not proceeded far; large joint unit).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-516",
+        "question": "Analyze the following statement: \"In the Rig Ved",
+        "options": [
+                "no desire is expressed for daughters, though the desire for children and cattle is a recurrent theme.\"\nThis textual evidence analytically highlights:\nA) A society suffering from extreme overpopulation.",
+                "The economi",
+                "an",
+                "for daughters, though the desire for children and cattle is a recurrent theme.\"\nThis textual evidence analytically highlights:\nA) A society suffering from extreme overpopulation.\nB) The economic and military imperatives of a patriarchal, warring tribal society that required male manpower.\nC) The high political status enjoyed by women who did not need religious sanction.\nD) The exclusive reliance on female slaves for warfare."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text notes that because it was a patriarchal society engaged in frequent wars, they specifically \"prayed to the gods for brave sons to fight the wars,\" explaining the preference for male offspring.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-517",
+        "question": "Consider the following statements about the origins and expansion of the Aryans:\n\n\nThe earliest life of the Aryans was primarily agricultural, with pastoralism acting as",
+        "options": [
+                "secondary occupation.\n\n\nThe swiftness of the horse enabled the Aryans to make successful inroads into Western Asia from about 2000",
+                "",
+                "onwards.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 an",
+                "expansion of the Ary"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because their earliest life was mainly pastoral, with agriculture being secondary. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-518",
+        "question": "Consider the following statements regarding the early Aryans in India:\n\n\nThe geographical are",
+        "options": [
+                "of their earliest settlement covered eastern Afghanistan, Panjab, and the fringes of western Uttar Pradesh.\n\n\nThe river Ganga is the most frequently mentioned river and is considered the \"river par excellence\" in the Rig Veda.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "eastern Afghanistan, Panjab, and the fringes of western Uttar Pradesh.\n\n\nThe river Ganga is the most frequently mentioned river and is considered the \"river par excellence\" in the Rig Veda.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the Sindhu (Indus) is the river par excellence and is repeatedly mentioned, not the Ganga.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-519",
+        "question": "With reference to the indigenous peoples encountered by the Aryans, consider the following statements:\n\n\nThe dasas mentioned in the Rig Ved",
+        "options": [
+                "were strictly a non-Aryan tribe with no linguistic connection to the Aryans.\n\n\nThe Aryan chiefs were generally soft towards the dasas but strongly hostile to the dasyus.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "connection to the Aryans.\n\n\nThe Aryan chiefs were generally soft towards the dasas but strongly hostile to the dasyus.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 an",
+                "by the Aryans, consider the following statements:\n\n\nThe dasas mentioned in the Rig Veda were strictly a non-Aryan tribe with no linguistic connection to the Aryans.\n\n\nThe Aryan chiefs were generally soft towards the dasas but strongly hostile to the dasyus.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the text notes that since the dasas are also mentioned in ancient Iranian literature, they seem to have been an earlier branch of the Aryans. Statement 2 is correct.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-520",
+        "question": "Consider the following regarding the intra-tribal conflicts of the Aryans:\n\n\nThe Aryans were divided into five tribes called panchajan",
+        "options": [
+                "In the Battle of Ten Kings, the Bharata clan was entirely wiped out by the Purus.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "into five tribes called panchajana.\n\n\nIn the Battle of Ten Kings, the Bharata clan was entirely wiped out by the Purus.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the Bharatas under Sudas won the battle, defeating the ten kings (including the Purus).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-521",
+        "question": "Consider the following pairs of Rig Vedic terms and their meanings:\n\n\nPurandar",
+        "options": [
+                "- Breaker of forts\n\n\nVarman - Coat of mail\n\n\nAyas - Iron weapons\nHow many of the above pairs are correctly matched?\nA) Only one",
+                "Only two",
+                "terms an",
+                "their meanings:\n\n\nPurandara - Breaker of forts\n\n\nVarman - Coat of mail\n\n\nAyas - Iron weapons\nHow many of the above pairs are correctly matched?\nA) Only one\nB) Only two\nC) All three\nD) None"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pairs 1 and 2 are correctly matched. Pair 3 is incorrect because ayas in the Rig Veda meant copper or bronze, not iron.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-522",
+        "question": "Consider the following statements about the material life of the Rig Vedic Aryans:\n\n\nLand formed",
+        "options": [
+                "well-established type of private property, frequently given as gifts to priests.\n\n\nMost of their wars were fought for the sake of cows, indicating a predominantly pastoral economy.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Aryans:\n\n\nLan",
+                "formed a well-established type of private property, frequently given as gifts to priests.\n\n\nMost of their wars were fought for the sake of cows, indicating a predominantly pastoral economy.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; land did not form a well-established type of private property, and gifts were made in cows/women slaves, rarely land. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-523",
+        "question": "Consider the following statements about the political organization in the Rig Vedic period:\n\n\nThe king (rajan) exercised unlimited, absolute power over his subjects.\n\n\nThe king did not maintain",
+        "options": [
+                "regular or standing army, relying instead on tribal militias during times of war.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "period:\n\n\nThe king (rajan) exercise",
+                "unlimited, absolute power over his subjects.\n\n\nThe king did not maintain a regular or standing army, relying instead on tribal militias during times of war.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the king did not exercise unlimited power and had to reckon with tribal organizations (samiti, sabha). Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-524",
+        "question": "Consider the following administrative functionaries of the Rig Vedic period:\n\n\nSenani\n\n\nPurohit",
+        "options": [
+                "Vrajapati\nWhich of the above was responsible for the collection of regular taxes from the peasants?\nA) 1 and 2",
+                "3 only",
+                "period:\n\n\nSenani\n\n\nPurohita\n\n\nVrajapati\nWhich of the above was responsible for the collection of regular taxes from the peasants?\nA) 1 an",
+                "2\nB) 3 only\nC) 1, 2, and 3\nD) None of the above"
+        ],
+        "correctIndex": 3,
+        "explanation": "The text explicitly states, \"We do not come across any officer concerned with the collection of taxes.\" Only voluntary offerings (bali) were made.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-525",
+        "question": "Consider the following statements about the social structure in the Rig Vedic period:\n\n\nThe society was patriarchal, and the birth of",
+        "options": [
+                "son was desired to fight wars.\n\n\nWomen were strictly barred from attending tribal assemblies like the sabha and vidatha.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "period:\n\n\nThe society was patriarchal, an",
+                "the birth of a son was desired to fight wars.\n\n\nWomen were strictly barred from attending tribal assemblies like the sabha and vidatha.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the text states, \"Even women attended the sabha and vidatha in Rig Vedic times.\"",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-526",
+        "question": "Consider the following statements regarding the tribal units of the Rig Veda:\n\n\nThe jan",
+        "options": [
+                "was the primary tribe to which people gave their loyalty.\n\n\nThe vis was divided into smaller fighting units called grama.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "into smaller fighting units called grama.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct reflections of the tribal structural hierarchy mentioned in the text.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-527",
+        "question": "Match the Rig Vedic deities with their primary associations:\n\n\nAgni - Rain and Thunder\n\n\nVarun",
+        "options": [
+                "- Water and natural order\n\n\nSoma - Plants and intoxicating drink\nHow many of the above pairs are correctly matched?\nA) Only one",
+                "Only two",
+                "deities with their primary associations:\n\n\nAgni - Rain an",
+                "Thunder\n\n\nVaruna - Water and natural order\n\n\nSoma - Plants and intoxicating drink\nHow many of the above pairs are correctly matched?\nA) Only one\nB) Only two\nC) All three\nD) None"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pairs 2 and 3 are correct. Pair 1 is incorrect because Agni is the fire god, not rain/thunder (Indra is associated with rain).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-528",
+        "question": "Consider the following statements about the Dasyus:\n\n\nThe term dasyuhaty",
+        "options": [
+                "indicates a strong hostility towards them.\n\n\nThey possibly worshipped the phallus and did not keep cattle for dairy products.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "the phallus and did not keep cattle for dairy products.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct inferences about the dasyus explicitly mentioned in the text.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-529",
+        "question": "Evaluate the linguistic evidence used to trace the origin and early lifestyle of the Aryans:\nStatement-I: The shared Indo-European terminology for flor",
+        "options": [
+                "and fauna (like pine, maple, goats, dogs) suggests their original homeland was located in a temperate, forested environment like Eurasia.\nStatement-II: The universal presence of common Indo-European words for mountains and oceans proves that they were originally maritime traders who crossed the Alps.\nWhich one of the following is correct?\nA) Both Statement-I and Statement-II are correct and Statement-II explains Statement-I",
+                "Both Statement-I and Statement-II are correct but Statement-II does not explain Statement-I",
+                "evidence use",
+                "to trace the origin and early lifestyle of the Ary"
+        ],
+        "correctIndex": 2,
+        "explanation": "Statement-I is correct. Statement-II is incorrect because the text explicitly notes that common words for mountains exist only in a few Aryan languages, and there is no evidence of them being maritime traders (the term samudra meant just a collection of water).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-530",
+        "question": "Analyze the economic transition of the Aryans in the Rig Vedic phase:\n\n\nThe concept of wealth was primarily quantified in terms of land measurement (bighas) rather than movable assets.\n\n\nThe term gavisthi (search for cows) used for war underscores the centrality of pastoralism in their political economy.\n\n\nSlaves were primarily utilized as",
+        "options": [
+                "massive agricultural labor force to cultivate large estates for the tribal chiefs.\nHow many of the above statements are correct?\nA) Only one",
+                "Only two",
+                "transition of the Aryans in the Rig Vedic phase:\n\n\nThe concept of wealth was primarily quantifie",
+                "in terms of land measurement (bighas) rather than movable assets.\n\n\nThe term gavisthi (search for cows) used for war underscores the centrality of pastoralism in their political economy.\n\n\nSlaves were primarily utilized as a massive agricultural labor force to cultivate large estates for the tribal chiefs.\nHow many of the above statements are correct?\nA) Only one\nB) Only two\nC) All three\nD) None"
+        ],
+        "correctIndex": 0,
+        "explanation": "Only statement 2 is correct. Statement 1 is incorrect because wealth was stated in terms of cows and slaves, never in land measurement. Statement 3 is incorrect because slaves were used for domestic purposes, not directly in agriculture or producing activities.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-531",
+        "question": "Consider the following regarding the emergence of social stratification in the Rig Vedic period:\nAssertion (",
+        "options": [
+                ": The division of the tribal society into distinct social orders (warriors, priests, commoners) was driven entirely by the colour distinction between the Aryans and the indigenous people.\nReason (R): The unequal distribution of the spoils of war facilitated the economic and social rise of princes and priests at the expense of the common tribal people.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "period:\nAssertion (A): The division of the tribal society into distinct social orders (warriors, priests, commoners) was driven entirely by the colour distinction between the Aryans an",
+                "the indigenous people.\nReason (R): The unequal distribution of the spoils of war facilitated the economic and social rise of princes and priests at the expense of the common tribal people.\nA) Both A and R are true, and R is the correct explanation of A.\nB) Both A and R are true, but R is not the correct explanation of A.\nC) A is true, but R is false.\nD) A is false, but R is true."
+        ],
+        "correctIndex": 3,
+        "explanation": "A is false because while colour distinction partially contributed, its importance has been \"exaggerated\" by western writers, and the most contributing factor was conquest and internal economic disparity. R is true and explains the real mechanism of emerging inequality.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-532",
+        "question": "Read the following statements concerning the family structure in the early Vedic phase:\nStatement-I: The differentiation in family relationships had not proceeded far, indicating that",
+        "options": [
+                "very large joint family unit lived under the same roof.\nStatement-II: The earliest Indo-European languages used the same term to denote nephew, grandson, and cousin.\nWhich of the following is correct?\nA) Both Statement-I and Statement-II are correct and Statement-II is the archaeological proof for Statement-I.",
+                "Both Statement-I and Statement-II are correct and Statement-II provides linguisti",
+                "phase:\nStatement-I: The differentiation in family relationships ha",
+                "the following statements concerning the family structure in the early Vedic phase:\nStatement-I: The differentiation in family relationships had not proceeded far, indicating that a very large joint family unit lived under the same roof.\nStatement-II: The earliest Indo-European languages used the same term to denote nephew, grandson, and cousin.\nWhich of the following is correct?\nA) Both Statement-I and Statement-II are correct and Statement-II is the archaeological proof for Statement-I.\nB) Both Statement-I and Statement-II are correct and Statement-II provides linguistic evidence for Statement-I.\nC) Statement-I is correct but Statement-II is incorrect.\nD) Statement-I is incorrect but Statement-II is correct."
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement-II is correct (same term used for nephew, grandson, cousin) and is used by the author as the linguistic evidence to deduce Statement-I (differentiation had not proceeded far; large joint unit).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch7-d-v6-533",
+        "question": "Analyze the following statement: \"In the Rig Ved",
+        "options": [
+                "no desire is expressed for daughters, though the desire for children and cattle is a recurrent theme.\"\nThis textual evidence analytically highlights:\nA) A society suffering from extreme overpopulation.",
+                "The economi",
+                "an",
+                "for daughters, though the desire for children and cattle is a recurrent theme.\"\nThis textual evidence analytically highlights:\nA) A society suffering from extreme overpopulation.\nB) The economic and military imperatives of a patriarchal, warring tribal society that required male manpower.\nC) The high political status enjoyed by women who did not need religious sanction.\nD) The exclusive reliance on female slaves for warfare."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text notes that because it was a patriarchal society engaged in frequent wars, they specifically \"prayed to the gods for brave sons to fight the wars,\" explaining the preference for male offspring.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},];
 export const CH7_L2_MCQS: MCQ[] = [
     {
         "id": "ch7-d-32",

@@ -12,6 +12,7 @@ import {
 interface ParliamentModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Two Houses (Green & Red) ---
@@ -67,7 +68,7 @@ const SketchCard = ({ children, title, icon: Icon, color = "slate", className = 
     );
 };
 
-export default function ParliamentModule({ onComplete, isCompleted }: ParliamentModuleProps) {
+export default function ParliamentModule({ onComplete, isCompleted, chapterNumber = "23" }: ParliamentModuleProps) {
     const [activeTab, setActiveTab] = useState<"part1" | "part2" | "part3">("part1");
 
     return (
@@ -81,7 +82,7 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
                     PARLIAMENT
                 </h1>
                 <p className="text-2xl font-handwriting text-muted-foreground italic max-w-3xl mx-auto bg-card/80 p-2 rounded relative z-10">
-                    "The Behemoth of Indian Democracy. Chapter 22."
+                    "The Behemoth of Indian Democracy. Chapter {chapterNumber}."
                 </p>
 
                 {/* Navigation Tabs */}
@@ -457,7 +458,7 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
                                 }
                             `}
                         >
-                            {isCompleted ? "Session Adjourned Sine Die" : "Pass The Bill"}
+                            {isCompleted ? `CHAPTER ${chapterNumber} COMPLETED` : `MARK CHAPTER ${chapterNumber} COMPLETE`}
                         </button>
                     </div>
                 </div>

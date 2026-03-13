@@ -11,6 +11,7 @@ import {
 interface StateLegislatureModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Unequal Houses (Assembly Hall) ---

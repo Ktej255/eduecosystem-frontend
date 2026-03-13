@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { 
     Users, TrendingUp, BookOpen, Clock, 
     ArrowUpRight, ArrowDownRight, Layers,
-    Activity, BarChart3
+    Activity, BarChart3, Shield
 } from "lucide-react";
 import { 
     BarChart, Bar, XAxis, YAxis, CartesianGrid, 

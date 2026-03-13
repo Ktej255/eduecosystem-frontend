@@ -126,7 +126,7 @@ export default function NationalIntegrationModule({ onComplete, isCompleted, cha
                     className={`px-12 py-6 rounded-full text-xl font-black font-['Kalam'] transition-all transform hover:scale-105 ${isCompleted ? 'bg-slate-300 text-muted-foreground' : 'bg-orange-600 text-white hover:bg-orange-700'
                         }`}
                 >
-                    {isCompleted ? "India United!" : "Clamp the Map"}
+                    {isCompleted ? "India United!" : `MARK CHAPTER ${chapterNumber} COMPLETE`}
                 </Button>
             </div>
         </ScrapbookContainer>

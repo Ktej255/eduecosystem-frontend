@@ -5,7 +5,10 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 interface FlowArrowsProps {
-    path: [number, number][]; // Array of [lat, lng] coordinates
+    id?: string;
+    path?: [number, number][]; // Array of [lat, lng] coordinates
+    start?: [number, number, number];
+    end?: [number, number, number];
     color?: string;
     speed?: number;
     particleCount?: number;
@@ -26,6 +29,8 @@ function latLngToVector3(lat: number, lng: number, radius: number = 1.5): THREE.
 
 export default function FlowArrows({
     path,
+    start,
+    end,
     color = "#4FC3F7",
     speed = 0.3,
     particleCount = 50,
@@ -36,7 +41,16 @@ export default function FlowArrows({
 
     // Convert path to 3D curve
     const { curve, positions } = useMemo(() => {
-        const points = path.map(([lat, lng]) => latLngToVector3(lat, lng));
+        let points: THREE.Vector3[] = [];
+        if (path) {
+            points = path.map(([lat, lng]) => latLngToVector3(lat, lng));
+        } else if (start && end) {
+            points = [new THREE.Vector3(...start), new THREE.Vector3(...end)];
+        } else {
+            // Default empty curve
+            points = [new THREE.Vector3(0, 0, 0), new THREE.Vector3(1, 1, 1)];
+        }
+
         const curve = new THREE.CatmullRomCurve3(points, false, 'catmullrom', 0.5);
 
         // Generate curve points for the river line
@@ -49,7 +63,7 @@ export default function FlowArrows({
         });
 
         return { curve, positions };
-    }, [path]);
+    }, [path, start, end]);
 
     // Initialize particle positions
     const particlePositions = useMemo(() => {

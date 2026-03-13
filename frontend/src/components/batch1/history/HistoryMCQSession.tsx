@@ -26,6 +26,7 @@ export interface HistoryMCQ {
     correctAnswer: number;
     explanation?: string;
     chapterId?: number | string;
+    isCurrentAffair?: boolean;
 }
 
 export interface MCQResult {
@@ -185,6 +186,13 @@ export default function HistoryMCQSession({
                             >
                                 <div className="bg-card p-8 rounded-[2rem] border border-slate-100 shadow-sm relative group">
                                     <div className="absolute -left-3 top-8 w-1.5 h-12 bg-amber-500 rounded-full" />
+                                    {currentQuestion.isCurrentAffair && (
+                                        <div className="flex items-center gap-2 mb-4">
+                                            <span className="bg-rose-100 text-rose-600 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest border border-rose-200 animate-pulse">
+                                                🔥 Current Affair Hook
+                                            </span>
+                                        </div>
+                                    )}
                                     <h2 className="text-xl md:text-2xl font-bold text-foreground leading-relaxed">
                                         {currentQuestion.question}
                                     </h2>

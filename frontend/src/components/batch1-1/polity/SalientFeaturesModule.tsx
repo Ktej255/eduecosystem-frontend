@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 interface SalientFeaturesModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
-    chapterNumber?: string;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Constitution Pinboard ---

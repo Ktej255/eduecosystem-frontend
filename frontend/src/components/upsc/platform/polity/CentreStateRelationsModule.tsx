@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 interface CentreStateRelationsModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Federal Gearbox ---
@@ -99,7 +100,7 @@ const GearChain = () => (
     </div>
 );
 
-export default function CentreStateRelationsModule({ onComplete, isCompleted }: CentreStateRelationsModuleProps) {
+export default function CentreStateRelationsModule({ onComplete, isCompleted, chapterNumber = "15" }: CentreStateRelationsModuleProps) {
     return (
         <GearboxContainer>
             {/* HERO */}
@@ -116,8 +117,11 @@ export default function CentreStateRelationsModule({ onComplete, isCompleted }: 
                     <div className="bg-slate-800 p-4 rounded-full border-2 border-slate-600 shadow-xl mb-6">
                         <Network size={48} className="text-blue-400" />
                     </div>
+                    <div className="flex items-center gap-2 text-blue-400 font-bold uppercase tracking-widest text-xs mb-2">
+                        <Settings size={14} /> Chapter {chapterNumber}
+                    </div>
                     <h1 className="text-4xl md:text-6xl font-black font-serif text-white tracking-tight mb-4">
-                        The Federal Gearbox
+                        Centre-State <br /> Relations
                     </h1>
                     <p className="text-blue-200 max-w-2xl text-lg font-handwriting italic">
                         "Interlocking legislative, administrative, and financial gears driving the Union."
@@ -262,8 +266,8 @@ export default function CentreStateRelationsModule({ onComplete, isCompleted }: 
                 `}
                         >
                             {isCompleted ?
-                                <span className="flex items-center gap-2"><CheckCircle2 /> Gears Synced</span> :
-                                <span className="flex items-center gap-2"><Settings className="animate-spin" /> Mesh the Gears</span>
+                                <span className="flex items-center gap-2"><CheckCircle2 /> CHAPTER {chapterNumber} COMPLETED</span> :
+                                <span className="flex items-center gap-2"><Settings className="animate-spin" /> MARK CHAPTER {chapterNumber} COMPLETE</span>
                             }
                         </Button>
                     </div>

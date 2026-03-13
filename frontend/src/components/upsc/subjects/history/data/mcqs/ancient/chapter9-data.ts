@@ -575,8 +575,1886 @@ export const CH9_L1_MCQS: MCQ[] = [
         "tags": [
             "history"
         ]
-    }
-];
+    },
+    {
+        "id": "ch9-d-new-1",
+        "question": "What are the \"three gems\" (ratnas) of Jainism required to obtain liberation?",
+        "options": [
+                "Buddha, Sangha, Dhamma",
+                "Full knowledge, action, and liberation",
+                "Right speech, right action, right effort",
+                "Non-violence, truth, non-stealing"
+        ],
+        "correctIndex": 1,
+        "explanation": "Full knowledge, action and liberation are considered to be the three gems or ratnas of Jainism.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-new-2",
+        "question": "For the residence of Buddhist monks, rooms were hewn out of rocks, beginning the cave architecture in western India and at the Barabar hills located in:",
+        "options": [
+                "Nasik",
+                "Sanchi",
+                "Gaya",
+                "Bharhut"
+        ],
+        "correctIndex": 2,
+        "explanation": "Thus began the cave architecture in the Barabar hills in Gaya and in western India around Nasik. Level 2: Moderate UPSC Level (Statement-Based)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-new-3",
+        "question": "Consider the following statements regarding the causes of the origin of Jainism and Buddhism: The kshatriyas led a protest movement against the ritualistic domination and privileges claimed by the brahmanas based on birth. The introduction of an agricultural economy based on the iron ploughshare strictly required the mass sacrifice of cattle, which the new religions supported. Which of the statements given above is/are correct?",
+        "options": [
+                "1 only",
+                "2 only",
+                "Both 1 and 2",
+                "Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the new agricultural economy required cattle (bullocks) for ploughing, and the new religions opposed the Vedic practice of killing cattle in sacrifices.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-new-4",
+        "question": "Assertion (A): The brahmanical insistence on the sacredness of the cow and non-violence was an original Vedic concept. Reason (R): The early Vedic Aryans strictly protected cattle from being slaughtered in their religious sacrifices.",
+        "options": [
+                "Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "Both A and R are false."
+        ],
+        "correctIndex": 3,
+        "explanation": "Both are false. The text states that the brahmanical insistence on the cow's sacredness was \"apparently derived from Buddhist teachings,\" and the Aryans originally slaughtered animals in the name of religion. Level 3: Tough/Very Tough UPSC Level (Analytical & Applied Concepts)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-new-5",
+        "question": "The emergence of Jainism and Buddhism in the 6th century B.C. represents a profound socio-economic superstructure reacting to a changing material base. Which of the following best encapsulates this material transition in the middle Gangetic basin?",
+        "options": [
+                "The shift from a highly urbanized Harappan economy to a primitive, pastoral economy that rejected metallic currency.",
+                "The transition from a pastoral, cattle-sacrificing Vedic society to an iron-plough agrarian economy that required the preservation of animal husbandry and facilitated urban trade.",
+                "The introduction of maritime trade with the Roman Empire, which marginalized the inland Vaisya merchants.",
+                "The collapse of the Varna system due to the sudden military dominance of the Sudras."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text identifies the \"real cause\" as the new agricultural economy based on the iron ploughshare, which required bullocks (hence opposing Vedic cattle sacrifice), and led to surplus, cities, and trade.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-new-6",
+        "question": "\"Buddhism created and developed a new awareness in the field of intellect and culture.\" According to the text, which of the following best represents this epistemological shift?",
+        "options": [
+                "The reliance on magical spells and charms borrowed from the Atharva Veda to cure diseases.",
+                "The promotion of rationalism by teaching people not to take things for granted but to argue and judge them on merits, replacing superstition with logic.",
+                "The enforcement of strict obedience to the hereditary village headmen without question.",
+                "The belief that reading the Pali texts would automatically result in wealthy rebirths."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text explicitly states: \"It taught the people not to take things for granted but to argue and judge them on merits. To a certain extent the place of superstition was taken by logic. This promoted rationalism...\" Level 2: Moderate UPSC Level (Statement-Based) - [Remaining 10 Questions]",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-new-7",
+        "question": "Consider the following statements about the Jaina councils: The first Jaina council was convened at Pataliputra to sort out differences and compile the teachings of Mahavira. The southern Jainas enthusiastically participated in the Pataliputra council, leading to the unification of the sect. Which of the statements given above is/are correct?",
+        "options": [
+                "1 only",
+                "2 only",
+                "Both 1 and 2",
+                "Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the text explicitly states that the southern Jainas boycotted the council convened at Pataliputra, which finalized the split into Digambaras and Svetambaras.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-new-8",
+        "question": "The primary reason the Vaisyas provided generous support to both Mahavira and Gautama Buddha was:",
+        "options": [
+                "They were forced to do so by the Magadhan kings.",
+                "Both religions preached the gospel of non-violence, which put an end to wars and promoted peaceful trade and commerce.",
+                "The Vaisyas wanted to be promoted to the Brahmana varna.",
+                "Both religions promised them absolute political power over the Kshatriyas."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text highlights that the Vaisyas supported them because the gospel of non-violence promoted trade by ending wars between different kingdoms, and the new religions did not condemn moneylending like the orthodox Dharmasutras did. Level 3: Tough/Very Tough UPSC Level (Analytical & Applied Concepts) - [Full 20 Questions]",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-new-9",
+        "question": "\"The rise of new religious sects in the middle Gangetic basin was fundamentally a superstructural reaction to a shifting material base.\" Which of the following developments best represents this shifting material base?",
+        "options": [
+                "The sudden shift from a monetized urban economy to a rural barter system.",
+                "The introduction of the iron ploughshare, which generated massive agricultural surplus, facilitated the rise of towns, and necessitated the preservation of cattle wealth.",
+                "The complete abandonment of agriculture due to severe climatic desertification in Magadha.",
+                "The importation of massive gold hoards from the Roman Empire by the Kshatriya elite."
+        ],
+        "correctIndex": 1,
+        "explanation": "The Marxist-historical approach of the text identifies the \"real cause\" of the new religions as the new agricultural economy based on iron. This economy required bullocks (threatened by Vedic sacrifices), produced surplus, and led to the rise of trade/towns.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-new-10",
+        "question": "\"Buddhism made a profound impact on the intellectual and cultural life of ancient India.\" Which of the following developments is directly attributed to Buddhist influence?",
+        "options": [
+                "The perfection of the iron smelting process in Ujjain.",
+                "The promotion of rationalism by replacing superstition with logic, and the creation of a new art form (Gandhara art) synthesizing Greek and Indian elements.",
+                "The strict enforcement of the Varna rules across the Deccan.",
+                "The compilation of the earliest Sanskrit epics, the Ramayana and Mahabharata."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text credits Buddhism with teaching people to argue and judge on merits (promoting rationalism over superstition) and notes the development of Gandhara art (Greek/Indian synthesis) centering around the Buddha's images.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-new-11",
+        "question": "In understanding the \"Middle Path\" (Astangika marga) preached by the Buddha, its historical brilliance lay in:",
+        "options": [
+                "Creating an impossible standard of extreme physical torture that only the elite could follow.",
+                "Providing a pragmatic, ethical, and socially acceptable framework that avoided the extremes of both decadent luxury and severe asceticism, making it highly attractive to the rising middle classes (Vaisyas).",
+                "Endorsing the absolute materialism of the Charvaka school.",
+                "Recommending the simultaneous practice of both Vedic sacrifices and Jaina fasting."
+        ],
+        "correctIndex": 1,
+        "explanation": "The Buddha avoided the extremes of luxury and severe asceticism, prescribing the middle path (eightfold path). This pragmatism made it accessible and highly attractive to the masses and merchants compared to Jainism's extremes.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+        "id": "ch9-d-v5-1",
+        "question": "Which varn",
+        "options": [
+                "was assigned the functions of priests and teachers and claimed the highest status in the post-Vedic society?\nA) Kshatriyas",
+                "Vaisyas",
+                "Brahmanas",
+                "Sudras"
+        ],
+        "correctIndex": 2,
+        "explanation": "The brahmanas, who were given the functions of priests and teachers, claimed the highest status in society.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-2",
+        "question": "Both Vardhaman",
+        "options": [
+                "Mahavira and Gautama Buddha belonged to which varna?\nA) Brahmana",
+                "Kshatriya",
+                "Vaisya",
+                "Sudra"
+        ],
+        "correctIndex": 1,
+        "explanation": "The text notes that both Mahavira and Gautama Buddha belonged to the kshatriya clan.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-3",
+        "question": "In the age of the Buddha, the merchants who made handsome gifts to Gautam",
+        "options": [
+                "Buddha and his disciples were called:\nA) Setthis",
+                "Gramikas",
+                "Amatyas",
+                "Bhojakas"
+        ],
+        "correctIndex": 0,
+        "explanation": "The merchants, called the setthis, made handsome gifts to Gautama Buddha and his disciples.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-4",
+        "question": "Vardhaman",
+        "options": [
+                "Mahavira was born in 540",
+                "",
+                "in a village near which prominent city?\nA) Rajgir\nB) Vaisali\nC) Sravasti",
+                "Kausambi"
+        ],
+        "correctIndex": 1,
+        "explanation": "Mahavira was born in 540 B.C. in a village near Vaisali, which is identical with Basarh in north Bihar.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-5",
+        "question": "Mahavir",
+        "options": [
+                "attained perfect knowledge, through which he conquered misery and happiness, at the age of 42. This perfect knowledge is called:\nA) Nirvana",
+                "Kaivalya",
+                "Dharma",
+                "Bodhi"
+        ],
+        "correctIndex": 1,
+        "explanation": "He abandoned his clothes altogether when he attained perfect knowledge or kaivalya at the age of 42.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-6",
+        "question": "Vardhaman",
+        "options": [
+                "Mahavira passed away at the age of 72 in 468",
+                "",
+                "at a place called:\nA) Kusinagar\nB) Bodh Gaya\nC) Pavapuri",
+                "Lumbini"
+        ],
+        "correctIndex": 2,
+        "explanation": "He passed away at the age of 72 in 468 B.C. at a place called Pavapuri near modern Rajgir.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-7",
+        "question": "Which of the following doctrines was added by Mahavir",
+        "options": [
+                "to the four doctrines taught by his predecessor, Parsva?\nA) Do not commit violence",
+                "Do not speak a lie",
+                "Do not acquire property",
+                "Observe continence (brahmacharya)"
+        ],
+        "correctIndex": 3,
+        "explanation": "Jainism taught five doctrines; it is said that only the fifth doctrine (observe continence) was added by Mahavira.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-8",
+        "question": "What are the \"three gems\" (ratnas) of Jainism required to obtain liberation?",
+        "options": [
+                "Buddha, Sangha, Dhamma",
+                "Full knowledge, action, and liberation",
+                "Right speech, right action, right effort",
+                "Non-violence, truth, non-stealing"
+        ],
+        "correctIndex": 1,
+        "explanation": "Full knowledge, action and liberation are considered to be the three gems or ratnas of Jainism.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-9",
+        "question": "According to",
+        "options": [
+                "late tradition, which Maurya emperor became a Jaina, gave up his throne, and spent his last years as a Jaina ascetic in Karnataka?\nA) Asoka",
+                "Bindusara",
+                "Chandragupta Maurya",
+                "Brihadratha"
+        ],
+        "correctIndex": 2,
+        "explanation": "The spread of Jainism in Karnataka is attributed to Chandragupta Maurya, who became a Jaina and gave up his throne.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-10",
+        "question": "Following",
+        "options": [
+                "great famine in Magadha, the Jaina group that migrated to South India was led by:\nA) Sthalabahu",
+                "Bhadrabahu",
+                "Parsva",
+                "Makkhali Gosala"
+        ],
+        "correctIndex": 1,
+        "explanation": "In order to protect themselves many a Jaina went to the south under the leadership of Bhadrabahu.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-11",
+        "question": "To sort out differences and compile teachings,",
+        "options": [
+                "Jaina council was convened which the southern Jainas boycotted. Where was it held?\nA) Rajgir",
+                "Vaisali",
+                "Pataliputra",
+                "Valabhi"
+        ],
+        "correctIndex": 2,
+        "explanation": "A council was convened in Pataliputra, modern Patna, but the southern Jainas boycotted the council.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-12",
+        "question": "In the first century B.C., Jainism enjoyed the patronage of which Kaling",
+        "options": [
+                "king?\nA) Ajatasatru",
+                "Bimbisara",
+                "Kharavela",
+                "Udayin"
+        ],
+        "correctIndex": 2,
+        "explanation": "It enjoyed the patronage of the Kalinga king Kharavela, who had defeated the princes of Andhra and Magadha.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-13",
+        "question": "The early Jain",
+        "options": [
+                "religious texts were written in which language of the common people?\nA) Sanskrit",
+                "Pali",
+                "Ardhamagadhi (Prakrit)",
+                "Sauraseni"
+        ],
+        "correctIndex": 2,
+        "explanation": "Their religious literature was written in Ardhamagadhi (a Prakrit language).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-14",
+        "question": "Gautam",
+        "options": [
+                "Buddha was born in 563",
+                "",
+                "in a Sakya kshatriya family in:\nA) Sarnath\nB) Kapilavastu\nC) Champa",
+                "Banaras"
+        ],
+        "correctIndex": 1,
+        "explanation": "He was born in 563 B.C. in a Sakya kshatriya family in Kapilavastu.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-15",
+        "question": "Gautam",
+        "options": [
+                "Buddha delivered his first sermon at:\nA) Bodh Gaya",
+                "Sarnath",
+                "Kusinagar",
+                "Rajgir"
+        ],
+        "correctIndex": 1,
+        "explanation": "Gautama Buddha delivered his first sermons at Sarnath in Banaras.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-16",
+        "question": "Gautam",
+        "options": [
+                "Buddha recommended a specific path for the elimination of human misery, which is known as:\nA) The Three Gems",
+                "The Eightfold Path (Astangika marga)",
+                "The Middle Path",
+                "Both B and C"
+        ],
+        "correctIndex": 3,
+        "explanation": "He recommended an eightfold path (astangika marga) and taught that a person should avoid extremes, prescribing the middle path.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-17",
+        "question": "Which language did Gautam",
+        "options": [
+                "Buddha use to preach his religion, contributing to its widespread appeal?\nA) Sanskrit",
+                "Prakrit",
+                "Pali",
+                "Apabhramsa"
+        ],
+        "correctIndex": 2,
+        "explanation": "The use of Pali, the language of the people, also contributed to the spread of Buddhism.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-18",
+        "question": "Which famous Maury",
+        "options": [
+                "king embraced Buddhism 200 years after the Buddha's death and transformed it into a world religion?\nA) Chandragupta",
+                "Bindusara",
+                "Asoka",
+                "Dasaratha"
+        ],
+        "correctIndex": 2,
+        "explanation": "The famous Maurya king Asoka embraced Buddhism... and transformed it into a world religion.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-19",
+        "question": "By the seventh century",
+        "options": [
+                "D., the Buddhist monasteries had become dominated by ease-loving people and developed a new, degenerate form of Buddhism known as:\nA) Mahayana",
+                "Hinayana",
+                "Vajrayana",
+                "Theravada"
+        ],
+        "correctIndex": 2,
+        "explanation": "The new form of Buddhism was known as Vajrayana.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-20",
+        "question": "Which foreign invaders killed",
+        "options": [
+                "large number of Buddhist monks in Nalanda, targeting the monasteries for their riches?\nA) Greeks",
+                "Scythians",
+                "Hunas",
+                "Turks"
+        ],
+        "correctIndex": 3,
+        "explanation": "The Turks killed a large number of Buddhist monks in Nalanda.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-21",
+        "question": "The early Pali literature is divided into three categories. The category that deals with the rules to be observed by members of the sangh",
+        "options": [
+                "is part of the:\nA) First category",
+                "Second category",
+                "Thir",
+                "category\nD) Jataka tales"
+        ],
+        "correctIndex": 1,
+        "explanation": "The second deals with the rules to be observed by members of the sangha.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-22",
+        "question": "The Greek and Indian sculptors worked together on the north-west frontier to create",
+        "options": [
+                "new kind of Buddhist art known as:\nA) Mathura art",
+                "Amaravati art",
+                "Gandhara art",
+                "Sunga art"
+        ],
+        "correctIndex": 2,
+        "explanation": "The Greek and the Indian sculptors worked together to create a new kind of art... known as the Gandhara art.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-23",
+        "question": "For the residence of Buddhist monks, rooms were hewn out of rocks, beginning the cave architecture in western Indi",
+        "options": [
+                "and at the Barabar hills located in:\nA) Nasik",
+                "Sanchi",
+                "Gaya",
+                "Bharhut"
+        ],
+        "correctIndex": 2,
+        "explanation": "Thus began the cave architecture in the Barabar hills in Gaya and in western India around Nasik.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-24",
+        "question": "Consider the following statements regarding the causes of the origin of Jainism and Buddhism:\n\n\nThe kshatriyas led",
+        "options": [
+                "protest movement against the ritualistic domination and privileges claimed by the brahmanas based on birth.\n\n\nThe introduction of an agricultural economy based on the iron ploughshare strictly required the mass sacrifice of cattle, which the new religions supported.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the new agricultural economy required cattle (bullocks) for ploughing, and the new religions opposed the Vedic practice of killing cattle in sacrifices.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-25",
+        "question": "Consider the following statements about the role of Vaisyas in the 6th century B.C.:\n\n\nThe use of punch-marked coins facilitated trade and commerce, adding to the social and economic importance of the Vaisyas.\n\n\nThe brahmanical Dharmasutras encouraged lending money on interest, which satisfied the aspirations of the Vaisy",
+        "options": [
+                "merchants.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the Dharmasutras decried lending money on interest and condemned those who lived on it, pushing Vaisyas toward new religions.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-26",
+        "question": "Consider the following statements regarding the ideological reaction against the new material life:\n\n\nBoth Jainism and Buddhism preferred",
+        "options": [
+                "simple, puritan, ascetic living, asking monks to forgo gold and silver.\n\n\nThe common people yearned to return to a primitive, pre-iron age life devoid of the new forms of private property and social inequalities.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct. The text explicitly compares this reaction to the modern reaction against the Industrial Revolution.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-27",
+        "question": "With reference to Vardhaman",
+        "options": [
+                "Mahavira, consider the following statements:\n\n\nHe belonged to a kshatriya clan and was connected to the royal family of Magadha through his mother.\n\n\nHe attained kaivalya after a 12-year journey during which he never changed his clothes.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are factually supported by the text.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-28",
+        "question": "Consider the following statements comparing the doctrines of Jainism and Buddhism:\n\n\nBuddhism explicitly attacked and condemned the varn",
+        "options": [
+                "system.\n\n\nJainism did not condemn the varna system, explaining a person's varna as a consequence of sins or virtues from a previous birth.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct. The text highlights this specific difference between Jainism (which accepted varna via karma) and Buddhism (which attacked it).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-29",
+        "question": "Consider the following pairs regarding the spread and schism of Jainism:\n\n\nBhadrabahu - Led the Jainas to the south during the Magadhan famine.\n\n\nSvetambaras - The southern Jainas who boycotted the Pataliputr",
+        "options": [
+                "council.\n\n\nDigambaras - Followers who stayed back in Magadha under Sthalabahu.\nHow many of the above pairs are correctly matched?\nA) Only one pair",
+                "Only two pairs",
+                "All three pairs",
+                "None"
+        ],
+        "correctIndex": 0,
+        "explanation": "Only Pair 1 is correct. Pair 2 is incorrect (Southerners became Digambaras). Pair 3 is incorrect (Magadhans who stayed became Svetambaras).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-30",
+        "question": "Consider the following statements about the contribution of Jainism to Indian languages:\n\n\nThe early Jainas discarded Sanskrit and adopted Prakrit to preach their doctrines.\n\n\nThe Jainas composed the earliest important works in Apabhrams",
+        "options": [
+                "and contributed to the growth of Kannada.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are accurately detailed in the text regarding Jainism's linguistic contributions.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-31",
+        "question": "Consider the following statements about Gautam",
+        "options": [
+                "Buddha's early life:\n\n\nHe was born in the monarchical state of Kosala and his father was a hereditary king.\n\n\nLike Mahavira, he left home at the age of 29 in search of truth.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; he was born in a republican clan (Sakyas) and his father was an elected ruler. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-32",
+        "question": "Consider the following statements regarding the core doctrines of early Buddhism:\n\n\nIt deeply engaged in the philosophical controversies regarding the soul (atman) and the Brahm",
+        "options": [
+                "It did not recognize the existence of god and soul.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the Buddha \"did not involve himself in fruitless controversies regarding the soul and the Brahma.\" Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-33",
+        "question": "Consider the following statements about the Buddhist Sangha:\n\n\nPeople were admitted into the Buddhist order strictly based on their caste status.\n\n\nDebtors and slaves were not permitted to be members of the sangh",
+        "options": [
+                "Which of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; people were taken without any consideration of caste. Statement 2 is correct; rules excluded debtors and slaves, which helped moneylenders and slave-owners.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-34",
+        "question": "Consider the following pairs of early Buddhist Pali literature and their contents:\n\n\nFirst Category - Sayings and teachings of the Buddh",
+        "options": [
+                "Second Category - Philosophical exposition of the dhamma\n\n\nThird Category - Rules to be observed by members of the sangha\nHow many of the above pairs are correctly matched?\nA) Only one pair",
+                "Only two pairs",
+                "All three pairs",
+                "None"
+        ],
+        "correctIndex": 0,
+        "explanation": "Only Pair 1 is correct. Pair 2 and 3 are swapped. The second deals with rules of the sangha, and the third presents philosophical exposition.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-35",
+        "question": "Assertion (",
+        "options": [
+                ": The people of north Bihar persist in an old tradition of not wanting to be cremated south of the Ganga in Magadha.\nReason (R): Magadha was placed outside the pale of the holy Aryavarta and its people were looked down upon by orthodox brahmanas.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 0,
+        "explanation": "The text provides this exact reasoning: Magadha was outside Aryavarta, orthodox brahmanas looked down on it, and the old tradition of not being cremated there persists in north Bihar.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-36",
+        "question": "Consider the following statements about the Buddhist approach to poverty and wealth:\n\n\nPoverty was viewed as breeding hatred, cruelty, and violence.\n\n\nThe Buddh",
+        "options": [
+                "advised the state to eradicate poverty by providing farmers with grain, traders with wealth, and labourers with wages.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are accurately reflected in the text's section on the \"Importance and Influence of Buddhism.\"",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-37",
+        "question": "Consider the following statements regarding Jain",
+        "options": [
+                "beliefs on liberation:\n\n\nLiberation requires the performance of complex Vedic rituals.\n\n\nLiberation can be obtained through full knowledge and action.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; it is not necessary to use any ritual. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-38",
+        "question": "Which of the following factors contributed to the degeneration of Buddhist monasteries by the 7th century",
+        "options": [
+                "D.?\n\n\nThe practice of idol worship and the receipt of massive offerings from devotees.\n\n\nGenerous royal grants that made the life of monks easy, such as Nalanda collecting revenue from 200 villages.\n\n\nThe rise of Vajrayana Buddhism which led to women being looked upon as objects of lust.\nSelect the correct answer using the code given below:\nA) 1 and 2 only",
+                "2 and 3 only",
+                "1 an",
+                "3 only\nD) 1, 2, and 3"
+        ],
+        "correctIndex": 3,
+        "explanation": "All three factors are explicitly detailed in the text as causes for the moral and spiritual degeneration of the monasteries.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-39",
+        "question": "Consider the following statements about the spread of Buddhism:\n\n\nBuddhism failed to gain the patronage of any monarchies and relied solely on the peasantry.\n\n\nAsok",
+        "options": [
+                "spread Buddhism into Central Asia, West Asia, and Sri Lanka through his agents.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the monarchies of Magadha, Kosala, Kausambi, and later Asoka adopted it. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-40",
+        "question": "Assertion (",
+        "options": [
+                ": The brahmanical insistence on the sacredness of the cow and non-violence was an original Vedic concept.\nReason (R): The early Vedic Aryans strictly protected cattle from being slaughtered in their religious sacrifices.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "Both A and R are false."
+        ],
+        "correctIndex": 3,
+        "explanation": "Both are false. The text states that the brahmanical insistence on the cow's sacredness was \"apparently derived from Buddhist teachings,\" and the Aryans originally slaughtered animals in the name of religion.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-41",
+        "question": "The emergence of Jainism and Buddhism in the 6th century B.C. represents",
+        "options": [
+                "profound socio-economic superstructure reacting to a changing material base. Which of the following best encapsulates this material transition in the middle Gangetic basin?\nA) The shift from a highly urbanized Harappan economy to a primitive, pastoral economy that rejected metallic currency.",
+                "The transition from a pastoral, cattle-sacrificing Vedi",
+                "society to an iron-plough agrarian economy that require",
+                "the preservation of animal husbandry and facilitated urban trade.\nC) The introduction of maritime trade with the Roman Empire, which marginalized the inland Vaisya merchants.\nD) The collapse of the Varna system due to the sudden military dominance of the Sudras."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text identifies the \"real cause\" as the new agricultural economy based on the iron ploughshare, which required bullocks (hence opposing Vedic cattle sacrifice), and led to surplus, cities, and trade.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-42",
+        "question": "Analyze the sociological appeal of the new religions to the Vaisyas. Consider the following assertions:\nStatement-I: The Vaisyas provided generous patronage to Buddhism and Jainism because these sects initially ignored the Varn",
+        "options": [
+                "system, which had placed Vaisyas in the third rank.\nStatement-II: The gospel of non-violence preached by these sects directly supported the Vaisyas' economic interests by opposing wars that disrupted trade and condemning the Dharmasutras' ban on usury.\nWhich one of the following is correct in respect of the above statements?\nA) Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I.",
+                "Both Statement-I and Statement-II are correct but Statement-II is not the correct explanation for Statement-I.",
+                "Statement-I is correct but Statement-II is incorrect.",
+                "Statement-I is incorrect but Statement-II is correct."
+        ],
+        "correctIndex": 1,
+        "explanation": "Both statements correctly identify separate, parallel reasons provided in the text for why Vaisyas supported the new religions. Statement-II does not explain Statement-I; they are distinct factors (social status vs. economic utility).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-43",
+        "question": "While Buddhism provided an escape for monks, its practical application to the lay society served to consolidate the new socio-economic order. Which of the following Sangh",
+        "options": [
+                "rules best illustrates this consolidation?\n\n\nThe ban on admitting debtors, which ideologically protected the interests of the moneylenders.\n\n\nThe ban on admitting slaves, which reinforced the property rights of slave-owners.\n\n\nThe mandate that lay followers must distribute all their wealth equally to achieve Nirvana.\nSelect the correct answer using the code below:\nA) 1 and 2 only",
+                "2 and 3 only",
+                "1 an",
+                "3 only\nD) 1, 2, and 3"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statements 1 and 2 are explicitly cited in the text as ways Buddhism \"tried to consolidate the changes in the social and economic life\" by protecting creditors and slave-owners. Statement 3 is incorrect; lay followers were taught to \"come to terms with the existing situation,\" not mandated to give away all wealth.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-44",
+        "question": "The geographical trajectory of early Buddhism's success was heavily influenced by the pre-existing cultural geography of the Gangetic plains. Consider the following:\nAssertion (",
+        "options": [
+                ": Buddhism found a highly receptive virgin soil for conversion in Magadha.\nReason (R): Magadha was deeply entrenched in orthodox Vedic rituals and its people revered the Brahmanas above all others.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 2,
+        "explanation": "A is true. R is false because the text states the exact opposite: Magadha responded readily because they were looked down upon by orthodox brahmanas and placed outside the pale of holy Aryavarta.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-45",
+        "question": "The decline of Buddhism in the land of its birth by the 12th century",
+        "options": [
+                "D. was a multi-causal phenomenon. Which of the following internal contradictions contributed most significantly to its ideological defeat?\nA) The Buddha's decision to ban all women from the Sangha, which alienated half the population.",
+                "The transformation of the Sangha into a wealthy, land-owning, ritualisti",
+                "institution that spoke Sanskrit, thereby replicating the very Brahmanical evils it originally denounce",
+                "C) The absolute refusal of the monasteries to accept any royal grants or gifts, leading to their starvation.\nD) The adoption of extreme physical self-mortification by all lay Buddhists."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text highlights that Buddhism succumbed to rituals, took to Sanskrit (alienating commoners), practised idol worship, and became dominated by ease-loving monks enriched by royal grants, thus becoming a victim to the evils it originally fought.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-46",
+        "question": "Consider the linguistic evolution sparked by the Sraman",
+        "options": [
+                "movements:\n\n\nThe Jaina adoption of Prakrit directly facilitated the later development of regional languages like Marathi, out of Sauraseni.\n\n\nThe Buddhist compilation of literature in Pali democratized religious knowledge, breaking the intellectual monopoly of Sanskrit.\n\n\nBoth sects eventually abandoned their vernaculars and adopted Sanskrit in the early medieval period to appeal to the intellectual elites.\nHow many of the above statements are correct deductions from Chapter 9?\nA) Only one",
+                "Only two",
+                "All three",
+                "None"
+        ],
+        "correctIndex": 2,
+        "explanation": "All three statements are correct. Jainas used Prakrit (leading to Sauraseni/Marathi) and later used Sanskrit. Buddhists used Pali initially, which helped spread the doctrine, but later \"gave up Pali... and took to Sanskrit.\"",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-47",
+        "question": "The archaeological phenomenon of the Northern Black Polished Ware (NBPW) and punch-marked coins coincides with the life of the Buddh",
+        "options": [
+                "The presence of these artifacts analytically signifies:\nA) A regression into localized, barter-based tribal economies.",
+                "The advent of the second urbanization in India, characterized by surplus agrarian production, specialized artisan guilds, and monetized trade networks.",
+                "The exclusive military dominance of the Indo-Greeks in the middle Gangetic basin.",
+                "The complete abandonment of iron technology in favor of copper."
+        ],
+        "correctIndex": 1,
+        "explanation": "Although NBPW is deeply detailed in Chapter 12, Chapter 9 explicitly links the rise of cities, artisans, trade, and punch-marked coins in the 6th/5th C B.C. to the new agricultural economy (iron) that formed the base for the second urbanization.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-48",
+        "question": "\"Buddhism created and developed",
+        "options": [
+                "new awareness in the field of intellect and culture.\" According to the text, which of the following best represents this epistemological shift?\nA) The reliance on magical spells and charms borrowed from the Atharva Veda to cure diseases.",
+                "The promotion of rationalism by teaching people not to take things for granted but to argue and judge them on merits, replacing superstition with logi",
+                "C) The enforcement of strict obedience to the hereditary village headmen without question.",
+                "The belief that reading the Pali texts would automatically result in wealthy rebirths."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text explicitly states: \"It taught the people not to take things for granted but to argue and judge them on merits. To a certain extent the place of superstition was taken by logic. This promoted rationalism...\"",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-49",
+        "question": "Consider the following statements about the Jain",
+        "options": [
+                "councils:\n\n\nThe first Jaina council was convened at Pataliputra to sort out differences and compile the teachings of Mahavira.\n\n\nThe southern Jainas enthusiastically participated in the Pataliputra council, leading to the unification of the sect.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the text explicitly states that the southern Jainas boycotted the council convened at Pataliputra, which finalized the split into Digambaras and Svetambaras.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-50",
+        "question": "Consider the following statements regarding the categories of early Pali Buddhist literature:\n\n\nThe first category comprises the sayings and teachings of the Buddh",
+        "options": [
+                "The third category deals with the rules to be observed by the members of the sangha.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the second category deals with the rules of the sangha, while the third category presents the philosophical exposition of the dhamma.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-51",
+        "question": "Consider the following statements regarding the spread of Buddhism:\n\n\nThe Buddh",
+        "options": [
+                "exclusively preached in the kingdom of Magadha and refused to travel to Kosala or Kausambi.\n\n\nThe conversion of the Maurya king Asoka transformed Buddhism from an Indian sect into a world religion.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the Buddha also preached in Kosala, Kausambi, and several republican states. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-52",
+        "question": "Consider the following regarding the approach of the new religions to the Varn",
+        "options": [
+                "system:\n\n\nBuddhism attacked the Varna system and won the support of the lower orders.\n\n\nJainism entirely rejected the concept of Varna and refused to accept that past karma affected current social status.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; Jainism did not condemn the varna system and explained that a person is born in a high or low varna as a consequence of their sins or virtues in the previous birth.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-53",
+        "question": "Consider the following pairs of Jain",
+        "options": [
+                "doctrines and their meanings:\n\n\nAhimsa - Do not commit violence\n\n\nAparigraha - Do not acquire property\n\n\nBrahmacharya - Do not speak a lie\nHow many of the above pairs are correctly matched?\nA) Only one",
+                "Only two",
+                "All three",
+                "None"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pairs 1 and 2 are correctly matched. Pair 3 is incorrect because Brahmacharya means observe continence; not speaking a lie is Satya.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-54",
+        "question": "Assertion (",
+        "options": [
+                ": The use of Pali by early Buddhists contributed heavily to the spread of their religion.\nReason (R): Pali was the language of the common people, making the teachings accessible compared to the elite Sanskrit.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 0,
+        "explanation": "The text explicitly notes that the use of Pali, the language of the people, contributed to the spread of Buddhism because it bypassed the exclusive Sanskrit used by the brahmanas.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-55",
+        "question": "Consider the following statements about the later phase of Buddhist monasteries (by the 7th century",
+        "options": [
+                "D.):\n\n\nThey became centers of corrupt practices under the new Vajrayana sect.\n\n\nThey completely rejected all royal grants and land donations to maintain purity.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the text states they accepted massive royal grants (e.g., Nalanda enjoyed the revenue of 200 villages), which made the monks ease-loving and corrupt.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-56",
+        "question": "The primary reason the Vaisyas provided generous support to both Mahavir",
+        "options": [
+                "and Gautama Buddha was:\nA) They were forced to do so by the Magadhan kings.",
+                "Both religions preached the gospel of non-violence, which put an end to wars and promoted peaceful trade and commerce.",
+                "The Vaisyas wante",
+                "to be promoted to the Brahmana varna.\nD) Both religions promised them absolute political power over the Kshatriyas."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text highlights that the Vaisyas supported them because the gospel of non-violence promoted trade by ending wars between different kingdoms, and the new religions did not condemn moneylending like the orthodox Dharmasutras did.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-57",
+        "question": "\"The rise of new religious sects in the middle Gangetic basin was fundamentally",
+        "options": [
+                "superstructural reaction to a shifting material base.\" Which of the following developments best represents this shifting material base?\nA) The sudden shift from a monetized urban economy to a rural barter system.",
+                "The introduction of the iron ploughshare, which generated massive agricultural surplus, facilitated the rise of towns, and necessitated the preservation of cattle wealth.",
+                "The complete abandonment of agriculture due to severe climatic desertification in Magadha.",
+                "The importation of massive gold hoards from the Roman Empire by the Kshatriya elite."
+        ],
+        "correctIndex": 1,
+        "explanation": "The Marxist-historical approach of the text identifies the \"real cause\" of the new religions as the new agricultural economy based on iron. This economy required bullocks (threatened by Vedic sacrifices), produced surplus, and led to the rise of trade/towns.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-58",
+        "question": "Analyze the socio-political conflict that catalyzed the Sraman",
+        "options": [
+                "movements:\nStatement-I: The Kshatriyas, who wielded actual political and military power, launched a strong protest against the ritualistic and social supremacy claimed by the Brahmanas.\nStatement-II: Both Vardhamana Mahavira and Gautama Buddha were Kshatriyas who disputed the authority of the Vedas and the Brahmanical claim to the highest social status.\nWhich one of the following is correct?\nA) Both Statement-I and Statement-II are correct and Statement-II is the practical manifestation of Statement-I.",
+                "Both Statement-I and Statement-II are correct but are entirely unrelated.",
+                "Statement-I is correct but Statement-II is incorrect.",
+                "Statement-I is incorrect but Statement-II is correct."
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement-I outlines the Kshatriya reaction against Brahmana domination. Statement-II provides the specific historical proof (Mahavira and Buddha were both Kshatriyas leading these movements), demonstrating cause and manifestation.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-59",
+        "question": "Evaluate the paradox of the early Buddhist Sangha's relationship with the new socio-economic order:\n\n\nThe Sangh",
+        "options": [
+                "promoted asceticism, requiring monks to forgo private property and money, reflecting a yearning for a primitive, egalitarian past.\n\n\nConversely, the Sangha's rules explicitly barred the admission of debtors and slaves, thereby protecting the economic interests of moneylenders and slave-owners.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct analytical points. Buddhism provided an ascetic escape for monks (reflecting a revolt against property/money misery) but practically consolidated the new social order by protecting established property/debt relations in its admission rules.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-60",
+        "question": "The ideological mandate of Ahims",
+        "options": [
+                "(non-violence) in Buddhism and Jainism served dual functional purposes in the 6th century",
+                "",
+                "What were they?\nA) Halting the sprea",
+                "of agriculture and preventing the mining of iron.\nB) Protecting the vital cattle wealth required for iron-plough agriculture and fostering a peaceful environment conducive to Vaisya mercantile trade.\nC) Disarming the Sudras to prevent rebellions and ensuring the military supremacy of the Brahmanas.\nD) Pleasing the invading Persian armies and preventing Greek incursions."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text explicitly details these two functional outcomes: ending cattle sacrifice preserved the bullocks needed for the new agriculture, and ending tribal wars promoted the trade and commerce of the Vaisyas.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-61",
+        "question": "Compare the theological stance of early Buddhism and Jainism on the issue of the Varn",
+        "options": [
+                "system:\nA) Both sects completely ignored the Varna system in their texts but strictly enforced it in their monastic orders.",
+                "Buddhism launched a direct attack on the Varna system and admitted lower castes freely, while Jainism formally accepted the Varna system by attributing a person's low or high birth to their past karma.",
+                "Jainism violently overthrew the Varna system, whereas Buddhism endorse",
+                "it by claiming the Buddha was a Brahmana.\nD) Both sects relegated the Kshatriyas to the lowest social tier."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text contrasts them: Buddhism attacked the varna system and ignored caste for sangha admission. Jainism did not condemn the varna system, rationalizing it through the karma of previous births.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-62",
+        "question": "Consider the following regarding the geographical and cultural milieu of Magadha:\nAssertion (",
+        "options": [
+                ": Magadha proved to be highly fertile ground for the rapid spread of Buddhism.\nReason (R): Being outside the pale of the holy Aryavarta, the Magadhan people were looked down upon by orthodox Brahmanas and were less burdened by rigid Vedic rituals.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 0,
+        "explanation": "The text explicitly states that the people of Magadha responded readily to Buddhism because they were looked down upon by orthodox brahmanas, having been placed outside Aryavarta.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-63",
+        "question": "The monetization of the economy in the 5th century B.C. (vi",
+        "options": [
+                "punch-marked coins) directly influenced the rise of the heterodox sects by:\nA) Allowing the Brahmanas to hoard massive amounts of silver for Vedic sacrifices.",
+                "Facilitating trade and elevating the economi",
+                "power of the Vaisya setthis, who sought social prestige commensurate with their new wealth by patronizing Buddhism an",
+                "Jainism.\nC) Causing hyperinflation that led to the collapse of the Magadhan state.\nD) Forcing the Sudras to pay taxes in gold, sparking a religious revolt."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text links the use of punch-marked coins to the facilitation of trade, adding to the importance of the Vaisyas. Since the orthodox system ranked them third, they patronized the new sects to improve their social status.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-64",
+        "question": "The transformation of Buddhism by the early medieval period involved",
+        "options": [
+                "departure from its original tenets. Which of the following indicates the Brahmanization of later Buddhism?\n\n\nThe adoption of Sanskrit instead of Pali for religious texts.\n\n\nThe initiation of idol worship of the Buddha and the reception of massive offerings.\n\n\nThe emergence of the Vajrayana sect, which incorporated esoteric rituals and sensual practices.\nHow many of the above statements are correct?\nA) Only one",
+                "Only two",
+                "All three",
+                "None"
+        ],
+        "correctIndex": 2,
+        "explanation": "All three statements reflect the degeneration and transformation of Buddhism: monks gave up Pali for Sanskrit, took to idol worship and riches, and Vajrayana introduced corrupt esoteric practices.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-65",
+        "question": "\"Buddhism made",
+        "options": [
+                "profound impact on the intellectual and cultural life of ancient India.\" Which of the following developments is directly attributed to Buddhist influence?\nA) The perfection of the iron smelting process in Ujjain.",
+                "The promotion of rationalism by replacing superstition with logic, and the creation of a new art form (Gandhara art) synthesizing Greek and Indian elements.",
+                "The strict enforcement of the Varna rules across the Deccan.",
+                "The compilation of the earliest Sanskrit epics, the Ramayana and Mahabharata."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text credits Buddhism with teaching people to argue and judge on merits (promoting rationalism over superstition) and notes the development of Gandhara art (Greek/Indian synthesis) centering around the Buddha's images.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-66",
+        "question": "Consider the political economy of the Buddha's teachings. To eradicate poverty, the Buddh",
+        "options": [
+                "advised the state to:\n\n\nProvide grain and other facilities to farmers.\n\n\nProvide capital/wealth to traders.\n\n\nPay adequate wages to labourers.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only",
+                "2 and 3 only",
+                "1 an",
+                "3 only\nD) 1, 2, and 3"
+        ],
+        "correctIndex": 3,
+        "explanation": "The text explicitly lists all three as the Buddha's advice to the state for eradicating poverty (breeding hatred/violence).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-67",
+        "question": "Consider the following regarding the social base of Jainism and Buddhism:\nAssertion (",
+        "options": [
+                ": Jainism failed to spread as widely as Buddhism in India and abroad.\nReason (R): Jainism did not clearly differentiate itself from the Brahmanical cults and its extreme asceticism (like strict non-violence leading to the rejection of agriculture) limited its mass appeal.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 0,
+        "explanation": "The text attributes Jainism's failure to become a mass religion to its lack of sharp differentiation from brahmanical cults and its extreme austerity/non-violence (even farming was frowned upon due to killing insects), which restricted its base compared to Buddhism's pragmatic \"middle path.\"",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-68",
+        "question": "The admission of women and Sudras into the Buddhist Sangh",
+        "options": [
+                "was revolutionary because:\nA) It immediately granted them absolute political power over the Magadhan empire.",
+                "It freed them from the deep-seated marks of inferiority imposed by orthodox Brahmanism, providing a dignified social and spiritual alternative.",
+                "It allowe",
+                "them to form their own independent standing armies.\nD) It made them the exclusive rulers of the Buddhist monasteries."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text states that keeping the doors of the sangha open to women and sudras \"freed them from the mark of inferiority,\" directly challenging the orthodox system that barred them from Vedic studies.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-69",
+        "question": "Evaluate the significance of the Barabar hills in Gay",
+        "options": [
+                "in the context of Chapter 9:\nA) They contain the earliest known iron mines in India.",
+                "They represent the beginning of cave architecture in India, where rooms were hewn out of rocks for the residence of Buddhist monks.",
+                "They were the site of the first Jaina council.",
+                "They contain the earliest Sanskrit inscriptions condemning Buddhism."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text identifies the Barabar hills in Gaya as the starting point of cave architecture, where rooms were hewn out of rocks for Buddhist monks.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-70",
+        "question": "Analyze the linguistic trajectory of Jainism and its impact on regional culture:\n\n\nBy adopting Ardhamagadhi, the Jainas bypassed the elite Sanskrit, making their teachings accessible to the masses.\n\n\nThe Jain",
+        "options": [
+                "texts composed in Apabhramsa formed the grammatical foundation for several modern regional languages like Marathi.\n\n\nJainism significantly contributed to the early growth of the Kannada language in South India.\nHow many of the above statements are correct?\nA) Only one",
+                "Only two",
+                "All three",
+                "None"
+        ],
+        "correctIndex": 2,
+        "explanation": "All three statements are correct. The Jainas used Ardhamagadhi, their later texts in Apabhramsa produced grammar for regional languages (Sauraseni leading to Marathi), and they contributed substantially to the growth of Kannada.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-71",
+        "question": "Which of the following contradictions best explains the ultimate destruction of the great Buddhist monasteries like Naland",
+        "options": [
+                "by Turkish invaders in the 12th century A.D.?\nA) The monks had built massive standing armies that threatened the Turks.",
+                "The monasteries had abandoned their original asceti",
+                "poverty, amassing massive, unprotecte",
+                "riches from royal grants, making them prime targets for plunder.\nC) The monasteries had allied with the Greeks against the Turks.\nD) The monks refused to pay the jizya tax."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text notes that the monasteries became centers of ease-loving people holding enormous wealth (from royal grants). \"Their riches became an object of greed\" for the Turkish invaders who slaughtered the monks.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-72",
+        "question": "In understanding the \"Middle Path\" (Astangik",
+        "options": [
+                "marga) preached by the Buddha, its historical brilliance lay in:\nA) Creating an impossible standard of extreme physical torture that only the elite could follow.",
+                "Providing a pragmatic, ethical, and socially acceptable framework that avoided the extremes of both decadent luxury and severe asceticism, making it highly attractive to the rising middle classes (Vaisyas).",
+                "Endorsing the absolute materialism of the Charvaka school.",
+                "Recommending the simultaneous practice of both Vedic sacrifices and Jaina fasting."
+        ],
+        "correctIndex": 1,
+        "explanation": "The Buddha avoided the extremes of luxury and severe asceticism, prescribing the middle path (eightfold path). This pragmatism made it accessible and highly attractive to the masses and merchants compared to Jainism's extremes.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v5-73",
+        "question": "The overarching synthesis of Chapter 9 establishes that Jainism and Buddhism were:",
+        "options": [
+                "Isolated spiritual phenomena completely disconnected from the economic realities of ancient India.",
+                "Militant, violent uprisings led by the Sudras to seize the means of agricultural production.",
+                "Deeply integrate",
+                "socio-economic movements that provided an ideological superstructure (non-violence, rejection of rigid varna) perfectly suited to accommodate the new iron-based agrarian surplus, the rise of towns, and the mercantile aspirations of the Vaisyas.\nD) Conservative movements attempting to reinstate the pure pastoralism of the early Rig Veda."
+        ],
+        "correctIndex": 2,
+        "explanation": "This summarizes the core thesis of the chapter: the new iron-plough economy generated surplus, towns, and trade. The orthodox Vedic system (cattle sacrifice, anti-usury, rigid varna) hindered this. Jainism and Buddhism provided the exact ideological tools (Ahimsa, social fluidity) to support and consolidate this new material reality.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-500",
+        "question": "What are the \"three gems\" (ratnas) of Jainism required to obtain liberation?",
+        "options": [
+                "Buddha, Sangha, Dhamma",
+                "Full knowledge, action, and liberation",
+                "Right speech, right action, right effort",
+                "to obtain liberation?\nA) Buddha, Sangha, Dhamma\nB) Full knowledge, action, and liberation\nC) Right speech, right action, right effort\nD) Non-violence, truth, non-stealing"
+        ],
+        "correctIndex": 1,
+        "explanation": "Full knowledge, action and liberation are considered to be the three gems or ratnas of Jainism.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-501",
+        "question": "Consider the following statements regarding the causes of the origin of Jainism and Buddhism:\n\n\nThe kshatriyas led",
+        "options": [
+                "protest movement against the ritualistic domination and privileges claimed by the brahmanas based on birth.\n\n\nThe introduction of an agricultural economy based on the iron ploughshare strictly required the mass sacrifice of cattle, which the new religions supported.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "domination an",
+                "Buddhism:\n\n\nThe kshatriyas led a protest movement against the ritualistic domination and privileges claimed by the brahmanas based on birth.\n\n\nThe introduction of an agricultural economy based on the iron ploughshare strictly required the mass sacrifice of cattle, which the new religions supported.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the new agricultural economy required cattle (bullocks) for ploughing, and the new religions opposed the Vedic practice of killing cattle in sacrifices.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-502",
+        "question": "Consider the following statements about the role of Vaisyas in the 6th century B.C.:\n\n\nThe use of punch-marked coins facilitated trade and commerce, adding to the social and economic importance of the Vaisyas.\n\n\nThe brahmanical Dharmasutras encouraged lending money on interest, which satisfied the aspirations of the Vaisy",
+        "options": [
+                "merchants.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "",
+                ":\n\n\nThe use of punch-marke",
+                "coins facilitated trade and commerce, adding to the social and economic importance of the Vaisyas.\n\n\nThe brahmanical Dharmasutras encouraged lending money on interest, which satisfied the aspirations of the Vaisya merchants.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the Dharmasutras decried lending money on interest and condemned those who lived on it, pushing Vaisyas toward new religions.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-503",
+        "question": "Consider the following statements regarding the ideological reaction against the new material life:\n\n\nBoth Jainism and Buddhism preferred",
+        "options": [
+                "simple, puritan, ascetic living, asking monks to forgo gold and silver.\n\n\nThe common people yearned to return to a primitive, pre-iron age life devoid of the new forms of private property and social inequalities.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "living, asking monks to forgo gol",
+                "Buddhism preferred a simple, puritan, ascetic living, asking monks to forgo gold and silver.\n\n\nThe common people yearned to return to a primitive, pre-iron age life devoid of the new forms of private property and social inequalities.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct. The text explicitly compares this reaction to the modern reaction against the Industrial Revolution.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-504",
+        "question": "Consider the following statements comparing the doctrines of Jainism and Buddhism:\n\n\nBuddhism explicitly attacked and condemned the varn",
+        "options": [
+                "system.\n\n\nJainism did not condemn the varna system, explaining a person's varna as a consequence of sins or virtues from a previous birth.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "Buddhism:\n\n\nBuddhism explicitly attacked and condemned the varna system.\n\n\nJainism did not condemn the varna system, explaining a person's varna as a consequence of sins or virtues from a previous birth.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct. The text highlights this specific difference between Jainism (which accepted varna via karma) and Buddhism (which attacked it).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-505",
+        "question": "Consider the following pairs regarding the spread and schism of Jainism:\n\n\nBhadrabahu - Led the Jainas to the south during the Magadhan famine.\n\n\nSvetambaras - The southern Jainas who boycotted the Pataliputr",
+        "options": [
+                "council.\n\n\nDigambaras - Followers who stayed back in Magadha under Sthalabahu.\nHow many of the above pairs are correctly matched?\nA) Only one pair",
+                "Only two pairs",
+                "All three pairs",
+                "and schism of Jainism:\n\n\nBhadrabahu - Led the Jainas to the south during the Magadhan famine.\n\n\nSvetambaras - The southern Jainas who boycotted the Pataliputra council.\n\n\nDigambaras - Followers who stayed back in Magadha under Sthalabahu.\nHow many of the above pairs are correctly matched?\nA) Only one pair\nB) Only two pairs\nC) All three pairs\nD) None"
+        ],
+        "correctIndex": 0,
+        "explanation": "Only Pair 1 is correct. Pair 2 is incorrect (Southerners became Digambaras). Pair 3 is incorrect (Magadhans who stayed became Svetambaras).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-506",
+        "question": "Consider the following statements about the contribution of Jainism to Indian languages:\n\n\nThe early Jainas discarded Sanskrit and adopted Prakrit to preach their doctrines.\n\n\nThe Jainas composed the earliest important works in Apabhrams",
+        "options": [
+                "and contributed to the growth of Kannada.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "Sanskrit and adopted Prakrit to preach their doctrines.\n\n\nThe Jainas composed the earliest important works in Apabhramsa and contributed to the growth of Kannada.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are accurately detailed in the text regarding Jainism's linguistic contributions.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-507",
+        "question": "Consider the following statements regarding the core doctrines of early Buddhism:\n\n\nIt deeply engaged in the philosophical controversies regarding the soul (atman) and the Brahm",
+        "options": [
+                "It did not recognize the existence of god and soul.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "in the philosophical controversies regarding the soul (atman) and the Brahma.\n\n\nIt did not recognize the existence of god and soul.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the Buddha \"did not involve himself in fruitless controversies regarding the soul and the Brahma.\" Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-508",
+        "question": "Consider the following statements about the Buddhist Sangha:\n\n\nPeople were admitted into the Buddhist order strictly based on their caste status.\n\n\nDebtors and slaves were not permitted to be members of the sangh",
+        "options": [
+                "Which of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "into the Buddhist order strictly based on their caste status.\n\n\nDebtors and slaves were not permitted to be members of the sangha.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; people were taken without any consideration of caste. Statement 2 is correct; rules excluded debtors and slaves, which helped moneylenders and slave-owners.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-509",
+        "question": "Consider the following pairs of early Buddhist Pali literature and their contents:\n\n\nFirst Category - Sayings and teachings of the Buddh",
+        "options": [
+                "Second Category - Philosophical exposition of the dhamma\n\n\nThird Category - Rules to be observed by members of the sangha\nHow many of the above pairs are correctly matched?\nA) Only one pair",
+                "Only two pairs",
+                "All three pairs",
+                "their contents:\n\n\nFirst Category - Sayings and teachings of the Buddha\n\n\nSecond Category - Philosophical exposition of the dhamma\n\n\nThird Category - Rules to be observed by members of the sangha\nHow many of the above pairs are correctly matched?\nA) Only one pair\nB) Only two pairs\nC) All three pairs\nD) None"
+        ],
+        "correctIndex": 0,
+        "explanation": "Only Pair 1 is correct. Pair 2 and 3 are swapped. The second deals with rules of the sangha, and the third presents philosophical exposition.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-510",
+        "question": "Consider the following statements about the Buddhist approach to poverty and wealth:\n\n\nPoverty was viewed as breeding hatred, cruelty, and violence.\n\n\nThe Buddh",
+        "options": [
+                "advised the state to eradicate poverty by providing farmers with grain, traders with wealth, and labourers with wages.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "wealth:\n\n\nPoverty was viewed as breeding hatred, cruelty, and violence.\n\n\nThe Buddha advised the state to eradicate poverty by providing farmers with grain, traders with wealth, and labourers with wages.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are accurately reflected in the text's section on the \"Importance and Influence of Buddhism.\"",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-511",
+        "question": "Consider the following statements about the spread of Buddhism:\n\n\nBuddhism failed to gain the patronage of any monarchies and relied solely on the peasantry.\n\n\nAsok",
+        "options": [
+                "spread Buddhism into Central Asia, West Asia, and Sri Lanka through his agents.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "of Buddhism:\n\n\nBuddhism failed to gain the patronage of any monarchies and relied solely on the peasantry.\n\n\nAsoka spread Buddhism into Central Asia, West Asia, and Sri Lanka through his agents.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the monarchies of Magadha, Kosala, Kausambi, and later Asoka adopted it. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-512",
+        "question": "Analyze the sociological appeal of the new religions to the Vaisyas. Consider the following assertions:\nStatement-I: The Vaisyas provided generous patronage to Buddhism and Jainism because these sects initially ignored the Varn",
+        "options": [
+                "system, which had placed Vaisyas in the third rank.\nStatement-II: The gospel of non-violence preached by these sects directly supported the Vaisyas' economic interests by opposing wars that disrupted trade and condemning the Dharmasutras' ban on usury.\nWhich one of the following is correct in respect of the above statements?\nA) Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I.",
+                "Both Statement-I and Statement-II are correct but Statement-II is not the correct explanation for Statement-I.",
+                "interests by opposing wars that disrupte",
+                "generous patronage to Buddhism and Jainism because these sects initially ignored the Varna system, which had placed Vaisyas in the third rank.\nStatement-II: The gospel of non-violence preached by these sects directly supported the Vaisyas' economic interests by opposing wars that disrupted trade and condemning the Dharmasutras' ban on usury.\nWhich one of the following is correct in respect of the above statements?\nA) Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I.\nB) Both Statement-I and Statement-II are correct but Statement-II is not the correct explanation for Statement-I.\nC) Statement-I is correct but Statement-II is incorrect.\nD) Statement-I is incorrect but Statement-II is correct."
+        ],
+        "correctIndex": 1,
+        "explanation": "Both statements correctly identify separate, parallel reasons provided in the text for why Vaisyas supported the new religions. Statement-II does not explain Statement-I; they are distinct factors (social status vs. economic utility).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-513",
+        "question": "The geographical trajectory of early Buddhism's success was heavily influenced by the pre-existing cultural geography of the Gangetic plains. Consider the following:\nAssertion (",
+        "options": [
+                ": Buddhism found a highly receptive virgin soil for conversion in Magadha.\nReason (R): Magadha was deeply entrenched in orthodox Vedic rituals and its people revered the Brahmanas above all others.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "plains. Consider the following:\nAssertion (A): Buddhism foun",
+                "by the pre-existing cultural geography of the Gangetic plains. Consider the following:\nAssertion (A): Buddhism found a highly receptive virgin soil for conversion in Magadha.\nReason (R): Magadha was deeply entrenched in orthodox Vedic rituals and its people revered the Brahmanas above all others.\nA) Both A and R are true, and R is the correct explanation of A.\nB) Both A and R are true, but R is not the correct explanation of A.\nC) A is true, but R is false.\nD) A is false, but R is true."
+        ],
+        "correctIndex": 2,
+        "explanation": "A is true. R is false because the text states the exact opposite: Magadha responded readily because they were looked down upon by orthodox brahmanas and placed outside the pale of holy Aryavarta.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-514",
+        "question": "\"Buddhism created and developed",
+        "options": [
+                "new awareness in the field of intellect and culture.\" According to the text, which of the following best represents this epistemological shift?\nA) The reliance on magical spells and charms borrowed from the Atharva Veda to cure diseases.",
+                "The promotion of rationalism by teaching people not to take things for granted but to argue and judge them on merits, replacing superstition with logi",
+                "C) The enforcement of strict obedience to the hereditary village headmen without question.",
+                "and developed a new awareness in the field of intellect and culture.\" According to the text, which of the following best represents this epistemological shift?\nA) The reliance on magical spells and charms borrowed from the Atharva Veda to cure diseases.\nB) The promotion of rationalism by teaching people not to take things for granted but to argue and judge them on merits, replacing superstition with logic.\nC) The enforcement of strict obedience to the hereditary village headmen without question.\nD) The belief that reading the Pali texts would automatically result in wealthy rebirths."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text explicitly states: \"It taught the people not to take things for granted but to argue and judge them on merits. To a certain extent the place of superstition was taken by logic. This promoted rationalism...\"",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-515",
+        "question": "Consider the following statements regarding the categories of early Pali Buddhist literature:\n\n\nThe first category comprises the sayings and teachings of the Buddh",
+        "options": [
+                "The third category deals with the rules to be observed by the members of the sangha.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "teachings of the Buddha.\n\n\nThe third category deals with the rules to be observed by the members of the sangha.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect; the second category deals with the rules of the sangha, while the third category presents the philosophical exposition of the dhamma.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-516",
+        "question": "Consider the following statements regarding the spread of Buddhism:\n\n\nThe Buddh",
+        "options": [
+                "exclusively preached in the kingdom of Magadha and refused to travel to Kosala or Kausambi.\n\n\nThe conversion of the Maurya king Asoka transformed Buddhism from an Indian sect into a world religion.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "of Buddhism:\n\n\nThe Buddha exclusively preached in the kingdom of Magadha and refused to travel to Kosala or Kausambi.\n\n\nThe conversion of the Maurya king Asoka transformed Buddhism from an Indian sect into a world religion.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the Buddha also preached in Kosala, Kausambi, and several republican states. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-517",
+        "question": "\"The rise of new religious sects in the middle Gangetic basin was fundamentally",
+        "options": [
+                "superstructural reaction to a shifting material base.\" Which of the following developments best represents this shifting material base?\nA) The sudden shift from a monetized urban economy to a rural barter system.",
+                "The introduction of the iron ploughshare, which generated massive agricultural surplus, facilitated the rise of towns, and necessitated the preservation of cattle wealth.",
+                "basin was fundamentally a superstructural reaction to a shifting material base.\" Which of the following developments best represents this shifting material base?\nA) The sudden shift from a monetize",
+                "urban economy to a rural barter system.\nB) The introduction of the iron ploughshare, which generated massive agricultural surplus, facilitated the rise of towns, and necessitated the preservation of cattle wealth.\nC) The complete abandonment of agriculture due to severe climatic desertification in Magadha.\nD) The importation of massive gold hoards from the Roman Empire by the Kshatriya elite."
+        ],
+        "correctIndex": 1,
+        "explanation": "The Marxist-historical approach of the text identifies the \"real cause\" of the new religions as the new agricultural economy based on iron. This economy required bullocks (threatened by Vedic sacrifices), produced surplus, and led to the rise of trade/towns.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-518",
+        "question": "Evaluate the paradox of the early Buddhist Sangha's relationship with the new socio-economic order:\n\n\nThe Sangh",
+        "options": [
+                "promoted asceticism, requiring monks to forgo private property and money, reflecting a yearning for a primitive, egalitarian past.\n\n\nConversely, the Sangha's rules explicitly barred the admission of debtors and slaves, thereby protecting the economic interests of moneylenders and slave-owners.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "order:\n\n\nThe Sangha promote",
+                "asceticism, requiring monks to forgo private property and money, reflecting a yearning for a primitive, egalitarian past.\n\n\nConversely, the Sangha's rules explicitly barred the admission of debtors and slaves, thereby protecting the economic interests of moneylenders and slave-owners.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct analytical points. Buddhism provided an ascetic escape for monks (reflecting a revolt against property/money misery) but practically consolidated the new social order by protecting established property/debt relations in its admission rules.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-519",
+        "question": "Consider the following regarding the geographical and cultural milieu of Magadha:\nAssertion (",
+        "options": [
+                ": Magadha proved to be highly fertile ground for the rapid spread of Buddhism.\nReason (R): Being outside the pale of the holy Aryavarta, the Magadhan people were looked down upon by orthodox Brahmanas and were less burdened by rigid Vedic rituals.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "rituals.\nA) Both A an",
+                "cultural milieu of Magadha:\nAssertion (A): Magadha proved to be highly fertile ground for the rapid spread of Buddhism.\nReason (R): Being outside the pale of the holy Aryavarta, the Magadhan people were looked down upon by orthodox Brahmanas and were less burdened by rigid Vedic rituals.\nA) Both A and R are true, and R is the correct explanation of A.\nB) Both A and R are true, but R is not the correct explanation of A.\nC) A is true, but R is false.\nD) A is false, but R is true."
+        ],
+        "correctIndex": 0,
+        "explanation": "The text explicitly states that the people of Magadha responded readily to Buddhism because they were looked down upon by orthodox brahmanas, having been placed outside Aryavarta.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-520",
+        "question": "\"Buddhism made",
+        "options": [
+                "profound impact on the intellectual and cultural life of ancient India.\" Which of the following developments is directly attributed to Buddhist influence?\nA) The perfection of the iron smelting process in Ujjain.",
+                "The promotion of rationalism by replacing superstition with logic, and the creation of a new art form (Gandhara art) synthesizing Greek and Indian elements.",
+                "The strict enforcement of the Varna rules across the Deccan.",
+                "impact on the intellectual and cultural life of ancient India.\" Which of the following developments is directly attributed to Buddhist influence?\nA) The perfection of the iron smelting process in Ujjain.\nB) The promotion of rationalism by replacing superstition with logic, and the creation of a new art form (Gandhara art) synthesizing Greek and Indian elements.\nC) The strict enforcement of the Varna rules across the Deccan.\nD) The compilation of the earliest Sanskrit epics, the Ramayana and Mahabharata."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text credits Buddhism with teaching people to argue and judge on merits (promoting rationalism over superstition) and notes the development of Gandhara art (Greek/Indian synthesis) centering around the Buddha's images.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-521",
+        "question": "Consider the following regarding the social base of Jainism and Buddhism:\nAssertion (",
+        "options": [
+                ": Jainism failed to spread as widely as Buddhism in India and abroad.\nReason (R): Jainism did not clearly differentiate itself from the Brahmanical cults and its extreme asceticism (like strict non-violence leading to the rejection of agriculture) limited its mass appeal.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "Buddhism:\nAssertion (A): Jainism failed to spread as widely as Buddhism in India and abroad.\nReason (R): Jainism did not clearly differentiate itself from the Brahmanical cults and its extreme asceticism (like strict non-violence leading to the rejection of agriculture) limited its mass appeal.\nA) Both A and R are true, and R is the correct explanation of A.\nB) Both A and R are true, but R is not the correct explanation of A.\nC) A is true, but R is false.\nD) A is false, but R is true."
+        ],
+        "correctIndex": 0,
+        "explanation": "The text attributes Jainism's failure to become a mass religion to its lack of sharp differentiation from brahmanical cults and its extreme austerity/non-violence (even farming was frowned upon due to killing insects), which restricted its base compared to Buddhism's pragmatic \"middle path.\"",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-522",
+        "question": "Analyze the linguistic trajectory of Jainism and its impact on regional culture:\n\n\nBy adopting Ardhamagadhi, the Jainas bypassed the elite Sanskrit, making their teachings accessible to the masses.\n\n\nThe Jain",
+        "options": [
+                "texts composed in Apabhramsa formed the grammatical foundation for several modern regional languages like Marathi.\n\n\nJainism significantly contributed to the early growth of the Kannada language in South India.\nHow many of the above statements are correct?\nA) Only one",
+                "Only two",
+                "trajectory of Jainism an",
+                "its impact on regional culture:\n\n\nBy adopting Ardhamagadhi, the Jainas bypassed the elite Sanskrit, making their teachings accessible to the masses.\n\n\nThe Jaina texts composed in Apabhramsa formed the grammatical foundation for several modern regional languages like Marathi.\n\n\nJainism significantly contributed to the early growth of the Kannada language in South India.\nHow many of the above statements are correct?\nA) Only one\nB) Only two\nC) All three\nD) None"
+        ],
+        "correctIndex": 2,
+        "explanation": "All three statements are correct. The Jainas used Ardhamagadhi, their later texts in Apabhramsa produced grammar for regional languages (Sauraseni leading to Marathi), and they contributed substantially to the growth of Kannada.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch9-d-v6-523",
+        "question": "In understanding the \"Middle Path\" (Astangik",
+        "options": [
+                "marga) preached by the Buddha, its historical brilliance lay in:\nA) Creating an impossible standard of extreme physical torture that only the elite could follow.",
+                "Providing a pragmatic, ethical, and socially acceptable framework that avoided the extremes of both decadent luxury and severe asceticism, making it highly attractive to the rising middle classes (Vaisyas).",
+                "Endorsing the absolute materialism of the Charvaka school.",
+                "by the Buddha, its historical brilliance lay in:\nA) Creating an impossible standard of extreme physical torture that only the elite could follow.\nB) Providing a pragmatic, ethical, and socially acceptable framework that avoided the extremes of both decadent luxury and severe asceticism, making it highly attractive to the rising middle classes (Vaisyas).\nC) Endorsing the absolute materialism of the Charvaka school.\nD) Recommending the simultaneous practice of both Vedic sacrifices and Jaina fasting."
+        ],
+        "correctIndex": 1,
+        "explanation": "The Buddha avoided the extremes of luxury and severe asceticism, prescribing the middle path (eightfold path). This pragmatism made it accessible and highly attractive to the masses and merchants compared to Jainism's extremes.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},];
 export const CH9_L2_MCQS: MCQ[] = [
     {
         "id": "ch9-d-32",

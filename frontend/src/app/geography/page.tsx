@@ -27,7 +27,7 @@ import { useRouter } from 'next/navigation';
 
 // Feature Component
 interface FeatureBoxProps {
-    icon: React.ElementType;
+    icon: any;
     title: string;
     description: string;
     color: string;

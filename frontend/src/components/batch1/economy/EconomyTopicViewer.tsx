@@ -216,7 +216,7 @@ export default function EconomyTopicViewer({ content, mcqs, flashcards, visualiz
             <AIAvatarTeachingAssistant
                 lessonTitle={content.title}
                 summary={content.summary}
-                keyTakeaways={content.sections.map(s => s.heading).slice(0, 3)}
+                keyTakeaways={content.sections?.map(s => s.heading).slice(0, 3) || []}
             />
         </div>
     );

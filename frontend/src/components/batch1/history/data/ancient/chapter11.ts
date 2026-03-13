@@ -1,5 +1,4 @@
 import { Subtopic, Question } from '../ancient-types-27';
-import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_11_SUBTOPICS: Subtopic[] = [
     { id: 'iranian_contact', name: 'Iranian (Persian) Invasions & Impact' },

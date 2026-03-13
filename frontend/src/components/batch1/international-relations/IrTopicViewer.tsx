@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, BookOpen, Clock, Tag, ChevronRight, Globe, TrendingUp, Shield, CheckCircle } from "lucide-react";
 import Link from 'next/link';
-import { ContentItem } from "../../types";
+import { ContentItem } from "../types";
 import { Badge } from "@/components/ui/badge";
 import { useRouter } from 'next/navigation';
 import { isChapterComplete, markChapterComplete } from "@/services/progressStorage";
@@ -21,7 +21,7 @@ interface IrTopicViewerProps {
 
 export default function IrTopicViewer({ content, moduleId }: IrTopicViewerProps) {
     const router = useRouter();
-    const [activeSection, setActiveSection] = useState<string>(content.sections[0]?.heading || '');
+    const [activeSection, setActiveSection] = useState<string>(content.sections?.[0]?.heading || '');
     const [isCompleted, setIsCompleted] = useState(false);
 
     useEffect(() => {
@@ -88,7 +88,7 @@ export default function IrTopicViewer({ content, moduleId }: IrTopicViewerProps)
                                     <CardTitle className="text-xs uppercase tracking-wider text-muted-foreground font-bold">Key Dimensions</CardTitle>
                                 </CardHeader>
                                 <CardContent className="space-y-1 p-2">
-                                    {content.sections.map((sec, idx) => (
+                                    {content.sections?.map((sec: any, idx: number) => (
                                         <button
                                             key={idx}
                                             onClick={() => {
@@ -111,7 +111,7 @@ export default function IrTopicViewer({ content, moduleId }: IrTopicViewerProps)
 
                     {/* Main Content */}
                     <div className="lg:col-span-3 space-y-8">
-                        {content.sections.map((sec, idx) => (
+                        {content.sections?.map((sec: any, idx: number) => (
                             <section
                                 key={idx}
                                 id={`section-${idx}`}

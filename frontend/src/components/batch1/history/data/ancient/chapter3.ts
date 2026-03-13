@@ -1,5 +1,4 @@
 import { Subtopic, Question } from '../ancient-types-27';
-import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_3_SUBTOPICS: Subtopic[] = [
     { id: 'physical_features', name: 'Physical Features of India' },

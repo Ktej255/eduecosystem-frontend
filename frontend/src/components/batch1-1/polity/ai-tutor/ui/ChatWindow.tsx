@@ -46,9 +46,11 @@ export default function ChatWindow({ messages, isTyping }: ChatWindowProps) {
                             : 'bg-slate-800 text-slate-200 border border-slate-700/50 rounded-bl-none'}
                     `}>
                         {msg.role === 'ai' ? (
-                            <ReactMarkdown className="prose prose-invert prose-sm max-w-none">
-                                {msg.content}
-                            </ReactMarkdown>
+                            <div className="prose prose-invert prose-sm max-w-none">
+                                <ReactMarkdown>
+                                    {msg.content}
+                                </ReactMarkdown>
+                            </div>
                         ) : (
                             <p>{msg.content}</p>
                         )}

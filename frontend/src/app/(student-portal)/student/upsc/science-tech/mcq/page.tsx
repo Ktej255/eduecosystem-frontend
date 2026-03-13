@@ -78,7 +78,7 @@ function SciTechMCQContent() {
         };
 
         // Save to universal persistence
-        saveChapterReport('scitech', chapterIds[0], finalResult, level);
+        saveChapterReport('science-tech', chapterIds[0], finalResult, level);
 
         setTestResult(finalResult);
         setShowReport(true);

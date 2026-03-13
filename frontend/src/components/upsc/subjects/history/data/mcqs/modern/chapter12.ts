@@ -611,5 +611,664 @@ export const HISTORY_CH12_MCQS = [
         ],
         correctAnswer: 0,
         explanation: "It was a revolutionary secret society (implied in the text's mention of revolutionary wing taking shape)."
-    }
-];
+    },
+    {
+    "id": "CH12-M-NEW-1",
+    "question": "The first revolutionary groups in Bengal were organized in 1902. Which of the following was the most prominent among them?",
+    "options": [
+        "Jugantar",
+        "Anushilan Samiti",
+        "Abhinav Bharat",
+        "in 1902. Which of the following was the most prominent among them? A. Jugantar B. Anushilan Samiti C. Abhinav Bharat D. Ghadar Party\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-2",
+    "question": "Who founded the Anushilan Samiti in Calcutt",
+    "options": [
+        "in April 1902? A. Barindra Kumar Ghosh",
+        "Pramatha Mitter",
+        "Jatindranath Mukherjee",
+        "the Anushilan Samiti in Calcutta in April 1902? A. Barindra Kumar Ghosh B. Pramatha Mitter C. Jatindranath Mukherjee D. Pulin Das\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-3",
+    "question": "The revolutionary weekly Jugantar was started in 1906 by:",
+    "options": [
+        "Aurobindo Ghosh",
+        "Barindra Kumar Ghosh and Bhupendranath Datta",
+        "Rashbehari Bose",
+        "in 1906 by: A. Aurobindo Ghosh B. Barindra Kumar Ghosh and Bhupendranath Datta C. Rashbehari Bose D. Sachin Sanyal\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-4",
+    "question": "In 1899, V.D. Savarkar and his brother Ganesh Savarkar organized",
+    "options": [
+        "secret society named: A. Abhinav Bharat",
+        "Mitra Mela",
+        "Anushilan Samiti",
+        "Savarkar and his brother Ganesh Savarkar organized a secret society named: A. Abhinav Bharat B. Mitra Mela C. Anushilan Samiti D. Bharat Mata Society\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-5",
+    "question": "Where was the secret society 'Abhinav Bharat' founded in 1904?",
+    "options": [
+        "Poona",
+        "Nasik",
+        "Bombay",
+        "in 1904? A. Poona B. Nasik C. Bombay D. Satara\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-6",
+    "question": "Who attempted to assassinate the unpopular Judge Kingsford at Muzaffarpur in April 1908?",
+    "options": [
+        "Bhagat Singh and Batukeshwar Dutt",
+        "Khudiram Bose and Prafulla Chaki",
+        "Madan Lal Dhingra",
+        "to assassinate the unpopular Judge Kingsford at Muzaffarpur in April 1908? A. Bhagat Singh and Batukeshwar Dutt B. Khudiram Bose and Prafulla Chaki C. Madan Lal Dhingra D. Udham Singh\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-7",
+    "question": "The Alipore Conspiracy Case (1908) was triggered by the discovery of",
+    "options": [
+        "bomb-making factory at: A. Chittagong",
+        "Manicktolla",
+        "Chandernagore",
+        "by the discovery of a bomb-making factory at: A. Chittagong B. Manicktolla C. Chandernagore D. Midnapore\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-8",
+    "question": "Who turned 'approver' (informer) in the Alipore Conspiracy Case and was later shot dead in jail by Satyendranath Bose and Kanailal Dutt?",
+    "options": [
+        "Narendra Gosain",
+        "Pulin Das",
+        "Barindra Ghosh",
+        "'approver' (informer) in the Alipore Conspiracy Case and was later shot dead in jail by Satyendranath Bose and Kanailal Dutt? A. Narendra Gosain B. Pulin Das C. Barindra Ghosh D. Hemchandra Kanungo\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-9",
+    "question": "Jatindranath Mukherjee, popularly known as 'Bagh",
+    "options": [
+        "Jatin', died in a heroic trench fight against the British at: A. Calcutta",
+        "Balasore",
+        "trench fight against the British at: A. Calcutta B. Balasore C. Dacca",
+        "in a heroic trench fight against the British at: A. Calcutta B. Balasore C. Dacca D. Chittagong\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-10",
+    "question": "Who organized",
+    "options": [
+        "spectacular bom",
+        "attack on Viceroy Lord Hardinge in Delhi in 1912? A. Sachin Sanyal B. Rashbehari Bose",
+        "Bhagat Singh",
+        "a spectacular bomb attack on Viceroy Lord Hardinge in Delhi in 1912? A. Sachin Sanyal B. Rashbehari Bose C. Bhagat Singh D. Ram Prasad Bismil\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-11",
+    "question": "The 'Bharat Mat",
+    "options": [
+        "Society' was established in Punja",
+        "by: A. Lala Lajpat Rai B. Ajit Singh and Sufi Amba Prasad",
+        "Bhagat Singh",
+        "in Punjab by: A. Lala Lajpat Rai B. Ajit Singh and Sufi Amba Prasad C. Bhagat Singh D. Bhai Parmanand\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-12",
+    "question": "The revolutionary organization 'Anjuman-i-Mohisban-i-Watan' was active in which province?",
+    "options": [
+        "Bengal",
+        "Punjab",
+        "Maharashtra",
+        "Madras\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-13",
+    "question": "Who founded the 'Indi",
+    "options": [
+        "House' in London in 1905 as a center for revolutionary activities? A. V.D. Savarkar",
+        "Shyamji Krishnavarma",
+        "Madan Lal Dhingra",
+        "the 'India House' in London in 1905 as a center for revolutionary activities? A. V.D. Savarkar B. Shyamji Krishnavarma C. Madan Lal Dhingra D. Lala Hardayal\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-14",
+    "question": "The journal The Indian Sociologist was published from London by:",
+    "options": [
+        "V.D. Savarkar",
+        "Shyamji Krishnavarma",
+        "Madame Bhikaji Cama",
+        "from London by: A. V.D. Savarkar B. Shyamji Krishnavarma C. Madame Bhikaji Cama D. Virendranath Chattopadhyaya\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-15",
+    "question": "Who assassinated Curzon Wyllie in London in 1909?",
+    "options": [
+        "V.D. Savarkar",
+        "Madan Lal Dhingra",
+        "Anant Kanhere",
+        "Curzon Wyllie in London in 1909? A. V.D. Savarkar B. Madan Lal Dhingra C. Anant Kanhere D. Chapekar Brothers\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-16",
+    "question": "Madame Bhikaji Cam",
+    "options": [
+        "unfurled the first Indian National Flag at the International Socialist Congress in 1907 at: A. Paris",
+        "Berlin",
+        "Stuttgart",
+        "the first Indian National Flag at the International Socialist Congress in 1907 at: A. Paris B. Berlin C. Stuttgart D. Geneva\n               *"
+    ],
+    "correctAnswer": 2,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-17",
+    "question": "The 'Ghadar Party' was formally established in 1913 with its headquarters (Yugantar Ashram) at:",
+    "options": [
+        "Vancouver",
+        "San Francisco",
+        "Berlin",
+        "in 1913 with its headquarters (Yugantar Ashram) at: A. Vancouver B. San Francisco C. Berlin D. Tokyo\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-18",
+    "question": "Who was the first President of the Ghadar Party?",
+    "options": [
+        "Lala Hardayal",
+        "Sohan Singh Bhakna",
+        "Kartar Singh Sarabha",
+        "Bhai Parmanand\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-19",
+    "question": "The Ghadar journal was first published in which language?",
+    "options": [
+        "Gurmukhi",
+        "Urdu",
+        "Hindi",
+        "in which language? A. Gurmukhi B. Urdu C. Hindi D. English\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-20",
+    "question": "The 'Komagat",
+    "options": [
+        "Maru' was the name of a: A. Revolutionary secret society",
+        "Japanese steamship",
+        "British law against sedition",
+        "Ghadar party journal\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-21",
+    "question": "The Berlin Committee for Indian Independence (1915) was established by:",
+    "options": [
+        "Lala Hardayal",
+        "Virendranath Chattopadhyaya",
+        "Bhupendranath Datta",
+        "by: A. Lala Hardayal B. Virendranath Chattopadhyaya C. Bhupendranath Datta D. All of the above\n               *"
+    ],
+    "correctAnswer": 3,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-22",
+    "question": "Who founded the 'Abhinav Bharat' secret society?",
+    "options": [
+        "Chapekar Brothers",
+        "V.D. Savarkar",
+        "Pulin Das",
+        "the 'Abhinav Bharat' secret society? A. Chapekar Brothers B. V.D. Savarkar C. Pulin Das D. Aurobindo Ghosh\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-23",
+    "question": "In 1897, the Chapekar brothers (Damodar and Balkrishn",
+    "options": [
+        "assassinated which British plague commissioner in Poona? A. Rand",
+        "Saunders",
+        "Jackson",
+        "Balkrishna) assassinated which British plague commissioner in Poona? A. Rand B. Saunders C. Jackson D. Curzon Wyllie\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-24",
+    "question": "The 'Zimmermann Plan' was",
+    "options": [
+        "German-backed plan to: A. Assassinate the British King",
+        "Launch an all-India insurrection by smuggling arms to Indian revolutionaries during WWI",
+        "Partition India into several small states",
+        "plan to: A. Assassinate the British King B. Launch an all-India insurrection by smuggling arms to Indian revolutionaries during WWI C. Partition India into several small states D. Negotiate peace with the Moderates\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-25",
+    "question": "Who was the legendary Ghadarite who returned to Indi",
+    "options": [
+        "and was executed at the age of 19 for his role in the planned 1915 uprising? A. Bhagat Singh",
+        "Kartar Singh Sarabha",
+        "Rajguru",
+        "to India and was executed at the age of 19 for his role in the planned 1915 uprising? A. Bhagat Singh B. Kartar Singh Sarabha C. Rajguru D. Udham Singh\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-26",
+    "question": "The 'Defence of Indi",
+    "options": [
+        "Act' was passed in 1915 primarily to: A. Protect India from a Japanese invasion",
+        "Crush the Ghadar movement and revolutionary activities during WWI",
+        "Recruit more Indians for the war effort",
+        "in 1915 primarily to: A. Protect India from a Japanese invasion B. Crush the Ghadar movement and revolutionary activities during WWI C. Recruit more Indians for the war effort D. Abolish the Indian Civil Service\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-27",
+    "question": "The revolutionary journal Bande Mataram in Paris was started by:",
+    "options": [
+        "Madame Bhikaji Cama",
+        "Shyamji Krishnavarma",
+        "Ajit Singh",
+        "by: A. Madame Bhikaji Cama B. Shyamji Krishnavarma C. Ajit Singh D. Rashbehari Bose\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-28",
+    "question": "The 'Ghadar' revolutionaries chose which day for",
+    "options": [
+        "general insurrection in India? A. January 1, 1915",
+        "February 21, 1915",
+        "August 15, 1915",
+        "November 1, 1913\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-29",
+    "question": "Who moved to Japan in 1915 and later played",
+    "options": [
+        "key role in the formation of the Indian Independence League? A. Sachin Sanyal",
+        "Rashbehari Bose",
+        "Subhash Chandra Bose",
+        "to Japan in 1915 and later played a key role in the formation of the Indian Independence League? A. Sachin Sanyal B. Rashbehari Bose C. Subhash Chandra Bose D. Lala Hardayal\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-30",
+    "question": "The 'Ghadar' movement was primarily composed of:",
+    "options": [
+        "Educated urban middle class",
+        "Punjabi Sikh immigrants (ex-soldiers and peasants) in North America",
+        "Bengali students",
+        "of: A. Educated urban middle class B. Punjabi Sikh immigrants (ex-soldiers and peasants) in North America C. Bengali students D. South Indian merchants\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-31",
+    "question": "Revolutionary activities in Indi",
+    "options": [
+        "during the first decade of the 20th century were largely a byproduct of the failure of which political strategy? A. The armed struggle of the Marathas.",
+        "The 'Passive Resistance' and constitutional agitation of the Moderates and Extremists, which left the youth frustrated with the slow pace of progress.",
+        "The British policy of 'Divide an",
+        "struggle of the Marathas. B. The 'Passive Resistance' and constitutional agitation of the Moderates and Extremists, which left the youth frustrated with the slow pace of progress. C. The British policy of 'Divide and Rule' in the Civil Services. D. The complete abolition of the Indian National Congress.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The youth, inspired by militant nationalism but disillusioned by the lack of immediate results from the Swadeshi movement and the split at Surat, turned to \"individual heroic actions\" to demoralize the British bureaucracy."
+},
+    {
+    "id": "CH12-M-NEW-32",
+    "question": "Consider the following statements regarding the 'Anushilan Samiti':\n               1. It started as",
+    "options": [
+        "secret society in Bengal aimed at promoting physical culture and revolutionary ideas.\n               2. The Dacca Anushilan Samiti, led by Pulin Das, had over 500 branches and was highly organized.\n               3. It strictly prohibited its members from reading any Western political literature. Which of the statements given above are correct? A. 1 and 2 only",
+        "2 and 3 only",
+        "1 an",
+        "as a secret society in Bengal aimed at promoting physical culture and revolutionary ideas.\n               2. The Dacca Anushilan Samiti, led by Pulin Das, had over 500 branches and was highly organized.\n               3. It strictly prohibited its members from reading any Western political literature. Which of the statements given above are correct? A. 1 and 2 only B. 2 and 3 only C. 1 and 3 only D. 1, 2, and 3\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Statement 3 is incorrect. Members were encouraged to read revolutionary literature from across the world, including the history of the Irish struggle and the Russian nihilists."
+},
+    {
+    "id": "CH12-M-NEW-33",
+    "question": "The 'Alipore Conspiracy Case' (1908) is significant in the history of the Indian freedom struggle because it led to:",
+    "options": [
+        "The immediate independence of Bengal.",
+        "The arrest of Aurobindo Ghosh and his brother Barindra Ghosh, eventually leading to Aurobindo's retirement from politics to pursue a spiritual path in Pondicherry.",
+        "The execution of Bhagat Singh.",
+        "to: A. The immediate independence of Bengal. B. The arrest of Aurobindo Ghosh and his brother Barindra Ghosh, eventually leading to Aurobindo's retirement from politics to pursue a spiritual path in Pondicherry. C. The execution of Bhagat Singh. D. The formation of the Muslim League.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-34",
+    "question": "With reference to 'V.D. Savarkar', consider the following: Statement-I: He founded the 'Abhinav Bharat' in 1904, which was",
+    "options": [
+        "secret society modeled after Giuseppe Mazzini\u2019s 'Young Italy'. Statement-II: Savarkar was the first to categorize the 1857 Revolt as the \"First War of Indian Independence\" through his writings in London. Which one of the following is correct in respect of the above statements? A. Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+        "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+        "Statement-I is correct but Statement-II is incorrect",
+        "Savarkar', consider the following: Statement-I: He founded the 'Abhinav Bharat' in 1904, which was a secret society modeled after Giuseppe Mazzini\u2019s 'Young Italy'. Statement-II: Savarkar was the first to categorize the 1857 Revolt as the \"First War of Indian Independence\" through his writings in London. Which one of the following is correct in respect of the above statements? A. Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I B. Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I C. Statement-I is correct but Statement-II is incorrect D. Statement-I is incorrect but Statement-II is correct\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-35",
+    "question": "The 'Ghadar Movement' (1913) was",
+    "options": [
+        "truly internationalist revolutionary effort. What was its primary ideological character? A. It was a strictly religious Sikh movement aiming to establish a Khalsa state.",
+        "It was a secular-democrati",
+        "movement that aime",
+        "at an armed revolution in India by enlisting the support of Indian soldiers in the British army. C. It aimed at making India a colony of the United States. D. It was a branch of the British Labour Party.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-36",
+    "question": "The 'Komagat",
+    "options": [
+        "Maru' incident (1914) served as a major catalyst for the Ghadarites. What was the central issue involved in this incident? A. The assassination of a British official on a Japanese ship.",
+        "The discriminatory Canadian immigration laws that prevented Indian immigrants from landing in Vancouver, leading to a violent confrontation upon the ship's return to Budge Budge (Calcutta).",
+        "A secret deal between Japan an",
+        "as a major catalyst for the Ghadarites. What was the central issue involved in this incident? A. The assassination of a British official on a Japanese ship. B. The discriminatory Canadian immigration laws that prevented Indian immigrants from landing in Vancouver, leading to a violent confrontation upon the ship's return to Budge Budge (Calcutta). C. A secret deal between Japan and Britain to partition Punjab. D. The smuggling of German weapons into the Chittagong port.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-37",
+    "question": "During the First World War, the 'Berlin Committee for Indian Independence' was established. What was its primary goal?",
+    "options": [
+        "To help Germany conquer Europe.",
+        "To organize an insurrection in India with the help of the German Foreign Office under the 'Zimmermann Plan'.",
+        "To deman",
+        "War, the 'Berlin Committee for Indian Independence' was established. What was its primary goal? A. To help Germany conquer Europe. B. To organize an insurrection in India with the help of the German Foreign Office under the 'Zimmermann Plan'. C. To demand the return of the Koh-i-noor diamond from London. D. To establish a new Indian capital in Berlin.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-38",
+    "question": "Consider the following pairs of revolutionaries and the acts they are associated with:\n               1. Madan Lal Dhingr",
+    "options": [
+        "\u2014 Assassination of Curzon Wyllie in London.\n               2. Anant Kanhere \u2014 Assassination of A.M.T. Jackson in Nasik.\n               3. Khudiram Bose \u2014 Bombing of the Central Legislative Assembly. How many of the above pairs are correctly matched? A. Only one",
+        "Only two",
+        "All three",
+        "the acts they are associated with:\n               1. Madan Lal Dhingra \u2014 Assassination of Curzon Wyllie in London.\n               2. Anant Kanhere \u2014 Assassination of A.M.T. Jackson in Nasik.\n               3. Khudiram Bose \u2014 Bombing of the Central Legislative Assembly. How many of the above pairs are correctly matched? A. Only one B. Only two C. All three D. None\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pair 3 is incorrect. Khudiram Bose attempted to assassinate Judge Kingsford at Muzaffarpur. The bombing of the Central Legislative Assembly was done by Bhagat Singh and Batukeshwar Dutt much later (1929)."
+},
+    {
+    "id": "CH12-M-NEW-39",
+    "question": "Rashbehari Bose and Sachin Sanyal were the masterminds behind the 'Ghadr Conspiracy' in Indi",
+    "options": [
+        "in 1915. What was their specific plan? A. To poison the British officers in all army mess halls.",
+        "To trigger a simultaneous revolt by Indian regiments in Ferozepur, Lahore, and Meerut on February 21, 1915.",
+        "plan? A. To poison the British officers in all army mess halls. B. To trigger a simultaneous revolt by Indian regiments in Ferozepur, Lahore, an",
+        "Sachin Sanyal were the masterminds behind the 'Ghadr Conspiracy' in India in 1915. What was their specific plan? A. To poison the British officers in all army mess halls. B. To trigger a simultaneous revolt by Indian regiments in Ferozepur, Lahore, and Meerut on February 21, 1915. C. To kidnap the British King during his visit to India. D. To blow up the Suez Canal to prevent British reinforcements.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-40",
+    "question": "The 'Defence of Indi",
+    "options": [
+        "Act, 1915' was the British government's legislative response to: A. The growing demand for Home Rule.",
+        "The threat posed by the Ghadar movement and revolutionary conspiracies during the First World War.",
+        "The Muslim League's deman",
+        "for Home Rule. B. The threat posed by the Ghadar movement and revolutionary conspiracies during the First World War. C. The Muslim League's demand for separate electorates. D. The peaceful protests of the Moderates.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-41",
+    "question": "Why did the revolutionary movement in Bengal eventually turn toward 'individual heroic actions' and 'bomb-making'?",
+    "options": [
+        "They believed that the British were afraid of loud noises.",
+        "They lacked a mass organizational base and believed that 'propaganda by deed' (assassinations) would inspire the masses and strike terror into the hearts of the colonial bureaucracy.",
+        "actions' an",
+        "the revolutionary movement in Bengal eventually turn toward 'individual heroic actions' and 'bomb-making'? A. They believed that the British were afraid of loud noises. B. They lacked a mass organizational base and believed that 'propaganda by deed' (assassinations) would inspire the masses and strike terror into the hearts of the colonial bureaucracy. C. They were instructed by the Mughal Emperor to do so. D. They wanted to test the effectiveness of newly imported German chemistry books.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-42",
+    "question": "Madame Bhikaji Cam",
+    "options": [
+        "is often called the 'Mother of the Indian Revolution'. Which of the following was her most significant contribution in 1907? A. She led a military raid on the Pune treasury.",
+        "She hoisted the first version of the Indian National Flag at the International Socialist Congress in Stuttgart, Germany.",
+        "She founde",
+        "the 'Mother of the Indian Revolution'. Which of the following was her most significant contribution in 1907? A. She led a military raid on the Pune treasury. B. She hoisted the first version of the Indian National Flag at the International Socialist Congress in Stuttgart, Germany. C. She founded the first Indian university in Paris. D. She successfully assassinated Lord Curzon in London.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-43",
+    "question": "The 'Jugantar' group in Bengal was unique because:",
+    "options": [
+        "It was the only group that allowed women to carry weapons.",
+        "It focused on 'Trench Warfare' near the borders.",
+        "It emerge",
+        "women to carry weapons. B. It focused on 'Trench Warfare' near the borders. C. It emerged as a more radical splinter group of the Anushilan Samiti, advocating for immediate revolutionary violence through its journal Jugantar. D. It was a strictly non-violent debating society.\n               *"
+    ],
+    "correctAnswer": 2,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-44",
+    "question": "In Punjab, revolutionary activity was fueled by agrarian unrest. Who founded the 'Bharat Mat",
+    "options": [
+        "Society' to organize the peasantry and youth? A. Lala Lajpat Rai",
+        "Ajit Singh (uncle of Bhagat Singh) and Sufi Amba Prasad",
+        "Maharaja Ranjit Singh II",
+        "by agrarian unrest. Who founded the 'Bharat Mata Society' to organize the peasantry and youth? A. Lala Lajpat Rai B. Ajit Singh (uncle of Bhagat Singh) and Sufi Amba Prasad C. Maharaja Ranjit Singh II D. Sohan Singh Bhakna\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-45",
+    "question": "The 'Ghadarites' were primarily Punjabi immigrants in North Americ",
+    "options": [
+        "Why did they choose 'Ghadar' (Mutiny) as the name of their journal and party? A. To honor the memory of the 1857 Revolt and declare their intent to finish the unfinished task of the 'First War of Independence'.",
+        "Because it was the only Urdu word they knew.",
+        "To soun",
+        "they choose 'Ghadar' (Mutiny) as the name of their journal and party? A. To honor the memory of the 1857 Revolt and declare their intent to finish the unfinished task of the 'First War of Independence'. B. Because it was the only Urdu word they knew. C. To sound like the Russian revolutionaries. D. Because the British had banned all other names.\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-46",
+    "question": "Consider the following statements regarding the ideological underpinnings of the first phase of revolutionary activities (1907\u20131917):\n               1. The revolutionaries drew inspiration from the Irish Fenians, the Russian Nihilists, and the Italian Carbonari.\n               2. Their primary strategy was to organize",
+    "options": [
+        "pan-India mass uprising of the peasantry and industrial workers.\n               3. They believed in \"Propaganda by Deed\"\u2014the use of individual heroic actions to inspire the masses and paralyze the colonial administration. How many of the above statements are correct? A. Only one",
+        "Only two",
+        "actions to inspire the masses an",
+        "the Italian Carbonari.\n               2. Their primary strategy was to organize a pan-India mass uprising of the peasantry and industrial workers.\n               3. They believed in \"Propaganda by Deed\"\u2014the use of individual heroic actions to inspire the masses and paralyze the colonial administration. How many of the above statements are correct? A. Only one B. Only two C. All three D. None\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Statements 1 and 3 are correct. Statement 2 is incorrect; the first phase was characterized by a lack of mass base. They focused on individual assassinations and small-group actions because they believed the masses were not yet ready for a full-scale revolution."
+},
+    {
+    "id": "CH12-M-NEW-47",
+    "question": "With reference to the 'Anushilan Samiti', consider the following: Statement-I: The Anushilan Samiti was the first revolutionary organization in Bengal to have",
+    "options": [
+        "highly centralized and disciplined military structure. Statement-II: The split between the 'Jugantar' group and the main Anushilan Samiti was primarily due to a disagreement over the use of the Bengali language in secret communications. Which one of the following is correct in respect of the above statements? A. Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+        "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+        "Statement-I is correct but Statement-II is incorrect",
+        "and disciplined military structure. Statement-II: The split between the 'Jugantar' group and the main Anushilan Samiti was primarily due to a disagreement over the use of the Bengali language in secret communications. Which one of the following is correct in respect of the above statements? A. Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I B. Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I C. Statement-I is correct but Statement-II is incorrect D. Statement-I is incorrect but Statement-II is correct\n               *"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Statement-II is false. The split (or rather the emergence of the Jugantar weekly) was due to a shift toward immediate radical action and \"direct violence\" versus the slower, more preparatory approach of the original Samiti."
+},
+    {
+    "id": "CH12-M-NEW-48",
+    "question": "Regarding the 'Ghadar Party' (1913), consider the following statements:\n               1. It was established by Lal",
+    "options": [
+        "Hardayal, but its first President was Sohan Singh Bhakna.\n               2. The movement remained strictly restricted to the Sikh community and used religious symbols to mobilize its members.\n               3. The Ghadarites aimed to exploit the First World War to trigger a mutiny among Indian soldiers in the British Army. How many of the above statements are correct? A. Only one",
+        "Only two",
+        "All three",
+        "by Lala Hardayal, but its first President was Sohan Singh Bhakna.\n               2. The movement remained strictly restricted to the Sikh community and used religious symbols to mobilize its members.\n               3. The Ghadarites aimed to exploit the First World War to trigger a mutiny among Indian soldiers in the British Army. How many of the above statements are correct? A. Only one B. Only two C. All three D. None\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Statements 1 and 3 are correct. Statement 2 is incorrect; the Ghadar movement was deeply secular. It included Hindus, Muslims, and Sikhs, and explicitly forbade religious discussions that could cause communal divides."
+},
+    {
+    "id": "CH12-M-NEW-49",
+    "question": "Arrange the following revolutionary events in the correct chronological order:\n               1. The assassination of Curzon Wyllie in London by Madan Lal Dhingr",
+    "options": [
+        "2. The Muzaffarpur Bombing by Khudiram Bose and Prafulla Chaki.\n               3. The Komagata Maru incident.\n               4. The Alipore Conspiracy Case. Select the correct answer using the code given below: A. 2 \u2014 4 \u2014 1 \u2014 3",
+        "2 \u2014 1 \u2014 4 \u2014 3",
+        "4 \u2014 2 \u2014 3 \u2014 1",
+        "Prafulla Chaki.\n               3. The Komagata Maru incident.\n               4. The Alipore Conspiracy Case. Select the correct answer using the code given below: A. 2 \u2014 4 \u2014 1 \u2014 3 B. 2 \u2014 1 \u2014 4 \u2014 3 C. 4 \u2014 2 \u2014 3 \u2014 1 D. 1 \u2014 2 \u2014 4 \u2014 3\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Muzaffarpur (April 1908) -> Alipore Case (May 1908) -> Curzon Wyllie (July 1909) -> Komagata Maru (1914)."
+},
+    {
+    "id": "CH12-M-NEW-50",
+    "question": "Consider the following regarding the 'Zimmermann Plan' (Indo-German Conspiracy):\n               1. It was",
+    "options": [
+        "plan by the German Foreign Office to support Indian revolutionaries with arms and funds during World War I.\n               2. The plan involved landing a massive shipment of arms at Rai Mangal in the Sunderbans and Hatia.\n               3. Bagha Jatin (Jatindranath Mukherjee) was the key leader chosen to coordinate the uprising in Bengal using these arms. How many of the above statements are correct? A. Only one",
+        "Only two",
+        "All three",
+        "funds during World War I.\n               2. The plan involved landing a massive shipment of arms at Rai Mangal in the Sunderbans and Hatia.\n               3. Bagha Jatin (Jatindranath Mukherjee) was the key leader chosen to coordinate the uprising in Bengal using these arms. How many of the above statements are correct? A. Only one B. Only two C. All three D. None\n               *"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This was a highly sophisticated plan that unfortunately failed due to the British intercepting the communications (the \"Maverick\" ship incident)."
+},
+    {
+    "id": "CH12-M-NEW-51",
+    "question": "With reference to 'Madame Bhikaji Cama', consider the following: Statement-I: She is known as the 'Mother of the Indian Revolution' and operated primarily from Paris and Genev",
+    "options": [
+        "Statement-II: She was the first person to hoist the Indian National Flag at an international forum, the International Socialist Congress in Stuttgart, 1907. Which one of the following is correct in respect of the above statements? A. Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+        "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+        "Statement-I is correct but Statement-II is incorrect",
+        "operated primarily from Paris and Geneva. Statement-II: She was the first person to hoist the Indian National Flag at an international forum, the International Socialist Congress in Stuttgart, 1907. Which one of the following is correct in respect of the above statements? A. Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I B. Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I C. Statement-I is correct but Statement-II is incorrect D. Statement-I is incorrect but Statement-II is correct\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Both are true facts, but hoisting the flag doesn't explain why she is called the Mother of the Revolution (it's the sum total of her lifelong work, funding, and mentorship)."
+},
+    {
+    "id": "CH12-M-NEW-52",
+    "question": "Match the Revolutionary Centers with their respective Organizations/Leaders:\n               1. London \u2014",
+    "options": [
+        "Bharat Mata Society (Ajit Singh)\n               2. Nasik \u2014",
+        "India House (Shyamji Krishnavarma)\n               3. Punjab \u2014",
+        "Abhinav Bharat (Savarkar)\n               4. San Francisco \u2014",
+        "Ghadar Party (Lala Hardayal) Select the correct matching code: A. 1-B, 2-C, 3-A, 4-D B. 1-C, 2-B, 3-A, 4-D C. 1-B, 2-A, 3-C, 4-D D. 1-D, 2-C, 3-A, 4-B\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-53",
+    "question": "Consider the following statements regarding the impact of World War I on revolutionary activities: Statement-I: The revolutionaries believed that \"England's difficulty was India's opportunity.\" Statement-II: The British government passed the 'Defence of Indi",
+    "options": [
+        "Act 1915' to provide revolutionary groups with a legal framework to negotiate for Home Rule. Which one of the following is correct in respect of the above statements? A. Both Statement-I and Statement-II are correct",
+        "Statement-I is correct but Statement-II is incorrect",
+        "Statement-I is incorrect but Statement-II is correct",
+        "War I on revolutionary activities: Statement-I: The revolutionaries believed that \"England's difficulty was India's opportunity.\" Statement-II: The British government passed the 'Defence of India Act 1915' to provide revolutionary groups with a legal framework to negotiate for Home Rule. Which one of the following is correct in respect of the above statements? A. Both Statement-I and Statement-II are correct B. Statement-I is correct but Statement-II is incorrect C. Statement-I is incorrect but Statement-II is correct D. Both Statement-I and Statement-II are incorrect\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Statement-II is completely false. The Defence of India Act 1915 was a repressive measure used to crush the Ghadarites and revolutionaries through summary trials and executions."
+},
+    {
+    "id": "CH12-M-NEW-54",
+    "question": "Which of the following best describes the 'Delhi Conspiracy Case' (1912)?",
+    "options": [
+        "A plan to burn down the new capital building in Delhi.",
+        "An attempt by Rashbehari Bose and Sachin Sanyal to assassinate Viceroy Lord Hardinge by throwing a bomb at his elephant procession.",
+        "A secret meeting of the Muslim League an",
+        "Sachin Sanyal to assassinate Viceroy Lord Hardinge by throwing a bomb at his elephant procession. C. A secret meeting of the Muslim League and Congress to demand the partition of Delhi. D. A mutiny by the Delhi police against British officers.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH12-M-NEW-55",
+    "question": "The 'Ghadarites' failed to achieve their objective of",
+    "options": [
+        "1915 uprising primarily because:\n               1. Their plan was leaked by a traitor (Kripal Singh) within their ranks.\n               2. They had no support from any international powers like Germany or Turkey.\n               3. The British government effectively used the 'Defence of India Act' to arrest the key leaders before the date of the revolt. Select the correct answer using the code given below: A. 1 and 2 only",
+        "2 and 3 only",
+        "1 an",
+        "to achieve their objective of a 1915 uprising primarily because:\n               1. Their plan was leaked by a traitor (Kripal Singh) within their ranks.\n               2. They had no support from any international powers like Germany or Turkey.\n               3. The British government effectively used the 'Defence of India Act' to arrest the key leaders before the date of the revolt. Select the correct answer using the code given below: A. 1 and 2 only B. 2 and 3 only C. 1 and 3 only D. All of the above\n               *"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Statement 2 is incorrect; they did have support from Germany (the Zimmermann Plan) and parts of the Ottoman Empire."
+},];

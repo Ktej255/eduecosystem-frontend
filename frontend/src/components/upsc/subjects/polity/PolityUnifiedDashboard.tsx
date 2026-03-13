@@ -33,7 +33,7 @@ interface TopicProgress {
     };
 }
 
-export default function PolityUnifiedDashboard() {
+export default function PolityUnifiedDashboard({ registryMode }: { registryMode?: string }) {
     const router = useRouter();
     const [expandedParts, setExpandedParts] = useState<Record<string, boolean>>({});
     const [searchQuery, setSearchQuery] = useState("");

@@ -30,6 +30,9 @@ export interface PomodoroChapter {
     id: number;
     topic: string;
     group: string;
+    part: string;
+    pages: number;
+    slots: number;
     subtopics?: string[];
 }
 
@@ -153,6 +156,7 @@ function getGeographyChapters(): Record<string, PomodoroChapter[]> {
                 id: d.day,
                 topic: d.title,
                 group: phase.title,
+                part: "I", pages: 10, slots: 2,
                 subtopics: d.topics
             }));
     });
@@ -168,6 +172,7 @@ function getEconomyChapters(): Record<string, PomodoroChapter[]> {
             id: idx + 1,
             topic: topic.title,
             group: cat,
+            part: "I", pages: 10, slots: 2,
             subtopics: topic.subtopics
         });
     });
@@ -183,6 +188,7 @@ function getSciTechChapters(): Record<string, PomodoroChapter[]> {
             id: idx + 1,
             topic: topic.title,
             group: cat,
+            part: "I", pages: 10, slots: 2,
             subtopics: topic.subtopics
         });
     });
@@ -192,18 +198,18 @@ function getSciTechChapters(): Record<string, PomodoroChapter[]> {
 function getEnvironmentChapters(): Record<string, PomodoroChapter[]> {
     return {
         'Ecology & Biodiversity': [
-            { id: 1, topic: 'Ecosystem Basics', group: 'Ecology & Biodiversity', subtopics: ['Food Chains', 'Energy Flow', 'Biogeochemical Cycles'] },
-            { id: 2, topic: 'Biodiversity', group: 'Ecology & Biodiversity', subtopics: ['Biodiversity Hotspots', 'Endemic Species', 'Red Data Book'] },
-            { id: 3, topic: 'Wildlife Conservation', group: 'Ecology & Biodiversity', subtopics: ['National Parks', 'Tiger Reserves', 'Biosphere Reserves'] },
+            { id: 1, topic: 'Ecosystem Basics', group: 'Ecology & Biodiversity', part: "I", pages: 10, slots: 2, subtopics: ['Food Chains', 'Energy Flow', 'Biogeochemical Cycles'] },
+            { id: 2, topic: 'Biodiversity', group: 'Ecology & Biodiversity', part: "I", pages: 10, slots: 2, subtopics: ['Biodiversity Hotspots', 'Endemic Species', 'Red Data Book'] },
+            { id: 3, topic: 'Wildlife Conservation', group: 'Ecology & Biodiversity', part: "I", pages: 10, slots: 2, subtopics: ['National Parks', 'Tiger Reserves', 'Biosphere Reserves'] },
         ],
         'Climate & Pollution': [
-            { id: 4, topic: 'Climate Change', group: 'Climate & Pollution', subtopics: ['Greenhouse Effect', 'UNFCCC', 'Paris Agreement', 'NDCs'] },
-            { id: 5, topic: 'Pollution', group: 'Climate & Pollution', subtopics: ['Air Quality', 'Water Pollution', 'Solid Waste', 'E-waste'] },
-            { id: 6, topic: 'Environmental Laws', group: 'Climate & Pollution', subtopics: ['EPA 1986', 'EIA', 'NGT', 'Polluter Pays'] },
+            { id: 4, topic: 'Climate Change', group: 'Climate & Pollution', part: "I", pages: 10, slots: 2, subtopics: ['Greenhouse Effect', 'UNFCCC', 'Paris Agreement', 'NDCs'] },
+            { id: 5, topic: 'Pollution', group: 'Climate & Pollution', part: "I", pages: 10, slots: 2, subtopics: ['Air Quality', 'Water Pollution', 'Solid Waste', 'E-waste'] },
+            { id: 6, topic: 'Environmental Laws', group: 'Climate & Pollution', part: "I", pages: 10, slots: 2, subtopics: ['EPA 1986', 'EIA', 'NGT', 'Polluter Pays'] },
         ],
         'Sustainable Development': [
-            { id: 7, topic: 'Renewable Energy', group: 'Sustainable Development', subtopics: ['Solar Mission', 'Green Hydrogen', 'Wind Energy'] },
-            { id: 8, topic: 'International Agreements', group: 'Sustainable Development', subtopics: ['CBD', 'CITES', 'Ramsar', 'COP Summits'] },
+            { id: 7, topic: 'Renewable Energy', group: 'Sustainable Development', part: "I", pages: 10, slots: 2, subtopics: ['Solar Mission', 'Green Hydrogen', 'Wind Energy'] },
+            { id: 8, topic: 'International Agreements', group: 'Sustainable Development', part: "I", pages: 10, slots: 2, subtopics: ['CBD', 'CITES', 'Ramsar', 'COP Summits'] },
         ]
     };
 }
@@ -211,24 +217,24 @@ function getEnvironmentChapters(): Record<string, PomodoroChapter[]> {
 function getIRChapters(): Record<string, PomodoroChapter[]> {
     return {
         'India & Neighbours': [
-            { id: 1, topic: 'India-China Relations', group: 'India & Neighbours', subtopics: ['LAC', 'Trade', 'BRI', 'Quad'] },
-            { id: 2, topic: 'India-Pakistan Relations', group: 'India & Neighbours', subtopics: ['Kashmir', 'Indus Water', 'Terrorism'] },
-            { id: 3, topic: 'India-Nepal/Bangladesh/Sri Lanka', group: 'India & Neighbours', subtopics: ['Neighbourhood First', 'BIMSTEC'] },
+            { id: 1, topic: 'India-China Relations', group: 'India & Neighbours', part: "I", pages: 10, slots: 2, subtopics: ['LAC', 'Trade', 'BRI', 'Quad'] },
+            { id: 2, topic: 'India-Pakistan Relations', group: 'India & Neighbours', part: "I", pages: 10, slots: 2, subtopics: ['Kashmir', 'Indus Water', 'Terrorism'] },
+            { id: 3, topic: 'India-Nepal/Bangladesh/Sri Lanka', group: 'India & Neighbours', part: "I", pages: 10, slots: 2, subtopics: ['Neighbourhood First', 'BIMSTEC'] },
         ],
         'India & Global Powers': [
-            { id: 4, topic: 'India-USA Relations', group: 'India & Global Powers', subtopics: ['QUAD', 'iCET', 'Defence', 'Trade'] },
-            { id: 5, topic: 'India-Russia Relations', group: 'India & Global Powers', subtopics: ['S-400', 'Brahmos', 'Energy'] },
-            { id: 6, topic: 'India-EU/Japan/Australia', group: 'India & Global Powers', subtopics: ['FTAs', 'Strategic Partnerships'] },
+            { id: 4, topic: 'India-USA Relations', group: 'India & Global Powers', part: "I", pages: 10, slots: 2, subtopics: ['QUAD', 'iCET', 'Defence', 'Trade'] },
+            { id: 5, topic: 'India-Russia Relations', group: 'India & Global Powers', part: "I", pages: 10, slots: 2, subtopics: ['S-400', 'Brahmos', 'Energy'] },
+            { id: 6, topic: 'India-EU/Japan/Australia', group: 'India & Global Powers', part: "I", pages: 10, slots: 2, subtopics: ['FTAs', 'Strategic Partnerships'] },
         ],
         'International Institutions': [
-            { id: 7, topic: 'United Nations', group: 'International Institutions', subtopics: ['UNSC Reform', 'Peacekeeping', 'SDGs'] },
-            { id: 8, topic: 'WTO & IMF', group: 'International Institutions', subtopics: ['Dispute Resolution', 'SDR', 'Voting Rights'] },
-            { id: 9, topic: 'Groupings', group: 'International Institutions', subtopics: ['G20', 'BRICS', 'SCO', 'ASEAN'] },
+            { id: 7, topic: 'United Nations', group: 'International Institutions', part: "I", pages: 10, slots: 2, subtopics: ['UNSC Reform', 'Peacekeeping', 'SDGs'] },
+            { id: 8, topic: 'WTO & IMF', group: 'International Institutions', part: "I", pages: 10, slots: 2, subtopics: ['Dispute Resolution', 'SDR', 'Voting Rights'] },
+            { id: 9, topic: 'Groupings', group: 'International Institutions', part: "I", pages: 10, slots: 2, subtopics: ['G20', 'BRICS', 'SCO', 'ASEAN'] },
         ],
         'Key Issues': [
-            { id: 10, topic: 'Nuclear Proliferation', group: 'Key Issues', subtopics: ['NPT', 'NSG', 'CTBT', 'India Doctrine'] },
-            { id: 11, topic: 'Terrorism & Cybersecurity', group: 'Key Issues', subtopics: ['FATF', 'UNSCR 1373', 'Budapest Convention'] },
-            { id: 12, topic: 'Climate Diplomacy', group: 'Key Issues', subtopics: ['CBDR', 'Climate Finance', 'ISA', 'CDRI'] },
+            { id: 10, topic: 'Nuclear Proliferation', group: 'Key Issues', part: "I", pages: 10, slots: 2, subtopics: ['NPT', 'NSG', 'CTBT', 'India Doctrine'] },
+            { id: 11, topic: 'Terrorism & Cybersecurity', group: 'Key Issues', part: "I", pages: 10, slots: 2, subtopics: ['FATF', 'UNSCR 1373', 'Budapest Convention'] },
+            { id: 12, topic: 'Climate Diplomacy', group: 'Key Issues', part: "I", pages: 10, slots: 2, subtopics: ['CBDR', 'Climate Finance', 'ISA', 'CDRI'] },
         ]
     };
 }
@@ -236,17 +242,17 @@ function getIRChapters(): Record<string, PomodoroChapter[]> {
 function getCSATChapters(): Record<string, PomodoroChapter[]> {
     return {
         'Comprehension & Communication': [
-            { id: 1, topic: 'Reading Comprehension', group: 'Comprehension & Communication', subtopics: ['Passage Analysis', 'Inference', 'Vocabulary'] },
-            { id: 2, topic: 'Interpersonal Skills', group: 'Comprehension & Communication', subtopics: ['Communication', 'Emotional Intelligence'] },
+            { id: 1, topic: 'Reading Comprehension', group: 'Comprehension & Communication', part: "I", pages: 10, slots: 2, subtopics: ['Passage Analysis', 'Inference', 'Vocabulary'] },
+            { id: 2, topic: 'Interpersonal Skills', group: 'Comprehension & Communication', part: "I", pages: 10, slots: 2, subtopics: ['Communication', 'Emotional Intelligence'] },
         ],
         'Logical & Analytical': [
-            { id: 3, topic: 'Logical Reasoning', group: 'Logical & Analytical', subtopics: ['Syllogisms', 'Statement-Conclusion', 'Assumption'] },
-            { id: 4, topic: 'Analytical Ability', group: 'Logical & Analytical', subtopics: ['Seating Arrangement', 'Blood Relations', 'Direction'] },
-            { id: 5, topic: 'Decision Making', group: 'Logical & Analytical', subtopics: ['Administrative Scenarios', 'Ethics in Decisions'] },
+            { id: 3, topic: 'Logical Reasoning', group: 'Logical & Analytical', part: "I", pages: 10, slots: 2, subtopics: ['Syllogisms', 'Statement-Conclusion', 'Assumption'] },
+            { id: 4, topic: 'Analytical Ability', group: 'Logical & Analytical', part: "I", pages: 10, slots: 2, subtopics: ['Seating Arrangement', 'Blood Relations', 'Direction'] },
+            { id: 5, topic: 'Decision Making', group: 'Logical & Analytical', part: "I", pages: 10, slots: 2, subtopics: ['Administrative Scenarios', 'Ethics in Decisions'] },
         ],
         'Quantitative': [
-            { id: 6, topic: 'Basic Numeracy', group: 'Quantitative', subtopics: ['Number System', 'Percentages', 'Profit/Loss', 'Averages'] },
-            { id: 7, topic: 'Data Interpretation', group: 'Quantitative', subtopics: ['Bar/Line/Pie Charts', 'Tables', 'Data Sufficiency'] },
+            { id: 6, topic: 'Basic Numeracy', group: 'Quantitative', part: "I", pages: 10, slots: 2, subtopics: ['Number System', 'Percentages', 'Profit/Loss', 'Averages'] },
+            { id: 7, topic: 'Data Interpretation', group: 'Quantitative', part: "I", pages: 10, slots: 2, subtopics: ['Bar/Line/Pie Charts', 'Tables', 'Data Sufficiency'] },
         ]
     };
 }

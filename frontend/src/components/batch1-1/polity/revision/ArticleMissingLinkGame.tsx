@@ -32,7 +32,7 @@ export default function ArticleMissingLinkGame({ onComplete }: { onComplete?: ()
     const [queue, setQueue] = useState<any[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [userInput, setUserInput] = useState('');
-    const [status, setStatus] = useState<'idle' | 'correct' | 'incorrect'>('idle');
+    const [status, setStatus] = useState<'idle' | 'correct' | 'incorrect' | 'finished'>('idle');
     const [score, setScore] = useState(0);
     const [showHint, setShowHint] = useState(false);
 

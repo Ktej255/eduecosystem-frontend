@@ -17,6 +17,7 @@ import { FUNDAMENTAL_RIGHTS_PYQS } from "./data/pyq-data";
 interface FundamentalRightsModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Bill of Rights Vault ---

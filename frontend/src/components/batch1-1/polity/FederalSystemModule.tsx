@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface FederalSystemModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Tilted Scale ---

@@ -10,6 +10,7 @@ import {
 interface PubIntLitigationModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Open Gate (Voice of the Voiceless) ---

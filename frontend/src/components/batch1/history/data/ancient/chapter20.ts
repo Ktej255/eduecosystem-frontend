@@ -1,5 +1,4 @@
 import { Subtopic, Question } from '../ancient-types-27';
-import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_20_SUBTOPICS: Subtopic[] = [
     { id: 'gupta_society', name: 'Social Structure & Women' },

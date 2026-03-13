@@ -7,7 +7,7 @@ export interface Flashcard {
     id: string;
     front: string;      // Question/Term
     back: string;       // Answer/Definition
-    category: 'concept' | 'fact' | 'article' | 'comparison';
+    category: 'concept' | 'fact' | 'article' | 'comparison' | 'event' | 'figure';
     source: string;     // Topic reference
     highlight?: boolean; // For priority facts
     subtopicId?: string; // Links to SubTopic ID for granular filtering

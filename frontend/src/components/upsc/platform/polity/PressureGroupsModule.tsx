@@ -163,7 +163,7 @@ export default function PressureGroupsModule({ onComplete, isCompleted, chapterN
                     className={`px-12 py-6 rounded-full text-xl font-black font-['Kalam'] transition-all transform hover:scale-105 ${isCompleted ? 'bg-slate-800 text-white' : 'bg-[#4b5563] text-white hover:bg-slate-700'
                         }`}
                 >
-                    {isCompleted ? "Influence Exerted" : "Start Lobbying"}
+                    {isCompleted ? "Influence Exerted" : `MARK CHAPTER ${chapterNumber} COMPLETE`}
                 </Button>
             </div>
         </ScrapbookContainer>

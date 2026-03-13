@@ -16,9 +16,10 @@ import ChapterLevelGame from "./revision/ChapterLevelGame";
 interface MakingConstitutionProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
-export default function MakingConstitutionModule({ onComplete, isCompleted }: MakingConstitutionProps) {
+export default function MakingConstitutionModule({ onComplete, isCompleted, chapterNumber = "2" }: MakingConstitutionProps) {
     const [activeSection, setActiveSection] = useState<string>("demand");
 
     // Animation variants
@@ -40,7 +41,7 @@ export default function MakingConstitutionModule({ onComplete, isCompleted }: Ma
 
                 <div className="relative z-10 text-center">
                     <div className="inline-flex items-center gap-2 bg-[#f4e4bc]/10 px-4 py-1 rounded-full text-xs uppercase tracking-[0.2em] mb-4 border border-[#f4e4bc]/20">
-                        <Scale size={14} /> Chapter 2
+                        <Scale size={14} /> Chapter {chapterNumber}
                     </div>
                     <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4 tracking-tight">Making of the Constitution</h1>
                     <p className="max-w-2xl mx-auto text-lg opacity-80 font-light italic">
@@ -303,7 +304,7 @@ export default function MakingConstitutionModule({ onComplete, isCompleted }: Ma
                       ${isCompleted ? 'bg-green-600 hover:bg-green-700' : 'bg-blue-900 hover:bg-blue-800'}
                     `}
                 >
-                    {isCompleted ? <span className="flex items-center gap-2"><CheckCircle2 /> Chapter Verified</span> : <span className="flex items-center gap-2"><BookOpen /> Mark as Completed</span>}
+                    {isCompleted ? <span className="flex items-center gap-2"><CheckCircle2 /> CHAPTER {chapterNumber} COMPLETED</span> : <span className="flex items-center gap-2"><BookOpen /> MARK CHAPTER {chapterNumber} COMPLETE</span>}
                 </Button>
             </div>
         </div>

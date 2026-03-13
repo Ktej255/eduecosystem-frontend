@@ -1,5 +1,4 @@
 import { Subtopic, Question } from '../ancient-types-27';
-import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_24_SUBTOPICS: Subtopic[] = [
     { id: 'goals_of_life', name: 'Goals of Life & Overview' },

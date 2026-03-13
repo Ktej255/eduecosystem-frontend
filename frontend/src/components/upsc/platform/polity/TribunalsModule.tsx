@@ -212,12 +212,12 @@ export default function TribunalsModule({ onComplete, isCompleted, chapterNumber
                     {isCompleted ? (
                         <span className="flex items-center gap-4">
                             <CheckCircle2 size={32} className="animate-bounce" />
-                            TRIBUNAL EXPERTISE MASTERED
+                            CHAPTER {chapterNumber} COMPLETED
                         </span>
                     ) : (
                         <span className="flex items-center gap-4">
                             <Gavel size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 36 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

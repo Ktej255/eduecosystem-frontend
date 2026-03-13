@@ -11,13 +11,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
 interface GenericPremiumModuleProps {
-    topicId: number;
+    topicId: number | string;
     title: string;
     staticFocus?: string[];
     keyConcepts?: string[];
     prelimsPointers?: string[];
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 const PremiumContainer = ({ children }: { children: React.ReactNode }) => (

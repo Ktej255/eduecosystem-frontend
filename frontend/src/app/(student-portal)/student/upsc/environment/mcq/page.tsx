@@ -72,8 +72,8 @@ function EnvironmentMCQContent() {
 
 
         const finalResult = {
-            questions: result, // Explicitly assign questions array
-            totalTimeTaken: finalResult.totalTimeTaken,
+            questions: result,
+            totalTimeTaken: totalTime,
             ...stats,
             testTitle: `Environment Practice - Level ${level}`
         };

@@ -11,6 +11,7 @@ import {
 interface SupremeCourtModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Temple of Justice (Marble & Gold) ---
@@ -56,7 +57,7 @@ const LawTimelineItem = ({ year, title, desc, active = false }: { year: string, 
     </div>
 );
 
-export default function SupremeCourtModule({ onComplete, isCompleted }: SupremeCourtModuleProps) {
+export default function SupremeCourtModule({ onComplete, isCompleted, chapterNumber = "26" }: SupremeCourtModuleProps) {
     return (
         <TempleContainer>
             {/* HERO */}
@@ -70,9 +71,10 @@ export default function SupremeCourtModule({ onComplete, isCompleted }: SupremeC
                 </h1>
                 <div className="flex items-center gap-4 justify-center">
                     <div className="h-[1px] w-12 bg-slate-400"></div>
-                    <span className="text-xl font-handwriting italic text-muted-foreground">"Guardian of the Constitution"</span>
+                    <span className="text-xl font-handwriting italic text-muted-foreground px-4 py-1 border-y border-slate-200 uppercase tracking-widest text-sm font-bold">Chapter {chapterNumber}</span>
                     <div className="h-[1px] w-12 bg-slate-400"></div>
                 </div>
+                <div className="mt-2 text-xl font-handwriting italic text-muted-foreground">"Guardian of the Constitution"</div>
             </div>
 
             {/* PHASE 1: ORGANIZATION & APPOINTMENT */}
@@ -316,7 +318,10 @@ export default function SupremeCourtModule({ onComplete, isCompleted }: SupremeC
                                 }
                             `}
                         >
-                            {isCompleted ? "JUSTICE DELIVERED" : "SEEK JUSTICE"}
+                            {isCompleted ? 
+                                <span className="flex items-center gap-2"><CheckCircle2 size={18} /> CHAPTER {chapterNumber} COMPLETED</span> : 
+                                <span className="flex items-center gap-2"><Scale size={18} /> MARK CHAPTER {chapterNumber} COMPLETE</span>
+                            }
                         </button>
                     </div>
                 </div>

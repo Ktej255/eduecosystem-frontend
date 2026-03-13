@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface FundamentalDutiesModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Citizen's Pledge ---
@@ -67,7 +68,7 @@ const ClusterHeader = ({ title, color, icon: Icon }: { title: string, color: str
     </div>
 );
 
-export default function FundamentalDutiesModule({ onComplete, isCompleted }: FundamentalDutiesModuleProps) {
+export default function FundamentalDutiesModule({ onComplete, isCompleted, chapterNumber = "10" }: FundamentalDutiesModuleProps) {
     return (
         <PledgeContainer>
             {/* HERO */}
@@ -82,7 +83,7 @@ export default function FundamentalDutiesModule({ onComplete, isCompleted }: Fun
                         </div>
                     </div>
                     <div className="flex justify-center items-center gap-2 text-muted-foreground font-bold uppercase tracking-widest text-xs mb-2">
-                        <Scroll size={14} /> Part IV-A (Article 51A)
+                        <Scroll size={14} /> Chapter {chapterNumber} &bull; Part IV-A (Article 51A)
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 font-serif text-foreground">The Citizen's Pledge</h1>
                     <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed font-handwriting italic">
@@ -265,8 +266,8 @@ export default function FundamentalDutiesModule({ onComplete, isCompleted }: Fun
           `}
                 >
                     {isCompleted ?
-                        <span className="flex items-center gap-2"><CheckCircle2 /> Pledge Taken</span> :
-                        <span className="flex items-center gap-2"><Feather /> Sign Citizen's Pledge</span>
+                        <span className="flex items-center gap-2"><CheckCircle2 /> CHAPTER {chapterNumber} COMPLETED</span> :
+                        <span className="flex items-center gap-2"><Feather /> MARK CHAPTER {chapterNumber} COMPLETE</span>
                     }
                 </Button>
             </div>

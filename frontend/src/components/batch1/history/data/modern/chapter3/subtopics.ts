@@ -1,1 +1,3 @@
-export const MODERN_CHAPTER_3_SUBTOPICS = [];
+import { Subtopic } from "../../../../types";
+
+export const MODERN_CHAPTER_3_SUBTOPICS: Subtopic[] = [];

@@ -14,6 +14,7 @@ import { PRESIDENT_PYQS } from "./data/pyq-data";
 interface PresidentModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Presidential Seal (Royal Desk) ---

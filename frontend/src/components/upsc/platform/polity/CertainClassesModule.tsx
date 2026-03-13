@@ -152,7 +152,7 @@ export default function CertainClassesModule({ onComplete, isCompleted, chapterN
                     className={`px-12 py-6 rounded-full text-xl font-black font-['Kalam'] transition-all transform hover:scale-105 ${isCompleted ? 'bg-slate-800 text-white' : 'bg-[#15803d] text-white hover:bg-green-800'
                         }`}
                 >
-                    {isCompleted ? "Access Granted" : "Climb the Ladder"}
+                    {isCompleted ? "Access Granted" : `MARK CHAPTER ${chapterNumber} COMPLETE`}
                 </Button>
             </div>
         </ScrapbookContainer>

@@ -12,6 +12,7 @@ import {
 interface MunicipalitiesModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The City Skyline ---

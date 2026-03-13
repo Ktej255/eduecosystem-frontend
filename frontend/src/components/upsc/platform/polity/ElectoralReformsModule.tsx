@@ -142,7 +142,7 @@ export default function ElectoralReformsModule({ onComplete, isCompleted, chapte
                     className={`px-12 py-6 rounded-full text-xl font-black font-['Kalam'] transition-all transform hover:scale-105 ${isCompleted ? 'bg-slate-800 text-white' : 'bg-[#0f766e] text-white hover:bg-teal-800'
                         }`}
                 >
-                    {isCompleted ? "System Cleaned!" : "Initiate Reforms"}
+                    {isCompleted ? "System Cleaned!" : `MARK CHAPTER ${chapterNumber} COMPLETE`}
                 </Button>
             </div>
         </ScrapbookContainer>

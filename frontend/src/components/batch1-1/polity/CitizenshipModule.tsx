@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 interface CitizenshipModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Immigration File ---

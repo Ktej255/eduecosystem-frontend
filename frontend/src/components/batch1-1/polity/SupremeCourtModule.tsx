@@ -11,6 +11,7 @@ import {
 interface SupremeCourtModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Temple of Justice (Marble & Gold) ---

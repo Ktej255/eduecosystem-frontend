@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface FederalSystemModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Tilted Scale ---
@@ -74,8 +75,7 @@ const WeightItem = ({ title, pyq }: { title: string, pyq?: boolean }) => (
     </div>
 );
 
-
-export default function FederalSystemModule({ onComplete, isCompleted }: FederalSystemModuleProps) {
+export default function FederalSystemModule({ onComplete, isCompleted, chapterNumber = "14" }: FederalSystemModuleProps) {
     return (
         <ScaleContainer>
             {/* HERO */}
@@ -91,7 +91,7 @@ export default function FederalSystemModule({ onComplete, isCompleted }: Federal
                             <Scale size={32} className="text-orange-600 transform -rotate-12" />
                         </div>
                         <h1 className="text-3xl md:text-5xl font-black font-serif text-foreground tracking-tight">
-                            The Tilted Scale
+                            The Federal System <span className="text-orange-600">(CH {chapterNumber})</span>
                         </h1>
                     </div>
                     <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed font-handwriting italic border-l-4 border-orange-400 pl-4 py-1">
@@ -267,8 +267,8 @@ export default function FederalSystemModule({ onComplete, isCompleted }: Federal
                 `}
                         >
                             {isCompleted ?
-                                <span className="flex items-center gap-2"><CheckCircle2 /> Balance Verified</span> :
-                                <span className="flex items-center gap-2"><Scale /> Weigh the Features</span>
+                                <span className="flex items-center gap-2"><CheckCircle2 /> CHAPTER {chapterNumber} COMPLETED</span> :
+                                <span className="flex items-center gap-2"><Scale /> MARK CHAPTER {chapterNumber} COMPLETE</span>
                             }
                         </Button>
                     </div>

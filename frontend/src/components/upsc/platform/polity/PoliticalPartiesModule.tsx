@@ -166,7 +166,7 @@ export default function PoliticalPartiesModule({ onComplete, isCompleted, chapte
                     className={`px-12 py-6 rounded-full text-xl font-black font-['Kalam'] transition-all transform hover:scale-105 ${isCompleted ? 'bg-slate-300 text-muted-foreground' : 'bg-blue-600 text-white hover:bg-blue-700'
                         }`}
                 >
-                    {isCompleted ? "Symbol Allotted" : "Register Party"}
+                    {isCompleted ? "Symbol Allotted" : `MARK CHAPTER ${chapterNumber} COMPLETE`}
                 </Button>
             </div>
         </ScrapbookContainer>

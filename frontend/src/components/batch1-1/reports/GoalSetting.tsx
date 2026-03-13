@@ -9,7 +9,7 @@ import { getSubjectStats } from '@/lib/report-persistence';
 import { toast } from 'sonner';
 
 interface GoalSettingProps {
-    subject: 'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'science';
+    subject: 'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'science' | 'science-tech';
 }
 
 interface UserGoal {
@@ -34,8 +34,8 @@ export default function GoalSetting({ subject }: GoalSettingProps) {
         }
     };
 
-    const updateProgress = () => {
-        const stats = getSubjectStats(subject);
+    const updateProgress = async () => {
+        const stats = await getSubjectStats(subject as any);
         // In a real app, we'd filter these by date (e.g., this week)
         // For now, we count total questions solved as simple progress
         // A better implementation would track "questions solved AFTER goal creation"
@@ -44,10 +44,11 @@ export default function GoalSetting({ subject }: GoalSettingProps) {
     };
 
     useEffect(() => {
-        setTimeout(() => {
+        const init = async () => {
             loadGoal();
-            updateProgress();
-        }, 0);
+            await updateProgress();
+        };
+        init();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [subject]);
 

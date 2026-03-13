@@ -4,12 +4,13 @@ import React, { useState } from "react";
 import {
     Megaphone, FileText, Send, Unlock, Lock,
     CheckCircle, XCircle, AlertTriangle, Gavel,
-    Scale, Scroll, Users, MessageSquare, Hand
+    Scale, Scroll, Users, MessageSquare, Hand, CheckCircle2
 } from "lucide-react";
 
 interface PubIntLitigationModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Open Gate (Voice of the Voiceless) ---
@@ -62,7 +63,7 @@ const Postcard = ({ children }: { children: React.ReactNode }) => (
     </div>
 );
 
-export default function PubIntLitigationModule({ onComplete, isCompleted }: PubIntLitigationModuleProps) {
+export default function PubIntLitigationModule({ onComplete, isCompleted, chapterNumber = "29" }: PubIntLitigationModuleProps) {
     const [gateOpen, setGateOpen] = useState(false);
 
     return (
@@ -74,6 +75,7 @@ export default function PubIntLitigationModule({ onComplete, isCompleted }: PubI
                         <Users size={180} />
                     </div>
                     <h1 className="text-5xl md:text-7xl font-black text-[#15803d] font-serif mb-4 relative z-10 drop-shadow-sm">
+                        <div className="text-green-800 font-bold uppercase tracking-widest text-xs mb-2">Chapter {chapterNumber}</div>
                         THE OPEN GATE
                     </h1>
                     <p className="text-xl font-bold uppercase tracking-widest text-muted-foreground bg-card/50 px-4 py-2 inline-block rounded-full border border-[#15803d]/20 backdrop-blur-sm">
@@ -266,7 +268,10 @@ export default function PubIntLitigationModule({ onComplete, isCompleted }: PubI
                         }
                     `}
                 >
-                    {isCompleted ? "Justice Served" : "File Petition for Public Good"}
+                    {isCompleted ? 
+                        <span className="flex items-center gap-2 justify-center"><CheckCircle2 size={18} /> CHAPTER {chapterNumber} COMPLETED</span> : 
+                        <span className="flex items-center gap-2 justify-center"><Send size={18} /> MARK CHAPTER {chapterNumber} COMPLETE</span>
+                    }
                 </button>
             </div>
         </GateContainer>

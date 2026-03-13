@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 interface TribunalsModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
-    chapterNumber?: string;
+    chapterNumber?: number | string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (

@@ -10,6 +10,7 @@ import {
 interface PrimeMinisterModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Keystone (Official Files) ---

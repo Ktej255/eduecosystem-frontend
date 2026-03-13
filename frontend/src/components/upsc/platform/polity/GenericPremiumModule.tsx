@@ -8,11 +8,13 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 interface GenericPremiumModuleProps {
     topicId: number;
     title: string;
+    chapterNumber?: string;
     staticFocus?: string[];
     keyConcepts?: string[];
     prelimsPointers?: string[];
@@ -79,6 +81,7 @@ export default function GenericPremiumModule({
     staticFocus = [],
     keyConcepts = [],
     prelimsPointers = [],
+    chapterNumber,
     onComplete,
     isCompleted
 }: GenericPremiumModuleProps) {
@@ -91,7 +94,7 @@ export default function GenericPremiumModule({
                 </div>
                 <div className="relative z-10 space-y-6">
                     <div className="flex items-center gap-3 text-indigo-400 uppercase tracking-[0.2em] text-[10px] font-black">
-                        <Cpu size={14} className="animate-pulse" /> Advanced Learning Module v2.0
+                        <Cpu size={14} className="animate-pulse" /> Chapter {chapterNumber || topicId} &bull; Advanced Learning Module v2.0
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 font-serif leading-[1.1]">
                         {title}
@@ -160,6 +163,23 @@ export default function GenericPremiumModule({
                     </div>
                 </section>
             )}
+
+            {/* COMPLETION BUTTON */}
+            <div className="flex justify-center pt-10">
+                <Button 
+                    onClick={onComplete} 
+                    disabled={isCompleted}
+                    className={`
+                        rounded-full px-12 py-6 text-lg font-black uppercase tracking-widest transition-all
+                        ${isCompleted 
+                            ? "bg-slate-200 text-slate-400 cursor-not-allowed shadow-none" 
+                            : "bg-indigo-600 text-white hover:bg-indigo-700 shadow-xl hover:shadow-indigo-200/50 hover:-translate-y-1"
+                        }
+                    `}
+                >
+                    {isCompleted ? `CHAPTER ${chapterNumber || topicId} COMPLETED` : `MARK CHAPTER ${chapterNumber || topicId} COMPLETE`}
+                </Button>
+            </div>
 
             {/* DATA STATUS FOOTER */}
             <div className="bg-slate-100 border-2 border-slate-200 rounded-3xl p-6 text-center space-y-4">

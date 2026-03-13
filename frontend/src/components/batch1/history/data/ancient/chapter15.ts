@@ -1,5 +1,4 @@
 import { Subtopic, Question } from '../ancient-types-27';
-import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_15_SUBTOPICS: Subtopic[] = [
     { id: 'indo_greeks', name: 'Indo-Greeks: Menander & Impact' },
@@ -20,7 +19,7 @@ export const ANCIENT_CHAPTER_15_MCQS: Question[] = [
     { id: 5, question: "The most famous Shaka ruler in India was:", options: ["Maues", "Rudradaman I", "Nahapana", "Gondophernes"], correctAnswer: 1, explanation: "Rudradaman I (130-150 CE) is famous for the Junagadh rock inscription.", subtopic: 'shakas_parthians', difficulty: 'Easy' },
     { id: 6, question: "The Junagadh Rock Inscription of Rudradaman is the first long inscription in which language?", options: ["Prakrit", "Pali", "Chaste Sanskrit", "Kharosthi"], correctAnswer: 2, explanation: "It marks the shift of royal inscriptions from Prakrit to Sanskrit.", subtopic: 'shakas_parthians', difficulty: 'Easy' },
     { id: 7, question: "The 'St. Thomas' tradition of Christianity in India is associated with the reign of which king?", options: ["Kanishka", "Rudradaman", "Gondophernes (Parthian)", "Menander"], correctAnswer: 2, explanation: "St. Thomas is said to have visited India during the reign of the Parthian king Gondophernes.", subtopic: 'shakas_parthians', difficulty: 'Easy' },
-    { id: '8', question: "The Kushanas belonged to which central Asian tribe?", options: ["Shakas", "Hunas", "Yueh-chi", "Mongols"], correctAnswer: 2, explanation: "They were one of the five clans of the Yueh-chi tribe.", subtopic: 'kushanas_kanishka', difficulty: 'Easy' },
+    { id: 8, question: "The Kushanas belonged to which central Asian tribe?", options: ["Shakas", "Hunas", "Yueh-chi", "Mongols"], correctAnswer: 2, explanation: "They were one of the five clans of the Yueh-chi tribe.", subtopic: 'kushanas_kanishka', difficulty: 'Easy' },
     { id: 9, question: "Who was the first Kushana king to issue gold coins in India?", options: ["Kujula Kadphises", "Vima Kadphises", "Kanishka", "Huvishka"], correctAnswer: 1, explanation: "Vima Kadphises issued a large number of gold coins.", subtopic: 'kushanas_kanishka', difficulty: 'Easy' },
     { id: 10, question: "The Saka Era, which is used by the Government of India, was started by Kanishka in:", options: ["58 BCE", "78 CE", "319 CE", "120 CE"], correctAnswer: 1, explanation: "The Saka Era began in 78 CE, marking Kanishka's accession.", subtopic: 'kushanas_kanishka', difficulty: 'Easy' },
     { id: 11, question: "Kanishka's capital was located at:", options: ["Pataliputra", "Purushapura (Peshawar)", "Taxila", "Mathura"], correctAnswer: 1, explanation: "Peshawar was his primary capital, while Mathura was the second seat of power.", subtopic: 'kushanas_kanishka', difficulty: 'Easy' },

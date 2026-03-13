@@ -12,6 +12,7 @@ import {
 interface ParliamentModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Two Houses (Green & Red) ---

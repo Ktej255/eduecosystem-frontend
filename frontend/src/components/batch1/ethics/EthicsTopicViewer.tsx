@@ -18,7 +18,7 @@ interface EthicsTopicViewerProps {
 }
 
 export default function EthicsTopicViewer({ content }: EthicsTopicViewerProps) {
-    const [activeSection, setActiveSection] = useState<string>(content.sections[0]?.heading || '');
+    const [activeSection, setActiveSection] = useState<string>(content.sections?.[0]?.heading || '');
     const [isCompleted, setIsCompleted] = useState(false);
 
     useEffect(() => {
@@ -81,7 +81,7 @@ export default function EthicsTopicViewer({ content }: EthicsTopicViewerProps) {
                                     <CardTitle className="text-xs uppercase tracking-wider text-stone-500 font-bold">Concept Structure</CardTitle>
                                 </CardHeader>
                                 <CardContent className="space-y-1 p-2">
-                                    {content.sections.map((sec, idx) => (
+                                    {content.sections?.map((sec, idx) => (
                                         <button
                                             key={idx}
                                             onClick={() => {
@@ -104,7 +104,7 @@ export default function EthicsTopicViewer({ content }: EthicsTopicViewerProps) {
 
                     {/* Main Content */}
                     <div className="lg:col-span-3 space-y-8">
-                        {content.sections.map((sec, idx) => (
+                        {content.sections?.map((sec, idx) => (
                             <section
                                 key={idx}
                                 id={`section-${idx}`}

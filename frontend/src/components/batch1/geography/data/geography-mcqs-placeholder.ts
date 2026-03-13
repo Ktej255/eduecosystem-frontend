@@ -13,7 +13,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 1.",
         difficulty: "Moderate",
-        topic: 1
+        topic: "1"
     },
     {
         id: "geo-2",
@@ -22,7 +22,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 2.",
         difficulty: "Moderate",
-        topic: 2
+        topic: "2"
     },
     {
         id: "geo-3",
@@ -31,7 +31,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 3.",
         difficulty: "Moderate",
-        topic: 3
+        topic: "3"
     },
     {
         id: "geo-4",
@@ -40,7 +40,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 4.",
         difficulty: "Moderate",
-        topic: 4
+        topic: "4"
     },
     {
         id: "geo-5",
@@ -49,7 +49,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 5.",
         difficulty: "Moderate",
-        topic: 5
+        topic: "5"
     },
     {
         id: "geo-6",
@@ -58,7 +58,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 6.",
         difficulty: "Moderate",
-        topic: 6
+        topic: "6"
     },
     {
         id: "geo-7",
@@ -67,7 +67,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 7.",
         difficulty: "Moderate",
-        topic: 7
+        topic: "7"
     },
     {
         id: "geo-8",
@@ -76,7 +76,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 8.",
         difficulty: "Moderate",
-        topic: 8
+        topic: "8"
     },
     {
         id: "geo-9",
@@ -85,7 +85,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 9.",
         difficulty: "Moderate",
-        topic: 9
+        topic: "9"
     },
     {
         id: "geo-10",
@@ -94,7 +94,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 10.",
         difficulty: "Moderate",
-        topic: 10
+        topic: "10"
     },
     {
         id: "geo-11",
@@ -103,7 +103,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 11.",
         difficulty: "Moderate",
-        topic: 11
+        topic: "11"
     },
     {
         id: "geo-12",
@@ -112,7 +112,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 12.",
         difficulty: "Moderate",
-        topic: 12
+        topic: "12"
     },
     {
         id: "geo-13",
@@ -121,7 +121,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 13.",
         difficulty: "Moderate",
-        topic: 13
+        topic: "13"
     },
     {
         id: "geo-14",
@@ -130,7 +130,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 14.",
         difficulty: "Moderate",
-        topic: 14
+        topic: "14"
     },
     {
         id: "geo-15",
@@ -139,7 +139,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 15.",
         difficulty: "Moderate",
-        topic: 15
+        topic: "15"
     },
     {
         id: "geo-16",
@@ -148,7 +148,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 16.",
         difficulty: "Moderate",
-        topic: 16
+        topic: "16"
     },
     {
         id: "geo-17",
@@ -157,7 +157,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 17.",
         difficulty: "Moderate",
-        topic: 17
+        topic: "17"
     },
     {
         id: "geo-18",
@@ -166,7 +166,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 18.",
         difficulty: "Moderate",
-        topic: 18
+        topic: "18"
     },
     {
         id: "geo-19",
@@ -175,7 +175,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 19.",
         difficulty: "Moderate",
-        topic: 19
+        topic: "19"
     },
     {
         id: "geo-20",
@@ -184,7 +184,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 20.",
         difficulty: "Moderate",
-        topic: 20
+        topic: "20"
     },
     {
         id: "geo-21",
@@ -193,7 +193,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 21.",
         difficulty: "Moderate",
-        topic: 21
+        topic: "21"
     },
     {
         id: "geo-22",
@@ -202,7 +202,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 22.",
         difficulty: "Moderate",
-        topic: 22
+        topic: "22"
     },
     {
         id: "geo-23",
@@ -211,7 +211,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 23.",
         difficulty: "Moderate",
-        topic: 23
+        topic: "23"
     },
     {
         id: "geo-24",
@@ -220,7 +220,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 24.",
         difficulty: "Moderate",
-        topic: 24
+        topic: "24"
     },
     {
         id: "geo-25",
@@ -229,7 +229,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 25.",
         difficulty: "Moderate",
-        topic: 25
+        topic: "25"
     },
     {
         id: "geo-26",
@@ -238,7 +238,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 26.",
         difficulty: "Moderate",
-        topic: 26
+        topic: "26"
     },
     {
         id: "geo-27",
@@ -247,7 +247,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 27.",
         difficulty: "Moderate",
-        topic: 27
+        topic: "27"
     },
     {
         id: "geo-28",
@@ -256,7 +256,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 28.",
         difficulty: "Moderate",
-        topic: 28
+        topic: "28"
     },
     {
         id: "geo-29",
@@ -265,7 +265,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 29.",
         difficulty: "Moderate",
-        topic: 29
+        topic: "29"
     },
     {
         id: "geo-30",
@@ -274,7 +274,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 30.",
         difficulty: "Moderate",
-        topic: 30
+        topic: "30"
     },
     {
         id: "geo-31",
@@ -283,7 +283,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 31.",
         difficulty: "Moderate",
-        topic: 31
+        topic: "31"
     },
     {
         id: "geo-32",
@@ -292,7 +292,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 32.",
         difficulty: "Moderate",
-        topic: 32
+        topic: "32"
     },
     {
         id: "geo-33",
@@ -301,7 +301,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 33.",
         difficulty: "Moderate",
-        topic: 33
+        topic: "33"
     },
     {
         id: "geo-34",
@@ -310,7 +310,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 34.",
         difficulty: "Moderate",
-        topic: 34
+        topic: "34"
     },
     {
         id: "geo-35",
@@ -319,7 +319,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 35.",
         difficulty: "Moderate",
-        topic: 35
+        topic: "35"
     },
     {
         id: "geo-36",
@@ -328,7 +328,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 36.",
         difficulty: "Moderate",
-        topic: 36
+        topic: "36"
     },
     {
         id: "geo-37",
@@ -337,7 +337,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 37.",
         difficulty: "Moderate",
-        topic: 37
+        topic: "37"
     },
     {
         id: "geo-38",
@@ -346,7 +346,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 38.",
         difficulty: "Moderate",
-        topic: 38
+        topic: "38"
     },
     {
         id: "geo-39",
@@ -355,7 +355,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 39.",
         difficulty: "Moderate",
-        topic: 39
+        topic: "39"
     },
     {
         id: "geo-40",
@@ -364,7 +364,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 40.",
         difficulty: "Moderate",
-        topic: 40
+        topic: "40"
     },
     {
         id: "geo-41",
@@ -373,7 +373,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 41.",
         difficulty: "Moderate",
-        topic: 41
+        topic: "41"
     },
     {
         id: "geo-42",
@@ -382,7 +382,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 42.",
         difficulty: "Moderate",
-        topic: 42
+        topic: "42"
     },
     {
         id: "geo-43",
@@ -391,7 +391,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 43.",
         difficulty: "Moderate",
-        topic: 43
+        topic: "43"
     },
     {
         id: "geo-44",
@@ -400,7 +400,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 44.",
         difficulty: "Moderate",
-        topic: 44
+        topic: "44"
     },
     {
         id: "geo-45",
@@ -409,7 +409,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 45.",
         difficulty: "Moderate",
-        topic: 45
+        topic: "45"
     },
     {
         id: "geo-46",
@@ -418,7 +418,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 46.",
         difficulty: "Moderate",
-        topic: 46
+        topic: "46"
     },
     {
         id: "geo-47",
@@ -427,7 +427,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 47.",
         difficulty: "Moderate",
-        topic: 47
+        topic: "47"
     },
     {
         id: "geo-48",
@@ -436,7 +436,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 48.",
         difficulty: "Moderate",
-        topic: 48
+        topic: "48"
     },
     {
         id: "geo-49",
@@ -445,7 +445,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 49.",
         difficulty: "Moderate",
-        topic: 49
+        topic: "49"
     },
     {
         id: "geo-50",
@@ -454,7 +454,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 50.",
         difficulty: "Moderate",
-        topic: 50
+        topic: "50"
     },
     {
         id: "geo-51",
@@ -463,7 +463,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 51.",
         difficulty: "Moderate",
-        topic: 51
+        topic: "51"
     },
     {
         id: "geo-52",
@@ -472,7 +472,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 52.",
         difficulty: "Moderate",
-        topic: 52
+        topic: "52"
     },
     {
         id: "geo-53",
@@ -481,7 +481,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 53.",
         difficulty: "Moderate",
-        topic: 53
+        topic: "53"
     },
     {
         id: "geo-54",
@@ -490,7 +490,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 54.",
         difficulty: "Moderate",
-        topic: 54
+        topic: "54"
     },
     {
         id: "geo-55",
@@ -499,7 +499,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 55.",
         difficulty: "Moderate",
-        topic: 55
+        topic: "55"
     },
     {
         id: "geo-56",
@@ -508,7 +508,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 56.",
         difficulty: "Moderate",
-        topic: 56
+        topic: "56"
     },
     {
         id: "geo-57",
@@ -517,7 +517,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 57.",
         difficulty: "Moderate",
-        topic: 57
+        topic: "57"
     },
     {
         id: "geo-58",
@@ -526,7 +526,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 58.",
         difficulty: "Moderate",
-        topic: 58
+        topic: "58"
     },
     {
         id: "geo-59",
@@ -535,7 +535,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 59.",
         difficulty: "Moderate",
-        topic: 59
+        topic: "59"
     },
     {
         id: "geo-60",
@@ -544,7 +544,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 60.",
         difficulty: "Moderate",
-        topic: 60
+        topic: "60"
     },
     {
         id: "geo-61",
@@ -553,7 +553,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 61.",
         difficulty: "Moderate",
-        topic: 61
+        topic: "61"
     },
     {
         id: "geo-62",
@@ -562,7 +562,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 62.",
         difficulty: "Moderate",
-        topic: 62
+        topic: "62"
     },
     {
         id: "geo-63",
@@ -571,7 +571,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 63.",
         difficulty: "Moderate",
-        topic: 63
+        topic: "63"
     },
     {
         id: "geo-64",
@@ -580,7 +580,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 64.",
         difficulty: "Moderate",
-        topic: 64
+        topic: "64"
     },
     {
         id: "geo-65",
@@ -589,7 +589,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 65.",
         difficulty: "Moderate",
-        topic: 65
+        topic: "65"
     },
     {
         id: "geo-66",
@@ -598,7 +598,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 66.",
         difficulty: "Moderate",
-        topic: 66
+        topic: "66"
     },
     {
         id: "geo-67",
@@ -607,7 +607,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 67.",
         difficulty: "Moderate",
-        topic: 67
+        topic: "67"
     },
     {
         id: "geo-68",
@@ -616,7 +616,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 68.",
         difficulty: "Moderate",
-        topic: 68
+        topic: "68"
     },
     {
         id: "geo-69",
@@ -625,7 +625,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 69.",
         difficulty: "Moderate",
-        topic: 69
+        topic: "69"
     },
     {
         id: "geo-70",
@@ -634,7 +634,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Geomorphology topic 70.",
         difficulty: "Moderate",
-        topic: 70
+        topic: "70"
     },
     {
         id: "geo-100",
@@ -643,7 +643,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 100.",
         difficulty: "Moderate",
-        topic: 100
+        topic: "100"
     },
     {
         id: "geo-101",
@@ -652,7 +652,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 101.",
         difficulty: "Moderate",
-        topic: 101
+        topic: "101"
     },
     {
         id: "geo-102",
@@ -661,7 +661,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 102.",
         difficulty: "Moderate",
-        topic: 102
+        topic: "102"
     },
     {
         id: "geo-103",
@@ -670,7 +670,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 103.",
         difficulty: "Moderate",
-        topic: 103
+        topic: "103"
     },
     {
         id: "geo-104",
@@ -679,7 +679,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 104.",
         difficulty: "Moderate",
-        topic: 104
+        topic: "104"
     },
     {
         id: "geo-105",
@@ -688,7 +688,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 105.",
         difficulty: "Moderate",
-        topic: 105
+        topic: "105"
     },
     {
         id: "geo-106",
@@ -697,7 +697,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 106.",
         difficulty: "Moderate",
-        topic: 106
+        topic: "106"
     },
     {
         id: "geo-107",
@@ -706,7 +706,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 107.",
         difficulty: "Moderate",
-        topic: 107
+        topic: "107"
     },
     {
         id: "geo-108",
@@ -715,7 +715,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 108.",
         difficulty: "Moderate",
-        topic: 108
+        topic: "108"
     },
     {
         id: "geo-109",
@@ -724,7 +724,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 109.",
         difficulty: "Moderate",
-        topic: 109
+        topic: "109"
     },
     {
         id: "geo-110",
@@ -733,7 +733,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 110.",
         difficulty: "Moderate",
-        topic: 110
+        topic: "110"
     },
     {
         id: "geo-111",
@@ -742,7 +742,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 111.",
         difficulty: "Moderate",
-        topic: 111
+        topic: "111"
     },
     {
         id: "geo-112",
@@ -751,7 +751,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 112.",
         difficulty: "Moderate",
-        topic: 112
+        topic: "112"
     },
     {
         id: "geo-113",
@@ -760,7 +760,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 113.",
         difficulty: "Moderate",
-        topic: 113
+        topic: "113"
     },
     {
         id: "geo-114",
@@ -769,7 +769,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 114.",
         difficulty: "Moderate",
-        topic: 114
+        topic: "114"
     },
     {
         id: "geo-115",
@@ -778,7 +778,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 115.",
         difficulty: "Moderate",
-        topic: 115
+        topic: "115"
     },
     {
         id: "geo-116",
@@ -787,7 +787,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 116.",
         difficulty: "Moderate",
-        topic: 116
+        topic: "116"
     },
     {
         id: "geo-117",
@@ -796,7 +796,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 117.",
         difficulty: "Moderate",
-        topic: 117
+        topic: "117"
     },
     {
         id: "geo-118",
@@ -805,7 +805,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 118.",
         difficulty: "Moderate",
-        topic: 118
+        topic: "118"
     },
     {
         id: "geo-119",
@@ -814,7 +814,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 119.",
         difficulty: "Moderate",
-        topic: 119
+        topic: "119"
     },
     {
         id: "geo-120",
@@ -823,7 +823,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 120.",
         difficulty: "Moderate",
-        topic: 120
+        topic: "120"
     },
     {
         id: "geo-121",
@@ -832,7 +832,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 121.",
         difficulty: "Moderate",
-        topic: 121
+        topic: "121"
     },
     {
         id: "geo-122",
@@ -841,7 +841,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 122.",
         difficulty: "Moderate",
-        topic: 122
+        topic: "122"
     },
     {
         id: "geo-123",
@@ -850,7 +850,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 123.",
         difficulty: "Moderate",
-        topic: 123
+        topic: "123"
     },
     {
         id: "geo-124",
@@ -859,7 +859,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 124.",
         difficulty: "Moderate",
-        topic: 124
+        topic: "124"
     },
     {
         id: "geo-125",
@@ -868,7 +868,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 125.",
         difficulty: "Moderate",
-        topic: 125
+        topic: "125"
     },
     {
         id: "geo-126",
@@ -877,7 +877,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 126.",
         difficulty: "Moderate",
-        topic: 126
+        topic: "126"
     },
     {
         id: "geo-127",
@@ -886,7 +886,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 127.",
         difficulty: "Moderate",
-        topic: 127
+        topic: "127"
     },
     {
         id: "geo-128",
@@ -895,7 +895,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 128.",
         difficulty: "Moderate",
-        topic: 128
+        topic: "128"
     },
     {
         id: "geo-129",
@@ -904,7 +904,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 129.",
         difficulty: "Moderate",
-        topic: 129
+        topic: "129"
     },
     {
         id: "geo-130",
@@ -913,7 +913,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 130.",
         difficulty: "Moderate",
-        topic: 130
+        topic: "130"
     },
     {
         id: "geo-131",
@@ -922,7 +922,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 131.",
         difficulty: "Moderate",
-        topic: 131
+        topic: "131"
     },
     {
         id: "geo-132",
@@ -931,7 +931,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 132.",
         difficulty: "Moderate",
-        topic: 132
+        topic: "132"
     },
     {
         id: "geo-133",
@@ -940,7 +940,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 133.",
         difficulty: "Moderate",
-        topic: 133
+        topic: "133"
     },
     {
         id: "geo-134",
@@ -949,7 +949,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 134.",
         difficulty: "Moderate",
-        topic: 134
+        topic: "134"
     },
     {
         id: "geo-135",
@@ -958,7 +958,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 135.",
         difficulty: "Moderate",
-        topic: 135
+        topic: "135"
     },
     {
         id: "geo-136",
@@ -967,7 +967,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 136.",
         difficulty: "Moderate",
-        topic: 136
+        topic: "136"
     },
     {
         id: "geo-137",
@@ -976,7 +976,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 137.",
         difficulty: "Moderate",
-        topic: 137
+        topic: "137"
     },
     {
         id: "geo-138",
@@ -985,7 +985,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 138.",
         difficulty: "Moderate",
-        topic: 138
+        topic: "138"
     },
     {
         id: "geo-139",
@@ -994,7 +994,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 139.",
         difficulty: "Moderate",
-        topic: 139
+        topic: "139"
     },
     {
         id: "geo-140",
@@ -1003,7 +1003,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 140.",
         difficulty: "Moderate",
-        topic: 140
+        topic: "140"
     },
     {
         id: "geo-141",
@@ -1012,7 +1012,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 141.",
         difficulty: "Moderate",
-        topic: 141
+        topic: "141"
     },
     {
         id: "geo-142",
@@ -1021,7 +1021,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 142.",
         difficulty: "Moderate",
-        topic: 142
+        topic: "142"
     },
     {
         id: "geo-143",
@@ -1030,7 +1030,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 143.",
         difficulty: "Moderate",
-        topic: 143
+        topic: "143"
     },
     {
         id: "geo-144",
@@ -1039,7 +1039,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 144.",
         difficulty: "Moderate",
-        topic: 144
+        topic: "144"
     },
     {
         id: "geo-145",
@@ -1048,7 +1048,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 145.",
         difficulty: "Moderate",
-        topic: 145
+        topic: "145"
     },
     {
         id: "geo-146",
@@ -1057,7 +1057,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 146.",
         difficulty: "Moderate",
-        topic: 146
+        topic: "146"
     },
     {
         id: "geo-147",
@@ -1066,7 +1066,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 147.",
         difficulty: "Moderate",
-        topic: 147
+        topic: "147"
     },
     {
         id: "geo-148",
@@ -1075,7 +1075,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 148.",
         difficulty: "Moderate",
-        topic: 148
+        topic: "148"
     },
     {
         id: "geo-149",
@@ -1084,7 +1084,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 149.",
         difficulty: "Moderate",
-        topic: 149
+        topic: "149"
     },
     {
         id: "geo-150",
@@ -1093,7 +1093,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 150.",
         difficulty: "Moderate",
-        topic: 150
+        topic: "150"
     },
     {
         id: "geo-151",
@@ -1102,7 +1102,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 151.",
         difficulty: "Moderate",
-        topic: 151
+        topic: "151"
     },
     {
         id: "geo-152",
@@ -1111,7 +1111,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 152.",
         difficulty: "Moderate",
-        topic: 152
+        topic: "152"
     },
     {
         id: "geo-153",
@@ -1120,7 +1120,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 153.",
         difficulty: "Moderate",
-        topic: 153
+        topic: "153"
     },
     {
         id: "geo-154",
@@ -1129,7 +1129,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 154.",
         difficulty: "Moderate",
-        topic: 154
+        topic: "154"
     },
     {
         id: "geo-155",
@@ -1138,7 +1138,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 155.",
         difficulty: "Moderate",
-        topic: 155
+        topic: "155"
     },
     {
         id: "geo-156",
@@ -1147,7 +1147,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 156.",
         difficulty: "Moderate",
-        topic: 156
+        topic: "156"
     },
     {
         id: "geo-157",
@@ -1156,7 +1156,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 157.",
         difficulty: "Moderate",
-        topic: 157
+        topic: "157"
     },
     {
         id: "geo-158",
@@ -1165,7 +1165,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 158.",
         difficulty: "Moderate",
-        topic: 158
+        topic: "158"
     },
     {
         id: "geo-159",
@@ -1174,7 +1174,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 159.",
         difficulty: "Moderate",
-        topic: 159
+        topic: "159"
     },
     {
         id: "geo-160",
@@ -1183,7 +1183,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 160.",
         difficulty: "Moderate",
-        topic: 160
+        topic: "160"
     },
     {
         id: "geo-161",
@@ -1192,7 +1192,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 161.",
         difficulty: "Moderate",
-        topic: 161
+        topic: "161"
     },
     {
         id: "geo-162",
@@ -1201,7 +1201,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 162.",
         difficulty: "Moderate",
-        topic: 162
+        topic: "162"
     },
     {
         id: "geo-163",
@@ -1210,7 +1210,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 163.",
         difficulty: "Moderate",
-        topic: 163
+        topic: "163"
     },
     {
         id: "geo-164",
@@ -1219,7 +1219,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 164.",
         difficulty: "Moderate",
-        topic: 164
+        topic: "164"
     },
     {
         id: "geo-165",
@@ -1228,7 +1228,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 165.",
         difficulty: "Moderate",
-        topic: 165
+        topic: "165"
     },
     {
         id: "geo-166",
@@ -1237,7 +1237,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 166.",
         difficulty: "Moderate",
-        topic: 166
+        topic: "166"
     },
     {
         id: "geo-167",
@@ -1246,7 +1246,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 167.",
         difficulty: "Moderate",
-        topic: 167
+        topic: "167"
     },
     {
         id: "geo-168",
@@ -1255,7 +1255,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 168.",
         difficulty: "Moderate",
-        topic: 168
+        topic: "168"
     },
     {
         id: "geo-169",
@@ -1264,7 +1264,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 169.",
         difficulty: "Moderate",
-        topic: 169
+        topic: "169"
     },
     {
         id: "geo-170",
@@ -1273,7 +1273,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 170.",
         difficulty: "Moderate",
-        topic: 170
+        topic: "170"
     },
     {
         id: "geo-171",
@@ -1282,7 +1282,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 171.",
         difficulty: "Moderate",
-        topic: 171
+        topic: "171"
     },
     {
         id: "geo-172",
@@ -1291,7 +1291,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 172.",
         difficulty: "Moderate",
-        topic: 172
+        topic: "172"
     },
     {
         id: "geo-173",
@@ -1300,7 +1300,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 173.",
         difficulty: "Moderate",
-        topic: 173
+        topic: "173"
     },
     {
         id: "geo-174",
@@ -1309,7 +1309,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 174.",
         difficulty: "Moderate",
-        topic: 174
+        topic: "174"
     },
     {
         id: "geo-175",
@@ -1318,7 +1318,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 175.",
         difficulty: "Moderate",
-        topic: 175
+        topic: "175"
     },
     {
         id: "geo-176",
@@ -1327,7 +1327,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 176.",
         difficulty: "Moderate",
-        topic: 176
+        topic: "176"
     },
     {
         id: "geo-177",
@@ -1336,7 +1336,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 177.",
         difficulty: "Moderate",
-        topic: 177
+        topic: "177"
     },
     {
         id: "geo-178",
@@ -1345,7 +1345,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 178.",
         difficulty: "Moderate",
-        topic: 178
+        topic: "178"
     },
     {
         id: "geo-179",
@@ -1354,7 +1354,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 179.",
         difficulty: "Moderate",
-        topic: 179
+        topic: "179"
     },
     {
         id: "geo-180",
@@ -1363,7 +1363,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 180.",
         difficulty: "Moderate",
-        topic: 180
+        topic: "180"
     },
     {
         id: "geo-181",
@@ -1372,7 +1372,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 181.",
         difficulty: "Moderate",
-        topic: 181
+        topic: "181"
     },
     {
         id: "geo-182",
@@ -1381,7 +1381,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 182.",
         difficulty: "Moderate",
-        topic: 182
+        topic: "182"
     },
     {
         id: "geo-183",
@@ -1390,7 +1390,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 183.",
         difficulty: "Moderate",
-        topic: 183
+        topic: "183"
     },
     {
         id: "geo-184",
@@ -1399,7 +1399,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 184.",
         difficulty: "Moderate",
-        topic: 184
+        topic: "184"
     },
     {
         id: "geo-185",
@@ -1408,7 +1408,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 185.",
         difficulty: "Moderate",
-        topic: 185
+        topic: "185"
     },
     {
         id: "geo-186",
@@ -1417,7 +1417,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 186.",
         difficulty: "Moderate",
-        topic: 186
+        topic: "186"
     },
     {
         id: "geo-187",
@@ -1426,7 +1426,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 187.",
         difficulty: "Moderate",
-        topic: 187
+        topic: "187"
     },
     {
         id: "geo-188",
@@ -1435,7 +1435,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 188.",
         difficulty: "Moderate",
-        topic: 188
+        topic: "188"
     },
     {
         id: "geo-189",
@@ -1444,7 +1444,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 189.",
         difficulty: "Moderate",
-        topic: 189
+        topic: "189"
     },
     {
         id: "geo-190",
@@ -1453,7 +1453,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 190.",
         difficulty: "Moderate",
-        topic: 190
+        topic: "190"
     },
     {
         id: "geo-191",
@@ -1462,7 +1462,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 191.",
         difficulty: "Moderate",
-        topic: 191
+        topic: "191"
     },
     {
         id: "geo-192",
@@ -1471,7 +1471,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 192.",
         difficulty: "Moderate",
-        topic: 192
+        topic: "192"
     },
     {
         id: "geo-193",
@@ -1480,7 +1480,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 193.",
         difficulty: "Moderate",
-        topic: 193
+        topic: "193"
     },
     {
         id: "geo-194",
@@ -1489,7 +1489,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 194.",
         difficulty: "Moderate",
-        topic: 194
+        topic: "194"
     },
     {
         id: "geo-195",
@@ -1498,7 +1498,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 195.",
         difficulty: "Moderate",
-        topic: 195
+        topic: "195"
     },
     {
         id: "geo-196",
@@ -1507,7 +1507,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 196.",
         difficulty: "Moderate",
-        topic: 196
+        topic: "196"
     },
     {
         id: "geo-197",
@@ -1516,7 +1516,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 197.",
         difficulty: "Moderate",
-        topic: 197
+        topic: "197"
     },
     {
         id: "geo-198",
@@ -1525,7 +1525,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 198.",
         difficulty: "Moderate",
-        topic: 198
+        topic: "198"
     },
     {
         id: "geo-199",
@@ -1534,7 +1534,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 199.",
         difficulty: "Moderate",
-        topic: 199
+        topic: "199"
     },
     {
         id: "geo-200",
@@ -1543,7 +1543,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 200.",
         difficulty: "Moderate",
-        topic: 200
+        topic: "200"
     },
     {
         id: "geo-201",
@@ -1552,7 +1552,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 201.",
         difficulty: "Moderate",
-        topic: 201
+        topic: "201"
     },
     {
         id: "geo-202",
@@ -1561,7 +1561,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 202.",
         difficulty: "Moderate",
-        topic: 202
+        topic: "202"
     },
     {
         id: "geo-203",
@@ -1570,7 +1570,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 203.",
         difficulty: "Moderate",
-        topic: 203
+        topic: "203"
     },
     {
         id: "geo-204",
@@ -1579,7 +1579,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 204.",
         difficulty: "Moderate",
-        topic: 204
+        topic: "204"
     },
     {
         id: "geo-205",
@@ -1588,7 +1588,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 205.",
         difficulty: "Moderate",
-        topic: 205
+        topic: "205"
     },
     {
         id: "geo-206",
@@ -1597,7 +1597,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 206.",
         difficulty: "Moderate",
-        topic: 206
+        topic: "206"
     },
     {
         id: "geo-207",
@@ -1606,7 +1606,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 207.",
         difficulty: "Moderate",
-        topic: 207
+        topic: "207"
     },
     {
         id: "geo-208",
@@ -1615,7 +1615,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 208.",
         difficulty: "Moderate",
-        topic: 208
+        topic: "208"
     },
     {
         id: "geo-209",
@@ -1624,7 +1624,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 209.",
         difficulty: "Moderate",
-        topic: 209
+        topic: "209"
     },
     {
         id: "geo-210",
@@ -1633,7 +1633,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 210.",
         difficulty: "Moderate",
-        topic: 210
+        topic: "210"
     },
     {
         id: "geo-211",
@@ -1642,7 +1642,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 211.",
         difficulty: "Moderate",
-        topic: 211
+        topic: "211"
     },
     {
         id: "geo-212",
@@ -1651,7 +1651,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 212.",
         difficulty: "Moderate",
-        topic: 212
+        topic: "212"
     },
     {
         id: "geo-213",
@@ -1660,7 +1660,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 213.",
         difficulty: "Moderate",
-        topic: 213
+        topic: "213"
     },
     {
         id: "geo-214",
@@ -1669,7 +1669,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 214.",
         difficulty: "Moderate",
-        topic: 214
+        topic: "214"
     },
     {
         id: "geo-215",
@@ -1678,7 +1678,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 215.",
         difficulty: "Moderate",
-        topic: 215
+        topic: "215"
     },
     {
         id: "geo-216",
@@ -1687,7 +1687,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 216.",
         difficulty: "Moderate",
-        topic: 216
+        topic: "216"
     },
     {
         id: "geo-217",
@@ -1696,7 +1696,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 217.",
         difficulty: "Moderate",
-        topic: 217
+        topic: "217"
     },
     {
         id: "geo-218",
@@ -1705,7 +1705,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 218.",
         difficulty: "Moderate",
-        topic: 218
+        topic: "218"
     },
     {
         id: "geo-219",
@@ -1714,7 +1714,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 219.",
         difficulty: "Moderate",
-        topic: 219
+        topic: "219"
     },
     {
         id: "geo-220",
@@ -1723,7 +1723,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 220.",
         difficulty: "Moderate",
-        topic: 220
+        topic: "220"
     },
     {
         id: "geo-221",
@@ -1732,7 +1732,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 221.",
         difficulty: "Moderate",
-        topic: 221
+        topic: "221"
     },
     {
         id: "geo-222",
@@ -1741,7 +1741,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 222.",
         difficulty: "Moderate",
-        topic: 222
+        topic: "222"
     },
     {
         id: "geo-223",
@@ -1750,7 +1750,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 223.",
         difficulty: "Moderate",
-        topic: 223
+        topic: "223"
     },
     {
         id: "geo-224",
@@ -1759,7 +1759,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 224.",
         difficulty: "Moderate",
-        topic: 224
+        topic: "224"
     },
     {
         id: "geo-225",
@@ -1768,7 +1768,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 225.",
         difficulty: "Moderate",
-        topic: 225
+        topic: "225"
     },
     {
         id: "geo-226",
@@ -1777,7 +1777,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 226.",
         difficulty: "Moderate",
-        topic: 226
+        topic: "226"
     },
     {
         id: "geo-227",
@@ -1786,7 +1786,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 227.",
         difficulty: "Moderate",
-        topic: 227
+        topic: "227"
     },
     {
         id: "geo-228",
@@ -1795,7 +1795,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 228.",
         difficulty: "Moderate",
-        topic: 228
+        topic: "228"
     },
     {
         id: "geo-229",
@@ -1804,7 +1804,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 229.",
         difficulty: "Moderate",
-        topic: 229
+        topic: "229"
     },
     {
         id: "geo-230",
@@ -1813,7 +1813,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Climatology topic 230.",
         difficulty: "Moderate",
-        topic: 230
+        topic: "230"
     },
     {
         id: "geo-300",
@@ -1822,7 +1822,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 300.",
         difficulty: "Moderate",
-        topic: 300
+        topic: "300"
     },
     {
         id: "geo-301",
@@ -1831,7 +1831,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 301.",
         difficulty: "Moderate",
-        topic: 301
+        topic: "301"
     },
     {
         id: "geo-302",
@@ -1840,7 +1840,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 302.",
         difficulty: "Moderate",
-        topic: 302
+        topic: "302"
     },
     {
         id: "geo-303",
@@ -1849,7 +1849,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 303.",
         difficulty: "Moderate",
-        topic: 303
+        topic: "303"
     },
     {
         id: "geo-304",
@@ -1858,7 +1858,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 304.",
         difficulty: "Moderate",
-        topic: 304
+        topic: "304"
     },
     {
         id: "geo-305",
@@ -1867,7 +1867,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 305.",
         difficulty: "Moderate",
-        topic: 305
+        topic: "305"
     },
     {
         id: "geo-306",
@@ -1876,7 +1876,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 306.",
         difficulty: "Moderate",
-        topic: 306
+        topic: "306"
     },
     {
         id: "geo-307",
@@ -1885,7 +1885,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 307.",
         difficulty: "Moderate",
-        topic: 307
+        topic: "307"
     },
     {
         id: "geo-308",
@@ -1894,7 +1894,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 308.",
         difficulty: "Moderate",
-        topic: 308
+        topic: "308"
     },
     {
         id: "geo-309",
@@ -1903,7 +1903,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 309.",
         difficulty: "Moderate",
-        topic: 309
+        topic: "309"
     },
     {
         id: "geo-310",
@@ -1912,7 +1912,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 310.",
         difficulty: "Moderate",
-        topic: 310
+        topic: "310"
     },
     {
         id: "geo-311",
@@ -1921,7 +1921,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 311.",
         difficulty: "Moderate",
-        topic: 311
+        topic: "311"
     },
     {
         id: "geo-312",
@@ -1930,7 +1930,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 312.",
         difficulty: "Moderate",
-        topic: 312
+        topic: "312"
     },
     {
         id: "geo-313",
@@ -1939,7 +1939,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 313.",
         difficulty: "Moderate",
-        topic: 313
+        topic: "313"
     },
     {
         id: "geo-314",
@@ -1948,7 +1948,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 314.",
         difficulty: "Moderate",
-        topic: 314
+        topic: "314"
     },
     {
         id: "geo-315",
@@ -1957,7 +1957,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 315.",
         difficulty: "Moderate",
-        topic: 315
+        topic: "315"
     },
     {
         id: "geo-316",
@@ -1966,7 +1966,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 316.",
         difficulty: "Moderate",
-        topic: 316
+        topic: "316"
     },
     {
         id: "geo-317",
@@ -1975,7 +1975,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 317.",
         difficulty: "Moderate",
-        topic: 317
+        topic: "317"
     },
     {
         id: "geo-318",
@@ -1984,7 +1984,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 318.",
         difficulty: "Moderate",
-        topic: 318
+        topic: "318"
     },
     {
         id: "geo-319",
@@ -1993,7 +1993,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 319.",
         difficulty: "Moderate",
-        topic: 319
+        topic: "319"
     },
     {
         id: "geo-320",
@@ -2002,7 +2002,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 320.",
         difficulty: "Moderate",
-        topic: 320
+        topic: "320"
     },
     {
         id: "geo-321",
@@ -2011,7 +2011,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 321.",
         difficulty: "Moderate",
-        topic: 321
+        topic: "321"
     },
     {
         id: "geo-322",
@@ -2020,7 +2020,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 322.",
         difficulty: "Moderate",
-        topic: 322
+        topic: "322"
     },
     {
         id: "geo-323",
@@ -2029,7 +2029,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 323.",
         difficulty: "Moderate",
-        topic: 323
+        topic: "323"
     },
     {
         id: "geo-324",
@@ -2038,7 +2038,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 324.",
         difficulty: "Moderate",
-        topic: 324
+        topic: "324"
     },
     {
         id: "geo-325",
@@ -2047,7 +2047,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 325.",
         difficulty: "Moderate",
-        topic: 325
+        topic: "325"
     },
     {
         id: "geo-326",
@@ -2056,7 +2056,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 326.",
         difficulty: "Moderate",
-        topic: 326
+        topic: "326"
     },
     {
         id: "geo-327",
@@ -2065,7 +2065,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 327.",
         difficulty: "Moderate",
-        topic: 327
+        topic: "327"
     },
     {
         id: "geo-328",
@@ -2074,7 +2074,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 328.",
         difficulty: "Moderate",
-        topic: 328
+        topic: "328"
     },
     {
         id: "geo-329",
@@ -2083,7 +2083,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 329.",
         difficulty: "Moderate",
-        topic: 329
+        topic: "329"
     },
     {
         id: "geo-330",
@@ -2092,7 +2092,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 330.",
         difficulty: "Moderate",
-        topic: 330
+        topic: "330"
     },
     {
         id: "geo-331",
@@ -2101,7 +2101,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 331.",
         difficulty: "Moderate",
-        topic: 331
+        topic: "331"
     },
     {
         id: "geo-332",
@@ -2110,7 +2110,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 332.",
         difficulty: "Moderate",
-        topic: 332
+        topic: "332"
     },
     {
         id: "geo-333",
@@ -2119,7 +2119,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 333.",
         difficulty: "Moderate",
-        topic: 333
+        topic: "333"
     },
     {
         id: "geo-334",
@@ -2128,7 +2128,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 334.",
         difficulty: "Moderate",
-        topic: 334
+        topic: "334"
     },
     {
         id: "geo-335",
@@ -2137,7 +2137,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 335.",
         difficulty: "Moderate",
-        topic: 335
+        topic: "335"
     },
     {
         id: "geo-336",
@@ -2146,7 +2146,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 336.",
         difficulty: "Moderate",
-        topic: 336
+        topic: "336"
     },
     {
         id: "geo-337",
@@ -2155,7 +2155,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 337.",
         difficulty: "Moderate",
-        topic: 337
+        topic: "337"
     },
     {
         id: "geo-338",
@@ -2164,7 +2164,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 338.",
         difficulty: "Moderate",
-        topic: 338
+        topic: "338"
     },
     {
         id: "geo-339",
@@ -2173,7 +2173,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 339.",
         difficulty: "Moderate",
-        topic: 339
+        topic: "339"
     },
     {
         id: "geo-340",
@@ -2182,7 +2182,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 340.",
         difficulty: "Moderate",
-        topic: 340
+        topic: "340"
     },
     {
         id: "geo-341",
@@ -2191,7 +2191,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 341.",
         difficulty: "Moderate",
-        topic: 341
+        topic: "341"
     },
     {
         id: "geo-342",
@@ -2200,7 +2200,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 342.",
         difficulty: "Moderate",
-        topic: 342
+        topic: "342"
     },
     {
         id: "geo-343",
@@ -2209,7 +2209,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 343.",
         difficulty: "Moderate",
-        topic: 343
+        topic: "343"
     },
     {
         id: "geo-344",
@@ -2218,7 +2218,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 344.",
         difficulty: "Moderate",
-        topic: 344
+        topic: "344"
     },
     {
         id: "geo-345",
@@ -2227,7 +2227,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 345.",
         difficulty: "Moderate",
-        topic: 345
+        topic: "345"
     },
     {
         id: "geo-346",
@@ -2236,7 +2236,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 346.",
         difficulty: "Moderate",
-        topic: 346
+        topic: "346"
     },
     {
         id: "geo-347",
@@ -2245,7 +2245,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 347.",
         difficulty: "Moderate",
-        topic: 347
+        topic: "347"
     },
     {
         id: "geo-348",
@@ -2254,7 +2254,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 348.",
         difficulty: "Moderate",
-        topic: 348
+        topic: "348"
     },
     {
         id: "geo-349",
@@ -2263,7 +2263,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 349.",
         difficulty: "Moderate",
-        topic: 349
+        topic: "349"
     },
     {
         id: "geo-350",
@@ -2272,7 +2272,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 350.",
         difficulty: "Moderate",
-        topic: 350
+        topic: "350"
     },
     {
         id: "geo-351",
@@ -2281,7 +2281,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 351.",
         difficulty: "Moderate",
-        topic: 351
+        topic: "351"
     },
     {
         id: "geo-352",
@@ -2290,7 +2290,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 352.",
         difficulty: "Moderate",
-        topic: 352
+        topic: "352"
     },
     {
         id: "geo-353",
@@ -2299,7 +2299,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 353.",
         difficulty: "Moderate",
-        topic: 353
+        topic: "353"
     },
     {
         id: "geo-354",
@@ -2308,7 +2308,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 354.",
         difficulty: "Moderate",
-        topic: 354
+        topic: "354"
     },
     {
         id: "geo-355",
@@ -2317,7 +2317,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 355.",
         difficulty: "Moderate",
-        topic: 355
+        topic: "355"
     },
     {
         id: "geo-356",
@@ -2326,7 +2326,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 356.",
         difficulty: "Moderate",
-        topic: 356
+        topic: "356"
     },
     {
         id: "geo-357",
@@ -2335,7 +2335,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 357.",
         difficulty: "Moderate",
-        topic: 357
+        topic: "357"
     },
     {
         id: "geo-358",
@@ -2344,7 +2344,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 358.",
         difficulty: "Moderate",
-        topic: 358
+        topic: "358"
     },
     {
         id: "geo-359",
@@ -2353,7 +2353,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 359.",
         difficulty: "Moderate",
-        topic: 359
+        topic: "359"
     },
     {
         id: "geo-360",
@@ -2362,7 +2362,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 360.",
         difficulty: "Moderate",
-        topic: 360
+        topic: "360"
     },
     {
         id: "geo-361",
@@ -2371,7 +2371,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 361.",
         difficulty: "Moderate",
-        topic: 361
+        topic: "361"
     },
     {
         id: "geo-362",
@@ -2380,7 +2380,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 362.",
         difficulty: "Moderate",
-        topic: 362
+        topic: "362"
     },
     {
         id: "geo-363",
@@ -2389,7 +2389,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 363.",
         difficulty: "Moderate",
-        topic: 363
+        topic: "363"
     },
     {
         id: "geo-364",
@@ -2398,7 +2398,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 364.",
         difficulty: "Moderate",
-        topic: 364
+        topic: "364"
     },
     {
         id: "geo-365",
@@ -2407,7 +2407,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 365.",
         difficulty: "Moderate",
-        topic: 365
+        topic: "365"
     },
     {
         id: "geo-366",
@@ -2416,7 +2416,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 366.",
         difficulty: "Moderate",
-        topic: 366
+        topic: "366"
     },
     {
         id: "geo-367",
@@ -2425,7 +2425,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 367.",
         difficulty: "Moderate",
-        topic: 367
+        topic: "367"
     },
     {
         id: "geo-368",
@@ -2434,7 +2434,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 368.",
         difficulty: "Moderate",
-        topic: 368
+        topic: "368"
     },
     {
         id: "geo-369",
@@ -2443,7 +2443,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 369.",
         difficulty: "Moderate",
-        topic: 369
+        topic: "369"
     },
     {
         id: "geo-370",
@@ -2452,7 +2452,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 370.",
         difficulty: "Moderate",
-        topic: 370
+        topic: "370"
     },
     {
         id: "geo-371",
@@ -2461,7 +2461,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 371.",
         difficulty: "Moderate",
-        topic: 371
+        topic: "371"
     },
     {
         id: "geo-372",
@@ -2470,7 +2470,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 372.",
         difficulty: "Moderate",
-        topic: 372
+        topic: "372"
     },
     {
         id: "geo-373",
@@ -2479,7 +2479,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 373.",
         difficulty: "Moderate",
-        topic: 373
+        topic: "373"
     },
     {
         id: "geo-374",
@@ -2488,7 +2488,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 374.",
         difficulty: "Moderate",
-        topic: 374
+        topic: "374"
     },
     {
         id: "geo-375",
@@ -2497,7 +2497,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 375.",
         difficulty: "Moderate",
-        topic: 375
+        topic: "375"
     },
     {
         id: "geo-376",
@@ -2506,7 +2506,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 376.",
         difficulty: "Moderate",
-        topic: 376
+        topic: "376"
     },
     {
         id: "geo-377",
@@ -2515,7 +2515,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 377.",
         difficulty: "Moderate",
-        topic: 377
+        topic: "377"
     },
     {
         id: "geo-378",
@@ -2524,7 +2524,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 378.",
         difficulty: "Moderate",
-        topic: 378
+        topic: "378"
     },
     {
         id: "geo-379",
@@ -2533,7 +2533,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 379.",
         difficulty: "Moderate",
-        topic: 379
+        topic: "379"
     },
     {
         id: "geo-380",
@@ -2542,7 +2542,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 380.",
         difficulty: "Moderate",
-        topic: 380
+        topic: "380"
     },
     {
         id: "geo-381",
@@ -2551,7 +2551,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 381.",
         difficulty: "Moderate",
-        topic: 381
+        topic: "381"
     },
     {
         id: "geo-382",
@@ -2560,7 +2560,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 382.",
         difficulty: "Moderate",
-        topic: 382
+        topic: "382"
     },
     {
         id: "geo-383",
@@ -2569,7 +2569,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 383.",
         difficulty: "Moderate",
-        topic: 383
+        topic: "383"
     },
     {
         id: "geo-384",
@@ -2578,7 +2578,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 384.",
         difficulty: "Moderate",
-        topic: 384
+        topic: "384"
     },
     {
         id: "geo-385",
@@ -2587,7 +2587,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 385.",
         difficulty: "Moderate",
-        topic: 385
+        topic: "385"
     },
     {
         id: "geo-386",
@@ -2596,7 +2596,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 386.",
         difficulty: "Moderate",
-        topic: 386
+        topic: "386"
     },
     {
         id: "geo-387",
@@ -2605,7 +2605,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 387.",
         difficulty: "Moderate",
-        topic: 387
+        topic: "387"
     },
     {
         id: "geo-388",
@@ -2614,7 +2614,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 388.",
         difficulty: "Moderate",
-        topic: 388
+        topic: "388"
     },
     {
         id: "geo-389",
@@ -2623,7 +2623,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 389.",
         difficulty: "Moderate",
-        topic: 389
+        topic: "389"
     },
     {
         id: "geo-390",
@@ -2632,7 +2632,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 390.",
         difficulty: "Moderate",
-        topic: 390
+        topic: "390"
     },
     {
         id: "geo-391",
@@ -2641,7 +2641,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 391.",
         difficulty: "Moderate",
-        topic: 391
+        topic: "391"
     },
     {
         id: "geo-392",
@@ -2650,7 +2650,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 392.",
         difficulty: "Moderate",
-        topic: 392
+        topic: "392"
     },
     {
         id: "geo-393",
@@ -2659,7 +2659,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 393.",
         difficulty: "Moderate",
-        topic: 393
+        topic: "393"
     },
     {
         id: "geo-394",
@@ -2668,7 +2668,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 394.",
         difficulty: "Moderate",
-        topic: 394
+        topic: "394"
     },
     {
         id: "geo-395",
@@ -2677,7 +2677,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 395.",
         difficulty: "Moderate",
-        topic: 395
+        topic: "395"
     },
     {
         id: "geo-396",
@@ -2686,7 +2686,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 396.",
         difficulty: "Moderate",
-        topic: 396
+        topic: "396"
     },
     {
         id: "geo-397",
@@ -2695,7 +2695,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 397.",
         difficulty: "Moderate",
-        topic: 397
+        topic: "397"
     },
     {
         id: "geo-398",
@@ -2704,7 +2704,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 398.",
         difficulty: "Moderate",
-        topic: 398
+        topic: "398"
     },
     {
         id: "geo-399",
@@ -2713,7 +2713,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 399.",
         difficulty: "Moderate",
-        topic: 399
+        topic: "399"
     },
     {
         id: "geo-400",
@@ -2722,7 +2722,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 400.",
         difficulty: "Moderate",
-        topic: 400
+        topic: "400"
     },
     {
         id: "geo-401",
@@ -2731,7 +2731,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 401.",
         difficulty: "Moderate",
-        topic: 401
+        topic: "401"
     },
     {
         id: "geo-402",
@@ -2740,7 +2740,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 402.",
         difficulty: "Moderate",
-        topic: 402
+        topic: "402"
     },
     {
         id: "geo-403",
@@ -2749,7 +2749,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 403.",
         difficulty: "Moderate",
-        topic: 403
+        topic: "403"
     },
     {
         id: "geo-404",
@@ -2758,7 +2758,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 404.",
         difficulty: "Moderate",
-        topic: 404
+        topic: "404"
     },
     {
         id: "geo-405",
@@ -2767,7 +2767,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 405.",
         difficulty: "Moderate",
-        topic: 405
+        topic: "405"
     },
     {
         id: "geo-406",
@@ -2776,7 +2776,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 406.",
         difficulty: "Moderate",
-        topic: 406
+        topic: "406"
     },
     {
         id: "geo-407",
@@ -2785,7 +2785,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 407.",
         difficulty: "Moderate",
-        topic: 407
+        topic: "407"
     },
     {
         id: "geo-408",
@@ -2794,7 +2794,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 408.",
         difficulty: "Moderate",
-        topic: 408
+        topic: "408"
     },
     {
         id: "geo-409",
@@ -2803,7 +2803,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 409.",
         difficulty: "Moderate",
-        topic: 409
+        topic: "409"
     },
     {
         id: "geo-410",
@@ -2812,7 +2812,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 410.",
         difficulty: "Moderate",
-        topic: 410
+        topic: "410"
     },
     {
         id: "geo-411",
@@ -2821,7 +2821,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 411.",
         difficulty: "Moderate",
-        topic: 411
+        topic: "411"
     },
     {
         id: "geo-412",
@@ -2830,7 +2830,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 412.",
         difficulty: "Moderate",
-        topic: 412
+        topic: "412"
     },
     {
         id: "geo-413",
@@ -2839,7 +2839,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Oceanography topic 413.",
         difficulty: "Moderate",
-        topic: 413
+        topic: "413"
     },
     {
         id: "geo-500",
@@ -2848,7 +2848,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 500.",
         difficulty: "Moderate",
-        topic: 500
+        topic: "500"
     },
     {
         id: "geo-501",
@@ -2857,7 +2857,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 501.",
         difficulty: "Moderate",
-        topic: 501
+        topic: "501"
     },
     {
         id: "geo-502",
@@ -2866,7 +2866,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 502.",
         difficulty: "Moderate",
-        topic: 502
+        topic: "502"
     },
     {
         id: "geo-503",
@@ -2875,7 +2875,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 503.",
         difficulty: "Moderate",
-        topic: 503
+        topic: "503"
     },
     {
         id: "geo-504",
@@ -2884,7 +2884,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 504.",
         difficulty: "Moderate",
-        topic: 504
+        topic: "504"
     },
     {
         id: "geo-505",
@@ -2893,7 +2893,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 505.",
         difficulty: "Moderate",
-        topic: 505
+        topic: "505"
     },
     {
         id: "geo-506",
@@ -2902,7 +2902,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 506.",
         difficulty: "Moderate",
-        topic: 506
+        topic: "506"
     },
     {
         id: "geo-507",
@@ -2911,7 +2911,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 507.",
         difficulty: "Moderate",
-        topic: 507
+        topic: "507"
     },
     {
         id: "geo-508",
@@ -2920,7 +2920,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 508.",
         difficulty: "Moderate",
-        topic: 508
+        topic: "508"
     },
     {
         id: "geo-509",
@@ -2929,7 +2929,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 509.",
         difficulty: "Moderate",
-        topic: 509
+        topic: "509"
     },
     {
         id: "geo-510",
@@ -2938,7 +2938,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 510.",
         difficulty: "Moderate",
-        topic: 510
+        topic: "510"
     },
     {
         id: "geo-511",
@@ -2947,7 +2947,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 511.",
         difficulty: "Moderate",
-        topic: 511
+        topic: "511"
     },
     {
         id: "geo-512",
@@ -2956,7 +2956,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 512.",
         difficulty: "Moderate",
-        topic: 512
+        topic: "512"
     },
     {
         id: "geo-513",
@@ -2965,7 +2965,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 513.",
         difficulty: "Moderate",
-        topic: 513
+        topic: "513"
     },
     {
         id: "geo-514",
@@ -2974,7 +2974,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 514.",
         difficulty: "Moderate",
-        topic: 514
+        topic: "514"
     },
     {
         id: "geo-515",
@@ -2983,7 +2983,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 515.",
         difficulty: "Moderate",
-        topic: 515
+        topic: "515"
     },
     {
         id: "geo-516",
@@ -2992,7 +2992,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 516.",
         difficulty: "Moderate",
-        topic: 516
+        topic: "516"
     },
     {
         id: "geo-517",
@@ -3001,7 +3001,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 517.",
         difficulty: "Moderate",
-        topic: 517
+        topic: "517"
     },
     {
         id: "geo-518",
@@ -3010,7 +3010,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 518.",
         difficulty: "Moderate",
-        topic: 518
+        topic: "518"
     },
     {
         id: "geo-519",
@@ -3019,7 +3019,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 519.",
         difficulty: "Moderate",
-        topic: 519
+        topic: "519"
     },
     {
         id: "geo-520",
@@ -3028,7 +3028,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 520.",
         difficulty: "Moderate",
-        topic: 520
+        topic: "520"
     },
     {
         id: "geo-521",
@@ -3037,7 +3037,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 521.",
         difficulty: "Moderate",
-        topic: 521
+        topic: "521"
     },
     {
         id: "geo-522",
@@ -3046,7 +3046,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 522.",
         difficulty: "Moderate",
-        topic: 522
+        topic: "522"
     },
     {
         id: "geo-523",
@@ -3055,7 +3055,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 523.",
         difficulty: "Moderate",
-        topic: 523
+        topic: "523"
     },
     {
         id: "geo-524",
@@ -3064,7 +3064,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 524.",
         difficulty: "Moderate",
-        topic: 524
+        topic: "524"
     },
     {
         id: "geo-525",
@@ -3073,7 +3073,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 525.",
         difficulty: "Moderate",
-        topic: 525
+        topic: "525"
     },
     {
         id: "geo-526",
@@ -3082,7 +3082,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 526.",
         difficulty: "Moderate",
-        topic: 526
+        topic: "526"
     },
     {
         id: "geo-527",
@@ -3091,7 +3091,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 527.",
         difficulty: "Moderate",
-        topic: 527
+        topic: "527"
     },
     {
         id: "geo-528",
@@ -3100,7 +3100,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 528.",
         difficulty: "Moderate",
-        topic: 528
+        topic: "528"
     },
     {
         id: "geo-529",
@@ -3109,7 +3109,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 529.",
         difficulty: "Moderate",
-        topic: 529
+        topic: "529"
     },
     {
         id: "geo-530",
@@ -3118,7 +3118,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 530.",
         difficulty: "Moderate",
-        topic: 530
+        topic: "530"
     },
     {
         id: "geo-531",
@@ -3127,7 +3127,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 531.",
         difficulty: "Moderate",
-        topic: 531
+        topic: "531"
     },
     {
         id: "geo-532",
@@ -3136,7 +3136,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 532.",
         difficulty: "Moderate",
-        topic: 532
+        topic: "532"
     },
     {
         id: "geo-533",
@@ -3145,7 +3145,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 533.",
         difficulty: "Moderate",
-        topic: 533
+        topic: "533"
     },
     {
         id: "geo-534",
@@ -3154,7 +3154,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 534.",
         difficulty: "Moderate",
-        topic: 534
+        topic: "534"
     },
     {
         id: "geo-535",
@@ -3163,7 +3163,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 535.",
         difficulty: "Moderate",
-        topic: 535
+        topic: "535"
     },
     {
         id: "geo-536",
@@ -3172,7 +3172,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 536.",
         difficulty: "Moderate",
-        topic: 536
+        topic: "536"
     },
     {
         id: "geo-537",
@@ -3181,7 +3181,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 537.",
         difficulty: "Moderate",
-        topic: 537
+        topic: "537"
     },
     {
         id: "geo-538",
@@ -3190,7 +3190,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 538.",
         difficulty: "Moderate",
-        topic: 538
+        topic: "538"
     },
     {
         id: "geo-539",
@@ -3199,7 +3199,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 539.",
         difficulty: "Moderate",
-        topic: 539
+        topic: "539"
     },
     {
         id: "geo-540",
@@ -3208,7 +3208,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 540.",
         difficulty: "Moderate",
-        topic: 540
+        topic: "540"
     },
     {
         id: "geo-541",
@@ -3217,7 +3217,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 541.",
         difficulty: "Moderate",
-        topic: 541
+        topic: "541"
     },
     {
         id: "geo-542",
@@ -3226,7 +3226,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 542.",
         difficulty: "Moderate",
-        topic: 542
+        topic: "542"
     },
     {
         id: "geo-543",
@@ -3235,7 +3235,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 543.",
         difficulty: "Moderate",
-        topic: 543
+        topic: "543"
     },
     {
         id: "geo-544",
@@ -3244,7 +3244,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 544.",
         difficulty: "Moderate",
-        topic: 544
+        topic: "544"
     },
     {
         id: "geo-545",
@@ -3253,7 +3253,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 545.",
         difficulty: "Moderate",
-        topic: 545
+        topic: "545"
     },
     {
         id: "geo-546",
@@ -3262,7 +3262,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 546.",
         difficulty: "Moderate",
-        topic: 546
+        topic: "546"
     },
     {
         id: "geo-547",
@@ -3271,7 +3271,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 547.",
         difficulty: "Moderate",
-        topic: 547
+        topic: "547"
     },
     {
         id: "geo-548",
@@ -3280,7 +3280,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 548.",
         difficulty: "Moderate",
-        topic: 548
+        topic: "548"
     },
     {
         id: "geo-549",
@@ -3289,7 +3289,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 549.",
         difficulty: "Moderate",
-        topic: 549
+        topic: "549"
     },
     {
         id: "geo-550",
@@ -3298,7 +3298,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 550.",
         difficulty: "Moderate",
-        topic: 550
+        topic: "550"
     },
     {
         id: "geo-551",
@@ -3307,7 +3307,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 551.",
         difficulty: "Moderate",
-        topic: 551
+        topic: "551"
     },
     {
         id: "geo-552",
@@ -3316,7 +3316,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 552.",
         difficulty: "Moderate",
-        topic: 552
+        topic: "552"
     },
     {
         id: "geo-553",
@@ -3325,7 +3325,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 553.",
         difficulty: "Moderate",
-        topic: 553
+        topic: "553"
     },
     {
         id: "geo-554",
@@ -3334,7 +3334,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 554.",
         difficulty: "Moderate",
-        topic: 554
+        topic: "554"
     },
     {
         id: "geo-555",
@@ -3343,7 +3343,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 555.",
         difficulty: "Moderate",
-        topic: 555
+        topic: "555"
     },
     {
         id: "geo-556",
@@ -3352,7 +3352,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 556.",
         difficulty: "Moderate",
-        topic: 556
+        topic: "556"
     },
     {
         id: "geo-557",
@@ -3361,7 +3361,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 557.",
         difficulty: "Moderate",
-        topic: 557
+        topic: "557"
     },
     {
         id: "geo-558",
@@ -3370,7 +3370,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 558.",
         difficulty: "Moderate",
-        topic: 558
+        topic: "558"
     },
     {
         id: "geo-559",
@@ -3379,7 +3379,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 559.",
         difficulty: "Moderate",
-        topic: 559
+        topic: "559"
     },
     {
         id: "geo-560",
@@ -3388,7 +3388,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 560.",
         difficulty: "Moderate",
-        topic: 560
+        topic: "560"
     },
     {
         id: "geo-561",
@@ -3397,7 +3397,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 561.",
         difficulty: "Moderate",
-        topic: 561
+        topic: "561"
     },
     {
         id: "geo-562",
@@ -3406,7 +3406,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 562.",
         difficulty: "Moderate",
-        topic: 562
+        topic: "562"
     },
     {
         id: "geo-563",
@@ -3415,7 +3415,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 563.",
         difficulty: "Moderate",
-        topic: 563
+        topic: "563"
     },
     {
         id: "geo-564",
@@ -3424,7 +3424,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 564.",
         difficulty: "Moderate",
-        topic: 564
+        topic: "564"
     },
     {
         id: "geo-565",
@@ -3433,7 +3433,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 565.",
         difficulty: "Moderate",
-        topic: 565
+        topic: "565"
     },
     {
         id: "geo-566",
@@ -3442,7 +3442,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 566.",
         difficulty: "Moderate",
-        topic: 566
+        topic: "566"
     },
     {
         id: "geo-567",
@@ -3451,7 +3451,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 567.",
         difficulty: "Moderate",
-        topic: 567
+        topic: "567"
     },
     {
         id: "geo-568",
@@ -3460,7 +3460,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 568.",
         difficulty: "Moderate",
-        topic: 568
+        topic: "568"
     },
     {
         id: "geo-569",
@@ -3469,7 +3469,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 569.",
         difficulty: "Moderate",
-        topic: 569
+        topic: "569"
     },
     {
         id: "geo-570",
@@ -3478,7 +3478,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 570.",
         difficulty: "Moderate",
-        topic: 570
+        topic: "570"
     },
     {
         id: "geo-571",
@@ -3487,7 +3487,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 571.",
         difficulty: "Moderate",
-        topic: 571
+        topic: "571"
     },
     {
         id: "geo-572",
@@ -3496,7 +3496,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 572.",
         difficulty: "Moderate",
-        topic: 572
+        topic: "572"
     },
     {
         id: "geo-573",
@@ -3505,7 +3505,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 573.",
         difficulty: "Moderate",
-        topic: 573
+        topic: "573"
     },
     {
         id: "geo-574",
@@ -3514,7 +3514,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 574.",
         difficulty: "Moderate",
-        topic: 574
+        topic: "574"
     },
     {
         id: "geo-575",
@@ -3523,7 +3523,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 575.",
         difficulty: "Moderate",
-        topic: 575
+        topic: "575"
     },
     {
         id: "geo-576",
@@ -3532,7 +3532,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 576.",
         difficulty: "Moderate",
-        topic: 576
+        topic: "576"
     },
     {
         id: "geo-577",
@@ -3541,7 +3541,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 577.",
         difficulty: "Moderate",
-        topic: 577
+        topic: "577"
     },
     {
         id: "geo-578",
@@ -3550,7 +3550,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 578.",
         difficulty: "Moderate",
-        topic: 578
+        topic: "578"
     },
     {
         id: "geo-579",
@@ -3559,7 +3559,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 579.",
         difficulty: "Moderate",
-        topic: 579
+        topic: "579"
     },
     {
         id: "geo-580",
@@ -3568,7 +3568,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 580.",
         difficulty: "Moderate",
-        topic: 580
+        topic: "580"
     },
     {
         id: "geo-581",
@@ -3577,7 +3577,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 581.",
         difficulty: "Moderate",
-        topic: 581
+        topic: "581"
     },
     {
         id: "geo-582",
@@ -3586,7 +3586,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 582.",
         difficulty: "Moderate",
-        topic: 582
+        topic: "582"
     },
     {
         id: "geo-583",
@@ -3595,7 +3595,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 583.",
         difficulty: "Moderate",
-        topic: 583
+        topic: "583"
     },
     {
         id: "geo-584",
@@ -3604,7 +3604,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 584.",
         difficulty: "Moderate",
-        topic: 584
+        topic: "584"
     },
     {
         id: "geo-585",
@@ -3613,7 +3613,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 585.",
         difficulty: "Moderate",
-        topic: 585
+        topic: "585"
     },
     {
         id: "geo-586",
@@ -3622,7 +3622,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 586.",
         difficulty: "Moderate",
-        topic: 586
+        topic: "586"
     },
     {
         id: "geo-587",
@@ -3631,7 +3631,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 587.",
         difficulty: "Moderate",
-        topic: 587
+        topic: "587"
     },
     {
         id: "geo-588",
@@ -3640,7 +3640,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 588.",
         difficulty: "Moderate",
-        topic: 588
+        topic: "588"
     },
     {
         id: "geo-589",
@@ -3649,7 +3649,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 589.",
         difficulty: "Moderate",
-        topic: 589
+        topic: "589"
     },
     {
         id: "geo-590",
@@ -3658,7 +3658,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 590.",
         difficulty: "Moderate",
-        topic: 590
+        topic: "590"
     },
     {
         id: "geo-591",
@@ -3667,7 +3667,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 591.",
         difficulty: "Moderate",
-        topic: 591
+        topic: "591"
     },
     {
         id: "geo-592",
@@ -3676,7 +3676,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 592.",
         difficulty: "Moderate",
-        topic: 592
+        topic: "592"
     },
     {
         id: "geo-593",
@@ -3685,7 +3685,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 593.",
         difficulty: "Moderate",
-        topic: 593
+        topic: "593"
     },
     {
         id: "geo-594",
@@ -3694,7 +3694,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 594.",
         difficulty: "Moderate",
-        topic: 594
+        topic: "594"
     },
     {
         id: "geo-595",
@@ -3703,7 +3703,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 595.",
         difficulty: "Moderate",
-        topic: 595
+        topic: "595"
     },
     {
         id: "geo-596",
@@ -3712,7 +3712,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 596.",
         difficulty: "Moderate",
-        topic: 596
+        topic: "596"
     },
     {
         id: "geo-597",
@@ -3721,7 +3721,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 597.",
         difficulty: "Moderate",
-        topic: 597
+        topic: "597"
     },
     {
         id: "geo-598",
@@ -3730,7 +3730,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 598.",
         difficulty: "Moderate",
-        topic: 598
+        topic: "598"
     },
     {
         id: "geo-599",
@@ -3739,7 +3739,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 599.",
         difficulty: "Moderate",
-        topic: 599
+        topic: "599"
     },
     {
         id: "geo-600",
@@ -3748,7 +3748,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 600.",
         difficulty: "Moderate",
-        topic: 600
+        topic: "600"
     },
     {
         id: "geo-601",
@@ -3757,7 +3757,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 601.",
         difficulty: "Moderate",
-        topic: 601
+        topic: "601"
     },
     {
         id: "geo-602",
@@ -3766,7 +3766,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 602.",
         difficulty: "Moderate",
-        topic: 602
+        topic: "602"
     },
     {
         id: "geo-603",
@@ -3775,7 +3775,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 603.",
         difficulty: "Moderate",
-        topic: 603
+        topic: "603"
     },
     {
         id: "geo-604",
@@ -3784,7 +3784,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 604.",
         difficulty: "Moderate",
-        topic: 604
+        topic: "604"
     },
     {
         id: "geo-605",
@@ -3793,7 +3793,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 605.",
         difficulty: "Moderate",
-        topic: 605
+        topic: "605"
     },
     {
         id: "geo-606",
@@ -3802,7 +3802,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 606.",
         difficulty: "Moderate",
-        topic: 606
+        topic: "606"
     },
     {
         id: "geo-607",
@@ -3811,7 +3811,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 607.",
         difficulty: "Moderate",
-        topic: 607
+        topic: "607"
     },
     {
         id: "geo-608",
@@ -3820,7 +3820,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 608.",
         difficulty: "Moderate",
-        topic: 608
+        topic: "608"
     },
     {
         id: "geo-609",
@@ -3829,7 +3829,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 609.",
         difficulty: "Moderate",
-        topic: 609
+        topic: "609"
     },
     {
         id: "geo-610",
@@ -3838,7 +3838,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 610.",
         difficulty: "Moderate",
-        topic: 610
+        topic: "610"
     },
     {
         id: "geo-611",
@@ -3847,7 +3847,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 611.",
         difficulty: "Moderate",
-        topic: 611
+        topic: "611"
     },
     {
         id: "geo-612",
@@ -3856,7 +3856,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 612.",
         difficulty: "Moderate",
-        topic: 612
+        topic: "612"
     },
     {
         id: "geo-613",
@@ -3865,7 +3865,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 613.",
         difficulty: "Moderate",
-        topic: 613
+        topic: "613"
     },
     {
         id: "geo-614",
@@ -3874,7 +3874,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 614.",
         difficulty: "Moderate",
-        topic: 614
+        topic: "614"
     },
     {
         id: "geo-615",
@@ -3883,7 +3883,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 615.",
         difficulty: "Moderate",
-        topic: 615
+        topic: "615"
     },
     {
         id: "geo-616",
@@ -3892,7 +3892,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 616.",
         difficulty: "Moderate",
-        topic: 616
+        topic: "616"
     },
     {
         id: "geo-617",
@@ -3901,7 +3901,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 617.",
         difficulty: "Moderate",
-        topic: 617
+        topic: "617"
     },
     {
         id: "geo-618",
@@ -3910,7 +3910,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 618.",
         difficulty: "Moderate",
-        topic: 618
+        topic: "618"
     },
     {
         id: "geo-619",
@@ -3919,7 +3919,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 619.",
         difficulty: "Moderate",
-        topic: 619
+        topic: "619"
     },
     {
         id: "geo-620",
@@ -3928,7 +3928,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 620.",
         difficulty: "Moderate",
-        topic: 620
+        topic: "620"
     },
     {
         id: "geo-621",
@@ -3937,7 +3937,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 621.",
         difficulty: "Moderate",
-        topic: 621
+        topic: "621"
     },
     {
         id: "geo-622",
@@ -3946,7 +3946,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 622.",
         difficulty: "Moderate",
-        topic: 622
+        topic: "622"
     },
     {
         id: "geo-623",
@@ -3955,7 +3955,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 623.",
         difficulty: "Moderate",
-        topic: 623
+        topic: "623"
     },
     {
         id: "geo-624",
@@ -3964,7 +3964,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 624.",
         difficulty: "Moderate",
-        topic: 624
+        topic: "624"
     },
     {
         id: "geo-625",
@@ -3973,7 +3973,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 625.",
         difficulty: "Moderate",
-        topic: 625
+        topic: "625"
     },
     {
         id: "geo-626",
@@ -3982,7 +3982,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 626.",
         difficulty: "Moderate",
-        topic: 626
+        topic: "626"
     },
     {
         id: "geo-627",
@@ -3991,7 +3991,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 627.",
         difficulty: "Moderate",
-        topic: 627
+        topic: "627"
     },
     {
         id: "geo-628",
@@ -4000,7 +4000,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 628.",
         difficulty: "Moderate",
-        topic: 628
+        topic: "628"
     },
     {
         id: "geo-629",
@@ -4009,7 +4009,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 629.",
         difficulty: "Moderate",
-        topic: 629
+        topic: "629"
     },
     {
         id: "geo-630",
@@ -4018,7 +4018,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 630.",
         difficulty: "Moderate",
-        topic: 630
+        topic: "630"
     },
     {
         id: "geo-631",
@@ -4027,7 +4027,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 631.",
         difficulty: "Moderate",
-        topic: 631
+        topic: "631"
     },
     {
         id: "geo-632",
@@ -4036,7 +4036,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 632.",
         difficulty: "Moderate",
-        topic: 632
+        topic: "632"
     },
     {
         id: "geo-633",
@@ -4045,7 +4045,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 633.",
         difficulty: "Moderate",
-        topic: 633
+        topic: "633"
     },
     {
         id: "geo-634",
@@ -4054,7 +4054,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 634.",
         difficulty: "Moderate",
-        topic: 634
+        topic: "634"
     },
     {
         id: "geo-635",
@@ -4063,7 +4063,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 635.",
         difficulty: "Moderate",
-        topic: 635
+        topic: "635"
     },
     {
         id: "geo-636",
@@ -4072,7 +4072,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 636.",
         difficulty: "Moderate",
-        topic: 636
+        topic: "636"
     },
     {
         id: "geo-637",
@@ -4081,7 +4081,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 637.",
         difficulty: "Moderate",
-        topic: 637
+        topic: "637"
     },
     {
         id: "geo-638",
@@ -4090,7 +4090,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 638.",
         difficulty: "Moderate",
-        topic: 638
+        topic: "638"
     },
     {
         id: "geo-639",
@@ -4099,7 +4099,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 639.",
         difficulty: "Moderate",
-        topic: 639
+        topic: "639"
     },
     {
         id: "geo-640",
@@ -4108,7 +4108,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 640.",
         difficulty: "Moderate",
-        topic: 640
+        topic: "640"
     },
     {
         id: "geo-641",
@@ -4117,7 +4117,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 641.",
         difficulty: "Moderate",
-        topic: 641
+        topic: "641"
     },
     {
         id: "geo-642",
@@ -4126,7 +4126,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 642.",
         difficulty: "Moderate",
-        topic: 642
+        topic: "642"
     },
     {
         id: "geo-643",
@@ -4135,7 +4135,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Resource Geography topic 643.",
         difficulty: "Moderate",
-        topic: 643
+        topic: "643"
     },
     {
         id: "geo-700",
@@ -4144,7 +4144,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 700.",
         difficulty: "Moderate",
-        topic: 700
+        topic: "700"
     },
     {
         id: "geo-701",
@@ -4153,7 +4153,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 701.",
         difficulty: "Moderate",
-        topic: 701
+        topic: "701"
     },
     {
         id: "geo-702",
@@ -4162,7 +4162,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 702.",
         difficulty: "Moderate",
-        topic: 702
+        topic: "702"
     },
     {
         id: "geo-703",
@@ -4171,7 +4171,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 703.",
         difficulty: "Moderate",
-        topic: 703
+        topic: "703"
     },
     {
         id: "geo-704",
@@ -4180,7 +4180,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 704.",
         difficulty: "Moderate",
-        topic: 704
+        topic: "704"
     },
     {
         id: "geo-705",
@@ -4189,7 +4189,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 705.",
         difficulty: "Moderate",
-        topic: 705
+        topic: "705"
     },
     {
         id: "geo-706",
@@ -4198,7 +4198,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 706.",
         difficulty: "Moderate",
-        topic: 706
+        topic: "706"
     },
     {
         id: "geo-707",
@@ -4207,7 +4207,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 707.",
         difficulty: "Moderate",
-        topic: 707
+        topic: "707"
     },
     {
         id: "geo-708",
@@ -4216,7 +4216,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 708.",
         difficulty: "Moderate",
-        topic: 708
+        topic: "708"
     },
     {
         id: "geo-709",
@@ -4225,7 +4225,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 709.",
         difficulty: "Moderate",
-        topic: 709
+        topic: "709"
     },
     {
         id: "geo-710",
@@ -4234,7 +4234,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 710.",
         difficulty: "Moderate",
-        topic: 710
+        topic: "710"
     },
     {
         id: "geo-711",
@@ -4243,7 +4243,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 711.",
         difficulty: "Moderate",
-        topic: 711
+        topic: "711"
     },
     {
         id: "geo-712",
@@ -4252,7 +4252,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 712.",
         difficulty: "Moderate",
-        topic: 712
+        topic: "712"
     },
     {
         id: "geo-713",
@@ -4261,7 +4261,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 713.",
         difficulty: "Moderate",
-        topic: 713
+        topic: "713"
     },
     {
         id: "geo-714",
@@ -4270,7 +4270,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 714.",
         difficulty: "Moderate",
-        topic: 714
+        topic: "714"
     },
     {
         id: "geo-715",
@@ -4279,7 +4279,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 715.",
         difficulty: "Moderate",
-        topic: 715
+        topic: "715"
     },
     {
         id: "geo-716",
@@ -4288,7 +4288,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 716.",
         difficulty: "Moderate",
-        topic: 716
+        topic: "716"
     },
     {
         id: "geo-717",
@@ -4297,7 +4297,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 717.",
         difficulty: "Moderate",
-        topic: 717
+        topic: "717"
     },
     {
         id: "geo-718",
@@ -4306,7 +4306,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 718.",
         difficulty: "Moderate",
-        topic: 718
+        topic: "718"
     },
     {
         id: "geo-719",
@@ -4315,7 +4315,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 719.",
         difficulty: "Moderate",
-        topic: 719
+        topic: "719"
     },
     {
         id: "geo-720",
@@ -4324,7 +4324,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 720.",
         difficulty: "Moderate",
-        topic: 720
+        topic: "720"
     },
     {
         id: "geo-721",
@@ -4333,7 +4333,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 721.",
         difficulty: "Moderate",
-        topic: 721
+        topic: "721"
     },
     {
         id: "geo-722",
@@ -4342,7 +4342,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 722.",
         difficulty: "Moderate",
-        topic: 722
+        topic: "722"
     },
     {
         id: "geo-723",
@@ -4351,7 +4351,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 723.",
         difficulty: "Moderate",
-        topic: 723
+        topic: "723"
     },
     {
         id: "geo-724",
@@ -4360,7 +4360,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 724.",
         difficulty: "Moderate",
-        topic: 724
+        topic: "724"
     },
     {
         id: "geo-725",
@@ -4369,7 +4369,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 725.",
         difficulty: "Moderate",
-        topic: 725
+        topic: "725"
     },
     {
         id: "geo-726",
@@ -4378,7 +4378,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 726.",
         difficulty: "Moderate",
-        topic: 726
+        topic: "726"
     },
     {
         id: "geo-727",
@@ -4387,7 +4387,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 727.",
         difficulty: "Moderate",
-        topic: 727
+        topic: "727"
     },
     {
         id: "geo-728",
@@ -4396,7 +4396,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 728.",
         difficulty: "Moderate",
-        topic: 728
+        topic: "728"
     },
     {
         id: "geo-729",
@@ -4405,7 +4405,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 729.",
         difficulty: "Moderate",
-        topic: 729
+        topic: "729"
     },
     {
         id: "geo-730",
@@ -4414,7 +4414,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 730.",
         difficulty: "Moderate",
-        topic: 730
+        topic: "730"
     },
     {
         id: "geo-731",
@@ -4423,7 +4423,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 731.",
         difficulty: "Moderate",
-        topic: 731
+        topic: "731"
     },
     {
         id: "geo-732",
@@ -4432,7 +4432,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 732.",
         difficulty: "Moderate",
-        topic: 732
+        topic: "732"
     },
     {
         id: "geo-733",
@@ -4441,7 +4441,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 733.",
         difficulty: "Moderate",
-        topic: 733
+        topic: "733"
     },
     {
         id: "geo-734",
@@ -4450,7 +4450,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 734.",
         difficulty: "Moderate",
-        topic: 734
+        topic: "734"
     },
     {
         id: "geo-735",
@@ -4459,7 +4459,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 735.",
         difficulty: "Moderate",
-        topic: 735
+        topic: "735"
     },
     {
         id: "geo-736",
@@ -4468,7 +4468,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 736.",
         difficulty: "Moderate",
-        topic: 736
+        topic: "736"
     },
     {
         id: "geo-737",
@@ -4477,7 +4477,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 737.",
         difficulty: "Moderate",
-        topic: 737
+        topic: "737"
     },
     {
         id: "geo-738",
@@ -4486,7 +4486,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 738.",
         difficulty: "Moderate",
-        topic: 738
+        topic: "738"
     },
     {
         id: "geo-739",
@@ -4495,7 +4495,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 739.",
         difficulty: "Moderate",
-        topic: 739
+        topic: "739"
     },
     {
         id: "geo-740",
@@ -4504,7 +4504,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 740.",
         difficulty: "Moderate",
-        topic: 740
+        topic: "740"
     },
     {
         id: "geo-741",
@@ -4513,7 +4513,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 741.",
         difficulty: "Moderate",
-        topic: 741
+        topic: "741"
     },
     {
         id: "geo-742",
@@ -4522,7 +4522,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 742.",
         difficulty: "Moderate",
-        topic: 742
+        topic: "742"
     },
     {
         id: "geo-743",
@@ -4531,7 +4531,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 743.",
         difficulty: "Moderate",
-        topic: 743
+        topic: "743"
     },
     {
         id: "geo-744",
@@ -4540,7 +4540,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 744.",
         difficulty: "Moderate",
-        topic: 744
+        topic: "744"
     },
     {
         id: "geo-745",
@@ -4549,7 +4549,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 745.",
         difficulty: "Moderate",
-        topic: 745
+        topic: "745"
     },
     {
         id: "geo-746",
@@ -4558,7 +4558,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 746.",
         difficulty: "Moderate",
-        topic: 746
+        topic: "746"
     },
     {
         id: "geo-747",
@@ -4567,7 +4567,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 747.",
         difficulty: "Moderate",
-        topic: 747
+        topic: "747"
     },
     {
         id: "geo-748",
@@ -4576,7 +4576,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 748.",
         difficulty: "Moderate",
-        topic: 748
+        topic: "748"
     },
     {
         id: "geo-749",
@@ -4585,7 +4585,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 749.",
         difficulty: "Moderate",
-        topic: 749
+        topic: "749"
     },
     {
         id: "geo-750",
@@ -4594,7 +4594,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 750.",
         difficulty: "Moderate",
-        topic: 750
+        topic: "750"
     },
     {
         id: "geo-751",
@@ -4603,7 +4603,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 751.",
         difficulty: "Moderate",
-        topic: 751
+        topic: "751"
     },
     {
         id: "geo-752",
@@ -4612,7 +4612,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 752.",
         difficulty: "Moderate",
-        topic: 752
+        topic: "752"
     },
     {
         id: "geo-753",
@@ -4621,7 +4621,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 753.",
         difficulty: "Moderate",
-        topic: 753
+        topic: "753"
     },
     {
         id: "geo-754",
@@ -4630,7 +4630,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 754.",
         difficulty: "Moderate",
-        topic: 754
+        topic: "754"
     },
     {
         id: "geo-755",
@@ -4639,7 +4639,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 755.",
         difficulty: "Moderate",
-        topic: 755
+        topic: "755"
     },
     {
         id: "geo-756",
@@ -4648,7 +4648,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 756.",
         difficulty: "Moderate",
-        topic: 756
+        topic: "756"
     },
     {
         id: "geo-757",
@@ -4657,7 +4657,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 757.",
         difficulty: "Moderate",
-        topic: 757
+        topic: "757"
     },
     {
         id: "geo-758",
@@ -4666,7 +4666,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 758.",
         difficulty: "Moderate",
-        topic: 758
+        topic: "758"
     },
     {
         id: "geo-759",
@@ -4675,7 +4675,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 759.",
         difficulty: "Moderate",
-        topic: 759
+        topic: "759"
     },
     {
         id: "geo-760",
@@ -4684,7 +4684,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 760.",
         difficulty: "Moderate",
-        topic: 760
+        topic: "760"
     },
     {
         id: "geo-761",
@@ -4693,7 +4693,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 761.",
         difficulty: "Moderate",
-        topic: 761
+        topic: "761"
     },
     {
         id: "geo-762",
@@ -4702,7 +4702,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 762.",
         difficulty: "Moderate",
-        topic: 762
+        topic: "762"
     },
     {
         id: "geo-763",
@@ -4711,7 +4711,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 763.",
         difficulty: "Moderate",
-        topic: 763
+        topic: "763"
     },
     {
         id: "geo-764",
@@ -4720,7 +4720,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 764.",
         difficulty: "Moderate",
-        topic: 764
+        topic: "764"
     },
     {
         id: "geo-765",
@@ -4729,7 +4729,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 765.",
         difficulty: "Moderate",
-        topic: 765
+        topic: "765"
     },
     {
         id: "geo-766",
@@ -4738,7 +4738,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 766.",
         difficulty: "Moderate",
-        topic: 766
+        topic: "766"
     },
     {
         id: "geo-767",
@@ -4747,7 +4747,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 767.",
         difficulty: "Moderate",
-        topic: 767
+        topic: "767"
     },
     {
         id: "geo-768",
@@ -4756,7 +4756,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 768.",
         difficulty: "Moderate",
-        topic: 768
+        topic: "768"
     },
     {
         id: "geo-769",
@@ -4765,7 +4765,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 769.",
         difficulty: "Moderate",
-        topic: 769
+        topic: "769"
     },
     {
         id: "geo-770",
@@ -4774,7 +4774,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 770.",
         difficulty: "Moderate",
-        topic: 770
+        topic: "770"
     },
     {
         id: "geo-771",
@@ -4783,7 +4783,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 771.",
         difficulty: "Moderate",
-        topic: 771
+        topic: "771"
     },
     {
         id: "geo-772",
@@ -4792,7 +4792,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 772.",
         difficulty: "Moderate",
-        topic: 772
+        topic: "772"
     },
     {
         id: "geo-773",
@@ -4801,7 +4801,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 773.",
         difficulty: "Moderate",
-        topic: 773
+        topic: "773"
     },
     {
         id: "geo-774",
@@ -4810,7 +4810,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 774.",
         difficulty: "Moderate",
-        topic: 774
+        topic: "774"
     },
     {
         id: "geo-775",
@@ -4819,7 +4819,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 775.",
         difficulty: "Moderate",
-        topic: 775
+        topic: "775"
     },
     {
         id: "geo-776",
@@ -4828,7 +4828,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 776.",
         difficulty: "Moderate",
-        topic: 776
+        topic: "776"
     },
     {
         id: "geo-777",
@@ -4837,7 +4837,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 777.",
         difficulty: "Moderate",
-        topic: 777
+        topic: "777"
     },
     {
         id: "geo-778",
@@ -4846,7 +4846,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 778.",
         difficulty: "Moderate",
-        topic: 778
+        topic: "778"
     },
     {
         id: "geo-779",
@@ -4855,7 +4855,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 779.",
         difficulty: "Moderate",
-        topic: 779
+        topic: "779"
     },
     {
         id: "geo-780",
@@ -4864,7 +4864,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 780.",
         difficulty: "Moderate",
-        topic: 780
+        topic: "780"
     },
     {
         id: "geo-781",
@@ -4873,7 +4873,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 781.",
         difficulty: "Moderate",
-        topic: 781
+        topic: "781"
     },
     {
         id: "geo-782",
@@ -4882,7 +4882,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 782.",
         difficulty: "Moderate",
-        topic: 782
+        topic: "782"
     },
     {
         id: "geo-783",
@@ -4891,7 +4891,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 783.",
         difficulty: "Moderate",
-        topic: 783
+        topic: "783"
     },
     {
         id: "geo-784",
@@ -4900,7 +4900,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 784.",
         difficulty: "Moderate",
-        topic: 784
+        topic: "784"
     },
     {
         id: "geo-785",
@@ -4909,7 +4909,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 785.",
         difficulty: "Moderate",
-        topic: 785
+        topic: "785"
     },
     {
         id: "geo-786",
@@ -4918,7 +4918,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 786.",
         difficulty: "Moderate",
-        topic: 786
+        topic: "786"
     },
     {
         id: "geo-787",
@@ -4927,7 +4927,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 787.",
         difficulty: "Moderate",
-        topic: 787
+        topic: "787"
     },
     {
         id: "geo-788",
@@ -4936,7 +4936,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 788.",
         difficulty: "Moderate",
-        topic: 788
+        topic: "788"
     },
     {
         id: "geo-789",
@@ -4945,7 +4945,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 789.",
         difficulty: "Moderate",
-        topic: 789
+        topic: "789"
     },
     {
         id: "geo-790",
@@ -4954,7 +4954,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 790.",
         difficulty: "Moderate",
-        topic: 790
+        topic: "790"
     },
     {
         id: "geo-791",
@@ -4963,7 +4963,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 791.",
         difficulty: "Moderate",
-        topic: 791
+        topic: "791"
     },
     {
         id: "geo-792",
@@ -4972,7 +4972,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 792.",
         difficulty: "Moderate",
-        topic: 792
+        topic: "792"
     },
     {
         id: "geo-793",
@@ -4981,7 +4981,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 793.",
         difficulty: "Moderate",
-        topic: 793
+        topic: "793"
     },
     {
         id: "geo-794",
@@ -4990,7 +4990,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 794.",
         difficulty: "Moderate",
-        topic: 794
+        topic: "794"
     },
     {
         id: "geo-795",
@@ -4999,7 +4999,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 795.",
         difficulty: "Moderate",
-        topic: 795
+        topic: "795"
     },
     {
         id: "geo-796",
@@ -5008,7 +5008,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 796.",
         difficulty: "Moderate",
-        topic: 796
+        topic: "796"
     },
     {
         id: "geo-797",
@@ -5017,7 +5017,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 797.",
         difficulty: "Moderate",
-        topic: 797
+        topic: "797"
     },
     {
         id: "geo-798",
@@ -5026,7 +5026,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 798.",
         difficulty: "Moderate",
-        topic: 798
+        topic: "798"
     },
     {
         id: "geo-799",
@@ -5035,7 +5035,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 799.",
         difficulty: "Moderate",
-        topic: 799
+        topic: "799"
     },
     {
         id: "geo-800",
@@ -5044,7 +5044,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 800.",
         difficulty: "Moderate",
-        topic: 800
+        topic: "800"
     },
     {
         id: "geo-801",
@@ -5053,7 +5053,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 801.",
         difficulty: "Moderate",
-        topic: 801
+        topic: "801"
     },
     {
         id: "geo-802",
@@ -5062,7 +5062,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 802.",
         difficulty: "Moderate",
-        topic: 802
+        topic: "802"
     },
     {
         id: "geo-803",
@@ -5071,7 +5071,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 803.",
         difficulty: "Moderate",
-        topic: 803
+        topic: "803"
     },
     {
         id: "geo-804",
@@ -5080,7 +5080,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 804.",
         difficulty: "Moderate",
-        topic: 804
+        topic: "804"
     },
     {
         id: "geo-805",
@@ -5089,7 +5089,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 805.",
         difficulty: "Moderate",
-        topic: 805
+        topic: "805"
     },
     {
         id: "geo-806",
@@ -5098,7 +5098,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 806.",
         difficulty: "Moderate",
-        topic: 806
+        topic: "806"
     },
     {
         id: "geo-807",
@@ -5107,7 +5107,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 807.",
         difficulty: "Moderate",
-        topic: 807
+        topic: "807"
     },
     {
         id: "geo-808",
@@ -5116,7 +5116,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 808.",
         difficulty: "Moderate",
-        topic: 808
+        topic: "808"
     },
     {
         id: "geo-809",
@@ -5125,7 +5125,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 809.",
         difficulty: "Moderate",
-        topic: 809
+        topic: "809"
     },
     {
         id: "geo-810",
@@ -5134,7 +5134,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 810.",
         difficulty: "Moderate",
-        topic: 810
+        topic: "810"
     },
     {
         id: "geo-811",
@@ -5143,7 +5143,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 811.",
         difficulty: "Moderate",
-        topic: 811
+        topic: "811"
     },
     {
         id: "geo-812",
@@ -5152,7 +5152,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 812.",
         difficulty: "Moderate",
-        topic: 812
+        topic: "812"
     },
     {
         id: "geo-813",
@@ -5161,7 +5161,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 813.",
         difficulty: "Moderate",
-        topic: 813
+        topic: "813"
     },
     {
         id: "geo-814",
@@ -5170,7 +5170,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 814.",
         difficulty: "Moderate",
-        topic: 814
+        topic: "814"
     },
     {
         id: "geo-815",
@@ -5179,7 +5179,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 815.",
         difficulty: "Moderate",
-        topic: 815
+        topic: "815"
     },
     {
         id: "geo-816",
@@ -5188,7 +5188,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 816.",
         difficulty: "Moderate",
-        topic: 816
+        topic: "816"
     },
     {
         id: "geo-817",
@@ -5197,7 +5197,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 817.",
         difficulty: "Moderate",
-        topic: 817
+        topic: "817"
     },
     {
         id: "geo-818",
@@ -5206,7 +5206,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 818.",
         difficulty: "Moderate",
-        topic: 818
+        topic: "818"
     },
     {
         id: "geo-819",
@@ -5215,7 +5215,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 819.",
         difficulty: "Moderate",
-        topic: 819
+        topic: "819"
     },
     {
         id: "geo-820",
@@ -5224,7 +5224,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 820.",
         difficulty: "Moderate",
-        topic: 820
+        topic: "820"
     },
     {
         id: "geo-821",
@@ -5233,7 +5233,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 821.",
         difficulty: "Moderate",
-        topic: 821
+        topic: "821"
     },
     {
         id: "geo-822",
@@ -5242,7 +5242,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 822.",
         difficulty: "Moderate",
-        topic: 822
+        topic: "822"
     },
     {
         id: "geo-823",
@@ -5251,7 +5251,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 823.",
         difficulty: "Moderate",
-        topic: 823
+        topic: "823"
     },
     {
         id: "geo-824",
@@ -5260,7 +5260,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 824.",
         difficulty: "Moderate",
-        topic: 824
+        topic: "824"
     },
     {
         id: "geo-825",
@@ -5269,7 +5269,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 825.",
         difficulty: "Moderate",
-        topic: 825
+        topic: "825"
     },
     {
         id: "geo-826",
@@ -5278,7 +5278,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 826.",
         difficulty: "Moderate",
-        topic: 826
+        topic: "826"
     },
     {
         id: "geo-827",
@@ -5287,7 +5287,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 827.",
         difficulty: "Moderate",
-        topic: 827
+        topic: "827"
     },
     {
         id: "geo-828",
@@ -5296,7 +5296,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 828.",
         difficulty: "Moderate",
-        topic: 828
+        topic: "828"
     },
     {
         id: "geo-829",
@@ -5305,7 +5305,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 829.",
         difficulty: "Moderate",
-        topic: 829
+        topic: "829"
     },
     {
         id: "geo-830",
@@ -5314,7 +5314,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 830.",
         difficulty: "Moderate",
-        topic: 830
+        topic: "830"
     },
     {
         id: "geo-831",
@@ -5323,7 +5323,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 831.",
         difficulty: "Moderate",
-        topic: 831
+        topic: "831"
     },
     {
         id: "geo-832",
@@ -5332,7 +5332,7 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 832.",
         difficulty: "Moderate",
-        topic: 832
+        topic: "832"
     },
     {
         id: "geo-833",
@@ -5341,6 +5341,6 @@ export const GEOGRAPHY_PLACEHOLDER_MCQS: MCQ[] = [
         correctAnswer: 0,
         explanation: "This is a placeholder for Indian Geography topic 833.",
         difficulty: "Moderate",
-        topic: 833
+        topic: "833"
     },
 ];

@@ -68,7 +68,7 @@ export default function ArtCultureVisualizer() {
                         key={idx}
                         onClick={() => setSelected(item)}
                         className={`p-4 rounded-2xl border-2 transition-all text-left flex flex-col justify-between h-32 ${selected.title === item.title
-                                ? `${item.borderColor} ${item.bg} shadow-md`
+                                ? `${item.border} ${item.bg} shadow-md`
                                 : 'border-slate-100 bg-card hover:border-border'
                             }`}
                     >

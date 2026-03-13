@@ -10,6 +10,7 @@ import {
 interface GovernorModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Agent & The Head (Dual Hat) ---

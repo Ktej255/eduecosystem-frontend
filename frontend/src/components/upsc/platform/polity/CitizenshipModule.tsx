@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 interface CitizenshipModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Immigration File ---
@@ -61,7 +62,7 @@ const PassportCard = ({ title, icon: Icon, children, type = "standard", stamp }:
     );
 };
 
-export default function CitizenshipModule({ onComplete, isCompleted }: CitizenshipModuleProps) {
+export default function CitizenshipModule({ onComplete, isCompleted, chapterNumber = "7" }: CitizenshipModuleProps) {
     return (
         <ImmigrationContainer>
             {/* HERO */}
@@ -70,8 +71,8 @@ export default function CitizenshipModule({ onComplete, isCompleted }: Citizensh
                     <Globe size={180} />
                 </div>
                 <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-2 text-blue-200 uppercase tracking-widest text-xs font-bold">
-                        <Fingerprint size={16} /> Identity Document
+                    <div className="flex items-center gap-3 mb-2 text-blue-200 uppercase tracking-widest text-[10px] font-bold">
+                        <Fingerprint size={14} /> Chapter {chapterNumber} &bull; Identity Document
                     </div>
                     <h1 className="text-3xl md:text-5xl font-bold mb-4 font-serif tracking-wide">
                         CITIZENSHIP
@@ -333,8 +334,8 @@ export default function CitizenshipModule({ onComplete, isCompleted }: Citizensh
           `}
                 >
                     {isCompleted ?
-                        <span className="flex items-center gap-2"><BadgeCheck /> File Processed</span> :
-                        <span className="flex items-center gap-2"><BookOpen /> Close Immigration File</span>
+                        <span className="flex items-center gap-2"><BadgeCheck /> CHAPTER {chapterNumber} COMPLETED</span> :
+                        <span className="flex items-center gap-2"><BookOpen /> MARK CHAPTER {chapterNumber} COMPLETE</span>
                     }
                 </Button>
             </div>

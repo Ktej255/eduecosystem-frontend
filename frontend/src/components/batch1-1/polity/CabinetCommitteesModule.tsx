@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 interface CabinetCommitteesModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 const CabinetCommitteesModule = ({ onComplete, isCompleted }: CabinetCommitteesModuleProps) => {

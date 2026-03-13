@@ -6,7 +6,7 @@ import { Trophy, AlertTriangle, Target, TrendingUp } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 interface MasteryTrackerProps {
-    subject: 'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'scitech';
+    subject: 'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'science-tech';
 }
 
 export default function MasteryTracker({ subject }: MasteryTrackerProps) {

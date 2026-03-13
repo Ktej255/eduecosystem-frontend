@@ -10,6 +10,7 @@ import {
 interface GovernorModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Agent & The Head (Dual Hat) ---
@@ -43,7 +44,7 @@ const DualHatCard = ({ children, title, icon: Icon, type, className = "" }: { ch
     );
 };
 
-export default function GovernorModule({ onComplete, isCompleted }: GovernorModuleProps) {
+export default function GovernorModule({ onComplete, isCompleted, chapterNumber = "30" }: GovernorModuleProps) {
     return (
         <StateContainer>
             {/* HERO */}
@@ -56,6 +57,9 @@ export default function GovernorModule({ onComplete, isCompleted }: GovernorModu
                         <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center text-white shadow-lg animate-bounce">
                             <Link size={32} />
                         </div>
+                    </div>
+                    <div className="flex justify-center items-center gap-2 text-xs font-bold text-muted-foreground uppercase tracking-widest bg-card/50 px-3 py-1 rounded-full border mb-4">
+                        <Map size={14} /> Chapter {chapterNumber}
                     </div>
                     <h1 className="text-5xl md:text-7xl font-black text-foreground font-serif mb-2 relative z-10">
                         THE GOVERNOR
@@ -243,7 +247,7 @@ export default function GovernorModule({ onComplete, isCompleted }: GovernorModu
                             }
                         `}
                     >
-                        {isCompleted ? "REPORT SUBMITTED" : "SUBMIT REPORT TO PRESIDENT"}
+                        {isCompleted ? `CHAPTER ${chapterNumber} COMPLETED` : `MARK CHAPTER ${chapterNumber} COMPLETE`}
                     </button>
                 </div>
             </div>

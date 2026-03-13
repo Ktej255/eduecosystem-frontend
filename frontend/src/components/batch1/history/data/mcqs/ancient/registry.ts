@@ -25,6 +25,7 @@ import * as CH24 from './chapter24-data';
 import * as CH25 from './chapter25-data';
 import * as CH26 from './chapter26-data';
 import * as CH27 from './chapter27-data';
+import * as CH28 from './chapter28-data';
 
 export const ancientChapterData: Record<number, any> = {
     1: CH1,
@@ -54,4 +55,5 @@ export const ancientChapterData: Record<number, any> = {
     25: CH25,
     26: CH26,
     27: CH27,
+    28: CH28,
 };

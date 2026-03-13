@@ -212,22 +212,22 @@ export function getChapterLevels(topicId: number): FormattedChapterLevelData | u
         topicId,
         levels: [
             {
-                levelId: 1,
+                levelId: 1 as 1,
                 title: "Level 1: Foundation",
                 description: "Test your fundamental understanding of this chapter's core concepts.",
                 questions: data.level1
             },
             {
-                levelId: 2,
+                levelId: 2 as 2,
                 title: "Level 2: Advanced",
                 description: "Application-based and multi-statement questions for deeper analysis.",
-                questions: data.level2
+                questions: data.level2 || []
             },
             {
-                levelId: 3,
+                levelId: 3 as 3,
                 title: "Level 3: Master",
                 description: "UPSC standard questions with assertion-reasoning and complex matching.",
-                questions: data.level3
+                questions: data.level3 || []
             }
         ].filter(L => L.questions.length > 0)
     };

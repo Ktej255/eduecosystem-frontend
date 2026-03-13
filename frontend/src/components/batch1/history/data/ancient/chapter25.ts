@@ -1,5 +1,4 @@
 import { Subtopic, Question } from '../ancient-types-27';
-import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_25_SUBTOPICS: Subtopic[] = [
     { id: 'central_asia_china', name: 'India\'s Link with Central Asia & China' },

@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface BasicStructureModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Architectural Foundation ---

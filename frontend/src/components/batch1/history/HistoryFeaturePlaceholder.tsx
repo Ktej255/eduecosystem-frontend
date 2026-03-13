@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 interface HistoryFeaturePlaceholderProps {
     title: string;
     description: string;
-    icon?: React.ElementType;
+    icon?: any;
 }
 
 export default function HistoryFeaturePlaceholder(props: HistoryFeaturePlaceholderProps) {

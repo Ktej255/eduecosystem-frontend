@@ -493,7 +493,7 @@ const WEEKS = Array.from({ length: 20 }, (_, i) => ({ id: i + 1 }));
 function SaturdayTestsReport() {
     // const WEEKS = Array.from({ length: 20 }, (_, i) => ({ id: i + 1 })); // Moved outside
     const [scores, setScores] = useState<SaturdayTestResult[]>([]);
-    const [selectedReport, setSelectedReport] = useState<SaturdayTestResult | null>(null);
+    const [selectedReport, setSelectedReport] = useState<any | null>(null);
 
     useEffect(() => {
         // Scan localStorage for all saturday tests
@@ -507,7 +507,7 @@ function SaturdayTestsReport() {
                         weekId: week.id,
                         isV2: true,
                         ...data
-                    };
+                    } as SaturdayTestResult;
                 } catch (e) {
                     console.error('Failed to parse savedV2 for week ' + week.id, e);
                 }
@@ -524,7 +524,7 @@ function SaturdayTestsReport() {
                         paper1Results: { score: data.paper1Score },
                         paper2Results: { score: data.paper2Score },
                         lastUpdated: data.lastUpdated
-                    };
+                    } as SaturdayTestResult;
                 } catch (e) {
                     console.error('Failed to parse savedLegacy for week ' + week.id, e);
                 }
@@ -548,10 +548,10 @@ function SaturdayTestsReport() {
                         weekId: `Polity-${test.id}`,
                         isV2: true, // It uses the new format
                         paper1Results: data, // Treat as "Paper 1" for display purposes in the card
-                        paper2Results: null,
+                        paper2Results: undefined,
                         lastUpdated: data.endTime,
                         specialTitle: test.name
-                    };
+                    } as SaturdayTestResult;
                 } catch (e) {
                     console.error(`Failed to parse saved history for ${test.key}`, e);
                 }
@@ -645,7 +645,7 @@ function SaturdayTestsReport() {
                             <div className="flex flex-col gap-2">
                                 <Button
                                     className="w-full bg-slate-900 dark:bg-card dark:text-foreground hover:bg-slate-800 font-bold rounded-xl"
-                                    onClick={() => setSelectedReport(score.paper1Results)}
+                                    onClick={() => setSelectedReport(score.paper1Results as any)}
                                     disabled={!score.paper1Results || !score.isV2}
                                 >
                                     <BarChart3 className="w-4 h-4 mr-2" />
@@ -653,7 +653,7 @@ function SaturdayTestsReport() {
                                 </Button>
                                 <Button
                                     className="w-full bg-slate-900 dark:bg-card dark:text-foreground hover:bg-slate-800 font-bold rounded-xl"
-                                    onClick={() => setSelectedReport(score.paper2Results)}
+                                    onClick={() => setSelectedReport(score.paper2Results as any)}
                                     disabled={!score.paper2Results || !score.isV2}
                                 >
                                     <BarChart3 className="w-4 h-4 mr-2" />
@@ -673,7 +673,7 @@ function SaturdayTestsReport() {
 function ChapterMCQReport() {
     const [allReports, setAllReports] = useState<{ chapterId: number; reports: ChapterTestResult[], subject?: string }[]>([]);
     const [selectedReport, setSelectedReport] = useState<ChapterTestResult | null>(null);
-    const [selectedSubject, setSelectedSubject] = useState<'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'scitech'>('polity');
+    const [selectedSubject, setSelectedSubject] = useState<'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'science-tech'>('polity');
 
     useEffect(() => {
         // Scan localStorage for all chapter reports
@@ -695,13 +695,13 @@ function ChapterMCQReport() {
 
         // 2. Universal Reports (New format)
         if (typeof window !== 'undefined') {
-            import('@/lib/report-persistence').then(mod => {
-                const historyReports = mod.getChapterReports('history');
-                const polityUniversalReports = mod.getChapterReports('polity');
-                const geographyReports = mod.getChapterReports('geography');
-                const economyReports = mod.getChapterReports('economy');
-                const environmentReports = mod.getChapterReports('environment');
-                const scitechReports = mod.getChapterReports('scitech');
+            import('@/lib/report-persistence').then(async mod => {
+                const historyReports = await mod.getChapterReports('history');
+                const polityUniversalReports = await mod.getChapterReports('polity');
+                const geographyReports = await mod.getChapterReports('geography');
+                const economyReports = await mod.getChapterReports('economy');
+                const environmentReports = await mod.getChapterReports('environment');
+                const scienceTechReports = await mod.getChapterReports('science-tech');
 
                 // Group by chapter - Geography
                 const geographyByChapter: Record<number, ChapterTestResult[]> = {};
@@ -709,17 +709,16 @@ function ChapterMCQReport() {
                     if (!geographyByChapter[r.chapterId]) geographyByChapter[r.chapterId] = [];
                     const mapped: ChapterTestResult = {
                         chapterNumber: r.chapterId,
-                        chapterId: r.chapterId,
-                        chapterTitle: `Geography Day ${r.chapterId}`,
+                        topicName: `Geography Day ${r.chapterId}`,
                         levelId: (r.level || 1) as 1 | 2 | 3,
                         levelTitle: 'Level ' + (r.level || 1),
                         score: r.score,
                         totalQuestions: r.totalQuestions,
-                        percentage: r.accuracy,
+                        percentage: r.accuracy || 0,
                         totalTimeTaken: r.timeTaken,
                         endTime: r.timestamp,
                         startTime: r.timestamp,
-                        questions: r.details?.questions || []
+                        questions: (r.details?.questions || []).map((q: any) => ({...q, id: q.id.toString(), question: q.question || '', options: q.options || [], explanation: q.explanation || '', chapter: q.chapter || '', subtopic: q.subtopic || ''}))
                     };
                     geographyByChapter[r.chapterId].push(mapped);
                 });
@@ -734,17 +733,16 @@ function ChapterMCQReport() {
                     if (!economyByChapter[r.chapterId]) economyByChapter[r.chapterId] = [];
                     const mapped: ChapterTestResult = {
                         chapterNumber: r.chapterId,
-                        chapterId: r.chapterId,
-                        chapterTitle: `Economy Topic ${r.chapterId}`,
+                        topicName: `Economy Topic ${r.chapterId}`,
                         levelId: (r.level || 1) as 1 | 2 | 3,
                         levelTitle: 'Level ' + (r.level || 1),
                         score: r.score,
                         totalQuestions: r.totalQuestions,
-                        percentage: r.accuracy,
+                        percentage: r.accuracy || 0,
                         totalTimeTaken: r.timeTaken,
                         endTime: r.timestamp,
                         startTime: r.timestamp,
-                        questions: r.details?.questions || []
+                        questions: (r.details?.questions || []).map((q: any) => ({...q, id: q.id.toString(), question: q.question || '', options: q.options || [], explanation: q.explanation || '', chapter: q.chapter || '', subtopic: q.subtopic || ''}))
                     };
                     economyByChapter[r.chapterId].push(mapped);
                 });
@@ -759,17 +757,16 @@ function ChapterMCQReport() {
                     if (!environmentByChapter[r.chapterId]) environmentByChapter[r.chapterId] = [];
                     const mapped: ChapterTestResult = {
                         chapterNumber: r.chapterId,
-                        chapterId: r.chapterId,
-                        chapterTitle: `Environment Topic ${r.chapterId}`,
+                        topicName: `Environment Topic ${r.chapterId}`,
                         levelId: (r.level || 1) as 1 | 2 | 3,
                         levelTitle: 'Level ' + (r.level || 1),
                         score: r.score,
                         totalQuestions: r.totalQuestions,
-                        percentage: r.accuracy,
+                        percentage: r.accuracy || 0,
                         totalTimeTaken: r.timeTaken,
                         endTime: r.timestamp,
                         startTime: r.timestamp,
-                        questions: r.details?.questions || []
+                        questions: (r.details?.questions || []).map((q: any) => ({...q, id: q.id.toString(), question: q.question || '', options: q.options || [], explanation: q.explanation || '', chapter: q.chapter || '', subtopic: q.subtopic || ''}))
                     };
                     environmentByChapter[r.chapterId].push(mapped);
                 });
@@ -779,27 +776,26 @@ function ChapterMCQReport() {
                 });
 
                 // Group by chapter - Sci-Tech
-                const scitechByChapter: Record<number, ChapterTestResult[]> = {};
-                scitechReports.forEach(r => {
-                    if (!scitechByChapter[r.chapterId]) scitechByChapter[r.chapterId] = [];
+                const scienceTechByChapter: Record<number, ChapterTestResult[]> = {};
+                scienceTechReports.forEach(r => {
+                    if (!scienceTechByChapter[r.chapterId]) scienceTechByChapter[r.chapterId] = [];
                     const mapped: ChapterTestResult = {
                         chapterNumber: r.chapterId,
-                        chapterId: r.chapterId,
-                        chapterTitle: `Science & Tech Topic ${r.chapterId}`,
+                        topicName: `Science & Tech Topic ${r.chapterId}`,
                         levelId: (r.level || 1) as 1 | 2 | 3,
                         levelTitle: 'Level ' + (r.level || 1),
                         score: r.score,
                         totalQuestions: r.totalQuestions,
-                        percentage: r.accuracy,
+                        percentage: r.accuracy || 0,
                         totalTimeTaken: r.timeTaken,
                         endTime: r.timestamp,
                         startTime: r.timestamp,
-                        questions: r.details?.questions || []
+                        questions: (r.details?.questions || []).map((q: any) => ({...q, id: q.id.toString(), question: q.question || '', options: q.options || [], explanation: q.explanation || '', chapter: q.chapter || '', subtopic: q.subtopic || ''}))
                     };
-                    scitechByChapter[r.chapterId].push(mapped);
+                    scienceTechByChapter[r.chapterId].push(mapped);
                 });
 
-                Object.entries(scitechByChapter).forEach(([cid, reports]) => {
+                Object.entries(scienceTechByChapter).forEach(([cid, reports]) => {
                     chapters.push({ chapterId: parseInt(cid), reports, subject: 'Science & Tech' });
                 });
 
@@ -813,17 +809,16 @@ function ChapterMCQReport() {
                     const levelTitles: Record<number, string> = { 1: 'Fundamentals', 2: 'Intermediate', 3: 'Applied' };
                     const mapped: ChapterTestResult = {
                         chapterNumber: r.chapterId,
-                        chapterId: r.chapterId,
-                        chapterTitle: `History Chapter ${r.chapterId}`,
+                        topicName: `History Chapter ${r.chapterId}`,
                         levelId: (r.level || 1) as 1 | 2 | 3,
                         levelTitle: levelTitles[r.level || 1] || 'Level ' + (r.level || 1),
                         score: r.score,
                         totalQuestions: r.totalQuestions,
-                        percentage: r.accuracy,
+                        percentage: r.accuracy || 0,
                         totalTimeTaken: r.timeTaken,
                         endTime: r.timestamp,
                         startTime: r.timestamp,
-                        questions: r.details?.questions || [] // Use questions from details if available
+                        questions: (r.details?.questions || []).map((q: any) => ({...q, id: q.id.toString(), question: q.question || '', options: q.options || [], explanation: q.explanation || '', chapter: q.chapter || '', subtopic: q.subtopic || ''})) // Use questions from details if available
                     };
                     historyByChapter[r.chapterId].push(mapped);
                 });
@@ -841,17 +836,16 @@ function ChapterMCQReport() {
                     const levelTitles: Record<number, string> = { 1: 'Fundamentals', 2: 'Intermediate', 3: 'Applied' };
                     const mapped: ChapterTestResult = {
                         chapterNumber: r.chapterId,
-                        chapterId: r.chapterId,
-                        chapterTitle: `Polity Chapter ${r.chapterId}`,
+                        topicName: `Polity Chapter ${r.chapterId}`,
                         levelId: (r.level || 1) as 1 | 2 | 3,
                         levelTitle: levelTitles[r.level || 1] || 'Level ' + (r.level || 1),
                         score: r.score,
                         totalQuestions: r.totalQuestions,
-                        percentage: r.accuracy,
+                        percentage: r.accuracy || 0,
                         totalTimeTaken: r.timeTaken,
                         endTime: r.timestamp,
                         startTime: r.timestamp,
-                        questions: r.details?.questions || []
+                        questions: (r.details?.questions || []).map((q: any) => ({...q, id: q.id.toString(), question: q.question || '', options: q.options || [], explanation: q.explanation || '', chapter: q.chapter || '', subtopic: q.subtopic || ''}))
                     };
                     polityByChapter[r.chapterId].push(mapped);
                 });
@@ -985,8 +979,8 @@ function ChapterMCQReport() {
                         Environment
                     </button>
                     <button
-                        onClick={() => setSelectedSubject('scitech')}
-                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'scitech' ? 'bg-card dark:bg-black shadow text-foreground' : 'text-muted-foreground hover:text-foreground dark:hover:text-white'}`}
+                        onClick={() => setSelectedSubject('science-tech')}
+                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'science-tech' ? 'bg-card dark:bg-black shadow text-foreground' : 'text-muted-foreground hover:text-foreground dark:hover:text-white'}`}
                     >
                         Sci-Tech
                     </button>
@@ -1077,7 +1071,7 @@ function ChapterMCQReport() {
                             <div className="flex items-center justify-between mb-3">
                                 <h4 className="font-bold text-foreground">
                                     <span className="text-xs uppercase font-bold text-muted-foreground block mb-0.5">{chapter.subject || 'Polity'}</span>
-                                    Chapter {chapter.chapterId}: {chapter.reports[0]?.chapterTitle || 'Unknown'}
+                                    Chapter {chapter.chapterId}: {chapter.reports[0]?.topicName || 'Unknown'}
                                 </h4>
                                 <span className="text-xs text-muted-foreground">{chapter.reports.length} attempt(s)</span>
                             </div>
@@ -1139,7 +1133,7 @@ function ChapterReportDetail({ report }: { report: ChapterTestResult }) {
             {/* Header */}
             <div className="p-6 bg-gradient-to-br from-violet-100 to-indigo-100 dark:from-violet-900/30 dark:to-indigo-900/30 rounded-2xl border border-violet-200 dark:border-violet-800">
                 <h2 className="text-2xl font-black text-foreground mb-1">
-                    Chapter {report.chapterNumber}: {report.chapterTitle}
+                    Chapter {report.chapterNumber}: {report.topicName}
                 </h2>
                 <p className="text-muted-foreground">Level {report.levelId} • {report.levelTitle}</p>
                 <p className="text-sm text-muted-foreground dark:text-muted-foreground mt-1">

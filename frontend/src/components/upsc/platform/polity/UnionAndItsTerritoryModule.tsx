@@ -13,6 +13,7 @@ import { Card } from "@/components/ui/card";
 interface UnionTerritoryModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Cartographer's Desk ---
@@ -65,7 +66,7 @@ const TimelineNode = ({ year, title, desc, isLeft = false }: { year: string, tit
     </div>
 );
 
-export default function UnionTerritoryModule({ onComplete, isCompleted }: UnionTerritoryModuleProps) {
+export default function UnionTerritoryModule({ onComplete, isCompleted, chapterNumber = "6" }: UnionTerritoryModuleProps) {
     return (
         <CartographerContainer>
             {/* HERO */}
@@ -74,7 +75,7 @@ export default function UnionTerritoryModule({ onComplete, isCompleted }: UnionT
                 <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                     <div>
                         <div className="flex items-center gap-2 text-green-400 font-bold uppercase tracking-widest text-xs mb-2">
-                            <Map size={14} /> Chapter 6
+                            <Map size={14} /> Chapter {chapterNumber}
                         </div>
                         <h1 className="text-3xl md:text-5xl font-bold mb-4 font-serif">Union & Its Territory</h1>
                         <p className="text-slate-300 max-w-xl text-lg leading-relaxed">
@@ -391,8 +392,8 @@ export default function UnionTerritoryModule({ onComplete, isCompleted }: UnionT
           `}
                 >
                     {isCompleted ?
-                        <span className="flex items-center gap-2"><BadgeCheck /> Mapping Complete</span> :
-                        <span className="flex items-center gap-2"><Map /> Mark Chapter 6 Complete</span>
+                        <span className="flex items-center gap-2"><BadgeCheck /> CHAPTER {chapterNumber} COMPLETED</span> :
+                        <span className="flex items-center gap-2"><Map /> MARK CHAPTER {chapterNumber} COMPLETE</span>
                     }
                 </Button>
             </div>

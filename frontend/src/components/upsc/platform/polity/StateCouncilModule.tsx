@@ -10,6 +10,7 @@ import {
 interface StateCouncilModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Smaller Orbits (State Solar System) ---
@@ -44,7 +45,7 @@ const OrbitCard = ({ children, title, icon: Icon, color = "green", className = "
     );
 };
 
-export default function StateCouncilModule({ onComplete, isCompleted }: StateCouncilModuleProps) {
+export default function StateCouncilModule({ onComplete, isCompleted, chapterNumber = "32" }: StateCouncilModuleProps) {
     const [showCabinet, setShowCabinet] = useState(false);
 
     return (
@@ -60,9 +61,11 @@ export default function StateCouncilModule({ onComplete, isCompleted }: StateCou
                         <h1 className="text-4xl md:text-6xl font-black text-foreground font-serif mb-2">
                             STATE COUNCIL OF MINISTERS
                         </h1>
-                        <p className="text-xl font-bold uppercase tracking-widest text-muted-foreground">
-                            "The Smaller Orbits"
-                        </p>
+                        <div className="flex items-center gap-3 bg-card/80 backdrop-blur px-4 py-1 rounded-full border text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                            <span>Chapter {chapterNumber}</span>
+                            <span className="opacity-30">|</span>
+                            <span>"The Smaller Orbits"</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -223,7 +226,7 @@ export default function StateCouncilModule({ onComplete, isCompleted }: StateCou
                             }
                         `}
                     >
-                        {isCompleted ? "Oath Taken" : "Administer Oath"}
+                        {isCompleted ? `CHAPTER ${chapterNumber} COMPLETED` : `MARK CHAPTER ${chapterNumber} COMPLETE`}
                     </button>
                 </div>
             </div>

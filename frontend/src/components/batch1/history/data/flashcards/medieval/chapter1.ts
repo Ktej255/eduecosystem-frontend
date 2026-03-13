@@ -1,46 +1,32 @@
-import { Flashcard } from "@/types/flashcard";
-
-export const chapter1Flashcards: Flashcard[] = [
+export const MEDIEVAL_CHAPTER_1_FLASHCARDS = [
     {
-        id: 'med-fc-1-1',
-        front: "What was the 'Tripartite Struggle'?",
-        back: "A three-way conflict between the Palas, Pratiharas, and Rashtrakutas for control over the city of Kannauj in the 8th-10th centuries.",
-        category: "Early Medieval",
-        difficulty: "medium"
+        "id": "mc-ch1-f0",
+        "front": "According to the text, which empire acted as a bridge between the Greco-Roman civilization and the Arab world?...",
+        "back": "The Byzantine Empire",
+        "chapter": 1
     },
     {
-        id: 'med-fc-1-2',
-        front: "Who founded the Pala Dynasty in Bengal?",
-        back: "Gopala (c. 750 CE), who was elected by the people to end anarchy.",
-        category: "Palas",
-        difficulty: "easy"
+        "id": "mc-ch1-f1",
+        "front": "The decimal system of mathematics, which originated in India, was popularized in the Arab world during the ninth century by which mathematician?...",
+        "back": "Al-Khwarizmi",
+        "chapter": 1
     },
     {
-        id: 'med-fc-1-3',
-        front: "Which Pala ruler founded Vikramshila University?",
-        back: "Dharmapala, a great patron of Buddhism.",
-        category: "Palas",
-        difficulty: "easy"
+        "id": "mc-ch1-f2",
+        "front": "The powerful Ethiopian kingdom engaged in the Indian Ocean trade across Aden to India consisted of Christians closely allied to the Byzantine empire. ...",
+        "back": "Habshis",
+        "chapter": 1
     },
     {
-        id: 'med-fc-1-4',
-        front: "Who was the most famous Pratihara king known as 'Adivaraha'?",
-        back: "Mihira Bhoja.",
-        category: "Pratiharas",
-        difficulty: "medium"
+        "id": "mc-ch1-f3",
+        "front": "The Tang empire of China, under which society and culture attained a climax, was replaced in the tenth century by which dynasty?...",
+        "back": "Sung",
+        "chapter": 1
     },
     {
-        id: 'med-fc-1-5',
-        front: "Name the Rashtrakuta king who built the Kailasa Temple at Ellora.",
-        back: "Krishna I.",
-        category: "Rashtrakutas",
-        difficulty: "easy"
-    },
-    {
-        id: 'med-fc-1-6',
-        front: "What is 'Kavirajamarga' and who wrote it?",
-        back: "The earliest known Kannada work on poetics, written by Rashtrakuta King Amoghavarsha I.",
-        category: "Rashtrakutas",
-        difficulty: "hard"
+        "id": "mc-ch1-f4",
+        "front": "Which Indian epics are prominently displayed in the panels of the Borobodur temple in east Java?...",
+        "back": "The Ramayana and the Mahabharata",
+        "chapter": 1
     }
 ];

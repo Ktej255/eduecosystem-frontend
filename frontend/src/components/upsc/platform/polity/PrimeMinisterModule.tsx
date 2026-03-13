@@ -4,12 +4,13 @@ import React from "react";
 import {
     Anchor, Users, PenTool, Globe, User,
     MessageSquare, AlertCircle, Briefcase,
-    Network, ArrowRight, Star
+    Network, ArrowRight, Star, CheckCircle2
 } from "lucide-react";
 
 interface PrimeMinisterModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Keystone (Official Files) ---
@@ -49,7 +50,7 @@ const FlowArrow = () => (
     </div>
 );
 
-export default function PrimeMinisterModule({ onComplete, isCompleted }: PrimeMinisterModuleProps) {
+export default function PrimeMinisterModule({ onComplete, isCompleted, chapterNumber = "20" }: PrimeMinisterModuleProps) {
     return (
         <PMOContainer>
             {/* HERO */}
@@ -57,8 +58,9 @@ export default function PrimeMinisterModule({ onComplete, isCompleted }: PrimeMi
                 <div className="inline-block relative">
                     <div className="absolute -inset-2 bg-blue-200 opacity-50 blur-lg rounded-full"></div>
                     <div className="relative border-4 border-blue-900 p-8 bg-card rounded-lg shadow-2xl -rotate-1">
-                        <div className="flex justify-center text-blue-600 mb-2">
-                            <Anchor size={48} />
+                        <div className="flex justify-center text-blue-600 mb-2 items-center gap-2">
+                            <Anchor size={24} />
+                            <span className="font-bold uppercase tracking-widest text-xs">Chapter {chapterNumber}</span>
                         </div>
                         <h1 className="text-5xl md:text-6xl font-black text-blue-950 font-serif mb-2">
                             The Prime Minister
@@ -246,7 +248,10 @@ export default function PrimeMinisterModule({ onComplete, isCompleted }: PrimeMi
                                 }
                             `}
                         >
-                            {isCompleted ? "Cabinet Established" : "Form the Government"}
+                            {isCompleted ? 
+                                <span className="flex items-center gap-2"><CheckCircle2 size={18} /> CHAPTER {chapterNumber} COMPLETED</span> : 
+                                <span className="flex items-center gap-2"><Anchor size={18} /> MARK CHAPTER {chapterNumber} COMPLETE</span>
+                            }
                         </button>
                     </div>
                 </div>

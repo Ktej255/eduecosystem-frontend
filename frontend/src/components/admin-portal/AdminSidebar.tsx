@@ -53,8 +53,8 @@ const menuItems = [
             { name: "Cohort Intelligence", href: "/admin/cohort-intelligence", icon: Layers },
             { name: "Revenue Analysis", href: "/admin/analytics", icon: TrendingUp },
             { name: "At-Risk Monitor", href: "/admin/performance", icon: Stethoscope },
-            { name: "Student Journeys", href: "/admin/pdr", icon: Target },
-            { name: "Teacher Oversight", href: "/admin/ai-planning", icon: UserCheck },
+            { name: "Student Journeys", href: "/admin/student-journey", icon: Target },
+            { name: "Teacher Oversight", href: "/admin/teacher-performance", icon: UserCheck },
         ],
     },
     {

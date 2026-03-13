@@ -1,5 +1,4 @@
 import { Subtopic, Question } from '../ancient-types-27';
-import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_27_SUBTOPICS: Subtopic[] = [
     { id: 'tribal_pastoral', name: 'Tribal and Pastoral Phase (Rig Veda)' },

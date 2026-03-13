@@ -3,6 +3,7 @@
 
 export type PartId = 'I' | 'II' | 'III' | 'IV' | 'V' | 'VI' | 'VII' | 'VIII' | 'IX' | 'X' | 'XI';
 export type Priority = 'High' | 'Medium' | 'Low';
+export type SectionStatus = 'not-started' | 'in-progress' | 'completed' | 'platinum';
 export type PointerCategory = 'Article' | 'Amendment' | 'Case' | 'Year' | 'Commission' | 'Act' | 'Person' | 'Body' | 'Fact' | 'Committee';
 
 export interface Article {
@@ -31,6 +32,18 @@ export interface PrelimsPointer {
     fact: string;
     category: PointerCategory;
     highlight?: boolean;
+}
+
+export interface ChapterProgress {
+    readSection: SectionStatus;
+    flashcards: SectionStatus;
+    drill: SectionStatus;
+    l1: SectionStatus;
+    l2: SectionStatus;
+    l3: SectionStatus;
+    vsMode: SectionStatus;
+    completed?: boolean;
+    lastViewed?: string;
 }
 
 export interface ComparisonRow {

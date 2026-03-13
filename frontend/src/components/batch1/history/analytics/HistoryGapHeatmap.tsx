@@ -30,15 +30,13 @@ export default function HistoryGapHeatmap() {
     useEffect(() => {
         const fetchGapData = async () => {
             try {
-                const profile = await upscSynapseService.getProfile();
-                if (profile) {
-                    // Filter for History subject
-                    const data = profile.gap_analysis?.filter(entry =>
-                        entry.subject.toLowerCase().includes('history') &&
-                        entry.subject.toLowerCase().includes('ancient')
-                    ) || [];
-                    setGapData(data);
-                }
+                const data = await upscSynapseService.getHeatmap();
+                // Filter for History subject
+                const historyData = data?.filter(entry =>
+                    entry.subject.toLowerCase().includes('history') &&
+                    entry.subject.toLowerCase().includes('ancient')
+                ) || [];
+                setGapData(historyData);
             } catch (err) {
                 console.error("Failed to fetch gap analysis:", err);
             } finally {

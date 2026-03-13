@@ -13,11 +13,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MAJOR_CURRENT_AFFAIRS, CurrentAffairItem } from "../data/MajorCurrentAffairsRegistry";
 
 interface ChapterCurrentAffairsSectionProps {
-    topicId: number;
+    topicId: number | string;
 }
 
 export default function ChapterCurrentAffairsSection({ topicId }: ChapterCurrentAffairsSectionProps) {
-    const relevantNews = MAJOR_CURRENT_AFFAIRS.filter(ca => ca.topicIds.includes(topicId));
+    const relevantNews = MAJOR_CURRENT_AFFAIRS.filter(ca => ca.topicIds.includes(Number(topicId)));
 
     if (relevantNews.length === 0) return null;
 

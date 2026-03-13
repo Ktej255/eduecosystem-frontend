@@ -9,6 +9,7 @@ export async function loadHistoryFlashcards(chapterId: number, section: string =
         const module = await import(`./flashcards/${dir}/chapter${chapterId}.ts`);
 
         const flashcards =
+            module[`MEDIEVAL_CHAPTER_${chapterId}_FLASHCARDS`] ||
             module[`chapter${chapterId}Flashcards`] ||
             module[`HISTORY_CH${chapterId}_FLASHCARDS`] ||
             module.default ||

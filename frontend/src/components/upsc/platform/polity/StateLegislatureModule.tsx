@@ -11,6 +11,7 @@ import {
 interface StateLegislatureModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Unequal Houses (Assembly Hall) ---
@@ -44,7 +45,7 @@ const HouseCard = ({ children, title, icon: Icon, type, className = "" }: { chil
     );
 };
 
-export default function StateLegislatureModule({ onComplete, isCompleted }: StateLegislatureModuleProps) {
+export default function StateLegislatureModule({ onComplete, isCompleted, chapterNumber = "33" }: StateLegislatureModuleProps) {
     const [demolished, setDemolished] = useState(false);
 
     return (
@@ -59,9 +60,9 @@ export default function StateLegislatureModule({ onComplete, isCompleted }: Stat
                     <h1 className="text-4xl md:text-6xl font-black text-foreground font-serif mb-2">
                         STATE LEGISLATURE
                     </h1>
-                    <p className="text-xl font-bold uppercase tracking-widest text-muted-foreground">
-                        "The Unequal Houses"
-                    </p>
+                    <div className="bg-yellow-100 text-yellow-900 px-4 py-1 rounded-md border-2 border-yellow-200 text-xs font-black uppercase tracking-tighter mb-4 inline-block">
+                        Chapter {chapterNumber} &bull; "The Unequal Houses"
+                    </div>
                 </div>
             </div>
 
@@ -234,7 +235,7 @@ export default function StateLegislatureModule({ onComplete, isCompleted }: Stat
                         }
                     `}
                 >
-                    {isCompleted ? "Session Adjourned" : "Pass Resolution"}
+                    {isCompleted ? `CHAPTER ${chapterNumber} COMPLETED` : `MARK CHAPTER ${chapterNumber} COMPLETE`}
                 </button>
             </div>
         </AssemblyContainer>

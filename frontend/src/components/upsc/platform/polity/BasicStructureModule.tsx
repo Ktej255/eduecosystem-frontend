@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface BasicStructureModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Architectural Foundation ---
@@ -73,8 +74,7 @@ const PillarItem = ({ title, pyq }: { title: string, pyq?: boolean }) => (
     </div>
 );
 
-
-export default function BasicStructureModule({ onComplete, isCompleted }: BasicStructureModuleProps) {
+export default function BasicStructureModule({ onComplete, isCompleted, chapterNumber = "12" }: BasicStructureModuleProps) {
     return (
         <BlueprintContainer>
             {/* HERO */}
@@ -91,7 +91,7 @@ export default function BasicStructureModule({ onComplete, isCompleted }: BasicS
                         </div>
                     </div>
                     <div className="flex justify-center items-center gap-2 text-blue-300 font-bold uppercase tracking-[0.2em] text-xs mb-3">
-                        <Scale size={14} /> Judicial Innovation
+                        <Scale size={14} /> Chapter {chapterNumber} &bull; Judicial Innovation
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 font-serif text-white tracking-tight">
                         The Bedrock Foundation
@@ -270,8 +270,8 @@ export default function BasicStructureModule({ onComplete, isCompleted }: BasicS
           `}
                 >
                     {isCompleted ?
-                        <span className="flex items-center gap-2"><CheckCircle2 /> Foundation Laid</span> :
-                        <span className="flex items-center gap-2"><Building2 /> Cement the Foundation</span>
+                        <span className="flex items-center gap-2"><CheckCircle2 /> CHAPTER {chapterNumber} COMPLETED</span> :
+                        <span className="flex items-center gap-2"><Building2 /> MARK CHAPTER {chapterNumber} COMPLETE</span>
                     }
                 </Button>
             </div>

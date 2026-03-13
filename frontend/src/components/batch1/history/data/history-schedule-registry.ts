@@ -43,7 +43,7 @@ export const HISTORY_PLAN_CONFIGS: Record<HistorySection, HistorySectionConfig> 
         brandColor: "purple",
         brandBg: "#4a148c",
         accentColor: "purple-400",
-        chaptersTotal: 18, // Total chapters in our 15-day plan
+        chaptersTotal: 20, // Total chapters in our 20-day plan
         subject: "Medieval History",
         schedule: MEDIEVAL_SCHEDULE,
         phases: MEDIEVAL_PHASES,

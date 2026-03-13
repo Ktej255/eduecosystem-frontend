@@ -16,8 +16,11 @@ import {
   ArrowLeft,
   Lock,
   Pin,
+  Sparkles,
+  Star,
 } from "lucide-react";
 import { toast } from "sonner";
+import api from "@/lib/api";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
@@ -40,10 +43,13 @@ interface Thread {
   title: string;
   content: string;
   is_pinned: boolean;
+  is_featured: boolean;
   is_locked: boolean;
   is_resolved: boolean;
   view_count: number;
   reply_count: number;
+  upvotes: number;
+  user_vote: string | null;
   created_at: string;
   posts: Post[];
 }
@@ -58,6 +64,7 @@ export default function ThreadDetailPage() {
   const [newPost, setNewPost] = useState("");
   const [replyingTo, setReplyingTo] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
+  const [generatingDraft, setGeneratingDraft] = useState(false);
 
   useEffect(() => {
     fetchThread();
@@ -66,19 +73,47 @@ export default function ThreadDetailPage() {
   const fetchThread = async () => {
     try {
       setLoading(true);
-      const token = localStorage.getItem("token");
-      const response = await axios.get(
-        `${API_URL}/api/v1/discussions/threads/${threadId}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        },
-      );
+      const response = await api.get(`/discussions/threads/${threadId}`);
       setThread(response.data);
     } catch (error) {
       console.error("Error fetching thread:", error);
       toast.error("Failed to load thread");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleAIDraft = async () => {
+    try {
+      setGeneratingDraft(true);
+      toast.loading("Generating AI response...", { id: "ai-draft" });
+      const response = await api.post(`/discussions/threads/${threadId}/ai-draft-reply`);
+      setNewPost(response.data.draft);
+      toast.success("AI draft generated!", { id: "ai-draft" });
+    } catch (error) {
+      console.error("AI Draft error:", error);
+      toast.error("Failed to generate AI draft", { id: "ai-draft" });
+    } finally {
+      setGeneratingDraft(false);
+    }
+  };
+
+  const handleFeature = async () => {
+    try {
+      await api.post(`/discussions/threads/${threadId}/feature`);
+      toast.success(thread?.is_featured ? "Removed from featured" : "Marked as featured");
+      fetchThread();
+    } catch (error) {
+      toast.error("Failed to update featured status");
+    }
+  };
+
+  const handleThreadVote = async () => {
+    try {
+      await api.post(`/discussions/threads/${threadId}/vote`, { vote_type: "upvote" });
+      fetchThread();
+    } catch (error) {
+      toast.error("Failed to upvote thread");
     }
   };
 
@@ -292,18 +327,42 @@ export default function ThreadDetailPage() {
       {/* Thread Header */}
       <Card>
         <CardHeader>
-          <div className="flex items-center gap-2 mb-2">
-            {thread.is_pinned && <Pin className="w-5 h-5 text-blue-500" />}
-            {thread.is_locked && <Lock className="w-5 h-5 text-gray-500" />}
-            {thread.is_resolved && (
-              <CheckCircle className="w-5 h-5 text-green-500" />
-            )}
+          <div className="flex justify-between items-start">
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2 mb-2">
+                {thread.is_pinned && <Pin className="w-5 h-5 text-blue-500" />}
+                {thread.is_featured && <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />}
+                {thread.is_locked && <Lock className="w-5 h-5 text-gray-500" />}
+                {thread.is_resolved && (
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                )}
+              </div>
+              <h1 className="text-3xl font-bold">{thread.title}</h1>
+              <p className="text-muted-foreground">
+                {thread.view_count} views • {thread.reply_count} replies •{" "}
+                {new Date(thread.created_at).toLocaleDateString()}
+              </p>
+            </div>
+            <div className="flex gap-2">
+              <Button
+                variant={thread.user_vote === "upvote" ? "default" : "outline"}
+                size="sm"
+                onClick={handleThreadVote}
+              >
+                <ThumbsUp className="w-4 h-4 mr-2" />
+                Upvote {thread.upvotes > 0 && `(${thread.upvotes})`}
+              </Button>
+              <Button
+                variant={thread.is_featured ? "default" : "outline"}
+                size="sm"
+                className={thread.is_featured ? "bg-yellow-600 hover:bg-yellow-500" : ""}
+                onClick={handleFeature}
+              >
+                <Star className={`w-4 h-4 mr-2 ${thread.is_featured ? "fill-white" : ""}`} />
+                {thread.is_featured ? "Featured" : "Feature"}
+              </Button>
+            </div>
           </div>
-          <h1 className="text-3xl font-bold">{thread.title}</h1>
-          <p className="text-muted-foreground">
-            {thread.view_count} views • {thread.reply_count} replies •{" "}
-            {new Date(thread.created_at).toLocaleDateString()}
-          </p>
         </CardHeader>
         <CardContent>
           <p className="whitespace-pre-wrap">{thread.content}</p>
@@ -327,8 +386,18 @@ export default function ThreadDetailPage() {
       {/* New Post Form */}
       {!thread.is_locked && (
         <Card>
-          <CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between">
             <h3 className="text-lg font-semibold">Post a Reply</h3>
+            <Button
+              variant="outline"
+              size="sm"
+              className="text-purple-500 border-purple-500/20 hover:bg-purple-500/10"
+              onClick={handleAIDraft}
+              disabled={generatingDraft}
+            >
+              <Sparkles className="w-4 h-4 mr-2" />
+              {generatingDraft ? "Drafting..." : "AI Draft Response"}
+            </Button>
           </CardHeader>
           <CardContent>
             <Textarea

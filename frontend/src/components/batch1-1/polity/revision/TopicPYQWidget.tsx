@@ -10,11 +10,11 @@ import { ChevronDown, ChevronUp, HelpCircle, Trophy } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface TopicPYQWidgetProps {
-    topicId: number;
+    topicId: number | string;
 }
 
 export default function TopicPYQWidget({ topicId }: TopicPYQWidgetProps) {
-    const relevantQuestions = PYQ_DATA.filter(q => q.topicIds.includes(topicId));
+    const relevantQuestions = PYQ_DATA.filter(q => q.topicIds.includes(Number(topicId)));
 
     if (relevantQuestions.length === 0) return null;
 

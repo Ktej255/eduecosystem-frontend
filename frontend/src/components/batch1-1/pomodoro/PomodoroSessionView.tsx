@@ -16,6 +16,7 @@ import { ConfidenceLevel } from "@/lib/gamification/gamification-types";
 import ReadingMaterial from "./ReadingMaterial";
 import BreakTimer from "./BreakTimer";
 // Removed old module import to enforce strict schedule sync
+import { POMODORO_SUBJECTS, PomodoroSubjectId } from "@/components/upsc/platform/pomodoro/subject-schedule-configs";
 import { CHAPTER_SUBTOPICS, SubTopic } from "@/components/batch1/polity/data/polity-subtopics";
 import { LAXMIKANTH_CHAPTERS, generateWeeklySchedule } from "@/components/batch1/polity/data/polity-schedule-data";
 import { getFabDayContent, FAB_MONTH_START } from "./FabScheduleData";
@@ -53,7 +54,7 @@ interface PomodoroSessionViewProps {
     showBackButton?: boolean;
     subjectOverride?: 'history' | 'polity';
     historySection?: string; // 'modern' | 'medieval' | 'ancient' | 'art_culture'
-    subject?: 'polity' | 'history'; // For standalone Subject Pomodoro mode
+    subject?: PomodoroSubjectId; // For standalone Subject Pomodoro mode
     independentChapters?: number[]; // Chapter IDs for independent/standalone mode
 }
 
@@ -184,7 +185,7 @@ function syncProgressToStore(
     subtopics: SubTopic[],
     mcqResults?: { correct: number; total: number },
     currentSessionGlobal?: number,
-    subject: 'polity' | 'history' = 'polity',
+    subject: PomodoroSubjectId = 'polity',
     profileId?: string
 ) {
     // Group subtopics by chapter

@@ -14,6 +14,7 @@ import { PRESIDENT_PYQS } from "./data/pyq-data";
 interface PresidentModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Presidential Seal (Royal Desk) ---
@@ -90,7 +91,7 @@ const StampMark = ({ label, color = "red", rotation = -12 }: { label: string, co
     );
 };
 
-export default function PresidentModule({ onComplete, isCompleted }: PresidentModuleProps) {
+export default function PresidentModule({ onComplete, isCompleted, chapterNumber = "18" }: PresidentModuleProps) {
     return (
         <RoyalDeskContainer>
             {/* HERO */}
@@ -99,7 +100,7 @@ export default function PresidentModule({ onComplete, isCompleted }: PresidentMo
                     <Crown size={64} className="text-purple-800 mx-auto mb-4 animate-bounce" />
                     <div className="border-y-4 border-double border-purple-900 py-4 px-12 bg-card/50 backdrop-blur-sm">
                         <div className="flex items-center justify-center gap-2 text-purple-800 font-bold uppercase tracking-[0.3em] text-sm mb-2">
-                            <Scale size={16} /> Part V (Art 52-78)
+                            <Scale size={16} /> Chapter {chapterNumber}
                         </div>
                         <h1 className="text-6xl md:text-7xl font-black text-purple-950 font-serif tracking-tight">
                             The President
@@ -373,8 +374,8 @@ export default function PresidentModule({ onComplete, isCompleted }: PresidentMo
                         `}
                     >
                         {isCompleted ?
-                            <span className="flex items-center gap-2"><CheckCircle2 /> Assent Granted</span> :
-                            <span className="flex items-center gap-2"><PenTool /> Grant Assent</span>
+                            <span className="flex items-center gap-2"><CheckCircle2 /> CHAPTER {chapterNumber} COMPLETED</span> :
+                            <span className="flex items-center gap-2"><PenTool /> MARK CHAPTER {chapterNumber} COMPLETE</span>
                         }
                     </Button>
                 </div>

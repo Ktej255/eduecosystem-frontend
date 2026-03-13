@@ -43,7 +43,7 @@ export interface ChapterTestResult {
 }
 
 interface ChapterLevelGameProps {
-    topicId: number;
+    topicId: number | string;
     onComplete?: (level: number, score: number, result?: ChapterTestResult) => void;
 }
 
@@ -100,7 +100,7 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
     const [unlockedLevels, setUnlockedLevels] = useState<number[]>([1]);
     const [showReport, setShowReport] = useState(false);
     const [lastResult, setLastResult] = useState<ChapterTestResult | null>(null);
-    const chapterData = getChapterLevels(topicId);
+    const chapterData = getChapterLevels(Number(topicId));
 
     // Initial Level Selection from Query Param
     useEffect(() => {
@@ -118,7 +118,7 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
 
     // Load unlocked levels from localStorage
     useEffect(() => {
-        const saved = localStorage.getItem(`polity-chapter-${topicId}-unlocked`);
+        const saved = localStorage.getItem(`polity-chapter-${Number(topicId)}-unlocked`);
         if (saved) {
             try {
                 setUnlockedLevels(JSON.parse(saved));
@@ -145,14 +145,14 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
 
     const handleLevelFinish = (levelId: number, scorePercentage: number, result: ChapterTestResult) => {
         // Save result to localStorage
-        const storageKey = `polity-chapter-${topicId}-reports`;
+        const storageKey = `polity-chapter-${Number(topicId)}-reports`;
         const existing = localStorage.getItem(storageKey);
         const reports: ChapterTestResult[] = existing ? JSON.parse(existing) : [];
         reports.unshift(result); // Add new result at the beginning
         localStorage.setItem(storageKey, JSON.stringify(reports.slice(0, 20))); // Keep last 20 reports
 
         // Save to universal persistence for Deep Report
-        saveChapterReport('polity', topicId, {
+        saveChapterReport('polity', Number(topicId), {
             totalQuestions: result.totalQuestions,
             correctCount: result.score,
             incorrectCount: result.totalQuestions - result.score,
@@ -165,10 +165,16 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
             questionAnalysis: result.questions.map(q => ({ questionId: q.id, wasted: !q.isCorrect && q.timeSpent > 60 })),
             questions: result.questions.map(q => ({
                 id: q.id.toString(),
-                userAnswer: q.userAnswer?.toString() || '',
-                isCorrect: q.isCorrect,
+                question: q.question,
+                options: q.options,
+                explanation: q.explanation,
+                chapter: `Polity Ch. ${Number(topicId)}`,
+                subtopic: 'General',
+                userAnswer: q.userAnswer,
+                correctAnswer: q.correctAnswer,
+                confidence: q.confidence,
                 timeSpent: q.timeSpent,
-                topic: 'Polity'
+                isCorrect: q.isCorrect
             }))
         }, levelId);
 
@@ -176,7 +182,7 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
         if (scorePercentage >= 50 && levelId < 3 && !unlockedLevels.includes(levelId + 1)) {
             const newUnlocked = [...unlockedLevels, levelId + 1];
             setUnlockedLevels(newUnlocked);
-            localStorage.setItem(`polity-chapter-${topicId}-unlocked`, JSON.stringify(newUnlocked));
+            localStorage.setItem(`polity-chapter-${Number(topicId)}-unlocked`, JSON.stringify(newUnlocked));
             confetti({
                 particleCount: 100,
                 spread: 70,
@@ -208,8 +214,8 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
         return (
             <GameInterface
                 levelData={levelData}
-                chapterNumber={topicId}
-                topicName={`Polity Ch. ${topicId}`}
+                chapterNumber={Number(topicId)}
+                topicName={`Polity Ch. ${Number(topicId)}`}
                 onBack={() => setActiveLevel(null)}
                 onFinish={(score, result) => handleLevelFinish(activeLevel, score, result)}
             />
@@ -276,7 +282,7 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
             </div>
 
             {/* View Past Reports Button */}
-            <ReportHistoryButton topicId={topicId} />
+            <ReportHistoryButton topicId={Number(topicId)} />
         </div>
     );
 }

@@ -18,15 +18,16 @@ interface Section {
     items?: (string | { bold?: string; text: string })[];
 }
 
-interface TranslationData {
+export interface TranslationData {
     title?: string;
     subtitle?: string;
     heroTitle?: string;
     heroSubtitle?: string;
     sourcesCenter?: string;
     mindMapBranches?: string[];
-    sections: Section[];
-    end: string;
+    sections?: Section[];
+    end?: string;
+    [key: string]: any;
 }
 
 interface ClassicHindiContentProps {

@@ -14,6 +14,7 @@ import { Card } from "@/components/ui/card";
 interface InterStateRelationsModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Cooperation Bridge ---

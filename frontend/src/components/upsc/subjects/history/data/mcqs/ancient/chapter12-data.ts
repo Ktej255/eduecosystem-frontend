@@ -591,8 +591,1734 @@ export const CH12_L1_MCQS: MCQ[] = [
         "tags": [
             "history"
         ]
-    }
-];
+    },
+    {
+        "id": "ch12-d-new-1",
+        "question": "In the state situated on the Beas river in Panjab, membership in the oligarchy was restricted to those who could supply the state with at least one:",
+        "options": [
+                "Chariot",
+                "Horse",
+                "Elephant",
+                "Gold coin"
+        ],
+        "correctIndex": 2,
+        "explanation": "In a state situated on the Beas river in Panjab, membership was restricted to those who could supply at least one elephant to the state. Level 2: Moderate UPSC Level (Statement-Based)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-new-2",
+        "question": "Consider the following statements about the Northern Black Polished Ware (NBPW): It was a very glossy, shining type of pottery made of fine fabric. It primarily served as the table-ware for the poorer sections of society. Which of the statements given above is/are correct?",
+        "options": [
+                "1 only",
+                "2 only",
+                "Both 1 and 2",
+                "Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the text states it \"apparently served as the table-ware of richer people.\"",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-new-3",
+        "question": "Consider the following regarding iron tools found in the NBP phase at Kausambi: They include axes, adzes, knives, razors, nails, and sickles. They belonged to the earliest layers of the NBP phase and were probably meant for use by peasants. Which of the statements given above is/are correct?",
+        "options": [
+                "1 only",
+                "2 only",
+                "Both 1 and 2",
+                "Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct, demonstrating the penetration of iron tools into crafts and rural agriculture during the second urbanization. Level 3: Tough/Very Tough UPSC Level (Analytical & Applied Concepts)",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-new-4",
+        "question": "The emergence of the second urbanization in the 6th century B.C. marks a pivotal transition in ancient Indian history. Evaluate the following factors responsible for this transition: Statement-I: The widespread application of iron technology to agriculture in the fertile middle Gangetic basin produced a massive agrarian surplus. Statement-II: This surplus was capable of sustaining a large non-agricultural population comprising artisans, merchants, administrators, and a standing army, thereby catalyzing the rise of urban centers. Which of the following is correct in respect of the above statements?",
+        "options": [
+                "Both Statement-I and Statement-II are correct and Statement-II is the direct consequence of Statement-I.",
+                "Both Statement-I and Statement-II are correct but Statement-II is not the consequence of Statement-I.",
+                "Statement-I is correct but Statement-II is incorrect.",
+                "Statement-I is incorrect but Statement-II is correct."
+        ],
+        "correctIndex": 0,
+        "explanation": "The text makes a direct causal link: iron ploughshares + fertile alluvium = surplus foodgrains. This surplus was extracted as taxes to feed the non-agriculturists living in towns, thus driving urbanization.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-new-5",
+        "question": "Evaluate the nature of the \"republican experiment\" in ancient India: The ancient Indian republics were true democracies where all inhabitants, including slaves and hired laborers, enjoyed equal political rights. In reality, power resided with clan-based oligarchies (e.g., the 7,707 rajas of the Lichchhavis), who collectively claimed the peasant revenue and marginalized outsiders like brahmanas and lower classes. Which of the statements given above is/are correct?",
+        "options": [
+                "1 only",
+                "2 only",
+                "Both 1 and 2",
+                "Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; they were not true democracies. Statement 2 is correct; they were oligarchies where the ruling class belonged to the same clan, excluding slaves, laborers, and even brahmanas (in the case of Vaisali).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-new-6",
+        "question": "The presence of \"border villages\" inhabited by fowlers and hunters on the limits of the countryside signifies:",
+        "options": [
+                "The complete eradication of all wildlife in the Gangetic basin.",
+                "The geographical and cultural frontier where the expanding agrarian, varna-based society intersected with the shrinking, pre-agricultural tribal/forest economies.",
+                "That the state relied entirely on hunting for its food supply.",
+                "The establishment of foreign military outposts."
+        ],
+        "correctIndex": 1,
+        "explanation": "The third category consisted of border villages merging into forests, inhabited by fowlers and hunters leading a backward life. This represents the frontier of agrarian expansion against forest tribes.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-new-7",
+        "question": "The text notes that \"the NBP phase marked the beginning of the second urbanization in India.\" Which combination of archaeological finds defines the mature/middle stage of this phase (3rd century B.C.)?",
+        "options": [
+                "Stone hand-axes and crude pebble tools.",
+                "Copper harpoons and Ochre-Coloured Pottery.",
+                "Burnt bricks and ringwells.",
+                "Iron chariots and Painted Grey Ware."
+        ],
+        "correctIndex": 2,
+        "explanation": "\"The use of burnt bricks and ringwells appeared in the middle of the NBP phase, i.e., in the third century B.C.\"",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-new-8",
+        "question": "The overarching synthesis of Chapter 12 demonstrates that the \"Age of the Buddha\" was defined by:",
+        "options": [
+                "The collapse of the state apparatus and a return to purely nomadic pastoralism.",
+                "The crystallization of a complex, stratified society where an iron-based agrarian surplus funded the rise of towns, a monetized trade network, a massive standing army, and a rigid, varna-based legal system.",
+                "The absolute triumph of egalitarian republics over all monarchical forms of government.",
+                "A peaceful era entirely free from taxation, warfare, and social inequality."
+        ],
+        "correctIndex": 1,
+        "explanation": "This captures the chapter's conclusion: ancient Indian polity, economy (iron tools -> surplus -> towns/money), and society (varna-based law, taxes supporting state) really took shape in this period. My apologies for the oversight. You are absolutely right\u2014there was a gap in the previous output, leaving Chapter 12 short by 20 questions (10 Moderate and 10 Tough). Here are the remaining 20 questions for Chapter 12: State and Varna Society in the Age of the Buddha to perfectly complete your 90-question quota for this chapter. You can seamlessly add these (Q71 to Q90) to the first 70 questions provided earlier. Level 2: Moderate UPSC Level (Statement-Based) - [Remaining 10 Questions]",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-new-9",
+        "question": "Consider the following statements regarding the organization of crafts and commerce in the age of the Buddha: The texts mention 18 guilds of artisans, indicating a high degree of craft specialization. Artisans and merchants often lived in fixed localities in towns, such as the vessa's (merchants') street in Varanasi. Which of the statements given above is/are correct?",
+        "options": [
+                "1 only",
+                "2 only",
+                "Both 1 and 2",
+                "Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct. The texts mention 18 guilds, and there was a strong localization of crafts and commerce in specific streets and suburbs.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-new-10",
+        "question": "Consider the following statements about the Dharmasutras (law-books) compiled during this era: They emphasized that crimes committed by Sudras against Brahmanas were to be punished lightly. In many cases, punishments for criminal offences were governed by the idea of revenge, meaning \"an eye for an eye\". Which of the statements given above is/are correct?",
+        "options": [
+                "1 only",
+                "2 only",
+                "Both 1 and 2",
+                "Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because the law was heavily biased: crimes by Sudras against Brahmanas were punished severely, while the reverse was punished lightly. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-new-11",
+        "question": "Consider the following statements regarding the agricultural transition in the middle Gangetic basin: The introduction of large-scale paddy transplantation significantly multiplied the agricultural yield compared to traditional methods. The heavy rainfall and dense forests of the region could only be conquered through the widespread availability of iron axes and ploughshares. Which of the statements given above is/are correct?",
+        "options": [
+                "1 only",
+                "2 only",
+                "Both 1 and 2",
+                "Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements correctly describe the technological and methodological shifts that generated the massive agrarian surplus of the second urbanization. Level 3: Tough/Very Tough UPSC Level (Analytical & Applied Concepts) - [Remaining 10 Questions]",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-new-12",
+        "question": "Evaluate the socioeconomic significance of the advent of writing in pre-Mauryan India. Which of the following state mechanisms was most profoundly revolutionized by this development?",
+        "options": [
+                "The physical manufacturing process of Painted Grey Ware pottery.",
+                "The ability to forge heavy iron weapons for the standing army.",
+                "The administrative capability to maintain complex book-keeping essential for long-distance trade, systemic tax-collection, and managing a large professional army.",
+                "The translation of the Rig Veda into Greek to appease foreign merchants."
+        ],
+        "correctIndex": 2,
+        "explanation": "The text makes this exact analytical connection: \"Writing facilitated book-keeping, which was so essential to trade, tax-collection, and the keeping of a large professional army.\"",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-new-13",
+        "question": "\"The second urbanization in India was fundamentally distinct from the Harappan urbanization.\" Based on Chapter 12, which of the following best defines the material basis of this second urbanization?",
+        "options": [
+                "A total reliance on imported bronze tools and maritime trade with Mesopotamia.",
+                "An agrarian surplus generated by iron-plough agriculture in the middle Gangetic alluvium, supporting a monetized economy (punch-marked coins) and specialized artisan guilds.",
+                "The exclusive use of stone and copper tools in the arid regions of the Indus valley.",
+                "A completely decentralized society without any state apparatus or taxation."
+        ],
+        "correctIndex": 1,
+        "explanation": "The Harappan urbanization was Bronze Age and Indus-based. The second urbanization (NBP phase) was driven by iron technology, paddy cultivation in the Gangetic basin, and the introduction of metallic money (punch-marked coins) supporting artisans/towns.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-new-14",
+        "question": "The demographic and spatial arrangement of towns during the NBP phase reflects a highly organized economic life. The existence of suburban \"craft villages\" (e.g., carpenters' villages) analytically served to:",
+        "options": [
+                "Isolate the untouchables from the mainstream urban population.",
+                "Act as vital economic conduits that processed raw materials from the countryside and supplied finished goods directly to the urban markets and state administration.",
+                "Serve as temporary military camps for the republican armies during wartime.",
+                "Hide wealth from the saulkikas (tax collectors)."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text notes that \"Suburban villages were in the nature of craft villages... The villages served as markets for the other villages and linked the towns with the countryside,\" showing their role as processing/trading conduits.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+        "id": "ch12-d-v5-1",
+        "question": "According to the texts, Saddalaputt",
+        "options": [
+                "at Vaisali possessed 500 shops belonging to which craft?\nA) Smiths",
+                "Carpenters",
+                "Potters",
+                "Weavers"
+        ],
+        "correctIndex": 2,
+        "explanation": "At some places there was concentration of artisans; Saddalaputta at Vaisali had 500 potters' shops.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-2",
+        "question": "The earliest metallic coins in Indi",
+        "options": [
+                "belonged to the fifth century",
+                "",
+                "an",
+                "are called:\nA) Nishkas\nB) Satamanas\nC) Punch-marked coins\nD) Dinars"
+        ],
+        "correctIndex": 2,
+        "explanation": "Coins made of metal appear first in the age of Gautama Buddha... They are called punch-marked because pieces of these metals were punched with certain marks.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-3",
+        "question": "The typical village, which was the largest in number, was headed by",
+        "options": [
+                "village headman called:\nA) Senani",
+                "Bhojaka",
+                "Amatya",
+                "Mahamatra"
+        ],
+        "correctIndex": 1,
+        "explanation": "Its number seems to have been the largest, and it was headed by a village headman called bhojaka.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-4",
+        "question": "Which influential minister of Magadh",
+        "options": [
+                "succeeded in sowing seeds of dissension among the Lichchhavis of Vaisali?\nA) Dirghacharayana",
+                "Varsakara",
+                "Chanakya",
+                "Udayin"
+        ],
+        "correctIndex": 1,
+        "explanation": "Varsakara of Magadha... succeeded in sowing seeds of dissension in the ranks of the Lichchhavis of Vaisali and enabled Ajatasatru to conquer the republic.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-5",
+        "question": "According to the texts, King Bimbisar",
+        "options": [
+                "of Magadha is said to have summoned how many village headmen (gramikas)?\nA) 10,000",
+                "50,000",
+                "86,000",
+                "100,000"
+        ],
+        "correctIndex": 2,
+        "explanation": "Eighty-six thousand gramikas are said to have been summoned by Bimbisara.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-6",
+        "question": "At the time of Alexander's invasion, the Nand",
+        "options": [
+                "ruler of Magadha maintained an army that included how many elephants?\nA) 2,000",
+                "4,000",
+                "6,000",
+                "9,000"
+        ],
+        "correctIndex": 1,
+        "explanation": "At the time of Alexander's invasion, the Nanda ruler of Magadha kept 20,000 cavalry, 200,000 infantry, 2000 horse-chariots and about 4000 elephants. (Note: Chapter 12 specifically states 4000 elephants in this context).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-7",
+        "question": "The voluntary payment made by tribesmen in Vedic times became",
+        "options": [
+                "compulsory tax in the age of the Buddha. What was it called?\nA) Bhaga",
+                "Sulka",
+                "Bali",
+                "Hiranya"
+        ],
+        "correctIndex": 2,
+        "explanation": "Bali, a voluntary payment made by the tribesmen to their chiefs in Vedic times, became a compulsory payment to be made by the peasants...",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-8",
+        "question": "In post-Vedic times, the popular assemblies like the sabh",
+        "options": [
+                "and samiti practically disappeared. Instead, we hear of a small body consisting exclusively of brahmanas called:\nA) Vidatha",
+                "Gana",
+                "Parisha",
+                "D) Sangha"
+        ],
+        "correctIndex": 2,
+        "explanation": "Instead, in this period we hear of a small body called parishad consisting exclusively of the brahmanas.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-9",
+        "question": "In many cases, punishments for criminal offences were governed by the ide",
+        "options": [
+                "of revenge, which meant:\nA) Payment of gold",
+                "Exile from the kingdom",
+                "Tooth for tooth an",
+                "eye for eye\nD) Trial by fire"
+        ],
+        "correctIndex": 2,
+        "explanation": "In many cases punishments for criminal offences were governed by the idea of revenge. It meant tooth for tooth and eye for eye.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-10",
+        "question": "To which architectural phase do the wooden palisades found in Patn",
+        "options": [
+                "belong?\nA) Harappan",
+                "Maurya or pre-Maurya times",
+                "Gupta perio",
+                "D) Post-Gupta period"
+        ],
+        "correctIndex": 1,
+        "explanation": "Wooden palisades have been found in Patna, and these possibly belong to Maurya or pre-Maurya times.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-11",
+        "question": "Consider the following statements about the Northern Black Polished Ware (NBPW):\n\n\nIt was",
+        "options": [
+                "very glossy, shining type of pottery made of fine fabric.\n\n\nIt primarily served as the table-ware for the poorer sections of society.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the text states it \"apparently served as the table-ware of richer people.\"",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-12",
+        "question": "Consider the following statements regarding trade routes in the age of the Buddha:\n\n\nSravasti was linked with both Kausambi and Varanasi, the latter being",
+        "options": [
+                "great centre of trade.\n\n\nTraders from Kosala and Magadha completely avoided traveling northwards to Taxila.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the Jataka stories mention traders of Kosala and Magadha going via Mathura as far northward as Taxila.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-13",
+        "question": "Consider the following statements about the earliest coins in India:\n\n\nThe terms nishk",
+        "options": [
+                "and satamana found in Vedic texts represent actual physical coins that have been widely excavated from the Vedic period.\n\n\nThe earliest actual metal coins, called punch-marked coins, appear in the age of Gautama Buddha and are made largely of silver.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the terms are found in texts, but \"coins actually found are not earlier than the sixth century B.C.\" meaning Vedic people likely used barter/cattle. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-14",
+        "question": "Consider the following pairs of village types mentioned in the Pali texts and their inhabitants:\n\n\nTypical village - Inhabited by various castes and communities under",
+        "options": [
+                "bhojaka.\n\n\nSuburban village - Served as craft villages, like a carpenters' village.\n\n\nBorder village - Inhabited mainly by fowlers and hunters leading a backward life.\nHow many of the above pairs are correctly matched?\nA) Only one pair",
+                "Only two pairs",
+                "All three pairs",
+                "None"
+        ],
+        "correctIndex": 2,
+        "explanation": "All three pairs accurately reflect the three categories of villages described in the Pali texts.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-15",
+        "question": "Consider the following statements regarding agriculture in the middle Gangetic basin:\n\n\nThe use of the iron ploughshare was essential in opening up the rain-fed, hard-soil are",
+        "options": [
+                "to clearance and cultivation.\n\n\nLarge-scale paddy transplantation began in this age, which enormously added to the yield.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct and highlight the technological advances that produced the agrarian surplus required for the second urbanization.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-16",
+        "question": "Consider the transformation of the village headman (gramini):\n\n\nIn the beginning, the gramini functioned as the leader of",
+        "options": [
+                "tribal military unit (grama).\n\n\nAs life became sedentary and plough cultivation was established, the gramini was transformed into a settled village headman in pre-Maurya times.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements correctly describe the evolution of the gramini from a military to an administrative rural role.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-17",
+        "question": "Consider the following statements regarding the armies of the 6th-4th centuries B.C.:\n\n\nChariots were increasing in importance across both north-east and north-west Indi",
+        "options": [
+                "Very few elephants were maintained by the rulers of the states in north-west India compared to the Magadhan king.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because \"chariots were losing their importance not only in north-east but also in north-west India.\" Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-18",
+        "question": "Consider the following statements regarding artisans and traders in the taxation system:\n\n\nArtisans were completely exempted from all royal work and taxes.\n\n\nArtisans were made to work for",
+        "options": [
+                "day in a month for the king.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect. Statement 2 is correct as per the text detailing the taxation on artisans.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-19",
+        "question": "Consider the following reasons for the disappearance of the popular assemblies (sabh",
+        "options": [
+                "and samiti):\n\n\nThey decayed as tribes disintegrated into varnas and lost their identity.\n\n\nThe emergence of large states made it difficult to hold regular meetings due to communication barriers.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct reasons provided by the text for the decline of the old tribal assemblies.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-20",
+        "question": "Consider the following statements comparing monarchies and republics in this era:\n\n\nIn monarchies, the king claimed to be the sole recipient of revenue from the peasants.\n\n\nIn the republics, the claim to revenue was advanced by every tribal oligarch who was known as raj",
+        "options": [
+                "Which of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct and highlight a fundamental administrative difference between the two systems.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-21",
+        "question": "Consider the following statements regarding the armies of the republics:\n\n\nEvery republican state maintained",
+        "options": [
+                "massive, regular standing army controlled by a single absolute commander.\n\n\nEach raja in a republic was free to maintain his own little army under his senapati.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect. Statement 2 is correct; \"each raja was free to maintain his own little army under his senapati,\" unlike the centralized standing army of monarchies.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-22",
+        "question": "Consider the following statements about citizenship in the post-Maury",
+        "options": [
+                "republics of Malavas and Kshudrakas:\n\n\nCitizenship was granted exclusively to the Sudras.\n\n\nThe kshatriyas and brahmanas were given citizenship, but slaves and hired labourers were excluded.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect. Statement 2 is correct, highlighting the oligarchic (rather than truly democratic) nature of these republics.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-23",
+        "question": "The emergence of the second urbanization in the 6th century B.C. marks",
+        "options": [
+                "pivotal transition in ancient Indian history. Evaluate the following factors responsible for this transition:\nStatement-I: The widespread application of iron technology to agriculture in the fertile middle Gangetic basin produced a massive agrarian surplus.\nStatement-II: This surplus was capable of sustaining a large non-agricultural population comprising artisans, merchants, administrators, and a standing army, thereby catalyzing the rise of urban centers.\nWhich of the following is correct in respect of the above statements?\nA) Both Statement-I and Statement-II are correct and Statement-II is the direct consequence of Statement-I.",
+                "Both Statement-I and Statement-II are correct but Statement-II is not the consequence of Statement-I.",
+                "Statement-I is correct but Statement-II is incorrect.",
+                "Statement-I is incorrect but Statement-II is correct."
+        ],
+        "correctIndex": 0,
+        "explanation": "The text makes a direct causal link: iron ploughshares + fertile alluvium = surplus foodgrains. This surplus was extracted as taxes to feed the non-agriculturists living in towns, thus driving urbanization.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-24",
+        "question": "The decay of the popular Vedic assemblies (Sabh",
+        "options": [
+                "and Samiti) in the monarchies of the 6th century",
+                "",
+                "can be analytically attribute",
+                "to:\nA) A strict religious decree by Gautama Buddha prohibiting political gatherings.\nB) The demographic impossibility of summoning a sprawling, non-kinship-based territorial population, and the disintegration of egalitarian tribal identities into rigid varna stratifications.\nC) The absolute lack of any educated individuals capable of managing assembly proceedings.\nD) The mass migration of all Kshatriyas to the southern peninsula."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text attributes their decay to: 1) tribes disintegrating into varnas (loss of tribal identity), 2) the emergence of large states making regular meetings of diverse populations physically impossible, and 3) the inclusion of non-Vedic people in the new kingdoms.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-25",
+        "question": "Analyze the structure of rural administration during the Age of the Buddha:\nAssertion (",
+        "options": [
+                ": The role of the gramini underwent a fundamental transformation from the Rig Vedic period to the pre-Maurya period.\nReason (R): As the tribal fighting units (gramas) abandoned their semi-nomadic lifestyle and settled into sedentary plough agriculture, their military leaders evolved into civil village headmen (gramabhojakas) responsible for tax collection and local order.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 0,
+        "explanation": "This is precisely the evolutionary trajectory described in the text. The military leader of a nomadic tribe (gramini) became the civic headman of a settled village as the economy shifted to sedentary agriculture.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-26",
+        "question": "The fiscal apparatus of the territorial states (like Magadh",
+        "options": [
+                "was characterized by a distinct class-based allocation of the economic burden. Which of the following best demonstrates this?\nA) The Brahmanas and Kshatriyas were forced to pay a higher percentage of the bali than the Vaisyas due to their ritual purity.",
+                "The tax burden fell squarely on the producing class, the Vaisyas (grihapatis), while the warrior and priestly classes were completely exempted from taxation.",
+                "The Sudras were the sole taxpayers, providing the entirety of the state's metallic currency.",
+                "Taxes were exclusively collected from foreign merchants, leaving all domestic varnas tax-free."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text states: \"Warriors and priests, i.e., the kshatriyas and the brahmanas, were exempted from payment of taxes, and the burden fell on the peasants who were mainly vaisyas or grihapatis.\"",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-27",
+        "question": "Evaluate the nature of the \"republican experiment\" in ancient India:\n\n\nThe ancient Indian republics were true democracies where all inhabitants, including slaves and hired laborers, enjoyed equal political rights.\n\n\nIn reality, power resided with clan-based oligarchies (e.g., the 7,707 rajas of the Lichchhavis), who collectively claimed the peasant revenue and marginalized outsiders like brahmanas and lower classes.\nWhich of the statements given above is/are correct?",
+        "options": [
+                "1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; they were not true democracies. Statement 2 is correct; they were oligarchies where the ruling class belonged to the same clan, excluding slaves, laborers, and even brahmanas (in the case of Vaisali).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-28",
+        "question": "The creation of",
+        "options": [
+                "formal legal and judicial system in the 6th century",
+                "",
+                "was intrinsically linke",
+                "to the Varna system. What was the underlying ideological principle of this jurisprudence?\nA) \"Equality before the law,\" where crimes were punished identically regardless of social status.\nB) A differential justice system where the severity of the punishment was inversely proportional to the varna status of the offender, protecting the privileges of the higher varnas.\nC) The exclusive use of tribal law that ignored all class distinctions.\nD) The abolition of physical punishments in favor of monetary fines for all classes."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text notes that civil/criminal law was based on varna division. \"The lower the varna of an offender, the more severe was the punishment prescribed for him,\" showcasing a highly stratified, unequal legal system.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-29",
+        "question": "The practice of granting the revenue of villages to influential Brahmanas and setthis in Kosal",
+        "options": [
+                "and Magadha analytically suggests:\nA) The complete collapse of the centralized royal treasury.",
+                "The earliest beginnings of a feudal structure where beneficiaries held absolute administrative and judicial authority over the peasants.",
+                "A metho",
+                "of political patronage by the monarch that delegated economic surplus without surrendering central administrative or judicial authority.\nD) The total abolition of the punch-marked coin currency."
+        ],
+        "correctIndex": 2,
+        "explanation": "The text specifically clarifies that while they were paid by the grant of village revenue, \"they were not given any administrative authority.\" Thus, it was patronage without decentralizing state power (unlike later feudalism).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-30",
+        "question": "Consider the socio-religious paradox presented by Buddhism and Jainism regarding the Sudras:\nAssertion (",
+        "options": [
+                ": Buddhism and Jainism failed to fundamentally alter the depressed socio-economic status of the Sudras in ancient Indian society.\nReason (R): Although these sects admitted Sudras into their religious orders, the broader social legislation (Dharmasutras) enforcing their servitude to the twice-born remained firmly intact, and the Buddha himself is not recorded as visiting Sudra assemblies.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 0,
+        "explanation": "The text explicitly notes that Jainism/Buddhism \"did not make any substantial change in the position of the sudras.\" While admitted to orders, their \"general position continued to be low,\" and Buddha visited other assemblies but not the sudras'.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-31",
+        "question": "The invention and adoption of writing",
+        "options": [
+                "couple of centuries before Asoka had profound structural implications for the state. Which of the following state functions was LEAST dependent on the advent of writing?\nA) The compilation of complex legal codes and ritual texts.",
+                "The maintenance of accounting ledgers necessary for long-distance trade.",
+                "The assessment an",
+                "collection of widespread agrarian taxes.\nD) The physical smelting of iron ore into agricultural tools."
+        ],
+        "correctIndex": 3,
+        "explanation": "Writing facilitated law compilation, book-keeping for trade, tax-collection, and managing a professional army. The physical smelting of iron (metallurgy) is a technological craft that does not inherently depend on writing.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-32",
+        "question": "The transition of bali from the Vedic to the Buddhist period highlights",
+        "options": [
+                "shift in political economy. This transition is best described as:\nA) From a compulsory state tax to a voluntary religious donation.",
+                "From a voluntary tribal offering to a chief, into a compulsory, systematically assessed agricultural tax levied by a territorial state.",
+                "From a tax pai",
+                "in gold to a tax paid exclusively in cattle.\nD) From a penalty imposed on criminals to a reward given to warriors."
+        ],
+        "correctIndex": 1,
+        "explanation": "\"Bali, a voluntary payment made by the tribesmen to their chiefs in Vedic times, became a compulsory payment to be made by the peasants in the age of the Buddha.\"",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-33",
+        "question": "The presence of \"border villages\" inhabited by fowlers and hunters on the limits of the countryside signifies:",
+        "options": [
+                "The complete eradication of all wildlife in the Gangetic basin.",
+                "The geographical and cultural frontier where the expanding agrarian, varna-based society intersected with the shrinking, pre-agricultural tribal/forest economies.",
+                "That the state relie",
+                "entirely on hunting for its food supply.\nD) The establishment of foreign military outposts."
+        ],
+        "correctIndex": 1,
+        "explanation": "The third category consisted of border villages merging into forests, inhabited by fowlers and hunters leading a backward life. This represents the frontier of agrarian expansion against forest tribes.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-34",
+        "question": "The text notes that \"the NBP phase marked the beginning of the second urbanization in Indi",
+        "options": [
+                "\" Which combination of archaeological finds defines the mature/middle stage of this phase (3rd century",
+                "",
+                ")?\nA) Stone hand-axes an",
+                "crude pebble tools.\nB) Copper harpoons and Ochre-Coloured Pottery.\nC) Burnt bricks and ringwells.\nD) Iron chariots and Painted Grey Ware."
+        ],
+        "correctIndex": 2,
+        "explanation": "\"The use of burnt bricks and ringwells appeared in the middle of the NBP phase, i.e., in the third century B.C.\"",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-35",
+        "question": "The recruitment of high officers (mahamatras) predominantly from the Brahman",
+        "options": [
+                "class, rather than from the king's own clan, indicates:\nA) A shift towards a proto-bureaucratic state where administrative expertise and ritual authority (Brahmanas) superseded traditional tribal/kinship ties in governance.",
+                "That the king had murdered all his relatives.",
+                "A complete takeover of the state by the Vaisya merchants.",
+                "The strict democratic election of all officials by the village headmen."
+        ],
+        "correctIndex": 0,
+        "explanation": "Recruiting from outside the clan (from the brahmanas) shows the transition from a tribal, kin-based administration to a formal state apparatus relying on a specialized, educated class.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-36",
+        "question": "The overarching synthesis of Chapter 12 demonstrates that the \"Age of the Buddha\" was defined by:",
+        "options": [
+                "The collapse of the state apparatus and a return to purely nomadic pastoralism.",
+                "The crystallization of a complex, stratified society where an iron-based agrarian surplus funded the rise of towns, a monetized trade network, a massive standing army, and a rigid, varna-based legal system.",
+                "The absolute triumph of egalitarian republics over all monarchical forms of government.",
+                "A peaceful era entirely free from taxation, warfare, and social inequality."
+        ],
+        "correctIndex": 1,
+        "explanation": "This captures the chapter's conclusion: ancient Indian polity, economy (iron tools -> surplus -> towns/money), and society (varna-based law, taxes supporting state) really took shape in this period.\n\nMy apologies for the oversight. You are absolutely right\u2014there was a gap in the previous output, leaving Chapter 12 short by 20 questions (10 Moderate and 10 Tough).\n\n\nHere are the remaining 20 questions for Chapter 12: State and Varna Society in the Age of the Buddha to perfectly complete your 90-question quota for this chapter. You can seamlessly add these (Q71 to Q90) to the first 70 questions provided earlier.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-37",
+        "question": "Consider the following statements regarding the organization of crafts and commerce in the age of the Buddha:\n\n\nThe texts mention 18 guilds of artisans, indicating",
+        "options": [
+                "high degree of craft specialization.\n\n\nArtisans and merchants often lived in fixed localities in towns, such as the vessa's (merchants') street in Varanasi.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct. The texts mention 18 guilds, and there was a strong localization of crafts and commerce in specific streets and suburbs.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-38",
+        "question": "Consider the following statements regarding the taxation of non-agricultural groups:\n\n\nTraders had to pay tolls and customs on the sale of their commodities, which were collected by the saulkik",
+        "options": [
+                "Artisans were completely exempted from all state taxes and royal obligations.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because \"artisans and traders too had to pay taxes\" and artisans \"were made to work for a day in a month for the king.\"",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-39",
+        "question": "Consider the following administrative officials and their functions:\n\n\nBalisadhakas - Assessors and collectors of the compulsory agricultural tax (bali).\n\n\nBhandagarik",
+        "options": [
+                "- The supreme military commander of the republican armies.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the bhandagarika was the treasurer in the republican administration, whereas the senapati was the commander.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-40",
+        "question": "Consider the following statements about the political assemblies of the post-Vedic period:\n\n\nThe ancient tribal assemblies like the sabh",
+        "options": [
+                "and samiti were replaced by a small body called the parishad.\n\n\nThe parishad was an egalitarian body consisting of representatives from all four varnas.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the text states that the parishad consisted \"exclusively of the brahmanas.\"",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-41",
+        "question": "Consider the following statements regarding the judicial system of the Lichchhavi republic:\n\n\nIt possessed",
+        "options": [
+                "highly stratified judicial mechanism with as many as seven courts for trying the same case sequentially.\n\n\nThe final judicial authority rested solely with the Brahmana priests, bypassing the Kshatriya rajas.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the republic was controlled by the 7,707 Kshatriya rajas, and brahmanas were not even included in the supreme assembly, let alone holding ultimate judicial power.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-42",
+        "question": "Consider the following statements about the Dharmasutras (law-books) compiled during this era:\n\n\nThey emphasized that crimes committed by Sudras against Brahmanas were to be punished lightly.\n\n\nIn many cases, punishments for criminal offences were governed by the ide",
+        "options": [
+                "of revenge, meaning \"an eye for an eye\".\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because the law was heavily biased: crimes by Sudras against Brahmanas were punished severely, while the reverse was punished lightly. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-43",
+        "question": "Consider the following statements regarding the emergence of towns during the NBP phase:\n\n\nMany towns initially originated as seats of government but eventually evolved into bustling markets inhabited by artisans and merchants.\n\n\nThe towns in this er",
+        "options": [
+                "were built entirely of burnt bricks from the very beginning of the 6th century",
+                "",
+                "Which of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 an",
+                "2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the use of burnt bricks and ringwells only appeared \"in the middle of the NBP phase, i.e., in the third century B.C.\"; early structures were mud and wood (like Patna's wooden palisades).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-44",
+        "question": "Evaluate the socioeconomic significance of the advent of writing in pre-Mauryan Indi",
+        "options": [
+                "Which of the following state mechanisms was most profoundly revolutionized by this development?\nA) The physical manufacturing process of Painted Grey Ware pottery.",
+                "The ability to forge heavy iron weapons for the standing army.",
+                "The administrative capability to maintain complex book-keeping essential for long-distance trade, systemic tax-collection, an",
+                "managing a large professional army.\nD) The translation of the Rig Veda into Greek to appease foreign merchants."
+        ],
+        "correctIndex": 2,
+        "explanation": "The text makes this exact analytical connection: \"Writing facilitated book-keeping, which was so essential to trade, tax-collection, and the keeping of a large professional army.\"",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-45",
+        "question": "Analyze the structural dynamics of the Varna-based taxation system established in the territorial monarchies:\nAssertion (",
+        "options": [
+                ": The fiscal foundation of the early Indian state was deeply inequitable, relying almost entirely on the producing classes.\nReason (R): The Dharmasutras explicitly exempted the non-producing elites\u2014the Kshatriya warriors and Brahmana priests\u2014from taxation, shifting the entire compulsory burden of bali and bhaga onto the Vaisyas (grihapatis).\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "A is false, but R is true."
+        ],
+        "correctIndex": 0,
+        "explanation": "The text states, \"Warriors and priests, i.e., the kshatriyas and the brahmanas, were exempted from payment of taxes, and the burden fell on the peasants who were mainly vaisyas or grihapatis,\" substantiating both the assertion of inequity and its structural reason.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-46",
+        "question": "\"The second urbanization in Indi",
+        "options": [
+                "was fundamentally distinct from the Harappan urbanization.\" Based on Chapter 12, which of the following best defines the material basis of this second urbanization?\nA) A total reliance on imported bronze tools and maritime trade with Mesopotamia.",
+                "An agrarian surplus generated by iron-plough agriculture in the middle Gangeti",
+                "alluvium, supporting a monetize",
+                "economy (punch-marked coins) and specialized artisan guilds.\nC) The exclusive use of stone and copper tools in the arid regions of the Indus valley.\nD) A completely decentralized society without any state apparatus or taxation."
+        ],
+        "correctIndex": 1,
+        "explanation": "The Harappan urbanization was Bronze Age and Indus-based. The second urbanization (NBP phase) was driven by iron technology, paddy cultivation in the Gangetic basin, and the introduction of metallic money (punch-marked coins) supporting artisans/towns.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-47",
+        "question": "The demographic and spatial arrangement of towns during the NBP phase reflects",
+        "options": [
+                "highly organized economic life. The existence of suburban \"craft villages\" (e.g., carpenters' villages) analytically served to:\nA) Isolate the untouchables from the mainstream urban population.",
+                "Act as vital economi",
+                "conduits that processe",
+                "raw materials from the countryside and supplied finished goods directly to the urban markets and state administration.\nC) Serve as temporary military camps for the republican armies during wartime.\nD) Hide wealth from the saulkikas (tax collectors)."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text notes that \"Suburban villages were in the nature of craft villages... The villages served as markets for the other villages and linked the towns with the countryside,\" showing their role as processing/trading conduits.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-48",
+        "question": "Compare the nature of political authority in the monarchies versus the tribal republics of the 6th century B.C.:\nStatement-I: In monarchies like Magadha, revenue was claimed by",
+        "options": [
+                "single king who maintained a massive, centralized standing army.\nStatement-II: In republics like Vaisali, state revenue was claimed collectively by a large clan-based oligarchy (the rajas), and military power was decentralized, with each raja maintaining his own private retinue.\nWhich of the following is correct?\nA) Both Statement-I and Statement-II are correct.",
+                "Both Statement-I and Statement-II are incorrect.",
+                "Statement-I is correct but Statement-II is incorrect.",
+                "Statement-I is incorrect but Statement-II is correct."
+        ],
+        "correctIndex": 0,
+        "explanation": "Both statements accurately reflect the structural differences described in the text between centralized monarchies and decentralized oligarchic republics.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-49",
+        "question": "The Jatak",
+        "options": [
+                "stories mention instances of peasants leaving the country of the king to live in forests. This literary evidence is analytically significant because it highlights:\nA) A sudden, nationwide religious awakening where all peasants became ascetic monks.",
+                "The structural tension and economi",
+                "distress inherent in early state formation, where the heavy, compulsory burden of taxes (bali) an",
+                "forced labor occasionally drove the producing class to flight.\nC) The absolute failure of iron tools to cultivate the soil.\nD) The democratic right of citizens to vote with their feet in the republics."
+        ],
+        "correctIndex": 1,
+        "explanation": "The text explicitly notes that \"the birth stories of the Buddha speak of cases in which peasants left the country of the king in order to escape the oppressive burden of taxes,\" reflecting class tension and economic distress.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-50",
+        "question": "The shift from the Sabh",
+        "options": [
+                "and Samiti to the Parishad in post-Vedic times signifies which broader sociopolitical transformation?\nA) The democratization of the state, allowing all varnas to vote on legislation.",
+                "The transition from egalitarian tribal assemblies (where free tribesmen had a voice) to a highly exclusionary, stratified advisory body consisting exclusively of Brahmanas, reflecting the hardening of varna power dynamics.",
+                "The secularization of the state, removing all religious influence from governance.",
+                "The adoption of a purely Greek administrative model imported by Alexander."
+        ],
+        "correctIndex": 1,
+        "explanation": "The sabha/samiti decayed as tribes disintegrated and large states emerged. They were replaced by the parishad, \"consisting exclusively of the brahmanas,\" showing the loss of tribal egalitarianism and the rise of elite stratification.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-51",
+        "question": "The emergence of the Dharmasutras in this period reflects the necessity of",
+        "options": [
+                "formal legal code. The jurisprudence established by these texts was fundamentally based on:\nA) The egalitarian principles outlined in the Upanishads.",
+                "The strict application of pure tribal customary law devoid of any religious oversight.",
+                "A differential, Varna-base",
+                "hierarchy where both moral expectations and the severity of judicial punishments were dictated by an individual's ritual status (e.g., severe punishments for Sudras, lighter for upper varnas).\nD) A purely monetary system where all crimes could be pardoned by paying punch-marked coins."
+        ],
+        "correctIndex": 2,
+        "explanation": "The text states, \"The civil and criminal law was based on the varna division. The higher the varna, the purer it was, and the higher was the order of moral conduct expected... The lower the varna of an offender, the more severe was the punishment.\"",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v5-52",
+        "question": "Synthesizing the economic and political developments of the \"Age of the Buddha,\" which of the following sets of factors was absolutely indispensable for the creation of the first large territorial states?",
+        "options": [
+                "Bronze metallurgy, maritime ports, and a nomadic pastoral economy.",
+                "The iron ploughshare, stable wet-paddy agriculture, a compulsory taxation system to extract surplus, and the invention of writing to manage bureaucracy.",
+                "Greek mercenary armies, Zoroastrian philosophy, an",
+                "the complete abolition of the varna system.\nD) Massive stone temples, a gold-standard currency, and the exclusive cultivation of barley."
+        ],
+        "correctIndex": 1,
+        "explanation": "This summarizes the core thesis of Chapter 12: iron tools + paddy led to agricultural surplus -> which allowed compulsory taxes -> which, managed by writing/officials, supported towns, armies, and territorial state formation.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-500",
+        "question": "Consider the following statements about the Northern Black Polished Ware (NBPW):\n\n\nIt was",
+        "options": [
+                "very glossy, shining type of pottery made of fine fabric.\n\n\nIt primarily served as the table-ware for the poorer sections of society.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "It primarily serve",
+                "Ware (NBPW):\n\n\nIt was a very glossy, shining type of pottery made of fine fabric.\n\n\nIt primarily served as the table-ware for the poorer sections of society.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the text states it \"apparently served as the table-ware of richer people.\"",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-501",
+        "question": "Consider the following statements regarding trade routes in the age of the Buddha:\n\n\nSravasti was linked with both Kausambi and Varanasi, the latter being",
+        "options": [
+                "great centre of trade.\n\n\nTraders from Kosala and Magadha completely avoided traveling northwards to Taxila.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "with both Kausambi and Varanasi, the latter being a great centre of trade.\n\n\nTraders from Kosala and Magadha completely avoided traveling northwards to Taxila.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the Jataka stories mention traders of Kosala and Magadha going via Mathura as far northward as Taxila.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-502",
+        "question": "Consider the following statements about the earliest coins in India:\n\n\nThe terms nishk",
+        "options": [
+                "and satamana found in Vedic texts represent actual physical coins that have been widely excavated from the Vedic period.\n\n\nThe earliest actual metal coins, called punch-marked coins, appear in the age of Gautama Buddha and are made largely of silver.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "texts represent actual physical coins that have been widely excavate",
+                "satamana found in Vedic texts represent actual physical coins that have been widely excavated from the Vedic period.\n\n\nThe earliest actual metal coins, called punch-marked coins, appear in the age of Gautama Buddha and are made largely of silver.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; the terms are found in texts, but \"coins actually found are not earlier than the sixth century B.C.\" meaning Vedic people likely used barter/cattle. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-503",
+        "question": "Consider the following pairs of village types mentioned in the Pali texts and their inhabitants:\n\n\nTypical village - Inhabited by various castes and communities under",
+        "options": [
+                "bhojaka.\n\n\nSuburban village - Served as craft villages, like a carpenters' village.\n\n\nBorder village - Inhabited mainly by fowlers and hunters leading a backward life.\nHow many of the above pairs are correctly matched?\nA) Only one pair",
+                "Only two pairs",
+                "All three pairs",
+                "in the Pali texts and their inhabitants:\n\n\nTypical village - Inhabited by various castes and communities under a bhojaka.\n\n\nSuburban village - Served as craft villages, like a carpenters' village.\n\n\nBorder village - Inhabited mainly by fowlers and hunters leading a backward life.\nHow many of the above pairs are correctly matched?\nA) Only one pair\nB) Only two pairs\nC) All three pairs\nD) None"
+        ],
+        "correctIndex": 2,
+        "explanation": "All three pairs accurately reflect the three categories of villages described in the Pali texts.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-504",
+        "question": "Consider the following statements regarding agriculture in the middle Gangetic basin:\n\n\nThe use of the iron ploughshare was essential in opening up the rain-fed, hard-soil are",
+        "options": [
+                "to clearance and cultivation.\n\n\nLarge-scale paddy transplantation began in this age, which enormously added to the yield.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "basin:\n\n\nThe use of the iron ploughshare was essential in opening up the rain-fed, hard-soil area to clearance an",
+                "cultivation.\n\n\nLarge-scale paddy transplantation began in this age, which enormously added to the yield.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct and highlight the technological advances that produced the agrarian surplus required for the second urbanization.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-505",
+        "question": "Consider the transformation of the village headman (gramini):\n\n\nIn the beginning, the gramini functioned as the leader of",
+        "options": [
+                "tribal military unit (grama).\n\n\nAs life became sedentary and plough cultivation was established, the gramini was transformed into a settled village headman in pre-Maurya times.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "as the leader of a tribal military unit (grama).\n\n\nAs life became sedentary and plough cultivation was established, the gramini was transformed into a settled village headman in pre-Maurya times.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements correctly describe the evolution of the gramini from a military to an administrative rural role.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-506",
+        "question": "Consider the following statements regarding the armies of the 6th-4th centuries B.C.:\n\n\nChariots were increasing in importance across both north-east and north-west Indi",
+        "options": [
+                "Very few elephants were maintained by the rulers of the states in north-west India compared to the Magadhan king.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "",
+                ":\n\n\nChariots were increasing in importance across both north-east an",
+                "north-west India.\n\n\nVery few elephants were maintained by the rulers of the states in north-west India compared to the Magadhan king.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because \"chariots were losing their importance not only in north-east but also in north-west India.\" Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-507",
+        "question": "Consider the following statements regarding artisans and traders in the taxation system:\n\n\nArtisans were completely exempted from all royal work and taxes.\n\n\nArtisans were made to work for",
+        "options": [
+                "day in a month for the king.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "traders in the taxation system:\n\n\nArtisans were completely exempted from all royal work and taxes.\n\n\nArtisans were made to work for a day in a month for the king.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect. Statement 2 is correct as per the text detailing the taxation on artisans.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-508",
+        "question": "Consider the following statements comparing monarchies and republics in this era:\n\n\nIn monarchies, the king claimed to be the sole recipient of revenue from the peasants.\n\n\nIn the republics, the claim to revenue was advanced by every tribal oligarch who was known as raj",
+        "options": [
+                "Which of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "republics in this era:\n\n\nIn monarchies, the king claimed to be the sole recipient of revenue from the peasants.\n\n\nIn the republics, the claim to revenue was advanced by every tribal oligarch who was known as raja.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct and highlight a fundamental administrative difference between the two systems.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-509",
+        "question": "Consider the following statements regarding the armies of the republics:\n\n\nEvery republican state maintained",
+        "options": [
+                "massive, regular standing army controlled by a single absolute commander.\n\n\nEach raja in a republic was free to maintain his own little army under his senapati.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "was free to maintain his own little army under his senapati.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 an",
+                "a massive, regular standing army controlled by a single absolute commander.\n\n\nEach raja in a republic was free to maintain his own little army under his senapati.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect. Statement 2 is correct; \"each raja was free to maintain his own little army under his senapati,\" unlike the centralized standing army of monarchies.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-510",
+        "question": "Analyze the structure of rural administration during the Age of the Buddha:\nAssertion (",
+        "options": [
+                ": The role of the gramini underwent a fundamental transformation from the Rig Vedic period to the pre-Maurya period.\nReason (R): As the tribal fighting units (gramas) abandoned their semi-nomadic lifestyle and settled into sedentary plough agriculture, their military leaders evolved into civil village headmen (gramabhojakas) responsible for tax collection and local order.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "perio",
+                "to the pre-Maurya period.\nReason (R): As the tribal fighting units (gramas) abandoned their semi-nomadic lifestyle and settled into sedentary plough agriculture, their military leaders evolved into civil village headmen (gramabhojakas) responsible for tax collection and local order.\nA) Both A and R are true, and R is the correct explanation of A.\nB) Both A and R are true, but R is not the correct explanation of A.\nC) A is true, but R is false.\nD) A is false, but R is true."
+        ],
+        "correctIndex": 0,
+        "explanation": "This is precisely the evolutionary trajectory described in the text. The military leader of a nomadic tribe (gramini) became the civic headman of a settled village as the economy shifted to sedentary agriculture.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-511",
+        "question": "Evaluate the nature of the \"republican experiment\" in ancient India:\n\n\nThe ancient Indian republics were true democracies where all inhabitants, including slaves and hired laborers, enjoyed equal political rights.\n\n\nIn reality, power resided with clan-based oligarchies (e.g., the 7,707 rajas of the Lichchhavis), who collectively claimed the peasant revenue and marginalized outsiders like brahmanas and lower classes.\nWhich of the statements given above is/are correct?",
+        "options": [
+                "1 only",
+                "2 only",
+                "Both 1 an",
+                "hired laborers, enjoyed equal political rights.\n\n\nIn reality, power resided with clan-based oligarchies (e.g., the 7,707 rajas of the Lichchhavis), who collectively claimed the peasant revenue and marginalized outsiders like brahmanas and lower classes.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect; they were not true democracies. Statement 2 is correct; they were oligarchies where the ruling class belonged to the same clan, excluding slaves, laborers, and even brahmanas (in the case of Vaisali).",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-512",
+        "question": "Consider the socio-religious paradox presented by Buddhism and Jainism regarding the Sudras:\nAssertion (",
+        "options": [
+                ": Buddhism and Jainism failed to fundamentally alter the depressed socio-economic status of the Sudras in ancient Indian society.\nReason (R): Although these sects admitted Sudras into their religious orders, the broader social legislation (Dharmasutras) enforcing their servitude to the twice-born remained firmly intact, and the Buddha himself is not recorded as visiting Sudra assemblies.\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "status of the Sudras in ancient Indian society.\nReason (R): Although these sects admitte",
+                "by Buddhism and Jainism regarding the Sudras:\nAssertion (A): Buddhism and Jainism failed to fundamentally alter the depressed socio-economic status of the Sudras in ancient Indian society.\nReason (R): Although these sects admitted Sudras into their religious orders, the broader social legislation (Dharmasutras) enforcing their servitude to the twice-born remained firmly intact, and the Buddha himself is not recorded as visiting Sudra assemblies.\nA) Both A and R are true, and R is the correct explanation of A.\nB) Both A and R are true, but R is not the correct explanation of A.\nC) A is true, but R is false.\nD) A is false, but R is true."
+        ],
+        "correctIndex": 0,
+        "explanation": "The text explicitly notes that Jainism/Buddhism \"did not make any substantial change in the position of the sudras.\" While admitted to orders, their \"general position continued to be low,\" and Buddha visited other assemblies but not the sudras'.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-513",
+        "question": "The presence of \"border villages\" inhabited by fowlers and hunters on the limits of the countryside signifies:",
+        "options": [
+                "The complete eradication of all wildlife in the Gangetic basin.",
+                "The geographical and cultural frontier where the expanding agrarian, varna-based society intersected with the shrinking, pre-agricultural tribal/forest economies.",
+                "basin.\nB) The geographical an",
+                "by fowlers and hunters on the limits of the countryside signifies:\nA) The complete eradication of all wildlife in the Gangetic basin.\nB) The geographical and cultural frontier where the expanding agrarian, varna-based society intersected with the shrinking, pre-agricultural tribal/forest economies.\nC) That the state relied entirely on hunting for its food supply.\nD) The establishment of foreign military outposts."
+        ],
+        "correctIndex": 1,
+        "explanation": "The third category consisted of border villages merging into forests, inhabited by fowlers and hunters leading a backward life. This represents the frontier of agrarian expansion against forest tribes.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-514",
+        "question": "The text notes that \"the NBP phase marked the beginning of the second urbanization in Indi",
+        "options": [
+                "\" Which combination of archaeological finds defines the mature/middle stage of this phase (3rd century",
+                "",
+                ")?\nA) Stone hand-axes an",
+                "the beginning of the second urbanization in India.\" Which combination of archaeological finds defines the mature/middle stage of this phase (3rd century B.C.)?\nA) Stone hand-axes and crude pebble tools.\nB) Copper harpoons and Ochre-Coloured Pottery.\nC) Burnt bricks and ringwells.\nD) Iron chariots and Painted Grey Ware."
+        ],
+        "correctIndex": 2,
+        "explanation": "\"The use of burnt bricks and ringwells appeared in the middle of the NBP phase, i.e., in the third century B.C.\"",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-515",
+        "question": "The overarching synthesis of Chapter 12 demonstrates that the \"Age of the Buddha\" was defined by:",
+        "options": [
+                "The collapse of the state apparatus and a return to purely nomadic pastoralism.",
+                "The crystallization of a complex, stratified society where an iron-based agrarian surplus funded the rise of towns, a monetized trade network, a massive standing army, and a rigid, varna-based legal system.",
+                "pastoralism.\nB) The crystallization of a complex, stratifie",
+                "by:\nA) The collapse of the state apparatus and a return to purely nomadic pastoralism.\nB) The crystallization of a complex, stratified society where an iron-based agrarian surplus funded the rise of towns, a monetized trade network, a massive standing army, and a rigid, varna-based legal system.\nC) The absolute triumph of egalitarian republics over all monarchical forms of government.\nD) A peaceful era entirely free from taxation, warfare, and social inequality."
+        ],
+        "correctIndex": 1,
+        "explanation": "This captures the chapter's conclusion: ancient Indian polity, economy (iron tools -> surplus -> towns/money), and society (varna-based law, taxes supporting state) really took shape in this period.\n\nMy apologies for the oversight. You are absolutely right\u2014there was a gap in the previous output, leaving Chapter 12 short by 20 questions (10 Moderate and 10 Tough).\n\n\nHere are the remaining 20 questions for Chapter 12: State and Varna Society in the Age of the Buddha to perfectly complete your 90-question quota for this chapter. You can seamlessly add these (Q71 to Q90) to the first 70 questions provided earlier.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-516",
+        "question": "Consider the following statements regarding the organization of crafts and commerce in the age of the Buddha:\n\n\nThe texts mention 18 guilds of artisans, indicating",
+        "options": [
+                "high degree of craft specialization.\n\n\nArtisans and merchants often lived in fixed localities in towns, such as the vessa's (merchants') street in Varanasi.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "commerce in the age of the Buddha:\n\n\nThe texts mention 18 guilds of artisans, indicating a high degree of craft specialization.\n\n\nArtisans and merchants often lived in fixed localities in towns, such as the vessa's (merchants') street in Varanasi.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both statements are correct. The texts mention 18 guilds, and there was a strong localization of crafts and commerce in specific streets and suburbs.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-517",
+        "question": "Consider the following statements regarding the taxation of non-agricultural groups:\n\n\nTraders had to pay tolls and customs on the sale of their commodities, which were collected by the saulkik",
+        "options": [
+                "Artisans were completely exempted from all state taxes and royal obligations.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "to pay tolls and customs on the sale of their commodities, which were collected by the saulkika.\n\n\nArtisans were completely exempted from all state taxes and royal obligations.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because \"artisans and traders too had to pay taxes\" and artisans \"were made to work for a day in a month for the king.\"",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-518",
+        "question": "Consider the following administrative officials and their functions:\n\n\nBalisadhakas - Assessors and collectors of the compulsory agricultural tax (bali).\n\n\nBhandagarik",
+        "options": [
+                "- The supreme military commander of the republican armies.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "their functions:\n\n\nBalisadhakas - Assessors and collectors of the compulsory agricultural tax (bali).\n\n\nBhandagarika - The supreme military commander of the republican armies.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the bhandagarika was the treasurer in the republican administration, whereas the senapati was the commander.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-519",
+        "question": "Consider the following statements about the political assemblies of the post-Vedic period:\n\n\nThe ancient tribal assemblies like the sabh",
+        "options": [
+                "and samiti were replaced by a small body called the parishad.\n\n\nThe parishad was an egalitarian body consisting of representatives from all four varnas.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "period:\n\n\nThe ancient tribal assemblies like the sabha an",
+                "samiti were replaced by a small body called the parishad.\n\n\nThe parishad was an egalitarian body consisting of representatives from all four varnas.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the text states that the parishad consisted \"exclusively of the brahmanas.\"",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-520",
+        "question": "Consider the following statements regarding the judicial system of the Lichchhavi republic:\n\n\nIt possessed",
+        "options": [
+                "highly stratified judicial mechanism with as many as seven courts for trying the same case sequentially.\n\n\nThe final judicial authority rested solely with the Brahmana priests, bypassing the Kshatriya rajas.\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "a highly stratified judicial mechanism with as many as seven courts for trying the same case sequentially.\n\n\nThe final judicial authority rested solely with the Brahmana priests, bypassing the Kshatriya rajas.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the republic was controlled by the 7,707 Kshatriya rajas, and brahmanas were not even included in the supreme assembly, let alone holding ultimate judicial power.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-521",
+        "question": "Consider the following statements about the Dharmasutras (law-books) compiled during this era:\n\n\nThey emphasized that crimes committed by Sudras against Brahmanas were to be punished lightly.\n\n\nIn many cases, punishments for criminal offences were governed by the ide",
+        "options": [
+                "of revenge, meaning \"an eye for an eye\".\nWhich of the statements given above is/are correct?\nA) 1 only",
+                "2 only",
+                "Both 1 an",
+                "during this era:\n\n\nThey emphasized that crimes committed by Sudras against Brahmanas were to be punished lightly.\n\n\nIn many cases, punishments for criminal offences were governed by the idea of revenge, meaning \"an eye for an eye\".\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Statement 1 is incorrect because the law was heavily biased: crimes by Sudras against Brahmanas were punished severely, while the reverse was punished lightly. Statement 2 is correct.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-522",
+        "question": "Consider the following statements regarding the emergence of towns during the NBP phase:\n\n\nMany towns initially originated as seats of government but eventually evolved into bustling markets inhabited by artisans and merchants.\n\n\nThe towns in this er",
+        "options": [
+                "were built entirely of burnt bricks from the very beginning of the 6th century",
+                "",
+                "Which of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 an",
+                "as seats of government but eventually evolved into bustling markets inhabited by artisans and merchants.\n\n\nThe towns in this era were built entirely of burnt bricks from the very beginning of the 6th century B.C.\nWhich of the statements given above is/are correct?\nA) 1 only\nB) 2 only\nC) Both 1 and 2\nD) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the use of burnt bricks and ringwells only appeared \"in the middle of the NBP phase, i.e., in the third century B.C.\"; early structures were mud and wood (like Patna's wooden palisades).",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-523",
+        "question": "Analyze the structural dynamics of the Varna-based taxation system established in the territorial monarchies:\nAssertion (",
+        "options": [
+                ": The fiscal foundation of the early Indian state was deeply inequitable, relying almost entirely on the producing classes.\nReason (R): The Dharmasutras explicitly exempted the non-producing elites\u2014the Kshatriya warriors and Brahmana priests\u2014from taxation, shifting the entire compulsory burden of bali and bhaga onto the Vaisyas (grihapatis).\nA) Both A and R are true, and R is the correct explanation of A.",
+                "Both A and R are true, but R is not the correct explanation of A.",
+                "A is true, but R is false.",
+                "taxation system established in the territorial monarchies:\nAssertion (A): The fiscal foundation of the early Indian state was deeply inequitable, relying almost entirely on the producing classes.\nReason (R): The Dharmasutras explicitly exempted the non-producing elites\u2014the Kshatriya warriors and Brahmana priests\u2014from taxation, shifting the entire compulsory burden of bali and bhaga onto the Vaisyas (grihapatis).\nA) Both A and R are true, and R is the correct explanation of A.\nB) Both A and R are true, but R is not the correct explanation of A.\nC) A is true, but R is false.\nD) A is false, but R is true."
+        ],
+        "correctIndex": 0,
+        "explanation": "The text states, \"Warriors and priests, i.e., the kshatriyas and the brahmanas, were exempted from payment of taxes, and the burden fell on the peasants who were mainly vaisyas or grihapatis,\" substantiating both the assertion of inequity and its structural reason.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-524",
+        "question": "\"The second urbanization in Indi",
+        "options": [
+                "was fundamentally distinct from the Harappan urbanization.\" Based on Chapter 12, which of the following best defines the material basis of this second urbanization?\nA) A total reliance on imported bronze tools and maritime trade with Mesopotamia.",
+                "An agrarian surplus generated by iron-plough agriculture in the middle Gangeti",
+                "alluvium, supporting a monetize",
+                "urbanization in India was fundamentally distinct from the Harappan urbanization.\" Based on Chapter 12, which of the following best defines the material basis of this second urbanization?\nA) A total reliance on imported bronze tools and maritime trade with Mesopotamia.\nB) An agrarian surplus generated by iron-plough agriculture in the middle Gangetic alluvium, supporting a monetized economy (punch-marked coins) and specialized artisan guilds.\nC) The exclusive use of stone and copper tools in the arid regions of the Indus valley.\nD) A completely decentralized society without any state apparatus or taxation."
+        ],
+        "correctIndex": 1,
+        "explanation": "The Harappan urbanization was Bronze Age and Indus-based. The second urbanization (NBP phase) was driven by iron technology, paddy cultivation in the Gangetic basin, and the introduction of metallic money (punch-marked coins) supporting artisans/towns.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-525",
+        "question": "Compare the nature of political authority in the monarchies versus the tribal republics of the 6th century B.C.:\nStatement-I: In monarchies like Magadha, revenue was claimed by",
+        "options": [
+                "single king who maintained a massive, centralized standing army.\nStatement-II: In republics like Vaisali, state revenue was claimed collectively by a large clan-based oligarchy (the rajas), and military power was decentralized, with each raja maintaining his own private retinue.\nWhich of the following is correct?\nA) Both Statement-I and Statement-II are correct.",
+                "",
+                ":\nStatement-I: In monarchies like Magadha, revenue was claime",
+                "by a single king who maintained a massive, centralized standing army.\nStatement-II: In republics like Vaisali, state revenue was claimed collectively by a large clan-based oligarchy (the rajas), and military power was decentralized, with each raja maintaining his own private retinue.\nWhich of the following is correct?\nA) Both Statement-I and Statement-II are correct.\nB) Both Statement-I and Statement-II are incorrect.\nC) Statement-I is correct but Statement-II is incorrect.\nD) Statement-I is incorrect but Statement-II is correct."
+        ],
+        "correctIndex": 0,
+        "explanation": "Both statements accurately reflect the structural differences described in the text between centralized monarchies and decentralized oligarchic republics.",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch12-d-v6-526",
+        "question": "Synthesizing the economic and political developments of the \"Age of the Buddha,\" which of the following sets of factors was absolutely indispensable for the creation of the first large territorial states?",
+        "options": [
+                "Bronze metallurgy, maritime ports, and a nomadic pastoral economy.",
+                "The iron ploughshare, stable wet-paddy agriculture, a compulsory taxation system to extract surplus, and the invention of writing to manage bureaucracy.",
+                "an",
+                "political developments of the \"Age of the Buddha,\" which of the following sets of factors was absolutely indispensable for the creation of the first large territorial states?\nA) Bronze metallurgy, maritime ports, and a nomadic pastoral economy.\nB) The iron ploughshare, stable wet-paddy agriculture, a compulsory taxation system to extract surplus, and the invention of writing to manage bureaucracy.\nC) Greek mercenary armies, Zoroastrian philosophy, and the complete abolition of the varna system.\nD) Massive stone temples, a gold-standard currency, and the exclusive cultivation of barley."
+        ],
+        "correctIndex": 1,
+        "explanation": "This summarizes the core thesis of Chapter 12: iron tools + paddy led to agricultural surplus -> which allowed compulsory taxes -> which, managed by writing/officials, supported towns, armies, and territorial state formation.",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},];
 export const CH12_L2_MCQS: MCQ[] = [
     {
         "id": "ch12-d-32",

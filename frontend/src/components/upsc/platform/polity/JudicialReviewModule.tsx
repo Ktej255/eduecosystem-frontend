@@ -4,12 +4,13 @@ import React, { useState } from "react";
 import {
     Search, Scroll, FileText, XCircle, Shield,
     Scale, Lock, Unlock, AlertTriangle, Landmark,
-    Stamp, Gavel, FolderOpen, History
+    Stamp, Gavel, FolderOpen, History, CheckCircle2
 } from "lucide-react";
 
 interface JudicialReviewModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Editor's Desk (Crumpled Paper & Red Ink) ---
@@ -46,13 +47,14 @@ const VoidStamp = () => (
     </div>
 );
 
-export default function JudicialReviewModule({ onComplete, isCompleted }: JudicialReviewModuleProps) {
+export default function JudicialReviewModule({ onComplete, isCompleted, chapterNumber = "27" }: JudicialReviewModuleProps) {
     return (
         <DeskContainer>
             {/* HERO */}
             <div className="text-center py-12 relative">
                 <div className="inline-block relative">
                     <Search size={120} className="text-foreground absolute -top-10 -left-16 opacity-10 rotate-12" />
+                    <div className="text-red-700 font-bold uppercase tracking-widest text-xs mb-2">Chapter {chapterNumber}</div>
                     <h1 className="text-5xl md:text-7xl font-black text-foreground font-serif mb-2 relative z-10">
                         JUDICIAL REVIEW
                     </h1>
@@ -237,7 +239,10 @@ export default function JudicialReviewModule({ onComplete, isCompleted }: Judici
                             }
                         `}
                     >
-                        {isCompleted ? "REVIEW COMPLETE" : "STRIKE DOWN UNCONSTITUTIONALITY"}
+                        {isCompleted ? 
+                            <span className="flex items-center gap-2 justify-center"><CheckCircle2 size={18} /> CHAPTER {chapterNumber} COMPLETED</span> : 
+                            <span className="flex items-center gap-2 justify-center"><Search size={18} /> MARK CHAPTER {chapterNumber} COMPLETE</span>
+                        }
                     </button>
                 </div>
             </div>

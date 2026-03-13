@@ -1,5 +1,4 @@
 import { Subtopic, Question } from '../ancient-types-27';
-import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_12_SUBTOPICS: Subtopic[] = [
     { id: 'material_life', name: 'Material Life & Second Urbanization' },

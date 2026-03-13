@@ -576,8 +576,1063 @@ export const CH18_L1_MCQS: MCQ[] = [
         "tags": [
             "history"
         ]
-    }
-];
+    },
+    {
+        "id": "ch18-d-v6-500",
+        "question": "The Buddhist text Milind",
+        "options": [
+                "Panho mentions how many types of occupations during the post-Mauryan period?\nA) 24",
+                "36",
+                "75",
+                "100"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-501",
+        "question": "The Mahavastu,",
+        "options": [
+                "Buddhist text, catalogues crafts residing in which ancient city, listing around 36 kinds of workers?\nA) Ujjain",
+                "Rajgir",
+                "Mathura",
+                "36 kinds of workers?\nA) Ujjain B) Rajgir C) Mathura D) Taxila"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-502",
+        "question": "Which ancient city was highly famous for the manufacture of",
+        "options": [
+                "special type of cloth called Shataka?\nA) Varanasi",
+                "Ujjain",
+                "Mathura",
+                "Shataka?\nA) Varanasi B) Ujjain C) Mathura D) Arikamedu"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-503",
+        "question": "Who discovered the monsoon se",
+        "options": [
+                "route to India around AD 46, which revolutionized Indo-Roman trade?\nA) Pliny",
+                "Ptolemy",
+                "Hippalus",
+                "the monsoon sea route to India around AD 46, which revolutionized Indo-Roman trade?\nA) Pliny B) Ptolemy C) Hippalus D) Megasthenes"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-504",
+        "question": "According to Pliny, which country was the chief importer of Indian luxury goods, leading to",
+        "options": [
+                "massive drain of their gold?\nA) China",
+                "Persia",
+                "Rome",
+                "Egypt"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-505",
+        "question": "Which of the following ports was located on the eastern coast of Indi",
+        "options": [
+                "and handled trade with Southeast Asia?\nA) Bharuch",
+                "Sopara",
+                "Tamralipti",
+                "on the eastern coast of India and handled trade with Southeast Asia?\nA) Bharuch B) Sopara C) Tamralipti D) Muziris"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-506",
+        "question": "The terms Sreni, Nigama, and Pug",
+        "options": [
+                "in ancient Indian economic history refer to:\nA) Types of gold coins",
+                "Guilds of artisans and merchants",
+                "history refer to:\nA) Types of gol",
+                "Puga in ancient Indian economic history refer to:\nA) Types of gold coins B) Guilds of artisans and merchants C) Categories of land taxes D) Agricultural implements"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-507",
+        "question": "The guilds of the post-Mauryan period acted as banks. What was",
+        "options": [
+                "common practice regarding investments in these guilds?\nA) The principal was spent by the king.",
+                "The principal was kept intact, and only the interest was used to support religious endowments.",
+                "Guilds charge",
+                "acted as banks. What was a common practice regarding investments in these guilds?\nA) The principal was spent by the king. B) The principal was kept intact, and only the interest was used to support religious endowments. C) Guilds charged 50% interest rates. D) Guilds refused money from non-merchants."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-508",
+        "question": "The Roman historian who lamented the drain of Roman wealth to Indi",
+        "options": [
+                "in his work Natural History was:\nA) Strabo",
+                "Arrian",
+                "Pliny",
+                "the drain of Roman wealth to India in his work Natural History was:\nA) Strabo B) Arrian C) Pliny D) Ptolemy"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-509",
+        "question": "Excavations at which site in South Indi",
+        "options": [
+                "have yielded a massive Roman settlement with amphorae and Arretine ware?\nA) Korkai",
+                "Arikamedu",
+                "Puhar",
+                "a massive Roman settlement with amphorae and Arretine ware?\nA) Korkai B) Arikamedu C) Puhar D) Uraiyur"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-510",
+        "question": "Ujjain was",
+        "options": [
+                "major urban center that flourished primarily because:\nA) It was a major seaport.",
+                "It was situated at the junction of two major trade routes (Dakshinapatha and the route to the western coast).",
+                "It was the capital of the Mauryas.",
+                "primarily because:\nA) It was a major seaport. B) It was situated at the junction of two major trade routes (Dakshinapatha and the route to the western coast). C) It was the capital of the Mauryas. D) It was the only source of iron in India."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-511",
+        "question": "Which industry experienced",
+        "options": [
+                "significant boom due to the widespread practice of Buddhism and the building of stupas and viharas?\nA) Ship-building",
+                "Stone masonry and sculpture",
+                "Weapon manufacturing",
+                "a significant boom due to the widespread practice of Buddhism and the building of stupas and viharas?\nA) Ship-building B) Stone masonry and sculpture C) Weapon manufacturing D) Silk weaving"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-512",
+        "question": "The art of making glass significantly improved in Indi",
+        "options": [
+                "during this period. Which foreign contact is often credited with this technological boost?\nA) Chinese",
+                "Roman and Central Asian",
+                "Egyptian",
+                "in India during this period. Which foreign contact is often credited with this technological boost?\nA) Chinese B) Roman and Central Asian C) Egyptian D) Harappan"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-513",
+        "question": "The ancient text Periplus of the Erythraean Se",
+        "options": [
+                "was written in which language?\nA) Latin",
+                "Greek",
+                "Sanskrit",
+                "Prakrit"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-514",
+        "question": "Which of the following animals was famously exported from Indi",
+        "options": [
+                "to Rome for entertainment in the Colosseum?\nA) Cows",
+                "Tigers and monkeys",
+                "Horses",
+                "from India to Rome for entertainment in the Colosseum?\nA) Cows B) Tigers and monkeys C) Horses D) Camels"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-515",
+        "question": "The Indian merchants brought silk from Chin",
+        "options": [
+                "and exported it to Rome. In return, what did India primarily import from the Roman Empire?\nA) Cotton",
+                "Spices",
+                "Gol",
+                "exported it to Rome. In return, what did India primarily import from the Roman Empire?\nA) Cotton B) Spices C) Gold and silver (bullion), wine, and glass D) Iron ore"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-516",
+        "question": "The large-scale use of which building material indicates",
+        "options": [
+                "high degree of urbanization and economic prosperity in post-Mauryan towns?\nA) Mud",
+                "Wattle and daub",
+                "prosperity in post-Mauryan towns?\nA) Mu",
+                "economic prosperity in post-Mauryan towns?\nA) Mud B) Wattle and daub C) Burnt bricks D) Unbaked bricks"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-517",
+        "question": "The discovery of Roman coins in large hoards primarily in peninsular Indi",
+        "options": [
+                "(Deccan and South) suggests:\nA) The Romans conquered the Deccan.",
+                "The balance of trade was heavily in favor of India.",
+                "The Satavahanas banne",
+                "South) suggests:\nA) The Romans conquered the Deccan. B) The balance of trade was heavily in favor of India. C) The Satavahanas banned local currency. D) The Romans gifted money to Indian kings."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-518",
+        "question": "Which craft was considered highly specialized and concentrated in Mathur",
+        "options": [
+                "and Vanga (Bengal) according to early texts?\nA) Iron smelting",
+                "Textile/cotton manufacturing",
+                "Ship-building",
+                "highly specialized and concentrated in Mathura and Vanga (Bengal) according to early texts?\nA) Iron smelting B) Textile/cotton manufacturing C) Ship-building D) Glass blowing"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-519",
+        "question": "The term Sarthavah",
+        "options": [
+                "refers to:\nA) The head of a localized artisan guild",
+                "The leader of a mobile caravan of merchants",
+                "A royal tax collector",
+                "of a localized artisan guild B) The leader of a mobile caravan of merchants C) A royal tax collector D) A Buddhist monk"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-520",
+        "question": "Consider the following statements regarding the economic boom of the post-Mauryan period:\n\n\nThe boom was heavily reliant on the unification of the subcontinent under",
+        "options": [
+                "single political empire.\n\n\nThe establishment of the Kushan empire brought the Silk Route under their control, securing safe passage for traders.\n\n\nThe discovery of the monsoon winds significantly shortened the maritime travel time between India and the Roman Empire.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only",
+                "2 and 3 only",
+                "boom of the post-Mauryan period:\n\n\nThe boom was heavily reliant on the unification of the subcontinent under a single political empire.\n\n\nThe establishment of the Kushan empire brought the Silk Route under their control, securing safe passage for traders.\n\n\nThe discovery of the monsoon winds significantly shortene",
+                "the maritime travel time between India and the Roman Empire.\nWhich of the statements given above is/are correct?\nA) 1 and 2 only B) 2 and 3 only C) 1 and 3 only D) 1, 2, and 3"
+        ],
+        "correctIndex": 1,
+        "explanation": "The subcontinent was politically fragmented, not unified under a single empire, yet trade flourished due to stable regional kingdoms like the Kushans and Satavahanas.)",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-521",
+        "question": "Match List I (Ancient Ports) with List II (Geographical Location):\nList I",
+        "options": [
+                "Tamralipti",
+                "Barygaza (Bharuch)",
+                "Muziris",
+                "Arikamedu\nList II\n\n\nMalabar Coast (Kerala)\n\n\nCoromandel Coast (Tamil Nadu)\n\n\nBengal Delta\n\n\nGujarat Coast\nOptions:\nA) a-3, b-4, c-1, d-2 B) a-3, b-1, c-4, d-2 C) a-4, b-3, c-1, d-2 D) a-1, b-2, c-3, d-4"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-522",
+        "question": "With reference to the Guilds (Shrenis) during the post-Mauryan age, consider the following statements:\n\n\nThey functioned as banks, receiving deposits and paying regular interest.\n\n\nThey were strictly prohibited from maintaining their own militias.\n\n\nThey possessed considerable autonomy and had their own customary laws protected by the state.\nWhich is/are correct?",
+        "options": [
+                "1 and 2 only",
+                "2 and 3 only",
+                "1 an",
+                "as banks, receiving deposits and paying regular interest.\n\n\nThey were strictly prohibited from maintaining their own militias.\n\n\nThey possessed considerable autonomy and had their own customary laws protected by the state.\nWhich is/are correct?\nA) 1 and 2 only B) 2 and 3 only C) 1 and 3 only D) 1, 2, and 3"
+        ],
+        "correctIndex": 2,
+        "explanation": "Guilds often maintained their own militias, known as Shreni-bala, to protect their caravans and goods.)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-523",
+        "question": "Assertion (",
+        "options": [
+                ": The post-Mauryan period (200 BC - AD 250) witnessed the most widespread use of coins in ancient Indian history.\nReason (R): Rulers like the Kushans and Satavahanas, along with merchant guilds and autonomous cities, issued coins in gold, silver, copper, potin, and lead to facilitate a highly monetized economy at all societal levels.\nA) Both A and R are true and R is the correct explanation of A",
+                "Both A and R are true but R is not the correct explanation of A",
+                "- A",
+                "(200 BC - AD 250) witnessed the most widespread use of coins in ancient Indian history.\nReason (R): Rulers like the Kushans and Satavahanas, along with merchant guilds and autonomous cities, issued coins in gold, silver, copper, potin, and lead to facilitate a highly monetized economy at all societal levels.\nA) Both A and R are true and R is the correct explanation of A\nB) Both A and R are true but R is not the correct explanation of A\nC) A is true but R is false\nD) A is false but R is true"
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-524",
+        "question": "Which of the following texts provides the most detailed account of the navigational routes, ports, and commodities traded between Indi",
+        "options": [
+                "and the Roman Empire in the 1st century AD?\nA) The Arthashastra",
+                "The Periplus of the Erythraean Sea",
+                "The Indica of Megasthenes",
+                "account of the navigational routes, ports, and commodities traded between India and the Roman Empire in the 1st century AD?\nA) The Arthashastra B) The Periplus of the Erythraean Sea C) The Indica of Megasthenes D) The Rajatarangini"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-525",
+        "question": "The large number of terracott",
+        "options": [
+                "figurines produced during this period, notably found in places like Mathura and Ahichchhatra, primarily represent:\nA) Only Buddhist deities.",
+                "Secular subjects, toys, and mother goddesses, indicating their mass production for the common people.",
+                "Kings an",
+                "during this period, notably found in places like Mathura and Ahichchhatra, primarily represent:\nA) Only Buddhist deities. B) Secular subjects, toys, and mother goddesses, indicating their mass production for the common people. C) Kings and queens for royal burials. D) Foreign Greek gods exclusively."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-526",
+        "question": "Which Roman emperor is reported to have received an embassy from an Indian king (likely",
+        "options": [
+                "Kushan or Pandya) in AD 25?\nA) Julius Caesar",
+                "Augustus",
+                "Nero",
+                "to have received an embassy from an Indian king (likely a Kushan or Pandya) in AD 25?\nA) Julius Caesar B) Augustus C) Nero D) Trajan"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-527",
+        "question": "In the context of ancient Indian economy, the widespread use of baked bricks and ring wells during the Kushan-Satavahan",
+        "options": [
+                "phase indicates:\nA) A predominantly nomadic pastoral society.",
+                "High population density, robust urban planning, and the necessity for systemati",
+                "pastoral society. B) High population density, robust urban planning, an",
+                "use of baked bricks and ring wells during the Kushan-Satavahana phase indicates:\nA) A predominantly nomadic pastoral society. B) High population density, robust urban planning, and the necessity for systematic sanitation and water supply in thriving towns. C) Preparation against constant Roman invasions. D) The enforcement of religious purity laws."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-528",
+        "question": "The term Yavana, originally referring to Greeks, was later applied in ancient Indian texts to:",
+        "options": [
+                "Any foreigner from the West (including Romans) participating in trade.",
+                "Indigenous outcastes.",
+                "Buddhist monks from China.",
+                "in ancient Indian texts to:\nA) Any foreigner from the West (including Romans) participating in trade. B) Indigenous outcastes. C) Buddhist monks from China. D) Only military generals."
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-529",
+        "question": "Which of the following best describes the trade balance between Indi",
+        "options": [
+                "and the Roman Empire during the 1st and 2nd centuries AD?\nA) Neutral, governed purely by barter.",
+                "Heavily in favor of Rome, resulting in a drain of Indian wealth.",
+                "Heavily in favor of India, resulting in a massive influx of Roman gol",
+                "the Roman Empire during the 1st and 2nd centuries AD?\nA) Neutral, governed purely by barter. B) Heavily in favor of Rome, resulting in a drain of Indian wealth. C) Heavily in favor of India, resulting in a massive influx of Roman gold and silver. D) Non-existent due to continuous warfare."
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-530",
+        "question": "The Sudarshan",
+        "options": [
+                "Lake in Gujarat, a crucial irrigation reservoir, was extensively repaired during this era by the Shaka ruler:\nA) Nahapana",
+                "Rudradaman I",
+                "Chashtana",
+                "during this era by the Shaka ruler:\nA) Nahapana B) Rudradaman I C) Chashtana D) Maues"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-531",
+        "question": "The production of which commodity in Indi",
+        "options": [
+                "caused Pliny to complain that Roman patrician women were draining the empire's wealth to dress themselves in transparent fabrics?\nA) Silk",
+                "Cotton/Muslin",
+                "Jute",
+                "Pliny to complain that Roman patrician women were draining the empire's wealth to dress themselves in transparent fabrics?\nA) Silk B) Cotton/Muslin C) Jute D) Wool"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-532",
+        "question": "Which of the following routes connected the Gangetic plains to the western ports (like Bharuch) vi",
+        "options": [
+                "Ujjain?\nA) Uttarapatha",
+                "Dakshinapatha",
+                "plains to the western ports (like Bharuch) via Ujjain?\nA) Uttarapatha B) Dakshinapatha C) The Silk Roa",
+                "the Gangetic plains to the western ports (like Bharuch) via Ujjain?\nA) Uttarapatha B) Dakshinapatha C) The Silk Road D) The Spice Route"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-533",
+        "question": "The Kushans were the first Indian dynasty to mint gold coins on",
+        "options": [
+                "large scale. Their gold coins were modeled primarily on the weight standard of the:\nA) Greek Drachma",
+                "Roman Denarius (Aureus)",
+                "Persian Daric",
+                "coins on a large scale. Their gold coins were modeled primarily on the weight standard of the:\nA) Greek Drachma B) Roman Denarius (Aureus) C) Persian Daric D) Chinese Yuan"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-534",
+        "question": "Consider the following regarding Buddhism and trade in the post-Mauryan era:\n\n\nMonasteries were strictly isolated from urban centers and trade routes.\n\n\nBuddhist ideology, which opposed the rigid Varn",
+        "options": [
+                "system and animal sacrifice, was highly appealing to the wealthy mercantile class.\n\n\nMonasteries often acted as nodes of banking and rest houses for travelling merchants.\nWhich is/are correct?\nA) 1 and 2",
+                "2 and 3",
+                "1 an",
+                "trade in the post-Mauryan era:\n\n\nMonasteries were strictly isolated from urban centers and trade routes.\n\n\nBuddhist ideology, which opposed the rigid Varna system and animal sacrifice, was highly appealing to the wealthy mercantile class.\n\n\nMonasteries often acted as nodes of banking and rest houses for travelling merchants.\nWhich is/are correct?\nA) 1 and 2 B) 2 and 3 C) 1 and 3 D) 1, 2, and 3"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-535",
+        "question": "The term Pan",
+        "options": [
+                "in the ancient Indian economy referred to:\nA) A trade guild",
+                "A unit of land measurement",
+                "A standar",
+                "to:\nA) A trade guild B) A unit of land measurement C) A standard silver or copper coin D) A type of tax"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-536",
+        "question": "The post-Mauryan period saw the rise of 'Mathura' as",
+        "options": [
+                "great urban center. It was famous for:\n\n\nBeing a political capital of the Kushans.\n\n\nThe manufacture of a special type of cloth (Shataka).\n\n\nA flourishing school of sculptural art using red sandstone.\nWhich is/are correct?\nA) 1 and 2",
+                "2 and 3",
+                "1 an",
+                "saw the rise of 'Mathura' as a great urban center. It was famous for:\n\n\nBeing a political capital of the Kushans.\n\n\nThe manufacture of a special type of cloth (Shataka).\n\n\nA flourishing school of sculptural art using red sandstone.\nWhich is/are correct?\nA) 1 and 2 B) 2 and 3 C) 1 and 3 D) 1, 2, and 3"
+        ],
+        "correctIndex": 3,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-537",
+        "question": "Which South Indian port was widely known as",
+        "options": [
+                "major hu",
+                "for the export of pearls?\nA) Muziris B) Korkai",
+                "Arikamedu",
+                "Kaveripattinam"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-538",
+        "question": "The Indo-Greek rulers are significant in the numismatic history of Indi",
+        "options": [
+                "because they:\nA) Were the first to issue punch-marked coins.",
+                "Were the first to issue coins bearing the portraits and names of kings.",
+                "history of India because they:\nA) Were the first to issue punch-marke",
+                "coins. B) Were the first to issue coins bearing the portraits and names of kings. C) Completely banned the use of silver coins. D) Used only cowry shells."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-539",
+        "question": "What was the socio-economic status of artisans during the post-Mauryan er",
+        "options": [
+                "compared to the Mauryan era?\nA) They became slaves of the state.",
+                "They enjoyed greater freedom, formed powerful guilds, and were less subject to the strict state control detailed in the Arthashastra.",
+                "status of artisans during the post-Mauryan era compare",
+                "to the Mauryan era?\nA) They became slaves of the state. B) They enjoyed greater freedom, formed powerful guilds, and were less subject to the strict state control detailed in the Arthashastra. C) They abandoned their crafts to become farmers. D) They were excluded from all religious activities."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-540",
+        "question": "Which region of ancient Indi",
+        "options": [
+                "served as a crucial transit hu",
+                "for the trade of Chinese silk moving towards the Roman Empire?\nA) Bengal B) The Northwestern frontier (Gandhara/Taxila) and ports of Gujarat.",
+                "The deep south (Madurai)",
+                "as a crucial transit hub for the trade of Chinese silk moving towards the Roman Empire?\nA) Bengal B) The Northwestern frontier (Gandhara/Taxila) and ports of Gujarat. C) The deep south (Madurai) D) Assam"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-541",
+        "question": "The phrase \"Urban Decay\" in ancient Indian history generally begins to apply after:",
+        "options": [
+                "100 BC",
+                "AD 100",
+                "B) A",
+                "100 C) AD 300 (post-Kushan/Satavahana phase) D) AD 1000"
+        ],
+        "correctIndex": 2,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-542",
+        "question": "The concept of Akshay",
+        "options": [
+                "Nivi in epigraphic records refers to:\nA) A death penalty",
+                "A permanent endowment of money or land made to a guild or temple, where the principal remains untouched and only the interest is used.",
+                "records refers to:\nA) A death penalty B) A permanent endowment of money or lan",
+                "made to a guild or temple, where the principal remains untouched and only the interest is used. C) A royal tax on merchants D) A military expedition"
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-543",
+        "question": "\"The post-Mauryan period witnessed the democratization of the monetized economy.\"\nEvaluate this statement by identifying the most historically accurate numismatic evidence:\n\n\nThe Kushans minted massive quantities of gold coins, which were used by common peasants for buying daily groceries.\n\n\nThe Satavahanas and local indigenous republics (like the Yaudheyas) issued millions of lead, potin, and copper coins, indicating that the use of currency had penetrated deeply into everyday retail transactions and the rural economy.\n\n\nThe absolute disappearance of punch-marked coins meant the state had total monopoly over monetary transactions.\nWhich of the statements given above is/are conceptually correct?",
+        "options": [
+                "1 and 2 only",
+                "2 only",
+                "evidence:\n\n\nThe Kushans minte",
+                "witnessed the democratization of the monetized economy.\"\nEvaluate this statement by identifying the most historically accurate numismatic evidence:\n\n\nThe Kushans minted massive quantities of gold coins, which were used by common peasants for buying daily groceries.\n\n\nThe Satavahanas and local indigenous republics (like the Yaudheyas) issued millions of lead, potin, and copper coins, indicating that the use of currency had penetrated deeply into everyday retail transactions and the rural economy.\n\n\nThe absolute disappearance of punch-marked coins meant the state had total monopoly over monetary transactions.\nWhich of the statements given above is/are conceptually correct?\nA) 1 and 2 only B) 2 only C) 2 and 3 only D) 1, 2, and 3"
+        ],
+        "correctIndex": 1,
+        "explanation": "Gold coins were for high-value trade, not daily peasant transactions. The democratization of money is proven by the vast amounts of base-metal coins (lead, copper) used by ordinary people. Punch-marked coins continued to circulate alongside new coins.)",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-544",
+        "question": "Analyze the sociological impact of the powerful merchant and artisan guilds (Shrenis) during the post-Mauryan er",
+        "options": [
+                "A) They strictly enforced the orthodox four-fold Varna system, ensuring artisans remained subordinate to Brahmanas.",
+                "The guilds became so powerful that they functioned almost as sub-states (issuing coins, maintaining militias) and catalyzed social mobility, allowing wealthy mercantile and artisan classes (mostly Vaishyas and Shudras) to patronize heterodox sects (Buddhism/Jainism) and gain immense social prestige.",
+                "They were completely destroye",
+                "artisan guilds (Shrenis) during the post-Mauryan era.\nA) They strictly enforced the orthodox four-fold Varna system, ensuring artisans remained subordinate to Brahmanas.\nB) The guilds became so powerful that they functioned almost as sub-states (issuing coins, maintaining militias) and catalyzed social mobility, allowing wealthy mercantile and artisan classes (mostly Vaishyas and Shudras) to patronize heterodox sects (Buddhism/Jainism) and gain immense social prestige.\nC) They were completely destroyed by the Kushan state to centralize economic power.\nD) They advocated for the complete abolition of all taxes."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-545",
+        "question": "The archaeological phenomenon of the \"Second Urbanization\" peaked during the Kushan-Satavahan",
+        "options": [
+                "phase (c. 200 BC - AD 250). Which of the following best explains this peak compared to the Mauryan era?\nA) The Mauryan urbanization was state-driven and top-heavy, whereas the post-Mauryan urbanization was organically driven by a massive expansion in artisan crafts, highly monetized domestic markets, and integration into the global Indo-Roman and Silk Route trade networks.",
+                "The Kushans enslaved the entire rural population and forced them to build cities.",
+                "200 BC - A",
+                "Urbanization\" peaked during the Kushan-Satavahana phase (c. 200 BC - AD 250). Which of the following best explains this peak compared to the Mauryan era?\nA) The Mauryan urbanization was state-driven and top-heavy, whereas the post-Mauryan urbanization was organically driven by a massive expansion in artisan crafts, highly monetized domestic markets, and integration into the global Indo-Roman and Silk Route trade networks.\nB) The Kushans enslaved the entire rural population and forced them to build cities.\nC) The post-Mauryan period saw the invention of iron, which was unknown to the Mauryas.\nD) Urbanization peaked because agriculture completely failed, forcing people to migrate to towns."
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-546",
+        "question": "Historiographically, the concept of \"Roman Gold Drain\" to Indi",
+        "options": [
+                "is based on Pliny's lament. However, modern economic historians argue that this \"drain\" for India was actually:\nA) Disastrous, as it caused hyperinflation and destroyed the agrarian base.",
+                "Highly beneficial, as it stimulated massive domesti",
+                "historians argue that this \"drain\" for India was actually:\nA) Disastrous, as it cause",
+                "Drain\" to India is based on Pliny's lament. However, modern economic historians argue that this \"drain\" for India was actually:\nA) Disastrous, as it caused hyperinflation and destroyed the agrarian base.\nB) Highly beneficial, as it stimulated massive domestic craft production, monetized the economy, and integrated peripheral regions into the core economic network.\nC) A myth, as Roman coins were never found in India.\nD) Used entirely to fund wars against China."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-547",
+        "question": "Consider the geo-strategic role of the Kushan Empire in the ancient global economy:\n\n\nBy controlling the territories from Central Asi",
+        "options": [
+                "(Bactria) to the Gangetic basin, the Kushans acted as the crucial stabilizing middleman between the Han Chinese (Silk Route) and the Roman Empire (via sea routes from Gujarat/Sindh).\n\n\nThe Kushans intentionally blockaded the Silk Route to force Rome to buy only Indian goods.\nWhich is/are correct?\nA) 1 only",
+                "2 only",
+                "role of the Kushan Empire in the ancient global economy:\n\n\nBy controlling the territories from Central Asia (Bactria) to the Gangetic basin, the Kushans acte",
+                "as the crucial stabilizing middleman between the Han Chinese (Silk Route) and the Roman Empire (via sea routes from Gujarat/Sindh).\n\n\nThe Kushans intentionally blockaded the Silk Route to force Rome to buy only Indian goods.\nWhich is/are correct?\nA) 1 only B) 2 only C) Both 1 and 2 D) Neither 1 nor 2"
+        ],
+        "correctIndex": 0,
+        "explanation": "The Kushans facilitated and protected the Silk Route transit trade to collect lucrative tolls; they did not blockade it.)",
+        "difficulty": "moderate",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-548",
+        "question": "The epigraphic evidence of the Shrenis receiving permanent endowments (Akshay",
+        "options": [
+                "Nivi) indicates a high level of institutional trust. What does this reveal about the legal framework of the period?\nA) The guilds operated in an anarchic environment without any state oversight.",
+                "The state recognized and enforced the customary laws of the guilds (Shreni-Dharma), providing a stable, legally backed environment where guilds could act as reliable, long-term financial fiduciaries (banks) for publi",
+                "evidence of the Shrenis receiving permanent endowments (Akshaya Nivi) indicates a high level of institutional trust. What does this reveal about the legal framework of the period?\nA) The guilds operate",
+                "in an anarchic environment without any state oversight.\nB) The state recognized and enforced the customary laws of the guilds (Shreni-Dharma), providing a stable, legally backed environment where guilds could act as reliable, long-term financial fiduciaries (banks) for public and royal funds.\nC) The state executed guild leaders frequently to confiscate wealth.\nD) The guilds were religious organizations that did not deal with secular money."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-549",
+        "question": "Evaluate the relationship between the proliferation of arts/crafts and the Varn",
+        "options": [
+                "system during the post-Mauryan period.\nA) The Varna system was entirely abolished due to economic prosperity.",
+                "The proliferation of new, specialized crafts and the integration of foreign artisans led to the multiplication of Jatis (sub-castes), as occupational guilds gradually solidified into endogamous caste groups, making the social structure more complex but economically accommodating.",
+                "prosperity.\nB) The proliferation of new, specialize",
+                "the Varna system during the post-Mauryan period.\nA) The Varna system was entirely abolished due to economic prosperity.\nB) The proliferation of new, specialized crafts and the integration of foreign artisans led to the multiplication of Jatis (sub-castes), as occupational guilds gradually solidified into endogamous caste groups, making the social structure more complex but economically accommodating.\nC) Only Brahmanas were allowed to engage in foreign trade.\nD) Artisans were violently forced back into agriculture by the state."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-550",
+        "question": "The text Periplus of the Erythraean Se",
+        "options": [
+                "highlights the complex monsoon navigation. How did the mastery of the monsoon winds by Hippalus structurally change Indo-Roman trade?\nA) It restricted trade exclusively to land routes.",
+                "It allowed ships to sail directly across the open Arabian Sea instead of dangerously hugging the coast, drastically reducing travel time, lowering freight costs, and exponentially increasing the volume and bulk of trade.",
+                "It cause",
+                "the mastery of the monsoon winds by Hippalus structurally change Indo-Roman trade?\nA) It restricted trade exclusively to land routes.\nB) It allowed ships to sail directly across the open Arabian Sea instead of dangerously hugging the coast, drastically reducing travel time, lowering freight costs, and exponentially increasing the volume and bulk of trade.\nC) It caused a massive decline in trade because the winds destroyed all ships.\nD) It allowed Indian ships to conquer the Mediterranean Sea."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-551",
+        "question": "The transition from the Mauryan state-controlled economy (as per the Arthashastr",
+        "options": [
+                "to the post-Mauryan guild-dominated economy reflects:\nA) A regression into tribal barbarism.",
+                "A shift from a command economy where the state was the primary entrepreneur, to a decentralized market economy where private mercantile capital, guilds, and individual artisans drove production and trade.",
+                "The complete disappearance of taxation.",
+                "economy (as per the Arthashastra) to the post-Mauryan guild-dominated economy reflects:\nA) A regression into tribal barbarism.\nB) A shift from a command economy where the state was the primary entrepreneur, to a decentralized market economy where private mercantile capital, guilds, and individual artisans drove production and trade.\nC) The complete disappearance of taxation.\nD) The takeover of the Indian economy by Roman governors."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-552",
+        "question": "What was the socio-economic implication of the extensive rock-cut Buddhist Chaityas and Viharas in the Western Ghats being located near important mountain passes (like the Bhor Ghat)?",
+        "options": [
+                "Monks wanted complete isolation from humanity.",
+                "They strategically sat astride the vital trade routes connecting the Deccan plateau to the western ports (Kalyan, Sopara), functioning as safe havens, cultural nodes, and financial centers for the mobile mercantile caravans that patronized them.",
+                "implication of the extensive rock-cut Buddhist Chaityas an",
+                "Viharas in the Western Ghats being located near important mountain passes (like the Bhor Ghat)?\nA) Monks wanted complete isolation from humanity.\nB) They strategically sat astride the vital trade routes connecting the Deccan plateau to the western ports (Kalyan, Sopara), functioning as safe havens, cultural nodes, and financial centers for the mobile mercantile caravans that patronized them.\nC) The state forced monks to build forts to defend against Roman invasions.\nD) The mountain passes were the only places where stone was available."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-553",
+        "question": "The Barygaz",
+        "options": [
+                "(Bharuch) port was critical not just for exports but as an entry point for Roman bullion. How did the local Indian rulers (Western Kshatrapas) react to this influx of silver?\nA) They banned the use of silver completely.",
+                "They reminted the imported Roman silver bullion to issue their own standardized silver currency (like the silver coins of Nahapana), deeply integrating global wealth into the regional economy.",
+                "They threw the silver into the sea to appease the water gods.",
+                "the local Indian rulers (Western Kshatrapas) react to this influx of silver?\nA) They banned the use of silver completely.\nB) They reminted the imported Roman silver bullion to issue their own standardized silver currency (like the silver coins of Nahapana), deeply integrating global wealth into the regional economy.\nC) They threw the silver into the sea to appease the water gods.\nD) They sent it all to China in exchange for silk."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-554",
+        "question": "The concept of \"Urbanization as",
+        "options": [
+                "byproduct of agricultural surplus\" applies to this period. Which technological/ecological factor ensured the agricultural surplus necessary to feed the massive post-Mauryan towns?\nA) The introduction of genetically modified crops.",
+                "The deep penetration of iron ploughshare agriculture into the fertile, heavy soils of the Deccan and the widespread construction of irrigation tanks and wells.",
+                "The import of grain from the Roman Empire.",
+                "Which technological/ecological factor ensured the agricultural surplus necessary to feed the massive post-Mauryan towns?\nA) The introduction of genetically modified crops.\nB) The deep penetration of iron ploughshare agriculture into the fertile, heavy soils of the Deccan and the widespread construction of irrigation tanks and wells.\nC) The import of grain from the Roman Empire.\nD) The complete abandonment of meat consumption."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-555",
+        "question": "\"The export of Indian steel to Rome was not merely",
+        "options": [
+                "trade in raw material but a trade in high technology.\" This is evidenced by:\nA) Indians exporting raw iron ore only.",
+                "The Roman demand for specialized Indian Wootz steel (Seri",
+                "iron), prize",
+                "by:\nA) Indians exporting raw iron ore only.\nB) The Roman demand for specialized Indian Wootz steel (Seric iron), prized for manufacturing high-quality weaponry and armor, indicating India's global metallurgical superiority.\nC) Indians importing Greek blacksmiths to teach them iron smelting.\nD) The total ban on iron export by the Kushans."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-556",
+        "question": "The Milind",
+        "options": [
+                "Panho listing 75 occupations, compared to earlier Vedic texts which mention very few, is historiographical proof of:\nA) A decline in agricultural land.",
+                "An unprecedented division of labor, specialization, and proliferation of highly skilled, localized crafts in the urban centers of the post-Mauryan era.",
+                "texts which mention very few, is historiographical proof of:\nA) A decline in agricultural lan",
+                "to earlier Vedic texts which mention very few, is historiographical proof of:\nA) A decline in agricultural land.\nB) An unprecedented division of labor, specialization, and proliferation of highly skilled, localized crafts in the urban centers of the post-Mauryan era.\nC) The forced enslavement of the population.\nD) The mythical exaggeration of Buddhist writers."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-557",
+        "question": "How did the political ideology of the Kushan and Satavahan",
+        "options": [
+                "kings differ regarding their economic policies?\nA) The Kushans relied heavily on transit tolls from the Silk Route, while the Satavahanas relied purely on agrarian taxes, ignoring trade.",
+                "Both empires actively facilitated trade; the Kushans secured the overland trans-Asian routes, while the Satavahanas secured the trans-peninsular routes and coastal ports, creating a continuous, safe continental trade network.",
+                "policies?\nA) The Kushans relie",
+                "the political ideology of the Kushan and Satavahana kings differ regarding their economic policies?\nA) The Kushans relied heavily on transit tolls from the Silk Route, while the Satavahanas relied purely on agrarian taxes, ignoring trade.\nB) Both empires actively facilitated trade; the Kushans secured the overland trans-Asian routes, while the Satavahanas secured the trans-peninsular routes and coastal ports, creating a continuous, safe continental trade network.\nC) Both empires banned foreign trade to protect local artisans.\nD) Both empires fought constant wars against each other, destroying all trade routes."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-558",
+        "question": "The Arikamedu excavations revealed not just Roman goods, but also",
+        "options": [
+                "\"dyeing vat.\" This indicates that Arikamedu was:\nA) Purely a Roman military outpost.",
+                "Not just a passive transit port, but an active industrial manufacturing center where Indian textiles were dyed and processed specifically for the export market.",
+                "A center for human sacrifice.",
+                "not just Roman goods, but also a \"dyeing vat.\" This indicates that Arikamedu was:\nA) Purely a Roman military outpost.\nB) Not just a passive transit port, but an active industrial manufacturing center where Indian textiles were dyed and processed specifically for the export market.\nC) A center for human sacrifice.\nD) A port that only handled agricultural produce."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-559",
+        "question": "In assessing the \"Golden Age\" of Indian economy, Marxist historians like R.S. Sharm",
+        "options": [
+                "emphasize the period from 200 BC to AD 300 over the later Gupta period because:\nA) The Gupta period had no gold.",
+                "This post-Mauryan phase saw the widest circulation of metalli",
+                "to A",
+                "from 200 BC to AD 300 over the later Gupta period because:\nA) The Gupta period had no gold.\nB) This post-Mauryan phase saw the widest circulation of metallic money at the grassroots level, maximum urban density, booming international trade, and thriving artisan guilds, whereas the Gupta period shows the beginnings of demonetization, urban decay, and feudal agrarian stagnation.\nC) The Kushans were communists.\nD) The Mauryans had a superior trade network."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-560",
+        "question": "The term Pug",
+        "options": [
+                "is mentioned alongside Shreni. While Shreni was a guild of artisans of the same craft, Puga refers to:\nA) An association of merchants and artisans of different castes and crafts localized in a specific town or geographic area.",
+                "A royal council of ministers.",
+                "town or geographic area.\nB) A royal council of ministers.\nC) A tax on religious pilgrims.",
+                "alongside Shreni. While Shreni was a guild of artisans of the same craft, Puga refers to:\nA) An association of merchants and artisans of different castes and crafts localized in a specific town or geographic area.\nB) A royal council of ministers.\nC) A tax on religious pilgrims.\nD) A Roman trading vessel."
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-561",
+        "question": "The economic prosperity of the post-Mauryan er",
+        "options": [
+                "had a profound impact on Indian art, specifically evidenced by:\nA) The building of the Taj Mahal.",
+                "The prolifi",
+                "prosperity of the post-Mauryan era ha",
+                "a profound impact on Indian art, specifically evidenced by:\nA) The building of the Taj Mahal.\nB) The prolific funding of magnificent stupas, intricately carved toranas (gateways at Sanchi), and thousands of stone sculptures (Mathura/Gandhara) by affluent laymen, merchants, and guilds, moving art away from purely royal patronage.\nC) The total cessation of all artistic activity due to materialism.\nD) The exclusive use of wood for all structures."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-562",
+        "question": "The discovery of terracott",
+        "options": [
+                "bullae (imitations of Roman coins) worn as jewelry by Indians indicates:\nA) Indians thought the coins were magical amulets.",
+                "The deep cultural penetration and prestige value of Roman wealth in indigenous society, where imported gold/silver designs were copied by local artisans for mass consumption.",
+                "A massive shortage of local currency.",
+                "prestige value of Roman wealth in indigenous society, where imported gold/silver designs were copied by local artisans for mass consumption.\nC) A massive shortage of local currency.\nD) The legal requirement by the state to wear foreign coins."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-563",
+        "question": "The widespread use of the term Gahapati in the post-Mauryan texts underwent",
+        "options": [
+                "semantic shift. It increasingly came to denote:\nA) A poor, landless laborer.",
+                "Not just a household head, but specifically a wealthy landowner, agricultural entrepreneur, or rich merchant who controlled significant economi",
+                "shift. It increasingly came to denote:\nA) A poor, landless laborer.\nB) Not just a househol",
+                "use of the term Gahapati in the post-Mauryan texts underwent a semantic shift. It increasingly came to denote:\nA) A poor, landless laborer.\nB) Not just a household head, but specifically a wealthy landowner, agricultural entrepreneur, or rich merchant who controlled significant economic surplus and dominated the urban/rural economy.\nC) A king's personal bodyguard.\nD) A wandering ascetic."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-564",
+        "question": "\"The social fluidity of the post-Mauryan urban centers challenged orthodox Brahmanical norms.\" This is reflected in:",
+        "options": [
+                "The compilation of the Manusmriti, which aggressively codified rigid caste rules, purity laws, and restrictions on maritime travel to counteract the socially disruptive rise of wealthy Vaishyas/Shudras and the influx of 'Mlechhas' (foreigners).",
+                "The immediate mass conversion of all Brahmanas to Buddhism.",
+                "The total acceptance of inter-caste marriages by the state.",
+                "orthodox Brahmanical norms.\" This is reflected in:\nA) The compilation of the Manusmriti, which aggressively codified rigid caste rules, purity laws, and restrictions on maritime travel to counteract the socially disruptive rise of wealthy Vaishyas/Shudras and the influx of 'Mlechhas' (foreigners).\nB) The immediate mass conversion of all Brahmanas to Buddhism.\nC) The total acceptance of inter-caste marriages by the state.\nD) The abandonment of Sanskrit in all religious rituals."
+        ],
+        "correctIndex": 0,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},
+{
+        "id": "ch18-d-v6-565",
+        "question": "Ultimately, the \"Crafts, Trade and Towns in the Post-Maury",
+        "options": [
+                "Age\" represent a historical epoch where:\nA) India was entirely isolated and economically stagnant.",
+                "India was positioned as the manufacturing core and commercial fulcrum of the ancient world system, integrating the economies of the Mediterranean, Central Asia, and Southeast Asia through a robust, monetized, and guild-driven domesti",
+                "economy.\nC) The economy was base",
+                "Towns in the Post-Maurya Age\" represent a historical epoch where:\nA) India was entirely isolated and economically stagnant.\nB) India was positioned as the manufacturing core and commercial fulcrum of the ancient world system, integrating the economies of the Mediterranean, Central Asia, and Southeast Asia through a robust, monetized, and guild-driven domestic economy.\nC) The economy was based entirely on state-enforced slavery.\nD) Trade was only a peripheral activity with no impact on social structure."
+        ],
+        "correctIndex": 1,
+        "explanation": "",
+        "difficulty": "easy",
+        "tags": [
+                "history"
+        ]
+},];
 export const CH18_L2_MCQS: MCQ[] = [
     {
         "id": "ch18-d-33",

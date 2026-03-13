@@ -12,6 +12,7 @@ import {
 interface PanchayatiRajModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Village Tree ---
@@ -50,7 +51,7 @@ const SketchCard = ({ children, title, icon: Icon, color = "green", className = 
     );
 };
 
-export default function PanchayatiRajModule({ onComplete, isCompleted }: PanchayatiRajModuleProps) {
+export default function PanchayatiRajModule({ onComplete, isCompleted, chapterNumber }: PanchayatiRajModuleProps) {
     const [activeRoot, setActiveRoot] = useState(0);
 
     const committees = [

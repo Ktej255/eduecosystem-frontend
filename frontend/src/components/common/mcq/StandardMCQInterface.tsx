@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useMCQShortcuts } from '@/hooks/useKeyboardShortcuts';
 import { QuestionResult } from '../reports/StandardTestReport';
+export type { QuestionResult };
 import { formatQuestionText } from '@/lib/mcq-formatter';
 
 // Shared Types
@@ -22,6 +23,8 @@ export interface StandardMCQ {
     subtopic: string; // Identifier for analysis
     chapter: string; // Identifier for analysis
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
+    category?: string;
+    tags?: string[];
 }
 
 interface StandardMCQInterfaceProps {

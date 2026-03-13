@@ -7,15 +7,16 @@ import { Button } from "@/components/ui/button";
 interface CabinetCommitteesModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
-const CabinetCommitteesModule = ({ onComplete, isCompleted }: CabinetCommitteesModuleProps) => {
+const CabinetCommitteesModule = ({ onComplete, isCompleted, chapterNumber = "22" }: CabinetCommitteesModuleProps) => {
     return (
         <div className="min-h-[50vh] flex flex-col items-center justify-center p-8 bg-muted border-2 border-dashed border-border rounded-xl text-center">
             <div className="w-20 h-20 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mb-6">
                 <Users size={40} />
             </div>
-            <h2 className="text-2xl font-bold text-foreground mb-2">Chapter 21: Cabinet Committees</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-2">Chapter {chapterNumber}: Cabinet Committees</h2>
             <p className="text-muted-foreground max-w-md mb-8">
                 The content for "Cabinet Committees" is currently being curated.
                 Please check back later for the "Kitchen Cabinet" updates!
@@ -26,7 +27,7 @@ const CabinetCommitteesModule = ({ onComplete, isCompleted }: CabinetCommitteesM
             </div>
             <div className="mt-8">
                 <Button onClick={onComplete} disabled={isCompleted}>
-                    {isCompleted ? "Marked as Read" : "Mark as Read"}
+                    {isCompleted ? `CHAPTER ${chapterNumber} COMPLETED` : `MARK CHAPTER ${chapterNumber} COMPLETE`}
                 </Button>
             </div>
         </div>

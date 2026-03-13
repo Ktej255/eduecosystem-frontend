@@ -30,7 +30,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "GDP measures production within a country's borders. Goods produced by Indian companies abroad are part of GNP, not GDP.",
         module: "macro",
         topic: "National Income",
-        difficulty: "medium",
+        difficulty: "medium"
+,
         chapter: "1"
     },
     {
@@ -41,7 +42,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "MPC has 6 members: 3 from RBI (Governor as Chairman, Deputy Governor, one RBI official) and 3 external members nominated by Government.",
         module: "macro",
         topic: "Monetary Policy",
-        difficulty: "easy",
+        difficulty: "easy"
+,
         chapter: "2"
     },
     {
@@ -57,7 +59,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "Increasing CRR reduces money available for lending, contracts money supply, and helps control inflation. Decreasing rates would increase money supply.",
         module: "macro",
         topic: "Monetary Policy",
-        difficulty: "medium",
+        difficulty: "medium"
+,
         chapter: "2"
     },
     {
@@ -73,7 +76,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "Primary Deficit = Fiscal Deficit - Interest Payments. It shows borrowing requirement excluding interest burden on past borrowings.",
         module: "macro",
         topic: "Fiscal Policy",
-        difficulty: "medium",
+        difficulty: "medium"
+,
         chapter: "3"
     },
     {
@@ -89,7 +93,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "Cost-push inflation occurs when production costs (wages, raw materials, energy) rise, pushing up prices even without excess demand.",
         module: "macro",
         topic: "Inflation",
-        difficulty: "easy",
+        difficulty: "easy"
+,
         chapter: "1"
     },
 
@@ -107,7 +112,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "CACP recommends MSP, but the final decision is taken by Cabinet Committee on Economic Affairs (CCEA). FCI is the procurement agency.",
         module: "sectors",
         topic: "Agriculture",
-        difficulty: "medium",
+        difficulty: "medium"
+,
         chapter: "5"
     },
     {
@@ -123,7 +129,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "About 42-45% of India's workforce is in agriculture, but it contributes only 15-17% to GDP, indicating low productivity and disguised unemployment.",
         module: "sectors",
         topic: "Agriculture",
-        difficulty: "easy",
+        difficulty: "easy"
+,
         chapter: "5"
     },
     {
@@ -134,7 +141,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "PLI scheme covers 14 sectors including electronics, pharmaceuticals, automobiles, textiles, food processing, etc.",
         module: "sectors",
         topic: "Industry",
-        difficulty: "medium",
+        difficulty: "medium"
+,
         chapter: "5"
     },
     {
@@ -145,7 +153,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "Services sector contributes about 55% of GDP, followed by Industry (~30%) and Agriculture (~15%).",
         module: "sectors",
         topic: "Services",
-        difficulty: "easy",
+        difficulty: "easy"
+,
         chapter: "5"
     },
 
@@ -163,7 +172,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "Current Account = Trade in goods + Trade in services + Primary income (investment income) + Secondary income (remittances, transfers).",
         module: "international",
         topic: "BoP",
-        difficulty: "hard",
+        difficulty: "hard"
+,
         chapter: "4"
     },
     {
@@ -174,7 +184,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "FDI requires at least 10% equity stake in a company with management control. Below 10% is considered FPI (portfolio investment).",
         module: "international",
         topic: "Investment",
-        difficulty: "medium",
+        difficulty: "medium"
+,
         chapter: "4"
     },
     {
@@ -185,7 +196,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "India is a founding member of WTO (World Trade Organization) established in 1995, replacing GATT.",
         module: "international",
         topic: "Trade",
-        difficulty: "easy",
+        difficulty: "easy"
+,
         chapter: "4"
     },
     {
@@ -196,7 +208,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "SDRs are supplementary foreign exchange reserve assets created by IMF. Their value is based on a basket of five major currencies.",
         module: "international",
         topic: "IMF",
-        difficulty: "medium",
+        difficulty: "medium"
+,
         chapter: "4"
     },
 
@@ -209,7 +222,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "MGNREGA guarantees 100 days of wage employment per year to every rural household whose adult members volunteer to do unskilled manual work.",
         module: "social",
         topic: "Employment",
-        difficulty: "easy",
+        difficulty: "easy"
+,
         chapter: "6"
     },
     {
@@ -220,7 +234,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "UNDP publishes HDI annually in Human Development Report. It measures health, education, and standard of living.",
         module: "social",
         topic: "Development",
-        difficulty: "easy",
+        difficulty: "easy"
+,
         chapter: "6"
     },
     {
@@ -231,7 +246,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "PM-JAY provides ₹5 lakh per family per year for secondary and tertiary hospitalization. It covers ~50 crore beneficiaries.",
         module: "social",
         topic: "Health",
-        difficulty: "easy",
+        difficulty: "easy"
+,
         chapter: "6"
     },
     {
@@ -248,7 +264,8 @@ export const economyMCQs: EconomyMCQ[] = [
         module: "social",
         topic: "Inequality",
         difficulty: "medium",
-        subtopic: "Social Development",
+        subtopic: "Social Development"
+,
         chapter: "6"
     },
     {
@@ -260,7 +277,8 @@ export const economyMCQs: EconomyMCQ[] = [
         module: "social",
         topic: "Demographics",
         difficulty: "medium",
-        subtopic: "Social Development",
+        subtopic: "Social Development"
+,
         chapter: "6"
     }
 ,
@@ -479,7 +497,7 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "OMOs involve RBI buying (to inject liquidity) or selling (to absorb liquidity) government securities in the open market. It is a quantitative tool of monetary policy.",
         module: "macro", topic: "Monetary Policy", difficulty: "easy",
         chapter: "2"
-    },,
+    },
     {
         id: "ec-mcq-43",
         question: "Which of the following describes the 'disguised unemployment' common in Indian agriculture?",
@@ -710,7 +728,7 @@ export const INTERNATIONAL_MCQS = [
         explanation: "TRIPS (Trade-Related Aspects of Intellectual Property Rights). TRIMS is for investment measures, GATS for services, and AOA for agriculture.",
         module: "international", topic: "WTO", difficulty: "easy",
         chapter: "4"
-    },,
+    },
     {
         id: "ec-mcq-68",
         question: "The 'Tendulkar Committee' (2009) for poverty measurement in India recommended:",
@@ -800,7 +818,7 @@ export const INTERNATIONAL_MCQS = [
         explanation: "Gini = 1 (complete inequality) means one person/household has all the income. Gini = 0 (perfect equality) means everyone has equal share.",
         module: "social", topic: "Inequality", difficulty: "medium",
         chapter: "6"
-    },,
+    },
     {
         id: "ec-mcq-78",
         question: "With reference to the Indian economy, consider the following statements:\n1. If the inflation is too high, RBI is likely to buy government securities.\n2. If the rupee is rapidly depreciating, RBI is likely to sell dollars in the market.\n3. If interest rates in the USA or EU were to fall, that is likely to induce RBI to buy dollars.\nWhich of the statements given above are correct?",
@@ -1007,7 +1025,7 @@ export const INTERNATIONAL_MCQS = [
         explanation: "NIP aims for ₹111 lakh crore infrastructure investment over 6 years to reach a $5 trillion economy goal.",
         module: "sectors", topic: "Infrastructure", difficulty: "easy",
         chapter: "5"
-    },,
+    },
     {
         id: "ec-mcq-101",
         question: "Consider the following statements regarding 'Purchasing Power Parity' (PPP) exchange rates:\n1. It is calculated by comparing the prices of the same basket of goods and services in different countries.\n2. India is the 3rd largest economy in the world in terms of PPP.\n3. PPP exchange rates are used for International Monetary Fund (IMF) quota calculations.\nWhich of the statements given above are correct?",
@@ -1187,7 +1205,7 @@ export const INTERNATIONAL_MCQS = [
         explanation: "Software, Tourism, and Remittances are 'invisibles' (services/income/transfers). Machinery is a visible (good).",
         module: "international", topic: "BoP", difficulty: "medium",
         chapter: "4"
-    },,
+    },
     {
         id: "ec-mcq-121",
         question: "With reference to the 'Digital Rupee' (CBDC), consider the following statements:\n1. It is a sovereign currency issued by the RBI.\n2. It appears as a liability on the RBI's balance sheet.\n3. It is freely convertible against commercial bank money and cash.\nWhich are correct?",
@@ -1277,7 +1295,7 @@ export const INTERNATIONAL_MCQS = [
         explanation: "Blue Economy refers to the sustainable use of ocean resources for economic growth, improved livelihoods, and jobs while preserving the health of ocean ecosystem.",
         module: "sectors", topic: "Infrastructure", difficulty: "easy",
         chapter: "5"
-    },,
+    },
     {
         id: "ec-mcq-131",
         question: "Which of the following is the difference between GNP and GDP?",
@@ -1367,7 +1385,7 @@ export const INTERNATIONAL_MCQS = [
         explanation: "Countries will export goods that use their abundant and cheap factor(s) and import goods that use their scarce factor(s).",
         module: "international", topic: "Trade", difficulty: "hard",
         chapter: "4"
-    },,
+    },
     {
         id: "ec-mcq-141",
         question: "Which of the following describes 'Zero Budget Natural Farming' (ZBNF), advocated in recent budgets?",
@@ -1502,7 +1520,7 @@ export const INTERNATIONAL_MCQS = [
         explanation: "Blue-chip stocks are considered safe and stable investments in the stock market (e.g., Reliance, TCS, HDFC Bank).",
         module: "sectors", topic: "Industry", difficulty: "easy",
         chapter: "5"
-    },,
+    },
     {
         id: "ec-mcq-156",
         question: "With reference to 'Carbon Credits', consider the following statements:\n1. One carbon credit is equivalent to one tonne of carbon dioxide (CO2) reduced.\n2. Trading of carbon credits is permitted under the Paris Agreement (Article 6).\n3. India has launched its own Carbon Credit Trading Scheme (CCTS) in 2023.\nWhich are correct?",

@@ -14,6 +14,7 @@ import { EMERGENCY_PYQS } from "./data/pyq-data";
 interface EmergencyProvisionsModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Red Alert Manual (Hand-Drawn) ---
@@ -83,7 +84,7 @@ const ArrowDoodle = ({ angle = 0, color = "gray" }: { angle?: number, color?: st
 );
 
 
-export default function EmergencyProvisionsModule({ onComplete, isCompleted }: EmergencyProvisionsModuleProps) {
+export default function EmergencyProvisionsModule({ onComplete, isCompleted, chapterNumber = "17" }: EmergencyProvisionsModuleProps) {
     return (
         <NotebookContainer>
             {/* HERO */}
@@ -94,12 +95,11 @@ export default function EmergencyProvisionsModule({ onComplete, isCompleted }: E
 
                 <div className="inline-block border-4 border-red-600 p-4 bg-card shadow-[8px_8px_0px_rgba(220,38,38,0.8)] rotate-[-1deg]" style={{ borderRadius: "2px 20px 5px 15px" }}>
                     <div className="flex items-center gap-2 justify-center text-red-600 font-bold uppercase tracking-widest text-sm mb-2">
-                        <AlertTriangle size={18} /> Part XVIII (Art 352-360)
+                        <AlertTriangle size={18} /> Chapter {chapterNumber}
                     </div>
-                    <h1 className="text-5xl md:text-7xl font-black text-foreground mb-2" style={{ fontFamily: 'Kalam, cursive' }}>
-                        THE RED ALERT
+                    <h1 className="text-4xl md:text-6xl font-black text-foreground mb-2" style={{ fontFamily: 'Kalam, cursive' }}>
+                        Emergency <br /> Provisions
                     </h1>
-                    <h2 className="text-2xl font-bold text-red-600 font-serif">Emergency Provisions</h2>
                 </div>
                 <p className="mt-6 text-xl text-muted-foreground font-handwriting italic max-w-2xl mx-auto bg-yellow-100/80 p-2 rounded transform rotate-[1deg]">
                     "A Crisis Management Manual for the Constitution. Converting the Federal structure into Unitary (Temporarily)."
@@ -360,8 +360,8 @@ export default function EmergencyProvisionsModule({ onComplete, isCompleted }: E
                         style={{ borderRadius: "255px 15px 225px 15px / 15px 225px 15px 255px" }}
                     >
                         {isCompleted ?
-                            <span className="flex items-center gap-2"><CheckCircle2 size={24} /> Emergency Revoked</span> :
-                            <span className="flex items-center gap-2"><Lock size={24} /> Secure The Constitution</span>
+                            <span className="flex items-center gap-2"><CheckCircle2 size={24} /> CHAPTER {chapterNumber} COMPLETED</span> :
+                            <span className="flex items-center gap-2"><Lock size={24} /> MARK CHAPTER {chapterNumber} COMPLETE</span>
                         }
                     </Button>
                 </div>

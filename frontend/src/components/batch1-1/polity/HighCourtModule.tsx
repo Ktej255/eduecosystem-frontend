@@ -11,6 +11,7 @@ import {
 interface HighCourtModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Regional Guardian (State Pillar) ---

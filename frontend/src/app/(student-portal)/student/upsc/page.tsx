@@ -14,6 +14,7 @@ import { Timer } from 'lucide-react';
 import DailyChallengeWidget from '@/components/upsc/DailyChallengeWidget';
 import Leaderboard from '@/components/upsc/Leaderboard';
 import MyLibrary from '@/components/upsc/MyLibrary';
+import KnowledgeBuilderDashboard from '@/components/upsc/KnowledgeBuilderDashboard';
 
 // Sub-component to sync price on landing page
 function DynamicPriceBadge({ bookId, base, offer }: { bookId: string, base: number, offer: number }) {
@@ -206,7 +207,7 @@ export default function UPSCLandingPage() {
 
             {/* Navigation Tabs */}
             <div className="flex items-center gap-4 mb-8 border-b border-border overflow-x-auto pb-1">
-                {['Prelims', 'Mains', 'Optional', 'Courses'].map((tab) => (
+                {['Prelims', 'Mains', 'Knowledge Builder', 'Optional', 'Courses'].map((tab) => (
                     <button
                         key={tab}
                         onClick={() => setActiveTab(tab)}
@@ -252,6 +253,12 @@ export default function UPSCLandingPage() {
                                 </button>
                             </div>
                         ))}
+                    </div>
+                )}
+
+                {activeTab === 'Knowledge Builder' && (
+                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        <KnowledgeBuilderDashboard />
                     </div>
                 )}
 

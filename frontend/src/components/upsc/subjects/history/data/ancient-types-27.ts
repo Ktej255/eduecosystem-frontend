@@ -92,6 +92,7 @@ export interface ChapterProgress {
     l1: SectionStatus;
     l2: SectionStatus;
     l3: SectionStatus;
+    vsMode: SectionStatus;
     spacing?: SpacedRepetitionData;
 }
 

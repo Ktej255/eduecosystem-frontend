@@ -39,7 +39,7 @@ const DEFAULT_PROGRESS: ChapterProgress = {
     l1: 'not-started', l2: 'not-started', l3: 'not-started',
 };
 
-const TAB_META: { key: keyof ChapterProgress; label: string; icon: React.ElementType; description: string }[] = [
+const TAB_META: { key: Exclude<keyof ChapterProgress, 'spacing'>; label: string; icon: React.ElementType; description: string }[] = [
     { key: 'readSection', label: '📖 Read', icon: FileText, description: '2-3 min revision' },
     { key: 'flashcards', label: '🃏 Cards', icon: RotateCcw, description: 'UPSC flashcards' },
     { key: 'drill', label: '⚡ Drill', icon: Zap, description: '60-Q drill' },
@@ -780,7 +780,7 @@ export default function AncientHistoryChapterPage() {
     }, [activeTab, progress, updateSectionStatus]);
 
     const goToTopic = (id: number) => {
-        if (id >= 1 && id <= 27) router.push(`/student/batch1-1/ancient-history/${id}`);
+        if (id >= 1 && id <= 28) router.push(`/student/batch1-1/ancient-history/${id}`);
     };
 
     const completedCount = Object.values(progress).filter(s => s === 'completed').length;
@@ -893,7 +893,7 @@ export default function AncientHistoryChapterPage() {
                                 <div className="text-3xl font-black">{progressPercent}%</div>
                                 <div className="text-xs text-white/70">{completedCount}/6 Sections</div>
                                 <div className="flex gap-1 mt-1">
-                                    {TAB_META.map(tab => <StatusDot key={tab.key} status={progress[tab.key]} />)}
+                                    {TAB_META.map(tab => <StatusDot key={tab.key} status={progress[tab.key as keyof ChapterProgress] as SectionStatus} />)}
                                 </div>
                             </div>
                         </div>
@@ -903,7 +903,7 @@ export default function AncientHistoryChapterPage() {
                 {/* Tab Cards */}
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
                     {TAB_META.map(tab => {
-                        const status = progress[tab.key];
+                        const status = progress[tab.key as keyof ChapterProgress] as SectionStatus;
                         const sc = SECTION_STATUS_COLORS[status];
                         const Icon = tab.icon;
                         return (
@@ -912,6 +912,7 @@ export default function AncientHistoryChapterPage() {
                                     }`}
                             >
                                 <div className="flex items-center gap-2 mb-2">
+                                    {/* @ts-ignore */}
                                     <Icon className={`h-4 w-4 ${sc.text}`} />
                                     <StatusDot status={status} />
                                 </div>

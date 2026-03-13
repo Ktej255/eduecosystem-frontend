@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import {
     BookOpen, CheckCircle2, ChevronRight, Compass,
     Trophy, Sparkles, Map as MapIcon, Hourglass,
-    ArrowRight
+    ArrowRight, Zap
 } from "lucide-react";
 
 import {
@@ -69,7 +69,7 @@ function SectionDots({ progress }: { progress?: ChapterProgress }) {
     return (
         <div className="flex gap-1 items-center">
             {SECTION_KEYS.map((key, i) => {
-                const status: SectionStatus = progress?.[key] || 'not-started';
+                const status = (progress?.[key] as SectionStatus) || 'not-started';
                 return (
                     <span
                         key={key}

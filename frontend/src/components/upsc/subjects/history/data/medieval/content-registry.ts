@@ -1,100 +1,44 @@
-import { MEDIEVAL_CHAPTER_1_CONTENT, MEDIEVAL_CHAPTER_1_MCQS, MEDIEVAL_CHAPTER_1_SUBTOPICS } from './chapter1';
-import { MEDIEVAL_CHAPTER_2_CONTENT, MEDIEVAL_CHAPTER_2_MCQS, MEDIEVAL_CHAPTER_2_SUBTOPICS } from './chapter2';
-import { MEDIEVAL_CHAPTER_3_CONTENT, MEDIEVAL_CHAPTER_3_MCQS, MEDIEVAL_CHAPTER_3_SUBTOPICS } from './chapter3';
-import { MEDIEVAL_CHAPTER_4_CONTENT, MEDIEVAL_CHAPTER_4_MCQS, MEDIEVAL_CHAPTER_4_SUBTOPICS } from './chapter4';
-import { MEDIEVAL_CHAPTER_5_CONTENT, MEDIEVAL_CHAPTER_5_MCQS, MEDIEVAL_CHAPTER_5_SUBTOPICS } from './chapter5';
-import { MEDIEVAL_CHAPTER_6_CONTENT, MEDIEVAL_CHAPTER_6_MCQS, MEDIEVAL_CHAPTER_6_SUBTOPICS } from './chapter6';
-import { MEDIEVAL_CHAPTER_7_CONTENT, MEDIEVAL_CHAPTER_7_MCQS, MEDIEVAL_CHAPTER_7_SUBTOPICS } from './chapter7';
-import { MEDIEVAL_CHAPTER_8_CONTENT, MEDIEVAL_CHAPTER_8_MCQS, MEDIEVAL_CHAPTER_8_SUBTOPICS } from './chapter8';
-import { MEDIEVAL_CHAPTER_9_CONTENT, MEDIEVAL_CHAPTER_9_MCQS, MEDIEVAL_CHAPTER_9_SUBTOPICS } from './chapter9';
-import { MEDIEVAL_CHAPTER_10_CONTENT, MEDIEVAL_CHAPTER_10_MCQS, MEDIEVAL_CHAPTER_10_SUBTOPICS } from './chapter10';
-import { MEDIEVAL_CHAPTER_11_CONTENT, MEDIEVAL_CHAPTER_11_MCQS, MEDIEVAL_CHAPTER_11_SUBTOPICS } from './chapter11';
-import { MEDIEVAL_CHAPTER_12_CONTENT, MEDIEVAL_CHAPTER_12_MCQS, MEDIEVAL_CHAPTER_12_SUBTOPICS } from './chapter12';
-import { MEDIEVAL_CHAPTER_13_CONTENT, MEDIEVAL_CHAPTER_13_MCQS, MEDIEVAL_CHAPTER_13_SUBTOPICS } from './chapter13';
-import { MEDIEVAL_CHAPTER_14_CONTENT, MEDIEVAL_CHAPTER_14_MCQS, MEDIEVAL_CHAPTER_14_SUBTOPICS } from './chapter14';
-import { MEDIEVAL_CHAPTER_15_CONTENT, MEDIEVAL_CHAPTER_15_MCQS, MEDIEVAL_CHAPTER_15_SUBTOPICS } from './chapter15';
+import { MEDIEVAL_CHAPTER_1_MCQS } from '../mcqs/medieval/chapter1';
+import { MEDIEVAL_CHAPTER_2_MCQS } from '../mcqs/medieval/chapter2';
+import { MEDIEVAL_CHAPTER_3_MCQS } from '../mcqs/medieval/chapter3';
+import { MEDIEVAL_CHAPTER_4_MCQS } from '../mcqs/medieval/chapter4';
+import { MEDIEVAL_CHAPTER_5_MCQS } from '../mcqs/medieval/chapter5';
+import { MEDIEVAL_CHAPTER_6_MCQS } from '../mcqs/medieval/chapter6';
+import { MEDIEVAL_CHAPTER_7_MCQS } from '../mcqs/medieval/chapter7';
+import { MEDIEVAL_CHAPTER_8_MCQS } from '../mcqs/medieval/chapter8';
+import { MEDIEVAL_CHAPTER_9_MCQS } from '../mcqs/medieval/chapter9';
+import { MEDIEVAL_CHAPTER_10_MCQS } from '../mcqs/medieval/chapter10';
+import { MEDIEVAL_CHAPTER_11_MCQS } from '../mcqs/medieval/chapter11';
+import { MEDIEVAL_CHAPTER_12_MCQS } from '../mcqs/medieval/chapter12';
+import { MEDIEVAL_CHAPTER_13_MCQS } from '../mcqs/medieval/chapter13';
+import { MEDIEVAL_CHAPTER_14_MCQS } from '../mcqs/medieval/chapter14';
+import { MEDIEVAL_CHAPTER_15_MCQS } from '../mcqs/medieval/chapter15';
+import { MEDIEVAL_CHAPTER_16_MCQS } from '../mcqs/medieval/chapter16';
+import { MEDIEVAL_CHAPTER_17_MCQS } from '../mcqs/medieval/chapter17';
+import { MEDIEVAL_CHAPTER_18_MCQS } from '../mcqs/medieval/chapter18';
+import { MEDIEVAL_CHAPTER_19_MCQS } from '../mcqs/medieval/chapter19';
+import { MEDIEVAL_CHAPTER_20_MCQS } from '../mcqs/medieval/chapter20';
 
-// We will expand this as we add more chapters. 
-// For now, mapping the first 3 chapters.
-
+// Mapping for all 20 chapters
 export const MEDIEVAL_CONTENT_MAP: Record<number, any> = {
-    1: {
-        content: MEDIEVAL_CHAPTER_1_CONTENT,
-        mcqs: MEDIEVAL_CHAPTER_1_MCQS,
-        subtopics: MEDIEVAL_CHAPTER_1_SUBTOPICS
-    },
-    2: {
-        content: MEDIEVAL_CHAPTER_1_CONTENT, // Using Ch1 for Ch2 placeholder or similar logic if needed, but here we have explicit mapping
-        mcqs: MEDIEVAL_CHAPTER_1_MCQS,
-        subtopics: MEDIEVAL_CHAPTER_1_SUBTOPICS
-    },
-    3: {
-        content: MEDIEVAL_CHAPTER_2_CONTENT,
-        mcqs: MEDIEVAL_CHAPTER_2_MCQS,
-        subtopics: MEDIEVAL_CHAPTER_2_SUBTOPICS
-    },
-    4: {
-        content: MEDIEVAL_CHAPTER_4_CONTENT,
-        mcqs: MEDIEVAL_CHAPTER_4_MCQS,
-        subtopics: MEDIEVAL_CHAPTER_4_SUBTOPICS
-    },
-    5: {
-        content: MEDIEVAL_CHAPTER_5_CONTENT,
-        mcqs: MEDIEVAL_CHAPTER_5_MCQS,
-        subtopics: MEDIEVAL_CHAPTER_5_SUBTOPICS
-    },
-    6: {
-        content: MEDIEVAL_CHAPTER_6_CONTENT,
-        mcqs: MEDIEVAL_CHAPTER_6_MCQS,
-        subtopics: MEDIEVAL_CHAPTER_6_SUBTOPICS
-    },
-    7: {
-        content: MEDIEVAL_CHAPTER_7_CONTENT,
-        mcqs: MEDIEVAL_CHAPTER_7_MCQS,
-        subtopics: MEDIEVAL_CHAPTER_7_SUBTOPICS
-    },
-    8: {
-        content: MEDIEVAL_CHAPTER_8_CONTENT,
-        mcqs: MEDIEVAL_CHAPTER_8_MCQS,
-        subtopics: MEDIEVAL_CHAPTER_8_SUBTOPICS
-    },
-    // Fallback for others to prevent crashes while we build
-    9: {
-        content: MEDIEVAL_CHAPTER_9_CONTENT,
-        mcqs: MEDIEVAL_CHAPTER_9_MCQS,
-        subtopics: MEDIEVAL_CHAPTER_9_SUBTOPICS
-    },
-    10: {
-        content: MEDIEVAL_CHAPTER_10_CONTENT,
-        mcqs: MEDIEVAL_CHAPTER_10_MCQS,
-        subtopics: MEDIEVAL_CHAPTER_10_SUBTOPICS
-    },
-    11: {
-        content: MEDIEVAL_CHAPTER_11_CONTENT,
-        mcqs: MEDIEVAL_CHAPTER_11_MCQS,
-        subtopics: MEDIEVAL_CHAPTER_11_SUBTOPICS
-    },
-    12: {
-        content: MEDIEVAL_CHAPTER_12_CONTENT,
-        mcqs: MEDIEVAL_CHAPTER_12_MCQS,
-        subtopics: MEDIEVAL_CHAPTER_12_SUBTOPICS
-    },
-    13: {
-        content: MEDIEVAL_CHAPTER_13_CONTENT,
-        mcqs: MEDIEVAL_CHAPTER_13_MCQS,
-        subtopics: MEDIEVAL_CHAPTER_13_SUBTOPICS
-    },
-    14: {
-        content: MEDIEVAL_CHAPTER_14_CONTENT,
-        mcqs: MEDIEVAL_CHAPTER_14_MCQS,
-        subtopics: MEDIEVAL_CHAPTER_14_SUBTOPICS
-    },
-    15: {
-        content: MEDIEVAL_CHAPTER_15_CONTENT,
-        mcqs: MEDIEVAL_CHAPTER_15_MCQS,
-        subtopics: MEDIEVAL_CHAPTER_15_SUBTOPICS
-    },
-    16: { content: "# Content Coming Soon", mcqs: [], subtopics: [] },
-    17: { content: "# Content Coming Soon", mcqs: [], subtopics: [] },
-    18: { content: "# Content Coming Soon", mcqs: [], subtopics: [] }
+    1: { content: "# India and the World", mcqs: MEDIEVAL_CHAPTER_1_MCQS, subtopics: [] },
+    2: { content: "# Northern India: The Age of Three Empires", mcqs: MEDIEVAL_CHAPTER_2_MCQS, subtopics: [] },
+    3: { content: "# South India: The Chola Empire", mcqs: MEDIEVAL_CHAPTER_3_MCQS, subtopics: [] },
+    4: { content: "# Economic and Social Life (800-1200)", mcqs: MEDIEVAL_CHAPTER_4_MCQS, subtopics: [] },
+    5: { content: "# The Age of Conflict (1000-1200)", mcqs: MEDIEVAL_CHAPTER_5_MCQS, subtopics: [] },
+    6: { content: "# The Delhi Sultanat-I", mcqs: MEDIEVAL_CHAPTER_6_MCQS, subtopics: [] },
+    7: { content: "# The Delhi Sultanat-II", mcqs: MEDIEVAL_CHAPTER_7_MCQS, subtopics: [] },
+    8: { content: "# Govt & Economy under Delhi Sultanat", mcqs: MEDIEVAL_CHAPTER_8_MCQS, subtopics: [] },
+    9: { content: "# Vijayanagara & Bahmanids", mcqs: MEDIEVAL_CHAPTER_9_MCQS, subtopics: [] },
+    10: { content: "# Struggle for Empire-I", mcqs: MEDIEVAL_CHAPTER_10_MCQS, subtopics: [] },
+    11: { content: "# Cultural Development (1300-1500)", mcqs: MEDIEVAL_CHAPTER_11_MCQS, subtopics: [] },
+    12: { content: "# North India-II: Mughals & Afghans", mcqs: MEDIEVAL_CHAPTER_12_MCQS, subtopics: [] },
+    13: { content: "# Consolidation of Mughal Empire: Akbar", mcqs: MEDIEVAL_CHAPTER_13_MCQS, subtopics: [] },
+    14: { content: "# India in 17th Century (First Half)", mcqs: MEDIEVAL_CHAPTER_14_MCQS, subtopics: [] },
+    15: { content: "# Mughal Empire Climax & Crisis", mcqs: MEDIEVAL_CHAPTER_15_MCQS, subtopics: [] },
+    16: { content: "# Economic & Social Life under Mughals", mcqs: MEDIEVAL_CHAPTER_16_MCQS, subtopics: [] },
+    17: { content: "# Decline of Mughal Empire", mcqs: MEDIEVAL_CHAPTER_17_MCQS, subtopics: [] },
+    18: { content: "# Religion and Culture", mcqs: MEDIEVAL_CHAPTER_18_MCQS, subtopics: [] },
+    19: { content: "# Maratha Administration", mcqs: MEDIEVAL_CHAPTER_19_MCQS, subtopics: [] },
+    20: { content: "# Foreign Travelers", mcqs: MEDIEVAL_CHAPTER_20_MCQS, subtopics: [] }
 };

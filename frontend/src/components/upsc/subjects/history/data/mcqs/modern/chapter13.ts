@@ -609,5 +609,664 @@ export const HISTORY_CH13_MCQS = [
         ],
         correctAnswer: 0,
         explanation: "Creating a window of opportunity for revolutionaries."
-    }
-];
+    },
+    {
+    "id": "CH13-M-NEW-1",
+    "question": "When the First World War broke out in 1914, what was the initial reaction of the Moderates in the Congress?",
+    "options": [
+        "To launch an immediate revolt against the British.",
+        "To support the British war effort as a matter of duty.",
+        "To seek help from Germany for independence.",
+        "War broke out in 1914, what was the initial reaction of the Moderates in the Congress? A. To launch an immediate revolt against the British. B. To support the British war effort as a matter of duty. C. To seek help from Germany for independence. D. To go on a permanent strike.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-2",
+    "question": "Which leader was released from Mandalay Jail in June 1914, just before the start of the Home Rule movement?",
+    "options": [
+        "Lala Lajpat Rai",
+        "Bal Gangadhar Tilak",
+        "Aurobindo Ghosh",
+        "from Mandalay Jail in June 1914, just before the start of the Home Rule movement? A. Lala Lajpat Rai B. Bal Gangadhar Tilak C. Aurobindo Ghosh D. Bipin Chandra Pal\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-3",
+    "question": "The Home Rule League movement in Indi",
+    "options": [
+        "was inspired by a similar movement in: A. South Africa",
+        "Ireland",
+        "Unite",
+        "by a similar movement in: A. South Africa B. Ireland C. United States D. Russia\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-4",
+    "question": "Who were the two main leaders who started the Home Rule Leagues in India?",
+    "options": [
+        "Mahatma Gandhi and Jawaharlal Nehru",
+        "Bal Gangadhar Tilak and Annie Besant",
+        "Motilal Nehru an",
+        "the Home Rule Leagues in India? A. Mahatma Gandhi and Jawaharlal Nehru B. Bal Gangadhar Tilak and Annie Besant C. Motilal Nehru and C.R. Das D. Dadabhai Naoroji and G.K. Gokhale\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-5",
+    "question": "Tilak set up his Home Rule League in April 1916 at:",
+    "options": [
+        "Bombay",
+        "Belgaum",
+        "Poona",
+        "Madras\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-6",
+    "question": "Annie Besant\u2019s Home Rule League was formally started in September 1916 at:",
+    "options": [
+        "Calcutta",
+        "Adyar (Madras)",
+        "Bombay",
+        "in September 1916 at: A. Calcutta B. Adyar (Madras) C. Bombay D. Allahabad\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-7",
+    "question": "Tilak\u2019s League was restricted to which of the following regions?",
+    "options": [
+        "All of India except Maharashtra",
+        "Maharashtra (excluding Bombay city), Karnataka, Central Provinces, and Berar",
+        "Only the Madras Presidency",
+        "to which of the following regions? A. All of India except Maharashtra B. Maharashtra (excluding Bombay city), Karnataka, Central Provinces, and Berar C. Only the Madras Presidency D. Only the United Provinces\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-8",
+    "question": "Which of the following journals was started by Annie Besant to propagate her ideas?",
+    "options": [
+        "Kesari and Mahratta",
+        "New India and Commonweal",
+        "Young India",
+        "by Annie Besant to propagate her ideas? A. Kesari and Mahratta B. New India and Commonweal C. Young India D. Harijan\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-9",
+    "question": "Which journals were used by Tilak to support the Home Rule cause?",
+    "options": [
+        "New India and Commonweal",
+        "Kesari and Mahratta",
+        "Al-Hilal",
+        "by Tilak to support the Home Rule cause? A. New India and Commonweal B. Kesari and Mahratta C. Al-Hilal D. Comrade\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-10",
+    "question": "Who was the General Secretary of Annie Besant\u2019s Home Rule League?",
+    "options": [
+        "George Arundale",
+        "B.P. Wadia",
+        "C.P. Ramaswami Aiyar",
+        "All of the above (as key organizers)\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-11",
+    "question": "The Lucknow Session of the Congress (1916) is famous for the 'Lucknow Pact' between the Congress and:",
+    "options": [
+        "The British Government",
+        "The Muslim League",
+        "The Ghadar Party",
+        "The Justice Party\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-12",
+    "question": "Who presided over the historic Lucknow Session of 1816?",
+    "options": [
+        "Annie Besant",
+        "Ambica Charan Mazumdar",
+        "Lucknow Session of 1816? A. Annie Besant B. Ambica Charan Mazumdar C. Motilal Nehru",
+        "over the historic Lucknow Session of 1816? A. Annie Besant B. Ambica Charan Mazumdar C. Motilal Nehru D. Rashbehari Ghosh\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-13",
+    "question": "In which session did the Moderates and Extremists formally reunite after the 1907 split?",
+    "options": [
+        "1915 Bombay Session",
+        "1916 Lucknow Session",
+        "1917 Calcutta Session",
+        "the Moderates and Extremists formally reunite after the 1907 split? A. 1915 Bombay Session B. 1916 Lucknow Session C. 1917 Calcutta Session D. 1918 Delhi Session\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-14",
+    "question": "The \"August Declaration\" of 1917, which promised the gradual development of self-governing institutions, was made by:",
+    "options": [
+        "Lord Curzon",
+        "Edwin Montagu",
+        "Lor",
+        "the gradual development of self-governing institutions, was made by: A. Lord Curzon B. Edwin Montagu C. Lord Chelmsford D. Lord Morley\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-15",
+    "question": "Who renounced his knighthood in protest against the arrest of Annie Besant in 1917?",
+    "options": [
+        "Rabindranath Tagore",
+        "S. Subramania Aiyar",
+        "Mahatma Gandhi",
+        "his knighthood in protest against the arrest of Annie Besant in 1917? A. Rabindranath Tagore B. S. Subramania Aiyar C. Mahatma Gandhi D. Jawaharlal Nehru\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-16",
+    "question": "Which prominent leader joined Annie Besant\u2019s League in Allahabad?",
+    "options": [
+        "Sardar Patel",
+        "Jawaharlal Nehru",
+        "Muhamma",
+        "Annie Besant\u2019s League in Allahabad? A. Sardar Patel B. Jawaharlal Nehru C. Muhammad Ali Jinnah D. Both B and C\n               *"
+    ],
+    "correctAnswer": 3,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-17",
+    "question": "The Home Rule movement primarily demanded:",
+    "options": [
+        "Purna Swaraj (Complete Independence)",
+        "Home Rule (Self-government) for India within the British Empire",
+        "The restoration of the Mughal Caliphate",
+        "The complete withdrawal of British troops\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-18",
+    "question": "Tilak was defended in",
+    "options": [
+        "sedition case in 1916 by a legal team led by: A. Motilal Nehru",
+        "Muhammad Ali Jinnah",
+        "Bhulabhai Desai",
+        "in a sedition case in 1916 by a legal team led by: A. Motilal Nehru B. Muhammad Ali Jinnah C. Bhulabhai Desai D. Tej Bahadur Sapru\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-19",
+    "question": "Annie Besant was the President of the Theosophical Society. Where was its headquarters?",
+    "options": [
+        "Banaras",
+        "Adyar",
+        "Bombay",
+        "London\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-20",
+    "question": "Why did the Home Rule movement decline by 1919?",
+    "options": [
+        "Lack of an effective organization",
+        "Annie Besant\u2019s wavering attitude after her release",
+        "Tilak\u2019s departure to Englan",
+        "the Home Rule movement decline by 1919? A. Lack of an effective organization B. Annie Besant\u2019s wavering attitude after her release C. Tilak\u2019s departure to England for a libel case D. All of the above\n               *"
+    ],
+    "correctAnswer": 3,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-21",
+    "question": "The Lucknow Pact (1916) saw the Congress accept which controversial demand of the Muslim League?",
+    "options": [
+        "Separate Electorates",
+        "Partition of Bengal",
+        "Complete Independence",
+        "of the Muslim League? A. Separate Electorates B. Partition of Bengal C. Complete Independence D. Withdrawal of Urdu as an official language\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-22",
+    "question": "Who were the main architects of the Lucknow Pact?",
+    "options": [
+        "Gandhi and Nehru",
+        "Tilak and Jinnah",
+        "Gokhale an",
+        "Nehru B. Tilak and Jinnah C. Gokhale and Pherozeshah Mehta D. Annie Besant and Curzon\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-23",
+    "question": "Which event in 1914 acted as",
+    "options": [
+        "catalyst for Indian nationalism by highlighting racial discrimination against Indians abroad? A. The Boer War",
+        "The Komagata Maru Incident",
+        "The Jallianwala Bagh Massacre",
+        "as a catalyst for Indian nationalism by highlighting racial discrimination against Indians abroad? A. The Boer War B. The Komagata Maru Incident C. The Jallianwala Bagh Massacre D. The Rowlatt Act\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-24",
+    "question": "In the August Declaration of 1917, the British government for the first time used which term to define the goal of British rule in India?",
+    "options": [
+        "Independence",
+        "Responsible Government",
+        "Purna Swaraj",
+        "which term to define the goal of British rule in India? A. Independence B. Responsible Government C. Purna Swaraj D. Dominion Status\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-25",
+    "question": "Who was the Viceroy of Indi",
+    "options": [
+        "during the peak of the Home Rule movement (1916)? A. Lord Hardinge",
+        "Lord Chelmsford",
+        "Lor",
+        "Hardinge B. Lord Chelmsford C. Lord Reading D. Lord Irwin\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-26",
+    "question": "Annie Besant became the first woman President of the Indian National Congress in which session?",
+    "options": [
+        "1916 Lucknow",
+        "1917 Calcutta",
+        "1918 Delhi",
+        "1925 Kanpur\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-27",
+    "question": "The Montagu-Chelmsford Reforms (1919) were",
+    "options": [
+        "direct result of which declaration? A. Queen\u2019s Proclamation 1858",
+        "August Declaration 1917",
+        "Delhi Declaration 1911",
+        "Reforms (1919) were a direct result of which declaration? A. Queen\u2019s Proclamation 1858 B. August Declaration 1917 C. Delhi Declaration 1911 D. Nehru Report 1928\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-28",
+    "question": "Which Moderate leader died in 1915, easing the way for the Extremists to rejoin the Congress?",
+    "options": [
+        "Dadabhai Naoroji",
+        "Gopal Krishna Gokhale",
+        "Pherozeshah Mehta",
+        "in 1915, easing the way for the Extremists to rejoin the Congress? A. Dadabhai Naoroji B. Gopal Krishna Gokhale C. Pherozeshah Mehta D. Both B and C\n               *"
+    ],
+    "correctAnswer": 3,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-29",
+    "question": "Tilak's Home Rule League had how many branches?",
+    "options": [
+        "6",
+        "200",
+        "50",
+        "how many branches? A. 6 B. 200 C. 50 D. 100\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-30",
+    "question": "The \"Commonweal\" was a:",
+    "options": [
+        "Secret revolutionary society",
+        "Weekly journal started by Annie Besant",
+        "Pro-British political party",
+        "by Annie Besant C. Pro-British political party D. Treaty signed between Tilak and Jinnah\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-31",
+    "question": "The Home Rule League movement represented",
+    "options": [
+        "new phase in the Indian national struggle. How did it differ fundamentally from the earlier Swadeshi Movement? A. It relied exclusively on the support of the Indian peasantry.",
+        "It focused on the demand for 'Self-Government' as a permanent political goal rather than just a reaction to a specifi",
+        "administrative measure like the Partition of Bengal. C. It completely rejecte",
+        "a new phase in the Indian national struggle. How did it differ fundamentally from the earlier Swadeshi Movement? A. It relied exclusively on the support of the Indian peasantry. B. It focused on the demand for 'Self-Government' as a permanent political goal rather than just a reaction to a specific administrative measure like the Partition of Bengal. C. It completely rejected the use of the English language. D. It was the first movement to demand the total expulsion of all Europeans from India.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-32",
+    "question": "Consider the following statements regarding the organizational structure of the Home Rule Leagues:\n               1. Tilak\u2019s League was organized on",
+    "options": [
+        "linguistic basis and was more compact compared to Annie Besant\u2019s League.\n               2. Annie Besant\u2019s League was loosely organized and covered the parts of India not covered by Tilak\u2019s League.\n               3. Both leaders merged their leagues into a single unified organization in 1917 to ensure better coordination. Which of the statements given above are correct? A. 1 and 2 only",
+        "2 and 3 only",
+        "basis an",
+        "on a linguistic basis and was more compact compared to Annie Besant\u2019s League.\n               2. Annie Besant\u2019s League was loosely organized and covered the parts of India not covered by Tilak\u2019s League.\n               3. Both leaders merged their leagues into a single unified organization in 1917 to ensure better coordination. Which of the statements given above are correct? A. 1 and 2 only B. 2 and 3 only C. 1 and 3 only D. 1, 2, and 3\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Statement 3 is incorrect. Tilak and Besant chose not to merge their leagues because, as Tilak noted, some of his followers did not like Besant and vice versa; however, they worked in close cooperation."
+},
+    {
+    "id": "CH13-M-NEW-33",
+    "question": "The 'Lucknow Pact' (1916) is often described as",
+    "options": [
+        "double-edged sword in Indian history. Why is it criticized by many modern historians? A. Because it led to the permanent dissolution of the Muslim League.",
+        "Because, by accepting 'Separate Electorates', the Congress provided official recognition to the principle of communal politics, which eventually contributed to the partition of India.",
+        "Because it demande",
+        "as a double-edged sword in Indian history. Why is it criticized by many modern historians? A. Because it led to the permanent dissolution of the Muslim League. B. Because, by accepting 'Separate Electorates', the Congress provided official recognition to the principle of communal politics, which eventually contributed to the partition of India. C. Because it demanded the continuation of British rule for another 100 years. D. Because it excluded the Extremists from the Congress.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-34",
+    "question": "With reference to the 'August Declaration' of 1917, consider the following: Statement-I: It was",
+    "options": [
+        "response to the growing strength of the Home Rule movement and the revolutionary activities during the war. Statement-II: The declaration for the first time made 'Responsible Government' the official goal of British policy in India, although it did not specify a timeframe. Which one of the following is correct in respect of the above statements? A. Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+        "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+        "Statement-I is correct but Statement-II is incorrect",
+        "the revolutionary activities during the war. Statement-II: The declaration for the first time made 'Responsible Government' the official goal of British policy in India, although it did not specify a timeframe. Which one of the following is correct in respect of the above statements? A. Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I B. Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I C. Statement-I is correct but Statement-II is incorrect D. Statement-I is incorrect but Statement-II is correct\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-35",
+    "question": "Annie Besant\u2019s arrest in June 1917 proved to be",
+    "options": [
+        "turning point for the movement. How did the 'Moderates' react to her arrest? A. They celebrated it as a victory for British law.",
+        "They were pushed into active protest, with many moderate leaders like Jawaharlal Nehru and B.P. Wadia joining the Home Rule League in solidarity.",
+        "They immediately calle",
+        "to be a turning point for the movement. How did the 'Moderates' react to her arrest? A. They celebrated it as a victory for British law. B. They were pushed into active protest, with many moderate leaders like Jawaharlal Nehru and B.P. Wadia joining the Home Rule League in solidarity. C. They immediately called for an armed revolution. D. They resigned from the Congress in protest against Besant.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-36",
+    "question": "What was the primary reason for the 'reunion' of the Moderates and Extremists at the 1916 Lucknow session?",
+    "options": [
+        "The death of moderate giants like Gokhale and Pherozeshah Mehta, who had earlier blocked the return of the Extremists.",
+        "A direct order from the British Queen.",
+        "The Extremists agree",
+        "Extremists at the 1916 Lucknow session? A. The death of moderate giants like Gokhale and Pherozeshah Mehta, who had earlier blocked the return of the Extremists. B. A direct order from the British Queen. C. The Extremists agreed to give up their demand for Swaraj. D. The Moderates agreed to use the method of bomb-making.\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-37",
+    "question": "Consider the following regarding the social base of the Home Rule Movement:\n               1. It saw significant participation from the urban educated middle class and professional groups.\n               2. It gained substantial traction among the students who acted as messengers for the league.\n               3. The Anglo-Indians, most Muslims, and non-Brahmins from South Indi",
+    "options": [
+        "largely stayed away, fearing it would lead to 'Brahmin Raj'. How many of the above statements are correct? A. Only one",
+        "Only two",
+        "All three",
+        "middle class and professional groups.\n               2. It gained substantial traction among the students who acted as messengers for the league.\n               3. The Anglo-Indians, most Muslims, and non-Brahmins from South India largely stayed away, fearing it would lead to 'Brahmin Raj'. How many of the above statements are correct? A. Only one B. Only two C. All three D. None\n               *"
+    ],
+    "correctAnswer": 2,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-38",
+    "question": "The 'Ghadar' revolutionaries and the 'Home Rule' leagues represented two different responses to the First World War. What was the common ground between them?",
+    "options": [
+        "Both believed in non-violent constitutional methods.",
+        "Both shared the objective of achieving Indian independence/self-rule by exploiting the 'opportunity' provided by Britain's involvement in the war.",
+        "Both were le",
+        "the 'Home Rule' leagues represented two different responses to the First World War. What was the common ground between them? A. Both believed in non-violent constitutional methods. B. Both shared the objective of achieving Indian independence/self-rule by exploiting the 'opportunity' provided by Britain's involvement in the war. C. Both were led by Annie Besant. D. Both were founded in San Francisco.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-39",
+    "question": "Which of the following describes Tilak\u2019s attitude toward the British during the First World War?",
+    "options": [
+        "He called for a total boycott of the British army.",
+        "He advocated for 'Responsive Cooperation', meaning India would help the British in the war effort if the British promised self-government in return.",
+        "He became a secret advisor to the German Kaiser.",
+        "the British during the First World War? A. He called for a total boycott of the British army. B. He advocated for 'Responsive Cooperation', meaning India would help the British in the war effort if the British promised self-government in return. C. He became a secret advisor to the German Kaiser. D. He retired to the Himalayas to avoid the war.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-40",
+    "question": "The 'Montagu-Chelmsford Reforms' (1919) disappointed many Home Rule supporters because:",
+    "options": [
+        "They abolished the Indian National Congress.",
+        "They introduced 'Diarchy' at the center instead of the provinces.",
+        "They faile",
+        "Reforms' (1919) disappointed many Home Rule supporters because: A. They abolished the Indian National Congress. B. They introduced 'Diarchy' at the center instead of the provinces. C. They failed to grant the 'Responsible Government' promised in the 1817 Declaration and kept most powers in the hands of the British bureaucracy. D. They made Annie Besant the Empress of India.\n               *"
+    ],
+    "correctAnswer": 2,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-41",
+    "question": "Why did the Home Rule Movement fail to maintain its momentum after 1918?",
+    "options": [
+        "The Moderates were pacified by the 1917 Declaration and the 1919 Reforms.",
+        "There was no single unified leader, as Besant wavered and Tilak went to London to fight a court case against Valentine Chirol.",
+        "The rise of Mahatma Gandhi provide",
+        "the Home Rule Movement fail to maintain its momentum after 1918? A. The Moderates were pacified by the 1917 Declaration and the 1919 Reforms. B. There was no single unified leader, as Besant wavered and Tilak went to London to fight a court case against Valentine Chirol. C. The rise of Mahatma Gandhi provided a new, more effective method of mass struggle (Satyagraha). D. All of the above.\n               *"
+    ],
+    "correctAnswer": 3,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-42",
+    "question": "Consider the following pairs of leaders and their roles in the Home Rule era:\n               1. George Arundale \u2014 Organizing secretary of Besant\u2019s League.\n               2. S. Subramani",
+    "options": [
+        "Aiyar \u2014 Renounced knighthood after Besant's arrest.\n               3. Joseph Baptista \u2014 First President of Tilak\u2019s League. How many of the above pairs are correctly matched? A. Only one",
+        "Only two",
+        "All three",
+        "their roles in the Home Rule era:\n               1. George Arundale \u2014 Organizing secretary of Besant\u2019s League.\n               2. S. Subramania Aiyar \u2014 Renounced knighthood after Besant's arrest.\n               3. Joseph Baptista \u2014 First President of Tilak\u2019s League. How many of the above pairs are correctly matched? A. Only one B. Only two C. All three D. None\n               *"
+    ],
+    "correctAnswer": 2,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-43",
+    "question": "The Lucknow Pact (1916) included",
+    "options": [
+        "proposal for 'Weighted Representation'. What did this mean? A. Every Indian would be given a weight based on their education.",
+        "Muslims were given more seats in the legislative councils than their population percentage in provinces where they were in a minority (like UP).",
+        "Only the heavy-weight wrestlers coul",
+        "a proposal for 'Weighted Representation'. What did this mean? A. Every Indian would be given a weight based on their education. B. Muslims were given more seats in the legislative councils than their population percentage in provinces where they were in a minority (like UP). C. Only the heavy-weight wrestlers could vote. D. The British government\u2019s vote carried more weight than the Indian vote.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-44",
+    "question": "Annie Besant\u2019s entry into Indian politics was significant because she brought which of the following to the national movement?",
+    "options": [
+        "An international perspective and a highly organized propaganda machine based on the Irish model.",
+        "A secret supply of Irish weapons.",
+        "The support of the Pope.",
+        "a highly organized propaganda machine based on the Irish model. B. A secret supply of Irish weapons. C. The support of the Pope. D. A plan to convert all Indians to Theosophy.\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-45",
+    "question": "Ultimately, the Home Rule Movement was",
+    "options": [
+        "landmark because it: A. Won complete independence for India in 1919.",
+        "Created a generation of political workers and a nationwide network that prepared the ground for the mass movements of the Gandhian era.",
+        "Abolishe",
+        "a generation of political workers and a nationwide network that prepared the ground for the mass movements of the Gandhian era. C. Abolished the separate electorates. D. Led to the victory of Germany in WWI.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-46",
+    "question": "Consider the following statements regarding the Home Rule League Movement (1916-1918):\n               1. Tilak\u2019s League was first to be established and its headquarters were located at Poon",
+    "options": [
+        "2. The movement aimed at the overthrow of the British Crown and the establishment of an independent Indian Republic.\n               3. While the Moderates initially stayed away, the arrest of Annie Besant in 1917 forced many of them to join the League. How many of the above statements are correct? A. Only one",
+        "Only two",
+        "3. While the Moderates initially staye",
+        "and its headquarters were located at Poona.\n               2. The movement aimed at the overthrow of the British Crown and the establishment of an independent Indian Republic.\n               3. While the Moderates initially stayed away, the arrest of Annie Besant in 1917 forced many of them to join the League. How many of the above statements are correct? A. Only one B. Only two C. All three D. None\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Statements 1 and 3 are correct. Statement 2 is incorrect; the Home Rule movement did not aim for an independent Republic. It demanded 'Self-Government' or 'Home Rule' within the British Empire, similar to the status enjoyed by Canada and Australia."
+},
+    {
+    "id": "CH13-M-NEW-47",
+    "question": "With reference to the 'Lucknow Pact' (1916), consider the following: Statement-I: The Congress agreed to the Muslim League's demand for Separate Electorates in the provincial legislative elections. Statement-II: The Congress and the Muslim League presented",
+    "options": [
+        "joint demand to the British government for a 'Responsible Government' and a fixed timeframe for self-rule. Which one of the following is correct in respect of the above statements? A. Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+        "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+        "Statement-I is correct but Statement-II is incorrect",
+        "to the Muslim League's demand for Separate Electorates in the provincial legislative elections. Statement-II: The Congress and the Muslim League presented a joint demand to the British government for a 'Responsible Government' and a fixed timeframe for self-rule. Which one of the following is correct in respect of the above statements? A. Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I B. Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I C. Statement-I is correct but Statement-II is incorrect D. Statement-I is incorrect but Statement-II is correct\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Both are factually true. However, agreeing to Separate Electorates (Statement-I) was a concession to achieve the political unity required to present the joint demands (Statement-II), not the other way around."
+},
+    {
+    "id": "CH13-M-NEW-48",
+    "question": "Arrange the following events of the First World War er",
+    "options": [
+        "in the correct chronological order:\n               1. Death of Pherozeshah Mehta.\n               2. The August Declaration (Montagu\u2019s Statement).\n               3. The Lucknow Session of the INC.\n               4. Formation of Tilak\u2019s Home Rule League. Select the correct answer using the code given below: A. 1 \u2014 4 \u2014 3 \u2014 2",
+        "1 \u2014 3 \u2014 4 \u2014 2",
+        "4. Formation of Tilak\u2019s Home Rule League. Select the correct answer using the code given below: A. 1 \u2014 4 \u2014 3 \u2014 2 B. 1 \u2014 3 \u2014 4 \u2014 2 C. 4 \u2014 1 \u2014 2 \u2014 3",
+        "War era in the correct chronological order:\n               1. Death of Pherozeshah Mehta.\n               2. The August Declaration (Montagu\u2019s Statement).\n               3. The Lucknow Session of the INC.\n               4. Formation of Tilak\u2019s Home Rule League. Select the correct answer using the code given below: A. 1 \u2014 4 \u2014 3 \u2014 2 B. 1 \u2014 3 \u2014 4 \u2014 2 C. 4 \u2014 1 \u2014 2 \u2014 3 D. 1 \u2014 4 \u2014 2 \u2014 3\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Death of Mehta (Nov 1915) -> Tilak\u2019s League (April 1916) -> Lucknow Session (Dec 1916) -> August Declaration (Aug 1917)."
+},
+    {
+    "id": "CH13-M-NEW-49",
+    "question": "Consider the following pairs of Leaders and the Journals they used for the Home Rule campaign:\n               1. Annie Besant \u2014 Commonweal\n               2. Bal Gangadhar Tilak \u2014 The Mahratt",
+    "options": [
+        "3. S. Subramania Aiyar \u2014 New India How many of the above pairs are correctly matched? A. Only one pair",
+        "Only two pairs",
+        "All three pairs",
+        "the Journals they used for the Home Rule campaign:\n               1. Annie Besant \u2014 Commonweal\n               2. Bal Gangadhar Tilak \u2014 The Mahratta\n               3. S. Subramania Aiyar \u2014 New India How many of the above pairs are correctly matched? A. Only one pair B. Only two pairs C. All three pairs D. None\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pairs 1 and 2 are correct. Pair 3 is incorrect; New India was also started and edited by Annie Besant. S. Subramania Aiyar was a prominent supporter and former judge who renounced his knighthood."
+},
+    {
+    "id": "CH13-M-NEW-50",
+    "question": "The 'August Declaration' (1917) by Edwin Montagu is significant because:\n               1. It for the first time officially defined 'Responsible Government' as the goal of British rule in Indi",
+    "options": [
+        "2. It was a direct response to the pressure created by the Home Rule Leagues.\n               3. It granted universal adult franchise to all Indian citizens. Select the correct answer using the code given below: A. 1 and 2 only",
+        "2 and 3 only",
+        "1 an",
+        "'Responsible Government' as the goal of British rule in India.\n               2. It was a direct response to the pressure created by the Home Rule Leagues.\n               3. It granted universal adult franchise to all Indian citizens. Select the correct answer using the code given below: A. 1 and 2 only B. 2 and 3 only C. 1 and 3 only D. All of the above\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Statement 3 is incorrect; the declaration and the subsequent 1919 Act provided a very limited franchise based on property and education."
+},
+    {
+    "id": "CH13-M-NEW-51",
+    "question": "\"He was",
+    "options": [
+        "former president of the Congress who was nominated as a member of the British Parliament's House of Commons. He was also the first Indian to provide a statistical proof of the economic drain of India.\" The above description refers to: A. Gopal Krishna Gokhale",
+        "Dadabhai Naoroji",
+        "drain of India.\" The above description refers to: A. Gopal Krishna Gokhale B. Dadabhai Naoroji C. Pherozeshah Mehta",
+        "as a member of the British Parliament's House of Commons. He was also the first Indian to provide a statistical proof of the economic drain of India.\" The above description refers to: A. Gopal Krishna Gokhale B. Dadabhai Naoroji C. Pherozeshah Mehta D. Dinshaw Wacha\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Though"
+},
+    {
+    "id": "CH13-M-NEW-52",
+    "question": "Regarding the decline of the Home Rule Movement by 1919, consider the following: Statement-I: The movement lost its momentum because the British government effectively used the 'policy of the carrot and the stick'. Statement-II: The 'carrot' was the August Declaration of 1917, while the 'stick' was the Rowlatt Act. Which one of the following is correct in respect of the above statements?",
+    "options": [
+        "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+        "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+        "Statement-I is correct but Statement-II is incorrect",
+        "the 'policy of the carrot and the stick'. Statement-II: The 'carrot' was the August Declaration of 1917, while the 'stick' was the Rowlatt Act. Which one of the following is correct in respect of the above statements? A. Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I B. Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I C. Statement-I is correct but Statement-II is incorrect D. Statement-I is incorrect but Statement-II is correct\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": ""
+},
+    {
+    "id": "CH13-M-NEW-53",
+    "question": "Match the following regions with the respective Home Rule League influence:\n               1. Karnatak",
+    "options": [
+        "\u2014 A. Annie Besant\u2019s League\n               2. United Provinces \u2014",
+        "Tilak\u2019s League\n               3. Bihar \u2014",
+        "No League activity\n               4. Central Provinces \u2014",
+        "Provinces \u2014 B. Tilak\u2019s League\n               3. Bihar \u2014 C. No League activity\n               4. Central Provinces \u2014 D. Both Leagues active (shared) Select the correct matching code (Note: Tilak had specific jurisdictions): A. 1-B, 2-A, 3-A, 4-B B. 1-A, 2-B, 3-C, 4-A C. 1-B, 2-A, 3-C, 4-B D. 1-A, 2-A, 3-A, 4-A\n               *"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Tilak\u2019s League was restricted to Maharashtra (excluding Bombay), Karnataka, Central Provinces, and Berar. The rest of India was under Besant\u2019s League."
+},
+    {
+    "id": "CH13-M-NEW-54",
+    "question": "Consider the following regarding the 'Lucknow Session' (1916):\n               1. It saw the return of the Extremists to the Congress after nine years.\n               2. It was the first session where the Congress and the Muslim League met simultaneously and approved the 'Lucknow Pact'.\n               3. It was presided over by Annie Besant. How many of the above statements are correct?",
+    "options": [
+        "Only one",
+        "Only two",
+        "All three",
+        "the Muslim League met simultaneously and approved the 'Lucknow Pact'.\n               3. It was presided over by Annie Besant. How many of the above statements are correct? A. Only one B. Only two C. All three D. None\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Statements 1 and 2 are correct. Statement 3 is incorrect; the session was presided over by Ambica Charan Mazumdar. Annie Besant presided over the 1917 Calcutta session."
+},
+    {
+    "id": "CH13-M-NEW-55",
+    "question": "The 'Home Rule League' movement is considered",
+    "options": [
+        "precursor to the Gandhian mass movements because: A. It for the first time used the methods of fast-unto-death and picketing.",
+        "It created a network of local branches and trained political workers who later formed the backbone of the Non-Cooperation movement.",
+        "It was the first movement to be le",
+        "a precursor to the Gandhian mass movements because: A. It for the first time used the methods of fast-unto-death and picketing. B. It created a network of local branches and trained political workers who later formed the backbone of the Non-Cooperation movement. C. It was the first movement to be led by Mahatma Gandhi himself. D. It successfully abolished the Salt Tax.\n               *"
+    ],
+    "correctAnswer": 1,
+    "explanation": ""
+},];

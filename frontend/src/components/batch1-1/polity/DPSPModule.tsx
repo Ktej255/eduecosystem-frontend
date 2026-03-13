@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 interface DPSPModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Governance Blueprint ---

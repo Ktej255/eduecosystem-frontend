@@ -10,6 +10,7 @@ import {
 interface JudicialReviewModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Editor's Desk (Crumpled Paper & Red Ink) ---

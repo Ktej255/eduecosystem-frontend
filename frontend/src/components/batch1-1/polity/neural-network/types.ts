@@ -5,7 +5,7 @@ export interface PolityNode {
     data: {
         label: string;
         description?: string;
-        category?: 'Legislature' | 'Executive' | 'Judiciary' | 'Constitutional Body';
+        category?: 'Legislature' | 'Executive' | 'Judiciary' | 'Constitutional Body' | 'Rights' | 'Core Principle';
         articleRange?: string; // e.g., "Articles 52-78"
     };
     position: { x: number; y: number };

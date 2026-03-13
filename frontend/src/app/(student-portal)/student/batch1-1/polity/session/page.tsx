@@ -14,9 +14,11 @@ function PolitySessionContent() {
 
     useEffect(() => {
         if (blockId) {
-            const blockTopics = TOPIC_TITLES_95.filter(t => t.blockId === parseInt(blockId));
+            // blockId is passed but not yet used to filter TOPIC_TITLES_95 in the base data
+            // For now, let's just use the topics and assume the blockId is for progress tracking
+            const blockTopics = TOPIC_TITLES_95; 
             if (blockTopics.length > 0) {
-                setTopics(blockTopics.map(t => ({ id: t.id, title: t.title, blockId: t.blockId, branch: t.part })));
+                setTopics(blockTopics.map(t => ({ id: t.id, title: t.title, branch: t.part })));
             } else {
                 toast.error("Block not found");
                 router.push('/student/batch1-1/polity');

@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 interface ElectionCommissionModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
-    chapterNumber?: string;
+    chapterNumber?: number | string;
 }
 
 const RefereeContainer = ({ children }: { children: React.ReactNode }) => (

@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 interface DPSPModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Governance Blueprint ---
@@ -66,7 +67,7 @@ const LaneHeader = ({ title, color, desc }: { title: string, color: string, desc
     </div>
 );
 
-export default function DPSPModule({ onComplete, isCompleted }: DPSPModuleProps) {
+export default function DPSPModule({ onComplete, isCompleted, chapterNumber = "9" }: DPSPModuleProps) {
     return (
         <BlueprintContainer>
             {/* HERO */}
@@ -76,7 +77,7 @@ export default function DPSPModule({ onComplete, isCompleted }: DPSPModuleProps)
                 </div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-2 text-blue-200 font-bold uppercase tracking-widest text-xs mb-2">
-                        <Building2 size={16} /> Part IV (Articles 36-51)
+                        <Building2 size={16} /> Chapter {chapterNumber} &bull; Part IV (Articles 36-51)
                     </div>
                     <h1 className="text-3xl md:text-5xl font-bold mb-4 font-serif">The Governance Blueprint</h1>
                     <p className="text-blue-100 max-w-2xl text-lg leading-relaxed font-handwriting">
@@ -316,8 +317,8 @@ export default function DPSPModule({ onComplete, isCompleted }: DPSPModuleProps)
           `}
                 >
                     {isCompleted ?
-                        <span className="flex items-center gap-2"><BadgeCheck /> Policy Adopted</span> :
-                        <span className="flex items-center gap-2"><BookOpen /> Approve Governance Blueprint</span>
+                        <span className="flex items-center gap-2"><BadgeCheck /> CHAPTER {chapterNumber} COMPLETED</span> :
+                        <span className="flex items-center gap-2"><BookOpen /> MARK CHAPTER {chapterNumber} COMPLETE</span>
                     }
                 </Button>
             </div>

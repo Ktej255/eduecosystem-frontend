@@ -170,7 +170,7 @@ export default function ElectionsModule({ onComplete, isCompleted, chapterNumber
                     className={`px-12 py-6 rounded-full text-xl font-black font-['Kalam'] transition-all transform hover:scale-105 ${isCompleted ? 'bg-green-600 text-white' : 'bg-[#2563eb] text-white hover:bg-blue-800'
                         }`}
                 >
-                    {isCompleted ? "Vote Cast!" : "Cast Your Vote"}
+                    {isCompleted ? "Vote Cast!" : `MARK CHAPTER ${chapterNumber} COMPLETE`}
                 </Button>
             </div>
         </ScrapbookContainer>

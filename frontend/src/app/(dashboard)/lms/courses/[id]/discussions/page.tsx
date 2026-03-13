@@ -24,6 +24,8 @@ import {
   CheckCircle,
   TrendingUp,
   Clock,
+  Star,
+  ThumbsUp,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -45,7 +47,9 @@ interface Thread {
   last_activity_at: string;
   reply_count: number;
   view_count: number;
+  upvotes: number;
   is_pinned: boolean;
+  is_featured: boolean;
   is_locked: boolean;
   is_resolved: boolean;
   last_post_author?: string;
@@ -232,7 +236,7 @@ export default function DiscussionsPage() {
           threads.map((thread) => (
             <Card
               key={thread.id}
-              className="hover:shadow-md transition-shadow cursor-pointer"
+              className={`hover:shadow-md transition-shadow cursor-pointer ${thread.is_featured ? "border-yellow-500/50 bg-yellow-500/5" : ""}`}
               onClick={() =>
                 router.push(`/lms/courses/${courseId}/discussions/${thread.id}`)
               }
@@ -243,6 +247,9 @@ export default function DiscussionsPage() {
                     <div className="flex items-center gap-2 mb-2">
                       {thread.is_pinned && (
                         <Pin className="w-4 h-4 text-blue-500" />
+                      )}
+                      {thread.is_featured && (
+                        <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
                       )}
                       {thread.is_locked && (
                         <Lock className="w-4 h-4 text-gray-500" />
@@ -260,6 +267,10 @@ export default function DiscussionsPage() {
                       <span>•</span>
                       <span>
                         {new Date(thread.created_at).toLocaleDateString()}
+                      </span>
+                      <span>•</span>
+                      <span className="flex items-center gap-1">
+                        <ThumbsUp className="w-3 h-3" /> {thread.upvotes || 0}
                       </span>
                       <span>•</span>
                       <span>{thread.reply_count} replies</span>

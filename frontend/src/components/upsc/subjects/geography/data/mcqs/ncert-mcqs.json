@@ -10744,5 +10744,3063 @@
         "chapter": "30",
         "subtopic": "Level 1 Practice",
         "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-l2-001",
+        "question": "Consider the following statements regarding the origin of the term 'Geography':\n1. The term was first coined by the Greek scholar Eratosthenes.\n2. It is derived from the Greek words 'geo' meaning earth and 'graphos' meaning description.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The term geography was first coined by Eratosthenese, a Greek scholar (276-194 BC.). The word has been derived from two roots from Greek language geo (earth) and graphos (description). Put together, they mean description of the earth.",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "hard",
+        "chapter": "0",
+        "question_type": "statement_based",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-002",
+        "question": "Consider the following statements regarding the scope of geography:\n1. Geographers solely study the variations in phenomena over the earth's surface.\n2. The concern of geography is to find out the causal relationship between any two phenomena or between more than one phenomenon.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Geographers do not study only the variations in the phenomena over the earth's surface (space) but also study the associations with the other factors which cause these variations. The concern of geography is to find out the causal relationship between any two phenomena or between more than one phenomenon.",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "hard",
+        "chapter": "0",
+        "question_type": "statement_based",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-003",
+        "question": "With the gradual development of technology, human beings were able to loosen the shackles of their physical environment. In this context, technology helped in:\n1. Reducing the harshness of labour.\n2. Increasing labour efficiency.\n3. Providing leisure to human beings to attend to higher needs of life.\nSelect the correct answer using the code given below:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Technology helped in reducing the harshness of labour, increased labour efficiency and provided leisure to human beings to attend to the higher needs of life.",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "hard",
+        "chapter": "0",
+        "question_type": "statement_based",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-004",
+        "question": "As a discipline, geography is concerned with three sets of questions. Match the type of question with its corresponding geographical aspect:\n1. What? -> A. Causal relationships between features and processes.\n2. Where? -> B. Identification of the patterns of natural and cultural features.\n3. Why? -> C. Distribution of the natural and human/cultural features.\nWhich of the following pairings is correctly matched?",
+        "options": [
+            "1-B, 2-C, 3-A",
+            "1-C, 2-B, 3-A",
+            "1-A, 2-C, 3-B",
+            "1-B, 2-A, 3-C"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Questions related to the identification of patterns are about 'what'. Questions related to distribution are about 'where'. The third question is related to the explanation or causal relationships, which is related to 'why'.",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "hard",
+        "chapter": "0",
+        "question_type": "statement_based",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-005",
+        "question": "Consider the following statements:\n1. Geography attempts temporal synthesis.\n2. History attempts spatial synthesis.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Geography is a discipline of synthesis. It attempts spatial synthesis, and history attempts temporal synthesis.",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "hard",
+        "chapter": "0",
+        "question_type": "statement_based",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-006",
+        "question": "Which of the following historical events highlights the role of geographical factors in shaping history?\n1. The Himalayas acting as barriers and their passes providing routes to migrants.\n2. The oceanic expanse protecting the countries of the new world from wars on their soil.\n3. Navigation technology allowing European countries to colonize Asia and Africa.\nSelect the correct answer using the code given below:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The oceanic expanse around the countries of the new world has protected them from wars. In India, Himalayas acted as great barriers and passes provided routes to migrants from Central Asia. Navigation technology helped European countries colonise Asia and Africa as they got accessibility through oceans.",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "hard",
+        "chapter": "0",
+        "question_type": "statement_based",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-007",
+        "question": "Consider the following statements regarding the approaches to studying geography:\n1. In the systematic approach, the world is divided into regions at different hierarchical levels.\n2. In the regional approach, a phenomenon is studied world over as a whole, and then spatial patterns are identified. Which of the statements given above is/are correct? A) 1 only B) 2 only C) Both 1 and 2 D) Neither 1 nor 2 Answer: D Explanation: The definitions are swapped. In the systematic approach, a phenomenon is studied world over as a whole, and then the identification of typologies or spatial patterns is done. In the regional approach, the world is divided into regions at different hierarchical levels and then all the geographical phenomena in a particular region are studied.\n15. Dualism is one of the main characteristics of geography. This early dualism depended heavily on the emphasis placed on:",
+        "options": [
+            "Cartography vs. GIS",
+            "Physical geography vs. Human geography",
+            "Spatial synthesis vs. Temporal synthesis",
+            "Macro-regional studies vs. Micro-regional studies"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dualism depended on the aspect emphasised in the study; earlier scholars laid emphasis on physical geography, but humans also contributed through cultural development, thus developing human geography.",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "hard",
+        "chapter": "0",
+        "question_type": "statement_based",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-008",
+        "question": "Consider the following components:\n1. Population growth\n2. Sex ratio\n3. Occupational structure\n4. Characteristics of rural and urban settlements\nWhich of the components listed above are studied under Population and Settlement Geography?",
+        "options": [
+            "1, 2, and 3 only",
+            "1 and 4 only",
+            "2, 3, and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Population and Settlement Geography studies population growth, distribution, density, sex ratio, migration and occupational structure, etc., and settlement geography studies the characteristics of rural and urban settlements.",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "hard",
+        "chapter": "0",
+        "question_type": "statement_based",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-009",
+        "question": "Economic Geography includes the study of which of the following activities?\n1. Agriculture\n2. Tourism\n3. Trade and transport\n4. Services\nSelect the correct answer using the code given below:",
+        "options": [
+            "1 and 3 only",
+            "2 and 4 only",
+            "1, 2, and 3 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Economic Geography studies economic activities of the people including agriculture, industry, tourism, trade and transport, infrastructure and services, etc..",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "hard",
+        "chapter": "0",
+        "question_type": "statement_based",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-010",
+        "question": "Geo-informatics, as a method and technique in geography, comprises which of the following?\n1. Remote Sensing\n2. GIS (Geographic Information System)\n3. GPS (Global Positioning System)\nSelect the correct answer using the code given below:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Geo-informatics comprises techniques such as Remote Sensing, GIS, GPS, etc..",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "hard",
+        "chapter": "0",
+        "question_type": "statement_based",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-011",
+        "question": "Consider the following statements regarding the physical environment:\n1. Lithosphere includes landforms, drainage, relief, and physiography.\n2. Biosphere includes life forms, macro-organisms, and their sustaining mechanism (food chain, ecological balance).\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Physical geography includes the study of lithosphere (landforms, drainage, relief and physiography) and biosphere (life forms including human being and macro-organism and their sustaining mechanism, viz. food chain, ecological parameters and ecological balance).",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "hard",
+        "chapter": "0",
+        "question_type": "statement_based",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-012",
+        "question": "Which of the following factors strongly determine the process of soil formation (pedogenesis)?\n1. Parent rocks\n2. Climate\n3. Biological activity\n4. Time\nSelect the correct answer using the code given below:",
+        "options": [
+            "1, 2, and 3 only",
+            "2, 3, and 4 only",
+            "1, 3, and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Soils are formed through the process of pedogenesis and depend upon the parent rocks, climate, biological activity and time.",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "hard",
+        "chapter": "0",
+        "question_type": "statement_based",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-013",
+        "question": "Match the physical landform with its primary utility for human activities:\n1. Plains -> A. Pastures, forests, tourist spots, and sources of rivers\n2. Plateaus -> B. Base for agriculture\n3. Mountains -> C. Forests and minerals\nSelect the correct matching code:",
+        "options": [
+            "1-B, 2-C, 3-A",
+            "1-A, 2-B, 3-C",
+            "1-C, 2-A, 3-B",
+            "1-B, 2-A, 3-C"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The plains are utilised for agriculture. Plateaus provide forests and minerals. Mountains provide pastures, forests, tourist spots and are sources of rivers providing water to lowlands.",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "hard",
+        "chapter": "0",
+        "question_type": "statement_based",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-014",
+        "question": "Consider the following statements regarding the impact of climate:\n1. Climate influences house types, clothing, and food habits.\n2. Human beings have developed technologies, such as air conditioners, which modify climatic elements on a global scale.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Climate influences our house types, clothing and food habits. Statement 2 is incorrect because humans have developed technologies which modify climatic elements in a restricted space such as air conditioners and coolers, not on a global scale.",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "hard",
+        "chapter": "0",
+        "question_type": "statement_based",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-015",
+        "question": "The study of oceans is highly significant in geography because:\n1. They are a rich storehouse of mineral resources.\n2. They provide fish and other sea-food.\n3. India has developed technology for collecting manganese nodules from the oceanic bed.\nSelect the correct answer using the code given below:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "We study oceans which are the store house of resources. Besides fish and other sea-food, oceans are rich in mineral resources. India has developed the technology for collecting manganese nodules from oceanic bed.",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "hard",
+        "chapter": "0",
+        "question_type": "statement_based",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-016",
+        "question": "Consider the following statements about soils:\n1. Soils are strictly non-renewable resources.\n2. The fertility of the soil is both naturally determined and culturally induced.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statement 1 is incorrect as soils are renewable resources. Statement 2 is correct; the fertility of the soil is both naturally determined and culturally induced.",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "hard",
+        "chapter": "0",
+        "question_type": "statement_based",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-017",
+        "question": "\"Geography studies the differences of phenomena usually related in different parts of the earth's surface.\" This definition of geography was provided by: A) Richard Hartshorne B) Eratosthenes C) Hettner D) Alexander Von Humboldt Answer: C Explanation: Geography studies the differences of phenomena usually related in different parts of the earth's surface. \u2014 Hettner. (Note: Richard Hartshorne provided the definition concerning \"description and explanation of the areal differentiation of the earth's surface\" ).\n39. The study of physical geography is increasingly emerging as a discipline focused on:",
+        "options": [
+            "Exclusively mapping ancient historical trade routes.",
+            "Evaluating and managing natural resources.",
+            "The mathematical calculation of celestial bodies.",
+            "Focusing purely on theoretical political systems."
+        ],
+        "correctAnswer": 1,
+        "explanation": "The study of physical geography is emerging as a discipline of evaluating and managing natural resources.",
+        "module": "physical",
+        "topic": "Chapter 0",
+        "difficulty": "easy",
+        "chapter": "0",
+        "question_type": "factual",
+        "subtopic": ""
+    },
+    {
+        "id": "ncert-l2-018",
+        "question": "Consider the following statements regarding the early theories of the origin of the earth:\nThe Nebular Hypothesis was initially put forward by Immanuel Kant.\nThe hypothesis was later revised by mathematician Laplace in 1796.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The Nebular Hypothesis was put forward by Immanuel Kant and revised by Laplace in 1796. It considered that the planets were formed out of a cloud of material associated with a youthful sun.",
+        "module": "physical",
+        "topic": "The Origin and Evolution of the Earth",
+        "difficulty": "hard",
+        "chapter": "2",
+        "question_type": "statement_based",
+        "subtopic": "The Origin and Evolution of the Earth"
+    },
+    {
+        "id": "ncert-l2-019",
+        "question": "Consider the following statements about the Expanding Universe Hypothesis:\nEdwin Hubble provided evidence that the universe is expanding.\nThe theory suggests that while the distance between galaxies is expanding, the galaxies themselves are also constantly expanding in size.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Edwin Hubble in 1920 provided evidence that the universe is expanding. However, scientists believe that though the space between the galaxies is increasing, observations do not support the expansion of galaxies themselves.",
+        "module": "physical",
+        "topic": "The Origin and Evolution of the Earth",
+        "difficulty": "hard",
+        "chapter": "2",
+        "question_type": "statement_based",
+        "subtopic": "The Origin and Evolution of the Earth"
+    },
+    {
+        "id": "ncert-l2-020",
+        "question": "Consider the following stages of planet formation:\nFormation of planetesimals through cohesion.\nCondensation of gas clouds around a core to form localized lumps.\nAccretion of planetesimals to form larger bodies called planets.\nSelect the correct chronological sequence of these stages:",
+        "options": [
+            "1 - 2 - 3",
+            "2 - 1 - 3",
+            "3 - 1 - 2",
+            "2 - 3 - 1"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The stages are: 1) Stars are localized lumps of gas within a nebula forming a core. 2) Small-rounded objects form by cohesion (planetesimals). 3) Planetesimals accrete to form a fewer large bodies (planets).",
+        "module": "physical",
+        "topic": "The Origin and Evolution of the Earth",
+        "difficulty": "hard",
+        "chapter": "2",
+        "question_type": "statement_based",
+        "subtopic": "The Origin and Evolution of the Earth"
+    },
+    {
+        "id": "ncert-l2-021",
+        "question": "Consider the following reasons for the difference between terrestrial and jovian planets:\nThe terrestrial planets were formed in the close vicinity of the parent star where it was too warm for gases to condense to solid particles.\nThe solar wind was most intense near the sun, blowing off lots of gas and dust from the terrestrial planets.\nThe terrestrial planets are smaller and their lower gravity could not hold the escaping gases.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "All three are correct reasons provided by NCERT explaining why the inner planets are rocky and poor in gases while the outer planets are gas giants.",
+        "module": "physical",
+        "topic": "The Origin and Evolution of the Earth",
+        "difficulty": "hard",
+        "chapter": "2",
+        "question_type": "statement_based",
+        "subtopic": "The Origin and Evolution of the Earth"
+    },
+    {
+        "id": "ncert-l2-022",
+        "question": "Consider the following statements regarding the evolution of Earth's atmosphere:\nThe first stage was marked by the loss of the primordial atmosphere.\nThe second stage involved the release of hot interior gases to the exterior.\nThe third stage was characterized by the modification of the atmosphere by living organisms.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "There are three stages in the evolution of the present atmosphere. The first is the loss of primordial atmosphere. The second is the hot interior contributing to the atmosphere. Finally, the composition was modified by the living world through photosynthesis.",
+        "module": "physical",
+        "topic": "The Origin and Evolution of the Earth",
+        "difficulty": "hard",
+        "chapter": "2",
+        "question_type": "statement_based",
+        "subtopic": "The Origin and Evolution of the Earth"
+    },
+    {
+        "id": "ncert-l2-023",
+        "question": "Consider the following pairs:\nBig Bang Theory -> Expanding Universe\nSteady State Theory -> Hoyle\nNebular Hypothesis -> Edwin Hubble\nWhich of the pairs given above is/are correctly matched?",
+        "options": [
+            "1 only",
+            "1 and 2 only",
+            "2 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Pair 3 is incorrectly matched. The Nebular Hypothesis was put forward by Kant and Laplace. Edwin Hubble is associated with the expanding universe evidence (Big Bang).",
+        "module": "physical",
+        "topic": "The Origin and Evolution of the Earth",
+        "difficulty": "hard",
+        "chapter": "2",
+        "question_type": "statement_based",
+        "subtopic": "The Origin and Evolution of the Earth"
+    },
+    {
+        "id": "ncert-l2-024",
+        "question": "Match the historical timeline with its corresponding geological event:\nEvent:\nBig Bang\nFormation of Solar System\nFormation of Oceans\nBeginning of Life\nTime (approx):\nA. 4.6 billion years ago\nB. 3.8 billion years ago\nC. 13.7 billion years ago\nD. 4 billion years ago\nSelect the correct code:",
+        "options": [
+            "1-C, 2-A, 3-D, 4-B",
+            "1-C, 2-D, 3-A, 4-B",
+            "1-B, 2-A, 3-C, 4-D",
+            "1-C, 2-B, 3-A, 4-D"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Big Bang (13.7 bya), Solar System/Earth formation (4.6 bya), Oceans formation (4000 million / 4 bya), Beginning of Life (3.8 bya).",
+        "module": "physical",
+        "topic": "The Origin and Evolution of the Earth",
+        "difficulty": "easy",
+        "chapter": "2",
+        "question_type": "factual",
+        "subtopic": "The Origin and Evolution of the Earth"
+    },
+    {
+        "id": "ncert-l2-025",
+        "question": "Consider the following statements about 'Jovian' planets:\nThey are also called 'outer planets'.\nThey have a solid, thick, rocky crust similar to Earth.\nThey generally have a thick atmosphere of hydrogen and helium.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "1 and 3 only",
+            "2 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statement 2 is incorrect because Jovian planets do not have a solid rocky crust like Earth; they are mostly gas giants with thick atmospheres of hydrogen and helium.",
+        "module": "physical",
+        "topic": "The Origin and Evolution of the Earth",
+        "difficulty": "hard",
+        "chapter": "2",
+        "question_type": "statement_based",
+        "subtopic": "The Origin and Evolution of the Earth"
+    },
+    {
+        "id": "ncert-l2-026",
+        "question": "Consider the following sources of information about the Earth\u2019s interior:\nMining\nVolcanic eruptions\nMeteors\nGravitational anomaly\nWhich of the above are considered \"direct\" sources of information?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1, 2, and 4 only",
+            "1, 3, and 4 only"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Direct sources include surface rock, rocks from mining areas, deep ocean drilling projects, and volcanic eruptions. Meteors, gravity, magnetic field, and seismic activity are indirect sources.",
+        "module": "physical",
+        "topic": "Interior of the Earth",
+        "difficulty": "hard",
+        "chapter": "3",
+        "question_type": "statement_based",
+        "subtopic": "Interior of the Earth"
+    },
+    {
+        "id": "ncert-l2-027",
+        "question": "Consider the following statements regarding the behavior of seismic waves:\nBody waves are generated due to the release of energy at the focus and move in all directions.\nSurface waves are generated by the interaction of body waves with the surface rocks.\nBody waves are the most destructive type of seismic waves.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statement 3 is incorrect. Surface waves are the last to report on seismographs and are considered the most destructive, as they cause displacement of rocks and structural collapse.",
+        "module": "physical",
+        "topic": "Interior of the Earth",
+        "difficulty": "hard",
+        "chapter": "3",
+        "question_type": "statement_based",
+        "subtopic": "Interior of the Earth"
+    },
+    {
+        "id": "ncert-l2-028",
+        "question": "Consider the following differences between Primary (P) waves and Secondary (S) waves:\nP-waves move faster than S-waves and are the first to arrive at the surface.\nP-waves can travel through gaseous, liquid, and solid materials, whereas S-waves can travel only through solid materials.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Both statements are correct. P-waves are similar to sound waves and travel through all states of matter. S-waves arrive later and travel only through solid materials.",
+        "module": "physical",
+        "topic": "Interior of the Earth",
+        "difficulty": "hard",
+        "chapter": "3",
+        "question_type": "statement_based",
+        "subtopic": "Interior of the Earth"
+    },
+    {
+        "id": "ncert-l2-029",
+        "question": "Consider the following statements about the propagation of seismic waves:\nP-waves vibrate parallel to the direction of the wave, causing stretching and squeezing of the material.\nS-waves vibrate perpendicular to the direction of propagation in the vertical plane.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Both statements are correct. P-waves create density differences in the material leading to stretching and squeezing. S-waves vibrate perpendicular to the direction of propagation, creating troughs and crests.",
+        "module": "physical",
+        "topic": "Interior of the Earth",
+        "difficulty": "hard",
+        "chapter": "3",
+        "question_type": "statement_based",
+        "subtopic": "Interior of the Earth"
+    },
+    {
+        "id": "ncert-l2-030",
+        "question": "Consider the following statements regarding Earthquake Shadow Zones:\nSeismographs located beyond 145 degrees from the epicenter record the arrival of P-waves but not S-waves.\nThe shadow zone of S-waves is much larger than that of P-waves.\nA zone between 105 degrees and 145 degrees from the epicenter is identified as the shadow zone for both types of waves.\nSelect the correct answer using the code given below:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "All statements are correct. The P-wave shadow zone is a band between 105 and 145 degrees. The S-wave shadow zone extends completely beyond 105 degrees. Thus, the S-wave shadow zone is larger.",
+        "module": "physical",
+        "topic": "Interior of the Earth",
+        "difficulty": "hard",
+        "chapter": "3",
+        "question_type": "statement_based",
+        "subtopic": "Interior of the Earth"
+    },
+    {
+        "id": "ncert-l2-031",
+        "question": "Match the types of earthquakes (List I) with their primary causes (List II):\nList I\nTectonic earthquakes\nVolcanic earthquakes\nCollapse earthquakes\nExplosion earthquakes\nList II\nA. Chemical or nuclear devices\nB. Sliding of rocks along a fault plane\nC. Intense tectonic activity near active craters\nD. Roofs of underground mines caving in\nOptions:",
+        "options": [
+            "1-B, 2-C, 3-D, 4-A",
+            "1-C, 2-B, 3-A, 4-D",
+            "1-B, 2-A, 3-D, 4-C",
+            "1-D, 2-C, 3-B, 4-A"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Tectonic (fault plane sliding), Volcanic (active volcano areas), Collapse (mining areas caving in), Explosion (chemical/nuclear explosions).",
+        "module": "physical",
+        "topic": "Interior of the Earth",
+        "difficulty": "easy",
+        "chapter": "3",
+        "question_type": "factual",
+        "subtopic": "Interior of the Earth"
+    },
+    {
+        "id": "ncert-l2-032",
+        "question": "Consider the following statements about the measurement of earthquakes:\nThe Richter scale measures the magnitude of the earthquake.\nMagnitude relates to the energy released during the quake, expressed in absolute numbers from 0-10.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Both statements are correct. The magnitude scale is known as the Richter scale. The magnitude relates to the energy released, expressed in numbers 0-10.",
+        "module": "physical",
+        "topic": "Interior of the Earth",
+        "difficulty": "hard",
+        "chapter": "3",
+        "question_type": "statement_based",
+        "subtopic": "Interior of the Earth"
+    },
+    {
+        "id": "ncert-l2-033",
+        "question": "Consider the following statements regarding the Earth\u2019s Crust:\nIt is the outermost solid part of the Earth.\nThe continental crust is thinner compared to the oceanic crust.\nThe mean thickness of the oceanic crust is around 5 km, whereas the continental crust is around 30 km.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "1 and 3 only",
+            "2 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statement 2 is incorrect. The oceanic crust is thinner (5 km) as compared to the continental crust (30 km).",
+        "module": "physical",
+        "topic": "Interior of the Earth",
+        "difficulty": "hard",
+        "chapter": "3",
+        "question_type": "statement_based",
+        "subtopic": "Interior of the Earth"
+    },
+    {
+        "id": "ncert-l2-034",
+        "question": "Consider the following statements about the Earth's Core:\nThe outer core is in a liquid state.\nThe inner core is in a solid state.\nThe core is predominantly made up of silicon and aluminum.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statements 1 and 2 are correct. Statement 3 is incorrect because the core is made up of very heavy material mostly constituted by nickel and iron (nife), not silicon and aluminum.",
+        "module": "physical",
+        "topic": "Interior of the Earth",
+        "difficulty": "hard",
+        "chapter": "3",
+        "question_type": "statement_based",
+        "subtopic": "Interior of the Earth"
+    },
+    {
+        "id": "ncert-l2-035",
+        "question": "Consider the following statements regarding 'Composite Volcanoes':\nThey are characterized by eruptions of cooler and more viscous lavas than basalt.\nThese volcanoes often result in explosive eruptions.\nAlong with lava, large quantities of pyroclastic material and ashes find their way to the ground.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "All statements describe composite volcanoes correctly. They erupt viscous, andesitic lavas, are explosive, and deposit layers of ash and pyroclastic material.",
+        "module": "physical",
+        "topic": "Interior of the Earth",
+        "difficulty": "hard",
+        "chapter": "3",
+        "question_type": "statement_based",
+        "subtopic": "Interior of the Earth"
+    },
+    {
+        "id": "ncert-l2-036",
+        "question": "Consider the following statements about Mid-Ocean Ridge Volcanoes:\nThese volcanoes occur exclusively in the oceanic areas.\nThere is a system of mid-ocean ridges stretching for more than 70,000 km through all the ocean basins.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Mid-Ocean Ridge Volcanoes occur in the oceanic areas. There is a system of mid-ocean ridges more than 70,000 km long that stretches through all the ocean basins.",
+        "module": "physical",
+        "topic": "Interior of the Earth",
+        "difficulty": "hard",
+        "chapter": "3",
+        "question_type": "statement_based",
+        "subtopic": "Interior of the Earth"
+    },
+    {
+        "id": "ncert-l2-037",
+        "question": "Match the following Intrusive Volcanic Landforms with their shapes/descriptions:\nList I\nLaccolith\nLopolith\nPhacolith\nSill\nList II\nA. Saucer shape, concave to the sky body\nB. Large dome-shaped intrusive body with a level base and connected by a pipe-like conduit from below\nC. Near horizontal body of intrusive igneous rocks\nD. Wavy mass of intrusive rocks found at the base of synclines or top of anticlines\nOptions:",
+        "options": [
+            "1-B, 2-A, 3-D, 4-C",
+            "1-B, 2-C, 3-D, 4-A",
+            "1-A, 2-B, 3-C, 4-D",
+            "1-D, 2-A, 3-C, 4-B"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Laccoliths are dome-shaped with a level base. Lopoliths develop into a saucer shape. Phacoliths are wavy masses found in anticlines/synclines. Sills are near horizontal bodies of intrusive rocks.",
+        "module": "physical",
+        "topic": "Interior of the Earth",
+        "difficulty": "easy",
+        "chapter": "3",
+        "question_type": "factual",
+        "subtopic": "Interior of the Earth"
+    },
+    {
+        "id": "ncert-l2-038",
+        "question": "Consider the following statements regarding Earthquake measurements:\nAn earthquake of magnitude 6 releases approximately 32 times more energy than an earthquake of magnitude 5.\nThe Richter scale is a linear scale, meaning a 6 is exactly double the strength of a 3.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statement 1 is correct (an increase of 1 on the Richter scale corresponds to roughly 32 times more energy release). Statement 2 is incorrect because the Richter scale is a logarithmic scale, not linear.",
+        "module": "physical",
+        "topic": "Interior of the Earth",
+        "difficulty": "hard",
+        "chapter": "3",
+        "question_type": "statement_based",
+        "subtopic": "Interior of the Earth"
+    },
+    {
+        "id": "ncert-l2-039",
+        "question": "Consider the following statements about 'Shield Volcanoes':\nThey become very explosive if water gets into the vent.\nThey are characterized by low explosivity under normal conditions.\nThey form steep-sided cones due to thick, viscous lava.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Shield volcanoes are generally not explosive unless water gets into the vent (Statements 1 and 2 are correct). Statement 3 is incorrect because they are made of fluid basalt, forming broad, gently sloping profiles, not steep-sided cones.",
+        "module": "physical",
+        "topic": "Interior of the Earth",
+        "difficulty": "hard",
+        "chapter": "3",
+        "question_type": "statement_based",
+        "subtopic": "Interior of the Earth"
+    },
+    {
+        "id": "ncert-l2-040",
+        "question": "Consider the following statements regarding the evidence supporting Continental Drift:\nThe matching of continents (jigsaw fit) was best demonstrated by a computer program formulated by Bullard in 1964.\nThe computer fit was achieved by aligning the present-day shorelines of South America and Africa perfectly.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because the match was tried at the 1,000-fathom line (the continental margin), not the present-day shorelines.",
+        "module": "physical",
+        "topic": "Distribution of Oceans and Continents",
+        "difficulty": "hard",
+        "chapter": "4",
+        "question_type": "statement_based",
+        "subtopic": "Distribution of Oceans and Continents"
+    },
+    {
+        "id": "ncert-l2-041",
+        "question": "Consider the following statements about Placer Deposits:\nRich placer deposits of gold occur on the Ghana coast, but there is no source rock in the region.\nThe gold-bearing veins are actually found in Brazil.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Both statements are correct. The occurrence of rich placer deposits of gold in the Ghana coast and the absolute absence of source rock in the region is an amazing fact. The gold-bearing veins are in Brazil.",
+        "module": "physical",
+        "topic": "Distribution of Oceans and Continents",
+        "difficulty": "hard",
+        "chapter": "4",
+        "question_type": "statement_based",
+        "subtopic": "Distribution of Oceans and Continents"
+    },
+    {
+        "id": "ncert-l2-042",
+        "question": "Consider the following statements regarding post-World War II ocean floor mapping:\nIt revealed that the ocean floor is not a vast, plain surface but is full of relief.\nThe rocks on the ocean floor were found to be significantly older than the continental rocks.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because dating of the rocks from the oceanic crust revealed the fact that they are much younger than the continental areas.",
+        "module": "physical",
+        "topic": "Distribution of Oceans and Continents",
+        "difficulty": "hard",
+        "chapter": "4",
+        "question_type": "statement_based",
+        "subtopic": "Distribution of Oceans and Continents"
+    },
+    {
+        "id": "ncert-l2-043",
+        "question": "Consider the following statements about Mid-Oceanic Ridges:\nThey form an interconnected chain of mountain systems within the ocean.\nThey are the longest mountain-chain on the surface of the Earth, though submerged.\nThey are characterized by a lack of volcanic and earthquake activity.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statements 1 and 2 are correct. Statement 3 is incorrect because the central rift system at the crest is the zone of intense volcanic activity.",
+        "module": "physical",
+        "topic": "Distribution of Oceans and Continents",
+        "difficulty": "hard",
+        "chapter": "4",
+        "question_type": "statement_based",
+        "subtopic": "Distribution of Oceans and Continents"
+    },
+    {
+        "id": "ncert-l2-044",
+        "question": "Which of the following observations formed the basis for the Sea Floor Spreading hypothesis?\nVolcanic eruptions are common along the mid-oceanic ridges.\nRocks equidistant on either side of the crest of mid-oceanic ridges show remarkable similarities in formation period, chemical composition, and magnetic properties.\nDeep trenches have shallow-focus earthquakes, while mid-oceanic ridges have deep-focus earthquakes.\nSelect the correct code:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statements 1 and 2 are correct observations. Statement 3 is incorrect; it is the reverse. Deep trenches have deep-seated earthquake occurrences while mid-oceanic ridge areas have shallow-focus earthquakes.",
+        "module": "physical",
+        "topic": "Distribution of Oceans and Continents",
+        "difficulty": "easy",
+        "chapter": "4",
+        "question_type": "factual",
+        "subtopic": "Distribution of Oceans and Continents"
+    },
+    {
+        "id": "ncert-l2-045",
+        "question": "Consider the following statements regarding tectonic plates:\nA plate can be entirely continental or entirely oceanic, or a mix of both.\nThe Pacific plate is largely an oceanic plate.\nThe Eurasian plate is primarily a continental plate.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Plates may be referred to as the continental plate or oceanic plate depending on which of the two occupy a larger portion. The Pacific plate is largely oceanic, whereas the Eurasian plate is continental.",
+        "module": "physical",
+        "topic": "Distribution of Oceans and Continents",
+        "difficulty": "hard",
+        "chapter": "4",
+        "question_type": "statement_based",
+        "subtopic": "Distribution of Oceans and Continents"
+    },
+    {
+        "id": "ncert-l2-046",
+        "question": "Match the Minor Plate (List I) with its Location (List II):\nList I\nCocos plate\nNazca plate\nArabian plate\nPhilippine plate\nList II\nA. Between South America and Pacific plate\nB. Between Asiatic and Pacific plate\nC. Between Central America and Pacific plate\nD. Mostly the Saudi Arabian landmass\nOptions:",
+        "options": [
+            "1-C, 2-A, 3-D, 4-B",
+            "1-A, 2-C, 3-B, 4-D",
+            "1-C, 2-A, 3-B, 4-D",
+            "1-B, 2-D, 3-A, 4-C"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Cocos (Central America/Pacific), Nazca (South America/Pacific), Arabian (Saudi Arabian landmass), Philippine (Asiatic/Pacific).",
+        "module": "physical",
+        "topic": "Distribution of Oceans and Continents",
+        "difficulty": "easy",
+        "chapter": "4",
+        "question_type": "factual",
+        "subtopic": "Distribution of Oceans and Continents"
+    },
+    {
+        "id": "ncert-l2-047",
+        "question": "Which of the following represents a Convergent Boundary convergence?\nBetween an oceanic and continental plate\nBetween two oceanic plates\nBetween two continental plates\nSelect the correct answer using the code given below:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "There are three ways in which convergence can occur: between an oceanic and continental plate; between two oceanic plates; and between two continental plates.",
+        "module": "physical",
+        "topic": "Distribution of Oceans and Continents",
+        "difficulty": "easy",
+        "chapter": "4",
+        "question_type": "factual",
+        "subtopic": "Distribution of Oceans and Continents"
+    },
+    {
+        "id": "ncert-l2-048",
+        "question": "Consider the following statements about Transform Boundaries:\nCrust is neither produced nor destroyed at transform boundaries.\nTectonic plates slide horizontally past each other at these boundaries.\nTransform faults are mostly found linking two segments of a mid-oceanic ridge.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Transform boundaries are where the crust is neither produced nor destroyed as the plates slide horizontally past each other. They are generally perpendicular to mid-oceanic ridges.",
+        "module": "physical",
+        "topic": "Distribution of Oceans and Continents",
+        "difficulty": "hard",
+        "chapter": "4",
+        "question_type": "statement_based",
+        "subtopic": "Distribution of Oceans and Continents"
+    },
+    {
+        "id": "ncert-l2-049",
+        "question": "Consider the following statements regarding the movement of the Indian Plate:\nIndia was a large island situated off the Australian coast in a vast ocean.\nThe Indian plate started moving northwards after Pangaea broke apart, roughly 200 million years ago.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Both statements are correct. India was a large island, and its northward journey started about 200 million years ago when Pangaea broke up.",
+        "module": "physical",
+        "topic": "Distribution of Oceans and Continents",
+        "difficulty": "hard",
+        "chapter": "4",
+        "question_type": "statement_based",
+        "subtopic": "Distribution of Oceans and Continents"
+    },
+    {
+        "id": "ncert-l2-050",
+        "question": "Consider the following elements found in the Earth's crust:\nSilicon\nOxygen\nIron\nAluminum\nArrange the above elements in decreasing order of their weight percentage in the Earth's crust:",
+        "options": [
+            "2 - 1 - 4 - 3",
+            "2 - 1 - 3 - 4",
+            "1 - 2 - 4 - 3",
+            "4 - 2 - 1 - 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "By weight, Oxygen is the most abundant (46.60%), followed by Silicon (27.72%), Aluminum (8.13%), and Iron (5.00%).",
+        "module": "physical",
+        "topic": "Minerals and Rocks",
+        "difficulty": "hard",
+        "chapter": "5",
+        "question_type": "statement_based",
+        "subtopic": "Minerals and Rocks"
+    },
+    {
+        "id": "ncert-l2-051",
+        "question": "Consider the following statements regarding the definition of a 'mineral':\nIt is a naturally occurring organic and inorganic substance.\nIt has an orderly atomic structure.\nIt must have a definite chemical composition and physical properties.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "A mineral is a naturally occurring organic and inorganic substance, having an orderly atomic structure and a definite chemical composition and physical properties.",
+        "module": "physical",
+        "topic": "Minerals and Rocks",
+        "difficulty": "hard",
+        "chapter": "5",
+        "question_type": "statement_based",
+        "subtopic": "Minerals and Rocks"
+    },
+    {
+        "id": "ncert-l2-052",
+        "question": "Match the physical characteristics of minerals (List I) with their descriptions (List II):\nList I\nCleavage\nFracture\nLuster\nStreak\nList II\nA. Appearance of a material without regard to color\nB. Color of the finely powdered mineral\nC. Tendency to break in given directions producing relatively plane surfaces\nD. Breaking in an irregular manner, not along planes of weakness\nOptions:",
+        "options": [
+            "1-C, 2-D, 3-A, 4-B",
+            "1-D, 2-C, 3-A, 4-B",
+            "1-C, 2-D, 3-B, 4-A",
+            "1-A, 2-B, 3-C, 4-D"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Cleavage is breaking along planes. Fracture is irregular breaking. Luster is the appearance without regard to color (metallic, silky, glossy). Streak is the color of the ground powder.",
+        "module": "physical",
+        "topic": "Minerals and Rocks",
+        "difficulty": "easy",
+        "chapter": "5",
+        "question_type": "factual",
+        "subtopic": "Minerals and Rocks"
+    },
+    {
+        "id": "ncert-l2-053",
+        "question": "Consider the following minerals from Mohs scale of hardness:\nQuartz\nTopaz\nCorundum\nDiamond\nWhich of the following represents the correct increasing order of hardness?",
+        "options": [
+            "1 - 2 - 3 - 4",
+            "2 - 1 - 3 - 4",
+            "1 - 3 - 2 - 4",
+            "3 - 2 - 1 - 4"
+        ],
+        "correctAnswer": 0,
+        "explanation": "On Mohs scale: Quartz is 7, Topaz is 8, Corundum is 9, Diamond is 10.",
+        "module": "physical",
+        "topic": "Minerals and Rocks",
+        "difficulty": "hard",
+        "chapter": "5",
+        "question_type": "statement_based",
+        "subtopic": "Minerals and Rocks"
+    },
+    {
+        "id": "ncert-l2-054",
+        "question": "Consider the following statements about 'Feldspar':\nIt is the most abundant mineral in the Earth's crust, constituting about half of it.\nSilicon and oxygen are common elements in all types of feldspar.\nIt is primarily dark green or black in color.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statements 1 and 2 are correct. Statement 3 is incorrect because the color of feldspar is usually light cream to salmon pink, not dark green or black.",
+        "module": "physical",
+        "topic": "Minerals and Rocks",
+        "difficulty": "hard",
+        "chapter": "5",
+        "question_type": "statement_based",
+        "subtopic": "Minerals and Rocks"
+    },
+    {
+        "id": "ncert-l2-055",
+        "question": "Consider the following statements about 'Mica':\nIt comprises elements like potassium, aluminum, magnesium, iron, and silica.\nIt forms about 4% of the Earth's crust.\nIt is largely used in the electrical instruments industry.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "All statements are correct. Mica is found in igneous and metamorphic rocks and is highly utilized in electrical instruments.",
+        "module": "physical",
+        "topic": "Minerals and Rocks",
+        "difficulty": "hard",
+        "chapter": "5",
+        "question_type": "statement_based",
+        "subtopic": "Minerals and Rocks"
+    },
+    {
+        "id": "ncert-l2-056",
+        "question": "Consider the following statements regarding Igneous Rocks:\nThey are known as primary rocks because they form directly from the cooling and solidification of magma and lava.\nThe process of their formation is known as lithification.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because lithification is the process of compaction of sediments into sedimentary rocks, not igneous rocks.",
+        "module": "physical",
+        "topic": "Minerals and Rocks",
+        "difficulty": "hard",
+        "chapter": "5",
+        "question_type": "statement_based",
+        "subtopic": "Minerals and Rocks"
+    },
+    {
+        "id": "ncert-l2-057",
+        "question": "Consider the following statements about the formation of Sedimentary Rocks:\nRocks of the Earth's surface are exposed to denudational agents and are broken up into various sizes of fragments.\nThese fragments are transported and deposited, eventually turning into rocks through the process of lithification.\nIn many sedimentary rocks, the layers of deposits retain their characteristics even after lithification.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "All three statements correctly describe the exogenous process of forming sedimentary rocks, where deposition, compaction, and lithification occur, often preserving distinct layers (like in sandstone or shale).",
+        "module": "physical",
+        "topic": "Minerals and Rocks",
+        "difficulty": "hard",
+        "chapter": "5",
+        "question_type": "statement_based",
+        "subtopic": "Minerals and Rocks"
+    },
+    {
+        "id": "ncert-l2-058",
+        "question": "Match the Sedimentary Rock (List I) with its Mode of Formation (List II):\nList I\nSandstone\nChert\nChalk\nList II\nA. Chemically formed\nB. Mechanically formed\nC. Organically formed\nOptions:",
+        "options": [
+            "1-B, 2-A, 3-C",
+            "1-A, 2-B, 3-C",
+            "1-C, 2-B, 3-A",
+            "1-B, 2-C, 3-A"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Sandstone (Mechanically formed), Chert (Chemically formed), Chalk (Organically formed).",
+        "module": "physical",
+        "topic": "Minerals and Rocks",
+        "difficulty": "easy",
+        "chapter": "5",
+        "question_type": "factual",
+        "subtopic": "Minerals and Rocks"
+    },
+    {
+        "id": "ncert-l2-059",
+        "question": "Metamorphism occurs when:\nRocks are forced down to lower levels by tectonic processes.\nMolten magma rising through the crust comes in contact with the crustal rocks.\nThe underlying rocks are subjected to great amounts of pressure by overlying rocks.\nSelect the correct answer using the code given below:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Metamorphism occurs when rocks are forced down to lower levels by tectonic processes or when molten magma rising through the crust comes in contact with the crustal rocks or the underlying rocks are subjected to great amounts of pressure by overlying rocks.",
+        "module": "physical",
+        "topic": "Minerals and Rocks",
+        "difficulty": "easy",
+        "chapter": "5",
+        "question_type": "factual",
+        "subtopic": "Minerals and Rocks"
+    },
+    {
+        "id": "ncert-l2-060",
+        "question": "Consider the following statements regarding 'Dynamic Metamorphism':\nIt involves the breaking and crushing of original rocks without any appreciable chemical changes.\nIt is primarily driven by high temperatures altering the chemical bonds.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statement 1 is correct. Mechanical disruption and reorganization of the original minerals within rocks due to breaking and crushing without any appreciable new chemical changes is called dynamic metamorphism.",
+        "module": "physical",
+        "topic": "Minerals and Rocks",
+        "difficulty": "hard",
+        "chapter": "5",
+        "question_type": "statement_based",
+        "subtopic": "Minerals and Rocks"
+    },
+    {
+        "id": "ncert-l2-061",
+        "question": "Consider the following minerals:\nQuartz\nFeldspar\nPyroxene\nOlivine\nWhich of the above are classified as primary rock-forming minerals, commonly found in igneous rocks?",
+        "options": [
+            "1 and 2 only",
+            "3 and 4 only",
+            "1, 2, and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 3,
+        "explanation": "All four are major rock-forming minerals. Feldspar and quartz are very common in granitic rocks, while pyroxene and olivine are common in basaltic igneous rocks.",
+        "module": "physical",
+        "topic": "Minerals and Rocks",
+        "difficulty": "hard",
+        "chapter": "5",
+        "question_type": "statement_based",
+        "subtopic": "Minerals and Rocks"
+    },
+    {
+        "id": "ncert-l2-062",
+        "question": "Consider the following statements regarding Endogenic and Exogenic forces:\nEndogenic forces build up the Earth's surface by creating elevated landforms.\nExogenic forces are primarily land wearing forces that tend to degrade the surface.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Endogenic forces continuously elevate or build up parts of the earth\u2019s surface, while exogenic processes fail to level it completely. In general terms, the endogenic forces are mainly land building forces and the exogenic processes are mainly land wearing forces.",
+        "module": "physical",
+        "topic": "Geomorphic Processes",
+        "difficulty": "hard",
+        "chapter": "6",
+        "question_type": "statement_based",
+        "subtopic": "Geomorphic Processes"
+    },
+    {
+        "id": "ncert-l2-063",
+        "question": "The energy emanating from within the Earth is the main force behind endogenic geomorphic processes. This energy is primarily generated by:\nRadioactivity\nRotational and tidal friction\nPrimordial heat from the Earth's origin\nSelect the correct answer using the code given below:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The energy emanating from within the earth is the main force behind endogenic geomorphic processes. This energy is mostly generated by radioactivity, rotational and tidal friction and primordial heat from the origin of the earth.",
+        "module": "physical",
+        "topic": "Geomorphic Processes",
+        "difficulty": "easy",
+        "chapter": "6",
+        "question_type": "factual",
+        "subtopic": "Geomorphic Processes"
+    },
+    {
+        "id": "ncert-l2-064",
+        "question": "Consider the following statements distinguishing Orogenic and Epeirogenic processes:\nOrogenic processes involve severe folding and affect long, narrow belts of the Earth's crust.\nEpeirogenic processes are continent building processes involving broad warping of large parts of the Earth's crust.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Orogeny is a mountain building process involving severe folding over long, narrow belts. Epeirogeny is continent building involving broad, regional uplift or warping.",
+        "module": "physical",
+        "topic": "Geomorphic Processes",
+        "difficulty": "hard",
+        "chapter": "6",
+        "question_type": "statement_based",
+        "subtopic": "Geomorphic Processes"
+    },
+    {
+        "id": "ncert-l2-065",
+        "question": "The term 'Denudation' incorporates which of the following processes?\nWeathering\nMass wasting\nErosion\nTransportation\nSelect the correct answer using the code given below:",
+        "options": [
+            "1, 2, and 3 only",
+            "2, 3, and 4 only",
+            "1, 3, and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The word \u2018denude\u2019 means to strip off or to uncover. Weathering, mass wasting/movements, erosion and transportation are included in denudation.",
+        "module": "physical",
+        "topic": "Geomorphic Processes",
+        "difficulty": "easy",
+        "chapter": "6",
+        "question_type": "factual",
+        "subtopic": "Geomorphic Processes"
+    },
+    {
+        "id": "ncert-l2-066",
+        "question": "Which of the following factors condition the depth and rate of weathering?\nGeological structure\nClimate\nTopography\nNatural vegetation\nSelect the correct answer using the code given below:",
+        "options": [
+            "1, 2, and 3 only",
+            "2, 3, and 4 only",
+            "1, 2, and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Weathering processes are conditioned by many complex geological, climatic, topographic and vegetative factors. Climate is of particular importance.",
+        "module": "physical",
+        "topic": "Geomorphic Processes",
+        "difficulty": "easy",
+        "chapter": "6",
+        "question_type": "factual",
+        "subtopic": "Geomorphic Processes"
+    },
+    {
+        "id": "ncert-l2-067",
+        "question": "Chemical weathering processes include which of the following?\nSolution\nCarbonation\nHydration\nOxidation and reduction\nSelect the correct answer:",
+        "options": [
+            "1 and 2 only",
+            "2, 3, and 4 only",
+            "1, 3, and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 3,
+        "explanation": "A group of weathering processes viz; solution, carbonation, hydration, oxidation and reduction act on the rocks to decompose, dissolve or reduce them to a fine clastic state through chemical reactions.",
+        "module": "physical",
+        "topic": "Geomorphic Processes",
+        "difficulty": "easy",
+        "chapter": "6",
+        "question_type": "factual",
+        "subtopic": "Geomorphic Processes"
+    },
+    {
+        "id": "ncert-l2-068",
+        "question": "Consider the following statements about 'Carbonation':\nIt is the reaction of carbonate and bicarbonate with minerals.\nIt breaks down feldspar and carbonate minerals.\nThe absorption of carbon dioxide from the atmosphere or soil air by water forms carbonic acid, which aids this process.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Carbonation is the reaction of carbonate and bicarbonate with minerals and is a common process helping the breaking down of feldspars and carbonate minerals. Carbon dioxide absorbed by water forms carbonic acid that acts as a weak acid.",
+        "module": "physical",
+        "topic": "Geomorphic Processes",
+        "difficulty": "hard",
+        "chapter": "6",
+        "question_type": "statement_based",
+        "subtopic": "Geomorphic Processes"
+    },
+    {
+        "id": "ncert-l2-069",
+        "question": "Consider the following statements about 'Unloading and Expansion':\nRemoval of overlying rock loads due to continuous erosion causes vertical pressure release.\nThe release of pressure causes the upper layers of the rock to expand and fracture parallel to the surface.\nThis process leads to the formation of exfoliation domes.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Removal of overlying rock load causes vertical pressure release, leading to expansion and fractures parallel to the surface. Exfoliation domes are large, smooth rounded domes formed due to this unloading.",
+        "module": "physical",
+        "topic": "Geomorphic Processes",
+        "difficulty": "hard",
+        "chapter": "6",
+        "question_type": "statement_based",
+        "subtopic": "Geomorphic Processes"
+    },
+    {
+        "id": "ncert-l2-070",
+        "question": "Biological weathering involves the contribution to or removal of minerals and ions from the weathering environment and physical changes due to growth or movement of organisms. Which of the following is an example of biological weathering?\nBurrowing by earthworms, termites, and rodents.\nPlant roots exerting pressure on rock cracks.\nAlgae utilizing mineral nutrients for survival.\nSelect the correct answer using the code given below:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Burrowing exposes new surfaces. Roots exert mechanical pressure. Decaying plant and animal matter release humic acids, and algae utilize minerals, all contributing to biological weathering.",
+        "module": "physical",
+        "topic": "Geomorphic Processes",
+        "difficulty": "easy",
+        "chapter": "6",
+        "question_type": "factual",
+        "subtopic": "Geomorphic Processes"
+    },
+    {
+        "id": "ncert-l2-071",
+        "question": "Which of the following is a direct result of weathering processes?\nFormation of regolith and soils.\nConcentration of valuable ores.\nReduction of the size of rock fragments for mass movements and erosion.\nSelect the correct answer:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Weathering creates regolith/soil, prepares materials for erosion, and leads to the enrichment of certain valuable ores (like bauxite, iron, manganese) by leaching away undesirable materials.",
+        "module": "physical",
+        "topic": "Geomorphic Processes",
+        "difficulty": "easy",
+        "chapter": "6",
+        "question_type": "factual",
+        "subtopic": "Geomorphic Processes"
+    },
+    {
+        "id": "ncert-l2-072",
+        "question": "Consider the following statements about Mass Movements:\nWeathering is a pre-requisite for mass movement to occur.\nGravity exerts its force on all matter, both bedrock and the products of weathering.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Weathering is not a pre-requisite for mass movement though it aids mass movements. Mass movements are very active over weathered slopes. Gravity constantly exerts its force on all matter.",
+        "module": "physical",
+        "topic": "Geomorphic Processes",
+        "difficulty": "hard",
+        "chapter": "6",
+        "question_type": "statement_based",
+        "subtopic": "Geomorphic Processes"
+    },
+    {
+        "id": "ncert-l2-073",
+        "question": "Consider the following statements regarding the process of Erosion:\nIt involves the acquisition and transportation of rock debris.\nThe kinetic energy of wind, running water, and glaciers drives the transportation process.\nWithout weathering, erosion cannot take place under any circumstances.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statements 1 and 2 are correct. Statement 3 is incorrect because, while weathering aids erosion, it is not a pre-condition for erosion to take place.",
+        "module": "physical",
+        "topic": "Geomorphic Processes",
+        "difficulty": "hard",
+        "chapter": "6",
+        "question_type": "statement_based",
+        "subtopic": "Geomorphic Processes"
+    },
+    {
+        "id": "ncert-l2-074",
+        "question": "Consider the following statements regarding the stages of a river's course:\nIn the youth stage, streams are few with poor integration and flow over original slopes showing shallow V-shaped valleys.\nIn the mature stage, streams are plenty with good integration, and V-shaped valleys become deep.\nIn the old stage, smaller tributaries are few with gentle gradients, and the river flows over a vast floodplain.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "All three statements correctly describe the youth, mature, and old stages of a river system as it evolves over time and shapes the landmass.",
+        "module": "physical",
+        "topic": "Landforms and their Evolution",
+        "difficulty": "hard",
+        "chapter": "7",
+        "question_type": "statement_based",
+        "subtopic": "Landforms and their Evolution"
+    },
+    {
+        "id": "ncert-l2-075",
+        "question": "Consider the following statements regarding 'Incised or Entrenched Meanders':\nThey are usually found in the floodplains of mature rivers.\nThey are deep, wide meanders cut into hard rocks.\nThey are indicative of a sudden regional uplift or rejuvenation of the landmass.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statement 1 is incorrect because incised or entrenched meanders are found cut into hard rocks in the youthful or rejuvenated stage, whereas typical meanders (not entrenched) are found in floodplains of mature/old rivers. Statements 2 and 3 are correct.",
+        "module": "physical",
+        "topic": "Landforms and their Evolution",
+        "difficulty": "hard",
+        "chapter": "7",
+        "question_type": "statement_based",
+        "subtopic": "Landforms and their Evolution"
+    },
+    {
+        "id": "ncert-l2-076",
+        "question": "Consider the following statements about 'Alluvial Fans':\nThey are formed when streams flowing from higher levels break into foot slope plains of low gradient.\nThe load carried by the stream is highly sorted and stratified when deposited in a fan.\nThe streams over an alluvial fan often shift their courses, forming distributaries known as braided channels.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "1 and 3 only",
+            "2 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statement 2 is incorrect. Normally very coarse load is carried by streams flowing over mountain slopes. This load becomes too heavy with the loss of gradient and is dumped as a broad low to high cone shaped deposit called alluvial fan. The deposits are usually poorly sorted and not well stratified.",
+        "module": "physical",
+        "topic": "Landforms and their Evolution",
+        "difficulty": "hard",
+        "chapter": "7",
+        "question_type": "statement_based",
+        "subtopic": "Landforms and their Evolution"
+    },
+    {
+        "id": "ncert-l2-077",
+        "question": "Which of the following are considered depositional landforms of a river?\nFloodplains\nNatural levees\nPoint bars\nPlunge pools\nSelect the correct answer using the code given below:",
+        "options": [
+            "1, 2, and 3 only",
+            "1 and 3 only",
+            "2, 3, and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Floodplains, natural levees, and point bars are depositional landforms. Plunge pools are erosional landforms formed at the base of waterfalls.",
+        "module": "physical",
+        "topic": "Landforms and their Evolution",
+        "difficulty": "easy",
+        "chapter": "7",
+        "question_type": "factual",
+        "subtopic": "Landforms and their Evolution"
+    },
+    {
+        "id": "ncert-l2-078",
+        "question": "Consider the following statements about groundwater depositional features:\nStalactites hang as icicles of different diameters from the cave ceiling.\nStalagmites rise up from the floor of the caves.\nWhen stalactites and stalagmites eventually fuse, they form columns or pillars.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Stalactites hang from the ceiling. Stalagmites rise from the floor. When they meet, they form a pillar or column.",
+        "module": "physical",
+        "topic": "Landforms and their Evolution",
+        "difficulty": "hard",
+        "chapter": "7",
+        "question_type": "statement_based",
+        "subtopic": "Landforms and their Evolution"
+    },
+    {
+        "id": "ncert-l2-079",
+        "question": "Consider the following statements about Glacial Valleys:\nGlaciated valleys are trough-like and U-shaped with broad floors and relatively smooth, and steep sides.\nHanging valleys are formed when the main valley is eroded much deeper than the tributary valleys.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Glaciated valleys are U-shaped with broad floors and relatively smooth, steep sides. Tributary valleys often enter the main valley at higher elevations, thus hanging above the main valley floor.",
+        "module": "physical",
+        "topic": "Landforms and their Evolution",
+        "difficulty": "hard",
+        "chapter": "7",
+        "question_type": "statement_based",
+        "subtopic": "Landforms and their Evolution"
+    },
+    {
+        "id": "ncert-l2-080",
+        "question": "Match the following types of Moraines with their descriptions:\nList I\nLateral moraine\nTerminal moraine\nMedial moraine\nGround moraine\nList II\nA. Formed at the end of the glacier marking its farthest advance\nB. Formed parallel to the sides of a glacial valley\nC. Formed in the center of the glacial valley when two lateral moraines join\nD. Irregular sheet of till deposited directly beneath the glacier\nOptions:",
+        "options": [
+            "1-B, 2-A, 3-C, 4-D",
+            "1-A, 2-B, 3-D, 4-C",
+            "1-B, 2-C, 3-A, 4-D",
+            "1-D, 2-A, 3-C, 4-B"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Lateral moraines form along the sides. Terminal moraines form at the end (snout) of the glacier. Medial moraines form when two glaciers merge and their inner lateral moraines join. Ground moraines are deposited beneath the ice.",
+        "module": "physical",
+        "topic": "Landforms and their Evolution",
+        "difficulty": "easy",
+        "chapter": "7",
+        "question_type": "factual",
+        "subtopic": "Landforms and their Evolution"
+    },
+    {
+        "id": "ncert-l2-081",
+        "question": "Which of the following landforms are exclusively associated with coastal environments?\nSea cliffs\nTerraces\nPlayas\nSpits and Bars\nSelect the correct answer:",
+        "options": [
+            "1, 2, and 3 only",
+            "1, 2, and 4 only",
+            "2, 3, and 4 only",
+            "1, 3, and 4 only"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Sea cliffs, marine terraces, spits, and bars are coastal landforms. Playas are arid landforms found in deserts.",
+        "module": "physical",
+        "topic": "Landforms and their Evolution",
+        "difficulty": "easy",
+        "chapter": "7",
+        "question_type": "factual",
+        "subtopic": "Landforms and their Evolution"
+    },
+    {
+        "id": "ncert-l2-082",
+        "question": "Consider the following statements about coastal depositional landforms:\nA ridge of sand and shingle formed in the sea in the off-shore zone lying approximately parallel to the coast is called an off-shore bar.\nA spit is an off-shore bar that is exposed due to further addition of sand and is attached to the headland at one end.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "A ridge of sand and shingle formed in the sea in the off-shore zone lying approximately parallel to the coast is called an off-shore bar. An off-shore bar which is exposed due to further addition of sand is termed a barrier bar. The off-shore bars and barriers commonly form across the mouth of a river or at the entrance of a bay. Sometimes such barrier bars get keyed up to one end of the bay when they are called spits.",
+        "module": "physical",
+        "topic": "Landforms and their Evolution",
+        "difficulty": "hard",
+        "chapter": "7",
+        "question_type": "statement_based",
+        "subtopic": "Landforms and their Evolution"
+    },
+    {
+        "id": "ncert-l2-083",
+        "question": "Wind is a dominant geomorphic agent in hot deserts because:\nDeserts lack thick vegetation cover to protect the surface.\nHeavy, sustained rainfall frequently washes away all loose material.\nRapid diurnal temperature changes cause mechanical weathering, providing loose material for the wind to transport.\nSelect the correct answer:",
+        "options": [
+            "1 and 2 only",
+            "1 and 3 only",
+            "2 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Wind is an important geomorphic agent in deserts. Desert floors get heated up too much and too quickly because of being devoid of vegetation. statement 2 is incorrect; hot deserts do not have heavy, sustained rainfall.",
+        "module": "physical",
+        "topic": "Landforms and their Evolution",
+        "difficulty": "easy",
+        "chapter": "7",
+        "question_type": "factual",
+        "subtopic": "Landforms and their Evolution"
+    },
+    {
+        "id": "ncert-l2-084",
+        "question": "Consider the following statements about 'Deflation Hollows':\nThey are formed by the weathering and removal of loose rock particles by the blowing wind.\nThey are exclusively depositional features found on the leeward side of mountains.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Deflation hollows are erosional features formed by the wind blowing away loose rock particles.",
+        "module": "physical",
+        "topic": "Landforms and their Evolution",
+        "difficulty": "hard",
+        "chapter": "7",
+        "question_type": "statement_based",
+        "subtopic": "Landforms and their Evolution"
+    },
+    {
+        "id": "ncert-l2-085",
+        "question": "Consider the following statements regarding sand dunes:\nParabolic dunes form when sandy surfaces are partially covered with vegetation, and their wings point into the wind.\nSeif dunes are similar to barchans but have only one wing or point.\nLongitudinal dunes appear parallel to the wind direction when sand supply is poor and wind direction is constant.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "All statements correctly describe the different types of sand dunes. Parabolic dunes are reversed barchans with wind direction pointing into the crescent. Seif is similar to barchan with a small difference\u2014it has only one wing or point. Longitudinal dunes appear parallel to the wind direction.",
+        "module": "physical",
+        "topic": "Landforms and their Evolution",
+        "difficulty": "hard",
+        "chapter": "7",
+        "question_type": "statement_based",
+        "subtopic": "Landforms and their Evolution"
+    },
+    {
+        "id": "ncert-l2-086",
+        "question": "Match the Geomorphic Agent (List I) with its corresponding Landform (List II):\nList I\nRunning Water\nGroundwater\nGlaciers\nWind\nList II\nA. Playas\nB. V-shaped valley\nC. Sinkholes\nD. Aretes\nOptions:",
+        "options": [
+            "1-B, 2-C, 3-D, 4-A",
+            "1-C, 2-B, 3-A, 4-D",
+            "1-B, 2-A, 3-D, 4-C",
+            "1-D, 2-C, 3-B, 4-A"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Running water forms V-shaped valleys. Groundwater forms sinkholes. Glaciers form aretes. Wind forms playas.",
+        "module": "physical",
+        "topic": "Landforms and their Evolution",
+        "difficulty": "easy",
+        "chapter": "7",
+        "question_type": "factual",
+        "subtopic": "Landforms and their Evolution"
+    },
+    {
+        "id": "ncert-l2-087",
+        "question": "Consider the following statements regarding the Earth's atmosphere:\nIt is a mixture of different gases and surrounds the earth.\nIt contains life-giving gases like oxygen for humans and animals, and carbon dioxide for plants.\nIt extends to thousands of kilometers, but 99% of its total mass is confined to the height of 32 km from the earth's surface.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The atmosphere is a mixture of different gases. 99% of the total mass of the atmosphere is confined to the height of 32 km from the earth's surface.",
+        "module": "physical",
+        "topic": "Composition and Structure of Atmosphere",
+        "difficulty": "hard",
+        "chapter": "8",
+        "question_type": "statement_based",
+        "subtopic": "Composition and Structure of Atmosphere"
+    },
+    {
+        "id": "ncert-l2-088",
+        "question": "Arrange the following gases in decreasing order of their volume in the atmosphere:\nArgon\nOxygen\nCarbon dioxide\nNitrogen\nSelect the correct sequence:",
+        "options": [
+            "4 - 2 - 1 - 3",
+            "4 - 2 - 3 - 1",
+            "2 - 4 - 1 - 3",
+            "4 - 1 - 2 - 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "By volume, Nitrogen is 78.08%, Oxygen is 20.95%, Argon is 0.93%, and Carbon dioxide is 0.036%.",
+        "module": "physical",
+        "topic": "Composition and Structure of Atmosphere",
+        "difficulty": "easy",
+        "chapter": "8",
+        "question_type": "factual",
+        "subtopic": "Composition and Structure of Atmosphere"
+    },
+    {
+        "id": "ncert-l2-089",
+        "question": "Consider the following statements about Carbon dioxide in the atmosphere:\nIts concentration is constant and uniform across all altitudes up to the exosphere.\nThe volume of carbon dioxide has been rising in the past few decades mainly because of the burning of fossil fuels.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statement 1 is incorrect because carbon dioxide is found only in the lower part of the atmosphere. The volume of carbon dioxide has been rising mainly because of the burning of fossil fuels, which increases the temperature of the air.",
+        "module": "physical",
+        "topic": "Composition and Structure of Atmosphere",
+        "difficulty": "hard",
+        "chapter": "8",
+        "question_type": "statement_based",
+        "subtopic": "Composition and Structure of Atmosphere"
+    },
+    {
+        "id": "ncert-l2-090",
+        "question": "Consider the following statements regarding 'Water Vapour' in the atmosphere:\nIt is a variable gas whose concentration decreases with altitude.\nIt increases from the equator towards the poles.\nIt acts like a blanket allowing the earth neither to become too cold nor too hot.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "1 and 3 only",
+            "2 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statement 2 is incorrect because water vapour decreases from the equator towards the poles. Statements 1 and 3 are correct.",
+        "module": "physical",
+        "topic": "Composition and Structure of Atmosphere",
+        "difficulty": "hard",
+        "chapter": "8",
+        "question_type": "statement_based",
+        "subtopic": "Composition and Structure of Atmosphere"
+    },
+    {
+        "id": "ncert-l2-091",
+        "question": "Consider the following statements about the 'Troposphere':\nIts average height is 13 km.\nIt is roughly 8 km near the poles and about 18 km at the equator.\nThe thickness of the troposphere is greatest at the equator because heat is transported to great heights by strong convectional currents.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The troposphere's average height is 13 km. It extends roughly to 8 km near the poles and about 18 km at the equator. Thickness is greatest at the equator due to strong convectional currents transporting heat to great heights.",
+        "module": "physical",
+        "topic": "Composition and Structure of Atmosphere",
+        "difficulty": "hard",
+        "chapter": "8",
+        "question_type": "statement_based",
+        "subtopic": "Composition and Structure of Atmosphere"
+    },
+    {
+        "id": "ncert-l2-092",
+        "question": "The 'Mesosphere' lies above the stratosphere. Which of the following is true about this layer?\nIt extends up to a height of 80 km.\nIn this layer, temperature starts decreasing with the increase in altitude.\nIt contains the highest concentration of electrically charged particles.\nSelect the correct answer:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statements 1 and 2 are correct. The mesosphere extends up to 80 km, and temperature decreases with altitude, reaching up to -100\u00b0C. Statement 3 is incorrect; electrically charged particles are found in the ionosphere.",
+        "module": "physical",
+        "topic": "Composition and Structure of Atmosphere",
+        "difficulty": "easy",
+        "chapter": "8",
+        "question_type": "factual",
+        "subtopic": "Composition and Structure of Atmosphere"
+    },
+    {
+        "id": "ncert-l2-093",
+        "question": "Consider the following statements about the 'Ionosphere':\nIt is located between 80 and 400 km above the mesopause.\nIt contains electrically charged particles known as ions.\nTemperature here starts decreasing with height.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statements 1 and 2 are correct. Statement 3 is incorrect because, in the ionosphere, temperature starts increasing with height.",
+        "module": "physical",
+        "topic": "Composition and Structure of Atmosphere",
+        "difficulty": "hard",
+        "chapter": "8",
+        "question_type": "statement_based",
+        "subtopic": "Composition and Structure of Atmosphere"
+    },
+    {
+        "id": "ncert-l2-094",
+        "question": "Match the atmospheric layer (List I) with its characteristic feature (List II):\nList I\nTroposphere\nStratosphere\nMesosphere\nIonosphere\nList II\nA. Reflection of radio waves\nB. Contains the ozone layer\nC. All weather phenomena occur here\nD. Temperature reaches its lowest point (-100\u00b0C)\nOptions:",
+        "options": [
+            "1-C, 2-B, 3-D, 4-A",
+            "1-B, 2-C, 3-A, 4-D",
+            "1-C, 2-B, 3-A, 4-D",
+            "1-D, 2-A, 3-C, 4-B"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Troposphere - weather phenomena; Stratosphere - ozone layer; Mesosphere - lowest temperature; Ionosphere - reflects radio waves.",
+        "module": "physical",
+        "topic": "Composition and Structure of Atmosphere",
+        "difficulty": "easy",
+        "chapter": "8",
+        "question_type": "factual",
+        "subtopic": "Composition and Structure of Atmosphere"
+    },
+    {
+        "id": "ncert-l2-095",
+        "question": "Consider the following statements about atmospheric gases:\nNitrogen and Oxygen together make up about 99% of the total volume of the atmosphere.\nCarbon dioxide is the third most abundant gas in the atmosphere.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statement 1 is correct (Nitrogen 78.08% + Oxygen 20.95% = ~99%). Statement 2 is incorrect because Argon (0.93%) is the third most abundant gas, while CO2 (0.036%) is fourth.",
+        "module": "physical",
+        "topic": "Composition and Structure of Atmosphere",
+        "difficulty": "hard",
+        "chapter": "8",
+        "question_type": "statement_based",
+        "subtopic": "Composition and Structure of Atmosphere"
+    },
+    {
+        "id": "ncert-l2-096",
+        "question": "Arrange the following boundaries in the atmosphere in ascending order of their height from the Earth's surface:\nStratopause\nMesopause\nTropopause\nSelect the correct sequence:",
+        "options": [
+            "1 - 2 - 3",
+            "3 - 1 - 2",
+            "2 - 1 - 3",
+            "3 - 2 - 1"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The order of layers from the ground up is Troposphere, Stratosphere, Mesosphere. Therefore, their respective upper boundaries are Tropopause (~13-18 km), Stratopause (~50 km), and Mesopause (~80 km). Here are the 40 MCQs for Chapter 9: Solar Radiation, Heat Balance and Temperature. These questions are calibrated to the UPSC standard, testing everything from the mechanisms of atmospheric heating to the intricacies of the Earth's heat budget and temperature inversion.",
+        "module": "physical",
+        "topic": "Composition and Structure of Atmosphere",
+        "difficulty": "easy",
+        "chapter": "8",
+        "question_type": "factual",
+        "subtopic": "Composition and Structure of Atmosphere"
+    },
+    {
+        "id": "ncert-l2-097",
+        "question": "Consider the following statements regarding the incoming solar radiation (Insolation):\nThe Earth's surface receives most of its energy in short wavelengths.\nThe energy received by the earth is known as incoming solar radiation or insolation.\nThe atmosphere is largely opaque to short wave solar radiation.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statements 1 and 2 are correct. Statement 3 is incorrect because the atmosphere is largely transparent to short wave solar radiation. It is opaque to long-wave terrestrial radiation.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "hard",
+        "chapter": "9",
+        "question_type": "statement_based",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-098",
+        "question": "Which of the following factors cause variations in the amount of insolation received at the Earth's surface?\nThe rotation of earth on its axis\nThe angle of inclination of the sun's rays\nThe length of the day\nThe transparency of the atmosphere\nSelect the correct answer using the code given below:",
+        "options": [
+            "1, 2, and 3 only",
+            "2, 3, and 4 only",
+            "1, 2, and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 3,
+        "explanation": "All four factors, along with the configuration of land in terms of its aspect, dictate the amount of insolation received at the surface.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "easy",
+        "chapter": "9",
+        "question_type": "factual",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-099",
+        "question": "Consider the following statements about the spatial distribution of insolation at the Earth's surface:\nThe equator receives the maximum amount of insolation globally.\nThe subtropical deserts receive more insolation than the equator.\nAt the same latitude, the insolation is generally more over the continent than over the oceans.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statement 1 is incorrect because maximum insolation is received over the subtropical deserts, where the cloudiness is the least. The equator experiences high cloudiness, which reduces surface insolation.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "hard",
+        "chapter": "9",
+        "question_type": "statement_based",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-100",
+        "question": "Consider the following statements regarding 'Terrestrial Radiation':\nThe earth, after being heated by insolation, becomes a radiating body.\nThe earth radiates energy to the atmosphere in short wave form.\nTerrestrial radiation is responsible for heating the atmosphere from below.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Statement 2 is incorrect because the earth radiates energy to the atmosphere in long wave form, not short wave.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "hard",
+        "chapter": "9",
+        "question_type": "statement_based",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-101",
+        "question": "Consider the following statements about the specific heat of land and water:\nLand heats up and cools down much faster than water.\nThe sea exerts a moderating influence on the temperature of coastal areas.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Compared to land, the sea gets heated slowly and loses heat slowly. Land heats up and cools down quickly. Therefore, the variation in temperature over the sea is less compared to land, exerting a moderating influence on coastal areas.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "hard",
+        "chapter": "9",
+        "question_type": "statement_based",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-102",
+        "question": "Which of the following conditions are ideal for a surface temperature inversion to occur?\nLong winter nights\nClear, cloudless skies\nStill, calm air\nHigh atmospheric moisture\nSelect the correct answer using the code given below:",
+        "options": [
+            "1, 2, and 3 only",
+            "2, 3, and 4 only",
+            "1, 3, and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 0,
+        "explanation": "A long winter night with clear skies and still air is ideal situation for inversion. The heat of the day is radiated off during the night, and by early morning hours, the earth is cooler than the air above. Moisture often traps heat, so dry air is actually more conducive.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "easy",
+        "chapter": "9",
+        "question_type": "factual",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-103",
+        "question": "Consider the following statements about 'Air Drainage' or Valley Inversion:\nDuring the night, the air at higher elevations on mountains cools rapidly and becomes dense.\nThis dense, cold air moves down the slopes under the influence of gravity and settles in the valleys.\nThis process protects plants in the valley from frost bite.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statements 1 and 2 are correct. Statement 3 is incorrect; the cold air settles in the valley, creating frost conditions at the bottom. The upper slopes (where the cold air drained from) are relatively warmer and thus protect plants/orchards from frost, which is why coffee/tea plantations are often on slopes, not valley floors.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "hard",
+        "chapter": "9",
+        "question_type": "statement_based",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-104",
+        "question": "Consider the following statements regarding the 'Albedo' of different surfaces:\nFresh snow has a higher albedo than a dense forest.\nThe average albedo of the Earth as a whole is roughly 35%.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Both statements are correct. Fresh snow reflects a vast majority of sunlight (high albedo), whereas dark forests absorb more. The earth's average albedo is about 35%.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "hard",
+        "chapter": "9",
+        "question_type": "statement_based",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-105",
+        "question": "Consider the following sequence of energy transfer that heats the atmosphere:\nIncoming short-wave solar radiation passes transparently through the atmosphere.\nThe Earth's surface absorbs the radiation and heats up.\nThe heated Earth's surface radiates energy in long-wave form.\nGreenhouse gases in the atmosphere absorb the long-wave radiation, heating the air.\nWhich of the above correctly represents the sequence of the Greenhouse Effect?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1, 3, and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The entire sequence accurately describes the heat budget and the mechanism by which the atmosphere is heated primarily from below via terrestrial radiation. Here are the 40 MCQs for the chapter on Atmospheric Circulation and Weather Systems. These questions are meticulously designed to cover fundamental concepts, complex atmospheric dynamics, and the specific characteristics of weather systems, aligning perfectly with the UPSC Prelims standard.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "hard",
+        "chapter": "9",
+        "question_type": "statement_based",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-106",
+        "question": "Consider the following statements regarding Atmospheric Pressure:\nAtmospheric pressure is the weight of a column of air contained in a unit area from the mean sea level to the top of the atmosphere.\nIt is measured in units of millibars (mb) or hectopascals (hPa).\nAt sea level, the average atmospheric pressure is universally constant at exactly 1000 mb.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statements 1 and 2 are correct. Statement 3 is incorrect because the widely accepted average atmospheric pressure at sea level is 1013.2 mb, not 1000 mb, and it varies slightly depending on temperature and other factors.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "hard",
+        "chapter": "10",
+        "question_type": "statement_based",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-107",
+        "question": "Which of the following forces play a crucial role in determining the velocity and direction of the wind?\nPressure Gradient Force\nFrictional Force\nCoriolis Force\nSelect the correct answer using the code given below:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The wind blows from high pressure to low pressure. The wind at the surface experiences friction. In addition, rotation of the earth affects the wind movement. Thus, the horizontal wind near the earth's surface responds to the combined effect of three forces: the pressure gradient force, the frictional force, and the Coriolis force.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "easy",
+        "chapter": "10",
+        "question_type": "factual",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-108",
+        "question": "Consider the following statements about the 'Coriolis Force':\nIt deflects the wind to the right direction in the northern hemisphere and to the left in the southern hemisphere.\nIt is maximum at the equator and is absent at the poles.\nThe magnitude of the Coriolis force is directly proportional to the angle of latitude.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "1 and 3 only",
+            "2 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statement 2 is incorrect. The Coriolis force is directly proportional to the angle of latitude (Statement 3 is correct). Because of this, it is maximum at the poles and is absent at the equator.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "hard",
+        "chapter": "10",
+        "question_type": "statement_based",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-109",
+        "question": "Match the Type of Pressure System (List I) with its Wind Circulation Pattern in the Northern Hemisphere (List II):\nList I\nCyclone\nAnticyclone\nList II\nA. Clockwise circulation\nB. Anti-clockwise (counter-clockwise) circulation\nOptions:",
+        "options": [
+            "1-A, 2-B",
+            "1-B, 2-A"
+        ],
+        "correctAnswer": 1,
+        "explanation": "In the Northern Hemisphere, wind circulation around a low-pressure center (cyclone) is anti-clockwise. Around a high-pressure center (anticyclone), it is clockwise.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "easy",
+        "chapter": "10",
+        "question_type": "factual",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-110",
+        "question": "Consider the following statements regarding the 'Hadley Cell':\nIt is a thermally induced cellular circulation of air found in the tropics.\nIt involves the rising of warm air at the ITCZ and the subsiding of cool air at the subtropical highs (around 30\u00b0 N and S).\nThe surface winds in this cell are called the Westerlies.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statements 1 and 2 are correct. Statement 3 is incorrect because the surface winds in the Hadley Cell, flowing from the subtropical highs back towards the equator, are the Trade Winds (Easterlies), not the Westerlies.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "hard",
+        "chapter": "10",
+        "question_type": "statement_based",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-111",
+        "question": "Consider the following statements about 'Katabatic winds':\nThey are warm, dry winds that blow up the mountain slopes during the day.\nThey are dense, cold winds that drain down the mountain slopes into the valleys during the night.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statement 1 refers to Anabatic (valley) breezes. Statement 2 describes Katabatic (mountain) winds, which occur during the night when slopes get cooled and the dense air descends into the valley.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "hard",
+        "chapter": "10",
+        "question_type": "statement_based",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-112",
+        "question": "Which of the following are considered ideal \"source regions\" for the formation of air masses?\nWarm tropical oceans\nThe cold snow-covered continents in high latitudes\nThe highly rugged, mountainous terrains of the Himalayas\nSelect the correct answer:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The homogenous surfaces, over which air masses form, are called the source regions. Vast oceans and extensive plains are ideal. Rugged, mountainous terrains disrupt the uniform acquisition of temperature and moisture, so they are not ideal source regions.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "easy",
+        "chapter": "10",
+        "question_type": "factual",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-113",
+        "question": "Consider the following descriptions of Fronts:\nStationary Front: When a cold air mass rapidly pushes under a warm air mass.\nCold Front: When the cold air moves towards the warm air mass.\nWarm Front: When the warm air mass moves towards the cold air mass.\nWhich of the pairs given above is/are correctly matched?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Pair 1 is incorrectly matched. A stationary front occurs when the front remains stationary (neither air mass is strong enough to push the other). Cold and warm fronts are correctly described.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "hard",
+        "chapter": "10",
+        "question_type": "statement_based",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-114",
+        "question": "Consider the following characteristics regarding Extra-tropical (temperate) Cyclones:\nThey generally move from west to east.\nThey have a clear frontal system (cold and warm fronts).\nThey can originate over both land and sea.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "All statements are correct. Extra-tropical cyclones move west to east (guided by westerlies), have well-defined fronts, and can originate over both land and sea (unlike tropical cyclones which only form over warm oceans).",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "hard",
+        "chapter": "10",
+        "question_type": "statement_based",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-115",
+        "question": "Which of the following conditions are favorable for the formation and intensification of tropical storms?\nLarge sea surface with a temperature higher than 27\u00b0C\nPresence of the Coriolis force\nSmall variations in the vertical wind speed (low wind shear)\nA pre-existing weak low-pressure area\nSelect the correct answer:",
+        "options": [
+            "1, 2, and 3 only",
+            "2, 3, and 4 only",
+            "1, 2, and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 3,
+        "explanation": "All four are the exact conditions listed in NCERT that are favorable for the formation and intensification of tropical storms.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "easy",
+        "chapter": "10",
+        "question_type": "factual",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-116",
+        "question": "Match the regional names of Tropical Cyclones (List I) with their respective regions (List II):\nList I\nTyphoons\nHurricanes\nWilly-willies\nList II\nA. Atlantic Ocean / North America\nB. Western Pacific / South China Sea\nC. Western Australia\nOptions:",
+        "options": [
+            "1-A, 2-B, 3-C",
+            "1-B, 2-A, 3-C",
+            "1-C, 2-A, 3-B",
+            "1-B, 2-C, 3-A"
+        ],
+        "correctAnswer": 1,
+        "explanation": "They are known as Cyclones in the Indian Ocean, Hurricanes in the Atlantic, Typhoons in the Western Pacific and South China Sea, and Willy-willies in Western Australia.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "easy",
+        "chapter": "10",
+        "question_type": "factual",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-117",
+        "question": "Consider the following statements about Thunderstorms:\nThey are primarily caused by the intense convection of moist, hot air.\nIf the clouds extend to heights where the temperature is sub-zero, hail may form.\nSevere thunderstorms can generate immense downdrafts, bringing cool air and rain to the surface.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "All statements correctly describe the lifecycle and characteristics of a thunderstorm, involving violent updrafts, potential for hail at high altitudes, and subsequent downdrafts bringing rain.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "hard",
+        "chapter": "10",
+        "question_type": "statement_based",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-118",
+        "question": "The pattern of planetary winds largely depends on which of the following?\nLatitudinal variation of atmospheric heating\nEmergence of pressure belts\nThe migration of belts following apparent path of the sun\nDistribution of continents and oceans\nSelect the correct answer:",
+        "options": [
+            "1, 2, and 3 only",
+            "2, 3, and 4 only",
+            "1, 3, and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The pattern of planetary winds largely depends on: (i) latitudinal variation of atmospheric heating; (ii) emergence of pressure belts; (iii) the migration of belts following apparent path of the sun; (iv) distribution of continents and oceans; (v) rotation of earth.",
+        "module": "physical",
+        "topic": "Solar Radiation",
+        "difficulty": "easy",
+        "chapter": "10",
+        "question_type": "factual",
+        "subtopic": "Solar Radiation"
+    },
+    {
+        "id": "ncert-l2-119",
+        "question": "Consider the following statements regarding water vapour in the atmosphere:\nIt varies from zero to four percent by volume of the atmosphere.\nThe moisture in the atmosphere is derived solely from the oceans through evaporation.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because moisture is derived from water bodies through evaporation and from plants through transpiration.",
+        "module": "physical",
+        "topic": "Water in the Atmosphere",
+        "difficulty": "hard",
+        "chapter": "11",
+        "question_type": "statement_based",
+        "subtopic": "Water in the Atmosphere"
+    },
+    {
+        "id": "ncert-l2-120",
+        "question": "Consider the following statements about 'Relative Humidity':\nIt is the percentage of moisture present in the atmosphere as compared to its full capacity at a given temperature.\nWith an increase in air temperature, the relative humidity of a given parcel of air generally decreases (assuming moisture content remains constant).\nIt is generally greater over the continents and least over the oceans.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statements 1 and 2 are correct. Statement 3 is incorrect because relative humidity is greater over the oceans and least over the continents.",
+        "module": "physical",
+        "topic": "Water in the Atmosphere",
+        "difficulty": "hard",
+        "chapter": "11",
+        "question_type": "statement_based",
+        "subtopic": "Water in the Atmosphere"
+    },
+    {
+        "id": "ncert-l2-121",
+        "question": "Which of the following factors strongly influences the rate of evaporation?\nTemperature\nMovement of air (Wind)\nThe moisture already present in the air\nSelect the correct answer using the code given below:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Increase in temperature increases water absorption capacity. If moisture content is low, the air has the potentiality of absorbing more. Greater movement of air replaces saturated layers with unsaturated layers, increasing evaporation.",
+        "module": "physical",
+        "topic": "Water in the Atmosphere",
+        "difficulty": "easy",
+        "chapter": "11",
+        "question_type": "factual",
+        "subtopic": "Water in the Atmosphere"
+    },
+    {
+        "id": "ncert-l2-122",
+        "question": "Condensation in free air primarily results from cooling around very small particles. These particles are termed as 'hygroscopic condensation nuclei'. Which of the following are excellent examples of these nuclei?\nDust\nSmoke\nSalt from the ocean\nSelect the correct answer:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Particles of dust, smoke and salt from the ocean are particularly good nuclei because they absorb water.",
+        "module": "physical",
+        "topic": "Water in the Atmosphere",
+        "difficulty": "easy",
+        "chapter": "11",
+        "question_type": "factual",
+        "subtopic": "Water in the Atmosphere"
+    },
+    {
+        "id": "ncert-l2-123",
+        "question": "Consider the following ideal conditions for the formation of a specific weather phenomenon:\nClear sky\nCalm air\nHigh relative humidity\nCold and long nights\nDew point is above the freezing point.\nWhich phenomenon is being described above?",
+        "options": [
+            "Frost",
+            "Dew",
+            "Fog",
+            "Hail"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The ideal conditions for its formation are clear sky, calm air, high relative humidity, and cold and long nights. For the formation of dew, it is necessary that the dew point is above the freezing point.",
+        "module": "physical",
+        "topic": "Water in the Atmosphere",
+        "difficulty": "hard",
+        "chapter": "11",
+        "question_type": "statement_based",
+        "subtopic": "Water in the Atmosphere"
+    },
+    {
+        "id": "ncert-l2-124",
+        "question": "Consider the following statements regarding 'Fog' and 'Mist':\nFogs are mini clouds in which condensation takes place around nuclei provided by dust, smoke, and salt particles.\nThe only difference between mist and fog is that mist contains more moisture than the fog.\nFogs are completely dry and contain zero water droplets.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statements 1 and 2 are correct. Statement 3 is incorrect because fog does contain moisture (it is a cloud near the ground), but fogs are considered drier than mist, not completely dry.",
+        "module": "physical",
+        "topic": "Water in the Atmosphere",
+        "difficulty": "hard",
+        "chapter": "11",
+        "question_type": "statement_based",
+        "subtopic": "Water in the Atmosphere"
+    },
+    {
+        "id": "ncert-l2-125",
+        "question": "Consider the following characteristics of a cloud type:\nThey look like cotton wool.\nThey are generally formed at a height of 4,000 - 7,000 m.\nThey exist in patches and have a flat base.\nWhich cloud type is being described?",
+        "options": [
+            "Cirrus",
+            "Cumulus",
+            "Stratus",
+            "Nimbus"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Cumulus clouds look like cotton wool. They are generally formed at a height of 4,000-7,000 m. They exist in patches and can be seen scattered here and there. They have a flat base.",
+        "module": "physical",
+        "topic": "Water in the Atmosphere",
+        "difficulty": "hard",
+        "chapter": "11",
+        "question_type": "statement_based",
+        "subtopic": "Water in the Atmosphere"
+    },
+    {
+        "id": "ncert-l2-126",
+        "question": "Match the combined cloud type (List I) with its altitude category (List II):\nList I\nCirrostratus\nAltocumulus\nStratocumulus\nList II\nA. Middle clouds\nB. Low clouds\nC. High clouds\nOptions:",
+        "options": [
+            "1-C, 2-A, 3-B",
+            "1-B, 2-C, 3-A",
+            "1-A, 2-B, 3-C",
+            "1-C, 2-B, 3-A"
+        ],
+        "correctAnswer": 0,
+        "explanation": "High clouds: cirrus, cirrostratus, cirrocumulus. Middle clouds: altostratus, altocumulus. Low clouds: stratocumulus, nimbostratus.",
+        "module": "physical",
+        "topic": "Water in the Atmosphere",
+        "difficulty": "easy",
+        "chapter": "11",
+        "question_type": "factual",
+        "subtopic": "Water in the Atmosphere"
+    },
+    {
+        "id": "ncert-l2-127",
+        "question": "Consider the following statements regarding 'Sleet':\nIt consists of frozen raindrops and refrozen melted snow-water.\nIt occurs when a layer of air with temperatures above freezing point overlies a subfreezing layer near the ground.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Sleet is frozen raindrops and refrozen melted snow-water. When a layer of air with the temperature above freezing point overlies a subfreezing layer near the ground, precipitation takes place in the form of sleet.",
+        "module": "physical",
+        "topic": "Water in the Atmosphere",
+        "difficulty": "hard",
+        "chapter": "11",
+        "question_type": "statement_based",
+        "subtopic": "Water in the Atmosphere"
+    },
+    {
+        "id": "ncert-l2-128",
+        "question": "Consider the following statements about 'Orographic Rain':\nIt occurs when a saturated air mass is forced to ascend a mountain barrier.\nThe leeward slope receives greater rainfall than the windward slope.\nThe descending air on the leeward side becomes dry and its temperature rises.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "1 and 3 only",
+            "2 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statement 2 is incorrect because the windward slopes receive greater rainfall. The leeward side gets less rainfall and is known as the rain-shadow area. Statements 1 and 3 are correct.",
+        "module": "physical",
+        "topic": "Water in the Atmosphere",
+        "difficulty": "hard",
+        "chapter": "11",
+        "question_type": "statement_based",
+        "subtopic": "Water in the Atmosphere"
+    },
+    {
+        "id": "ncert-l2-129",
+        "question": "Which of the following regions are classified as receiving \"heavy rainfall\" of over 200 cm per annum?\nThe equatorial belt\nWindward slopes of mountains along the western coasts in the cool temperate zone\nCoastal areas of the monsoon land\nThe central parts of tropical landmasses\nSelect the correct answer using the code given below:",
+        "options": [
+            "1, 2, and 3 only",
+            "2, 3, and 4 only",
+            "1, 3, and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The equatorial belt, the windward slopes of the mountains along the western coasts in the cool temperate zone, and the coastal areas of the monsoon land receive heavy rainfall of over 200 cm per annum. Central parts of tropical lands receive moderate rainfall (50-100 cm).",
+        "module": "physical",
+        "topic": "Water in the Atmosphere",
+        "difficulty": "easy",
+        "chapter": "11",
+        "question_type": "factual",
+        "subtopic": "Water in the Atmosphere"
+    },
+    {
+        "id": "ncert-l2-130",
+        "question": "Consider the following statements:\nMists are frequent over mountains as rising warm air meets a cold surface.\nFogs are mini clouds formed strictly at high altitudes above 8,000m.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because fog is a cloud with its base at or very near to the ground, not at high altitudes.",
+        "module": "physical",
+        "topic": "Water in the Atmosphere",
+        "difficulty": "hard",
+        "chapter": "11",
+        "question_type": "statement_based",
+        "subtopic": "Water in the Atmosphere"
+    },
+    {
+        "id": "ncert-l2-131",
+        "question": "Match the rainfall type (List I) with its primary driving mechanism (List II):\nList I\nConvectional Rain\nOrographic Rain\nCyclonic Rain\nList II\nA. Forced ascent of air over a physical barrier (mountain)\nB. Convergence of different air masses at a front\nC. Intense localized heating causing air to rise rapidly\nOptions:",
+        "options": [
+            "1-C, 2-A, 3-B",
+            "1-A, 2-B, 3-C",
+            "1-C, 2-B, 3-A",
+            "1-B, 2-A, 3-C"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Convectional rain is due to localized heating. Orographic rain is due to physical barriers (mountains). Cyclonic rain is due to frontal convergence (as read in Chapter 9/10).",
+        "module": "physical",
+        "topic": "Water in the Atmosphere",
+        "difficulty": "easy",
+        "chapter": "11",
+        "question_type": "factual",
+        "subtopic": "Water in the Atmosphere"
+    },
+    {
+        "id": "ncert-l2-132",
+        "question": "Consider the following approaches to classifying the world climate:\n1. Empirical classification attempts to organise climates according to their causes.\n2. Genetic classification is based on observed data, particularly on temperature and precipitation.\n3. Applied classification is for specific purposes.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statements 1 and 2 are swapped. Empirical classification is based on observed data (temperature and precipitation). Genetic classification attempts to organise climates according to their causes. Statement 3 is correct.",
+        "module": "physical",
+        "topic": "World Climate and Climate Change",
+        "difficulty": "hard",
+        "chapter": "12",
+        "question_type": "statement_based",
+        "subtopic": "World Climate and Climate Change"
+    },
+    {
+        "id": "ncert-l2-133",
+        "question": "Consider the following statements regarding the Tropical Wet Climate (Af):\n1. It is found near the equator, including the Amazon Basin and western equatorial Africa.\n2. It experiences a distinct and severe dry winter season.\n3. It supports tropical evergreen forests with dense canopy cover and large biodiversity.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "1 and 3 only",
+            "2 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statement 2 is incorrect. In an Af climate (f = no dry season), a significant amount of rainfall occurs in every month of the year as thunder showers in the afternoon. There is no dry season.",
+        "module": "physical",
+        "topic": "World Climate and Climate Change",
+        "difficulty": "hard",
+        "chapter": "12",
+        "question_type": "statement_based",
+        "subtopic": "World Climate and Climate Change"
+    },
+    {
+        "id": "ncert-l2-134",
+        "question": "Consider the following statements about the Tropical Wet and Dry Climate (Aw):\n1. The annual rainfall in this climate is considerably less than that in Af and Am climate types.\n2. The diurnal ranges of temperature are the greatest in the wet season.\n3. It predominantly features deciduous forests and tree-shredded grasslands.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "1 and 3 only",
+            "2 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statement 2 is incorrect. Diurnal ranges of temperature are the greatest in the dry season, not the wet season.",
+        "module": "physical",
+        "topic": "World Climate and Climate Change",
+        "difficulty": "hard",
+        "chapter": "12",
+        "question_type": "statement_based",
+        "subtopic": "World Climate and Climate Change"
+    },
+    {
+        "id": "ncert-l2-135",
+        "question": "Consider the following regions:\n1. Central California\n2. Central Chile\n3. South-western Australia\nWhich of the regions listed above experience the Mediterranean Climate (Cs)?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Mediterranean climate occurs around the Mediterranean sea, along the west coast of continents in subtropical latitudes between 30\u00b0 - 40\u00b0 latitudes e.g. Central California, Central Chile, along the coast in south-eastern and south-western Australia.",
+        "module": "physical",
+        "topic": "World Climate and Climate Change",
+        "difficulty": "hard",
+        "chapter": "12",
+        "question_type": "statement_based",
+        "subtopic": "World Climate and Climate Change"
+    },
+    {
+        "id": "ncert-l2-136",
+        "question": "Consider the following statements about the Cold Climate with Dry Winters (Dw):\n1. It occurs mainly over Northeastern Asia.\n2. It experiences a monsoon-like reversal of wind due to the development of a pronounced winter anti-cyclone.\n3. Precipitation occurs heavily in winter and summers are completely dry.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statement 3 is incorrect. In Dw climate, the precipitation occurs in summer, and the winter is extremely cold and dry due to the pronounced winter anti-cyclone.",
+        "module": "physical",
+        "topic": "World Climate and Climate Change",
+        "difficulty": "hard",
+        "chapter": "12",
+        "question_type": "statement_based",
+        "subtopic": "World Climate and Climate Change"
+    },
+    {
+        "id": "ncert-l2-137",
+        "question": "Match the Climatic Type (List I) with its Koeppen Letter Code (List II):\nList I\n1. Tropical monsoon\n2. Subtropical steppe\n3. Humid subtropical (no dry season)\n4. Polar ice cap\nList II\nA. Cfa\nB. BSh\nC. EF\nD. Am\nOptions:",
+        "options": [
+            "1-D, 2-B, 3-A, 4-C",
+            "1-D, 2-A, 3-B, 4-C",
+            "1-B, 2-D, 3-C, 4-A",
+            "1-A, 2-B, 3-D, 4-C"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Tropical monsoon (Am), Subtropical steppe (BSh), Humid subtropical without dry season (Cfa), Polar ice cap (EF).",
+        "module": "physical",
+        "topic": "World Climate and Climate Change",
+        "difficulty": "hard",
+        "chapter": "12",
+        "question_type": "statement_based",
+        "subtopic": "World Climate and Climate Change"
+    },
+    {
+        "id": "ncert-l2-138",
+        "question": "Consider the following statements about 'Sunspots' and their relation to climate change:\n1. Sunspots are dark and cooler patches on the sun which increase and decrease in a cyclical manner.\n2. According to some meteorologists, an increase in the number of sunspots is associated with warmer and drier conditions on Earth.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statement 1 is correct. Statement 2 is incorrect because, according to the text, when the number of sunspots increases, cooler and wetter weather and greater storminess occur. A decrease in sunspot numbers is associated with warm and drier conditions.",
+        "module": "physical",
+        "topic": "World Climate and Climate Change",
+        "difficulty": "hard",
+        "chapter": "12",
+        "question_type": "statement_based",
+        "subtopic": "World Climate and Climate Change"
+    },
+    {
+        "id": "ncert-l2-139",
+        "question": "Which of the following are considered primary Greenhouse Gases (GHGs) of concern today?\n1. Carbon dioxide ($CO_2$)\n2. Chlorofluorocarbons (CFCs)\n3. Methane ($CH_4$)\n4. Argon (Ar)\nSelect the correct answer using the code given below:",
+        "options": [
+            "1, 2, and 3 only",
+            "1, 3, and 4 only",
+            "2, 3, and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The primary GHGs of concern today are carbon dioxide ($CO_2$), Chlorofluorocarbons (CFCs), methane ($CH_4$), nitrous oxide ($N_2O$) and ozone ($O_3$). Argon is not a greenhouse gas.",
+        "module": "physical",
+        "topic": "World Climate and Climate Change",
+        "difficulty": "hard",
+        "chapter": "12",
+        "question_type": "statement_based",
+        "subtopic": "World Climate and Climate Change"
+    },
+    {
+        "id": "ncert-l2-140",
+        "question": "Consider the following statements about Ozone ($O_3$):\n1. In the stratosphere, it absorbs harmful ultraviolet radiation.\n2. When present in the lower troposphere, it is very effective in absorbing terrestrial radiation, thus acting as a greenhouse gas.\n3. Chlorofluorocarbons (CFCs) drifting into the stratosphere help to naturally create more ozone.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statements 1 and 2 are correct. Statement 3 is incorrect because CFCs which drift into the stratosphere destroy the ozone, causing the ozone hole, not create it.",
+        "module": "physical",
+        "topic": "World Climate and Climate Change",
+        "difficulty": "hard",
+        "chapter": "12",
+        "question_type": "statement_based",
+        "subtopic": "World Climate and Climate Change"
+    },
+    {
+        "id": "ncert-l2-141",
+        "question": "Consider the following statements regarding the distribution of water on Earth:\n1. About 71 per cent of the planetary water is found in the oceans.\n2. Nearly 59 per cent of the water that falls on land returns to the atmosphere through evaporation from over the oceans as well as from other places.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "About 71 per cent of the planetary water is found in the oceans. Nearly 59 per cent of the water that falls on land returns to the atmosphere through evaporation from over the oceans as well as from other places.",
+        "module": "indian",
+        "topic": "Water (Oceans)",
+        "difficulty": "hard",
+        "chapter": "13",
+        "question_type": "statement_based",
+        "subtopic": "Water (Oceans)"
+    },
+    {
+        "id": "ncert-l2-142",
+        "question": "Consider the following statements about the 'Continental Shelf':\n1. Its average width is about 80 km, but it can stretch up to 1,500 km, as seen in the Siberian shelf.\n2. It is devoid of any sedimentary deposits due to strong ocean currents.\n3. Massive sedimentary deposits received over a long time by the continental shelves become the source of fossil fuels.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The average width of continental shelves is about 80 km. The Siberian shelf in the Arctic Ocean, the largest in the world, stretches to 1,500 km in width. Massive sedimentary deposits received over a long time by the continental shelves, become the source of fossil fuels. Statement 2 is incorrect because the continental shelves are covered with variable thicknesses of sediments.",
+        "module": "indian",
+        "topic": "Water (Oceans)",
+        "difficulty": "hard",
+        "chapter": "13",
+        "question_type": "statement_based",
+        "subtopic": "Water (Oceans)"
+    },
+    {
+        "id": "ncert-l2-143",
+        "question": "Consider the following statements regarding 'Deep Sea Plains':\n1. They are gently sloping areas of the ocean basins.\n2. They are the flattest and smoothest regions of the world.\n3. They are primarily covered with coarse-grained sediments like large gravel and boulders.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Deep sea plains are gently sloping areas of the ocean basins. These are the flattest and smoothest regions of the world. Statement 3 is incorrect because these plains are covered with fine-grained sediments like clay and silt.",
+        "module": "indian",
+        "topic": "Water (Oceans)",
+        "difficulty": "hard",
+        "chapter": "13",
+        "question_type": "statement_based",
+        "subtopic": "Water (Oceans)"
+    },
+    {
+        "id": "ncert-l2-144",
+        "question": "Match the minor relief feature of the ocean floor (List I) with its description (List II):\nList I\n1. Seamount\n2. Guyot\n3. Atoll\n4. Submarine Canyon\nList II\nA. Flat-topped submerged mountain\nB. Deep valleys cutting across shelves and slopes\nC. Mountain with pointed summits, volcanic in origin\nD. Low islands of coral reefs surrounding a central depression\nOptions:",
+        "options": [
+            "1-C, 2-A, 3-D, 4-B",
+            "1-A, 2-C, 3-B, 4-D",
+            "1-C, 2-A, 3-B, 4-D",
+            "1-A, 2-C, 3-D, 4-B"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Seamount is a mountain with pointed summits, volcanic in origin. Guyot is a flat topped seamount. Atolls are low islands found in the tropical oceans consisting of coral reefs surrounding a central depression. Submarine Canyons are deep valleys cutting across the continental shelves and slopes.",
+        "module": "indian",
+        "topic": "Water (Oceans)",
+        "difficulty": "hard",
+        "chapter": "13",
+        "question_type": "statement_based",
+        "subtopic": "Water (Oceans)"
+    },
+    {
+        "id": "ncert-l2-145",
+        "question": "Which of the following factors affects the distribution of temperature of ocean water?\n1. Latitude\n2. Unequal distribution of land and water\n3. Prevailing wind\n4. Ocean currents\nSelect the correct answer using the code given below:",
+        "options": [
+            "1, 2, and 3 only",
+            "2, 3, and 4 only",
+            "1, 3, and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The factors which affect the distribution of temperature of ocean water are: (i) Latitude, (ii) Unequal distribution of land and water, (iii) Prevailing wind, and (iv) Ocean currents.",
+        "module": "indian",
+        "topic": "Water (Oceans)",
+        "difficulty": "hard",
+        "chapter": "13",
+        "question_type": "statement_based",
+        "subtopic": "Water (Oceans)"
+    },
+    {
+        "id": "ncert-l2-146",
+        "question": "Consider the following statements regarding the 'Thermocline':\n1. It usually begins around 100-400 m below the sea surface.\n2. About 90 per cent of the total volume of ocean water is found above the thermocline.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The boundary usually begins around 100-400 m below the sea surface and extends several hundred of metres downward. Statement 2 is incorrect because about 90 per cent of the total volume of water is found below the thermocline in the deep ocean.",
+        "module": "indian",
+        "topic": "Water (Oceans)",
+        "difficulty": "hard",
+        "chapter": "13",
+        "question_type": "statement_based",
+        "subtopic": "Water (Oceans)"
+    },
+    {
+        "id": "ncert-l2-147",
+        "question": "Consider the following statements:\n1. The highest surface temperature of the oceans is recorded exactly at the equator.\n2. The oceans in the Northern Hemisphere record a relatively higher average annual temperature than those in the Southern Hemisphere.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statement 1 is incorrect because the highest temperature is not recorded at the equator but slightly towards north of it. Statement 2 is correct as the average annual temperatures for the northern and southern hemisphere are around 19\u00b0C and 16\u00b0C respectively.",
+        "module": "indian",
+        "topic": "Water (Oceans)",
+        "difficulty": "hard",
+        "chapter": "13",
+        "question_type": "statement_based",
+        "subtopic": "Water (Oceans)"
+    },
+    {
+        "id": "ncert-l2-148",
+        "question": "Arrange the following water bodies in decreasing order of their recorded salinity:\n1. Dead Sea\n2. Lake Van\n3. Great Salt Lake\nSelect the correct sequence:",
+        "options": [
+            "1 - 2 - 3",
+            "2 - 1 - 3",
+            "2 - 3 - 1",
+            "3 - 1 - 2"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Highest salinity in water bodies: Lake Van in Turkey ($330^{\\circ}/_{00}$), Dead Sea ($238\\%/_{o0}$), Great Salt Lake ($220\\%/_{\\infty0}$).",
+        "module": "indian",
+        "topic": "Water (Oceans)",
+        "difficulty": "hard",
+        "chapter": "13",
+        "question_type": "statement_based",
+        "subtopic": "Water (Oceans)"
+    },
+    {
+        "id": "ncert-l2-149",
+        "question": "The salinity of water in the surface layer of oceans depends mainly on:\n1. Evaporation\n2. Precipitation\n3. Fresh water flow from rivers\n4. Processes of freezing and thawing of ice\nSelect the correct answer:",
+        "options": [
+            "1 and 2 only",
+            "3 and 4 only",
+            "1, 2, and 3 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The salinity of water in the surface layer of oceans depend mainly on evaporation and precipitation. Surface salinity is greatly influenced in coastal regions by the fresh water flow from rivers, and in polar regions by the processes of freezing and thawing of ice.",
+        "module": "indian",
+        "topic": "Water (Oceans)",
+        "difficulty": "hard",
+        "chapter": "13",
+        "question_type": "statement_based",
+        "subtopic": "Water (Oceans)"
+    },
+    {
+        "id": "ncert-l2-150",
+        "question": "Consider the following statements about the Atlantic Ocean's salinity:\n1. The average salinity of the Atlantic Ocean is around 36 ppt.\n2. The maximum salinity is observed exactly at the equator due to maximum evaporation.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The average salinity of the Atlantic Ocean is around $36^{\\circ}/_{00}$. Statement 2 is incorrect because the highest salinity is recorded between 15\u00b0 and 20\u00b0 latitudes, and maximum salinity ($37^{\\circ}/_{00}$) is observed between 20\u00b0 N and 30\u00b0 N.",
+        "module": "indian",
+        "topic": "Water (Oceans)",
+        "difficulty": "hard",
+        "chapter": "13",
+        "question_type": "statement_based",
+        "subtopic": "Water (Oceans)"
+    },
+    {
+        "id": "ncert-l2-151",
+        "question": "Consider the following statements comparing the Arabian Sea and the Bay of Bengal:\n1. The Bay of Bengal shows a low salinity trend due to a heavy influx of river water.\n2. The Arabian Sea shows higher salinity due to high evaporation and low influx of fresh water.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The low salinity trend is observed in the Bay of Bengal due to influx of river water. On the contrary, the Arabian Sea shows higher salinity due to high evaporation and low influx of fresh water.",
+        "module": "indian",
+        "topic": "Water (Oceans)",
+        "difficulty": "hard",
+        "chapter": "13",
+        "question_type": "statement_based",
+        "subtopic": "Water (Oceans)"
+    },
+    {
+        "id": "ncert-l2-152",
+        "question": "Consider the following statements regarding the movements of ocean water:\nOcean currents and waves represent the horizontal motion of ocean water.\nTides represent the vertical motion of ocean water.\nUpwelling of cold water from the subsurface is considered a horizontal motion.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The horizontal motion refers to the ocean currents and waves. The vertical motion refers to tides. The upwelling of cold water from subsurface and the sinking of surface water are also forms of vertical motion of ocean water, not horizontal.",
+        "module": "indian",
+        "topic": "Movements of Ocean Water",
+        "difficulty": "hard",
+        "chapter": "14",
+        "question_type": "statement_based",
+        "subtopic": "Movements of Ocean Water"
+    },
+    {
+        "id": "ncert-l2-153",
+        "question": "Consider the following statements about the origin of waves:\nSteep waves are fairly young ones and are probably formed by local wind.\nSlow and steady waves generally originate from far away places, possibly from another hemisphere.\nThe maximum wave height is solely determined by the salinity of the surface water.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "1 and 2 only",
+            "2 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "A wave's size and shape reveal its origin. Steep waves are fairly young ones and are probably formed by local wind. Slow and steady waves originate from far away places. Statement 3 is incorrect because the maximum wave height is determined by the strength of the wind, how long it blows, and the area over which it blows.",
+        "module": "indian",
+        "topic": "Movements of Ocean Water",
+        "difficulty": "hard",
+        "chapter": "14",
+        "question_type": "statement_based",
+        "subtopic": "Movements of Ocean Water"
+    },
+    {
+        "id": "ncert-l2-154",
+        "question": "Match the wave characteristic (List I) with its definition (List II):\nList I\nWave amplitude\nWave period\nWave frequency\nWavelength\nList II\nA. The number of waves passing a given point during a one-second time interval.\nB. One-half of the wave height.\nC. The horizontal distance between two successive crests.\nD. The time interval between two successive wave crests or troughs as they pass a fixed point.\nOptions:",
+        "options": [
+            "1-B, 2-D, 3-A, 4-C",
+            "1-C, 2-A, 3-D, 4-B",
+            "1-B, 2-A, 3-D, 4-C",
+            "1-D, 2-B, 3-C, 4-A"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Wave amplitude is one-half of the wave height. Wave period is the time interval between two successive wave crests. Wave frequency is the number of waves passing a given point in one second. Wavelength is the horizontal distance between two successive crests.",
+        "module": "indian",
+        "topic": "Movements of Ocean Water",
+        "difficulty": "easy",
+        "chapter": "14",
+        "question_type": "factual",
+        "subtopic": "Movements of Ocean Water"
+    },
+    {
+        "id": "ncert-l2-155",
+        "question": "Consider the following statements distinguishing Tides and Surges:\nTides are the periodical rise and fall of the sea level, mainly due to the attraction of the sun and the moon.\nSurges are movements of water caused by meteorological effects like winds and atmospheric pressure changes.\nLike tides, surges are highly regular and predictable occurrences.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statements 1 and 2 are correct. Statement 3 is incorrect because \"Surges are not regular like tides.\"",
+        "module": "indian",
+        "topic": "Movements of Ocean Water",
+        "difficulty": "hard",
+        "chapter": "14",
+        "question_type": "statement_based",
+        "subtopic": "Movements of Ocean Water"
+    },
+    {
+        "id": "ncert-l2-156",
+        "question": "The occurrence of tides on Earth is primarily the result of which of the following forces?\nThe Moon's gravitational pull\nThe Sun's gravitational pull\nCentrifugal force\nThe Coriolis force\nSelect the correct answer using the code given below:",
+        "options": [
+            "1 and 2 only",
+            "1, 2, and 3 only",
+            "2, 3, and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The moon's gravitational pull to a great extent and to a lesser extent the sun's gravitational pull, are the major causes for the occurrence of tides. Another factor is centrifugal force, which acts to counter balance the gravity.",
+        "module": "indian",
+        "topic": "Movements of Ocean Water",
+        "difficulty": "easy",
+        "chapter": "14",
+        "question_type": "factual",
+        "subtopic": "Movements of Ocean Water"
+    },
+    {
+        "id": "ncert-l2-157",
+        "question": "Consider the following statements about 'Spring Tides':\nThey occur when the sun, the moon, and the earth are in a straight line.\nThey occur roughly twice a month.\nThey only happen during the summer solstice.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "1 and 2 only",
+            "2 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "When the sun, the moon and the earth are in a straight line, the height of the tide will be higher. These are called spring tides and they occur twice a month, one on full moon period and another during new moon period.",
+        "module": "indian",
+        "topic": "Movements of Ocean Water",
+        "difficulty": "hard",
+        "chapter": "14",
+        "question_type": "statement_based",
+        "subtopic": "Movements of Ocean Water"
+    },
+    {
+        "id": "ncert-l2-158",
+        "question": "Consider the following astronomical positions and their impact on tides:\nApogee: The moon is farthest from the Earth, resulting in lower than average tidal ranges.\nPerihelion: The Earth is closest to the Sun, resulting in much greater tidal ranges.\nAphelion: The Earth is farthest from the Sun, resulting in tidal ranges much less than average.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "When the moon is farthest (apogee), the moon's gravitational force is limited and tidal ranges are less. When the earth is closest to the sun (perihelion), tidal ranges are greater. When the earth is farthest from the sun (aphelion), tidal ranges are much less.",
+        "module": "indian",
+        "topic": "Movements of Ocean Water",
+        "difficulty": "hard",
+        "chapter": "14",
+        "question_type": "statement_based",
+        "subtopic": "Movements of Ocean Water"
+    },
+    {
+        "id": "ncert-l2-159",
+        "question": "Consider the following statements about the 'Coriolis force' and its effect on ocean currents:\nIt causes water to move to the right in the northern hemisphere.\nIt causes water to move to the left in the southern hemisphere.\nIt produces large circular currents in ocean basins called Gyres.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The Coriolis force intervenes and causes the water to move to the right in the northern hemisphere and to the left in the southern hemisphere. These large accumulations of water and the flow around them are called Gyres.",
+        "module": "indian",
+        "topic": "Movements of Ocean Water",
+        "difficulty": "hard",
+        "chapter": "14",
+        "question_type": "statement_based",
+        "subtopic": "Movements of Ocean Water"
+    },
+    {
+        "id": "ncert-l2-160",
+        "question": "Consider the climatic effects of ocean currents on the west coasts of continents in tropical and subtropical latitudes:\nThey are bordered by cool waters.\nThey exhibit wide diurnal and annual temperature ranges.\nThey are generally arid areas, though fog is present.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 2,
+        "explanation": "West coasts of the continents in tropical and subtropical latitudes are bordered by cool waters. Their average temperatures are relatively low with a narrow diurnal and annual ranges (Statement 2 is incorrect). There is fog, but generally the areas are arid.",
+        "module": "indian",
+        "topic": "Movements of Ocean Water",
+        "difficulty": "easy",
+        "chapter": "14",
+        "question_type": "factual",
+        "subtopic": "Movements of Ocean Water"
+    },
+    {
+        "id": "ncert-l2-161",
+        "question": "Match the Ocean Current (List I) with its Nature (List II) as depicted in the major currents map (Fig. 13.3):\nList I\nGulf Stream\nLabrador Current\nKuroshio Current\nHumboldt (Peru) Current\nList II\nA. Cold Current\nB. Warm Current\nOptions:",
+        "options": [
+            "1-B, 2-A, 3-B, 4-A",
+            "1-A, 2-B, 3-A, 4-B",
+            "1-B, 2-B, 3-A, 4-A",
+            "1-A, 2-A, 3-B, 4-B"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Based on Fig 13.3: Gulf Stream (Warm), Labrador C (Cold), Kuroshio C (Warm), Humboldt (Peru) C (Cold).",
+        "module": "indian",
+        "topic": "Movements of Ocean Water",
+        "difficulty": "easy",
+        "chapter": "14",
+        "question_type": "factual",
+        "subtopic": "Movements of Ocean Water"
+    },
+    {
+        "id": "ncert-l2-162",
+        "question": "Consider the following statements regarding the movement of water molecules in an ocean wave:\nThings are carried up and forward as the wave approaches.\nThings are carried down and back as the wave passes.\nThe actual motion of the water beneath the waves is purely circular.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The actual motion of the water beneath the waves is circular. It indicates that things are carried up and forward as the wave approaches, and down and back as it passes. Here are the 40 MCQs for Chapter 14: Biodiversity and Conservation. These questions cover the fundamental levels of biodiversity, its ecological and economic importance, the causes of its loss, and global conservation efforts, all structured to meet the rigorous UPSC Prelims standard.",
+        "module": "indian",
+        "topic": "Movements of Ocean Water",
+        "difficulty": "hard",
+        "chapter": "14",
+        "question_type": "statement_based",
+        "subtopic": "Movements of Ocean Water"
+    },
+    {
+        "id": "ncert-l2-163",
+        "question": "Consider the following statements regarding the genesis of biodiversity:\nThe weathering mantle is the foundational basis for the diversity of vegetation and, consequently, biodiversity.\nThe fundamental drivers for these weathering variations and the resultant biodiversity are the inputs of solar energy and water.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "You should know that this weathering mantle is the basis for the diversity of vegetation and hence, the biodiversity. The basic cause for such weathering variations and resultant biodiversity is the input of solar energy and water.",
+        "module": "indian",
+        "topic": "Biodiversity and Conservation",
+        "difficulty": "hard",
+        "chapter": "15",
+        "question_type": "statement_based",
+        "subtopic": "Biodiversity and Conservation"
+    },
+    {
+        "id": "ncert-l2-164",
+        "question": "Consider the following statements about the total number of species on Earth:\nCurrently, 99 per cent of all species that have ever lived on the Earth are extinct.\nThe best global estimate of the total number of currently living species is exactly 100 million.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "99 per cent of the species that have ever lived on the earth are today extinct. Statement 2 is incorrect because the number of species globally vary from 2 million to 100 million, with 10 million being the best estimate.",
+        "module": "indian",
+        "topic": "Biodiversity and Conservation",
+        "difficulty": "hard",
+        "chapter": "15",
+        "question_type": "statement_based",
+        "subtopic": "Biodiversity and Conservation"
+    },
+    {
+        "id": "ncert-l2-165",
+        "question": "Consider the following statements regarding 'Species Diversity':\nIt relates strictly to the variety of genes within a single population.\nIt can be measured through the richness, abundance, and types of species in a defined area.\nGeographic areas that are exceptionally rich in species diversity are referred to as 'hotspots'.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statement 1 refers to genetic diversity. Species diversity relates to the number of species in a defined area. The diversity of species can be measured through its richness, abundance and types. Areas rich in species diversity are called hotspots of diversity.",
+        "module": "indian",
+        "topic": "Biodiversity and Conservation",
+        "difficulty": "hard",
+        "chapter": "15",
+        "question_type": "statement_based",
+        "subtopic": "Biodiversity and Conservation"
+    },
+    {
+        "id": "ncert-l2-166",
+        "question": "Consider the following statements regarding the demographic pressure on tropical regions:\nTropical regions occupy about three-fourths of the total land area of the world.\nThey contain approximately 50 per cent of the species on the earth.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Statement 1 is incorrect because tropical regions occupy only about one-fourth of the total area of the world, but contain about three-fourth of the world human population. Statement 2 is correct as these tropical rain forests contain 50 per cent of the species on the earth.",
+        "module": "indian",
+        "topic": "Biodiversity and Conservation",
+        "difficulty": "hard",
+        "chapter": "15",
+        "question_type": "statement_based",
+        "subtopic": "Biodiversity and Conservation"
+    },
+    {
+        "id": "ncert-l2-167",
+        "question": "Match the IUCN Category (List I) with its characteristic definition (List II):\nList I\nEndangered\nVulnerable\nRare\nList II\nA. Likely to be in danger of extinction in the near future if threatening factors continue.\nB. Population is very small, confined to limited areas or thinly scattered over a wider area.\nC. Currently in immediate danger of extinction; published in the Red List.\nOptions:",
+        "options": [
+            "1-C, 2-A, 3-B",
+            "1-A, 2-C, 3-B",
+            "1-C, 2-B, 3-A",
+            "1-B, 2-A, 3-C"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Endangered Species includes those species which are in danger of extinction. Vulnerable Species includes the species which are likely to be in danger of extinction in near future if the factors threatening to their extinction continue. Rare Species population is very small in the world; they are confined to limited areas or thinly scattered.",
+        "module": "indian",
+        "topic": "Biodiversity and Conservation",
+        "difficulty": "easy",
+        "chapter": "15",
+        "question_type": "factual",
+        "subtopic": "Biodiversity and Conservation"
+    },
+    {
+        "id": "ncert-l2-168",
+        "question": "Consider the following statements about 'Vulnerable Species':\nTheir survival is not assured as their population has reduced greatly.\nThey are currently completely extinct in the wild but exist in captivity.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "For Vulnerable Species: Survival of these species is not assured as their population has reduced greatly. Statement 2 describes 'Extinct in the Wild', not vulnerable.",
+        "module": "indian",
+        "topic": "Biodiversity and Conservation",
+        "difficulty": "hard",
+        "chapter": "15",
+        "question_type": "statement_based",
+        "subtopic": "Biodiversity and Conservation"
+    },
+    {
+        "id": "ncert-l2-169",
+        "question": "Consider the following statements regarding the loss of biodiversity:\nNatural calamities such as earthquakes, floods, and volcanic eruptions can cause significant changes to the biodiversity of a region.\nToxic heavy metals and hydrocarbons selectively destroy only the strongest predator species, leaving weak species completely unharmed.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Natural calamities such as earthquakes, floods, volcanic eruptions, forest fires, droughts, etc. cause damage to the flora and fauna. Statement 2 is incorrect because Pesticides and other pollutants such as hydrocarbons and toxic heavy metals destroy the weak and sensitive species.",
+        "module": "indian",
+        "topic": "Biodiversity and Conservation",
+        "difficulty": "hard",
+        "chapter": "15",
+        "question_type": "statement_based",
+        "subtopic": "Biodiversity and Conservation"
+    },
+    {
+        "id": "ncert-l2-170",
+        "question": "Consider the following conservation steps suggested by the world conservation strategy:\nVarieties of food crops, forage plants, timber trees, and their wild relatives should be preserved.\nEach country should identify habitats of wild relatives and ensure their protection.\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The world conservation strategy has suggested steps including: (iii) Varieties of food crops, forage plants, timber trees, livestock, animals and their wild relatives should be preserved; (iv) Each country should identify habitats of wild relatives and ensure their protection.",
+        "module": "indian",
+        "topic": "Biodiversity and Conservation",
+        "difficulty": "hard",
+        "chapter": "15",
+        "question_type": "statement_based",
+        "subtopic": "Biodiversity and Conservation"
     }
 ]

@@ -43,24 +43,24 @@ const MONEY_BILL_CRISIS = {
                 {
                     id: "c1_wrong",
                     text: "Suspend the Opposition Leader for disrupting the house.",
-                    isProcedurallyCorrect: "no",
+                    isProcedurallyCorrect: "no" as const,
                     articleReference: "Article 110(3)",
                     feedback: "Dr. Ambedkar AI: Incorrect reflex. While you have disciplinary powers, you must first address the constitutional challenge regarding the Bill's classification."
                 },
                 {
                     id: "c1_right",
                     text: "Examine the Bill. If it contains ONLY matters in Art 110(1), certify it.",
-                    isProcedurallyCorrect: "yes",
+                    isProcedurallyCorrect: "yes" as const,
                     articleReference: "Article 110(3)",
                     feedback: "Dr. Ambedkar AI: Excellent. Under Article 110(3), the decision of the Speaker as to whether a Bill is a Money Bill is final.",
                     consequenceEvent: {
-                        id: "e1", actor: "Speaker", message: "After review, the Speaker officially endorses the certificate."
+                        id: "e1", actor: "Speaker" as const, message: "After review, the Speaker officially endorses the certificate."
                     }
                 },
                 {
                     id: "c1_trap",
                     text: "Send it to a Joint Committee for consensus.",
-                    isProcedurallyCorrect: "no",
+                    isProcedurallyCorrect: "no" as const,
                     articleReference: "Article 108",
                     feedback: "Dr. Ambedkar AI: Fatal Error! Article 108 explicitly states there can be NO Joint Sitting for a Money Bill."
                 }
@@ -73,18 +73,18 @@ const MONEY_BILL_CRISIS = {
                 {
                     id: "c2_wrong",
                     text: "The Bill must go back to the President for a tie-breaker.",
-                    isProcedurallyCorrect: "no",
+                    isProcedurallyCorrect: "no" as const,
                     articleReference: "Article 109",
                     feedback: "Dr. Ambedkar AI: No. The President does not resolve deadlocks for Money Bills."
                 },
                 {
                     id: "c2_right",
                     text: "Ignore the recommendations and declare the Bill passed by both Houses.",
-                    isProcedurallyCorrect: "yes",
+                    isProcedurallyCorrect: "yes" as const,
                     articleReference: "Article 109(4)",
                     feedback: "Dr. Ambedkar AI: Correct. If Lok Sabha doesn't accept Rajya Sabha's recommendations, it's deemed passed in its original form.",
                     consequenceEvent: {
-                        id: "e2", actor: "RajyaSabha", message: "Rajya Sabha recommendations rejected. Bill deemed passed."
+                        id: "e2", actor: "RajyaSabha" as const, message: "Rajya Sabha recommendations rejected. Bill deemed passed."
                     }
                 }
             ]
@@ -96,18 +96,18 @@ const MONEY_BILL_CRISIS = {
                 {
                     id: "c3_trap",
                     text: "The President uses Suspensive Veto and returns it to Parliament.",
-                    isProcedurallyCorrect: "no",
+                    isProcedurallyCorrect: "no" as const,
                     articleReference: "Article 111",
                     feedback: "Dr. Ambedkar AI: Procedural Failure! The President CANNOT return a Money Bill for reconsideration under Article 111."
                 },
                 {
                     id: "c3_right",
                     text: "Inform the President they must either give or withhold assent, but cannot return it.",
-                    isProcedurallyCorrect: "yes",
+                    isProcedurallyCorrect: "yes" as const,
                     articleReference: "Article 111",
                     feedback: "Dr. Ambedkar AI: Flawless execution. A Money Bill is introduced with the President's prior recommendation, hence they cannot return it.",
                     consequenceEvent: {
-                        id: "e3", actor: "President", message: "President grants Assent. The Financial Crisis is averted."
+                        id: "e3", actor: "President" as const, message: "President grants Assent. The Financial Crisis is averted."
                     }
                 }
             ]

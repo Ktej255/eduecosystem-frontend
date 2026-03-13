@@ -11,6 +11,7 @@ import {
 interface HighCourtModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Regional Guardian (State Pillar) ---
@@ -44,7 +45,7 @@ const GuardianCard = ({ children, title, icon: Icon, color = "teal", className =
     );
 };
 
-export default function HighCourtModule({ onComplete, isCompleted }: HighCourtModuleProps) {
+export default function HighCourtModule({ onComplete, isCompleted, chapterNumber = "34" }: HighCourtModuleProps) {
     return (
         <GuardianContainer>
             {/* HERO */}
@@ -57,9 +58,10 @@ export default function HighCourtModule({ onComplete, isCompleted }: HighCourtMo
                     <h1 className="text-4xl md:text-6xl font-black text-foreground font-serif mb-2">
                         HIGH COURT
                     </h1>
-                    <p className="text-xl font-bold uppercase tracking-widest text-teal-700">
-                        "The Regional Guardian"
-                    </p>
+                    <div className="flex items-center gap-3 justify-center mb-4">
+                        <span className="bg-teal-800 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-widest">Chapter {chapterNumber}</span>
+                        <span className="text-xl font-bold uppercase tracking-widest text-teal-700 italic">"The Regional Guardian"</span>
+                    </div>
                 </div>
             </div>
 
@@ -223,7 +225,7 @@ export default function HighCourtModule({ onComplete, isCompleted }: HighCourtMo
                     `}
                     style={{ clipPath: 'polygon(10% 0, 100% 0, 90% 100%, 0% 100%)' }}
                 >
-                    {isCompleted ? "Justice Delivered" : "Issue Writ (Art 226)"}
+                    {isCompleted ? `CHAPTER ${chapterNumber} COMPLETED` : `MARK CHAPTER ${chapterNumber} COMPLETE`}
                 </button>
             </div>
         </GuardianContainer>

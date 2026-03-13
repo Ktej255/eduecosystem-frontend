@@ -35,7 +35,7 @@ export default function PolityGalaxy({ onNodeClick, mode }: PolityGalaxyProps) {
         setNodes((nds) => nds.map((node) => {
             const pNode = node as PolityNode;
             // Default Style
-            let style = {
+            let style: any = {
                 background: '#1e293b',
                 color: '#fff',
                 border: '1px solid #334155',

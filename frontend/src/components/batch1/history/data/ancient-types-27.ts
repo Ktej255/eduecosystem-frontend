@@ -107,7 +107,6 @@ export interface AncientTopic27 {
     handwrittenNotes?: HandwrittenNote[];
 
     // Artifacts & Visuals
-    handwrittenNotes?: HandwrittenNote[];
     artifactGallery?: boolean; // Toggle for the gallery widget
 
     // V2 Enhancements
@@ -171,7 +170,7 @@ export const ANCIENT_PARTS: AncientPart[] = [
         title: 'Golden Age & Transition',
         description: 'Regional Kingdoms, Cultural Legacy & Medieval Transition',
         color: 'purple',
-        range: [23, 27]
+        range: [23, 28]
     }
 ];
 
@@ -204,12 +203,13 @@ export const ANCIENT_TOPICS: { id: number; title: string; part: PartId }[] = [
     { id: 21, title: 'Spread of Civilization in Eastern India', part: 'III' },
     { id: 22, title: 'Harsha and His Times', part: 'III' },
 
-    // Part IV: Golden Age & Transition (23-27)
+    // Part IV: Golden Age & Transition (23-28)
     { id: 23, title: 'Formation of New States and Rural Expansion in the Peninsula', part: 'IV' },
-    { id: 24, title: "India's Cultural Contacts with the Asian Countries", part: 'IV' },
-    { id: 25, title: 'Transformation of the Ancient Phase', part: 'IV' },
-    { id: 26, title: 'Sequence of Social Changes', part: 'IV' },
-    { id: 27, title: 'Legacy in Science and Civilization', part: 'IV' }
+    { id: 24, title: 'Developments in Philosophy', part: 'IV' },
+    { id: 25, title: "India's Cultural Contacts with the Asian Countries", part: 'IV' },
+    { id: 26, title: 'Transformation of the Ancient Phase', part: 'IV' },
+    { id: 27, title: 'Sequence of Social Changes', part: 'IV' },
+    { id: 28, title: 'Legacy in Science and Civilization', part: 'IV' }
 ];
 
 export function getAncientPartById(partId: PartId): AncientPart | undefined {

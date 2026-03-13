@@ -1,5 +1,4 @@
 import { Subtopic, Question } from '../ancient-types-27';
-import { Subtopic, Question } from './chapter1';
 
 export const ANCIENT_CHAPTER_8_SUBTOPICS: Subtopic[] = [
     { id: 'geo_expansion', name: 'Expansion to Upper & Middle Ganga' },

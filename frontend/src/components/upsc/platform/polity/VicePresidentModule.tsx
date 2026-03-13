@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 interface VicePresidentModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Ex-Officio Gavel (Hand-Drawn) ---
@@ -53,7 +54,7 @@ const SketchyCard = ({ children, title, icon: Icon, color = "red", className = "
     );
 };
 
-export default function VicePresidentModule({ onComplete, isCompleted }: VicePresidentModuleProps) {
+export default function VicePresidentModule({ onComplete, isCompleted, chapterNumber = "19" }: VicePresidentModuleProps) {
     return (
         <RSContainer>
             {/* HERO */}
@@ -62,8 +63,11 @@ export default function VicePresidentModule({ onComplete, isCompleted }: VicePre
                     <Gavel size={120} />
                 </div>
                 <div className="inline-block border-4 border-red-800 p-6 bg-red-100 rotate-1 shadow-xl" style={{ borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%" }}>
+                    <div className="flex items-center justify-center gap-2 text-red-800 font-bold uppercase tracking-widest text-xs mb-2">
+                        <Gavel size={14} /> Chapter {chapterNumber}
+                    </div>
                     <h1 className="text-5xl md:text-6xl font-black text-red-900 font-serif mb-2">
-                        THE VICE-PRESIDENT
+                        The Vice-President
                     </h1>
                     <p className="text-xl text-red-800 font-handwriting italic">
                         "His Superfluous Highness" &mdash; The Ex-Officio Chairman
@@ -209,7 +213,10 @@ export default function VicePresidentModule({ onComplete, isCompleted }: VicePre
                     `}
                     style={{ borderRadius: "255px 15px 225px 15px / 15px 225px 15px 255px" }}
                 >
-                    {isCompleted ? "Gavel Lowered (Complete)" : "Take the Chair"}
+                    {isCompleted ? 
+                        <span className="flex items-center gap-2"><CheckCircle2 size={18} /> CHAPTER {chapterNumber} COMPLETED</span> : 
+                        <span className="flex items-center gap-2"><Gavel size={18} /> MARK CHAPTER {chapterNumber} COMPLETE</span>
+                    }
                 </button>
             </div>
 

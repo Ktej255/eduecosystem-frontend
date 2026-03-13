@@ -10,6 +10,7 @@ import {
 interface CentralCouncilModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System: The Orbits of Power (Solar System) ---

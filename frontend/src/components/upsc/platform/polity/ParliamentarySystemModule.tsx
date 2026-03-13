@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface ParliamentarySystemModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Westminster Hall ---
@@ -65,7 +66,7 @@ const ComparisonRow = ({ label, left, right, highlight }: { label: string, left:
     </div>
 );
 
-export default function ParliamentarySystemModule({ onComplete, isCompleted }: ParliamentarySystemModuleProps) {
+export default function ParliamentarySystemModule({ onComplete, isCompleted, chapterNumber = "13" }: ParliamentarySystemModuleProps) {
     return (
         <ParliamentContainer>
             {/* HERO */}
@@ -81,10 +82,10 @@ export default function ParliamentarySystemModule({ onComplete, isCompleted }: P
                         </div>
                     </div>
                     <div className="flex justify-center items-center gap-2 text-amber-400 font-bold uppercase tracking-widest text-xs mb-3">
-                        <Scroll size={14} /> The Operating System
+                        <Scroll size={14} /> Chapter {chapterNumber}
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 font-serif text-amber-100">
-                        The Westminster Hall
+                        Parliamentary <br /> System
                     </h1>
                     <p className="text-amber-200/80 max-w-2xl mx-auto text-lg leading-relaxed font-handwriting italic">
                         "Responsible Government over Stability. Cooperation over Conflict."
@@ -273,8 +274,8 @@ export default function ParliamentarySystemModule({ onComplete, isCompleted }: P
           `}
                 >
                     {isCompleted ?
-                        <span className="flex items-center gap-2"><CheckCircle2 /> Session Adjourned</span> :
-                        <span className="flex items-center gap-2"><Gavel /> Adjourn Parliament</span>
+                        <span className="flex items-center gap-2"><CheckCircle2 /> CHAPTER {chapterNumber} COMPLETED</span> :
+                        <span className="flex items-center gap-2"><Gavel /> MARK CHAPTER {chapterNumber} COMPLETE</span>
                     }
                 </Button>
             </div>

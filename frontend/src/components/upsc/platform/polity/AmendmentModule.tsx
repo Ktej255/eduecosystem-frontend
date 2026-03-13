@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface AmendmentModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Constitutional Toolkit ---
@@ -74,7 +75,7 @@ const ToolCard = ({ title, children, icon: Icon, color = "slate", type = "Manual
     );
 };
 
-export default function AmendmentModule({ onComplete, isCompleted }: AmendmentModuleProps) {
+export default function AmendmentModule({ onComplete, isCompleted, chapterNumber = "11" }: AmendmentModuleProps) {
     return (
         <WorkshopContainer>
             {/* HERO */}
@@ -89,7 +90,7 @@ export default function AmendmentModule({ onComplete, isCompleted }: AmendmentMo
 
                 <div className="relative z-10">
                     <div className="flex items-center gap-2 text-orange-400 font-bold uppercase tracking-widest text-xs mb-2">
-                        <Wrench size={14} /> Part XX (Article 368)
+                        <Wrench size={14} /> Chapter {chapterNumber} &bull; Part XX (Article 368)
                     </div>
                     <h1 className="text-3xl md:text-5xl font-black mb-4 font-serif">The Constitutional Toolkit</h1>
                     <p className="text-slate-300 max-w-2xl text-lg leading-relaxed font-handwriting">
@@ -264,8 +265,8 @@ export default function AmendmentModule({ onComplete, isCompleted }: AmendmentMo
           `}
                 >
                     {isCompleted ?
-                        <span className="flex items-center gap-2"><CheckCircle2 /> Toolkit Mastered</span> :
-                        <span className="flex items-center gap-2"><Wrench /> Close Repair Manual</span>
+                        <span className="flex items-center gap-2"><CheckCircle2 /> CHAPTER {chapterNumber} COMPLETED</span> :
+                        <span className="flex items-center gap-2"><Wrench /> MARK CHAPTER {chapterNumber} COMPLETE</span>
                     }
                 </Button>
             </div>

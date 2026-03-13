@@ -10,7 +10,7 @@ import {
   Users, FileText, TrendingUp, Shield, BookOpen, BarChart3, Brain, Plus,
   GraduationCap, ExternalLink, Zap, Activity, ArrowRight, Search,
   Clock, CheckCircle2, Upload, AlertCircle, Eye, ChevronRight,
-  Bell, Send, UserCheck, BookMarked, Target, Award, Calendar
+  Bell, Send, UserCheck, BookMarked, Target, Award, Calendar, Lock
 } from "lucide-react";
 import Link from "next/link";
 import api from "@/lib/api";

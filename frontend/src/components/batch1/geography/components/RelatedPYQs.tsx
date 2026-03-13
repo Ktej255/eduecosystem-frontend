@@ -34,7 +34,7 @@ export default function RelatedPYQs({ topic }: RelatedPYQsProps) {
                                 <Badge variant="outline" className="text-indigo-300 border-indigo-500/30 bg-indigo-500/10">
                                     {pyq.exam} {pyq.year}
                                 </Badge>
-                                <Badge variant="ghost" className="text-slate-400 font-normal">
+                                <Badge variant="outline" className="text-slate-400 font-normal">
                                     {pyq.difficulty}
                                 </Badge>
                             </div>

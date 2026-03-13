@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface HistoryModuleProps {
     onComplete: () => void;
     isCompleted: boolean;
+    chapterNumber?: number | string;
 }
 
 // --- Design System Components ---

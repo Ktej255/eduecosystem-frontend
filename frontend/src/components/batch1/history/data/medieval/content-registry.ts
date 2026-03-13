@@ -13,9 +13,11 @@ import { MEDIEVAL_CHAPTER_12_CONTENT, MEDIEVAL_CHAPTER_12_MCQS, MEDIEVAL_CHAPTER
 import { MEDIEVAL_CHAPTER_13_CONTENT, MEDIEVAL_CHAPTER_13_MCQS, MEDIEVAL_CHAPTER_13_SUBTOPICS } from './chapter13';
 import { MEDIEVAL_CHAPTER_14_CONTENT, MEDIEVAL_CHAPTER_14_MCQS, MEDIEVAL_CHAPTER_14_SUBTOPICS } from './chapter14';
 import { MEDIEVAL_CHAPTER_15_CONTENT, MEDIEVAL_CHAPTER_15_MCQS, MEDIEVAL_CHAPTER_15_SUBTOPICS } from './chapter15';
-
-// We will expand this as we add more chapters. 
-// For now, mapping the first 3 chapters.
+import { MEDIEVAL_CHAPTER_16_CONTENT, MEDIEVAL_CHAPTER_16_MCQS, MEDIEVAL_CHAPTER_16_SUBTOPICS } from './chapter16';
+import { MEDIEVAL_CHAPTER_17_CONTENT, MEDIEVAL_CHAPTER_17_MCQS, MEDIEVAL_CHAPTER_17_SUBTOPICS } from './chapter17';
+import { MEDIEVAL_CHAPTER_18_CONTENT, MEDIEVAL_CHAPTER_18_MCQS, MEDIEVAL_CHAPTER_18_SUBTOPICS } from './chapter18';
+import { MEDIEVAL_CHAPTER_19_CONTENT, MEDIEVAL_CHAPTER_19_MCQS, MEDIEVAL_CHAPTER_19_SUBTOPICS } from './chapter19';
+import { MEDIEVAL_CHAPTER_20_CONTENT, MEDIEVAL_CHAPTER_20_MCQS, MEDIEVAL_CHAPTER_20_SUBTOPICS } from './chapter20';
 
 export const MEDIEVAL_CONTENT_MAP: Record<number, any> = {
     1: {
@@ -24,14 +26,14 @@ export const MEDIEVAL_CONTENT_MAP: Record<number, any> = {
         subtopics: MEDIEVAL_CHAPTER_1_SUBTOPICS
     },
     2: {
-        content: MEDIEVAL_CHAPTER_1_CONTENT, // Using Ch1 for Ch2 placeholder or similar logic if needed, but here we have explicit mapping
-        mcqs: MEDIEVAL_CHAPTER_1_MCQS,
-        subtopics: MEDIEVAL_CHAPTER_1_SUBTOPICS
-    },
-    3: {
         content: MEDIEVAL_CHAPTER_2_CONTENT,
         mcqs: MEDIEVAL_CHAPTER_2_MCQS,
         subtopics: MEDIEVAL_CHAPTER_2_SUBTOPICS
+    },
+    3: {
+        content: MEDIEVAL_CHAPTER_3_CONTENT,
+        mcqs: MEDIEVAL_CHAPTER_3_MCQS,
+        subtopics: MEDIEVAL_CHAPTER_3_SUBTOPICS
     },
     4: {
         content: MEDIEVAL_CHAPTER_4_CONTENT,
@@ -58,7 +60,6 @@ export const MEDIEVAL_CONTENT_MAP: Record<number, any> = {
         mcqs: MEDIEVAL_CHAPTER_8_MCQS,
         subtopics: MEDIEVAL_CHAPTER_8_SUBTOPICS
     },
-    // Fallback for others to prevent crashes while we build
     9: {
         content: MEDIEVAL_CHAPTER_9_CONTENT,
         mcqs: MEDIEVAL_CHAPTER_9_MCQS,
@@ -94,7 +95,29 @@ export const MEDIEVAL_CONTENT_MAP: Record<number, any> = {
         mcqs: MEDIEVAL_CHAPTER_15_MCQS,
         subtopics: MEDIEVAL_CHAPTER_15_SUBTOPICS
     },
-    16: { content: "# Content Coming Soon", mcqs: [], subtopics: [] },
-    17: { content: "# Content Coming Soon", mcqs: [], subtopics: [] },
-    18: { content: "# Content Coming Soon", mcqs: [], subtopics: [] }
+    16: {
+        content: MEDIEVAL_CHAPTER_16_CONTENT,
+        mcqs: MEDIEVAL_CHAPTER_16_MCQS,
+        subtopics: MEDIEVAL_CHAPTER_16_SUBTOPICS
+    },
+    17: {
+        content: MEDIEVAL_CHAPTER_17_CONTENT,
+        mcqs: MEDIEVAL_CHAPTER_17_MCQS,
+        subtopics: MEDIEVAL_CHAPTER_17_SUBTOPICS
+    },
+    18: {
+        content: MEDIEVAL_CHAPTER_18_CONTENT,
+        mcqs: MEDIEVAL_CHAPTER_18_MCQS,
+        subtopics: MEDIEVAL_CHAPTER_18_SUBTOPICS
+    },
+    19: {
+        content: MEDIEVAL_CHAPTER_19_CONTENT,
+        mcqs: MEDIEVAL_CHAPTER_19_MCQS,
+        subtopics: MEDIEVAL_CHAPTER_19_SUBTOPICS
+    },
+    20: {
+        content: MEDIEVAL_CHAPTER_20_CONTENT,
+        mcqs: MEDIEVAL_CHAPTER_20_MCQS,
+        subtopics: MEDIEVAL_CHAPTER_20_SUBTOPICS
+    },
 };

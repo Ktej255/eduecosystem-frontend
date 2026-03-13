@@ -445,7 +445,11 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
                         disabled={isCompleted}
                         className={isCompleted ? "bg-green-600 hover:bg-green-700 text-white" : "bg-card text-foreground hover:bg-slate-200"}
                     >
-                        {isCompleted ? <span className="flex items-center gap-2"><CheckCircle2 size={16} /> Done</span> : "Mark Complete"}
+                        {isCompleted ? (
+                            <span className="flex items-center gap-2"><CheckCircle2 size={16} /> CHAPTER {chapterNumber} COMPLETED</span>
+                        ) : (
+                            <span className="flex items-center gap-2"><BadgeCheck size={16} /> MARK CHAPTER {chapterNumber} COMPLETE</span>
+                        )}
                     </Button>
                 </div>
             </div>
