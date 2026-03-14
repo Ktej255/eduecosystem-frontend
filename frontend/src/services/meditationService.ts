@@ -263,15 +263,20 @@ export const meditationService = {
         return response.data;
     },
 
-    async initiatePurchase(levelId: number): Promise<any> {
+    async initiatePurchase(levelId: number): Promise<{
+        order_id: string;
+        payment_session_id: string;
+        amount: number;
+        currency: string;
+        level: number;
+        customer_id: string;
+    }> {
         const response = await api.post(`/meditation/level/${levelId}/purchase/initiate`);
         return response.data;
     },
 
     async verifyPurchase(levelId: number, paymentData: {
-        razorpay_order_id: string;
-        razorpay_payment_id: string;
-        razorpay_signature: string;
+        order_id: string;
     }): Promise<any> {
         const response = await api.post(`/meditation/level/${levelId}/purchase/verify`, paymentData);
         return response.data;

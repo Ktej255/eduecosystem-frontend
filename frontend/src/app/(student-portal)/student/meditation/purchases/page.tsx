@@ -7,7 +7,38 @@ import { Button } from '@/components/ui/button';
 import PurchaseHistory from '@/components/meditation/PurchaseHistory';
 import AmbientBackground from '@/components/meditation/theme/AmbientBackground';
 
+import { useSearchParams } from 'next/navigation';
+import { meditationService } from '@/services/meditationService';
+import { toast } from 'sonner';
+import { useMeditationStore } from '@/components/meditation/store/MeditationProgressionStore';
+
 export default function PurchasesPage() {
+    const searchParams = useSearchParams();
+    const orderId = searchParams.get('order_id');
+    const { syncPurchases } = useMeditationStore();
+    const [verifying, setVerifying] = React.useState(!!orderId);
+
+    React.useEffect(() => {
+        if (orderId) {
+            const verify = async () => {
+                try {
+                    await meditationService.verifyPurchase(0, { order_id: orderId });
+                    toast.success("Payment Verified!", {
+                        description: "Your meditation level has been unlocked."
+                    });
+                    syncPurchases();
+                } catch (err) {
+                    toast.error("Verification Failed", {
+                        description: "There was an issue verifying your payment. Please contact support if this persists."
+                    });
+                } finally {
+                    setVerifying(false);
+                }
+            };
+            verify();
+        }
+    }, [orderId, syncPurchases]);
+
     return (
         <div className="min-h-screen text-white relative">
             <AmbientBackground />
@@ -24,7 +55,14 @@ export default function PurchasesPage() {
                     <p className="text-white/60">View and download receipts for your purchases</p>
                 </div>
 
-                <PurchaseHistory />
+                {verifying ? (
+                    <div className="flex flex-col items-center justify-center p-20 gap-4 bg-card/10 backdrop-blur-xl rounded-2xl border border-white/10">
+                        <div className="w-8 h-8 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+                        <p className="text-indigo-200">Verifying your payment...</p>
+                    </div>
+                ) : (
+                    <PurchaseHistory />
+                )}
             </div>
         </div>
     );

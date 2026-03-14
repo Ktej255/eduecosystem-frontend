@@ -9,7 +9,8 @@ import {
     CheckCircle2,
     ArrowRight,
     Volume2,
-    VolumeX
+    VolumeX,
+    X
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MeditationProcess } from "./FlowMode";
@@ -32,8 +33,9 @@ export default function TutorialMode({
     onComplete,
     isLast,
     processNumber,
-    totalNewProcesses
-}: TutorialModeProps) {
+    totalNewProcesses,
+    onExit
+}: TutorialModeProps & { onExit?: () => void }) {
     const [tutorialState, setTutorialState] = useState<TutorialState>('video');
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
@@ -98,13 +100,24 @@ export default function TutorialMode({
             {/* Header */}
             <div className="absolute top-0 left-0 right-0 p-6 z-10">
                 <div className="flex items-center justify-between">
-                    <div>
-                        <p className="text-indigo-400 text-sm uppercase tracking-widest">
-                            New Process {processNumber} of {totalNewProcesses}
-                        </p>
-                        <h1 className="text-2xl md:text-3xl font-bold text-white">
-                            {process.name}
-                        </h1>
+                    <div className="flex items-center gap-4">
+                        {onExit && (
+                            <button
+                                onClick={onExit}
+                                className="p-2 -ml-2 rounded-full hover:bg-white/10 text-white/60 hover:text-white transition-colors"
+                                title="Exit Session"
+                            >
+                                <X className="w-5 h-5" />
+                            </button>
+                        )}
+                        <div>
+                            <p className="text-indigo-400 text-sm uppercase tracking-widest">
+                                New Process {processNumber} of {totalNewProcesses}
+                            </p>
+                            <h1 className="text-2xl md:text-3xl font-bold text-white">
+                                {process.name}
+                            </h1>
+                        </div>
                     </div>
                     <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/20 text-green-400 text-sm">
                         <CheckCircle2 className="w-4 h-4" />

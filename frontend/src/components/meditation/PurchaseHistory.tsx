@@ -24,6 +24,7 @@ interface PurchaseRecord {
     payment_status: string;
     purchased_at: string;
     payment_method?: string;
+    payment_gateway?: string;
     receipt_url?: string;
 }
 
@@ -181,7 +182,7 @@ export default function PurchaseHistory() {
                                         </span>
                                         <span className="flex items-center gap-1">
                                             <CreditCard className="w-3 h-3" />
-                                            {purchase.payment_method || 'Razorpay'}
+                                            {purchase.payment_gateway || 'Cashfree'}
                                         </span>
                                         <span className="font-mono text-white/20">
                                             #{purchase.id.toString().padStart(6, '0')}

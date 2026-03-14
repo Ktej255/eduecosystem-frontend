@@ -182,6 +182,7 @@ export default function MeditationPlayer({
                     isLast={currentTutorialIndex === newProcesses.length - 1}
                     processNumber={currentTutorialIndex + 1}
                     totalNewProcesses={newProcesses.length}
+                    onExit={handleExit}
                 />
             )}
 

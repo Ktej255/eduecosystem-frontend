@@ -21,7 +21,7 @@ interface LevelPurchaseModalProps {
 
 declare global {
     interface Window {
-        Razorpay: any;
+        Cashfree: any;
     }
 }
 
@@ -43,16 +43,14 @@ export default function LevelPurchaseModal({
             setIsProcessing(true);
             setError(null);
 
-            // Import meditation service
             const { meditationService } = await import('@/services/meditationService');
-
-            // Initiate purchase
             const orderData = await meditationService.initiatePurchase(level.id);
 
-            // Load Razorpay script if not already loaded
-            if (!window.Razorpay) {
+            // Load Cashfree SDK if not already loaded
+            if (!document.getElementById('cashfree-sdk')) {
                 const script = document.createElement('script');
-                script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+                script.id = 'cashfree-sdk';
+                script.src = 'https://sdk.cashfree.com/js/v3/cashfree.js';
                 script.async = true;
                 document.body.appendChild(script);
                 await new Promise((resolve) => {
@@ -60,49 +58,29 @@ export default function LevelPurchaseModal({
                 });
             }
 
-            // Configure Razorpay options
-            const options = {
-                key: orderData.razorpay_key,
-                amount: orderData.amount * 100, // Convert to paise
-                currency: orderData.currency,
-                name: 'InnerSanctum',
-                description: `${level.name} - Meditation Level ${level.id}`,
-                order_id: orderData.order_id,
-                handler: async (response: any) => {
-                    try {
-                        // Verify payment on backend
-                        await meditationService.verifyPurchase(level.id, {
-                            razorpay_order_id: response.razorpay_order_id,
-                            razorpay_payment_id: response.razorpay_payment_id,
-                            razorpay_signature: response.razorpay_signature,
-                        });
+            // Initialize Cashfree
+            // @ts-ignore
+            const cashfree = window.Cashfree({
+                mode: process.env.NODE_ENV === 'production' ? 'production' : 'sandbox'
+            });
 
-                        // Success!
-                        setIsProcessing(false);
-                        onPurchaseSuccess();
-                        onClose();
-                    } catch (err: any) {
-                        setError(err.message || 'Payment verification failed');
-                        setIsProcessing(false);
-                    }
-                },
-                prefill: {
-                    name: userName || '',
-                    email: userEmail || '',
-                },
-                theme: {
-                    color: '#6366f1',
-                },
-                modal: {
-                    ondismiss: () => {
-                        setIsProcessing(false);
-                    },
-                },
-            };
+            // Open Checkout
+            // The user wanted "new page", but for standard Web SDK it's usually a redirect or modal.
+            // We will use the redirect mode to satisfy the "new page" feel if possible, 
+            // or use the SDK's checkout which is standard. 
+            // To truly satisfy "new page", we could open the payment_url in a new tab if we had it,
+            // but the SDK handles sessions. We'll use the SDK's standard checkout.
+            
+            await cashfree.checkout({
+                paymentSessionId: orderData.payment_session_id,
+                redirectTarget: "_blank", // This opens in a new tab/window as requested
+            });
 
-            // Open Razorpay checkout
-            const razorpay = new window.Razorpay(options);
-            razorpay.open();
+            // Note: Verification will happen when the user returns via return_url 
+            // set in the backend (customer/purchases?order_id=...)
+            setIsProcessing(false);
+            onClose();
+
         } catch (err: any) {
             setError(err.message || 'Failed to initiate purchase');
             setIsProcessing(false);
@@ -186,7 +164,7 @@ export default function LevelPurchaseModal({
                     <div className="mb-6 p-4 bg-green-50 rounded-lg border border-green-100">
                         <div className="flex items-center gap-2 text-sm text-green-800">
                             <Shield className="w-4 h-4" />
-                            <span className="font-medium">Secure payment powered by Razorpay</span>
+                            <span className="font-medium">Secure payment powered by Cashfree</span>
                         </div>
                         <p className="text-xs text-green-600 mt-1 ml-6">
                             Your payment information is encrypted and secure
