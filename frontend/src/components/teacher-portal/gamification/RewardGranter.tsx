@@ -10,43 +10,54 @@ import { Gift, Search, Trophy, Coins, Star, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Mock Student Data
-const MOCK_STUDENTS = [
-    { id: 1, name: "Aarav Patel", avatar: "AP" },
-    { id: 2, name: "Sneha Gupta", avatar: "SG" },
-    { id: 3, name: "Rohan Kumar", avatar: "RK" },
-    { id: 4, name: "Zara Khan", avatar: "ZK" },
-    { id: 5, name: "Ishaan Sharma", avatar: "IS" },
-];
+import api from "@/lib/api";
 
 export default function RewardGranter() {
     const [searchQuery, setSearchQuery] = useState("");
-    const [selectedStudent, setSelectedStudent] = useState<number | null>(null);
+    const [students, setStudents] = useState<any[]>([]);
+    const [selectedStudent, setSelectedStudent] = useState<any | null>(null);
     const [rewardType, setRewardType] = useState("coins");
     const [amount, setAmount] = useState("100");
     const [reason, setReason] = useState("");
     const [isGranting, setIsGranting] = useState(false);
 
-    const filteredStudents = searchQuery
-        ? MOCK_STUDENTS.filter(s => s.name.toLowerCase().includes(searchQuery.toLowerCase()))
-        : [];
+    const handleSearch = async (query: string) => {
+        setSearchQuery(query);
+        if (query.length < 2) {
+            setStudents([]);
+            return;
+        }
+        try {
+            const res = await api.get(`/admin/users?role=student&search=${query}`);
+            setStudents(res.data.users || []);
+        } catch (error) {
+            console.error("Search failed");
+        }
+    };
 
-    const handleGrant = () => {
+    const handleGrant = async () => {
         if (!selectedStudent || !amount || !reason) {
             toast.error("Please fill in all fields");
             return;
         }
 
         setIsGranting(true);
-        setTimeout(() => {
-            const student = MOCK_STUDENTS.find(s => s.id === selectedStudent);
-            toast.success(`Granted ${amount} ${rewardType === 'coins' ? 'Karma Coins' : 'XP'} to ${student?.name}`);
-            setIsGranting(false);
-            // Reset form
+        try {
+            await api.post("/gamification/grant-reward", {
+                userId: selectedStudent.id,
+                type: rewardType,
+                amount: parseInt(amount),
+                reason: reason
+            });
+            toast.success(`Granted ${amount} ${rewardType} to ${selectedStudent.full_name || selectedStudent.email}`);
             setSelectedStudent(null);
             setSearchQuery("");
             setReason("");
-        }, 1500);
+        } catch (error) {
+            toast.error("Reward grant failed. Please try again.");
+        } finally {
+            setIsGranting(false);
+        }
     };
 
     return (
@@ -66,35 +77,32 @@ export default function RewardGranter() {
                     <div className="relative">
                         <Search className="absolute left-3 top-3 w-4 h-4 text-neutral-400" />
                         <Input
-                            placeholder="Search by name..."
-                            className="pl-9"
-                            value={searchQuery}
-                            onChange={(e) => {
-                                setSearchQuery(e.target.value);
-                                setSelectedStudent(null);
-                            }}
-                        />
-                    </div>
-                    {/* Dropdown Results */}
-                    {searchQuery && !selectedStudent && filteredStudents.length > 0 && (
-                        <div className="absolute top-full left-0 w-full bg-card dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-md shadow-lg z-10 mt-1 max-h-40 overflow-y-auto">
-                            {filteredStudents.map(student => (
-                                <div
-                                    key={student.id}
-                                    className="p-2 hover:bg-neutral-100 dark:hover:bg-neutral-700 cursor-pointer flex items-center gap-2"
-                                    onClick={() => {
-                                        setSelectedStudent(student.id);
-                                        setSearchQuery(student.name);
-                                    }}
-                                >
-                                    <div className="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 flex items-center justify-center text-xs font-bold">
-                                        {student.avatar}
-                                    </div>
-                                    <span className="text-sm">{student.name}</span>
-                                </div>
-                            ))}
-                        </div>
-                    )}
+    placeholder="Search by name..."
+    className="pl-9"
+    value={searchQuery}
+    onChange={(e) => handleSearch(e.target.value)}
+/>
+</div>
+{/* Dropdown Results */}
+{searchQuery && !selectedStudent && students.length > 0 && (
+<div className="absolute top-full left-0 w-full bg-card dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-md shadow-lg z-10 mt-1 max-h-40 overflow-y-auto">
+    {students.map(student => (
+        <div
+            key={student.id}
+            className="p-2 hover:bg-neutral-100 dark:hover:bg-neutral-700 cursor-pointer flex items-center gap-2"
+            onClick={() => {
+                setSelectedStudent(student);
+                setSearchQuery(student.full_name || student.email);
+            }}
+        >
+            <div className="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 flex items-center justify-center text-xs font-bold">
+                {student.full_name?.[0] || student.email?.[0]}
+            </div>
+            <span className="text-sm">{student.full_name || student.email}</span>
+        </div>
+    ))}
+</div>
+)}
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">

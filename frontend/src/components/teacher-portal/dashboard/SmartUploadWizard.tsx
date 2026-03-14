@@ -39,6 +39,7 @@ export default function SmartUploadWizard() {
     const [step, setStep] = useState<1 | 2 | 3 | 4>(1); // Step 3 is now Snippet Factory, 4 is Success
     const [file, setFile] = useState<File | null>(null);
     const [isAnalyzing, setIsAnalyzing] = useState(false);
+    const [metadata, setMetadata] = useState<any>(null);
 
     // Form State
     const [title, setTitle] = useState("");
@@ -47,29 +48,47 @@ export default function SmartUploadWizard() {
 
     const fileInputRef = useRef<HTMLInputElement>(null);
 
-    const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            const selectedFile = e.target.files[0];
-            setFile(selectedFile);
-            simulateAIAnalysis(selectedFile);
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files?.[0]) {
+            setFile(e.target.files[0]);
+            setStep(2); // Move to AI Analysis step
         }
     };
 
-    const simulateAIAnalysis = (file: File) => {
-        setStep(2);
+    const runAIAnalysis = async () => {
+        if (!file) return;
         setIsAnalyzing(true);
-
-        // Mock AI Delay
-        setTimeout(() => {
+        try {
+            const data = await aiService.analyzeDocument(file);
+            setMetadata(data);
+            setTitle(data.title);
+            setDescription(data.description);
+            setTags(data.tags);
+            setStep(3); // Move to Snippet Factory after analysis
+            toast({
+                title: "AI Analysis Complete!",
+                description: "Metadata generated successfully.",
+                variant: "success"
+            });
+        } catch (error) {
+            console.error("AI Analysis failed:", error);
+            toast({
+                title: "Analysis failed.",
+                description: "Using manual entry fallback.",
+                variant: "destructive"
+            });
+            // Fallback for demo/safety
             const mockTitle = file.name.split('.')[0].replace(/-/g, ' ');
             setTitle(mockTitle.charAt(0).toUpperCase() + mockTitle.slice(1));
             setDescription(`Comprehensive study material regarding ${mockTitle}. Includes key concepts, definitions, and exam-relevant points.`);
-            // Dynamic tags based on filename keywords mock
             const keywords = ["History", "Polity", "Economy", "Geography", "Science"];
             const randomKeyword = keywords[Math.floor(Math.random() * keywords.length)];
             setTags(["UPSC", "Prelims 2026", randomKeyword, "Important"]);
+            setStep(3); // Still move to next step, but with fallback data
+        } finally {
             setIsAnalyzing(false);
-        }, 1500);
+            // Remove the rogue setTimeout callback end since there's no setTimeout opening here
+        }
     };
 
     const handleGenerateSnippets = () => {
@@ -293,8 +312,8 @@ export default function SmartUploadWizard() {
                         </>
                     )}
                 </div>
-            </DialogContent >
-        </Dialog >
+            </DialogContent>
+        </Dialog>
     );
 }
 

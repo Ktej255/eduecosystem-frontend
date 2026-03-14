@@ -19,6 +19,8 @@ import { MindscapeDashboard } from "@/components/admin/MindscapeDashboard";
 import { SecurityAlertsDashboard } from "@/components/admin/SecurityAlertsDashboard";
 import { NudgeWorkflow } from "@/components/admin/NudgeWorkflow";
 import { CodeMetricsDashboard } from "@/components/admin/CodeMetricsDashboard";
+import TeacherOversight from "@/components/admin/TeacherOversight";
+import StudentOversight from "@/components/admin/StudentOversight";
 
 interface UserData {
   id: number;
@@ -42,27 +44,63 @@ interface TestResult {
   timestamp: string;
 }
 
+interface RecentEnrollment {
+  id: number;
+  user_name: string;
+  user_email: string;
+  course_title: string;
+  amount: number;
+  timestamp: string;
+}
+
 export default function AdminDashboard() {
   const [selectedTab, setSelectedTab] = useState<"overview" | "teachers" | "students" | "timeline" | "mindscape" | "security" | "nudges" | "metrics">("overview");
   const [users, setUsers] = useState<UserData[]>([]);
   const [recentResults, setRecentResults] = useState<TestResult[]>([]);
+  const [recentEnrollments, setRecentEnrollments] = useState<RecentEnrollment[]>([]);
   const [loading, setLoading] = useState(true);
+  const [healthData, setHealthData] = useState<any>(null);
   const [stats, setStats] = useState({
     totalUsers: 0,
     activeUsers: 0,
     totalTests: 0,
-    avgScore: 0
+    avgScore: 0,
+    activeToday: 0,
+    studySessionsThisWeek: 0,
+    totalTeachers: 0
   });
 
   useEffect(() => {
-    // Mock data for immediate display while API loads
-    setStats({
-      totalUsers: 1250,
-      activeUsers: 843,
-      totalTests: 15420,
-      avgScore: 78.5
-    });
-    setLoading(false);
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const [overviewRes, enrollmentsRes, healthRes] = await Promise.all([
+          api.get("/admin/overview"),
+          api.get("/admin/recent-enrollments"),
+          api.get("/executive/health").catch(() => ({ data: null }))
+        ]);
+
+        const overview = overviewRes.data;
+        setStats({
+          totalUsers: overview.users.total_students,
+          activeUsers: overview.users.active_today,
+          totalTests: overview.activity.total_tests_taken,
+          avgScore: overview.activity.average_score,
+          activeToday: overview.users.active_today,
+          studySessionsThisWeek: overview.activity.study_sessions_this_week || 0,
+          totalTeachers: overview.users.total_teachers || 0
+        });
+
+        setRecentEnrollments(enrollmentsRes.data);
+        if (healthRes.data) setHealthData(healthRes.data);
+      } catch (error) {
+        console.error("Error fetching dashboard data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   const TabButton = ({ id, label, icon: Icon }: { id: string, label: string, icon: any }) => (
@@ -124,8 +162,9 @@ export default function AdminDashboard() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">{stats.totalUsers.toLocaleString()}</div>
-                  <p className="text-xs text-green-600 flex items-center mt-1">
-                    <TrendingUp className="w-3 h-3 mr-1" /> +12% from last month
+                  <p className="text-xs text-muted-foreground flex items-center mt-1">
+                    <GraduationCap className="w-3 h-3 mr-1" />
+                    {stats.totalTeachers} teachers
                   </p>
                 </CardContent>
               </Card>
@@ -136,7 +175,7 @@ export default function AdminDashboard() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">{stats.activeUsers.toLocaleString()}</div>
-                  <Progress value={67} className="h-1 mt-2" />
+                  <Progress value={stats.totalUsers > 0 ? Math.round((stats.activeUsers / stats.totalUsers) * 100) : 0} className="h-1 mt-2" />
                 </CardContent>
               </Card>
               <Card>
@@ -146,7 +185,7 @@ export default function AdminDashboard() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">{stats.totalTests.toLocaleString()}</div>
-                  <p className="text-xs text-blue-600 mt-1">~150 daily avg</p>
+                  <p className="text-xs text-blue-600 mt-1">~{Math.round(stats.totalTests / 7)} daily avg (7d)</p>
                 </CardContent>
               </Card>
               <Card>
@@ -156,7 +195,7 @@ export default function AdminDashboard() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">{stats.avgScore}%</div>
-                  <p className="text-xs text-muted-foreground mt-1">Across all batches</p>
+                  <p className="text-xs text-muted-foreground mt-1">{stats.studySessionsThisWeek} study sessions this week</p>
                 </CardContent>
               </Card>
             </div>
@@ -168,28 +207,79 @@ export default function AdminDashboard() {
                   <CardTitle>Recent Enrollments</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="text-sm text-muted-foreground italic text-center py-4">No recent enrollments available in this view.</div>
+                  {recentEnrollments.length > 0 ? (
+                    recentEnrollments.map((enr) => (
+                      <div key={enr.id} className="flex items-center justify-between p-3 bg-muted/50 rounded-lg border border-border/50">
+                        <div className="flex items-center gap-3">
+                          <div className="p-2 bg-indigo-100 text-indigo-700 rounded-full">
+                            <UserCheck className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <p className="text-sm font-bold">{enr.user_name}</p>
+                            <p className="text-[10px] text-muted-foreground">{enr.course_title}</p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-sm font-black text-indigo-600">₹{enr.amount}</p>
+                          <p className="text-[10px] text-muted-foreground">{new Date(enr.timestamp).toLocaleDateString()}</p>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <div className="text-sm text-muted-foreground italic text-center py-4">No recent enrollments found.</div>
+                  )}
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle>System Health</CardTitle>
+                  <CardTitle className="flex items-center justify-between">
+                    <span>Platform Health</span>
+                    {healthData && (
+                      <Badge className={`text-sm ${
+                        healthData.grade === 'A' ? 'bg-green-100 text-green-700' :
+                        healthData.grade === 'B' ? 'bg-blue-100 text-blue-700' :
+                        healthData.grade === 'C' ? 'bg-amber-100 text-amber-700' :
+                        'bg-red-100 text-red-700'
+                      }`}>
+                        Grade {healthData.grade} — {healthData.score}/100
+                      </Badge>
+                    )}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">Database Latency</span>
-                      <span className="text-sm text-green-600">24ms</span>
+                  {healthData ? (
+                    <div className="space-y-3">
+                      {Object.entries(healthData.components as Record<string, number>).map(([key, value]) => (
+                        <div key={key}>
+                          <div className="flex items-center justify-between text-xs mb-1">
+                            <span className="font-medium capitalize">{key.replace(/_/g, ' ')}</span>
+                            <span className={`font-bold ${
+                              value >= 70 ? 'text-green-600' : value >= 40 ? 'text-amber-600' : 'text-red-600'
+                            }`}>{value}%</span>
+                          </div>
+                          <Progress value={value} className="h-1.5" />
+                        </div>
+                      ))}
+                      <div className="flex items-center gap-2 mt-3 pt-3 border-t">
+                        <span className="text-xs text-muted-foreground">Trend:</span>
+                        <Badge variant="outline" className={`text-[10px] ${
+                          healthData.trend === 'improving' ? 'border-green-500 text-green-600' :
+                          healthData.trend === 'declining' ? 'border-red-500 text-red-600' :
+                          'border-gray-400 text-gray-500'
+                        }`}>
+                          {healthData.trend === 'improving' && '↑ '}
+                          {healthData.trend === 'declining' && '↓ '}
+                          {healthData.trend}
+                        </Badge>
+                      </div>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">API Uptime</span>
-                      <span className="text-sm text-green-600">99.98%</span>
+                  ) : (
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium">Loading health data...</span>
+                      </div>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">Storage Usage</span>
-                      <span className="text-sm text-amber-600">45% (S3)</span>
-                    </div>
-                  </div>
+                  )}
                 </CardContent>
               </Card>
             </div>
@@ -206,15 +296,8 @@ export default function AdminDashboard() {
 
         {selectedTab === "metrics" && <CodeMetricsDashboard />}
 
-        {/* Placeholders for other tabs */}
-        {(selectedTab === "teachers" || selectedTab === "students") && (
-          <div className="flex items-center justify-center h-64 border-2 border-dashed rounded-lg bg-muted">
-            <div className="text-center text-muted-foreground">
-              <Lock className="w-8 h-8 mx-auto mb-2 text-muted-foreground" />
-              <p>This module is currently restricted or under maintenance.</p>
-            </div>
-          </div>
-        )}
+        {selectedTab === "teachers" && <TeacherOversight />}
+        {selectedTab === "students" && <StudentOversight />}
       </div>
     </div>
   );

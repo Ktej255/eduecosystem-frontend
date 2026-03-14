@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   MessageSquare, Search, Send, Plus, MoreVertical,
   User, Users, Star, Archive, Trash2, Check, CheckCheck,
-  Paperclip, Smile, ArrowLeft
+  Paperclip, Smile, ArrowLeft, Loader2
 } from "lucide-react";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,6 +12,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { fetchConversations, fetchMessages, sendMessage } from "@/lib/services/teacherAnalyticsService";
+import { toast } from "sonner";
 
 interface Conversation {
   id: string;
@@ -49,11 +51,70 @@ const mockMessages: Message[] = [
 ];
 
 export default function MessengerPage() {
-  const [conversations] = useState(mockConversations);
-  const [messages] = useState(mockMessages);
-  const [selectedConversation, setSelectedConversation] = useState<Conversation | null>(mockConversations[0]);
+  const [conversations, setConversations] = useState<any[]>([]);
+  const [messages, setMessages] = useState<any[]>([]);
+  const [selectedConversation, setSelectedConversation] = useState<any>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [newMessage, setNewMessage] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [sending, setSending] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const load = async () => {
+      setLoading(true);
+      const data = await fetchConversations();
+      setConversations(data.conversations);
+      if (data.conversations.length > 0) {
+        setSelectedConversation(data.conversations[0]);
+      }
+      setLoading(false);
+    };
+    load();
+  }, []);
+
+  useEffect(() => {
+    if (selectedConversation) {
+      const loadMessages = async () => {
+        const msgs = await fetchMessages(selectedConversation.id);
+        setMessages(msgs);
+      };
+      loadMessages();
+    }
+  }, [selectedConversation]);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  const handleSend = async () => {
+    if (!newMessage.trim() || !selectedConversation) return;
+    const content = newMessage;
+    setNewMessage("");
+    setSending(true);
+
+    const optimisticMsg = {
+      id: `temp-${Date.now()}`,
+      sender: "Me", content, isMe: true, read: false,
+      time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+    };
+    setMessages(prev => [...prev, optimisticMsg]);
+
+    try {
+      await sendMessage(selectedConversation.id, content);
+    } catch {
+      // Optimistic update already in place
+    } finally {
+      setSending(false);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  };
 
   const filteredConversations = conversations.filter(c =>
     c.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -164,6 +225,7 @@ export default function MessengerPage() {
                     </div>
                   </div>
                 ))}
+                <div ref={messagesEndRef} />
               </div>
 
               {/* Message Input */}
@@ -175,10 +237,11 @@ export default function MessengerPage() {
                     className="flex-1"
                     value={newMessage}
                     onChange={(e) => setNewMessage(e.target.value)}
+                    onKeyDown={handleKeyDown}
                   />
                   <Button variant="ghost" size="sm"><Smile className="h-5 w-5" /></Button>
-                  <Button className="bg-blue-600">
-                    <Send className="h-4 w-4" />
+                  <Button className="bg-blue-600" onClick={handleSend} disabled={sending || !newMessage.trim()}>
+                    {sending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
                   </Button>
                 </div>
               </div>

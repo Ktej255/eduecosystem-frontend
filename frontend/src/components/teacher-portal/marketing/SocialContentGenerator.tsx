@@ -17,6 +17,8 @@ const GENERATE_TIPS_LOCAL = (topic: string) => ({
     instagram: `🧠 ${topic} in 60 Seconds!\n\nHere is your daily dose of wisdom:\n\n🔹 Point 1: Core definition.\n🔹 Point 2: Critical analysis.\n🔹 Point 3: Way forward.\n\nSwipe left for the mind map! 👉\n\nSave this for your revision. 📌\n\n#Learning #${topic.replace(/\s/g, '')} #StudentLife`
 });
 
+import { aiService } from '@/lib/services/aiService';
+
 export default function SocialContentGenerator() {
     const [topic, setTopic] = useState("");
     const [isGenerating, setIsGenerating] = useState(false);
@@ -33,22 +35,12 @@ export default function SocialContentGenerator() {
         setIsGenerating(true);
 
         try {
-            // Try AI backend first
-            const response = await api.post("/ai-tools/generate-social-content", {
-                topic,
-                platforms: ["linkedin", "twitter", "instagram"],
-                context: "UPSC preparation content"
-            });
-
-            if (response.data && response.data.linkedin) {
-                setGeneratedContent(response.data);
-                setSource('ai');
-                toast.success("AI-generated content ready!");
-            } else {
-                throw new Error("Invalid response format");
-            }
+            const content = await aiService.generateSocialContent(topic);
+            setGeneratedContent(content);
+            setSource('ai');
+            toast.success("AI-generated content ready!");
         } catch (err) {
-            // Fallback to local template generation
+            // Fallback to local template generation if service fails
             console.log("AI API unavailable, falling back to local generation");
             setGeneratedContent(GENERATE_TIPS_LOCAL(topic));
             setSource('local');

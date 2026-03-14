@@ -225,7 +225,7 @@ export default function TeacherContentPage() {
                                         <div className="text-center py-8 text-muted-foreground">
                                             <FileText className="h-12 w-12 mx-auto mb-3 opacity-50" />
                                             <p>No content found</p>
-                                            <Link href="/teacher/batch1">
+                                            <Link href="/teacher/batch1-manager">
                                                 <Button className="mt-4" size="sm">
                                                     <Upload className="h-4 w-4 mr-2" /> Upload Content
                                                 </Button>

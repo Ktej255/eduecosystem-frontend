@@ -435,6 +435,7 @@ export default function GeographyDashboard() {
                         <FeatureCard title="Climate Zone Explorer" desc="Köppen Classifications & Biomes." icon={<Globe2 className="w-6 h-6" />} color="bg-amber-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/climate-zones')} />
                         <FeatureCard title="Plate Tectonics Sim" desc="Global Lithospheric Boundaries." icon={<Layers className="w-6 h-6" />} color="bg-red-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/tectonics')} />
                         <FeatureCard title="Resource Atlas" desc="India's Mineral & Energy Map." icon={<Pickaxe className="w-6 h-6" />} color="bg-yellow-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/resource-atlas')} />
+                        <FeatureCard title="Savinder Singh Geomorphology" desc="45 Chapter Complete Mastery." icon={<BookOpen className="w-6 h-6" />} color="bg-rose-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/savinder-singh')} />
                     </div>
                 </div>
             )}
@@ -543,13 +544,17 @@ export default function GeographyDashboard() {
                         </p>
                         <ScrollArea className="h-[400px] pr-4">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {Array.from({length: 14}).map((_, i) => (
+                                {Array.from({length: selectedNcertBook?.includes('Physical Environment') ? 7 : selectedNcertBook?.includes('Human Geo') ? 10 : selectedNcertBook?.includes('People and Economy') ? 12 : 16}).map((_, i) => {
+                                    const bookId = selectedNcertBook?.includes('Physical Environment') ? 'class11-india' : selectedNcertBook?.includes('Human Geo') ? 'class12-human' : selectedNcertBook?.includes('People and Economy') ? 'class12-india' : 'class11-physical';
+                                    let cPrefix = bookId === 'class11-physical' ? 'c11-p' : bookId === 'class11-india' ? 'c11-i' : bookId === 'class12-human' ? 'c12-h' : 'c12-ie';
+                                    
+                                    return (
                                     <Button 
                                         key={i} 
                                         variant="outline" 
                                         className="justify-between h-16 font-bold text-slate-700 bg-slate-50 hover:bg-slate-100 hover:text-indigo-700 hover:border-indigo-300 transition-all text-left px-6 rounded-xl border-slate-200 group relative overflow-hidden shadow-sm"
                                         onClick={() => {
-                                            router.push(`/student/upsc/geography/ncert-test/${i + 1}`);
+                                            router.push(`/student/upsc/geography/ncert-module/${bookId}/${cPrefix}-${i + 1}`);
                                             setNcertModalOpen(false);
                                         }}
                                     >
@@ -561,7 +566,7 @@ export default function GeographyDashboard() {
                                         </div>
                                         <ArrowRight className="w-4 h-4 text-indigo-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all relative z-10" />
                                     </Button>
-                                ))}
+                                )})}
                             </div>
                         </ScrollArea>
                     </div>

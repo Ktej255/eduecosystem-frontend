@@ -19,6 +19,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { fetchWalletData, requestPayout, exportTransactions, type WalletData } from "@/lib/services/teacherAnalyticsService";
+import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
 
 interface Transaction {
   id: string;
@@ -39,20 +42,52 @@ const mockTransactions: Transaction[] = [
 ];
 
 export default function WalletPage() {
-  const [transactions] = useState(mockTransactions);
+  const [data, setData] = useState<WalletData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [exporting, setExporting] = useState(false);
+  const [requestingPayout, setRequestingPayout] = useState(false);
 
-  const stats = {
-    balance: 125000,
-    revenue: 45000,
-    spent: 12500,
-    pendingPayout: 8500
+  const loadData = async () => {
+    setLoading(true);
+    try {
+      const walletData = await fetchWalletData();
+      setData(walletData);
+    } catch (error) {
+      toast.error("Failed to load wallet data");
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const budgetCategories = [
-    { name: "Content Creation", allocated: 50000, spent: 35000 },
-    { name: "Advertising", allocated: 30000, spent: 18000 },
-    { name: "Affiliate Payouts", allocated: 20000, spent: 12500 },
-  ];
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const handleExport = async (format: "csv" | "pdf") => {
+    setExporting(true);
+    try {
+      await exportTransactions(format);
+      toast.success(`Exported transactions as ${format.toUpperCase()}`);
+    } catch (error: any) {
+      toast.error(error.message);
+    } finally {
+      setExporting(false);
+    }
+  };
+
+  const handleAddFunds = async () => {
+    toast.info("Payment gateway integration for adding funds is coming soon.");
+  };
+
+  if (loading || !data) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <Loader2 className="h-8 w-8 animate-spin text-green-600" />
+      </div>
+    );
+  }
+
+  const { balance, revenue, spent, pendingPayout, budgetCategories, transactions } = data;
 
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-6xl mx-auto">
@@ -73,11 +108,11 @@ export default function WalletPage() {
           </p>
         </div>
         <div className="flex gap-2">
-          <Button variant="outline">
-            <Download className="h-4 w-4 mr-2" />
+          <Button variant="outline" onClick={() => handleExport('csv')} disabled={exporting}>
+            {exporting ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : <Download className="h-4 w-4 mr-2" />}
             Export
           </Button>
-          <Button className="bg-gradient-to-r from-green-600 to-emerald-600">
+          <Button className="bg-gradient-to-r from-green-600 to-emerald-600" onClick={handleAddFunds}>
             <Plus className="h-4 w-4 mr-2" />
             Add Funds
           </Button>
@@ -91,7 +126,7 @@ export default function WalletPage() {
             <div className="flex justify-between items-start">
               <div>
                 <p className="text-sm opacity-80">Current Balance</p>
-                <p className="text-2xl font-bold mt-1">₹{stats.balance.toLocaleString()}</p>
+                <p className="text-2xl font-bold mt-1">₹{balance.toLocaleString()}</p>
               </div>
               <Wallet className="h-8 w-8 opacity-30" />
             </div>
@@ -102,7 +137,7 @@ export default function WalletPage() {
             <div className="flex justify-between items-start">
               <div>
                 <p className="text-sm text-muted-foreground">This Month Revenue</p>
-                <p className="text-2xl font-bold text-green-600 mt-1">+₹{stats.revenue.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-green-600 mt-1">+₹{revenue.toLocaleString()}</p>
               </div>
               <ArrowUpRight className="h-6 w-6 text-green-500" />
             </div>
@@ -113,7 +148,7 @@ export default function WalletPage() {
             <div className="flex justify-between items-start">
               <div>
                 <p className="text-sm text-muted-foreground">This Month Spent</p>
-                <p className="text-2xl font-bold text-red-600 mt-1">-₹{stats.spent.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-red-600 mt-1">-₹{spent.toLocaleString()}</p>
               </div>
               <ArrowDownRight className="h-6 w-6 text-red-500" />
             </div>
@@ -124,7 +159,7 @@ export default function WalletPage() {
             <div className="flex justify-between items-start">
               <div>
                 <p className="text-sm text-muted-foreground">Pending Payouts</p>
-                <p className="text-2xl font-bold text-orange-600 mt-1">₹{stats.pendingPayout.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-orange-600 mt-1">₹{pendingPayout.toLocaleString()}</p>
               </div>
               <CreditCard className="h-6 w-6 text-orange-500" />
             </div>

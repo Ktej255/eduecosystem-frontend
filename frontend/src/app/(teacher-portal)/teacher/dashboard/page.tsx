@@ -84,7 +84,7 @@ export default function TeacherDashboard() {
         {
             title: "UPSC Batch 1 Content",
             description: "Upload videos & PDFs for Prelims cycles",
-            href: "/teacher/batch1",
+            href: "/teacher/batch1-manager",
             icon: Upload,
             color: "from-indigo-600 to-purple-600"
         },

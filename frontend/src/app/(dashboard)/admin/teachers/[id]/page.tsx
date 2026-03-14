@@ -8,9 +8,12 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import {
     ArrowLeft, User, Mail, Users, BookOpen, BarChart3,
-    Upload, Video, FileText, Clock, CheckCircle2, Eye
+    Upload, Video, FileText, Clock, CheckCircle2, Eye,
+    ShieldAlert, Lock, LockOpen, ShieldCheck, TrendingUp,
+    Zap, Target, Award
 } from "lucide-react";
 import api from "@/lib/api";
+import { toast } from "sonner";
 
 interface TeacherData {
     id: number;
@@ -34,8 +37,10 @@ export default function TeacherDetailPage() {
     const params = useParams();
     const teacherId = params.id as string;
     const [teacher, setTeacher] = useState<TeacherData | null>(null);
+    const [performance, setPerformance] = useState<any>(null);
     const [students, setStudents] = useState<StudentSummary[]>([]);
     const [loading, setLoading] = useState(true);
+    const [actionLoading, setActionLoading] = useState<string | null>(null);
 
     useEffect(() => {
         fetchTeacherData();
@@ -43,17 +48,44 @@ export default function TeacherDetailPage() {
 
     const fetchTeacherData = async () => {
         try {
-            // Fetch teacher details
-            const userRes = await api.get(`/admin/users/${teacherId}`);
+            setLoading(true);
+            // Fetch teacher details and performance in parallel
+            const [userRes, perfRes, studentsRes] = await Promise.all([
+                api.get(`/admin/users/${teacherId}`),
+                api.get(`/admin/teacher-performance/${teacherId}/performance`),
+                api.get("/admin/users?role=student&limit=100")
+            ]);
+            
             setTeacher(userRes.data.user);
-
-            // Fetch all students (in a real system, this would be filtered by teacher)
-            const studentsRes = await api.get("/admin/users?role=student&limit=100");
+            setPerformance(perfRes.data);
             setStudents(studentsRes.data.users || []);
         } catch (error) {
             console.error("Failed to fetch teacher data:", error);
+            toast.error("Failed to fetch teacher profile");
         } finally {
             setLoading(false);
+        }
+    };
+
+    const handleAdminAction = async (action: string) => {
+        if (!teacher) return;
+        
+        const confirmMsg = action === 'ban' ? "Are you sure you want to BAN this user?" :
+                           action === 'unban' ? "Are you sure you want to UNBAN this user?" :
+                           "Are you sure you want to perform this action?";
+        
+        if (!window.confirm(confirmMsg)) return;
+
+        try {
+            setActionLoading(action);
+            await api.put(`/admin/users/${teacherId}/${action}`);
+            toast.success(`Action ${action} successful`);
+            fetchTeacherData();
+        } catch (error) {
+            console.error(`Admin action ${action} failed:`, error);
+            toast.error(`Admin action failed`);
+        } finally {
+            setActionLoading(null);
         }
     };
 
@@ -80,14 +112,14 @@ export default function TeacherDetailPage() {
         <div className="space-y-6 max-w-6xl mx-auto p-4 md:p-6">
             {/* Header */}
             <div className="flex items-center gap-4">
-                <Link href="/admin">
+                <Link href="/admin/teachers">
                     <Button variant="ghost" size="sm">
-                        <ArrowLeft className="mr-2 h-4 w-4" /> Back
+                        <ArrowLeft className="mr-2 h-4 w-4" /> Back to Directory
                     </Button>
                 </Link>
                 <div>
-                    <h1 className="text-2xl font-bold">Teacher Profile</h1>
-                    <p className="text-gray-500 text-sm">View teacher details and their students</p>
+                    <h1 className="text-2xl font-bold">Teacher Command Center</h1>
+                    <p className="text-gray-500 text-sm">Strategic oversight for {teacher.full_name}</p>
                 </div>
             </div>
 
@@ -139,6 +171,73 @@ export default function TeacherDetailPage() {
                         ) : (
                             <Badge className="bg-gray-100 text-gray-700">Inactive</Badge>
                         )}
+                    </div>
+                </CardContent>
+            </Card>
+
+            {/* Admin Command Panel */}
+            <Card className="border-red-100 bg-red-50/10">
+                <CardHeader className="pb-3 border-b border-red-100 flex flex-row items-center justify-between">
+                    <CardTitle className="text-sm font-bold flex items-center gap-2 text-red-700">
+                        <ShieldAlert className="w-4 h-4" />
+                        Administrative Command Panel
+                    </CardTitle>
+                    <Badge variant="outline" className="text-[10px] text-red-600 border-red-200">RESTRICTED</Badge>
+                </CardHeader>
+                <CardContent className="pt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Status Section */}
+                    <div className="space-y-3">
+                        <h4 className="text-[10px] font-black uppercase text-gray-500 tracking-wider">Account Status</h4>
+                        <div className="flex flex-col gap-2">
+                            {teacher.is_active ? (
+                                <Button 
+                                    variant="destructive" 
+                                    size="sm" 
+                                    className="w-full gap-2 text-xs"
+                                    onClick={() => handleAdminAction('ban')}
+                                    disabled={actionLoading !== null}
+                                >
+                                    <Lock className="w-3.5 h-3.5" /> Ban Teacher Access
+                                </Button>
+                            ) : (
+                                <Button 
+                                    variant="default" 
+                                    size="sm" 
+                                    className="w-full gap-2 text-xs bg-emerald-600 hover:bg-emerald-700"
+                                    onClick={() => handleAdminAction('unban')}
+                                    disabled={actionLoading !== null}
+                                >
+                                    <LockOpen className="w-3.5 h-3.5" /> Unban Access
+                                </Button>
+                            )}
+                            <Button 
+                                variant="outline" 
+                                size="sm" 
+                                className="w-full gap-2 text-xs"
+                                onClick={() => handleAdminAction('promote')}
+                                disabled={actionLoading !== null || teacher.role === 'admin'}
+                            >
+                                <ShieldCheck className="w-3.5 h-3.5" /> Promote to Super-Admin
+                            </Button>
+                        </div>
+                    </div>
+
+                    {/* Operational Details */}
+                    <div className="space-y-3">
+                        <h4 className="text-[10px] font-black uppercase text-gray-500 tracking-wider">Operational Override</h4>
+                        <div className="flex flex-col gap-2">
+                            <div className="flex items-center justify-between gap-2">
+                                <span className="text-xs text-muted-foreground font-medium">Disable Performance Tracking</span>
+                                <Button variant="outline" size="sm" className="h-7 text-[10px]">DISABLE</Button>
+                            </div>
+                            <div className="flex items-center justify-between gap-2">
+                                <span className="text-xs text-muted-foreground font-medium">Re-initialize Content Stats</span>
+                                <Button variant="outline" size="sm" className="h-7 text-[10px]">SYNC</Button>
+                            </div>
+                        </div>
+                        <p className="text-[10px] text-muted-foreground italic mt-2">
+                            Teacher permissions affect the entire cohort's content availability.
+                        </p>
                     </div>
                 </CardContent>
             </Card>

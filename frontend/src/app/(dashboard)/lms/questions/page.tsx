@@ -4,7 +4,11 @@ import { useEffect, useState, useRef } from "react";
 import StandardListPage from "@/components/scaffold/StandardListPage";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Upload, FileText } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
+import { Upload, FileText, Loader2, Database } from "lucide-react";
 import api from "@/lib/api";
 import { toast } from "sonner";
 
@@ -13,6 +17,13 @@ export default function QuestionBankPage() {
   const [loading, setLoading] = useState(true);
   const [selectedBankId, setSelectedBankId] = useState<number | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Create Bank Dialog
+  const [isCreateOpen, setIsCreateOpen] = useState(false);
+  const [isCreating, setIsCreating] = useState(false);
+  const [newBankTitle, setNewBankTitle] = useState("");
+  const [newCategory, setNewCategory] = useState("");
+  const [newDifficulty, setNewDifficulty] = useState("medium");
 
   const fetchData = async () => {
     try {
@@ -29,6 +40,27 @@ export default function QuestionBankPage() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const handleCreateBank = async () => {
+    if (!newBankTitle.trim()) { toast.error("Bank name is required."); return; }
+    setIsCreating(true);
+    try {
+      await api.post("/question-banks/", {
+        title: newBankTitle,
+        category: newCategory || "General",
+        difficulty_level: newDifficulty,
+        question_count: 0,
+      });
+      toast.success(`Question Bank "${newBankTitle}" created!`);
+      setIsCreateOpen(false);
+      setNewBankTitle(""); setNewCategory(""); setNewDifficulty("medium");
+      fetchData();
+    } catch {
+      toast.error("Failed to create bank.");
+    } finally {
+      setIsCreating(false);
+    }
+  };
 
   const handleBulkUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -106,7 +138,7 @@ export default function QuestionBankPage() {
             columns={columns}
             data={data}
             actionLabel="Create Bank"
-            onAdd={() => console.log("New")}
+            onAdd={() => setIsCreateOpen(true)}
             onEdit={(row) => console.log("Edit", row)}
             onDelete={(row) => console.log("Delete", row)}
         />
@@ -120,6 +152,48 @@ export default function QuestionBankPage() {
                 </div>
             </div>
         </div>
+
+        {/* Create Bank Dialog */}
+        <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
+            <DialogContent className="sm:max-w-[400px]">
+                <DialogHeader>
+                    <DialogTitle className="flex items-center gap-2">
+                        <Database className="w-5 h-5 text-purple-500" /> Create Question Bank
+                    </DialogTitle>
+                    <DialogDescription>
+                        Create a new bank to organize your questions.
+                    </DialogDescription>
+                </DialogHeader>
+                <div className="grid gap-4 py-4">
+                    <div className="space-y-2">
+                        <Label>Bank Name</Label>
+                        <Input value={newBankTitle} onChange={(e) => setNewBankTitle(e.target.value)} placeholder="e.g. Polity — Fundamental Rights" />
+                    </div>
+                    <div className="space-y-2">
+                        <Label>Category</Label>
+                        <Input value={newCategory} onChange={(e) => setNewCategory(e.target.value)} placeholder="e.g. Indian Polity" />
+                    </div>
+                    <div className="space-y-2">
+                        <Label>Difficulty Level</Label>
+                        <Select value={newDifficulty} onValueChange={setNewDifficulty}>
+                            <SelectTrigger><SelectValue /></SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="easy">Easy</SelectItem>
+                                <SelectItem value="medium">Medium</SelectItem>
+                                <SelectItem value="hard">Hard</SelectItem>
+                            </SelectContent>
+                        </Select>
+                    </div>
+                </div>
+                <DialogFooter>
+                    <Button variant="ghost" onClick={() => setIsCreateOpen(false)}>Cancel</Button>
+                    <Button className="bg-purple-600 hover:bg-purple-700 text-white" onClick={handleCreateBank} disabled={isCreating}>
+                        {isCreating ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
+                        Create Bank
+                    </Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
     </>
   );
 }

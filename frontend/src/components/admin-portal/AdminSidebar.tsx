@@ -49,12 +49,12 @@ const menuItems = [
         name: "Strategic Intelligence",
         icon: Brain,
         children: [
-            { name: "Global War Room", href: "/admin", icon: Zap },
+            { name: "Strategic Overview", href: "/admin", icon: Zap },
             { name: "Cohort Intelligence", href: "/admin/cohort-intelligence", icon: Layers },
             { name: "Revenue Analysis", href: "/admin/analytics", icon: TrendingUp },
             { name: "At-Risk Monitor", href: "/admin/performance", icon: Stethoscope },
             { name: "Student Journeys", href: "/admin/student-journey", icon: Target },
-            { name: "Teacher Oversight", href: "/admin/teacher-performance", icon: UserCheck },
+            { name: "Teacher Management", href: "/admin/teachers", icon: UserCheck },
         ],
     },
     {
@@ -85,6 +85,7 @@ const menuItems = [
         icon: Shield,
         children: [
             { name: "Access Control", href: "/admin/user-management", icon: Shield },
+            { name: "Organizations", href: "/admin/organizations", icon: Briefcase },
             { name: "System Logs", href: "/admin/logs", icon: FileCode },
             { name: "Dev History", href: "/admin/development-history", icon: History },
             { name: "Global Search", href: "/admin/search", icon: Search },

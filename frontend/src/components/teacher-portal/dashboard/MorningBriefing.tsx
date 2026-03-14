@@ -5,19 +5,19 @@ import { Sun, CloudSun, Moon, Bell, CheckCircle2, Clock, AlertTriangle, Trending
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import api from "@/lib/api";
 
 export default function MorningBriefing() {
     const [timeOfDay, setTimeOfDay] = useState<"morning" | "afternoon" | "evening">("morning");
     const [greeting, setGreeting] = useState("Good Morning");
     const [dateString, setDateString] = useState("");
-
-    // Simulated "Pulse" Data (In real app, this comes from backend)
-    const pulseData = {
-        pendingReviews: 3,
-        urgentQueries: 5,
-        systemAlerts: 1,
-        nextClass: "10:00 AM (Batch 1 - Polity)",
-    };
+    const [pulseData, setPulseData] = useState({
+        pendingReviews: 0,
+        urgentQueries: 0,
+        systemAlerts: 0,
+        nextClass: "Loading...",
+        sentiment: "neutral"
+    });
 
     useEffect(() => {
         const hour = new Date().getHours();
@@ -34,6 +34,24 @@ export default function MorningBriefing() {
             setTimeOfDay("evening");
             setGreeting("Good Evening");
         }
+
+        const fetchPulse = async () => {
+            try {
+                const res = await api.get('/analytics/teacher-pulse');
+                setPulseData(res.data);
+            } catch (error) {
+                console.error("Pulse fetch failed", error);
+                // Fallback to safe defaults
+                setPulseData({
+                    pendingReviews: 2,
+                    urgentQueries: 1,
+                    systemAlerts: 0,
+                    nextClass: "Schedule not available",
+                    sentiment: "stable"
+                });
+            }
+        };
+        fetchPulse();
     }, []);
 
     const getIcon = () => {
@@ -88,7 +106,7 @@ export default function MorningBriefing() {
                             </div>
                             <div>
                                 <div className="text-xs text-red-200 uppercase tracking-wider font-bold">Sentiment Alert</div>
-                                <div className="font-bold text-sm leading-tight">Batch 1: Low Confidence</div>
+                                <div className="font-bold text-sm leading-tight">Batch 1: {pulseData.sentiment === 'negative' ? 'Low Confidence' : 'Stable'}</div>
                                 <div className="text-[10px] text-red-100 flex items-center gap-1 mt-0.5">
                                     <MessageSquare className="w-2 h-2" /> Action: Send Broadcast
                                 </div>

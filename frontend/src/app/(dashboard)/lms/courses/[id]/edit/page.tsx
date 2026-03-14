@@ -20,21 +20,21 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import {
-  Plus,
-  Edit2,
-  Trash2,
-  GripVertical,
-  BookOpen,
-  PlayCircle,
-  FileText,
-  Award,
-  CheckCircle,
-  Save,
-  Eye,
-  ArrowLeft,
-  Sparkles,
-  Download,
-} from "lucide-react";
+    Plus,
+    GripVertical,
+    Video,
+    FileText,
+    HelpCircle,
+    Settings,
+    Trash2,
+    Pencil,
+    ChevronLeft,
+    Clock,
+    Play,
+    Calendar,
+    Unlock,
+    Lock
+} from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -87,12 +87,13 @@ interface Course {
 
 const LessonTypeIcon = ({ type }: { type: string }) => {
   const icons = {
-    video: <PlayCircle className="h-4 w-4" />,
+    video: <Video className="h-4 w-4" />,
     text: <FileText className="h-4 w-4" />,
-    quiz: <Award className="h-4 w-4" />,
-    assignment: <CheckCircle className="h-4 w-4" />,
+    pdf: <FileText className="h-4 w-4" />,
+    quiz: <HelpCircle className="h-4 w-4" />,
+    assignment: <FileText className="h-4 w-4" />,
   };
-  return icons[type as keyof typeof icons] || <BookOpen className="h-4 w-4" />;
+  return icons[type as keyof typeof icons] || <FileText className="h-4 w-4" />;
 };
 
 // Draggable Module Component
@@ -798,12 +799,13 @@ export default function CourseEditorPage() {
                       }
                     >
                       <SelectTrigger className="bg-gray-800 border-gray-700 text-white mt-2">
-                        <SelectValue />
+                        <SelectValue placeholder="Select type" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="video">Video</SelectItem>
-                        <SelectItem value="text">Text</SelectItem>
-                        <SelectItem value="quiz">Quiz</SelectItem>
+                        <SelectItem value="video">Video Lesson</SelectItem>
+                        <SelectItem value="pdf">PDF / Document</SelectItem>
+                        <SelectItem value="text">Text / Article</SelectItem>
+                        <SelectItem value="quiz">Interactive Quiz</SelectItem>
                         <SelectItem value="assignment">Assignment</SelectItem>
                       </SelectContent>
                     </Select>

@@ -10,7 +10,8 @@ import {
     MoreHorizontal,
     PlayCircle,
     Copy,
-    Sparkles
+    Sparkles,
+    Save
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -63,6 +64,9 @@ const initialPlan: CampaignStep[] = [
     }
 ];
 
+import api from "@/lib/api";
+import { toast } from "sonner";
+
 export default function CampaignBlueprint() {
     const [selectedCourse, setSelectedCourse] = useState<string>("");
     const [isGenerating, setIsGenerating] = useState(false);
@@ -77,6 +81,34 @@ export default function CampaignBlueprint() {
             setShowPlan(true);
             setIsGenerating(false);
         }, 1500);
+    };
+
+    const handleApproveStep = async (index: number) => {
+        try {
+            const step = plan[index];
+            await api.post("/marketing/campaign-steps/approve", {
+                courseId: selectedCourse,
+                step: step
+            });
+            const newPlan = [...plan];
+            newPlan[index].status = "sent";
+            setPlan(newPlan);
+            toast.success(`Step "${step.title}" approved and scheduled!`);
+        } catch (error) {
+            toast.error("Failed to approve step.");
+        }
+    };
+
+    const handleSaveCampaign = async () => {
+        try {
+            await api.post("/marketing/campaigns", {
+                courseId: selectedCourse,
+                plan: plan
+            });
+            toast.success("Campaign blueprint saved successfully!");
+        } catch (error) {
+            toast.error("Failed to save campaign blueprint.");
+        }
     };
 
     return (
@@ -153,7 +185,14 @@ export default function CampaignBlueprint() {
                             <CardTitle className="text-lg font-bold text-foreground">
                                 {selectedCourse ? `${selectedCourse === 'geo-mod' ? 'Geography Module 2.0' : 'Campaign'} Blueprint` : 'Blueprint Preview'}
                             </CardTitle>
-                            {showPlan && <Badge className="bg-green-100 text-green-700 hover:bg-green-200">Draft Ready</Badge>}
+                            <div className="flex items-center gap-2">
+                                {showPlan && (
+                                    <Button size="sm" variant="outline" onClick={handleSaveCampaign} className="border-indigo-200 text-indigo-600 hover:bg-indigo-50">
+                                        <Save className="h-4 w-4 mr-1" /> Save Plan
+                                    </Button>
+                                )}
+                                {showPlan && <Badge className="bg-green-100 text-green-700 hover:bg-green-200">Draft Ready</Badge>}
+                            </div>
                         </div>
                     </CardHeader>
 
@@ -207,9 +246,16 @@ export default function CampaignBlueprint() {
                                                             <div className="whitespace-pre-wrap">{step.content}</div>
                                                         </div>
                                                         <div className="mt-3 flex gap-2">
-                                                            <Button size="sm" variant="outline" className="h-7 text-xs">Edit</Button>
-                                                            <Button size="sm" className="h-7 text-xs bg-indigo-600 hover:bg-indigo-700">Approve</Button>
-                                                        </div>
+    <Button size="sm" variant="outline" className="h-7 text-xs">Edit</Button>
+    <Button 
+        size="sm" 
+        className="h-7 text-xs bg-indigo-600 hover:bg-indigo-700"
+        onClick={() => handleApproveStep(index)}
+        disabled={step.status === 'sent'}
+    >
+        {step.status === 'sent' ? 'Approved' : 'Approve'}
+    </Button>
+</div>
                                                     </CardContent>
                                                 </Card>
                                             </div>

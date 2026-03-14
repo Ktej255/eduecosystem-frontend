@@ -35,9 +35,7 @@ interface AIInsight {
 }
 
 import { toast } from "sonner";
-import axios from "axios";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+import api from "@/lib/api";
 
 export default function AIPlanningPage() {
     const [isGenerating, setIsGenerating] = useState(false);
@@ -56,10 +54,7 @@ export default function AIPlanningPage() {
     useEffect(() => {
         const fetchLatestPlan = async () => {
             try {
-                const token = localStorage.getItem("access_token");
-                const response = await axios.get(`${API_URL}/api/v1/admin/ai-planning/latest`, {
-                    headers: { Authorization: `Bearer ${token}` }
-                });
+                const response = await api.get("/admin/ai-planning/latest");
                 if (response.data) {
                     setPlanData(response.data);
                     setPlanGenerated(true);
@@ -78,16 +73,13 @@ export default function AIPlanningPage() {
         }
         setIsLogging(true);
         try {
-            const token = localStorage.getItem("access_token");
-            await axios.post(`${API_URL}/api/v1/admin/development-logs`, {
+            await api.post("/admin/development-logs", {
                 date: new Date().toISOString().split('T')[0],
                 title: logForm.feature,
                 description: logForm.description,
                 batch: logForm.portal,
                 features: [logForm.feature],
                 challenges: []
-            }, {
-                headers: { Authorization: `Bearer ${token}` }
             });
             toast.success("Development action logged!");
             setLogForm({ ...logForm, feature: "", description: "" });
@@ -101,10 +93,8 @@ export default function AIPlanningPage() {
     const handleGenerate = async () => {
         setIsGenerating(true);
         try {
-            const token = localStorage.getItem("access_token");
-            const response = await axios.post(`${API_URL}/api/v1/admin/ai-planning/generate`, null, {
-                params: { days: daysToAnalyze },
-                headers: { Authorization: `Bearer ${token}` }
+            const response = await api.post("/admin/ai-planning/generate", {
+                days_to_analyze: daysToAnalyze
             });
             setPlanData(response.data);
             setPlanGenerated(true);

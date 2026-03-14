@@ -89,59 +89,68 @@ const MOCK_INBOX_ITEMS: InboxItem[] = [
 
 import { useCommunicationStore, Message } from "@/store/communicationStore";
 
+const getPriorityColor = (priority: 'high' | 'medium' | 'low') => {
+    switch (priority) {
+        case 'high': return "border-rose-200 bg-rose-50 text-rose-700";
+        case 'medium': return "border-amber-200 bg-amber-50 text-amber-700";
+        case 'low': return "border-blue-200 bg-blue-50 text-blue-700";
+        default: return "border-border bg-muted text-muted-foreground";
+    }
+};
+
+const getIcon = (type: InboxItemType | Message['channel']) => {
+    switch (type) {
+        case 'query': return <MessageSquare className="h-4 w-4 text-blue-500" />;
+        case 'review': return <ClipboardCheck className="h-4 w-4 text-emerald-500" />;
+        case 'alert': return <AlertTriangle className="h-4 w-4 text-red-500" />;
+        case 'whatsapp': return <MessageSquare className="h-4 w-4 text-green-500" />;
+        case 'telegram': return <Smartphone className="h-4 w-4 text-blue-500" />;
+        case 'email': return <Mail className="h-4 w-4 text-amber-500" />;
+        default: return <MessageSquare className="h-4 w-4 text-muted-foreground" />;
+    }
+};
+
 export default function PriorityInbox() {
     const { messages } = useCommunicationStore();
     const [activeTab, setActiveTab] = useState("all");
-    const [items, setItems] = useState<InboxItem[]>(MOCK_INBOX_ITEMS);
+    const [items, setItems] = useState<InboxItem[]>([]);
+    const [loading, setLoading] = useState(true);
 
-    const getPriorityColor = (priority: 'high' | 'medium' | 'low') => {
-        switch (priority) {
-            case 'high': return "border-rose-200 bg-rose-50 text-rose-700";
-            case 'medium': return "border-amber-200 bg-amber-50 text-amber-700";
-            case 'low': return "border-blue-200 bg-blue-50 text-blue-700";
-            default: return "border-border bg-muted text-muted-foreground";
+    const fetchInbox = async () => {
+        try {
+            const res = await api.get('/inbox/items');
+            setItems(res.data.items || []);
+        } catch (error) {
+            console.error("Failed to fetch inbox");
+            // Fallback for safety during transition
+            setItems(MOCK_INBOX_ITEMS);
+        } finally {
+            setLoading(false);
         }
     };
 
-    const getIcon = (type: InboxItemType | Message['channel']) => {
-        switch (type) {
-            case 'query': return <MessageSquare className="h-4 w-4 text-blue-500" />;
-            case 'review': return <ClipboardCheck className="h-4 w-4 text-emerald-500" />;
-            case 'alert': return <AlertTriangle className="h-4 w-4 text-red-500" />;
-            case 'whatsapp': return <MessageSquare className="h-4 w-4 text-green-500" />;
-            case 'telegram': return <Smartphone className="h-4 w-4 text-blue-500" />;
-            case 'email': return <Mail className="h-4 w-4 text-amber-500" />;
-            default: return <MessageSquare className="h-4 w-4 text-muted-foreground" />;
+    useEffect(() => {
+        fetchInbox();
+    }, []);
+
+    const markAsRead = async (id: string) => {
+        try {
+            await api.patch(`/inbox/items/${id}`, { isRead: true });
+            setItems(prev => prev.map(item => item.id === id ? { ...item, isRead: true } : item));
+            toast.success("Item marked as read");
+        } catch (error) {
+            toast.error("Action failed");
         }
     };
 
-    // Merge high-priority communications into the inbox view
-    const allInboxItems = [
-        ...messages.map(m => ({
-            id: m.id,
-            type: 'query' as const, // Treat incoming messages as queries
-            title: m.sender,
-            description: m.content,
-            author: m.sender,
-            timestamp: 'Just now',
-            priority: 'medium' as const,
-            isRead: m.status === 'read',
-            channel: m.channel
-        })),
-        ...items
-    ];
-
-    const filteredItems = allInboxItems.filter(item => {
-        if (activeTab === "all") return true;
-        return item.type === activeTab;
-    });
-
-    const markAsRead = (id: string) => {
-        setItems(prev => prev.map(item => item.id === id ? { ...item, isRead: true } : item));
-    };
-
-    const dismissItem = (id: string) => {
-        setItems(prev => prev.filter(item => item.id !== id));
+    const dismissItem = async (id: string) => {
+        try {
+            await api.delete(`/inbox/items/${id}`);
+            setItems(prev => prev.filter(item => item.id !== id));
+            toast.success("Item dismissed");
+        } catch (error) {
+            toast.error("Action failed");
+        }
     };
 
     return (

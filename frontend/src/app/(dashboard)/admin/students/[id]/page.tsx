@@ -10,8 +10,10 @@ import Link from "next/link";
 import {
     ArrowLeft, User, Mail, Calendar, Clock, Trophy, Target,
     BookOpen, BarChart3, TrendingUp, TrendingDown, Activity,
-    CheckCircle2, XCircle, Flame, Award, Brain
+    CheckCircle2, XCircle, Flame, Award, Brain, ShieldAlert, 
+    UserPlus, UserMinus, ShieldCheck, LockOpen, Lock
 } from "lucide-react";
+import { toast } from "sonner";
 import api from "@/lib/api";
 import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
@@ -51,6 +53,7 @@ export default function StudentDetailPage() {
     const [student, setStudent] = useState<StudentData | null>(null);
     const [testResults, setTestResults] = useState<TestResult[]>([]);
     const [loading, setLoading] = useState(true);
+    const [actionLoading, setActionLoading] = useState<string | null>(null);
 
     const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
 
@@ -60,21 +63,49 @@ export default function StudentDetailPage() {
 
     const fetchStudentData = async () => {
         try {
+            setLoading(true);
             // Fetch student details
             const userRes = await api.get(`/admin/users/${studentId}`);
             setStudent(userRes.data.user);
 
-            // TODO: Fetch student's test results when backend endpoint is ready
-            // For now using mock data
-            setTestResults([
-                { id: 1, cycle_id: 1, day_number: 1, score: 45, total_questions: 60, correct_count: 38, incorrect_count: 22, timestamp: "2026-01-02T10:00:00Z" },
-                { id: 2, cycle_id: 1, day_number: 2, score: 52, total_questions: 60, correct_count: 42, incorrect_count: 18, timestamp: "2026-01-03T10:00:00Z" },
-                { id: 3, cycle_id: 1, day_number: 3, score: 48, total_questions: 60, correct_count: 40, incorrect_count: 20, timestamp: "2026-01-04T10:00:00Z" },
-            ]);
+            // Fetch real performance data
+            const perfRes = await api.get(`/admin/students/${studentId}/performance`);
+            setTestResults(perfRes.data.test_results || []);
         } catch (error) {
             console.error("Failed to fetch student data:", error);
+            toast.error("Failed to sync student data");
         } finally {
             setLoading(false);
+        }
+    };
+
+    const handleAdminAction = async (action: string, params: any = {}) => {
+        if (!student) return;
+        
+        const confirmMsg = action === 'ban' ? "Are you sure you want to BAN this user?" :
+                           action === 'unban' ? "Are you sure you want to UNBAN this user?" :
+                           "Are you sure you want to perform this action?";
+        
+        if (!window.confirm(confirmMsg)) return;
+
+        try {
+            setActionLoading(action);
+            let endpoint = `/admin/users/${studentId}/${action}`;
+            
+            if (action === 'access') {
+                const queryParams = new URLSearchParams(params).toString();
+                await api.put(`/admin/users/${studentId}/access?${queryParams}`);
+            } else {
+                await api.put(endpoint);
+            }
+            
+            toast.success(`Action ${action} successful`);
+            fetchStudentData();
+        } catch (error) {
+            console.error(`Admin action ${action} failed:`, error);
+            toast.error(`Admin action failed`);
+        } finally {
+            setActionLoading(null);
         }
     };
 
@@ -187,6 +218,98 @@ export default function StudentDetailPage() {
                         ) : (
                             <Badge className="bg-gray-100 text-gray-700">Inactive</Badge>
                         )}
+                    </div>
+                </CardContent>
+            </Card>
+
+            {/* Admin Command Panel */}
+            <Card className="border-red-100 bg-red-50/10">
+                <CardHeader className="pb-3 border-b border-red-100 flex flex-row items-center justify-between">
+                    <CardTitle className="text-sm font-bold flex items-center gap-2 text-red-700">
+                        <ShieldAlert className="w-4 h-4" />
+                        Administrative Command Panel
+                    </CardTitle>
+                    <Badge variant="outline" className="text-[10px] text-red-600 border-red-200">RESTRICTED</Badge>
+                </CardHeader>
+                <CardContent className="pt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {/* Status Section */}
+                    <div className="space-y-3">
+                        <h4 className="text-[10px] font-black uppercase text-gray-500 tracking-wider">Account Status</h4>
+                        <div className="flex flex-col gap-2">
+                            {student.is_active ? (
+                                <Button 
+                                    variant="destructive" 
+                                    size="sm" 
+                                    className="w-full gap-2 text-xs"
+                                    onClick={() => handleAdminAction('ban')}
+                                    disabled={actionLoading !== null}
+                                >
+                                    <Lock className="w-3.5 h-3.5" /> Ban User Access
+                                </Button>
+                            ) : (
+                                <Button 
+                                    variant="default" 
+                                    size="sm" 
+                                    className="w-full gap-2 text-xs bg-emerald-600 hover:bg-emerald-700"
+                                    onClick={() => handleAdminAction('unban')}
+                                    disabled={actionLoading !== null}
+                                >
+                                    <LockOpen className="w-3.5 h-3.5" /> Unban Access
+                                </Button>
+                            )}
+                            <Button 
+                                variant="outline" 
+                                size="sm" 
+                                className="w-full gap-2 text-xs"
+                                onClick={() => handleAdminAction('promote')}
+                                disabled={actionLoading !== null || student.role === 'admin'}
+                            >
+                                <ShieldCheck className="w-3.5 h-3.5" /> Promote to Admin
+                            </Button>
+                        </div>
+                    </div>
+
+                    {/* Authorization Section */}
+                    <div className="space-y-3">
+                        <h4 className="text-[10px] font-black uppercase text-gray-500 tracking-wider">Batch Authorization</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                            <Button 
+                                variant={student.is_batch1_authorized ? "default" : "outline"} 
+                                size="sm" 
+                                className={`text-[10px] h-8 ${student.is_batch1_authorized ? 'bg-indigo-600' : ''}`}
+                                onClick={() => handleAdminAction('access', { batch1: !student.is_batch1_authorized })}
+                                disabled={actionLoading !== null}
+                            >
+                                UPSC B1
+                            </Button>
+                            <Button 
+                                variant={student.is_ras_authorized ? "default" : "outline"} 
+                                size="sm" 
+                                className={`text-[10px] h-8 ${student.is_ras_authorized ? 'bg-orange-500' : ''}`}
+                                onClick={() => handleAdminAction('access', { ras: !student.is_ras_authorized })}
+                                disabled={actionLoading !== null}
+                            >
+                                RAS B1
+                            </Button>
+                        </div>
+                        <p className="text-[10px] text-muted-foreground italic mt-2">
+                            Toggling access will immediately update student workspace permissions.
+                        </p>
+                    </div>
+
+                    {/* Engagement Section */}
+                    <div className="space-y-3">
+                        <h4 className="text-[10px] font-black uppercase text-gray-500 tracking-wider">Engagement Override</h4>
+                        <div className="flex flex-col gap-2">
+                            <div className="flex items-center justify-between gap-2">
+                                <span className="text-xs text-muted-foreground font-medium">Reset Streak</span>
+                                <Button variant="outline" size="sm" className="h-7 text-[10px]">EXECUTE</Button>
+                            </div>
+                            <div className="flex items-center justify-between gap-2">
+                                <span className="text-xs text-muted-foreground font-medium">Add 500 Coins</span>
+                                <Button variant="outline" size="sm" className="h-7 text-[10px]">ADD</Button>
+                            </div>
+                        </div>
                     </div>
                 </CardContent>
             </Card>

@@ -123,15 +123,15 @@ export default function PYQCommandCenter() {
                     <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 group/item hover:border-blue-500/50 transition-all">
                         <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest mb-1">Total Questions</p>
                         <div className="flex items-baseline gap-2">
-                            <span className="text-2xl font-black text-blue-600">{stats.total.toLocaleString()}</span>
+                            <span className="text-2xl font-black text-blue-600">{(stats.total || 0).toLocaleString()}</span>
                             <span className="text-[10px] text-muted-foreground">Total Items</span>
                         </div>
                     </div>
-                    {Object.entries(stats.by_subject).slice(0, 3).map(([subject, count], i) => (
+                    {Object.entries(stats.by_subject || {}).slice(0, 3).map(([subject, count], i) => (
                         <div key={i} className="bg-slate-950 p-4 rounded-xl border border-slate-800 group/item hover:border-blue-500/50 transition-all">
                             <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest mb-1 capitalize">{subject}</p>
                             <div className="flex items-baseline gap-2">
-                                <span className="text-2xl font-black text-emerald-600">{count.toLocaleString()}</span>
+                                <span className="text-2xl font-black text-emerald-600">{(count || 0).toLocaleString()}</span>
                                 <span className="text-[10px] text-muted-foreground">Total Items</span>
                             </div>
                         </div>

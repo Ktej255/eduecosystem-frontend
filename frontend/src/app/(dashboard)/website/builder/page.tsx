@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Palette, Layout, Type, Image, Layers, Settings,
   Monitor, Smartphone, Tablet, Save, Eye, Undo, Redo,
-  ArrowLeft, Sun, Moon, Paintbrush
+  ArrowLeft, Sun, Moon, Paintbrush, Loader2
 } from "lucide-react";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -12,10 +12,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { teacherSettingsService, WebsiteTheme } from "@/lib/services/teacherSettingsService";
+import { toast } from "sonner";
 
 export default function WebsiteBuilderPage() {
   const [activeDevice, setActiveDevice] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
-  const [theme, setTheme] = useState({
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [theme, setTheme] = useState<WebsiteTheme>({
     primaryColor: "#3B82F6",
     secondaryColor: "#8B5CF6",
     backgroundColor: "#FFFFFF",
@@ -23,12 +27,44 @@ export default function WebsiteBuilderPage() {
     fontFamily: "Inter"
   });
 
+  useEffect(() => {
+    const fetchTheme = async () => {
+      try {
+        const data = await teacherSettingsService.getWebsiteTheme();
+        setTheme(data);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchTheme();
+  }, []);
+
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      await teacherSettingsService.saveWebsiteTheme(theme);
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="h-10 w-10 animate-spin text-purple-500 mx-auto mb-4" />
+          <p className="text-muted-foreground">Loading Builder...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-muted">
       {/* Top Bar */}
       <div className="bg-card border-b px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-muted-foreground">
+          <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground">
             <ArrowLeft className="h-4 w-4 mr-1" />
             Back
           </Link>
@@ -80,9 +116,18 @@ export default function WebsiteBuilderPage() {
             <Eye className="h-4 w-4 mr-2" />
             Preview
           </Button>
-          <Button className="bg-gradient-to-r from-purple-600 to-indigo-600" size="sm">
-            <Save className="h-4 w-4 mr-2" />
-            Publish
+          <Button 
+            className="bg-gradient-to-r from-purple-600 to-indigo-600" 
+            size="sm"
+            onClick={handleSave}
+            disabled={saving}
+          >
+            {saving ? (
+              <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+            ) : (
+              <Save className="h-4 w-4 mr-2" />
+            )}
+            {saving ? "Publishing..." : "Publish"}
           </Button>
         </div>
       </div>

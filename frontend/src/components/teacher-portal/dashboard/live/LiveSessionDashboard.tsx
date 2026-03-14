@@ -85,7 +85,7 @@ export default function LiveSessionDashboard() {
                             <div>
                                 <div className="text-xs text-muted-foreground font-bold uppercase tracking-wider mb-1">Confusion Level</div>
                                 <div className={`text-3xl font-black ${confusionCount > 5 ? 'text-red-500' : 'text-muted-foreground'}`}>
-                                    {Math.round((confusionCount / students.length) * 100)}%
+                                    {students.length > 0 ? Math.round((confusionCount / students.length) * 100) : 0}%
                                 </div>
                             </div>
                             <div className={`p-3 rounded-full ${confusionCount > 5 ? 'bg-red-100 text-red-600' : 'bg-emerald-100 text-emerald-600'}`}>
@@ -98,7 +98,9 @@ export default function LiveSessionDashboard() {
                             <div>
                                 <div className="text-xs text-muted-foreground font-bold uppercase tracking-wider mb-1">Avg. Focus</div>
                                 <div className="text-3xl font-black text-indigo-600">
-                                    {Math.round(students.reduce((acc, s) => acc + s.focusScore, 0) / students.length)}%
+                                    {students.length > 0 
+                                        ? Math.round(students.reduce((acc, s) => acc + s.focusScore, 0) / students.length) 
+                                        : 0}%
                                 </div>
                             </div>
                             <div className="p-3 rounded-full bg-indigo-100 text-indigo-600">

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/auth-context";
+import PresenceManager from "./PresenceManager";
 
 export default function ProtectedRoute({
   children,
@@ -60,6 +61,11 @@ export default function ProtectedRoute({
     return null;
   }
 
-  return <>{children}</>;
+  return (
+    <>
+      <PresenceManager />
+      {children}
+    </>
+  );
 }
 

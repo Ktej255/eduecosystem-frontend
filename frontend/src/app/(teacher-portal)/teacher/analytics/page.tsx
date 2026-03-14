@@ -1,406 +1,296 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
-    BarChart3,
-    Users,
-    TrendingUp,
-    Eye,
-    Clock,
-    Calendar,
-    ArrowUpRight,
-    ArrowDownRight,
-    Play,
-    CheckCircle2,
-    BookOpen,
-    Video,
-    Download,
-    AlertTriangle,
+    TrendingUp, TrendingDown, Users, DollarSign, BookOpen,
+    Eye, Clock, Target, ArrowUpRight, BarChart3, PieChart,
+    Layers, Megaphone, ArrowLeft, Calendar, Filter, RefreshCw, Loader2
 } from "lucide-react";
-import FeedbackAggregator from "@/components/teacher-portal/analytics/FeedbackAggregator";
-import EngagementHeatmap from "@/components/teacher-portal/analytics/EngagementHeatmap";
-import BehavioralHeatmap from "@/components/teacher-portal/analytics/BehavioralHeatmap";
+import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-    LineChart,
-    Line,
-    BarChart,
-    Bar,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    ResponsiveContainer,
-    PieChart,
-    Pie,
-    Cell,
-} from "recharts";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { fetchTeacherAnalytics, type TeacherAnalyticsData } from "@/lib/services/teacherAnalyticsService";
+import { toast } from "sonner";
 
-// Chart data
-const engagementData = [
-    { date: "Mon", views: 245, completions: 180 },
-    { date: "Tue", views: 312, completions: 220 },
-    { date: "Wed", views: 287, completions: 195 },
-    { date: "Thu", views: 356, completions: 268 },
-    { date: "Fri", views: 423, completions: 310 },
-    { date: "Sat", views: 189, completions: 145 },
-    { date: "Sun", views: 167, completions: 120 },
-];
+export default function TeacherAnalyticsDashboard() {
+    const [dateRange, setDateRange] = useState("30d");
+    const [data, setData] = useState<TeacherAnalyticsData | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [refreshing, setRefreshing] = useState(false);
 
-const subjectPerformance = [
-    { subject: "Polity", students: 156, completion: 78 },
-    { subject: "History", students: 148, completion: 65 },
-    { subject: "Geography", students: 142, completion: 72 },
-    { subject: "Economy", students: 138, completion: 58 },
-    { subject: "Environment", students: 134, completion: 45 },
-    { subject: "Science", students: 128, completion: 52 },
-];
+    const loadData = useCallback(async (showRefresh = false) => {
+        if (showRefresh) setRefreshing(true);
+        else setLoading(true);
 
-const completionDistribution = [
-    { name: "0-25%", value: 120, color: "#f87171" },
-    { name: "26-50%", value: 245, color: "#facc15" },
-    { name: "51-75%", value: 389, color: "#60a5fa" },
-    { name: "76-100%", value: 292, color: "#34d399" },
-];
+        try {
+            const result = await fetchTeacherAnalytics(dateRange);
+            setData(result);
+        } catch {
+            toast.error("Failed to load analytics.");
+        } finally {
+            setLoading(false);
+            setRefreshing(false);
+        }
+    }, [dateRange]);
 
-// Top performing content
-const topContent = [
-    { id: 1, title: "Indian Polity - Constitutional Framework", views: 1234, completions: 890, rating: 4.8 },
-    { id: 2, title: "Modern History - Freedom Movement", views: 1156, completions: 823, rating: 4.7 },
-    { id: 3, title: "Geography - Physical Geography", views: 1089, completions: 756, rating: 4.6 },
-    { id: 4, title: "Economy - Basic Concepts", views: 978, completions: 698, rating: 4.5 },
-    { id: 5, title: "Environment - Biodiversity", views: 876, completions: 612, rating: 4.4 },
-];
+    useEffect(() => { loadData(); }, [loadData]);
 
-export default function AnalyticsPage() {
-    const [dateRange, setDateRange] = useState("7days");
+    const ANALYTICS = data;
 
-    // Live stats from admin-overview endpoint
-    const [liveStats, setLiveStats] = useState<{
-        total_users: number;
-        active_students_24h: number;
-        struggle_signals_24h: number;
-        total_completions: number;
-        est_watch_hours: number;
-    } | null>(null);
+    // Show skeleton while loading initial data
+    if (loading || !ANALYTICS) {
+        return (
+            <div className="p-4 md:p-6 space-y-6 max-w-7xl mx-auto">
+                <div className="h-8 w-48 bg-muted rounded animate-pulse" />
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                    {[1,2,3,4].map(i => <div key={i} className="h-32 bg-muted rounded-lg animate-pulse" />)}
+                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    <div className="lg:col-span-7 h-64 bg-muted rounded-lg animate-pulse" />
+                    <div className="lg:col-span-5 h-64 bg-muted rounded-lg animate-pulse" />
+                </div>
+            </div>
+        );
+    }
 
-    useEffect(() => {
-        const fetchStats = async () => {
-            try {
-                const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
-                const token = localStorage.getItem('edueco_auth_token');
-                if (!token) return;
-
-                const res = await fetch(`${baseUrl}/analytics/admin-overview`, {
-                    headers: { 'Authorization': `Bearer ${token}` }
-                });
-                if (res.ok) {
-                    setLiveStats(await res.json());
-                }
-            } catch (e) {
-                console.warn("Failed to fetch admin overview:", e);
-            }
-        };
-        fetchStats();
-    }, []);
-
-    const analyticsStats = [
-        {
-            label: "Total Users",
-            value: liveStats ? liveStats.total_users.toLocaleString() : "—",
-            change: "Live",
-            trend: "up" as const,
-            icon: Users,
-            color: "text-blue-600",
-            bgColor: "bg-blue-100"
-        },
-        {
-            label: "Active (24h)",
-            value: liveStats ? liveStats.active_students_24h.toLocaleString() : "—",
-            change: "Live",
-            trend: "up" as const,
-            icon: Eye,
-            color: "text-green-600",
-            bgColor: "bg-green-100"
-        },
-        {
-            label: "Completions",
-            value: liveStats ? liveStats.total_completions.toLocaleString() : "—",
-            change: "Live",
-            trend: "up" as const,
-            icon: CheckCircle2,
-            color: "text-purple-600",
-            bgColor: "bg-purple-100"
-        },
-        {
-            label: "Struggle Signals",
-            value: liveStats ? liveStats.struggle_signals_24h.toLocaleString() : "—",
-            change: "24h",
-            trend: liveStats && liveStats.struggle_signals_24h > 5 ? "down" as const : "up" as const,
-            icon: AlertTriangle,
-            color: "text-amber-600",
-            bgColor: "bg-amber-100"
-        },
+    const funnelSteps = [
+        { label: "Website Visitors", value: ANALYTICS.funnel.visitors, color: "bg-slate-400", pct: 100 },
+        { label: "Lead Captures", value: ANALYTICS.funnel.leadCaptures, color: "bg-blue-500", pct: Math.round((ANALYTICS.funnel.leadCaptures / ANALYTICS.funnel.visitors) * 100) },
+        { label: "Enrollments", value: ANALYTICS.funnel.enrollments, color: "bg-emerald-500", pct: Math.round((ANALYTICS.funnel.enrollments / ANALYTICS.funnel.visitors) * 100) },
     ];
 
     return (
-        <div className="p-6 space-y-6">
+        <div className="p-4 md:p-6 space-y-6 max-w-7xl mx-auto">
+            <Link href="/teacher/dashboard" className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <ArrowLeft className="h-4 w-4 mr-1" /> Back to Dashboard
+            </Link>
+
             {/* Header */}
-            <div className="flex justify-between items-start">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
-                        <BarChart3 className="h-8 w-8 text-emerald-600" />
-                        Analytics
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-violet-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-sm">
+                            <BarChart3 className="h-5 w-5 text-white" />
+                        </div>
+                        Teacher Analytics
                     </h1>
-                    <p className="text-muted-foreground mt-1">Track student engagement and content performance</p>
+                    <p className="text-muted-foreground mt-1 text-sm">
+                        Revenue, engagement, content performance, and student funnel insights.
+                    </p>
                 </div>
                 <div className="flex items-center gap-2">
-                    <div className="flex bg-muted rounded-lg p-1">
-                        <Button
-                            variant={dateRange === "7days" ? "default" : "ghost"}
-                            size="sm"
-                            onClick={() => setDateRange("7days")}
-                        >
-                            7 Days
-                        </Button>
-                        <Button
-                            variant={dateRange === "30days" ? "default" : "ghost"}
-                            size="sm"
-                            onClick={() => setDateRange("30days")}
-                        >
-                            30 Days
-                        </Button>
-                        <Button
-                            variant={dateRange === "all" ? "default" : "ghost"}
-                            size="sm"
-                            onClick={() => setDateRange("all")}
-                        >
-                            All Time
-                        </Button>
-                    </div>
-                    <Button variant="outline">
-                        <Download className="mr-2 h-4 w-4" />
-                        Export
+                    <Button variant="outline" size="sm" onClick={() => loadData(true)} disabled={refreshing} className="h-9">
+                        <RefreshCw className={`w-4 h-4 mr-1.5 ${refreshing ? 'animate-spin' : ''}`} /> Refresh
                     </Button>
+                    <Select value={dateRange} onValueChange={setDateRange}>
+                        <SelectTrigger className="w-[140px]">
+                            <Calendar className="w-4 h-4 mr-2 text-muted-foreground" />
+                            <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="7d">Last 7 Days</SelectItem>
+                            <SelectItem value="30d">Last 30 Days</SelectItem>
+                            <SelectItem value="90d">Last 90 Days</SelectItem>
+                            <SelectItem value="all">All Time</SelectItem>
+                        </SelectContent>
+                    </Select>
                 </div>
             </div>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                {analyticsStats.map((stat) => (
-                    <Card key={stat.label}>
-                        <CardContent className="p-6">
-                            <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-4">
-                                    <div className={`p-3 rounded-lg ${stat.bgColor}`}>
-                                        <stat.icon className={`h-6 w-6 ${stat.color}`} />
+            {/* === KPI Cards === */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                {/* Revenue */}
+                <Card className="bg-gradient-to-br from-emerald-500 to-teal-600 text-white border-0 shadow-lg">
+                    <CardContent className="p-5">
+                        <div className="flex items-center justify-between mb-2">
+                            <DollarSign className="h-6 w-6 opacity-80" />
+                            <Badge className="bg-white/20 text-white text-[10px] hover:bg-white/30">
+                                <TrendingUp className="w-3 h-3 mr-1" /> {ANALYTICS.revenue.growth}%
+                            </Badge>
+                        </div>
+                        <p className="text-3xl font-bold">₹{(ANALYTICS.revenue.total / 1000).toFixed(1)}K</p>
+                        <p className="text-sm opacity-80 mt-1">Total Revenue</p>
+                    </CardContent>
+                </Card>
+
+                {/* Active Students */}
+                <Card className="border-border shadow-sm">
+                    <CardContent className="p-5">
+                        <div className="flex items-center justify-between mb-2">
+                            <Users className="h-6 w-6 text-blue-500" />
+                            <Badge variant="outline" className="border-green-500/50 text-green-600 text-[10px]">
+                                <TrendingUp className="w-3 h-3 mr-1" /> {ANALYTICS.students.growth}%
+                            </Badge>
+                        </div>
+                        <p className="text-3xl font-bold">{ANALYTICS.students.active}</p>
+                        <p className="text-sm text-muted-foreground mt-1">Active Students</p>
+                    </CardContent>
+                </Card>
+
+                {/* Avg. Time Spent */}
+                <Card className="border-border shadow-sm">
+                    <CardContent className="p-5">
+                        <div className="flex items-center justify-between mb-2">
+                            <Clock className="h-6 w-6 text-amber-500" />
+                        </div>
+                        <p className="text-3xl font-bold">{ANALYTICS.engagement.avgTimeSpent}</p>
+                        <p className="text-sm text-muted-foreground mt-1">Avg. Daily Time</p>
+                    </CardContent>
+                </Card>
+
+                {/* Completion Rate */}
+                <Card className="border-border shadow-sm">
+                    <CardContent className="p-5">
+                        <div className="flex items-center justify-between mb-2">
+                            <Target className="h-6 w-6 text-violet-500" />
+                        </div>
+                        <p className="text-3xl font-bold">{ANALYTICS.students.completionRate}%</p>
+                        <p className="text-sm text-muted-foreground mt-1">Completion Rate</p>
+                        <Progress value={ANALYTICS.students.completionRate} className="mt-2 h-1.5" />
+                    </CardContent>
+                </Card>
+            </div>
+
+            {/* === Content + Funnel Row === */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+                {/* Content Performance */}
+                <div className="lg:col-span-7">
+                    <Card className="border-border shadow-sm h-full">
+                        <CardHeader className="pb-3">
+                            <CardTitle className="text-base flex items-center gap-2">
+                                <Layers className="w-4 h-4 text-indigo-500" /> Content Performance
+                            </CardTitle>
+                            <CardDescription>Your top-performing courses ranked by views.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="p-0">
+                            <div className="divide-y divide-border">
+                                {ANALYTICS.content.topCourses.map((course, idx) => (
+                                    <div key={idx} className="px-5 py-4 flex items-center gap-4 hover:bg-muted/30 transition-colors">
+                                        <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center text-indigo-600 font-bold text-sm flex-shrink-0">
+                                            {idx + 1}
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                            <p className="text-sm font-medium truncate">{course.name}</p>
+                                            <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
+                                                <span className="flex items-center gap-1"><Eye className="w-3 h-3" /> {(course.views / 1000).toFixed(1)}k views</span>
+                                                <span>★ {course.rating}</span>
+                                                <span>{course.completions} completions</span>
+                                            </div>
+                                        </div>
+                                        <div className="text-right flex-shrink-0">
+                                            <p className="text-sm font-semibold text-emerald-600">₹{(course.revenue / 1000).toFixed(0)}K</p>
+                                            <p className="text-[10px] text-muted-foreground">Revenue</p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p className="text-2xl font-bold text-foreground">{stat.value}</p>
-                                        <p className="text-sm text-muted-foreground">{stat.label}</p>
-                                    </div>
-                                </div>
-                                <div className={`flex items-center text-sm ${stat.trend === "up" ? "text-green-600" : "text-red-600"}`}>
-                                    {stat.trend === "up" ? (
-                                        <ArrowUpRight className="h-4 w-4" />
-                                    ) : (
-                                        <ArrowDownRight className="h-4 w-4" />
-                                    )}
-                                    {stat.change}
-                                </div>
+                                ))}
                             </div>
                         </CardContent>
                     </Card>
-                ))}
-            </div>
+                </div>
 
-            {/* Charts Row */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* Engagement Chart */}
-                <Card>
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                            <TrendingUp className="h-5 w-5 text-emerald-600" />
-                            Weekly Engagement
-                        </CardTitle>
-                        <CardDescription>Views vs Completions over the past week</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <ResponsiveContainer width="100%" height={300}>
-                            <LineChart data={engagementData}>
-                                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                                <XAxis dataKey="date" stroke="#888" fontSize={12} />
-                                <YAxis stroke="#888" fontSize={12} />
-                                <Tooltip />
-                                <Line
-                                    type="monotone"
-                                    dataKey="views"
-                                    stroke="#60a5fa"
-                                    strokeWidth={2}
-                                    dot={{ r: 4 }}
-                                    name="Views"
-                                />
-                                <Line
-                                    type="monotone"
-                                    dataKey="completions"
-                                    stroke="#34d399"
-                                    strokeWidth={2}
-                                    dot={{ r: 4 }}
-                                    name="Completions"
-                                />
-                            </LineChart>
-                        </ResponsiveContainer>
-                    </CardContent>
-                </Card>
-
-                {/* Completion Distribution */}
-                <Card>
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                            <CheckCircle2 className="h-5 w-5 text-emerald-600" />
-                            Completion Distribution
-                        </CardTitle>
-                        <CardDescription>Student progress breakdown</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="flex items-center justify-center">
-                            <ResponsiveContainer width="100%" height={300}>
-                                <PieChart>
-                                    <Pie
-                                        data={completionDistribution}
-                                        cx="50%"
-                                        cy="50%"
-                                        innerRadius={60}
-                                        outerRadius={100}
-                                        paddingAngle={5}
-                                        dataKey="value"
-                                    >
-                                        {completionDistribution.map((entry, index) => (
-                                            <Cell key={`cell-${index}`} fill={entry.color} />
-                                        ))}
-                                    </Pie>
-                                    <Tooltip />
-                                </PieChart>
-                            </ResponsiveContainer>
-                        </div>
-                        <div className="flex justify-center gap-4 mt-4">
-                            {completionDistribution.map((item) => (
-                                <div key={item.name} className="flex items-center gap-2">
-                                    <div
-                                        className="w-3 h-3 rounded-full"
-                                        style={{ backgroundColor: item.color }}
-                                    />
-                                    <span className="text-sm text-muted-foreground">{item.name}</span>
+                {/* Lead Funnel */}
+                <div className="lg:col-span-5">
+                    <Card className="border-border shadow-sm h-full">
+                        <CardHeader className="pb-3">
+                            <CardTitle className="text-base flex items-center gap-2">
+                                <Megaphone className="w-4 h-4 text-orange-500" /> Student Acquisition Funnel
+                            </CardTitle>
+                            <CardDescription>From visitor to paying student.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-5 pt-2">
+                            {funnelSteps.map((step, idx) => (
+                                <div key={idx} className="space-y-2">
+                                    <div className="flex items-center justify-between text-sm">
+                                        <span className="font-medium">{step.label}</span>
+                                        <span className="font-semibold">{step.value.toLocaleString()}</span>
+                                    </div>
+                                    <div className="h-3 bg-muted rounded-full overflow-hidden">
+                                        <div
+                                            className={`h-full ${step.color} rounded-full transition-all duration-700`}
+                                            style={{ width: `${step.pct}%` }}
+                                        />
+                                    </div>
+                                    {idx < funnelSteps.length - 1 && (
+                                        <p className="text-[10px] text-muted-foreground text-right">
+                                            {step.pct}% conversion →
+                                        </p>
+                                    )}
                                 </div>
                             ))}
-                        </div>
-                    </CardContent>
-                </Card>
+
+                            {/* Final Revenue */}
+                            <div className="pt-3 border-t border-border">
+                                <div className="flex items-center justify-between">
+                                    <span className="text-sm font-medium text-muted-foreground">Total Revenue</span>
+                                    <span className="text-lg font-bold text-emerald-600">₹{(ANALYTICS.funnel.revenue / 1000).toFixed(1)}K</span>
+                                </div>
+                                <p className="text-[10px] text-muted-foreground mt-1">
+                                    Cost per acquisition: ₹{Math.round(ANALYTICS.funnel.revenue / ANALYTICS.funnel.enrollments)} avg.
+                                </p>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
             </div>
 
-            {/* Subject Performance */}
-            <Card>
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                        <BookOpen className="h-5 w-5 text-emerald-600" />
-                        Subject Performance
+            {/* === Engagement Metrics Row === */}
+            <Card className="border-border shadow-sm">
+                <CardHeader className="pb-3">
+                    <CardTitle className="text-base flex items-center gap-2">
+                        <PieChart className="w-4 h-4 text-blue-500" /> Engagement Breakdown
                     </CardTitle>
-                    <CardDescription>Student enrollment and completion by subject</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <ResponsiveContainer width="100%" height={300}>
-                        <BarChart data={subjectPerformance}>
-                            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                            <XAxis dataKey="subject" stroke="#888" fontSize={12} />
-                            <YAxis stroke="#888" fontSize={12} />
-                            <Tooltip />
-                            <Bar dataKey="students" fill="#60a5fa" name="Students" radius={[4, 4, 0, 0]} />
-                            <Bar dataKey="completion" fill="#34d399" name="Completion %" radius={[4, 4, 0, 0]} />
-                        </BarChart>
-                    </ResponsiveContainer>
-                </CardContent>
-            </Card>
-
-            {/* Top Performing Content */}
-            <Card>
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                        <Video className="h-5 w-5 text-emerald-600" />
-                        Top Performing Content
-                    </CardTitle>
-                    <CardDescription>Most viewed and completed segments</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <div className="space-y-4">
-                        {topContent.map((content, index) => (
-                            <div
-                                key={content.id}
-                                className="flex items-center justify-between p-4 bg-muted rounded-lg hover:bg-muted transition-colors"
-                            >
-                                <div className="flex items-center gap-4">
-                                    <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold">
-                                        #{index + 1}
-                                    </div>
-                                    <div>
-                                        <h4 className="font-medium text-foreground">{content.title}</h4>
-                                        <div className="flex items-center gap-4 text-sm text-muted-foreground mt-1">
-                                            <span className="flex items-center gap-1">
-                                                <Eye className="h-3 w-3" />
-                                                {content.views.toLocaleString()} views
-                                            </span>
-                                            <span className="flex items-center gap-1">
-                                                <CheckCircle2 className="h-3 w-3" />
-                                                {content.completions.toLocaleString()} completions
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">
-                                        ⭐ {content.rating}
-                                    </span>
-                                </div>
-                            </div>
-                        ))}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div className="text-center p-4 bg-muted/50 rounded-xl">
+                            <p className="text-2xl font-bold text-foreground">{ANALYTICS.engagement.lessonsPerDay}</p>
+                            <p className="text-xs text-muted-foreground mt-1">Lessons / Student / Day</p>
+                        </div>
+                        <div className="text-center p-4 bg-muted/50 rounded-xl">
+                            <p className="text-2xl font-bold text-foreground">{ANALYTICS.engagement.quizAttempts.toLocaleString()}</p>
+                            <p className="text-xs text-muted-foreground mt-1">Quiz Attempts</p>
+                        </div>
+                        <div className="text-center p-4 bg-muted/50 rounded-xl">
+                            <p className="text-2xl font-bold text-foreground">{ANALYTICS.students.total.toLocaleString()}</p>
+                            <p className="text-xs text-muted-foreground mt-1">Total Enrolled</p>
+                        </div>
+                        <div className="text-center p-4 bg-muted/50 rounded-xl">
+                            <p className="text-2xl font-bold text-red-500">{ANALYTICS.engagement.bounceRate}%</p>
+                            <p className="text-xs text-muted-foreground mt-1">Bounce Rate</p>
+                        </div>
                     </div>
                 </CardContent>
             </Card>
-            {/* Engagement Heatmap */}
-            <div className="mt-8">
-                <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
-                        <Clock className="h-5 w-5 text-indigo-600" />
-                        Engagement Heatmap
-                    </h2>
-                    <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full">Phase 33</span>
-                </div>
-                <EngagementHeatmap />
-            </div>
 
-            {/* Student Behavioral Pulse Monitor */}
-            <div className="mt-8">
-                <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
-                        <Eye className="h-5 w-5 text-purple-600" />
-                        Student Pulse Monitor
-                    </h2>
-                    <span className="text-xs text-purple-500 bg-purple-100 px-2 py-1 rounded-full">Phase 12 — Live</span>
-                </div>
-                <BehavioralHeatmap />
-            </div>
-
-            {/* Feedback Aggregator */}
-            <div className="mt-8">
-                <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
-                        <Users className="h-5 w-5 text-indigo-600" />
-                        Student Feedback
-                    </h2>
-                    <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full">Phase 32</span>
-                </div>
-                <FeedbackAggregator />
-            </div>
+            {/* Revenue Comparison */}
+            <Card className="border-border shadow-sm">
+                <CardHeader className="pb-3">
+                    <CardTitle className="text-base flex items-center gap-2">
+                        <TrendingUp className="w-4 h-4 text-emerald-500" /> Monthly Revenue Trend
+                    </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <div className="grid grid-cols-2 gap-6">
+                        <div className="p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl border border-emerald-200 dark:border-emerald-800/50">
+                            <p className="text-sm text-muted-foreground mb-1">This Month</p>
+                            <p className="text-3xl font-bold text-emerald-600">₹{(ANALYTICS.revenue.thisMonth / 1000).toFixed(1)}K</p>
+                            <Badge className="mt-2 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400 text-[10px]">
+                                <ArrowUpRight className="w-3 h-3 mr-1" />
+                                +{Math.round(((ANALYTICS.revenue.thisMonth - ANALYTICS.revenue.lastMonth) / ANALYTICS.revenue.lastMonth) * 100)}% vs last month
+                            </Badge>
+                        </div>
+                        <div className="p-4 bg-muted/50 rounded-xl border border-border">
+                            <p className="text-sm text-muted-foreground mb-1">Last Month</p>
+                            <p className="text-3xl font-bold text-foreground">₹{(ANALYTICS.revenue.lastMonth / 1000).toFixed(1)}K</p>
+                            <p className="text-xs text-muted-foreground mt-2">Baseline for comparison</p>
+                        </div>
+                    </div>
+                </CardContent>
+            </Card>
         </div>
     );
 }

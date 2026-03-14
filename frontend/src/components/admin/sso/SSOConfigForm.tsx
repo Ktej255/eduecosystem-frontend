@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
-import { Loader2 } from "lucide-react";
+import { Loader2, Copy, Check } from "lucide-react";
 import axios from "axios";
 import api from "@/lib/api";
 import { Button } from "@/components/ui/button";
@@ -30,6 +30,11 @@ export const SSOConfigForm: React.FC<SSOConfigFormProps> = ({ orgId }) => {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [testResult, setTestResult] = useState<any>(null);
+  const [copiedField, setCopiedField] = useState<string | null>(null);
+
+  const baseUrl = typeof window !== "undefined" ? window.location.origin : "https://app.eduecosystem.com";
+  const samlAcsUrl = `${baseUrl}/api/v1/sso/callback/saml`;
+  const oauthRedirectUri = `${baseUrl}/api/v1/sso/callback/oauth`;
 
   const [providerType, setProviderType] = useState("SAML");
   const [formData, setFormData] = useState({
@@ -138,6 +143,12 @@ export const SSOConfigForm: React.FC<SSOConfigFormProps> = ({ orgId }) => {
     }
   };
 
+  const copyToClipboard = (text: string, field: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedField(field);
+    setTimeout(() => setCopiedField(null), 2000);
+  };
+
   if (loading && !formData.provider_name)
     return <div className="p-4">Loading...</div>;
 
@@ -235,13 +246,39 @@ export const SSOConfigForm: React.FC<SSOConfigFormProps> = ({ orgId }) => {
                     </p>
                   </div>
                   <Alert className="bg-blue-50 border-blue-200">
-                    <AlertDescription className="text-blue-800 text-sm">
-                      <strong>SP Entity ID:</strong>{" "}
-                      https://app.eduecosystem.com
-                      <br />
-                      <strong>ACS URL:</strong>{" "}
-                      https://app.eduecosystem.com/api/v1/sso/callback/saml
-                    </AlertDescription>
+                    <div className="flex flex-col gap-3 w-full">
+                      <div className="flex items-center justify-between gap-4">
+                        <div className="text-blue-800 text-sm">
+                          <strong className="block mb-1">SP Entity ID:</strong>
+                          <code className="bg-blue-100 px-1 rounded">{baseUrl}</code>
+                        </div>
+                        <Button 
+                          type="button" 
+                          variant="ghost" 
+                          size="sm" 
+                          className="h-8 w-8 p-0"
+                          onClick={() => copyToClipboard(baseUrl, 'entity')}
+                        >
+                          {copiedField === 'entity' ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
+                        </Button>
+                      </div>
+                      
+                      <div className="flex items-center justify-between gap-4">
+                        <div className="text-blue-800 text-sm">
+                          <strong className="block mb-1">ACS URL:</strong>
+                          <code className="bg-blue-100 px-1 rounded">{samlAcsUrl}</code>
+                        </div>
+                        <Button 
+                          type="button" 
+                          variant="ghost" 
+                          size="sm" 
+                          className="h-8 w-8 p-0"
+                          onClick={() => copyToClipboard(samlAcsUrl, 'acs')}
+                        >
+                          {copiedField === 'acs' ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
+                        </Button>
+                      </div>
+                    </div>
                   </Alert>
                 </div>
               )}
@@ -314,10 +351,21 @@ export const SSOConfigForm: React.FC<SSOConfigFormProps> = ({ orgId }) => {
                     />
                   </div>
                   <Alert className="bg-blue-50 border-blue-200">
-                    <AlertDescription className="text-blue-800 text-sm">
-                      <strong>Redirect URI:</strong>{" "}
-                      https://app.eduecosystem.com/api/v1/sso/callback/oauth
-                    </AlertDescription>
+                    <div className="flex items-center justify-between gap-4 w-full">
+                      <div className="text-blue-800 text-sm">
+                        <strong className="block mb-1">Redirect URI:</strong>
+                        <code className="bg-blue-100 px-1 rounded">{oauthRedirectUri}</code>
+                      </div>
+                      <Button 
+                        type="button" 
+                        variant="ghost" 
+                        size="sm" 
+                        className="h-8 w-8 p-0"
+                        onClick={() => copyToClipboard(oauthRedirectUri, 'redirect')}
+                      >
+                        {copiedField === 'redirect' ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
+                      </Button>
+                    </div>
                   </Alert>
                 </div>
               )}

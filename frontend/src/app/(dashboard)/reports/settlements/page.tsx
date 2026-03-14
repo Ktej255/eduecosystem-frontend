@@ -24,6 +24,7 @@ import {
   ArrowDownToLine,
   CreditCard,
   Landmark,
+  Loader2,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -42,7 +43,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
+import { 
+  Dialog, 
+  DialogContent, 
+  DialogDescription, 
+  DialogFooter, 
+  DialogHeader, 
+  DialogTitle 
+} from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import { teacherSettingsService } from "@/lib/services/teacherSettingsService";
 import Link from "next/link";
+import { useEffect } from "react";
 
 // Sample settlements data
 const settlements = [
@@ -225,7 +238,46 @@ export default function SettlementsPage() {
   const [statusFilter, setStatusFilter] = useState("all");
   const [dateFilter, setDateFilter] = useState("30days");
   const [currentPage, setCurrentPage] = useState(1);
+  const [showKYCDialog, setShowKYCDialog] = useState(false);
+  const [kycStatus, setKycStatus] = useState<any>({ status: "pending_upload" });
+  const [summary, setSummary] = useState<any>({ totalSettled: 0, pendingAmount: 0 });
+  const [isSaving, setIsSaving] = useState(false);
+  
+  const [kycForm, setKycForm] = useState({
+    bankName: "",
+    accountNumber: "",
+    ifscCode: "",
+    accountHolder: "",
+    idType: "PAN",
+    idNumber: ""
+  });
+
   const itemsPerPage = 10;
+
+  useEffect(() => {
+    const loadData = async () => {
+      const [status, sumData] = await Promise.all([
+        teacherSettingsService.getKYCStatus(),
+        teacherSettingsService.getSettlementSummary()
+      ]);
+      setKycStatus(status);
+      setSummary(sumData);
+      setKycForm(prev => ({ ...prev, ...status }));
+    };
+    loadData();
+  }, []);
+
+  const handleKYCSubmit = async () => {
+    setIsSaving(true);
+    try {
+      await teacherSettingsService.saveKYCDetails(kycForm);
+      setShowKYCDialog(false);
+      const updatedStatus = await teacherSettingsService.getKYCStatus();
+      setKycStatus(updatedStatus);
+    } finally {
+      setIsSaving(false);
+    }
+  };
 
   // Filter settlements
   const filteredSettlements = settlements.filter((stl) => {
@@ -244,60 +296,51 @@ export default function SettlementsPage() {
     currentPage * itemsPerPage
   );
 
-  // Calculate totals
-  const totalPending = settlements
-    .filter(s => s.status === "pending")
-    .reduce((sum, s) => sum + s.netAmount, 0);
-
   return (
     <div className="p-6 space-y-6">
       {/* Header */}
       <div className="flex justify-between items-start">
         <div>
-          <Link href="/admin" className="text-sm text-muted-foreground hover:text-muted-foreground flex items-center gap-1 mb-2">
+          <Link href="/teacher/dashboard" className="text-sm text-muted-foreground hover:text-white flex items-center gap-1 mb-2">
             <ChevronLeft className="h-4 w-4" />
             Back to Dashboard
           </Link>
-          <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
-            <Wallet className="h-8 w-8 text-emerald-600" />
-            Settlements
+          <h1 className="text-3xl font-bold text-white flex items-center gap-2">
+            <Wallet className="h-8 w-8 text-emerald-500" />
+            Settlements & Payouts
           </h1>
-          <p className="text-muted-foreground mt-1">Track payouts and settlement history</p>
+          <p className="text-muted-foreground mt-1">Manage bank accounts, KYC, and track revenue settlements.</p>
         </div>
         <div className="flex gap-2">
-          <Button variant="outline">
+          <Button variant="outline" className="border-gray-700 text-white">
             <RefreshCw className="mr-2 h-4 w-4" />
-            Refresh
+            Sync Transactions
           </Button>
-          <Button className="bg-emerald-600 hover:bg-emerald-700">
-            <Download className="mr-2 h-4 w-4" />
-            Export Report
+          <Button className="bg-emerald-600 hover:bg-emerald-500" onClick={() => setShowKYCDialog(true)}>
+            <Building2 className="mr-2 h-4 w-4" />
+            {kycStatus.status === "verified" ? "Update Bank" : "Connect Bank"}
           </Button>
         </div>
       </div>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        {settlementStats.map((stat) => (
-          <Card key={stat.label}>
+        {[
+          { label: "Total Settled", value: formatCurrency(summary.totalSettled), icon: Banknote, color: "text-emerald-400", bgColor: "bg-emerald-500/10" },
+          { label: "Pending Payout", value: formatCurrency(summary.pendingAmount), icon: Clock, color: "text-amber-400", bgColor: "bg-amber-500/10" },
+          { label: "Commission (2%)", value: formatCurrency(summary.totalSettled * 0.02), icon: Building2, color: "text-blue-400", bgColor: "bg-blue-500/10" },
+          { label: "Next Payout", value: summary.nextSettlementDate, icon: Calendar, color: "text-purple-400", bgColor: "bg-purple-500/10" },
+        ].map((stat) => (
+          <Card key={stat.label} className="bg-gray-900 border-gray-800">
             <CardContent className="p-6">
-              <div className="flex items-start justify-between">
-                <div className="flex items-center gap-4">
-                  <div className={`p-3 rounded-lg ${stat.bgColor}`}>
-                    <stat.icon className={`h-6 w-6 ${stat.color}`} />
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-foreground">{stat.value}</p>
-                    <p className="text-sm text-muted-foreground">{stat.label}</p>
-                  </div>
+              <div className="flex items-center gap-4">
+                <div className={`p-3 rounded-lg ${stat.bgColor}`}>
+                  <stat.icon className={`h-6 w-6 ${stat.color}`} />
                 </div>
-              </div>
-              <div className="mt-3 pt-3 border-t flex items-center justify-between">
-                <span className="text-xs text-muted-foreground">{stat.description}</span>
-                <span className="text-xs font-medium text-green-600 flex items-center">
-                  <ArrowUpRight className="h-3 w-3 mr-0.5" />
-                  {stat.change}
-                </span>
+                <div>
+                  <p className="text-sm text-muted-foreground">{stat.label}</p>
+                  <p className="text-xl font-bold text-white">{stat.value}</p>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -305,23 +348,33 @@ export default function SettlementsPage() {
       </div>
 
       {/* Bank Account Info */}
-      <Card className="bg-gradient-to-r from-emerald-50 to-teal-50 border-emerald-200">
+      <Card className="bg-gradient-to-r from-emerald-900/20 to-teal-900/20 border-emerald-500/30">
         <CardContent className="p-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="p-4 bg-card rounded-xl shadow-sm">
-                <Landmark className="h-8 w-8 text-emerald-600" />
+              <div className="p-4 bg-gray-900 rounded-xl shadow-lg border border-gray-800">
+                <Landmark className="h-8 w-8 text-emerald-500" />
               </div>
               <div>
-                <h3 className="font-semibold text-foreground">Settlement Account</h3>
-                <p className="text-sm text-muted-foreground">HDFC Bank •••• 4521</p>
-                <p className="text-xs text-muted-foreground mt-1">Settlements are processed every Monday</p>
+                <h3 className="font-semibold text-white flex items-center gap-2">
+                  Settlement Account
+                  {kycStatus.status === "verified" && <CheckCircle2 className="h-4 w-4 text-emerald-400" />}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {kycStatus.bankName || "No Bank Connected"} •••• {kycStatus.accountNumber?.slice(-4) || "0000"}
+                </p>
+                <div className="flex items-center gap-4 mt-2">
+                  <Badge variant="outline" className={kycStatus.status === 'verified' ? "border-emerald-500 text-emerald-400" : "border-amber-500 text-amber-400"}>
+                    {kycStatus.status?.replace('_', ' ').toUpperCase() || "PENDING"}
+                  </Badge>
+                  <span className="text-xs text-muted-foreground italic">Auto-payouts enabled (T+3 cycle)</span>
+                </div>
               </div>
             </div>
             <div className="text-right">
-              <p className="text-sm text-muted-foreground">Next Settlement</p>
-              <p className="text-lg font-bold text-emerald-600">{formatCurrency(totalPending)}</p>
-              <p className="text-xs text-muted-foreground">Expected: Dec 23, 2024</p>
+              <p className="text-sm text-muted-foreground">Upcoming Settlement</p>
+              <p className="text-2xl font-bold text-emerald-400">{formatCurrency(summary.pendingAmount)}</p>
+              <p className="text-xs text-muted-foreground">Batch: #STL-{new Date().getFullYear()}-042</p>
             </div>
           </div>
         </CardContent>
@@ -507,21 +560,101 @@ export default function SettlementsPage() {
         </CardContent>
       </Card>
 
-      {/* Info Banner */}
-      <Card className="bg-blue-50 border-blue-200">
-        <CardContent className="p-4">
-          <div className="flex items-start gap-3">
-            <AlertCircle className="h-5 w-5 text-blue-600 mt-0.5" />
-            <div>
-              <h4 className="font-medium text-blue-800">Settlement Schedule</h4>
-              <p className="text-sm text-blue-600 mt-1">
-                Settlements are processed every Monday for transactions from the previous week.
-                Funds typically arrive in your bank account within 1-2 business days after processing.
-              </p>
+      {/* KYC Dialog */}
+      <Dialog open={showKYCDialog} onOpenChange={setShowKYCDialog}>
+        <DialogContent className="bg-gray-900 border-gray-800 text-white sm:max-w-[500px]">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2 text-xl">
+              <Building2 className="h-6 w-6 text-emerald-400" />
+              Bank Account & KYC
+            </DialogTitle>
+            <DialogDescription className="text-muted-foreground">
+              Provide your bank details to receive automated settlements.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-4 py-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label>Bank Name</Label>
+                <Input 
+                  value={kycForm.bankName}
+                  onChange={e => setKycForm({...kycForm, bankName: e.target.value})}
+                  className="bg-gray-800 border-gray-700" 
+                  placeholder="e.g. HDFC Bank"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label>IFSC Code</Label>
+                <Input 
+                  value={kycForm.ifscCode}
+                  onChange={e => setKycForm({...kycForm, ifscCode: e.target.value.toUpperCase()})}
+                  className="bg-gray-800 border-gray-700 font-mono" 
+                  placeholder="HDFC0001234"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label>Account Number</Label>
+              <Input 
+                value={kycForm.accountNumber}
+                onChange={e => setKycForm({...kycForm, accountNumber: e.target.value})}
+                className="bg-gray-800 border-gray-700" 
+                placeholder="501000XXXXXXXX"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label>Account Holder Name</Label>
+              <Input 
+                value={kycForm.accountHolder}
+                onChange={e => setKycForm({...kycForm, accountHolder: e.target.value})}
+                className="bg-gray-800 border-gray-700" 
+                placeholder="As per bank records"
+              />
+            </div>
+
+            <div className="p-4 rounded-lg bg-emerald-500/5 border border-emerald-500/20 space-y-3">
+              <h4 className="text-sm font-semibold flex items-center gap-2 text-emerald-400">
+                <AlertCircle className="h-4 w-4" />
+                Tax Identification
+              </h4>
+              <div className="flex gap-4">
+                <Select value={kycForm.idType} onValueChange={v => setKycForm({...kycForm, idType: v})}>
+                  <SelectTrigger className="w-[120px] bg-gray-900 border-gray-700">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent className="bg-gray-900 border-gray-700 text-white">
+                    <SelectItem value="PAN">PAN Card</SelectItem>
+                    <SelectItem value="GSTIN">GSTIN</SelectItem>
+                  </SelectContent>
+                </Select>
+                <Input 
+                  value={kycForm.idNumber}
+                  onChange={e => setKycForm({...kycForm, idNumber: e.target.value.toUpperCase()})}
+                  className="flex-1 bg-gray-900 border-gray-700 font-mono" 
+                  placeholder="Enter ID number"
+                />
+              </div>
             </div>
           </div>
-        </CardContent>
-      </Card>
+
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setShowKYCDialog(false)} className="border-gray-700 text-white">
+              Cancel
+            </Button>
+            <Button 
+              className="bg-emerald-600 hover:bg-emerald-500"
+              onClick={handleKYCSubmit}
+              disabled={isSaving}
+            >
+              {isSaving ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <CheckCircle2 className="h-4 w-4 mr-2" />}
+              Submit for Verification
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

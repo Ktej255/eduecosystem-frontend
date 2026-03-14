@@ -92,7 +92,7 @@ export default function TeacherLearnPage() {
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <Link href="/teacher/batch1">
+                        <Link href="/teacher/batch1-manager">
                             <Button className="w-full">
                                 Manage Batch 1 Videos
                             </Button>
@@ -133,7 +133,7 @@ export default function TeacherLearnPage() {
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <Link href="/admin/ai-debug">
+                        <Link href="/teacher/ai-debug">
                             <Button className="w-full" variant="outline">
                                 View AI Debug
                             </Button>

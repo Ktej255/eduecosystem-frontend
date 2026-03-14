@@ -81,9 +81,9 @@ export default function LakshmikantKanban() {
                     {COLUMNS.map((col) => (
                         <div key={col.id} className="flex flex-col h-full rounded-xl bg-slate-100/50 border border-border/60 overflow-hidden">
                             {/* Column Header */}
-                            <div className={cn("p-2 border-b border-border/60 flex items-center justify-between bg-card", col.color.split(' ')[2])}>
+                            <div className={cn("p-2 border-b border-border/60 flex items-center justify-between bg-card", col.color.split(' ')[2] || "")}>
                                 <div className="flex items-center gap-2">
-                                    <col.icon className={cn("h-3.5 w-3.5", col.color.split(' ')[0])} />
+                                    <col.icon className={cn("h-3.5 w-3.5", col.color.split(' ')[0] || "")} />
                                     <span className="text-xs font-bold text-muted-foreground">{col.label}</span>
                                 </div>
                                 <span className="text-[10px] font-bold bg-muted px-1.5 py-0.5 rounded-full text-muted-foreground">

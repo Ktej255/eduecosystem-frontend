@@ -4,6 +4,7 @@ import React from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
     BarChart3,
     TrendingUp,
@@ -14,28 +15,51 @@ import {
     Cpu,
     Database
 } from "lucide-react";
+import api from "@/lib/api";
+
+export interface FeatureMetric {
+    label: string;
+    value: number;
+    color: string;
+}
+
+export interface FileMetric {
+    label: string;
+    value: number;
+    ext: string;
+    color: string;
+}
 
 export function CodeMetricsDashboard() {
-    // Real data from scan: total 490,015
-    const metrics = {
-        totalLOC: 490015,
-        mcqs: 12450,
-        components: 1240,
-        features: [
-            { label: "Modern History (Chapters 1-39)", value: 85067, color: "bg-blue-500" },
-            { label: "Polity Module (Laxmikanth + DD Basu)", value: 123458, color: "bg-purple-500" },
-            { label: "Ancient & Medieval History", value: 45000, color: "bg-emerald-500" },
-            { label: "Admin & Dashboard Architecture", value: 31320, color: "bg-indigo-500" },
-            { label: "UPSC Store & E-Commerce", value: 25000, color: "bg-orange-500" },
-            { label: "CSAT Module", value: 10401, color: "bg-pink-500" },
-            { label: "Core Framework & Shared UI", value: 170069, color: "bg-slate-400" },
-        ],
-        files: [
-            { label: "TypeScript (Logic)", value: 224164, ext: ".ts", color: "text-blue-400" },
-            { label: "React (UI)", value: 265049, ext: ".tsx", color: "text-cyan-400" },
-            { label: "Styling (CSS)", value: 802, ext: ".css", color: "text-pink-400" }
-        ]
+    const [stats, setStats] = React.useState<any>(null);
+    const [loading, setLoading] = React.useState(true);
+
+    const fetchStats = async () => {
+        setLoading(true);
+        try {
+            const response = await api.get("/admin/stats");
+            setStats(response.data);
+        } catch (error) {
+            console.error("Error fetching code metrics:", error);
+        } finally {
+            setLoading(false);
+        }
     };
+
+    React.useEffect(() => {
+        fetchStats();
+    }, []);
+
+    const metrics = stats?.code_metrics || {
+        totalLOC: 0,
+        mcqs: stats?.data?.total_mcqs || 0,
+        components: 0,
+        features: [] as FeatureMetric[],
+        files: [] as FileMetric[]
+    };
+    
+    // Add MCQs to metrics from the stats object directly since Analyzer doesn't know DB
+    metrics.mcqs = stats?.data?.total_mcqs || 0;
 
     return (
         <div className="space-y-6">
@@ -56,8 +80,8 @@ export function CodeMetricsDashboard() {
                                 <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold">Current Environment</p>
                                 <p className="text-xs font-mono text-indigo-600 bg-indigo-50 dark:bg-indigo-900/40 px-2 py-1 rounded border border-indigo-100 dark:border-indigo-800">production:stable</p>
                             </div>
-                            <Button variant="outline" size="sm" className="bg-card border-indigo-200">
-                                <Cpu className="h-3 w-3 mr-1" /> Re-Scan
+                            <Button variant="outline" size="sm" className="bg-card border-indigo-200" onClick={fetchStats} disabled={loading}>
+                                <Cpu className={`h-3 w-3 mr-1 ${loading ? 'animate-spin' : ''}`} /> {loading ? "Scanning..." : "Re-Scan"}
                             </Button>
                         </div>
                     </div>
@@ -116,7 +140,7 @@ export function CodeMetricsDashboard() {
                                     <span className="text-[10px] text-muted-foreground font-mono">Real-time scan: FE/BE combined</span>
                                 </div>
                                 <div className="space-y-6">
-                                    {metrics.features.map((feature, idx) => (
+                                    {metrics.features.map((feature: FeatureMetric, idx: number) => (
                                         <MetricBar
                                             key={idx}
                                             label={feature.label}
@@ -140,7 +164,7 @@ export function CodeMetricsDashboard() {
                                 <Card className="bg-slate-50/50/30 border-dashed">
                                     <CardContent className="p-6">
                                         <div className="flex items-center justify-between mb-8">
-                                            {metrics.files.map((file, idx) => (
+                                            {metrics.files.map((file: FileMetric, idx: number) => (
                                                 <div key={idx} className="text-center">
                                                     <div className={`p-3 rounded-2xl bg-card shadow-sm border mb-2 flex items-center justify-center mx-auto`}>
                                                         {file.ext === '.css' ? <Zap className={`h-6 w-6 ${file.color}`} /> : <FileCode className={`h-6 w-6 ${file.color}`} />}
@@ -197,8 +221,15 @@ export function CodeMetricsDashboard() {
     );
 }
 
-function MetricBar({ label, value, total, color }: { label: string, value: number, total: number, color: string }) {
-    const percentage = (value / total) * 100;
+interface MetricBarProps {
+    label: string;
+    value: number;
+    total: number;
+    color: string;
+}
+
+function MetricBar({ label, value, total, color }: MetricBarProps) {
+    const percentage = total > 0 ? (value / total) * 100 : 0;
     return (
         <div className="space-y-1">
             <div className="flex justify-between text-[11px] font-bold px-1 uppercase tracking-tight">
@@ -212,13 +243,5 @@ function MetricBar({ label, value, total, color }: { label: string, value: numbe
                 />
             </div>
         </div>
-    );
-}
-
-function Badge({ children, variant, className }: { children: React.ReactNode, variant?: string, className?: string }) {
-    return (
-        <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${className}`}>
-            {children}
-        </span>
     );
 }

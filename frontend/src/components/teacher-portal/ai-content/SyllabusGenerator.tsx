@@ -9,53 +9,31 @@ import { Bot, Sparkles, ChevronRight, ChevronDown, Check, BookOpen, Layers } fro
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'sonner';
 
-// Mock AI Service Response
-const MOCK_SYLLABUS = (subject: string) => [
-    {
-        unit: "Unit 1: Foundations",
-        chapters: [
-            `Introduction to ${subject}`,
-            "Key Concepts & Terminology",
-            "Historical Context"
-        ]
-    },
-    {
-        unit: "Unit 2: Core Principles",
-        chapters: [
-            "Theoretical Frameworks",
-            "Practical Applications",
-            "Case Studies"
-        ]
-    },
-    {
-        unit: "Unit 3: Advanced Topics",
-        chapters: [
-            "Current Trends",
-            "Future Implications",
-            "Final Project"
-        ]
-    }
-];
+import { aiService, SyllabusUnit } from '@/lib/services/aiService';
 
 export default function SyllabusGenerator() {
     const [subject, setSubject] = useState("");
     const [level, setLevel] = useState("Intermediate");
     const [isGenerating, setIsGenerating] = useState(false);
-    const [generatedSyllabus, setGeneratedSyllabus] = useState<any[] | null>(null);
+    const [generatedSyllabus, setGeneratedSyllabus] = useState<SyllabusUnit[] | null>(null);
 
-    const handleGenerate = () => {
+    const handleGenerate = async () => {
         if (!subject) {
             toast.error("Please enter a subject name");
             return;
         }
 
         setIsGenerating(true);
-        // Simulate API call
-        setTimeout(() => {
-            setGeneratedSyllabus(MOCK_SYLLABUS(subject));
-            setIsGenerating(false);
+        try {
+            const syllabus = await aiService.generateSyllabus(subject, level);
+            setGeneratedSyllabus(syllabus);
             toast.success("Syllabus generated successfully!");
-        }, 2000);
+        } catch (error) {
+            toast.error("Failed to generate syllabus. Please try again.");
+            console.error(error);
+        } finally {
+            setIsGenerating(false);
+        }
     };
 
     return (

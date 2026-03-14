@@ -94,7 +94,7 @@ const teacherRoutes: Route[] = [
     {
         label: "UPSC Batch 1",
         icon: BookOpen,
-        href: "/teacher/batch1",
+        href: "/teacher/batch1-manager",
         color: "text-blue-400",
         badge: "ACTIVE",
     },
